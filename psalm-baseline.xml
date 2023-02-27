@@ -15512,11 +15512,6 @@
       <code>$time</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/config.default.php">
-    <UnusedVariable>
-      <code>$cfg</code>
-    </UnusedVariable>
-  </file>
   <file src="libraries/services_loader.php">
     <MixedArgument>
       <code>$argumentName</code>

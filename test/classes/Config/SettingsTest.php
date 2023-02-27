@@ -273,17 +273,6 @@ class SettingsTest extends TestCase
         'FirstDayOfCalendar' => 0,
     ];
 
-    /** @psalm-suppress UnusedVariable, PossiblyNullArrayAssignment, PossiblyInvalidArrayAssignment */
-    public function testConfigDefaultFile(): void
-    {
-        $cfg = [];
-        include ROOT_PATH . 'libraries/config.default.php';
-        $settings = new Settings($cfg);
-        $config = $settings->toArray();
-        $config['Servers'][1]['SignonCookieParams'] = [];
-        $this->assertEquals($config, $cfg);
-    }
-
     public function testToArray(): void
     {
         $settings = new Settings([]);

@@ -8,31 +8,119 @@ use function in_array;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
-/** @psalm-immutable */
+/**
+ * Console settings
+ *
+ * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings
+ *
+ * @psalm-immutable
+ */
 final class Console
 {
+    /**
+     * Show query history at start
+     *
+     * ```php
+     * $cfg['Console']['StartHistory'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Console_StartHistory
+     */
     public bool $StartHistory;
 
+    /**
+     * Always expand query messages
+     *
+     * ```php
+     * $cfg['Console']['AlwaysExpand'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Console_AlwaysExpand
+     */
     public bool $AlwaysExpand;
 
+    /**
+     * Show current browsing query
+     *
+     * ```php
+     * $cfg['Console']['CurrentQuery'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Console_CurrentQuery
+     */
     public bool $CurrentQuery;
 
+    /**
+     * Execute queries on Enter and insert new line with Shift + Enter
+     *
+     * ```php
+     * $cfg['Console']['EnterExecutes'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Console_EnterExecutes
+     */
     public bool $EnterExecutes;
 
+    /**
+     * Switch to dark theme
+     *
+     * ```php
+     * $cfg['Console']['DarkTheme'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Console_DarkTheme
+     */
     public bool $DarkTheme;
 
-    /** @psalm-var 'info'|'show'|'collapse' */
+    /**
+     * Console mode
+     *
+     * ```php
+     * $cfg['Console']['Mode'] = 'info';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Console_Mode
+     *
+     * @psalm-var 'info'|'show'|'collapse'
+     */
     public string $Mode;
 
-    /** @psalm-var positive-int */
+    /**
+     * Console height
+     *
+     * ```php
+     * $cfg['Console']['Height'] = 92;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Console_Height
+     *
+     * @psalm-var positive-int
+     */
     public int $Height;
 
+    /**
+     * ```php
+     * $cfg['Console']['GroupQueries'] = false;
+     * ```
+     */
     public bool $GroupQueries;
 
-    /** @psalm-var 'exec'|'time'|'count' */
+    /**
+     * ```php
+     * $cfg['Console']['OrderBy'] = 'exec';
+     * ```
+     *
+     * @psalm-var 'exec'|'time'|'count'
+     */
     public string $OrderBy;
 
-    /** @psalm-var 'asc'|'desc' */
+    /**
+     * ```php
+     * $cfg['Console']['Order'] = 'asc';
+     * ```
+     *
+     * @psalm-var 'asc'|'desc'
+     */
     public string $Order;
 
     /** @param mixed[] $console */

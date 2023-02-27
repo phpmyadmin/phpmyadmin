@@ -4,26 +4,54 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Settings;
 
-/** @psalm-immutable */
+/**
+ * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG
+ *
+ * @psalm-immutable
+ */
 final class Debug
 {
     /**
      * Output executed queries and their execution times.
+     *
+     * ```php
+     * $cfg['DBG']['sql'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG_sql
      */
     public bool $sql;
 
     /**
      * Log executed queries and their execution times to syslog.
+     *
+     * ```php
+     * $cfg['DBG']['sqllog'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG_sqllog
      */
     public bool $sqllog;
 
     /**
      * Enable to let server present itself as demo server.
+     *
+     * ```php
+     * $cfg['DBG']['demo'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG_demo
      */
     public bool $demo;
 
     /**
      * Enable Simple two-factor authentication.
+     *
+     * ```php
+     * $cfg['DBG']['simple2fa'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG_simple2fa
      */
     public bool $simple2fa;
 

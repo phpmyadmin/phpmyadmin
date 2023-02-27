@@ -8,7 +8,13 @@ use function is_array;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
-/** @psalm-immutable */
+/**
+ * Default options for transformations
+ *
+ * @link https://docs.phpmyadmin.net/en/latest/config.html#default-options-for-transformations
+ *
+ * @psalm-immutable
+ */
 final class Transformations
 {
     /**
@@ -16,6 +22,12 @@ final class Transformations
      * - The first option is the number of characters to skip from the beginning of the string (Default 0).
      * - The second option is the number of characters to return (Default: until end of string).
      * - The third option is the string to append and/or prepend when truncation occurs (Default: "…").
+     *
+     * ```php
+     * $cfg['DefaultTransformations']['Substring'] = [0, 'all', '…'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_Substring
      *
      * @var array<int, int|string>
      * @psalm-var array{0: int, 1: 'all'|int, 2: string}
@@ -25,6 +37,12 @@ final class Transformations
     /**
      * Converts Boolean values to text (default 'T' and 'F').
      * - First option is for TRUE, second for FALSE. Nonzero=true.
+     *
+     * ```php
+     * $cfg['DefaultTransformations']['Bool2Text'] = ['T', 'F'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_Bool2Text
      *
      * @var string[]
      * @psalm-var array{0: string, 1: string}
@@ -43,6 +61,12 @@ final class Transformations
      * - The fourth option, if set to 1, will prevent wrapping and ensure that the output appears
      *   all on one line (Default 1).
      *
+     * ```php
+     * $cfg['DefaultTransformations']['External'] = [0, '-f /dev/null -i -wrap -q', 1, 1];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_External
+     *
      * @var array<int, int|string>
      * @psalm-var array{0: int, 1: string, 2: int, 3: int}
      */
@@ -52,6 +76,12 @@ final class Transformations
      * Prepends and/or Appends text to a string.
      * - First option is text to be prepended. second is appended (enclosed in single quotes, default empty string).
      *
+     * ```php
+     * $cfg['DefaultTransformations']['PreApPend'] = ['', ''];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_PreApPend
+     *
      * @var string[]
      * @psalm-var array{0: string, 1: string}
      */
@@ -60,6 +90,12 @@ final class Transformations
     /**
      * Displays hexadecimal representation of data.
      * Optional first parameter specifies how often space will be added (defaults to 2 nibbles).
+     *
+     * ```php
+     * $cfg['DefaultTransformations']['Hex'] = ['2'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_Hex
      *
      * @var string[]
      * @psalm-var array{0: 0|positive-int}
@@ -74,6 +110,12 @@ final class Transformations
      *   According to that, date format has different value - for "local" see the documentation
      *   for PHP's strftime() function and for "utc" it is done using gmdate() function.
      *
+     * ```php
+     * $cfg['DefaultTransformations']['DateFormat'] = [0, '', 'local'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_DateFormat
+     *
      * @var array<int, int|string>
      * @psalm-var array{0: 0|positive-int, 1: string, 2: 'local'|'utc'}
      */
@@ -83,6 +125,12 @@ final class Transformations
      * Displays a clickable thumbnail.
      * The options are the maximum width and height in pixels.
      * The original aspect ratio is preserved.
+     *
+     * ```php
+     * $cfg['DefaultTransformations']['Inline'] = ['100', 100];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_Inline
      *
      * @var array<(int|string), (int|string|array<string, string>|null)>
      * @psalm-var array{
@@ -99,6 +147,12 @@ final class Transformations
      * - The first option is a URL prefix like "https://www.example.com/".
      * - The second and third options are the width and the height in pixels.
      *
+     * ```php
+     * $cfg['DefaultTransformations']['TextImageLink'] = [null, 100, 50];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_TextImageLink
+     *
      * @var array<int, int|string|null>
      * @psalm-var array{0: string|null, 1: 0|positive-int, 2: 0|positive-int}
      */
@@ -108,6 +162,12 @@ final class Transformations
      * Displays a link; the column contains the filename.
      * - The first option is a URL prefix like "https://www.example.com/".
      * - The second option is a title for the link.
+     *
+     * ```php
+     * $cfg['DefaultTransformations']['TextLink'] = [null, null, null];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations_TextLink
      *
      * @var array<int, string|null>
      * @psalm-var array{0: string|null, 1: string|null, 2: bool|null}

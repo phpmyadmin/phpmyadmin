@@ -6,26 +6,56 @@ namespace PhpMyAdmin\Config\Settings;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
-/** @psalm-immutable */
+/**
+ * SQL query box settings
+ *
+ * @link https://docs.phpmyadmin.net/en/latest/config.html#sql-query-box-settings
+ *
+ * @psalm-immutable
+ */
 final class SqlQueryBox
 {
     /**
      * Display an "Edit" link on the results page to change a query.
+     *
+     * ```php
+     * $cfg['SQLQuery']['Edit'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SQLQuery_Edit
      */
     public bool $Edit;
 
     /**
      * Display an "Explain SQL" link on the results page.
+     *
+     * ```php
+     * $cfg['SQLQuery']['Explain'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SQLQuery_Explain
      */
     public bool $Explain;
 
     /**
      * Display a "Create PHP code" link on the results page to wrap a query in PHP.
+     *
+     * ```php
+     * $cfg['SQLQuery']['ShowAsPHP'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SQLQuery_ShowAsPHP
      */
     public bool $ShowAsPHP;
 
     /**
      * Display a "Refresh" link on the results page.
+     *
+     * ```php
+     * $cfg['SQLQuery']['Refresh'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SQLQuery_Refresh
      */
     public bool $Refresh;
 

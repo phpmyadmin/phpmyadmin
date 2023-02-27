@@ -41,50 +41,98 @@ final class Settings
      *    https://example.com/path_to_your_phpMyAdmin_directory/
      *
      * It must contain characters that are valid for a URL, and the path is
-     * case sensitive on some Web servers, for example Unix-based servers.
+     * case-sensitive on some Web servers, for example Unix-based servers.
      *
      * In most cases you can leave this variable empty, as the correct value
      * will be detected automatically. However, we recommend that you do
      * test to see that the auto-detection code works in your system. A good
      * test is to browse a table, then edit a row and save it.  There will be
      * an error message if phpMyAdmin cannot auto-detect the correct value.
+     *
+     * ```php
+     * $cfg['PmaAbsoluteUri'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_PmaAbsoluteUri
      */
     public string $PmaAbsoluteUri;
 
     /**
      * Configure authentication logging destination
+     *
+     * ```php
+     * $cfg['AuthLog'] = 'auto';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AuthLog
      */
     public string $AuthLog;
 
     /**
      * Whether to log successful authentication attempts
+     *
+     * ```php
+     * $cfg['AuthLogSuccess'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AuthLogSuccess
      */
     public bool $AuthLogSuccess;
 
     /**
      * Disable the default warning that is displayed on the DB Details Structure page if
      * any of the required Tables for the configuration storage could not be found
+     *
+     * ```php
+     * $cfg['PmaNoRelation_DisableWarning'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_PmaNoRelation_DisableWarning
      */
     public bool $PmaNoRelation_DisableWarning;
 
     /**
      * Disable the default warning that is displayed if Suhosin is detected
+     *
+     * ```php
+     * $cfg['SuhosinDisableWarning'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SuhosinDisableWarning
      */
     public bool $SuhosinDisableWarning;
 
     /**
      * Disable the default warning that is displayed if session.gc_maxlifetime
      * is less than `LoginCookieValidity`
+     *
+     * ```php
+     * $cfg['LoginCookieValidityDisableWarning'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LoginCookieValidityDisableWarning
      */
     public bool $LoginCookieValidityDisableWarning;
 
     /**
      * Disable the default warning about MySQL reserved words in column names
+     *
+     * ```php
+     * $cfg['ReservedWordDisableWarning'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ReservedWordDisableWarning
      */
     public bool $ReservedWordDisableWarning;
 
     /**
      * Show warning about incomplete translations on certain threshold.
+     *
+     * ```php
+     * $cfg['TranslationWarningThreshold'] = 80;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TranslationWarningThreshold
      */
     public int $TranslationWarningThreshold;
 
@@ -94,6 +142,12 @@ final class Settings
      * 'sameorigin' prevents phpMyAdmin to be included from another document
      * in a frame, unless that document belongs to the same domain.
      *
+     * ```php
+     * $cfg['AllowThirdPartyFraming'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AllowThirdPartyFraming
+     *
      * @psalm-var bool|'sameorigin'
      */
     public bool|string $AllowThirdPartyFraming;
@@ -102,6 +156,12 @@ final class Settings
      * The 'cookie' auth_type uses the Sodium extension to encrypt the cookies. If at least one server configuration
      * uses 'cookie' auth_type, enter here a generated string of random bytes to be used as an encryption key. The
      * encryption key must be 32 bytes long.
+     *
+     * ```php
+     * $cfg['blowfish_secret'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_blowfish_secret
      */
     public string $blowfish_secret;
 
@@ -113,6 +173,8 @@ final class Settings
      * to ''. If you want more than one server, just copy following section
      * (including $i incrementation) several times. There is no need to define
      * full server array, just define values you need to change.
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers
      *
      * @var array<int, Server>
      * @psalm-var array<int<1, max>, Server>
@@ -128,12 +190,24 @@ final class Settings
      * If you have only one server configured, $cfg['ServerDefault'] *MUST* be
      * set to that server.
      *
+     * ```php
+     * $cfg['ServerDefault'] = 1;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ServerDefault
+     *
      * @psalm-var 0|positive-int
      */
     public int $ServerDefault;
 
     /**
      * whether version check is active
+     *
+     * ```php
+     * $cfg['VersionCheck'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_VersionCheck
      */
     public bool $VersionCheck;
 
@@ -143,6 +217,12 @@ final class Settings
      * the server where phpMyAdmin is installed does not have direct access to
      * the internet.
      * The format is: "hostname:portnumber"
+     *
+     * ```php
+     * $cfg['ProxyUrl'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ProxyUrl
      */
     public string $ProxyUrl;
 
@@ -151,16 +231,34 @@ final class Settings
      * authentication is performed. If a username is supplied, Basic
      * Authentication will be performed. No other types of authentication
      * are currently supported.
+     *
+     * ```php
+     * $cfg['ProxyUser'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ProxyUser
      */
     public string $ProxyUser;
 
     /**
      * The password for authenticating with the proxy.
+     *
+     * ```php
+     * $cfg['ProxyPass'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ProxyPass
      */
     public string $ProxyPass;
 
     /**
      * maximum number of db's displayed in database list
+     *
+     * ```php
+     * $cfg['MaxDbList'] = 100;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxDbList
      *
      * @psalm-var positive-int
      */
@@ -169,17 +267,35 @@ final class Settings
     /**
      * maximum number of tables displayed in table list
      *
+     * ```php
+     * $cfg['MaxTableList'] = 250;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxTableList
+     *
      * @psalm-var positive-int
      */
     public int $MaxTableList;
 
     /**
      * whether to show hint or not
+     *
+     * ```php
+     * $cfg['ShowHint'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowHint
      */
     public bool $ShowHint;
 
     /**
      * maximum number of characters when a SQL query is displayed
+     *
+     * ```php
+     * $cfg['MaxCharactersInDisplayedSQL'] = 1000;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxCharactersInDisplayedSQL
      *
      * @psalm-var positive-int
      */
@@ -188,17 +304,35 @@ final class Settings
     /**
      * use GZIP output buffering if possible (true|false|'auto')
      *
+     * ```php
+     * $cfg['OBGzip'] = 'auto';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_OBGzip
+     *
      * @psalm-var 'auto'|bool
      */
     public string|bool $OBGzip;
 
     /**
      * use persistent connections to MySQL database
+     *
+     * ```php
+     * $cfg['PersistentConnections'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_PersistentConnections
      */
     public bool $PersistentConnections;
 
     /**
      * maximum execution time in seconds (0 for no limit)
+     *
+     * ```php
+     * $cfg['ExecTimeLimit'] = 300;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ExecTimeLimit
      *
      * @psalm-var 0|positive-int
      */
@@ -206,11 +340,23 @@ final class Settings
 
     /**
      * Path for storing session data (session_save_path PHP parameter).
+     *
+     * ```php
+     * $cfg['SessionSavePath'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SessionSavePath
      */
     public string $SessionSavePath;
 
     /**
      * Hosts or IPs to consider safe when checking if SSL is used or not
+     *
+     * ```php
+     * $cfg['MysqlSslWarningSafeHosts'] = ['127.0.0.1', 'localhost'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MysqlSslWarningSafeHosts
      *
      * @var string[]
      */
@@ -220,46 +366,100 @@ final class Settings
      * maximum allocated bytes ('-1' for no limit, '0' for no change)
      * this is a string because '16M' is a valid value; we must put here
      * a string as the default value so that /setup accepts strings
+     *
+     * ```php
+     * $cfg['MemoryLimit'] = '-1';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MemoryLimit
      */
     public string $MemoryLimit;
 
     /**
      * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
+     *
+     * ```php
+     * $cfg['SkipLockedTables'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SkipLockedTables
      */
     public bool $SkipLockedTables;
 
     /**
      * show SQL queries as run
+     *
+     * ```php
+     * $cfg['ShowSQL'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowSQL
      */
     public bool $ShowSQL;
 
     /**
      * retain SQL input on Ajax execute
+     *
+     * ```php
+     * $cfg['RetainQueryBox'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RetainQueryBox
      */
     public bool $RetainQueryBox;
 
     /**
      * use CodeMirror syntax highlighting for editing SQL
+     *
+     * ```php
+     * $cfg['CodemirrorEnable'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CodemirrorEnable
      */
     public bool $CodemirrorEnable;
 
     /**
      * use the parser to find any errors in the query before executing
+     *
+     * ```php
+     * $cfg['LintEnable'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LintEnable
      */
     public bool $LintEnable;
 
     /**
      * show a 'Drop database' link to normal users
+     *
+     * ```php
+     * $cfg['AllowUserDropDatabase'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AllowUserDropDatabase
      */
     public bool $AllowUserDropDatabase;
 
     /**
      * confirm some commands that can result in loss of data
+     *
+     * ```php
+     * $cfg['Confirm'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Confirm
      */
     public bool $Confirm;
 
     /**
      * sets SameSite attribute of the Set-Cookie HTTP response header
+     *
+     * ```php
+     * $cfg['CookieSameSite'] = 'Strict';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CookieSameSite
      *
      * @psalm-var 'Lax'|'Strict'|'None'
      */
@@ -267,12 +467,24 @@ final class Settings
 
     /**
      * recall previous login in cookie authentication mode or not
+     *
+     * ```php
+     * $cfg['LoginCookieRecall'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LoginCookieRecall
      */
     public bool $LoginCookieRecall;
 
     /**
      * validity of cookie login (in seconds; 1440 matches php.ini's
      * session.gc_maxlifetime)
+     *
+     * ```php
+     * $cfg['LoginCookieValidity'] = 1440;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LoginCookieValidity
      *
      * @psalm-var positive-int
      */
@@ -281,49 +493,103 @@ final class Settings
     /**
      * how long login cookie should be stored (in seconds)
      *
+     * ```php
+     * $cfg['LoginCookieStore'] = 0;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LoginCookieStore
+     *
      * @psalm-var 0|positive-int
      */
     public int $LoginCookieStore;
 
     /**
      * whether to delete all login cookies on logout
+     *
+     * ```php
+     * $cfg['LoginCookieDeleteAll'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LoginCookieDeleteAll
      */
     public bool $LoginCookieDeleteAll;
 
     /**
      * whether to enable the "database search" feature or not
+     *
+     * ```php
+     * $cfg['UseDbSearch'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_UseDbSearch
      */
     public bool $UseDbSearch;
 
     /**
      * if set to true, PMA continues computing multiple-statement queries
      * even if one of the queries failed
+     *
+     * ```php
+     * $cfg['IgnoreMultiSubmitErrors'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_IgnoreMultiSubmitErrors
      */
     public bool $IgnoreMultiSubmitErrors;
 
     /**
      * Define whether phpMyAdmin will encrypt sensitive data from the URL query string.
+     *
+     * ```php
+     * $cfg['URLQueryEncryption'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_URLQueryEncryption
      */
     public bool $URLQueryEncryption;
 
     /**
      * A secret key used to encrypt/decrypt the URL query string. Should be 32 bytes long.
+     *
+     * ```php
+     * $cfg['URLQueryEncryptionSecretKey'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_URLQueryEncryptionSecretKey
      */
     public string $URLQueryEncryptionSecretKey;
 
     /**
      * allow login to any user entered server in cookie based authentication
+     *
+     * ```php
+     * $cfg['AllowArbitraryServer'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AllowArbitraryServer
      */
     public bool $AllowArbitraryServer;
 
     /**
      * restrict by IP (with regular expression) the MySQL servers the user can enter
      * when $cfg['AllowArbitraryServer'] = true
+     *
+     * ```php
+     * $cfg['ArbitraryServerRegexp'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ArbitraryServerRegexp
      */
     public string $ArbitraryServerRegexp;
 
     /**
      * To enable reCaptcha v2 checkbox mode if necessary
+     *
+     * ```php
+     * $cfg['CaptchaMethod'] = 'invisible';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaMethod
      *
      * @psalm-var 'invisible'|'checkbox'
      */
@@ -331,53 +597,113 @@ final class Settings
 
     /**
      * URL for the reCaptcha v2 compatible API to use
+     *
+     * ```php
+     * $cfg['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaApi
      */
     public string $CaptchaApi;
 
     /**
      * Content-Security-Policy snippet for the reCaptcha v2 compatible API
+     *
+     * ```php
+     * $cfg['CaptchaCsp'] = 'https://apis.google.com https://www.google.com/recaptcha/'
+     *     . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaCsp
      */
     public string $CaptchaCsp;
 
     /**
      * reCaptcha API's request parameter name
+     *
+     * ```php
+     * $cfg['CaptchaRequestParam'] = 'g-recaptcha';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaRequestParam
      */
     public string $CaptchaRequestParam;
 
     /**
      * reCaptcha API's response parameter name
+     *
+     * ```php
+     * $cfg['CaptchaResponseParam'] = 'g-recaptcha-response';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaResponseParam
      */
     public string $CaptchaResponseParam;
 
     /**
      * if reCaptcha is enabled it needs public key to connect with the service
+     *
+     * ```php
+     * $cfg['CaptchaLoginPublicKey'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaLoginPublicKey
      */
     public string $CaptchaLoginPublicKey;
 
     /**
      * if reCaptcha is enabled it needs private key to connect with the service
+     *
+     * ```php
+     * $cfg['CaptchaLoginPrivateKey'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaLoginPrivateKey
      */
     public string $CaptchaLoginPrivateKey;
 
     /**
      * if reCaptcha is enabled may need an URL for site verify
+     *
+     * ```php
+     * $cfg['CaptchaSiteVerifyURL'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaSiteVerifyURL
      */
     public string $CaptchaSiteVerifyURL;
 
     /**
      * Enable drag and drop import
      *
+     * ```php
+     * $cfg['enable_drag_drop_import'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_enable_drag_drop_import
      * @see https://github.com/phpmyadmin/phpmyadmin/issues/13155
      */
     public bool $enable_drag_drop_import;
 
     /**
      * In the navigation panel, replaces the database tree with a selector
+     *
+     * ```php
+     * $cfg['ShowDatabasesNavigationAsTree'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowDatabasesNavigationAsTree
      */
     public bool $ShowDatabasesNavigationAsTree;
 
     /**
      * maximum number of first level databases displayed in navigation panel
+     *
+     * ```php
+     * $cfg['FirstLevelNavigationItems'] = 100;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_FirstLevelNavigationItems
      *
      * @psalm-var positive-int
      */
@@ -386,23 +712,47 @@ final class Settings
     /**
      * maximum number of items displayed in navigation panel
      *
+     * ```php
+     * $cfg['MaxNavigationItems'] = 50;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxNavigationItems
+     *
      * @psalm-var positive-int
      */
     public int $MaxNavigationItems;
 
     /**
      * turn the select-based light menu into a tree
+     *
+     * ```php
+     * $cfg['NavigationTreeEnableGrouping'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeEnableGrouping
      */
     public bool $NavigationTreeEnableGrouping;
 
     /**
      * the separator to sub-tree the select-based light menu tree
+     *
+     * ```php
+     * $cfg['NavigationTreeDbSeparator'] = '_';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeDbSeparator
      */
     public string $NavigationTreeDbSeparator;
 
     /**
      * Which string will be used to generate table prefixes
      * to split/nest tables into multiple categories
+     *
+     * ```php
+     * $cfg['NavigationTreeTableSeparator'] = '__';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeTableSeparator
      *
      * @var string|string[]|false
      */
@@ -412,28 +762,58 @@ final class Settings
      * How many sublevels should be displayed when splitting up tables
      * by the above Separator
      *
+     * ```php
+     * $cfg['NavigationTreeTableLevel'] = 1;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeTableLevel
+     *
      * @psalm-var positive-int
      */
     public int $NavigationTreeTableLevel;
 
     /**
      * link with main panel by highlighting the current db/table
+     *
+     * ```php
+     * $cfg['NavigationLinkWithMainPanel'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationLinkWithMainPanel
      */
     public bool $NavigationLinkWithMainPanel;
 
     /**
      * display logo at top of navigation panel
+     *
+     * ```php
+     * $cfg['NavigationDisplayLogo'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationDisplayLogo
      */
     public bool $NavigationDisplayLogo;
 
     /**
      * where should logo link point to (can also contain an external URL)
+     *
+     * ```php
+     * $cfg['NavigationLogoLink'] = 'index.php';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationLogoLink
      */
     public string $NavigationLogoLink;
 
     /**
      * whether to open the linked page in the main window ('main') or
      * in a new window ('new')
+     *
+     * ```php
+     * $cfg['NavigationLogoLinkWindow'] = 'main';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationLogoLinkWindow
      *
      * @psalm-var 'main'|'new'
      */
@@ -442,12 +822,24 @@ final class Settings
     /**
      * number of recently used tables displayed in the navigation panel
      *
+     * ```php
+     * $cfg['NumRecentTables'] = 10;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NumRecentTables
+     *
      * @psalm-var 0|positive-int
      */
     public int $NumRecentTables;
 
     /**
      * number of favorite tables displayed in the navigation panel
+     *
+     * ```php
+     * $cfg['NumFavoriteTables'] = 10;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NumFavoriteTables
      *
      * @psalm-var 0|positive-int
      */
@@ -457,23 +849,47 @@ final class Settings
      * display a JavaScript table filter in the navigation panel
      * when more then x tables are present
      *
+     * ```php
+     * $cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeDisplayItemFilterMinimum
+     *
      * @psalm-var positive-int
      */
     public int $NavigationTreeDisplayItemFilterMinimum;
 
     /**
      * display server choice at top of navigation panel
+     *
+     * ```php
+     * $cfg['NavigationDisplayServers'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationDisplayServers
      */
     public bool $NavigationDisplayServers;
 
     /**
      * server choice as links
+     *
+     * ```php
+     * $cfg['DisplayServersList'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DisplayServersList
      */
     public bool $DisplayServersList;
 
     /**
      * display a JavaScript database filter in the navigation panel
      * when more then x databases are present
+     *
+     * ```php
+     * $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeDisplayDbFilterMinimum
      *
      * @psalm-var positive-int
      */
@@ -488,6 +904,12 @@ final class Settings
      * 'search' = search page
      * 'insert' = insert row page
      * 'browse' = browse page
+     *
+     * ```php
+     * $cfg['NavigationTreeDefaultTabTable'] = 'structure';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeDefaultTabTable
      *
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
      */
@@ -504,42 +926,90 @@ final class Settings
      * 'browse' = browse page
      * '' = no link
      *
+     * ```php
+     * $cfg['NavigationTreeDefaultTabTable2'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeDefaultTabTable2
+     *
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'|''
      */
     public string $NavigationTreeDefaultTabTable2;
 
     /**
      * Enables the possibility of navigation tree expansion
+     *
+     * ```php
+     * $cfg['NavigationTreeEnableExpansion'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeEnableExpansion
      */
     public bool $NavigationTreeEnableExpansion;
 
     /**
      * Show tables in navigation panel
+     *
+     * ```php
+     * $cfg['NavigationTreeShowTables'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeShowTables
      */
     public bool $NavigationTreeShowTables;
 
     /**
      * Show views in navigation panel
+     *
+     * ```php
+     * $cfg['NavigationTreeShowViews'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeShowViews
      */
     public bool $NavigationTreeShowViews;
 
     /**
      * Show functions in navigation panel
+     *
+     * ```php
+     * $cfg['NavigationTreeShowFunctions'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeShowFunctions
      */
     public bool $NavigationTreeShowFunctions;
 
     /**
      * Show procedures in navigation panel
+     *
+     * ```php
+     * $cfg['NavigationTreeShowProcedures'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeShowProcedures
      */
     public bool $NavigationTreeShowProcedures;
 
     /**
      * Show events in navigation panel
+     *
+     * ```php
+     * $cfg['NavigationTreeShowEvents'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeShowEvents
      */
     public bool $NavigationTreeShowEvents;
 
     /**
      * Width of navigation panel
+     *
+     * ```php
+     * $cfg['NavigationWidth'] = 240;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationWidth
      *
      * @psalm-var 0|positive-int
      */
@@ -547,73 +1017,157 @@ final class Settings
 
     /**
      * Automatically expands single database in navigation panel
+     *
+     * ```php
+     * $cfg['NavigationTreeAutoexpandSingleDb'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeAutoexpandSingleDb
      */
     public bool $NavigationTreeAutoexpandSingleDb;
 
     /**
      * allow to display statistics and space usage in the pages about database
      * details and table properties
+     *
+     * ```php
+     * $cfg['ShowStats'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowStats
      */
     public bool $ShowStats;
 
     /**
      * show PHP info link
+     *
+     * ```php
+     * $cfg['ShowPhpInfo'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowPhpInfo
      */
     public bool $ShowPhpInfo;
 
     /**
      * show MySQL server and web server information
+     *
+     * ```php
+     * $cfg['ShowServerInfo'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowServerInfo
      */
     public bool $ShowServerInfo;
 
     /**
      * show change password link
+     *
+     * ```php
+     * $cfg['ShowChgPassword'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowChgPassword
      */
     public bool $ShowChgPassword;
 
     /**
      * show create database form
+     *
+     * ```php
+     * $cfg['ShowCreateDb'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowCreateDb
      */
     public bool $ShowCreateDb;
 
     /**
      * show charset column in database structure (true|false)?
+     *
+     * ```php
+     * $cfg['ShowDbStructureCharset'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowDbStructureCharset
      */
     public bool $ShowDbStructureCharset;
 
     /**
      * show comment column in database structure (true|false)?
+     *
+     * ```php
+     * $cfg['ShowDbStructureComment'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowDbStructureComment
      */
     public bool $ShowDbStructureComment;
 
     /**
      * show creation timestamp column in database structure (true|false)?
+     *
+     * ```php
+     * $cfg['ShowDbStructureCreation'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowDbStructureCreation
      */
     public bool $ShowDbStructureCreation;
 
     /**
      * show last update timestamp column in database structure (true|false)?
+     *
+     * ```php
+     * $cfg['ShowDbStructureLastUpdate'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowDbStructureLastUpdate
      */
     public bool $ShowDbStructureLastUpdate;
 
     /**
      * show last check timestamp column in database structure (true|false)?
+     *
+     * ```php
+     * $cfg['ShowDbStructureLastCheck'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowDbStructureLastCheck
      */
     public bool $ShowDbStructureLastCheck;
 
     /**
      * allow hide action columns to drop down menu in database structure (true|false)?
+     *
+     * ```php
+     * $cfg['HideStructureActions'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_HideStructureActions
      */
     public bool $HideStructureActions;
 
     /**
      * Show column comments in table structure view (true|false)?
+     *
+     * ```php
+     * $cfg['ShowColumnComments'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowColumnComments
      */
     public bool $ShowColumnComments;
 
     /**
      * Use icons instead of text for the navigation bar buttons (table browse)
      * ('text'|'icons'|'both')
+     *
+     * ```php
+     * $cfg['TableNavigationLinksMode'] = 'icons';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TableNavigationLinksMode
      *
      * @psalm-var 'text'|'icons'|'both'
      */
@@ -622,6 +1176,12 @@ final class Settings
     /**
      * Defines whether a user should be displayed a "show all (records)"
      * button in browse mode or not.
+     *
+     * ```php
+     * $cfg['ShowAll'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowAll
      */
     public bool $ShowAll;
 
@@ -629,6 +1189,12 @@ final class Settings
      * Number of rows displayed when browsing a result set. If the result
      * set contains more rows, "Previous" and "Next".
      * Possible values: 25,50,100,250,500
+     *
+     * ```php
+     * $cfg['MaxRows'] = 25;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxRows
      *
      * @psalm-var positive-int
      */
@@ -639,12 +1205,24 @@ final class Settings
      * descending order for fields of type TIME, DATE, DATETIME & TIMESTAMP,
      * ascending order else-)
      *
+     * ```php
+     * $cfg['Order'] = 'SMART';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Order
+     *
      * @psalm-var 'ASC'|'DESC'|'SMART'
      */
     public string $Order;
 
     /**
      * grid editing: save edited cell(s) in browse-mode at once
+     *
+     * ```php
+     * $cfg['SaveCellsAtOnce'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SaveCellsAtOnce
      */
     public bool $SaveCellsAtOnce;
 
@@ -656,6 +1234,12 @@ final class Settings
      * 'double-click'
      * 'disabled'
      *
+     * ```php
+     * $cfg['GridEditing'] = 'double-click';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_GridEditing
+     *
      * @psalm-var 'double-click'|'click'|'disabled'
      */
     public string $GridEditing;
@@ -666,6 +1250,12 @@ final class Settings
      * Possible values:
      * 'K' for key value
      * 'D' for display column
+     *
+     * ```php
+     * $cfg['RelationalDisplay'] = 'K';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RelationalDisplay
      *
      * @psalm-var 'K'|'D'
      */
@@ -679,17 +1269,35 @@ final class Settings
      *   'noblob' disallow editing except for BLOB fields
      *   'all'    disallow editing
      *
+     * ```php
+     * $cfg['ProtectBinary'] = 'blob';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ProtectBinary
+     *
      * @psalm-var 'blob'|'noblob'|'all'|false
      */
     public string|false $ProtectBinary;
 
     /**
      * Display the function fields in edit/insert mode
+     *
+     * ```php
+     * $cfg['ShowFunctionFields'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowFunctionFields
      */
     public bool $ShowFunctionFields;
 
     /**
      * Display the type fields in edit/insert mode
+     *
+     * ```php
+     * $cfg['ShowFieldTypesInDataEditView'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowFieldTypesInDataEditView
      */
     public bool $ShowFieldTypesInDataEditView;
 
@@ -698,12 +1306,24 @@ final class Settings
      *  input - allows limiting of input length
      *  textarea - allows newlines in fields
      *
+     * ```php
+     * $cfg['CharEditing'] = 'input';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CharEditing
+     *
      * @psalm-var 'input'|'textarea'
      */
     public string $CharEditing;
 
     /**
      * The minimum size for character input fields
+     *
+     * ```php
+     * $cfg['MinSizeForInputField'] = 4;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MinSizeForInputField
      *
      * @psalm-var 0|positive-int
      */
@@ -712,12 +1332,24 @@ final class Settings
     /**
      * The maximum size for character input fields
      *
+     * ```php
+     * $cfg['MaxSizeForInputField'] = 60;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxSizeForInputField
+     *
      * @psalm-var positive-int
      */
     public int $MaxSizeForInputField;
 
     /**
      * How many rows can be inserted at one time
+     *
+     * ```php
+     * $cfg['InsertRows'] = 2;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_InsertRows
      *
      * @psalm-var positive-int
      */
@@ -727,6 +1359,12 @@ final class Settings
      * Sort order for items in a foreign-key drop-down list.
      * 'content' is the referenced data, 'id' is the key value.
      *
+     * ```php
+     * $cfg['ForeignKeyDropdownOrder'] = ['content-id', 'id-content'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ForeignKeyDropdownOrder
+     *
      * @var string[]
      * @psalm-var array{0: 'content-id'|'id-content', 1?: 'content-id'|'id-content'}
      */
@@ -735,6 +1373,12 @@ final class Settings
     /**
      * A drop-down list will be used if fewer items are present
      *
+     * ```php
+     * $cfg['ForeignKeyMaxLimit'] = 100;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ForeignKeyMaxLimit
+     *
      * @psalm-var positive-int
      */
     public int $ForeignKeyMaxLimit;
@@ -742,33 +1386,69 @@ final class Settings
     /**
      * Whether to disable foreign key checks while importing
      *
+     * ```php
+     * $cfg['DefaultForeignKeyChecks'] = 'default';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultForeignKeyChecks
+     *
      * @psalm-var 'default'|'enable'|'disable'
      */
     public string $DefaultForeignKeyChecks;
 
     /**
      * Allow for the use of zip compression (requires zip support to be enabled)
+     *
+     * ```php
+     * $cfg['ZipDump'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ZipDump
      */
     public bool $ZipDump;
 
     /**
      * Allow for the use of gzip compression (requires zlib)
+     *
+     * ```php
+     * $cfg['GZipDump'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_GZipDump
      */
     public bool $GZipDump;
 
     /**
      * Allow for the use of bzip2 decompression (requires bz2 extension)
+     *
+     * ```php
+     * $cfg['BZipDump'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_BZipDump
      */
     public bool $BZipDump;
 
     /**
      * Will compress gzip exports on the fly without the need for much memory.
      * If you encounter problems with created gzip files disable this feature.
+     *
+     * ```php
+     * $cfg['CompressOnFly'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CompressOnFly
      */
     public bool $CompressOnFly;
 
     /**
      * How to display the menu tabs ('icons'|'text'|'both')
+     *
+     * ```php
+     * $cfg['TabsMode'] = 'both';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TabsMode
      *
      * @psalm-var 'icons'|'text'|'both'
      */
@@ -777,6 +1457,12 @@ final class Settings
     /**
      * How to display various action links ('icons'|'text'|'both')
      *
+     * ```php
+     * $cfg['ActionLinksMode'] = 'both';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ActionLinksMode
+     *
      * @psalm-var 'icons'|'text'|'both'
      */
     public string $ActionLinksMode;
@@ -784,6 +1470,12 @@ final class Settings
     /**
      * How many columns should be used for table display of a database?
      * (a value larger than 1 results in some information being hidden)
+     *
+     * ```php
+     * $cfg['PropertiesNumColumns'] = 1;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_PropertiesNumColumns
      *
      * @psalm-var positive-int
      */
@@ -797,6 +1489,12 @@ final class Settings
      * 'variables' = MySQL server variables
      * 'privileges' = user management
      *
+     * ```php
+     * $cfg['DefaultTabServer'] = 'welcome';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTabServer
+     *
      * @psalm-var 'welcome'|'databases'|'status'|'variables'|'privileges'
      */
     public string $DefaultTabServer;
@@ -807,6 +1505,12 @@ final class Settings
      * 'sql' = SQL form
      * 'search' = search query
      * 'operations' = operations on database
+     *
+     * ```php
+     * $cfg['DefaultTabDatabase'] = 'structure';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTabDatabase
      *
      * @psalm-var 'structure'|'sql'|'search'|'operations'
      */
@@ -820,6 +1524,12 @@ final class Settings
      * 'insert' = insert row page
      * 'browse' = browse page
      *
+     * ```php
+     * $cfg['DefaultTabTable'] = 'browse';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTabTable
+     *
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
      */
     public string $DefaultTabTable;
@@ -828,39 +1538,103 @@ final class Settings
      * Whether to display image or text or both image and text in table row
      * action segment. Value can be either of ``image``, ``text`` or ``both``.
      *
+     * ```php
+     * $cfg['RowActionType'] = 'both';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RowActionType
+     *
      * @psalm-var 'icons'|'text'|'both'
      */
     public string $RowActionType;
 
+    /**
+     * Export defaults
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export
+     */
     public Export $Export;
 
+    /**
+     * Import defaults
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Import
+     */
     public Import $Import;
 
+    /**
+     * Schema export defaults
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Schema
+     */
     public Schema $Schema;
 
-    /** @var string[] */
+    /**
+     * Possible paper sizes for creating PDF pages.
+     *
+     * ```php
+     * $cfg['PDFPageSizes'] = ['A3', 'A4', 'A5', 'letter', 'legal'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_PDFPageSizes
+     *
+     * @var string[]
+     */
     public array $PDFPageSizes;
 
+    /**
+     * Default page size to use when creating PDF pages.
+     *
+     * ```php
+     * $cfg['PDFDefaultPageSize'] = 'A4';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_PDFDefaultPageSize
+     */
     public string $PDFDefaultPageSize;
 
     /**
      * Default language to use, if not browser-defined or user-defined
+     *
+     * ```php
+     * $cfg['DefaultLang'] = 'en';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultLang
      */
     public string $DefaultLang;
 
     /**
      * Default connection collation
+     *
+     * ```php
+     * $cfg['DefaultConnectionCollation'] = 'utf8mb4_unicode_ci';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultConnectionCollation
      */
     public string $DefaultConnectionCollation;
 
     /**
      * Force: always use this language, e.g. 'en'
+     *
+     * ```php
+     * $cfg['Lang'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Lang
      */
     public string $Lang;
 
     /**
      * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
      * English only
+     *
+     * ```php
+     * $cfg['FilterLanguages'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_FilterLanguages
      */
     public string $FilterLanguages;
 
@@ -873,6 +1647,12 @@ final class Settings
      *      mb     - use mbstring extension
      *      none   - disable encoding conversion
      *
+     * ```php
+     * $cfg['RecodingEngine'] = 'auto';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RecodingEngine
+     *
      * @psalm-var 'auto'|'iconv'|'recode'|'mb'|'none'
      */
     public string $RecodingEngine;
@@ -881,6 +1661,12 @@ final class Settings
      * Specify some parameters for iconv used in character set conversion. See iconv
      * documentation for details:
      * https://www.gnu.org/savannah-checkouts/gnu/libiconv/documentation/libiconv-1.15/iconv_open.3.html
+     *
+     * ```php
+     * $cfg['IconvExtraParams'] = '//TRANSLIT';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_IconvExtraParams
      */
     public string $IconvExtraParams;
 
@@ -890,22 +1676,52 @@ final class Settings
      * Character sets will be shown in same order as here listed, so if you frequently
      * use some of these move them to the top.
      *
+     * ```php
+     * $cfg['AvailableCharsets'] = [
+     *   'iso-8859-1', 'iso-8859-2', 'iso-8859-3', 'iso-8859-4', 'iso-8859-5', 'iso-8859-6', 'iso-8859-7', 'iso-8859-8',
+     *   'iso-8859-9', 'iso-8859-10', 'iso-8859-11', 'iso-8859-12', 'iso-8859-13', 'iso-8859-14', 'iso-8859-15',
+     *   'windows-1250', 'windows-1251', 'windows-1252', 'windows-1256', 'windows-1257', 'koi8-r', 'big5', 'gb2312',
+     *   'utf-16', 'utf-8', 'utf-7', 'x-user-defined', 'euc-jp', 'ks_c_5601-1987', 'tis-620',
+     *   'SHIFT_JIS', 'SJIS', 'SJIS-win'
+     * ];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AvailableCharsets
+     *
      * @var string[]
      */
     public array $AvailableCharsets;
 
     /**
      * enable the left panel pointer
+     *
+     * ```php
+     * $cfg['NavigationTreePointerEnable'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreePointerEnable
      */
     public bool $NavigationTreePointerEnable;
 
     /**
      * enable the browse pointer
+     *
+     * ```php
+     * $cfg['BrowsePointerEnable'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_BrowsePointerEnable
      */
     public bool $BrowsePointerEnable;
 
     /**
      * enable the browse marker
+     *
+     * ```php
+     * $cfg['BrowseMarkerEnable'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_BrowseMarkerEnable
      */
     public bool $BrowseMarkerEnable;
 
@@ -914,6 +1730,12 @@ final class Settings
      * (this value will be emphasized (*2) for SQL
      * query textareas and (*1.25) for query window)
      *
+     * ```php
+     * $cfg['TextareaCols'] = 40;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TextareaCols
+     *
      * @psalm-var positive-int
      */
     public int $TextareaCols;
@@ -921,22 +1743,44 @@ final class Settings
     /**
      * textarea size (rows) in edit mode
      *
+     * ```php
+     * $cfg['TextareaRows'] = 15;
+     * ```
+     *
      * @psalm-var positive-int
      */
     public int $TextareaRows;
 
     /**
      * double size of textarea size for LONGTEXT columns
+     *
+     * ```php
+     * $cfg['LongtextDoubleTextarea'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LongtextDoubleTextarea
      */
     public bool $LongtextDoubleTextarea;
 
     /**
      * auto-select when clicking in the textarea of the query-box
+     *
+     * ```php
+     * $cfg['TextareaAutoSelect'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TextareaAutoSelect
      */
     public bool $TextareaAutoSelect;
 
     /**
      * textarea size (columns) for CHAR/VARCHAR
+     *
+     * ```php
+     * $cfg['CharTextareaCols'] = 40;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CharTextareaCols
      *
      * @psalm-var positive-int
      */
@@ -945,12 +1789,24 @@ final class Settings
     /**
      * textarea size (rows) for CHAR/VARCHAR
      *
+     * ```php
+     * $cfg['CharTextareaRows'] = 7;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CharTextareaRows
+     *
      * @psalm-var positive-int
      */
     public int $CharTextareaRows;
 
     /**
      * Max field data length in browse mode for all non-numeric fields
+     *
+     * ```php
+     * $cfg['LimitChars'] = 50;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LimitChars
      *
      * @psalm-var positive-int
      */
@@ -960,6 +1816,12 @@ final class Settings
      * Where to show the edit/copy/delete links in browse mode
      * Possible values are 'left', 'right', 'both' and 'none'.
      *
+     * ```php
+     * $cfg['RowActionLinks'] = 'left';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RowActionLinks
+     *
      * @psalm-var 'left'|'right'|'both'|'none'
      */
     public string $RowActionLinks;
@@ -967,11 +1829,23 @@ final class Settings
     /**
      * Whether to show row links (Edit, Copy, Delete) and checkboxes for
      * multiple row operations even when the selection does not have a unique key.
+     *
+     * ```php
+     * $cfg['RowActionLinksWithoutUnique'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RowActionLinksWithoutUnique
      */
     public bool $RowActionLinksWithoutUnique;
 
     /**
      * Default sort order by primary key.
+     *
+     * ```php
+     * $cfg['TablePrimaryKeyOrder'] = 'NONE';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TablePrimaryKeyOrder
      *
      * @psalm-var 'NONE'|'ASC'|'DESC'
      */
@@ -979,21 +1853,45 @@ final class Settings
 
     /**
      * remember the last way a table sorted
+     *
+     * ```php
+     * $cfg['RememberSorting'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RememberSorting
      */
     public bool $RememberSorting;
 
     /**
      * shows column comments in 'browse' mode.
+     *
+     * ```php
+     * $cfg['ShowBrowseComments'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowBrowseComments
      */
     public bool $ShowBrowseComments;
 
     /**
      * shows column comments in 'table property' mode.
+     *
+     * ```php
+     * $cfg['ShowPropertyComments'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowPropertyComments
      */
     public bool $ShowPropertyComments;
 
     /**
      * repeat header names every X cells? (0 = deactivate)
+     *
+     * ```php
+     * $cfg['RepeatCells'] = 100;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RepeatCells
      *
      * @psalm-var 0|positive-int
      */
@@ -1002,11 +1900,23 @@ final class Settings
     /**
      * Set to true if you want DB-based query history.If false, this utilizes
      * JS-routines to display query history (lost by window close)
+     *
+     * ```php
+     * $cfg['QueryHistoryDB'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_QueryHistoryDB
      */
     public bool $QueryHistoryDB;
 
     /**
      * When using DB-based query history, how many entries should be kept?
+     *
+     * ```php
+     * $cfg['QueryHistoryMax'] = 25;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_QueryHistoryMax
      *
      * @psalm-var positive-int
      */
@@ -1014,11 +1924,23 @@ final class Settings
 
     /**
      * Use MIME-Types (stored in column comments table) for
+     *
+     * ```php
+     * $cfg['BrowseMIME'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_BrowseMIME
      */
     public bool $BrowseMIME;
 
     /**
      * When approximate count < this, PMA will get exact count for table rows.
+     *
+     * ```php
+     * $cfg['MaxExactCount'] = 50000;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxExactCount
      *
      * @psalm-var positive-int
      */
@@ -1027,12 +1949,24 @@ final class Settings
     /**
      * Zero means that no row count is done for views; see the doc
      *
+     * ```php
+     * $cfg['MaxExactCountViews'] = 0;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxExactCountViews
+     *
      * @psalm-var 0|positive-int
      */
     public int $MaxExactCountViews;
 
     /**
      * Sort table and database in natural order
+     *
+     * ```php
+     * $cfg['NaturalOrder'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NaturalOrder
      */
     public bool $NaturalOrder;
 
@@ -1040,13 +1974,25 @@ final class Settings
      * Initial state for sliders
      * (open | closed | disabled)
      *
+     * ```php
+     * $cfg['InitialSlidersState'] = 'closed';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_InitialSlidersState
+     *
      * @psalm-var 'open'|'closed'|'disabled'
      */
     public string $InitialSlidersState;
 
     /**
      * User preferences: disallow these settings
-     * For possible setting names look in libraries/config/user_preferences.forms.php
+     * For possible setting names look in libraries/classes/Config/Forms/User/
+     *
+     * ```php
+     * $cfg['UserprefsDisallow'] = [];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_UserprefsDisallow
      *
      * @var string[]
      */
@@ -1054,53 +2000,113 @@ final class Settings
 
     /**
      * User preferences: enable the Developer tab
+     *
+     * ```php
+     * $cfg['UserprefsDeveloperTab'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_UserprefsDeveloperTab
      */
     public bool $UserprefsDeveloperTab;
 
     /**
      * title of browser window when a table is selected
+     *
+     * ```php
+     * $cfg['TitleTable'] = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TitleTable
      */
     public string $TitleTable;
 
     /**
      * title of browser window when a database is selected
+     *
+     * ```php
+     * $cfg['TitleDatabase'] = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TitleDatabase
      */
     public string $TitleDatabase;
 
     /**
      * title of browser window when a server is selected
+     *
+     * ```php
+     * $cfg['TitleServer'] = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TitleServer
      */
     public string $TitleServer;
 
     /**
      * title of browser window when nothing is selected
+     *
+     * ```php
+     * $cfg['TitleDefault'] = '@HTTP_HOST@ | @PHPMYADMIN@';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TitleDefault
      */
     public string $TitleDefault;
 
     /**
      * if you want to use selectable themes and if ThemesPath not empty
      * set it to true, else set it to false (default is false);
+     *
+     * ```php
+     * $cfg['ThemeManager'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ThemeManager
      */
     public bool $ThemeManager;
 
     /**
      * set up default theme, you can set up here an valid
      * path to themes or 'original' for the original pma-theme
+     *
+     * ```php
+     * $cfg['ThemeDefault'] = 'pmahomme';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ThemeDefault
      */
     public string $ThemeDefault;
 
     /**
      * allow different theme for each configured server
+     *
+     * ```php
+     * $cfg['ThemePerServer'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ThemePerServer
      */
     public bool $ThemePerServer;
 
     /**
      * Default query for table
+     *
+     * ```php
+     * $cfg['DefaultQueryTable'] = 'SELECT * FROM @TABLE@ WHERE 1';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultQueryTable
      */
     public string $DefaultQueryTable;
 
     /**
      * Default query for database
+     *
+     * ```php
+     * $cfg['DefaultQueryDatabase'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultQueryDatabase
      */
     public string $DefaultQueryDatabase;
 
@@ -1112,6 +2118,12 @@ final class Settings
 
     /**
      * Enables autoComplete for table & column names in SQL queries
+     *
+     * ```php
+     * $cfg['EnableAutocompleteForTablesAndColumns'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_EnableAutocompleteForTablesAndColumns
      */
     public bool $EnableAutocompleteForTablesAndColumns;
 
@@ -1119,6 +2131,12 @@ final class Settings
      * Directory for uploaded files that can be executed by phpMyAdmin.
      * For example './upload'. Leave empty for no upload directory support.
      * Use %u for username inclusion.
+     *
+     * ```php
+     * $cfg['UploadDir'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_UploadDir
      */
     public string $UploadDir;
 
@@ -1126,11 +2144,23 @@ final class Settings
      * Directory where phpMyAdmin can save exported data on server.
      * For example './save'. Leave empty for no save directory support.
      * Use %u for username inclusion.
+     *
+     * ```php
+     * $cfg['SaveDir'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SaveDir
      */
     public string $SaveDir;
 
     /**
      * Directory where phpMyAdmin can save temporary files.
+     *
+     * ```php
+     * $cfg['TempDir'] = './tmp/';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TempDir
      */
     public string $TempDir;
 
@@ -1138,12 +2168,24 @@ final class Settings
      * Is GD >= 2 available? Set to yes/no/auto. 'auto' does auto-detection,
      * which is the only safe way to determine GD version.
      *
+     * ```php
+     * $cfg['GD2Available'] = 'auto';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_GD2Available
+     *
      * @psalm-var 'auto'|'yes'|'no'
      */
     public string $GD2Available;
 
     /**
      * Lists proxy IP and HTTP header combinations which are trusted for IP allow/deny
+     *
+     * ```php
+     * $cfg['TrustedProxies'] = [];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_TrustedProxies
      *
      * @var array<string, string>
      */
@@ -1155,6 +2197,12 @@ final class Settings
      * a NTFS filesystem mounted on a non-Windows server, in which case the
      * permissions seems wrong but in fact cannot be detected. In this case
      * a sysadmin would set the following to false.
+     *
+     * ```php
+     * $cfg['CheckConfigurationPermissions'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CheckConfigurationPermissions
      */
     public bool $CheckConfigurationPermissions;
 
@@ -1166,12 +2214,24 @@ final class Settings
      * (see https://www.boutell.com/newfaq/misc/urllength.html) but we put
      * 1000 to accommodate Suhosin, see bug #3358750.
      *
+     * ```php
+     * $cfg['LinkLengthLimit'] = 1000;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_LinkLengthLimit
+     *
      * @psalm-var positive-int
      */
     public int $LinkLengthLimit;
 
     /**
      * Additional string to allow in CSP headers.
+     *
+     * ```php
+     * $cfg['CSPAllow'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CSPAllow
      */
     public string $CSPAllow;
 
@@ -1179,6 +2239,12 @@ final class Settings
      * Disable the table maintenance mass operations, like optimizing or
      * repairing the selected tables of a database. An accidental execution
      * of such a maintenance task can enormously slow down a bigger database.
+     *
+     * ```php
+     * $cfg['DisableMultiTableMaintenance'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DisableMultiTableMaintenance
      */
     public bool $DisableMultiTableMaintenance;
 
@@ -1189,22 +2255,42 @@ final class Settings
      * Available options
      * (ask | always | never)
      *
+     * ```php
+     * $cfg['SendErrorReports'] = 'ask';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SendErrorReports
+     *
      * @psalm-var 'ask'|'always'|'never'
      */
     public string $SendErrorReports;
 
     /**
      * Whether Enter or Ctrl+Enter executes queries in the console.
+     *
+     * ```php
+     * $cfg['ConsoleEnterExecutes'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ConsoleEnterExecutes
      */
     public bool $ConsoleEnterExecutes;
 
     /**
      * Zero Configuration mode.
+     *
+     * ```php
+     * $cfg['ZeroConf'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ZeroConf
      */
     public bool $ZeroConf;
 
     /**
      * Developers ONLY!
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG
      */
     public Debug $DBG;
 
@@ -1216,12 +2302,31 @@ final class Settings
      *
      * Possible values are 'production' or 'development'
      *
+     * ```php
+     * $cfg['environment'] = 'production';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_environment
+     *
      * @psalm-var 'production'|'development'
      */
     public string $environment;
 
     /**
      * Default functions for above defined groups
+     *
+     * ```php
+     * $cfg['DefaultFunctions'] = [
+     *     'FUNC_CHAR' => '',
+     *     'FUNC_DATE' => '',
+     *     'FUNC_NUMBER' => '',
+     *     'FUNC_SPATIAL' => 'GeomFromText',
+     *     'FUNC_UUID' => 'UUID',
+     *     'first_timestamp' => 'NOW',
+     * ];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultFunctions
      *
      * @var array<string, string>
      */
@@ -1230,17 +2335,35 @@ final class Settings
     /**
      * Max rows retrieved for zoom search
      *
+     * ```php
+     * $cfg['maxRowPlotLimit'] = 500;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_maxRowPlotLimit
+     *
      * @psalm-var positive-int
      */
     public int $maxRowPlotLimit;
 
     /**
      * Show Git revision if applicable
+     *
+     * ```php
+     * $cfg['ShowGitRevision'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowGitRevision
      */
     public bool $ShowGitRevision;
 
     /**
      * MySQL minimal version required
+     *
+     * ```php
+     * $cfg['MysqlMinVersion'] = ['internal' => 50500, 'human' => '5.5.0'];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MysqlMinVersion
      *
      * @var array<string, int|string>
      * @psalm-var array{internal: int, human: string}
@@ -1249,6 +2372,12 @@ final class Settings
 
     /**
      * Disable shortcuts
+     *
+     * ```php
+     * $cfg['DisableShortcutKeys'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DisableShortcutKeys
      */
     public bool $DisableShortcutKeys;
 
@@ -1261,11 +2390,19 @@ final class Settings
 
     /**
      * Initialize default transformations array
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTransformations
      */
     public Transformations $DefaultTransformations;
 
     /**
      * Set default for FirstDayOfCalendar
+     *
+     * ```php
+     * $cfg['FirstDayOfCalendar'] = 0;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_FirstDayOfCalendar
      *
      * @psalm-var 0|positive-int
      */

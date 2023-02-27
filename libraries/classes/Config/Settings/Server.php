@@ -15,46 +15,100 @@ final class Server
 {
     /**
      * MySQL hostname or IP address
+     *
+     * ```php
+     * $cfg['Servers'][$i]['host'] = 'localhost';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_host
      */
     public string $host;
 
     /**
      * MySQL port - leave blank for default port
+     *
+     * ```php
+     * $cfg['Servers'][$i]['port'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_port
      */
     public string $port;
 
     /**
      * Path to the socket - leave blank for default socket
+     *
+     * ```php
+     * $cfg['Servers'][$i]['socket'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_socket
      */
     public string $socket;
 
     /**
      * Use SSL for connecting to MySQL server?
+     *
+     * ```php
+     * $cfg['Servers'][$i]['ssl'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl
      */
     public bool $ssl;
 
     /**
      * Path to the key file when using SSL for connecting to the MySQL server
+     *
+     * ```php
+     * $cfg['Servers'][$i]['ssl_key'] = null;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_key
      */
     public string|null $ssl_key = null;
 
     /**
      * Path to the cert file when using SSL for connecting to the MySQL server
+     *
+     * ```php
+     * $cfg['Servers'][$i]['ssl_cert'] = null;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_cert
      */
     public string|null $ssl_cert = null;
 
     /**
      * Path to the CA file when using SSL for connecting to the MySQL server
+     *
+     * ```php
+     * $cfg['Servers'][$i]['ssl_ca'] = null;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_ca
      */
     public string|null $ssl_ca = null;
 
     /**
      * Directory containing trusted SSL CA certificates in PEM format
+     *
+     * ```php
+     * $cfg['Servers'][$i]['ssl_ca_path'] = null;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_ca_path
      */
     public string|null $ssl_ca_path = null;
 
     /**
      * List of allowable ciphers for SSL connections to the MySQL server
+     *
+     * ```php
+     * $cfg['Servers'][$i]['ssl_ciphers'] = null;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_ciphers
      */
     public string|null $ssl_ciphers = null;
 
@@ -64,26 +118,49 @@ final class Server
      * For most self-signed certificates this is a problem. Setting this to false
      * will disable the check and allow the connection (PHP 5.6.16 or later)
      *
-     * @link https://bugs.php.net/68344
+     * ```php
+     * $cfg['Servers'][$i]['ssl_verify'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_verify
+     * @see https://bugs.php.net/68344
      */
     public bool $ssl_verify;
 
     /**
      * Use compressed protocol for the MySQL connection
+     *
+     * ```php
+     * $cfg['Servers'][$i]['compress'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_compress
      */
     public bool $compress;
 
     /**
-     * MySQL control host. This permits to use a host different than the
+     * MySQL control host. This permits to use a host different from the
      * main host, for the phpMyAdmin configuration storage. If left empty,
      * $cfg['Servers'][$i]['host'] is used instead.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['controlhost'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controlhost
      */
     public string $controlhost;
 
     /**
-     * MySQL control port. This permits to use a port different than the
+     * MySQL control port. This permits to use a port different from the
      * main port, for the phpMyAdmin configuration storage. If left empty,
      * $cfg['Servers'][$i]['port'] is used instead.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['controlport'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controlport
      */
     public string $controlport;
 
@@ -91,6 +168,12 @@ final class Server
      * MySQL control user settings (this user must have read-only
      * access to the "mysql/user" and "mysql/db" tables). The controluser is also
      * used for all relational features (pmadb)
+     *
+     * ```php
+     * $cfg['Servers'][$i]['controluser'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controluser
      */
     public string $controluser;
 
@@ -98,11 +181,23 @@ final class Server
      * MySQL control user settings (this user must have read-only
      * access to the "mysql/user" and "mysql/db" tables). The controluser is also
      * used for all relational features (pmadb)
+     *
+     * ```php
+     * $cfg['Servers'][$i]['controlpass'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controlpass
      */
     public string $controlpass;
 
     /**
      * Authentication method (valid choices: config, http, signon or cookie)
+     *
+     * ```php
+     * $cfg['Servers'][$i]['auth_type'] = 'cookie';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_auth_type
      *
      * @psalm-var 'config'|'http'|'signon'|'cookie'
      */
@@ -110,27 +205,57 @@ final class Server
 
     /**
      * HTTP Basic Auth Realm name to display (only used with 'HTTP' auth_type)
+     *
+     * ```php
+     * $cfg['Servers'][$i]['auth_http_realm'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_auth_http_realm
      */
     public string $auth_http_realm;
 
     /**
      * MySQL user
+     *
+     * ```php
+     * $cfg['Servers'][$i]['user'] = 'root';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_user
      */
     public string $user;
 
     /**
      * MySQL password (only needed with 'config' auth_type)
+     *
+     * ```php
+     * $cfg['Servers'][$i]['password'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_password
      */
     public string $password;
 
     /**
      * Session to use for 'signon' authentication method
+     *
+     * ```php
+     * $cfg['Servers'][$i]['SignonSession'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SignonSession
      */
     public string $SignonSession;
 
     /**
      * Cookie params to match session to use for 'signon' authentication method
      * It should be an associative array matching result of session_get_cookie_params() in other system
+     *
+     * ```php
+     * $cfg['Servers'][$i]['SignonCookieParams'] = [];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SignonCookieParams
      *
      * @var array<string, int|string|bool>
      * @psalm-var array{
@@ -141,16 +266,34 @@ final class Server
 
     /**
      * PHP script to use for 'signon' authentication method
+     *
+     * ```php
+     * $cfg['Servers'][$i]['SignonScript'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SignonScript
      */
     public string $SignonScript;
 
     /**
      * URL where to redirect user to login for 'signon' authentication method
+     *
+     * ```php
+     * $cfg['Servers'][$i]['SignonURL'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SignonURL
      */
     public string $SignonURL;
 
     /**
      * URL where to redirect user after logout
+     *
+     * ```php
+     * $cfg['Servers'][$i]['LogoutURL'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_LogoutURL
      */
     public string $LogoutURL;
 
@@ -158,18 +301,36 @@ final class Server
      * If set to a db-name, only this db is displayed in navigation panel
      * It may also be an array of db-names
      *
+     * ```php
+     * $cfg['Servers'][$i]['only_db'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_only_db
+     *
      * @var string|string[]
      */
     public string|array $only_db;
 
     /**
      * Database name to be hidden from listings
+     *
+     * ```php
+     * $cfg['Servers'][$i]['hide_db'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_hide_db
      */
     public string $hide_db;
 
     /**
      * Verbose name for this host - leave blank to show the hostname
      * (for HTTP authentication, all non-US-ASCII characters will be stripped)
+     *
+     * ```php
+     * $cfg['Servers'][$i]['verbose'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_verbose
      */
     public string $verbose;
 
@@ -178,6 +339,12 @@ final class Server
      * (see sql/create_tables.sql)
      *   - leave blank for no support
      *     SUGGESTED: 'phpmyadmin'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['pmadb'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_pmadb
      */
     public string $pmadb;
 
@@ -185,6 +352,12 @@ final class Server
      * Bookmark table
      *   - leave blank for no bookmark support
      *     SUGGESTED: 'pma__bookmark'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['bookmarktable'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_bookmarktable
      */
     public string|false $bookmarktable;
 
@@ -192,6 +365,12 @@ final class Server
      * table to describe the relation between links (see doc)
      *   - leave blank for no relation-links support
      *     SUGGESTED: 'pma__relation'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['relation'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_relation
      */
     public string|false $relation;
 
@@ -199,6 +378,12 @@ final class Server
      * table to describe the display fields
      *   - leave blank for no display fields support
      *     SUGGESTED: 'pma__table_info'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['table_info'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_table_info
      */
     public string|false $table_info;
 
@@ -206,6 +391,12 @@ final class Server
      * table to describe the tables position for the designer and PDF schema
      *   - leave blank for no PDF schema support
      *     SUGGESTED: 'pma__table_coords'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['table_coords'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_table_coords
      */
     public string|false $table_coords;
 
@@ -213,6 +404,12 @@ final class Server
      * table to describe pages of relationpdf
      *   - leave blank if you don't want to use this
      *     SUGGESTED: 'pma__pdf_pages'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['pdf_pages'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_pdf_pages
      */
     public string|false $pdf_pages;
 
@@ -220,6 +417,12 @@ final class Server
      * table to store column information
      *   - leave blank for no column comments/mime types
      *     SUGGESTED: 'pma__column_info'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['column_info'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_column_info
      */
     public string|false $column_info;
 
@@ -227,6 +430,12 @@ final class Server
      * table to store SQL history
      *   - leave blank for no SQL query history
      *     SUGGESTED: 'pma__history'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['history'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_history
      */
     public string|false $history;
 
@@ -234,6 +443,12 @@ final class Server
      * table to store recently used tables
      *   - leave blank for no "persistent" recently used tables
      *     SUGGESTED: 'pma__recent'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['recent'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_recent
      */
     public string|false $recent;
 
@@ -241,6 +456,12 @@ final class Server
      * table to store favorite tables
      *   - leave blank for no favorite tables
      *     SUGGESTED: 'pma__favorite'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['favorite'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_favorite
      */
     public string|false $favorite;
 
@@ -248,6 +469,12 @@ final class Server
      * table to store UI preferences for tables
      *   - leave blank for no "persistent" UI preferences
      *     SUGGESTED: 'pma__table_uiprefs'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['table_uiprefs'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_table_uiprefs
      */
     public string|false $table_uiprefs;
 
@@ -255,6 +482,12 @@ final class Server
      * table to store SQL tracking
      *   - leave blank for no SQL tracking
      *     SUGGESTED: 'pma__tracking'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['tracking'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking
      */
     public string|false $tracking;
 
@@ -262,6 +495,12 @@ final class Server
      * table to store user preferences
      *   - leave blank to disable server storage
      *     SUGGESTED: 'pma__userconfig'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['userconfig'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_userconfig
      */
     public string|false $userconfig;
 
@@ -269,6 +508,12 @@ final class Server
      * table to store users and their assignment to user groups
      *   - leave blank to disable configurable menus feature
      *     SUGGESTED: 'pma__users'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['users'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_users
      */
     public string|false $users;
 
@@ -276,6 +521,12 @@ final class Server
      * table to store allowed menu items for each user group
      *   - leave blank to disable configurable menus feature
      *     SUGGESTED: 'pma__usergroups'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['usergroups'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_usergroups
      */
     public string|false $usergroups;
 
@@ -283,6 +534,12 @@ final class Server
      * table to store information about item hidden from navigation tree
      *   - leave blank to disable hide/show navigation items feature
      *     SUGGESTED: 'pma__navigationhiding'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['navigationhiding'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_navigationhiding
      */
     public string|false $navigationhiding;
 
@@ -290,6 +547,12 @@ final class Server
      * table to store information about saved searches from query-by-example on a db
      *   - leave blank to disable saved searches feature
      *     SUGGESTED: 'pma__savedsearches'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['savedsearches'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_savedsearches
      */
     public string|false $savedsearches;
 
@@ -297,6 +560,12 @@ final class Server
      * table to store central list of columns per database
      *   - leave blank to disable central list of columns feature
      *     SUGGESTED: 'pma__central_columns'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['central_columns'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_central_columns
      */
     public string|false $central_columns;
 
@@ -304,6 +573,12 @@ final class Server
      * table to store designer settings
      *   - leave blank to disable the storage of designer settings
      *     SUGGESTED: 'pma__designer_settings'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['designer_settings'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_designer_settings
      */
     public string|false $designer_settings;
 
@@ -311,6 +586,12 @@ final class Server
      * table to store export templates
      *   - leave blank to disable saved searches feature
      *     SUGGESTED: 'pma__export_templates'
+     *
+     * ```php
+     * $cfg['Servers'][$i]['export_templates'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_export_templates
      */
     public string|false $export_templates;
 
@@ -323,6 +604,12 @@ final class Server
      * This configuration make sure that we only keep N (N = MaxTableUiprefs)
      * newest record in table_uiprefs and automatically delete older records.
      *
+     * ```php
+     * $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_MaxTableUiprefs
+     *
      * @psalm-var positive-int
      */
     public int $MaxTableUiprefs;
@@ -330,24 +617,50 @@ final class Server
     /**
      * Sets the time zone used by phpMyAdmin. Possible values are explained at
      * https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+     *
+     * ```php
+     * $cfg['Servers'][$i]['SessionTimeZone'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SessionTimeZone
      */
     public string $SessionTimeZone;
 
     /**
      * whether to allow root login
+     *
+     * ```php
+     * $cfg['Servers'][$i]['AllowRoot'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowRoot
      */
     public bool $AllowRoot;
 
     /**
      * whether to allow login of any user without a password
+     *
+     * ```php
+     * $cfg['Servers'][$i]['AllowNoPassword'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowNoPassword
      */
     public bool $AllowNoPassword;
 
     /**
      * Host authentication
      *
-     * Host authentication order, leave blank to not use
-     * Host authentication rules, leave blank for defaults
+     * - Host authentication order, leave blank to not use
+     * - Host authentication rules, leave blank for defaults
+     *
+     * ```php
+     * $cfg['Servers'][$i]['AllowDeny']['order'] = '';
+     * $cfg['Servers'][$i]['AllowDeny']['rules'] = [];
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowDeny_order
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowDeny_rules
      *
      * @var array<string, string|string[]>
      * @psalm-var array{order: ''|'deny,allow'|'allow,deny'|'explicit', rules: string[]}
@@ -357,6 +670,11 @@ final class Server
     /**
      * Disable use of INFORMATION_SCHEMA.
      *
+     * ```php
+     * $cfg['Servers'][$i]['DisableIS'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_DisableIS
      * @see https://github.com/phpmyadmin/phpmyadmin/issues/8970
      * @see https://bugs.mysql.com/19588
      */
@@ -365,35 +683,73 @@ final class Server
     /**
      * Whether the tracking mechanism creates
      * versions for tables and views automatically.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['tracking_version_auto_create'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_version_auto_create
      */
     public bool $tracking_version_auto_create;
 
     /**
      * Defines the list of statements
      * the auto-creation uses for new versions.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,'
+     *     . 'CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,'
+     *     . 'ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_default_statements
      */
     public string $tracking_default_statements;
 
     /**
      * Whether a DROP VIEW IF EXISTS statement will be added
      * as first line to the log when creating a view.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['tracking_add_drop_view'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_add_drop_view
      */
     public bool $tracking_add_drop_view;
 
     /**
      * Whether a DROP TABLE IF EXISTS statement will be added
      * as first line to the log when creating a table.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_add_drop_table
      */
     public bool $tracking_add_drop_table;
 
     /**
      * Whether a DROP DATABASE IF EXISTS statement will be added
      * as first line to the log when creating a database.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_add_drop_database
      */
     public bool $tracking_add_drop_database;
 
     /**
      * Whether to show or hide detailed MySQL/MariaDB connection errors on the login page.
+     *
+     * ```php
+     * $cfg['Servers'][$i]['hide_connection_errors'] = false;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_hide_connection_errors
      */
     public bool $hide_connection_errors;
 

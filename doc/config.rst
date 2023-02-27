@@ -8,8 +8,7 @@ Configuration
 All configurable data is placed in :file:`config.inc.php` in phpMyAdmin's
 toplevel directory.  If this file does not exist, please refer to the
 :ref:`setup` section to create one. This file only needs to contain the
-parameters you want to change from their corresponding default value in
-:file:`libraries/config.default.php` (this file is not intended for changes).
+parameters you want to change from their corresponding default value.
 
 .. seealso::
 
@@ -231,9 +230,7 @@ Server connection settings
     added which contains the login information for the different servers. The
     first :config:option:`$cfg['Servers'][$i]['host']` contains the hostname of
     the first server, the second :config:option:`$cfg['Servers'][$i]['host']`
-    the hostname of the second server, etc. In
-    :file:`libraries/config.default.php`, there is only one section for server
-    definition, however you can put as many as you need in
+    the hostname of the second server, etc. You can put as many sections for server definition as you need in
     :file:`config.inc.php`, copy that block or needed parts (you don't have to
     define all settings, just those you need to change).
 
@@ -3985,6 +3982,6 @@ reCaptcha using Turnstile
     $cfg['CaptchaLoginPublicKey'] = '0xxxxxxxxxxxxxxxxxxxxxx';
     $cfg['CaptchaLoginPrivateKey'] = '0x4AAAAAAAA_xx_xxxxxxxxxxxxxxxxxxxx';
     $cfg['CaptchaSiteVerifyURL'] = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-    
-.. seealso:: `Cloudflare Dashboard <https://dash.cloudflare.com/>` 
-.. seealso:: `Turnstile Developer Guide <https://developers.cloudflare.com/turnstile/get-started/>` 
+
+.. seealso:: `Cloudflare Dashboard <https://dash.cloudflare.com/>`
+.. seealso:: `Turnstile Developer Guide <https://developers.cloudflare.com/turnstile/get-started/>`

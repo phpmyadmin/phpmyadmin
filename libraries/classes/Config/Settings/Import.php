@@ -8,72 +8,216 @@ namespace PhpMyAdmin\Config\Settings;
 
 use function in_array;
 
-/** @psalm-immutable */
+/**
+ * Import defaults
+ *
+ * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Import
+ *
+ * @psalm-immutable
+ */
 final class Import
 {
-    /** @psalm-var 'csv'|'docsql'|'ldi'|'sql' */
+    /**
+     * ```php
+     * $cfg['Import']['format'] = 'sql';
+     * ```
+     *
+     * @psalm-var 'csv'|'docsql'|'ldi'|'sql'
+     */
     public string $format;
 
     /**
      * Default charset for import.
+     *
+     * ```php
+     * $cfg['Import']['charset'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Import_charset
      */
     public string $charset;
 
+    /**
+     * ```php
+     * $cfg['Import']['allow_interrupt'] = true;
+     * ```
+     */
     public bool $allow_interrupt;
 
-    /** @psalm-var 0|positive-int */
+    /**
+     * ```php
+     * $cfg['Import']['skip_queries'] = 0;
+     * ```
+     *
+     * @psalm-var 0|positive-int
+     */
     public int $skip_queries;
 
-    /** @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
+    /**
+     * ```php
+     * $cfg['Import']['sql_compatibility'] = 'NONE';
+     * ```
+     *
+     * @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL'
+     */
     public string $sql_compatibility;
 
+    /**
+     * ```php
+     * $cfg['Import']['sql_no_auto_value_on_zero'] = true;
+     * ```
+     */
     public bool $sql_no_auto_value_on_zero;
 
+    /**
+     * ```php
+     * $cfg['Import']['sql_read_as_multibytes'] = false;
+     * ```
+     */
     public bool $sql_read_as_multibytes;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_replace'] = false;
+     * ```
+     */
     public bool $csv_replace;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_ignore'] = false;
+     * ```
+     */
     public bool $csv_ignore;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_terminated'] = ',';
+     * ```
+     */
     public string $csv_terminated;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_enclosed'] = '"';
+     * ```
+     */
     public string $csv_enclosed;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_escaped'] = '"';
+     * ```
+     */
     public string $csv_escaped;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_new_line'] = 'auto';
+     * ```
+     */
     public string $csv_new_line;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_columns'] = '';
+     * ```
+     */
     public string $csv_columns;
 
+    /**
+     * ```php
+     * $cfg['Import']['csv_col_names'] = false;
+     * ```
+     */
     public bool $csv_col_names;
 
+    /**
+     * ```php
+     * $cfg['Import']['ldi_replace'] = false;
+     * ```
+     */
     public bool $ldi_replace;
 
+    /**
+     * ```php
+     * $cfg['Import']['ldi_ignore'] = false;
+     * ```
+     */
     public bool $ldi_ignore;
 
+    /**
+     * ```php
+     * $cfg['Import']['ldi_terminated'] = ';';
+     * ```
+     */
     public string $ldi_terminated;
 
+    /**
+     * ```php
+     * $cfg['Import']['ldi_enclosed'] = '"';
+     * ```
+     */
     public string $ldi_enclosed;
 
+    /**
+     * ```php
+     * $cfg['Import']['ldi_escaped'] = '\\';
+     * ```
+     */
     public string $ldi_escaped;
 
+    /**
+     * ```php
+     * $cfg['Import']['ldi_new_line'] = 'auto';
+     * ```
+     */
     public string $ldi_new_line;
 
+    /**
+     * ```php
+     * $cfg['Import']['ldi_columns'] = '';
+     * ```
+     */
     public string $ldi_columns;
 
     /**
      * 'auto' for auto-detection, true or false for forcing
      *
+     * ```php
+     * $cfg['Import']['ldi_local_option'] = 'auto';
+     * ```
+     *
      * @psalm-var 'auto'|bool
      */
     public string|bool $ldi_local_option;
 
+    /**
+     * ```php
+     * $cfg['Import']['ods_col_names'] = false;
+     * ```
+     */
     public bool $ods_col_names;
 
+    /**
+     * ```php
+     * $cfg['Import']['ods_empty_rows'] = true;
+     * ```
+     */
     public bool $ods_empty_rows;
 
+    /**
+     * ```php
+     * $cfg['Import']['ods_recognize_percentages'] = true;
+     * ```
+     */
     public bool $ods_recognize_percentages;
 
+    /**
+     * ```php
+     * $cfg['Import']['ods_recognize_currency'] = true;
+     * ```
+     */
     public bool $ods_recognize_currency;
 
     /** @param array<int|string, mixed> $import */

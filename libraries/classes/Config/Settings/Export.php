@@ -9,298 +9,873 @@ use function in_array;
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
 /**
+ * Export defaults
+ *
+ * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export
+ *
  * @psalm-immutable
  * @psalm-type StructureOrDataType = 'structure'|'data'|'structure_and_data'
  */
 final class Export
 {
-    /** @psalm-var 'codegen'|'csv'|'excel'|'htmlexcel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml' */
+    /**
+     * ```php
+     * $cfg['Export']['format'] = 'sql';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export_format
+     *
+     * @psalm-var 'codegen'|'csv'|'excel'|'htmlexcel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml'
+     */
     public string $format;
 
-    /** @psalm-var 'quick'|'custom'|'custom-no-form' */
+    /**
+     * ```php
+     * $cfg['Export']['method'] = 'quick';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export_method
+     *
+     * @psalm-var 'quick'|'custom'|'custom-no-form'
+     */
     public string $method;
 
-    /** @psalm-var 'none'|'zip'|'gzip' */
+    /**
+     * ```php
+     * $cfg['Export']['compression'] = 'none';
+     * ```
+     *
+     * @psalm-var 'none'|'zip'|'gzip'
+     */
     public string $compression;
 
     /**
      * Whether to LOCK TABLES before exporting
+     *
+     * ```php
+     * $cfg['Export']['lock_tables'] = false;
+     * ```
      */
     public bool $lock_tables;
 
     /**
      * Whether to export databases/tables as separate files
+     *
+     * ```php
+     * $cfg['Export']['as_separate_files'] = false;
+     * ```
      */
     public bool $as_separate_files;
 
+    /**
+     * ```php
+     * $cfg['Export']['asfile'] = true;
+     * ```
+     */
     public bool $asfile;
 
+    /**
+     * ```php
+     * $cfg['Export']['charset'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export_charset
+     */
     public string $charset;
 
+    /**
+     * ```php
+     * $cfg['Export']['onserver'] = false;
+     * ```
+     */
     public bool $onserver;
 
+    /**
+     * ```php
+     * $cfg['Export']['onserver_overwrite'] = false;
+     * ```
+     */
     public bool $onserver_overwrite;
 
+    /**
+     * ```php
+     * $cfg['Export']['quick_export_onserver'] = false;
+     * ```
+     */
     public bool $quick_export_onserver;
 
+    /**
+     * ```php
+     * $cfg['Export']['quick_export_onserver_overwrite'] = false;
+     * ```
+     */
     public bool $quick_export_onserver_overwrite;
 
+    /**
+     * ```php
+     * $cfg['Export']['remember_file_template'] = true;
+     * ```
+     */
     public bool $remember_file_template;
 
+    /**
+     * Default filename template for table exports.
+     *
+     * ```php
+     * $cfg['Export']['file_template_table'] = '@TABLE@';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export_file_template_table
+     */
     public string $file_template_table;
 
+    /**
+     * Default filename template for database exports.
+     *
+     * ```php
+     * $cfg['Export']['file_template_database'] = '@DATABASE@';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export_file_template_database
+     */
     public string $file_template_database;
 
+    /**
+     * Default filename template for server exports.
+     *
+     * ```php
+     * $cfg['Export']['file_template_server'] = '@SERVER@';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export_file_template_server
+     */
     public string $file_template_server;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['codegen_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $codegen_structure_or_data;
 
-    /** @psalm-var 0|1 */
+    /**
+     * ```php
+     * $cfg['Export']['codegen_format'] = 0;
+     * ```
+     *
+     * @psalm-var 0|1
+     */
     public int $codegen_format;
 
+    /**
+     * ```php
+     * $cfg['Export']['ods_columns'] = false;
+     * ```
+     */
     public bool $ods_columns;
 
+    /**
+     * ```php
+     * $cfg['Export']['ods_null'] = 'NULL';
+     * ```
+     */
     public string $ods_null;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['odt_structure_or_data'] = 'structure_and_data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $odt_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['odt_columns'] = true;
+     * ```
+     */
     public bool $odt_columns;
 
+    /**
+     * ```php
+     * $cfg['Export']['odt_relation'] = true;
+     * ```
+     */
     public bool $odt_relation;
 
+    /**
+     * ```php
+     * $cfg['Export']['odt_comments'] = true;
+     * ```
+     */
     public bool $odt_comments;
 
+    /**
+     * ```php
+     * $cfg['Export']['odt_mime'] = true;
+     * ```
+     */
     public bool $odt_mime;
 
+    /**
+     * ```php
+     * $cfg['Export']['odt_null'] = 'NULL';
+     * ```
+     */
     public string $odt_null;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['htmlword_structure_or_data'] = 'structure_and_data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $htmlword_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['htmlword_columns'] = false;
+     * ```
+     */
     public bool $htmlword_columns;
 
+    /**
+     * ```php
+     * $cfg['Export']['htmlword_null'] = 'NULL';
+     * ```
+     */
     public string $htmlword_null;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['texytext_structure_or_data'] = 'structure_and_data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $texytext_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['texytext_columns'] = false;
+     * ```
+     */
     public bool $texytext_columns;
 
+    /**
+     * ```php
+     * $cfg['Export']['texytext_null'] = 'NULL';
+     * ```
+     */
     public string $texytext_null;
 
+    /**
+     * ```php
+     * $cfg['Export']['csv_columns'] = true;
+     * ```
+     */
     public bool $csv_columns;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['csv_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $csv_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['csv_null'] = 'NULL';
+     * ```
+     */
     public string $csv_null;
 
+    /**
+     * ```php
+     * $cfg['Export']['csv_separator'] = ',';
+     * ```
+     */
     public string $csv_separator;
 
+    /**
+     * ```php
+     * $cfg['Export']['csv_enclosed'] = '"';
+     * ```
+     */
     public string $csv_enclosed;
 
+    /**
+     * ```php
+     * $cfg['Export']['csv_escaped'] = '"';
+     * ```
+     */
     public string $csv_escaped;
 
+    /**
+     * ```php
+     * $cfg['Export']['csv_terminated'] = 'AUTO';
+     * ```
+     */
     public string $csv_terminated;
 
+    /**
+     * ```php
+     * $cfg['Export']['csv_removeCRLF'] = false;
+     * ```
+     */
     public bool $csv_removeCRLF;
 
+    /**
+     * ```php
+     * $cfg['Export']['excel_columns'] = true;
+     * ```
+     */
     public bool $excel_columns;
 
+    /**
+     * ```php
+     * $cfg['Export']['excel_null'] = 'NULL';
+     * ```
+     */
     public string $excel_null;
 
-    /** @psalm-var 'win'|'mac_excel2003'|'mac_excel2008' */
+    /**
+     * ```php
+     * $cfg['Export']['excel_edition'] = 'win';
+     * ```
+     *
+     * @psalm-var 'win'|'mac_excel2003'|'mac_excel2008'
+     */
     public string $excel_edition;
 
+    /**
+     * ```php
+     * $cfg['Export']['excel_removeCRLF'] = false;
+     * ```
+     */
     public bool $excel_removeCRLF;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['excel_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $excel_structure_or_data;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['latex_structure_or_data'] = 'structure_and_data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $latex_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_columns'] = true;
+     * ```
+     */
     public bool $latex_columns;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_relation'] = true;
+     * ```
+     */
     public bool $latex_relation;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_comments'] = true;
+     * ```
+     */
     public bool $latex_comments;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_mime'] = true;
+     * ```
+     */
     public bool $latex_mime;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_null'] = '\textit{NULL}';
+     * ```
+     */
     public string $latex_null;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_caption'] = true;
+     * ```
+     */
     public bool $latex_caption;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_structure_caption'] = 'strLatexStructure';
+     * ```
+     */
     public string $latex_structure_caption;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_structure_continued_caption'] = 'strLatexStructure strLatexContinued';
+     * ```
+     */
     public string $latex_structure_continued_caption;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_data_caption'] = 'strLatexContent';
+     * ```
+     */
     public string $latex_data_caption;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_data_continued_caption'] = 'strLatexContent strLatexContinued';
+     * ```
+     */
     public string $latex_data_continued_caption;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_data_label'] = 'tab:@TABLE@-data';
+     * ```
+     */
     public string $latex_data_label;
 
+    /**
+     * ```php
+     * $cfg['Export']['latex_structure_label'] = 'tab:@TABLE@-structure';
+     * ```
+     */
     public string $latex_structure_label;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['mediawiki_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $mediawiki_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['mediawiki_caption'] = true;
+     * ```
+     */
     public bool $mediawiki_caption;
 
+    /**
+     * ```php
+     * $cfg['Export']['mediawiki_headers'] = true;
+     * ```
+     */
     public bool $mediawiki_headers;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['ods_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $ods_structure_or_data;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['pdf_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $pdf_structure_or_data;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['phparray_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $phparray_structure_or_data;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['json_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $json_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['json_pretty_print'] = false;
+     * ```
+     */
     public bool $json_pretty_print;
 
+    /**
+     * ```php
+     * $cfg['Export']['json_unicode'] = true;
+     * ```
+     */
     public bool $json_unicode;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['sql_structure_or_data'] = 'structure_and_data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $sql_structure_or_data;
 
-    /** @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
+    /**
+     * ```php
+     * $cfg['Export']['sql_compatibility'] = 'NONE';
+     * ```
+     *
+     * @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL'
+     */
     public string $sql_compatibility;
 
     /**
      * Whether to include comments in SQL export.
+     *
+     * ```php
+     * $cfg['Export']['sql_include_comments'] = true;
+     * ```
      */
     public bool $sql_include_comments;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_disable_fk'] = false;
+     * ```
+     */
     public bool $sql_disable_fk;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_views_as_tables'] = false;
+     * ```
+     */
     public bool $sql_views_as_tables;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_metadata'] = false;
+     * ```
+     */
     public bool $sql_metadata;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_use_transaction'] = true;
+     * ```
+     */
     public bool $sql_use_transaction;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_create_database'] = false;
+     * ```
+     */
     public bool $sql_create_database;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_drop_database'] = false;
+     * ```
+     */
     public bool $sql_drop_database;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_drop_table'] = false;
+     * ```
+     */
     public bool $sql_drop_table;
 
     /**
      * true by default for correct behavior when dealing with exporting
      * of VIEWs and the stand-in table
+     *
+     * ```php
+     * $cfg['Export']['sql_if_not_exists'] = false;
+     * ```
      */
     public bool $sql_if_not_exists;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_view_current_user'] = false;
+     * ```
+     */
     public bool $sql_view_current_user;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_or_replace_view'] = false;
+     * ```
+     */
     public bool $sql_or_replace_view;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_procedure_function'] = true;
+     * ```
+     */
     public bool $sql_procedure_function;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_create_table'] = true;
+     * ```
+     */
     public bool $sql_create_table;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_create_view'] = true;
+     * ```
+     */
     public bool $sql_create_view;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_create_trigger'] = true;
+     * ```
+     */
     public bool $sql_create_trigger;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_auto_increment'] = true;
+     * ```
+     */
     public bool $sql_auto_increment;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_backquotes'] = true;
+     * ```
+     */
     public bool $sql_backquotes;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_dates'] = false;
+     * ```
+     */
     public bool $sql_dates;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_relation'] = false;
+     * ```
+     */
     public bool $sql_relation;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_truncate'] = false;
+     * ```
+     */
     public bool $sql_truncate;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_delayed'] = false;
+     * ```
+     */
     public bool $sql_delayed;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_ignore'] = false;
+     * ```
+     */
     public bool $sql_ignore;
 
     /**
      * Export time in UTC.
+     *
+     * ```php
+     * $cfg['Export']['sql_utc_time'] = true;
+     * ```
      */
     public bool $sql_utc_time;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_hex_for_binary'] = true;
+     * ```
+     */
     public bool $sql_hex_for_binary;
 
-    /** @psalm-var 'INSERT'|'UPDATE'|'REPLACE' */
+    /**
+     * ```php
+     * $cfg['Export']['sql_type'] = 'INSERT';
+     * ```
+     *
+     * @psalm-var 'INSERT'|'UPDATE'|'REPLACE'
+     */
     public string $sql_type;
 
-    /** @psalm-var 0|positive-int */
+    /**
+     * ```php
+     * $cfg['Export']['sql_max_query_size'] = 50000;
+     * ```
+     *
+     * @psalm-var 0|positive-int
+     */
     public int $sql_max_query_size;
 
+    /**
+     * ```php
+     * $cfg['Export']['sql_mime'] = false;
+     * ```
+     */
     public bool $sql_mime;
 
     /**
      * \n is replaced by new line
+     *
+     * ```php
+     * $cfg['Export']['sql_header_comment'] = '';
+     * ```
      */
     public string $sql_header_comment;
 
     /**
      * Whether to use complete inserts, extended inserts, both, or neither
      *
+     * ```php
+     * $cfg['Export']['sql_insert_syntax'] = 'both';
+     * ```
+     *
      * @psalm-var 'complete'|'extended'|'both'|'none'
      */
     public string $sql_insert_syntax;
 
+    /**
+     * ```php
+     * $cfg['Export']['pdf_report_title'] = '';
+     * ```
+     */
     public string $pdf_report_title;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['xml_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $xml_structure_or_data;
 
     /**
      * Export schema for each structure
+     *
+     * ```php
+     * $cfg['Export']['xml_export_struc'] = true;
+     * ```
      */
     public bool $xml_export_struc;
 
     /**
      * Export events
+     *
+     * ```php
+     * $cfg['Export']['xml_export_events'] = true;
+     * ```
      */
     public bool $xml_export_events;
 
     /**
      * Export functions
+     *
+     * ```php
+     * $cfg['Export']['xml_export_functions'] = true;
+     * ```
      */
     public bool $xml_export_functions;
 
     /**
      * Export procedures
+     *
+     * ```php
+     * $cfg['Export']['xml_export_procedures'] = true;
+     * ```
      */
     public bool $xml_export_procedures;
 
     /**
      * Export schema for each table
+     *
+     * ```php
+     * $cfg['Export']['xml_export_tables'] = true;
+     * ```
      */
     public bool $xml_export_tables;
 
     /**
      * Export triggers
+     *
+     * ```php
+     * $cfg['Export']['xml_export_triggers'] = true;
+     * ```
      */
     public bool $xml_export_triggers;
 
     /**
      * Export views
+     *
+     * ```php
+     * $cfg['Export']['xml_export_views'] = true;
+     * ```
      */
     public bool $xml_export_views;
 
     /**
      * Export contents data
+     *
+     * ```php
+     * $cfg['Export']['xml_export_contents'] = true;
+     * ```
      */
     public bool $xml_export_contents;
 
-    /** @psalm-var StructureOrDataType */
+    /**
+     * ```php
+     * $cfg['Export']['yaml_structure_or_data'] = 'data';
+     * ```
+     *
+     * @psalm-var StructureOrDataType
+     */
     public string $yaml_structure_or_data;
 
+    /**
+     * ```php
+     * $cfg['Export']['remove_definer_from_definitions'] = false;
+     * ```
+     */
     public bool $remove_definer_from_definitions;
 
     /** @param array<int|string, mixed> $export */
