@@ -66,3 +66,4 @@ infection.log
 /js/vendor/openlayers/OpenLayers.js.LICENSE.txt
 /setup/styles.rtl.css
 /test/test_data/gis/
+/public/
