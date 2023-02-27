@@ -78,9 +78,9 @@ class Git
     /**
      * detects if Git revision
      *
-     * @param string $git_location (optional) verified git directory
+     * @param string|null $git_location (optional) verified git directory
      */
-    public function isGitRevision(string &$git_location = null): bool
+    public function isGitRevision(string|null &$git_location = null): bool
     {
         if (! $this->showGitRevision) {
             return false;

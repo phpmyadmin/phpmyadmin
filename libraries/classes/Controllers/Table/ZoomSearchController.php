@@ -205,10 +205,8 @@ class ZoomSearchController extends AbstractController
 
     /**
      * Display selection form action
-     *
-     * @param string $dataLabel Data label
      */
-    public function displaySelectionFormAction(string $dataLabel = null): void
+    public function displaySelectionFormAction(string $dataLabel): void
     {
         if (! isset($GLOBALS['goto'])) {
             $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');

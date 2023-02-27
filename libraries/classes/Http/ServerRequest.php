@@ -227,7 +227,6 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /***/
     public function getParam(string $param, mixed $default = null): mixed
     {
         $getParams = $this->getQueryParams();
@@ -244,7 +243,6 @@ class ServerRequest implements ServerRequestInterface
         return $getParams[$param] ?? $default;
     }
 
-    /***/
     public function getParsedBodyParam(string $param, mixed $default = null): mixed
     {
         $postParams = $this->getParsedBody();
@@ -260,7 +258,6 @@ class ServerRequest implements ServerRequestInterface
         return $default;
     }
 
-    /***/
     public function getQueryParam(string $param, mixed $default = null): mixed
     {
         $getParams = $this->getQueryParams();

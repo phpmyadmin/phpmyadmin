@@ -328,12 +328,12 @@ class Theme
      * If filename is given, it possibly fallbacks to fallback
      * theme for it if image does not exist.
      *
-     * @param string $file     file name for image
-     * @param string $fallback fallback image
+     * @param string|null $file     file name for image
+     * @param string|null $fallback fallback image
      *
      * @return string image path for this theme
      */
-    public function getImgPath(string $file = null, string $fallback = null): string
+    public function getImgPath(string|null $file = null, string|null $fallback = null): string
     {
         if ($file === null) {
             return $this->imgPath;

@@ -234,11 +234,11 @@ abstract class ExportPlugin implements Plugin
     /**
      * Initialize aliases
      *
-     * @param array  $aliases Alias information for db/table/column
-     * @param string $db      the database
-     * @param string $table   the table
+     * @param array       $aliases Alias information for db/table/column
+     * @param string      $db      the database
+     * @param string|null $table   the table
      */
-    public function initAlias(array $aliases, string &$db, string &$table = null): void
+    public function initAlias(array $aliases, string &$db, string|null &$table = null): void
     {
         if (! empty($aliases[$db]['tables'][$table]['alias'])) {
             $table = $aliases[$db]['tables'][$table]['alias'];

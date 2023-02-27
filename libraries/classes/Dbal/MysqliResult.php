@@ -30,7 +30,6 @@ final class MysqliResult implements ResultInterface
      */
     private mysqli_result|null $result;
 
-    /***/
     public function __construct(mysqli_result|bool $result)
     {
         $this->result = is_bool($result) ? null : $result;
@@ -89,7 +88,6 @@ final class MysqliResult implements ResultInterface
 
     /**
      * Returns a single value from the given result; false on error
-     *
      */
     public function fetchValue(int|string $field = 0): string|false|null
     {

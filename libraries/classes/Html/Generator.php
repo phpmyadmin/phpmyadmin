@@ -419,7 +419,7 @@ class Generator
      * usually the message is the result of the query executed
      *
      * @param Message|string $message  the message to display
-     * @param string         $sqlQuery the query to display
+     * @param string|null    $sqlQuery the query to display
      * @param string         $type     the type (level) of the message
      *
      * @throws Throwable
@@ -429,7 +429,7 @@ class Generator
      */
     public static function getMessage(
         Message|string $message,
-        string $sqlQuery = null,
+        string|null $sqlQuery = null,
         string $type = 'notice',
     ): string {
         $retval = '';

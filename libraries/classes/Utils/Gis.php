@@ -112,18 +112,18 @@ final class Gis
      * Returns the names and details of the functions
      * that can be applied on geometry data types.
      *
-     * @param string $geomType if provided the output is limited to the functions
+     * @param string|null $geomType if provided the output is limited to the functions
      *                          that are applicable to the provided geometry type.
-     * @param bool   $binary   if set to false functions that take two geometries
-     *                         as arguments will not be included.
-     * @param bool   $display  if set to true separators will be added to the
-     *                         output array.
+     * @param bool        $binary   if set to false functions that take two geometries
+     *                              as arguments will not be included.
+     * @param bool        $display  if set to true separators will be added to the
+     *                              output array.
      *
      * @return array<int|string,array<string,int|string>> names and details of the functions that can be applied on
      *                                                    geometry data types.
      */
     public static function getFunctions(
-        string $geomType = null,
+        string|null $geomType = null,
         bool $binary = true,
         bool $display = false,
     ): array {

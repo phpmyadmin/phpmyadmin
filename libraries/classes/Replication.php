@@ -116,18 +116,18 @@ class Replication
     /**
      * This function provides connection to remote mysql server
      *
-     * @param string $user     mysql username
-     * @param string $password password for the user
-     * @param string $host     mysql server's hostname or IP
-     * @param int    $port     mysql remote port
-     * @param string $socket   path to unix socket
+     * @param string      $user     mysql username
+     * @param string      $password password for the user
+     * @param string|null $host     mysql server's hostname or IP
+     * @param int|null    $port     mysql remote port
+     * @param string|null $socket   path to unix socket
      */
     public function connectToPrimary(
         string $user,
         string $password,
-        string $host = null,
-        int $port = null,
-        string $socket = null,
+        string|null $host = null,
+        int|null $port = null,
+        string|null $socket = null,
     ): Connection|null {
         $server = [];
         $server['user'] = $user;

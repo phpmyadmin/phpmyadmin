@@ -273,16 +273,12 @@ final class TrackingController extends AbstractController
         ]);
     }
 
-    /**
-     *
-     * @psalm-return 'schema'|'data'|'schema_and_data'
-     */
+    /** @psalm-return 'schema'|'data'|'schema_and_data' */
     private function validateLogTypeParam(mixed $param): string
     {
         return in_array($param, ['schema', 'data'], true) ? $param : 'schema_and_data';
     }
 
-    /***/
     private function validateDateTimeParam(mixed $param): DateTimeImmutable
     {
         try {

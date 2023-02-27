@@ -37,7 +37,6 @@ class Triggers
     /** @var array<int, string> */
     private array $event = ['INSERT', 'UPDATE', 'DELETE'];
 
-    /***/
     public function __construct(private DatabaseInterface $dbi, private Template $template, private ResponseRenderer $response)
     {
     }
@@ -328,8 +327,8 @@ class Triggers
     /**
      * Displays a form used to add/edit a trigger
      *
-     * @param string $mode  If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
-     * @param array  $item  Data for the trigger returned by getDataFromRequest() or getDataFromName()
+     * @param string $mode If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
+     * @param array  $item Data for the trigger returned by getDataFromRequest() or getDataFromName()
      */
     public function getEditorForm(string $db, string $table, string $mode, array $item): string
     {

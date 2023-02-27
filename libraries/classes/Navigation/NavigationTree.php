@@ -135,7 +135,6 @@ class NavigationTree
      */
     private bool $largeGroupWarning = false;
 
-    /***/
     public function __construct(private Template $template, private DatabaseInterface $dbi)
     {
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);

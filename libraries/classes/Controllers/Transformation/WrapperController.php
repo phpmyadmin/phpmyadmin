@@ -179,7 +179,6 @@ class WrapperController extends AbstractController
         }
     }
 
-    /***/
     private function formatSize(mixed $size): int
     {
         if (! is_numeric($size) || $size < 2) {
@@ -193,8 +192,6 @@ class WrapperController extends AbstractController
         return (int) $size;
     }
 
-    /**
-     */
     private function getQuery(TableName $table, mixed $whereClause, mixed $whereClauseSign): string|null
     {
         if ($whereClause === null) {

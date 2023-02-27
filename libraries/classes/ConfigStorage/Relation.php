@@ -57,7 +57,6 @@ use const SQL_DIR;
  */
 class Relation
 {
-    /***/
     public function __construct(public DatabaseInterface $dbi)
     {
     }

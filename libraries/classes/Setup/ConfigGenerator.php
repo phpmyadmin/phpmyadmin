@@ -202,10 +202,7 @@ class ConfigGenerator
         return $ret;
     }
 
-    /**
-     *
-     * @psalm-return non-empty-string
-     */
+    /** @psalm-return non-empty-string */
     private static function getBlowfishSecretKey(mixed $key): string
     {
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {

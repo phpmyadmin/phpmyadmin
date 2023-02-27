@@ -268,14 +268,14 @@ class UserPreferences
     /**
      * Redirects after saving new user preferences
      *
-     * @param string     $file_name Filename
-     * @param array|null $params    URL parameters
-     * @param string     $hash      Hash value
+     * @param string      $file_name Filename
+     * @param array|null  $params    URL parameters
+     * @param string|null $hash      Hash value
      */
     public function redirect(
         string $file_name,
         array|null $params = null,
-        string $hash = null,
+        string|null $hash = null,
     ): void {
         // redirect
         $url_params = ['saved' => 1];

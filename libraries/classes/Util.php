@@ -259,7 +259,6 @@ class Util
     /**
      * returns array with tables of given db with extended information and grouped
      *
-     *
      * @return array (recursive) grouped table list
      */
     public static function getTableList(string $db): array
@@ -1809,11 +1808,11 @@ class Util
     /**
      * Return the list of tabs for the menu with corresponding names
      *
-     * @param string $level 'server', 'db' or 'table' level
+     * @param string|null $level 'server', 'db' or 'table' level
      *
      * @return array|null list of tabs for the menu
      */
-    public static function getMenuTabList(string $level = null): array|null
+    public static function getMenuTabList(string|null $level = null): array|null
     {
         $tabList = [
             'server' => [
@@ -1862,7 +1861,7 @@ class Util
             ],
         ];
 
-        if ($level == null) {
+        if ($level === null) {
             return $tabList;
         }
 

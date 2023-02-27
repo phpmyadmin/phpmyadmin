@@ -282,15 +282,15 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param string $info         specific information to be fetched
-     * @param bool   $forceRead    read new rather than serving from cache
-     * @param bool   $disableError if true, disables error message
+     * @param string|null $info         specific information to be fetched
+     * @param bool        $forceRead    read new rather than serving from cache
+     * @param bool        $disableError if true, disables error message
      *
      * @todo DatabaseInterface::getTablesFull needs to be merged
      * somehow into this class or at least better documented
      */
     public function getStatusInfo(
-        string $info = null,
+        string|null $info = null,
         bool $forceRead = false,
         bool $disableError = false,
     ): mixed {
@@ -464,8 +464,8 @@ class Table implements Stringable
      * @param string      $virtuality       virtuality of the column
      * @param string      $expression       expression for the virtual column
      * @param string      $moveTo           new position for column
-     * @param array       $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
-     * @param string      $oldColumnName    Old column name
+     * @param array|null  $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
+     * @param string|null $oldColumnName    Old column name
      *
      * @return string  field specification
      *
@@ -487,8 +487,8 @@ class Table implements Stringable
         string $virtuality = '',
         string $expression = '',
         string $moveTo = '',
-        array $columnsWithIndex = null,
-        string $oldColumnName = null,
+        array|null $columnsWithIndex = null,
+        string|null $oldColumnName = null,
     ): string {
         $isTimestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
@@ -779,7 +779,7 @@ class Table implements Stringable
      * @param string      $virtuality       virtuality of the column
      * @param string      $expression       expression for the virtual column
      * @param string      $moveTo           new position for column
-     * @param array       $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
+     * @param array|null  $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
      *
      * @return string  field specification
      */
@@ -798,7 +798,7 @@ class Table implements Stringable
         string $virtuality,
         string $expression,
         string $moveTo,
-        array $columnsWithIndex = null,
+        array|null $columnsWithIndex = null,
     ): string {
         return Util::backquote($oldcol) . ' '
         . self::generateFieldSpec(
@@ -1404,10 +1404,10 @@ class Table implements Stringable
     /**
      * renames table
      *
-     * @param string $newName new table name
-     * @param string $newDb   new database name
+     * @param string      $newName new table name
+     * @param string|null $newDb   new database name
      */
-    public function rename(string $newName, string $newDb = null): bool
+    public function rename(string $newName, string|null $newDb = null): bool
     {
         if ($this->dbi->getLowerCaseNames() === 1) {
             $newName = strtolower($newName);
@@ -1858,11 +1858,11 @@ class Table implements Stringable
      * - PROP_COLUMN_ORDER
      * - PROP_COLUMN_VISIB
      *
-     * @param string $property        Property
-     * @param mixed  $value           Value for the property
-     * @param string $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
+     * @param string      $property        Property
+     * @param mixed       $value           Value for the property
+     * @param string|null $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
      */
-    public function setUiProp(string $property, mixed $value, string $tableCreateTime = null): bool|Message
+    public function setUiProp(string $property, mixed $value, string|null $tableCreateTime = null): bool|Message
     {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
@@ -2402,14 +2402,14 @@ class Table implements Stringable
     /**
      * Returns the SQL query for foreign key constraint creation
      *
-     * @param string $table        table name
-     * @param array  $field        field names
-     * @param string $foreignDb    foreign database name
-     * @param string $foreignTable foreign table name
-     * @param array  $foreignField foreign field names
-     * @param string $name         name of the constraint
-     * @param string $onDelete     on delete action
-     * @param string $onUpdate     on update action
+     * @param string      $table        table name
+     * @param array       $field        field names
+     * @param string      $foreignDb    foreign database name
+     * @param string      $foreignTable foreign table name
+     * @param array       $foreignField foreign field names
+     * @param string|null $name         name of the constraint
+     * @param string|null $onDelete     on delete action
+     * @param string|null $onUpdate     on update action
      *
      * @return string SQL query for foreign key constraint creation
      */
@@ -2419,9 +2419,9 @@ class Table implements Stringable
         string $foreignDb,
         string $foreignTable,
         array $foreignField,
-        string $name = null,
-        string $onDelete = null,
-        string $onUpdate = null,
+        string|null $name = null,
+        string|null $onDelete = null,
+        string|null $onUpdate = null,
     ): string {
         $sqlQuery = 'ALTER TABLE ' . Util::backquote($table) . ' ADD ';
         // if user entered a constraint name
@@ -2459,12 +2459,12 @@ class Table implements Stringable
     /**
      * Returns the generation expression for virtual columns
      *
-     * @param string $column name of the column
+     * @param string|null $column name of the column
      *
      * @return array|bool associative array of column name and their expressions
      * or false on failure
      */
-    public function getColumnGenerationExpression(string $column = null): array|bool
+    public function getColumnGenerationExpression(string|null $column = null): array|bool
     {
         if (
             Compatibility::isMySqlOrPerconaDb()
@@ -2479,7 +2479,7 @@ class Table implements Stringable
                 WHERE
                 `TABLE_SCHEMA` = ' . $this->dbi->quoteString($this->dbName) . '
                 AND `TABLE_NAME` = ' . $this->dbi->quoteString($this->name);
-            if ($column != null) {
+            if ($column !== null) {
                 $sql .= ' AND  `COLUMN_NAME` = ' . $this->dbi->quoteString($column);
             }
 

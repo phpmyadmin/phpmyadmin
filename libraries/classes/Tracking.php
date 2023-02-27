@@ -106,16 +106,16 @@ class Tracking
     /**
      * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param array  $urlParams   url parameters
-     * @param string $textDir     text direction
-     * @param int    $lastVersion last tracking version
+     * @param array    $urlParams   url parameters
+     * @param string   $textDir     text direction
+     * @param int|null $lastVersion last tracking version
      */
     public function getHtmlForMainPage(
         string $db,
         string $table,
         array $urlParams,
         string $textDir,
-        int $lastVersion = null,
+        int|null $lastVersion = null,
     ): string {
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
         $selectableTablesEntries = [];

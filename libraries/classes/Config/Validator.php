@@ -214,7 +214,7 @@ class Validator
         string $port,
         string $socket,
         string $user,
-        string $pass = null,
+        string $pass,
         string $errorKey = 'Server',
     ): bool|array {
         if ($GLOBALS['cfg']['DBG']['demo']) {
@@ -234,7 +234,7 @@ class Validator
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
-        $conn = @mysqli_connect($host, $user, (string) $pass, '', $port, $socket);
+        $conn = @mysqli_connect($host, $user, $pass, '', $port, $socket);
         if (! $conn) {
             $error = __('Could not connect to the database server!');
         } else {

@@ -384,17 +384,17 @@ interface DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string           $query query to execute
-     * @param string|int|array $key   field-name or offset used as key for array or array of those
-     * @param string|int       $value value-name or offset used as value for array
+     * @param string                $query query to execute
+     * @param string|int|array|null $key   field-name or offset used as key for array or array of those
+     * @param string|int|null       $value value-name or offset used as value for array
      * @psalm-param ConnectionType $connectionType
      *
      * @return array resultrows or values indexed by $key
      */
     public function fetchResult(
         string $query,
-        string|int|array $key = null,
-        string|int $value = null,
+        string|int|array|null $key = null,
+        string|int|null $value = null,
         int $connectionType = Connection::TYPE_USER,
     ): array;
 

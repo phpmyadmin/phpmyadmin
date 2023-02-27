@@ -178,12 +178,8 @@ class ConfigFile
 
     /**
      * Sets config value
-     *
-     * @param string $path          Path
-     * @param mixed  $value         Value
-     * @param string $canonicalPath Canonical path
      */
-    public function set(string $path, mixed $value, string $canonicalPath = null): void
+    public function set(string $path, mixed $value, string|null $canonicalPath = null): void
     {
         if ($canonicalPath === null) {
             $canonicalPath = $this->getCanonicalPath($path);

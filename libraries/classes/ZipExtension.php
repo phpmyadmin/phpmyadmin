@@ -39,13 +39,13 @@ class ZipExtension
     /**
      * Gets zip file contents
      *
-     * @param string $file          path to zip file
-     * @param string $specificEntry regular expression to match a file
+     * @param string      $file          path to zip file
+     * @param string|null $specificEntry regular expression to match a file
      *
      * @return array<string, string>
      * @psalm-return array{error: string, data: string}
      */
-    public function getContents(string $file, string $specificEntry = null): array
+    public function getContents(string $file, string|null $specificEntry = null): array
     {
         /**
         * This function is used to "import" a SQL file which has been exported earlier
@@ -92,7 +92,7 @@ class ZipExtension
             $specificEntry = '/^content\.xml$/';
         }
 
-        if (! isset($specificEntry)) {
+        if ($specificEntry === null) {
             $fileData = $firstZipEntry;
             $this->zip->close();
 

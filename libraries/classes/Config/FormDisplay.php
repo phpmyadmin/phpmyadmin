@@ -124,11 +124,11 @@ class FormDisplay
     /**
      * Registers form in form manager
      *
-     * @param string $formName Form name
-     * @param array  $form     Form data
-     * @param int    $serverId 0 if new server, validation; >= 1 if editing a server
+     * @param string   $formName Form name
+     * @param array    $form     Form data
+     * @param int|null $serverId 0 if new server, validation; >= 1 if editing a server
      */
-    public function registerForm(string $formName, array $form, int $serverId = null): void
+    public function registerForm(string $formName, array $form, int|null $serverId = null): void
     {
         $this->forms[$formName] = new Form($formName, $form, $this->configFile, $serverId);
         $this->isValidated = false;
@@ -207,16 +207,16 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool       $showButtons  whether show submit and reset button
-     * @param string     $formAction   action attribute for the form
-     * @param array|null $hiddenFields array of form hidden fields (key: field
-     *                                 name)
+     * @param bool        $showButtons  whether show submit and reset button
+     * @param string|null $formAction   action attribute for the form
+     * @param array|null  $hiddenFields array of form hidden fields (key: field
+     *                                  name)
      *
      * @return string HTML for forms
      */
     public function getDisplay(
         bool $showButtons = true,
-        string $formAction = null,
+        string|null $formAction = null,
         array|null $hiddenFields = null,
     ): string {
         $js = [];
