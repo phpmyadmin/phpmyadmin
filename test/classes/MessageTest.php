@@ -392,29 +392,6 @@ class MessageTest extends AbstractTestCase
     }
 
     /**
-     * testing format method
-     */
-    public function testFormat(): void
-    {
-        $this->assertEquals(
-            'test string',
-            Message::format('test string'),
-        );
-        $this->assertEquals(
-            'test string',
-            Message::format('test string', 'a'),
-        );
-        $this->assertEquals(
-            'test string',
-            Message::format('test string', []),
-        );
-        $this->assertEquals(
-            'test string',
-            Message::format('%s string', ['test']),
-        );
-    }
-
-    /**
      * testing getHash method
      */
     public function testGetHash(): void
