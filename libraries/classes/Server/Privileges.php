@@ -108,7 +108,7 @@ class Privileges
      *
      * @return string the escaped string
      */
-    public function escapeGrantWildcards($name): string
+    public function escapeGrantWildcards(string $name): string
     {
         return strtr($name, ['_' => '\\_', '%' => '\\%']);
     }
@@ -121,7 +121,7 @@ class Privileges
      *
      * @return string the escaped string
      */
-    public function unescapeGrantWildcards($name): string
+    public function unescapeGrantWildcards(string $name): string
     {
         return strtr($name, ['\\_' => '_', '\\%' => '%']);
     }
@@ -190,7 +190,7 @@ class Privileges
      *
      * @global resource $user_link the database connection
      */
-    public function extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false): array
+    public function extractPrivInfo(array|null $row = null, bool $enableHTML = false, bool $tablePrivs = false): array
     {
         if ($tablePrivs) {
             $grants = $this->getTableGrantsArray();
@@ -542,7 +542,7 @@ class Privileges
      * @param string $username  username
      * @param string $userGroup user group to set
      */
-    public function setUserGroup($username, $userGroup): void
+    public function setUserGroup(string $username, string $userGroup): void
     {
         $userGroup ??= '';
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
@@ -588,9 +588,9 @@ class Privileges
      * @global resource  $user_link   the database connection
      */
     public function getHtmlToDisplayPrivilegesTable(
-        $db = '*',
-        $table = '*',
-        $submit = true,
+        string $db = '*',
+        string $table = '*',
+        bool $submit = true,
     ): string {
         if ($db === '*') {
             $table = '*';
@@ -694,7 +694,7 @@ class Privileges
         string $hostname,
         string $db,
         string $routine,
-        $urlDbname,
+        string $urlDbname,
     ): string {
         $privileges = $this->getRoutinePrivileges($username, $hostname, $db, $routine);
 
@@ -868,7 +868,7 @@ class Privileges
      *
      * @return string containing all the grants text
      */
-    public function getGrants($user, $host): string
+    public function getGrants(string $user, string $host): string
     {
         $grants = $this->dbi->fetchResult(
             'SHOW GRANTS FOR '
@@ -892,7 +892,7 @@ class Privileges
      *
      * @return Message success or error message after updating password
      */
-    public function updatePassword($errorUrl, string $username, string $hostname): Message
+    public function updatePassword(string $errorUrl, string $username, string $hostname): Message
     {
         // similar logic in /user-password
         $message = null;
@@ -1055,7 +1055,7 @@ class Privileges
         string $tablename,
         string $username,
         string $hostname,
-        $itemType,
+        string $itemType,
     ): array {
         $dbAndTable = $this->wildcardEscapeForGrant($dbname, $tablename);
 
@@ -1185,7 +1185,7 @@ class Privileges
      *
      * @return string HTML for addUserForm
      */
-    public function getHtmlForAddUser($dbname): string
+    public function getHtmlForAddUser(string $dbname): string
     {
         $isGrantUser = $this->dbi->isGrantUser();
         $loginInformationFieldsNew = $this->getHtmlForLoginInformationFields();
@@ -1388,13 +1388,13 @@ class Privileges
      * @return string HTML code with link
      */
     public function getUserLink(
-        $linktype,
-        $username,
-        $hostname,
-        $dbname = '',
-        $tablename = '',
-        $routinename = '',
-        $initial = '',
+        string $linktype,
+        string $username,
+        string $hostname,
+        string $dbname = '',
+        string $tablename = '',
+        string $routinename = '',
+        string $initial = '',
     ): string {
         $linkClass = '';
         if ($linktype == 'edit') {
@@ -1501,10 +1501,10 @@ class Privileges
      * @return (string|bool)[]
      */
     public function getExtraDataForAjaxBehavior(
-        $password,
-        $sqlQuery,
-        $hostname,
-        $username,
+        string $password,
+        string $sqlQuery,
+        string $hostname,
+        string $username,
     ): array {
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
@@ -1592,7 +1592,7 @@ class Privileges
      *
      * @return array database rights
      */
-    public function getUserSpecificRights($username, $hostname, $type, $dbname = ''): array
+    public function getUserSpecificRights(string $username, string $hostname, string $type, string $dbname = ''): array
     {
         $userHostCondition = $this->getUserHostCondition($username, $hostname);
 
@@ -1700,7 +1700,7 @@ class Privileges
      *
      * @return array<string, string>
      */
-    public function parseProcPriv($privs): array
+    public function parseProcPriv(string $privs): array
     {
         $result = [
             'Alter_routine_priv' => 'N',
@@ -1727,10 +1727,10 @@ class Privileges
      * @param string $dbname   database name
      */
     public function getHtmlForAllTableSpecificRights(
-        $username,
-        $hostname,
-        $type,
-        $dbname = '',
+        string $username,
+        string $hostname,
+        string $type,
+        string $dbname = '',
     ): string {
         $uiData = [
             'database' => [
@@ -1914,7 +1914,7 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public function getUsersOverview(ResultInterface $result, array $dbRights, $textDir): string
+    public function getUsersOverview(ResultInterface $result, array $dbRights, string $textDir): string
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
 
@@ -2334,7 +2334,7 @@ class Privileges
      *
      * @return array
      */
-    public function getDataForDeleteUsers($queries): array
+    public function getDataForDeleteUsers(array $queries): array
     {
         if (isset($_POST['change_copy'])) {
             $selectedUsr = [
@@ -2405,7 +2405,7 @@ class Privileges
      *
      * @return array
      */
-    public function getDataForQueries(array $queries, $queriesForDisplay): array
+    public function getDataForQueries(array $queries, array|null $queriesForDisplay): array
     {
         $tmpCount = 0;
         foreach ($queries as $sqlQuery) {
@@ -2437,11 +2437,11 @@ class Privileges
      * @return array
      */
     public function addUser(
-        $dbname,
+        string|array|null $dbname,
         string $username,
         string $hostname,
         string|null $password,
-        $isMenuwork,
+        bool $isMenuwork,
     ): array {
         $message = null;
         $queries = null;
@@ -2602,7 +2602,7 @@ class Privileges
      *
      * @param string $authPlugin authentication plugin selected
      */
-    public function setProperPasswordHashing($authPlugin): void
+    public function setProperPasswordHashing(string $authPlugin): void
     {
         // Set the hashing method used by PASSWORD()
         // to be of type depending upon $authentication_plugin
@@ -2796,7 +2796,7 @@ class Privileges
      *
      * @param string $textDir text directory
      */
-    public function getHtmlForUserOverview($textDir, string $initial): string
+    public function getHtmlForUserOverview(string $textDir, string $initial): string
     {
         $passwordColumn = 'Password';
         $serverVersion = $this->dbi->getVersion();
@@ -2910,12 +2910,12 @@ class Privileges
      * @psalm-param non-empty-string $route
      */
     public function getHtmlForUserProperties(
-        $dbnameIsWildcard,
-        $urlDbname,
+        bool $dbnameIsWildcard,
+        string $urlDbname,
         string $username,
         string $hostname,
         string|array $dbname,
-        $tablename,
+        string $tablename,
         string $route,
     ): string {
         $userDoesNotExists = ! $this->userExists($username, $hostname);
@@ -3021,8 +3021,8 @@ class Privileges
     public function getTablePrivsQueriesForChangeOrCopyUser(
         string $userHostCondition,
         array $queries,
-        $username,
-        $hostname,
+        string $username,
+        string $hostname,
     ): array {
         $res = $this->dbi->query(
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $userHostCondition . ';',
@@ -3141,14 +3141,14 @@ class Privileges
      * @return array<int,string|Message>
      */
     public function addUserAndCreateDatabase(
-        $error,
-        $realSqlQuery,
-        $sqlQuery,
-        $username,
-        $hostname,
-        $dbname,
-        $alterRealSqlQuery,
-        $alterSqlQuery,
+        bool $error,
+        string $realSqlQuery,
+        string $sqlQuery,
+        string $username,
+        string $hostname,
+        string $dbname,
+        string $alterRealSqlQuery,
+        string $alterSqlQuery,
         bool $createDb1,
         bool $createDb2,
         bool $createDb3,

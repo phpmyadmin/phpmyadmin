@@ -60,13 +60,13 @@ abstract class TableStats
      * @param bool                            $offline        whether the coordinates are sent from the browser
      */
     public function __construct(
-        protected $diagram,
-        protected $db,
-        protected $pageNumber,
-        protected $tableName,
-        protected $showKeys,
-        protected $tableDimension,
-        protected $offline,
+        protected Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia $diagram,
+        protected string $db,
+        protected int $pageNumber,
+        protected string $tableName,
+        protected bool $showKeys,
+        protected bool $tableDimension,
+        protected bool $offline,
     ) {
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->font = new Font();

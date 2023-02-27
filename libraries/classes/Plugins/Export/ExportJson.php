@@ -44,7 +44,7 @@ class ExportJson extends ExportPlugin
      *
      * @param mixed $data Data to encode
      */
-    public function encode($data): string|false
+    public function encode(mixed $data): string|false
     {
         $options = 0;
         if (isset($GLOBALS['json_pretty_print']) && $GLOBALS['json_pretty_print']) {
@@ -129,7 +129,7 @@ class ExportJson extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader($db, $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -148,7 +148,7 @@ class ExportJson extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter($db): bool
+    public function exportDBFooter(string $db): bool
     {
         return true;
     }
@@ -160,7 +160,7 @@ class ExportJson extends ExportPlugin
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -175,10 +175,10 @@ class ExportJson extends ExportPlugin
      * @param array  $aliases  Aliases of db/table/columns
      */
     public function exportData(
-        $db,
-        $table,
-        $errorUrl,
-        $sqlQuery,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $sqlQuery,
         array $aliases = [],
     ): bool {
         $db_alias = $db;

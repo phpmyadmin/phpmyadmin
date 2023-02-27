@@ -174,7 +174,7 @@ class ExportOdt extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader($db, $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
         if (empty($dbAlias)) {
             $dbAlias = $db;
@@ -193,7 +193,7 @@ class ExportOdt extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter($db): bool
+    public function exportDBFooter(string $db): bool
     {
         return true;
     }
@@ -205,7 +205,7 @@ class ExportOdt extends ExportPlugin
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -220,10 +220,10 @@ class ExportOdt extends ExportPlugin
      * @param array  $aliases  Aliases of db/table/columns
      */
     public function exportData(
-        $db,
-        $table,
-        $errorUrl,
-        $sqlQuery,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $sqlQuery,
         array $aliases = [],
     ): bool {
         $GLOBALS['what'] ??= null;
@@ -342,7 +342,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = []): string
+    public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
         $db_alias = $db;
         $view_alias = $view;
@@ -412,15 +412,15 @@ class ExportOdt extends ExportPlugin
      * @param array  $aliases       Aliases of db/table/columns
      */
     public function getTableDef(
-        $db,
-        $table,
-        $error_url,
-        $do_relation,
-        $do_comments,
-        $do_mime,
-        $show_dates = false,
-        $add_semicolon = true,
-        $view = false,
+        string $db,
+        string $table,
+        string $error_url,
+        bool $do_relation,
+        bool $do_comments,
+        bool $do_mime,
+        bool $show_dates = false,
+        bool $add_semicolon = true,
+        bool $view = false,
         array $aliases = [],
     ): bool {
         $db_alias = $db;
@@ -571,7 +571,7 @@ class ExportOdt extends ExportPlugin
      * @param string $table   table name
      * @param array  $aliases Aliases of db/table/columns
      */
-    protected function getTriggers($db, $table, array $aliases = []): string
+    protected function getTriggers(string $db, string $table, array $aliases = []): string
     {
         $db_alias = $db;
         $table_alias = $table;
@@ -647,15 +647,15 @@ class ExportOdt extends ExportPlugin
      * @param array  $aliases     Aliases of db/table/columns
      */
     public function exportStructure(
-        $db,
-        $table,
-        $errorUrl,
-        $exportMode,
-        $exportType,
-        $do_relation = false,
-        $do_comments = false,
-        $do_mime = false,
-        $dates = false,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $exportMode,
+        string $exportType,
+        bool $do_relation = false,
+        bool $do_comments = false,
+        bool $do_mime = false,
+        bool $dates = false,
         array $aliases = [],
     ): bool {
         $db_alias = $db;
@@ -733,7 +733,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return string Formatted column definition
      */
-    protected function formatOneColumnDefinition($column, $col_as = ''): string
+    protected function formatOneColumnDefinition(array $column, string $col_as = ''): string
     {
         if (empty($col_as)) {
             $col_as = $column['Field'];

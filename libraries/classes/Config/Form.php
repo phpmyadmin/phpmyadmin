@@ -81,10 +81,10 @@ class Form
      * @param int|null   $index    arbitrary index, stored in Form::$index
      */
     public function __construct(
-        $formName,
+        string $formName,
         array $form,
         ConfigFile $cf,
-        $index = null,
+        int|null $index = null,
     ) {
         $this->index = $index;
         $this->configFile = $cf;
@@ -98,7 +98,7 @@ class Form
      *
      * @return string|null one of: boolean, integer, double, string, select, array
      */
-    public function getOptionType($optionName): string|null
+    public function getOptionType(string $optionName): string|null
     {
         $key = ltrim(
             mb_substr(
@@ -118,7 +118,7 @@ class Form
      *
      * @return array
      */
-    public function getOptionValueList($optionPath): array
+    public function getOptionValueList(string $optionPath): array
     {
         $value = $this->configFile->getDbEntry($optionPath);
         if ($value === null) {
@@ -171,7 +171,7 @@ class Form
      * @param mixed $key    Key
      * @param mixed $prefix Prefix
      */
-    private function readFormPathsCallback($value, $key, $prefix): void
+    private function readFormPathsCallback(mixed $value, mixed $key, mixed $prefix): void
     {
         if (is_array($value)) {
             $prefix .= $key . '/';
@@ -293,7 +293,7 @@ class Form
      * @param string $formName Form name
      * @param array  $form     Form
      */
-    public function loadForm($formName, array $form): void
+    public function loadForm(string $formName, array $form): void
     {
         $this->name = $formName;
         $form = $this->cleanGroupPaths($form);

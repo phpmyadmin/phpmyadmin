@@ -24,7 +24,7 @@ class NodeColumn extends Node
      * @param bool  $isGroup Whether this object has been created
      *                       while grouping nodes
      */
-    public function __construct($item, $type = Node::OBJECT, $isGroup = false)
+    public function __construct(array $item, int $type = Node::OBJECT, bool $isGroup = false)
     {
         $this->displayName = $this->getDisplayName($item);
 
@@ -52,7 +52,7 @@ class NodeColumn extends Node
      *
      * @return string Icon name for required key.
      */
-    private function getColumnIcon($key): string
+    private function getColumnIcon(string $key): string
     {
         return match ($key) {
             'PRI' => 'b_primary',
@@ -68,7 +68,7 @@ class NodeColumn extends Node
      *
      * @return string Display name for navigation tree
      */
-    private function getDisplayName($item): string
+    private function getDisplayName(array $item): string
     {
         $retval = $item['name'];
         $flag = 0;
@@ -93,7 +93,7 @@ class NodeColumn extends Node
      *
      * @return string truncated value
      */
-    private function getTruncateValue($key, $value): string
+    private function getTruncateValue(string $key, string $value): string
     {
         if ($key === 'default' && strlen($value) > 6) {
             return substr($value, 0, 6) . '...';

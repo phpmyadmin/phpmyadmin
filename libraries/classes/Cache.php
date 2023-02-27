@@ -20,7 +20,7 @@ class Cache
      * @param string $cacheKey The key to use
      * @param mixed  $value    The value to cache
      */
-    public static function set(string $cacheKey, $value): void
+    public static function set(string $cacheKey, mixed $value): void
     {
         self::$cacheData[$cacheKey] = $value;
     }
@@ -43,7 +43,7 @@ class Cache
      *
      * @return mixed The cached value
      */
-    public static function get(string $cacheKey, $defaultValue = null): mixed
+    public static function get(string $cacheKey, mixed $defaultValue = null): mixed
     {
         return self::$cacheData[$cacheKey] ?? $defaultValue;
     }

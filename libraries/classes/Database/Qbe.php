@@ -189,7 +189,6 @@ class Qbe
     private SavedSearches|null $currentSearch = null;
 
     /**
-     * @param DatabaseInterface  $dbi
      * @param string             $dbname          Database name
      * @param array              $savedSearchList List of saved searches
      * @param SavedSearches|null $currentSearch   Current search id
@@ -197,10 +196,10 @@ class Qbe
     public function __construct(
         private Relation $relation,
         public Template $template,
-        public $dbi,
-        $dbname,
+        public DatabaseInterface $dbi,
+        string $dbname,
         array $savedSearchList = [],
-        $currentSearch = null,
+        SavedSearches|null $currentSearch = null,
     ) {
         $this->db = $dbname;
         $this->savedSearchList = $savedSearchList;
@@ -328,7 +327,7 @@ class Qbe
      *
      * @return string HTML for select options
      */
-    private function showColumnSelectCell($columnNumber, $selected = ''): string
+    private function showColumnSelectCell(int $columnNumber, string $selected = ''): string
     {
         return $this->template->render('database/qbe/column_select_cell', [
             'column_number' => $columnNumber,
@@ -346,8 +345,8 @@ class Qbe
      * @return string HTML for select options
      */
     private function getSortSelectCell(
-        $columnNumber,
-        $selected = '',
+        int $columnNumber,
+        string $selected = '',
     ): string {
         return $this->template->render('database/qbe/sort_select_cell', [
             'real_width' => $this->realwidth,
@@ -364,7 +363,7 @@ class Qbe
      *
      * @return string HTML for select options
      */
-    private function getSortOrderSelectCell($columnNumber, $sortOrder): string
+    private function getSortOrderSelectCell(int $columnNumber, int $sortOrder): string
     {
         $totalColumnCount = $this->getNewColumnCount();
 
@@ -711,9 +710,9 @@ class Qbe
      * @return string HTML for modification cell
      */
     private function getAndOrColCell(
-        $columnNumber,
-        $selected = null,
-        $lastColumn = false,
+        int $columnNumber,
+        array|null $selected = null,
+        bool $lastColumn = false,
     ): string {
         $htmlOutput = '<td class="text-center">';
         if (! $lastColumn) {
@@ -799,7 +798,7 @@ class Qbe
      *
      * @return string HTML table rows
      */
-    private function getInputboxRow($newRowIndex): string
+    private function getInputboxRow(int $newRowIndex): string
     {
         $htmlOutput = '';
         $newColumnCount = 0;
@@ -1476,7 +1475,7 @@ class Qbe
      * @param array  $relations
      * @param string $oneTable  the table
      */
-    private function loadRelationsForTable(array &$relations, $oneTable): void
+    private function loadRelationsForTable(array &$relations, string $oneTable): void
     {
         $relations[$oneTable] = [];
 

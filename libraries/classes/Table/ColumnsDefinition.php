@@ -54,10 +54,10 @@ final class ColumnsDefinition
      */
     public function displayForm(
         string $action,
-        $num_fields = 0,
-        $regenerate = null,
+        int $num_fields = 0,
+        string|null $regenerate = null,
         array|null $selected = null,
-        $fields_meta = null,
+        array|null $fields_meta = null,
     ): array {
         $GLOBALS['col_priv'] ??= null;
         $GLOBALS['is_reload_priv'] ??= null;

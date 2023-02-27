@@ -25,7 +25,7 @@ class SysInfo
      *
      * @param string $php_os PHP_OS constant
      */
-    public static function getOs($php_os = PHP_OS): string
+    public static function getOs(string $php_os = PHP_OS): string
     {
         // look for common UNIX-like systems
         $unix_like = [

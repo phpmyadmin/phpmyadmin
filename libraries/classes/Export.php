@@ -64,8 +64,8 @@ class Export
     /** @var array */
     public array $dumpBufferObjects = [];
 
-    /** @param DatabaseInterface $dbi */
-    public function __construct(private $dbi)
+    /***/
+    public function __construct(private DatabaseInterface $dbi)
     {
     }
 

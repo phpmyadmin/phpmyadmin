@@ -20,7 +20,7 @@ final class Gis
      *
      * @return string GIS data in Well Know Text format
      */
-    public static function convertToWellKnownText($data, $includeSRID = false): string
+    public static function convertToWellKnownText(string $data, bool $includeSRID = false): string
     {
         // Convert to WKT format
         $hex = bin2hex($data);
@@ -65,7 +65,7 @@ final class Gis
      *
      * @return string[] GIS data types
      */
-    public static function getDataTypes($upperCase = false): array
+    public static function getDataTypes(bool $upperCase = false): array
     {
         $gisDataTypes = [
             'geometry',
@@ -92,7 +92,7 @@ final class Gis
      *
      * @return string GIS data enclosed in 'ST_GeomFromText' or 'GeomFromText' function
      */
-    public static function createData($gisString, $mysqlVersion): string
+    public static function createData(string $gisString, int $mysqlVersion): string
     {
         $geomFromText = $mysqlVersion >= 50600 ? 'ST_GeomFromText' : 'GeomFromText';
         $gisString = trim($gisString);
@@ -123,9 +123,9 @@ final class Gis
      *                                                    geometry data types.
      */
     public static function getFunctions(
-        $geomType = null,
-        $binary = true,
-        $display = false,
+        string $geomType = null,
+        bool $binary = true,
+        bool $display = false,
     ): array {
         $funcs = [];
         if ($display) {

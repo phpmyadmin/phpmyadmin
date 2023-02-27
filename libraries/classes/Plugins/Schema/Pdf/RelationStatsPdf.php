@@ -33,11 +33,11 @@ class RelationStatsPdf extends RelationStats
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram,
-        $master_table,
-        $master_field,
-        $foreign_table,
-        $foreign_field,
+        Pdf $diagram,
+        string $master_table,
+        string $master_field,
+        string $foreign_table,
+        string $foreign_field,
     ) {
         $this->wTick = 5;
 
@@ -52,7 +52,7 @@ class RelationStatsPdf extends RelationStats
      * @param bool $showColor Whether to use one color per relation or not
      * @param int  $i         The id of the link to draw
      */
-    public function relationDraw($showColor, $i): void
+    public function relationDraw(bool $showColor, int $i): void
     {
         if ($showColor) {
             $d = $i % 6;

@@ -21,11 +21,10 @@ final class DatabaseName implements Stringable
     private string $name;
 
     /**
-     * @param mixed $name
      *
      * @throws InvalidDatabaseName
      */
-    private function __construct($name)
+    private function __construct(mixed $name)
     {
         try {
             Assert::stringNotEmpty($name);
@@ -49,17 +48,16 @@ final class DatabaseName implements Stringable
     }
 
     /**
-     * @param mixed $name
      *
      * @throws InvalidDatabaseName
      */
-    public static function fromValue($name): self
+    public static function fromValue(mixed $name): self
     {
         return new self($name);
     }
 
-    /** @param mixed $name */
-    public static function tryFromValue($name): self|null
+    /***/
+    public static function tryFromValue(mixed $name): self|null
     {
         try {
             return new self($name);

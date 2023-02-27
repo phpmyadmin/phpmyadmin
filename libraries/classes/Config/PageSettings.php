@@ -46,7 +46,7 @@ class PageSettings
      * @param string $formGroupName The name of config form group to display
      * @param string $elemId        Id of the div containing settings
      */
-    public function __construct($formGroupName, $elemId = null)
+    public function __construct(string $formGroupName, string $elemId = null)
     {
         $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
 

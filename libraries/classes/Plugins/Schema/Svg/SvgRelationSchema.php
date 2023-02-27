@@ -180,7 +180,7 @@ class SvgRelationSchema extends ExportRelationSchema
      *
      * @param TableStatsSvg $table The table
      */
-    private function setMinMax($table): void
+    private function setMinMax(TableStatsSvg $table): void
     {
         $this->xMax = max($this->xMax, $table->x + $table->width);
         $this->yMax = max($this->yMax, $table->y + $table->height);
@@ -203,13 +203,13 @@ class SvgRelationSchema extends ExportRelationSchema
      * @param bool   $tableDimension Whether to display table position or not
      */
     private function addRelation(
-        $masterTable,
-        $font,
-        $fontSize,
-        $masterField,
-        $foreignTable,
-        $foreignField,
-        $tableDimension,
+        string $masterTable,
+        string $font,
+        int $fontSize,
+        string $masterField,
+        string $foreignTable,
+        string $foreignField,
+        bool $tableDimension,
     ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsSvg(

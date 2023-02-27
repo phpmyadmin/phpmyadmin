@@ -100,7 +100,7 @@ class Util
      *
      * @param string $value Configuration option name
      */
-    public static function showIcons($value): bool
+    public static function showIcons(string $value): bool
     {
         return in_array($GLOBALS['cfg'][$value], ['icons', 'both']);
     }
@@ -110,7 +110,7 @@ class Util
      *
      * @param string $value Configuration option name
      */
-    public static function showText($value): bool
+    public static function showText(string $value): bool
     {
         return in_array($GLOBALS['cfg'][$value], ['text', 'both']);
     }
@@ -230,7 +230,7 @@ class Util
      *
      * @return int the possibly modified row count
      */
-    private static function checkRowCount($db, array $table): int
+    private static function checkRowCount(string $db, array $table): int
     {
         $rowCount = 0;
 
@@ -259,11 +259,10 @@ class Util
     /**
      * returns array with tables of given db with extended information and grouped
      *
-     * @param string $db
      *
      * @return array (recursive) grouped table list
      */
-    public static function getTableList($db): array
+    public static function getTableList(string $db): array
     {
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
@@ -353,7 +352,7 @@ class Util
      *
      * @param Stringable|string|null $identifier the database, table or field name to "backquote"
      */
-    public static function backquote($identifier): string
+    public static function backquote(Stringable|string|null $identifier): string
     {
         return static::backquoteCompat($identifier, 'NONE', true);
     }
@@ -373,9 +372,9 @@ class Util
      * @param bool|null              $doIt          a flag to bypass this function (used by dump functions)
      */
     public static function backquoteCompat(
-        $identifier,
+        Stringable|string|null $identifier,
         string $compatibility = 'MSSQL',
-        $doIt = true,
+        bool|null $doIt = true,
     ): string {
         $identifier = (string) $identifier;
         if ($identifier === '' || $identifier === '*') {
@@ -405,7 +404,7 @@ class Util
      *
      * @return array|null the formatted value and its unit
      */
-    public static function formatByteDown($value, $limes = 6, $comma = 0): array|null
+    public static function formatByteDown(float|int|string|null $value, int $limes = 6, int $comma = 0): array|null
     {
         if ($value === null) {
             return null;
@@ -487,10 +486,10 @@ class Util
      */
     public static function formatNumber(
         float|int|string $value,
-        $digitsLeft = 3,
-        $digitsRight = 0,
-        $onlyDown = false,
-        $noTrailingZero = true,
+        int $digitsLeft = 3,
+        int $digitsRight = 0,
+        bool $onlyDown = false,
+        bool $noTrailingZero = true,
     ): string {
         if ($value == 0) {
             return '0';
@@ -615,7 +614,7 @@ class Util
      *
      * @return string   the formatted date
      */
-    public static function localisedDate($timestamp = -1, $format = ''): string
+    public static function localisedDate(int $timestamp = -1, string $format = ''): string
     {
         $month = [
             _pgettext('Short month name for January', 'Jan'),
@@ -693,7 +692,7 @@ class Util
      *
      * @return array<int, string> the parameter/value pairs, for example [0] db=sakila
      */
-    public static function splitURLQuery($url): array
+    public static function splitURLQuery(string $url): array
     {
         // decode encoded url separators
         $separator = Url::getArgSeparator();
@@ -722,7 +721,7 @@ class Util
      *
      * @return string the formatted value
      */
-    public static function timespanFormat($seconds): string
+    public static function timespanFormat(int $seconds): string
     {
         $days = floor($seconds / 86400);
         if ($days > 0) {
@@ -761,7 +760,7 @@ class Util
      * @psalm-return array{string|null, string}
      */
     private static function getConditionValue(
-        $row,
+        string|int|float|null $row,
         FieldMetadata $meta,
         int $fieldsCount,
         string $conditionKey,
@@ -826,10 +825,10 @@ class Util
      * @return array the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $fieldsCount,
+        int $fieldsCount,
         array $fieldsMeta,
         array $row,
-        $forceUnique = false,
+        bool $forceUnique = false,
         string|bool $restrictToTable = false,
         array $expressions = [],
     ): array {
@@ -984,16 +983,16 @@ class Util
      * @param string $prompt      The prompt to display (sometimes empty)
      */
     public static function pageselector(
-        $name,
-        $rows,
-        $pageNow = 1,
-        $nbTotalPage = 1,
-        $showAll = 200,
-        $sliceStart = 5,
-        $sliceEnd = 5,
-        $percent = 20,
-        $range = 10,
-        $prompt = '',
+        string $name,
+        int $rows,
+        int $pageNow = 1,
+        int $nbTotalPage = 1,
+        int $showAll = 200,
+        int $sliceStart = 5,
+        int $sliceEnd = 5,
+        int $percent = 20,
+        int $range = 10,
+        string $prompt = '',
     ): string {
         $increment = floor($nbTotalPage / $percent);
         $pageNowMinusRange = $pageNow - $range;
@@ -1123,7 +1122,7 @@ class Util
      *
      * @return int $page_num
      */
-    public static function getPageFromPosition($pos, $maxCount): int
+    public static function getPageFromPosition(int $pos, int $maxCount): int
     {
         return (int) floor($pos / $maxCount) + 1;
     }
@@ -1233,7 +1232,7 @@ class Util
      * @return array associative array containing type, spec_in_brackets
      *          and possibly enum_set_values (another array)
      */
-    public static function extractColumnSpec($columnSpecification): array
+    public static function extractColumnSpec(string $columnSpecification): array
     {
         $firstBracketPos = mb_strpos($columnSpecification, '(');
         if ($firstBracketPos) {
@@ -1371,7 +1370,7 @@ class Util
      *
      * @return string|bool Title for the $cfg value
      */
-    public static function getTitleForTarget($target): string|bool
+    public static function getTitleForTarget(string $target): string|bool
     {
         $mapping = [
             'structure' => __('Structure'),
@@ -1398,7 +1397,7 @@ class Util
      *
      * @return string script name corresponding to the config word
      */
-    public static function getScriptNameForOption($target, string $location): string
+    public static function getScriptNameForOption(string $target, string $location): string
     {
         return Url::getFromRoute(self::getUrlForOption($target, $location));
     }
@@ -1416,7 +1415,7 @@ class Util
      *
      * @return string The URL corresponding to the config word
      */
-    public static function getUrlForOption($target, string $location): string
+    public static function getUrlForOption(string $target, string $location): string
     {
         if ($location === 'server') {
             // Values for $cfg['DefaultTabServer']
@@ -1585,7 +1584,7 @@ class Util
      *
      * @return mixed   An HTML snippet or an array of datatypes.
      */
-    public static function getSupportedDatatypes($html = false, $selected = ''): mixed
+    public static function getSupportedDatatypes(bool $html = false, string $selected = ''): mixed
     {
         if ($html) {
             $retval = Generator::getSupportedDatatypes($selected);
@@ -1760,7 +1759,7 @@ class Util
      *
      * @return string[]
      */
-    public static function parseEnumSetValues($definition, $escapeHtml = true): array
+    public static function parseEnumSetValues(string $definition, bool $escapeHtml = true): array
     {
         $valuesString = htmlentities($definition, ENT_COMPAT, 'UTF-8');
         // There is a JS port of the below parser in functions.js
@@ -1814,7 +1813,7 @@ class Util
      *
      * @return array|null list of tabs for the menu
      */
-    public static function getMenuTabList($level = null): array|null
+    public static function getMenuTabList(string $level = null): array|null
     {
         $tabList = [
             'server' => [
@@ -1883,7 +1882,7 @@ class Util
      *
      * @return string time, datetime or timestamp strings with fractional seconds
      */
-    public static function addMicroseconds($value): string
+    public static function addMicroseconds(string $value): string
     {
         if ($value === '' || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
             return $value;
@@ -2146,7 +2145,7 @@ class Util
      *
      * @return array list of tables
      */
-    public static function getTablesWhenOpen($db, ResultInterface $dbInfoResult): array
+    public static function getTablesWhenOpen(string $db, ResultInterface $dbInfoResult): array
     {
         $sotCache = [];
         $tables = [];
@@ -2252,7 +2251,7 @@ class Util
      *
      * @param mixed $value Value to convert
      */
-    public static function requestString($value): string
+    public static function requestString(mixed $value): string
     {
         while (is_array($value) || is_object($value)) {
             if (is_object($value)) {
@@ -2295,7 +2294,7 @@ class Util
      *
      * @param string $format Date format string
      */
-    public static function date($format): string
+    public static function date(string $format): string
     {
         return date($format);
     }
@@ -2322,7 +2321,7 @@ class Util
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey(array $array, string|array $path, $default = null): mixed
+    public static function getValueByKey(array $array, string|array $path, mixed $default = null): mixed
     {
         if (is_string($path)) {
             $path = explode('.', $path);
@@ -2351,7 +2350,7 @@ class Util
      *
      * @return string Link to be displayed in the table header
      */
-    public static function sortableTableHeader($title, $sort, $initialSortOrder = 'ASC'): string
+    public static function sortableTableHeader(string $title, string $sort, string $initialSortOrder = 'ASC'): string
     {
         $requestedSort = 'table';
         $requestedSortOrder = $futureSortOrder = $initialSortOrder;
@@ -2442,7 +2441,7 @@ class Util
      *
      * @param mixed $input input to check
      */
-    public static function isInteger($input): bool
+    public static function isInteger(mixed $input): bool
     {
         return is_scalar($input) && ctype_digit((string) $input);
     }

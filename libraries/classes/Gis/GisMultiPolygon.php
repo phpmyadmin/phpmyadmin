@@ -80,7 +80,7 @@ class GisMultiPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
@@ -139,11 +139,10 @@ class GisMultiPolygon extends GisGeometry
      * @param string $label      Label for the GIS MULTIPOLYGON object
      * @param int[]  $color      Color for the GIS MULTIPOLYGON object
      * @param array  $scale_data Array containing data related to scaling
-     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
+    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scale_data, TCPDF $pdf): TCPDF
     {
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
@@ -192,7 +191,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
     {
         $polygon_options = [
             'name' => $label,
@@ -279,7 +278,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the code to draw the ring
      */
-    private function drawPath($polygon, array $scale_data): string
+    private function drawPath(string $polygon, array $scale_data): string
     {
         $points_arr = $this->extractPoints1d($polygon, $scale_data);
 
@@ -303,7 +302,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = ''): string
+    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
     {
         $data_row = $gis_data[$index]['MULTIPOLYGON'];
 

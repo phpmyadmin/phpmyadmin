@@ -101,10 +101,10 @@ interface DbalInterface
      */
     public function getTablesFull(
         string $database,
-        $table = '',
+        string|array $table = '',
         bool $tableIsGroup = false,
         int $limitOffset = 0,
-        $limitCount = false,
+        bool|int $limitCount = false,
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
         string|null $tableType = null,
@@ -142,7 +142,7 @@ interface DbalInterface
         string $sortBy = 'SCHEMA_NAME',
         string $sortOrder = 'ASC',
         int $limitOffset = 0,
-        $limitCount = false,
+        bool|int $limitCount = false,
     ): array;
 
     /**
@@ -393,8 +393,8 @@ interface DbalInterface
      */
     public function fetchResult(
         string $query,
-        $key = null,
-        $value = null,
+        string|int|array $key = null,
+        string|int $value = null,
         int $connectionType = Connection::TYPE_USER,
     ): array;
 
@@ -466,7 +466,7 @@ interface DbalInterface
      * @param string|DatabaseName $dbname database name to select
      * @psalm-param ConnectionType $connectionType
      */
-    public function selectDb($dbname, int $connectionType = Connection::TYPE_USER): bool;
+    public function selectDb(string|DatabaseName $dbname, int $connectionType = Connection::TYPE_USER): bool;
 
     /**
      * Check if there are any more query results from a multi query

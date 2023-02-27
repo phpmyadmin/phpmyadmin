@@ -44,11 +44,11 @@ class RelationStatsDia
      * @param string        $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        protected $diagram,
-        $master_table,
-        $master_field,
-        $foreign_table,
-        $foreign_field,
+        protected Dia $diagram,
+        TableStatsDia $master_table,
+        string $master_field,
+        TableStatsDia $foreign_table,
+        string $foreign_field,
     ) {
         $src_pos = $this->getXy($master_table, $master_field);
         $dest_pos = $this->getXy($foreign_table, $foreign_field);
@@ -72,7 +72,7 @@ class RelationStatsDia
      *
      * @return array Table right,left connection points and key position
      */
-    private function getXy($table, $column): array
+    private function getXy(TableStatsDia $table, string $column): array
     {
         $pos = array_search($column, $table->fields);
         // left, right, position
@@ -109,7 +109,7 @@ class RelationStatsDia
      *                        references lines. we can change/add more colors to
      *                        this
      */
-    public function relationDraw($showColor): void
+    public function relationDraw(bool $showColor): void
     {
         ++DiaRelationSchema::$objectId;
         // if source connection points and destination connection points are same then

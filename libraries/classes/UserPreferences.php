@@ -249,7 +249,7 @@ class UserPreferences
      *
      * @return true|Message
      */
-    public function persistOption($path, $value, $default_value): bool|Message
+    public function persistOption(string $path, mixed $value, mixed $default_value): bool|Message
     {
         $prefs = $this->load();
         if ($value === $default_value) {
@@ -273,9 +273,9 @@ class UserPreferences
      * @param string     $hash      Hash value
      */
     public function redirect(
-        $file_name,
-        $params = null,
-        $hash = null,
+        string $file_name,
+        array|null $params = null,
+        string $hash = null,
     ): void {
         // redirect
         $url_params = ['saved' => 1];

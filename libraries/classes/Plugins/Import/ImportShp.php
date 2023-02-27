@@ -310,7 +310,7 @@ class ImportShp extends ImportPlugin
      *
      * @param int $length number of bytes
      */
-    public static function readFromBuffer($length): string
+    public static function readFromBuffer(int $length): string
     {
         $GLOBALS['buffer'] ??= null;
         $GLOBALS['eof'] ??= null;

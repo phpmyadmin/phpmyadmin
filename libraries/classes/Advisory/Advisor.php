@@ -136,7 +136,7 @@ class Advisor
      * @param string|int $variable Variable to set
      * @param mixed      $value    Value to set
      */
-    public function setVariable(string|int $variable, $value): void
+    public function setVariable(string|int $variable, mixed $value): void
     {
         $this->variables[$variable] = $value;
     }

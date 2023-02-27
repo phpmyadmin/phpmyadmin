@@ -69,7 +69,7 @@ class Search
     private string $criteriaColumnName;
 
     /** @param string $db Database name */
-    public function __construct(private DatabaseInterface $dbi, $db, public Template $template)
+    public function __construct(private DatabaseInterface $dbi, string $db, public Template $template)
     {
         $this->db = $db;
         $this->searchTypes = [

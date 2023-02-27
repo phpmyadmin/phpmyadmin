@@ -32,11 +32,11 @@ class RelationStatsSvg extends RelationStats
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram,
-        $master_table,
-        $master_field,
-        $foreign_table,
-        $foreign_field,
+        Svg $diagram,
+        string $master_table,
+        string $master_field,
+        string $foreign_table,
+        string $foreign_field,
     ) {
         $this->wTick = 10;
 
@@ -50,7 +50,7 @@ class RelationStatsSvg extends RelationStats
      *
      * @param bool $showColor Whether to use one color per relation or not
      */
-    public function relationDraw($showColor): void
+    public function relationDraw(bool $showColor): void
     {
         if ($showColor) {
             $listOfColors = [

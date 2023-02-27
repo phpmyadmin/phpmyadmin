@@ -31,11 +31,11 @@ class RelationStatsEps extends RelationStats
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram,
-        $master_table,
-        $master_field,
-        $foreign_table,
-        $foreign_field,
+        Eps $diagram,
+        string $master_table,
+        string $master_field,
+        string $foreign_table,
+        string $foreign_field,
     ) {
         $this->wTick = 10;
 

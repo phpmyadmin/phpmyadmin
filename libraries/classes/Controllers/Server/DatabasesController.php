@@ -199,7 +199,7 @@ class DatabasesController extends AbstractController
      *
      * @return array
      */
-    private function getDatabases($primaryInfo, $replicaInfo): array
+    private function getDatabases(array $primaryInfo, array $replicaInfo): array
     {
         $databases = [];
         $totalStatistics = $this->getStatisticsColumns();

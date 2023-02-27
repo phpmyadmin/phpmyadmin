@@ -81,7 +81,7 @@ class ListDatabase extends ListAbstract
      *
      * @return array
      */
-    protected function retrieve($like_db_name = null): array
+    protected function retrieve(string $like_db_name = null): array
     {
         $database_list = [];
         $command = '';

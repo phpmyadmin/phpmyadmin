@@ -50,7 +50,7 @@ class Types
      *
      * @param string $op operator name
      */
-    public function isUnaryOperator($op): bool
+    public function isUnaryOperator(string $op): bool
     {
         return in_array($op, $this->getUnaryOperators());
     }
@@ -159,7 +159,7 @@ class Types
      *
      * @return string[]
      */
-    public function getTypeOperators($type, $null): array
+    public function getTypeOperators(string $type, bool $null): array
     {
         $ret = [];
         $class = $this->getTypeClass($type);
@@ -190,7 +190,7 @@ class Types
      *
      * @return string Generated Html
      */
-    public function getTypeOperatorsHtml($type, $null, $selectedOperator = null): string
+    public function getTypeOperatorsHtml(string $type, bool $null, string $selectedOperator = null): string
     {
         $html = '';
 

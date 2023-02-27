@@ -54,7 +54,7 @@ class Svg extends XMLWriter
      *
      * @param string $value sets the title text
      */
-    public function setTitle($value): void
+    public function setTitle(string $value): void
     {
         $this->title = $value;
     }
@@ -64,7 +64,7 @@ class Svg extends XMLWriter
      *
      * @param string $value sets the author
      */
-    public function setAuthor($value): void
+    public function setAuthor(string $value): void
     {
         $this->author = $value;
     }
@@ -124,7 +124,7 @@ class Svg extends XMLWriter
      * @param int $x      min-x of the view box
      * @param int $y      min-y of the view box
      */
-    public function startSvgDoc($width, $height, $x = 0, $y = 0): void
+    public function startSvgDoc(int $width, int $height, int $x = 0, int $y = 0): void
     {
         $this->startElement('svg');
 
@@ -191,13 +191,13 @@ class Svg extends XMLWriter
      *                            styles can be defined like CSS styles
      */
     public function printElement(
-        $name,
-        $x,
-        $y,
+        string $name,
+        int $x,
+        int $y,
         int|float $width,
         int $height,
         string|null $text = '',
-        $styles = '',
+        string $styles = '',
     ): void {
         $this->startElement($name);
         $this->writeAttribute('width', (string) $width);
@@ -233,7 +233,7 @@ class Svg extends XMLWriter
      * @param string $styles The style attribute defines the style the element
      *                       styles can be defined like CSS styles
      */
-    public function printElementLine($name, $x1, $y1, $x2, $y2, $styles): void
+    public function printElementLine(string $name, int $x1, int $y1, int $x2, int $y2, string $styles): void
     {
         $this->startElement($name);
         $this->writeAttribute('x1', (string) $x1);

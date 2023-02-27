@@ -124,7 +124,7 @@ class TwoFactorPlugin
      *
      * @param bool $return_url Whether to generate URL
      */
-    public function getAppId($return_url): string
+    public function getAppId(bool $return_url): string
     {
         $GLOBALS['config'] ??= null;
 

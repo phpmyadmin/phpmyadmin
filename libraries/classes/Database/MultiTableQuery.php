@@ -69,7 +69,7 @@ class MultiTableQuery
      * @param string $sqlQuery The query to parse
      * @param string $db       The current database
      */
-    public static function displayResults($sqlQuery, $db): string
+    public static function displayResults(string $sqlQuery, string $db): string
     {
         [, $db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 

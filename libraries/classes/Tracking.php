@@ -113,9 +113,9 @@ class Tracking
     public function getHtmlForMainPage(
         string $db,
         string $table,
-        $urlParams,
-        $textDir,
-        $lastVersion = null,
+        array $urlParams,
+        string $textDir,
+        int $lastVersion = null,
     ): string {
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
         $selectableTablesEntries = [];
@@ -332,12 +332,12 @@ class Tracking
         array $url_params,
         string $logType,
         array $filter_users,
-        $str1,
-        $str2,
-        $str3,
-        $str4,
-        $str5,
-        $drop_image_or_text,
+        string $str1,
+        string $str2,
+        string $str3,
+        string $str4,
+        string $str5,
+        string $drop_image_or_text,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
@@ -407,11 +407,11 @@ class Tracking
      */
     public function getHtmlForTrackingReportExportForm2(
         array $url_params,
-        $str1,
-        $str2,
-        $str3,
-        $str4,
-        $str5,
+        string $str1,
+        string $str2,
+        string $str3,
+        string $str4,
+        string $str5,
         string $logType,
         string $version,
         DateTimeImmutable $dateFrom,
@@ -477,8 +477,8 @@ class Tracking
         array $data,
         array $filter_users,
         array $url_params,
-        $ddlog_count,
-        $drop_image_or_text,
+        int $ddlog_count,
+        string $drop_image_or_text,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
@@ -515,7 +515,7 @@ class Tracking
         array $data,
         array $filter_users,
         array $url_params,
-        $drop_image_or_text,
+        string $drop_image_or_text,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
@@ -558,11 +558,11 @@ class Tracking
         array $data,
         array $filterUsers,
         array $urlParams,
-        $dropImageOrText,
-        $whichLog,
-        $headerMessage,
-        $lineNumber,
-        $tableId,
+        string $dropImageOrText,
+        string $whichLog,
+        string $headerMessage,
+        int $lineNumber,
+        string $tableId,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
@@ -737,9 +737,9 @@ class Tracking
         string $table,
         string $version,
         array &$data,
-        $which_log,
-        $type,
-        $message,
+        string $which_log,
+        string $type,
+        string $message,
     ): string {
         $html = '';
         $delete_id = $_POST['delete_' . $which_log];
@@ -844,7 +844,7 @@ class Tracking
      *
      * @return string HTML for the success message
      */
-    public function changeTracking(string $db, string $table, string $version, $action): string
+    public function changeTracking(string $db, string $table, string $version, string $action): string
     {
         $html = '';
         if ($action === 'activate') {
@@ -1116,7 +1116,7 @@ class Tracking
      *
      * @return array
      */
-    public function extractTableNames(array $table_list, $db): array
+    public function extractTableNames(array $table_list, string $db): array
     {
         $untracked_tables = [];
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
@@ -1140,7 +1140,7 @@ class Tracking
      *
      * @return array
      */
-    public function getUntrackedTables($db): array
+    public function getUntrackedTables(string $db): array
     {
         $table_list = Util::getTableList($db);
 

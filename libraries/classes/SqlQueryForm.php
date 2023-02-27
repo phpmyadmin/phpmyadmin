@@ -52,7 +52,7 @@ class SqlQueryForm
         string $table,
         bool|string $query = true,
         bool|string $display_tab = false,
-        $delimiter = ';',
+        string $delimiter = ';',
     ): string {
         if (! $display_tab) {
             $display_tab = 'full';
@@ -131,7 +131,7 @@ class SqlQueryForm
      *
      * @return array ($legend, $query, $columns_list)
      */
-    public function init($query): array
+    public function init(string $query): array
     {
         $columns_list = [];
         if ($GLOBALS['db'] === '') {

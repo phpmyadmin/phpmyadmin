@@ -80,7 +80,7 @@ class Git
      *
      * @param string $git_location (optional) verified git directory
      */
-    public function isGitRevision(&$git_location = null): bool
+    public function isGitRevision(string &$git_location = null): bool
     {
         if (! $this->showGitRevision) {
             return false;
@@ -415,7 +415,7 @@ class Git
      *
      * @return stdClass|null The commit body from the GitHub API
      */
-    private function isRemoteCommit($commit, bool &$isRemoteCommit, string $hash): stdClass|null
+    private function isRemoteCommit(mixed $commit, bool &$isRemoteCommit, string $hash): stdClass|null
     {
         $httpRequest = new HttpRequest();
 

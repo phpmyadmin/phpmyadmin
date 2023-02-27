@@ -32,7 +32,7 @@ class SystemDatabase
      *
      * @return ResultInterface|false Result of executed SQL query
      */
-    public function getExistingTransformationData($db): ResultInterface|false
+    public function getExistingTransformationData(string $db): ResultInterface|false
     {
         $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
@@ -64,8 +64,8 @@ class SystemDatabase
     public function getNewTransformationDataSql(
         ResultInterface $transformationData,
         array $columnMap,
-        $viewName,
-        $db,
+        string $viewName,
+        string $db,
     ): string {
         $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {

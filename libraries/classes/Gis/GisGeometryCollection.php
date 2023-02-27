@@ -90,7 +90,7 @@ class GisGeometryCollection extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
@@ -127,11 +127,10 @@ class GisGeometryCollection extends GisGeometry
      * @param string $label      label for the GIS GEOMETRYCOLLECTION object
      * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data array containing data related to scaling
-     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
+    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scale_data, TCPDF $pdf): TCPDF
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -167,7 +166,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
     {
         $row = '';
 
@@ -241,7 +240,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string[] the constituents of the geometry collection object
      */
-    private function explodeGeomCol($geom_col): array
+    private function explodeGeomCol(string $geom_col): array
     {
         $sub_parts = [];
         $br_count = 0;
@@ -273,7 +272,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = ''): string
+    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
     {
         $geom_count = $gis_data['GEOMETRYCOLLECTION']['geom_count'] ?? 1;
         $wkt = 'GEOMETRYCOLLECTION(';

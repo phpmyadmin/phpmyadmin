@@ -387,7 +387,7 @@ class Message implements Stringable
      * @param string   $string   string to set
      * @param bool|int $sanitize whether to sanitize $string or not
      */
-    public function setString(string $string, $sanitize = true): void
+    public function setString(string $string, bool|int $sanitize = true): void
     {
         if ($sanitize) {
             $string = self::sanitize($string);
@@ -416,7 +416,7 @@ class Message implements Stringable
      *
      * @param mixed $param parameter to add
      */
-    public function addParam($param): void
+    public function addParam(mixed $param): void
     {
         if ($param instanceof self || is_float($param) || is_int($param)) {
             $this->params[] = $param;
@@ -520,7 +520,7 @@ class Message implements Stringable
      * @param array    $params   parameters to set
      * @param bool|int $sanitize whether to sanitize params
      */
-    public function setParams(array $params, $sanitize = false): void
+    public function setParams(array $params, bool|int $sanitize = false): void
     {
         if ($sanitize) {
             $params = self::sanitize($params);
@@ -556,7 +556,7 @@ class Message implements Stringable
      *
      * @return mixed  the sanitized message(s)
      */
-    public static function sanitize($message): mixed
+    public static function sanitize(mixed $message): mixed
     {
         if (is_array($message)) {
             foreach ($message as $key => $val) {

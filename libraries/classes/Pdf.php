@@ -45,13 +45,13 @@ class Pdf extends TCPDF
      * @throws Exception
      */
     public function __construct(
-        $orientation = 'P',
-        $unit = 'mm',
-        $format = 'A4',
-        $unicode = true,
-        $encoding = 'UTF-8',
-        $diskcache = false,
-        $pdfa = false,
+        string $orientation = 'P',
+        string $unit = 'mm',
+        string $format = 'A4',
+        bool $unicode = true,
+        string $encoding = 'UTF-8',
+        bool $diskcache = false,
+        false|int $pdfa = false,
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
 
@@ -97,7 +97,7 @@ class Pdf extends TCPDF
      * @param string $name  name of the alias
      * @param string $value value of the alias
      */
-    public function setAlias($name, $value): void
+    public function setAlias(string $name, string $value): void
     {
         // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $name = TCPDF_FONTS::UTF8ToUTF16BE($name, false, true, $this->CurrentFont);

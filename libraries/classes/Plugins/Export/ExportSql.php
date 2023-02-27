@@ -573,7 +573,7 @@ class ExportSql extends ExportPlugin
      * @param string $db      Database
      * @param array  $aliases Aliases of db/table/columns
      */
-    public function exportRoutines($db, array $aliases = []): bool
+    public function exportRoutines(string $db, array $aliases = []): bool
     {
         $dbAlias = $db;
         $this->initAlias($aliases, $dbAlias);
@@ -809,7 +809,7 @@ class ExportSql extends ExportPlugin
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -889,7 +889,7 @@ class ExportSql extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Alias of db
      */
-    public function exportDBHeader($db, $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -916,7 +916,7 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter($db): bool
+    public function exportDBFooter(string $db): bool
     {
         $result = true;
 
@@ -946,7 +946,7 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db Database
      */
-    public function exportEvents($db): bool
+    public function exportEvents(string $db): bool
     {
         $text = '';
         $delimiter = '$$';
@@ -1005,8 +1005,8 @@ class ExportSql extends ExportPlugin
      * @param string[]        $metadataTypes types of metadata to export
      */
     public function exportMetadata(
-        $db,
-        $tables,
+        string $db,
+        string|array $tables,
         array $metadataTypes,
     ): bool {
         $relationParameters = $this->relation->getRelationParameters();
@@ -1220,7 +1220,7 @@ class ExportSql extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = []): string
+    public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
         $dbAlias = $db;
         $viewAlias = $view;
@@ -1345,12 +1345,12 @@ class ExportSql extends ExportPlugin
      * @return string resulting schema
      */
     public function getTableDef(
-        $db,
-        $table,
-        $showDates = false,
-        $addSemicolon = true,
-        $view = false,
-        $updateIndexesIncrements = true,
+        string $db,
+        string $table,
+        bool $showDates = false,
+        bool $addSemicolon = true,
+        bool $view = false,
+        bool $updateIndexesIncrements = true,
         array $aliases = [],
     ): string {
         $GLOBALS['sql_drop_table'] ??= null;
@@ -1907,15 +1907,15 @@ class ExportSql extends ExportPlugin
      * @param array  $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
-        $db,
-        $table,
-        $errorUrl,
-        $exportMode,
-        $exportType,
-        $relation = false,
-        $comments = false,
-        $mime = false,
-        $dates = false,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $exportMode,
+        string $exportType,
+        bool $relation = false,
+        bool $comments = false,
+        bool $mime = false,
+        bool $dates = false,
         array $aliases = [],
     ): bool {
         $dbAlias = $db;
@@ -2042,10 +2042,10 @@ class ExportSql extends ExportPlugin
      * @param array  $aliases  Aliases of db/table/columns
      */
     public function exportData(
-        $db,
-        $table,
-        $errorUrl,
-        $sqlQuery,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $sqlQuery,
         array $aliases = [],
     ): bool {
         // Do not export data for merge tables

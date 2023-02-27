@@ -44,11 +44,11 @@ abstract class RelationStats
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        protected $diagram,
-        $master_table,
-        $master_field,
-        $foreign_table,
-        $foreign_field,
+        protected object $diagram,
+        string $master_table,
+        string $master_field,
+        string $foreign_table,
+        string $foreign_field,
     ) {
         $src_pos = $this->getXy($master_table, $master_field);
         $dest_pos = $this->getXy($foreign_table, $foreign_field);
@@ -100,7 +100,7 @@ abstract class RelationStats
      *
      * @return array Arrows coordinates
      */
-    private function getXy($table, $column): array
+    private function getXy(TableStats $table, string $column): array
     {
         $pos = array_search($column, $table->fields);
 

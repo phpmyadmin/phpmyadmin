@@ -173,11 +173,10 @@ class Routing
     }
 
     /**
-     * @param mixed $dispatchData
      *
      * @psalm-assert-if-true array[] $dispatchData
      */
-    private static function isRoutesCacheFileValid($dispatchData): bool
+    private static function isRoutesCacheFileValid(mixed $dispatchData): bool
     {
         return is_array($dispatchData)
             && isset($dispatchData[1])

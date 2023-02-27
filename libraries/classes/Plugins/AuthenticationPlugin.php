@@ -93,7 +93,7 @@ abstract class AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure($failure): void
+    public function showFailure(string $failure): void
     {
         Logging::logUser($this->user, $failure);
     }
@@ -159,7 +159,7 @@ abstract class AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function getErrorMessage($failure): string
+    public function getErrorMessage(string $failure): string
     {
         if ($failure === 'empty-denied') {
             return __('Login without a password is forbidden by configuration (see AllowNoPassword)');
@@ -195,7 +195,7 @@ abstract class AuthenticationPlugin
      *
      * @param string $password New password to set
      */
-    public function handlePasswordChange($password): void
+    public function handlePasswordChange(string $password): void
     {
     }
 

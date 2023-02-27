@@ -39,9 +39,9 @@ class Url
      * @return string   string with input fields
      */
     public static function getHiddenInputs(
-        $db = '',
-        $table = '',
-        $skip = [],
+        string|array $db = '',
+        string $table = '',
+        string|array $skip = [],
     ): string {
         $GLOBALS['config'] ??= null;
 
@@ -114,7 +114,7 @@ class Url
      *
      * @return string form fields of type hidden
      */
-    public static function getHiddenFields(array $values, $pre = '', $is_token = false): string
+    public static function getHiddenFields(array $values, string $pre = '', bool $is_token = false): string
     {
         $fields = '';
 
@@ -171,7 +171,7 @@ class Url
      *
      * @return string   string with URL parameters
      */
-    public static function getCommon(array $params = [], $divider = '?', $encrypt = true): string
+    public static function getCommon(array $params = [], string $divider = '?', bool $encrypt = true): string
     {
         return self::getCommonRaw($params, $divider, $encrypt);
     }
@@ -205,7 +205,7 @@ class Url
      *
      * @return string   string with URL parameters
      */
-    public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true): string
+    public static function getCommonRaw(array $params = [], string $divider = '?', bool $encrypt = true): string
     {
         $GLOBALS['config'] ??= null;
 
@@ -239,7 +239,7 @@ class Url
      * @param array<int|string, mixed> $params
      * @param bool                     $encrypt whether to encrypt URL params
      */
-    public static function buildHttpQuery($params, $encrypt = true): string
+    public static function buildHttpQuery(array $params, bool $encrypt = true): string
     {
         if ($params === []) {
             return '';
@@ -311,7 +311,7 @@ class Url
      *
      * @return string  character used for separating url parts usually ; or &
      */
-    public static function getArgSeparator($encode = 'none'): string
+    public static function getArgSeparator(string $encode = 'none'): string
     {
         static $separator = null;
         static $html_separator = null;

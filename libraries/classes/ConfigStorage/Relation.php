@@ -57,8 +57,8 @@ use const SQL_DIR;
  */
 class Relation
 {
-    /** @param DatabaseInterface $dbi */
-    public function __construct(public $dbi)
+    /***/
+    public function __construct(public DatabaseInterface $dbi)
     {
     }
 
@@ -415,7 +415,7 @@ class Relation
      *
      * @return array    db,table,column
      */
-    public function getForeigners($db, $table, $column = '', $source = 'both'): array
+    public function getForeigners(string $db, string $table, string $column = '', string $source = 'both'): array
     {
         $relationFeature = $this->getRelationParameters()->relationFeature;
         $foreign = [];
@@ -485,7 +485,7 @@ class Relation
      *
      * @return string|false field name or false
      */
-    public function getDisplayField($db, $table): string|false
+    public function getDisplayField(string $db, string $table): string|false
     {
         $displayFeature = $this->getRelationParameters()->displayFeature;
 
@@ -543,7 +543,7 @@ class Relation
      *
      * @return array    [column_name] = comment
      */
-    public function getComments($db, $table = ''): array
+    public function getComments(string $db, string $table = ''): array
     {
         if ($table === '') {
             return [$this->getDbComment($db)];
@@ -623,7 +623,7 @@ class Relation
      * @param string $db      the name of the db
      * @param string $comment the value of the column
      */
-    public function setDbComment($db, $comment = ''): bool
+    public function setDbComment(string $db, string $comment = ''): bool
     {
         $columnCommentsFeature = $this->getRelationParameters()->columnCommentsFeature;
         if ($columnCommentsFeature === null) {
@@ -663,7 +663,7 @@ class Relation
      * @param string $username the username
      * @param string $sqlquery the sql query
      */
-    public function setHistory($db, $table, $username, $sqlquery): void
+    public function setHistory(string $db, string $table, string $username, string $sqlquery): void
     {
         $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
@@ -719,7 +719,7 @@ class Relation
      *
      * @return array|bool list of history items
      */
-    public function getHistory($username): array|bool
+    public function getHistory(string $username): array|bool
     {
         $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
         if ($sqlHistoryFeature === null) {
@@ -759,7 +759,7 @@ class Relation
      *
      * @param string $username the username
      */
-    public function purgeHistory($username): void
+    public function purgeHistory(string $username): void
     {
         $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
         if (! $GLOBALS['cfg']['QueryHistoryDB'] || $sqlHistoryFeature === null) {
@@ -799,7 +799,7 @@ class Relation
      *
      * @return string[] the <option value=""><option>s
      */
-    public function buildForeignDropdown(array $foreign, $data, $mode): array
+    public function buildForeignDropdown(array $foreign, string $data, string $mode): array
     {
         $reloptions = [];
 
@@ -894,10 +894,10 @@ class Relation
      */
     public function foreignDropdown(
         array $disp_row,
-        $foreign_field,
+        string $foreign_field,
         string $foreign_display,
-        $data,
-        $max = null,
+        string $data,
+        int|null $max = null,
     ): string {
         if ($max === null) {
             $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
@@ -1000,11 +1000,11 @@ class Relation
      */
     public function getForeignData(
         array|bool $foreigners,
-        $field,
-        $override_total,
+        string $field,
+        bool $override_total,
         string $foreign_filter,
-        $foreign_limit,
-        $get_total = false,
+        string $foreign_limit,
+        bool $get_total = false,
     ): array {
         // we always show the foreign field in the drop-down; if a display
         // field is defined, we show it besides the foreign field
@@ -1122,7 +1122,7 @@ class Relation
      * @param string $field    old field name
      * @param string $new_name new field name
      */
-    public function renameField($db, $table, $field, $new_name): void
+    public function renameField(string $db, string $table, string $field, string $new_name): void
     {
         $relationParameters = $this->getRelationParameters();
 
@@ -1204,7 +1204,7 @@ class Relation
      * @param string $source_table Source table name
      * @param string $target_table Target table name
      */
-    public function renameTable($source_db, $target_db, $source_table, $target_table): void
+    public function renameTable(string $source_db, string $target_db, string $source_table, string $target_table): void
     {
         $relationParameters = $this->getRelationParameters();
 
@@ -1335,7 +1335,7 @@ class Relation
      * @param string|null $newpage name of the new PDF page
      * @param string      $db      database name
      */
-    public function createPage(string|null $newpage, PdfFeature $pdfFeature, $db): int
+    public function createPage(string|null $newpage, PdfFeature $pdfFeature, string $db): int
     {
         $ins_query = 'INSERT INTO '
             . Util::backquote($pdfFeature->database) . '.'
@@ -1357,7 +1357,7 @@ class Relation
      * @param string $table  name of master table.
      * @param string $column name of master table column.
      */
-    public function getChildReferences($db, $table, $column = ''): array
+    public function getChildReferences(string $db, string $table, string $column = ''): array
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $rel_query = 'SELECT `column_name`, `table_name`,'
@@ -1397,11 +1397,11 @@ class Relation
      * @psalm-return array{isEditable: bool, isForeignKey: bool, isReferenced: bool, references: string[]}
      */
     public function checkChildForeignReferences(
-        $db,
-        $table,
-        $column,
-        $foreigners_full = null,
-        $child_references_full = null,
+        string $db,
+        string $table,
+        string $column,
+        array|null $foreigners_full = null,
+        array|null $child_references_full = null,
     ): array {
         $column_status = [
             'isEditable' => true,
@@ -1458,7 +1458,7 @@ class Relation
      * @param array  $foreigners Table Foreign data
      * @param string $column     Column name
      */
-    public function searchColumnInForeigners(array $foreigners, $column): array|false
+    public function searchColumnInForeigners(array $foreigners, string $column): array|false
     {
         if (isset($foreigners[$column])) {
             return $foreigners[$column];
@@ -1560,7 +1560,7 @@ class Relation
      * @param string $db     database
      * @param bool   $create whether to create tables if they don't exist.
      */
-    public function fixPmaTables($db, $create = true): void
+    public function fixPmaTables(string $db, bool $create = true): void
     {
         $tablesToFeatures = [
             'pma__bookmark' => 'bookmarktable',
@@ -1688,7 +1688,7 @@ class Relation
      * @return array ($res_rel, $have_rel)
      * @psalm-return array{array, bool}
      */
-    public function getRelationsAndStatus(bool $condition, $db, $table): array
+    public function getRelationsAndStatus(bool $condition, string $db, string $table): array
     {
         $have_rel = false;
         $res_rel = [];
@@ -1740,7 +1740,7 @@ class Relation
      *
      * @return array Table names
      */
-    public function getTables($foreignDb, $tblStorageEngine): array
+    public function getTables(string $foreignDb, string $tblStorageEngine): array
     {
         $tables = [];
         $tablesRows = $this->dbi->query('SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb));

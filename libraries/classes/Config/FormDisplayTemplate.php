@@ -56,13 +56,13 @@ class FormDisplayTemplate
      * @param array|null $opts           see above description
      */
     public function displayInput(
-        $path,
-        $name,
-        $type,
-        $value,
-        $description = '',
-        $valueIsDefault = true,
-        $opts = null,
+        string $path,
+        string $name,
+        string $type,
+        mixed $value,
+        string $description = '',
+        bool $valueIsDefault = true,
+        array|null $opts = null,
     ): string {
         $isSetupScript = $this->config->get('is_setup');
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow']) && ! $opts['userprefs_allow'];
@@ -131,7 +131,7 @@ class FormDisplayTemplate
      * @param string|array $validators validators callback
      * @param array        $jsArray    will be updated with javascript code
      */
-    public function addJsValidate($fieldId, string|array $validators, array &$jsArray): void
+    public function addJsValidate(string $fieldId, string|array $validators, array &$jsArray): void
     {
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;
@@ -150,7 +150,7 @@ class FormDisplayTemplate
      *
      * @return string HTML for errors
      */
-    public function displayErrors($name, array $errorList): string
+    public function displayErrors(string $name, array $errorList): string
     {
         return $this->template->render('config/form_display/errors', [
             'name' => $name,

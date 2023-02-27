@@ -131,7 +131,7 @@ class ExportHtmlword extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader($db, $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -147,7 +147,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter($db): bool
+    public function exportDBFooter(string $db): bool
     {
         return true;
     }
@@ -159,7 +159,7 @@ class ExportHtmlword extends ExportPlugin
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -174,10 +174,10 @@ class ExportHtmlword extends ExportPlugin
      * @param array  $aliases  Aliases of db/table/columns
      */
     public function exportData(
-        $db,
-        $table,
-        $errorUrl,
-        $sqlQuery,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $sqlQuery,
         array $aliases = [],
     ): bool {
         $GLOBALS['what'] ??= null;
@@ -264,7 +264,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = []): string
+    public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
         $schema_insert = '<table width="100%" cellspacing="1">'
             . '<tr class="print-category">'
@@ -331,12 +331,12 @@ class ExportHtmlword extends ExportPlugin
      * @return string resulting schema
      */
     public function getTableDef(
-        $db,
-        $table,
-        $do_relation,
-        $do_comments,
-        $do_mime,
-        $view = false,
+        string $db,
+        string $table,
+        bool $do_relation,
+        bool $do_comments,
+        bool $do_mime,
+        bool $view = false,
         array $aliases = [],
     ): string {
         $relationParameters = $this->relation->getRelationParameters();
@@ -462,7 +462,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers($db, $table): string
+    protected function getTriggers(string $db, string $table): string
     {
         $dump = '<table width="100%" cellspacing="1">';
         $dump .= '<tr class="print-category">';
@@ -517,15 +517,15 @@ class ExportHtmlword extends ExportPlugin
      * @param array  $aliases     Aliases of db/table/columns
      */
     public function exportStructure(
-        $db,
-        $table,
-        $errorUrl,
-        $exportMode,
-        $exportType,
-        $do_relation = false,
-        $do_comments = false,
-        $do_mime = false,
-        $dates = false,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $exportMode,
+        string $exportType,
+        bool $do_relation = false,
+        bool $do_comments = false,
+        bool $do_mime = false,
+        bool $dates = false,
         array $aliases = [],
     ): bool {
         $db_alias = $db;
@@ -582,7 +582,7 @@ class ExportHtmlword extends ExportPlugin
     protected function formatOneColumnDefinition(
         array $column,
         array $unique_keys,
-        $col_alias = '',
+        string $col_alias = '',
     ): string {
         if ($col_alias === '') {
             $col_alias = $column['Field'];

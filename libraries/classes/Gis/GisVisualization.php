@@ -273,7 +273,7 @@ class GisVisualization
      *
      * @return string the sanitized file name
      */
-    private function sanitizeName($file_name, $ext): string
+    private function sanitizeName(string $file_name, string $ext): string
     {
         $file_name = Sanitize::sanitizeFilename($file_name);
 
@@ -296,7 +296,7 @@ class GisVisualization
      * @param string $type      mime type
      * @param string $ext       extension of the file
      */
-    private function writeToFile($file_name, $type, $ext): void
+    private function writeToFile(string $file_name, string $type, string $ext): void
     {
         $file_name = $this->sanitizeName($file_name, $ext);
         Core::downloadHeader($file_name, $type);
@@ -338,7 +338,7 @@ class GisVisualization
      *
      * @param string $file_name File name
      */
-    public function toFileAsSvg($file_name): void
+    public function toFileAsSvg(string $file_name): void
     {
         $img = $this->svg();
         $this->writeToFile($file_name, 'image/svg+xml', 'svg');
@@ -373,7 +373,7 @@ class GisVisualization
      *
      * @param string $file_name File name
      */
-    public function toFileAsPng($file_name): void
+    public function toFileAsPng(string $file_name): void
     {
         $image = $this->png();
         if ($image === null) {
@@ -436,7 +436,7 @@ class GisVisualization
      *
      * @param string $file_name File name
      */
-    public function toFileAsPdf($file_name): void
+    public function toFileAsPdf(string $file_name): void
     {
         // create pdf
         $pdf = new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false);
@@ -465,7 +465,7 @@ class GisVisualization
      * @param string $filename Filename
      * @param string $format   Output format
      */
-    public function toFile($filename, $format): void
+    public function toFile(string $filename, string $format): void
     {
         if ($format === 'svg') {
             $this->toFileAsSvg($filename);
@@ -555,7 +555,7 @@ class GisVisualization
     private function prepareDataSet(
         array $data,
         array $scale_data,
-        $format,
+        string $format,
         ImageWrapper|TCPDF|string $results = '',
     ): mixed {
         $color_index = 0;

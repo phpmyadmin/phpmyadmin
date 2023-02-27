@@ -66,7 +66,7 @@ class Data
      * @param string $a key
      * @param mixed  $b value
      */
-    public function __set($a, $b): void
+    public function __set(string $a, mixed $b): void
     {
         // Discard everything
     }

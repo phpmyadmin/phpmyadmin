@@ -211,7 +211,7 @@ class TableProperty
      *
      * @return string formatted text
      */
-    public function formatCs($text): string
+    public function formatCs(string $text): string
     {
         $text = str_replace(
             '#name#',
@@ -229,7 +229,7 @@ class TableProperty
      *
      * @return string formatted text
      */
-    public function formatXml($text): string
+    public function formatXml(string $text): string
     {
         $text = str_replace(
             [
@@ -253,7 +253,7 @@ class TableProperty
      *
      * @return string formatted text
      */
-    public function format($text): string
+    public function format(string $text): string
     {
         return str_replace(
             [

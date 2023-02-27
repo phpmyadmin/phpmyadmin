@@ -247,7 +247,7 @@ class PdfRelationSchema extends ExportRelationSchema
      *
      * @param bool $value show grid of the document or not
      */
-    public function setShowGrid($value): void
+    public function setShowGrid(bool $value): void
     {
         $this->showGrid = $value;
     }
@@ -265,7 +265,7 @@ class PdfRelationSchema extends ExportRelationSchema
      *
      * @param bool $value show selected database data dictionary or not
      */
-    public function setWithDataDictionary($value): void
+    public function setWithDataDictionary(bool $value): void
     {
         $this->withDoc = $value;
     }
@@ -283,7 +283,7 @@ class PdfRelationSchema extends ExportRelationSchema
      *
      * @param string $value table order
      */
-    public function setTableOrder($value): void
+    public function setTableOrder(string $value): void
     {
         $this->tableOrder = $value;
     }
@@ -309,7 +309,7 @@ class PdfRelationSchema extends ExportRelationSchema
      *
      * @param TableStatsPdf $table The table name of which sets XY co-ordinates
      */
-    private function setMinMax($table): void
+    private function setMinMax(TableStatsPdf $table): void
     {
         $this->xMax = max($this->xMax, $table->x + $table->width);
         $this->yMax = max($this->yMax, $table->y + $table->height);
@@ -328,10 +328,10 @@ class PdfRelationSchema extends ExportRelationSchema
      * @param string $foreignField The relation field in the foreign table
      */
     private function addRelation(
-        $masterTable,
-        $masterField,
-        $foreignTable,
-        $foreignField,
+        string $masterTable,
+        string $masterField,
+        string $foreignTable,
+        string $foreignField,
     ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsPdf(

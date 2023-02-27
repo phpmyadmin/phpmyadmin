@@ -144,7 +144,7 @@ class IndexColumn
      * @return string nullability of the column. True/false or Yes/No depending
      *                on the value of the $as_text parameter
      */
-    public function getNull($as_text = false): string
+    public function getNull(bool $as_text = false): string
     {
         if ($as_text) {
             if (! $this->null || $this->null === 'NO') {

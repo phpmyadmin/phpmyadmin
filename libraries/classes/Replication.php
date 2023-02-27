@@ -29,7 +29,7 @@ class Replication
      *
      * @return string the extracted part
      */
-    public function extractDbOrTable($string, $what = 'db'): string
+    public function extractDbOrTable(string $string, string $what = 'db'): string
     {
         $list = explode('.', $string);
         if ($what === 'db') {
@@ -123,11 +123,11 @@ class Replication
      * @param string $socket   path to unix socket
      */
     public function connectToPrimary(
-        $user,
-        $password,
-        $host = null,
-        $port = null,
-        $socket = null,
+        string $user,
+        string $password,
+        string $host = null,
+        int $port = null,
+        string $socket = null,
     ): Connection|null {
         $server = [];
         $server['user'] = $user;

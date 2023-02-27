@@ -48,14 +48,14 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
      */
     public function getInputHtml(
         array $column,
-        $row_id,
-        $column_name_appendix,
+        int $row_id,
+        string $column_name_appendix,
         array $options,
-        $value,
-        $text_dir,
-        $tabindex,
-        $tabindex_for_value,
-        $idindex,
+        string $value,
+        string $text_dir,
+        int $tabindex,
+        int $tabindex_for_value,
+        int $idindex,
     ): string {
         $html = '';
         if (! empty($value)) {

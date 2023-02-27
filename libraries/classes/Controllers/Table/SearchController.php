@@ -293,7 +293,7 @@ class SearchController extends AbstractController
      *
      * @param string $column Column name
      */
-    public function getColumnMinMax($column): array|null
+    public function getColumnMinMax(string $column): array|null
     {
         $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
@@ -312,7 +312,7 @@ class SearchController extends AbstractController
      *
      * @return array Array containing column's properties
      */
-    public function getColumnProperties($search_index, $column_index): array
+    public function getColumnProperties(int $search_index, int $column_index): array
     {
         $selected_operator = ($_POST['criteriaColumnOperators'][$search_index] ?? '');
         $entered_value = ($_POST['criteriaValues'] ?? '');

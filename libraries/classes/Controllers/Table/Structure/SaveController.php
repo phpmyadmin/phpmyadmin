@@ -304,7 +304,7 @@ final class SaveController extends AbstractController
      *
      * @param int $i column index in the request
      */
-    private function columnNeedsAlterTable($i): bool
+    private function columnNeedsAlterTable(int $i): bool
     {
         // these two fields are checkboxes so might not be part of the
         // request; therefore we define them to avoid notices below

@@ -165,7 +165,7 @@ class DbiMysqli implements DbiExtension
      *
      * @param string|DatabaseName $databaseName database name to select
      */
-    public function selectDb($databaseName, Connection $connection): bool
+    public function selectDb(string|DatabaseName $databaseName, Connection $connection): bool
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
@@ -202,7 +202,7 @@ class DbiMysqli implements DbiExtension
      *
      * @param string $query multi query statement to execute
      */
-    public function realMultiQuery(Connection $connection, $query): bool
+    public function realMultiQuery(Connection $connection, string $query): bool
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
@@ -330,7 +330,7 @@ class DbiMysqli implements DbiExtension
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(Connection $connection, $string): string
+    public function escapeString(Connection $connection, string $string): string
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;

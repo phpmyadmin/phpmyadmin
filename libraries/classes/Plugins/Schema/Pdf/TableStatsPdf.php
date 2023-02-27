@@ -49,14 +49,14 @@ class TableStatsPdf extends TableStats
      * @param bool   $offline        Whether the coordinates are sent from the browser
      */
     public function __construct(
-        $diagram,
-        $db,
-        $tableName,
-        $fontSize,
-        $pageNumber,
-        $showKeys = false,
-        $tableDimension = false,
-        $offline = false,
+        Pdf $diagram,
+        string $db,
+        string $tableName,
+        int $fontSize,
+        int $pageNumber,
+        bool $showKeys = false,
+        bool $tableDimension = false,
+        bool $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline);
 
@@ -99,7 +99,7 @@ class TableStatsPdf extends TableStats
      *
      * @param int $fontSize The font size
      */
-    private function setWidth($fontSize): void
+    private function setWidth(int $fontSize): void
     {
         foreach ($this->fields as $field) {
             $this->width = max($this->width, $this->diagram->GetStringWidth($field));

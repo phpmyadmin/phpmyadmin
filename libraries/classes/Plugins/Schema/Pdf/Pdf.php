@@ -75,12 +75,12 @@ class Pdf extends PdfLib
      * @param string $db          the database name
      */
     public function __construct(
-        $orientation,
-        $unit,
-        $paper,
-        private $pageNumber,
-        private $withDoc,
-        private $db,
+        string $orientation,
+        string $unit,
+        string $paper,
+        private int $pageNumber,
+        private bool $withDoc,
+        private string $db,
     ) {
         parent::__construct($orientation, $unit, $paper);
 
@@ -92,7 +92,7 @@ class Pdf extends PdfLib
      *
      * @param float $c_margin margin
      */
-    public function setCMargin($c_margin): void
+    public function setCMargin(float $c_margin): void
     {
         $this->cMargin = $c_margin;
     }
@@ -144,12 +144,12 @@ class Pdf extends PdfLib
     public function cellScale(
         float|int $w,
         float|int $h = 0,
-        $txt = '',
-        $border = 0,
-        $ln = 0,
-        $align = '',
+        string $txt = '',
+        mixed $border = 0,
+        int $ln = 0,
+        string $align = '',
         bool $fill = false,
-        $link = '',
+        string $link = '',
     ): void {
         $h /= $this->scale;
         $w /= $this->scale;
@@ -166,7 +166,7 @@ class Pdf extends PdfLib
      * @param float $x2 The horizontal position of the ending point
      * @param float $y2 The vertical position of the ending point
      */
-    public function lineScale($x1, $y1, $x2, $y2): void
+    public function lineScale(float $x1, float $y1, float $x2, float $y2): void
     {
         $x1 = ($x1 - $this->xMin) / $this->scale + $this->leftMargin;
         $y1 = ($y1 - $this->yMin) / $this->scale + $this->topMargin;
@@ -183,7 +183,7 @@ class Pdf extends PdfLib
      * @param float $x The x position
      * @param float $y The y position
      */
-    public function setXyScale($x, $y): void
+    public function setXyScale(float $x, float $y): void
     {
         $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
         $y = ($y - $this->yMin) / $this->scale + $this->topMargin;
@@ -197,7 +197,7 @@ class Pdf extends PdfLib
      *
      * @param float $x The x position
      */
-    public function setXScale($x): void
+    public function setXScale(float $x): void
     {
         $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
         $this->setX($x);
@@ -210,7 +210,7 @@ class Pdf extends PdfLib
      *
      * @param float $size The font size (in points)
      */
-    public function setFontSizeScale($size): void
+    public function setFontSizeScale(float $size): void
     {
         // Set font size in points
         $size /= $this->scale;
@@ -224,7 +224,7 @@ class Pdf extends PdfLib
      *
      * @param float $width The line width
      */
-    public function setLineWidthScale($width): void
+    public function setLineWidthScale(float $width): void
     {
         $width /= $this->scale;
         $this->setLineWidth($width);
@@ -341,7 +341,7 @@ class Pdf extends PdfLib
      * @param int    $w   width
      * @param string $txt text
      */
-    public function numLines($w, $txt): int
+    public function numLines(int $w, string $txt): int
     {
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $cw = &$this->CurrentFont['cw'];
@@ -404,7 +404,7 @@ class Pdf extends PdfLib
      *
      * @param bool $value whether offline
      */
-    public function setOffline($value): void
+    public function setOffline(bool $value): void
     {
         $this->offline = $value;
     }

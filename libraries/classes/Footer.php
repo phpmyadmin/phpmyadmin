@@ -83,7 +83,7 @@ class Footer
      *
      * @return mixed Reference passed object
      */
-    private static function removeRecursion(&$object, array $stack = []): mixed
+    private static function removeRecursion(mixed &$object, array $stack = []): mixed
     {
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {

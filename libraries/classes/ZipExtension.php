@@ -45,7 +45,7 @@ class ZipExtension
      * @return array<string, string>
      * @psalm-return array{error: string, data: string}
      */
-    public function getContents($file, $specificEntry = null): array
+    public function getContents(string $file, string $specificEntry = null): array
     {
         /**
         * This function is used to "import" a SQL file which has been exported earlier
@@ -132,7 +132,7 @@ class ZipExtension
      *
      * @return string|false the file name of the first file that matches the given regular expression
      */
-    public function findFile($file, $regex): string|false
+    public function findFile(string $file, string $regex): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -161,7 +161,7 @@ class ZipExtension
      *
      * @return int the number of files in the zip archive or 0, either if there weren't any files or an error occurred.
      */
-    public function getNumberOfFiles($file): int
+    public function getNumberOfFiles(string $file): int
     {
         if ($this->zip === null) {
             return 0;
@@ -184,7 +184,7 @@ class ZipExtension
      *
      * @return string|false data on success, false otherwise
      */
-    public function extract($file, $entry): string|false
+    public function extract(string $file, string $entry): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -213,7 +213,7 @@ class ZipExtension
      *
      * @return string|false the ZIP file contents, or false if there was an error.
      */
-    public function createFile(array|string $data, array|string $name, $time = 0): string|false
+    public function createFile(array|string $data, array|string $name, int $time = 0): string|false
     {
         $datasec = []; // Array to store compressed data
         $ctrlDir = []; // Central directory

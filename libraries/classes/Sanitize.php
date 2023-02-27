@@ -40,7 +40,7 @@ class Sanitize
      * @param bool   $http  Whether to allow http links
      * @param bool   $other Whether to allow ftp and mailto links
      */
-    public static function checkLink($url, $http = false, $other = false): bool
+    public static function checkLink(string $url, bool $http = false, bool $other = false): bool
     {
         $url = strtolower($url);
         $valid_starts = [
@@ -175,7 +175,7 @@ class Sanitize
      * @param bool   $escape  whether to escape html in result
      * @param bool   $safe    whether string is safe (can keep < and > chars)
      */
-    public static function sanitizeMessage(string $message, $escape = false, $safe = false): string
+    public static function sanitizeMessage(string $message, bool $escape = false, bool $safe = false): string
     {
         if (! $safe) {
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
@@ -244,7 +244,7 @@ class Sanitize
      *
      * @return string  the sanitized filename
      */
-    public static function sanitizeFilename($filename, $replaceDots = false): string
+    public static function sanitizeFilename(string $filename, bool $replaceDots = false): string
     {
         $pattern = '/[^A-Za-z0-9_';
         // if we don't have to replace dots
@@ -267,7 +267,7 @@ class Sanitize
      *
      * @return string Javascript code.
      */
-    public static function getJsValue($key, $value): string
+    public static function getJsValue(string $key, mixed $value): string
     {
         return $key . ' = ' . json_encode($value, JSON_HEX_TAG) . ";\n";
     }
@@ -277,7 +277,7 @@ class Sanitize
      *
      * @param string[] $allowList list of variables to allow
      */
-    public static function removeRequestVars($allowList): void
+    public static function removeRequestVars(array $allowList): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become

@@ -49,7 +49,7 @@ class TwoFactor
      *
      * @param string $user User name
      */
-    public function __construct(public $user)
+    public function __construct(public string $user)
     {
         (new Relation($GLOBALS['dbi']))->initRelationParamsCache();
 
@@ -175,7 +175,7 @@ class TwoFactor
      *
      * @psalm-return class-string
      */
-    public function getBackendClass($name): string
+    public function getBackendClass(string $name): string
     {
         $result = TwoFactorPlugin::class;
         if (in_array($name, $this->available)) {
@@ -203,7 +203,7 @@ class TwoFactor
      *
      * @param bool $skipSession Skip session cache
      */
-    public function check($skipSession = false): bool
+    public function check(bool $skipSession = false): bool
     {
         if ($skipSession) {
             return $this->backend->check();
@@ -254,7 +254,7 @@ class TwoFactor
      *
      * @param string $name Backend name
      */
-    public function configure($name): bool
+    public function configure(string $name): bool
     {
         $this->config = ['backend' => $name, 'settings' => []];
         if ($name === '') {

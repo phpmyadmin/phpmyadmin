@@ -38,7 +38,7 @@ class Eps
      *
      * @param string $value sets the title text
      */
-    public function setTitle($value): void
+    public function setTitle(string $value): void
     {
         $this->stringCommands .= '%%Title: ' . $value . "\n";
     }
@@ -48,7 +48,7 @@ class Eps
      *
      * @param string $value sets the author
      */
-    public function setAuthor($value): void
+    public function setAuthor(string $value): void
     {
         $this->stringCommands .= '%%Creator: ' . $value . "\n";
     }
@@ -58,7 +58,7 @@ class Eps
      *
      * @param string $value sets the date
      */
-    public function setDate($value): void
+    public function setDate(string $value): void
     {
         $this->stringCommands .= '%%CreationDate: ' . $value . "\n";
     }
@@ -68,7 +68,7 @@ class Eps
      *
      * @param string $orientation sets the orientation
      */
-    public function setOrientation($orientation): void
+    public function setOrientation(string $orientation): void
     {
         $this->stringCommands .= "%%PageOrder: Ascend \n";
         if ($orientation === 'L') {
@@ -139,11 +139,11 @@ class Eps
      * @param int $lineWidth Sets the width of the line e.g 2
      */
     public function line(
-        $x_from = 0,
-        $y_from = 0,
-        $x_to = 0,
-        $y_to = 0,
-        $lineWidth = 0,
+        int $x_from = 0,
+        int $y_from = 0,
+        int $x_to = 0,
+        int $y_to = 0,
+        int $lineWidth = 0,
     ): void {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= $x_from . ' ' . $y_from . " moveto \n";
@@ -167,7 +167,7 @@ class Eps
      *                       right position of the element
      * @param int $lineWidth Sets the width of the line e.g 2
      */
-    public function rect($x_from, $y_from, $x_to, $y_to, $lineWidth): void
+    public function rect(int $x_from, int $y_from, int $x_to, int $y_to, int $lineWidth): void
     {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= "newpath \n";
@@ -189,7 +189,7 @@ class Eps
      * @param int $x The x attribute defines the left position of the element
      * @param int $y The y attribute defines the right position of the element
      */
-    public function moveTo($x, $y): void
+    public function moveTo(int $x, int $y): void
     {
         $this->stringCommands .= $x . ' ' . $y . " moveto \n";
     }
@@ -199,7 +199,7 @@ class Eps
      *
      * @param string $text The string to be displayed
      */
-    public function show($text): void
+    public function show(string $text): void
     {
         $this->stringCommands .= '(' . $text . ") show \n";
     }
@@ -211,7 +211,7 @@ class Eps
      * @param int    $x    X attribute defines the left position of the element
      * @param int    $y    Y attribute defines the right position of the element
      */
-    public function showXY($text, $x, $y): void
+    public function showXY(string $text, int $x, int $y): void
     {
         $this->moveTo($x, $y);
         $this->show($text);

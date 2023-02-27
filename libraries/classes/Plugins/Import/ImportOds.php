@@ -208,7 +208,7 @@ class ImportOds extends ImportPlugin
      * @param SimpleXMLElement $cell_attrs Cell attributes
      * @param SimpleXMLElement $text       Texts
      */
-    protected function getValue($cell_attrs, $text): float|string
+    protected function getValue(SimpleXMLElement $cell_attrs, SimpleXMLElement $text): float|string
     {
         if (
             isset($_REQUEST['ods_recognize_percentages'])

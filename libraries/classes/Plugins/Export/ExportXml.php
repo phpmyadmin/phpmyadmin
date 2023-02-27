@@ -372,7 +372,7 @@ class ExportXml extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader($db, $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -396,7 +396,7 @@ class ExportXml extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter($db): bool
+    public function exportDBFooter(string $db): bool
     {
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
             return $this->export->outputHandler('    </database>' . "\n");
@@ -412,7 +412,7 @@ class ExportXml extends ExportPlugin
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -427,10 +427,10 @@ class ExportXml extends ExportPlugin
      * @param array  $aliases  Aliases of db/table/columns
      */
     public function exportData(
-        $db,
-        $table,
-        $errorUrl,
-        $sqlQuery,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $sqlQuery,
         array $aliases = [],
     ): bool {
         // Do not export data for merge tables
@@ -504,7 +504,7 @@ class ExportXml extends ExportPlugin
      *
      * @param string $table table name
      */
-    private function setTable($table): void
+    private function setTable(string $table): void
     {
         $this->table = $table;
     }

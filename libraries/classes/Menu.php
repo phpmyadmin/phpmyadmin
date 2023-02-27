@@ -106,7 +106,7 @@ class Menu
      *
      * @return array list of allowed tabs
      */
-    private function getAllowedTabs($level): array
+    private function getAllowedTabs(string $level): array
     {
         $cacheKey = 'menu-levels-' . $level;
         if (SessionCache::has($cacheKey)) {
