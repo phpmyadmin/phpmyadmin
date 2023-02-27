@@ -122,7 +122,7 @@ class ThemeManager
      */
     public function setThemePerServer(bool $perServer): void
     {
-        $this->perServer = (bool) $perServer;
+        $this->perServer = $perServer;
     }
 
     /**

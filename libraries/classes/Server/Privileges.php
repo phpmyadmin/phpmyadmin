@@ -544,7 +544,6 @@ class Privileges
      */
     public function setUserGroup(string $username, string $userGroup): void
     {
-        $userGroup ??= '';
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature === null) {
             return;
@@ -1707,7 +1706,7 @@ class Privileges
             'Execute_priv' => 'N',
             'Grant_priv' => 'N',
         ];
-        foreach (explode(',', (string) $privs) as $priv) {
+        foreach (explode(',', $privs) as $priv) {
             if ($priv === 'Alter Routine') {
                 $result['Alter_routine_priv'] = 'Y';
             } else {
@@ -2444,7 +2443,7 @@ class Privileges
         bool $isMenuwork,
     ): array {
         $message = null;
-        $queries = null;
+        $queries = [];
         $queriesForDisplay = null;
         $sqlQuery = null;
 
@@ -2535,7 +2534,7 @@ class Privileges
                 $sqlQuery,
                 $username,
                 $hostname,
-                $dbname,
+                is_string($dbname) ? $dbname : '',
                 $alterRealSqlQuery,
                 $alterSqlQuery,
                 isset($_POST['createdb-1']),
@@ -2556,7 +2555,7 @@ class Privileges
         }
 
         // Copy the user group while copying a user
-        $oldUserGroup = $_POST['old_usergroup'] ?? null;
+        $oldUserGroup = $_POST['old_usergroup'] ?? '';
         $this->setUserGroup($_POST['username'], $oldUserGroup);
 
         if ($createUserReal !== null) {

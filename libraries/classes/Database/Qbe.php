@@ -358,12 +358,12 @@ class Qbe
     /**
      * Provides select options list containing sort order
      *
-     * @param int $columnNumber Column Number (0,1,2) or more
-     * @param int $sortOrder    Sort order
+     * @param int      $columnNumber Column Number (0,1,2) or more
+     * @param int|null $sortOrder    Sort order
      *
      * @return string HTML for select options
      */
-    private function getSortOrderSelectCell(int $columnNumber, int $sortOrder): string
+    private function getSortOrderSelectCell(int $columnNumber, int|null $sortOrder): string
     {
         $totalColumnCount = $this->getNewColumnCount();
 
@@ -572,7 +572,7 @@ class Qbe
 
             $sortOrder = null;
             if (! empty($_POST['criteriaSortOrder'][$colInd])) {
-                $sortOrder = $this->formSortOrders[$newColumnCount] = $_POST['criteriaSortOrder'][$colInd];
+                $sortOrder = (int) $this->formSortOrders[$newColumnCount] = $_POST['criteriaSortOrder'][$colInd];
             }
 
             $htmlOutput .= $this->getSortOrderSelectCell($newColumnCount, $sortOrder);

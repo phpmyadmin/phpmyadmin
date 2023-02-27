@@ -386,7 +386,7 @@ class Results
      * @param bool                      $isAnalyse        statement contains PROCEDURE ANALYSE
      * @param int|string                $numRows          total no. of rows returned by SQL query
      * @param int                       $fieldsCount      total no.of fields returned by SQL query
-     * @param float                    $queryTime        time taken for execute the SQL query
+     * @param float                     $queryTime        time taken for execute the SQL query
      * @param string                    $textDirection    text direction
      * @param bool                      $isMaintenance    statement contains a maintenance command
      * @param bool                      $isExplain        statement contains EXPLAIN
@@ -563,7 +563,7 @@ class Results
      *               by the SQL query without any programmatically appended
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
-     * @psalm-return array{DisplayParts, int|mixed}
+     * @psalm-return array{DisplayParts, int}
      */
     private function setDisplayPartsAndTotal(DisplayParts $displayParts): array
     {
@@ -627,7 +627,7 @@ class Results
 
         return [
             $displayParts,
-            $theTotal,
+            (int) $theTotal,
         ];
     }
 
@@ -1304,7 +1304,7 @@ class Results
      * @param array              $sortDirection             sort direction
      * @param bool               $colVisib                  column is visible(false)
      *                                                      or column isn't visible(string array)
-     * @param string             $colVisibElement           element of $col_visib array
+     * @param string|null        $colVisibElement           element of $col_visib array
      *
      * @return array   2 element array - $orderLink, $sortedHeaderHtml
      * @psalm-return array{
@@ -1326,7 +1326,7 @@ class Results
         string $comments,
         array $sortDirection,
         bool $colVisib,
-        string $colVisibElement,
+        string|null $colVisibElement,
     ): array {
         // Checks if the table name is required; it's the case
         // for a query with a "JOIN" statement and if the column

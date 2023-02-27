@@ -34,17 +34,6 @@ class GeneratorTest extends AbstractTestCase
      *
      * @group medium
      */
-    public function testGetDbLinkEmpty(): void
-    {
-        $GLOBALS['db'] = null;
-        $this->assertEmpty(Generator::getDbLink());
-    }
-
-    /**
-     * Test for getDbLink
-     *
-     * @group medium
-     */
     public function testGetDbLinkNull(): void
     {
         $GLOBALS['db'] = 'test_db';
@@ -61,7 +50,7 @@ class GeneratorTest extends AbstractTestCase
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            Generator::getDbLink(),
+            Generator::getDbLink(''),
         );
     }
 

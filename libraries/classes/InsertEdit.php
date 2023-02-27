@@ -209,14 +209,14 @@ class InsertEdit
      * Show message for empty result or set the unique_condition
      *
      * @param array             $rows             MySQL returned rows
-     * @param string            $keyId            ID in current key
+     * @param string|int        $keyId            ID in current key
      * @param array             $whereClauseArray array of where clauses
      * @param string            $localQuery       query performed
      * @param ResultInterface[] $result           MySQL result handle
      */
     private function showEmptyResultMessageOrSetUniqueCondition(
         array $rows,
-        string $keyId,
+        string|int $keyId,
         array $whereClauseArray,
         string $localQuery,
         array $result,
@@ -1056,9 +1056,9 @@ class InsertEdit
 
         return [
             $realNullValue,
-            $specialCharsEncoded,
-            $specialChars,
-            $data,
+            (string) $specialCharsEncoded,
+            (string) $specialChars,
+            (string) $data,
             $backupField,
         ];
     }
@@ -1103,7 +1103,7 @@ class InsertEdit
 
         return [
             $realNullValue,
-            $data,
+            (string) $data,
             $specialChars,
             '',
             $specialCharsEncoded,

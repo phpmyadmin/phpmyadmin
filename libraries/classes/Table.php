@@ -559,16 +559,16 @@ class Table implements Stringable
                             $isTimestamp
                             && preg_match(
                                 '/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/',
-                                (string) $defaultValue,
+                                $defaultValue,
                             )
                         ) {
-                            $query .= ' DEFAULT ' . (string) $defaultValue;
+                            $query .= ' DEFAULT ' . $defaultValue;
                         } elseif ($type === 'BIT') {
                             $query .= ' DEFAULT b\''
-                            . preg_replace('/[^01]/', '0', (string) $defaultValue)
+                            . preg_replace('/[^01]/', '0', $defaultValue)
                             . '\'';
                         } elseif ($type === 'BOOLEAN') {
-                            if (preg_match('/^1|T|TRUE|YES$/i', (string) $defaultValue)) {
+                            if (preg_match('/^1|T|TRUE|YES$/i', $defaultValue)) {
                                 $query .= ' DEFAULT TRUE';
                             } elseif (preg_match('/^0|F|FALSE|NO$/i', $defaultValue)) {
                                 $query .= ' DEFAULT FALSE';
@@ -856,14 +856,14 @@ class Table implements Stringable
 
         $whereParts = [];
         foreach ($whereFields as $where => $value) {
-            $whereParts[] = Util::backquote($where) . ' = '
+            $whereParts[] = Util::backquote((string) $where) . ' = '
                 . $GLOBALS['dbi']->quoteString((string) $value, Connection::TYPE_CONTROL);
         }
 
         $newParts = [];
         $newValueParts = [];
         foreach ($newFields as $where => $value) {
-            $newParts[] = Util::backquote($where);
+            $newParts[] = Util::backquote((string) $where);
             $newValueParts[] = $GLOBALS['dbi']->quoteString((string) $value, Connection::TYPE_CONTROL);
         }
 
@@ -1376,7 +1376,7 @@ class Table implements Stringable
      */
     public static function isValidName(string $tableName, bool $isBackquoted = false): bool
     {
-        if ($tableName !== rtrim((string) $tableName)) {
+        if ($tableName !== rtrim($tableName)) {
             // trailing spaces not allowed even in backquotes
             return false;
         }

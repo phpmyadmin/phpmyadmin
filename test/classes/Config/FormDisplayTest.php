@@ -230,7 +230,7 @@ class FormDisplayTest extends AbstractTestCase
         );
 
         $arr = ['' => 'foobar'];
-        $value = null;
+        $value = '';
         $this->assertTrue(
             $attrValidateSelect->invokeArgs(
                 $this->object,

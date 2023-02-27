@@ -19,7 +19,6 @@ use function ini_get;
 use function is_array;
 use function json_encode;
 use function str_contains;
-use function strlen;
 use function strtr;
 
 /**
@@ -49,11 +48,11 @@ class Url
             $params =& $db;
         } else {
             $params = [];
-            if (strlen((string) $db) > 0) {
+            if ($db !== '') {
                 $params['db'] = $db;
             }
 
-            if (strlen((string) $table) > 0) {
+            if ($table !== '') {
                 $params['table'] = $table;
             }
         }

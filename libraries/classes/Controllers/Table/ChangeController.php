@@ -225,7 +225,7 @@ class ChangeController extends AbstractController
                 $current_row = [];
             }
 
-            $GLOBALS['jsvkey'] = $row_id;
+            $GLOBALS['jsvkey'] = (string) $row_id;
             $GLOBALS['vkey'] = '[multi_edit][' . $GLOBALS['jsvkey'] . ']';
 
             $GLOBALS['current_result'] = (isset($GLOBALS['result'])

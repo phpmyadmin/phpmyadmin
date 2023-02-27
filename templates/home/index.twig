@@ -50,7 +50,7 @@
 
                   <li id="li_select_mysql_collation" class="list-group-item">
                     <form method="post" action="{{ url('/collation-connection') }}" class="row row-cols-lg-auto align-items-center disableAjax">
-                      {{ get_hidden_inputs(null, null, 'collation_connection') }}
+                      {{ get_hidden_inputs('', '', 'collation_connection') }}
                       <div class="col-12">
                         <label for="collationConnectionSelect" class="col-form-label">
                           {{ get_image('s_asci') }}

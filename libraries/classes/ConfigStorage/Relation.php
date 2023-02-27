@@ -495,8 +495,8 @@ class Relation
             $disp_query = 'SELECT `display_field`'
                     . ' FROM ' . Util::backquote($displayFeature->database)
                     . '.' . Util::backquote($displayFeature->tableInfo)
-                    . ' WHERE `db_name` = ' . $this->dbi->quoteString((string) $db)
-                    . ' AND `table_name` = ' . $this->dbi->quoteString((string) $table);
+                    . ' WHERE `db_name` = ' . $this->dbi->quoteString($db)
+                    . ' AND `table_name` = ' . $this->dbi->quoteString($table);
 
             $row = $this->dbi->fetchSingleRow(
                 $disp_query,
@@ -823,7 +823,6 @@ class Relation
         foreach ($foreign as $key => $value) {
             $key = (string) $key;
             $value = (string) $value;
-            $data = (string) $data;
 
             if (mb_check_encoding($key, 'utf-8') && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)) {
                 $selected = ($key == $data);

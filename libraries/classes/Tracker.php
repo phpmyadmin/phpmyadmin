@@ -262,7 +262,7 @@ class Tracker
         $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
 
         // Deactivate previous version
-        return self::deactivateTracking($dbName, $tableName, (int) $version - 1);
+        return self::deactivateTracking($dbName, $tableName, (string) ((int) $version - 1));
     }
 
     /**
@@ -379,7 +379,7 @@ class Tracker
             $newState,
             $GLOBALS['dbi']->escapeString($dbName),
             $GLOBALS['dbi']->escapeString($tableName),
-            $GLOBALS['dbi']->escapeString((string) $version),
+            $GLOBALS['dbi']->escapeString($version),
         );
 
         return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);

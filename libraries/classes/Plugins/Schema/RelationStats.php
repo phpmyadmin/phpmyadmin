@@ -37,17 +37,17 @@ abstract class RelationStats
     public int $wTick = 0;
 
     /**
-     * @param object $diagram       The diagram
-     * @param string $master_table  The master table name
-     * @param string $master_field  The relation field in the master table
-     * @param string $foreign_table The foreign table name
-     * @param string $foreign_field The relation field in the foreign table
+     * @param object     $diagram       The diagram
+     * @param TableStats $master_table  The master table name
+     * @param string     $master_field  The relation field in the master table
+     * @param TableStats $foreign_table The foreign table name
+     * @param string     $foreign_field The relation field in the foreign table
      */
     public function __construct(
         protected object $diagram,
-        string $master_table,
+        TableStats $master_table,
         string $master_field,
-        string $foreign_table,
+        TableStats $foreign_table,
         string $foreign_field,
     ) {
         $src_pos = $this->getXy($master_table, $master_field);

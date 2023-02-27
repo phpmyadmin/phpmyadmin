@@ -452,8 +452,8 @@ class CentralColumns
      * Make the columns of given tables consistent with central list of columns.
      * Updates only those columns which are not being referenced.
      *
-     * @param string $db              current database
-     * @param array  $selected_tables list of selected tables.
+     * @param string   $db              current database
+     * @param string[] $selected_tables list of selected tables.
      *
      * @return true|Message
      */

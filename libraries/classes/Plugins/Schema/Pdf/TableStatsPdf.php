@@ -38,21 +38,22 @@ class TableStatsPdf extends TableStats
      * @see TableStatsPdf::setWidthTable
      * @see PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::setHeightTable
      *
-     * @param Pdf    $diagram        The PDF diagram
-     * @param string $db             The database name
-     * @param string $tableName      The table name
-     * @param int    $fontSize       The font size
-     * @param int    $pageNumber     The current page number (from the
-     *                               $cfg['Servers'][$i]['table_coords'] table)
-     * @param bool   $showKeys       Whether to display keys or not
-     * @param bool   $tableDimension Whether to display table position or not
-     * @param bool   $offline        Whether the coordinates are sent from the browser
+     * @param Pdf      $diagram        The PDF diagram
+     * @param string   $db             The database name
+     * @param string   $tableName      The table name
+     * @param int|null $fontSize       The font size
+     * @param int      $pageNumber     The current page number (from the
+     *                                 $cfg['Servers'][$i]['table_coords'] table)
+     * @param bool     $showKeys       Whether to display keys or not
+     * @param bool     $tableDimension Whether to display table position or not
+     * @param bool     $offline        Whether the coordinates are sent
+     *                                 from the browser
      */
     public function __construct(
         Pdf $diagram,
         string $db,
         string $tableName,
-        int $fontSize,
+        int|null $fontSize,
         int $pageNumber,
         bool $showKeys = false,
         bool $tableDimension = false,
@@ -97,9 +98,9 @@ class TableStatsPdf extends TableStats
      *
      * @see    PMA_Schema_PDF
      *
-     * @param int $fontSize The font size
+     * @param int|null $fontSize The font size
      */
-    private function setWidth(int $fontSize): void
+    private function setWidth(int|null $fontSize): void
     {
         foreach ($this->fields as $field) {
             $this->width = max($this->width, $this->diagram->GetStringWidth($field));

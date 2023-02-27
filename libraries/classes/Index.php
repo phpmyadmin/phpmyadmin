@@ -497,12 +497,10 @@ class Index
 
     /**
      * Sets the name of the index
-     *
-     * @param string $name index name
      */
     public function setName(string $name): void
     {
-        $this->name = (string) $name;
+        $this->name = $name;
     }
 
     /**

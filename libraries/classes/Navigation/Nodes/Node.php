@@ -24,7 +24,6 @@ use function is_string;
 use function preg_match;
 use function sort;
 use function sprintf;
-use function strlen;
 use function strpos;
 use function strstr;
 
@@ -136,7 +135,7 @@ class Node
      */
     public function __construct(string $name, int $type = self::OBJECT, bool $isGroup = false)
     {
-        if (strlen((string) $name)) {
+        if ($name !== '') {
             $this->name = $name;
             $this->realName = $name;
         }
@@ -145,7 +144,7 @@ class Node
             $this->type = self::CONTAINER;
         }
 
-        $this->isGroup = (bool) $isGroup;
+        $this->isGroup = $isGroup;
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 

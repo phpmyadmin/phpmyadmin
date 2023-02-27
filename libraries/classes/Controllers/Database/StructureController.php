@@ -771,9 +771,9 @@ class StructureController extends AbstractController
      * @param array  $currentTable      current table
      * @param int    $sumSize           sum size
      * @param int    $overheadSize      overhead size
-     * @param int    $formattedSize     formatted size
+     * @param string $formattedSize     formatted size
      * @param string $unit              unit
-     * @param int    $formattedOverhead overhead formatted
+     * @param string $formattedOverhead overhead formatted
      * @param string $overheadUnit      overhead unit
      *
      * @return array
@@ -782,9 +782,9 @@ class StructureController extends AbstractController
         array $currentTable,
         int $sumSize,
         int $overheadSize,
-        int $formattedSize,
+        string $formattedSize,
         string $unit,
-        int $formattedOverhead,
+        string $formattedOverhead,
         string $overheadUnit,
     ): array {
         if ($this->dbIsSystemSchema) {

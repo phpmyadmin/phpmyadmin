@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Plugins\Schema\RelationStats;
+use PhpMyAdmin\Plugins\Schema\TableStats;
 
 use function shuffle;
 use function sqrt;
@@ -25,17 +26,17 @@ use function sqrt;
 class RelationStatsSvg extends RelationStats
 {
     /**
-     * @param Svg    $diagram       The SVG diagram
-     * @param string $master_table  The master table name
-     * @param string $master_field  The relation field in the master table
-     * @param string $foreign_table The foreign table name
-     * @param string $foreign_field The relation field in the foreign table
+     * @param Svg        $diagram       The SVG diagram
+     * @param TableStats $master_table  The master table name
+     * @param string     $master_field  The relation field in the master table
+     * @param TableStats $foreign_table The foreign table name
+     * @param string     $foreign_field The relation field in the foreign table
      */
     public function __construct(
         Svg $diagram,
-        string $master_table,
+        TableStats $master_table,
         string $master_field,
-        string $foreign_table,
+        TableStats $foreign_table,
         string $foreign_field,
     ) {
         $this->wTick = 10;

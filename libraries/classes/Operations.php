@@ -666,7 +666,7 @@ class Operations
         if (
             $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM'])
             && isset($_POST['new_pack_keys'])
-            && $_POST['new_pack_keys'] != (string) $packKeys
+            && $_POST['new_pack_keys'] != $packKeys
         ) {
             $tableAlters[] = 'pack_keys = ' . $_POST['new_pack_keys'];
         }

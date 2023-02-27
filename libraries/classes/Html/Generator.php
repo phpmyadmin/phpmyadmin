@@ -125,9 +125,9 @@ class Generator
      *
      * @return string  html link to default db page
      */
-    public static function getDbLink(string $database = ''): string
+    public static function getDbLink(string $database): string
     {
-        if ((string) $database === '') {
+        if ($database === '') {
             if ((string) $GLOBALS['db'] === '') {
                 return '';
             }
