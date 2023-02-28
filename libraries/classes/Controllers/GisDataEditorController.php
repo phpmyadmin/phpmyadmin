@@ -15,10 +15,8 @@ use function array_merge;
 use function in_array;
 use function intval;
 use function is_array;
-use function mb_strpos;
 use function mb_strtoupper;
-use function mb_substr;
-use function substr;
+use function preg_match;
 use function trim;
 
 /**
@@ -38,7 +36,7 @@ class GisDataEditorController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
+        global $gis_data, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
         global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count, $dbi;
 
         /** @var string|null $field */
@@ -160,9 +158,8 @@ class GisDataEditorController extends AbstractController
                 $gis_data['gis_type'] = mb_strtoupper($type);
             }
 
-            if (isset($value) && trim($value) !== '') {
-                $start = substr($value, 0, 1) == "'" ? 1 : 0;
-                $gis_data['gis_type'] = mb_substr($value, $start, (int) mb_strpos($value, '(') - $start);
+            if (isset($value) && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches)) {
+                $gis_data['gis_type'] = $matches[1];
             }
 
             if (! isset($gis_data['gis_type']) || (! in_array($gis_data['gis_type'], self::GIS_TYPES, true))) {
