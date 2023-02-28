@@ -2604,11 +2604,11 @@ final class Settings
         $this->FirstDayOfCalendar = $this->setFirstDayOfCalendar($settings);
     }
 
-    /** @return array<string, array|bool|int|string|null> */
+    /** @return array<string, array<mixed>|bool|int|string|null> */
     public function toArray(): array
     {
         $settings = get_object_vars($this);
-        $settings['Console'] = get_object_vars($this->Console);
+        $settings['Console'] = $this->Console->asArray();
         $settings['DBG'] = get_object_vars($this->DBG);
         $settings['SQLQuery'] = get_object_vars($this->SQLQuery);
         $settings['Export'] = get_object_vars($this->Export);

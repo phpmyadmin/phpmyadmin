@@ -661,11 +661,6 @@ parameters:
 			path: libraries/classes/Config/Settings.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Settings\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/Settings.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\Settings\\:\\:toArray\\(\\) should return array\\<string, array\\|bool\\|int\\|string\\|null\\> but returns array\\<string, mixed\\>\\.$#"
 			count: 1
 			path: libraries/classes/Config/Settings.php
@@ -9609,11 +9604,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\ServerConfigChecksTest\\:\\:\\$sessionID \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: test/classes/Config/ServerConfigChecksTest.php
-
-		-
-			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Console\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/ConsoleTest.php
 
 		-
 			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Debug\\.$#"

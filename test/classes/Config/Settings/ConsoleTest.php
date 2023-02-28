@@ -7,125 +7,172 @@ namespace PhpMyAdmin\Tests\Config\Settings;
 use PhpMyAdmin\Config\Settings\Console;
 use PHPUnit\Framework\TestCase;
 
-use function array_keys;
-use function array_merge;
-
 /** @covers \PhpMyAdmin\Config\Settings\Console */
 class ConsoleTest extends TestCase
 {
-    /** @var array<string, bool|int|string> */
-    private array $defaultValues = [
-        'StartHistory' => false,
-        'AlwaysExpand' => false,
-        'CurrentQuery' => true,
-        'EnterExecutes' => false,
-        'DarkTheme' => false,
-        'Mode' => 'info',
-        'Height' => 92,
-        'GroupQueries' => false,
-        'OrderBy' => 'exec',
-        'Order' => 'asc',
-    ];
-
-    /**
-     * @param mixed[][] $values
-     * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
-     *
-     * @dataProvider providerForTestConstructor
-     */
-    public function testConstructor(array $values): void
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testStartHistory(mixed $actual, bool $expected): void
     {
-        $actualValues = [];
-        $expectedValues = [];
-        /** @psalm-suppress MixedAssignment */
-        foreach ($values as $value) {
-            $actualValues[$value[0]] = $value[1];
-            $expectedValues[$value[0]] = $value[2];
-        }
-
-        $expected = array_merge($this->defaultValues, $expectedValues);
-        $settings = new Console($actualValues);
-
-        foreach (array_keys($expectedValues) as $key) {
-            $this->assertSame($expected[$key], $settings->$key);
-        }
+        $console = new Console(['StartHistory' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->StartHistory);
+        $this->assertArrayHasKey('StartHistory', $consoleArray);
+        $this->assertSame($expected, $consoleArray['StartHistory']);
     }
 
-    /**
-     * [setting key, actual value, expected value]
-     *
-     * @return mixed[][][][]
-     * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
-     */
-    public static function providerForTestConstructor(): array
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultFalseProvider(): iterable
     {
-        return [
-            'null values' => [
-                [
-                    ['StartHistory', null, false],
-                    ['AlwaysExpand', null, false],
-                    ['CurrentQuery', null, true],
-                    ['EnterExecutes', null, false],
-                    ['DarkTheme', null, false],
-                    ['Mode', null, 'info'],
-                    ['Height', null, 92],
-                    ['GroupQueries', null, false],
-                    ['OrderBy', null, 'exec'],
-                    ['Order', null, 'asc'],
-                ],
-            ],
-            'valid values' => [
-                [
-                    ['StartHistory', false, false],
-                    ['AlwaysExpand', false, false],
-                    ['CurrentQuery', true, true],
-                    ['EnterExecutes', false, false],
-                    ['DarkTheme', false, false],
-                    ['Mode', 'info', 'info'],
-                    ['Height', 1, 1],
-                    ['GroupQueries', false, false],
-                    ['OrderBy', 'exec', 'exec'],
-                    ['Order', 'asc', 'asc'],
-                ],
-            ],
-            'valid values 2' => [
-                [
-                    ['StartHistory', true, true],
-                    ['AlwaysExpand', true, true],
-                    ['CurrentQuery', false, false],
-                    ['EnterExecutes', true, true],
-                    ['DarkTheme', true, true],
-                    ['Mode', 'show', 'show'],
-                    ['GroupQueries', true, true],
-                    ['OrderBy', 'time', 'time'],
-                    ['Order', 'desc', 'desc'],
-                ],
-            ],
-            'valid values 3' => [
-                [
-                    ['Mode', 'collapse', 'collapse'],
-                    ['OrderBy', 'count', 'count'],
-                ],
-            ],
-            'valid values with type coercion' => [
-                [
-                    ['StartHistory', 1, true],
-                    ['AlwaysExpand', 1, true],
-                    ['CurrentQuery', 0, false],
-                    ['EnterExecutes', 1, true],
-                    ['DarkTheme', 1, true],
-                    ['Height', '2', 2],
-                    ['GroupQueries', 1, true],
-                ],
-            ],
-            'invalid values' => [
-                [
-                    ['Mode', 'invalid', 'info'],
-                    ['Height', 0, 92],
-                    ['OrderBy', 'invalid', 'exec'],
-                    ['Order', 'invalid', 'asc'],
-                ],
-            ],
-        ];
+        yield 'null value' => [null, false];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value with type coercion' => [1, true];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testAlwaysExpand(mixed $actual, bool $expected): void
+    {
+        $console = new Console(['AlwaysExpand' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->AlwaysExpand);
+        $this->assertArrayHasKey('AlwaysExpand', $consoleArray);
+        $this->assertSame($expected, $consoleArray['AlwaysExpand']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testCurrentQuery(mixed $actual, bool $expected): void
+    {
+        $console = new Console(['CurrentQuery' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->CurrentQuery);
+        $this->assertArrayHasKey('CurrentQuery', $consoleArray);
+        $this->assertSame($expected, $consoleArray['CurrentQuery']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultTrueProvider(): iterable
+    {
+        yield 'null value' => [null, true];
+        yield 'valid value' => [true, true];
+        yield 'valid value 2' => [false, false];
+        yield 'valid value with type coercion' => [0, false];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testEnterExecutes(mixed $actual, bool $expected): void
+    {
+        $console = new Console(['EnterExecutes' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->EnterExecutes);
+        $this->assertArrayHasKey('EnterExecutes', $consoleArray);
+        $this->assertSame($expected, $consoleArray['EnterExecutes']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testDarkTheme(mixed $actual, bool $expected): void
+    {
+        $console = new Console(['DarkTheme' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->DarkTheme);
+        $this->assertArrayHasKey('DarkTheme', $consoleArray);
+        $this->assertSame($expected, $consoleArray['DarkTheme']);
+    }
+
+    /** @dataProvider valuesForModeProvider */
+    public function testMode(mixed $actual, string $expected): void
+    {
+        $console = new Console(['Mode' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->Mode);
+        $this->assertArrayHasKey('Mode', $consoleArray);
+        $this->assertSame($expected, $consoleArray['Mode']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForModeProvider(): iterable
+    {
+        yield 'null value' => [null, 'info'];
+        yield 'valid value' => ['info', 'info'];
+        yield 'valid value 2' => ['show', 'show'];
+        yield 'valid value 3' => ['collapse', 'collapse'];
+        yield 'invalid value' => ['invalid', 'info'];
+    }
+
+    /** @dataProvider valuesForHeightProvider */
+    public function testHeight(mixed $actual, int $expected): void
+    {
+        $console = new Console(['Height' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->Height);
+        $this->assertArrayHasKey('Height', $consoleArray);
+        $this->assertSame($expected, $consoleArray['Height']);
+    }
+
+    /** @return iterable<string, array{mixed, int}> */
+    public static function valuesForHeightProvider(): iterable
+    {
+        yield 'null value' => [null, 92];
+        yield 'valid value' => [1, 1];
+        yield 'valid value with type coercion' => ['2', 2];
+        yield 'invalid value' => [0, 92];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testGroupQueries(mixed $actual, bool $expected): void
+    {
+        $console = new Console(['GroupQueries' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->GroupQueries);
+        $this->assertArrayHasKey('GroupQueries', $consoleArray);
+        $this->assertSame($expected, $consoleArray['GroupQueries']);
+    }
+
+    /** @dataProvider valuesForOrderByProvider */
+    public function testOrderBy(mixed $actual, string $expected): void
+    {
+        $console = new Console(['OrderBy' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->OrderBy);
+        $this->assertArrayHasKey('OrderBy', $consoleArray);
+        $this->assertSame($expected, $consoleArray['OrderBy']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForOrderByProvider(): iterable
+    {
+        yield 'null value' => [null, 'exec'];
+        yield 'valid value' => ['exec', 'exec'];
+        yield 'valid value 2' => ['time', 'time'];
+        yield 'valid value 3' => ['count', 'count'];
+        yield 'invalid value' => ['invalid', 'exec'];
+    }
+
+    /** @dataProvider valuesForOrderProvider */
+    public function testOrder(mixed $actual, string $expected): void
+    {
+        $console = new Console(['Order' => $actual]);
+        $consoleArray = $console->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $console->Order);
+        $this->assertArrayHasKey('Order', $consoleArray);
+        $this->assertSame($expected, $consoleArray['Order']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForOrderProvider(): iterable
+    {
+        yield 'null value' => [null, 'asc'];
+        yield 'valid value' => ['asc', 'asc'];
+        yield 'valid value 2' => ['desc', 'desc'];
+        yield 'invalid value' => ['invalid', 'asc'];
     }
 }

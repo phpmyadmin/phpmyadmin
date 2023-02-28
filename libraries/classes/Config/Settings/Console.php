@@ -138,6 +138,23 @@ final class Console
         $this->Order = $this->setOrder($console);
     }
 
+    /** @return array<string, string|bool|int> */
+    public function asArray(): array
+    {
+        return [
+            'StartHistory' => $this->StartHistory,
+            'AlwaysExpand' => $this->AlwaysExpand,
+            'CurrentQuery' => $this->CurrentQuery,
+            'EnterExecutes' => $this->EnterExecutes,
+            'DarkTheme' => $this->DarkTheme,
+            'Mode' => $this->Mode,
+            'Height' => $this->Height,
+            'GroupQueries' => $this->GroupQueries,
+            'OrderBy' => $this->OrderBy,
+            'Order' => $this->Order,
+        ];
+    }
+
     /** @param mixed[] $console */
     private function setStartHistory(array $console): bool
     {

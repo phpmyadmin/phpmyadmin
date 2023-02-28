@@ -861,20 +861,6 @@
       <code>$maxRowPlotLimit</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Config/Settings/Console.php">
-    <PossiblyUnusedProperty>
-      <code>$AlwaysExpand</code>
-      <code>$CurrentQuery</code>
-      <code>$DarkTheme</code>
-      <code>$EnterExecutes</code>
-      <code>$GroupQueries</code>
-      <code>$Height</code>
-      <code>$Mode</code>
-      <code>$Order</code>
-      <code>$OrderBy</code>
-      <code>$StartHistory</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="libraries/classes/Config/Settings/Debug.php">
     <PossiblyUnusedProperty>
       <code>$demo</code>
