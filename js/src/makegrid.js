@@ -2181,6 +2181,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     // wrap all truncated data cells with span indicating the original length
     // todo update the original length after a grid edit
     $(t).find('td.data.truncated:not(:has(span))')
+        .filter(function () {
+            return $(this).data('originallength') !== undefined;
+        })
         .wrapInner(function () {
             return '<span title="' + Messages.strOriginalLength + ' ' +
                 $(this).data('originallength') + '"></span>';
