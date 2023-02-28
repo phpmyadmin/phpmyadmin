@@ -4088,3 +4088,16 @@ reCaptcha using Turnstile
 
 .. seealso:: `Cloudflare Dashboard <https://dash.cloudflare.com/>`_
 .. seealso:: `Turnstile Developer Guide <https://developers.cloudflare.com/turnstile/get-started/>`_
+
+reCaptcha using Google reCaptcha v2/v3
+++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: php
+
+    $cfg['CaptchaLoginPublicKey'] = 'xxxxxxxxxxxxxxxx-xxxxxxxxxxxx';
+    $cfg['CaptchaLoginPrivateKey'] = 'xxxxxxxxx-xxxxxxxxxxxxxx';
+    // Remove it if you dot not want the checkbox mode
+    $cfg['CaptchaMethod'] = 'checkbox';
+
+.. seealso:: `Google reCaptcha Developer's Guide <https://developers.google.com/recaptcha/intro>`_
+.. seealso:: `Google reCaptcha types <https://developers.google.com/recaptcha/docs/versions>`_
