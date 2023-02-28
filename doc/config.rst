@@ -2588,6 +2588,19 @@ Browse mode
     .. versionchanged:: 3.4.0
         Since phpMyAdmin 3.4.0 the default value is ``'SMART'``.
 
+.. config:option:: $cfg['DisplayBinaryAsHex']
+
+    :type: boolean
+    :default: true
+
+    Defines whether the ":guilabel:`Show binary contents as HEX`" browse option is
+    ticked by default.
+
+    .. versionadded:: 3.3.0
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
+
 .. config:option:: $cfg['GridEditing']
 
     :type: string
