@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 00:21+0000\n"
-"PO-Revision-Date: 2023-02-23 12:36+0000\n"
-"Last-Translator: mixeros <mixer@mixercz.cz>\n"
+"PO-Revision-Date: 2023-03-01 12:28+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16-rc\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -14275,10 +14275,8 @@ msgstr "Centrální seznam sloupců pro aktuální databázi je prázdný"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Filtrovat řádky"
+msgstr "Filtrovat řádky:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -15579,10 +15577,8 @@ msgid "Send error report"
 msgstr "Odeslat chybové hlášení"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Něco se pokazilo."
+msgstr "Něco se pokazilo"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
