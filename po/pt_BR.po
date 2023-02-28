@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 00:21+0000\n"
-"PO-Revision-Date: 2023-01-28 03:50+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-03-01 12:28+0000\n"
+"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16-rc\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #: libraries/classes/Advisory/Advisor.php:198
@@ -6392,9 +6392,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:240
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
 msgid "Incorrect format parameter"
-msgstr "O formulário fornecido está incorreto!"
+msgstr "Parâmetro de formato incorreto"
 
 #: libraries/classes/Controllers/Import/ImportController.php:369
 #: libraries/classes/Controllers/Import/ImportController.php:608
@@ -11478,9 +11477,9 @@ msgstr "O nome do banco de dados está em branco!"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:20
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
-#, fuzzy, php-format
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Por favor, digite até {0} caractéres"
+msgstr "O nome do banco de dados não pode ser maior que %d caracteres."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:25
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
