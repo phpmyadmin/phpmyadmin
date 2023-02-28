@@ -101,10 +101,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']],
             ),
             new TwigFunction(
-                'localised_date',
-                Util::localisedDate(...),
-            ),
-            new TwigFunction(
                 'show_hint',
                 Generator::showHint(...),
                 ['is_safe' => ['html']],

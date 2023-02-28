@@ -152,21 +152,21 @@
                 {% if showtable['Create_time'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Creation' %}</th>
-                    <td class="value">{{ localised_date(showtable['Create_time']|date('U')) }}</td>
+                    <td class="value">{{ showtable['Create_time'] }}</td>
                     </tr>
                 {% endif %}
 
                 {% if showtable['Update_time'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Last update' %}</th>
-                    <td class="value">{{ localised_date(showtable['Update_time']|date('U')) }}</td>
+                    <td class="value">{{ showtable['Update_time'] }}</td>
                     </tr>
                 {% endif %}
 
                 {% if showtable['Check_time'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Last check' %}</th>
-                    <td class="value">{{ localised_date(showtable['Check_time']|date('U')) }}</td>
+                    <td class="value">{{ showtable['Check_time'] }}</td>
                     </tr>
                 {% endif %}
             </tbody>

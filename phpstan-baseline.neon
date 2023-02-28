@@ -2516,6 +2516,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			count: 3
+			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, \\(array\\|float\\|int\\) given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/StructureController.php
