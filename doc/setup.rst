@@ -67,7 +67,7 @@ Red Hat Enterprise Linux
 
 Red Hat Enterprise Linux itself and thus derivatives like CentOS don't
 ship phpMyAdmin, but the Fedora-driven repository
-`Extra Packages for Enterprise Linux (EPEL) <https://fedoraproject.org/wiki/EPEL>`_
+`Extra Packages for Enterprise Linux (EPEL) <https://docs.fedoraproject.org/en-US/epel/>`_
 is doing so, if it's
 `enabled <https://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
 But be aware that the configuration file is maintained in

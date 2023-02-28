@@ -1806,6 +1806,8 @@ Generic settings
     :type: boolean
     :default: true
 
+    .. versionadded:: 4.5.0
+
     Defines whether to use the parser to find any errors in the query before executing.
 
 .. config:option:: $cfg['DefaultForeignKeyChecks']
@@ -1894,6 +1896,13 @@ Generic settings
 
     .. seealso:: :ref:`faq2_10`
 
+.. config:option:: $cfg['maxRowPlotLimit']
+
+    :type: integer
+    :default: 500
+
+    Maximum number of rows retrieved for zoom search.
+
 Cookie authentication options
 -----------------------------
 
@@ -1965,7 +1974,7 @@ Cookie authentication options
     * ``Strict``
     * ``None``
 
-    .. seealso:: `rfc6265 bis <https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7>`_
+    .. seealso:: `rfc6265 bis <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-03#section-5.3.7>`_
 
 .. config:option:: $cfg['LoginCookieRecall']
 
@@ -2389,6 +2398,13 @@ Navigation panel setup
 
     Whether to show events under database in the navigation panel.
 
+.. config:option:: $cfg['NavigationTreeAutoexpandSingleDb']
+
+    :type: boolean
+    :default: true
+
+    Whether to expand single database in the navigation tree automatically.
+
 .. config:option:: $cfg['NavigationWidth']
 
     :type: integer
@@ -2483,6 +2499,20 @@ Main panel
 
 Database structure
 ------------------
+
+.. config:option:: $cfg['ShowDbStructureCharset']
+
+    :type: boolean
+    :default: false
+
+    Defines whether to show a column displaying the charset for all tables in the database structure page.
+
+.. config:option:: $cfg['ShowDbStructureComment']
+
+    :type: boolean
+    :default: false
+
+    Defines whether to show a column displaying the comments for all tables in the database structure page.
 
 .. config:option:: $cfg['ShowDbStructureCreation']
 
@@ -2582,6 +2612,19 @@ Browse mode
 
     .. versionchanged:: 3.4.0
         Since phpMyAdmin 3.4.0 the default value is ``'SMART'``.
+
+.. config:option:: $cfg['DisplayBinaryAsHex']
+
+    :type: boolean
+    :default: true
+
+    Defines whether the ":guilabel:`Show binary contents as HEX`" browse option is
+    ticked by default.
+
+    .. versionadded:: 3.3.0
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
 
 .. config:option:: $cfg['GridEditing']
 
@@ -2730,6 +2773,13 @@ Export and import settings
     * ``custom-no-form`` same as ``custom`` but does not display the option
       of using quick export
 
+.. config:option:: $cfg['Export']['compression']
+
+    :type: string
+    :default: ``'none'``
+
+    Default export compression method. Possible values are ``'none'``, ``'zip'`` or ``'gzip'``.
+
 .. config:option:: $cfg['Export']['charset']
 
     :type: string
@@ -2790,6 +2840,18 @@ Export and import settings
 
     Defines charset for import. By default no charset conversion is done
     assuming UTF-8.
+
+.. config:option:: $cfg['Schema']
+
+    :type: array
+    :default: array(...)
+
+.. config:option:: $cfg['Schema']['format']
+
+    :type: string
+    :default: ``'pdf'``
+
+    Defines the default format for schema export. Possible values are ``'pdf'``, ``'eps'``, ``'dia'`` or ``'svg'``.
 
 Tabs display settings
 ---------------------
@@ -3395,10 +3457,48 @@ Various display setting
 
     Repeat the headers every X cells, or 0 to deactivate.
 
+.. config:option:: $cfg['EditInWindow']
+
+    :type: boolean
+    :default: true
+
+    .. seealso:: `Feature request to add a pop-up window back <https://github.com/phpmyadmin/phpmyadmin/issues/11983>`_
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
+
+.. config:option:: $cfg['QueryWindowWidth']
+
+    :type: integer
+    :default: 550
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
+
+.. config:option:: $cfg['QueryWindowHeight']
+
+    :type: integer
+    :default: 310
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
+
 .. config:option:: $cfg['QueryHistoryDB']
 
     :type: boolean
     :default: false
+
+.. config:option:: $cfg['QueryWindowDefTab']
+
+    :type: string
+    :default: ``'sql'``
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
 
 .. config:option:: $cfg['QueryHistoryMax']
 
