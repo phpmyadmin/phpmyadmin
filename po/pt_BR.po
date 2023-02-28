@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 00:21+0000\n"
 "PO-Revision-Date: 2023-03-01 12:28+0000\n"
-"Last-Translator: Nick <nick@nickuc.com>\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18279,9 +18279,8 @@ msgid "Send error report"
 msgstr "Enviar relatório de erros"
 
 #: templates/error/simple.twig:2
-#, fuzzy
 msgid "Something went wrong"
-msgstr "Algo deu errado."
+msgstr "Algo deu errado"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
