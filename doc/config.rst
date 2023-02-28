@@ -1899,6 +1899,13 @@ Generic settings
 
     .. seealso:: :ref:`faq2_10`
 
+.. config:option:: $cfg['maxRowPlotLimit']
+
+    :type: integer
+    :default: 500
+
+    Maximum number of rows retrieved for zoom search.
+
 Cookie authentication options
 -----------------------------
 
@@ -2394,6 +2401,13 @@ Navigation panel setup
 
     Whether to show events under database in the navigation panel.
 
+.. config:option:: $cfg['NavigationTreeAutoexpandSingleDb']
+
+    :type: boolean
+    :default: true
+
+    Whether to expand single database in the navigation tree automatically.
+
 .. config:option:: $cfg['NavigationWidth']
 
     :type: integer
@@ -2488,6 +2502,20 @@ Main panel
 
 Database structure
 ------------------
+
+.. config:option:: $cfg['ShowDbStructureCharset']
+
+    :type: boolean
+    :default: false
+
+    Defines whether to show a column displaying the charset for all tables in the database structure page.
+
+.. config:option:: $cfg['ShowDbStructureComment']
+
+    :type: boolean
+    :default: false
+
+    Defines whether to show a column displaying the comments for all tables in the database structure page.
 
 .. config:option:: $cfg['ShowDbStructureCreation']
 
@@ -2748,6 +2776,13 @@ Export and import settings
     * ``custom-no-form`` same as ``custom`` but does not display the option
       of using quick export
 
+.. config:option:: $cfg['Export']['compression']
+
+    :type: string
+    :default: ``'none'``
+
+    Default export compression method. Possible values are ``'none'``, ``'zip'`` or ``'gzip'``.
+
 .. config:option:: $cfg['Export']['charset']
 
     :type: string
@@ -2808,6 +2843,18 @@ Export and import settings
 
     Defines charset for import. By default no charset conversion is done
     assuming UTF-8.
+
+.. config:option:: $cfg['Schema']
+
+    :type: array
+    :default: array(...)
+
+.. config:option:: $cfg['Schema']['format']
+
+    :type: string
+    :default: ``'pdf'``
+
+    Defines the default format for schema export. Possible values are ``'pdf'``, ``'eps'``, ``'dia'`` or ``'svg'``.
 
 Tabs display settings
 ---------------------
