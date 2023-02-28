@@ -4409,6 +4409,8 @@
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$GLOBALS['showtable']['Check_time']]]></code>
+      <code><![CDATA[$GLOBALS['showtable']['Create_time']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Data_free']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']
@@ -4418,6 +4420,7 @@
                 - $GLOBALS['showtable']['Data_free']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
+      <code><![CDATA[$GLOBALS['showtable']['Update_time']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$field['Collation'] ?? '']]></code>
       <code><![CDATA[$field['Extra']]]></code>

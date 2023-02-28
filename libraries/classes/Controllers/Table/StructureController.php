@@ -34,6 +34,7 @@ use function __;
 use function in_array;
 use function is_string;
 use function str_contains;
+use function strtotime;
 
 /**
  * Displays table structure infos like columns, indexes, size, rows
@@ -359,6 +360,18 @@ class StructureController extends AbstractController
                 'name' => $collation->getName(),
                 'description' => $collation->getDescription(),
             ];
+        }
+
+        if (isset($GLOBALS['showtable']['Create_time'])) {
+            $GLOBALS['showtable']['Create_time'] = Util::localisedDate(strtotime($GLOBALS['showtable']['Create_time']));
+        }
+
+        if (isset($GLOBALS['showtable']['Update_time'])) {
+            $GLOBALS['showtable']['Update_time'] = Util::localisedDate(strtotime($GLOBALS['showtable']['Update_time']));
+        }
+
+        if (isset($GLOBALS['showtable']['Check_time'])) {
+            $GLOBALS['showtable']['Check_time'] = Util::localisedDate(strtotime($GLOBALS['showtable']['Check_time']));
         }
 
         return $this->template->render('table/structure/display_table_stats', [
