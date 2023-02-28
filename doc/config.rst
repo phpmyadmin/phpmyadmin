@@ -1970,7 +1970,7 @@ Cookie authentication options
     * ``Strict``
     * ``None``
 
-    .. seealso:: `rfc6265 bis <https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7>`_
+    .. seealso:: `rfc6265 bis <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-03#section-5.3.7>`_
 
 .. config:option:: $cfg['LoginCookieRecall']
 
