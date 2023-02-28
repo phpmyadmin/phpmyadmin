@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 00:21+0000\n"
-"PO-Revision-Date: 2023-01-28 03:50+0000\n"
+"PO-Revision-Date: 2023-03-01 12:28+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16-rc\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -9600,10 +9600,9 @@ msgid "The database name must be a non-empty string."
 msgstr "Numele bazei de date este gol!"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:20
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Te rog introdu nu mai mult de {0} caractere"
+msgstr "Numele bazei de date nu poate fi mai lung de %d caractere."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:25
 #, fuzzy
@@ -9618,10 +9617,9 @@ msgid "The table name must be a non-empty string."
 msgstr "Numele tabelului este gol!"
 
 #: libraries/classes/Dbal/InvalidTableName.php:20
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Te rog introdu nu mai mult de {0} caractere"
+msgstr "Numele tabelului nu poate fi mai lung de %d caractere."
 
 #: libraries/classes/Dbal/InvalidTableName.php:25
 #, fuzzy
@@ -14352,9 +14350,8 @@ msgid "Hide trace"
 msgstr "Ascunde urmărirea"
 
 #: templates/console/display.twig:108
-#, fuzzy
 msgid "Count:"
-msgstr "Numără"
+msgstr "Număr:"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -14439,10 +14436,8 @@ msgstr "Lista centrală de coloane pentru baza de date curentă este goală"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Filtrează rândurile"
+msgstr "Filtrează rândurile:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -15767,10 +15762,8 @@ msgid "Send error report"
 msgstr "Trimite raportul de erori"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Ceva nu a mers bine."
+msgstr "Ceva nu a mers bine"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
