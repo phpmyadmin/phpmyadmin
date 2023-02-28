@@ -3413,10 +3413,48 @@ Various display setting
 
     Repeat the headers every X cells, or 0 to deactivate.
 
+.. config:option:: $cfg['EditInWindow']
+
+    :type: boolean
+    :default: true
+
+    .. seealso:: `Feature request to add a pop-up window back <https://github.com/phpmyadmin/phpmyadmin/issues/11983>`_
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
+
+.. config:option:: $cfg['QueryWindowWidth']
+
+    :type: integer
+    :default: 550
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
+
+.. config:option:: $cfg['QueryWindowHeight']
+
+    :type: integer
+    :default: 310
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
+
 .. config:option:: $cfg['QueryHistoryDB']
 
     :type: boolean
     :default: false
+
+.. config:option:: $cfg['QueryWindowDefTab']
+
+    :type: string
+    :default: ``'sql'``
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed.
 
 .. config:option:: $cfg['QueryHistoryMax']
 
