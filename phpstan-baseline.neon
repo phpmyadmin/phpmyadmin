@@ -3571,13 +3571,8 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with mysqli_result and 'fetch_all' will always evaluate to true\\.$#"
-			count: 3
-			path: libraries/classes/Dbal/MysqliResult.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
