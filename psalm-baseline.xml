@@ -3657,12 +3657,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_POST['columnIndex']]]></code>
       <code><![CDATA[$_POST['columnIndex']]]></code>
