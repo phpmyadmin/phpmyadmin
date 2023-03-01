@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometry;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
@@ -39,13 +40,13 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests setMinMax method
      *
-     * @param string $point_set Point set
-     * @param array  $min_max   Existing min, max values
-     * @param array  $output    Expected output array
+     * @param string         $point_set Point set
+     * @param ScaleData|null $min_max   Existing min, max values
+     * @param ScaleData|null $output    Expected output array
      *
      * @dataProvider providerForTestSetMinMax
      */
-    public function testSetMinMax(string $point_set, array $min_max, array $output): void
+    public function testSetMinMax(string $point_set, ?ScaleData $min_max, ?ScaleData $output): void
     {
         $this->assertEquals(
             $output,
@@ -71,28 +72,13 @@ class GisGeometryTest extends AbstractTestCase
         return [
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                [],
-                [
-                    'minX' => 12,
-                    'maxX' => 69,
-                    'minY' => 23,
-                    'maxY' => 78,
-                ],
+                null,
+                new ScaleData(69, 12, 78, 23),
             ],
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                [
-                    'minX' => 2,
-                    'maxX' => 29,
-                    'minY' => 23,
-                    'maxY' => 128,
-                ],
-                [
-                    'minX' => 2,
-                    'maxX' => 69,
-                    'minY' => 23,
-                    'maxY' => 128,
-                ],
+                new ScaleData(29, 2, 128, 23),
+                new ScaleData(69, 2, 128, 23),
             ],
         ];
     }

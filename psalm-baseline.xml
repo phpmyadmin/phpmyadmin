@@ -6904,37 +6904,13 @@
       <code>! $gis_obj</code>
       <code>$gis_obj</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="20">
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
+    <MixedArgument occurrences="2">
       <code>$type</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="4">
       <code>$geom_count</code>
       <code>$params['srid']</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
       <code>$type</code>
       <code>$wkt</code>
     </MixedAssignment>
@@ -7587,8 +7563,8 @@
     <MixedOperand occurrences="15">
       <code>$border / $scale</code>
       <code>$border / $scale</code>
-      <code>$min_max['maxX'] + $min_max['minX'] - $this-&gt;settings['width'] / $scale</code>
-      <code>$min_max['maxY'] + $min_max['minY'] - $this-&gt;settings['height'] / $scale</code>
+      <code>$min_max-&gt;maxX + $min_max-&gt;minX - $this-&gt;settings['width'] / $scale</code>
+      <code>$min_max-&gt;maxY + $min_max-&gt;minY - $this-&gt;settings['height'] / $scale</code>
       <code>$plot_height</code>
       <code>$plot_width</code>
       <code>$ratio</code>
@@ -15556,8 +15532,7 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
-    <MixedInferredReturnType occurrences="6">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="5">
       <code>array</code>
       <code>array</code>
       <code>array</code>
@@ -15657,7 +15632,8 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="10">
+      <code>$dataSet</code>
       <code>$dataSet</code>
       <code>$queryString</code>
       <code>$queryString</code>

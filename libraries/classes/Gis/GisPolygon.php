@@ -58,9 +58,9 @@ class GisPolygon extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y coordinates
+     * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ?ScaleData
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -74,7 +74,7 @@ class GisPolygon extends GisGeometry
             $ring = $parts[0];
         }
 
-        return $this->setMinMax($ring, []);
+        return $this->setMinMax($ring);
     }
 
     /**

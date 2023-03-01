@@ -51,14 +51,14 @@ class GisLineString extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y coordinates
+     * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ?ScaleData
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($spatial, 11, -1);
 
-        return $this->setMinMax($linestring, []);
+        return $this->setMinMax($linestring);
     }
 
     /**

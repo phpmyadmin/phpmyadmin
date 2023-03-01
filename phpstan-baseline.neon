@@ -3746,26 +3746,6 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometry.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:setMinMax\\(\\) has parameter \\$min_max with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometry.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:setMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometry.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:explodeGeomCol\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
@@ -3797,11 +3777,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
@@ -3847,11 +3822,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -3907,11 +3877,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -3976,11 +3941,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
@@ -4041,11 +4001,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Parameter \\#2 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -4097,11 +4052,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -4187,11 +4137,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -10016,11 +9961,6 @@ parameters:
 			path: test/classes/Gis/GisGeomTestCase.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:testScaleRow\\(\\) has parameter \\$min_max with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeomTestCase.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
@@ -10081,11 +10021,6 @@ parameters:
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testScaleRow\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestExtractPoints\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
@@ -10132,16 +10067,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testGetPolygonArrayForOpenLayers\\(\\) has parameter \\$polygons with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testSetMinMax\\(\\) has parameter \\$min_max with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testSetMinMax\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 

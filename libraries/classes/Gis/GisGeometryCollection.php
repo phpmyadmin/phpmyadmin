@@ -49,12 +49,10 @@ class GisGeometryCollection extends GisGeometry
      * Scales each row.
      *
      * @param string $spatial spatial data of a row
-     *
-     * @return array array containing the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ?ScaleData
     {
-        $min_max = [];
+        $min_max = null;
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -77,28 +75,9 @@ class GisGeometryCollection extends GisGeometry
 
             $scale_data = $gis_obj->scaleRow($sub_part);
 
-            // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float) $scale_data['maxX'];
-            if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
-                $min_max['maxX'] = $c_maxX;
-            }
-
-            $c_minX = (float) $scale_data['minX'];
-            if (! isset($min_max['minX']) || $c_minX < $min_max['minX']) {
-                $min_max['minX'] = $c_minX;
-            }
-
-            $c_maxY = (float) $scale_data['maxY'];
-            if (! isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
-                $min_max['maxY'] = $c_maxY;
-            }
-
-            $c_minY = (float) $scale_data['minY'];
-            if (isset($min_max['minY']) && $c_minY >= $min_max['minY']) {
-                continue;
-            }
-
-            $min_max['minY'] = $c_minY;
+            $min_max = $min_max === null
+                ? $scale_data
+                : ($scale_data ? $scale_data->merge($min_max) : null);
         }
 
         return $min_max;
@@ -263,9 +242,9 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $geom_col geometry collection string
      *
-     * @return array the constituents of the geometry collection object
+     * @return string[] the constituents of the geometry collection object
      */
-    private function explodeGeomCol($geom_col)
+    private function explodeGeomCol($geom_col): array
     {
         $sub_parts = [];
         $br_count = 0;

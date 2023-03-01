@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
@@ -50,12 +51,12 @@ abstract class GisGeomTestCase extends AbstractTestCase
     /**
      * test scaleRow method
      *
-     * @param string $spatial spatial data of a row
-     * @param array  $min_max expected results
+     * @param string    $spatial spatial data of a row
+     * @param ScaleData $min_max expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, array $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $min_max): void
     {
         $this->assertEquals(
             $min_max,
