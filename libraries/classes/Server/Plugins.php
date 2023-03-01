@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Server;
 use PhpMyAdmin\DatabaseInterface;
 
 use function __;
+use function array_map;
 
 class Plugins
 {
@@ -23,12 +24,8 @@ class Plugins
         }
 
         $result = $this->dbi->query($sql);
-        $plugins = [];
-        while ($row = $result->fetchAssoc()) {
-            $plugins[] = $this->mapRowToPlugin($row);
-        }
 
-        return $plugins;
+        return array_map($this->mapRowToPlugin(...), $result->fetchAllAssoc());
     }
 
     /** @return array<int|string, string> */
