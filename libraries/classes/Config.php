@@ -27,7 +27,6 @@ use function fopen;
 use function fread;
 use function function_exists;
 use function gd_info;
-use function get_object_vars;
 use function implode;
 use function ini_get;
 use function intval;
@@ -320,7 +319,7 @@ class Config
         $cfg = $settings->toArray();
 
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->defaultServer = get_object_vars($settings->Servers[1]);
+        $this->defaultServer = $settings->Servers[1]->asArray();
         unset($cfg['Servers']);
 
         $this->default = $cfg;

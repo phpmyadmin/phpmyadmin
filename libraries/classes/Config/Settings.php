@@ -2617,7 +2617,7 @@ final class Settings
         $settings['DefaultTransformations'] = get_object_vars($this->DefaultTransformations);
 
         foreach (array_keys($settings['Servers']) as $key) {
-            $settings['Servers'][$key] = get_object_vars($this->Servers[$key]);
+            $settings['Servers'][$key] = $this->Servers[$key]->asArray();
         }
 
         return $settings;

@@ -861,57 +861,6 @@
       <code>$maxRowPlotLimit</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Config/Settings/Server.php">
-    <PossiblyUnusedProperty>
-      <code>$AllowDeny</code>
-      <code>$AllowNoPassword</code>
-      <code>$AllowRoot</code>
-      <code>$DisableIS</code>
-      <code>$LogoutURL</code>
-      <code>$MaxTableUiprefs</code>
-      <code>$SessionTimeZone</code>
-      <code>$SignonCookieParams</code>
-      <code>$SignonScript</code>
-      <code>$SignonSession</code>
-      <code>$SignonURL</code>
-      <code>$auth_http_realm</code>
-      <code>$auth_type</code>
-      <code>$bookmarktable</code>
-      <code>$central_columns</code>
-      <code>$column_info</code>
-      <code>$controlhost</code>
-      <code>$controlpass</code>
-      <code>$controlport</code>
-      <code>$controluser</code>
-      <code>$designer_settings</code>
-      <code>$export_templates</code>
-      <code>$favorite</code>
-      <code>$hide_db</code>
-      <code>$history</code>
-      <code>$navigationhiding</code>
-      <code>$only_db</code>
-      <code>$password</code>
-      <code>$pdf_pages</code>
-      <code>$pmadb</code>
-      <code>$recent</code>
-      <code>$relation</code>
-      <code>$savedsearches</code>
-      <code>$table_coords</code>
-      <code>$table_info</code>
-      <code>$table_uiprefs</code>
-      <code>$tracking</code>
-      <code>$tracking_add_drop_database</code>
-      <code>$tracking_add_drop_table</code>
-      <code>$tracking_add_drop_view</code>
-      <code>$tracking_default_statements</code>
-      <code>$tracking_version_auto_create</code>
-      <code>$user</code>
-      <code>$userconfig</code>
-      <code>$usergroups</code>
-      <code>$users</code>
-      <code>$verbose</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="libraries/classes/Config/Settings/SqlQueryBox.php">
     <PossiblyUnusedProperty>
       <code>$Edit</code>

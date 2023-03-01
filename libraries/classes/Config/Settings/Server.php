@@ -817,6 +817,72 @@ final class Server
         $this->hide_connection_errors = $this->setHideConnectionErrors($server);
     }
 
+    /** @return array<string, string|bool|int|array<mixed>|null> */
+    public function asArray(): array
+    {
+        return [
+            'host' => $this->host,
+            'port' => $this->port,
+            'socket' => $this->socket,
+            'ssl' => $this->ssl,
+            'ssl_key' => $this->ssl_key,
+            'ssl_cert' => $this->ssl_cert,
+            'ssl_ca' => $this->ssl_ca,
+            'ssl_ca_path' => $this->ssl_ca_path,
+            'ssl_ciphers' => $this->ssl_ciphers,
+            'ssl_verify' => $this->ssl_verify,
+            'compress' => $this->compress,
+            'controlhost' => $this->controlhost,
+            'controlport' => $this->controlport,
+            'controluser' => $this->controluser,
+            'controlpass' => $this->controlpass,
+            'auth_type' => $this->auth_type,
+            'auth_http_realm' => $this->auth_http_realm,
+            'user' => $this->user,
+            'password' => $this->password,
+            'SignonSession' => $this->SignonSession,
+            'SignonCookieParams' => $this->SignonCookieParams,
+            'SignonScript' => $this->SignonScript,
+            'SignonURL' => $this->SignonURL,
+            'LogoutURL' => $this->LogoutURL,
+            'only_db' => $this->only_db,
+            'hide_db' => $this->hide_db,
+            'verbose' => $this->verbose,
+            'pmadb' => $this->pmadb,
+            'bookmarktable' => $this->bookmarktable,
+            'relation' => $this->relation,
+            'table_info' => $this->table_info,
+            'table_coords' => $this->table_coords,
+            'pdf_pages' => $this->pdf_pages,
+            'column_info' => $this->column_info,
+            'history' => $this->history,
+            'recent' => $this->recent,
+            'favorite' => $this->favorite,
+            'table_uiprefs' => $this->table_uiprefs,
+            'tracking' => $this->tracking,
+            'userconfig' => $this->userconfig,
+            'users' => $this->users,
+            'usergroups' => $this->usergroups,
+            'navigationhiding' => $this->navigationhiding,
+            'savedsearches' => $this->savedsearches,
+            'central_columns' => $this->central_columns,
+            'designer_settings' => $this->designer_settings,
+            'export_templates' => $this->export_templates,
+            'MaxTableUiprefs' => $this->MaxTableUiprefs,
+            'SessionTimeZone' => $this->SessionTimeZone,
+            'AllowRoot' => $this->AllowRoot,
+            'AllowNoPassword' => $this->AllowNoPassword,
+            'AllowDeny' => $this->AllowDeny,
+            'DisableIS' => $this->DisableIS,
+            'tracking_version_auto_create' => $this->tracking_version_auto_create,
+            'tracking_default_statements' => $this->tracking_default_statements,
+            'tracking_add_drop_view' => $this->tracking_add_drop_view,
+            'tracking_add_drop_table' => $this->tracking_add_drop_table,
+            'tracking_add_drop_database' => $this->tracking_add_drop_database,
+            'hide_connection_errors' => $this->hide_connection_errors,
+        ];
+    }
+
     /** @return static */
     public function withSSL(bool $ssl): Server
     {
