@@ -143,9 +143,12 @@ class ExportTest extends TestCase
 
         $expected = array_merge($this->defaultValues, $expectedValues);
         $settings = new Export($actualValues);
+        $exportArray = $settings->asArray();
 
         foreach (array_keys($expectedValues) as $key) {
             $this->assertSame($expected[$key], $settings->$key);
+            $this->assertArrayHasKey($key, $exportArray);
+            $this->assertSame($expected[$key], $exportArray[$key]);
         }
     }
 

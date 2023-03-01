@@ -2611,7 +2611,7 @@ final class Settings
         $settings['Console'] = $this->Console->asArray();
         $settings['DBG'] = $this->DBG->asArray();
         $settings['SQLQuery'] = get_object_vars($this->SQLQuery);
-        $settings['Export'] = get_object_vars($this->Export);
+        $settings['Export'] = $this->Export->asArray();
         $settings['Import'] = get_object_vars($this->Import);
         $settings['Schema'] = get_object_vars($this->Schema);
         $settings['DefaultTransformations'] = get_object_vars($this->DefaultTransformations);
