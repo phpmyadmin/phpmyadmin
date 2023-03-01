@@ -22,13 +22,13 @@ final class TemplateModel
     {
         $query = sprintf(
             'INSERT INTO %s.%s (`username`, `export_type`, `template_name`, `template_data`)'
-                . ' VALUES (\'%s\', \'%s\', \'%s\', \'%s\');',
+                . ' VALUES (%s, %s, %s, %s);',
             Util::backquote($db),
             Util::backquote($table),
-            $this->dbi->escapeString($template->getUsername()),
-            $this->dbi->escapeString($template->getExportType()),
-            $this->dbi->escapeString($template->getName()),
-            $this->dbi->escapeString($template->getData()),
+            $this->dbi->quoteString($template->getUsername(), Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($template->getExportType(), Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($template->getName(), Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($template->getData(), Connection::TYPE_CONTROL),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
@@ -41,11 +41,11 @@ final class TemplateModel
     public function delete(DatabaseName $db, TableName $table, string $user, int $id): string
     {
         $query = sprintf(
-            'DELETE FROM %s.%s WHERE `id` = %s AND `username` = \'%s\';',
+            'DELETE FROM %s.%s WHERE `id` = %d AND `username` = %s;',
             Util::backquote($db),
             Util::backquote($table),
             $id,
-            $this->dbi->escapeString($user),
+            $this->dbi->quoteString($user, Connection::TYPE_CONTROL),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
@@ -58,11 +58,11 @@ final class TemplateModel
     public function load(DatabaseName $db, TableName $table, string $user, int $id): Template|string
     {
         $query = sprintf(
-            'SELECT * FROM %s.%s WHERE `id` = %s AND `username` = \'%s\';',
+            'SELECT * FROM %s.%s WHERE `id` = %d AND `username` = %s;',
             Util::backquote($db),
             Util::backquote($table),
             $id,
-            $this->dbi->escapeString($user),
+            $this->dbi->quoteString($user, Connection::TYPE_CONTROL),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
@@ -86,12 +86,12 @@ final class TemplateModel
     public function update(DatabaseName $db, TableName $table, Template $template): string
     {
         $query = sprintf(
-            'UPDATE %s.%s SET `template_data` = \'%s\' WHERE `id` = %s AND `username` = \'%s\';',
+            'UPDATE %s.%s SET `template_data` = %s WHERE `id` = %d AND `username` = %s;',
             Util::backquote($db),
             Util::backquote($table),
-            $this->dbi->escapeString($template->getData()),
+            $this->dbi->quoteString($template->getData(), Connection::TYPE_CONTROL),
             $template->getId(),
-            $this->dbi->escapeString($template->getUsername()),
+            $this->dbi->quoteString($template->getUsername(), Connection::TYPE_CONTROL),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
@@ -105,11 +105,11 @@ final class TemplateModel
     public function getAll(DatabaseName $db, TableName $table, string $user, string $exportType): array|string
     {
         $query = sprintf(
-            'SELECT * FROM %s.%s WHERE `username` = \'%s\' AND `export_type` = \'%s\' ORDER BY `template_name`;',
+            'SELECT * FROM %s.%s WHERE `username` = %s AND `export_type` = %s ORDER BY `template_name`;',
             Util::backquote($db),
             Util::backquote($table),
-            $this->dbi->escapeString($user),
-            $this->dbi->escapeString($exportType),
+            $this->dbi->quoteString($user, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($exportType, Connection::TYPE_CONTROL),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
