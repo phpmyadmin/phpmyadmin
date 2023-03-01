@@ -6413,9 +6413,6 @@
   </file>
   <file src="libraries/classes/Dbal/MysqliResult.php">
     <InvalidReturnStatement>
-      <code>$rows</code>
-      <code>$rows</code>
-      <code>$rows</code>
       <code><![CDATA[$this->result->fetch_all(MYSQLI_ASSOC)]]></code>
       <code>is_array($row) ? $row : []</code>
       <code>is_array($row) ? $row : []</code>
@@ -6423,7 +6420,6 @@
     <InvalidReturnType>
       <code><![CDATA[array<int, array<string,string|null>>]]></code>
       <code><![CDATA[array<int,string|null>]]></code>
-      <code><![CDATA[array<string, string|null>]]></code>
       <code><![CDATA[array<string,string|null>]]></code>
     </InvalidReturnType>
     <MixedArgument>
@@ -6434,6 +6430,7 @@
       <code>$fields</code>
       <code><![CDATA[array<int, FieldMetadata>]]></code>
       <code><![CDATA[array<int, string|null>]]></code>
+      <code><![CDATA[array<string, string|null>]]></code>
       <code><![CDATA[array_column($this->result->fetch_all(), 0)]]></code>
       <code><![CDATA[array_column($this->result->fetch_all(), 1, 0)]]></code>
     </MixedReturnTypeCoercion>
