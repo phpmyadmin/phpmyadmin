@@ -9616,16 +9616,6 @@ parameters:
 			path: test/classes/Config/Settings/ServerTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\Settings\\\\TransformationsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/TransformationsTest.php
-
-		-
-			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Transformations\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/TransformationsTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Console' and PhpMyAdmin\\\\Config\\\\Settings\\\\Console will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Config/SettingsTest.php
