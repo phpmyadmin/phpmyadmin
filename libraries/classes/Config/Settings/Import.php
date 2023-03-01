@@ -252,6 +252,40 @@ final class Import
         $this->ods_recognize_currency = $this->setOdsRecognizeCurrency($import);
     }
 
+    /** @return array<string, string|bool|int> */
+    public function asArray(): array
+    {
+        return [
+            'format' => $this->format,
+            'charset' => $this->charset,
+            'allow_interrupt' => $this->allow_interrupt,
+            'skip_queries' => $this->skip_queries,
+            'sql_compatibility' => $this->sql_compatibility,
+            'sql_no_auto_value_on_zero' => $this->sql_no_auto_value_on_zero,
+            'sql_read_as_multibytes' => $this->sql_read_as_multibytes,
+            'csv_replace' => $this->csv_replace,
+            'csv_ignore' => $this->csv_ignore,
+            'csv_terminated' => $this->csv_terminated,
+            'csv_enclosed' => $this->csv_enclosed,
+            'csv_escaped' => $this->csv_escaped,
+            'csv_new_line' => $this->csv_new_line,
+            'csv_columns' => $this->csv_columns,
+            'csv_col_names' => $this->csv_col_names,
+            'ldi_replace' => $this->ldi_replace,
+            'ldi_ignore' => $this->ldi_ignore,
+            'ldi_terminated' => $this->ldi_terminated,
+            'ldi_enclosed' => $this->ldi_enclosed,
+            'ldi_escaped' => $this->ldi_escaped,
+            'ldi_new_line' => $this->ldi_new_line,
+            'ldi_columns' => $this->ldi_columns,
+            'ldi_local_option' => $this->ldi_local_option,
+            'ods_col_names' => $this->ods_col_names,
+            'ods_empty_rows' => $this->ods_empty_rows,
+            'ods_recognize_percentages' => $this->ods_recognize_percentages,
+            'ods_recognize_currency' => $this->ods_recognize_currency,
+        ];
+    }
+
     /**
      * @param array<int|string, mixed> $import
      *

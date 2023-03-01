@@ -861,37 +861,6 @@
       <code>$maxRowPlotLimit</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Config/Settings/Import.php">
-    <PossiblyUnusedProperty>
-      <code>$allow_interrupt</code>
-      <code>$charset</code>
-      <code>$csv_col_names</code>
-      <code>$csv_columns</code>
-      <code>$csv_enclosed</code>
-      <code>$csv_escaped</code>
-      <code>$csv_ignore</code>
-      <code>$csv_new_line</code>
-      <code>$csv_replace</code>
-      <code>$csv_terminated</code>
-      <code>$format</code>
-      <code>$ldi_columns</code>
-      <code>$ldi_enclosed</code>
-      <code>$ldi_escaped</code>
-      <code>$ldi_ignore</code>
-      <code>$ldi_local_option</code>
-      <code>$ldi_new_line</code>
-      <code>$ldi_replace</code>
-      <code>$ldi_terminated</code>
-      <code>$ods_col_names</code>
-      <code>$ods_empty_rows</code>
-      <code>$ods_recognize_currency</code>
-      <code>$ods_recognize_percentages</code>
-      <code>$skip_queries</code>
-      <code>$sql_compatibility</code>
-      <code>$sql_no_auto_value_on_zero</code>
-      <code>$sql_read_as_multibytes</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="libraries/classes/Config/Settings/Schema.php">
     <PossiblyUnusedProperty>
       <code>$dia_orientation</code>

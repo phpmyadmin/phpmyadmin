@@ -62,9 +62,12 @@ class ImportTest extends TestCase
 
         $expected = array_merge($this->defaultValues, $expectedValues);
         $settings = new Import($actualValues);
+        $importArray = $settings->asArray();
 
         foreach (array_keys($expectedValues) as $key) {
             $this->assertSame($expected[$key], $settings->$key);
+            $this->assertArrayHasKey($key, $importArray);
+            $this->assertSame($expected[$key], $importArray[$key]);
         }
     }
 
