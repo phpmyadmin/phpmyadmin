@@ -7094,20 +7094,6 @@
       <code><![CDATA[$state['username']]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Export/TemplateModel.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
-  </file>
   <file src="libraries/classes/FieldMetadata.php">
     <MixedAssignment>
       <code><![CDATA[$this->charsetnr]]></code>
