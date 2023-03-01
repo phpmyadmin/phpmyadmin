@@ -861,19 +861,6 @@
       <code>$maxRowPlotLimit</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Config/Settings/Transformations.php">
-    <PossiblyUnusedProperty>
-      <code>$Bool2Text</code>
-      <code>$DateFormat</code>
-      <code>$External</code>
-      <code>$Hex</code>
-      <code>$Inline</code>
-      <code>$PreApPend</code>
-      <code>$Substring</code>
-      <code>$TextImageLink</code>
-      <code>$TextLink</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="libraries/classes/Config/Validator.php">
     <MixedArgument>
       <code>$ip</code>

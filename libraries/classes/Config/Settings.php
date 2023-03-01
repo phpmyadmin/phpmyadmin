@@ -2614,7 +2614,7 @@ final class Settings
         $settings['Export'] = $this->Export->asArray();
         $settings['Import'] = $this->Import->asArray();
         $settings['Schema'] = $this->Schema->asArray();
-        $settings['DefaultTransformations'] = get_object_vars($this->DefaultTransformations);
+        $settings['DefaultTransformations'] = $this->DefaultTransformations->asArray();
 
         foreach (array_keys($settings['Servers']) as $key) {
             $settings['Servers'][$key] = $this->Servers[$key]->asArray();

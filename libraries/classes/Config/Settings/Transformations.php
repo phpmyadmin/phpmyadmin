@@ -188,6 +188,22 @@ final class Transformations
         $this->TextLink = $this->setTextLink($transformations);
     }
 
+    /** @return array<string, mixed> */
+    public function asArray(): array
+    {
+        return [
+            'Substring' => $this->Substring,
+            'Bool2Text' => $this->Bool2Text,
+            'External' => $this->External,
+            'PreApPend' => $this->PreApPend,
+            'Hex' => $this->Hex,
+            'DateFormat' => $this->DateFormat,
+            'Inline' => $this->Inline,
+            'TextImageLink' => $this->TextImageLink,
+            'TextLink' => $this->TextLink,
+        ];
+    }
+
     /**
      * @param array<int|string, mixed> $transformations
      *
