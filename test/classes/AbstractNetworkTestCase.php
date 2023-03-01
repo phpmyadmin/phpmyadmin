@@ -30,7 +30,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
     public static function setUpBeforeClass(): void
     {
         $settings = new Settings([]);
-        $GLOBALS['cfg'] = $settings->toArray();
+        $GLOBALS['cfg'] = $settings->asArray();
     }
 
     /**

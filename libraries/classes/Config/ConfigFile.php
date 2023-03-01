@@ -81,7 +81,7 @@ class ConfigFile
     {
         // load default config values
         $settings = new Settings([]);
-        $this->defaultCfg = $settings->toArray();
+        $this->defaultCfg = $settings->asArray();
 
         // load additional config information
         $this->cfgDb = include ROOT_PATH . 'libraries/config.values.php';

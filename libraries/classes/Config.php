@@ -316,7 +316,7 @@ class Config
     public function loadDefaults(): void
     {
         $settings = new Settings([]);
-        $cfg = $settings->toArray();
+        $cfg = $settings->asArray();
 
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->defaultServer = $settings->Servers[1]->asArray();

@@ -37,7 +37,7 @@ require_once ROOT_PATH . 'libraries/constants.php';
 require_once AUTOLOAD_FILE;
 
 $settings = new Settings([]);
-$GLOBALS['cfg'] = $settings->toArray();
+$GLOBALS['cfg'] = $settings->asArray();
 $GLOBALS['server'] = 0;
 
 // phpcs:disable PSR1.Files.SideEffects

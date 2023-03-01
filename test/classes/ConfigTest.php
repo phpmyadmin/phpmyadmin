@@ -483,7 +483,7 @@ class ConfigTest extends AbstractTestCase
         $this->object->loadDefaults();
 
         $settings = new Settings([]);
-        $config = $settings->toArray();
+        $config = $settings->asArray();
 
         $this->assertIsArray($config['Servers']);
         $this->assertEquals($config['Servers'][1], $this->object->defaultServer);

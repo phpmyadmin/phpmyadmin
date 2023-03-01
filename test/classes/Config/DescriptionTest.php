@@ -119,7 +119,7 @@ class DescriptionTest extends AbstractTestCase
         ];
 
         $settings = new Settings([]);
-        $cfg = $settings->toArray();
+        $cfg = $settings->asArray();
 
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);

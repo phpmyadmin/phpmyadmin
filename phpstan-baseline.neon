@@ -646,11 +646,6 @@ parameters:
 			path: libraries/classes/Config/Forms/User/SqlForm.php
 
 		-
-			message: "#^Cannot access offset int\\|string on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Config/Settings.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 34
 			path: libraries/classes/Config/Settings.php
@@ -658,16 +653,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 44
-			path: libraries/classes/Config/Settings.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Settings\\:\\:toArray\\(\\) should return array\\<string, array\\|bool\\|int\\|string\\|null\\> but returns array\\<string, mixed\\>\\.$#"
-			count: 1
-			path: libraries/classes/Config/Settings.php
-
-		-
-			message: "#^Parameter \\#1 \\$array of function array_keys expects array, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Config/Settings.php
 
 		-

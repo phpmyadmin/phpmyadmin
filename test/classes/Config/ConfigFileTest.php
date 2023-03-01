@@ -308,7 +308,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->assertEquals($localhost_value, $flat_default_config['Servers/1/host']);
 
         $settings = new Settings([]);
-        $cfg = $settings->toArray();
+        $cfg = $settings->asArray();
 
         $this->assertGreaterThanOrEqual(100, count($cfg));
         $this->assertGreaterThanOrEqual(count($cfg), count($flat_default_config));

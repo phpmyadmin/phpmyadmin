@@ -273,10 +273,10 @@ class SettingsTest extends TestCase
         'FirstDayOfCalendar' => 0,
     ];
 
-    public function testToArray(): void
+    public function testAsArray(): void
     {
         $settings = new Settings([]);
-        $config = $settings->toArray();
+        $config = $settings->asArray();
         $this->assertIsArray($config['Console']);
         $this->assertIsArray($config['DBG']);
         $this->assertIsArray($config['Export']);
@@ -306,6 +306,7 @@ class SettingsTest extends TestCase
 
         $expected = array_merge($this->defaultValues, $expectedValues);
         $settings = new Settings($actualValues);
+        $settingsArray = $settings->asArray();
         foreach (array_keys($expectedValues) as $key) {
             if ($key === 'Servers') {
                 $this->assertContainsOnlyInstancesOf(Server::class, $settings->Servers);
@@ -350,6 +351,8 @@ class SettingsTest extends TestCase
             }
 
             $this->assertSame($expected[$key], $settings->$key);
+            $this->assertArrayHasKey($key, $settingsArray);
+            $this->assertSame($expected[$key], $settingsArray[$key]);
         }
     }
 
