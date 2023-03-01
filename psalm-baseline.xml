@@ -861,14 +861,6 @@
       <code>$maxRowPlotLimit</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Config/Settings/SqlQueryBox.php">
-    <PossiblyUnusedProperty>
-      <code>$Edit</code>
-      <code>$Explain</code>
-      <code>$Refresh</code>
-      <code>$ShowAsPHP</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="libraries/classes/Config/Settings/Transformations.php">
     <PossiblyUnusedProperty>
       <code>$Bool2Text</code>

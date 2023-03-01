@@ -34,9 +34,12 @@ class SqlQueryBoxTest extends TestCase
 
         $expected = array_merge($this->defaultValues, $expectedValues);
         $settings = new SqlQueryBox($actualValues);
+        $sqlQueryBoxArray = $settings->asArray();
 
         foreach (array_keys($expectedValues) as $key) {
             $this->assertSame($expected[$key], $settings->$key);
+            $this->assertArrayHasKey($key, $sqlQueryBoxArray);
+            $this->assertSame($expected[$key], $sqlQueryBoxArray[$key]);
         }
     }
 

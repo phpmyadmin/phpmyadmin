@@ -68,6 +68,17 @@ final class SqlQueryBox
         $this->Refresh = $this->setRefresh($sqlQueryBox);
     }
 
+    /** @return array<string, bool> */
+    public function asArray(): array
+    {
+        return [
+            'Edit' => $this->Edit,
+            'Explain' => $this->Explain,
+            'ShowAsPHP' => $this->ShowAsPHP,
+            'Refresh' => $this->Refresh,
+        ];
+    }
+
     /** @param mixed[] $sqlQueryBox */
     private function setEdit(array $sqlQueryBox): bool
     {

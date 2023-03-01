@@ -2610,7 +2610,7 @@ final class Settings
         $settings = get_object_vars($this);
         $settings['Console'] = $this->Console->asArray();
         $settings['DBG'] = $this->DBG->asArray();
-        $settings['SQLQuery'] = get_object_vars($this->SQLQuery);
+        $settings['SQLQuery'] = $this->SQLQuery->asArray();
         $settings['Export'] = $this->Export->asArray();
         $settings['Import'] = $this->Import->asArray();
         $settings['Schema'] = $this->Schema->asArray();
