@@ -31,11 +31,9 @@ final class GetVariableController extends AbstractController
 
         // Send with correct charset
         header('Content-Type: text/html; charset=UTF-8');
-        // Do not use double quotes inside the query to avoid a problem
-        // when server is running in ANSI_QUOTES sql_mode
         $varValue = $this->dbi->fetchSingleRow(
-            'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
-            . $this->dbi->escapeString($params['name']) . '\';',
+            'SHOW GLOBAL VARIABLES WHERE Variable_name='
+            . $this->dbi->quoteString($params['name']) . ';',
             DatabaseInterface::FETCH_NUM,
         );
 

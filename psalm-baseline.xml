@@ -3173,9 +3173,6 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/GetVariableController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$params['name']]]></code>
       <code><![CDATA[$params['name']]]></code>
