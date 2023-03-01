@@ -7,83 +7,59 @@ namespace PhpMyAdmin\Tests\Config\Settings;
 use PhpMyAdmin\Config\Settings\SqlQueryBox;
 use PHPUnit\Framework\TestCase;
 
-use function array_keys;
-use function array_merge;
-
 /** @covers \PhpMyAdmin\Config\Settings\SqlQueryBox */
 class SqlQueryBoxTest extends TestCase
 {
-    /** @var array<string, bool> */
-    private array $defaultValues = ['Edit' => true, 'Explain' => true, 'ShowAsPHP' => true, 'Refresh' => true];
-
-    /**
-     * @param mixed[][] $values
-     * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
-     *
-     * @dataProvider providerForTestConstructor
-     */
-    public function testConstructor(array $values): void
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testEdit(mixed $actual, bool $expected): void
     {
-        $actualValues = [];
-        $expectedValues = [];
-        /** @psalm-suppress MixedAssignment */
-        foreach ($values as $value) {
-            $actualValues[$value[0]] = $value[1];
-            $expectedValues[$value[0]] = $value[2];
-        }
-
-        $expected = array_merge($this->defaultValues, $expectedValues);
-        $settings = new SqlQueryBox($actualValues);
-        $sqlQueryBoxArray = $settings->asArray();
-
-        foreach (array_keys($expectedValues) as $key) {
-            $this->assertSame($expected[$key], $settings->$key);
-            $this->assertArrayHasKey($key, $sqlQueryBoxArray);
-            $this->assertSame($expected[$key], $sqlQueryBoxArray[$key]);
-        }
+        $sqlQueryBox = new SqlQueryBox(['Edit' => $actual]);
+        $sqlQueryBoxArray = $sqlQueryBox->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $sqlQueryBox->Edit);
+        $this->assertArrayHasKey('Edit', $sqlQueryBoxArray);
+        $this->assertSame($expected, $sqlQueryBoxArray['Edit']);
     }
 
-    /**
-     * [setting key, actual value, expected value]
-     *
-     * @return mixed[][][][]
-     * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
-     */
-    public static function providerForTestConstructor(): array
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testExplain(mixed $actual, bool $expected): void
     {
-        return [
-            'null values' => [
-                [
-                    ['Edit', null, true],
-                    ['Explain', null, true],
-                    ['ShowAsPHP', null, true],
-                    ['Refresh', null, true],
-                ],
-            ],
-            'valid values' => [
-                [
-                    ['Edit', true, true],
-                    ['Explain', true, true],
-                    ['ShowAsPHP', true, true],
-                    ['Refresh', true, true],
-                ],
-            ],
-            'valid values 2' => [
-                [
-                    ['Edit', false, false],
-                    ['Explain', false, false],
-                    ['ShowAsPHP', false, false],
-                    ['Refresh', false, false],
-                ],
-            ],
-            'valid values with type coercion' => [
-                [
-                    ['Edit', 0, false],
-                    ['Explain', 0, false],
-                    ['ShowAsPHP', 0, false],
-                    ['Refresh', 0, false],
-                ],
-            ],
-        ];
+        $sqlQueryBox = new SqlQueryBox(['Explain' => $actual]);
+        $sqlQueryBoxArray = $sqlQueryBox->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $sqlQueryBox->Explain);
+        $this->assertArrayHasKey('Explain', $sqlQueryBoxArray);
+        $this->assertSame($expected, $sqlQueryBoxArray['Explain']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testShowAsPHP(mixed $actual, bool $expected): void
+    {
+        $sqlQueryBox = new SqlQueryBox(['ShowAsPHP' => $actual]);
+        $sqlQueryBoxArray = $sqlQueryBox->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $sqlQueryBox->ShowAsPHP);
+        $this->assertArrayHasKey('ShowAsPHP', $sqlQueryBoxArray);
+        $this->assertSame($expected, $sqlQueryBoxArray['ShowAsPHP']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testRefresh(mixed $actual, bool $expected): void
+    {
+        $sqlQueryBox = new SqlQueryBox(['Refresh' => $actual]);
+        $sqlQueryBoxArray = $sqlQueryBox->asArray();
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->assertSame($expected, $sqlQueryBox->Refresh);
+        $this->assertArrayHasKey('Refresh', $sqlQueryBoxArray);
+        $this->assertSame($expected, $sqlQueryBoxArray['Refresh']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultTrueProvider(): iterable
+    {
+        yield 'null value' => [null, true];
+        yield 'valid value' => [true, true];
+        yield 'valid value 2' => [false, false];
+        yield 'valid value with type coercion' => [0, false];
     }
 }

@@ -9616,11 +9616,6 @@ parameters:
 			path: test/classes/Config/Settings/ServerTest.php
 
 		-
-			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\SqlQueryBox\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/SqlQueryBoxTest.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\Settings\\\\TransformationsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Config/Settings/TransformationsTest.php
