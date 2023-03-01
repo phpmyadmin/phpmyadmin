@@ -60,11 +60,7 @@ final class SetVariableController extends AbstractController
             ];
             $value = (float) $matches[1] * 1024 ** $exp[mb_strtolower($matches[3])];
         } else {
-            $value = $this->dbi->escapeString($value);
-        }
-
-        if (! is_numeric($value)) {
-            $value = "'" . $value . "'";
+            $value = $this->dbi->quoteString($value);
         }
 
         $json = [];
@@ -72,9 +68,9 @@ final class SetVariableController extends AbstractController
             $this->dbi->query('SET GLOBAL ' . $variableName . ' = ' . $value);
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
-                'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $this->dbi->escapeString($variableName)
-                . '";',
+                'SHOW GLOBAL VARIABLES WHERE Variable_name='
+                . $this->dbi->quoteString($variableName)
+                . ';',
                 DatabaseInterface::FETCH_NUM,
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable($variableName, $varValue[1]);

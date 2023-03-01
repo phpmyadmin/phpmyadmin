@@ -3192,10 +3192,6 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/SetVariableController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code>$formattedValue</code>
       <code>$varValue[1]</code>
