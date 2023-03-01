@@ -7,80 +7,55 @@ namespace PhpMyAdmin\Tests\Config\Settings;
 use PhpMyAdmin\Config\Settings\Debug;
 use PHPUnit\Framework\TestCase;
 
-use function array_keys;
-use function array_merge;
-
 /** @covers \PhpMyAdmin\Config\Settings\Debug */
 class DebugTest extends TestCase
 {
-    /** @var array<string, bool> */
-    private array $defaultValues = ['sql' => false, 'sqllog' => false, 'demo' => false, 'simple2fa' => false];
-
-    /**
-     * @param mixed[][] $values
-     * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
-     *
-     * @dataProvider providerForTestConstructor
-     */
-    public function testConstructor(array $values): void
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSql(mixed $actual, bool $expected): void
     {
-        $actualValues = [];
-        $expectedValues = [];
-        /** @psalm-suppress MixedAssignment */
-        foreach ($values as $value) {
-            $actualValues[$value[0]] = $value[1];
-            $expectedValues[$value[0]] = $value[2];
-        }
-
-        $expected = array_merge($this->defaultValues, $expectedValues);
-        $settings = new Debug($actualValues);
-
-        foreach (array_keys($expectedValues) as $key) {
-            $this->assertSame($expected[$key], $settings->$key);
-        }
+        $debug = new Debug(['sql' => $actual]);
+        $debugArray = $debug->asArray();
+        $this->assertSame($expected, $debug->sql);
+        $this->assertArrayHasKey('sql', $debugArray);
+        $this->assertSame($expected, $debugArray['sql']);
     }
 
-    /**
-     * [setting key, actual value, expected value]
-     *
-     * @return mixed[][][][]
-     * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
-     */
-    public static function providerForTestConstructor(): array
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqllog(mixed $actual, bool $expected): void
     {
-        return [
-            'null values' => [
-                [
-                    ['sql', null, false],
-                    ['sqllog', null, false],
-                    ['demo', null, false],
-                    ['simple2fa', null, false],
-                ],
-            ],
-            'valid values' => [
-                [
-                    ['sql', false, false],
-                    ['sqllog', false, false],
-                    ['demo', false, false],
-                    ['simple2fa', false, false],
-                ],
-            ],
-            'valid values 2' => [
-                [
-                    ['sql', true, true],
-                    ['sqllog', true, true],
-                    ['demo', true, true],
-                    ['simple2fa', true, true],
-                ],
-            ],
-            'valid values with type coercion' => [
-                [
-                    ['sql', 1, true],
-                    ['sqllog', 1, true],
-                    ['demo', 1, true],
-                    ['simple2fa', 1, true],
-                ],
-            ],
-        ];
+        $debug = new Debug(['sqllog' => $actual]);
+        $debugArray = $debug->asArray();
+        $this->assertSame($expected, $debug->sqllog);
+        $this->assertArrayHasKey('sqllog', $debugArray);
+        $this->assertSame($expected, $debugArray['sqllog']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testDemo(mixed $actual, bool $expected): void
+    {
+        $debug = new Debug(['demo' => $actual]);
+        $debugArray = $debug->asArray();
+        $this->assertSame($expected, $debug->demo);
+        $this->assertArrayHasKey('demo', $debugArray);
+        $this->assertSame($expected, $debugArray['demo']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSimple2fa(mixed $actual, bool $expected): void
+    {
+        $debug = new Debug(['simple2fa' => $actual]);
+        $debugArray = $debug->asArray();
+        $this->assertSame($expected, $debug->simple2fa);
+        $this->assertArrayHasKey('simple2fa', $debugArray);
+        $this->assertSame($expected, $debugArray['simple2fa']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultFalseProvider(): iterable
+    {
+        yield 'null value' => [null, false];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value with type coercion' => [1, true];
     }
 }

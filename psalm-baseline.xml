@@ -861,14 +861,6 @@
       <code>$maxRowPlotLimit</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Config/Settings/Debug.php">
-    <PossiblyUnusedProperty>
-      <code>$demo</code>
-      <code>$simple2fa</code>
-      <code>$sql</code>
-      <code>$sqllog</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="libraries/classes/Config/Settings/Export.php">
     <PossiblyUnusedProperty>
       <code>$as_separate_files</code>

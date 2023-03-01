@@ -2609,7 +2609,7 @@ final class Settings
     {
         $settings = get_object_vars($this);
         $settings['Console'] = $this->Console->asArray();
-        $settings['DBG'] = get_object_vars($this->DBG);
+        $settings['DBG'] = $this->DBG->asArray();
         $settings['SQLQuery'] = get_object_vars($this->SQLQuery);
         $settings['Export'] = get_object_vars($this->Export);
         $settings['Import'] = get_object_vars($this->Import);

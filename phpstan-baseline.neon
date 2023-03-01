@@ -9606,11 +9606,6 @@ parameters:
 			path: test/classes/Config/ServerConfigChecksTest.php
 
 		-
-			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Debug\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/DebugTest.php
-
-		-
 			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Export\\.$#"
 			count: 1
 			path: test/classes/Config/Settings/ExportTest.php

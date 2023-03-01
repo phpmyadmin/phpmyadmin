@@ -64,6 +64,12 @@ final class Debug
         $this->simple2fa = $this->setSimple2fa($debug);
     }
 
+    /** @return array<string, bool> */
+    public function asArray(): array
+    {
+        return ['sql' => $this->sql, 'sqllog' => $this->sqllog, 'demo' => $this->demo, 'simple2fa' => $this->simple2fa];
+    }
+
     /** @param mixed[] $debug */
     private function setSql(array $debug): bool
     {
