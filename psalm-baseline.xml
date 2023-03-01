@@ -15657,7 +15657,8 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="10">
+      <code>$dataSet</code>
       <code>$dataSet</code>
       <code>$queryString</code>
       <code>$queryString</code>

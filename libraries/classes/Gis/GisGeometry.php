@@ -21,11 +21,20 @@ use function sprintf;
 use function str_replace;
 use function trim;
 
+use const INF;
+
 /**
  * Base class for all GIS data type classes.
  */
 abstract class GisGeometry
 {
+    public const EMPTY_EXTENT = [
+        'minX' => +INF,
+        'minY' => +INF,
+        'maxX' => -INF,
+        'maxY' => -INF,
+    ];
+
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
@@ -143,8 +152,10 @@ abstract class GisGeometry
      *
      * @param string $point_set point set
      * @param array  $min_max   existing min, max values
+     * @psalm-param array{minX:float,minY:float,maxX:float,maxY:float} $min_max     *
      *
      * @return array the updated min, max values
+     * @psalm-return array{minX:float,minY:float,maxX:float,maxY:float}
      */
     protected function setMinMax($point_set, array $min_max)
     {

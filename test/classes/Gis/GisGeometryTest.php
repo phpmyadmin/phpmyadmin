@@ -71,7 +71,7 @@ class GisGeometryTest extends AbstractTestCase
         return [
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                [],
+                GisGeometry::EMPTY_EXTENT,
                 [
                     'minX' => 12,
                     'maxX' => 69,

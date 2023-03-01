@@ -3751,12 +3751,22 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:setMinMax\\(\\) has parameter \\$min_max with no value type specified in iterable type array\\.$#"
+			message: "#^Offset 'maxX' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:setMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Offset 'maxY' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
+			message: "#^Offset 'minX' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
+			message: "#^Offset 'minY' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
@@ -3811,6 +3821,26 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
+			message: "#^Offset 'maxX' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
+			message: "#^Offset 'maxY' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
+			message: "#^Offset 'minX' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
+			message: "#^Offset 'minY' on array\\{minX\\: float, minY\\: float, maxX\\: float, maxY\\: float\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
@@ -3847,11 +3877,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -3907,11 +3932,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -3976,11 +3996,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
@@ -4041,11 +4056,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Parameter \\#2 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -4097,11 +4107,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -4187,11 +4192,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:scaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
