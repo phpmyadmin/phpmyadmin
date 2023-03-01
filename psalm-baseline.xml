@@ -1244,10 +1244,6 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>

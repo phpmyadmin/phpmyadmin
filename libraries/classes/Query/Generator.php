@@ -258,7 +258,7 @@ class Generator
             . ' REFERENCED_COLUMN_NAME'
             . ' FROM information_schema.key_column_usage'
             . ' WHERE referenced_table_name IS NOT NULL'
-            . " AND TABLE_SCHEMA = '" . $escapedDatabase . "'"
+            . ' AND TABLE_SCHEMA = ' . $escapedDatabase
             . ' AND TABLE_NAME IN (' . $tablesListForQueryCsv . ')'
             . ' AND REFERENCED_TABLE_NAME IN (' . $tablesListForQueryCsv . ');';
     }
