@@ -4734,10 +4734,6 @@
     </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/View/CreateController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[$viewData['as']]]></code>
     </DocblockTypeContradiction>
