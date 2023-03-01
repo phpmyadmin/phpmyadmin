@@ -3152,9 +3152,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsFormController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <PossiblyInvalidArgument>
       <code>$username</code>
     </PossiblyInvalidArgument>
