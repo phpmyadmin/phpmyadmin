@@ -53,10 +53,11 @@ class GisMultiLineString extends GisGeometry
      * @param string $spatial spatial data of a row
      *
      * @return array an array containing the min, max values for x and y coordinates
+     * @psalm-return array{minX:float,minY:float,maxX:float,maxY:float}
      */
     public function scaleRow($spatial)
     {
-        $min_max = [];
+        $min_max = GisGeometry::EMPTY_EXTENT;
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = mb_substr($spatial, 17, -2);
