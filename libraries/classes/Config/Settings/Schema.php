@@ -190,6 +190,33 @@ final class Schema
         $this->svg_all_tables_same_width = $this->setSvgAllTablesSameWidth($schema);
     }
 
+    /** @return array<string, string|bool> */
+    public function asArray(): array
+    {
+        return [
+            'format' => $this->format,
+            'pdf_show_color' => $this->pdf_show_color,
+            'pdf_show_keys' => $this->pdf_show_keys,
+            'pdf_all_tables_same_width' => $this->pdf_all_tables_same_width,
+            'pdf_orientation' => $this->pdf_orientation,
+            'pdf_paper' => $this->pdf_paper,
+            'pdf_show_grid' => $this->pdf_show_grid,
+            'pdf_with_doc' => $this->pdf_with_doc,
+            'pdf_table_order' => $this->pdf_table_order,
+            'dia_show_color' => $this->dia_show_color,
+            'dia_show_keys' => $this->dia_show_keys,
+            'dia_orientation' => $this->dia_orientation,
+            'dia_paper' => $this->dia_paper,
+            'eps_show_color' => $this->eps_show_color,
+            'eps_show_keys' => $this->eps_show_keys,
+            'eps_all_tables_same_width' => $this->eps_all_tables_same_width,
+            'eps_orientation' => $this->eps_orientation,
+            'svg_show_color' => $this->svg_show_color,
+            'svg_show_keys' => $this->svg_show_keys,
+            'svg_all_tables_same_width' => $this->svg_all_tables_same_width,
+        ];
+    }
+
     /**
      * @param array<int|string, mixed> $schema
      *

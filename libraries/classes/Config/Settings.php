@@ -2613,7 +2613,7 @@ final class Settings
         $settings['SQLQuery'] = get_object_vars($this->SQLQuery);
         $settings['Export'] = $this->Export->asArray();
         $settings['Import'] = $this->Import->asArray();
-        $settings['Schema'] = get_object_vars($this->Schema);
+        $settings['Schema'] = $this->Schema->asArray();
         $settings['DefaultTransformations'] = get_object_vars($this->DefaultTransformations);
 
         foreach (array_keys($settings['Servers']) as $key) {

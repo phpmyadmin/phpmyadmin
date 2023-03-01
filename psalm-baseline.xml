@@ -861,30 +861,6 @@
       <code>$maxRowPlotLimit</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Config/Settings/Schema.php">
-    <PossiblyUnusedProperty>
-      <code>$dia_orientation</code>
-      <code>$dia_paper</code>
-      <code>$dia_show_color</code>
-      <code>$dia_show_keys</code>
-      <code>$eps_all_tables_same_width</code>
-      <code>$eps_orientation</code>
-      <code>$eps_show_color</code>
-      <code>$eps_show_keys</code>
-      <code>$format</code>
-      <code>$pdf_all_tables_same_width</code>
-      <code>$pdf_orientation</code>
-      <code>$pdf_paper</code>
-      <code>$pdf_show_color</code>
-      <code>$pdf_show_grid</code>
-      <code>$pdf_show_keys</code>
-      <code>$pdf_table_order</code>
-      <code>$pdf_with_doc</code>
-      <code>$svg_all_tables_same_width</code>
-      <code>$svg_show_color</code>
-      <code>$svg_show_keys</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="libraries/classes/Config/Settings/Server.php">
     <PossiblyUnusedProperty>
       <code>$AllowDeny</code>

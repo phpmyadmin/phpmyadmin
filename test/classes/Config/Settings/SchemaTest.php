@@ -55,9 +55,12 @@ class SchemaTest extends TestCase
 
         $expected = array_merge($this->defaultValues, $expectedValues);
         $settings = new Schema($actualValues);
+        $schemaArray = $settings->asArray();
 
         foreach (array_keys($expectedValues) as $key) {
             $this->assertSame($expected[$key], $settings->$key);
+            $this->assertArrayHasKey($key, $schemaArray);
+            $this->assertSame($expected[$key], $schemaArray[$key]);
         }
     }
 
