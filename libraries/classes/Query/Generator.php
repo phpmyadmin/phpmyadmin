@@ -201,9 +201,9 @@ class Generator
             . '`DATABASE_COLLATION` AS `Database Collation`'
             . ' FROM `information_schema`.`EVENTS`'
             . ' WHERE `EVENT_SCHEMA` ' . Util::getCollateForIS()
-            . " = '" . $escapedDb . "'";
+            . ' = ' . $escapedDb;
         if ($escapedEventName !== null) {
-            $query .= ' AND `EVENT_NAME`' . " = '" . $escapedEventName . "'";
+            $query .= ' AND `EVENT_NAME` = ' . $escapedEventName;
         }
 
         return $query;
