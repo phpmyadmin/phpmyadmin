@@ -825,8 +825,7 @@ class Util
             $conditionValue = "= b'"
                 . self::printableBitValue((int) $row, $meta->length) . "'";
         } else {
-            $conditionValue = '= \''
-                . $GLOBALS['dbi']->escapeString((string) $row) . '\'';
+            $conditionValue = '= ' . $GLOBALS['dbi']->quoteString((string) $row);
         }
 
         return [$conditionValue, $condition];
@@ -1711,14 +1710,14 @@ class Util
             return false;
         }
 
-        $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
+        $query .= ' AND %s LIKE `TABLE_SCHEMA`';
         $schemaPrivileges = $GLOBALS['dbi']->fetchValue(
             sprintf(
                 $query,
                 'SCHEMA_PRIVILEGES',
                 $username,
                 $priv,
-                $GLOBALS['dbi']->escapeString($db),
+                $GLOBALS['dbi']->quoteString($db),
             ),
         );
         if ($schemaPrivileges) {
@@ -1728,15 +1727,15 @@ class Util
         // If a table name was also provided and we still didn't
         // find any valid privileges, try table-wise privileges.
         if ($tbl !== null) {
-            $query .= " AND TABLE_NAME='%s'";
+            $query .= ' AND TABLE_NAME=%s';
             $tablePrivileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    $GLOBALS['dbi']->escapeString($db),
-                    $GLOBALS['dbi']->escapeString($tbl),
+                    $GLOBALS['dbi']->quoteString($db),
+                    $GLOBALS['dbi']->quoteString($tbl),
                 ),
             );
             if ($tablePrivileges) {
