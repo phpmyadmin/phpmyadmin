@@ -907,12 +907,6 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code>$tabNames</code>
     </MixedArgumentTypeCoercion>
