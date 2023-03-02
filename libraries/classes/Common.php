@@ -306,7 +306,7 @@ final class Common
         /* Tell tracker that it can actually work */
         Tracker::enable();
 
-        if (! empty($GLOBALS['server']) && isset($GLOBALS['cfg']['ZeroConf']) && $GLOBALS['cfg']['ZeroConf']) {
+        if (! empty($GLOBALS['server']) && $settings->zeroConf) {
             /** @var Relation $relation */
             $relation = $container->get('relation');
             $GLOBALS['dbi']->postConnectControl($relation);

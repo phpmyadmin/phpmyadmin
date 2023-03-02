@@ -2284,7 +2284,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ZeroConf
      */
-    public bool $ZeroConf;
+    public bool $zeroConf;
 
     /**
      * Developers ONLY!
@@ -2590,7 +2590,7 @@ final class Settings
         $this->DisableMultiTableMaintenance = $this->setDisableMultiTableMaintenance($settings);
         $this->SendErrorReports = $this->setSendErrorReports($settings);
         $this->ConsoleEnterExecutes = $this->setConsoleEnterExecutes($settings);
-        $this->ZeroConf = $this->setZeroConf($settings);
+        $this->zeroConf = $this->setZeroConf($settings);
         $this->DBG = $this->setDBG($settings);
         $this->environment = $this->setEnvironment($settings);
         $this->DefaultFunctions = $this->setDefaultFunctions($settings);
@@ -2787,7 +2787,7 @@ final class Settings
             'DisableMultiTableMaintenance' => $this->DisableMultiTableMaintenance,
             'SendErrorReports' => $this->SendErrorReports,
             'ConsoleEnterExecutes' => $this->ConsoleEnterExecutes,
-            'ZeroConf' => $this->ZeroConf,
+            'ZeroConf' => $this->zeroConf,
             'DBG' => $this->DBG->asArray(),
             'environment' => $this->environment,
             'DefaultFunctions' => $this->DefaultFunctions,

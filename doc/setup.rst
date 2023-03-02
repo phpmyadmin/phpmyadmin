@@ -824,7 +824,7 @@ Zero configuration
 
 In many cases, this database structure can be automatically created and
 configured. This is called “Zero Configuration” mode and can be particularly
-useful in shared hosting situations. “Zeroconf” mode is on by default, to
+useful in shared hosting situations. “ZeroConf” mode is on by default, to
 disable set :config:option:`$cfg['ZeroConf']` to false.
 
 The following three scenarios are covered by the Zero Configuration mode:

@@ -253,7 +253,6 @@ class SettingsTest extends TestCase
         'DisableMultiTableMaintenance' => false,
         'SendErrorReports' => 'ask',
         'ConsoleEnterExecutes' => false,
-        'ZeroConf' => true,
         'DBG' => null,
         'environment' => 'production',
         'DefaultFunctions' => [
@@ -546,7 +545,6 @@ class SettingsTest extends TestCase
                     ['DisableMultiTableMaintenance', null, false],
                     ['SendErrorReports', null, 'ask'],
                     ['ConsoleEnterExecutes', null, false],
-                    ['ZeroConf', null, true],
                     ['DBG', null, null],
                     ['environment', null, 'production'],
                     ['DefaultFunctions', null, ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
@@ -740,7 +738,6 @@ class SettingsTest extends TestCase
                     ['DisableMultiTableMaintenance', true, true],
                     ['SendErrorReports', 'never', 'never'],
                     ['ConsoleEnterExecutes', true, true],
-                    ['ZeroConf', false, false],
                     ['DBG', [], null],
                     ['environment', 'development', 'development'],
                     ['DefaultFunctions', ['key' => 'value', 'key2' => 'value2'], ['key' => 'value', 'key2' => 'value2']],
@@ -1030,7 +1027,6 @@ class SettingsTest extends TestCase
                     ['CSPAllow', 1234, '1234'],
                     ['DisableMultiTableMaintenance', 1, true],
                     ['ConsoleEnterExecutes', 1, true],
-                    ['ZeroConf', 0, false],
                     ['DefaultFunctions', ['test' => 1234], ['test' => '1234']],
                     ['maxRowPlotLimit', '1', 1],
                     ['ShowGitRevision', 0, false],
@@ -1132,6 +1128,25 @@ class SettingsTest extends TestCase
             ],
             'invalid values 4' => [[['ForeignKeyDropdownOrder', [1 => 'content-id'], ['content-id', 'id-content']]]],
         ];
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testZeroConf(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ZeroConf' => $actual]);
+        $settingsArray = $settings->asArray();
+        $this->assertSame($expected, $settings->zeroConf);
+        $this->assertArrayHasKey('ZeroConf', $settingsArray);
+        $this->assertSame($expected, $settingsArray['ZeroConf']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultTrueProvider(): iterable
+    {
+        yield 'null value' => [null, true];
+        yield 'valid value' => [true, true];
+        yield 'valid value 2' => [false, false];
+        yield 'valid value with type coercion' => [0, false];
     }
 
     /**
