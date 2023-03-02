@@ -301,9 +301,8 @@ class Events
         $columns = '`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, '
                  . '`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, '
                  . '`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`';
-        $where = 'EVENT_SCHEMA ' . Util::getCollateForIS() . '='
-                 . "'" . $this->dbi->escapeString($GLOBALS['db']) . "' "
-                 . "AND EVENT_NAME='" . $this->dbi->escapeString($name) . "'";
+        $where = 'EVENT_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString($GLOBALS['db'])
+                 . ' AND EVENT_NAME=' . $this->dbi->quoteString($name);
         $query = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
         $item = $this->dbi->fetchSingleRow($query);
         if (! $item) {
@@ -414,21 +413,15 @@ class Events
                 }
 
                 if (! empty($_POST['item_starts'])) {
-                    $query .= "STARTS '"
-                        . $this->dbi->escapeString($_POST['item_starts'])
-                        . "' ";
+                    $query .= 'STARTS ' . $this->dbi->quoteString($_POST['item_starts']) . ' ';
                 }
 
                 if (! empty($_POST['item_ends'])) {
-                    $query .= "ENDS '"
-                        . $this->dbi->escapeString($_POST['item_ends'])
-                        . "' ";
+                    $query .= 'ENDS ' . $this->dbi->quoteString($_POST['item_ends']) . ' ';
                 }
             } else {
                 if (! empty($_POST['item_execute_at'])) {
-                    $query .= "AT '"
-                        . $this->dbi->escapeString($_POST['item_execute_at'])
-                        . "' ";
+                    $query .= 'AT ' . $this->dbi->quoteString($_POST['item_execute_at']) . ' ';
                 } else {
                     $GLOBALS['errors'][] = __('You must provide a valid execution time for the event.');
                 }
@@ -453,7 +446,7 @@ class Events
         }
 
         if (! empty($_POST['item_comment'])) {
-            $query .= "COMMENT '" . $this->dbi->escapeString($_POST['item_comment']) . "' ";
+            $query .= 'COMMENT ' . $this->dbi->quoteString($_POST['item_comment']) . ' ';
         }
 
         $query .= 'DO ';
@@ -599,13 +592,13 @@ class Events
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaEventsRequest(
-                $this->dbi->escapeString($db),
-                $name === '' ? null : $this->dbi->escapeString($name),
+                $this->dbi->quoteString($db),
+                $name === '' ? null : $this->dbi->quoteString($name),
             );
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
             if ($name !== '') {
-                $query .= " WHERE `Name` = '" . $this->dbi->escapeString($name) . "'";
+                $query .= ' WHERE `Name` = ' . $this->dbi->quoteString($name);
             }
         }
 
