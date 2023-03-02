@@ -9521,11 +9521,6 @@ parameters:
 			path: test/classes/Config/ServerConfigChecksTest.php
 
 		-
-			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Export\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/ExportTest.php
-
-		-
 			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Import\\.$#"
 			count: 1
 			path: test/classes/Config/Settings/ImportTest.php

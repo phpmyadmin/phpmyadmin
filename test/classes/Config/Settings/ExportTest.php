@@ -7,658 +7,1452 @@ namespace PhpMyAdmin\Tests\Config\Settings;
 use PhpMyAdmin\Config\Settings\Export;
 use PHPUnit\Framework\TestCase;
 
-use function array_keys;
-use function array_merge;
+// phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
 /** @covers \PhpMyAdmin\Config\Settings\Export */
 class ExportTest extends TestCase
 {
-    /** @var array<string, bool|int|string> */
-    private array $defaultValues = [
-        'format' => 'sql',
-        'method' => 'quick',
-        'compression' => 'none',
-        'lock_tables' => false,
-        'as_separate_files' => false,
-        'asfile' => true,
-        'charset' => '',
-        'onserver' => false,
-        'onserver_overwrite' => false,
-        'quick_export_onserver' => false,
-        'quick_export_onserver_overwrite' => false,
-        'remember_file_template' => true,
-        'file_template_table' => '@TABLE@',
-        'file_template_database' => '@DATABASE@',
-        'file_template_server' => '@SERVER@',
-        'codegen_structure_or_data' => 'data',
-        'codegen_format' => 0,
-        'ods_columns' => false,
-        'ods_null' => 'NULL',
-        'odt_structure_or_data' => 'structure_and_data',
-        'odt_columns' => true,
-        'odt_relation' => true,
-        'odt_comments' => true,
-        'odt_mime' => true,
-        'odt_null' => 'NULL',
-        'htmlword_structure_or_data' => 'structure_and_data',
-        'htmlword_columns' => false,
-        'htmlword_null' => 'NULL',
-        'texytext_structure_or_data' => 'structure_and_data',
-        'texytext_columns' => false,
-        'texytext_null' => 'NULL',
-        'csv_columns' => true,
-        'csv_structure_or_data' => 'data',
-        'csv_null' => 'NULL',
-        'csv_separator' => ',',
-        'csv_enclosed' => '"',
-        'csv_escaped' => '"',
-        'csv_terminated' => 'AUTO',
-        'csv_removeCRLF' => false,
-        'excel_columns' => true,
-        'excel_null' => 'NULL',
-        'excel_edition' => 'win',
-        'excel_removeCRLF' => false,
-        'excel_structure_or_data' => 'data',
-        'latex_structure_or_data' => 'structure_and_data',
-        'latex_columns' => true,
-        'latex_relation' => true,
-        'latex_comments' => true,
-        'latex_mime' => true,
-        'latex_null' => '\\textit{NULL}',
-        'latex_caption' => true,
-        'latex_structure_caption' => 'strLatexStructure',
-        'latex_structure_continued_caption' => 'strLatexStructure strLatexContinued',
-        'latex_data_caption' => 'strLatexContent',
-        'latex_data_continued_caption' => 'strLatexContent strLatexContinued',
-        'latex_data_label' => 'tab:@TABLE@-data',
-        'latex_structure_label' => 'tab:@TABLE@-structure',
-        'mediawiki_structure_or_data' => 'data',
-        'mediawiki_caption' => true,
-        'mediawiki_headers' => true,
-        'ods_structure_or_data' => 'data',
-        'pdf_structure_or_data' => 'data',
-        'phparray_structure_or_data' => 'data',
-        'json_structure_or_data' => 'data',
-        'json_pretty_print' => false,
-        'json_unicode' => true,
-        'sql_structure_or_data' => 'structure_and_data',
-        'sql_compatibility' => 'NONE',
-        'sql_include_comments' => true,
-        'sql_disable_fk' => false,
-        'sql_views_as_tables' => false,
-        'sql_metadata' => false,
-        'sql_use_transaction' => true,
-        'sql_create_database' => false,
-        'sql_drop_database' => false,
-        'sql_drop_table' => false,
-        'sql_if_not_exists' => false,
-        'sql_view_current_user' => false,
-        'sql_or_replace_view' => false,
-        'sql_procedure_function' => true,
-        'sql_create_table' => true,
-        'sql_create_view' => true,
-        'sql_create_trigger' => true,
-        'sql_auto_increment' => true,
-        'sql_backquotes' => true,
-        'sql_dates' => false,
-        'sql_relation' => false,
-        'sql_truncate' => false,
-        'sql_delayed' => false,
-        'sql_ignore' => false,
-        'sql_utc_time' => true,
-        'sql_hex_for_binary' => true,
-        'sql_type' => 'INSERT',
-        'sql_max_query_size' => 50000,
-        'sql_mime' => false,
-        'sql_header_comment' => '',
-        'sql_insert_syntax' => 'both',
-        'pdf_report_title' => '',
-        'xml_structure_or_data' => 'data',
-        'xml_export_struc' => true,
-        'xml_export_events' => true,
-        'xml_export_functions' => true,
-        'xml_export_procedures' => true,
-        'xml_export_tables' => true,
-        'xml_export_triggers' => true,
-        'xml_export_views' => true,
-        'xml_export_contents' => true,
-        'yaml_structure_or_data' => 'data',
-    ];
-
-    /**
-     * @param mixed[][] $values
-     * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
-     *
-     * @dataProvider providerForTestConstructor
-     */
-    public function testConstructor(array $values): void
+    /** @dataProvider valuesForFormatProvider */
+    public function testFormat(mixed $actual, string $expected): void
     {
-        $actualValues = [];
-        $expectedValues = [];
-        /** @psalm-suppress MixedAssignment */
-        foreach ($values as $value) {
-            $actualValues[$value[0]] = $value[1];
-            $expectedValues[$value[0]] = $value[2];
-        }
-
-        $expected = array_merge($this->defaultValues, $expectedValues);
-        $settings = new Export($actualValues);
-        $exportArray = $settings->asArray();
-
-        foreach (array_keys($expectedValues) as $key) {
-            $this->assertSame($expected[$key], $settings->$key);
-            $this->assertArrayHasKey($key, $exportArray);
-            $this->assertSame($expected[$key], $exportArray[$key]);
-        }
+        $export = new Export(['format' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->format);
+        $this->assertArrayHasKey('format', $exportArray);
+        $this->assertSame($expected, $exportArray['format']);
     }
 
-    /**
-     * [setting key, actual value, expected value]
-     *
-     * @return mixed[][][][]
-     * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
-     */
-    public static function providerForTestConstructor(): array
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForFormatProvider(): iterable
     {
-        return [
-            'null values' => [
-                [
-                    ['format', null, 'sql'],
-                    ['method', null, 'quick'],
-                    ['compression', null, 'none'],
-                    ['lock_tables', null, false],
-                    ['as_separate_files', null, false],
-                    ['asfile', null, true],
-                    ['charset', null, ''],
-                    ['onserver', null, false],
-                    ['onserver_overwrite', null, false],
-                    ['quick_export_onserver', null, false],
-                    ['quick_export_onserver_overwrite', null, false],
-                    ['remember_file_template', null, true],
-                    ['file_template_table', null, '@TABLE@'],
-                    ['file_template_database', null, '@DATABASE@'],
-                    ['file_template_server', null, '@SERVER@'],
-                    ['codegen_structure_or_data', null, 'data'],
-                    ['codegen_format', null, 0],
-                    ['ods_columns', null, false],
-                    ['ods_null', null, 'NULL'],
-                    ['odt_structure_or_data', null, 'structure_and_data'],
-                    ['odt_columns', null, true],
-                    ['odt_relation', null, true],
-                    ['odt_comments', null, true],
-                    ['odt_mime', null, true],
-                    ['odt_null', null, 'NULL'],
-                    ['htmlword_structure_or_data', null, 'structure_and_data'],
-                    ['htmlword_columns', null, false],
-                    ['htmlword_null', null, 'NULL'],
-                    ['texytext_structure_or_data', null, 'structure_and_data'],
-                    ['texytext_columns', null, false],
-                    ['texytext_null', null, 'NULL'],
-                    ['csv_columns', null, true],
-                    ['csv_structure_or_data', null, 'data'],
-                    ['csv_null', null, 'NULL'],
-                    ['csv_separator', null, ','],
-                    ['csv_enclosed', null, '"'],
-                    ['csv_escaped', null, '"'],
-                    ['csv_terminated', null, 'AUTO'],
-                    ['csv_removeCRLF', null, false],
-                    ['excel_columns', null, true],
-                    ['excel_null', null, 'NULL'],
-                    ['excel_edition', null, 'win'],
-                    ['excel_removeCRLF', null, false],
-                    ['excel_structure_or_data', null, 'data'],
-                    ['latex_structure_or_data', null, 'structure_and_data'],
-                    ['latex_columns', null, true],
-                    ['latex_relation', null, true],
-                    ['latex_comments', null, true],
-                    ['latex_mime', null, true],
-                    ['latex_null', null, '\textit{NULL}'],
-                    ['latex_caption', null, true],
-                    ['latex_structure_caption', null, 'strLatexStructure'],
-                    ['latex_structure_continued_caption', null, 'strLatexStructure strLatexContinued'],
-                    ['latex_data_caption', null, 'strLatexContent'],
-                    ['latex_data_continued_caption', null, 'strLatexContent strLatexContinued'],
-                    ['latex_data_label', null, 'tab:@TABLE@-data'],
-                    ['latex_structure_label', null, 'tab:@TABLE@-structure'],
-                    ['mediawiki_structure_or_data', null, 'data'],
-                    ['mediawiki_caption', null, true],
-                    ['mediawiki_headers', null, true],
-                    ['ods_structure_or_data', null, 'data'],
-                    ['pdf_structure_or_data', null, 'data'],
-                    ['phparray_structure_or_data', null, 'data'],
-                    ['json_structure_or_data', null, 'data'],
-                    ['json_pretty_print', null, false],
-                    ['json_unicode', null, true],
-                    ['sql_structure_or_data', null, 'structure_and_data'],
-                    ['sql_compatibility', null, 'NONE'],
-                    ['sql_include_comments', null, true],
-                    ['sql_disable_fk', null, false],
-                    ['sql_views_as_tables', null, false],
-                    ['sql_metadata', null, false],
-                    ['sql_use_transaction', null, true],
-                    ['sql_create_database', null, false],
-                    ['sql_drop_database', null, false],
-                    ['sql_drop_table', null, false],
-                    ['sql_if_not_exists', null, false],
-                    ['sql_view_current_user', null, false],
-                    ['sql_or_replace_view', null, false],
-                    ['sql_procedure_function', null, true],
-                    ['sql_create_table', null, true],
-                    ['sql_create_view', null, true],
-                    ['sql_create_trigger', null, true],
-                    ['sql_auto_increment', null, true],
-                    ['sql_backquotes', null, true],
-                    ['sql_dates', null, false],
-                    ['sql_relation', null, false],
-                    ['sql_truncate', null, false],
-                    ['sql_delayed', null, false],
-                    ['sql_ignore', null, false],
-                    ['sql_utc_time', null, true],
-                    ['sql_hex_for_binary', null, true],
-                    ['sql_type', null, 'INSERT'],
-                    ['sql_max_query_size', null, 50000],
-                    ['sql_mime', null, false],
-                    ['sql_header_comment', null, ''],
-                    ['sql_insert_syntax', null, 'both'],
-                    ['pdf_report_title', null, ''],
-                    ['xml_structure_or_data', null, 'data'],
-                    ['xml_export_struc', null, true],
-                    ['xml_export_events', null, true],
-                    ['xml_export_functions', null, true],
-                    ['xml_export_procedures', null, true],
-                    ['xml_export_tables', null, true],
-                    ['xml_export_triggers', null, true],
-                    ['xml_export_views', null, true],
-                    ['xml_export_contents', null, true],
-                    ['yaml_structure_or_data', null, 'data'],
-                ],
-            ],
-            'valid values' => [
-                [
-                    ['format', 'codegen', 'codegen'],
-                    ['method', 'quick', 'quick'],
-                    ['compression', 'none', 'none'],
-                    ['lock_tables', false, false],
-                    ['as_separate_files', false, false],
-                    ['asfile', true, true],
-                    ['charset', 'test', 'test'],
-                    ['onserver', false, false],
-                    ['onserver_overwrite', false, false],
-                    ['quick_export_onserver', false, false],
-                    ['quick_export_onserver_overwrite', false, false],
-                    ['remember_file_template', true, true],
-                    ['file_template_table', 'test', 'test'],
-                    ['file_template_database', 'test', 'test'],
-                    ['file_template_server', 'test', 'test'],
-                    ['codegen_structure_or_data', 'structure', 'structure'],
-                    ['codegen_format', 0, 0],
-                    ['ods_columns', false, false],
-                    ['ods_null', 'test', 'test'],
-                    ['odt_structure_or_data', 'structure', 'structure'],
-                    ['odt_columns', true, true],
-                    ['odt_relation', true, true],
-                    ['odt_comments', true, true],
-                    ['odt_mime', true, true],
-                    ['odt_null', 'test', 'test'],
-                    ['htmlword_structure_or_data', 'structure', 'structure'],
-                    ['htmlword_columns', false, false],
-                    ['htmlword_null', 'test', 'test'],
-                    ['texytext_structure_or_data', 'structure', 'structure'],
-                    ['texytext_columns', false, false],
-                    ['texytext_null', 'test', 'test'],
-                    ['csv_columns', true, true],
-                    ['csv_structure_or_data', 'structure', 'structure'],
-                    ['csv_null', 'test', 'test'],
-                    ['csv_separator', 'test', 'test'],
-                    ['csv_enclosed', 'test', 'test'],
-                    ['csv_escaped', 'test', 'test'],
-                    ['csv_terminated', 'test', 'test'],
-                    ['csv_removeCRLF', false, false],
-                    ['excel_columns', true, true],
-                    ['excel_null', 'test', 'test'],
-                    ['excel_edition', 'win', 'win'],
-                    ['excel_removeCRLF', false, false],
-                    ['excel_structure_or_data', 'structure', 'structure'],
-                    ['latex_structure_or_data', 'structure', 'structure'],
-                    ['latex_columns', true, true],
-                    ['latex_relation', true, true],
-                    ['latex_comments', true, true],
-                    ['latex_mime', true, true],
-                    ['latex_null', 'test', 'test'],
-                    ['latex_caption', true, true],
-                    ['latex_structure_caption', 'test', 'test'],
-                    ['latex_structure_continued_caption', 'test', 'test'],
-                    ['latex_data_caption', 'test', 'test'],
-                    ['latex_data_continued_caption', 'test', 'test'],
-                    ['latex_data_label', 'test', 'test'],
-                    ['latex_structure_label', 'test', 'test'],
-                    ['mediawiki_structure_or_data', 'structure', 'structure'],
-                    ['mediawiki_caption', true, true],
-                    ['mediawiki_headers', true, true],
-                    ['ods_structure_or_data', 'structure', 'structure'],
-                    ['pdf_structure_or_data', 'structure', 'structure'],
-                    ['phparray_structure_or_data', 'structure', 'structure'],
-                    ['json_structure_or_data', 'structure', 'structure'],
-                    ['json_pretty_print', false, false],
-                    ['json_unicode', true, true],
-                    ['sql_structure_or_data', 'structure', 'structure'],
-                    ['sql_compatibility', 'NONE', 'NONE'],
-                    ['sql_include_comments', true, true],
-                    ['sql_disable_fk', false, false],
-                    ['sql_views_as_tables', false, false],
-                    ['sql_metadata', false, false],
-                    ['sql_use_transaction', true, true],
-                    ['sql_create_database', false, false],
-                    ['sql_drop_database', false, false],
-                    ['sql_drop_table', false, false],
-                    ['sql_if_not_exists', false, false],
-                    ['sql_view_current_user', false, false],
-                    ['sql_or_replace_view', false, false],
-                    ['sql_procedure_function', true, true],
-                    ['sql_create_table', true, true],
-                    ['sql_create_view', true, true],
-                    ['sql_create_trigger', true, true],
-                    ['sql_auto_increment', true, true],
-                    ['sql_backquotes', true, true],
-                    ['sql_dates', false, false],
-                    ['sql_relation', false, false],
-                    ['sql_truncate', false, false],
-                    ['sql_delayed', false, false],
-                    ['sql_ignore', false, false],
-                    ['sql_utc_time', true, true],
-                    ['sql_hex_for_binary', true, true],
-                    ['sql_type', 'INSERT', 'INSERT'],
-                    ['sql_max_query_size', 0, 0],
-                    ['sql_mime', false, false],
-                    ['sql_header_comment', 'test', 'test'],
-                    ['sql_insert_syntax', 'complete', 'complete'],
-                    ['pdf_report_title', 'test', 'test'],
-                    ['xml_structure_or_data', 'structure', 'structure'],
-                    ['xml_export_struc', true, true],
-                    ['xml_export_events', true, true],
-                    ['xml_export_functions', true, true],
-                    ['xml_export_procedures', true, true],
-                    ['xml_export_tables', true, true],
-                    ['xml_export_triggers', true, true],
-                    ['xml_export_views', true, true],
-                    ['xml_export_contents', true, true],
-                    ['yaml_structure_or_data', 'structure', 'structure'],
-                ],
-            ],
-            'valid values 2' => [
-                [
-                    ['format', 'csv', 'csv'],
-                    ['method', 'custom', 'custom'],
-                    ['compression', 'zip', 'zip'],
-                    ['lock_tables', true, true],
-                    ['as_separate_files', true, true],
-                    ['asfile', false, false],
-                    ['onserver', true, true],
-                    ['onserver_overwrite', true, true],
-                    ['quick_export_onserver', true, true],
-                    ['quick_export_onserver_overwrite', true, true],
-                    ['remember_file_template', false, false],
-                    ['codegen_structure_or_data', 'data', 'data'],
-                    ['codegen_format', 1, 1],
-                    ['ods_columns', true, true],
-                    ['odt_structure_or_data', 'data', 'data'],
-                    ['odt_columns', false, false],
-                    ['odt_relation', false, false],
-                    ['odt_comments', false, false],
-                    ['odt_mime', false, false],
-                    ['htmlword_structure_or_data', 'data', 'data'],
-                    ['htmlword_columns', true, true],
-                    ['texytext_structure_or_data', 'data', 'data'],
-                    ['texytext_columns', true, true],
-                    ['csv_columns', false, false],
-                    ['csv_structure_or_data', 'data', 'data'],
-                    ['csv_removeCRLF', true, true],
-                    ['excel_columns', false, false],
-                    ['excel_edition', 'mac_excel2003', 'mac_excel2003'],
-                    ['excel_removeCRLF', true, true],
-                    ['excel_structure_or_data', 'data', 'data'],
-                    ['latex_structure_or_data', 'data', 'data'],
-                    ['latex_columns', false, false],
-                    ['latex_relation', false, false],
-                    ['latex_comments', false, false],
-                    ['latex_mime', false, false],
-                    ['latex_caption', false, false],
-                    ['mediawiki_structure_or_data', 'data', 'data'],
-                    ['mediawiki_caption', false, false],
-                    ['mediawiki_headers', false, false],
-                    ['ods_structure_or_data', 'data', 'data'],
-                    ['pdf_structure_or_data', 'data', 'data'],
-                    ['phparray_structure_or_data', 'data', 'data'],
-                    ['json_structure_or_data', 'data', 'data'],
-                    ['json_pretty_print', true, true],
-                    ['json_unicode', false, false],
-                    ['sql_structure_or_data', 'data', 'data'],
-                    ['sql_compatibility', 'ANSI', 'ANSI'],
-                    ['sql_include_comments', false, false],
-                    ['sql_disable_fk', true, true],
-                    ['sql_views_as_tables', true, true],
-                    ['sql_metadata', true, true],
-                    ['sql_use_transaction', false, false],
-                    ['sql_create_database', true, true],
-                    ['sql_drop_database', true, true],
-                    ['sql_drop_table', true, true],
-                    ['sql_if_not_exists', true, true],
-                    ['sql_view_current_user', true, true],
-                    ['sql_or_replace_view', true, true],
-                    ['sql_procedure_function', false, false],
-                    ['sql_create_table', false, false],
-                    ['sql_create_view', false, false],
-                    ['sql_create_trigger', false, false],
-                    ['sql_auto_increment', false, false],
-                    ['sql_backquotes', false, false],
-                    ['sql_dates', true, true],
-                    ['sql_relation', true, true],
-                    ['sql_truncate', true, true],
-                    ['sql_delayed', true, true],
-                    ['sql_ignore', true, true],
-                    ['sql_utc_time', false, false],
-                    ['sql_hex_for_binary', false, false],
-                    ['sql_type', 'UPDATE', 'UPDATE'],
-                    ['sql_mime', true, true],
-                    ['sql_insert_syntax', 'extended', 'extended'],
-                    ['xml_structure_or_data', 'data', 'data'],
-                    ['xml_export_struc', false, false],
-                    ['xml_export_events', false, false],
-                    ['xml_export_functions', false, false],
-                    ['xml_export_procedures', false, false],
-                    ['xml_export_tables', false, false],
-                    ['xml_export_triggers', false, false],
-                    ['xml_export_views', false, false],
-                    ['xml_export_contents', false, false],
-                    ['yaml_structure_or_data', 'data', 'data'],
-                ],
-            ],
-            'valid values 3' => [
-                [
-                    ['format', 'excel', 'excel'],
-                    ['method', 'custom-no-form', 'custom-no-form'],
-                    ['compression', 'gzip', 'gzip'],
-                    ['codegen_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['odt_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['htmlword_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['texytext_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['csv_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['excel_edition', 'mac_excel2008', 'mac_excel2008'],
-                    ['excel_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['latex_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['mediawiki_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['ods_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['pdf_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['phparray_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['json_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['sql_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['sql_compatibility', 'DB2', 'DB2'],
-                    ['sql_type', 'REPLACE', 'REPLACE'],
-                    ['sql_insert_syntax', 'both', 'both'],
-                    ['xml_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                    ['yaml_structure_or_data', 'structure_and_data', 'structure_and_data'],
-                ],
-            ],
-            'valid values 4' => [
-                [
-                    ['format', 'htmlexcel', 'htmlexcel'],
-                    ['sql_compatibility', 'MAXDB', 'MAXDB'],
-                    ['sql_insert_syntax', 'none', 'none'],
-                ],
-            ],
-            'valid values 5' => [
-                [
-                    ['format', 'htmlword', 'htmlword'],
-                    ['sql_compatibility', 'MYSQL323', 'MYSQL323'],
-                ],
-            ],
-            'valid values 6' => [
-                [
-                    ['format', 'latex', 'latex'],
-                    ['sql_compatibility', 'MYSQL40', 'MYSQL40'],
-                ],
-            ],
-            'valid values 7' => [
-                [
-                    ['format', 'ods', 'ods'],
-                    ['sql_compatibility', 'MSSQL', 'MSSQL'],
-                ],
-            ],
-            'valid values 8' => [
-                [
-                    ['format', 'odt', 'odt'],
-                    ['sql_compatibility', 'ORACLE', 'ORACLE'],
-                ],
-            ],
-            'valid values 9' => [
-                [
-                    ['format', 'pdf', 'pdf'],
-                    ['sql_compatibility', 'TRADITIONAL', 'TRADITIONAL'],
-                ],
-            ],
-            'valid values 10' => [[['format', 'sql', 'sql']]],
-            'valid values 11' => [[['format', 'texytext', 'texytext']]],
-            'valid values 12' => [[['format', 'xml', 'xml']]],
-            'valid values 13' => [[['format', 'yaml', 'yaml']]],
-            'valid values with type coercion' => [
-                [
-                    ['lock_tables', 1, true],
-                    ['as_separate_files', 1, true],
-                    ['asfile', 0, false],
-                    ['charset', 1234, '1234'],
-                    ['onserver', 1, true],
-                    ['onserver_overwrite', 1, true],
-                    ['quick_export_onserver', 1, true],
-                    ['quick_export_onserver_overwrite', 1, true],
-                    ['remember_file_template', 0, false],
-                    ['file_template_table', 1234, '1234'],
-                    ['file_template_database', 1234, '1234'],
-                    ['file_template_server', 1234, '1234'],
-                    ['codegen_format', '1', 1],
-                    ['ods_columns', 1, true],
-                    ['ods_null', 1234, '1234'],
-                    ['odt_columns', 0, false],
-                    ['odt_relation', 0, false],
-                    ['odt_comments', 0, false],
-                    ['odt_mime', 0, false],
-                    ['odt_null', 1234, '1234'],
-                    ['htmlword_columns', 1, true],
-                    ['htmlword_null', 1234, '1234'],
-                    ['texytext_columns', 1, true],
-                    ['texytext_null', 1234, '1234'],
-                    ['csv_columns', 1, true],
-                    ['csv_null', 1234, '1234'],
-                    ['csv_separator', 1234, '1234'],
-                    ['csv_enclosed', 1234, '1234'],
-                    ['csv_escaped', 1234, '1234'],
-                    ['csv_terminated', 1234, '1234'],
-                    ['csv_removeCRLF', 1, true],
-                    ['excel_columns', 0, false],
-                    ['excel_null', 1234, '1234'],
-                    ['excel_removeCRLF', 1, true],
-                    ['latex_columns', 0, false],
-                    ['latex_relation', 0, false],
-                    ['latex_comments', 0, false],
-                    ['latex_mime', 0, false],
-                    ['latex_null', 1234, '1234'],
-                    ['latex_caption', 0, false],
-                    ['latex_structure_caption', 1234, '1234'],
-                    ['latex_structure_continued_caption', 1234, '1234'],
-                    ['latex_data_caption', 1234, '1234'],
-                    ['latex_data_continued_caption', 1234, '1234'],
-                    ['latex_data_label', 1234, '1234'],
-                    ['latex_structure_label', 1234, '1234'],
-                    ['mediawiki_caption', 0, false],
-                    ['mediawiki_headers', 0, false],
-                    ['json_pretty_print', 1, true],
-                    ['json_unicode', 0, false],
-                    ['sql_include_comments', 0, false],
-                    ['sql_disable_fk', 1, true],
-                    ['sql_views_as_tables', 1, true],
-                    ['sql_metadata', 1, true],
-                    ['sql_use_transaction', 0, false],
-                    ['sql_create_database', 1, true],
-                    ['sql_drop_database', 1, true],
-                    ['sql_drop_table', 1, true],
-                    ['sql_if_not_exists', 1, true],
-                    ['sql_view_current_user', 1, true],
-                    ['sql_or_replace_view', 1, true],
-                    ['sql_procedure_function', 0, false],
-                    ['sql_create_table', 0, false],
-                    ['sql_create_view', 0, false],
-                    ['sql_create_trigger', 0, false],
-                    ['sql_auto_increment', 0, false],
-                    ['sql_backquotes', 0, false],
-                    ['sql_dates', 1, true],
-                    ['sql_relation', 1, true],
-                    ['sql_truncate', 1, true],
-                    ['sql_delayed', 1, true],
-                    ['sql_ignore', 1, true],
-                    ['sql_utc_time', 0, false],
-                    ['sql_hex_for_binary', 0, false],
-                    ['sql_max_query_size', '1', 1],
-                    ['sql_mime', 1, true],
-                    ['sql_header_comment', 1234, '1234'],
-                    ['pdf_report_title', 1234, '1234'],
-                    ['xml_export_struc', 0, false],
-                    ['xml_export_events', 0, false],
-                    ['xml_export_functions', 0, false],
-                    ['xml_export_procedures', 0, false],
-                    ['xml_export_tables', 0, false],
-                    ['xml_export_triggers', 0, false],
-                    ['xml_export_views', 0, false],
-                    ['xml_export_contents', 0, false],
-                ],
-            ],
-            'invalid values' => [
-                [
-                    ['format', 'invalid', 'sql'],
-                    ['method', 'invalid', 'quick'],
-                    ['compression', 'invalid', 'none'],
-                    ['codegen_structure_or_data', 'invalid', 'data'],
-                    ['codegen_format', -1, 0],
-                    ['odt_structure_or_data', 'invalid', 'structure_and_data'],
-                    ['htmlword_structure_or_data', 'invalid', 'structure_and_data'],
-                    ['texytext_structure_or_data', 'invalid', 'structure_and_data'],
-                    ['csv_structure_or_data', 'invalid', 'data'],
-                    ['excel_edition', 'invalid', 'win'],
-                    ['excel_structure_or_data', 'invalid', 'data'],
-                    ['latex_structure_or_data', 'invalid', 'structure_and_data'],
-                    ['mediawiki_structure_or_data', 'invalid', 'data'],
-                    ['ods_structure_or_data', 'invalid', 'data'],
-                    ['pdf_structure_or_data', 'invalid', 'data'],
-                    ['phparray_structure_or_data', 'invalid', 'data'],
-                    ['json_structure_or_data', 'invalid', 'data'],
-                    ['sql_structure_or_data', 'invalid', 'structure_and_data'],
-                    ['sql_compatibility', 'invalid', 'NONE'],
-                    ['sql_type', 'invalid', 'INSERT'],
-                    ['sql_max_query_size', -1, 50000],
-                    ['sql_insert_syntax', 'invalid', 'both'],
-                    ['xml_structure_or_data', 'invalid', 'data'],
-                    ['yaml_structure_or_data', 'invalid', 'data'],
-                ],
-            ],
-            'invalid values 2' => [[['codegen_format', 2, 0]]],
-        ];
+        yield 'null value' => [null, 'sql'];
+        yield 'valid value' => ['codegen', 'codegen'];
+        yield 'valid value 2' => ['csv', 'csv'];
+        yield 'valid value 3' => ['excel', 'excel'];
+        yield 'valid value 4' => ['htmlexcel', 'htmlexcel'];
+        yield 'valid value 5' => ['htmlword', 'htmlword'];
+        yield 'valid value 6' => ['latex', 'latex'];
+        yield 'valid value 7' => ['ods', 'ods'];
+        yield 'valid value 8' => ['odt', 'odt'];
+        yield 'valid value 9' => ['pdf', 'pdf'];
+        yield 'valid value 10' => ['sql', 'sql'];
+        yield 'valid value 11' => ['texytext', 'texytext'];
+        yield 'valid value 12' => ['xml', 'xml'];
+        yield 'valid value 13' => ['yaml', 'yaml'];
+        yield 'invalid value' => ['invalid', 'sql'];
+    }
+
+    /** @dataProvider valuesForMethodProvider */
+    public function testMethod(mixed $actual, string $expected): void
+    {
+        $export = new Export(['method' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->method);
+        $this->assertArrayHasKey('method', $exportArray);
+        $this->assertSame($expected, $exportArray['method']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForMethodProvider(): iterable
+    {
+        yield 'null value' => [null, 'quick'];
+        yield 'valid value' => ['quick', 'quick'];
+        yield 'valid value 2' => ['custom', 'custom'];
+        yield 'valid value 3' => ['custom-no-form', 'custom-no-form'];
+        yield 'invalid value' => ['invalid', 'quick'];
+    }
+
+    /** @dataProvider valuesForCompressionProvider */
+    public function testCompression(mixed $actual, string $expected): void
+    {
+        $export = new Export(['compression' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->compression);
+        $this->assertArrayHasKey('compression', $exportArray);
+        $this->assertSame($expected, $exportArray['compression']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForCompressionProvider(): iterable
+    {
+        yield 'null value' => [null, 'none'];
+        yield 'valid value' => ['none', 'none'];
+        yield 'valid value 2' => ['zip', 'zip'];
+        yield 'valid value 3' => ['gzip', 'gzip'];
+        yield 'invalid value' => ['invalid', 'none'];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testLockTables(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['lock_tables' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->lock_tables);
+        $this->assertArrayHasKey('lock_tables', $exportArray);
+        $this->assertSame($expected, $exportArray['lock_tables']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultFalseProvider(): iterable
+    {
+        yield 'null value' => [null, false];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value with type coercion' => [1, true];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testAsSeparateFiles(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['as_separate_files' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->as_separate_files);
+        $this->assertArrayHasKey('as_separate_files', $exportArray);
+        $this->assertSame($expected, $exportArray['as_separate_files']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testAsfile(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['asfile' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->asfile);
+        $this->assertArrayHasKey('asfile', $exportArray);
+        $this->assertSame($expected, $exportArray['asfile']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultTrueProvider(): iterable
+    {
+        yield 'null value' => [null, true];
+        yield 'valid value' => [true, true];
+        yield 'valid value 2' => [false, false];
+        yield 'valid value with type coercion' => [0, false];
+    }
+
+    /** @dataProvider valuesForCharsetProvider */
+    public function testCharset(mixed $actual, string $expected): void
+    {
+        $export = new Export(['charset' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->charset);
+        $this->assertArrayHasKey('charset', $exportArray);
+        $this->assertSame($expected, $exportArray['charset']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForCharsetProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testOnserver(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['onserver' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->onserver);
+        $this->assertArrayHasKey('onserver', $exportArray);
+        $this->assertSame($expected, $exportArray['onserver']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testOnserverOverwrite(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['onserver_overwrite' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->onserver_overwrite);
+        $this->assertArrayHasKey('onserver_overwrite', $exportArray);
+        $this->assertSame($expected, $exportArray['onserver_overwrite']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testQuickExportOnserver(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['quick_export_onserver' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->quick_export_onserver);
+        $this->assertArrayHasKey('quick_export_onserver', $exportArray);
+        $this->assertSame($expected, $exportArray['quick_export_onserver']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testQuickExportOnserverOverwrite(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['quick_export_onserver_overwrite' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->quick_export_onserver_overwrite);
+        $this->assertArrayHasKey('quick_export_onserver_overwrite', $exportArray);
+        $this->assertSame($expected, $exportArray['quick_export_onserver_overwrite']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testRememberFileTemplate(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['remember_file_template' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->remember_file_template);
+        $this->assertArrayHasKey('remember_file_template', $exportArray);
+        $this->assertSame($expected, $exportArray['remember_file_template']);
+    }
+
+    /** @dataProvider valuesForFileTemplateTableProvider */
+    public function testFileTemplateTable(mixed $actual, string $expected): void
+    {
+        $export = new Export(['file_template_table' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->file_template_table);
+        $this->assertArrayHasKey('file_template_table', $exportArray);
+        $this->assertSame($expected, $exportArray['file_template_table']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForFileTemplateTableProvider(): iterable
+    {
+        yield 'null value' => [null, '@TABLE@'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForFileTemplateDatabaseProvider */
+    public function testFileTemplateDatabase(mixed $actual, string $expected): void
+    {
+        $export = new Export(['file_template_database' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->file_template_database);
+        $this->assertArrayHasKey('file_template_database', $exportArray);
+        $this->assertSame($expected, $exportArray['file_template_database']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForFileTemplateDatabaseProvider(): iterable
+    {
+        yield 'null value' => [null, '@DATABASE@'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForFileTemplateServerProvider */
+    public function testFileTemplateServer(mixed $actual, string $expected): void
+    {
+        $export = new Export(['file_template_server' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->file_template_server);
+        $this->assertArrayHasKey('file_template_server', $exportArray);
+        $this->assertSame($expected, $exportArray['file_template_server']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForFileTemplateServerProvider(): iterable
+    {
+        yield 'null value' => [null, '@SERVER@'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testCodegenStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['codegen_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->codegen_structure_or_data);
+        $this->assertArrayHasKey('codegen_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['codegen_structure_or_data']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function structureOrDataWithDefaultDataProvider(): iterable
+    {
+        yield 'null value' => [null, 'data'];
+        yield 'valid value' => ['structure', 'structure'];
+        yield 'valid value 2' => ['data', 'data'];
+        yield 'valid value 3' => ['structure_and_data', 'structure_and_data'];
+        yield 'invalid value' => ['invalid', 'data'];
+    }
+
+    /** @dataProvider valuesForCodegenFormatProvider */
+    public function testCodegenFormat(mixed $actual, int $expected): void
+    {
+        $export = new Export(['codegen_format' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->codegen_format);
+        $this->assertArrayHasKey('codegen_format', $exportArray);
+        $this->assertSame($expected, $exportArray['codegen_format']);
+    }
+
+    /** @return iterable<string, array{mixed, int}> */
+    public static function valuesForCodegenFormatProvider(): iterable
+    {
+        yield 'null value' => [null, 0];
+        yield 'valid value' => [0, 0];
+        yield 'valid value 2' => [1, 1];
+        yield 'valid value with type coercion' => ['1', 1];
+        yield 'invalid value' => [-1, 0];
+        yield 'invalid value 2' => [2, 0];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testOdsColumns(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['ods_columns' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->ods_columns);
+        $this->assertArrayHasKey('ods_columns', $exportArray);
+        $this->assertSame($expected, $exportArray['ods_columns']);
+    }
+
+    /** @dataProvider valuesForOdsNullProvider */
+    public function testOdsNull(mixed $actual, string $expected): void
+    {
+        $export = new Export(['ods_null' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->ods_null);
+        $this->assertArrayHasKey('ods_null', $exportArray);
+        $this->assertSame($expected, $exportArray['ods_null']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForOdsNullProvider(): iterable
+    {
+        yield 'null value' => [null, 'NULL'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    public function testOdtStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['odt_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->odt_structure_or_data);
+        $this->assertArrayHasKey('odt_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['odt_structure_or_data']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function structureOrDataWithDefaultStructureOrDataProvider(): iterable
+    {
+        yield 'null value' => [null, 'structure_and_data'];
+        yield 'valid value' => ['structure', 'structure'];
+        yield 'valid value 2' => ['data', 'data'];
+        yield 'valid value 3' => ['structure_and_data', 'structure_and_data'];
+        yield 'invalid value' => ['invalid', 'structure_and_data'];
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testOdtColumns(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['odt_columns' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->odt_columns);
+        $this->assertArrayHasKey('odt_columns', $exportArray);
+        $this->assertSame($expected, $exportArray['odt_columns']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testOdtRelation(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['odt_relation' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->odt_relation);
+        $this->assertArrayHasKey('odt_relation', $exportArray);
+        $this->assertSame($expected, $exportArray['odt_relation']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testOdtComments(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['odt_comments' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->odt_comments);
+        $this->assertArrayHasKey('odt_comments', $exportArray);
+        $this->assertSame($expected, $exportArray['odt_comments']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testOdtMime(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['odt_mime' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->odt_mime);
+        $this->assertArrayHasKey('odt_mime', $exportArray);
+        $this->assertSame($expected, $exportArray['odt_mime']);
+    }
+
+    /** @dataProvider valuesForOdtNullProvider */
+    public function testOdtNull(mixed $actual, string $expected): void
+    {
+        $export = new Export(['odt_null' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->odt_null);
+        $this->assertArrayHasKey('odt_null', $exportArray);
+        $this->assertSame($expected, $exportArray['odt_null']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForOdtNullProvider(): iterable
+    {
+        yield 'null value' => [null, 'NULL'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    public function testHtmlwordStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['htmlword_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->htmlword_structure_or_data);
+        $this->assertArrayHasKey('htmlword_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['htmlword_structure_or_data']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testHtmlwordColumns(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['htmlword_columns' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->htmlword_columns);
+        $this->assertArrayHasKey('htmlword_columns', $exportArray);
+        $this->assertSame($expected, $exportArray['htmlword_columns']);
+    }
+
+    /** @dataProvider valuesForHtmlwordNullProvider */
+    public function testHtmlwordNull(mixed $actual, string $expected): void
+    {
+        $export = new Export(['htmlword_null' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->htmlword_null);
+        $this->assertArrayHasKey('htmlword_null', $exportArray);
+        $this->assertSame($expected, $exportArray['htmlword_null']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForHtmlwordNullProvider(): iterable
+    {
+        yield 'null value' => [null, 'NULL'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    public function testTexytextStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['texytext_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->texytext_structure_or_data);
+        $this->assertArrayHasKey('texytext_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['texytext_structure_or_data']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testTexytextColumns(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['texytext_columns' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->texytext_columns);
+        $this->assertArrayHasKey('texytext_columns', $exportArray);
+        $this->assertSame($expected, $exportArray['texytext_columns']);
+    }
+
+    /** @dataProvider valuesForTexytextNullProvider */
+    public function testTexytextNull(mixed $actual, string $expected): void
+    {
+        $export = new Export(['texytext_null' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->texytext_null);
+        $this->assertArrayHasKey('texytext_null', $exportArray);
+        $this->assertSame($expected, $exportArray['texytext_null']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForTexytextNullProvider(): iterable
+    {
+        yield 'null value' => [null, 'NULL'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testCsvColumns(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['csv_columns' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_columns);
+        $this->assertArrayHasKey('csv_columns', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_columns']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testCsvStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['csv_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_structure_or_data);
+        $this->assertArrayHasKey('csv_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_structure_or_data']);
+    }
+
+    /** @dataProvider valuesForCsvNullProvider */
+    public function testCsvNull(mixed $actual, string $expected): void
+    {
+        $export = new Export(['csv_null' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_null);
+        $this->assertArrayHasKey('csv_null', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_null']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForCsvNullProvider(): iterable
+    {
+        yield 'null value' => [null, 'NULL'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForCsvSeparatorProvider */
+    public function testCsvSeparator(mixed $actual, string $expected): void
+    {
+        $export = new Export(['csv_separator' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_separator);
+        $this->assertArrayHasKey('csv_separator', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_separator']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForCsvSeparatorProvider(): iterable
+    {
+        yield 'null value' => [null, ','];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForCsvEnclosedProvider */
+    public function testCsvEnclosed(mixed $actual, string $expected): void
+    {
+        $export = new Export(['csv_enclosed' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_enclosed);
+        $this->assertArrayHasKey('csv_enclosed', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_enclosed']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForCsvEnclosedProvider(): iterable
+    {
+        yield 'null value' => [null, '"'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForCsvEscapedProvider */
+    public function testCsvEscaped(mixed $actual, string $expected): void
+    {
+        $export = new Export(['csv_escaped' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_escaped);
+        $this->assertArrayHasKey('csv_escaped', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_escaped']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForCsvEscapedProvider(): iterable
+    {
+        yield 'null value' => [null, '"'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForCsvTerminatedProvider */
+    public function testCsvTerminated(mixed $actual, string $expected): void
+    {
+        $export = new Export(['csv_terminated' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_terminated);
+        $this->assertArrayHasKey('csv_terminated', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_terminated']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForCsvTerminatedProvider(): iterable
+    {
+        yield 'null value' => [null, 'AUTO'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testCsvRemoveCRLF(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['csv_removeCRLF' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->csv_removeCRLF);
+        $this->assertArrayHasKey('csv_removeCRLF', $exportArray);
+        $this->assertSame($expected, $exportArray['csv_removeCRLF']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testExcelColumns(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['excel_columns' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->excel_columns);
+        $this->assertArrayHasKey('excel_columns', $exportArray);
+        $this->assertSame($expected, $exportArray['excel_columns']);
+    }
+
+    /** @dataProvider valuesForExcelNullProvider */
+    public function testExcelNull(mixed $actual, string $expected): void
+    {
+        $export = new Export(['excel_null' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->excel_null);
+        $this->assertArrayHasKey('excel_null', $exportArray);
+        $this->assertSame($expected, $exportArray['excel_null']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForExcelNullProvider(): iterable
+    {
+        yield 'null value' => [null, 'NULL'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForExcelEditionProvider */
+    public function testExcelEdition(mixed $actual, string $expected): void
+    {
+        $export = new Export(['excel_edition' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->excel_edition);
+        $this->assertArrayHasKey('excel_edition', $exportArray);
+        $this->assertSame($expected, $exportArray['excel_edition']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForExcelEditionProvider(): iterable
+    {
+        yield 'null value' => [null, 'win'];
+        yield 'valid value' => ['win', 'win'];
+        yield 'valid value 2' => ['mac_excel2003', 'mac_excel2003'];
+        yield 'valid value 3' => ['mac_excel2008', 'mac_excel2008'];
+        yield 'invalid value' => ['invalid', 'win'];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testExcelRemoveCRLF(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['excel_removeCRLF' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->excel_removeCRLF);
+        $this->assertArrayHasKey('excel_removeCRLF', $exportArray);
+        $this->assertSame($expected, $exportArray['excel_removeCRLF']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testExcelStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['excel_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->excel_structure_or_data);
+        $this->assertArrayHasKey('excel_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['excel_structure_or_data']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    public function testLatexStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_structure_or_data);
+        $this->assertArrayHasKey('latex_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_structure_or_data']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testLatexColumns(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['latex_columns' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_columns);
+        $this->assertArrayHasKey('latex_columns', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_columns']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testLatexRelation(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['latex_relation' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_relation);
+        $this->assertArrayHasKey('latex_relation', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_relation']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testLatexComments(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['latex_comments' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_comments);
+        $this->assertArrayHasKey('latex_comments', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_comments']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testLatexMime(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['latex_mime' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_mime);
+        $this->assertArrayHasKey('latex_mime', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_mime']);
+    }
+
+    /** @dataProvider valuesForLatexNullProvider */
+    public function testLatexNull(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_null' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_null);
+        $this->assertArrayHasKey('latex_null', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_null']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLatexNullProvider(): iterable
+    {
+        yield 'null value' => [null, '\textit{NULL}'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testLatexCaption(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['latex_caption' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_caption);
+        $this->assertArrayHasKey('latex_caption', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_caption']);
+    }
+
+    /** @dataProvider valuesForLatexStructureCaptionProvider */
+    public function testLatexStructureCaption(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_structure_caption' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_structure_caption);
+        $this->assertArrayHasKey('latex_structure_caption', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_structure_caption']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLatexStructureCaptionProvider(): iterable
+    {
+        yield 'null value' => [null, 'strLatexStructure'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForLatexStructureContinuedCaptionProvider */
+    public function testLatexStructureContinuedCaption(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_structure_continued_caption' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_structure_continued_caption);
+        $this->assertArrayHasKey('latex_structure_continued_caption', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_structure_continued_caption']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLatexStructureContinuedCaptionProvider(): iterable
+    {
+        yield 'null value' => [null, 'strLatexStructure strLatexContinued'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForLatexDataCaptionProvider */
+    public function testLatexDataCaption(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_data_caption' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_data_caption);
+        $this->assertArrayHasKey('latex_data_caption', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_data_caption']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLatexDataCaptionProvider(): iterable
+    {
+        yield 'null value' => [null, 'strLatexContent'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForLatexDataContinuedCaptionProvider */
+    public function testLatexDataContinuedCaption(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_data_continued_caption' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_data_continued_caption);
+        $this->assertArrayHasKey('latex_data_continued_caption', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_data_continued_caption']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLatexDataContinuedCaptionProvider(): iterable
+    {
+        yield 'null value' => [null, 'strLatexContent strLatexContinued'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForLatexDataLabelProvider */
+    public function testLatexDataLabel(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_data_label' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_data_label);
+        $this->assertArrayHasKey('latex_data_label', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_data_label']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLatexDataLabelProvider(): iterable
+    {
+        yield 'null value' => [null, 'tab:@TABLE@-data'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForLatexStructureLabelProvider */
+    public function testLatexStructureLabel(mixed $actual, string $expected): void
+    {
+        $export = new Export(['latex_structure_label' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->latex_structure_label);
+        $this->assertArrayHasKey('latex_structure_label', $exportArray);
+        $this->assertSame($expected, $exportArray['latex_structure_label']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLatexStructureLabelProvider(): iterable
+    {
+        yield 'null value' => [null, 'tab:@TABLE@-structure'];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testMediawikiStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['mediawiki_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->mediawiki_structure_or_data);
+        $this->assertArrayHasKey('mediawiki_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['mediawiki_structure_or_data']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testMediawikiCaption(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['mediawiki_caption' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->mediawiki_caption);
+        $this->assertArrayHasKey('mediawiki_caption', $exportArray);
+        $this->assertSame($expected, $exportArray['mediawiki_caption']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testMediawikiHeaders(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['mediawiki_headers' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->mediawiki_headers);
+        $this->assertArrayHasKey('mediawiki_headers', $exportArray);
+        $this->assertSame($expected, $exportArray['mediawiki_headers']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testOdsStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['ods_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->ods_structure_or_data);
+        $this->assertArrayHasKey('ods_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['ods_structure_or_data']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testPdfStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['pdf_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->pdf_structure_or_data);
+        $this->assertArrayHasKey('pdf_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['pdf_structure_or_data']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testPhparrayStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['phparray_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->phparray_structure_or_data);
+        $this->assertArrayHasKey('phparray_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['phparray_structure_or_data']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testJsonStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['json_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->json_structure_or_data);
+        $this->assertArrayHasKey('json_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['json_structure_or_data']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testJsonPrettyPrint(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['json_pretty_print' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->json_pretty_print);
+        $this->assertArrayHasKey('json_pretty_print', $exportArray);
+        $this->assertSame($expected, $exportArray['json_pretty_print']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testJsonUnicode(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['json_unicode' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->json_unicode);
+        $this->assertArrayHasKey('json_unicode', $exportArray);
+        $this->assertSame($expected, $exportArray['json_unicode']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    public function testSqlStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['sql_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_structure_or_data);
+        $this->assertArrayHasKey('sql_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_structure_or_data']);
+    }
+
+    /** @dataProvider valuesForSqlCompatibilityProvider */
+    public function testSqlCompatibility(mixed $actual, string $expected): void
+    {
+        $export = new Export(['sql_compatibility' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_compatibility);
+        $this->assertArrayHasKey('sql_compatibility', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_compatibility']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSqlCompatibilityProvider(): iterable
+    {
+        yield 'null value' => [null, 'NONE'];
+        yield 'valid value' => ['NONE', 'NONE'];
+        yield 'valid value 2' => ['ANSI', 'ANSI'];
+        yield 'valid value 3' => ['DB2', 'DB2'];
+        yield 'valid value 4' => ['MAXDB', 'MAXDB'];
+        yield 'valid value 5' => ['MYSQL323', 'MYSQL323'];
+        yield 'valid value 6' => ['MYSQL40', 'MYSQL40'];
+        yield 'valid value 7' => ['MSSQL', 'MSSQL'];
+        yield 'valid value 8' => ['ORACLE', 'ORACLE'];
+        yield 'valid value 9' => ['TRADITIONAL', 'TRADITIONAL'];
+        yield 'valid value 10' => ['', 'NONE'];
+        yield 'invalid value' => ['invalid', 'NONE'];
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlIncludeComments(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_include_comments' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_include_comments);
+        $this->assertArrayHasKey('sql_include_comments', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_include_comments']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlDisableFk(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_disable_fk' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_disable_fk);
+        $this->assertArrayHasKey('sql_disable_fk', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_disable_fk']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlViewsAsTables(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_views_as_tables' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_views_as_tables);
+        $this->assertArrayHasKey('sql_views_as_tables', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_views_as_tables']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlMetadata(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_metadata' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_metadata);
+        $this->assertArrayHasKey('sql_metadata', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_metadata']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlUseTransaction(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_use_transaction' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_use_transaction);
+        $this->assertArrayHasKey('sql_use_transaction', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_use_transaction']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlCreateDatabase(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_create_database' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_create_database);
+        $this->assertArrayHasKey('sql_create_database', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_create_database']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlDropDatabase(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_drop_database' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_drop_database);
+        $this->assertArrayHasKey('sql_drop_database', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_drop_database']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlDropTable(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_drop_table' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_drop_table);
+        $this->assertArrayHasKey('sql_drop_table', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_drop_table']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlIfNotExists(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_if_not_exists' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_if_not_exists);
+        $this->assertArrayHasKey('sql_if_not_exists', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_if_not_exists']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlViewCurrentUser(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_view_current_user' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_view_current_user);
+        $this->assertArrayHasKey('sql_view_current_user', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_view_current_user']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlOrReplaceView(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_or_replace_view' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_or_replace_view);
+        $this->assertArrayHasKey('sql_or_replace_view', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_or_replace_view']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlProcedureFunction(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_procedure_function' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_procedure_function);
+        $this->assertArrayHasKey('sql_procedure_function', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_procedure_function']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlCreateTable(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_create_table' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_create_table);
+        $this->assertArrayHasKey('sql_create_table', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_create_table']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlCreateView(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_create_view' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_create_view);
+        $this->assertArrayHasKey('sql_create_view', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_create_view']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlCreateTrigger(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_create_trigger' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_create_trigger);
+        $this->assertArrayHasKey('sql_create_trigger', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_create_trigger']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlAutoIncrement(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_auto_increment' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_auto_increment);
+        $this->assertArrayHasKey('sql_auto_increment', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_auto_increment']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlBackquotes(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_backquotes' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_backquotes);
+        $this->assertArrayHasKey('sql_backquotes', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_backquotes']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlDates(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_dates' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_dates);
+        $this->assertArrayHasKey('sql_dates', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_dates']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlRelation(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_relation' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_relation);
+        $this->assertArrayHasKey('sql_relation', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_relation']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlTruncate(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_truncate' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_truncate);
+        $this->assertArrayHasKey('sql_truncate', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_truncate']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlDelayed(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_delayed' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_delayed);
+        $this->assertArrayHasKey('sql_delayed', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_delayed']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlIgnore(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_ignore' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_ignore);
+        $this->assertArrayHasKey('sql_ignore', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_ignore']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlUtcTime(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_utc_time' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_utc_time);
+        $this->assertArrayHasKey('sql_utc_time', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_utc_time']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSqlHexForBinary(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_hex_for_binary' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_hex_for_binary);
+        $this->assertArrayHasKey('sql_hex_for_binary', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_hex_for_binary']);
+    }
+
+    /** @dataProvider valuesForSqlTypeProvider */
+    public function testSqlType(mixed $actual, string $expected): void
+    {
+        $export = new Export(['sql_type' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_type);
+        $this->assertArrayHasKey('sql_type', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_type']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSqlTypeProvider(): iterable
+    {
+        yield 'null value' => [null, 'INSERT'];
+        yield 'valid value' => ['INSERT', 'INSERT'];
+        yield 'valid value 2' => ['UPDATE', 'UPDATE'];
+        yield 'valid value 3' => ['REPLACE', 'REPLACE'];
+        yield 'invalid value' => ['invalid', 'INSERT'];
+    }
+
+    /** @dataProvider valuesForSqlMaxQuerySizeProvider */
+    public function testSqlMaxQuerySize(mixed $actual, int $expected): void
+    {
+        $export = new Export(['sql_max_query_size' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_max_query_size);
+        $this->assertArrayHasKey('sql_max_query_size', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_max_query_size']);
+    }
+
+    /** @return iterable<string, array{mixed, int}> */
+    public static function valuesForSqlMaxQuerySizeProvider(): iterable
+    {
+        yield 'null value' => [null, 50000];
+        yield 'valid value' => [0, 0];
+        yield 'valid value with type coercion' => ['1', 1];
+        yield 'invalid value' => [-1, 50000];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSqlMime(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['sql_mime' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_mime);
+        $this->assertArrayHasKey('sql_mime', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_mime']);
+    }
+
+    /** @dataProvider valuesForSqlHeaderCommentProvider */
+    public function testSqlHeaderComment(mixed $actual, string $expected): void
+    {
+        $export = new Export(['sql_header_comment' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_header_comment);
+        $this->assertArrayHasKey('sql_header_comment', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_header_comment']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSqlHeaderCommentProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForSqlInsertSyntaxProvider */
+    public function testSqlInsertSyntax(mixed $actual, string $expected): void
+    {
+        $export = new Export(['sql_insert_syntax' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->sql_insert_syntax);
+        $this->assertArrayHasKey('sql_insert_syntax', $exportArray);
+        $this->assertSame($expected, $exportArray['sql_insert_syntax']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSqlInsertSyntaxProvider(): iterable
+    {
+        yield 'null value' => [null, 'both'];
+        yield 'valid value' => ['complete', 'complete'];
+        yield 'valid value 2' => ['extended', 'extended'];
+        yield 'valid value 3' => ['both', 'both'];
+        yield 'valid value 4' => ['none', 'none'];
+        yield 'invalid value' => ['invalid', 'both'];
+        yield 'invalid value 2' => ['', 'both'];
+    }
+
+    /** @dataProvider valuesForPdfReportTitleProvider */
+    public function testPdfReportTitle(mixed $actual, string $expected): void
+    {
+        $export = new Export(['pdf_report_title' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->pdf_report_title);
+        $this->assertArrayHasKey('pdf_report_title', $exportArray);
+        $this->assertSame($expected, $exportArray['pdf_report_title']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForPdfReportTitleProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['', ''];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testXmlStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['xml_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_structure_or_data);
+        $this->assertArrayHasKey('xml_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_structure_or_data']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportStruc(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_struc' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_struc);
+        $this->assertArrayHasKey('xml_export_struc', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_struc']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportEvents(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_events' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_events);
+        $this->assertArrayHasKey('xml_export_events', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_events']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportFunctions(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_functions' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_functions);
+        $this->assertArrayHasKey('xml_export_functions', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_functions']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportProcedures(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_procedures' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_procedures);
+        $this->assertArrayHasKey('xml_export_procedures', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_procedures']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportTables(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_tables' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_tables);
+        $this->assertArrayHasKey('xml_export_tables', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_tables']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportTriggers(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_triggers' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_triggers);
+        $this->assertArrayHasKey('xml_export_triggers', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_triggers']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportViews(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_views' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_views);
+        $this->assertArrayHasKey('xml_export_views', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_views']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testXmlExportContents(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['xml_export_contents' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->xml_export_contents);
+        $this->assertArrayHasKey('xml_export_contents', $exportArray);
+        $this->assertSame($expected, $exportArray['xml_export_contents']);
+    }
+
+    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    public function testYamlStructureOrData(mixed $actual, string $expected): void
+    {
+        $export = new Export(['yaml_structure_or_data' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->yaml_structure_or_data);
+        $this->assertArrayHasKey('yaml_structure_or_data', $exportArray);
+        $this->assertSame($expected, $exportArray['yaml_structure_or_data']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testRemoveDefinerFromDefinitions(mixed $actual, bool $expected): void
+    {
+        $export = new Export(['remove_definer_from_definitions' => $actual]);
+        $exportArray = $export->asArray();
+        $this->assertSame($expected, $export->remove_definer_from_definitions);
+        $this->assertArrayHasKey('remove_definer_from_definitions', $exportArray);
+        $this->assertSame($expected, $exportArray['remove_definer_from_definitions']);
     }
 }
