@@ -184,6 +184,7 @@ final class Common
         self::setCurrentServerGlobal($container, $config);
 
         $GLOBALS['cfg'] = $config->settings;
+        $settings = $config->getSettings();
 
         /* setup themes                                          LABEL_theme_setup    */
 
@@ -253,11 +254,11 @@ final class Common
             /* Log success */
             Logging::logUser($GLOBALS['cfg']['Server']['user']);
 
-            if ($GLOBALS['dbi']->getVersion() < $GLOBALS['cfg']['MysqlMinVersion']['internal']) {
+            if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
                 echo self::getGenericError(sprintf(
                     __('You should upgrade to %s %s or later.'),
                     'MySQL',
-                    (string) $GLOBALS['cfg']['MysqlMinVersion']['human'],
+                    $settings->mysqlMinVersion['human'],
                 ));
 
                 return;

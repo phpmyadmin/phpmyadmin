@@ -1379,4 +1379,12 @@ class ConfigTest extends AbstractTestCase
             ],
         ];
     }
+
+    public function testGetSettings(): void
+    {
+        $config = new Config();
+        $firstCall = $config->getSettings();
+        $secondCall = $config->getSettings();
+        $this->assertSame($firstCall, $secondCall);
+    }
 }

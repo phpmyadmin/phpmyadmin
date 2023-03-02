@@ -2367,7 +2367,7 @@ final class Settings
      * @var array<string, int|string>
      * @psalm-var array{internal: int, human: string}
      */
-    public array $MysqlMinVersion;
+    public array $mysqlMinVersion;
 
     /**
      * Disable shortcuts
@@ -2596,7 +2596,7 @@ final class Settings
         $this->DefaultFunctions = $this->setDefaultFunctions($settings);
         $this->maxRowPlotLimit = $this->setMaxRowPlotLimit($settings);
         $this->ShowGitRevision = $this->setShowGitRevision($settings);
-        $this->MysqlMinVersion = $this->setMysqlMinVersion($settings);
+        $this->mysqlMinVersion = $this->setMysqlMinVersion($settings);
         $this->DisableShortcutKeys = $this->setDisableShortcutKeys($settings);
         $this->Console = $this->setConsole($settings);
         $this->DefaultTransformations = $this->setDefaultTransformations($settings);
@@ -2793,7 +2793,7 @@ final class Settings
             'DefaultFunctions' => $this->DefaultFunctions,
             'maxRowPlotLimit' => $this->maxRowPlotLimit,
             'ShowGitRevision' => $this->ShowGitRevision,
-            'MysqlMinVersion' => $this->MysqlMinVersion,
+            'MysqlMinVersion' => $this->mysqlMinVersion,
             'DisableShortcutKeys' => $this->DisableShortcutKeys,
             'Console' => $this->Console->asArray(),
             'DefaultTransformations' => $this->DefaultTransformations->asArray(),

@@ -377,7 +377,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $ver_int = Utilities::versionToInt($version);
         $this->assertEquals($expected, $ver_int);
         $this->assertEquals($major, (int) ($ver_int / 10000));
-        $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
+        $mysqlMinVersion = 50500;
+        $this->assertEquals($upgrade, $ver_int < $mysqlMinVersion);
     }
 
     public static function versionData(): array

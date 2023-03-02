@@ -266,7 +266,6 @@ class SettingsTest extends TestCase
         ],
         'maxRowPlotLimit' => 500,
         'ShowGitRevision' => true,
-        'MysqlMinVersion' => ['internal' => 50500, 'human' => '5.5.0'],
         'DisableShortcutKeys' => false,
         'Console' => null,
         'DefaultTransformations' => null,
@@ -553,7 +552,6 @@ class SettingsTest extends TestCase
                     ['DefaultFunctions', null, ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', null, 500],
                     ['ShowGitRevision', null, true],
-                    ['MysqlMinVersion', null, ['internal' => 50500, 'human' => '5.5.0']],
                     ['DisableShortcutKeys', null, false],
                     ['Console', null, null],
                     ['DefaultTransformations', null, null],
@@ -748,7 +746,6 @@ class SettingsTest extends TestCase
                     ['DefaultFunctions', ['key' => 'value', 'key2' => 'value2'], ['key' => 'value', 'key2' => 'value2']],
                     ['maxRowPlotLimit', 1, 1],
                     ['ShowGitRevision', false, false],
-                    ['MysqlMinVersion', ['internal' => 80026, 'human' => '8.0.26'], ['internal' => 80026, 'human' => '8.0.26']],
                     ['DisableShortcutKeys', true, true],
                     ['Console', [], null],
                     ['DefaultTransformations', [], null],
@@ -786,7 +783,6 @@ class SettingsTest extends TestCase
                     ['SendErrorReports', 'ask', 'ask'],
                     ['environment', 'production', 'production'],
                     ['DefaultFunctions', [], []],
-                    ['MysqlMinVersion', [], ['internal' => 50500, 'human' => '5.5.0']],
                     ['FirstDayOfCalendar', 0, 0],
                 ],
             ],
@@ -1038,7 +1034,6 @@ class SettingsTest extends TestCase
                     ['DefaultFunctions', ['test' => 1234], ['test' => '1234']],
                     ['maxRowPlotLimit', '1', 1],
                     ['ShowGitRevision', 0, false],
-                    ['MysqlMinVersion', ['internal' => '50500', 'human' => 550], ['internal' => 50500, 'human' => '550']],
                     ['DisableShortcutKeys', 1, true],
                     ['FirstDayOfCalendar', '1', 1],
                 ],
@@ -1115,7 +1110,6 @@ class SettingsTest extends TestCase
                     ['environment', 'invalid', 'production'],
                     ['DefaultFunctions', 'invalid', ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', 0, 500],
-                    ['MysqlMinVersion', 'invalid', ['internal' => 50500, 'human' => '5.5.0']],
                     ['Console', 'invalid', null],
                     ['FirstDayOfCalendar', 8, 0],
                 ],
@@ -1138,5 +1132,37 @@ class SettingsTest extends TestCase
             ],
             'invalid values 4' => [[['ForeignKeyDropdownOrder', [1 => 'content-id'], ['content-id', 'id-content']]]],
         ];
+    }
+
+    /**
+     * @param array{internal: int, human: string} $expected
+     *
+     * @dataProvider valuesForMysqlMinVersionProvider
+     */
+    public function testMysqlMinVersion(mixed $actual, array $expected): void
+    {
+        $settings = new Settings(['MysqlMinVersion' => $actual]);
+        $settingsArray = $settings->asArray();
+        $this->assertSame($expected, $settings->mysqlMinVersion);
+        $this->assertArrayHasKey('MysqlMinVersion', $settingsArray);
+        $this->assertSame($expected, $settingsArray['MysqlMinVersion']);
+    }
+
+    /** @return iterable<string, array{mixed, array{internal: int, human: string}}> */
+    public static function valuesForMysqlMinVersionProvider(): iterable
+    {
+        yield 'null value' => [null, ['internal' => 50500, 'human' => '5.5.0']];
+        yield 'valid value' => [
+            ['internal' => 80026, 'human' => '8.0.26'],
+            ['internal' => 80026, 'human' => '8.0.26'],
+        ];
+
+        yield 'valid value 2' => [[], ['internal' => 50500, 'human' => '5.5.0']];
+        yield 'valid value with type coercion' => [
+            ['internal' => '50500', 'human' => 550],
+            ['internal' => 50500, 'human' => '550'],
+        ];
+
+        yield 'invalid value' => ['invalid', ['internal' => 50500, 'human' => '5.5.0']];
     }
 }

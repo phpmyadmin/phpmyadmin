@@ -110,7 +110,6 @@
                 MaxRows: positive-int,
                 MaxSizeForInputField: positive-int,
                 MinSizeForInputField: 0|positive-int,
-                MysqlMinVersion: array{internal: int, human: string},
                 MysqlSslWarningSafeHosts: string[],
                 NaturalOrder: bool,
                 NavigationLinkWithMainPanel: bool,

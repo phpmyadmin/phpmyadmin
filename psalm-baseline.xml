@@ -238,8 +238,6 @@
       <code>$sqlDelimiter</code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['cfg']['MysqlMinVersion']['human']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['MysqlMinVersion']['internal']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Server']['user']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>

@@ -92,6 +92,8 @@ class Config
     /** @var array */
     public array $defaultServer = [];
 
+    private Settings|null $config = null;
+
     /**
      * @param string|null $source source to read config from
      *
@@ -1319,5 +1321,14 @@ class Config
         $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
         $this->set('LoginCookieValidity', $value);
         $GLOBALS['cfg']['LoginCookieValidity'] = $value;
+    }
+
+    public function getSettings(): Settings
+    {
+        if ($this->config === null) {
+            $this->config = new Settings($this->settings);
+        }
+
+        return $this->config;
     }
 }
