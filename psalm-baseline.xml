@@ -14720,12 +14720,6 @@
     <ArgumentTypeCoercion>
       <code>$separator</code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['SkipLockedTables']]]></code>
       <code>$byteUnits[$d]</code>
