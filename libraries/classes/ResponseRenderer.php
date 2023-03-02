@@ -145,17 +145,17 @@ class ResponseRenderer
     {
         $this->buffer = new OutputBuffering();
         $this->buffer->start();
-        if (! defined('TESTSUITE')) {
-            register_shutdown_function([$this, 'response']);
-        }
-
         $this->header = new Header();
         $this->HTML = '';
         $this->JSON = [];
         $this->footer = new Footer();
-
         $this->isSuccess = true;
         $this->isDisabled = false;
+
+        if (! defined('TESTSUITE')) {
+            register_shutdown_function($this->response(...));
+        }
+
         $this->setAjax(! empty($_REQUEST['ajax_request']));
     }
 
