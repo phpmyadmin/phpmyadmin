@@ -680,7 +680,6 @@
       <code>$uv[$i]</code>
       <code>$values[$path]</code>
       <code>$vid</code>
-      <code>(array) $errorList</code>
       <code><![CDATA[empty($values['Servers/1/controlpass']) ? '' : $values['Servers/1/controlpass']]]></code>
       <code><![CDATA[empty($values['Servers/1/controluser']) ? '' : $values['Servers/1/controluser']]]></code>
       <code><![CDATA[empty($values['Servers/1/host']) ? '' : $values['Servers/1/host']]]></code>
@@ -13903,7 +13902,6 @@
       <code><![CDATA[$row['Field']]]></code>
       <code><![CDATA[$row['Type']]]></code>
       <code><![CDATA[$row['Type']]]></code>
-      <code><![CDATA[$this->uiprefs[$property]]]></code>
       <code><![CDATA[$trigger['create']]]></code>
       <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>

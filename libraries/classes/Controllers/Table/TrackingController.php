@@ -28,6 +28,7 @@ use function in_array;
 use function is_array;
 use function mb_strlen;
 use function sprintf;
+use function trim;
 
 final class TrackingController extends AbstractController
 {
@@ -114,7 +115,7 @@ final class TrackingController extends AbstractController
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
 
-            $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
+            $GLOBALS['filter_users'] = array_map(trim(...), explode(',', $users));
         }
 
         $dateFrom ??= new DateTimeImmutable();

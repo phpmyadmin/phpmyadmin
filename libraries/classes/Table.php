@@ -36,6 +36,7 @@ use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
+use function intval;
 use function is_array;
 use function is_string;
 use function json_decode;
@@ -1832,7 +1833,7 @@ class Table implements Stringable
 
             // check if the table has not been modified
             if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
-                return array_map('intval', $this->uiprefs[$property]);
+                return array_map(intval(...), $this->uiprefs[$property]);
             }
 
             // remove the property, since the table has been modified

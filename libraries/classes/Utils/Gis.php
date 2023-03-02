@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Utils;
 use function array_map;
 use function bin2hex;
 use function mb_strtolower;
+use function mb_strtoupper;
 use function preg_match;
 use function trim;
 
@@ -78,7 +79,7 @@ final class Gis
             'geometrycollection',
         ];
         if ($upperCase) {
-            return array_map('mb_strtoupper', $gisDataTypes);
+            return array_map(mb_strtoupper(...), $gisDataTypes);
         }
 
         return $gisDataTypes;
