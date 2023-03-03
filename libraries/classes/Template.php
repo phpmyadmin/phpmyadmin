@@ -45,15 +45,14 @@ class Template
 
     public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
 
-    public function __construct()
+    public function __construct(Config|null $config = null)
     {
         if (isset(static::$twig)) {
             return;
         }
 
-        /** @var Config|null $config */
-        $config = $GLOBALS['config'];
-        $cacheDir = $config?->getTempDir('twig');
+        $config = $config ?? $GLOBALS['config'] ?? null;
+        $cacheDir = $config instanceof Config ? $config->getTempDir('twig') : null;
 
         static::$twig = self::getTwigEnvironment($cacheDir);
     }

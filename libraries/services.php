@@ -233,6 +233,7 @@ return [
         ],
         'template' => [
             'class' => PhpMyAdmin\Template::class,
+            'arguments' => ['$config' => '@config'],
         ],
         'tracking' => [
             'class' => PhpMyAdmin\Tracking::class,
