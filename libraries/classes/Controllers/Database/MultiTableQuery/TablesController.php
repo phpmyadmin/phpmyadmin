@@ -11,7 +11,8 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
-use function rtrim;
+use function array_map;
+use function implode;
 
 final class TablesController extends AbstractController
 {
@@ -27,17 +28,12 @@ final class TablesController extends AbstractController
         /** @var string $db */
         $db = $request->getQueryParam('db', '');
 
-        $tablesListForQuery = '';
-        foreach ($tables as $table) {
-            $tablesListForQuery .= "'" . $this->dbi->escapeString($table) . "',";
-        }
-
-        $tablesListForQuery = rtrim($tablesListForQuery, ',');
+        $tablesListForQuery = array_map($this->dbi->quoteString(...), $tables);
 
         $constrains = $this->dbi->fetchResult(
             QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
-                $this->dbi->escapeString($db),
-                $tablesListForQuery,
+                $this->dbi->quoteString($db),
+                implode(',', $tablesListForQuery),
             ),
         );
         $this->response->addJSON(['foreignKeyConstrains' => $constrains]);

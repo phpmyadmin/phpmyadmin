@@ -74,9 +74,9 @@ final class UserGroupsFormController extends AbstractController
             . '.' . Util::backquote($configurableMenusFeature->users);
 
         $sqlQuery = sprintf(
-            'SELECT `usergroup` FROM %s WHERE `username` = \'%s\'',
+            'SELECT `usergroup` FROM %s WHERE `username` = %s',
             $userTable,
-            $this->dbi->escapeString($username),
+            $this->dbi->quoteString($username),
         );
         $userGroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
 

@@ -134,13 +134,12 @@ class CreateController extends AbstractController
         if (isset($_GET['db'], $_GET['table'])) {
             $item = $this->dbi->fetchSingleRow(
                 sprintf(
-                    "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
-            `SECURITY_TYPE`
-            FROM `INFORMATION_SCHEMA`.`VIEWS`
-            WHERE TABLE_SCHEMA='%s'
-            AND TABLE_NAME='%s';",
-                    $this->dbi->escapeString($_GET['db']),
-                    $this->dbi->escapeString($_GET['table']),
+                    'SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
+                        FROM `INFORMATION_SCHEMA`.`VIEWS`
+                        WHERE TABLE_SCHEMA=%s
+                        AND TABLE_NAME=%s;',
+                    $this->dbi->quoteString($_GET['db']),
+                    $this->dbi->quoteString($_GET['table']),
                 ),
             );
             $createView = $this->dbi->getTable($_GET['db'], $_GET['table'])

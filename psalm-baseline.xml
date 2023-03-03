@@ -1231,10 +1231,6 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -3139,9 +3135,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsFormController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <PossiblyInvalidArgument>
       <code>$username</code>
     </PossiblyInvalidArgument>
@@ -3160,9 +3153,6 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/GetVariableController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$params['name']]]></code>
       <code><![CDATA[$params['name']]]></code>
@@ -3179,10 +3169,6 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/SetVariableController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code>$formattedValue</code>
       <code>$varValue[1]</code>
@@ -3644,12 +3630,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_POST['columnIndex']]]></code>
       <code><![CDATA[$_POST['columnIndex']]]></code>
@@ -4721,10 +4701,6 @@
     </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/View/CreateController.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[$viewData['as']]]></code>
     </DocblockTypeContradiction>

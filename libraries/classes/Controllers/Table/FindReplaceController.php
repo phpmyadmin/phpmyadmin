@@ -250,7 +250,7 @@ class FindReplaceController extends AbstractController
             . ' FROM ' . Util::backquote($GLOBALS['db'])
             . '.' . Util::backquote($GLOBALS['table'])
             . ' WHERE ' . Util::backquote($column)
-            . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
+            . ' RLIKE ' . $this->dbi->quoteString($find) . ' COLLATE '
             . $charSet . '_bin'; // here we
         // change the collation of the 2nd operand to a case sensitive
         // binary collation to make sure that the comparison is case sensitive
@@ -313,8 +313,8 @@ class FindReplaceController extends AbstractController
                     $sql_query .= ' = CASE';
                     foreach ($toReplace as $row) {
                         $sql_query .= "\n WHEN " . Util::backquote($column)
-                            . " = '" . $this->dbi->escapeString($row[0])
-                            . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
+                            . ' = ' . $this->dbi->quoteString($row[0])
+                            . ' THEN ' . $this->dbi->quoteString($row[1]);
                     }
 
                     $sql_query .= ' END';
@@ -324,7 +324,7 @@ class FindReplaceController extends AbstractController
             }
 
             $sql_query .= ' WHERE ' . Util::backquote($column)
-                . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
+                . ' RLIKE ' . $this->dbi->quoteString($find) . ' COLLATE '
                 . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
