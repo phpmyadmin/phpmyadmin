@@ -26,6 +26,16 @@ use function trim;
  */
 class GisDataEditorController extends AbstractController
 {
+    private const GIS_TYPES = [
+        'POINT',
+        'MULTIPOINT',
+        'LINESTRING',
+        'MULTILINESTRING',
+        'POLYGON',
+        'MULTIPOLYGON',
+        'GEOMETRYCOLLECTION',
+    ];
+
     public function __invoke(ServerRequest $request): void
     {
         global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
@@ -54,33 +64,7 @@ class GisDataEditorController extends AbstractController
             $gis_data = $gisDataParam;
         }
 
-        $gis_types = [
-            'POINT',
-            'MULTIPOINT',
-            'LINESTRING',
-            'MULTILINESTRING',
-            'POLYGON',
-            'MULTIPOLYGON',
-            'GEOMETRYCOLLECTION',
-        ];
-
-        // Extract type from the initial call and make sure that it's a valid one.
-        // Extract from field's values if available, if not use the column type passed.
-        if (! isset($gis_data['gis_type'])) {
-            if ($type !== '') {
-                $gis_data['gis_type'] = mb_strtoupper($type);
-            }
-
-            if (isset($value) && trim($value) !== '') {
-                $start = substr($value, 0, 1) == "'" ? 1 : 0;
-                $gis_data['gis_type'] = mb_substr($value, $start, (int) mb_strpos($value, '(') - $start);
-            }
-
-            if (! isset($gis_data['gis_type']) || (! in_array($gis_data['gis_type'], $gis_types))) {
-                $gis_data['gis_type'] = $gis_types[0];
-            }
-        }
-
+        $gis_data = $this->validateGisData($gis_data, $type, $value);
         $geom_type = $gis_data['gis_type'];
 
         // Generate parameters from value passed.
@@ -150,7 +134,7 @@ class GisDataEditorController extends AbstractController
             'srid' => $srid,
             'visualization' => $visualization,
             'open_layers' => $open_layers,
-            'gis_types' => $gis_types,
+            'gis_types' => self::GIS_TYPES,
             'geom_type' => $geom_type,
             'geom_count' => $geom_count,
             'gis_data' => $gis_data,
@@ -158,5 +142,34 @@ class GisDataEditorController extends AbstractController
         ]);
 
         $this->response->addJSON(['gis_editor' => $templateOutput]);
+    }
+
+    /**
+     * Extract type from the initial call and make sure that it's a valid one.
+     * Extract from field's values if available, if not use the column type passed.
+     *
+     * @param mixed[] $gis_data
+     *
+     * @return mixed[]
+     * @psalm-return array{gis_type:value-of<self::GIS_TYPES>}&mixed[]
+     */
+    private function validateGisData(array $gis_data, string $type, ?string $value): array
+    {
+        if (! isset($gis_data['gis_type']) || ! in_array($gis_data['gis_type'], self::GIS_TYPES, true)) {
+            if ($type !== '') {
+                $gis_data['gis_type'] = mb_strtoupper($type);
+            }
+
+            if (isset($value) && trim($value) !== '') {
+                $start = substr($value, 0, 1) == "'" ? 1 : 0;
+                $gis_data['gis_type'] = mb_substr($value, $start, (int) mb_strpos($value, '(') - $start);
+            }
+
+            if (! isset($gis_data['gis_type']) || (! in_array($gis_data['gis_type'], self::GIS_TYPES, true))) {
+                $gis_data['gis_type'] = self::GIS_TYPES[0];
+            }
+        }
+
+        return $gis_data;
     }
 }

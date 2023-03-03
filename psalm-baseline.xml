@@ -2071,14 +2071,6 @@
       <code>$whatStrucOrData</code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Controllers/GisDataEditorController.php">
-    <MixedArgument occurrences="1">
-      <code>$geom_type</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$geom_type</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Controllers/GitInfoController.php">
     <MixedArgument occurrences="3">
       <code>$commit['author']['date']</code>
