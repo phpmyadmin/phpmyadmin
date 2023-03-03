@@ -692,7 +692,7 @@ class Tracker
 
         if ($parser->statements !== []) {
             $statement = $parser->statements[0];
-            $options = isset($statement->options) ? $statement->options->options : null;
+            $options = $statement->options?->options;
 
             // DDL statements
             $result['type'] = 'DDL';

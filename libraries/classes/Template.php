@@ -52,7 +52,7 @@ class Template
         }
 
         $config = $config ?? $GLOBALS['config'] ?? null;
-        $cacheDir = $config instanceof Config ? $config->getTempDir('twig') : null;
+        $cacheDir = $config?->getTempDir('twig');
 
         static::$twig = self::getTwigEnvironment($cacheDir);
     }
