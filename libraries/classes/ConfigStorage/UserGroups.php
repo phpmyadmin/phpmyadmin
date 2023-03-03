@@ -47,8 +47,7 @@ class UserGroups
         $usersTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->users);
         $sql_query = 'SELECT `username` FROM ' . $usersTable
-            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
-            . "'";
+            . ' WHERE `usergroup`=' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL);
         $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
         if ($result) {
             $i = 0;
@@ -220,8 +219,7 @@ class UserGroups
             $groupTable = Util::backquote($configurableMenusFeature->database)
                 . '.' . Util::backquote($configurableMenusFeature->userGroups);
             $sql_query = 'SELECT * FROM ' . $groupTable
-                . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
-                . "'";
+                . ' WHERE `usergroup`=' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL);
             $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
             if ($result) {
                 foreach ($result as $row) {
@@ -315,8 +313,7 @@ class UserGroups
 
         if (! $new) {
             $sql_query = 'DELETE FROM ' . $groupTable
-                . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
-                . "';";
+                . ' WHERE `usergroup`=' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL) . ';';
             $GLOBALS['dbi']->queryAsControlUser($sql_query);
         }
 
@@ -333,7 +330,8 @@ class UserGroups
 
                 $tabName = $tabGroupName . '_' . $tab;
                 $allowed = isset($_POST[$tabName]) && $_POST[$tabName] === 'Y';
-                $sql_query .= "('" . $GLOBALS['dbi']->escapeString($userGroup) . "', '" . $tabName . "', '"
+                $sql_query .= '(' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL)
+                    . ', ' . $GLOBALS['dbi']->quoteString($tabName, Connection::TYPE_CONTROL) . ", '"
                     . ($allowed ? 'Y' : 'N') . "')";
                 $first = false;
             }
