@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config\Settings;
+
 use function __;
 use function array_keys;
 use function asort;
@@ -22,17 +24,11 @@ use function mb_substr;
  */
 class BrowseForeigners
 {
-    private int $limitChars;
-    private int $maxRows;
-    private int $repeatCells;
-    private bool $showAll;
+    private Settings $settings;
 
-    public function __construct(public Template $template)
+    public function __construct(public Template $template, Config $config)
     {
-        $this->limitChars = (int) $GLOBALS['cfg']['LimitChars'];
-        $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
-        $this->repeatCells = (int) $GLOBALS['cfg']['RepeatCells'];
-        $this->showAll = (bool) $GLOBALS['cfg']['ShowAll'];
+        $this->settings = $config->getSettings();
     }
 
     /**
@@ -66,7 +62,7 @@ class BrowseForeigners
         $rightKeynameIsSelected = false;
         $leftKeynameIsSelected = false;
 
-        if ($this->repeatCells > 0 && $horizontalCount > $this->repeatCells) {
+        if ($this->settings->repeatCells > 0 && $horizontalCount > $this->settings->repeatCells) {
             $output .= $header;
             $horizontalCount = 0;
         }
@@ -160,8 +156,8 @@ class BrowseForeigners
         $gotoPage = $this->getHtmlForGotoPage($foreignData);
         $foreignShowAll = $this->template->render('table/browse_foreigners/show_all', [
             'foreign_data' => $foreignData,
-            'show_all' => $this->showAll,
-            'max_rows' => $this->maxRows,
+            'show_all' => $this->settings->showAll,
+            'max_rows' => $this->settings->maxRows,
         ]);
 
         $output = '<form class="ajax" '
@@ -263,12 +259,11 @@ class BrowseForeigners
      */
     private function getDescriptionAndTitle(string $description): array
     {
-        if (mb_strlen($description) <= $this->limitChars) {
+        if (mb_strlen($description) <= $this->settings->limitChars) {
             $descriptionTitle = '';
         } else {
             $descriptionTitle = $description;
-            $description = mb_substr($description, 0, $this->limitChars)
-            . '...';
+            $description = mb_substr($description, 0, $this->settings->limitChars) . '...';
         }
 
         return [
@@ -289,13 +284,13 @@ class BrowseForeigners
             return '';
         }
 
-        $pageNow = (int) floor($pos / $this->maxRows) + 1;
-        $nbTotalPage = (int) ceil($foreignData['the_total'] / $this->maxRows);
+        $pageNow = (int) floor($pos / $this->settings->maxRows) + 1;
+        $nbTotalPage = (int) ceil($foreignData['the_total'] / $this->settings->maxRows);
 
-        if ($foreignData['the_total'] > $this->maxRows) {
+        if ($foreignData['the_total'] > $this->settings->maxRows) {
             return Util::pageselector(
                 'pos',
-                $this->maxRows,
+                $this->settings->maxRows,
                 $pageNow,
                 $nbTotalPage,
                 200,
@@ -323,6 +318,6 @@ class BrowseForeigners
 
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
 
-        return 'LIMIT ' . $pos . ', ' . $this->maxRows . ' ';
+        return 'LIMIT ' . $pos . ', ' . $this->settings->maxRows . ' ';
     }
 }

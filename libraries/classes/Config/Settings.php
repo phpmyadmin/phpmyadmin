@@ -1182,7 +1182,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowAll
      */
-    public bool $ShowAll;
+    public bool $showAll;
 
     /**
      * Number of rows displayed when browsing a result set. If the result
@@ -1197,7 +1197,7 @@ final class Settings
      *
      * @psalm-var positive-int
      */
-    public int $MaxRows;
+    public int $maxRows;
 
     /**
      * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie
@@ -1809,7 +1809,7 @@ final class Settings
      *
      * @psalm-var positive-int
      */
-    public int $LimitChars;
+    public int $limitChars;
 
     /**
      * Where to show the edit/copy/delete links in browse mode
@@ -1894,7 +1894,7 @@ final class Settings
      *
      * @psalm-var 0|positive-int
      */
-    public int $RepeatCells;
+    public int $repeatCells;
 
     /**
      * Set to true if you want DB-based query history.If false, this utilizes
@@ -2503,8 +2503,8 @@ final class Settings
         $this->HideStructureActions = $this->setHideStructureActions($settings);
         $this->ShowColumnComments = $this->setShowColumnComments($settings);
         $this->TableNavigationLinksMode = $this->setTableNavigationLinksMode($settings);
-        $this->ShowAll = $this->setShowAll($settings);
-        $this->MaxRows = $this->setMaxRows($settings);
+        $this->showAll = $this->setShowAll($settings);
+        $this->maxRows = $this->setMaxRows($settings);
         $this->Order = $this->setOrder($settings);
         $this->SaveCellsAtOnce = $this->setSaveCellsAtOnce($settings);
         $this->GridEditing = $this->setGridEditing($settings);
@@ -2551,14 +2551,14 @@ final class Settings
         $this->TextareaAutoSelect = $this->setTextareaAutoSelect($settings);
         $this->CharTextareaCols = $this->setCharTextareaCols($settings);
         $this->CharTextareaRows = $this->setCharTextareaRows($settings);
-        $this->LimitChars = $this->setLimitChars($settings);
+        $this->limitChars = $this->setLimitChars($settings);
         $this->RowActionLinks = $this->setRowActionLinks($settings);
         $this->RowActionLinksWithoutUnique = $this->setRowActionLinksWithoutUnique($settings);
         $this->TablePrimaryKeyOrder = $this->setTablePrimaryKeyOrder($settings);
         $this->RememberSorting = $this->setRememberSorting($settings);
         $this->ShowBrowseComments = $this->setShowBrowseComments($settings);
         $this->ShowPropertyComments = $this->setShowPropertyComments($settings);
-        $this->RepeatCells = $this->setRepeatCells($settings);
+        $this->repeatCells = $this->setRepeatCells($settings);
         $this->QueryHistoryDB = $this->setQueryHistoryDB($settings);
         $this->QueryHistoryMax = $this->setQueryHistoryMax($settings);
         $this->BrowseMIME = $this->setBrowseMIME($settings);
@@ -2700,8 +2700,8 @@ final class Settings
             'HideStructureActions' => $this->HideStructureActions,
             'ShowColumnComments' => $this->ShowColumnComments,
             'TableNavigationLinksMode' => $this->TableNavigationLinksMode,
-            'ShowAll' => $this->ShowAll,
-            'MaxRows' => $this->MaxRows,
+            'ShowAll' => $this->showAll,
+            'MaxRows' => $this->maxRows,
             'Order' => $this->Order,
             'SaveCellsAtOnce' => $this->SaveCellsAtOnce,
             'GridEditing' => $this->GridEditing,
@@ -2748,14 +2748,14 @@ final class Settings
             'TextareaAutoSelect' => $this->TextareaAutoSelect,
             'CharTextareaCols' => $this->CharTextareaCols,
             'CharTextareaRows' => $this->CharTextareaRows,
-            'LimitChars' => $this->LimitChars,
+            'LimitChars' => $this->limitChars,
             'RowActionLinks' => $this->RowActionLinks,
             'RowActionLinksWithoutUnique' => $this->RowActionLinksWithoutUnique,
             'TablePrimaryKeyOrder' => $this->TablePrimaryKeyOrder,
             'RememberSorting' => $this->RememberSorting,
             'ShowBrowseComments' => $this->ShowBrowseComments,
             'ShowPropertyComments' => $this->ShowPropertyComments,
-            'RepeatCells' => $this->RepeatCells,
+            'RepeatCells' => $this->repeatCells,
             'QueryHistoryDB' => $this->QueryHistoryDB,
             'QueryHistoryMax' => $this->QueryHistoryMax,
             'BrowseMIME' => $this->BrowseMIME,

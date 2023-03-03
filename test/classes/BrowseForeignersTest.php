@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
 
 /** @covers \PhpMyAdmin\BrowseForeigners */
@@ -21,11 +22,7 @@ class BrowseForeignersTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['MaxRows'] = 25;
-        $GLOBALS['cfg']['RepeatCells'] = 100;
-        $GLOBALS['cfg']['ShowAll'] = false;
-        $this->browseForeigners = new BrowseForeigners(new Template());
+        $this->browseForeigners = new BrowseForeigners(new Template(), new Config());
     }
 
     /**
@@ -49,8 +46,9 @@ class BrowseForeignersTest extends AbstractTestCase
             $this->browseForeigners->getForeignLimit(null),
         );
 
-        $GLOBALS['cfg']['MaxRows'] = 50;
-        $browseForeigners = new BrowseForeigners(new Template());
+        $config = new Config();
+        $config->settings['MaxRows'] = 50;
+        $browseForeigners = new BrowseForeigners(new Template(), $config);
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
@@ -132,8 +130,9 @@ class BrowseForeignersTest extends AbstractTestCase
             ),
         );
 
-        $GLOBALS['cfg']['LimitChars'] = 5;
-        $browseForeigners = new BrowseForeigners(new Template());
+        $config = new Config();
+        $config->settings['LimitChars'] = 5;
+        $browseForeigners = new BrowseForeigners(new Template(), $config);
 
         $this->assertEquals(
             [

@@ -17,7 +17,7 @@ return [
         ],
         'browse_foreigners' => [
             'class' => PhpMyAdmin\BrowseForeigners::class,
-            'arguments' => ['@template'],
+            'arguments' => ['@template', '@config'],
         ],
         'config' => [
             'class' => PhpMyAdmin\Config::class,

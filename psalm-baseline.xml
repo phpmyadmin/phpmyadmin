@@ -71,7 +71,7 @@
     <MixedArgument>
       <code>$descriptions[$indexByDescription]</code>
       <code>$descriptions[$indexByKeyname]</code>
-      <code><![CDATA[$foreignData['the_total'] / $this->maxRows]]></code>
+      <code><![CDATA[$foreignData['the_total'] / $this->settings->maxRows]]></code>
       <code>$horizontalCount</code>
       <code>$indexByDescription</code>
     </MixedArgument>
@@ -97,23 +97,18 @@
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['foreign_filter']]]></code>
+      <code><![CDATA[$pos / $this->settings->maxRows]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['rownumber']]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code>$pos</code>
-      <code><![CDATA[$this->maxRows]]></code>
+      <code><![CDATA[$this->settings->maxRows]]></code>
     </PossiblyInvalidOperand>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$foreignData['foreign_display']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast>
-      <code><![CDATA[(bool) $GLOBALS['cfg']['ShowAll']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['LimitChars']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['RepeatCells']]]></code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/Cache.php">
     <MixedAssignment>
