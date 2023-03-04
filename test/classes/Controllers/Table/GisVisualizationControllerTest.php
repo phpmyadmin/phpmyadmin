@@ -66,7 +66,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
             'session_max_rows' => 25,
             'pos' => 0,
             'visualizationSettings[spatialColumn]' => 'shape',
-            'visualizationSettings[labelColumn]' => '',
+            'visualizationSettings[labelColumn]' => null,
         ]));
 
         $template = new Template();
@@ -77,7 +77,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
             'spatial_candidates' => ['shape'],
             'visualization_settings' => [
                 'spatialColumn' => 'shape',
-                'labelColumn' => '',
+                'labelColumn' => null,
                 'width' => '600',
                 'height' => '450',
             ],

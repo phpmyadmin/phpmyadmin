@@ -18,6 +18,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
+use function in_array;
 use function is_array;
 
 /**
@@ -85,6 +86,15 @@ final class GisVisualizationController extends AbstractController
             }
         }
 
+        if ($spatialCandidates === []) {
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(
+                Message::error(__('No spatial column found for this SQL query.'))->getDisplay(),
+            );
+
+            return;
+        }
+
         // Get settings if any posted
         $visualizationSettings = [];
         // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
@@ -98,12 +108,18 @@ final class GisVisualizationController extends AbstractController
         $visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
         $visualizationSettings['isMariaDB'] = $this->dbi->isMariaDB();
 
-        if (! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])) {
-            $visualizationSettings['labelColumn'] = '';
+        if (
+            ! isset($visualizationSettings['labelColumn']) ||
+            ! in_array($visualizationSettings['labelColumn'], $labelCandidates, true)
+        ) {
+            $visualizationSettings['labelColumn'] = null;
         }
 
         // If spatial column is not set, use first geometric column as spatial column
-        if (! isset($visualizationSettings['spatialColumn'])) {
+        if (
+            ! isset($visualizationSettings['spatialColumn']) ||
+            ! in_array($visualizationSettings['spatialColumn'], $spatialCandidates, true)
+        ) {
             $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
         }
 
@@ -163,7 +179,7 @@ final class GisVisualizationController extends AbstractController
                 'session_max_rows' => $rows,
                 'pos' => $pos,
                 'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
-                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'] ?? null,
+                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'],
             ],
         ));
 
