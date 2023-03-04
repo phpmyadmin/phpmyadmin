@@ -137,6 +137,10 @@ class Table implements Stringable
      */
     public function getLastError(): string
     {
+        if ($this->errors === []) {
+            return '';
+        }
+
         return end($this->errors);
     }
 
@@ -147,6 +151,10 @@ class Table implements Stringable
      */
     public function getLastMessage(): string
     {
+        if ($this->messages === []) {
+            return '';
+        }
+
         return end($this->messages);
     }
 
