@@ -121,9 +121,15 @@ AJAX.registerTeardown('home.js', function () {
 
 AJAX.registerOnload('home.js', function () {
     $('#themesModal').on('show.bs.modal', function () {
-        $.get('index.php?route=/themes', function (data) {
-            $('#themesModal .modal-body').html(data.themes);
-        });
+        $.get(
+            'index.php?route=/themes',
+            {
+                'server': CommonParams.get('server'),
+            },
+            function (data) {
+                $('#themesModal .modal-body').html(data.themes);
+            }
+        );
     });
 
     /**
