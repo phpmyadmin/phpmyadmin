@@ -204,7 +204,8 @@ class ImportOds extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        [$db_name, $options] = $this->getDbnameAndOptions($GLOBALS['db'], 'ODS_DB');
+        $db_name = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'ODS_DB';
+        $options = $GLOBALS['db'] !== '' ? ['create_db' => false] :null;
 
         /* Non-applicable parameters */
         $create = null;
