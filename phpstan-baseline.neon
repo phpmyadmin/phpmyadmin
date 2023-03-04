@@ -6761,16 +6761,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ImportPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\:\\:getDbnameAndOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ImportPlugin.php
-
-		-
 			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php

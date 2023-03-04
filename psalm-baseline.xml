@@ -8077,7 +8077,6 @@
       <code>$cellValue</code>
       <code>$charset</code>
       <code>$collation</code>
-      <code>$createDb</code>
       <code>$importPlugin</code>
       <code>$size</code>
       <code>$size</code>
@@ -10785,9 +10784,7 @@
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code>$col_name</code>
       <code>$columnNames</code>
-      <code>$db_name</code>
       <code><![CDATA[$field['Field']]]></code>
-      <code>$options</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$result</code>
@@ -10828,12 +10825,13 @@
       <code>$columnNames</code>
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
-      <code>$newDb</code>
+      <code>$db_name</code>
+      <code>$sqlStatements</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['csv_new_db_name']]]></code>
       <code><![CDATA[$_REQUEST['csv_new_tbl_name']]]></code>
-      <code>$newDb</code>
+      <code>$db_name</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code>$max_lines</code>
@@ -10912,8 +10910,6 @@
     <MixedArgument>
       <code>$cell</code>
       <code>$cell</code>
-      <code>$db_name</code>
-      <code>$options</code>
       <code>$table[0]</code>
       <code>$table[1]</code>
       <code>$table[2][0]</code>
@@ -10944,8 +10940,14 @@
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['finished']]]></code>
     </RedundantCondition>
+    <ReferenceConstraintViolation>
+      <code>$sqlStatements</code>
+    </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportOds.php">
+    <InvalidArgument>
+      <code>$sqlStatements</code>
+    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
@@ -10953,9 +10955,7 @@
       <code>$cell_attrs</code>
       <code>$col_names</code>
       <code>$col_names</code>
-      <code>$db_name</code>
       <code>$max_cols</code>
-      <code>$options</code>
       <code>$rows</code>
       <code>$rows[$j][Import::TBL_NAME]</code>
       <code>$tables</code>
@@ -11118,11 +11118,7 @@
     </PossiblyUnusedReturnValue>
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
-      <code><![CDATA[(string) $GLOBALS['db']]]></code>
     </RedundantCast>
-    <UnusedVariable>
-      <code>$null_param</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportSql.php">
     <InvalidArrayOffset>
@@ -11214,9 +11210,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['db']]]></code>
-    </RedundantCast>
     <UnnecessaryVarAnnotation>
       <code>SimpleXMLElement</code>
     </UnnecessaryVarAnnotation>
@@ -11360,11 +11353,6 @@
     <UnusedClass>
       <code>UploadSession</code>
     </UnusedClass>
-  </file>
-  <file src="libraries/classes/Plugins/ImportPlugin.php">
-    <RedundantCastGivenDocblockType>
-      <code>(string) $currentDb</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Plugin.php">
     <PossiblyUnusedMethod>

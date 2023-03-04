@@ -956,6 +956,7 @@ class Import
         array &$tables,
         array|null $analyses = null,
         array|null &$additionalSql = null,
+        bool $createDb = true,
         array|null $options = null,
         array &$sqlData = [],
     ): void {
@@ -967,7 +968,6 @@ class Import
         /* Take care of the options */
         $collation = $options['db_collation'] ?? 'utf8_general_ci';
         $charset = $options['db_charset'] ?? 'utf8';
-        $createDb = $options['create_db'] ?? true;
 
         /**
          * Create SQL code to handle the database
