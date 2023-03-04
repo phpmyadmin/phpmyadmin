@@ -62,8 +62,7 @@ class ProceduresTest extends TestBase
                 $fullTextSelector = '//label[contains(., "Full texts")]';
                 $this->assertTrue($this->isElementPresent('xpath', $optionsSelector));
                 $this->byXPath($optionsSelector)->click();
-                $this->waitForElement('xpath', $fullTextSelector);
-                sleep(2);// Wait for the animation to display the box
+                $this->waitForElement('cssSelector', '#extraOptions.show');
                 $this->byXPath($fullTextSelector)->click();
                 $this->byCssSelector('.collapse .tblFooters input[type=submit]')->click();
                 $this->waitAjax();
