@@ -284,12 +284,8 @@ var Console = {
 
         Console.$consoleToolbar.addClass('collapsed');
         Console.$consoleAllContents.height(pmaConsoleHeight);
-        Console.$consoleContent.stop();
-        Console.$consoleContent.animate({ 'margin-bottom': -1 * Console.$consoleContent.outerHeight() + 'px' },
-            'fast', 'easeOutQuart', function () {
-                Console.$consoleContent.css({ display: 'none' });
-                $(window).trigger('resize');
-            });
+        Console.$consoleContent.css({ display: 'none' });
+        $(window).trigger('resize');
         Console.hideCard();
     },
     /**
@@ -309,14 +305,10 @@ var Console = {
             Console.$consoleToolbar.removeClass('collapsed');
         }
         Console.$consoleAllContents.height(pmaConsoleHeight);
-        Console.$consoleContent.stop();
-        Console.$consoleContent.animate({ 'margin-bottom': 0 },
-            'fast', 'easeOutQuart', function () {
-                $(window).trigger('resize');
-                if (inputFocus) {
-                    ConsoleInput.focus();
-                }
-            });
+        $(window).trigger('resize');
+        if (inputFocus) {
+            ConsoleInput.focus();
+        }
     },
     /**
      * Change console to SQL information mode
