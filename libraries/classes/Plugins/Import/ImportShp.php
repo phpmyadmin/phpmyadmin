@@ -287,14 +287,11 @@ class ImportShp extends ImportPlugin
 
         // Set database name to the currently selected one, if applicable
         $db_name = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'SHP_DB';
-        $options = $GLOBALS['db'] !== '' ? ['create_db' => false] :null;
+        $createDb = $GLOBALS['db'] === '';
 
         // Created and execute necessary SQL statements from data
-        $null_param = null;
         $sqlStatements = [];
-        $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sqlStatements);
-
-        unset($tables, $analyses);
+        $this->import->buildSql($db_name, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
 
         $GLOBALS['finished'] = true;
         $GLOBALS['error'] = false;

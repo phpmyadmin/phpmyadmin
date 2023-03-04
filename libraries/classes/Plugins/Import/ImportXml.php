@@ -310,25 +310,11 @@ class ImportXml extends ImportPlugin
             }
         }
 
-        /**
-         * string $db_name (no backquotes)
-         *
-         * array $table = array(table_name, array() column_names, array()() rows)
-         * array $tables = array of "$table"s
-         *
-         * array $analysis = array(array() column_types, array() column_sizes)
-         * array $analyses = array of "$analysis"s
-         *
-         * array $create = array of SQL strings
-         *
-         * array $options = an associative array of options
-         */
-
         /* Set database name to the currently selected one, if applicable */
-        if (strlen((string) $GLOBALS['db'])) {
+        if ($GLOBALS['db'] !== '') {
             /* Override the database name in the XML file, if one is selected */
             $db_name = $GLOBALS['db'];
-            $options = ['create_db' => false];
+            $options = null;
         } else {
             /* Set database collation/charset */
             $options = [
@@ -337,11 +323,11 @@ class ImportXml extends ImportPlugin
             ];
         }
 
+        $createDb = $GLOBALS['db'] === '';
+
         /* Created and execute necessary SQL statements from data */
         $sqlStatements = [];
-        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sqlStatements);
-
-        unset($analyses, $tables, $create);
+        $this->import->buildSql($db_name, $tables, $analyses, $create, $createDb, $options, $sqlStatements);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', $sqlStatements);

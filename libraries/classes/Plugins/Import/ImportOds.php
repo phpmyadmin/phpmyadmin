@@ -189,31 +189,12 @@ class ImportOds extends ImportPlugin
             $analyses[] = $this->import->analyzeTable($tables[$i]);
         }
 
-        /**
-         * string $db_name (no backquotes)
-         *
-         * array $table = array(table_name, array() column_names, array()() rows)
-         * array $tables = array of "$table"s
-         *
-         * array $analysis = array(array() column_types, array() column_sizes)
-         * array $analyses = array of "$analysis"s
-         *
-         * array $create = array of SQL strings
-         *
-         * array $options = an associative array of options
-         */
-
         /* Set database name to the currently selected one, if applicable */
         $db_name = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'ODS_DB';
-        $options = $GLOBALS['db'] !== '' ? ['create_db' => false] :null;
-
-        /* Non-applicable parameters */
-        $create = null;
+        $createDb = $GLOBALS['db'] === '';
 
         /* Created and execute necessary SQL statements from data */
-        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sqlStatements);
-
-        unset($tables, $analyses);
+        $this->import->buildSql($db_name, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', $sqlStatements);
