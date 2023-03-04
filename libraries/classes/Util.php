@@ -618,46 +618,27 @@ class Util
     public static function localisedDate($timestamp = -1, $format = ''): string
     {
         $month = [
-            /* l10n: Short month name */
-            __('Jan'),
-            /* l10n: Short month name */
-            __('Feb'),
-            /* l10n: Short month name */
-            __('Mar'),
-            /* l10n: Short month name */
-            __('Apr'),
-            /* l10n: Short month name */
-            _pgettext('Short month name', 'May'),
-            /* l10n: Short month name */
-            __('Jun'),
-            /* l10n: Short month name */
-            __('Jul'),
-            /* l10n: Short month name */
-            __('Aug'),
-            /* l10n: Short month name */
-            __('Sep'),
-            /* l10n: Short month name */
-            __('Oct'),
-            /* l10n: Short month name */
-            __('Nov'),
-            /* l10n: Short month name */
-            __('Dec'),
+            _pgettext('Short month name for January', 'Jan'),
+            _pgettext('Short month name for February', 'Feb'),
+            _pgettext('Short month name for March', 'Mar'),
+            _pgettext('Short month name for April', 'Apr'),
+            _pgettext('Short month name for May', 'May'),
+            _pgettext('Short month name for June', 'Jun'),
+            _pgettext('Short month name for July', 'Jul'),
+            _pgettext('Short month name for August', 'Aug'),
+            _pgettext('Short month name for September', 'Sep'),
+            _pgettext('Short month name for October', 'Oct'),
+            _pgettext('Short month name for November', 'Nov'),
+            _pgettext('Short month name for December', 'Dec'),
         ];
         $dayOfWeek = [
-            /* l10n: Short week day name for Sunday */
             _pgettext('Short week day name for Sunday', 'Sun'),
-            /* l10n: Short week day name for Monday */
-            __('Mon'),
-            /* l10n: Short week day name for Tuesday */
-            __('Tue'),
-            /* l10n: Short week day name for Wednesday */
-            __('Wed'),
-            /* l10n: Short week day name for Thursday */
-            __('Thu'),
-            /* l10n: Short week day name for Friday */
-            __('Fri'),
-            /* l10n: Short week day name for Saturday */
-            __('Sat'),
+            _pgettext('Short week day name for Monday', 'Mon'),
+            _pgettext('Short week day name for Tuesday', 'Tue'),
+            _pgettext('Short week day name for Wednesday', 'Wed'),
+            _pgettext('Short week day name for Thursday', 'Thu'),
+            _pgettext('Short week day name for Friday', 'Fri'),
+            _pgettext('Short week day name for Saturday', 'Sat'),
         ];
 
         if ($format == '') {

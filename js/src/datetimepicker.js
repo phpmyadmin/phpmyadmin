@@ -85,6 +85,9 @@ function registerTimePickerTranslations () {
     $.timepicker.regional[''].hourText = window.Messages.strCalendarHour;
     $.timepicker.regional[''].minuteText = window.Messages.strCalendarMinute;
     $.timepicker.regional[''].secondText = window.Messages.strCalendarSecond;
+    $.timepicker.regional[''].millisecText = window.Messages.strCalendarMillisecond;
+    $.timepicker.regional[''].microsecText = window.Messages.strCalendarMicrosecond;
+    $.timepicker.regional[''].timezoneText = window.Messages.strCalendarTimezone;
 
     // eslint-disable-next-line no-underscore-dangle
     $.extend($.timepicker._defaults, $.timepicker.regional['']);
