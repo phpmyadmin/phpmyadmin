@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use DateTimeImmutable;
+use DateTimeZone;
 use DirectoryIterator;
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
@@ -13,7 +15,6 @@ use function array_shift;
 use function basename;
 use function bin2hex;
 use function count;
-use function date;
 use function explode;
 use function fclose;
 use function file_exists;
@@ -384,14 +385,14 @@ class Git
 
             $user = $datalinearr[1];
             preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
+            $timezone = new DateTimeZone($user[4] ?? '+0000');
+            $date = (new DateTimeImmutable())->setTimestamp((int) $user[3])->setTimezone($timezone);
+
             $user2 = [
                 'name' => trim($user[1]),
                 'email' => trim($user[2]),
-                'date' => date('Y-m-d H:i:s', (int) $user[3]),
+                'date' => $date->format('Y-m-d H:i:s O'),
             ];
-            if (isset($user[4])) {
-                $user2['date'] .= $user[4];
-            }
 
             if ($linetype === 'author') {
                 $author = $user2;

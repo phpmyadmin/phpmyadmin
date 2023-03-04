@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #16851 Fix ($cfg['Order']) default column order doesn't have have any effect since phpMyAdmin 4.2.0
 - issue #18112 Fix open base dir warning on git version class
 - issue        Do not show "Original length undefined" on binary hex columns
+- issue        Fix wrong time zone when handling Git information
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid

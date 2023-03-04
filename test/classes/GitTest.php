@@ -468,12 +468,12 @@ class GitTest extends AbstractTestCase
             [
                 'name' => 'William Desportes',
                 'email' => 'williamdes@wdes.fr',
-                'date' => '2022-07-13 12:56:40 +0200',
+                'date' => '2022-07-13 14:56:40 +0200',
             ],
             [
                 'name' => 'William Desportes',
                 'email' => 'williamdes@wdes.fr',
-                'date' => '2022-07-13 12:56:40 +0200',
+                'date' => '2022-07-13 14:56:40 +0200',
             ],
             'Remove ignore config.inc.php for psalm because '
                 . 'it fails the CI  Signed-off-by: William Desportes <williamdes@wdes.fr>',
