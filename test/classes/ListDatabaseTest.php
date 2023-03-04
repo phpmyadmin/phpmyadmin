@@ -29,12 +29,12 @@ class ListDatabaseTest extends AbstractTestCase
     }
 
     /**
-     * Test for ListDatabase::getEmpty
+     * Test for ListDatabase::getDefault
      */
     public function testEmpty(): void
     {
         $arr = new ListDatabase();
-        $this->assertEquals('', $arr->getEmpty());
+        $this->assertEquals('', $arr->getDefault());
     }
 
     /**

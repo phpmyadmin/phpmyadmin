@@ -179,6 +179,6 @@ class ListDatabase extends ListAbstract
             return $GLOBALS['db'];
         }
 
-        return $this->getEmpty();
+        return parent::getDefault();
     }
 }
