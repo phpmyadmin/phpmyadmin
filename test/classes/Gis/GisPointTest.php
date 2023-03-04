@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -19,34 +18,10 @@ use function file_exists;
  */
 class GisPointTest extends GisGeomTestCase
 {
-    protected GisGeometry $object;
-
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->object = GisPoint::singleton();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
-    }
-
     /**
      * data provider for testGenerateWkt
      *
-     * @return array data for testGenerateWkt
+     * @return array<array{array<mixed>, int, string|null, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
@@ -99,6 +74,22 @@ class GisPointTest extends GisGeomTestCase
     }
 
     /**
+     * Test for generateWkt
+     *
+     * @param array<mixed> $gis_data
+     * @param int          $index    index in $gis_data
+     * @param string|null  $empty    empty parameter
+     * @param string       $output   expected output
+     *
+     * @dataProvider providerForTestGenerateWkt
+     */
+    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    {
+        $object = GisPoint::singleton();
+        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+    }
+
+    /**
      * test getShape method
      *
      * @param array  $row_data array of GIS data
@@ -108,7 +99,8 @@ class GisPointTest extends GisGeomTestCase
      */
     public function testGetShape(array $row_data, string $shape): void
     {
-        $this->assertEquals($shape, $this->object->getShape($row_data));
+        $object = GisPoint::singleton();
+        $this->assertEquals($shape, $object->getShape($row_data));
     }
 
     /**
@@ -130,9 +122,23 @@ class GisPointTest extends GisGeomTestCase
     }
 
     /**
+     * test generateParams method
+     *
+     * @param string       $wkt    point in WKT form
+     * @param array<mixed> $params expected output array
+     *
+     * @dataProvider providerForTestGenerateParams
+     */
+    public function testGenerateParams(string $wkt, array $params): void
+    {
+        $object = GisPoint::singleton();
+        $this->assertEquals($params, $object->generateParams($wkt));
+    }
+
+    /**
      * data provider for testGenerateParams
      *
-     * @return array data for testGenerateParams
+     * @return array<array{string, array<mixed>}>
      */
     public static function providerForTestGenerateParams(): array
     {
@@ -153,6 +159,20 @@ class GisPointTest extends GisGeomTestCase
     }
 
     /**
+     * test scaleRow method
+     *
+     * @param string    $spatial spatial data of a row
+     * @param ScaleData $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     */
+    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    {
+        $object = GisPoint::singleton();
+        $this->assertEquals($min_max, $object->scaleRow($spatial));
+    }
+
+    /**
      * data provider for testScaleRow
      *
      * @return array data for testScaleRow
@@ -170,9 +190,10 @@ class GisPointTest extends GisGeomTestCase
     /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
+        $object = GisPoint::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $this->object->prepareRowAsPng(
+        $return = $object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
             [176, 46, 224],
@@ -205,7 +226,8 @@ class GisPointTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf,
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $object = GisPoint::singleton();
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
         $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/point-expected.pdf';
@@ -252,7 +274,8 @@ class GisPointTest extends GisGeomTestCase
         array $scaleData,
         string $output,
     ): void {
-        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
+        $object = GisPoint::singleton();
+        $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         $this->assertEquals($output, $svg);
     }
 
@@ -297,7 +320,8 @@ class GisPointTest extends GisGeomTestCase
         array $color,
         string $output,
     ): void {
-        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color);
+        $object = GisPoint::singleton();
+        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
         $this->assertEquals($output, $ol);
     }
 

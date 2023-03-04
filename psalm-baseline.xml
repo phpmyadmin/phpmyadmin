@@ -7325,9 +7325,6 @@
       <code>$black</code>
       <code>$line_color</code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code>getShape</code>
-    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -7357,9 +7354,6 @@
       <code>$black</code>
       <code>$point_color</code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code>getShape</code>
-    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -7459,9 +7453,6 @@
       <code>$black</code>
       <code>$fill_color</code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code>getShape</code>
-    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -7487,9 +7478,6 @@
       <code>$black</code>
       <code>$point_color</code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code>getShape</code>
-    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -15694,12 +15682,6 @@
       <code>testFactory</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="test/classes/Gis/GisGeomTestCase.php">
-    <UndefinedMethod>
-      <code>testGenerateParams</code>
-      <code>testScaleRow</code>
-    </UndefinedMethod>
-  </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
     <MixedInferredReturnType>
       <code>array</code>
@@ -15707,10 +15689,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyUnusedMethod>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestScaleRow</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
     <MixedAssignment>
@@ -15727,42 +15705,24 @@
       <code>array</code>
       <code>array</code>
       <code>array</code>
+      <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyUnusedMethod>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiLineStringTest.php">
     <MixedInferredReturnType>
       <code>array</code>
       <code>array</code>
       <code>array</code>
+      <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyUnusedMethod>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
-    </PossiblyUnusedMethod>
-    <UndefinedMethod>
-      <code>getShape</code>
-    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiPointTest.php">
     <MixedInferredReturnType>
       <code>array</code>
       <code>array</code>
       <code>array</code>
+      <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyUnusedMethod>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
-    </PossiblyUnusedMethod>
-    <UndefinedMethod>
-      <code>getShape</code>
-    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiPolygonTest.php">
     <MixedArrayAssignment>
@@ -15778,15 +15738,8 @@
       <code>array</code>
       <code>array</code>
       <code>array</code>
+      <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyUnusedMethod>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
-    </PossiblyUnusedMethod>
-    <UndefinedMethod>
-      <code>getShape</code>
-    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisPointTest.php">
     <MixedInferredReturnType>
@@ -15794,15 +15747,8 @@
       <code>array</code>
       <code>array</code>
       <code>array</code>
+      <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyUnusedMethod>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
-    </PossiblyUnusedMethod>
-    <UndefinedMethod>
-      <code>getShape</code>
-    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
     <MixedArrayAccess>
@@ -15829,19 +15775,8 @@
       <code>array</code>
       <code>array</code>
       <code>array</code>
+      <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyUnusedMethod>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
-    </PossiblyUnusedMethod>
-    <UndefinedMethod>
-      <code>area</code>
-      <code>getPointOnSurface</code>
-      <code>isOuterRing</code>
-      <code>isPointInsidePolygon</code>
-      <code>isPointInsidePolygon</code>
-    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>

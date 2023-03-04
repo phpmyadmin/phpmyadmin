@@ -10151,16 +10151,6 @@ parameters:
 			path: test/classes/Gis/GisFactoryTest.php
 
 		-
-			message: "#^Class PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase has an uninitialized property \\$object\\. Give it default value or assign it in the constructor\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeomTestCase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:testGenerateParams\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeomTestCase.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
@@ -10176,22 +10166,7 @@ parameters:
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForTestGenerateWkt\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testGenerateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
@@ -10251,16 +10226,6 @@ parameters:
 			path: test/classes/Gis/GisLineStringTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForTestGenerateWkt\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisLineStringTest.php
@@ -10276,11 +10241,6 @@ parameters:
 			path: test/classes/Gis/GisLineStringTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiLineStringTest.php
@@ -10292,16 +10252,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForTestGenerateWkt\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
@@ -10321,11 +10271,6 @@ parameters:
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPointTest.php
@@ -10337,16 +10282,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForTestGenerateWkt\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPointTest.php
 
@@ -10366,11 +10301,6 @@ parameters:
 			path: test/classes/Gis/GisMultiPointTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
@@ -10387,16 +10317,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForTestGenerateWkt\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
@@ -10426,11 +10346,6 @@ parameters:
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPointTest.php
@@ -10442,16 +10357,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForTestGenerateWkt\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPointTest.php
 
@@ -10481,26 +10386,6 @@ parameters:
 			path: test/classes/Gis/GisPointTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:area\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPointOnSurface\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:isOuterRing\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:isPointInsidePolygon\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
@@ -10527,16 +10412,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestArea\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestGenerateWkt\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 

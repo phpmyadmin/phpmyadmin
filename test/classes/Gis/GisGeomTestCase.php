@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\GisGeometry;
-use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionProperty;
 use TCPDF;
@@ -26,8 +24,6 @@ abstract class GisGeomTestCase extends AbstractTestCase
 {
     protected string $testDir = '';
 
-    protected GisGeometry $object;
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -43,38 +39,6 @@ abstract class GisGeomTestCase extends AbstractTestCase
         }
 
         return $arch;
-    }
-
-    /**
-     * test generateParams method
-     *
-     * @param string $wkt    point in WKT form
-     * @param array  $params expected output array
-     *
-     * @dataProvider providerForTestGenerateParams
-     */
-    public function testGenerateParams(string $wkt, array $params): void
-    {
-        $this->assertEquals(
-            $params,
-            $this->object->generateParams($wkt),
-        );
-    }
-
-    /**
-     * test scaleRow method
-     *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
-     *
-     * @dataProvider providerForTestScaleRow
-     */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
-    {
-        $this->assertEquals(
-            $min_max,
-            $this->object->scaleRow($spatial),
-        );
     }
 
     /**

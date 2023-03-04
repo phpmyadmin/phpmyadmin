@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -17,30 +16,6 @@ use TCPDF;
  */
 class GisPolygonTest extends GisGeomTestCase
 {
-    protected GisGeometry $object;
-
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->object = GisPolygon::singleton();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
-    }
-
     /**
      * Provide some common data to data providers
      *
@@ -98,9 +73,25 @@ class GisPolygonTest extends GisGeomTestCase
     }
 
     /**
+     * Test for generateWkt
+     *
+     * @param array<mixed> $gis_data
+     * @param int          $index    index in $gis_data
+     * @param string|null  $empty    empty parameter
+     * @param string       $output   expected output
+     *
+     * @dataProvider providerForTestGenerateWkt
+     */
+    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    {
+        $object = GisPolygon::singleton();
+        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+    }
+
+    /**
      * data provider for testGenerateWkt
      *
-     * @return array data for testGenerateWkt
+     * @return array<array{array<mixed>, int, string|null, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
@@ -163,9 +154,23 @@ class GisPolygonTest extends GisGeomTestCase
     }
 
     /**
+     * test generateParams method
+     *
+     * @param string       $wkt    point in WKT form
+     * @param array<mixed> $params expected output array
+     *
+     * @dataProvider providerForTestGenerateParams
+     */
+    public function testGenerateParams(string $wkt, array $params): void
+    {
+        $object = GisPolygon::singleton();
+        $this->assertEquals($params, $object->generateParams($wkt));
+    }
+
+    /**
      * data provider for testGenerateParams
      *
-     * @return array data for testGenerateParams
+     * @return array<array{string, array<mixed>}>
      */
     public static function providerForTestGenerateParams(): array
     {
@@ -190,7 +195,8 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testArea(array $ring, float $area): void
     {
-        $this->assertEquals($area, $this->object->area($ring));
+        $object = GisPolygon::singleton();
+        $this->assertEquals($area, $object->area($ring));
     }
 
     /**
@@ -272,10 +278,8 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
     {
-        $this->assertEquals(
-            $isInside,
-            $this->object->isPointInsidePolygon($point, $polygon),
-        );
+        $object = GisPolygon::singleton();
+        $this->assertEquals($isInside, $object->isPointInsidePolygon($point, $polygon));
     }
 
     /**
@@ -353,9 +357,10 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testGetPointOnSurface(array $ring): void
     {
-        $point = $this->object->getPointOnSurface($ring);
+        $object = GisPolygon::singleton();
+        $point = $object->getPointOnSurface($ring);
         $this->assertIsArray($point);
-        $this->assertTrue($this->object->isPointInsidePolygon($point, $ring));
+        $this->assertTrue($object->isPointInsidePolygon($point, $ring));
     }
 
     /**
@@ -380,6 +385,20 @@ class GisPolygonTest extends GisGeomTestCase
     }
 
     /**
+     * test scaleRow method
+     *
+     * @param string    $spatial spatial data of a row
+     * @param ScaleData $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     */
+    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    {
+        $object = GisPolygon::singleton();
+        $this->assertEquals($min_max, $object->scaleRow($spatial));
+    }
+
+    /**
      * data provider for testScaleRow
      *
      * @return array data for testScaleRow
@@ -401,9 +420,10 @@ class GisPolygonTest extends GisGeomTestCase
     /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
+        $object = GisPolygon::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $this->object->prepareRowAsPng(
+        $return = $object->prepareRowAsPng(
             'POLYGON((0 0,100 0,100 100,0 100,0 0),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,60 60))',
             'image',
             [176, 46, 224],
@@ -436,7 +456,8 @@ class GisPolygonTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf,
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $object = GisPolygon::singleton();
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
         $fileExpected = $this->testDir . '/polygon-expected.pdf';
         $fileActual = $this->testDir . '/polygon-actual.pdf';
@@ -482,7 +503,8 @@ class GisPolygonTest extends GisGeomTestCase
         array $scaleData,
         string $output,
     ): void {
-        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
+        $object = GisPolygon::singleton();
+        $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         $this->assertEquals($output, $svg);
     }
 
@@ -529,7 +551,8 @@ class GisPolygonTest extends GisGeomTestCase
         array $color,
         string $output,
     ): void {
-        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color);
+        $object = GisPolygon::singleton();
+        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
         $this->assertEquals($output, $ol);
     }
 
@@ -564,7 +587,8 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testIsOuterRing(array $ring): void
     {
-        $this->assertTrue($this->object->isOuterRing($ring));
+        $object = GisPolygon::singleton();
+        $this->assertTrue($object->isOuterRing($ring));
     }
 
     /**
