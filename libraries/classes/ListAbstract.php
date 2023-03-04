@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ArrayObject;
-use PhpMyAdmin\Query\Utilities;
 
 use function in_array;
 
@@ -41,26 +40,6 @@ abstract class ListAbstract extends ArrayObject
         }
 
         return true;
-    }
-
-    /** @return array<int, array<string, bool|string>> */
-    public function getList(): array
-    {
-        $selected = $this->getDefault();
-
-        $list = [];
-        foreach ($this as $eachItem) {
-            if (Utilities::isSystemSchema($eachItem)) {
-                continue;
-            }
-
-            $list[] = [
-                'name' => $eachItem,
-                'is_selected' => $selected === $eachItem,
-            ];
-        }
-
-        return $list;
     }
 
     /**
