@@ -25,16 +25,14 @@ abstract class ListAbstract extends ArrayObject
     }
 
     /**
-     * checks if the given db names exists in the current list, if there is
+     * Checks if the given strings exists in the current list, if there is
      * missing at least one item it returns false otherwise true
-     *
-     * @param mixed[] ...$params params
      */
-    public function exists(...$params): bool
+    public function exists(string ...$params): bool
     {
-        $this_elements = $this->getArrayCopy();
-        foreach ($params as $result) {
-            if (! in_array($result, $this_elements)) {
+        $elements = $this->getArrayCopy();
+        foreach ($params as $param) {
+            if (! in_array($param, $elements, true)) {
                 return false;
             }
         }
