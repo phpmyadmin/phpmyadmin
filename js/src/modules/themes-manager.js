@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { CommonParams } from './common';
+import { CommonParams } from './common.js';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
