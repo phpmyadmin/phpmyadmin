@@ -379,7 +379,7 @@ Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel
         'my',
         'admin',
     ];
-    if (username !== null) {
+    if (username) {
         customDict.push(username);
     }
 
@@ -452,7 +452,7 @@ Functions.suggestPassword = function (passwordForm) {
     passwordForm.elements.pma_pw2.value = passwd.value;
     var meterObj = $jQueryPasswordForm.find('meter[name="pw_meter"]').first();
     var meterObjLabel = $jQueryPasswordForm.find('span[name="pw_strength"]').first();
-    Functions.checkPasswordStrength(passwd.value, meterObj, meterObjLabel);
+    Functions.checkPasswordStrength(passwd.value, meterObj, meterObjLabel, passwordForm.elements.username.value);
     return true;
 };
 

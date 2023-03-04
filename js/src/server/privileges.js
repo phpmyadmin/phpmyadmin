@@ -449,7 +449,7 @@ const CheckAddUser = {
     handleEvent: function () {
         const theForm = this;
 
-        if (theForm.elements.hostname.value === '') {
+        if (theForm.elements.hostname && theForm.elements.hostname.value === '') {
             alert(window.Messages.strHostEmpty);
             theForm.elements.hostname.focus();
             return false;
