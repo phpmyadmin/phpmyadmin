@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-04 13:51+0000\n"
-"PO-Revision-Date: 2023-01-28 03:50+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2023-03-04 15:53+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -7740,8 +7740,6 @@ msgstr "fév."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #: libraries/classes/Util.php:623
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "mars"
@@ -7891,8 +7889,6 @@ msgstr "mar."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:751
 #: libraries/classes/Util.php:638
-#, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "mer."
