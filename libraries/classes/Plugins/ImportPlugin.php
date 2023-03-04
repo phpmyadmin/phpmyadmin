@@ -12,8 +12,6 @@ use PhpMyAdmin\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 
-use function strlen;
-
 /**
  * Provides a common interface that will have to be implemented by all of the
  * import plugins.
@@ -62,30 +60,6 @@ abstract class ImportPlugin implements Plugin
      * Sets the export plugins properties and is implemented by each import plugin.
      */
     abstract protected function setProperties(): ImportPluginProperties;
-
-    /**
-     * Define DB name and options
-     *
-     * @param string $currentDb DB
-     * @param string $defaultDb Default DB name
-     *
-     * @return array DB name and options (an associative array of options)
-     */
-    protected function getDbnameAndOptions($currentDb, $defaultDb): array
-    {
-        $db_name = $defaultDb;
-        $options = null;
-
-        if (strlen((string) $currentDb) > 0) {
-            $db_name = $currentDb;
-            $options = ['create_db' => false];
-        }
-
-        return [
-            $db_name,
-            $options,
-        ];
-    }
 
     public static function isAvailable(): bool
     {

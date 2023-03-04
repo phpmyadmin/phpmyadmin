@@ -618,7 +618,8 @@ class ImportCsv extends AbstractImportCsv
                 $newDb = 'CSV_DB ' . (count($result) + 1);
             }
 
-            [$db_name, $options] = $this->getDbnameAndOptions($GLOBALS['db'], $newDb);
+            $db_name = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : $newDb;
+            $options = $GLOBALS['db'] !== '' ? ['create_db' => false] :null;
 
             /* Non-applicable parameters */
             $create = null;
