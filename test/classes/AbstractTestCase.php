@@ -228,4 +228,21 @@ abstract class AbstractTestCase extends TestCase
 
         return $method->invokeArgs($object, $params);
     }
+
+    /**
+     * Set a private or protected property via reflection.
+     *
+     * @param object|null $object       The object to inspect, pass null for static objects()
+     * @param string      $className    The class name
+     * @param string      $propertyName The method name
+     * @param mixed       $value        The parameters for the invocation
+     * @phpstan-param class-string $className
+     */
+    protected function setProperty($object, string $className, string $propertyName, mixed $value): void
+    {
+        $class = new ReflectionClass($className);
+        $property = $class->getProperty($propertyName);
+
+        $property->setValue($object, $value);
+    }
 }

@@ -114,11 +114,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], ['spatialColumn' => 'abc']),
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+            [''],
         );
 
         $this->assertEquals('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
@@ -134,11 +130,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], ['spatialColumn' => 'abc']),
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+            [''],
         );
 
         $this->assertEquals(
@@ -157,11 +149,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], ['spatialColumn' => 'abc']),
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                'SELECT 1 FROM foo;',
-                0,
-                0,
-            ],
+            ['SELECT 1 FROM foo;'],
         );
 
         $this->assertEquals(
@@ -183,11 +171,7 @@ class GisVisualizationTest extends AbstractTestCase
             ]),
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+            [''],
         );
 
         $this->assertEquals(
@@ -203,31 +187,28 @@ class GisVisualizationTest extends AbstractTestCase
     public function testModifyQueryWithLimit(): void
     {
         $this->dbi->setVersion(['@@version' => '8.0.0']);
+        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc']);
+        $this->setProperty($gis, GisVisualization::class, 'rows', 10);
         $queryString = $this->callFunction(
-            GisVisualization::getByData([], ['spatialColumn' => 'abc']),
+            $gis,
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                '',
-                10,// 10 rows
-                0,
-            ],
+            [''],
         );
 
         $this->assertEquals(
-            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 0, 10',
+            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 10',
             $queryString,
         );
 
+        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc']);
+        $this->setProperty($gis, GisVisualization::class, 'pos', 10);
+        $this->setProperty($gis, GisVisualization::class, 'rows', 15);
         $queryString = $this->callFunction(
-            GisVisualization::getByData([], ['spatialColumn' => 'abc']),
+            $gis,
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                '',
-                15,// 15 rows
-                10,// position 10
-            ],
+            [''],
         );
 
         $this->assertEquals(
@@ -246,11 +227,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], ['spatialColumn' => 'abc']),
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+            [''],
         );
 
         $this->assertEquals(
@@ -269,11 +246,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], ['spatialColumn' => 'abc']),
             GisVisualization::class,
             'modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+            [''],
         );
 
         $this->assertEquals(

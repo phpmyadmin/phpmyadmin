@@ -17,7 +17,6 @@ use function array_merge;
 use function base64_encode;
 use function count;
 use function intval;
-use function is_numeric;
 use function is_string;
 use function mb_strlen;
 use function mb_strpos;
@@ -72,6 +71,21 @@ class GisVisualization
     /** @var array   Options that the user has specified. */
     private array $userSpecifiedSettings;
 
+    /** Number of rows */
+    private int $rows;
+    /** Start position */
+    private int $pos;
+
+    public function getPos(): int
+    {
+        return $this->pos;
+    }
+
+    public function getRows(): int
+    {
+        return $this->rows;
+    }
+
     /**
      * Returns the settings array
      *
@@ -87,12 +101,12 @@ class GisVisualization
      *
      * @param string $sql_query SQL to fetch raw data for visualization
      * @param array  $options   Users specified options
-     * @param int    $row       number of rows
+     * @param int    $rows      number of rows
      * @param int    $pos       start position
      */
-    public static function get($sql_query, array $options, $row, $pos): GisVisualization
+    public static function get($sql_query, array $options, int $rows, int $pos): GisVisualization
     {
-        return new GisVisualization($sql_query, $options, $row, $pos);
+        return new GisVisualization($sql_query, $options, $rows, $pos);
     }
 
     /**
@@ -104,7 +118,7 @@ class GisVisualization
      */
     public static function getByData(array $data, array $options): GisVisualization
     {
-        return new GisVisualization(null, $options, null, null, $data);
+        return new GisVisualization(null, $options, 0, 0, $data);
     }
 
     /**
@@ -126,18 +140,21 @@ class GisVisualization
      *
      * @param string     $sql_query SQL to fetch raw data for visualization
      * @param array      $options   Users specified options
-     * @param int        $row       number of rows
+     * @param int        $rows      number of rows
      * @param int        $pos       start position
      * @param array|null $data      raw data. If set, parameters other than $options
      *                              will be ignored
      */
-    private function __construct($sql_query, array $options, $row, $pos, $data = null)
+    private function __construct($sql_query, array $options, int $rows, int $pos, $data = null)
     {
+        $this->pos = $pos;
+        $this->rows = $rows;
+
         $this->userSpecifiedSettings = $options;
         if (isset($data)) {
             $this->data = $data;
         } else {
-            $this->modifiedSql = $this->modifySqlQuery($sql_query, $row, $pos);
+            $this->modifiedSql = $this->modifySqlQuery($sql_query);
             $this->data = $this->fetchRawData();
         }
     }
@@ -154,12 +171,10 @@ class GisVisualization
      * Returns sql for fetching raw data
      *
      * @param string $sql_query The SQL to modify.
-     * @param int    $rows      Number of rows.
-     * @param int    $pos       Start position.
      *
      * @return string the modified sql query.
      */
-    private function modifySqlQuery($sql_query, $rows, $pos): string
+    private function modifySqlQuery(string $sql_query): string
     {
         $modified_query = 'SELECT ';
         $spatialAsText = 'ASTEXT';
@@ -201,13 +216,8 @@ class GisVisualization
             . Util::backquote('temp_gis');
 
         // LIMIT clause
-        if (is_numeric($rows) && $rows > 0) {
-            $modified_query .= ' LIMIT ';
-            if (is_numeric($pos) && $pos >= 0) {
-                $modified_query .= $pos . ', ' . $rows;
-            } else {
-                $modified_query .= $rows;
-            }
+        if ($this->rows > 0) {
+            $modified_query .= ' LIMIT ' . ($this->pos > 0 ? $this->pos . ', ' : '') . $this->rows;
         }
 
         return $modified_query;

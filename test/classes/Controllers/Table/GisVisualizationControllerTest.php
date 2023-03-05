@@ -48,7 +48,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         );
         $dummyDbi->addResult(
             'SELECT ST_ASTEXT(`shape`) AS `shape`, ST_SRID(`shape`) AS `srid`'
-            . ' FROM (SELECT * FROM `gis_all`) AS `temp_gis` LIMIT 0, 25',
+            . ' FROM (SELECT * FROM `gis_all`) AS `temp_gis` LIMIT 25',
             [['POINT(100 250)', '0']],
             ['shape', 'srid'],
         );

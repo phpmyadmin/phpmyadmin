@@ -172,8 +172,8 @@ final class GisVisualizationController extends AbstractController
             $GLOBALS['urlParams'],
             [
                 'saveToFile' => true,
-                'session_max_rows' => $rows,
-                'pos' => $pos,
+                'session_max_rows' => $visualization->getRows(),
+                'pos' => $visualization->getPos(),
                 'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
                 'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'],
             ],
