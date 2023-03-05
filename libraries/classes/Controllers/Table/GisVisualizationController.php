@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -61,18 +62,16 @@ final class GisVisualizationController extends AbstractController
             return;
         }
 
-        // Execute the query and return the result
-        $result = $this->dbi->tryQuery($sqlQuery);
-        // Get the meta data of results
-        $meta = [];
-        if ($result !== false) {
-            $meta = $this->dbi->getFieldsMeta($result);
-        }
+        $meta = $this->getColumnMeta($sqlQuery);
 
         // Find the candidate fields for label column and spatial column
         $labelCandidates = [];
         $spatialCandidates = [];
         foreach ($meta as $column_meta) {
+            if ($column_meta->name === '') {
+                continue;
+            }
+
             if ($column_meta->isMappedTypeGeometry) {
                 $spatialCandidates[] = $column_meta->name;
             } else {
@@ -213,5 +212,17 @@ final class GisVisualizationController extends AbstractController
         }
 
         return $sqlQuery === '' ? null : $sqlQuery;
+    }
+
+    /**
+     * Execute the query and return the result
+     *
+     * @return FieldMetadata[]
+     */
+    private function getColumnMeta(string $sqlQuery): array
+    {
+        $result = $this->dbi->tryQuery($sqlQuery);
+
+        return $result === false ? [] : $this->dbi->getFieldsMeta($result);
     }
 }
