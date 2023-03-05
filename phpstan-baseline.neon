@@ -1361,7 +1361,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
 

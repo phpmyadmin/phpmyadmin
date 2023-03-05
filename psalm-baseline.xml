@@ -13729,8 +13729,6 @@
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_db_name']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_index_list']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_table_name']]]></code>
-      <code>$targetDb</code>
-      <code>$targetDb</code>
       <code>$val</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
