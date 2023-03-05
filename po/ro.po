@@ -574,9 +574,9 @@ msgstr ""
 "indiferent de valoarea acestor variabile.Pentru a le elimina, va trebui să "
 "vă rescrieți interogările pentru a evita aceste condiții (Într-un tabel "
 "temporar: Prezența unei coloane BLOB sau TEXT sau prezența unei coloane mai "
-"mare de 512 octeți) așa cum este menționat la începutul unui <a "
-"href=\"https ://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">Articol de la Pythian Group</a>"
+"mare de 512 octeți) așa cum este menționat la începutul unui <a href="
+"\"https ://www.facebook.com/note.php?note_id=10150111255065841&comments"
+"\">Articol de la Pythian Group</a>"
 
 #: libraries/classes/Advisory/Rules.php:362
 #, php-format
@@ -924,13 +924,13 @@ msgstr "Prea multe conexiuni sunt anulate."
 #: libraries/classes/Advisory/Rules.php:580
 #: libraries/classes/Advisory/Rules.php:594
 msgid ""
-"Connections are usually aborted when they cannot be authorized. <a "
-"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
-"of-aborted_connects/\">This article</a> might help you track down the source."
+"Connections are usually aborted when they cannot be authorized. <a href="
+"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"De obicei, conexiunile sunt anulate când nu pot fi autorizate. <a "
-"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
-"of-aborted_connects/\">Acest articol</a> te poate ajuta să urmărești sursa."
+"De obicei, conexiunile sunt anulate când nu pot fi autorizate. <a href="
+"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Acest articol</a> te poate ajuta să urmărești sursa."
 
 #: libraries/classes/Advisory/Rules.php:584
 #, php-format
@@ -989,7 +989,7 @@ msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
-msgstr "Este InnoDB dizactivat?"
+msgstr "Este InnoDB dezactivat?"
 
 #: libraries/classes/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
@@ -1034,8 +1034,8 @@ msgstr ""
 "De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
 "% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
-"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a "
-"href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a href="
+"\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
 "ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
 "pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
@@ -1066,19 +1066,19 @@ msgstr "Dimensiunea fișierului jurnal InnoDB este insuficient de mare."
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
-"recovery time after a database crash considerably. See also <a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"recovery time after a database crash considerably. See also <a href="
+"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
 "remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"then check the error logs if everything went fine. See also <a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
 "% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
-"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a "
-"href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a href="
+"\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
 "ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
 "pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
@@ -1109,9 +1109,9 @@ msgid ""
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a "
-"href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">this article</a>"
+"swapping, which decreases performance significantly. See also <a href="
+"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
+"\">this article</a>"
 msgstr ""
 "Buffer pool InnoDB are un impact profund asupra performanței pentru tabelele "
 "InnoDB. Alocă toată memoria rămasă în acest tampon. Pentru serverele de bază "
@@ -1222,8 +1222,8 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:808
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is "
-"%s%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Raportul curent dintre memoria disponibilă cache interogări și dimensiunea "
 "cache interogări totală este de %s%%. Ar trebui să fie peste 80%%"
@@ -1299,8 +1299,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Raportul dintre interogările înlăturate și interogările inserate este de "
-"%s%%. Cu cât această valoare este mai mică cu atât este mai bine (limita de "
+"Raportul dintre interogările înlăturate și interogările inserate este de %s"
+"%%. Cu cât această valoare este mai mică cu atât este mai bine (limita de "
 "activare a acestor reguli este: 0,1%%)"
 
 #: libraries/classes/Advisory/Rules.php:854
@@ -3316,6 +3316,7 @@ msgstr "Pune numele coloanelor în primul rând"
 #: libraries/classes/Config/Descriptions.php:786
 #: libraries/classes/Config/Descriptions.php:792
 #: libraries/classes/Plugins/Import/ImportCsv.php:660
+#: libraries/classes/Plugins/Import/ImportCsv.php:678
 msgid "Columns enclosed with"
 msgstr "Coloane închise cu"
 
@@ -3323,6 +3324,7 @@ msgstr "Coloane închise cu"
 #: libraries/classes/Config/Descriptions.php:787
 #: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:671
+#: libraries/classes/Plugins/Import/ImportCsv.php:689
 msgid "Columns escaped with"
 msgstr "Coloane escapate cu"
 
@@ -3345,12 +3347,14 @@ msgstr "Înlătură caracterele CRLF în coloane"
 #: libraries/classes/Config/Descriptions.php:790
 #: libraries/classes/Config/Descriptions.php:797
 #: libraries/classes/Plugins/Import/ImportCsv.php:645
+#: libraries/classes/Plugins/Import/ImportCsv.php:663
 msgid "Columns terminated with"
 msgstr "Coloane terminate cu"
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:785
 #: libraries/classes/Plugins/Import/ImportCsv.php:678
+#: libraries/classes/Plugins/Import/ImportCsv.php:696
 msgid "Lines terminated with"
 msgstr "Linii terminate cu"
 
@@ -3467,7 +3471,6 @@ msgstr "Ține minte șablonul nume fișier"
 
 #: libraries/classes/Config/Descriptions.php:698
 #, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
 msgstr "Înlătură coloanele din lista centrală"
 
@@ -5221,8 +5224,8 @@ msgstr "Tabelul %s a fost golit."
 #: libraries/classes/Display/Results.php:3756
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to "
-"%sdocumentation%s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Această vizualizare are cel puțin acest număr de rânduri. Te rog vezi "
 "%sdocumentația%s."
@@ -5474,7 +5477,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:240
 #, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
 msgstr "Formular specificat incorect!"
 
@@ -7578,237 +7580,168 @@ msgid "Show"
 msgstr "Arată"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:717
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Ianuarie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Februarie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Martie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Aprilie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Iunie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Iulie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Septembrie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Octombrie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Noiembrie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Decembrie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #: libraries/classes/Util.php:621
-#, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "ian."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:622
-#, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "feb."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #: libraries/classes/Util.php:623
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "mart."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:624
-#, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "apr."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #: libraries/classes/Util.php:625
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
-msgstr "Mai"
+msgstr "mai"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:626
-#, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "iun."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/Util.php:627
-#, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "iul."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 #: libraries/classes/Util.php:628
-#, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "aug."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/Util.php:629
-#, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "sept."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:630
-#, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "oct."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:739
 #: libraries/classes/Util.php:631
-#, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "nov."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #: libraries/classes/Util.php:632
-#, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "dec."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
-#: libraries/config.values.php:197
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Duminică"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
-#: libraries/config.values.php:191
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Luni"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
-#: libraries/config.values.php:192
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Marți"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
-#: libraries/config.values.php:193
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Miercuri"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
-#: libraries/config.values.php:194
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Joi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
-#: libraries/config.values.php:195
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Vineri"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
-#: libraries/config.values.php:196
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sâmbătă"
@@ -7822,104 +7755,76 @@ msgstr "D"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:749
 #: libraries/classes/Util.php:636
-#, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "L"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:637
-#, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Ma"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:751
 #: libraries/classes/Util.php:638
-#, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/classes/Util.php:639
-#, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "J"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:753
 #: libraries/classes/Util.php:640
-#, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "V"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #: libraries/classes/Util.php:641
-#, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "S"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:755
-#, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "D"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:756
-#, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "L"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:757
-#, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "M"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "M"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "J"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "V"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "S"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Săpt."
@@ -7933,57 +7838,43 @@ msgstr "calendar-month-year"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "niciunul"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Oră"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Oră"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minut"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Secundă"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "pe secundă"
+msgstr "Milisecundă"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "pe secundă"
+msgstr "Microsecundă"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Cronologie"
@@ -8091,10 +7982,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:810
 #, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
@@ -9112,7 +8999,6 @@ msgstr "Vezi"
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
 #, fuzzy
-#| msgid "The table name is empty!"
 msgid "The partition name must be a non-empty string."
 msgstr "Numele tabelului este gol!"
 
@@ -9718,7 +9604,6 @@ msgstr ""
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
 msgstr "Numele bazei de date este gol!"
 
@@ -9729,13 +9614,11 @@ msgstr "Numele bazei de date nu poate fi mai lung de %d caractere."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
 msgstr "Cuvintele sunt separate printr-un caracter spațiu („ ”)."
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
 #, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
 msgstr "Numele tabelului este gol!"
 
@@ -9746,7 +9629,6 @@ msgstr "Numele tabelului nu poate fi mai lung de %d caractere."
 
 #: libraries/classes/Dbal/InvalidTableName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
 msgstr "Cuvintele sunt separate printr-un caracter spațiu („ ”)."
 
@@ -12034,6 +11916,7 @@ msgstr "Nume coloane:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:282
 #: libraries/classes/Plugins/Import/ImportCsv.php:622
+#: libraries/classes/Plugins/Import/ImportCsv.php:640
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format invalid pentru intrarea CSV pe linia %d."
@@ -12047,11 +11930,15 @@ msgstr "Număr de coloane invalid în intrarea CSV pe linia %d."
 #: libraries/classes/Plugins/Import/ImportCsv.php:658
 #: libraries/classes/Plugins/Import/ImportCsv.php:669
 #: libraries/classes/Plugins/Import/ImportCsv.php:676
+#: libraries/classes/Plugins/Import/ImportCsv.php:661
+#: libraries/classes/Plugins/Import/ImportCsv.php:687
+#: libraries/classes/Plugins/Import/ImportCsv.php:694
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Parametru invalid pentru importul CSV: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:807
+#: libraries/classes/Plugins/Import/ImportCsv.php:825
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12529,7 +12416,6 @@ msgstr "Numai pentru testare!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:192
 #, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Cheie de securitate hardware (FIDO U2F)"
 
@@ -13795,7 +13681,6 @@ msgstr ""
 
 #: libraries/classes/Types.php:352
 #, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Stochează un Identificator Universal Unic (IDUU)"
 
@@ -13832,8 +13717,6 @@ msgstr "Nu am putut salva configurarea"
 
 #: libraries/classes/UserPreferences.php:187
 #, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
 "%sCreează%s spațiul de stocare pentru configurarea phpMyAdmin în baza de "
@@ -15714,7 +15597,6 @@ msgstr "Nu există niciun declanșator de afișat."
 #: templates/display/results/checkbox_and_links.twig:16
 #: templates/display/results/checkbox_and_links.twig:78
 #, fuzzy
-#| msgid "You can also edit most values<br>by clicking directly on them."
 msgid "You can also edit most values by clicking directly on them."
 msgstr ""
 "De asemenea, poți edita majoritatea valorilor<br>dând clic direct pe ele."
@@ -15722,8 +15604,6 @@ msgstr ""
 #: templates/display/results/checkbox_and_links.twig:18
 #: templates/display/results/checkbox_and_links.twig:80
 #, fuzzy
-#| msgid ""
-#| "You can also edit most values<br>by double-clicking directly on them."
 msgid "You can also edit most values by double-clicking directly on them."
 msgstr ""
 "De asemenea, poți edita majoritatea valorilor<br>dând dublu-clic direct pe "
@@ -16520,7 +16400,6 @@ msgstr ""
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
 #, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
 msgstr "Reprodus"
 
@@ -16572,9 +16451,6 @@ msgstr "Verifică"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
 #, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
@@ -16584,9 +16460,6 @@ msgstr ""
 
 #: templates/login/twofactor/webauthn_request.twig:1
 #, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
@@ -16838,9 +16711,6 @@ msgstr ""
 
 #: templates/preferences/two_factor/main.twig:26
 #, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
@@ -17254,7 +17124,6 @@ msgstr "Acordă toate privilegiile pentru baza de date „%s”."
 
 #: templates/server/privileges/add_user.twig:38
 #, fuzzy
-#| msgid "Create %s"
 msgid "Create user"
 msgstr "Creează %s"
 
@@ -17605,7 +17474,6 @@ msgstr "Necesită prezentarea unui certificat X509 valid cu acest subiect."
 
 #: templates/server/privileges/privileges_table.twig:878
 #, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
 msgstr "Ajustează privilegiile"
 
@@ -18487,7 +18355,6 @@ msgstr "Pune semn de carte la această interogare SQL"
 
 #: templates/sql/bookmark.twig:14
 #, fuzzy
-#| msgid "Bookmark table"
 msgid "Bookmark label:"
 msgstr "Tabel semne de carte"
 
@@ -18497,7 +18364,6 @@ msgstr "Permite tuturor utilizatorilor să acceseze acest semn de carte"
 
 #: templates/sql/bookmark.twig:24
 #, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
 msgstr "Creează semn de carte"
 
@@ -19273,7 +19139,6 @@ msgstr "Următorul index automat"
 
 #: templates/table/structure/drop_confirm.twig:2
 #, fuzzy
-#| msgid "DROP columns %s from the table %s"
 msgid "Dropping columns from the table"
 msgstr "Elimină coloanele %s din tabelul %s"
 
@@ -19383,26 +19248,33 @@ msgstr "Nume VIZUALIZARE"
 msgid "Column names"
 msgstr "Nume coloane"
 
-#~ msgid "Monday"
-#~ msgstr "Luni"
+#: libraries/config.values.php:191
+msgid "Monday"
+msgstr "Luni"
 
-#~ msgid "Tuesday"
-#~ msgstr "Marți"
+#: libraries/config.values.php:192
+msgid "Tuesday"
+msgstr "Marți"
 
-#~ msgid "Wednesday"
-#~ msgstr "Miercuri"
+#: libraries/config.values.php:193
+msgid "Wednesday"
+msgstr "Miercuri"
 
-#~ msgid "Thursday"
-#~ msgstr "Joi"
+#: libraries/config.values.php:194
+msgid "Thursday"
+msgstr "Joi"
 
-#~ msgid "Friday"
-#~ msgstr "Vineri"
+#: libraries/config.values.php:195
+msgid "Friday"
+msgstr "Vineri"
 
-#~ msgid "Saturday"
-#~ msgstr "Sâmbătă"
+#: libraries/config.values.php:196
+msgid "Saturday"
+msgstr "Sâmbătă"
 
-#~ msgid "Sunday"
-#~ msgstr "Duminică"
+#: libraries/config.values.php:197
+msgid "Sunday"
+msgstr "Duminică"
 
 #~ msgid "Sun"
 #~ msgstr "D"
@@ -20622,8 +20494,8 @@ msgstr "Nume coloane"
 
 #~ msgid ""
 #~ "The SQL validator could not be initialized. Please check if you have "
-#~ "installed the necessary PHP extensions as described in the "
-#~ "%sdocumentation%s."
+#~ "installed the necessary PHP extensions as described in the %sdocumentation"
+#~ "%s."
 #~ msgstr ""
 #~ "Validatorul SQL nu poate fi inițializat. Verificați dacă e instalată "
 #~ "extesnsia necesară PHP, așa cum e descris în %sdocumentation%s."
@@ -21039,8 +20911,8 @@ msgstr "Nume coloane"
 #~ "Suggest a database name on the \"Create Database\" form (if possible) or "
 #~ "keep the text field empty"
 #~ msgstr ""
-#~ "Sugerați un nume pentru baza de date în formularul \"Creează Bază de "
-#~ "Date\" (dacă este posibil) sau lăsați câmpul necompletat"
+#~ "Sugerați un nume pentru baza de date în formularul \"Creează Bază de Date"
+#~ "\" (dacă este posibil) sau lăsați câmpul necompletat"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Sugerați un nume nou pentru baza de date"
@@ -21432,8 +21304,8 @@ msgstr "Nume coloane"
 #~ msgid ""
 #~ "Enter each value in a separate field, enclosed in single quotes. If you "
 #~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or "
-#~ "'a\\'b')."
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
+#~ "\\'b')."
 #~ msgstr ""
 #~ "Introduceți valorile pentru opțiunile de transformare utilizînd acest "
 #~ "format: 'a', 100, b,'c'…<br />Dacă trebuie să folosiți backslash (\"\\\") "
