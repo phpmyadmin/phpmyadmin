@@ -8547,14 +8547,6 @@
       <code>USE_UTF_STRINGS</code>
     </UndefinedConstant>
   </file>
-  <file src="libraries/classes/ListAbstract.php">
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[$this->getEmpty()]]></code>
-    </MixedReturnStatement>
-  </file>
   <file src="libraries/classes/ListDatabase.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
@@ -8562,15 +8554,9 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[usort($database_list, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$this->getEmpty()]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Logging.php">
     <MixedAssignment>
@@ -13495,13 +13481,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Table.php">
-    <InvalidArgument>
-      <code>$newDb</code>
-      <code>$sourceDb</code>
-      <code>$sourceDb</code>
-      <code>$targetDb</code>
-      <code>$targetDb</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['add_constraints']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -15954,11 +15933,6 @@
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/ListDatabaseTest.php">
-    <InvalidArgument>
-      <code><![CDATA['single_db']]></code>
-    </InvalidArgument>
   </file>
   <file src="test/classes/MessageTest.php">
     <MixedInferredReturnType>

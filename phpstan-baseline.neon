@@ -1361,7 +1361,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
 
@@ -5434,16 +5434,6 @@ parameters:
 			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\ListAbstract\\:\\:getDefault\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/ListAbstract.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\ListDatabase\\:\\:getDefault\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/ListDatabase.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) return type has no value type specified in iterable type array\\.$#"

@@ -908,18 +908,18 @@ class Table implements Stringable
     /**
      * Copies or renames table
      *
-     * @param string      $sourceDb    source database
-     * @param string      $sourceTable source table
-     * @param string|null $targetDb    target database
-     * @param string      $targetTable target table
-     * @param string      $what        what to be moved or copied (data, dataonly)
-     * @param bool        $move        whether to move
-     * @param string      $mode        mode
+     * @param string $sourceDb    source database
+     * @param string $sourceTable source table
+     * @param string $targetDb    target database
+     * @param string $targetTable target table
+     * @param string $what        what to be moved or copied (data, dataonly)
+     * @param bool   $move        whether to move
+     * @param string $mode        mode
      */
     public static function moveCopy(
-        $sourceDb,
+        string $sourceDb,
         $sourceTable,
-        string|null $targetDb,
+        string $targetDb,
         $targetTable,
         $what,
         $move,
@@ -959,7 +959,7 @@ class Table implements Stringable
                 $GLOBALS['message'] = Message::rawError(
                     sprintf(
                         __('Target database `%s` was not found!'),
-                        htmlspecialchars((string) $targetDb),
+                        htmlspecialchars($targetDb),
                     ),
                 );
             }
@@ -977,7 +977,7 @@ class Table implements Stringable
 
         // If the target database is not specified, the operation is taking
         // place in the same database.
-        if (! isset($targetDb) || $targetDb === '') {
+        if ($targetDb === '') {
             $targetDb = $sourceDb;
         }
 

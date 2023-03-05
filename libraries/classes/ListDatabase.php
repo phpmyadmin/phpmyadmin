@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Utilities;
+
 use function array_merge;
 use function is_array;
 use function is_string;
@@ -32,6 +34,26 @@ class ListDatabase extends ListAbstract
         $checkUserPrivileges->getPrivileges();
 
         $this->build();
+    }
+
+    /** @return array<int, array<string, bool|string>> */
+    public function getList(): array
+    {
+        $selected = $this->getDefault();
+
+        $list = [];
+        foreach ($this as $eachItem) {
+            if (Utilities::isSystemSchema($eachItem)) {
+                continue;
+            }
+
+            $list[] = [
+                'name' => $eachItem,
+                'is_selected' => $selected === $eachItem,
+            ];
+        }
+
+        return $list;
     }
 
     /**
@@ -157,6 +179,6 @@ class ListDatabase extends ListAbstract
             return $GLOBALS['db'];
         }
 
-        return $this->getEmpty();
+        return parent::getDefault();
     }
 }
