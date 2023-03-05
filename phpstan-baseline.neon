@@ -2271,11 +2271,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/GetFieldController.php
 
 		-
-			message: "#^Class PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController has an uninitialized property \\$visualization\\. Give it default value or assign it in the constructor\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
@@ -4606,52 +4601,17 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Call to function is_numeric\\(\\) with int will always evaluate to true\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Cannot call method Output\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:fetchRawData\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:get\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:getByData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:getByData\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:getSettings\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:prepareDataSet\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
@@ -4661,47 +4621,7 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:scaleDataSet\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:scaleDataSet\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:setUserSpecifiedSettings\\(\\) has parameter \\$userSpecifiedSettings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#1 \\$sql_query of class PhpMyAdmin\\\\Gis\\\\GisVisualization constructor expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#3 \\$row of class PhpMyAdmin\\\\Gis\\\\GisVisualization constructor expects int, null given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#4 \\$pos of class PhpMyAdmin\\\\Gis\\\\GisVisualization constructor expects int, null given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:\\$data type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:\\$settings type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:\\$userSpecifiedSettings type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
