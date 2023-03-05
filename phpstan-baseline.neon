@@ -5436,16 +5436,6 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ListAbstract\\:\\:getDefault\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/ListAbstract.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\ListDatabase\\:\\:getDefault\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/ListDatabase.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ListDatabase.php
