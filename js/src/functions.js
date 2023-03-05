@@ -584,7 +584,11 @@ Functions.suggestPassword = function (passwordForm) {
     passwordForm.elements.pma_pw2.value = passwd.value;
     var meterObj = $jQueryPasswordForm.find('meter[name="pw_meter"]').first();
     var meterObjLabel = $jQueryPasswordForm.find('span[name="pw_strength"]').first();
-    Functions.checkPasswordStrength(passwd.value, meterObj, meterObjLabel, passwordForm.elements.username.value);
+    var username = '';
+    if (passwordForm.elements.username) {
+        username = passwordForm.elements.username.value;
+    }
+    Functions.checkPasswordStrength(passwd.value, meterObj, meterObjLabel, username);
     return true;
 };
 
