@@ -20,6 +20,7 @@ use function __;
 use function array_merge;
 use function in_array;
 use function is_array;
+use function is_string;
 
 /**
  * Handles creation of the GIS visualizations.
@@ -48,17 +49,10 @@ final class GisVisualizationController extends AbstractController
         }
 
         // SQL query for retrieving GIS data
-        $sqlQuery = '';
-        if (isset($_GET['sql_query'], $_GET['sql_signature'])) {
-            if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
-                $sqlQuery = $_GET['sql_query'];
-            }
-        } elseif (isset($_POST['sql_query'])) {
-            $sqlQuery = $_POST['sql_query'];
-        }
+        $sqlQuery = $this->getSqlQuery();
 
         // Throw error if no sql query is set
-        if ($sqlQuery == '') {
+        if ($sqlQuery === null) {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
@@ -196,5 +190,28 @@ final class GisVisualizationController extends AbstractController
         ]);
 
         $this->response->addHTML($html);
+    }
+
+    /**
+     * Reads the sql query from POST or GET
+     *
+     * @psalm-return non-empty-string|null
+     */
+    private function getSqlQuery(): string|null
+    {
+        $getQuery = $_GET['sql_query'] ?? null;
+        $getSignature = $_GET['sql_signature'] ?? null;
+        $postQuery = $_POST['sql_query'] ?? null;
+
+        $sqlQuery = null;
+        if (is_string($getQuery) && is_string($getSignature)) {
+            if (Core::checkSqlQuerySignature($getQuery, $getSignature)) {
+                $sqlQuery = $getQuery;
+            }
+        } elseif (is_string($postQuery)) {
+            $sqlQuery = $postQuery;
+        }
+
+        return $sqlQuery === '' ? null : $sqlQuery;
     }
 }
