@@ -161,19 +161,21 @@ class GisVisualization
      */
     private function modifySqlQuery($sql_query, $rows, $pos): string
     {
-        $isMariaDb = $this->userSpecifiedSettings['isMariaDB'] === true;
         $modified_query = 'SELECT ';
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
         $axisOrder = '';
 
-        if ($this->userSpecifiedSettings['mysqlVersion'] >= 50600) {
+        $mysqlVersion = $GLOBALS['dbi']->getVersion();
+        $isMariaDB = $GLOBALS['dbi']->isMariaDB();
+
+        if ($mysqlVersion >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
         }
 
         // If MYSQL version >= 8.0.1 override default axis order
-        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80001 && ! $isMariaDb) {
+        if ($mysqlVersion >= 80001 && ! $isMariaDB) {
             $axisOrder = ', \'axis-order=long-lat\'';
         }
 
