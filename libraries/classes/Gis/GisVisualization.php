@@ -37,8 +37,6 @@ class GisVisualization
     /** @var array   Raw data for the visualization */
     private array $data;
 
-    private string $modifiedSql = '';
-
     /** @var array   Set of default settings values are here. */
     private array $settings = [
         // Array of colors to be used for GIS visualizations.
@@ -151,12 +149,17 @@ class GisVisualization
         $this->rows = $rows;
 
         $this->userSpecifiedSettings = $options;
-        if (isset($data)) {
-            $this->data = $data;
-        } else {
-            $this->modifiedSql = $this->modifySqlQuery($sql_query);
-            $this->data = $this->fetchRawData();
-        }
+        $this->data = is_string($sql_query)
+            ? $this->modifyQueryAndFetch($sql_query)
+            : $data;
+    }
+
+    /** @return array raw data */
+    private function modifyQueryAndFetch(string $sqlQuery): array
+    {
+        $modifiedSql = $this->modifySqlQuery($sqlQuery);
+
+        return $this->fetchRawData($modifiedSql);
     }
 
     /**
@@ -228,9 +231,9 @@ class GisVisualization
      *
      * @return array the raw data.
      */
-    private function fetchRawData(): array
+    private function fetchRawData(string $modifiedSql): array
     {
-        $modified_result = $GLOBALS['dbi']->tryQuery($this->modifiedSql);
+        $modified_result = $GLOBALS['dbi']->tryQuery($modifiedSql);
 
         if ($modified_result === false) {
             return [];
