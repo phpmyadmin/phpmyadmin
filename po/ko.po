@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-03-04 13:51+0000\n"
+"POT-Creation-Date: 2023-03-05 00:22+0000\n"
 "PO-Revision-Date: 2022-10-12 10:26+0000\n"
 "Last-Translator: Yun Minseo <ddugi1214@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3137,14 +3137,14 @@ msgstr "첫 줄에 열 이름을 넣기"
 #: libraries/classes/Config/Descriptions.php:653
 #: libraries/classes/Config/Descriptions.php:786
 #: libraries/classes/Config/Descriptions.php:792
-#: libraries/classes/Plugins/Import/ImportCsv.php:678
+#: libraries/classes/Plugins/Import/ImportCsv.php:660
 msgid "Columns enclosed with"
 msgstr "열을 시작하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Config/Descriptions.php:787
 #: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Plugins/Import/ImportCsv.php:689
+#: libraries/classes/Plugins/Import/ImportCsv.php:671
 msgid "Columns escaped with"
 msgstr "특수 문자 구분에 사용된 문자"
 
@@ -3166,13 +3166,13 @@ msgstr "열 내의 CRLF 문자를 제거하기"
 #: libraries/classes/Config/Descriptions.php:657
 #: libraries/classes/Config/Descriptions.php:790
 #: libraries/classes/Config/Descriptions.php:797
-#: libraries/classes/Plugins/Import/ImportCsv.php:663
+#: libraries/classes/Plugins/Import/ImportCsv.php:645
 msgid "Columns terminated with"
 msgstr "열을 종료하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:785
-#: libraries/classes/Plugins/Import/ImportCsv.php:696
+#: libraries/classes/Plugins/Import/ImportCsv.php:678
 msgid "Lines terminated with"
 msgstr "행을 종료하는 문자"
 
@@ -7545,6 +7545,7 @@ msgid "Dec"
 msgstr "12월"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
+#: libraries/config.values.php:197
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -7552,6 +7553,7 @@ msgid "Sunday"
 msgstr "일요일"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/config.values.php:191
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -7559,6 +7561,7 @@ msgid "Monday"
 msgstr "월요일"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
+#: libraries/config.values.php:192
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -7566,6 +7569,7 @@ msgid "Tuesday"
 msgstr "화요일"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/config.values.php:193
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -7573,6 +7577,7 @@ msgid "Wednesday"
 msgstr "수요일"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
+#: libraries/config.values.php:194
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -7580,6 +7585,7 @@ msgid "Thursday"
 msgstr "목요일"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/config.values.php:195
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -7587,6 +7593,7 @@ msgid "Friday"
 msgstr "금요일"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
+#: libraries/config.values.php:196
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -11626,7 +11633,7 @@ msgid "Column names:"
 msgstr "열(컬럼) 이름: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:282
-#: libraries/classes/Plugins/Import/ImportCsv.php:640
+#: libraries/classes/Plugins/Import/ImportCsv.php:622
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d 행에 잘못된 형식."
@@ -11636,15 +11643,15 @@ msgstr "%d 행에 잘못된 형식."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "%d 행에 잘못된 컬럼 수."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:661
+#: libraries/classes/Plugins/Import/ImportCsv.php:643
+#: libraries/classes/Plugins/Import/ImportCsv.php:658
+#: libraries/classes/Plugins/Import/ImportCsv.php:669
 #: libraries/classes/Plugins/Import/ImportCsv.php:676
-#: libraries/classes/Plugins/Import/ImportCsv.php:687
-#: libraries/classes/Plugins/Import/ImportCsv.php:694
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV를 가져오기 위한 파라미터가 잘못됨: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:825
+#: libraries/classes/Plugins/Import/ImportCsv.php:807
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -13483,34 +13490,6 @@ msgstr "열기"
 #: libraries/config.values.php:187
 msgid "Closed"
 msgstr "닫기"
-
-#: libraries/config.values.php:191
-msgid "Monday"
-msgstr "월요일"
-
-#: libraries/config.values.php:192
-msgid "Tuesday"
-msgstr "화요일"
-
-#: libraries/config.values.php:193
-msgid "Wednesday"
-msgstr "수요일"
-
-#: libraries/config.values.php:194
-msgid "Thursday"
-msgstr "목요일"
-
-#: libraries/config.values.php:195
-msgid "Friday"
-msgstr "금요일"
-
-#: libraries/config.values.php:196
-msgid "Saturday"
-msgstr "토요일"
-
-#: libraries/config.values.php:197
-msgid "Sunday"
-msgstr "일요일"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
@@ -18938,6 +18917,27 @@ msgstr "뷰 이름"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "열(칼럼) 이름"
+
+#~ msgid "Monday"
+#~ msgstr "월요일"
+
+#~ msgid "Tuesday"
+#~ msgstr "화요일"
+
+#~ msgid "Wednesday"
+#~ msgstr "수요일"
+
+#~ msgid "Thursday"
+#~ msgstr "목요일"
+
+#~ msgid "Friday"
+#~ msgstr "금요일"
+
+#~ msgid "Saturday"
+#~ msgstr "토요일"
+
+#~ msgid "Sunday"
+#~ msgstr "일요일"
 
 #~ msgid "Sun"
 #~ msgstr "일"

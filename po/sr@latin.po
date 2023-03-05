@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-03-04 13:51+0000\n"
+"POT-Creation-Date: 2023-03-05 00:22+0000\n"
 "PO-Revision-Date: 2022-12-13 20:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
@@ -3333,7 +3333,7 @@ msgstr "Stavi imena kolona u prvi red"
 #: libraries/classes/Config/Descriptions.php:653
 #: libraries/classes/Config/Descriptions.php:786
 #: libraries/classes/Config/Descriptions.php:792
-#: libraries/classes/Plugins/Import/ImportCsv.php:678
+#: libraries/classes/Plugins/Import/ImportCsv.php:660
 #, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
@@ -3342,7 +3342,7 @@ msgstr "Kolone uokvirene sa:"
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Config/Descriptions.php:787
 #: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Plugins/Import/ImportCsv.php:689
+#: libraries/classes/Plugins/Import/ImportCsv.php:671
 #, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
@@ -3368,7 +3368,7 @@ msgstr "Izbaci CRLF znakove u kolonama"
 #: libraries/classes/Config/Descriptions.php:657
 #: libraries/classes/Config/Descriptions.php:790
 #: libraries/classes/Config/Descriptions.php:797
-#: libraries/classes/Plugins/Import/ImportCsv.php:663
+#: libraries/classes/Plugins/Import/ImportCsv.php:645
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
@@ -3376,7 +3376,7 @@ msgstr "Kolone se završavaju sa"
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:785
-#: libraries/classes/Plugins/Import/ImportCsv.php:696
+#: libraries/classes/Plugins/Import/ImportCsv.php:678
 #, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
@@ -8041,6 +8041,7 @@ msgid "Dec"
 msgstr "Dec"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
+#: libraries/config.values.php:197
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -8048,6 +8049,7 @@ msgid "Sunday"
 msgstr "Nedelja"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/config.values.php:191
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -8055,6 +8057,7 @@ msgid "Monday"
 msgstr "Ponedeljak"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
+#: libraries/config.values.php:192
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -8062,6 +8065,7 @@ msgid "Tuesday"
 msgstr "Utorak"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/config.values.php:193
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -8069,6 +8073,7 @@ msgid "Wednesday"
 msgstr "Sreda"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
+#: libraries/config.values.php:194
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -8076,6 +8081,7 @@ msgid "Thursday"
 msgstr "Četvrtak"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/config.values.php:195
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -8083,6 +8089,7 @@ msgid "Friday"
 msgstr "Petak"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
+#: libraries/config.values.php:196
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -12485,7 +12492,7 @@ msgid "Column names:"
 msgstr "Imena kolona: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:282
-#: libraries/classes/Plugins/Import/ImportCsv.php:640
+#: libraries/classes/Plugins/Import/ImportCsv.php:622
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neispravan format CSV ulaza na liniji %d."
@@ -12495,15 +12502,15 @@ msgstr "Neispravan format CSV ulaza na liniji %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neispravan broj kolona u CSV ulazu na liniji %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:661
+#: libraries/classes/Plugins/Import/ImportCsv.php:643
+#: libraries/classes/Plugins/Import/ImportCsv.php:658
+#: libraries/classes/Plugins/Import/ImportCsv.php:669
 #: libraries/classes/Plugins/Import/ImportCsv.php:676
-#: libraries/classes/Plugins/Import/ImportCsv.php:687
-#: libraries/classes/Plugins/Import/ImportCsv.php:694
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Neispravni parametri za CSV uvoz: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:825
+#: libraries/classes/Plugins/Import/ImportCsv.php:807
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -14436,34 +14443,6 @@ msgstr "Otvori"
 #: libraries/config.values.php:187
 msgid "Closed"
 msgstr "Zatvoreno"
-
-#: libraries/config.values.php:191
-msgid "Monday"
-msgstr "Ponedeljak"
-
-#: libraries/config.values.php:192
-msgid "Tuesday"
-msgstr "Utorak"
-
-#: libraries/config.values.php:193
-msgid "Wednesday"
-msgstr "Sreda"
-
-#: libraries/config.values.php:194
-msgid "Thursday"
-msgstr "Četvrtak"
-
-#: libraries/config.values.php:195
-msgid "Friday"
-msgstr "Petak"
-
-#: libraries/config.values.php:196
-msgid "Saturday"
-msgstr "Subota"
-
-#: libraries/config.values.php:197
-msgid "Sunday"
-msgstr "Nedelja"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
@@ -20443,6 +20422,27 @@ msgstr "naziv za VIEW"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Imena kolona"
+
+#~ msgid "Monday"
+#~ msgstr "Ponedeljak"
+
+#~ msgid "Tuesday"
+#~ msgstr "Utorak"
+
+#~ msgid "Wednesday"
+#~ msgstr "Sreda"
+
+#~ msgid "Thursday"
+#~ msgstr "Četvrtak"
+
+#~ msgid "Friday"
+#~ msgstr "Petak"
+
+#~ msgid "Saturday"
+#~ msgstr "Subota"
+
+#~ msgid "Sunday"
+#~ msgstr "Nedelja"
 
 #~ msgid "Sun"
 #~ msgstr "Ned"

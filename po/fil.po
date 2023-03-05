@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-03-04 13:51+0000\n"
+"POT-Creation-Date: 2023-03-05 00:22+0000\n"
 "PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2802,14 +2802,14 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:653
 #: libraries/classes/Config/Descriptions.php:786
 #: libraries/classes/Config/Descriptions.php:792
-#: libraries/classes/Plugins/Import/ImportCsv.php:678
+#: libraries/classes/Plugins/Import/ImportCsv.php:660
 msgid "Columns enclosed with"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Config/Descriptions.php:787
 #: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Plugins/Import/ImportCsv.php:689
+#: libraries/classes/Plugins/Import/ImportCsv.php:671
 msgid "Columns escaped with"
 msgstr ""
 
@@ -2831,13 +2831,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:657
 #: libraries/classes/Config/Descriptions.php:790
 #: libraries/classes/Config/Descriptions.php:797
-#: libraries/classes/Plugins/Import/ImportCsv.php:663
+#: libraries/classes/Plugins/Import/ImportCsv.php:645
 msgid "Columns terminated with"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:785
-#: libraries/classes/Plugins/Import/ImportCsv.php:696
+#: libraries/classes/Plugins/Import/ImportCsv.php:678
 msgid "Lines terminated with"
 msgstr ""
 
@@ -7215,6 +7215,7 @@ msgid "Dec"
 msgstr "Disyembre"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
+#: libraries/config.values.php:197
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -7222,6 +7223,7 @@ msgid "Sunday"
 msgstr "Linggo"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/config.values.php:191
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -7229,6 +7231,7 @@ msgid "Monday"
 msgstr "Lunes"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
+#: libraries/config.values.php:192
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -7236,6 +7239,7 @@ msgid "Tuesday"
 msgstr "Martes"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/config.values.php:193
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -7243,6 +7247,7 @@ msgid "Wednesday"
 msgstr "Miyerkules"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
+#: libraries/config.values.php:194
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -7250,6 +7255,7 @@ msgid "Thursday"
 msgstr "Huwebes"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/config.values.php:195
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -7257,6 +7263,7 @@ msgid "Friday"
 msgstr "Biyernes"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
+#: libraries/config.values.php:196
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -11198,7 +11205,7 @@ msgid "Column names:"
 msgstr "Kopyahin ang pangalan ng haligi."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:282
-#: libraries/classes/Plugins/Import/ImportCsv.php:640
+#: libraries/classes/Plugins/Import/ImportCsv.php:622
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
@@ -11208,15 +11215,15 @@ msgstr ""
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:661
+#: libraries/classes/Plugins/Import/ImportCsv.php:643
+#: libraries/classes/Plugins/Import/ImportCsv.php:658
+#: libraries/classes/Plugins/Import/ImportCsv.php:669
 #: libraries/classes/Plugins/Import/ImportCsv.php:676
-#: libraries/classes/Plugins/Import/ImportCsv.php:687
-#: libraries/classes/Plugins/Import/ImportCsv.php:694
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:825
+#: libraries/classes/Plugins/Import/ImportCsv.php:807
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12947,34 +12954,6 @@ msgstr ""
 #: libraries/config.values.php:187
 msgid "Closed"
 msgstr ""
-
-#: libraries/config.values.php:191
-msgid "Monday"
-msgstr "Lunes"
-
-#: libraries/config.values.php:192
-msgid "Tuesday"
-msgstr "Martes"
-
-#: libraries/config.values.php:193
-msgid "Wednesday"
-msgstr "Miyerkules"
-
-#: libraries/config.values.php:194
-msgid "Thursday"
-msgstr "Huwebes"
-
-#: libraries/config.values.php:195
-msgid "Friday"
-msgstr "Biyernes"
-
-#: libraries/config.values.php:196
-msgid "Saturday"
-msgstr "Sabado"
-
-#: libraries/config.values.php:197
-msgid "Sunday"
-msgstr "Linggo"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
@@ -18207,6 +18186,27 @@ msgstr ""
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr ""
+
+#~ msgid "Monday"
+#~ msgstr "Lunes"
+
+#~ msgid "Tuesday"
+#~ msgstr "Martes"
+
+#~ msgid "Wednesday"
+#~ msgstr "Miyerkules"
+
+#~ msgid "Thursday"
+#~ msgstr "Huwebes"
+
+#~ msgid "Friday"
+#~ msgstr "Biyernes"
+
+#~ msgid "Saturday"
+#~ msgstr "Sabado"
+
+#~ msgid "Sunday"
+#~ msgstr "Linggo"
 
 #~ msgid "Sun"
 #~ msgstr "Linggo"
