@@ -130,13 +130,7 @@ final class GisVisualizationController extends AbstractController
         $this->addScriptFiles(['vendor/openlayers/OpenLayers.js', 'table/gis_visualization.js']);
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
-        if (! isset($_POST['displayVisualization'])) {
-            if ($visualization->hasSrid()) {
-                $visualizationSettings['choice'] = 'useBaseLayer';
-            } else {
-                unset($visualizationSettings['choice']);
-            }
-        }
+        $useBaseLayer = isset($_POST['redraw']) ? isset($_POST['useBaseLayer']) : $visualization->hasSrid();
 
         /**
          * Displays the page
@@ -165,6 +159,7 @@ final class GisVisualizationController extends AbstractController
             'spatial_candidates' => $spatialCandidates,
             'visualization_settings' => $visualizationSettings,
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
+            'useBaseLayer' => $useBaseLayer,
             'visualization' => $visualization->toImage('svg'),
             'draw_ol' => $visualization->asOl(),
         ]);

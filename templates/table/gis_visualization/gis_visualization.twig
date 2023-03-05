@@ -28,9 +28,9 @@
           </select>
         </div>
         <div class="col-auto">
-          <input type="hidden" name="displayVisualization" value="redraw">
+          <input type="hidden" name="redraw" value="true">
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="visualizationSettings[choice]" id="choice" value="useBaseLayer"{{ visualization_settings['choice'] is defined ? ' checked' }}>
+            <input class="form-check-input" type="checkbox" name="useBaseLayer" id="choice"{{ useBaseLayer ? ' checked' }}>
             <label class="form-check-label" for="choice" id="labelChoice">{% trans 'Use OpenStreetMaps as Base Layer' %}</label>
           </div>
         </div>
