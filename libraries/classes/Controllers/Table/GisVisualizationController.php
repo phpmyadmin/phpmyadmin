@@ -89,29 +89,7 @@ final class GisVisualizationController extends AbstractController
         }
 
         // Get settings if any posted
-        $visualizationSettings = [];
-        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
-        if (isset($_POST['visualizationSettings']) && is_array($_POST['visualizationSettings'])) {
-            $visualizationSettings = $_POST['visualizationSettings'];
-        } elseif (isset($_GET['visualizationSettings']) && is_array($_GET['visualizationSettings'])) {
-            $visualizationSettings = $_GET['visualizationSettings'];
-        }
-
-        if (
-            ! isset($visualizationSettings['labelColumn']) ||
-            ! in_array($visualizationSettings['labelColumn'], $labelCandidates, true)
-        ) {
-            $visualizationSettings['labelColumn'] = null;
-        }
-
-        // If spatial column is not set, use first geometric column as spatial column
-        if (
-            ! isset($visualizationSettings['spatialColumn']) ||
-            ! in_array($visualizationSettings['spatialColumn'], $spatialCandidates, true)
-        ) {
-            $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
-        }
-
+        $visualizationSettings = $this->getVisualizationSettings($spatialCandidates, $labelCandidates);
         $visualizationSettings['width'] = 600;
         $visualizationSettings['height'] = 450;
 
@@ -192,6 +170,43 @@ final class GisVisualizationController extends AbstractController
         }
 
         return $sqlQuery === '' ? null : $sqlQuery;
+    }
+
+    /**
+     * @param string[] $spatialCandidates
+     * @param string[] $labelCandidates
+     * @psalm-param non-empty-list<non-empty-string> $spatialCandidates
+     * @psalm-param list<non-empty-string> $labelCandidates
+     *
+     * @return mixed[];
+     * @psalm-return array{spatialColumn:non-empty-string,labelColumn?:non-empty-string}
+     */
+    private function getVisualizationSettings(array $spatialCandidates, array $labelCandidates): array
+    {
+        $settingsIn = [];
+        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
+        if (is_array($_POST['visualizationSettings'] ?? null)) {
+            /** @var mixed[] $settingsIn */
+            $settingsIn = $_POST['visualizationSettings'];
+        } elseif (is_array($_GET['visualizationSettings'] ?? null)) {
+            /** @var mixed[] $settingsIn */
+            $settingsIn = $_GET['visualizationSettings'];
+        }
+
+        $settings = [];
+        if (
+            isset($settingsIn['labelColumn']) &&
+            in_array($settingsIn['labelColumn'], $labelCandidates, true)
+        ) {
+            $settings['labelColumn'] = $settingsIn['labelColumn'];
+        }
+
+        // If spatial column is not set, use first geometric column as spatial column
+        $spatialColumnValid = isset($settingsIn['spatialColumn']) &&
+            in_array($settingsIn['spatialColumn'], $spatialCandidates, true);
+        $settings['spatialColumn'] = $spatialColumnValid ? $settingsIn['spatialColumn'] : $spatialCandidates[0];
+
+        return $settings;
     }
 
     private function getPos(): int
