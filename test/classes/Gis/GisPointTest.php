@@ -95,7 +95,32 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateParams(): array
     {
-        return [["'POINT(5.02 8.45)',124", ['srid' => 124, 0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]]]];
+        return [
+            [
+                "'POINT(5.02 8.45)',124",
+                [
+                    'srid' => 124,
+                    0 => [
+                        'POINT' => [
+                            'x' => 5.02,
+                            'y' => 8.45,
+                        ],
+                    ],
+                ],
+            ],
+            [
+                '',
+                [
+                    'srid' => 0,
+                    0 => [
+                        'POINT' => [
+                            'x' => 0.0,
+                            'y' => 0.0,
+                        ],
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
