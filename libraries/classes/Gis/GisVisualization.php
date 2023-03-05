@@ -14,10 +14,8 @@ use PhpMyAdmin\Util;
 use TCPDF;
 use Webmozart\Assert\Assert;
 
-use function array_merge;
 use function base64_encode;
 use function count;
-use function intval;
 use function is_string;
 use function mb_strlen;
 use function mb_strpos;
@@ -35,35 +33,38 @@ use const PNG_ALL_FILTERS;
  */
 class GisVisualization
 {
+    /** Array of colors to be used for GIS visualizations.*/
+    private const COLORS = [
+        [176, 46, 224],
+        [224, 100, 46],
+        [224, 214, 46],
+        [46, 151, 224],
+        [188, 224, 46],
+        [224, 46, 117],
+        [92, 224, 46],
+        [224, 176, 46],
+        [0, 34, 224],
+        [114, 108, 177],
+        [72, 26, 54],
+        [186, 198, 88],
+        [18, 114, 36],
+        [130, 81, 25],
+        [35, 140, 116],
+        [76, 72, 155],
+        [135, 201, 191],
+    ];
+
     /** @var mixed[][]   Raw data for the visualization */
     private array $data;
 
-    /** @var array   Set of default settings values are here. */
-    private array $settings = [
-        // Array of colors to be used for GIS visualizations.
-        'colors' => [
-            [176, 46, 224],
-            [224, 100, 46],
-            [224, 214, 46],
-            [46, 151, 224],
-            [188, 224, 46],
-            [224, 46, 117],
-            [92, 224, 46],
-            [224, 176, 46],
-            [0, 34, 224],
-            [114, 108, 177],
-            [72, 26, 54],
-            [186, 198, 88],
-            [18, 114, 36],
-            [130, 81, 25],
-            [35, 140, 116],
-            [76, 72, 155],
-            [135, 201, 191],
-        ],
-    ];
+    /** The width of the GIS visualization.*/
+    private int $width;
+    /** The height of the GIS visualization. */
+    private int $height;
 
-    /** @var array   Options that the user has specified. */
-    private array $userSpecifiedSettings;
+    private string $spatialColumn;
+
+    private string|null $labelColumn;
 
     /** Number of rows */
     private int $rows;
@@ -78,16 +79,6 @@ class GisVisualization
     public function getRows(): int
     {
         return $this->rows;
-    }
-
-    /**
-     * Returns the settings array
-     *
-     * @return array the settings array
-     */
-    public function getSettings(): array
-    {
-        return $this->settings;
     }
 
     /**
@@ -153,13 +144,25 @@ class GisVisualization
      */
     private function __construct(array|string $sqlOrData, array $options, int $rows = 0, int $pos = 0)
     {
-        Assert::positiveInteger($options['width'] ?? null);
-        Assert::positiveInteger($options['height'] ?? null);
+        $width = $options['width'] ?? null;
+        Assert::positiveInteger($width);
+        $this->width = $width;
+
+        $height = $options['height'] ?? null;
+        Assert::positiveInteger($height);
+        $this->height = $height;
+
+        $spatialColumn = $options['spatialColumn'] ?? null;
+        Assert::stringNotEmpty($spatialColumn);
+        $this->spatialColumn = $spatialColumn;
+
+        $labelColumn = $options['labelColumn'] ?? null;
+        Assert::nullOrStringNotEmpty($labelColumn);
+        $this->labelColumn = $labelColumn;
 
         $this->pos = $pos;
         $this->rows = $rows;
 
-        $this->userSpecifiedSettings = $options;
         $this->data = is_string($sqlOrData)
             ? $this->modifyQueryAndFetch($sqlOrData)
             : $sqlOrData;
@@ -171,14 +174,6 @@ class GisVisualization
         $modifiedSql = $this->modifySqlQuery($sqlQuery);
 
         return $this->fetchRawData($modifiedSql);
-    }
-
-    /**
-     * All the variable initialization, options handling has to be done here.
-     */
-    protected function init(): void
-    {
-        $this->handleOptions();
     }
 
     /**
@@ -209,20 +204,20 @@ class GisVisualization
         }
 
         // If label column is chosen add it to the query
-        if (! empty($this->userSpecifiedSettings['labelColumn'])) {
-            $modified_query .= Util::backquote($this->userSpecifiedSettings['labelColumn'])
+        if ($this->labelColumn !== null) {
+            $modified_query .= Util::backquote($this->labelColumn)
             . ', ';
         }
 
         // Wrap the spatial column with 'ST_ASTEXT()' function and add it
         $modified_query .= $spatialAsText . '('
-            . Util::backquote($this->userSpecifiedSettings['spatialColumn'])
-            . $axisOrder . ') AS ' . Util::backquote($this->userSpecifiedSettings['spatialColumn'])
+            . Util::backquote($this->spatialColumn)
+            . $axisOrder . ') AS ' . Util::backquote($this->spatialColumn)
             . ', ';
 
         // Get the SRID
         $modified_query .= $spatialSrid . '('
-            . Util::backquote($this->userSpecifiedSettings['spatialColumn'])
+            . Util::backquote($this->spatialColumn)
             . ') AS ' . Util::backquote('srid') . ' ';
 
         // Append the original query as the inner query
@@ -251,15 +246,6 @@ class GisVisualization
         }
 
         return $modified_result->fetchAllAssoc();
-    }
-
-    /**
-     * A function which handles passed parameters. Useful if desired
-     * chart needs to be a little bit different from the default one.
-     */
-    private function handleOptions(): void
-    {
-        $this->settings = array_merge($this->settings, $this->userSpecifiedSettings);
     }
 
     /**
@@ -306,8 +292,6 @@ class GisVisualization
      */
     private function svg(): string
     {
-        $this->init();
-
         $scale_data = $this->scaleDataSet($this->data);
         /** @var string $svg */
         $svg = $this->prepareDataSet($this->data, $scale_data, 'svg');
@@ -316,8 +300,8 @@ class GisVisualization
             . "\n"
             . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
-            . ' width="' . intval($this->settings['width']) . '"'
-            . ' height="' . intval($this->settings['height']) . '">'
+            . ' width="' . $this->width . '"'
+            . ' height="' . $this->height . '">'
             . '<g id="groupPanel">' . $svg . '</g>'
             . '</svg>';
     }
@@ -351,11 +335,9 @@ class GisVisualization
      */
     private function png(): ImageWrapper|null
     {
-        $this->init();
-
         $image = ImageWrapper::create(
-            $this->settings['width'],
-            $this->settings['height'],
+            $this->width,
+            $this->height,
             ['red' => 229, 'green' => 229, 'blue' => 229],
         );
         if ($image === null) {
@@ -417,7 +399,6 @@ class GisVisualization
      */
     public function asOl(): string
     {
-        $this->init();
         $scale_data = $this->scaleDataSet($this->data);
         /** @var string $olCode */
         $olCode = $this->prepareDataSet($this->data, $scale_data, 'ol');
@@ -463,8 +444,6 @@ class GisVisualization
      */
     public function toFileAsPdf($file_name): void
     {
-        $this->init();
-
         // create pdf
         $pdf = new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false);
 
@@ -539,12 +518,12 @@ class GisVisualization
         $min_max = null;
         $border = 15;
         // effective width and height of the plot
-        $plot_width = $this->settings['width'] - 2 * $border;
-        $plot_height = $this->settings['height'] - 2 * $border;
+        $plot_width = $this->width - 2 * $border;
+        $plot_height = $this->height - 2 * $border;
 
         foreach ($data as $row) {
             // Figure out the data type
-            $ref_data = $row[$this->settings['spatialColumn']];
+            $ref_data = $row[$this->spatialColumn];
             if (! is_string($ref_data)) {
                 continue;
             }
@@ -561,7 +540,7 @@ class GisVisualization
                 continue;
             }
 
-            $scaleData = $gis_obj->scaleRow($row[$this->settings['spatialColumn']]);
+            $scaleData = $gis_obj->scaleRow($ref_data);
 
             // Update minimum/maximum values for x and y coordinates.
             $min_max = $min_max === null ? $scaleData : $scaleData?->merge($min_max);
@@ -578,17 +557,17 @@ class GisVisualization
 
         // Center plot
         $x = $ratio == 0 || $x_ratio < $y_ratio
-            ? ($min_max->maxX + $min_max->minX - $this->settings['width'] / $scale) / 2
+            ? ($min_max->maxX + $min_max->minX - $this->width / $scale) / 2
             : $min_max->minX - ($border / $scale);
         $y = $ratio == 0 || $x_ratio >= $y_ratio
-            ? ($min_max->maxY + $min_max->minY - $this->settings['height'] / $scale) / 2
+            ? ($min_max->maxY + $min_max->minY - $this->height / $scale) / 2
             : $min_max->minY - ($border / $scale);
 
         return [
             'scale' => $scale,
             'x' => $x,
             'y' => $y,
-            'height' => $this->settings['height'],
+            'height' => $this->height,
         ];
     }
 
@@ -609,14 +588,12 @@ class GisVisualization
         $format,
         ImageWrapper|TCPDF|string $results = '',
     ): mixed {
-        /** @var int[][] $colors */
-        $colors = $this->settings['colors'];
         $color_index = 0;
 
         // loop through the rows
         foreach ($data as $row) {
             // Figure out the data type
-            $ref_data = $row[$this->settings['spatialColumn']];
+            $ref_data = $row[$this->spatialColumn];
             if (! is_string($ref_data)) {
                 continue;
             }
@@ -633,19 +610,19 @@ class GisVisualization
                 continue;
             }
 
-            $color = $colors[$color_index];
-            $label = trim((string) ($row[$this->settings['labelColumn']] ?? ''));
+            $color = self::COLORS[$color_index];
+            $label = trim((string) ($row[$this->labelColumn] ?? ''));
 
             if ($format === 'svg') {
                 $results .= $gis_obj->prepareRowAsSvg(
-                    $row[$this->settings['spatialColumn']],
+                    $ref_data,
                     $label,
                     $color,
                     $scale_data,
                 );
             } elseif ($format === 'png') {
                 $results = $gis_obj->prepareRowAsPng(
-                    $row[$this->settings['spatialColumn']],
+                    $ref_data,
                     $label,
                     $color,
                     $scale_data,
@@ -653,7 +630,7 @@ class GisVisualization
                 );
             } elseif ($format === 'pdf' && $results instanceof TCPDF) {
                 $results = $gis_obj->prepareRowAsPdf(
-                    $row[$this->settings['spatialColumn']],
+                    $ref_data,
                     $label,
                     $color,
                     $scale_data,
@@ -661,26 +638,16 @@ class GisVisualization
                 );
             } elseif ($format === 'ol') {
                 $results .= $gis_obj->prepareRowAsOl(
-                    $row[$this->settings['spatialColumn']],
+                    $ref_data,
                     (int) $row['srid'],
                     $label,
                     $color,
                 );
             }
 
-            $color_index = ($color_index + 1) % count($colors);
+            $color_index = ($color_index + 1) % count(self::COLORS);
         }
 
         return $results;
-    }
-
-    /**
-     * Set user specified settings
-     *
-     * @param array $userSpecifiedSettings User specified settings
-     */
-    public function setUserSpecifiedSettings(array $userSpecifiedSettings): void
-    {
-        $this->userSpecifiedSettings = $userSpecifiedSettings;
     }
 }

@@ -29,12 +29,6 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $this->dbi->setVersion(['@@version' => '5.5.0']);
         $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]);
-        $this->callFunction(
-            $gis,
-            GisVisualization::class,
-            'handleOptions',
-            [],
-        );
 
         $dataSet = $this->callFunction(
             $gis,
