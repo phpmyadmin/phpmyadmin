@@ -28,7 +28,7 @@ class GisVisualizationTest extends AbstractTestCase
     public function testScaleDataSet(): void
     {
         $this->dbi->setVersion(['@@version' => '5.5.0']);
-        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc']);
+        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]);
         $this->callFunction(
             $gis,
             GisVisualization::class,
@@ -111,7 +111,7 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $this->dbi->setVersion(['@@version' => '5.5.0']);
         $queryString = $this->callFunction(
-            GisVisualization::getByData([], ['spatialColumn' => 'abc']),
+            GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]),
             GisVisualization::class,
             'modifySqlQuery',
             [''],
@@ -127,7 +127,7 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $this->dbi->setVersion(['@@version' => '8.0.0']);
         $queryString = $this->callFunction(
-            GisVisualization::getByData([], ['spatialColumn' => 'abc']),
+            GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]),
             GisVisualization::class,
             'modifySqlQuery',
             [''],
@@ -146,7 +146,7 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $this->dbi->setVersion(['@@version' => '8.0.0']);
         $queryString = $this->callFunction(
-            GisVisualization::getByData([], ['spatialColumn' => 'abc']),
+            GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]),
             GisVisualization::class,
             'modifySqlQuery',
             ['SELECT 1 FROM foo;'],
@@ -168,6 +168,8 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], [
                 'spatialColumn' => 'country_geom',
                 'labelColumn' => 'country name',
+                'width' => 600,
+                'height' => 450,
             ]),
             GisVisualization::class,
             'modifySqlQuery',
@@ -187,7 +189,7 @@ class GisVisualizationTest extends AbstractTestCase
     public function testModifyQueryWithLimit(): void
     {
         $this->dbi->setVersion(['@@version' => '8.0.0']);
-        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc']);
+        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]);
         $this->setProperty($gis, GisVisualization::class, 'rows', 10);
         $queryString = $this->callFunction(
             $gis,
@@ -201,7 +203,7 @@ class GisVisualizationTest extends AbstractTestCase
             $queryString,
         );
 
-        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc']);
+        $gis = GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]);
         $this->setProperty($gis, GisVisualization::class, 'pos', 10);
         $this->setProperty($gis, GisVisualization::class, 'rows', 15);
         $queryString = $this->callFunction(
@@ -224,7 +226,7 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $this->dbi->setVersion(['@@version' => '8.0.1']);
         $queryString = $this->callFunction(
-            GisVisualization::getByData([], ['spatialColumn' => 'abc']),
+            GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]),
             GisVisualization::class,
             'modifySqlQuery',
             [''],
@@ -243,7 +245,7 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $this->dbi->setVersion(['@@version' => '8.0.0-MariaDB']);
         $queryString = $this->callFunction(
-            GisVisualization::getByData([], ['spatialColumn' => 'abc']),
+            GisVisualization::getByData([], ['spatialColumn' => 'abc', 'width' => 600, 'height' => 450]),
             GisVisualization::class,
             'modifySqlQuery',
             [''],

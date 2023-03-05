@@ -12,6 +12,7 @@ use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
+use Webmozart\Assert\Assert;
 
 use function array_merge;
 use function base64_encode;
@@ -59,11 +60,6 @@ class GisVisualization
             [76, 72, 155],
             [135, 201, 191],
         ],
-
-        // The width of the GIS visualization.
-        'width' => 600,
-        // The height of the GIS visualization.
-        'height' => 450,
     ];
 
     /** @var array   Options that the user has specified. */
@@ -157,6 +153,9 @@ class GisVisualization
      */
     private function __construct(array|string $sqlOrData, array $options, int $rows = 0, int $pos = 0)
     {
+        Assert::positiveInteger($options['width'] ?? null);
+        Assert::positiveInteger($options['height'] ?? null);
+
         $this->pos = $pos;
         $this->rows = $rows;
 

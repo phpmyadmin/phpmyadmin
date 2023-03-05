@@ -119,6 +119,9 @@ final class GisVisualizationController extends AbstractController
             $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
         }
 
+        $visualizationSettings['width'] = 600;
+        $visualizationSettings['height'] = 450;
+
         // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
         // Convert geometric columns from bytes to text.
         $pos = (int) ($_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']);

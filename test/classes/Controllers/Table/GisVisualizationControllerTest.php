@@ -78,8 +78,8 @@ class GisVisualizationControllerTest extends AbstractTestCase
             'visualization_settings' => [
                 'spatialColumn' => 'shape',
                 'labelColumn' => null,
-                'width' => '600',
-                'height' => '450',
+                'width' => 600,
+                'height' => 450,
             ],
             'start_and_number_of_rows_fieldset' => [
                 'pos' => 0,
