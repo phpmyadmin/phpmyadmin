@@ -13,8 +13,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 
-use function array_merge;
-
 use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_VAR_STRING;
 
@@ -61,13 +59,14 @@ class GisVisualizationControllerTest extends AbstractTestCase
             'sql_query' => 'SELECT * FROM `gis_all`',
             'sql_signature' => Core::signSqlQuery('SELECT * FROM `gis_all`'),
         ];
-        $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge($params, [
+        $downloadParams = [
             'saveToFile' => true,
             'session_max_rows' => 25,
             'pos' => 0,
             'visualizationSettings[spatialColumn]' => 'shape',
             'visualizationSettings[labelColumn]' => null,
-        ]));
+        ];
+        $downloadUrl = Url::getFromRoute('/table/gis-visualization', $downloadParams + $params);
 
         $template = new Template();
         $expected = $template->render('table/gis_visualization/gis_visualization', [

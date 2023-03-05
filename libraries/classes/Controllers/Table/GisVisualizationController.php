@@ -18,7 +18,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function array_merge;
 use function in_array;
 use function is_array;
 use function is_string;
@@ -38,8 +37,6 @@ final class GisVisualizationController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
@@ -114,25 +111,24 @@ final class GisVisualizationController extends AbstractController
         /**
          * Displays the page
          */
-        $GLOBALS['urlParams']['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
-        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/sql');
-        $GLOBALS['urlParams']['sql_query'] = $sqlQuery;
-        $GLOBALS['urlParams']['sql_signature'] = Core::signSqlQuery($sqlQuery);
-        $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge(
-            $GLOBALS['urlParams'],
-            [
-                'saveToFile' => true,
-                'session_max_rows' => $visualization->getRows(),
-                'pos' => $visualization->getPos(),
-                'visualizationSettings[spatialColumn]' => $visualization->getSpatialColumn(),
-                'visualizationSettings[labelColumn]' => $visualization->getLabelColumn(),
-            ],
-        ));
+        $urlParams = $GLOBALS['urlParams'] ?? [];
+        $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $urlParams['back'] = Url::getFromRoute('/sql');
+        $urlParams['sql_query'] = $sqlQuery;
+        $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
+        $downloadParams = [
+            'saveToFile' => true,
+            'session_max_rows' => $visualization->getRows(),
+            'pos' => $visualization->getPos(),
+            'visualizationSettings[spatialColumn]' => $visualization->getSpatialColumn(),
+            'visualizationSettings[labelColumn]' => $visualization->getLabelColumn(),
+        ];
+        $downloadUrl = Url::getFromRoute('/table/gis-visualization', $downloadParams + $urlParams);
 
         $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery);
 
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => $urlParams,
             'download_url' => $downloadUrl,
             'label_candidates' => $labelCandidates,
             'spatial_candidates' => $spatialCandidates,
