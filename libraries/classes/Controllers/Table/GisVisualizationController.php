@@ -115,18 +115,8 @@ final class GisVisualizationController extends AbstractController
         $visualizationSettings['width'] = 600;
         $visualizationSettings['height'] = 450;
 
-        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
-        // Convert geometric columns from bytes to text.
-        $pos = (int) ($_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']);
-        if (isset($_POST['session_max_rows']) || isset($_GET['session_max_rows'])) {
-            $rows = (int) ($_POST['session_max_rows'] ?? $_GET['session_max_rows']);
-        } else {
-            if ($_SESSION['tmpval']['max_rows'] !== 'all') {
-                $rows = (int) $_SESSION['tmpval']['max_rows'];
-            } else {
-                $rows = (int) $GLOBALS['cfg']['MaxRows'];
-            }
-        }
+        $rows = $this->getRows();
+        $pos = $this->getPos();
 
         $visualization = GisVisualization::get($sqlQuery, $visualizationSettings, $rows, $pos);
 
@@ -212,6 +202,25 @@ final class GisVisualizationController extends AbstractController
         }
 
         return $sqlQuery === '' ? null : $sqlQuery;
+    }
+
+    private function getPos(): int
+    {
+        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
+        return (int) ($_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']);
+    }
+
+    private function getRows(): int
+    {
+        if (isset($_POST['session_max_rows']) || isset($_GET['session_max_rows'])) {
+            return (int) ($_POST['session_max_rows'] ?? $_GET['session_max_rows']);
+        }
+
+        if ($_SESSION['tmpval']['max_rows'] === 'all') {
+            return (int) $GLOBALS['cfg']['MaxRows'];
+        }
+
+        return (int) $_SESSION['tmpval']['max_rows'];
     }
 
     /**
