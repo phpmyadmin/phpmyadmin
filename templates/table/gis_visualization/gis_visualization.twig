@@ -11,7 +11,7 @@
           <select name="visualizationSettings[labelColumn]" id="labelColumn" class="form-select autosubmit">
             <option value="">{% trans '-- None --' %}</option>
             {% for value in label_candidates %}
-              <option value="{{ value }}"{{ value == visualization_settings['labelColumn'] ? ' selected' }}>
+              <option value="{{ value }}"{{ value == labelColumn ? ' selected' }}>
                 {{ value }}
               </option>
             {% endfor %}
@@ -21,7 +21,7 @@
           <label class="form-label" for="spatialColumn">{% trans 'Spatial column' %}</label>
           <select name="visualizationSettings[spatialColumn]" id="spatialColumn" class="form-select autosubmit">
             {% for value in spatial_candidates %}
-              <option value="{{ value }}"{{ value == visualization_settings['spatialColumn'] ? ' selected' }}>
+              <option value="{{ value }}"{{ value == spatialColumn ? ' selected' }}>
                 {{ value }}
               </option>
             {% endfor %}
@@ -51,7 +51,7 @@
         </div>
       </form>
 
-      <div id="placeholder" style="width:{{ visualization_settings['width'] }}px;height:{{ visualization_settings['height'] }}px;">
+      <div id="placeholder" style="width:{{ width }}px;height:{{ height }}px;">
         {{ visualization|raw }}
       </div>
       <div id="openlayersmap"></div>

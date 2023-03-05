@@ -75,12 +75,10 @@ class GisVisualizationControllerTest extends AbstractTestCase
             'download_url' => $downloadUrl,
             'label_candidates' => ['name'],
             'spatial_candidates' => ['shape'],
-            'visualization_settings' => [
-                'spatialColumn' => 'shape',
-                'labelColumn' => null,
-                'width' => 600,
-                'height' => 450,
-            ],
+            'spatialColumn' => 'shape',
+            'labelColumn' => null,
+            'width' => 600,
+            'height' => 450,
             'start_and_number_of_rows_fieldset' => [
                 'pos' => 0,
                 'unlim_num_rows' => 0,

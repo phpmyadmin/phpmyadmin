@@ -122,7 +122,8 @@ final class GisVisualizationController extends AbstractController
 
         if (isset($_GET['saveToFile'])) {
             $this->response->disable();
-            $visualization->toFile($visualizationSettings['spatialColumn'], $_GET['fileFormat']);
+            $filename = $visualization->getSpatialColumn();
+            $visualization->toFile($filename, $_GET['fileFormat']);
 
             return;
         }
@@ -145,8 +146,8 @@ final class GisVisualizationController extends AbstractController
                 'saveToFile' => true,
                 'session_max_rows' => $visualization->getRows(),
                 'pos' => $visualization->getPos(),
-                'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
-                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'],
+                'visualizationSettings[spatialColumn]' => $visualization->getSpatialColumn(),
+                'visualizationSettings[labelColumn]' => $visualization->getLabelColumn(),
             ],
         ));
 
@@ -157,10 +158,13 @@ final class GisVisualizationController extends AbstractController
             'download_url' => $downloadUrl,
             'label_candidates' => $labelCandidates,
             'spatial_candidates' => $spatialCandidates,
-            'visualization_settings' => $visualizationSettings,
+            'spatialColumn' => $visualization->getSpatialColumn(),
+            'labelColumn' => $visualization->getLabelColumn(),
+            'width' => $visualization->getWidth(),
+            'height' => $visualization->getHeight(),
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
             'useBaseLayer' => $useBaseLayer,
-            'visualization' => $visualization->toImage('svg'),
+            'visualization' => $visualization->asSVG(),
             'draw_ol' => $visualization->asOl(),
         ]);
 

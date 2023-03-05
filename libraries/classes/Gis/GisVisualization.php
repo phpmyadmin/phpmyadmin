@@ -71,6 +71,16 @@ class GisVisualization
     /** Start position */
     private int $pos;
 
+    public function getWidth(): int
+    {
+        return $this->width;
+    }
+
+    public function getHeight(): int
+    {
+        return $this->height;
+    }
+
     public function getPos(): int
     {
         return $this->pos;
@@ -79,6 +89,16 @@ class GisVisualization
     public function getRows(): int
     {
         return $this->rows;
+    }
+
+    public function getSpatialColumn(): string
+    {
+        return $this->spatialColumn;
+    }
+
+    public function getLabelColumn(): string|null
+    {
+        return $this->labelColumn;
     }
 
     /**
