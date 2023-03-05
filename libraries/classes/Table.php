@@ -403,7 +403,7 @@ class Table implements Stringable
             return '';
         }
 
-        return $tableRowFormat;
+        return $tableRowFormat ?? '';
     }
 
     /**
