@@ -34,7 +34,7 @@ use const PNG_ALL_FILTERS;
  */
 class GisVisualization
 {
-    /** @var array   Raw data for the visualization */
+    /** @var mixed[][]   Raw data for the visualization */
     private array $data;
 
     /** @var array   Set of default settings values are here. */
@@ -97,12 +97,18 @@ class GisVisualization
     /**
      * Factory
      *
-     * @param string $sql_query SQL to fetch raw data for visualization
-     * @param array  $options   Users specified options
-     * @param int    $rows      number of rows
-     * @param int    $pos       start position
+     * @param string                        $sql_query SQL to fetch raw data for visualization
+     * @param array<string,string|int|null> $options   Users specified options
+     * @param int                           $rows      number of rows
+     * @param int                           $pos       start position
+     * @psalm-param array{
+     *   spatialColumn: non-empty-string,
+     *   labelColumn?: non-empty-string|null,
+     *   width: int,
+     *   height: int,
+     * } $options
      */
-    public static function get($sql_query, array $options, int $rows, int $pos): GisVisualization
+    public static function get(string $sql_query, array $options, int $rows, int $pos): GisVisualization
     {
         return new GisVisualization($sql_query, $options, $rows, $pos);
     }
@@ -110,13 +116,19 @@ class GisVisualization
     /**
      * Get visualization
      *
-     * @param array $data    Raw data, if set, parameters other than $options will be
-     *                       ignored
-     * @param array $options Users specified options
+     * @param mixed[][]                     $data    Raw data, if set, parameters other
+     *                                               than $options will be ignored
+     * @param array<string,string|int|null> $options Users specified options
+     * @psalm-param array{
+     *     spatialColumn: non-empty-string,
+     *     labelColumn?: non-empty-string|null,
+     *     width: int,
+     *     height: int,
+     * } $options
      */
     public static function getByData(array $data, array $options): GisVisualization
     {
-        return new GisVisualization(null, $options, 0, 0, $data);
+        return new GisVisualization($data, $options);
     }
 
     /**
@@ -136,25 +148,25 @@ class GisVisualization
     /**
      * Stores user specified options.
      *
-     * @param string     $sql_query SQL to fetch raw data for visualization
-     * @param array      $options   Users specified options
-     * @param int        $rows      number of rows
-     * @param int        $pos       start position
-     * @param array|null $data      raw data. If set, parameters other than $options
-     *                              will be ignored
+     * @param mixed[][]|string    $sqlOrData SQL to fetch raw data for visualization
+     *                                       or an array with data.
+     *                                       If it is an array row and pos are ignored
+     * @param array<string,mixed> $options   Users specified options
+     * @param int                 $rows      number of rows
+     * @param int                 $pos       start position
      */
-    private function __construct($sql_query, array $options, int $rows, int $pos, $data = null)
+    private function __construct(array|string $sqlOrData, array $options, int $rows = 0, int $pos = 0)
     {
         $this->pos = $pos;
         $this->rows = $rows;
 
         $this->userSpecifiedSettings = $options;
-        $this->data = is_string($sql_query)
-            ? $this->modifyQueryAndFetch($sql_query)
-            : $data;
+        $this->data = is_string($sqlOrData)
+            ? $this->modifyQueryAndFetch($sqlOrData)
+            : $sqlOrData;
     }
 
-    /** @return array raw data */
+    /** @return mixed[][] raw data */
     private function modifyQueryAndFetch(string $sqlQuery): array
     {
         $modifiedSql = $this->modifySqlQuery($sqlQuery);
@@ -229,7 +241,7 @@ class GisVisualization
     /**
      * Returns raw data for GIS visualization.
      *
-     * @return array the raw data.
+     * @return mixed[][] the raw data.
      */
     private function fetchRawData(string $modifiedSql): array
     {
@@ -519,7 +531,7 @@ class GisVisualization
     /**
      * Calculates the scale, horizontal and vertical offset that should be used.
      *
-     * @param array $data Row data
+     * @param mixed[][] $data Row data
      *
      * @return array an array containing the scale, x and y offsets
      */
@@ -584,7 +596,7 @@ class GisVisualization
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param array                     $data       Raw data
+     * @param mixed[][]                 $data       Raw data
      * @param array                     $scale_data Data related to scaling
      * @param string                    $format     Format of the visualization
      * @param ImageWrapper|TCPDF|string $results    Image object in the case of png
