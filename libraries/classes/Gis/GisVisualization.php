@@ -14,15 +14,12 @@ use PhpMyAdmin\Util;
 use TCPDF;
 use Webmozart\Assert\Assert;
 
-use function base64_encode;
 use function count;
 use function is_string;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
-use function ob_get_clean;
-use function ob_start;
 use function rtrim;
 use function trim;
 
@@ -372,29 +369,6 @@ class GisVisualization
     }
 
     /**
-     * Get the visualization as a PNG.
-     *
-     * @return string the visualization as a PNG
-     */
-    public function asPng(): string
-    {
-        $image = $this->png();
-        if ($image === null) {
-            return '';
-        }
-
-        // render and save it to variable
-        ob_start();
-        $image->png(null, 9, PNG_ALL_FILTERS);
-        $output = ob_get_clean();
-
-        // base64 encode
-        $encoded = base64_encode((string) $output);
-
-        return '<img src="data:image/png;base64,' . $encoded . '">';
-    }
-
-    /**
      * Saves as a PNG image to a file.
      *
      * @param string $file_name File name
@@ -483,30 +457,6 @@ class GisVisualization
         // sanitize file name
         $file_name = $this->sanitizeName($file_name, 'pdf');
         $pdf->Output($file_name, 'D');
-    }
-
-    /**
-     * Convert file to image
-     *
-     * @param string $format Output format
-     *
-     * @return string File
-     */
-    public function toImage($format): string
-    {
-        if ($format === 'svg') {
-            return $this->asSVG();
-        }
-
-        if ($format === 'png') {
-            return $this->asPng();
-        }
-
-        if ($format === 'ol') {
-            return $this->asOl();
-        }
-
-        return '';
     }
 
     /**
