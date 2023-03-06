@@ -13658,7 +13658,6 @@
       <code>string</code>
       <code>string</code>
       <code>string</code>
-      <code>string</code>
     </MixedInferredReturnType>
     <MixedMethodCall>
       <code>has</code>
@@ -13682,7 +13681,6 @@
       <code><![CDATA[$tableCollation ?? '']]></code>
       <code><![CDATA[$tableCollation ?? '']]></code>
       <code>$tableComment</code>
-      <code>$tableRowFormat</code>
       <code><![CDATA[end($this->errors)]]></code>
       <code><![CDATA[end($this->messages)]]></code>
       <code>json_decode($value, true)</code>

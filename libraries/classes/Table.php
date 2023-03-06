@@ -399,11 +399,8 @@ class Table implements Stringable
     public function getRowFormat(): string
     {
         $tableRowFormat = $this->getStatusInfo('ROW_FORMAT', false, true);
-        if ($tableRowFormat === false) {
-            return '';
-        }
 
-        return $tableRowFormat ?? '';
+        return is_string($tableRowFormat) ? $tableRowFormat : '';
     }
 
     /**

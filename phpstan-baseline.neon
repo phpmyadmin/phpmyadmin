@@ -8501,11 +8501,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getRowFormat\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) has parameter \\$field with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
