@@ -1521,7 +1521,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Using appropriate quotes.
-                if (($compat === 'MSSQL') || ($GLOBALS['sql_backquotes'] === '"')) {
+                if ($compat === 'MSSQL') {
                     Context::$MODE |= Context::SQL_MODE_ANSI_QUOTES;
                 }
             }
