@@ -139,8 +139,9 @@ class HomeController extends AbstractController
             $availableLanguages = $languageManager->sortedLanguages();
         }
 
+        $showServerInfo = $GLOBALS['cfg']['ShowServerInfo'];
         $databaseServer = [];
-        if ($GLOBALS['server'] > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
+        if ($GLOBALS['server'] > 0 && ($showServerInfo === true || $showServerInfo === 'database-server')) {
             $hostInfo = '';
             if (! empty($GLOBALS['cfg']['Server']['verbose'])) {
                 $hostInfo .= $GLOBALS['cfg']['Server']['verbose'] . ' (';
@@ -164,7 +165,7 @@ class HomeController extends AbstractController
         }
 
         $webServer = [];
-        if ($GLOBALS['cfg']['ShowServerInfo']) {
+        if ($showServerInfo === true || $showServerInfo === 'web-server') {
             $webServer['software'] = $_SERVER['SERVER_SOFTWARE'] ?? null;
 
             if ($GLOBALS['server'] > 0) {

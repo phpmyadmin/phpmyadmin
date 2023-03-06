@@ -2427,12 +2427,22 @@ Main panel
 
 .. config:option:: $cfg['ShowServerInfo']
 
-    :type: boolean
+    :type: boolean|string
     :default: true
 
     Defines whether to display detailed server information on main page.
+    Possible values are:
+
+    * ``true`` to show all server information
+    * ``false`` to hide server information
+    * ``'database-server'`` to show only database server information
+    * ``'web-server'`` to show only web server information
+
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
+
+    .. versionchanged:: 6.0.0
+        Added ``'database-server'`` and ``'web-server'`` options.
 
 .. config:option:: $cfg['ShowPhpInfo']
 

@@ -1049,15 +1049,17 @@ final class Settings
     public bool $ShowPhpInfo;
 
     /**
-     * show MySQL server and web server information
+     * show MySQL server and/or web server information (true|false|'database-server'|'web-server')
      *
      * ```php
      * $cfg['ShowServerInfo'] = true;
      * ```
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_ShowServerInfo
+     *
+     * @psalm-var bool|'database-server'|'web-server'
      */
-    public bool $ShowServerInfo;
+    public bool|string $ShowServerInfo;
 
     /**
      * show change password link
@@ -3826,11 +3828,23 @@ final class Settings
         return (bool) $settings['ShowPhpInfo'];
     }
 
-    /** @param array<int|string, mixed> $settings */
-    private function setShowServerInfo(array $settings): bool
+    /**
+     * @param array<int|string, mixed> $settings
+     *
+     * @psalm-return bool|'database-server'|'web-server'
+     */
+    private function setShowServerInfo(array $settings): bool|string
     {
         if (! isset($settings['ShowServerInfo'])) {
             return true;
+        }
+
+        if ($settings['ShowServerInfo'] === 'database-server') {
+            return 'database-server';
+        }
+
+        if ($settings['ShowServerInfo'] === 'web-server') {
+            return 'web-server';
         }
 
         return (bool) $settings['ShowServerInfo'];

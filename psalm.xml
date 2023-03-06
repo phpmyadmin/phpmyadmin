@@ -203,7 +203,7 @@
                 ShowFunctionFields: bool,
                 ShowHint: bool,
                 ShowPropertyComments: bool,
-                ShowServerInfo: bool,
+                ShowServerInfo: bool|string,
                 ShowSQL: bool,
                 ShowStats: bool,
                 TextareaAutoSelect: bool,
