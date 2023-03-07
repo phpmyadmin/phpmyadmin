@@ -38,17 +38,15 @@ class TableStatsPdf extends TableStats
      * @see TableStatsPdf::setWidthTable
      * @see PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::setHeightTable
      *
-     * @param Pdf       $diagram        The PDF diagram
-     * @param string    $db             The database name
-     * @param string    $tableName      The table name
-     * @param int       $fontSize       The font size
-     * @param int       $pageNumber     The current page number (from the
-     *                                  $cfg['Servers'][$i]['table_coords'] table)
-     * @param int|float $sameWideWidth  The max. width among tables
-     * @param bool      $showKeys       Whether to display keys or not
-     * @param bool      $tableDimension Whether to display table position or not
-     * @param bool      $offline        Whether the coordinates are sent
-     *                                  from the browser
+     * @param Pdf    $diagram        The PDF diagram
+     * @param string $db             The database name
+     * @param string $tableName      The table name
+     * @param int    $fontSize       The font size
+     * @param int    $pageNumber     The current page number (from the
+     *                               $cfg['Servers'][$i]['table_coords'] table)
+     * @param bool   $showKeys       Whether to display keys or not
+     * @param bool   $tableDimension Whether to display table position or not
+     * @param bool   $offline        Whether the coordinates are sent from the browser
      */
     public function __construct(
         $diagram,
@@ -56,7 +54,6 @@ class TableStatsPdf extends TableStats
         $tableName,
         $fontSize,
         $pageNumber,
-        &$sameWideWidth,
         $showKeys = false,
         $tableDimension = false,
         $offline = false,
@@ -67,11 +64,6 @@ class TableStatsPdf extends TableStats
         $this->setHeight();
         // setWidth must be after setHeight, because title can include table height which changes table width
         $this->setWidth($fontSize);
-        if ($sameWideWidth >= $this->width) {
-            return;
-        }
-
-        $sameWideWidth = $this->width;
     }
 
     /**
