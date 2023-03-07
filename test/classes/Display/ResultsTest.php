@@ -466,7 +466,7 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * @return mixed[][]
-     * @psalm-return array{array{
+     * @psalm-return array<array{
      *   bool,
      *   bool,
      *   string,
@@ -475,9 +475,9 @@ class ResultsTest extends AbstractTestCase
      *   array|object,
      *   object,
      *   array,
-     *   bool|null,
+     *   bool,
      *   string
-     * }}
+     * }>
      */
     public static function dataProviderForTestHandleNonPrintableContents(): array
     {
@@ -499,19 +499,19 @@ class ResultsTest extends AbstractTestCase
                 [],
                 $meta,
                 $url_params,
-                null,
+                false,
                 'class="disableAjax">1001</a>',
             ],
             [
                 true,
                 true,
                 'BLOB',
-                hex2bin('123456'),
+                (string) hex2bin('123456'),
                 null,
                 [],
                 $meta,
                 $url_params,
-                null,
+                false,
                 'class="disableAjax">0x123456</a>',
             ],
             [
@@ -523,7 +523,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 $meta,
                 $url_params,
-                null,
+                false,
                 'class="disableAjax">[BLOB - 4 B]</a>',
             ],
             [
@@ -535,7 +535,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 $meta,
                 $url_params,
-                null,
+                false,
                 '1001',
             ],
             [
@@ -547,7 +547,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 $meta,
                 $url_params,
-                null,
+                false,
                 '[GEOMETRY - NULL]',
             ],
         ];
@@ -561,7 +561,7 @@ class ResultsTest extends AbstractTestCase
      * @param array|object $transform_options transformation parameters
      * @param object       $meta              the meta-information about the field
      * @param array        $url_params        parameters that should go to the download link
-     * @param bool|null    $is_truncated      the result is truncated or not
+     * @param bool         $is_truncated      the result is truncated or not
      * @param string       $output            the output of this function
      *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
@@ -575,7 +575,7 @@ class ResultsTest extends AbstractTestCase
         array|object $transform_options,
         object $meta,
         array $url_params,
-        bool|null $is_truncated,
+        bool $is_truncated,
         string $output,
     ): void {
         $_SESSION['tmpval']['display_binary'] = $display_binary;
@@ -602,7 +602,7 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * @return mixed[][]
-     * @psalm-return array{array{
+     * @psalm-return array<array{
      *   string,
      *   string|null,
      *   string,
@@ -613,7 +613,7 @@ class ResultsTest extends AbstractTestCase
      *   TransformationsPlugin|null,
      *   array,
      *   string
-     * }}
+     * }>
      */
     public static function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
