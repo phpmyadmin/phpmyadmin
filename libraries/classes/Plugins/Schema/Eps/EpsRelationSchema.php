@@ -14,6 +14,7 @@ use PhpMyAdmin\Version;
 use function __;
 use function date;
 use function in_array;
+use function max;
 use function sprintf;
 
 /**
@@ -78,11 +79,11 @@ class EpsRelationSchema extends ExportRelationSchema
                     $this->diagram->getFont(),
                     $this->diagram->getFontSize(),
                     $this->pageNumber,
-                    $this->tablewidth,
                     $this->showKeys,
                     $this->tableDimension,
                     $this->offline,
                 );
+                $this->tablewidth = max($this->tablewidth, $this->tables[$table]->width);
             }
 
             if (! $this->sameWide) {
@@ -188,10 +189,10 @@ class EpsRelationSchema extends ExportRelationSchema
                 $font,
                 $fontSize,
                 $this->pageNumber,
-                $this->tablewidth,
                 false,
                 $tableDimension,
             );
+            $this->tablewidth = max($this->tablewidth, $this->tables[$masterTable]->width);
         }
 
         if (! isset($this->tables[$foreignTable])) {
@@ -202,10 +203,10 @@ class EpsRelationSchema extends ExportRelationSchema
                 $font,
                 $fontSize,
                 $this->pageNumber,
-                $this->tablewidth,
                 false,
                 $tableDimension,
             );
+            $this->tablewidth = max($this->tablewidth, $this->tables[$foreignTable]->width);
         }
 
         $this->relations[] = new RelationStatsEps(
