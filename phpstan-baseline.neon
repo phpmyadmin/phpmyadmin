@@ -5731,6 +5731,11 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Normalization.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) has parameter \\$partialDependencies with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
@@ -5756,22 +5761,7 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:findDistinctValuesCount\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:findDistinctValuesCount\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:getAllCombinationPartialKeys\\(\\) has parameter \\$primaryKey with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:getAllCombinationPartialKeys\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
 

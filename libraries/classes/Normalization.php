@@ -1027,18 +1027,18 @@ class Normalization
     /**
      * function to get distinct values count of all the column in the array $columns
      *
-     * @param array  $columns array of backquoted columns whose distinct values
-     *                        need to be counted.
-     * @param string $table   table to which these columns belong
+     * @param string[] $columns array of backquoted columns whose distinct values
+     *                       need to be counted.
+     * @param string   $table   table to which these columns belong
      *
-     * @return array associative array containing the count
+     * @return int[] associative array containing the count
      */
     private function findDistinctValuesCount(array $columns, $table): array
     {
         $result = [];
         $query = 'SELECT ';
         foreach ($columns as $column) {
-            if (! $column) {
+            if ($column === '') {
                 continue;
             }
 
@@ -1052,11 +1052,11 @@ class Normalization
             . ' LIMIT 500) as dt;';
         $res = $this->dbi->fetchResult($query, null, null);
         foreach ($columns as $column) {
-            if (! $column) {
+            if ($column === '') {
                 continue;
             }
 
-            $result[$column] = $res[0][$column . '_cnt'] ?? null;
+            $result[$column] = (int) $res[0][$column . '_cnt'];
         }
 
         return $result;
@@ -1067,7 +1067,7 @@ class Normalization
      *
      * @param array $primaryKey array containing all the column present in primary key
      *
-     * @return array containing all the possible partial keys(subset of primary key)
+     * @return string[] containing all the possible partial keys(subset of primary key)
      */
     private function getAllCombinationPartialKeys(array $primaryKey): array
     {
