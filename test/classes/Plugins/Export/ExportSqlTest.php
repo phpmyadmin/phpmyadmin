@@ -491,6 +491,13 @@ class ExportSqlTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
+
         ob_start();
         $this->assertTrue(
             $this->object->exportDBCreate('db', 'database'),
@@ -526,6 +533,13 @@ class ExportSqlTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
+
         ob_start();
         $this->assertTrue(
             $this->object->exportDBCreate('db', 'database'),
@@ -550,6 +564,13 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
 
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
+
         ob_start();
         $this->assertTrue(
             $this->object->exportDBHeader('testDB'),
@@ -563,6 +584,13 @@ class ExportSqlTest extends AbstractTestCase
         // case 2
         unset($GLOBALS['sql_compatibility']);
         unset($GLOBALS['sql_backquotes']);
+
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
 
         ob_start();
         $this->assertTrue(
@@ -817,6 +845,13 @@ SQL;
         $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
+
         $result = $this->object->getTableDef('db', 'table', true, true, false);
 
         $dbiDummy->assertAllQueriesConsumed();
@@ -864,6 +899,13 @@ SQL;
 
         $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
 
         $result = $this->object->getTableDef('db', 'table', true, true, false);
 
@@ -938,6 +980,13 @@ SQL;
         $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
 
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
+
         // case 1
         ob_start();
         $this->assertTrue(
@@ -961,6 +1010,13 @@ SQL;
 
         $GLOBALS['sql_create_trigger'] = true;
         $GLOBALS['sql_drop_table'] = true;
+
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
 
         ob_start();
         $this->assertTrue(
@@ -987,6 +1043,13 @@ SQL;
         // case 3
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_backquotes'] = null;
+
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
 
         ob_start();
         $this->assertTrue(
@@ -1140,6 +1203,13 @@ SQL;
         $GLOBALS['sql_hex_for_binary'] = true;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
+
         ob_start();
         $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
         $result = ob_get_clean();
@@ -1240,6 +1310,13 @@ SQL;
         $GLOBALS['sql_hex_for_binary'] = true;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
+
         ob_start();
         $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
         $result = ob_get_clean();
@@ -1282,6 +1359,13 @@ SQL;
         $oldVal = $GLOBALS['sql_compatibility'] ?? '';
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['sql_backquotes'] = true;
+
+        // Reset the object
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
 
         ob_start();
         $this->assertTrue(

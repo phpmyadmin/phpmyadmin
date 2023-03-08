@@ -10011,15 +10011,6 @@
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_database']]]></code>
       <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
       <code><![CDATA[$GLOBALS['sql_disable_fk']]]></code>
@@ -10052,27 +10043,6 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
       <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
@@ -10126,10 +10096,6 @@
     </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_backquotes']]]></code>
       <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
