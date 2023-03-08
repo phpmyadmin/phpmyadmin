@@ -158,11 +158,11 @@ class PdfRelationSchema extends ExportRelationSchema
                     $table,
                     null,
                     $this->pageNumber,
-                    $this->tablewidth,
                     $this->showKeys,
                     $this->tableDimension,
                     $this->offline,
                 );
+                $this->tablewidth = max($this->tablewidth, $this->tables[$table]->width);
             }
 
             if ($this->sameWide) {
@@ -340,10 +340,10 @@ class PdfRelationSchema extends ExportRelationSchema
                 $masterTable,
                 null,
                 $this->pageNumber,
-                $this->tablewidth,
                 $this->showKeys,
                 $this->tableDimension,
             );
+            $this->tablewidth = max($this->tablewidth, $this->tables[$masterTable]->width);
             $this->setMinMax($this->tables[$masterTable]);
         }
 
@@ -354,10 +354,10 @@ class PdfRelationSchema extends ExportRelationSchema
                 $foreignTable,
                 null,
                 $this->pageNumber,
-                $this->tablewidth,
                 $this->showKeys,
                 $this->tableDimension,
             );
+            $this->tablewidth = max($this->tablewidth, $this->tables[$foreignTable]->width);
             $this->setMinMax($this->tables[$foreignTable]);
         }
 
