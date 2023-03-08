@@ -25,9 +25,11 @@ function changePluginOpts () {
     $('#' + selectedPluginName + '_options').fadeIn('slow');
 
     const importNotification = document.getElementById('import_notification');
-    importNotification.innerText = '';
-    if (selectedPluginName === 'csv') {
-        importNotification.innerHTML = '<div class="alert alert-info mb-0 mt-3" role="alert">' + window.Messages.strImportCSV + '</div>';
+    if (importNotification) {
+        importNotification.innerText = '';
+        if (selectedPluginName === 'csv') {
+            importNotification.innerHTML = '<div class="alert alert-info mb-0 mt-3" role="alert">' + window.Messages.strImportCSV + '</div>';
+        }
     }
 }
 

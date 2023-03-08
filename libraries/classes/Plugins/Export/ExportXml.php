@@ -258,6 +258,11 @@ class ExportXml extends ExportPlugin
                     . Util::backquote($table),
                     0,
                 );
+
+                if ($result === []) {
+                    continue;
+                }
+
                 $tbl = (string) $result[$table][1];
 
                 $is_view = $GLOBALS['dbi']->getTable($GLOBALS['db'], $table)
