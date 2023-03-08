@@ -3,12 +3,15 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
   bootstrap="test/bootstrap-dist.php"
-  colors="true"
+  cacheDirectory="build/.phpunit.cache"
   executionOrder="random"
   defaultTestSuite="unit"
   failOnIncomplete="true"
-  cacheDirectory="build/.phpunit.cache"
+  failOnRisky="true"
+  failOnWarning="true"
   requireCoverageMetadata="true"
+  beStrictAboutOutputDuringTests="true"
+  colors="true"
 >
   <coverage>
     <include>
