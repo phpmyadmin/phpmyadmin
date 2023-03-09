@@ -18,6 +18,7 @@ use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Tests\FieldHelper;
 use PHPUnit\Framework\Assert;
 use stdClass;
 
@@ -408,7 +409,7 @@ class DbiDummy implements DbiExtension
                 if (isset($metadata[$i])) {
                     $metadata[$i]->name = $column;
                 } else {
-                    $metadata[$i] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['name' => $column]);
+                    $metadata[$i] = FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => $column]);
                 }
             }
         }
@@ -1821,10 +1822,10 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT * FROM `test_db`.`test_table_yaml`;',
                 'columns' => ['id', 'name', 'datetimefield', 'textfield'],
                 'metadata' => [
-                    new FieldMetadata(MYSQLI_TYPE_DECIMAL, 0, (object) []),
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
-                    new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, (object) []),
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_DECIMAL]),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_DATETIME]),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]),
                 ],
                 'result' => [
                     ['1', 'abcd', '2011-01-20 02:00:02', null],
@@ -1852,10 +1853,10 @@ class DbiDummy implements DbiExtension
                     ['', '0x1', 'шеллы', '0x2'],
                 ],
                 'metadata' => [
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 33]),
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]),
-                    new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['charsetnr' => 23]),
-                    new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['charsetnr' => 63]),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'charsetnr' => 33]),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'charsetnr' => 63]),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_BLOB, 'charsetnr' => 23]),
+                    FieldHelper::fromArray(['type' => MYSQLI_TYPE_BLOB, 'charsetnr' => 63]),
                 ],
             ],
             [

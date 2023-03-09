@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
@@ -454,9 +453,9 @@ class SqlTest extends AbstractTestCase
             ],
             ['country_id', 'country', 'last_update'],
             [
-                new FieldMetadata(MYSQLI_TYPE_SHORT, 0, (object) ['length' => 5]),
-                new FieldMetadata(MYSQLI_TYPE_VAR_STRING, 0, (object) ['length' => 200]),
-                new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) ['length' => 19]),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_SHORT, 'length' => 5]),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_VAR_STRING, 'length' => 200]),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_TIMESTAMP, 'length' => 19]),
             ],
         );
         $this->dummyDbi->addResult(

@@ -7,10 +7,10 @@ namespace PhpMyAdmin\Tests\Controllers\Export;
 use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
@@ -87,9 +87,13 @@ class ExportControllerTest extends AbstractTestCase
             ],
             ['id', 'name', 'datetimefield'],
             [
-                new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG, (object) ['name' => 'id']),
-                new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['name' => 'name']),
-                new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, (object) ['name' => 'datetimefield']),
+                FieldHelper::fromArray([
+                    'type' => MYSQLI_TYPE_DECIMAL,
+                    'flags' => MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG,
+                    'name' => 'id',
+                ]),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => 'name']),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_DATETIME, 'name' => 'datetimefield']),
             ],
         );
         $this->dummyDbi->addResult(

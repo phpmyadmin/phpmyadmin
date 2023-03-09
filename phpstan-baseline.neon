@@ -4001,31 +4001,6 @@ parameters:
 			path: libraries/classes/Export/Template.php
 
 		-
-			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name\\.$#"
-			count: 1
-			path: libraries/classes/FieldMetadata.php
-
-		-
-			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgname\\.$#"
-			count: 1
-			path: libraries/classes/FieldMetadata.php
-
-		-
-			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgtable\\.$#"
-			count: 1
-			path: libraries/classes/FieldMetadata.php
-
-		-
-			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$table\\.$#"
-			count: 1
-			path: libraries/classes/FieldMetadata.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$mappedType \\(int\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/FieldMetadata.php
-
-		-
 			message: "#^Cannot access offset 'multi_edit' on mixed\\.$#"
 			count: 5
 			path: libraries/classes/File.php

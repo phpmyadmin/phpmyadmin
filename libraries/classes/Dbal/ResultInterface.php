@@ -94,6 +94,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns meta info for fields in $result
      *
      * @return array<int, FieldMetadata> meta info for fields in $result
+     * @psalm-return list<FieldMetadata>
      */
     public function getFieldsMeta(): array;
 
@@ -101,6 +102,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns the names of the fields in the result
      *
      * @return array<int, string> Fields names
+     * @psalm-return list<non-empty-string>
      */
     public function getFieldNames(): array;
 }

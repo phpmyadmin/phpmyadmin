@@ -9,7 +9,6 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Export;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -23,11 +22,11 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 use ReflectionMethod;
-use stdClass;
 
 use function ob_get_clean;
 use function ob_start;
@@ -1049,41 +1048,44 @@ SQL;
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = [];
-        $a = new stdClass();
-        $a->name = 'name';
-        $a->length = 2;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_LONG, 0, $a);
-
-        $a = new stdClass();
-        $a->name = 'name';
-        $a->length = 2;
-        $flags[] = new FieldMetadata(-1, MYSQLI_NUM_FLAG, $a);
-
-        $a = new stdClass();
-        $a->name = 'name';
-        $a->length = 2;
-        $a->charsetnr = 63;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
-
-        $a = new stdClass();
-        $a->name = 'name';
-        $a->length = 2;
-        $a->charsetnr = 63;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
-
-        $a = new stdClass();
-        $a->name = 'name';
-        $a->length = 2;
-        $a->charsetnr = 63;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, $a);
+        $fields = [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'name' => 'name',
+                'length' => 2,
+            ]),
+            FieldHelper::fromArray([
+                'type' => -1,
+                'flags' => MYSQLI_NUM_FLAG,
+                'name' => 'name',
+                'length' => 2,
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
+                'name' => 'name',
+                'length' => 2,
+                'charsetnr' => 63,
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
+                'name' => 'name',
+                'length' => 2,
+                'charsetnr' => 63,
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_BLOB,
+                'name' => 'name',
+                'length' => 2,
+                'charsetnr' => 63,
+            ]),
+        ];
 
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->will($this->returnValue($fields));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
@@ -1162,29 +1164,33 @@ SQL;
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = [];
-        $a = new stdClass();
-        $a->name = 'name';
-        $a->orgname = 'pma';
-        $a->table = 'tbl';
-        $a->orgtable = 'tbl';
-        $a->length = 2;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_FLOAT, MYSQLI_PRI_KEY_FLAG, $a);
-
-        $a = new stdClass();
-        $a->name = 'name';
-        $a->orgname = 'pma';
-        $a->table = 'tbl';
-        $a->orgtable = 'tbl';
-        $a->length = 2;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_FLOAT, MYSQLI_UNIQUE_KEY_FLAG, $a);
+        $fields = [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_FLOAT,
+                'flags' => MYSQLI_PRI_KEY_FLAG,
+                'name' => 'name',
+                'orgname' => 'pma',
+                'table' => 'tbl',
+                'orgtable' => 'tbl',
+                'length' => 2,
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_FLOAT,
+                'flags' => MYSQLI_UNIQUE_KEY_FLAG,
+                'name' => 'name',
+                'orgname' => 'pma',
+                'table' => 'tbl',
+                'orgtable' => 'tbl',
+                'length' => 2,
+            ]),
+        ];
 
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->will($this->returnValue($fields));
 
         $dbi->expects($this->once())
             ->method('tryQuery')

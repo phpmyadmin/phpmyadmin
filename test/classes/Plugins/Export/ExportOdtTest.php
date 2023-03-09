@@ -9,7 +9,6 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Export;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,12 +17,12 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 use ReflectionMethod;
-use stdClass;
 
 use function __;
 use function bin2hex;
@@ -353,24 +352,22 @@ class ExportOdtTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = [];
-        $a = new stdClass();
-        $flags[] = new FieldMetadata(-1, 0, $a);
-
-        $a = new stdClass();
-        $a->charsetnr = 63;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_BLOB, MYSQLI_BLOB_FLAG, $a);
-
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_NUM_FLAG, (object) []);
-
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []);
-
+        $fields = [
+            FieldHelper::fromArray(['type' => -1]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_BLOB,
+                'flags' => MYSQLI_BLOB_FLAG,
+                'charsetnr' => 63,
+            ]),
+            FieldHelper::fromArray(['type' => MYSQLI_TYPE_DECIMAL, 'flags' => MYSQLI_NUM_FLAG]),
+            FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]),
+        ];
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->will($this->returnValue($fields));
 
         $dbi->expects($this->once())
             ->method('query')
@@ -424,22 +421,25 @@ class ExportOdtTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = [];
-        $a = new stdClass();
-        $a->name = 'fna\"me';
-        $a->length = 20;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
-        $b = new stdClass();
-        $b->name = 'fnam/<e2';
-        $b->length = 20;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $b);
+        $fields = [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
+                'name' => 'fna\"me',
+                'length' => 20,
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
+                'name' => 'fnam/<e2',
+                'length' => 20,
+            ]),
+        ];
 
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->will($this->returnValue($fields));
 
         $dbi->expects($this->once())
             ->method('query')

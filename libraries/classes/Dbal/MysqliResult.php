@@ -206,6 +206,7 @@ final class MysqliResult implements ResultInterface
      * returns meta info for fields in $result
      *
      * @return array<int, FieldMetadata> meta info for fields in $result
+     * @psalm-return list<FieldMetadata>
      */
     public function getFieldsMeta(): array
     {
@@ -214,8 +215,8 @@ final class MysqliResult implements ResultInterface
         }
 
         $fields = [];
-        foreach ($this->result->fetch_fields() as $k => $field) {
-            $fields[$k] = new FieldMetadata($field->type, $field->flags, $field);
+        foreach ($this->result->fetch_fields() as $field) {
+            $fields[] = new FieldMetadata($field);
         }
 
         return $fields;

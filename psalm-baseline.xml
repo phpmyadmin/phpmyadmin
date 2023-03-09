@@ -6932,18 +6932,6 @@
       <code><![CDATA[$state['username']]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/FieldMetadata.php">
-    <MixedAssignment>
-      <code><![CDATA[$this->charsetnr]]></code>
-      <code><![CDATA[$this->decimals]]></code>
-      <code><![CDATA[$this->length]]></code>
-      <code><![CDATA[$this->mappedType]]></code>
-      <code><![CDATA[$this->name]]></code>
-      <code><![CDATA[$this->orgname]]></code>
-      <code><![CDATA[$this->orgtable]]></code>
-      <code><![CDATA[$this->table]]></code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/File.php">
     <FalsableReturnStatement>
       <code><![CDATA[$this->detectCompression()]]></code>

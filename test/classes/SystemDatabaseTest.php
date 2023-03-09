@@ -12,6 +12,8 @@ use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionClass;
 
+use const MYSQLI_TYPE_STRING;
+
 /** @covers \PhpMyAdmin\SystemDatabase */
 class SystemDatabaseTest extends AbstractTestCase
 {
@@ -127,8 +129,16 @@ class SystemDatabaseTest extends AbstractTestCase
             [true],
             [],
             [
-                (object) ['table' => 'meta1_table', 'name' => 'meta1_name'],
-                (object) ['table' => 'meta2_table', 'name' => 'meta2_name'],
+                FieldHelper::fromArray([
+                    'type' => MYSQLI_TYPE_STRING,
+                    'table' => 'meta1_table',
+                    'name' => 'meta1_name',
+                ]),
+                FieldHelper::fromArray([
+                    'type' => MYSQLI_TYPE_STRING,
+                    'table' => 'meta2_table',
+                    'name' => 'meta2_name',
+                ]),
             ],
         );
 

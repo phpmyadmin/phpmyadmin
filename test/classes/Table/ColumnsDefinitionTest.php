@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Transformations;
 
 use function array_merge;
@@ -102,10 +102,10 @@ SQL;
             'fields_meta' => [$columnMeta],
             'is_backup' => true,
             'move_columns' => [
-                new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['name' => 'actor_id']),
-                new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['name' => 'first_name']),
-                new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['name' => 'last_name']),
-                new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['name' => 'last_update']),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => 'actor_id']),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => 'first_name']),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => 'last_name']),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => 'last_update']),
             ],
             'available_mime' => [],
             'mime_map' => [],
