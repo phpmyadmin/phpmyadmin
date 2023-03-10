@@ -300,9 +300,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->user = Core::sanitizeMySQLUser($_POST['pma_username']);
 
             $password = $_POST['pma_password'] ?? '';
-            if (strlen($password) >= 1000) {
+            if (strlen($password) >= 2000) {
                 $GLOBALS['conn_error'] = __('Your password is too long. To prevent denial-of-service attacks, ' .
-                    'phpMyAdmin restricts passwords to less than 1000 characters.');
+                    'phpMyAdmin restricts passwords to less than 2000 characters.');
 
                 return false;
             }

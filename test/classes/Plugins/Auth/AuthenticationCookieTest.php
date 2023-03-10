@@ -731,22 +731,16 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         return [
             [
-                str_repeat('a', 1000),
+                str_repeat('a', 2001),
                 false,
                 'Your password is too long. To prevent denial-of-service attacks,'
-                . ' phpMyAdmin restricts passwords to less than 1000 characters.',
-            ],
-            [
-                str_repeat('a', 1001),
-                false,
-                'Your password is too long. To prevent denial-of-service attacks,'
-                . ' phpMyAdmin restricts passwords to less than 1000 characters.',
+                . ' phpMyAdmin restricts passwords to less than 2000 characters.',
             ],
             [
                 str_repeat('a', 3000),
                 false,
                 'Your password is too long. To prevent denial-of-service attacks,'
-                . ' phpMyAdmin restricts passwords to less than 1000 characters.',
+                . ' phpMyAdmin restricts passwords to less than 2000 characters.',
             ],
             [
                 str_repeat('a', 256),

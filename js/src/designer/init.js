@@ -112,9 +112,9 @@ AJAX.registerTeardown('designer/init.js', function () {
     $('#cancel_close_option').off('click');
     $('#ok_new_rel_panel').off('click');
     $('#cancel_new_rel_panel').off('click');
-    $('#page_content').off('mouseup');
-    $('#page_content').off('mousedown');
-    $('#page_content').off('mousemove');
+    $(document).off('mouseup');
+    $(document).off('mousedown');
+    $(document).off('mousemove');
 });
 
 AJAX.registerOnload('designer/init.js', function () {
