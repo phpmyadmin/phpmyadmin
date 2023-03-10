@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #18196 Fix errors of import notification
 - issue #18093 Fix JS errors around "new user account" in some edge cases
 - issue #16451 Increase password characters limit to 2000 during login
+- issue        Fix "IS NULL" is shown for non-nullable columns on search page
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
