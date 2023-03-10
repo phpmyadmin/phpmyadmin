@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue        Bump minimum PHP version to 8.1.0
 - issue #17842 Change js.cookie.js to js.cookie.min.js
 - issue #17632 Improve tab keypress to text fields on the login form
+- issue        Make database and web server info separately configurable on `$cfg['ShowServerInfo']`
 
 5.2.2 (not yet released)
 - issue #17028 Fix total count of rows in not accurate
