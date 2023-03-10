@@ -208,6 +208,9 @@ module.exports = [
                 banner: 'OpenLayers (https://openlayers.org/)\nCopyright 2005-present, OpenLayers Contributors All rights reserved.\nLicensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)',
             }),
         ],
+        optimization: {
+            minimize: false,
+        }
     },
     {
         name: 'CSS',
