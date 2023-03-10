@@ -1960,9 +1960,9 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
 };
 
 DesignerMove.enablePageContentEvents = function () {
-    $('#page_content').off('mousedown');
-    $('#page_content').off('mouseup');
-    $('#page_content').off('mousemove');
+    $(document).off('mousedown');
+    $(document).off('mouseup');
+    $(document).off('mousemove');
     $(document).on('mousedown', function (e) {
         DesignerMove.mouseDown(e);
     });
