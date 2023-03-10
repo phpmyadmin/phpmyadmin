@@ -49,9 +49,13 @@
         </a>
     </td>
     <td class="text-center d-print-none">
-        <a href="{{ url('/table/search', table_url_params) }}">
-          {{ may_have_rows ? get_icon('b_select', 'Search'|trans) : get_icon('bd_select', 'Search'|trans) }}
-        </a>
+        {% if may_have_rows %}
+            <a href="{{ url('/table/search', table_url_params) }}">
+                {{ get_icon('b_select', 'Search'|trans) }}
+            </a>
+        {% else %}
+            <div>{{ get_icon('bd_select', 'Search'|trans) }}</div>
+        {% endif %}
     </td>
 
     {% if not db_is_system_schema %}
@@ -67,12 +71,16 @@
             </td>
         {% else %}
           <td class="text-center d-print-none">
+            {% if may_have_rows %}
                 <a class="truncate_table_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common(table_url_params|merge({
-                  'sql_query': empty_table_sql_query,
-                  'message_to_show': empty_table_message_to_show
+                    'sql_query': empty_table_sql_query,
+                    'message_to_show': empty_table_message_to_show
                 }), '') }}">
-                  {{ may_have_rows ? get_icon('b_empty', 'Empty'|trans) : get_icon('bd_empty', 'Empty'|trans) }}
+                    {{ get_icon('b_empty', 'Empty'|trans) }}
                 </a>
+            {% else %}
+                <div>{{ get_icon('bd_empty', 'Empty'|trans) }}</div>
+            {% endif %}
           </td>
         {% endif %}
         <td class="text-center d-print-none">
