@@ -13,6 +13,10 @@ phpMyAdmin - ChangeLog
 - issue #18112 Fix open base dir warning on git version class
 - issue        Do not show "Original length undefined" on binary hex columns
 - issue        Fix wrong time zone when handling Git information
+- issue        Do not show "Original length undefined" on binary hex columns
+- issue        Fix warning on non-existent table for XML export
+- issue #18196 Fix errors of import notification
+- issue #18093 Fix JS errors around "new user account" in some edge cases
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
