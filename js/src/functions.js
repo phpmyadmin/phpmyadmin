@@ -2094,6 +2094,30 @@ $(function () {
         }, 2000);
     });
 
+    $(document).on('mouseover', '.ajax_notification a', function (event) {
+        Functions.tooltip(
+            $(".ajax_notification"),
+            'span',
+            Messages.strEditQuery
+        );
+    });
+
+    $(document).on('mouseover', '.ajax_notification a.copyQueryBtn', function (event) {
+        Functions.tooltip(
+            $(".ajax_notification"),
+            'span',
+            Messages.strCopyToClipboard
+        );
+    });
+
+    $(document).on('mouseleave', '.ajax_notification a', function (event) {
+        Functions.tooltip(
+            $(".ajax_notification"),
+            'span',
+            Messages.strDismiss
+        );
+    });
+
     $(document).on('mouseup', '.ajax_notification a', function (event) {
         event.stopPropagation();
     });

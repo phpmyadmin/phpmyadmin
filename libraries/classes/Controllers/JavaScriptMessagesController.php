@@ -386,6 +386,7 @@ final class JavaScriptMessagesController
             'strHideQueryBox' => __('Hide query box'),
             'strShowQueryBox' => __('Show query box'),
             'strEdit' => __('Edit'),
+            'strEditQuery' => __('Edit query'),
             'strDelete' => __('Delete'),
             'strNotValidRowNumber' => __('%d is not valid row number.'),
             'strBrowseForeignValues' => __('Browse foreign values'),
@@ -473,6 +474,7 @@ final class JavaScriptMessagesController
 
             /* For table/change.js */
             'strIgnore' => __('Ignore'),
+            'strCopyToClipboard' => __('Copy to clipboard'),
             'strCopy' => __('Copy'),
             'strX' => __('X'),
             'strY' => __('Y'),
