@@ -458,7 +458,6 @@
       <code>$path</code>
       <code>$path</code>
       <code>$path</code>
-      <code>$path</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$keys</code>
@@ -509,7 +508,6 @@
       <code>$systemPath</code>
       <code><![CDATA[$this->systemPaths[$systemPath]]]></code>
       <code>$translatedPath</code>
-      <code>$translatedPath</code>
       <code>$userPrefsDisallow ?? []</code>
       <code>$val</code>
       <code>$validators[$path]</code>
@@ -547,11 +545,13 @@
       <code><![CDATA[$this->userprefsDisallow[$systemPath]]]></code>
       <code><![CDATA[$this->userprefsKeys[$path]]]></code>
       <code><![CDATA[$this->userprefsKeys[$systemPath]]]></code>
-      <code>$validators[$path]</code>
       <code>$values[$path]</code>
       <code>$values[$path]</code>
       <code>$values[$systemPath]</code>
     </MixedArrayOffset>
+    <MixedArrayTypeCoercion>
+      <code>$values[$path]</code>
+    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code>$canonicalPath</code>
       <code>$errorList</code>
@@ -786,7 +786,6 @@
       <code>$foreign_db</code>
       <code>$foreign_db</code>
       <code>$foreign_field</code>
-      <code>$foreign_field</code>
       <code>$foreign_table</code>
       <code>$foreign_table</code>
       <code><![CDATA[$one_key['index_list']]]></code>
@@ -883,11 +882,6 @@
       <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]]]></code>
       <code>(string) $table[1]</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $data</code>
-      <code>(string) $db</code>
-      <code>(string) $table</code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code><![CDATA[is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])]]></code>
       <code><![CDATA[is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])]]></code>
@@ -1414,9 +1408,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php">
-    <PossiblyInvalidArgument>
+    <InvalidArgument>
       <code>$selected</code>
-    </PossiblyInvalidArgument>
+    </InvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1663,10 +1657,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/StructureController.php">
-    <InvalidArgument>
-      <code>$formattedOverhead</code>
-      <code>$formattedSize</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1691,7 +1681,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code>$dbTable</code>
       <code>$dbTable</code>
       <code>$overheadSize</code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
@@ -2876,7 +2865,7 @@
       <code><![CDATA[$request->getParsedBodyParam('old_hostname', '')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_username')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_username', '')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('userGroup')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('userGroup', '')]]></code>
       <code><![CDATA[$request->getQueryParam('initial', '')]]></code>
       <code><![CDATA[$urlDbname ?? '']]></code>
       <code><![CDATA[$urlDbname ?? '']]></code>
@@ -3052,7 +3041,6 @@
       <code><![CDATA[$this->data->status['Connections']]]></code>
       <code><![CDATA[$this->data->status['Connections'] * $hourFactor]]></code>
       <code><![CDATA[$this->data->status['Max_used_connections']]]></code>
-      <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[($this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']) * $hourFactor]]></code>
     </MixedArgument>
     <MixedAssignment>
@@ -3388,10 +3376,8 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause'] ?? null]]></code>
       <code>$isUpload</code>
-      <code>$isUpload</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['jsvkey']]]></code>
       <code>$row_id</code>
       <code>$row_id</code>
     </MixedArgumentTypeCoercion>
@@ -3547,9 +3533,6 @@
     <PossiblyInvalidIterator>
       <code>$selected</code>
     </PossiblyInvalidIterator>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['goto']]]></code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnController.php">
     <MixedArgument>
@@ -3621,27 +3604,15 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
-    <InvalidArgument>
-      <code><![CDATA[$_POST['columnIndex']]]></code>
-      <code><![CDATA[$_POST['columnIndex']]]></code>
-      <code><![CDATA[$_POST['useRegex']]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <InvalidScalarArgument>
+      <code><![CDATA[$_POST['columnIndex']]]></code>
+      <code><![CDATA[$_POST['columnIndex']]]></code>
+      <code><![CDATA[$_POST['useRegex']]]></code>
+    </InvalidScalarArgument>
     <MixedArgument>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
@@ -3892,7 +3863,6 @@
     <MixedArgument>
       <code><![CDATA[$column['Field']]]></code>
       <code>$foreignDb</code>
-      <code>$foreignDb</code>
       <code>$foreignTable</code>
       <code>$html</code>
       <code>$preview_sql_data</code>
@@ -3969,7 +3939,6 @@
       <code><![CDATA[$multi_edit_funcs[$key] ?? '']]></code>
       <code>$multi_edit_salt[$key] ?? null</code>
       <code>$one_where_clause</code>
-      <code>$relation_field</code>
       <code>$relation_field</code>
       <code>$relation_field_value</code>
       <code>$totalAffectedRows</code>
@@ -4185,7 +4154,6 @@
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
-      <code>$column</code>
       <code><![CDATA[$current_timestamp ? '' : $data['Default']]]></code>
       <code><![CDATA[$data['Collation'] ?? '']]></code>
       <code><![CDATA[$data['Expression']]]></code>
@@ -4222,7 +4190,6 @@
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code>$columns[$column]</code>
-      <code>$expressions[$column]</code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$column</code>
@@ -4524,7 +4491,6 @@
     <MixedArgument>
       <code>$columnName</code>
       <code>$columnName</code>
-      <code>$columnName</code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code><![CDATA[$properties['type']]]></code>
       <code><![CDATA[$this->columnNames[$column_index]]]></code>
@@ -4533,7 +4499,6 @@
       <code><![CDATA[$this->columnNullFlags[$column_index]]]></code>
       <code><![CDATA[$this->originalColumnTypes[$column_index]]]></code>
       <code>$type</code>
-      <code>$uniqueCondition</code>
       <code>$uniqueCondition</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -4566,6 +4531,7 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
+      <code>$dataLabel</code>
       <code>$dataLabel</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
@@ -5062,8 +5028,6 @@
       <code><![CDATA[$rows_meta[$row_num]['DefaultValue']]]></code>
       <code>$table</code>
       <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$type</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -5147,7 +5111,6 @@
       <code>$row</code>
       <code><![CDATA[$rows_meta[$row_num]['DefaultType']]]></code>
       <code><![CDATA[$rows_meta[$row_num]['DefaultValue']]]></code>
-      <code>$table</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
@@ -5502,9 +5465,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Database/Qbe.php">
-    <InvalidArgument>
-      <code>$sortOrder</code>
-    </InvalidArgument>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->criteriaTables]]></code>
       <code><![CDATA[$this->criteriaTables]]></code>
@@ -5564,7 +5524,6 @@
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code>$checkedTables[$table]</code>
-      <code>$checkedTables[$table]</code>
       <code>$finalized[$foreignTable]</code>
       <code>$finalized[$foreignTable]</code>
       <code>$finalized[$foreignTable]</code>
@@ -5579,8 +5538,10 @@
       <code><![CDATA[$relations[$oneTable][$oneKey['ref_table_name']]]]></code>
       <code><![CDATA[$this->formAndOrCols[$lastWhere]]]></code>
       <code>$tsize[$table]</code>
-      <code>$tsize[$table]</code>
     </MixedArrayOffset>
+    <MixedArrayTypeCoercion>
+      <code>$tsize[$table]</code>
+    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS[${'cur' . $or}][$newColumnCount]]]></code>
       <code>$clause</code>
@@ -5613,7 +5574,6 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$tempSearchTables[]</code>
       <code>$tmpCriteria</code>
       <code>$uniqueColumns</code>
       <code>$value</code>
@@ -5643,9 +5603,6 @@
       <code>reset($candidateColumns)</code>
       <code>reset($candidateColumns)</code>
     </MixedReturnStatement>
-    <NullArgument>
-      <code>null</code>
-    </NullArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['criteriaColumn'][$colInd]]]></code>
       <code><![CDATA[$_POST['criteriaColumn'][$columnIndex]]]></code>
@@ -5677,6 +5634,9 @@
     <RedundantPropertyInitializationCheck>
       <code><![CDATA[isset($this->formAndOrRows)]]></code>
     </RedundantPropertyInitializationCheck>
+    <RiskyCast>
+      <code><![CDATA[$this->formSortOrders[$newColumnCount] = $_POST['criteriaSortOrder'][$colInd]]]></code>
+    </RiskyCast>
   </file>
   <file src="libraries/classes/Database/Routines.php">
     <DeprecatedMethod>
@@ -6418,7 +6378,6 @@
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sqlQuery</code>
       <code><![CDATA[$statementInfo->statement->from]]></code>
-      <code>$total</code>
       <code><![CDATA[$urlParams['where_clause']]]></code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -6556,7 +6515,6 @@
       <code>$highlightColumns[$identifier]</code>
       <code>$map[$oneField]</code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
-      <code><![CDATA[$ret[$field->table]]]></code>
       <code>$row[$i]</code>
       <code>$row[$i]</code>
       <code>$row[$i]</code>
@@ -6619,7 +6577,6 @@
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
-      <code>$total</code>
       <code>$value</code>
       <code><![CDATA[$whereClauseMap[$rowNumber][$meta->orgtable]]]></code>
       <code><![CDATA[$whereClauseMap[$rowNumber][$this->properties['table']]]]></code>
@@ -6675,7 +6632,6 @@
       <code>$editCopyUrlParams</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code>$colVisibCurrent</code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
@@ -6917,17 +6873,8 @@
       <code><![CDATA[$GLOBALS['xkana'] ?? '']]></code>
       <code>$dbAlias</code>
       <code>$dbAlias</code>
-      <code>$dbAlias</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$view</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$dbSelect</code>
@@ -6974,15 +6921,10 @@
       <code>$val2</code>
       <code>$val2</code>
       <code>$value</code>
-      <code>$view</code>
-      <code>$views[]</code>
     </MixedAssignment>
     <MixedOperand>
-      <code>$table</code>
-      <code>$table</code>
       <code><![CDATA[$this->dumpBufferObjects[$objectName]]]></code>
       <code>$tmpSelect</code>
-      <code>$view</code>
     </MixedOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
@@ -7793,9 +7735,6 @@
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $database</code>
-    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -8091,9 +8030,6 @@
       <code>hasPrimary</code>
       <code>isPacked</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $name</code>
-    </RedundantCastGivenDocblockType>
     <UnusedReturnValue>
       <code>bool</code>
     </UnusedReturnValue>
@@ -8212,7 +8148,6 @@
       <code><![CDATA[min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>$keyId</code>
       <code>$query</code>
       <code>$queryFields</code>
       <code>$thisUrlParams</code>
@@ -8725,8 +8660,6 @@
       <code>$displayName</code>
     </PossiblyUnusedProperty>
     <RedundantCastGivenDocblockType>
-      <code>(bool) $isGroup</code>
-      <code>(string) $name</code>
       <code>(string) $prefix</code>
     </RedundantCastGivenDocblockType>
   </file>
@@ -8852,7 +8785,6 @@
       <code>$key</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$table</code>
       <code><![CDATA[$tablesName->$key]]></code>
       <code><![CDATA[$tablesName->$key]]></code>
       <code>$totalRows</code>
@@ -8927,7 +8859,6 @@
       <code><![CDATA[$arr['foreign_field']]]></code>
       <code><![CDATA[$arr['foreign_field']]]></code>
       <code><![CDATA[$arr['foreign_table']]]></code>
-      <code>$foreignTable</code>
       <code>$foreignTable</code>
       <code>$oldPriv</code>
       <code>$query</code>
@@ -9075,9 +9006,6 @@
       <code><![CDATA[(string) $_POST['new_name']]]></code>
       <code><![CDATA[(string) $_POST['new_name']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $packKeys</code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code>$copyMode</code>
     </RedundantCondition>
@@ -9461,10 +9389,6 @@
     <PossiblyNullArgument>
       <code>$row[0]</code>
       <code>$row[0]</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
       <code>$table_alias</code>
       <code>$table_alias</code>
     </PossiblyNullArgument>
@@ -10165,7 +10089,6 @@
       <code>$db_charset</code>
       <code>$db_collation</code>
       <code>$table</code>
-      <code>$table</code>
       <code><![CDATA[$trigger['name']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -10178,9 +10101,6 @@
       <code><![CDATA[$trigger['create']]]></code>
       <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code>$result[$table]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['tables']]]></code>
       <code>$code</code>
@@ -10190,6 +10110,14 @@
       <code>$table</code>
       <code>$trigger</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code>$table</code>
+      <code>$table</code>
+      <code>$table</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset>
+      <code>$result[$table]</code>
+    </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
       <code>$table_alias</code>
     </PossiblyNullArgument>
@@ -11233,14 +11161,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php">
-    <InvalidArgument>
-      <code><![CDATA[$this->tables[$foreignTable]]]></code>
-      <code><![CDATA[$this->tables[$masterTable]]]></code>
-    </InvalidArgument>
-    <InvalidCast>
-      <code><![CDATA[$this->tables[$foreignTable]]]></code>
-      <code><![CDATA[$this->tables[$masterTable]]]></code>
-    </InvalidCast>
     <MixedArgument>
       <code>$one_field</code>
       <code><![CDATA[$one_key['ref_index_list'][$index]]]></code>
@@ -11332,11 +11252,6 @@
     <PossiblyUnusedProperty>
       <code>$height</code>
     </PossiblyUnusedProperty>
-    <RedundantCastGivenDocblockType>
-      <code>(int) $fontSize</code>
-      <code>(int) $fontSize</code>
-      <code>(int) $fontSize</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Schema/ExportRelationSchema.php">
     <MixedArgument>
@@ -11412,13 +11327,7 @@
     <InvalidArgument>
       <code><![CDATA[$this->diagram->PageNo()]]></code>
       <code><![CDATA[$this->diagram->PageNo()]]></code>
-      <code><![CDATA[$this->tables[$foreignTable]]]></code>
-      <code><![CDATA[$this->tables[$masterTable]]]></code>
     </InvalidArgument>
-    <InvalidCast>
-      <code><![CDATA[$this->tables[$foreignTable]]]></code>
-      <code><![CDATA[$this->tables[$masterTable]]]></code>
-    </InvalidCast>
     <MixedArgument>
       <code>$field_name</code>
       <code>$field_name</code>
@@ -11432,8 +11341,6 @@
       <code><![CDATA[$showtable['Check_time']]]></code>
       <code><![CDATA[$showtable['Create_time']]]></code>
       <code><![CDATA[$showtable['Update_time']]]></code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
@@ -11479,9 +11386,7 @@
       <code><![CDATA[$this->diagram->customLinks['doc'][$table]['-']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code>$comments[$field_name]</code>
       <code><![CDATA[$foreignTable[$foreigner['foreign_field']]]]></code>
-      <code>$mime_map[$field_name]</code>
       <code><![CDATA[$one_key['ref_index_list'][$index]]]></code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$table]]]></code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$table][$field_name]]]></code>
@@ -11520,11 +11425,6 @@
       <code>$table</code>
       <code>$table</code>
     </MixedOperand>
-    <NullArgument>
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-    </NullArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
     </PossiblyInvalidArgument>
@@ -11640,10 +11540,6 @@
     </PossiblyInvalidPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Plugins/Schema/RelationStats.php">
-    <InvalidArgument>
-      <code>$foreign_table</code>
-      <code>$master_table</code>
-    </InvalidArgument>
     <InvalidOperand>
       <code>$pos</code>
     </InvalidOperand>
@@ -11723,10 +11619,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/Svg.php">
-    <DocblockTypeContradiction>
-      <code>is_int($height)</code>
-      <code>is_int($width)</code>
-    </DocblockTypeContradiction>
     <PossiblyUnusedMethod>
       <code>printElementLine</code>
     </PossiblyUnusedMethod>
@@ -11734,21 +11626,11 @@
       <code>$author</code>
       <code>$title</code>
     </PossiblyUnusedProperty>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $styles</code>
-      <code>(string) $styles</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php">
     <InvalidArgument>
       <code><![CDATA[$this->showColor]]></code>
-      <code><![CDATA[$this->tables[$foreignTable]]]></code>
-      <code><![CDATA[$this->tables[$masterTable]]]></code>
     </InvalidArgument>
-    <InvalidCast>
-      <code><![CDATA[$this->tables[$foreignTable]]]></code>
-      <code><![CDATA[$this->tables[$masterTable]]]></code>
-    </InvalidCast>
     <MixedArgument>
       <code>$one_field</code>
       <code><![CDATA[$one_key['ref_index_list'][$index]]]></code>
@@ -11780,10 +11662,6 @@
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$this->tables[$table]]]></code>
-      <code><![CDATA[$this->xMax + $border]]></code>
-      <code><![CDATA[$this->xMin - $border]]></code>
-      <code><![CDATA[$this->yMax + $border]]></code>
-      <code><![CDATA[$this->yMin - $border]]></code>
     </PossiblyInvalidArgument>
     <TooFewArguments>
       <code>tableDraw</code>
@@ -11856,7 +11734,6 @@
       <code>$options[2]</code>
     </MixedArgument>
     <RedundantCastGivenDocblockType>
-      <code>(string) $buffer</code>
       <code>(string) $buffer</code>
     </RedundantCastGivenDocblockType>
   </file>
@@ -11946,8 +11823,6 @@
       <code>$options[2]</code>
     </MixedOperand>
     <RedundantCastGivenDocblockType>
-      <code>(string) $buffer</code>
-      <code>(string) $buffer</code>
       <code>(string) $buffer</code>
     </RedundantCastGivenDocblockType>
   </file>
@@ -12482,9 +12357,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA['']]></code>
-    </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
@@ -12557,13 +12429,11 @@
       <code><![CDATA[$routine['name']]]></code>
       <code><![CDATA[$routine['type']]]></code>
       <code><![CDATA[$row['Db']]]></code>
-      <code><![CDATA[$row['Db']]]></code>
       <code><![CDATA[$row['Grant_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
       <code><![CDATA[$row['Routine_name']]]></code>
       <code><![CDATA[$row['Routine_name']]]></code>
-      <code><![CDATA[$row['Table_name']]]></code>
       <code><![CDATA[$row['Table_name']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
       <code>$sqlQuery[0]</code>
@@ -12673,7 +12543,6 @@
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['userGroup']]]></code>
       <code><![CDATA[$_POST['username']]]></code>
-      <code>$dbname</code>
       <code>$eachUser</code>
       <code>$hashedPassword</code>
       <code>$oldUserGroup</code>
@@ -12693,7 +12562,6 @@
       <code><![CDATA[$_POST['username']]]></code>
       <code><![CDATA[$_REQUEST['hostname']]]></code>
       <code><![CDATA[$_REQUEST['username']]]></code>
-      <code>$dbname</code>
       <code>$dbname[0]</code>
       <code>$oldUserGroup</code>
     </PossiblyInvalidCast>
@@ -12748,15 +12616,9 @@
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
     </PossiblyNullOperand>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $privs</code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code><![CDATA[is_string($_REQUEST['dbname'])]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code>$userGroup</code>
-    </RedundantConditionGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_POST['max_connections']]]></code>
       <code><![CDATA[$_POST['max_questions']]]></code>
@@ -13021,8 +12883,6 @@
     <MixedArgument>
       <code>$date</code>
       <code>$date</code>
-      <code>$version</code>
-      <code>$version</code>
       <code>$version</code>
       <code><![CDATA[$version_data->releases]]></code>
     </MixedArgument>
@@ -13353,8 +13213,6 @@
       <code>$foreignField</code>
       <code>$indexedCols</code>
       <code>$masterField</code>
-      <code>$where</code>
-      <code>$where</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
@@ -13568,13 +13426,6 @@
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['Server']['MaxTableUiprefs']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $defaultValue</code>
-      <code>(string) $defaultValue</code>
-      <code>(string) $defaultValue</code>
-      <code>(string) $defaultValue</code>
-      <code>(string) $tableName</code>
-    </RedundantCastGivenDocblockType>
     <ReferenceConstraintViolation>
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
@@ -13785,9 +13636,6 @@
       <code>issetCookie</code>
       <code>issetCookie</code>
     </PossiblyNullReference>
-    <RedundantCastGivenDocblockType>
-      <code>(bool) $perServer</code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code>$configThemeExists</code>
     </RedundantCondition>
@@ -13839,9 +13687,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code>(int) $version - 1</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
     </InvalidArrayOffset>
@@ -13924,9 +13769,6 @@
     <PossiblyUnusedMethod>
       <code>getTableName</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $version</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Tracking.php">
     <DeprecatedMethod>
@@ -14154,10 +13996,6 @@
       <code>get</code>
       <code>getCookie</code>
     </PossiblyNullReference>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $db</code>
-      <code>(string) $table</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/UserPassword.php">
     <PossiblyInvalidArgument>
@@ -14360,18 +14198,6 @@
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code>(int) $timestamp</code>
-      <code>(int) $timestamp</code>
-      <code>(int) $timestamp</code>
-      <code>(int) $timestamp</code>
-      <code>(int) $timestamp</code>
-    </RedundantCastGivenDocblockType>
-  </file>
-  <file src="libraries/classes/Utils/ForeignKey.php">
-    <RedundantCastGivenDocblockType>
-      <code>(string) $engine</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Utils/FormatConverter.php">
     <MixedArgument>
