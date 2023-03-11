@@ -1368,7 +1368,7 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT COUNT(*) FROM `pma_test`.`table1`',
-                'result' => [[0]],
+                'result' => [],
             ],
             [
                 'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'

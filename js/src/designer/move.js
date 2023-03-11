@@ -1938,7 +1938,7 @@ DesignerMove.enablePageContentEvents = function () {
     $(document).on('mousedown', function (e) {
         DesignerMove.mouseDown(e);
     });
-    $(document).on('mouseup', function (e) {
+    $(document).on('mouseup', function () {
         DesignerMove.mouseUp();
     });
     $(document).on('mousemove', function (e) {

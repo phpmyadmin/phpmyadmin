@@ -1056,7 +1056,7 @@ class Normalization
                 continue;
             }
 
-            $result[$column] = (int) $res[0][$column . '_cnt'];
+            $result[$column] = (int) ($res[0][$column . '_cnt'] ?? null);
         }
 
         return $result;
