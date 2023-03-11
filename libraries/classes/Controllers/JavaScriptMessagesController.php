@@ -386,7 +386,7 @@ final class JavaScriptMessagesController
             'strHideQueryBox' => __('Hide query box'),
             'strShowQueryBox' => __('Show query box'),
             'strEdit' => __('Edit'),
-            'strEditQuery' => __('Edit query'),
+            'strEditInlineQuery' => __('Inline edit query'),
             'strDelete' => __('Delete'),
             'strNotValidRowNumber' => __('%d is not valid row number.'),
             'strBrowseForeignValues' => __('Browse foreign values'),

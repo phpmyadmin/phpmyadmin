@@ -2098,7 +2098,7 @@ $(function () {
         Functions.tooltip(
             $(".ajax_notification"),
             'span',
-            Messages.strEditQuery
+            Messages.strEditInlineQuery
         );
     });
 
