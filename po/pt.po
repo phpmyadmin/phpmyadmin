@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-05 00:22+0000\n"
-"PO-Revision-Date: 2022-02-15 16:21+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-03-12 00:21+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -3273,7 +3273,7 @@ msgstr "Tempo máximo de execução"
 
 #: libraries/classes/Config/Descriptions.php:647
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Usar a instrução [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:648
 msgid "Save as file"
@@ -5099,6 +5099,7 @@ msgstr "A mostrar registos de %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Já existe uma página chamada \"%s\", por favor, renomeie com outro nome."
 
 #: libraries/classes/Controllers/Database/ExportController.php:67
 #: libraries/classes/Controllers/Database/TrackingController.php:118
@@ -5173,6 +5174,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"A pesquisa no interior do banco de dados é desativada pela configuração "
+"[code]$cfg['UseDbSearch'][/code]."
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:37
@@ -5408,6 +5411,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"O ficheiro de configuração precisa de uma chave válida para a criptografia "
+"de cookies. Uma chave temporária foi gerada automaticamente para si. "
+"Consulte a documentação [doc@cfg_blowfish_secret][/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:329
 #, php-format
@@ -5416,6 +5422,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"A chave de criptografia de cookie no ficheiro de configuração é maior do que "
+"necessário. Deve ter apenas %d bytes de comprimento. Consulte a documentação "
+"[doc@cfg_blowfish_secret][/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:347
 msgid ""
@@ -7564,6 +7573,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn não está disponível. Por favor, use um navegador compatível num "
+"contexto seguro (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid ""
@@ -7571,6 +7582,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Não pode abrir, gravar ou apagar o layout da sua página, pois o IndexedDB "
+"não está a funcionar no seu navegador e o seu armazenamento de configuração "
+"do phpMyAdmin não está configurado para isso."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 #, php-format
@@ -9801,6 +9815,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Erro 1045: Acesso negado para o utilizador. Informações de erro adicionais "
+"podem estar disponíveis, mas são ocultadas pela diretiva de configuração %s."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
 #, fuzzy
@@ -15976,12 +15992,12 @@ msgstr "Enviar relatório de erro"
 
 #: templates/error/simple.twig:2
 msgid "Something went wrong"
-msgstr ""
+msgstr "Algo deu errado"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
 msgid "Go back"
-msgstr ""
+msgstr "Voltar"
 
 #: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
@@ -16161,7 +16177,7 @@ msgstr "Pular tabelas maiores que %s MiB"
 
 #: templates/export.twig:472
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "O tamanho é medido em MiB."
 
 #: templates/export.twig:478 templates/import.twig:175
 msgid "Format-specific options:"
@@ -16426,7 +16442,7 @@ msgstr "Aviso"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "Nota"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
@@ -16648,6 +16664,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"A API de FIDO U2F foi deprecada em favor da API de Web Authentication "
+"(WebAuthn)."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16657,6 +16675,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Ainda pode usar o Firefox para autenticar a sua conta a usar a API de FIDO "
+"U2F, no entanto, é recomendável usar a autenticação WebAuthn."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -18652,7 +18672,7 @@ msgstr "Adicionar novo servidor"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Algo deu errado."
 
 #: templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
