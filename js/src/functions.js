@@ -2094,7 +2094,7 @@ $(function () {
         }, 2000);
     });
 
-    $(document).on('mouseover', '.ajax_notification a', function (event) {
+    $(document).on('mouseover', '.ajax_notification a', function () {
         Functions.tooltip(
             $(".ajax_notification"),
             'span',
@@ -2102,7 +2102,7 @@ $(function () {
         );
     });
 
-    $(document).on('mouseover', '.ajax_notification a.copyQueryBtn', function (event) {
+    $(document).on('mouseover', '.ajax_notification a.copyQueryBtn', function () {
         Functions.tooltip(
             $(".ajax_notification"),
             'span',
@@ -2110,7 +2110,7 @@ $(function () {
         );
     });
 
-    $(document).on('mouseleave', '.ajax_notification a', function (event) {
+    $(document).on('mouseleave', '.ajax_notification a', function () {
         Functions.tooltip(
             $(".ajax_notification"),
             'span',
