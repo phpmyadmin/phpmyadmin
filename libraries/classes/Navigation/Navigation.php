@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Navigation;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
@@ -203,14 +204,12 @@ class Navigation
      * Returns HTML for the dialog to show hidden navigation items.
      *
      * @param string $database database name
-     * @param string $itemType type of the items to include
-     * @param string $table    table name
      *
      * @return string HTML for the dialog to show hidden navigation items
      */
-    public function getItemUnhideDialog($database, $itemType = null, $table = null): string
+    public function getItemUnhideDialog(string $database): string
     {
-        $hidden = $this->getHiddenItems($database, $table);
+        $hidden = $this->getHiddenItems($database);
 
         $typeMap = [
             'group' => __('Groups:'),
@@ -223,20 +222,12 @@ class Navigation
 
         return $this->template->render('navigation/item_unhide_dialog', [
             'database' => $database,
-            'table' => $table,
             'hidden' => $hidden,
             'types' => $typeMap,
-            'item_type' => $itemType,
         ]);
     }
 
-    /**
-     * @param string      $database Database name
-     * @param string|null $table    Table name
-     *
-     * @return array
-     */
-    private function getHiddenItems(string $database, string|null $table): array
+    private function getHiddenItems(string $database): array
     {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -246,11 +237,10 @@ class Navigation
         $navTable = Util::backquote($navigationItemsHidingFeature->database)
             . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
-            . " WHERE `username`='"
-            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . $this->dbi->escapeString($database) . "'"
-            . " AND `table_name`='"
-            . (! empty($table) ? $this->dbi->escapeString($table) : '') . "'";
+            . ' WHERE `username`='
+            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL)
+            . ' AND `db_name`=' . $this->dbi->quoteString($database, Connection::TYPE_CONTROL)
+            . " AND `table_name`=''";
         $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
 
         $hidden = [];

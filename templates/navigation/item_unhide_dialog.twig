@@ -1,9 +1,9 @@
 <form class="ajax" action="{{ url('/navigation') }}" method="post">
   <fieldset class="pma-fieldset">
-    {{ get_hidden_inputs(database, table) }}
+    {{ get_hidden_inputs(database) }}
 
     {% for type, label in types %}
-      {% if (item_type is empty or item_type == type) and hidden[type] is iterable %}
+      {% if hidden[type] is iterable %}
         {{ not loop.first ? '<br>' }}
         <strong>{{ label }}</strong>
         <table class="table w-100">
