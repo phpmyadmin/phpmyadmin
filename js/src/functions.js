@@ -2080,8 +2080,10 @@ $(function () {
         }
     };
 
-    $(document).on('click', 'a.copyQueryBtn', function (event) {
+    $(document).on('click, mouseup', 'a.copyQueryBtn', function (event) {
         event.preventDefault();
+        event.stopPropagation();
+
         var res = Functions.copyToClipboard($(this).attr('data-text'));
         if (res) {
             $(this).after('<span id=\'copyStatus\'> (' + Messages.strCopyQueryButtonSuccess + ')</span>');
