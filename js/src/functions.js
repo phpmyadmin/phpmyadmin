@@ -2095,12 +2095,10 @@ $(function () {
     });
 
     $(document).on('mouseover mouseleave', '.ajax_notification a', function (event) {
-        let message = '';
+        let message = Messages.strDismiss;
 
         if (event.type === 'mouseover') {
             message = $(this).hasClass('copyQueryBtn') ? Messages.strCopyToClipboard : Messages.strEditQuery;
-        } else {
-            message = Messages.strDismiss
         }
 
         Functions.tooltip(
