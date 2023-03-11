@@ -2095,7 +2095,7 @@ $(function () {
     });
 
     $(document).on('mouseover', '.ajax_notification a', function (event) {
-        let message = $.inArray('copyQueryBtn', event.target.classList) != -1 ? Messages.strCopyToClipboard : Messages.strEditInlineQuery;
+        let message = $.inArray('copyQueryBtn', event.target.classList) != -1 ? Messages.strCopyToClipboard : Messages.strEditQuery;
 
         Functions.tooltip(
             $(".ajax_notification"),
