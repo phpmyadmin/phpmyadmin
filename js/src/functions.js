@@ -2094,21 +2094,19 @@ $(function () {
         }, 2000);
     });
 
-    $(document).on('mouseover', '.ajax_notification a', function (event) {
-        let message = $.inArray('copyQueryBtn', event.target.classList) != -1 ? Messages.strCopyToClipboard : Messages.strEditQuery;
+    $(document).on('mouseover mouseleave', '.ajax_notification a', function (event) {
+        let message = "";
+
+        if (event.type == 'mouseover') {
+            message = $(this).hasClass("copyQueryBtn") ? Messages.strCopyToClipboard : Messages.strEditQuery;
+        } else {
+            message = Messages.strDismiss
+        }
 
         Functions.tooltip(
             $(".ajax_notification"),
             'span',
             message
-        );
-    });
-
-    $(document).on('mouseleave', '.ajax_notification a', function () {
-        Functions.tooltip(
-            $(".ajax_notification"),
-            'span',
-            Messages.strDismiss
         );
     });
 
