@@ -2095,16 +2095,16 @@ $(function () {
     });
 
     $(document).on('mouseover mouseleave', '.ajax_notification a', function (event) {
-        let message = "";
+        let message = '';
 
-        if (event.type == 'mouseover') {
-            message = $(this).hasClass("copyQueryBtn") ? Messages.strCopyToClipboard : Messages.strEditQuery;
+        if (event.type === 'mouseover') {
+            message = $(this).hasClass('copyQueryBtn') ? Messages.strCopyToClipboard : Messages.strEditQuery;
         } else {
             message = Messages.strDismiss
         }
 
         Functions.tooltip(
-            $(".ajax_notification"),
+            $('.ajax_notification'),
             'span',
             message
         );
