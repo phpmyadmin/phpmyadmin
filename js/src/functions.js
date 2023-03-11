@@ -2080,9 +2080,8 @@ $(function () {
         }
     };
 
-    $(document).on('click, mouseup', 'a.copyQueryBtn', function (event) {
+    $(document).on('click', 'a.copyQueryBtn', function (event) {
         event.preventDefault();
-        event.stopPropagation();
 
         var res = Functions.copyToClipboard($(this).attr('data-text'));
         if (res) {
@@ -2093,6 +2092,10 @@ $(function () {
         setTimeout(function () {
             $('#copyStatus').remove();
         }, 2000);
+    });
+
+    $(document).on('mouseup', '.ajax_notification a', function (event) {
+        event.stopPropagation();
     });
 });
 
