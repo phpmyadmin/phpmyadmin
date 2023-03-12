@@ -3520,6 +3520,7 @@ Functions.searchTablesModal = function () {
         'ajax_request': true,
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
+        'server': CommonParams.get('server'),
         'current_url': url
     };
     // Check to only invoke the function, if user is on a database/table related page
