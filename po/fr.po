@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-12 00:19+0000\n"
-"PO-Revision-Date: 2023-03-04 15:53+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-03-13 13:06+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -7638,104 +7638,76 @@ msgid "Show"
 msgstr "Afficher"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:717
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
-msgstr "janvier"
+msgstr "Janvier"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
-msgstr "février"
+msgstr "Février"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
-msgstr "mars"
+msgstr "Mars"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
-msgstr "avril"
+msgstr "Avril"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
-msgstr "mai"
+msgstr "Mai"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
-msgstr "juin"
+msgstr "Juin"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
-msgstr "juillet"
+msgstr "Juillet"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
-msgstr "août"
+msgstr "Août"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
-msgstr "septembre"
+msgstr "Septembre"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
-msgstr "octobre"
+msgstr "Octobre"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
-msgstr "novembre"
+msgstr "Novembre"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
-msgstr "décembre"
+msgstr "Décembre"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #: libraries/classes/Util.php:621
-#, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
-msgstr "jan."
+msgstr "Jan."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:622
-#, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
-msgstr "fév."
+msgstr "Fév."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #: libraries/classes/Util.php:623
@@ -7745,131 +7717,99 @@ msgstr "mars"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:624
-#, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
-msgstr "avr."
+msgstr "Avr."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #: libraries/classes/Util.php:625
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
-msgstr "mai"
+msgstr "Mai"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:626
-#, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
-msgstr "juin"
+msgstr "Juin"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/Util.php:627
-#, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
-msgstr "juil."
+msgstr "Juil."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 #: libraries/classes/Util.php:628
-#, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
-msgstr "août"
+msgstr "Août"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/Util.php:629
-#, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
-msgstr "sep."
+msgstr "Sep."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:630
-#, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
-msgstr "oct."
+msgstr "Oct."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:739
 #: libraries/classes/Util.php:631
-#, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
-msgstr "nov."
+msgstr "Nov."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #: libraries/classes/Util.php:632
-#, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
-msgstr "déc."
+msgstr "Déc."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
 #: libraries/config.values.php:197
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
-msgstr "dimanche"
+msgstr "Dimanche"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #: libraries/config.values.php:191
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
-msgstr "lundi"
+msgstr "Lundi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
 #: libraries/config.values.php:192
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
-msgstr "mardi"
+msgstr "Mardi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #: libraries/config.values.php:193
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
-msgstr "mercredi"
+msgstr "Mercredi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
 #: libraries/config.values.php:194
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
-msgstr "jeudi"
+msgstr "Jeudi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #: libraries/config.values.php:195
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
-msgstr "vendredi"
+msgstr "Vendredi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
 #: libraries/config.values.php:196
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
-msgstr "samedi"
+msgstr "Samedi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #: libraries/classes/Util.php:635
@@ -7879,19 +7819,15 @@ msgstr "dim."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:749
 #: libraries/classes/Util.php:636
-#, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
-msgstr "lun."
+msgstr "Lun."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:637
-#, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
-msgstr "mar."
+msgstr "Mar."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:751
 #: libraries/classes/Util.php:638
@@ -7901,88 +7837,64 @@ msgstr "mer."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/classes/Util.php:639
-#, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
-msgstr "jeu."
+msgstr "Jeu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:753
 #: libraries/classes/Util.php:640
-#, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
-msgstr "ven."
+msgstr "Ven."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #: libraries/classes/Util.php:641
-#, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
-msgstr "sam."
+msgstr "Sam."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:755
-#, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
-msgstr "di"
+msgstr "Di"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:756
-#, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
-msgstr "lu"
+msgstr "Lu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:757
-#, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
-msgstr "ma"
+msgstr "Ma"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
-msgstr "me"
+msgstr "Me"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
-msgstr "je"
+msgstr "Je"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
-msgstr "ve"
+msgstr "Ve"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
-msgstr "sa"
+msgstr "Sa"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
-msgstr "sem"
+msgstr "Sem"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
@@ -7992,57 +7904,42 @@ msgstr "calendar-month-year"
 #| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
-msgstr "Aucun(e)"
+msgstr "aucun(e)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Temps"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
-msgstr "heure"
+msgstr "Heure"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
-msgstr "minute"
+msgstr "Minute"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
-msgstr "seconde"
+msgstr "Seconde"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "secondes"
+msgstr "Milliseconde"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "par seconde"
+msgstr "Microseconde"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Chronologie"
+msgstr "Fuseau horaire"
 
 #. l10n: Display text for previous month link in calendar
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:776
@@ -11444,16 +11341,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Erreur, essayer à nouveau !"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:304
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Votre mot de passe est trop long. Pour éviter les attaques par déni de "
-"service, phpMyAdmin limite les mots de passe à moins de 1000 caractères."
+"service, phpMyAdmin limite les mots de passe à moins de 2000 caractères."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
 msgid "You are not allowed to log in to this MySQL server!"
