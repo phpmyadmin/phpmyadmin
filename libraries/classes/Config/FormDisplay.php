@@ -101,11 +101,14 @@ class FormDisplay
 
     private FormDisplayTemplate $formDisplayTemplate;
 
+    private bool $isSetupScript;
+
     /** @param ConfigFile $cf Config file instance */
     public function __construct(ConfigFile $cf)
     {
         $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['config']);
         $this->configFile = $cf;
+        $this->isSetupScript = Sanitize::isSetup();
         // initialize validators
         Validator::getValidators($this->configFile);
     }
@@ -724,7 +727,7 @@ class FormDisplay
         return MySQLDocumentation::getDocumentationLink(
             'config',
             'cfg_' . $this->getOptName($path),
-            Sanitize::isSetup() ? '../' : './',
+            $this->isSetupScript ? '../' : './',
         );
     }
 
