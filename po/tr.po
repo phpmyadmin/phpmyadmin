@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-12 00:19+0000\n"
-"PO-Revision-Date: 2023-03-04 15:28+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2023-03-13 13:06+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -11182,16 +11182,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Girilen captcha yanlış, tekrar deneyin!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:304
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Parolanız çok uzun. Hizmet reddi saldırılarını önlemek için phpMyAdmin, "
-"parolaları 1000 karakterden daha azına kısıtlar."
+"parolaları 2000 karakterden daha azına kısıtlar."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
 msgid "You are not allowed to log in to this MySQL server!"
