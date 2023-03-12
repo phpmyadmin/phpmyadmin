@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-03-05 00:22+0000\n"
+"POT-Creation-Date: 2023-03-12 00:19+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1175,7 +1175,6 @@ msgstr "Tìm kiếm:"
 #: templates/database/operations/index.twig:225
 #: templates/database/routines/editor_form.twig:180
 #: templates/database/routines/execute_form.twig:55
-#: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:271
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
@@ -1802,7 +1801,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:178
 #: libraries/classes/Config/Descriptions.php:720
-#: libraries/classes/Plugins/Export/ExportSql.php:320
+#: libraries/classes/Plugins/Export/ExportSql.php:322
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -3186,7 +3185,7 @@ msgstr "Mẫu tên bảng"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:60
 #: libraries/classes/Plugins/Export/ExportOdt.php:69
 #: libraries/classes/Plugins/Export/ExportPdf.php:80
-#: libraries/classes/Plugins/Export/ExportSql.php:212
+#: libraries/classes/Plugins/Export/ExportSql.php:214
 #: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
 msgstr "Đổ bảng"
@@ -3303,12 +3302,12 @@ msgid "Use delayed inserts"
 msgstr "Dùng chèn trễ"
 
 #: libraries/classes/Config/Descriptions.php:704
-#: libraries/classes/Plugins/Export/ExportSql.php:178
+#: libraries/classes/Plugins/Export/ExportSql.php:180
 msgid "Disable foreign key checks"
 msgstr "Tắt kiểm tra khóa ngoại"
 
 #: libraries/classes/Config/Descriptions.php:705
-#: libraries/classes/Plugins/Export/ExportSql.php:192
+#: libraries/classes/Plugins/Export/ExportSql.php:194
 msgid "Export views as tables"
 msgstr "Xuất view như là một bảng"
 
@@ -3342,7 +3341,7 @@ msgstr ""
 "tạo)"
 
 #: libraries/classes/Config/Descriptions.php:721
-#: libraries/classes/Plugins/Export/ExportSql.php:326
+#: libraries/classes/Plugins/Export/ExportSql.php:328
 #, fuzzy, php-format
 #| msgid "%s value"
 msgid "%s view"
@@ -3357,7 +3356,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Cú pháp để dùng khi thêm dữ liệu"
 
 #: libraries/classes/Config/Descriptions.php:725
-#: libraries/classes/Plugins/Export/ExportSql.php:463
+#: libraries/classes/Plugins/Export/ExportSql.php:465
 msgid "Maximal length of created query"
 msgstr "Chiều dài tối đa của truy vấn được tạo"
 
@@ -3366,7 +3365,7 @@ msgid "Export type"
 msgstr "Kiểu xuất ra"
 
 #: libraries/classes/Config/Descriptions.php:731
-#: libraries/classes/Plugins/Export/ExportSql.php:164
+#: libraries/classes/Plugins/Export/ExportSql.php:166
 msgid "Enclose export in a transaction"
 msgstr "Bao quanh những thứ xuất ra bằng một giao dịch"
 
@@ -4256,7 +4255,7 @@ msgid "Server"
 msgstr "Máy phục vụ"
 
 #: libraries/classes/Config/Descriptions.php:949
-#: libraries/classes/Plugins/Export/ExportXml.php:449
+#: libraries/classes/Plugins/Export/ExportXml.php:454
 #: libraries/classes/Server/Privileges.php:1744
 #: libraries/classes/Server/Privileges.php:1746
 #: templates/database/structure/show_create.twig:10
@@ -5142,7 +5141,7 @@ msgstr ""
 "Bạn đã thoát ra một máy chủ, để hoàn toàn đăng xuất khỏi phpMyAdmin, bạn cần "
 "rời khỏi tất cả máy chủ."
 
-#: libraries/classes/Controllers/HomeController.php:187
+#: libraries/classes/Controllers/HomeController.php:188
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5151,14 +5150,14 @@ msgstr ""
 "Kho cấu hình phpMyAdmin chưa được cấu hình đầy đủ, một số tính năng mở rộng "
 "đang bị bất hoạt. %sTìm hiểu xem tại sao lại thế%s. "
 
-#: libraries/classes/Controllers/HomeController.php:193
+#: libraries/classes/Controllers/HomeController.php:194
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Hoặc cách khác là đến tab 'Thao tác' của bất kỳ cơ sở dữ liệu nào để cài đặt "
 "nó ở đó."
 
-#: libraries/classes/Controllers/HomeController.php:258
+#: libraries/classes/Controllers/HomeController.php:259
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5171,7 +5170,7 @@ msgstr ""
 "đăng nhập của bạn có thể hết hạn sớm hơn so với thời hạn cấu hình trong "
 "phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:278
+#: libraries/classes/Controllers/HomeController.php:279
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5180,21 +5179,21 @@ msgstr ""
 "phpMyAdmin, bởi vì điều này, đăng nhập của bạn sẽ hết hạn sớm hơn cấu hình "
 "trong phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:297
+#: libraries/classes/Controllers/HomeController.php:298
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:319
+#: libraries/classes/Controllers/HomeController.php:320
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:329
+#: libraries/classes/Controllers/HomeController.php:330
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5202,7 +5201,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:347
+#: libraries/classes/Controllers/HomeController.php:348
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5215,7 +5214,7 @@ msgstr ""
 "có thể bị tổn thương do những người không đủ thẩm quyền tải về cấu hình của "
 "bạn."
 
-#: libraries/classes/Controllers/HomeController.php:368
+#: libraries/classes/Controllers/HomeController.php:369
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5224,7 +5223,7 @@ msgstr ""
 "Máy dịch vụ đang chạy với Suhosin. Vui lòng xem %stài liệu%s để thu thập một "
 "số thông tin cần thiết."
 
-#: libraries/classes/Controllers/HomeController.php:382
+#: libraries/classes/Controllers/HomeController.php:383
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5233,7 +5232,7 @@ msgstr ""
 "Thư mục $cfg['TempDir'] (%s) không thể truy cập được. phpMyAdmin không thể "
 "tạo được cache cho giao diện và điều này sẽ làm chậm quá trình tải trang."
 
-#: libraries/classes/Controllers/HomeController.php:438
+#: libraries/classes/Controllers/HomeController.php:439
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5244,7 +5243,7 @@ msgstr ""
 "không thể phân chia chuỗi một cách chính xác và nó có thể gây ra kết quả bất "
 "ngờ, rất bất ngờ đó."
 
-#: libraries/classes/Controllers/HomeController.php:456
+#: libraries/classes/Controllers/HomeController.php:457
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5904,7 +5903,7 @@ msgstr "Vui lòng thêm ít nhất là một biến vào sê-ri!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 #: libraries/classes/Display/Results.php:1060
-#: libraries/classes/Plugins/Export/ExportSql.php:2073
+#: libraries/classes/Plugins/Export/ExportSql.php:2070
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:98
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -8726,7 +8725,7 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:240
-#: libraries/classes/Sql.php:1097
+#: libraries/classes/Sql.php:1093
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
@@ -8833,7 +8832,7 @@ msgstr "Có quá nhiều phép gia nhập mà không dùng chỉ mục."
 #: libraries/classes/Controllers/Table/GetFieldController.php:78
 #: libraries/classes/Database/Routines.php:1225
 #: libraries/classes/Import.php:157 libraries/classes/InsertEdit.php:230
-#: libraries/classes/Sql.php:912
+#: libraries/classes/Sql.php:908
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
@@ -9380,33 +9379,33 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Database/Search.php:76
-#: templates/database/search/main.twig:19
+#: templates/database/search/main.twig:18
 msgid "at least one of the words"
 msgstr "ít nhất một trong các từ"
 
 #: libraries/classes/Database/Search.php:77
-#: templates/database/search/main.twig:23
+#: templates/database/search/main.twig:22
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "ít nhất một trong các từ"
 
 #: libraries/classes/Database/Search.php:78
-#: templates/database/search/main.twig:27
+#: templates/database/search/main.twig:26
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "đúng nhóm từ"
 
 #: libraries/classes/Database/Search.php:79
-#: templates/database/search/main.twig:31
+#: templates/database/search/main.twig:30
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "đúng nhóm từ"
 
 #: libraries/classes/Database/Search.php:80
-#: templates/database/search/main.twig:35
+#: templates/database/search/main.twig:34
 msgid "as regular expression"
 msgstr "dùng biểu thức chính quy"
 
@@ -9586,7 +9585,7 @@ msgstr "Tổng %1$d, %2$d trong truy vấn"
 msgid "%d total"
 msgstr "tổng %d"
 
-#: libraries/classes/Display/Results.php:3797 libraries/classes/Sql.php:918
+#: libraries/classes/Display/Results.php:3797 libraries/classes/Sql.php:914
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
@@ -10084,7 +10083,7 @@ msgstr "Thống kê phân tích:"
 msgid "%d errors were found during analysis."
 msgstr "Đã phát sinh %d lỗi trong quá trình phân tích."
 
-#: libraries/classes/Import.php:279 libraries/classes/Sql.php:926
+#: libraries/classes/Import.php:279 libraries/classes/Sql.php:922
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
@@ -10121,7 +10120,7 @@ msgstr "Sửa cấu trúc bằng cách bấm vào liên kết \"Cấu trúc\"."
 #: libraries/classes/Plugins/Export/ExportOdt.php:59
 #: libraries/classes/Plugins/Export/ExportPdf.php:59
 #: libraries/classes/Plugins/Export/ExportPhparray.php:43
-#: libraries/classes/Plugins/Export/ExportSql.php:110
+#: libraries/classes/Plugins/Export/ExportSql.php:112
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:42
@@ -10242,11 +10241,11 @@ msgstr "Hoặc"
 msgid "web server upload directory:"
 msgstr "thư mục để tải lên máy chủ:"
 
-#: libraries/classes/InsertEdit.php:1303 libraries/classes/Sql.php:909
+#: libraries/classes/InsertEdit.php:1303 libraries/classes/Sql.php:905
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: libraries/classes/InsertEdit.php:1327 libraries/classes/Sql.php:889
+#: libraries/classes/InsertEdit.php:1327 libraries/classes/Sql.php:885
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -10284,6 +10283,7 @@ msgstr "Duyệt"
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
+#: templates/database/search/main.twig:66
 #: templates/database/structure/structure_table_row.twig:53
 #: templates/server/databases/index.twig:76
 #: templates/server/databases/index.twig:77
@@ -10319,7 +10319,7 @@ msgstr "Theo dõi"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:549
 #: libraries/classes/Plugins/Export/ExportOdt.php:689
 #: libraries/classes/Plugins/Export/ExportPdf.php:257
-#: libraries/classes/Plugins/Export/ExportSql.php:1950
+#: libraries/classes/Plugins/Export/ExportSql.php:1949
 #: libraries/classes/Plugins/Export/ExportTexytext.php:530
 #: libraries/classes/Plugins/Export/ExportXml.php:120
 #: libraries/classes/Util.php:1846 libraries/classes/Util.php:1862
@@ -10344,7 +10344,7 @@ msgstr "Thủ tục"
 #: libraries/classes/Menu.php:402
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
-#: libraries/classes/Plugins/Export/ExportSql.php:962
+#: libraries/classes/Plugins/Export/ExportSql.php:964
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 #: libraries/classes/Util.php:1845 templates/database/events/index.twig:3
 msgid "Events"
@@ -10535,7 +10535,7 @@ msgstr "Sự kiện"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:27
-#: libraries/classes/Plugins/Export/ExportSql.php:605
+#: libraries/classes/Plugins/Export/ExportSql.php:607
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "Các hàm"
@@ -10556,7 +10556,7 @@ msgstr "Dãn/Co"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:27
-#: libraries/classes/Plugins/Export/ExportSql.php:594
+#: libraries/classes/Plugins/Export/ExportSql.php:596
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "Thủ tục"
@@ -10993,7 +10993,7 @@ msgstr "Captcha đã nhập là sai, hãy thử lại!"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:304
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
-"restricts passwords to less than 1000 characters."
+"restricts passwords to less than 2000 characters."
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
@@ -11083,7 +11083,7 @@ msgstr "Phiên bản Excel:"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:65
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
 #: libraries/classes/Plugins/Export/ExportPdf.php:85
-#: libraries/classes/Plugins/Export/ExportSql.php:217
+#: libraries/classes/Plugins/Export/ExportSql.php:219
 #: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:251 libraries/config.values.php:312
 #: libraries/config.values.php:328 libraries/config.values.php:336
@@ -11096,7 +11096,7 @@ msgstr "cấu trúc"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:218
+#: libraries/classes/Plugins/Export/ExportSql.php:220
 #: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:252 libraries/config.values.php:313
 #: libraries/config.values.php:329 libraries/config.values.php:337
@@ -11109,7 +11109,7 @@ msgstr "dữ liệu"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:87
-#: libraries/classes/Plugins/Export/ExportSql.php:219
+#: libraries/classes/Plugins/Export/ExportSql.php:221
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:253 libraries/config.values.php:314
 #: libraries/config.values.php:330 libraries/config.values.php:338
@@ -11127,7 +11127,7 @@ msgstr "Hiển thị hộp thoại tùy chọn"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:192
 #: libraries/classes/Plugins/Export/ExportOdt.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:2197
+#: libraries/classes/Plugins/Export/ExportSql.php:2194
 #: libraries/classes/Plugins/Export/ExportTexytext.php:176
 msgid "Dumping data for table"
 msgstr "Đang đổ dữ liệu cho bảng"
@@ -11219,21 +11219,21 @@ msgstr "Định nghĩa"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:540
 #: libraries/classes/Plugins/Export/ExportOdt.php:668
-#: libraries/classes/Plugins/Export/ExportSql.php:1936
+#: libraries/classes/Plugins/Export/ExportSql.php:1935
 #: libraries/classes/Plugins/Export/ExportTexytext.php:512
 msgid "Table structure for table"
 msgstr "Cấu trúc bảng cho bảng"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:557
 #: libraries/classes/Plugins/Export/ExportOdt.php:699
-#: libraries/classes/Plugins/Export/ExportSql.php:1987
+#: libraries/classes/Plugins/Export/ExportSql.php:1986
 #: libraries/classes/Plugins/Export/ExportTexytext.php:536
 msgid "Structure for view"
 msgstr "Cấu trúc cho view"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:563
 #: libraries/classes/Plugins/Export/ExportOdt.php:718
-#: libraries/classes/Plugins/Export/ExportSql.php:2019
+#: libraries/classes/Plugins/Export/ExportSql.php:2018
 #: libraries/classes/Plugins/Export/ExportTexytext.php:551
 msgid "Stand-in structure for view"
 msgstr "Cấu trúc đóng vai cho view"
@@ -11260,7 +11260,7 @@ msgstr "Cấu trúc của bảng @TABLE@"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportOdt.php:88
-#: libraries/classes/Plugins/Export/ExportSql.php:232
+#: libraries/classes/Plugins/Export/ExportSql.php:234
 msgid "Object creation options"
 msgstr "Tùy chọn tạo tập tin:"
 
@@ -11281,7 +11281,7 @@ msgstr "Khóa nhãn:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportOdt.php:96
-#: libraries/classes/Plugins/Export/ExportSql.php:146
+#: libraries/classes/Plugins/Export/ExportSql.php:148
 msgid "Display foreign key relationships"
 msgstr "Hiển thị mối quan hệ khóa ngoại"
 
@@ -11292,7 +11292,7 @@ msgstr "Hiện chú thích"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:146
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:154
+#: libraries/classes/Plugins/Export/ExportSql.php:156
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
@@ -11303,7 +11303,7 @@ msgid "Put columns names in the first row:"
 msgstr "Đặt tên các cột ở hàng đầu tiên"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:208
-#: libraries/classes/Plugins/Export/ExportSql.php:721
+#: libraries/classes/Plugins/Export/ExportSql.php:723
 #: libraries/classes/Plugins/Export/ExportXml.php:215
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -11311,27 +11311,27 @@ msgid "Host:"
 msgstr "Máy chủ:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:214
-#: libraries/classes/Plugins/Export/ExportSql.php:728
+#: libraries/classes/Plugins/Export/ExportSql.php:730
 #: libraries/classes/Plugins/Export/ExportXml.php:221
 msgid "Generation Time:"
 msgstr "Thời gian đã tạo:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:732
+#: libraries/classes/Plugins/Export/ExportSql.php:734
 #: libraries/classes/Plugins/Export/ExportXml.php:223
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "Phiên bản máy phục vụ:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:217
-#: libraries/classes/Plugins/Export/ExportSql.php:734
+#: libraries/classes/Plugins/Export/ExportSql.php:736
 #: libraries/classes/Plugins/Export/ExportXml.php:224
 msgid "PHP Version:"
 msgstr "Phiên bản PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:243
-#: libraries/classes/Plugins/Export/ExportSql.php:900
-#: libraries/classes/Plugins/Export/ExportXml.php:378
+#: libraries/classes/Plugins/Export/ExportSql.php:902
+#: libraries/classes/Plugins/Export/ExportXml.php:383
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:174
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -11339,7 +11339,7 @@ msgid "Database:"
 msgstr "Cơ sở dữ liệu:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:309
-#: libraries/classes/Plugins/Export/ExportSql.php:2073
+#: libraries/classes/Plugins/Export/ExportSql.php:2070
 msgid "Data:"
 msgstr "Dữ liệu:"
 
@@ -11384,92 +11384,92 @@ msgstr "Xem cấu trúc"
 msgid "Stand in"
 msgstr "Đóng vai"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:125
+#: libraries/classes/Plugins/Export/ExportSql.php:127
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:132
+#: libraries/classes/Plugins/Export/ExportSql.php:134
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:138
+#: libraries/classes/Plugins/Export/ExportSql.php:140
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:199
+#: libraries/classes/Plugins/Export/ExportSql.php:201
 msgid "Export metadata"
 msgstr "Xuất siêu dữ liệu"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:240
+#: libraries/classes/Plugins/Export/ExportSql.php:242
 msgid "Add statements:"
 msgstr "Thêm các câu lệnh:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:248
-#: libraries/classes/Plugins/Export/ExportSql.php:257
-#: libraries/classes/Plugins/Export/ExportSql.php:274
-#: libraries/classes/Plugins/Export/ExportSql.php:283
-#: libraries/classes/Plugins/Export/ExportSql.php:307
-#: libraries/classes/Plugins/Export/ExportSql.php:335
-#: libraries/classes/Plugins/Export/ExportSql.php:344
+#: libraries/classes/Plugins/Export/ExportSql.php:250
+#: libraries/classes/Plugins/Export/ExportSql.php:259
+#: libraries/classes/Plugins/Export/ExportSql.php:276
+#: libraries/classes/Plugins/Export/ExportSql.php:285
+#: libraries/classes/Plugins/Export/ExportSql.php:309
+#: libraries/classes/Plugins/Export/ExportSql.php:337
+#: libraries/classes/Plugins/Export/ExportSql.php:346
 #, php-format
 msgid "Add %s statement"
 msgstr "Thêm %s câu lệnh"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:290
+#: libraries/classes/Plugins/Export/ExportSql.php:292
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:297
+#: libraries/classes/Plugins/Export/ExportSql.php:299
 #, php-format
 msgid "%s value"
 msgstr "%s giá trị"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:314
+#: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:353
+#: libraries/classes/Plugins/Export/ExportSql.php:355
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:368
+#: libraries/classes/Plugins/Export/ExportSql.php:370
 msgid "Data creation options"
 msgstr "Tùy chọn tạo tập tin:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:373
-#: libraries/classes/Plugins/Export/ExportSql.php:2155
+#: libraries/classes/Plugins/Export/ExportSql.php:375
+#: libraries/classes/Plugins/Export/ExportSql.php:2152
 msgid "Truncate table before insert"
 msgstr "Cắt ngắn bảng trước khi chèn"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:380
+#: libraries/classes/Plugins/Export/ExportSql.php:382
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Thay cho lệnh <code>INSERT</code>, dùng:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:386
+#: libraries/classes/Plugins/Export/ExportSql.php:388
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "Lệnh <code>INSERT DELAYED</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:432
+#: libraries/classes/Plugins/Export/ExportSql.php:400
+#: libraries/classes/Plugins/Export/ExportSql.php:434
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "Lệnh <code>INSERT IGNORE</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:412
+#: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "Function to use when dumping data:"
 msgstr "Hàm sử dụng khi đổ dữ liệu:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:427
+#: libraries/classes/Plugins/Export/ExportSql.php:429
 msgid "Syntax to use when inserting data:"
 msgstr "Cú pháp khi sử dụng chèn thêm dữ liệu:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:437
+#: libraries/classes/Plugins/Export/ExportSql.php:439
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11479,7 +11479,7 @@ msgstr ""
 "&nbsp; Ví dụ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</"
 "code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:442
+#: libraries/classes/Plugins/Export/ExportSql.php:444
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11488,7 +11488,7 @@ msgstr ""
 "chèn nhiều dòng mỗi lệnh <code>INSERT</code><br> &nbsp; &nbsp; &nbsp; Ví dụ: "
 "<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:447
+#: libraries/classes/Plugins/Export/ExportSql.php:449
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -11496,7 +11496,7 @@ msgstr ""
 "cả hai cái trên<br> &nbsp; &nbsp; &nbsp; Ví dụ: <code>INSERT INTO tbl_tên "
 "(cột_A,cột_B,cột_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:452
+#: libraries/classes/Plugins/Export/ExportSql.php:454
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11504,125 +11504,125 @@ msgstr ""
 "không theo hai kiểu trên<br> &nbsp; &nbsp; &nbsp; Ví dụ: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:471
+#: libraries/classes/Plugins/Export/ExportSql.php:473
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:480
+#: libraries/classes/Plugins/Export/ExportSql.php:482
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:555
+#: libraries/classes/Plugins/Export/ExportSql.php:557
 #, fuzzy
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các hàm;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:558
-#: libraries/classes/Plugins/Export/ExportSql.php:1498
-#: libraries/classes/Plugins/Export/ExportSql.php:1975
+#: libraries/classes/Plugins/Export/ExportSql.php:560
+#: libraries/classes/Plugins/Export/ExportSql.php:1499
+#: libraries/classes/Plugins/Export/ExportSql.php:1974
 msgid "alias export may not work reliably in all cases."
 msgstr "xuất bí danh có thể không làm việc đúng trong mọi trường hợp"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1018
+#: libraries/classes/Plugins/Export/ExportSql.php:1020
 msgid "Metadata"
 msgstr "Siêu dữ liệu"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1083
+#: libraries/classes/Plugins/Export/ExportSql.php:1085
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Siêu dữ liệu cho bảng %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1090
+#: libraries/classes/Plugins/Export/ExportSql.php:1092
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Siêu dữ liệu cho cơ sở dữ liệu %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1410
+#: libraries/classes/Plugins/Export/ExportSql.php:1411
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Cấu trúc bảng cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1495
+#: libraries/classes/Plugins/Export/ExportSql.php:1496
 msgid "It appears your database uses views;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các view;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1643
+#: libraries/classes/Plugins/Export/ExportSql.php:1644
 msgid "Constraints for dumped tables"
 msgstr "Các ràng buộc cho các bảng đã đổ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1644
+#: libraries/classes/Plugins/Export/ExportSql.php:1645
 msgid "Constraints for table"
 msgstr "Các ràng buộc cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1671
+#: libraries/classes/Plugins/Export/ExportSql.php:1672
 msgid "Indexes for dumped tables"
 msgstr "Chỉ mục cho các bảng đã đổ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1672
+#: libraries/classes/Plugins/Export/ExportSql.php:1673
 msgid "Indexes for table"
 msgstr "Chỉ mục cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1702
+#: libraries/classes/Plugins/Export/ExportSql.php:1703
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT cho các bảng đã đổ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1703
+#: libraries/classes/Plugins/Export/ExportSql.php:1704
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1776
+#: libraries/classes/Plugins/Export/ExportSql.php:1775
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1801
+#: libraries/classes/Plugins/Export/ExportSql.php:1800
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1972
+#: libraries/classes/Plugins/Export/ExportSql.php:1971
 msgid "It appears your table uses triggers;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các bẫy;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2002
+#: libraries/classes/Plugins/Export/ExportSql.php:2001
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Cấu trúc cho view %s được xuất dạng một bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2022
+#: libraries/classes/Plugins/Export/ExportSql.php:2021
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2088
+#: libraries/classes/Plugins/Export/ExportSql.php:2085
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "Gặp lỗi khi đọc dữ liệu:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2700
+#: libraries/classes/Plugins/Export/ExportSql.php:2697
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 msgid "Creation:"
 msgstr "Tạo:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2710
+#: libraries/classes/Plugins/Export/ExportSql.php:2707
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 msgid "Last update:"
 msgstr "Cập nhật lần cuối:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2720
+#: libraries/classes/Plugins/Export/ExportSql.php:2717
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 msgid "Last check:"
 msgstr "Lần kiểm tra cuối:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2743
+#: libraries/classes/Plugins/Export/ExportSql.php:2740
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -11786,14 +11786,14 @@ msgid "This format has no options"
 msgstr "Định dạng này không có tùy-chọn"
 
 #: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:66
-#: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:85
-#: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:85
-#: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:85
+#: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:78
+#: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:77
+#: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:78
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "Bảng %s không tồn tại!"
 
-#: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:60
+#: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:61
 #: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
@@ -12835,11 +12835,11 @@ msgstr "Không có phiên bản ổn định nào mới hơn"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Dùng đánh dấu \"%s\" như là truy vấn duyệt mặc định."
 
-#: libraries/classes/Sql.php:906
+#: libraries/classes/Sql.php:902
 msgid "Showing as PHP code"
 msgstr "Hiện dạng mã PHP"
 
-#: libraries/classes/Sql.php:1277
+#: libraries/classes/Sql.php:1273
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12848,7 +12848,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa không sẵn có. %s"
 
-#: libraries/classes/Sql.php:1291
+#: libraries/classes/Sql.php:1287
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12900,7 +12900,7 @@ msgstr "%s đã bị tắt cho máy chủ MySQL này."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Máy chủ MySQL này không hỗ trợ bộ máy lưu trữ %s."
 
-#: libraries/classes/Table/Indexes.php:50 libraries/classes/Table.php:2028
+#: libraries/classes/Table/Indexes.php:50 libraries/classes/Table.php:2025
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Tên của khóa chính phải là \"PRIMARY\"!"
 
@@ -12909,43 +12909,43 @@ msgstr "Tên của khóa chính phải là \"PRIMARY\"!"
 msgid "Problems with indexes of table `%s`"
 msgstr "Trục trặc với chỉ mục của bảng “%s“"
 
-#: libraries/classes/Table.php:324
+#: libraries/classes/Table.php:325
 msgid "Unknown table status:"
 msgstr "Không hiểu các trạng thái bảng:"
 
-#: libraries/classes/Table.php:952
+#: libraries/classes/Table.php:949
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Không tìm thấy cơ sở dữ liệu nguồn “%s“!"
 
-#: libraries/classes/Table.php:961
+#: libraries/classes/Table.php:958
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Không tìm thấy cơ sở dữ liệu đích “%s“!"
 
-#: libraries/classes/Table.php:1423
+#: libraries/classes/Table.php:1420
 msgid "Invalid database:"
 msgstr "Cơ sở dữ liệu không hợp lệ:"
 
-#: libraries/classes/Table.php:1441
+#: libraries/classes/Table.php:1438
 msgid "Invalid table name:"
 msgstr "Tên bảng không hợp lệ"
 
-#: libraries/classes/Table.php:1475
+#: libraries/classes/Table.php:1472
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Gặp lỗi khi đổi tên bảng %1$s thành %2$s"
 
-#: libraries/classes/Table.php:1492
+#: libraries/classes/Table.php:1489
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Bảng %1$s đã được đổi tên thành %2$s."
 
-#: libraries/classes/Table.php:1735
+#: libraries/classes/Table.php:1732
 msgid "Could not save table UI preferences!"
 msgstr "Không thể ghi lại bảng mới dùng"
 
-#: libraries/classes/Table.php:1757
+#: libraries/classes/Table.php:1754
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -12954,7 +12954,7 @@ msgstr ""
 "Gặp lỗi khi dọn dẹp tùy thích bảng UI (xem $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1885
+#: libraries/classes/Table.php:1882
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12965,15 +12965,15 @@ msgstr ""
 "không liên tục sau khi bạn làm mới trang này. Vui lòng kiểm tra xem cấu trúc "
 "bảng có bị thay đổi hay không."
 
-#: libraries/classes/Table.php:2040
+#: libraries/classes/Table.php:2037
 msgid "Can't rename index to PRIMARY!"
 msgstr "Không thể đổi tên chỉ mục thành PRIMARY!"
 
-#: libraries/classes/Table.php:2066
+#: libraries/classes/Table.php:2063
 msgid "No index parts defined!"
 msgstr "Chưa định nghĩa bộ phận chỉ mục nào!"
 
-#: libraries/classes/Table.php:2357
+#: libraries/classes/Table.php:2354
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Gặp lỗi khi tạo khóa ngoại trên %1$s (kiểm tra lại kiểu dữ liệu)"
@@ -14255,7 +14255,7 @@ msgstr "Chưa định nghĩa chỉ mục!"
 
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:28
-#: templates/database/search/main.twig:43 templates/server/export/index.twig:10
+#: templates/database/search/main.twig:42 templates/server/export/index.twig:10
 #: templates/server/privileges/privileges_table.twig:29
 #: templates/server/privileges/privileges_table.twig:56
 #: templates/server/privileges/privileges_table.twig:83
@@ -15059,34 +15059,34 @@ msgstr "Bộ sửa ENUM/SET"
 msgid "Execute"
 msgstr "Thi hành"
 
-#: templates/database/search/main.twig:5
+#: templates/database/search/main.twig:2
 msgid "Search in database"
 msgstr "Tìm kiếm trong cơ sở dữ liệu"
 
-#: templates/database/search/main.twig:8
+#: templates/database/search/main.twig:9
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Từ hay giá trị muốn tìm kiếm (wildcard: \"%\"):"
 
-#: templates/database/search/main.twig:15
+#: templates/database/search/main.twig:14
 #: templates/table/find_replace/index.twig:31
 msgid "Find:"
 msgstr "Tìm:"
 
-#: templates/database/search/main.twig:19
-#: templates/database/search/main.twig:23
+#: templates/database/search/main.twig:18
+#: templates/database/search/main.twig:22
 msgid "Words are separated by a space character (\" \")."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
-#: templates/database/search/main.twig:40
+#: templates/database/search/main.twig:39
 msgid "Inside tables:"
 msgstr "Trong bảng:"
 
-#: templates/database/search/main.twig:46 templates/server/export/index.twig:11
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Bỏ chọn tất cả"
 
-#: templates/database/search/main.twig:67
+#: templates/database/search/main.twig:61
 msgid "Inside column:"
 msgstr "Trong cột:"
 
