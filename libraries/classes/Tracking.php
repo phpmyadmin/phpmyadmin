@@ -1100,7 +1100,7 @@ class Tracking
         return $this->template->render('database/tracking/tables', [
             'db' => $db,
             'head_version_exists' => $versions !== [],
-            'untracked_tables_exists' => count($untrackedTables) > 0,
+            'untracked_tables_exists' => $untrackedTables !== [],
             'versions' => $versions,
             'url_params' => $urlParams,
             'text_dir' => $textDir,
