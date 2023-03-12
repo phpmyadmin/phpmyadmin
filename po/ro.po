@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-12 00:19+0000\n"
-"PO-Revision-Date: 2023-03-01 12:28+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2023-03-13 13:06+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-rc\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -11211,16 +11211,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha introdusă este greșită, încearcă din nou!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:304
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Parola ta este prea lungă. Pentru a preveni atacurile DoS, phpMyAdmin "
-"restricționează parolele la mai puțin de 1000 caractere."
+"restricționează parolele la mai puțin de 2000 caractere."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
 msgid "You are not allowed to log in to this MySQL server!"
