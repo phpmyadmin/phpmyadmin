@@ -92,7 +92,14 @@ class Config
     /** @var array */
     public array $defaultServer = [];
 
+    private bool $isHttps;
+
     private Settings|null $config = null;
+
+    public function __construct()
+    {
+        $this->isHttps = $this->isHttps();
+    }
 
     /**
      * @param string|null $source source to read config from
@@ -887,7 +894,7 @@ class Config
             time() - 3600,
             $this->getRootPath(),
             '',
-            $this->isHttps(),
+            $this->isHttps,
         );
     }
 
@@ -951,7 +958,7 @@ class Config
                 'expires' => $validity,
                 'path' => $this->getRootPath(),
                 'domain' => '',
-                'secure' => $this->isHttps(),
+                'secure' => $this->isHttps,
                 'httponly' => $httponly,
                 'samesite' => $cookieSameSite,
             ];
@@ -982,7 +989,7 @@ class Config
      */
     public function getCookieName(string $cookieName): string
     {
-        return $cookieName . ( $this->isHttps() ? '_https' : '' );
+        return $cookieName . ( $this->isHttps ? '_https' : '' );
     }
 
     /**
