@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-12 00:19+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -11292,16 +11292,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Invoer is verkeerd, probeer opnieuw!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:304
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Uw wachtwoord is te lang. Om denial-of-service aanvallen te voorkomen "
-"beperkt phpMyAdmin de wachtwoordlengte tot minder dan 1000 tekens."
+"beperkt phpMyAdmin de wachtwoordlengte tot minder dan 2000 tekens."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
 msgid "You are not allowed to log in to this MySQL server!"
