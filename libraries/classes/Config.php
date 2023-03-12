@@ -775,8 +775,9 @@ class Config
      */
     public function isHttps(): bool
     {
-        if ($this->get('is_https') !== null) {
-            return (bool) $this->get('is_https');
+        $is_https = $this->get('is_https');
+        if ($is_https !== null) {
+            return (bool) $is_https;
         }
 
         $url = $this->get('PmaAbsoluteUri');
