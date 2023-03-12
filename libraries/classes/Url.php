@@ -228,7 +228,7 @@ class Url
 
         $query = self::buildHttpQuery($params, $encrypt);
 
-        if (($divider !== '?' && $divider !== '&') || strlen($query) > 0) {
+        if (($divider !== '?' && $divider !== '&') || $query !== '') {
             return $divider . $query;
         }
 
@@ -241,6 +241,10 @@ class Url
      */
     public static function buildHttpQuery($params, $encrypt = true): string
     {
+        if ($params === []) {
+            return '';
+        }
+
         $GLOBALS['config'] ??= null;
 
         $separator = self::getArgSeparator();
@@ -320,7 +324,7 @@ class Url
             $arg_separator = (string) ini_get('arg_separator.input');
             if (str_contains($arg_separator, ';')) {
                 $separator = ';';
-            } elseif (strlen($arg_separator) > 0) {
+            } elseif ($arg_separator !== '') {
                 $separator = $arg_separator[0];
             } else {
                 $separator = '&';
