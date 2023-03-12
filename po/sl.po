@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-12 00:19+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: Domen <mitenem@outlook.com>\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
 "Language: sl\n"
@@ -11159,16 +11159,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Vnesena captcha je napačna; poskusite znova!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:304
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Vaše geslo je predolgo. Za preprečitev napadov ohromitve storitve phpMyAdmin "
-"omejuje gesla na manj kot 1000 znakov."
+"omejuje gesla na manj kot 2000 znakov."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
 msgid "You are not allowed to log in to this MySQL server!"
