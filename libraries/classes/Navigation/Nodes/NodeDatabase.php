@@ -23,6 +23,8 @@ class NodeDatabase extends Node
 {
     /**
      * The number of hidden items in this database
+     *
+     * @var int<0, max>
      */
     protected int $hiddenCount = 0;
 
@@ -592,18 +594,16 @@ class NodeDatabase extends Node
 
     /**
      * Sets the number of hidden items in this database
-     *
-     * @param int $count hidden item count
      */
-    public function setHiddenCount($count): void
+    public function setHiddenCount(int $count): void
     {
-        $this->hiddenCount = $count;
+        $this->hiddenCount = $count >= 1 ? $count : 0;
     }
 
     /**
      * Returns the number of hidden items in this database
      *
-     * @return int hidden item count
+     * @return int<0, max>
      */
     public function getHiddenCount(): int
     {

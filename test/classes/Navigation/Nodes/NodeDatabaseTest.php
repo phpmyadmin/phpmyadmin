@@ -101,11 +101,11 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testHiddenCount(): void
     {
         $parent = new NodeDatabase('default');
-
-        $parent->setHiddenCount(3);
-        $this->assertEquals(
-            3,
-            $parent->getHiddenCount(),
-        );
+        $parent->setHiddenCount(1);
+        $this->assertSame(1, $parent->getHiddenCount());
+        $parent->setHiddenCount(0);
+        $this->assertSame(0, $parent->getHiddenCount());
+        $parent->setHiddenCount(-1);
+        $this->assertSame(0, $parent->getHiddenCount());
     }
 }

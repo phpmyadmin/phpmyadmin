@@ -321,7 +321,7 @@ class NavigationTree
         foreach ($data as $db) {
             $node = NodeFactory::getInstance(NodeDatabase::class, $db);
             if (isset($hiddenCounts[$db])) {
-                $node->setHiddenCount($hiddenCounts[$db]);
+                $node->setHiddenCount((int) $hiddenCounts[$db]);
             }
 
             $this->tree->addChild($node);

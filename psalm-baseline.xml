@@ -8655,7 +8655,6 @@
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code>$db</code>
-      <code>$hiddenCounts[$db]</code>
       <code>$item</code>
       <code>$item</code>
       <code>$item</code>
