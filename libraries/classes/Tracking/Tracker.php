@@ -5,10 +5,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Tracking;
 
+use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
@@ -19,6 +21,7 @@ use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\RenameStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+use PhpMyAdmin\Util;
 
 use function array_values;
 use function count;

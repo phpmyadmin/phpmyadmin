@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Tracking;
 
 use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -10,7 +10,8 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -22,7 +23,7 @@ use function ini_restore;
 use function ini_set;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Tracking */
+/** @covers \PhpMyAdmin\Tracking\Tracking */
 class TrackingTest extends AbstractTestCase
 {
     private Tracking $tracking;

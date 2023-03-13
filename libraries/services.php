@@ -236,7 +236,7 @@ return [
             'arguments' => ['$config' => '@config'],
         ],
         'tracking' => [
-            'class' => PhpMyAdmin\Tracking::class,
+            'class' => PhpMyAdmin\Tracking\Tracking::class,
             'arguments' => [
                 '$sqlQueryForm' => '@sql_query_form',
                 '$template' => '@template',

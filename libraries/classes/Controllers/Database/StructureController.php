@@ -20,7 +20,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 

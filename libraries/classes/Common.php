@@ -19,6 +19,7 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\Tracking\Tracker;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

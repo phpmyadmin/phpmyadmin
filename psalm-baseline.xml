@@ -13644,7 +13644,7 @@
       <code>return false;</code>
     </UnevaluatedCode>
   </file>
-  <file src="libraries/classes/Tracker.php">
+  <file src="libraries/classes/Tracking/Tracker.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -13770,7 +13770,7 @@
       <code>getTableName</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Tracking.php">
+  <file src="libraries/classes/Tracking/Tracking.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -15849,7 +15849,7 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/TrackerTest.php">
+  <file src="test/classes/Tracking/TrackerTest.php">
     <MixedInferredReturnType>
       <code>array</code>
       <code>array</code>
@@ -15860,7 +15860,7 @@
       <code>$fetchArrayReturn[0]</code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="test/classes/TrackingTest.php">
+  <file src="test/classes/Tracking/TrackingTest.php">
     <MixedArgument>
       <code>$html</code>
     </MixedArgument>

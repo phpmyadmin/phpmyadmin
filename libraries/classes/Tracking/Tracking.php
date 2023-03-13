@@ -5,12 +5,19 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Tracking;
 
 use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
 use function array_key_exists;
@@ -32,7 +39,7 @@ use function strtotime;
 use const SORT_ASC;
 
 /**
- * PhpMyAdmin\Tracking class
+ * PhpMyAdmin\Tracking\Tracking class
  */
 class Tracking
 {

@@ -13,7 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Tracking\Tracking;
 
 /** @covers \PhpMyAdmin\Controllers\Table\TrackingController */
 class TrackingControllerTest extends AbstractTestCase

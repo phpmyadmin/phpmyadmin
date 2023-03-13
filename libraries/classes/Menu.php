@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
