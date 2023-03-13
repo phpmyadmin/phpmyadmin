@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-12 00:19+0000\n"
-"PO-Revision-Date: 2022-12-06 00:47+0000\n"
-"Last-Translator: Reza Asadi <asadister@gmail.com>\n"
+"PO-Revision-Date: 2023-03-13 13:06+0000\n"
+"Last-Translator: Alireza Fadaei <alirezalink@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fa/>\n"
 "Language: fa\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -117,6 +117,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"شاید بخواهید {long_query_time} را افزایش دهید یا پرس و جوهای فهرست شده در "
+"ثبت وقایع پرس و جوهای کند را بهینه کنید"
 
 #: libraries/classes/Advisory/Rules.php:70
 #, php-format
@@ -131,7 +133,7 @@ msgstr "پرس و جوي SQL"
 #: libraries/classes/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "پرس و جوهای کند در مقایسه با زمان بالابودن سرور درصد بالایی دارد"
 
 #: libraries/classes/Advisory/Rules.php:84
 #, php-format
@@ -164,9 +166,8 @@ msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:106
 #: libraries/classes/Advisory/Rules.php:119
-#, fuzzy
 msgid "Slow query logging"
-msgstr "پرس و جوي SQL"
+msgstr "ثبت وقایع پرس و جوها کند است"
 
 #: libraries/classes/Advisory/Rules.php:110
 #: libraries/classes/Advisory/Rules.php:123
