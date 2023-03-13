@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
+use PhpMyAdmin\Theme\Theme;
 
 use function array_merge;
 use function defined;

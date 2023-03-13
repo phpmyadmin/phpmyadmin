@@ -8666,44 +8666,44 @@ parameters:
 			path: libraries/classes/Template.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$filesizeInfo \\(int\\) does not accept int\\<0, max\\>\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Theme\\\\Theme\\:\\:\\$filesizeInfo \\(int\\) does not accept int\\<0, max\\>\\|false\\.$#"
 			count: 1
-			path: libraries/classes/Theme.php
+			path: libraries/classes/Theme/Theme.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtimeInfo \\(int\\) does not accept int\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Theme\\\\Theme\\:\\:\\$mtimeInfo \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
-			path: libraries/classes/Theme.php
+			path: libraries/classes/Theme/Theme.php
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: libraries/classes/Theme.php
+			path: libraries/classes/Theme/Theme.php
 
 		-
 			message: "#^Casting to bool something that's already bool\\.$#"
 			count: 1
-			path: libraries/classes/ThemeManager.php
+			path: libraries/classes/Theme/ThemeManager.php
 
 		-
 			message: "#^If condition is always true\\.$#"
 			count: 1
-			path: libraries/classes/ThemeManager.php
+			path: libraries/classes/Theme/ThemeManager.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ThemeManager\\:\\:getThemesArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Theme\\\\ThemeManager\\:\\:getThemesArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ThemeManager.php
+			path: libraries/classes/Theme/ThemeManager.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$activeTheme \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Theme\\\\ThemeManager\\:\\:\\$activeTheme \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
-			path: libraries/classes/ThemeManager.php
+			path: libraries/classes/Theme/ThemeManager.php
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 2
-			path: libraries/classes/ThemeManager.php
+			path: libraries/classes/Theme/ThemeManager.php
 
 		-
 			message: "#^Cannot access property \\$dest on PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\|null\\.$#"
@@ -11103,22 +11103,22 @@ parameters:
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/ThemeManagerTest.php
+			path: test/classes/Theme/ThemeManagerTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/ThemeManagerTest.php
+			path: test/classes/Theme/ThemeManagerTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme' and PhpMyAdmin\\\\Theme will always evaluate to true\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme\\\\\\\\Theme' and PhpMyAdmin\\\\Theme\\\\Theme will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/ThemeTest.php
+			path: test/classes/Theme/ThemeTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\ThemeTest\\:\\:providerForGetImgPath\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Theme\\\\ThemeTest\\:\\:providerForGetImgPath\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/ThemeTest.php
+			path: test/classes/Theme/ThemeTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TrackerTest\\:\\:getTableNameData\\(\\) return type has no value type specified in iterable type array\\.$#"

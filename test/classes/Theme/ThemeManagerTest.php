@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Theme;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Theme\ThemeManager;
 
-/** @covers \PhpMyAdmin\ThemeManager */
+/** @covers \PhpMyAdmin\Theme\ThemeManager */
 class ThemeManagerTest extends AbstractTestCase
 {
     /**

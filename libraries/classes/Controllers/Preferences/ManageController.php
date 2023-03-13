@@ -15,7 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 

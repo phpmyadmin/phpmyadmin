@@ -18,7 +18,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;

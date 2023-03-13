@@ -15,7 +15,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Theme\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 

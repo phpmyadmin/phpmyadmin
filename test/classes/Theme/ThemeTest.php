@@ -2,17 +2,19 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Theme;
 
-use PhpMyAdmin\Theme;
-use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Theme\Theme;
+use PhpMyAdmin\Theme\ThemeManager;
 
 use function filemtime;
 
 use const DIRECTORY_SEPARATOR;
+use const ROOT_PATH;
 use const TEST_PATH;
 
-/** @covers \PhpMyAdmin\Theme */
+/** @covers \PhpMyAdmin\Theme\Theme */
 class ThemeTest extends AbstractTestCase
 {
     protected Theme $object;

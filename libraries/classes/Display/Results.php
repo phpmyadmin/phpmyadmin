@@ -27,7 +27,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\StatementInfo;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Theme\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;

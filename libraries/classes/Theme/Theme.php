@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Theme;
+
+use PhpMyAdmin\Version;
 
 use function __;
 use function file_exists;
@@ -20,7 +22,6 @@ use function trim;
 use function version_compare;
 
 use const DIRECTORY_SEPARATOR;
-
 use const E_USER_ERROR;
 
 /**

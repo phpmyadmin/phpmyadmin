@@ -9,7 +9,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 
 /** @covers \PhpMyAdmin\Controllers\ThemeSetController */

@@ -18,6 +18,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\Theme\ThemeManager;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

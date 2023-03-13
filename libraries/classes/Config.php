@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\ConfigException;
+use PhpMyAdmin\Theme\ThemeManager;
 use Throwable;
 
 use function __;

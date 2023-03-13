@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Theme\Theme;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

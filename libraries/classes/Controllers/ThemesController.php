@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Theme\ThemeManager;
 
 class ThemesController extends AbstractController
 {

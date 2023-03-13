@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.7@e028ba46ba0d7f9a78bc3201c251e137383e145f">
+<files psalm-version="5.8.0@9cf4f60a333f779ad3bc704a555920e81d4fdcda">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -13869,7 +13869,7 @@
       <code><![CDATA[$GLOBALS['cfg']['environment']]]></code>
     </InvalidArrayOffset>
   </file>
-  <file src="libraries/classes/Theme.php">
+  <file src="libraries/classes/Theme/Theme.php">
     <MixedArgument>
       <code><![CDATA[$data['name']]]></code>
       <code><![CDATA[$data['version']]]></code>
@@ -13881,7 +13881,7 @@
       <code>return false;</code>
     </UnevaluatedCode>
   </file>
-  <file src="libraries/classes/ThemeManager.php">
+  <file src="libraries/classes/Theme/ThemeManager.php">
     <MixedInferredReturnType>
       <code>string|false</code>
     </MixedInferredReturnType>
@@ -16125,12 +16125,12 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/ThemeManagerTest.php">
+  <file src="test/classes/Theme/ThemeManagerTest.php">
     <RedundantCondition>
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/ThemeTest.php">
+  <file src="test/classes/Theme/ThemeTest.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>

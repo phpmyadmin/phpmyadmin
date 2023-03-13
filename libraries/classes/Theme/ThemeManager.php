@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Theme;
 
 use function __;
 use function array_key_exists;
@@ -18,6 +18,7 @@ use function trigger_error;
 use const DIRECTORY_SEPARATOR;
 use const E_USER_ERROR;
 use const E_USER_WARNING;
+use const ROOT_PATH;
 
 /**
  * phpMyAdmin theme manager
