@@ -110,10 +110,10 @@ class TrackingTest extends AbstractTestCase
                 'hello_world' => ['Name' => 'hello_world'],
             ],
         ];
-        $untracked_tables = $this->tracking->extractTableNames($table_list, 'db', true);
+        $untracked_tables = $this->tracking->extractTableNames($table_list, 'db');
         $this->assertContains('hello_world', $untracked_tables);
         $this->assertContains('hello_lovely_world', $untracked_tables);
-        $this->assertContains('hello_lovely_world2', $untracked_tables);
+        $this->assertNotContains('hello_lovely_world2', $untracked_tables);
     }
 
     public function testGetHtmlForMain(): void

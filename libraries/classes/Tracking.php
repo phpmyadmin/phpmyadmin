@@ -1100,7 +1100,7 @@ class Tracking
         return $this->template->render('database/tracking/tables', [
             'db' => $db,
             'head_version_exists' => $versions !== [],
-            'untracked_tables_exists' => count($untrackedTables) > 0,
+            'untracked_tables_exists' => $untrackedTables !== [],
             'versions' => $versions,
             'url_params' => $urlParams,
             'text_dir' => $textDir,
@@ -1113,11 +1113,10 @@ class Tracking
      *
      * @param array  $table_list Table list
      * @param string $db         Current database
-     * @param bool   $testing    Testing
      *
      * @return array
      */
-    public function extractTableNames(array $table_list, $db, $testing = false): array
+    public function extractTableNames(array $table_list, $db): array
     {
         $untracked_tables = [];
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
@@ -1125,8 +1124,8 @@ class Tracking
         foreach ($table_list as $value) {
             if (is_array($value) && array_key_exists('is' . $sep . 'group', $value) && $value['is' . $sep . 'group']) {
                 // Recursion step
-                $untracked_tables = array_merge($this->extractTableNames($value, $db, $testing), $untracked_tables);
-            } elseif (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
+                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables);
+            } elseif (is_array($value) && (Tracker::getVersion($db, $value['Name']) == -1)) {
                 $untracked_tables[] = $value['Name'];
             }
         }
