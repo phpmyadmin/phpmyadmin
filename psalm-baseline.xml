@@ -8604,21 +8604,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayLogo']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayServers']]]></code>

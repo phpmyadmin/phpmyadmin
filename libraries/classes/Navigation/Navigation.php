@@ -153,10 +153,10 @@ class Navigation
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
-            . "'" . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
-            . "'" . $this->dbi->escapeString($itemName) . "',"
-            . "'" . $this->dbi->escapeString($itemType) . "',"
-            . "'" . $this->dbi->escapeString($dbName) . "',"
+            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL) . ','
             . "'')";
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
@@ -183,11 +183,11 @@ class Navigation
             . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
-            . " `username`='"
-            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `item_name`='" . $this->dbi->escapeString($itemName) . "'"
-            . " AND `item_type`='" . $this->dbi->escapeString($itemType) . "'"
-            . " AND `db_name`='" . $this->dbi->escapeString($dbName) . "'";
+            . ' `username`='
+            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL)
+            . ' AND `item_name`=' . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL)
+            . ' AND `item_type`=' . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL)
+            . ' AND `db_name`=' . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL);
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
