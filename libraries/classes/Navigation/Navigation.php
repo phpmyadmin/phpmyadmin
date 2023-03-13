@@ -134,16 +134,14 @@ class Navigation
     /**
      * Add an item of navigation tree to the hidden items list in PMA database.
      *
-     * @param string $itemName  name of the navigation tree item
-     * @param string $itemType  type of the navigation tree item
-     * @param string $dbName    database name
-     * @param string $tableName table name if applicable
+     * @param string $itemName name of the navigation tree item
+     * @param string $itemType type of the navigation tree item
+     * @param string $dbName   database name
      */
     public function hideNavigationItem(
         $itemName,
         $itemType,
         $dbName,
-        $tableName = null,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -159,8 +157,7 @@ class Navigation
             . "'" . $this->dbi->escapeString($itemName) . "',"
             . "'" . $this->dbi->escapeString($itemType) . "',"
             . "'" . $this->dbi->escapeString($dbName) . "',"
-            . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : '' )
-            . "')";
+            . "'')";
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
@@ -168,16 +165,14 @@ class Navigation
      * Remove a hidden item of navigation tree from the
      * list of hidden items in PMA database.
      *
-     * @param string $itemName  name of the navigation tree item
-     * @param string $itemType  type of the navigation tree item
-     * @param string $dbName    database name
-     * @param string $tableName table name if applicable
+     * @param string $itemName name of the navigation tree item
+     * @param string $itemType type of the navigation tree item
+     * @param string $dbName   database name
      */
     public function unhideNavigationItem(
         $itemName,
         $itemType,
         $dbName,
-        $tableName = null,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -192,11 +187,7 @@ class Navigation
             . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `item_name`='" . $this->dbi->escapeString($itemName) . "'"
             . " AND `item_type`='" . $this->dbi->escapeString($itemType) . "'"
-            . " AND `db_name`='" . $this->dbi->escapeString($dbName) . "'"
-            . (! empty($tableName)
-                ? " AND `table_name`='" . $this->dbi->escapeString($tableName) . "'"
-                : ''
-            );
+            . " AND `db_name`='" . $this->dbi->escapeString($dbName) . "'";
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 

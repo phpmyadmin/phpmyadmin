@@ -2362,8 +2362,6 @@
   </file>
   <file src="libraries/classes/Controllers/NavigationController.php">
     <MixedArgument>
-      <code>! empty($tableName) ? $tableName : null</code>
-      <code>! empty($tableName) ? $tableName : null</code>
       <code>$dbName</code>
       <code>$dbName</code>
       <code>$dbName</code>
@@ -2376,7 +2374,6 @@
       <code>$dbName</code>
       <code>$itemName</code>
       <code>$itemType</code>
-      <code>$tableName</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
