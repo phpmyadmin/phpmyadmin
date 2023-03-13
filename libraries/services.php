@@ -242,6 +242,14 @@ return [
                 '$template' => '@template',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$trackingChecker' => '@tracking_checker',
+            ],
+        ],
+        'tracking_checker' => [
+            'class' => PhpMyAdmin\Tracking\TrackingChecker::class,
+            'arguments' => [
+                '$dbi' => '@dbi',
+                '$relation' => '@relation',
             ],
         ],
         'transformations' => [

@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tracking\Tracking;
+use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -60,6 +61,7 @@ class TrackingTest extends AbstractTestCase
             $template,
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi'],
+            $this->createStub(TrackingChecker::class),
         );
     }
 
@@ -91,30 +93,6 @@ class TrackingTest extends AbstractTestCase
 
         $this->assertEquals('username1', $ret[0]['username']);
         $this->assertEquals('statement1', $ret[0]['statement']);
-    }
-
-    /**
-     * Tests for extractTableNames() method from nested table_list.
-     */
-    public function testExtractTableNames(): void
-    {
-        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '_';
-
-        $table_list = [
-            'hello_' => [
-                'is_group' => 1,
-                'lovely_' => [
-                    'is_group' => 1,
-                    'hello_lovely_world' => ['Name' => 'hello_lovely_world'],
-                    'hello_lovely_world2' => ['Name' => 'hello_lovely_world2'],
-                ],
-                'hello_world' => ['Name' => 'hello_world'],
-            ],
-        ];
-        $untracked_tables = $this->tracking->extractTableNames($table_list, 'db');
-        $this->assertContains('hello_world', $untracked_tables);
-        $this->assertContains('hello_lovely_world', $untracked_tables);
-        $this->assertNotContains('hello_lovely_world2', $untracked_tables);
     }
 
     public function testGetHtmlForMain(): void
@@ -596,6 +574,7 @@ class TrackingTest extends AbstractTestCase
             $this->createStub(Template::class),
             $this->createStub(Relation::class),
             $this->createStub(DatabaseInterface::class),
+            $this->createStub(TrackingChecker::class),
         );
         ini_set('url_rewriter.tags', 'a=href,area=href,frame=src,form=,fieldset=');
         $entries = [['statement' => 'first statement'], ['statement' => 'second statement']];

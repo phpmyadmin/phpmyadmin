@@ -2361,6 +2361,22 @@ class DbiDummy implements DbiExtension
                 'result' => [['1']],
             ],
             [
+                'query' => 'SELECT table_name, tracking_active '
+                . 'FROM ( '
+                    . 'SELECT table_name, MAX(version) version '
+                    . "FROM `pmadb`.`tracking` WHERE db_name = 'dummyDb' AND table_name <> '' "
+                    . 'GROUP BY table_name '
+                . ') filtered_tables '
+                . 'JOIN `pmadb`.`tracking` USING(table_name, version)',
+                'columns' => ['table_name', 'tracking_active'],
+                'result' => [['0', '1'],['actor', '0']],
+            ],
+            [
+                'query' => 'SHOW TABLES FROM `dummyDb`;',
+                'columns' => ['Tables_in_dummyDb'],
+                'result' => [['0'], ['actor'], ['untrackedTable']],
+            ],
+            [
                 'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` LIKE \'PMA\\\\_table%\'',
                 'columns' => ['Name', 'Engine'],
                 'result' => [['PMA_table', 'InnoDB']],

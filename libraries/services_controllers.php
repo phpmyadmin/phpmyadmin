@@ -422,6 +422,7 @@ return [
                 '$relation' => '@relation',
                 '$replication' => '@replication',
                 '$dbi' => '@dbi',
+                '$trackingChecker' => '@tracking_checker',
             ],
         ],
         Database\TrackingController::class => [

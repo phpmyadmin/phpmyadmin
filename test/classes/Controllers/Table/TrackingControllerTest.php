@@ -14,6 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Tracking\Tracking;
+use PhpMyAdmin\Tracking\TrackingChecker;
 
 /** @covers \PhpMyAdmin\Controllers\Table\TrackingController */
 class TrackingControllerTest extends AbstractTestCase
@@ -47,7 +48,13 @@ class TrackingControllerTest extends AbstractTestCase
         (new TrackingController(
             $response,
             $template,
-            new Tracking(new SqlQueryForm($template, $this->dbi), $template, new Relation($this->dbi), $this->dbi),
+            new Tracking(
+                new SqlQueryForm($template, $this->dbi),
+                $template,
+                new Relation($this->dbi),
+                $this->dbi,
+                $this->createStub(TrackingChecker::class),
+            ),
         ))($this->createStub(ServerRequest::class));
 
         $main = $template->render('table/tracking/main', [

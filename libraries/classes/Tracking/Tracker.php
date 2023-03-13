@@ -481,7 +481,7 @@ class Tracker
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
-    public static function getVersion(string $dbname, string $tablename, string|null $statement = null): int
+    private static function getVersion(string $dbname, string $tablename, string|null $statement = null): int
     {
         $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
@@ -803,8 +803,6 @@ class Tracker
      */
     public static function handleQuery(string $query): void
     {
-        $relation = new Relation($GLOBALS['dbi']);
-
         // If query is marked as untouchable, leave
         if (mb_strstr($query, '/*NOTRACK*/')) {
             return;
@@ -884,6 +882,7 @@ class Tracker
         // Add log information
         $query = self::getLogComment() . $query;
 
+        $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {
             return;

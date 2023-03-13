@@ -20,7 +20,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function array_key_exists;
 use function array_merge;
 use function array_multisort;
 use function count;
@@ -28,7 +27,6 @@ use function date;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
-use function is_array;
 use function json_encode;
 use function mb_strstr;
 use function preg_replace;
@@ -48,6 +46,7 @@ class Tracking
         public Template $template,
         protected Relation $relation,
         private DatabaseInterface $dbi,
+        private TrackingChecker $trackingChecker,
     ) {
     }
 
@@ -1089,7 +1088,7 @@ class Tracking
             . '\'  GROUP BY table_name ORDER BY table_name ASC';
 
         $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
-        $untrackedTables = $this->getUntrackedTables($db);
+        $untrackedTables = $this->trackingChecker->getUntrackedTableNames($db);
 
         // If a HEAD version exists
         $versions = [];
@@ -1113,45 +1112,5 @@ class Tracking
             'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
         ]);
-    }
-
-    /**
-     * Helper function: Recursive function for getting table names from $table_list
-     *
-     * @param array  $table_list Table list
-     * @param string $db         Current database
-     *
-     * @return array
-     */
-    public function extractTableNames(array $table_list, string $db): array
-    {
-        $untracked_tables = [];
-        $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-
-        foreach ($table_list as $value) {
-            if (is_array($value) && array_key_exists('is' . $sep . 'group', $value) && $value['is' . $sep . 'group']) {
-                // Recursion step
-                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables);
-            } elseif (is_array($value) && (Tracker::getVersion($db, $value['Name']) == -1)) {
-                $untracked_tables[] = $value['Name'];
-            }
-        }
-
-        return $untracked_tables;
-    }
-
-    /**
-     * Get untracked tables
-     *
-     * @param string $db current database
-     *
-     * @return array
-     */
-    public function getUntrackedTables(string $db): array
-    {
-        $table_list = Util::getTableList($db);
-
-        //Use helper function to get table list recursively.
-        return $this->extractTableNames($table_list, $db);
     }
 }

@@ -8,7 +8,6 @@ use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Compatibility;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
@@ -20,7 +19,6 @@ use function _pgettext;
 use function abs;
 use function array_key_exists;
 use function array_map;
-use function array_merge;
 use function array_shift;
 use function array_unique;
 use function bin2hex;
@@ -53,7 +51,6 @@ use function mb_detect_encoding;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_strrpos;
-use function mb_strstr;
 use function mb_strtolower;
 use function mb_substr;
 use function number_format;
@@ -220,121 +217,6 @@ class Util
         }
 
         return self::getMySQLDocuURL('');
-    }
-
-    /**
-     * Check the correct row count
-     *
-     * @param string $db    the db name
-     * @param array  $table the table infos
-     *
-     * @return int the possibly modified row count
-     */
-    private static function checkRowCount(string $db, array $table): int
-    {
-        $rowCount = 0;
-
-        if ($table['Rows'] === null) {
-            // Do not check exact row count here,
-            // if row count is invalid possibly the table is defect
-            // and this would break the navigation panel;
-            // but we can check row count if this is a view or the
-            // information_schema database
-            // since Table::countRecords() returns a limited row count
-            // in this case.
-
-            // set this because Table::countRecords() can use it
-            $tableIsView = $table['TABLE_TYPE'] === 'VIEW';
-
-            if ($tableIsView || Utilities::isSystemSchema($db)) {
-                $rowCount = $GLOBALS['dbi']
-                    ->getTable($db, $table['Name'])
-                    ->countRecords();
-            }
-        }
-
-        return $rowCount;
-    }
-
-    /**
-     * returns array with tables of given db with extended information and grouped
-     *
-     * @return array (recursive) grouped table list
-     */
-    public static function getTableList(string $db): array
-    {
-        $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-
-        $tables = $GLOBALS['dbi']->getTablesFull($db);
-
-        if ($GLOBALS['cfg']['NaturalOrder']) {
-            uksort($tables, 'strnatcasecmp');
-        }
-
-        if (count($tables) < 1) {
-            return $tables;
-        }
-
-        $default = [
-            'Name' => '',
-            'Rows' => 0,
-            'Comment' => '',
-            'disp_name' => '',
-        ];
-
-        $tableGroups = [];
-
-        foreach ($tables as $table) {
-            /** @var string $tableName */
-            $tableName = $table['TABLE_NAME'];
-            $table['Rows'] = self::checkRowCount($db, $table);
-
-            // in $group we save the reference to the place in $table_groups
-            // where to store the table info
-            if ($GLOBALS['cfg']['NavigationTreeEnableGrouping'] && $sep && mb_strstr($tableName, $sep)) {
-                $parts = explode($sep, $tableName);
-
-                $group =& $tableGroups;
-                $i = 0;
-                $groupNameFull = '';
-                $partsCount = count($parts) - 1;
-
-                while (($i < $partsCount) && ($i < $GLOBALS['cfg']['NavigationTreeTableLevel'])) {
-                    $groupName = $parts[$i] . $sep;
-                    $groupNameFull .= $groupName;
-
-                    if (! isset($group[$groupName])) {
-                        $group[$groupName] = [];
-                        $group[$groupName]['is' . $sep . 'group'] = true;
-                        $group[$groupName]['tab' . $sep . 'count'] = 1;
-                        $group[$groupName]['tab' . $sep . 'group'] = $groupNameFull;
-                    } elseif (! isset($group[$groupName]['is' . $sep . 'group'])) {
-                        $table = $group[$groupName];
-                        $group[$groupName] = [];
-                        $group[$groupName][$groupName] = $table;
-                        $group[$groupName]['is' . $sep . 'group'] = true;
-                        $group[$groupName]['tab' . $sep . 'count'] = 1;
-                        $group[$groupName]['tab' . $sep . 'group'] = $groupNameFull;
-                    } else {
-                        $group[$groupName]['tab' . $sep . 'count']++;
-                    }
-
-                    $group =& $group[$groupName];
-                    $i++;
-                }
-            } else {
-                if (! isset($tableGroups[$tableName])) {
-                    $tableGroups[$tableName] = [];
-                }
-
-                $group =& $tableGroups;
-            }
-
-            $table['disp_name'] = $table['Name'];
-            $group[$tableName] = array_merge($default, $table);
-        }
-
-        return $tableGroups;
     }
 
     /* ----------------------- Set of misc functions ----------------------- */

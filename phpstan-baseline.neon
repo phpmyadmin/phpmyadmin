@@ -8551,16 +8551,6 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:extractTableNames\\(\\) has parameter \\$table_list with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:extractTableNames\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:filter\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
@@ -8702,11 +8692,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReportExportForm2\\(\\) has parameter \\$url_params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getUntrackedTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8871,11 +8856,6 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:checkRowCount\\(\\) has parameter \\$table with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
@@ -8897,11 +8877,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getMenuTabList\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getTableList\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
