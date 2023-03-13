@@ -31,7 +31,7 @@ class ThemeSetControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['ThemeManager'] = true;
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturn('theme_name');
+        $request->method('getParsedBodyParam')->willReturnMap([['set_theme', null, 'theme_name']]);
 
         $themeManager = $this->createMock(ThemeManager::class);
         $themeManager->expects($this->once())->method('setActiveTheme')->with($this->equalTo('theme_name'));
@@ -58,7 +58,7 @@ class ThemeSetControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['ThemeManager'] = $hasThemes;
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturn($themeName);
+        $request->method('getParsedBodyParam')->willReturnMap([['set_theme', null, $themeName]]);
 
         $themeManager = $this->createMock(ThemeManager::class);
         $themeManager->expects($this->never())->method('setActiveTheme');

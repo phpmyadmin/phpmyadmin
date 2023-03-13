@@ -9,6 +9,7 @@ use function array_key_exists;
 use function closedir;
 use function htmlspecialchars;
 use function is_dir;
+use function is_string;
 use function ksort;
 use function opendir;
 use function readdir;
@@ -87,6 +88,11 @@ class ThemeManager
         // check if user have a theme cookie
         $cookieTheme = $this->getThemeCookie();
         if ($cookieTheme && $this->setActiveTheme($cookieTheme)) {
+            $colorMode = $this->getColorModeCookie();
+            if (is_string($colorMode) && $colorMode !== '') {
+                $this->theme->setColorMode($colorMode);
+            }
+
             return;
         }
 
@@ -162,6 +168,11 @@ class ThemeManager
         return $this->cookieName;
     }
 
+    private function getColorModeCookieName(): string
+    {
+        return $this->getThemeCookieName() . '_color';
+    }
+
     /**
      * returns name of theme stored in the cookie
      *
@@ -180,6 +191,23 @@ class ThemeManager
     }
 
     /**
+     * returns name of theme stored in the cookie
+     *
+     * @return string|false theme name from cookie or false
+     */
+    public function getColorModeCookie(): string|false
+    {
+        $GLOBALS['config'] ??= null;
+
+        $name = $this->getColorModeCookieName();
+        if ($GLOBALS['config']->issetCookie($name)) {
+            return $GLOBALS['config']->getCookie($name);
+        }
+
+        return false;
+    }
+
+    /**
      * save theme in cookie
      *
      * @return true
@@ -190,6 +218,11 @@ class ThemeManager
             $this->getThemeCookieName(),
             $this->theme->id,
             $this->themeDefault,
+        );
+        $GLOBALS['config']->setCookie(
+            $this->getColorModeCookieName(),
+            $this->theme->getColorMode(),
+            $this->theme->getColorModes()[0],
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
@@ -249,6 +282,8 @@ class ThemeManager
                 'name' => $theme->getName(),
                 'version' => $theme->getVersion(),
                 'is_active' => $theme->getId() === $this->activeTheme,
+                'color_mode' => $theme->getColorMode(),
+                'color_modes' => $theme->getColorModes(),
             ];
         }
 

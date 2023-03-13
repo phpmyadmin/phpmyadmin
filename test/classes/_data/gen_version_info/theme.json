@@ -3,5 +3,6 @@
     "version": "6.0",
     "author": "phpMyAdmin developers",
     "url": "https://www.phpmyadmin.net/",
-    "supports": ["6.0"]
+    "supports": ["6.0"],
+    "colorModes": ["light", "dark"]
 }
