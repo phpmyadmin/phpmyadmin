@@ -781,7 +781,7 @@ class Tracking
      *
      * @return string HTML SQL query form
      */
-    public function exportAsSqlDump(string $db, string $table, array $entries): string
+    public function exportAsSqlDump(array $entries): string
     {
         $html = '';
         $new_query = '# '

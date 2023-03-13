@@ -209,7 +209,7 @@ final class TrackingController extends AbstractController
             $message = $GLOBALS['msg']->getDisplay();
         } elseif ($reportExport === 'sqldump') {
             $this->addScriptFiles(['sql.js']);
-            $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['db'], $GLOBALS['table'], $GLOBALS['entries']);
+            $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['entries']);
         }
 
         $schemaSnapshot = '';

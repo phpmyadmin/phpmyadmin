@@ -13879,10 +13879,6 @@
       <code><![CDATA[$data['ddlog']]]></code>
       <code><![CDATA[$data['schema_snapshot']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedParam>
-      <code>$db</code>
-      <code>$table</code>
-    </PossiblyUnusedParam>
     <RiskyCast>
       <code>$delete_id</code>
     </RiskyCast>
