@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-02-26 23:10+0000\n"
-"Last-Translator: \"Piotr W.\" <piotrwieland2012@gmail.com>\n"
+"PO-Revision-Date: 2023-03-14 00:51+0000\n"
+"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -8346,7 +8346,7 @@ msgstr "Dodaj prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Replace table with prefix"
-msgstr "Zamień tabelę na prefiks"
+msgstr "Zamień prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #: templates/database/structure/check_all_tables.twig:28
