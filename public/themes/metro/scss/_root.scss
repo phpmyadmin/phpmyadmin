@@ -1,0 +1,105 @@
+:root,
+[data-bs-theme="win"] {
+  $browse-pointer-color: #377796;
+
+  --navi-color: #eee;
+  --navi-background: #377796;
+  --navi-background-light: #428eb4;
+  --navi-pointer-color: #333;
+  --navi-hover-background: #428eb4;
+  --bs-link-color: #{$browse-pointer-color};
+  --bs-link-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-link-hover-color: #{$browse-pointer-color};
+  --bs-link-hover-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-primary: #{$browse-pointer-color};
+  --bs-primary-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --browse-warning-color: #d44a26;
+  --browse-success-color: #01a31c;
+  --button-background: #377796;
+  --button-hover: #428eb4;
+  --blue-header: #3a7ead;
+}
+
+[data-bs-theme="teal"] {
+  $browse-pointer-color: #004d60;
+
+  --navi-color: #fff;
+  --navi-background: #004d60;
+  --navi-background-light: #04627c;
+  --navi-pointer-color: #666;
+  --navi-hover-background: #216475;
+  --bs-link-color: #{$browse-pointer-color};
+  --bs-link-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-link-hover-color: #{$browse-pointer-color};
+  --bs-link-hover-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-primary: #{$browse-pointer-color};
+  --bs-primary-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --browse-warning-color: #d44a26;
+  --browse-success-color: #01a31c;
+  --button-background: #aaa;
+  --button-hover: #000;
+  --blue-header: #3a7ead;
+}
+
+[data-bs-theme="redmond"] {
+  $browse-pointer-color: #780505;
+
+  --navi-color: #fff;
+  --navi-background: #780505;
+  --navi-background-light: #a10707;
+  --navi-pointer-color: #666;
+  --navi-hover-background: #a10707;
+  --bs-link-color: #{$browse-pointer-color};
+  --bs-link-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-link-hover-color: #{$browse-pointer-color};
+  --bs-link-hover-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-primary: #{$browse-pointer-color};
+  --bs-primary-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --browse-warning-color: #d44a26;
+  --browse-success-color: #01a31c;
+  --button-background: #aaa;
+  --button-hover: #000;
+  --blue-header: #3a7ead;
+}
+
+[data-bs-theme="blueeyes"] {
+  $browse-pointer-color: #377796;
+
+  --navi-color: #fff;
+  --navi-background: #377796;
+  --navi-background-light: #428eb4;
+  --navi-pointer-color: #666;
+  --navi-hover-background: #428eb4;
+  --bs-link-color: #{$browse-pointer-color};
+  --bs-link-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-link-hover-color: #{$browse-pointer-color};
+  --bs-link-hover-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-primary: #{$browse-pointer-color};
+  --bs-primary-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --browse-warning-color: #d44a26;
+  --browse-success-color: #01a31c;
+  --button-background: #377796;
+  --button-hover: #000;
+  --blue-header: #3a7ead;
+}
+
+[data-bs-theme="mono"] {
+  $browse-pointer-color: #666;
+
+  --navi-color: #fff;
+  --navi-background: #666;
+  --navi-background-light: #999;
+  --navi-pointer-color: #666;
+  --navi-hover-background: #999;
+  --bs-link-color: #{$browse-pointer-color};
+  --bs-link-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-link-hover-color: #{$browse-pointer-color};
+  --bs-link-hover-color-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --bs-primary: #{$browse-pointer-color};
+  --bs-primary-rgb: #{red($browse-pointer-color), green($browse-pointer-color), blue($browse-pointer-color)};
+  --browse-warning-color: #666;
+  --browse-success-color: #888;
+  --button-background: #aaa;
+  --button-hover: #000;
+  --blue-header: #555;
+}
