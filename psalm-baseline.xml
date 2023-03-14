@@ -13777,7 +13777,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code>$columns</code>
@@ -13857,8 +13856,6 @@
     </MixedReturnStatement>
     <PossiblyNullArgument>
       <code><![CDATA[$data['schema_snapshot']]]></code>
-      <code><![CDATA[$entry['db_name']]]></code>
-      <code><![CDATA[$entry['table_name']]]></code>
       <code>$tableName</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>

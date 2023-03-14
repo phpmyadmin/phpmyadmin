@@ -66,7 +66,6 @@ class TrackingControllerTest extends AbstractTestCase
             ],
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'selectable_tables_num_rows' => 0,
             'selectable_tables_entries' => [],
             'selected_table' => null,
             'last_version' => 0,

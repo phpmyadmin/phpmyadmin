@@ -2340,12 +2340,6 @@ class DbiDummy implements DbiExtension
                 'result' => [['10']],
             ],
             [
-                'query' => 'SELECT DISTINCT db_name, table_name FROM `pmadb`.`tracking`'
-                    . ' WHERE db_name = \'PMA_db\' ORDER BY db_name, table_name',
-                'columns' => ['db_name', 'table_name', 'version'],
-                'result' => [['PMA_db', 'PMA_table', '10']],
-            ],
-            [
                 'query' => 'SELECT * FROM `pmadb`.`tracking` WHERE db_name = \'PMA_db\''
                     . ' AND table_name = \'PMA_table\' ORDER BY version DESC',
                 'columns' => ['db_name', 'table_name', 'version', 'date_created', 'date_updated', 'tracking_active'],

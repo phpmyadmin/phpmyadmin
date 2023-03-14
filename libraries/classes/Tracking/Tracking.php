@@ -123,18 +123,6 @@ class Tracking
         string $textDir,
         int|null $lastVersion = null,
     ): string {
-        $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
-        $selectableTablesEntries = [];
-        $selectableTablesNumRows = 0;
-        if ($selectableTablesSqlResult !== false) {
-            foreach ($selectableTablesSqlResult as $entry) {
-                $entry['is_tracked'] = Tracker::isTracked($entry['db_name'], $entry['table_name']);
-                $selectableTablesEntries[] = $entry;
-            }
-
-            $selectableTablesNumRows = $selectableTablesSqlResult->numRows();
-        }
-
         $versionSqlResult = $this->getListOfVersionsOfTable($db, $table);
         if ($lastVersion === null && $versionSqlResult !== false) {
             $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
@@ -151,8 +139,7 @@ class Tracking
             'url_params' => $urlParams,
             'db' => $db,
             'table' => $table,
-            'selectable_tables_num_rows' => $selectableTablesNumRows,
-            'selectable_tables_entries' => $selectableTablesEntries,
+            'selectable_tables_entries' => $this->trackingChecker->getTrackedTables($db),
             'selected_table' => $_POST['table'] ?? null,
             'last_version' => $lastVersion,
             'versions' => $versions,
@@ -168,24 +155,6 @@ class Tracking
     public function getTableLastVersionNumber(ResultInterface $result): int
     {
         return (int) $result->fetchValue('version');
-    }
-
-    /**
-     * Function to get sql results for selectable tables
-     */
-    public function getSqlResultForSelectableTables(string $db): ResultInterface|false
-    {
-        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return false;
-        }
-
-        $sql_query = ' SELECT DISTINCT db_name, table_name FROM '
-            . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
-            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "' "
-            . ' ORDER BY db_name, table_name';
-
-        return $this->dbi->queryAsControlUser($sql_query);
     }
 
     /**
