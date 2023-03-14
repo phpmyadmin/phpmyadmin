@@ -8,6 +8,7 @@ use function defined;
 use function flush;
 use function function_exists;
 use function header;
+use function in_array;
 use function ini_get;
 use function ob_end_clean;
 use function ob_flush;
@@ -15,6 +16,7 @@ use function ob_get_contents;
 use function ob_get_length;
 use function ob_get_level;
 use function ob_get_status;
+use function ob_list_handlers;
 use function ob_start;
 use function sprintf;
 
@@ -78,7 +80,7 @@ class OutputBuffering
             return;
         }
 
-        if ($this->mode && function_exists('ob_gzhandler')) {
+        if ($this->mode && function_exists('ob_gzhandler') && ! in_array('ob_gzhandler', ob_list_handlers())) {
             ob_start('ob_gzhandler');
         }
 
