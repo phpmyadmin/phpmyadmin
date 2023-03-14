@@ -13883,12 +13883,16 @@
   <file src="libraries/classes/Theme/ThemeManager.php">
     <MixedInferredReturnType>
       <code>string|false</code>
+      <code>string|false</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
       <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
+      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
+      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
     </MixedReturnStatement>
     <NullableReturnStatement>
+      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
       <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
     </NullableReturnStatement>
     <PossiblyNullArrayOffset>
@@ -13898,6 +13902,7 @@
       <code>$theme</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullReference>
+      <code>issetCookie</code>
       <code>issetCookie</code>
     </PossiblyNullReference>
     <RedundantCastGivenDocblockType>

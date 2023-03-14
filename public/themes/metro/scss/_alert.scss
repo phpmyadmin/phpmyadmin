@@ -12,7 +12,7 @@
 
 .alert-primary {
   color: $button-color;
-  background-color: $blue-header;
+  background-color: var(--blue-header);
   background-image: none;
 
   a {
@@ -20,13 +20,13 @@
   }
 
   h1 {
-    color: $navi-color;
+    color: var(--navi-color);
   }
 }
 
 .alert-info {
   color: $button-color;
-  background-color: $navi-background-light;
+  background-color: var(--navi-background-light);
   background-image: none;
 
   a {
@@ -34,13 +34,13 @@
   }
 
   h1 {
-    color: $navi-color;
+    color: var(--navi-color);
   }
 }
 
 .alert-success {
   color: $button-color;
-  background-color: $browse-success-color;
+  background-color: var(--browse-success-color);
   background-image: none;
 
   a {
@@ -48,13 +48,13 @@
   }
 
   h1 {
-    color: $navi-color;
+    color: var(--navi-color);
   }
 }
 
 .alert-danger {
   color: $button-color;
-  background-color: $browse-warning-color;
+  background-color: var(--browse-warning-color);
   background-image: none;
 
   a {
@@ -62,6 +62,6 @@
   }
 
   h1 {
-    color: $navi-color;
+    color: var(--navi-color);
   }
 }

@@ -34,6 +34,13 @@ final class ThemeSetController extends AbstractController
         }
 
         $this->themeManager->setActiveTheme($theme);
+
+        /** @var mixed $themeColorMode */
+        $themeColorMode = $request->getParsedBodyParam('themeColorMode');
+        if (is_string($themeColorMode) && $themeColorMode !== '') {
+            $this->themeManager->theme->setColorMode($themeColorMode);
+        }
+
         $this->themeManager->setThemeCookie();
 
         $preferences = $this->userPreferences->load();

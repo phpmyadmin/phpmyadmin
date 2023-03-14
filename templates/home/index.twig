@@ -143,6 +143,26 @@
                           </button>
                         </div>
                       </div>
+
+                      {% for theme in themes %}
+                        {% if theme.is_active and theme.color_modes|length > 1 %}
+                          <div class="col-12">
+                            <select class="form-select autosubmit" name="themeColorMode" aria-label="{{ 'Color mode for the theme'|trans }}">
+                              {% for color_mode in theme.color_modes %}
+                                <option value="{{ color_mode }}"{{ theme.color_mode == color_mode ? ' selected' }}>
+                                  {%- if color_mode == 'light' -%}
+                                    {% trans %}Light{% context %}Light color mode of the theme{% endtrans %}
+                                  {%- elseif color_mode == 'dark' -%}
+                                    {% trans %}Dark{% context %}Dark color mode of the theme{% endtrans %}
+                                  {%- else -%}
+                                    {{ color_mode|title }}
+                                  {%- endif -%}
+                                </option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
                     </form>
                   </li>
                 {% endif %}

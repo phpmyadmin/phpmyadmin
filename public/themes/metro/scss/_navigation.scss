@@ -6,8 +6,8 @@
   top: 0;
   left: 0;
   height: 100%;
-  background: $navi-color;
-  color: $main-color;
+  background: var(--navi-color);
+  color: $body-color;
   z-index: 800;
 
   input[type="text"] {
@@ -20,7 +20,7 @@
     &:visited,
     &:active {
       text-decoration: none;
-      color: $navi-pointer-color;
+      color: var(--navi-pointer-color);
     }
 
     img {
@@ -70,7 +70,7 @@
   #pmalogo {
     margin: 0;
     padding: 12px;
-    background: $navi-background;
+    background: var(--navi-background);
     color: $button-color;
     font-size: 14px;
     cursor: default;
@@ -133,7 +133,7 @@ img {
 #navipanellinks a {
   height: 16px;
   width: 16px;
-  color: $main-color;
+  color: $body-color;
   margin-right: 5px;
   padding: 5px;
   font-size: 15px;
@@ -225,7 +225,7 @@ img {
 
 #pma_navigation_tree {
   a {
-    color: $navi-color;
+    color: var(--navi-color);
     padding-left: 0;
 
     &:hover {
@@ -446,8 +446,8 @@ li.fast_filter {
   width: 20px;
   padding-top: 4px;
   padding-bottom: 12px;
-  background: $navi-background;
-  border-bottom: 1px solid $navi-background;
+  background: var(--navi-background);
+  border-bottom: 1px solid var(--navi-background);
   line-height: 22px;
   color: #fff;
   position: fixed;

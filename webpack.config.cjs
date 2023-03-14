@@ -218,10 +218,6 @@ module.exports = [
         devtool: 'source-map',
         entry: {
             'themes/bootstrap/css/theme': publicPath + '/themes/bootstrap/scss/theme.scss',
-            'themes/metro/css/blueeyes-theme': publicPath + '/themes/metro/scss/blueeyes-theme.scss',
-            'themes/metro/css/mono-theme': publicPath + '/themes/metro/scss/mono-theme.scss',
-            'themes/metro/css/redmond-theme': publicPath + '/themes/metro/scss/redmond-theme.scss',
-            'themes/metro/css/teal-theme': publicPath + '/themes/metro/scss/teal-theme.scss',
             'themes/metro/css/theme': publicPath + '/themes/metro/scss/theme.scss',
             'themes/original/css/theme': publicPath + '/themes/original/scss/theme.scss',
             'themes/pmahomme/css/theme': publicPath + '/themes/pmahomme/scss/theme.scss',

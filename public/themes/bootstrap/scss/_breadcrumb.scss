@@ -13,3 +13,9 @@
     }
   }
 }
+
+@include color-mode(dark) {
+  .breadcrumb-navbar {
+    background-color: $breadcrumb-navbar-bg-dark;
+  }
+}

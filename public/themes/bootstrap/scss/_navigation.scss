@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  background-color: $gray-100;
+  background-color: $body-tertiary-bg;
   z-index: 800;
 
   ul {
@@ -47,13 +47,13 @@
   }
 
   #pmalogo {
-    background-color: $gray-200;
+    background-color: $body-secondary-bg;
     padding: 6px 10px;
   }
 
   #navipanellinks {
     padding: 8px 10px;
-    background-color: rgba($black, 0.03);
+    background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
 
     a {
       display: inline-block;
@@ -73,6 +73,16 @@
   #favoriteTableList select,
   #serverChoice select {
     width: 80%;
+  }
+}
+
+@include color-mode(dark) {
+  #pma_navigation {
+    background-color: $body-tertiary-bg-dark;
+
+    #pmalogo {
+      background-color: $body-secondary-bg-dark;
+    }
   }
 }
 

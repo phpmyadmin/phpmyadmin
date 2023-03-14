@@ -6,7 +6,7 @@
 
 font[color="red"],
 span[style="color: #FF0000"] {
-  color: $browse-warning-color !important;
+  color: var(--browse-warning-color) !important;
 }
 
 strong {
@@ -25,7 +25,7 @@ body#loginform {
   }
 
   #page_content {
-    background-color: $navi-background;
+    background-color: var(--navi-background);
     margin: 0 !important;
     padding: 20px;
     margin-top: 10% !important;
@@ -80,7 +80,7 @@ body#loginform {
     &.textfield {
       width: 100%;
       border: 1px solid #fff;
-      background: $navi-color;
+      background: var(--navi-color);
       color: $th-color;
       box-sizing: border-box;
       margin: 0;
@@ -113,7 +113,7 @@ body#loginform {
     min-width: 100%;
 
     &:hover {
-      border: 1px solid $navi-color;
+      border: 1px solid var(--navi-color);
     }
   }
 
@@ -140,7 +140,7 @@ body#loginform {
   .card-footer,
   .pma-fieldset {
     border: none;
-    color: $navi-color;
+    color: var(--navi-color);
     padding: 0;
     margin-top: 0;
     margin-bottom: 10px;
@@ -242,15 +242,15 @@ input {
   &[type="text"],
   &[type="password"],
   &[type="number"] {
-    border: 1px solid $browse-gray-color;
+    border: 1px solid $secondary;
     color: $th-color;
     padding: 5px;
     font-family: $font-family-base;
     background-color: $body-bg;
 
     &:focus {
-      border: 1px solid $navi-hover-background;
-      color: $main-color;
+      border: 1px solid var(--navi-hover-background);
+      color: $body-color;
     }
   }
 
@@ -272,10 +272,10 @@ button:not(.accordion-button) {
   padding: 4px;
   color: $button-color;
   text-decoration: none;
-  background-color: $button-background;
+  background-color: var(--button-background);
 
   &:hover {
-    background-color: $button-hover;
+    background-color: var(--button-hover);
     color: white;
     text-decoration: none;
   }
@@ -309,7 +309,7 @@ button.jsPrintButton {
 
 textarea {
   overflow: visible;
-  border: 1px solid $browse-gray-color;
+  border: 1px solid $secondary;
   color: $th-color;
   background-color: $body-bg;
 }
@@ -347,7 +347,7 @@ button {
 }
 
 select {
-  border: 1px solid $browse-gray-color;
+  border: 1px solid $secondary;
   color: $th-color;
   padding: 4px;
   font-family: $font-family-base;
@@ -359,8 +359,8 @@ select {
   }
 
   &:focus {
-    border: 1px solid $navi-hover-background;
-    color: $main-color;
+    border: 1px solid var(--navi-hover-background);
+    color: $body-color;
   }
 }
 
@@ -392,7 +392,7 @@ div.tools {
   }
 
   a {
-    color: $blue-header !important;
+    color: var(--blue-header) !important;
   }
 }
 
@@ -439,13 +439,13 @@ div.null_div {
 button.mult_submit {
   border: none;
   background-color: transparent;
-  color: $browse-pointer-color;
+  color: var(--bs-link-color);
   margin: 0;
 }
 
 .structure_actions_dropdown {
   background-color: $browse-marker-background;
-  color: $main-color;
+  color: $body-color;
 
   .icon {
     vertical-align: middle !important;
@@ -455,17 +455,17 @@ button.mult_submit {
 /* marks table rows/cells if the db field is in a where condition */
 
 .condition {
-  border-color: $browse-warning-color !important;
+  border-color: var(--browse-warning-color) !important;
 }
 
 th.condition {
-  border: 1px solid $browse-warning-color;
-  background: $browse-warning-color;
+  border: 1px solid var(--browse-warning-color);
+  background: var(--browse-warning-color);
   color: $body-bg !important;
 
   a {
-    border: 1px solid $browse-warning-color;
-    background: $browse-warning-color;
+    border: 1px solid var(--browse-warning-color);
+    background: var(--browse-warning-color);
     color: $body-bg !important;
   }
 }
@@ -551,18 +551,18 @@ img.lightbulb {
 
 .confirmation {
   color: $button-color;
-  background-color: $browse-warning-color;
+  background-color: var(--browse-warning-color);
 }
 
 .pma-fieldset.confirmation legend {
-  background-color: $browse-warning-color;
+  background-color: var(--browse-warning-color);
 }
 
 .error {
-  border: 1px solid $browse-warning-color !important;
+  border: 1px solid var(--browse-warning-color) !important;
   padding: 5px;
   color: $button-color;
-  background-color: $browse-warning-color;
+  background-color: var(--browse-warning-color);
 }
 
 /* end messageboxes */
@@ -1032,12 +1032,12 @@ li {
 /* END iconic view for ul items */
 
 #body_browse_foreigners {
-  background: $navi-background;
+  background: var(--navi-background);
   margin: 0.5em 0.5em 0 0.5em;
 }
 
 #bodyquerywindow {
-  background: $navi-background;
+  background: var(--navi-background);
 }
 
 #bodythemes {
@@ -1082,14 +1082,14 @@ li {
 }
 
 kbd {
-  color: $main-color;
+  color: $body-color;
   background-color: transparent;
   box-shadow: none;
 }
 
 code {
   font-size: 1em;
-  color: $main-color;
+  color: $body-color;
 
   &.php {
     display: block;
@@ -1144,16 +1144,16 @@ div {
     width: 202px;
     position: relative;
     margin: 0 auto 1em;
-    color: $main-color;
+    color: $body-color;
   }
 
   &.upload_progress_bar_inner {
-    background-color: $navi-background;
+    background-color: var(--navi-background);
     width: 0;
     height: 12px;
     margin: 1px;
     overflow: hidden;
-    color: $browse-marker-color;
+    color: $black;
     position: relative;
   }
 
@@ -1213,8 +1213,8 @@ input {
   background-repeat: no-repeat;
   background-position: 46%;
   margin: 0;
-  background-color: $navi-color;
-  color: $main-color;
+  background-color: var(--navi-color);
+  color: $body-color;
   padding: 10px !important;
   border: none;
 }
@@ -1415,12 +1415,12 @@ table#index_columns {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     vertical-align: top;
-    border-bottom: 1px $navi-color solid;
+    border-bottom: 1px var(--navi-color) solid;
     border-right: none;
   }
 
   th {
-    border-bottom: 1px $navi-color solid;
+    border-bottom: 1px var(--navi-color) solid;
     border-right: none;
 
     small {
@@ -1849,7 +1849,7 @@ form.append_fields_form .tblFooters {
     white-space: nowrap;
 
     &:hover {
-      background: $navi-background;
+      background: var(--navi-background);
       cursor: pointer;
       color: #fff;
     }
@@ -1871,7 +1871,7 @@ form.append_fields_form .tblFooters {
   font-weight: normal;
 
   &:hover {
-    background: $navi-background;
+    background: var(--navi-background);
     cursor: pointer;
     color: #fff;
   }
@@ -1891,8 +1891,8 @@ form.append_fields_form .tblFooters {
 
 .navigation {
   width: 100%;
-  background-color: $navi-background;
-  color: $navi-color;
+  background-color: var(--navi-background);
+  color: var(--navi-color);
 
   td {
     margin: 0;
@@ -1903,8 +1903,8 @@ form.append_fields_form .tblFooters {
 
   input {
     &[type="submit"] {
-      background: $navi-background;
-      color: $navi-color;
+      background: var(--navi-background);
+      color: var(--navi-color);
       border: none;
       filter: none;
       margin: 5px;
@@ -2794,7 +2794,7 @@ body {
     .ui-widget-header {
       color: $button-color;
       border: none;
-      background-color: $navi-background;
+      background-color: var(--navi-background);
       background-image: none;
     }
 
@@ -2806,13 +2806,13 @@ body {
     .ui-dialog-buttonpane button {
       font-family: $font-family-base;
       color: $button-color;
-      background-color: $navi-background;
+      background-color: var(--navi-background);
       background-image: none;
-      border: 1px solid $button-background;
+      border: 1px solid var(--button-background);
 
       &.ui-state-hover {
-        background-color: $button-hover;
-        border: 1px solid $button-hover;
+        background-color: var(--button-hover);
+        border: 1px solid var(--button-hover);
       }
 
       &.ui-state-active {
