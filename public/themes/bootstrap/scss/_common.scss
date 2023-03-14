@@ -481,6 +481,10 @@ div#tablestatistics table {
 #topmenucontainer {
   padding-right: 1em;
   width: 100%;
+
+  .navbar {
+    background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
+  }
 }
 
 #page_nav_icons {

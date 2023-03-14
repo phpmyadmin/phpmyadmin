@@ -5,5 +5,5 @@
     "author": "phpMyAdmin developers",
     "url": "https://www.phpmyadmin.net/",
     "supports": ["6.0"],
-    "colorModes": ["light"]
+    "colorModes": ["light", "dark"]
 }
