@@ -585,7 +585,7 @@ class DatabaseInterface implements DbalInterface
             }
 
             if ($limit_count) {
-                $each_tables = array_slice($each_tables, $limit_offset, $limit_count);
+                $each_tables = array_slice($each_tables, $limit_offset, $limit_count, true);
             }
 
             $tables[$database] = Compatibility::getISCompatForGetTablesFull($each_tables, $database);
