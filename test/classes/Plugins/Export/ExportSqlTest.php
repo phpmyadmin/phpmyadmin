@@ -69,7 +69,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['sql_constraints'] = null;
-        $GLOBALS['sql_backquotes'] = null;
         $GLOBALS['sql_indexes'] = null;
         $GLOBALS['sql_auto_increments'] = null;
 
@@ -78,6 +77,7 @@ class ExportSqlTest extends AbstractTestCase
             new Export($GLOBALS['dbi']),
             new Transformations(),
         );
+        $this->object->useSqlBackquotes(false);
     }
 
     /**
@@ -473,7 +473,6 @@ class ExportSqlTest extends AbstractTestCase
     {
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['sql_drop_database'] = true;
-        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_create_database'] = true;
         $GLOBALS['sql_create_table'] = true;
         $GLOBALS['sql_create_view'] = true;
@@ -491,12 +490,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(true);
 
         ob_start();
         $this->assertTrue(
@@ -518,7 +512,6 @@ class ExportSqlTest extends AbstractTestCase
         // case2: no backquotes
         unset($GLOBALS['sql_compatibility']);
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        unset($GLOBALS['sql_backquotes']);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -533,12 +526,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(false);
 
         ob_start();
         $this->assertTrue(
@@ -561,15 +549,9 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportDBHeader(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(true);
 
         ob_start();
         $this->assertTrue(
@@ -583,14 +565,8 @@ class ExportSqlTest extends AbstractTestCase
 
         // case 2
         unset($GLOBALS['sql_compatibility']);
-        unset($GLOBALS['sql_backquotes']);
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(false);
 
         ob_start();
         $this->assertTrue(
@@ -791,7 +767,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['sql_include_comments'] = true;
         if (isset($GLOBALS['sql_constraints'])) {
@@ -845,12 +820,7 @@ SQL;
         $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(true);
 
         $result = $this->object->getTableDef('db', 'table', true, true, false);
 
@@ -875,7 +845,6 @@ SQL;
         $GLOBALS['sql_compatibility'] = '';
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['sql_backquotes'] = false;
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['sql_include_comments'] = true;
 
@@ -900,12 +869,7 @@ SQL;
         $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(false);
 
         $result = $this->object->getTableDef('db', 'table', true, true, false);
 
@@ -977,15 +941,9 @@ SQL;
     public function testExportStructure(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(true);
 
         // case 1
         ob_start();
@@ -1006,17 +964,11 @@ SQL;
 
         // case 2
         unset($GLOBALS['sql_compatibility']);
-        unset($GLOBALS['sql_backquotes']);
 
         $GLOBALS['sql_create_trigger'] = true;
         $GLOBALS['sql_drop_table'] = true;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(false);
 
         ob_start();
         $this->assertTrue(
@@ -1042,14 +994,8 @@ SQL;
 
         // case 3
         $GLOBALS['sql_views_as_tables'] = false;
-        $GLOBALS['sql_backquotes'] = null;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(false);
 
         ob_start();
         $this->assertTrue(
@@ -1192,7 +1138,6 @@ SQL;
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_max_query_size'] = 50000;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_type'] = 'INSERT';
@@ -1203,12 +1148,7 @@ SQL;
         $GLOBALS['sql_hex_for_binary'] = true;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(true);
 
         ob_start();
         $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
@@ -1300,7 +1240,6 @@ SQL;
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_type'] = 'UPDATE';
         $GLOBALS['sql_delayed'] = ' DELAYED';
@@ -1310,12 +1249,7 @@ SQL;
         $GLOBALS['sql_hex_for_binary'] = true;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(true);
 
         ob_start();
         $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
@@ -1358,14 +1292,8 @@ SQL;
         $GLOBALS['sql_include_comments'] = true;
         $oldVal = $GLOBALS['sql_compatibility'] ?? '';
         $GLOBALS['sql_compatibility'] = 'NONE';
-        $GLOBALS['sql_backquotes'] = true;
 
-        // Reset the object
-        $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
-            new Transformations(),
-        );
+        $this->object->useSqlBackquotes(true);
 
         ob_start();
         $this->assertTrue(

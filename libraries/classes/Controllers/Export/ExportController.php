@@ -14,6 +14,7 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -111,6 +112,10 @@ final class ExportController extends AbstractController
             $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
 
             return;
+        }
+
+        if ($request->hasBodyParam('sql_backquotes') && $exportPlugin instanceof ExportSql) {
+            $exportPlugin->useSqlBackquotes(true);
         }
 
         /**
@@ -825,10 +830,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['sql_auto_increment'])) {
             $GLOBALS['sql_auto_increment'] = $postParams['sql_auto_increment'];
-        }
-
-        if (isset($postParams['sql_backquotes'])) {
-            $GLOBALS['sql_backquotes'] = $postParams['sql_backquotes'];
         }
 
         if (isset($postParams['sql_truncate'])) {
