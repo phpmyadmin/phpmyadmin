@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Tracking;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tracking\TrackedTable;
 use PhpMyAdmin\Tracking\Tracker;
@@ -51,8 +52,8 @@ class TrackingCheckerTest extends AbstractTestCase
         Tracker::enable();
 
         $expectation = [
-            0 => new TrackedTable('0', true),
-            'actor' => new TrackedTable('actor', false),
+            0 => new TrackedTable(TableName::fromValue('0'), true),
+            'actor' => new TrackedTable(TableName::fromValue('actor'), false),
         ];
 
         $actual = $this->trackingChecker->getTrackedTables('dummyDb');
