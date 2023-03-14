@@ -22,10 +22,9 @@ class Cache
      * Caches table data so Table does not require to issue
      * SHOW TABLE STATUS again
      *
-     * @param array       $tables information for tables of some databases
-     * @param string|bool $table  table name
+     * @param array[][] $tables information for tables of some databases
      */
-    public function cacheTableData(array $tables, $table): void
+    public function cacheTableData(array $tables): void
     {
         // Note: I don't see why we would need array_merge_recursive() here,
         // as it creates double entries for the same table (for example a double
@@ -36,12 +35,6 @@ class Cache
 
         foreach ($tables as $one_database => $_) {
             if (isset($this->tableCache[$one_database])) {
-                // the + operator does not do the intended effect
-                // when the cache for one table already exists
-                if ($table && isset($this->tableCache[$one_database][$table])) {
-                    unset($this->tableCache[$one_database][$table]);
-                }
-
                 $this->tableCache[$one_database] += $tables[$one_database];
             } else {
                 $this->tableCache[$one_database] = $tables[$one_database];

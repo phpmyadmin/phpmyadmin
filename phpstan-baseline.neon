@@ -2766,11 +2766,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#3 \\.\\.\\.\\$args of function array_map expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php

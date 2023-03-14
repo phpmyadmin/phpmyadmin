@@ -500,8 +500,7 @@ class DatabaseInterface implements DbalInterface
                                         $this,
                                         'escapeString',
                                     ],
-                                    $table,
-                                    $link
+                                    $table
                                 )
                             ) . '\')';
                     } else {
@@ -593,7 +592,7 @@ class DatabaseInterface implements DbalInterface
 
         // cache table data
         // so Table does not require to issue SHOW TABLE STATUS again
-        $this->cache->cacheTableData($tables, $table);
+        $this->cache->cacheTableData($tables);
 
         if (isset($tables[$database])) {
             return $tables[$database];
