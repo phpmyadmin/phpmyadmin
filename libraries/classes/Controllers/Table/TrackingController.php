@@ -14,6 +14,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
+use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
@@ -35,6 +36,7 @@ final class TrackingController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Tracking $tracking,
+        private TrackingChecker $trackingChecker,
     ) {
         parent::__construct($response, $template);
     }
@@ -64,9 +66,11 @@ final class TrackingController extends AbstractController
         $toggleActivation = $request->getParsedBodyParam('toggle_activation');
         $reportExport = $request->getParsedBodyParam('report_export');
 
+        $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
         if (
             Tracker::isActive()
-            && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
+            && isset($trackedTables[$GLOBALS['table']])
+            && $trackedTables[$GLOBALS['table']]->active
             && $toggleActivation !== 'deactivate_now'
             && $reportExport !== 'sqldumpfile'
         ) {

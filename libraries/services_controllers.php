@@ -1615,6 +1615,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$tracking' => '@tracking',
+                '$trackingChecker' => '@tracking_checker',
             ],
         ],
         Table\TriggersController::class => [

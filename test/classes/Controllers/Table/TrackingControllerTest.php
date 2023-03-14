@@ -45,6 +45,7 @@ class TrackingControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $template = new Template();
+        $trackingChecker = $this->createStub(TrackingChecker::class);
         (new TrackingController(
             $response,
             $template,
@@ -53,8 +54,9 @@ class TrackingControllerTest extends AbstractTestCase
                 $template,
                 new Relation($this->dbi),
                 $this->dbi,
-                $this->createStub(TrackingChecker::class),
+                $trackingChecker,
             ),
+            $trackingChecker,
         ))($this->createStub(ServerRequest::class));
 
         $main = $template->render('table/tracking/main', [
