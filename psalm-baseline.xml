@@ -3709,44 +3709,16 @@
     </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$val</code>
-      <code>$visualizationSettings[$setting]</code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['fileFormat']]]></code>
-      <code><![CDATA[$_GET['sql_query']]]></code>
-      <code><![CDATA[$_GET['sql_signature']]]></code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code><![CDATA[$visualizationSettings['spatialColumn']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['fileFormat']]]></code>
-      <code><![CDATA[$_GET['sql_query']]]></code>
-      <code><![CDATA[$_GET['sql_signature']]]></code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code><![CDATA[$visualizationSettings['spatialColumn']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUndefinedArrayOffset>
-      <code>$spatialCandidates[0]</code>
-    </PossiblyUndefinedArrayOffset>
-    <PropertyNotSetInConstructor>
-      <code>$visualization</code>
-    </PropertyNotSetInConstructor>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
     </RedundantCast>
@@ -7613,80 +7585,12 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
-    <MixedArgument>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$this->settings['height']]]></code>
-      <code><![CDATA[$this->settings['width']]]></code>
-      <code><![CDATA[$this->userSpecifiedSettings['labelColumn']]]></code>
-      <code><![CDATA[$this->userSpecifiedSettings['spatialColumn']]]></code>
-      <code><![CDATA[$this->userSpecifiedSettings['spatialColumn']]]></code>
-      <code><![CDATA[$this->userSpecifiedSettings['spatialColumn']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$row[$this->settings['labelColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row['srid']]]></code>
-      <code><![CDATA[$row['srid']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$row[$this->settings['labelColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$pdf</code>
-      <code>$plot_height</code>
-      <code>$plot_width</code>
-      <code>$ratio</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$scale</code>
-      <code>$x</code>
-      <code>$x_ratio</code>
-      <code>$y</code>
-      <code>$y_ratio</code>
     </MixedAssignment>
     <MixedMethodCall>
       <code>Output</code>
     </MixedMethodCall>
-    <MixedOperand>
-      <code>$border / $scale</code>
-      <code>$border / $scale</code>
-      <code><![CDATA[$min_max->maxX + $min_max->minX - $this->settings['width'] / $scale]]></code>
-      <code><![CDATA[$min_max->maxY + $min_max->minY - $this->settings['height'] / $scale]]></code>
-      <code>$plot_height</code>
-      <code>$plot_width</code>
-      <code>$ratio</code>
-      <code>$scale</code>
-      <code>$scale</code>
-      <code><![CDATA[$this->settings['height']]]></code>
-      <code><![CDATA[$this->settings['height']]]></code>
-      <code><![CDATA[$this->settings['height'] / $scale]]></code>
-      <code><![CDATA[$this->settings['width']]]></code>
-      <code><![CDATA[$this->settings['width']]]></code>
-      <code><![CDATA[$this->settings['width'] / $scale]]></code>
-    </MixedOperand>
-    <NullArgument>
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-    </NullArgument>
     <PossiblyInvalidArgument>
       <code>$results</code>
     </PossiblyInvalidArgument>
@@ -7698,10 +7602,6 @@
       <code>mb_strtolower($user_extension) !== $required_extension</code>
       <code>mb_strtolower($user_extension) !== $required_extension</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code>is_numeric($pos)</code>
-      <code>is_numeric($rows)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Git.php">
     <MixedArgument>

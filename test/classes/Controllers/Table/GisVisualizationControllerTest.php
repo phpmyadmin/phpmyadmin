@@ -13,8 +13,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 
-use function array_merge;
-
 use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_VAR_STRING;
 
@@ -48,7 +46,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         );
         $dummyDbi->addResult(
             'SELECT ST_ASTEXT(`shape`) AS `shape`, ST_SRID(`shape`) AS `srid`'
-            . ' FROM (SELECT * FROM `gis_all`) AS `temp_gis` LIMIT 0, 25',
+            . ' FROM (SELECT * FROM `gis_all`) AS `temp_gis` LIMIT 25',
             [['POINT(100 250)', '0']],
             ['shape', 'srid'],
         );
@@ -61,13 +59,14 @@ class GisVisualizationControllerTest extends AbstractTestCase
             'sql_query' => 'SELECT * FROM `gis_all`',
             'sql_signature' => Core::signSqlQuery('SELECT * FROM `gis_all`'),
         ];
-        $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge($params, [
+        $downloadParams = [
             'saveToFile' => true,
             'session_max_rows' => 25,
             'pos' => 0,
             'visualizationSettings[spatialColumn]' => 'shape',
-            'visualizationSettings[labelColumn]' => '',
-        ]));
+            'visualizationSettings[labelColumn]' => null,
+        ];
+        $downloadUrl = Url::getFromRoute('/table/gis-visualization', $downloadParams + $params);
 
         $template = new Template();
         $expected = $template->render('table/gis_visualization/gis_visualization', [
@@ -75,12 +74,10 @@ class GisVisualizationControllerTest extends AbstractTestCase
             'download_url' => $downloadUrl,
             'label_candidates' => ['name'],
             'spatial_candidates' => ['shape'],
-            'visualization_settings' => [
-                'spatialColumn' => 'shape',
-                'labelColumn' => '',
-                'width' => '600',
-                'height' => '450',
-            ],
+            'spatialColumn' => 'shape',
+            'labelColumn' => null,
+            'width' => 600,
+            'height' => 450,
             'start_and_number_of_rows_fieldset' => [
                 'pos' => 0,
                 'unlim_num_rows' => 0,

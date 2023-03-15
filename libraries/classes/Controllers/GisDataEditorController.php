@@ -103,8 +103,6 @@ class GisDataEditorController extends AbstractController
             'width' => 450,
             'height' => 300,
             'spatialColumn' => 'wkt',
-            'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
-            'isMariaDB' => $GLOBALS['dbi']->isMariaDB(),
         ];
         $data = [
             [
@@ -138,8 +136,8 @@ class GisDataEditorController extends AbstractController
         }
 
         $templateOutput = $this->template->render('gis_data_editor_form', [
-            'width' => $visualizationSettings['width'],
-            'height' => $visualizationSettings['height'],
+            'width' => $visualization->getWidth(),
+            'height' => $visualization->getHeight(),
             'field' => $field,
             'input_name' => $inputName,
             'srid' => $srid,

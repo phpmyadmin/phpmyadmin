@@ -11,7 +11,7 @@
           <select name="visualizationSettings[labelColumn]" id="labelColumn" class="form-select autosubmit">
             <option value="">{% trans '-- None --' %}</option>
             {% for value in label_candidates %}
-              <option value="{{ value }}"{{ value == visualization_settings['labelColumn'] ? ' selected' }}>
+              <option value="{{ value }}"{{ value == labelColumn ? ' selected' }}>
                 {{ value }}
               </option>
             {% endfor %}
@@ -21,16 +21,16 @@
           <label class="form-label" for="spatialColumn">{% trans 'Spatial column' %}</label>
           <select name="visualizationSettings[spatialColumn]" id="spatialColumn" class="form-select autosubmit">
             {% for value in spatial_candidates %}
-              <option value="{{ value }}"{{ value == visualization_settings['spatialColumn'] ? ' selected' }}>
+              <option value="{{ value }}"{{ value == spatialColumn ? ' selected' }}>
                 {{ value }}
               </option>
             {% endfor %}
           </select>
         </div>
         <div class="col-auto">
-          <input type="hidden" name="displayVisualization" value="redraw">
+          <input type="hidden" name="redraw" value="true">
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="visualizationSettings[choice]" id="choice" value="useBaseLayer"{{ visualization_settings['choice'] is defined ? ' checked' }}>
+            <input class="form-check-input" type="checkbox" name="useBaseLayer" id="choice"{{ useBaseLayer ? ' checked' }}>
             <label class="form-check-label" for="choice" id="labelChoice">{% trans 'Use OpenStreetMaps as Base Layer' %}</label>
           </div>
         </div>
@@ -51,7 +51,7 @@
         </div>
       </form>
 
-      <div id="placeholder" style="width:{{ visualization_settings['width'] }}px;height:{{ visualization_settings['height'] }}px;">
+      <div id="placeholder" style="width:{{ width }}px;height:{{ height }}px;">
         {{ visualization|raw }}
       </div>
       <div id="openlayersmap"></div>
