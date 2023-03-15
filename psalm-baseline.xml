@@ -2361,8 +2361,6 @@
   </file>
   <file src="libraries/classes/Controllers/NavigationController.php">
     <MixedArgument>
-      <code>! empty($tableName) ? $tableName : null</code>
-      <code>! empty($tableName) ? $tableName : null</code>
       <code>$dbName</code>
       <code>$dbName</code>
       <code>$dbName</code>
@@ -2375,7 +2373,6 @@
       <code>$dbName</code>
       <code>$itemName</code>
       <code>$itemType</code>
-      <code>$tableName</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -8606,21 +8603,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayLogo']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayServers']]]></code>

@@ -1806,16 +1806,6 @@ parameters:
 			path: libraries/classes/Controllers/NavigationController.php
 
 		-
-			message: "#^Parameter \\#4 \\$tableName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:hideNavigationItem\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/NavigationController.php
-
-		-
-			message: "#^Parameter \\#4 \\$tableName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:unhideNavigationItem\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/NavigationController.php
-
-		-
 			message: "#^Parameter \\#3 \\$normalizedTo of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php

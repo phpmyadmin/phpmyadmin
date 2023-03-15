@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Navigation;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
@@ -133,16 +134,14 @@ class Navigation
     /**
      * Add an item of navigation tree to the hidden items list in PMA database.
      *
-     * @param string $itemName  name of the navigation tree item
-     * @param string $itemType  type of the navigation tree item
-     * @param string $dbName    database name
-     * @param string $tableName table name if applicable
+     * @param string $itemName name of the navigation tree item
+     * @param string $itemType type of the navigation tree item
+     * @param string $dbName   database name
      */
     public function hideNavigationItem(
         $itemName,
         $itemType,
         $dbName,
-        $tableName = null,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -154,12 +153,11 @@ class Navigation
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
-            . "'" . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
-            . "'" . $this->dbi->escapeString($itemName) . "',"
-            . "'" . $this->dbi->escapeString($itemType) . "',"
-            . "'" . $this->dbi->escapeString($dbName) . "',"
-            . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : '' )
-            . "')";
+            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL) . ','
+            . "'')";
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
@@ -167,16 +165,14 @@ class Navigation
      * Remove a hidden item of navigation tree from the
      * list of hidden items in PMA database.
      *
-     * @param string $itemName  name of the navigation tree item
-     * @param string $itemType  type of the navigation tree item
-     * @param string $dbName    database name
-     * @param string $tableName table name if applicable
+     * @param string $itemName name of the navigation tree item
+     * @param string $itemType type of the navigation tree item
+     * @param string $dbName   database name
      */
     public function unhideNavigationItem(
         $itemName,
         $itemType,
         $dbName,
-        $tableName = null,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -187,15 +183,11 @@ class Navigation
             . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
-            . " `username`='"
-            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `item_name`='" . $this->dbi->escapeString($itemName) . "'"
-            . " AND `item_type`='" . $this->dbi->escapeString($itemType) . "'"
-            . " AND `db_name`='" . $this->dbi->escapeString($dbName) . "'"
-            . (! empty($tableName)
-                ? " AND `table_name`='" . $this->dbi->escapeString($tableName) . "'"
-                : ''
-            );
+            . ' `username`='
+            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL)
+            . ' AND `item_name`=' . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL)
+            . ' AND `item_type`=' . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL)
+            . ' AND `db_name`=' . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL);
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
@@ -203,14 +195,12 @@ class Navigation
      * Returns HTML for the dialog to show hidden navigation items.
      *
      * @param string $database database name
-     * @param string $itemType type of the items to include
-     * @param string $table    table name
      *
      * @return string HTML for the dialog to show hidden navigation items
      */
-    public function getItemUnhideDialog($database, $itemType = null, $table = null): string
+    public function getItemUnhideDialog(string $database): string
     {
-        $hidden = $this->getHiddenItems($database, $table);
+        $hidden = $this->getHiddenItems($database);
 
         $typeMap = [
             'group' => __('Groups:'),
@@ -223,20 +213,12 @@ class Navigation
 
         return $this->template->render('navigation/item_unhide_dialog', [
             'database' => $database,
-            'table' => $table,
             'hidden' => $hidden,
             'types' => $typeMap,
-            'item_type' => $itemType,
         ]);
     }
 
-    /**
-     * @param string      $database Database name
-     * @param string|null $table    Table name
-     *
-     * @return array
-     */
-    private function getHiddenItems(string $database, string|null $table): array
+    private function getHiddenItems(string $database): array
     {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -246,11 +228,10 @@ class Navigation
         $navTable = Util::backquote($navigationItemsHidingFeature->database)
             . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
-            . " WHERE `username`='"
-            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . $this->dbi->escapeString($database) . "'"
-            . " AND `table_name`='"
-            . (! empty($table) ? $this->dbi->escapeString($table) : '') . "'";
+            . ' WHERE `username`='
+            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL)
+            . ' AND `db_name`=' . $this->dbi->quoteString($database, Connection::TYPE_CONTROL)
+            . " AND `table_name`=''";
         $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
 
         $hidden = [];

@@ -60,15 +60,13 @@ class NavigationController extends AbstractController
             $itemName = $request->getParsedBodyParam('itemName', '');
             $itemType = $request->getParsedBodyParam('itemType', '');
             $dbName = $request->getParsedBodyParam('dbName', '');
-            $tableName = $request->getParsedBodyParam('tableName', '');
 
             if ($request->getParsedBodyParam('hideNavItem') !== null) {
-                if (! empty($itemName) && ! empty($itemType) && ! empty($dbName)) {
+                if ($itemName !== '' && $itemType !== '' && $dbName !== '') {
                     $this->navigation->hideNavigationItem(
                         $itemName,
                         $itemType,
                         $dbName,
-                        (! empty($tableName) ? $tableName : null),
                     );
                 }
 
@@ -76,12 +74,11 @@ class NavigationController extends AbstractController
             }
 
             if ($request->hasBodyParam('unhideNavItem')) {
-                if (! empty($itemName) && ! empty($itemType) && ! empty($dbName)) {
+                if ($itemName !== '' && $itemType !== '' && $dbName !== '') {
                     $this->navigation->unhideNavigationItem(
                         $itemName,
                         $itemType,
                         $dbName,
-                        (! empty($tableName) ? $tableName : null),
                     );
                 }
 
@@ -89,7 +86,7 @@ class NavigationController extends AbstractController
             }
 
             if ($request->hasBodyParam('showUnhideDialog')) {
-                if (! empty($dbName)) {
+                if ($dbName !== '') {
                     $this->response->addJSON(
                         'message',
                         $this->navigation->getItemUnhideDialog($dbName),
