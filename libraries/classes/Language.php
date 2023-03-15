@@ -33,8 +33,13 @@ class Language
      * @param string $regex  Match regular expression
      * @param string $mysql  MySQL locale code
      */
-    public function __construct(protected string $code, protected string $name, protected string $native, string $regex, protected string $mysql)
-    {
+    public function __construct(
+        protected string $code,
+        protected string $name,
+        protected string $native,
+        string $regex,
+        protected string $mysql,
+    ) {
         if (! str_contains($regex, '[-_]')) {
             $regex = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $regex);
         }

@@ -37,8 +37,11 @@ class Triggers
     /** @var array<int, string> */
     private array $event = ['INSERT', 'UPDATE', 'DELETE'];
 
-    public function __construct(private DatabaseInterface $dbi, private Template $template, private ResponseRenderer $response)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Template $template,
+        private ResponseRenderer $response,
+    ) {
     }
 
     /**

@@ -66,8 +66,12 @@ class MySQLDocumentation
      *
      * @return string  the html link
      */
-    public static function showDocumentation(string $page, string $anchor = '', bool $bbcode = false, bool $disableTabIndex = false): string
-    {
+    public static function showDocumentation(
+        string $page,
+        string $anchor = '',
+        bool $bbcode = false,
+        bool $disableTabIndex = false,
+    ): string {
         return Generator::showDocumentationLink(
             self::getDocumentationLink($page, $anchor),
             'documentation',

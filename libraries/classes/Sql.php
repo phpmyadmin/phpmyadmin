@@ -210,8 +210,12 @@ class Sql
      *
      * @return string html for the dropdown
      */
-    public function getHtmlForRelationalColumnDropdown(string $db, string $table, string $column, string $currentValue): string
-    {
+    public function getHtmlForRelationalColumnDropdown(
+        string $db,
+        string $table,
+        string $column,
+        string $currentValue,
+    ): string {
         $foreigners = $this->relation->getForeigners($db, $table, $column);
 
         $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');

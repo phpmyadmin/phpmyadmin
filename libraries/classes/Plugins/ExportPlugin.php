@@ -263,8 +263,13 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string alias of the identifier if found or ''
      */
-    public function getAlias(array $aliases, string $id, string $type = 'dbtblcol', string $db = '', string $tbl = ''): string
-    {
+    public function getAlias(
+        array $aliases,
+        string $id,
+        string $type = 'dbtblcol',
+        string $db = '',
+        string $tbl = '',
+    ): string {
         if ($db !== '' && isset($aliases[$db])) {
             $aliases = [
                 $db => $aliases[$db],

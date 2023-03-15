@@ -498,8 +498,12 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
      */
-    public function createNewTablesFor2NF(array $partialDependencies, object $tablesName, string $table, string $db): array
-    {
+    public function createNewTablesFor2NF(
+        array $partialDependencies,
+        object $tablesName,
+        string $table,
+        string $db,
+    ): array {
         $dropCols = false;
         $nonPKCols = [];
         $queries = [];

@@ -756,8 +756,12 @@ class Operations
      * @param string $newDb    Database name after table renaming/ moving table
      * @param string $newTable Table name after table renaming/moving table
      */
-    public function adjustPrivilegesRenameOrMoveTable(string $oldDb, string $oldTable, string $newDb, string $newTable): void
-    {
+    public function adjustPrivilegesRenameOrMoveTable(
+        string $oldDb,
+        string $oldTable,
+        string $newDb,
+        string $newTable,
+    ): void {
         if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv'] || ! $GLOBALS['is_reload_priv']) {
             return;
         }

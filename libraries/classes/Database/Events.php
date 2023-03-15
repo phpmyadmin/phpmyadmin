@@ -62,8 +62,11 @@ class Events
         'MINUTE_SECOND',
     ];
 
-    public function __construct(private DatabaseInterface $dbi, private Template $template, private ResponseRenderer $response)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Template $template,
+        private ResponseRenderer $response,
+    ) {
     }
 
     /**

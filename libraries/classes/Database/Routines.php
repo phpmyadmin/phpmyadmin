@@ -57,8 +57,11 @@ class Routines
     /** @var array<int, string> */
     private array $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
 
-    public function __construct(private DatabaseInterface $dbi, private Template $template, private ResponseRenderer $response)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Template $template,
+        private ResponseRenderer $response,
+    ) {
     }
 
     /**

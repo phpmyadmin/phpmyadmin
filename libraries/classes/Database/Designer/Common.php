@@ -534,8 +534,17 @@ class Common
      * @return array<int,string|bool> array of success/failure and message
      * @psalm-return array{0: bool, 1: string}
      */
-    public function addNewRelation(string $db, string $T1, string $F1, string $T2, string $F2, string $on_delete, string $on_update, string $DB1, string $DB2): array
-    {
+    public function addNewRelation(
+        string $db,
+        string $T1,
+        string $F1,
+        string $T2,
+        string $F2,
+        string $on_delete,
+        string $on_update,
+        string $DB1,
+        string $DB2,
+    ): array {
         $tables = $this->dbi->getTablesFull($DB1, $T1);
         $type_T1 = mb_strtoupper($tables[$T1]['ENGINE'] ?? '');
         $tables = $this->dbi->getTablesFull($DB2, $T2);

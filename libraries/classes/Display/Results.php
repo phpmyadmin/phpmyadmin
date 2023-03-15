@@ -245,8 +245,14 @@ class Results
      * @param string $goto     the URL to go back in case of errors
      * @param string $sqlQuery the SQL query
      */
-    public function __construct(private DatabaseInterface $dbi, string $db, string $table, int $server, string $goto, string $sqlQuery)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        string $db,
+        string $table,
+        int $server,
+        string $goto,
+        string $sqlQuery,
+    ) {
         $this->relation = new Relation($this->dbi);
         $this->transformations = new Transformations();
         $this->template = new Template();
