@@ -416,6 +416,7 @@ class DatabaseInterface implements DbalInterface
                 $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
             }
 
+            /** @var mixed[][][] $tables */
             $tables = $this->fetchResult(
                 $sql,
                 [
@@ -441,7 +442,7 @@ class DatabaseInterface implements DbalInterface
                     [
                         $tables[$one_database_name][$one_table_name]['Data_length'],
                         $tables[$one_database_name][$one_table_name]['Index_length'],
-                    ] = StorageEngine::getMroongaLengths($one_database_name, $one_table_name);
+                    ] = StorageEngine::getMroongaLengths($one_database_name, (string) $one_table_name);
                 }
             }
 
@@ -480,6 +481,15 @@ class DatabaseInterface implements DbalInterface
                     $tables[$one_database_name] = $one_database_tables;
                 }
             }
+
+            // on windows with lower_case_table_names = 1
+            // MySQL returns
+            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
+            // but information_schema.TABLES gives `test`
+            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
+            $tables = $tables[$database]
+                ?? $tables[mb_strtolower($database)]
+                ?? [];
         }
 
         // If permissions are wrong on even one database directory,
@@ -587,24 +597,12 @@ class DatabaseInterface implements DbalInterface
                 $each_tables = array_slice($each_tables, $limit_offset, $limit_count, true);
             }
 
-            $tables[$database] = Compatibility::getISCompatForGetTablesFull($each_tables, $database);
+            $tables = Compatibility::getISCompatForGetTablesFull($each_tables, $database);
         }
 
-        // cache table data
-        // so Table does not require to issue SHOW TABLE STATUS again
-        $this->cache->cacheTableData($tables);
-
-        if (isset($tables[$database])) {
-            return $tables[$database];
-        }
-
-        if (isset($tables[mb_strtolower($database)])) {
-            // on windows with lower_case_table_names = 1
-            // MySQL returns
-            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
-            // but information_schema.TABLES gives `test`
-            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
-            return $tables[mb_strtolower($database)];
+        if ($tables !== []) {
+            // cache table data, so Table does not require to issue SHOW TABLE STATUS again
+            $this->cache->cacheTableData($database, $tables);
         }
 
         return $tables;

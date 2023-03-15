@@ -2766,11 +2766,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$args of function array_map expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#4 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchResult\\(\\) expects int, mixed given\\.$#"
 			count: 7
 			path: libraries/classes/DatabaseInterface.php
@@ -7046,11 +7041,6 @@ parameters:
 			path: libraries/classes/Query/Cache.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) has parameter \\$tables with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Query/Cache.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Query\\\\Cache\\:\\:getCache\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Query/Cache.php
@@ -7077,11 +7067,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:getISCompatForGetTablesFull\\(\\) has parameter \\$eachTables with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Query/Compatibility.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:getISCompatForGetTablesFull\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Query/Compatibility.php
 
