@@ -184,7 +184,6 @@ class Tracker
         $trackingSet = '',
         bool $isView = false,
     ): bool {
-        $GLOBALS['sql_backquotes'] ??= null;
         $GLOBALS['export_type'] ??= null;
         $relation = new Relation($GLOBALS['dbi']);
 
@@ -200,7 +199,7 @@ class Tracker
             return false;
         }
 
-        $GLOBALS['sql_backquotes'] = true;
+        $exportSqlPlugin->useSqlBackquotes(true);
 
         $date = Util::date('Y-m-d H:i:s');
 
@@ -223,8 +222,6 @@ class Tracker
         $snapshot = serialize($snapshot);
 
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
-        $GLOBALS['sql_backquotes'] = true;
-
         $createSql = '';
 
         if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true && $isView === false) {

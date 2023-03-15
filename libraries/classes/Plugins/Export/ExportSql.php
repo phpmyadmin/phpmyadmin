@@ -69,17 +69,17 @@ class ExportSql extends ExportPlugin
      */
     private bool $sentCharset = false;
 
-    private bool $useSqlBackquotes = true;
-
-    protected function init(): void
-    {
-        $this->useSqlBackquotes = isset($GLOBALS['sql_backquotes']);
-    }
+    private bool $useSqlBackquotes = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'sql';
+    }
+
+    public function useSqlBackquotes(bool $useSqlBackquotes): void
+    {
+        $this->useSqlBackquotes = $useSqlBackquotes;
     }
 
     protected function setProperties(): ExportPluginProperties

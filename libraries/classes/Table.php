@@ -937,7 +937,6 @@ class Table implements Stringable
         }
 
         // Setting required export settings.
-        $GLOBALS['sql_backquotes'] = 1;
         $GLOBALS['asfile'] = 1;
 
         // Ensuring the target database is valid.
