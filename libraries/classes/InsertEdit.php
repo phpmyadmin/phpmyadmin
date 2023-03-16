@@ -1671,7 +1671,7 @@ class InsertEdit
 
             // when in UPDATE mode, do not alter field's contents. When in INSERT
             // mode, insert empty field because no values were submitted.
-            // If protected blobs where set, insert original fields content.
+            // If protected blobs were set, insert original field's content.
             if ($protectedValue !== '') {
                 return '0x' . bin2hex($protectedValue);
             }

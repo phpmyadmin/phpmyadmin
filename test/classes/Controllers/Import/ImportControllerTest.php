@@ -41,7 +41,7 @@ class ImportControllerTest extends AbstractTestCase
 
         parent::loadResponseIntoContainerBuilder();
 
-        // Some params where not added as they where not required for this test
+        // Some params were not added as they are not required for this test
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table1';
         $GLOBALS['sql_query'] = 'SELECT A.*' . "\n"

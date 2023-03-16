@@ -343,7 +343,7 @@ for filePath in ${FILE_LIST}; do
 done
 
 if [ ${found} -gt 0 ]; then
-    echo 'Some new files to be excluded where found.'
+    echo 'Some new files to be excluded were found.'
     echo 'Please update create-release.sh'
     exit 1
 else
