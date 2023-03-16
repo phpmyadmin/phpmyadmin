@@ -176,8 +176,13 @@ final class Import
     {
         ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
+            // Add semicolon only if it is missing
+            if ($sql !== '' && ! str_ends_with($sql, ';')) {
+                $sql .= ';';
+            }
+
             // Do we have something to push into buffer?
-            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
+            $this->importRunBuffer = $sql !== '' ? $sql : null;
 
             return;
         }
@@ -185,8 +190,14 @@ final class Import
         // Should we skip something?
         if (ImportSettings::$skipQueries > 0) {
             ImportSettings::$skipQueries--;
+
+            // Add semicolon only if it is missing
+            if ($sql !== '' && ! str_ends_with($sql, ';')) {
+                $sql .= ';';
+            }
+
             // Do we have something to push into buffer?
-            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
+            $this->importRunBuffer = $sql !== '' ? $sql : null;
 
             return;
         }
@@ -248,8 +259,13 @@ final class Import
             }
         }
 
+        // Add semicolon only if it is missing
+        if ($sql !== '' && ! str_ends_with($sql, ';')) {
+            $sql .= ';';
+        }
+
         // Do we have something to push into buffer?
-        $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
+        $this->importRunBuffer = $sql !== '' ? $sql : null;
     }
 
     /**
