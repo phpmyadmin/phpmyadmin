@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-03-16 09:41+0000\n"
+"PO-Revision-Date: 2023-03-17 10:39+0000\n"
 "Last-Translator: Herman Peeren <herman@yepr.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
 "\n"
@@ -3314,7 +3314,7 @@ msgstr "Kolommen ingesloten door"
 #: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:677
 msgid "Columns escaped with"
-msgstr "Escape-teken voor de kolommen"
+msgstr "Kolommen omgezet met wisselteken"
 
 #: libraries/classes/Config/Descriptions.php:663
 #: libraries/classes/Config/Descriptions.php:669
