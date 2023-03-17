@@ -135,7 +135,7 @@ abstract class TestBase extends TestCase
         $this->webDriver->manage()->window()->maximize();
 
         if (! static::$createDatabase) {
-            // Stop here, we where not asked to create a database
+            // Stop here, we were not asked to create a database
             return;
         }
 

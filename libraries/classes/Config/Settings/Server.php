@@ -598,11 +598,11 @@ final class Server
     /**
      * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
      *
-     * In case where tables in databases is modified (e.g. dropped or renamed),
-     * table_uiprefs may contains invalid data (referring to tables which are not
+     * In case where tables in databases are modified (e.g. dropped or renamed),
+     * table_uiprefs may contains invalid data (referring to tables which do not
      * exist anymore).
-     * This configuration make sure that we only keep N (N = MaxTableUiprefs)
-     * newest record in table_uiprefs and automatically delete older records.
+     * This configuration makes sure that we only keep N (N = MaxTableUiprefs)
+     * newest records in table_uiprefs and automatically delete older records.
      *
      * ```php
      * $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;

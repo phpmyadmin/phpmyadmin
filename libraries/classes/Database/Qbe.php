@@ -1169,7 +1169,7 @@ class Qbe
             // Candidates restricted in index+where
         } else {
             $candidateColumns = $stillGood;
-            // None of the candidates where in a where-clause
+            // None of the candidates were in a where-clause
         }
 
         return $candidateColumns;
