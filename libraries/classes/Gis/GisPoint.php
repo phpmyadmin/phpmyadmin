@@ -68,7 +68,7 @@ class GisPoint extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
@@ -115,16 +115,15 @@ class GisPoint extends GisGeometry
      * @param string $label      Label for the GIS POINT object
      * @param int[]  $color      Color for the GIS POINT object
      * @param array  $scale_data Array containing data related to scaling
-     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
     public function prepareRowAsPdf(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
-        $pdf,
+        TCPDF $pdf,
     ): TCPDF {
         $line = [
             'width' => 1.25,
@@ -159,7 +158,7 @@ class GisPoint extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
     {
         $point_options = [
             'name' => $label,
@@ -246,7 +245,7 @@ class GisPoint extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = ''): string
+    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
     {
         return 'POINT('
         . (isset($gis_data[$index]['POINT']['x'])

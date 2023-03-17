@@ -20,12 +20,8 @@ final class TableName implements Stringable
     /** @psalm-var non-empty-string */
     private string $name;
 
-    /**
-     * @param mixed $name
-     *
-     * @throws InvalidTableName
-     */
-    private function __construct($name)
+    /** @throws InvalidTableName */
+    private function __construct(mixed $name)
     {
         try {
             Assert::stringNotEmpty($name);
@@ -48,18 +44,13 @@ final class TableName implements Stringable
         $this->name = $name;
     }
 
-    /**
-     * @param mixed $name
-     *
-     * @throws InvalidTableName
-     */
-    public static function fromValue($name): self
+    /** @throws InvalidTableName */
+    public static function fromValue(mixed $name): self
     {
         return new self($name);
     }
 
-    /** @param mixed $name */
-    public static function tryFromValue($name): self|null
+    public static function tryFromValue(mixed $name): self|null
     {
         try {
             return new self($name);

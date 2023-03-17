@@ -28,7 +28,7 @@ class FormatConverter
      *
      * @param mixed $buffer Data to transform
      */
-    public static function binaryToIp($buffer, bool $isBinary): false|string
+    public static function binaryToIp(mixed $buffer, bool $isBinary): false|string
     {
         if (strpos($buffer, '0x') !== 0) {
             return $isBinary ? bin2hex($buffer) : $buffer;
@@ -49,7 +49,7 @@ class FormatConverter
      *
      * @param mixed $buffer Data to transform
      */
-    public static function ipToBinary($buffer): string
+    public static function ipToBinary(mixed $buffer): string
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {
@@ -79,7 +79,7 @@ class FormatConverter
      *
      * @param mixed $buffer Data to transform
      */
-    public static function longToIp($buffer): string
+    public static function longToIp(mixed $buffer): string
     {
         if (! Util::isInteger($buffer) || $buffer < 0 || $buffer > 4294967295) {
             return $buffer;

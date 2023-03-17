@@ -846,7 +846,7 @@ class ImportCsv extends AbstractImportCsv
      * @param int    $csv_terminated_len The length of "column separated with"
      *                                   String
      */
-    public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len): string
+    public function readCsvTerminatedString(string $buffer, string $ch, int $i, int $csv_terminated_len): string
     {
         for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
             $i++;
@@ -871,7 +871,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @param bool $analyze status
      */
-    private function setAnalyze($analyze): void
+    private function setAnalyze(bool $analyze): void
     {
         $this->analyze = $analyze;
     }

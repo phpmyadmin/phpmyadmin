@@ -233,7 +233,7 @@ class PrivilegesController extends AbstractController
             $request->hasBodyParam('changeUserGroup') && $relationParameters->configurableMenusFeature !== null
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
-            $serverPrivileges->setUserGroup($GLOBALS['username'] ?? '', $request->getParsedBodyParam('userGroup'));
+            $serverPrivileges->setUserGroup($GLOBALS['username'] ?? '', $request->getParsedBodyParam('userGroup', ''));
             $GLOBALS['message'] = Message::success();
         }
 

@@ -27,7 +27,7 @@ class Select
      * @param bool $not_only_options whether to include form tags or not
      * @param bool $omit_fieldset    whether to omit fieldset tag or not
      */
-    public static function render($not_only_options, $omit_fieldset): string
+    public static function render(bool $not_only_options, bool $omit_fieldset): string
     {
         // Show as list?
         if ($not_only_options) {

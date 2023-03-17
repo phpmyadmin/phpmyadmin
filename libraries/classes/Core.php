@@ -198,7 +198,7 @@ class Core
      * @param array  $allowList allow list to check page against
      * @param bool   $include   whether the page is going to be included
      */
-    public static function checkPageValidity(string $page, array $allowList = [], $include = false): bool
+    public static function checkPageValidity(string $page, array $allowList = [], bool $include = false): bool
     {
         if ($allowList === []) {
             $allowList = ['index.php'];
@@ -412,7 +412,7 @@ class Core
      *
      * @return array|mixed|null array element or $default
      */
-    public static function arrayRead(string $path, array $array, $default = null): mixed
+    public static function arrayRead(string $path, array $array, mixed $default = null): mixed
     {
         $keys = explode('/', $path);
         $value =& $array;
@@ -434,7 +434,7 @@ class Core
      * @param array  $array the array
      * @param mixed  $value value to store
      */
-    public static function arrayWrite(string $path, array &$array, $value): void
+    public static function arrayWrite(string $path, array &$array, mixed $value): void
     {
         $keys = explode('/', $path);
         $last_key = array_pop($keys);
@@ -618,7 +618,7 @@ class Core
      *
      * @param mixed $value the variable
      */
-    public static function emptyRecursive($value): bool
+    public static function emptyRecursive(mixed $value): bool
     {
         if (is_array($value)) {
             $empty = true;
@@ -822,7 +822,7 @@ class Core
      *
      * @param string $sqlQuery The sql query
      */
-    public static function signSqlQuery($sqlQuery): string
+    public static function signSqlQuery(string $sqlQuery): string
     {
         $secret = $_SESSION[' HMAC_secret '] ?? '';
 
@@ -835,7 +835,7 @@ class Core
      * @param string $sqlQuery  The sql query
      * @param string $signature The Signature to check
      */
-    public static function checkSqlQuerySignature($sqlQuery, $signature): bool
+    public static function checkSqlQuerySignature(string $sqlQuery, string $signature): bool
     {
         $secret = $_SESSION[' HMAC_secret '] ?? '';
         $hmac = hash_hmac('sha256', $sqlQuery, $secret . $GLOBALS['cfg']['blowfish_secret']);

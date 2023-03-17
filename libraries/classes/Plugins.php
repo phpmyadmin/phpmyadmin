@@ -54,7 +54,7 @@ class Plugins
      *
      * @return object|null new plugin instance
      */
-    public static function getPlugin(string $type, string $format, $param = null): object|null
+    public static function getPlugin(string $type, string $format, array|string|null $param = null): object|null
     {
         $GLOBALS['plugin_param'] = $param;
         $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
@@ -182,7 +182,7 @@ class Plugins
      *
      * @return string  locale string for $name
      */
-    public static function getString($name): string
+    public static function getString(string|null $name): string
     {
         return $GLOBALS[$name] ?? $name ?? '';
     }
@@ -198,7 +198,7 @@ class Plugins
      *
      * @return string  html input tag option 'checked'
      */
-    public static function checkboxCheck($section, $opt): string
+    public static function checkboxCheck(string $section, string $opt): string
     {
         // If the form is being repopulated using $_GET data, that is priority
         if (
@@ -223,7 +223,7 @@ class Plugins
      *
      * @return string  default value for option $opt
      */
-    public static function getDefault($section, $opt): string
+    public static function getDefault(string $section, string $opt): string
     {
         if (isset($_GET[$opt])) {
             // If the form is being repopulated using $_GET data, that is priority
@@ -403,9 +403,9 @@ class Plugins
      * @psalm-param 'Export'|'Import'|'Schema' $section
      */
     public static function getHtmlForProperty(
-        $section,
-        $plugin_name,
-        $propertyItem,
+        string $section,
+        string $plugin_name,
+        OptionsPropertyItem $propertyItem,
     ): string {
         $ret = '';
         $property_class = $propertyItem::class;

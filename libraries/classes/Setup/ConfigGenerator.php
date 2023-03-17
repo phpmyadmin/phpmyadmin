@@ -92,7 +92,7 @@ class ConfigGenerator
      * @param mixed  $var_value configuration value(s)
      * @param string $eol       line ending
      */
-    private static function getVarExport($var_name, $var_value, string $eol): string
+    private static function getVarExport(string $var_name, mixed $var_value, string $eol): string
     {
         if ($var_name === 'blowfish_secret') {
             $secret = self::getBlowfishSecretKey($var_value);
@@ -202,12 +202,8 @@ class ConfigGenerator
         return $ret;
     }
 
-    /**
-     * @param mixed $key
-     *
-     * @psalm-return non-empty-string
-     */
-    private static function getBlowfishSecretKey($key): string
+    /** @psalm-return non-empty-string */
+    private static function getBlowfishSecretKey(mixed $key): string
     {
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;

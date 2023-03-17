@@ -125,9 +125,9 @@ class Generator
      *
      * @return string  html link to default db page
      */
-    public static function getDbLink($database = ''): string
+    public static function getDbLink(string $database): string
     {
-        if ((string) $database === '') {
+        if ($database === '') {
             if ((string) $GLOBALS['db'] === '') {
                 return '';
             }
@@ -160,10 +160,10 @@ class Generator
      * @param string $bugReference   bug reference for this component
      */
     public static function getExternalBug(
-        $functionality,
-        $component,
-        $minimumVersion,
-        $bugReference,
+        string $functionality,
+        string $component,
+        string $minimumVersion,
+        string $bugReference,
     ): string {
         $return = '';
         if (($component === 'mysql') && ($GLOBALS['dbi']->getVersion() < $minimumVersion)) {
@@ -194,11 +194,11 @@ class Generator
      * @return string an html snippet
      */
     public static function getIcon(
-        $icon,
-        $alternate = '',
-        $forceText = false,
-        $menuIcon = false,
-        $controlParam = 'ActionLinksMode',
+        string $icon,
+        string $alternate = '',
+        bool $forceText = false,
+        bool $menuIcon = false,
+        string $controlParam = 'ActionLinksMode',
     ): string {
         $includeIcon = $includeText = false;
         if (Util::showIcons($controlParam)) {
@@ -270,7 +270,7 @@ class Generator
      *                     (used to detect whether to choose defaults)
      * @global array $cfg  PMA configuration
      */
-    public static function getDefaultFunctionForField(array $field, $insertMode): string
+    public static function getDefaultFunctionForField(array $field, bool $insertMode): string
     {
         $defaultFunction = '';
 
@@ -333,7 +333,7 @@ class Generator
      *
      * @return string An HTML snippet of a dropdown list with function names appropriate for the requested column.
      */
-    public static function getFunctionsForField(array $field, $insertMode, array $foreignData): string
+    public static function getFunctionsForField(array $field, bool $insertMode, array $foreignData): string
     {
         $defaultFunction = self::getDefaultFunctionForField($field, $insertMode);
 
@@ -419,7 +419,7 @@ class Generator
      * usually the message is the result of the query executed
      *
      * @param Message|string $message  the message to display
-     * @param string         $sqlQuery the query to display
+     * @param string|null    $sqlQuery the query to display
      * @param string         $type     the type (level) of the message
      *
      * @throws Throwable
@@ -429,8 +429,8 @@ class Generator
      */
     public static function getMessage(
         Message|string $message,
-        $sqlQuery = null,
-        $type = 'notice',
+        string|null $sqlQuery = null,
+        string $type = 'notice',
     ): string {
         $retval = '';
 
@@ -675,7 +675,7 @@ class Generator
      *
      * @return string  the html link
      */
-    public static function showPHPDocumentation($target): string
+    public static function showPHPDocumentation(string $target): string
     {
         return self::showDocumentationLink(Core::getPHPDocLink($target));
     }
@@ -691,10 +691,10 @@ class Generator
      * @return string the html link
      */
     public static function showDocumentationLink(
-        $link,
-        $target = 'documentation',
-        $bbcode = false,
-        $disableTabIndex = false,
+        string $link,
+        string $target = 'documentation',
+        bool $bbcode = false,
+        bool $disableTabIndex = false,
     ): string {
         if ($bbcode) {
             return '[a@' . $link . '@' . $target . '][dochelpicon][/a]';
@@ -719,11 +719,11 @@ class Generator
      * @global string $db    The current database.
      */
     public static function mysqlDie(
-        $serverMessage = '',
-        $sqlQuery = '',
-        $isModifyLink = true,
-        $backUrl = '',
-        $exit = true,
+        string $serverMessage = '',
+        string $sqlQuery = '',
+        bool $isModifyLink = true,
+        string $backUrl = '',
+        bool $exit = true,
     ): string|null {
         /**
          * Error message to be built.
@@ -913,7 +913,7 @@ class Generator
      *
      * @return string an html IMG tag
      */
-    public static function getImage($image, $alternate = '', array $attributes = []): string
+    public static function getImage(string $image, string $alternate = '', array $attributes = []): string
     {
         $alternate = htmlspecialchars($alternate);
 
@@ -964,11 +964,11 @@ class Generator
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
-        $urlPath,
-        $urlParams,
-        $message,
+        string $urlPath,
+        array|null $urlParams,
+        string $message,
         string|array $tagParams = [],
-        $target = '',
+        string $target = '',
         bool $respectUrlLengthLimit = true,
     ): string {
         $url = $urlPath;
@@ -1060,14 +1060,14 @@ class Generator
      * @todo    use $pos from $_url_params
      */
     public static function getListNavigator(
-        $count,
-        $pos,
+        int $count,
+        int $pos,
         array $urlParams,
-        $script,
-        $frame,
-        $maxCount,
-        $name = 'pos',
-        $classes = [],
+        string $script,
+        string $frame,
+        int $maxCount,
+        string $name = 'pos',
+        array $classes = [],
     ): string {
         // This is often coming from $cfg['MaxTableList'] and
         // people sometimes set it to empty string
@@ -1111,7 +1111,7 @@ class Generator
      *
      * @global array  $cfg the configuration array
      */
-    public static function formatSql($sqlQuery, $truncate = false): string
+    public static function formatSql(string $sqlQuery, bool $truncate = false): string
     {
         if ($truncate && mb_strlen($sqlQuery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
             $sqlQuery = mb_substr($sqlQuery, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
@@ -1129,7 +1129,7 @@ class Generator
      *
      * @param string $selected The value to mark as selected in HTML mode
      */
-    public static function getSupportedDatatypes($selected): string
+    public static function getSupportedDatatypes(string $selected): string
     {
         // NOTE: the SELECT tag is not included in this snippet.
         $retval = '';

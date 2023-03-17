@@ -217,7 +217,7 @@ class Theme
      *
      * @param string $path path to theme
      */
-    public function setPath($path): void
+    public function setPath(string $path): void
     {
         $this->path = trim($path);
     }
@@ -237,7 +237,7 @@ class Theme
      *
      * @param string $version version to set
      */
-    public function setVersion($version): void
+    public function setVersion(string $version): void
     {
         $this->version = trim($version);
     }
@@ -258,7 +258,7 @@ class Theme
      *
      * @param string $version version to compare to
      */
-    public function checkVersion($version): bool
+    public function checkVersion(string $version): bool
     {
         return version_compare($this->getVersion(), $version, 'lt');
     }
@@ -268,7 +268,7 @@ class Theme
      *
      * @param string $name name to set
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = trim($name);
     }
@@ -288,7 +288,7 @@ class Theme
      *
      * @param string $id new id
      */
-    public function setId($id): void
+    public function setId(string $id): void
     {
         $this->id = trim($id);
     }
@@ -308,7 +308,7 @@ class Theme
      *
      * @param string $path path to images for this theme as an URL path
      */
-    public function setImgPath($path): void
+    public function setImgPath(string $path): void
     {
         $this->imgPath = $path;
     }
@@ -328,12 +328,12 @@ class Theme
      * If filename is given, it possibly fallbacks to fallback
      * theme for it if image does not exist.
      *
-     * @param string $file     file name for image
-     * @param string $fallback fallback image
+     * @param string|null $file     file name for image
+     * @param string|null $fallback fallback image
      *
      * @return string image path for this theme
      */
-    public function getImgPath($file = null, $fallback = null): string
+    public function getImgPath(string|null $file = null, string|null $fallback = null): string
     {
         if ($file === null) {
             return $this->imgPath;

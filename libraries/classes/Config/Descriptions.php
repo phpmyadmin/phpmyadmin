@@ -24,7 +24,7 @@ class Descriptions
      * @param string $path Path of configuration
      * @param string $type Type of message, either 'name', 'cmt' or 'desc'
      */
-    public static function get($path, $type = 'name'): string
+    public static function get(string $path, string $type = 'name'): string
     {
         $key = str_replace(
             [
@@ -988,7 +988,7 @@ class Descriptions
      *
      * @return string|null Null if not found
      */
-    public static function getString($path, $type = 'name'): string|null
+    public static function getString(string $path, string $type = 'name'): string|null
     {
         $descriptions = [];
 

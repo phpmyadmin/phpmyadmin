@@ -245,8 +245,14 @@ class Results
      * @param string $goto     the URL to go back in case of errors
      * @param string $sqlQuery the SQL query
      */
-    public function __construct(private DatabaseInterface $dbi, $db, $table, $server, $goto, $sqlQuery)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        string $db,
+        string $table,
+        int $server,
+        string $goto,
+        string $sqlQuery,
+    ) {
         $this->relation = new Relation($this->dbi);
         $this->transformations = new Transformations();
         $this->template = new Template();
@@ -386,7 +392,7 @@ class Results
      * @param bool                      $isAnalyse        statement contains PROCEDURE ANALYSE
      * @param int|string                $numRows          total no. of rows returned by SQL query
      * @param int                       $fieldsCount      total no.of fields returned by SQL query
-     * @param double                    $queryTime        time taken for execute the SQL query
+     * @param float                     $queryTime        time taken for execute the SQL query
      * @param string                    $textDirection    text direction
      * @param bool                      $isMaintenance    statement contains a maintenance command
      * @param bool                      $isExplain        statement contains EXPLAIN
@@ -401,21 +407,21 @@ class Results
     public function setProperties(
         int|string $unlimNumRows,
         array $fieldsMeta,
-        $isCount,
-        $isExport,
-        $isFunction,
-        $isAnalyse,
+        bool $isCount,
+        bool $isExport,
+        bool $isFunction,
+        bool $isAnalyse,
         int|string $numRows,
-        $fieldsCount,
-        $queryTime,
-        $textDirection,
-        $isMaintenance,
-        $isExplain,
-        $isShow,
+        int $fieldsCount,
+        float $queryTime,
+        string $textDirection,
+        bool $isMaintenance,
+        bool $isExplain,
+        bool $isShow,
         array|null $showTable,
-        $printView,
-        $editable,
-        $isBrowseDistinct,
+        string|null $printView,
+        bool $editable,
+        bool $isBrowseDistinct,
     ): void {
         $this->properties['unlim_num_rows'] = $unlimNumRows;
         $this->properties['fields_meta'] = $fieldsMeta;
@@ -563,7 +569,7 @@ class Results
      *               by the SQL query without any programmatically appended
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
-     * @psalm-return array{DisplayParts, int|mixed}
+     * @psalm-return array{DisplayParts, int}
      */
     private function setDisplayPartsAndTotal(DisplayParts $displayParts): array
     {
@@ -627,7 +633,7 @@ class Results
 
         return [
             $displayParts,
-            $theTotal,
+            (int) $theTotal,
         ];
     }
 
@@ -788,8 +794,8 @@ class Results
         array $sortExpression,
         array $sortExpressionNoDirection,
         array $sortDirection,
-        $isLimitedDisplay,
-        $unsortedSqlQuery,
+        bool $isLimitedDisplay,
+        string $unsortedSqlQuery,
     ): string {
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
@@ -904,11 +910,11 @@ class Results
     private function getTableHeaders(
         DisplayParts $displayParts,
         StatementInfo $statementInfo,
-        $unsortedSqlQuery,
+        string $unsortedSqlQuery,
         array $sortExpression = [],
         array $sortExpressionNoDirection = [],
         array $sortDirection = [],
-        $isLimitedDisplay = false,
+        bool $isLimitedDisplay = false,
     ): array {
         // Needed for use in isset/empty or
         // use with array indexes/safe use in foreach
@@ -1304,7 +1310,7 @@ class Results
      * @param array              $sortDirection             sort direction
      * @param bool               $colVisib                  column is visible(false)
      *                                                      or column isn't visible(string array)
-     * @param string             $colVisibElement           element of $col_visib array
+     * @param string|null        $colVisibElement           element of $col_visib array
      *
      * @return array   2 element array - $orderLink, $sortedHeaderHtml
      * @psalm-return array{
@@ -1321,12 +1327,12 @@ class Results
         FieldMetadata $fieldsMeta,
         array $sortExpression,
         array $sortExpressionNoDirection,
-        $unsortedSqlQuery,
-        $sessionMaxRows,
+        string $unsortedSqlQuery,
+        int $sessionMaxRows,
         string $comments,
         array $sortDirection,
-        $colVisib,
-        $colVisibElement,
+        bool $colVisib,
+        string|null $colVisibElement,
     ): array {
         // Checks if the table name is required; it's the case
         // for a query with a "JOIN" statement and if the column
@@ -1599,7 +1605,7 @@ class Results
      *
      * @return string[]             2 element array - $sort_order, $order_img
      */
-    private function getSortingUrlParams(string $sortDirection, $sortOrder): array
+    private function getSortingUrlParams(string $sortDirection, string $sortOrder): array
     {
         if (strtoupper(trim($sortDirection)) === self::DESCENDING_SORT_DIR) {
             $sortOrder .= self::ASCENDING_SORT_DIR;
@@ -1803,7 +1809,7 @@ class Results
      *
      * @return string  the td
      */
-    private function buildValueDisplay($class, $conditionField, $value): string
+    private function buildValueDisplay(string $class, bool $conditionField, string $value): string
     {
         return $this->template->render('display/results/value_display', [
             'class' => $class,
@@ -1941,7 +1947,7 @@ class Results
         DisplayParts $displayParts,
         array $map,
         StatementInfo $statementInfo,
-        $isLimitedDisplay = false,
+        bool $isLimitedDisplay = false,
     ): string {
         // Mostly because of browser transformations, to make the row-data accessible in a plugin.
 
@@ -2271,12 +2277,12 @@ class Results
      */
     private function getRowValues(
         array $row,
-        $rowNumber,
+        int $rowNumber,
         array|false $colOrder,
         array $map,
         string $gridEditConfig,
         bool|array|string $colVisib,
-        $urlSqlQuery,
+        string $urlSqlQuery,
         StatementInfo $statementInfo,
     ): string {
         $rowValuesHtml = '';
@@ -2541,7 +2547,7 @@ class Results
      */
     private function getSpecialLinkUrl(
         array $linkRelations,
-        $columnValue,
+        string $columnValue,
         array $rowInfo,
     ): string {
         $linkingUrlParams = [];
@@ -2724,9 +2730,9 @@ class Results
      * @return array<int,string|array<string, bool|string>>
      */
     private function getModifiedLinks(
-        $whereClause,
-        $clauseIsUnique,
-        $urlSqlQuery,
+        string $whereClause,
+        bool $clauseIsUnique,
+        string $urlSqlQuery,
     ): array {
         $urlParams = [
             'db' => $this->properties['db'],
@@ -2776,9 +2782,9 @@ class Results
      * @psalm-return array{?string, ?string, ?string}
      */
     private function getDeleteAndKillLinks(
-        $whereClause,
-        $clauseIsUnique,
-        $urlSqlQuery,
+        string $whereClause,
+        bool $clauseIsUnique,
+        string $urlSqlQuery,
         int $deleteLink,
         int $processId,
     ): array {
@@ -2858,7 +2864,7 @@ class Results
      * @param string $icon        The name of the file to get
      * @param string $displayText The text displaying after the image icon
      */
-    private function getActionLinkContent($icon, $displayText): string
+    private function getActionLinkContent(string $icon, string $displayText): string
     {
         if (
             isset($GLOBALS['cfg']['RowActionType'])
@@ -2977,7 +2983,7 @@ class Results
         array $urlParams,
         bool $conditionField,
         TransformationsPlugin|null $transformationPlugin,
-        $transformOptions,
+        array $transformOptions,
         StatementInfo $statementInfo,
     ): string {
         if ($column === null) {
@@ -3093,7 +3099,7 @@ class Results
         array $urlParams,
         bool $conditionField,
         TransformationsPlugin|null $transformationPlugin,
-        $transformOptions,
+        array $transformOptions,
         StatementInfo $statementInfo,
     ): string {
         $originalLength = 0;
@@ -3370,7 +3376,7 @@ class Results
         ResultInterface $dtResult,
         DisplayParts $displayParts,
         StatementInfo $statementInfo,
-        $isLimitedDisplay = false,
+        bool $isLimitedDisplay = false,
     ): string {
         // The statement this table is built for.
         if (isset($statementInfo->statement)) {
@@ -3609,7 +3615,7 @@ class Results
      */
     private function getSortedColumnMessage(
         ResultInterface $dtResult,
-        $sortExpressionNoDirection,
+        string|null $sortExpressionNoDirection,
     ): string {
         $fieldsMeta = $this->properties['fields_meta']; // To use array indexes
 
@@ -3724,8 +3730,8 @@ class Results
     private function setMessageInformation(
         string $sortedColumnMessage,
         StatementInfo $statementInfo,
-        $total,
-        $posNext,
+        int $total,
+        int $posNext,
         string $preCount,
         string $afterCount,
     ): Message {
@@ -4014,13 +4020,13 @@ class Results
      * @param bool          $isTruncated      the result is truncated or not
      */
     private function handleNonPrintableContents(
-        $category,
+        string $category,
         string|null $content,
         TransformationsPlugin|null $transformationPlugin,
         array $transformOptions,
         FieldMetadata $meta,
         array $urlParams = [],
-        &$isTruncated = false,
+        bool &$isTruncated = false,
     ): string {
         $isTruncated = false;
         $result = '[' . $category;
@@ -4161,8 +4167,8 @@ class Results
         StatementInfo $statementInfo,
         FieldMetadata $meta,
         array $map,
-        $data,
-        $displayedData,
+        string $data,
+        string $displayedData,
         TransformationsPlugin|null $transformationPlugin,
         string $nowrap,
         string $whereComparison,
@@ -4292,7 +4298,7 @@ class Results
      * @return array
      * @psalm-return array{bool, string, int}
      */
-    private function getPartialText($str): array
+    private function getPartialText(string $str): array
     {
         $originalLength = mb_strlen($str);
         if (

@@ -39,12 +39,12 @@ class TableStatsDia extends TableStats
      * @param bool   $offline    Whether the coordinates are sent from the browser
      */
     public function __construct(
-        $diagram,
-        $db,
-        $tableName,
-        $pageNumber,
-        $showKeys = false,
-        $offline = false,
+        Dia $diagram,
+        string $db,
+        string $tableName,
+        int $pageNumber,
+        bool $showKeys = false,
+        bool $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline);
 
@@ -83,7 +83,7 @@ class TableStatsDia extends TableStats
      *                        will be used to choose the random colors for tables
      *                        text we can change/add more colors to this array
      */
-    public function tableDraw($showColor): void
+    public function tableDraw(bool $showColor): void
     {
         if ($showColor) {
             $listOfColors = [

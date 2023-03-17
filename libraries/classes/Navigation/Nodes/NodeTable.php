@@ -34,7 +34,7 @@ class NodeTable extends NodeDatabaseChild
      * @param bool   $isGroup Whether this object has been created
      *                        while grouping nodes
      */
-    public function __construct($name, $type = Node::OBJECT, $isGroup = false)
+    public function __construct(string $name, int $type = Node::OBJECT, bool $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
 
@@ -79,7 +79,7 @@ class NodeTable extends NodeDatabaseChild
      *                             ('columns' or 'indexes')
      * @param string $searchClause A string used to filter the results of the query
      */
-    public function getPresence($type = '', $searchClause = ''): int
+    public function getPresence(string $type = '', string $searchClause = ''): int
     {
         $retval = 0;
         $db = $this->realParent()->realName;

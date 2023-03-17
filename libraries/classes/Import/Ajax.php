@@ -102,7 +102,7 @@ final class Ajax
      *
      * @param string $id ID of transfer, usually $upload_id
      */
-    public static function status($id): void
+    public static function status(string $id): void
     {
         foreach (Core::headerJSON() as $name => $value) {
             header(sprintf('%s: %s', $name, $value));

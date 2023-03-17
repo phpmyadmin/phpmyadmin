@@ -38,12 +38,7 @@ class Navigation
 {
     private NavigationTree $tree;
 
-    /**
-     * @param Template          $template
-     * @param Relation          $relation
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct(private $template, private $relation, private $dbi)
+    public function __construct(private Template $template, private Relation $relation, private DatabaseInterface $dbi)
     {
         $this->tree = new NavigationTree($this->template, $this->dbi);
     }
@@ -139,9 +134,9 @@ class Navigation
      * @param string $dbName   database name
      */
     public function hideNavigationItem(
-        $itemName,
-        $itemType,
-        $dbName,
+        string $itemName,
+        string $itemType,
+        string $dbName,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -170,9 +165,9 @@ class Navigation
      * @param string $dbName   database name
      */
     public function unhideNavigationItem(
-        $itemName,
-        $itemType,
-        $dbName,
+        string $itemName,
+        string $itemType,
+        string $dbName,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {

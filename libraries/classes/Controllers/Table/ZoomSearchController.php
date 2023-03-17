@@ -205,10 +205,8 @@ class ZoomSearchController extends AbstractController
 
     /**
      * Display selection form action
-     *
-     * @param string $dataLabel Data label
      */
-    public function displaySelectionFormAction($dataLabel = null): void
+    public function displaySelectionFormAction(string $dataLabel): void
     {
         if (! isset($GLOBALS['goto'])) {
             $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
@@ -311,7 +309,7 @@ class ZoomSearchController extends AbstractController
      * @param string $dataLabel Data label
      * @param string $goto      Goto
      */
-    public function zoomSubmitAction($dataLabel, $goto): void
+    public function zoomSubmitAction(string $dataLabel, string $goto): void
     {
         //Query generation part
         $sql_query = $this->search->buildSqlQuery();
@@ -405,7 +403,7 @@ class ZoomSearchController extends AbstractController
      *
      * @return array Array containing column's properties
      */
-    public function getColumnProperties($search_index, $column_index): array
+    public function getColumnProperties(int $search_index, int $column_index): array
     {
         $selected_operator = ($_POST['criteriaColumnOperators'][$search_index] ?? '');
         $entered_value = ($_POST['criteriaValues'] ?? '');

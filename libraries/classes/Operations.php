@@ -42,7 +42,7 @@ class Operations
      *
      * @param string $db database name
      */
-    public function runProcedureAndFunctionDefinitions($db, DatabaseName $newDatabaseName): void
+    public function runProcedureAndFunctionDefinitions(string $db, DatabaseName $newDatabaseName): void
     {
         foreach (Routines::getProcedureNames($this->dbi, $db) as $procedureName) {
             $this->dbi->selectDb($db);
@@ -114,8 +114,8 @@ class Operations
      */
     public function getViewsAndCreateSqlViewStandIn(
         array $tables,
-        $exportSqlPlugin,
-        $db,
+        ExportSql $exportSqlPlugin,
+        string $db,
         DatabaseName $newDatabaseName,
     ): array {
         $views = [];
@@ -157,7 +157,7 @@ class Operations
      *
      * @return array SQL queries for the constraints
      */
-    public function copyTables(array $tables, $move, $db, DatabaseName $newDatabaseName): array
+    public function copyTables(array $tables, bool $move, string $db, DatabaseName $newDatabaseName): array
     {
         $sqlContraints = [];
         foreach ($tables as $table) {
@@ -236,7 +236,7 @@ class Operations
      *
      * @param string $db database name
      */
-    public function runEventDefinitionsForDb($db, DatabaseName $newDatabaseName): void
+    public function runEventDefinitionsForDb(string $db, DatabaseName $newDatabaseName): void
     {
         /** @var string[] $eventNames */
         $eventNames = $this->dbi->fetchResult(
@@ -261,7 +261,7 @@ class Operations
      * @param bool   $move  whether database name is empty or not
      * @param string $db    database name
      */
-    public function handleTheViews(array $views, $move, $db, DatabaseName $newDatabaseName): void
+    public function handleTheViews(array $views, bool $move, string $db, DatabaseName $newDatabaseName): void
     {
         // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
@@ -287,7 +287,7 @@ class Operations
      *
      * @param string $oldDb Database name before renaming
      */
-    public function adjustPrivilegesMoveDb($oldDb, DatabaseName $newDatabaseName): void
+    public function adjustPrivilegesMoveDb(string $oldDb, DatabaseName $newDatabaseName): void
     {
         if (
             ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
@@ -330,7 +330,7 @@ class Operations
      *
      * @param string $oldDb Database name before copying
      */
-    public function adjustPrivilegesCopyDb($oldDb, DatabaseName $newDatabaseName): void
+    public function adjustPrivilegesCopyDb(string $oldDb, DatabaseName $newDatabaseName): void
     {
         if (
             ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
@@ -441,7 +441,7 @@ class Operations
      * @param bool   $error whether table rename/copy or not
      * @param string $db    database name
      */
-    public function duplicateBookmarks($error, $db, DatabaseName $newDatabaseName): void
+    public function duplicateBookmarks(bool $error, string $db, DatabaseName $newDatabaseName): void
     {
         if ($error || $db === $newDatabaseName->getName()) {
             return;
@@ -554,7 +554,7 @@ class Operations
      */
     public function getForeignersForReferentialIntegrityCheck(
         array $urlParams,
-        $hasRelationFeature,
+        bool $hasRelationFeature,
     ): array {
         if (! $hasRelationFeature) {
             return [];
@@ -633,15 +633,15 @@ class Operations
      * @return array
      */
     public function getTableAltersArray(
-        $pmaTable,
-        $packKeys,
-        $checksum,
-        $pageChecksum,
-        $delayKeyWrite,
-        $rowFormat,
-        $newTblStorageEngine,
-        $transactional,
-        $tableCollation,
+        Table $pmaTable,
+        string $packKeys,
+        string $checksum,
+        string $pageChecksum,
+        string $delayKeyWrite,
+        string $rowFormat,
+        string $newTblStorageEngine,
+        string $transactional,
+        string $tableCollation,
     ): array {
         $GLOBALS['auto_increment'] ??= null;
 
@@ -666,7 +666,7 @@ class Operations
         if (
             $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM'])
             && isset($_POST['new_pack_keys'])
-            && $_POST['new_pack_keys'] != (string) $packKeys
+            && $_POST['new_pack_keys'] != $packKeys
         ) {
             $tableAlters[] = 'pack_keys = ' . $_POST['new_pack_keys'];
         }
@@ -756,8 +756,12 @@ class Operations
      * @param string $newDb    Database name after table renaming/ moving table
      * @param string $newTable Table name after table renaming/moving table
      */
-    public function adjustPrivilegesRenameOrMoveTable($oldDb, $oldTable, $newDb, $newTable): void
-    {
+    public function adjustPrivilegesRenameOrMoveTable(
+        string $oldDb,
+        string $oldTable,
+        string $newDb,
+        string $newTable,
+    ): void {
         if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv'] || ! $GLOBALS['is_reload_priv']) {
             return;
         }
@@ -792,7 +796,7 @@ class Operations
      * @param string $newDb    Database name after table copying
      * @param string $newTable Table name after table copying
      */
-    public function adjustPrivilegesCopyTable($oldDb, $oldTable, $newDb, $newTable): void
+    public function adjustPrivilegesCopyTable(string $oldDb, string $oldTable, string $newDb, string $newTable): void
     {
         if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv'] || ! $GLOBALS['is_reload_priv']) {
             return;
@@ -845,7 +849,7 @@ class Operations
      * @param string $table          Table name
      * @param string $tableCollation Collation Name
      */
-    public function changeAllColumnsCollation($db, $table, $tableCollation): void
+    public function changeAllColumnsCollation(string $db, string $table, string $tableCollation): void
     {
         $this->dbi->selectDb($db);
 
@@ -867,7 +871,7 @@ class Operations
      * @param string $db    current database name
      * @param string $table current table name
      */
-    public function moveOrCopyTable($db, $table): Message
+    public function moveOrCopyTable(string $db, string $table): Message
     {
         /**
          * Selects the database to work with

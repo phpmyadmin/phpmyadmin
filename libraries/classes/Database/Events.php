@@ -62,9 +62,11 @@ class Events
         'MINUTE_SECOND',
     ];
 
-    /** @param ResponseRenderer $response */
-    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Template $template,
+        private ResponseRenderer $response,
+    ) {
     }
 
     /**
@@ -295,7 +297,7 @@ class Events
      *
      * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name): array|null
+    public function getDataFromName(string $name): array|null
     {
         $retval = [];
         $columns = '`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, '
@@ -348,7 +350,7 @@ class Events
      *
      * @return string   HTML code for the editor.
      */
-    public function getEditorForm($mode, $operation, array $item): string
+    public function getEditorForm(string $mode, string $operation, array $item): string
     {
         if ($operation === 'change') {
             if ($item['item_type'] === 'RECURRING') {
@@ -472,7 +474,7 @@ class Events
      *
      * @return array
      */
-    private function checkResult($createStatement, array $errors): array
+    private function checkResult(string|null $createStatement, array $errors): array
     {
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
@@ -496,7 +498,7 @@ class Events
      * @param string     $db        Database
      * @param string     $operation Operation 'change' or ''
      */
-    private function sendEditor($mode, array|null $item, $title, $db, $operation): void
+    private function sendEditor(string $mode, array|null $item, string $title, string $db, string $operation): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($mode, $operation, $item);

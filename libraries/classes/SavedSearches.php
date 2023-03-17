@@ -57,7 +57,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setId($searchId): static
+    public function setId(int|null $searchId): static
     {
         $searchId = (int) $searchId;
         if ($searchId === 0) {
@@ -84,7 +84,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setSearchName($searchName): static
+    public function setSearchName(string $searchName): static
     {
         $this->searchName = $searchName;
 
@@ -107,7 +107,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setCriterias(array|string $criterias, $json = false): static
+    public function setCriterias(array|string $criterias, bool $json = false): static
     {
         if ($json === true && is_string($criterias)) {
             $this->criterias = json_decode($criterias, true);
@@ -172,7 +172,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setUsername($username): static
+    public function setUsername(string $username): static
     {
         $this->username = $username;
 
@@ -194,7 +194,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setDbname($dbname): static
+    public function setDbname(string $dbname): static
     {
         $this->dbname = $dbname;
 

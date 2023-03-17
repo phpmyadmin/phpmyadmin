@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\Statement;
 class StatementInfo
 {
     /**
-     * @param string|false                        $queryType
      * @param array<int, array<int, string|null>> $selectTables
      * @param array<int, string|null>             $selectExpression
      * @psalm-param list<array{string|null, string|null}> $selectTables
@@ -41,7 +40,7 @@ class StatementInfo
         public bool $limit,
         public bool $offset,
         public bool $order,
-        public $queryType,
+        public string|false $queryType,
         public bool $reload,
         public bool $selectFrom,
         public bool $union,

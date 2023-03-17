@@ -239,8 +239,8 @@ class ServerConfigChecks
      * @return string Server name
      */
     protected function performConfigChecksServersGetServerName(
-        $serverName,
-        $serverId,
+        string $serverName,
+        int $serverId,
     ): string {
         if ($serverName === 'localhost') {
             return $serverName . ' [' . $serverId . ']';
@@ -448,7 +448,7 @@ class ServerConfigChecks
      *
      * @param string $name Function name
      */
-    protected function functionExists($name): bool
+    protected function functionExists(string $name): bool
     {
         return function_exists($name);
     }

@@ -14,6 +14,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
+use function is_array;
 
 final class MakeConsistentController extends AbstractController
 {
@@ -32,7 +33,7 @@ final class MakeConsistentController extends AbstractController
 
         $selected = $_POST['selected_tbl'] ?? [];
 
-        if (empty($selected)) {
+        if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 

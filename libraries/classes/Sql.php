@@ -63,10 +63,10 @@ class Sql
      * @param string $fullSqlQuery SQL query
      */
     private function handleSortOrder(
-        $db,
-        $table,
+        string $db,
+        string $table,
         StatementInfo $statementInfo,
-        &$fullSqlQuery,
+        string &$fullSqlQuery,
     ): StatementInfo {
         if ($statementInfo->statement === null || $statementInfo->parser === null) {
             return $statementInfo;
@@ -210,8 +210,12 @@ class Sql
      *
      * @return string html for the dropdown
      */
-    public function getHtmlForRelationalColumnDropdown($db, $table, $column, $currentValue): string
-    {
+    public function getHtmlForRelationalColumnDropdown(
+        string $db,
+        string $table,
+        string $column,
+        string $currentValue,
+    ): string {
         $foreigners = $this->relation->getForeigners($db, $table, $column);
 
         $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');
@@ -399,8 +403,8 @@ class Sql
      */
     public function hasNoRightsToDropDatabase(
         StatementInfo $statementInfo,
-        $allowUserDropDatabase,
-        $isSuperUser,
+        bool $allowUserDropDatabase,
+        bool $isSuperUser,
     ): bool {
         return ! $allowUserDropDatabase && $statementInfo->dropDatabase && ! $isSuperUser;
     }
@@ -413,7 +417,7 @@ class Sql
      *
      * @return int the number of rows
      */
-    public function findRealEndOfRows($db, $table): int
+    public function findRealEndOfRows(string $db, string $table): int
     {
         $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
         $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlimNumRows);
@@ -429,7 +433,7 @@ class Sql
      *
      * @return string the default $sql_query for browse page
      */
-    public function getDefaultSqlQueryForBrowse($db, $table): string
+    public function getDefaultSqlQueryForBrowse(string $db, string $table): string
     {
         $bookmark = Bookmark::get(
             $this->dbi,
@@ -489,7 +493,7 @@ class Sql
      * @param string $error        error after executing the query
      * @param string $fullSqlQuery full sql query
      */
-    private function handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery): void
+    private function handleQueryExecuteError(bool $isGotoFile, string $error, string $fullSqlQuery): void
     {
         if ($isGotoFile) {
             $message = Message::rawError($error);
@@ -514,10 +518,10 @@ class Sql
      */
     public function storeTheQueryAsBookmark(
         BookmarkFeature|null $bookmarkFeature,
-        $db,
-        $bookmarkUser,
-        $sqlQueryForBookmark,
-        $bookmarkLabel,
+        string $db,
+        string $bookmarkUser,
+        string $sqlQueryForBookmark,
+        string $bookmarkLabel,
         bool $bookmarkReplace,
     ): void {
         $bfields = [
@@ -561,7 +565,7 @@ class Sql
      * @return int|string number of rows affected or changed
      * @psalm-return int|numeric-string
      */
-    private function getNumberOfRowsAffectedOrChanged($isAffected, ResultInterface|false $result): int|string
+    private function getNumberOfRowsAffectedOrChanged(bool $isAffected, ResultInterface|false $result): int|string
     {
         if ($isAffected) {
             return $this->dbi->affectedRows();
@@ -731,13 +735,13 @@ class Sql
      */
     private function executeTheQuery(
         StatementInfo $statementInfo,
-        $fullSqlQuery,
-        $isGotoFile,
+        string $fullSqlQuery,
+        bool $isGotoFile,
         string $db,
         string|null $table,
         bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
-        $extraData,
+        array|null $extraData,
     ): array {
         $response = ResponseRenderer::getInstance();
         $response->getHeader()->getMenu()->setTable($table ?? '');
@@ -956,11 +960,11 @@ class Sql
         string|null $table,
         string|null $messageToShow,
         int|string $numRows,
-        $displayResultsObject,
+        DisplayResults $displayResultsObject,
         array|null $extraData,
         array|null $profilingResults,
-        $result,
-        $sqlQuery,
+        ResultInterface|false|null $result,
+        string $sqlQuery,
         string|null $completeQuery,
     ): string {
         if ($this->isDeleteTransformationInfo($statementInfo)) {
@@ -1114,15 +1118,15 @@ class Sql
      * @psalm-param int|numeric-string $numRows
      */
     private function getHtmlForSqlQueryResultsTable(
-        $displayResultsObject,
+        DisplayResults $displayResultsObject,
         DisplayParts $displayParts,
-        $editable,
+        bool $editable,
         int|string $unlimNumRows,
         int|string $numRows,
         array|null $showTable,
-        $result,
+        ResultInterface|false|null $result,
         StatementInfo $statementInfo,
-        $isLimitedDisplay = false,
+        bool $isLimitedDisplay = false,
     ): string {
         $printView = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
         $tableHtml = '';
@@ -1320,18 +1324,18 @@ class Sql
      * @return string html
      */
     private function getQueryResponseForResultsReturned(
-        $result,
+        ResultInterface|false|null $result,
         StatementInfo $statementInfo,
         string $db,
         string|null $table,
         array|null $sqlData,
-        $displayResultsObject,
+        DisplayResults $displayResultsObject,
         int|string $unlimNumRows,
         int|string $numRows,
         string|null $dispQuery,
-        $dispMessage,
+        Message|string|null $dispMessage,
         array|null $profilingResults,
-        $sqlQuery,
+        string $sqlQuery,
         string|null $completeQuery,
     ): string {
         $GLOBALS['showtable'] ??= null;
@@ -1515,19 +1519,19 @@ class Sql
      */
     public function executeQueryAndSendQueryResponse(
         StatementInfo|null $statementInfo,
-        $isGotoFile,
+        bool $isGotoFile,
         string $db,
         string|null $table,
-        $findRealEnd,
-        $sqlQueryForBookmark,
-        $extraData,
-        $messageToShow,
-        $sqlData,
-        $goto,
-        $dispQuery,
-        $dispMessage,
-        $sqlQuery,
-        $completeQuery,
+        bool|null $findRealEnd,
+        string|null $sqlQueryForBookmark,
+        array|null $extraData,
+        string|null $messageToShow,
+        array|null $sqlData,
+        string $goto,
+        string|null $dispQuery,
+        Message|string|null $dispMessage,
+        string $sqlQuery,
+        string|null $completeQuery,
     ): string {
         if ($statementInfo === null) {
             // Parse and analyze the query
@@ -1575,18 +1579,18 @@ class Sql
      */
     public function executeQueryAndGetQueryResponse(
         StatementInfo $statementInfo,
-        $isGotoFile,
+        bool $isGotoFile,
         string $db,
         string|null $table,
-        $findRealEnd,
+        bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
-        $extraData,
+        array|null $extraData,
         string|null $messageToShow,
-        $sqlData,
-        $goto,
+        array|null $sqlData,
+        string $goto,
         string|null $dispQuery,
-        $dispMessage,
-        $sqlQuery,
+        Message|string|null $dispMessage,
+        string $sqlQuery,
         string|null $completeQuery,
     ): string {
         // Handle disable/enable foreign key checks
@@ -1705,7 +1709,7 @@ class Sql
      *
      * @return int Start position to display the line
      */
-    private function getStartPosToDisplayRow($numberOfLine): int
+    private function getStartPosToDisplayRow(int $numberOfLine): int
     {
         $maxRows = $_SESSION['tmpval']['max_rows'];
 
@@ -1722,7 +1726,7 @@ class Sql
      *
      * @return int Number of pos to display last page
      */
-    public function calculatePosForLastPage($db, $table, $pos): int
+    public function calculatePosForLastPage(string $db, string $table, int|null $pos): int
     {
         if ($pos === null) {
             $pos = $_SESSION['tmpval']['pos'];

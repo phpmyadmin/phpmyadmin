@@ -32,7 +32,7 @@ final class Options
      *
      * @param string $str option name
      */
-    private function checkboxCheck($str): bool
+    private function checkboxCheck(string $str): bool
     {
         return isset($GLOBALS['cfg']['Export'][$str])
             && $GLOBALS['cfg']['Export'][$str];
@@ -45,7 +45,7 @@ final class Options
      *
      * @return array<int, array{name: string, is_selected: bool}>
      */
-    public function getDatabasesForSelectOptions($tmpSelect = ''): array
+    public function getDatabasesForSelectOptions(string $tmpSelect = ''): array
     {
         /** @var array|string|null $dbSelect */
         $dbSelect = $_POST['db_select'] ?? null;
@@ -97,10 +97,10 @@ final class Options
      * @return array<string, mixed>
      */
     public function getOptions(
-        $exportType,
-        $db,
-        $table,
-        $sqlQuery,
+        string $exportType,
+        string $db,
+        string $table,
+        string $sqlQuery,
         int|string $numTables,
         int|string $unlimNumRows,
         array $exportList,

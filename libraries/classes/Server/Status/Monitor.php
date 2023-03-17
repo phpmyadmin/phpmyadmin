@@ -30,8 +30,7 @@ use function strlen;
  */
 class Monitor
 {
-    /** @param DatabaseInterface $dbi */
-    public function __construct(private $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
     }
 
@@ -137,9 +136,9 @@ class Monitor
         array $ret,
         array $serverVars,
         array $statusVars,
-        $sysinfo,
-        $cpuload,
-        $memory,
+        mixed $sysinfo,
+        mixed $cpuload,
+        mixed $memory,
     ): array {
         // For each chart
         foreach ($ret as $chartId => $chartNodes) {
@@ -183,14 +182,14 @@ class Monitor
      * @return array
      */
     private function getJsonForChartingDataSwitch(
-        $type,
-        $pName,
+        string $type,
+        string $pName,
         array $serverVars,
         array $statusVars,
         array $ret,
-        $sysinfo,
-        $cpuload,
-        $memory,
+        mixed $sysinfo,
+        mixed $cpuload,
+        mixed $memory,
     ): array {
         /**
          * We only collect the status and server variables here to read them all in one query,

@@ -185,11 +185,11 @@ class FindReplaceController extends AbstractController
      * @return string HTML for previewing strings found and their replacements
      */
     public function getReplacePreview(
-        $columnIndex,
-        $find,
-        $replaceWith,
-        $useRegex,
-        $charSet,
+        int $columnIndex,
+        string $find,
+        string $replaceWith,
+        bool $useRegex,
+        string $charSet,
     ): string {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
@@ -237,10 +237,10 @@ class FindReplaceController extends AbstractController
      * @return array|bool Array containing original values, replaced values and count
      */
     private function getRegexReplaceRows(
-        $columnIndex,
-        $find,
-        $replaceWith,
-        $charSet,
+        int $columnIndex,
+        string $find,
+        string $replaceWith,
+        string $charSet,
     ): array|bool {
         $column = $this->columnNames[$columnIndex];
         $sql_query = 'SELECT '
@@ -296,11 +296,11 @@ class FindReplaceController extends AbstractController
      * @param string $charSet     character set of the connection
      */
     public function replace(
-        $columnIndex,
-        $find,
-        $replaceWith,
-        $useRegex,
-        $charSet,
+        int $columnIndex,
+        string $find,
+        string $replaceWith,
+        bool $useRegex,
+        string $charSet,
     ): void {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {

@@ -33,7 +33,7 @@ EOT;
      *
      * @return string  OASIS OpenDocument data
      */
-    public static function create($mime, $data): string
+    public static function create(string $mime, string $data): string
     {
         // Use the same date method as other PHP libs
         // https://github.com/PHPOffice/PhpSpreadsheet/blob/1.22.0/src/PhpSpreadsheet/Writer/Ods/Meta.php#L49

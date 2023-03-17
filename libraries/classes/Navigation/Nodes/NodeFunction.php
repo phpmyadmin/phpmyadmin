@@ -22,7 +22,7 @@ class NodeFunction extends NodeDatabaseChild
      * @param bool   $isGroup Whether this object has been created
      *                        while grouping nodes
      */
-    public function __construct($name, $type = Node::OBJECT, $isGroup = false)
+    public function __construct(string $name, int $type = Node::OBJECT, bool $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
 

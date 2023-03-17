@@ -199,7 +199,7 @@ class StructureController extends AbstractController
     }
 
     /** @param array $replicaInfo */
-    protected function displayTableList($replicaInfo): string
+    protected function displayTableList(array $replicaInfo): string
     {
         $html = '';
 
@@ -577,7 +577,7 @@ class StructureController extends AbstractController
      *
      * @return array
      */
-    protected function getReplicationStatus($replicaInfo, string $table): array
+    protected function getReplicationStatus(array $replicaInfo, string $table): array
     {
         $do = $ignored = false;
         if ($replicaInfo['status']) {
@@ -629,7 +629,7 @@ class StructureController extends AbstractController
      * @param array  $db       DB to look into
      * @param string $truename Table name
      */
-    protected function hasTable(array $db, $truename): bool
+    protected function hasTable(array $db, string $truename): bool
     {
         foreach ($db as $dbTable) {
             if (
@@ -660,8 +660,8 @@ class StructureController extends AbstractController
      */
     protected function getStuffForEngineTypeTable(
         array $currentTable,
-        $sumSize,
-        $overheadSize,
+        int $sumSize,
+        int $overheadSize,
     ): array {
         $formattedSize = '-';
         $unit = '';
@@ -771,21 +771,21 @@ class StructureController extends AbstractController
      * @param array  $currentTable      current table
      * @param int    $sumSize           sum size
      * @param int    $overheadSize      overhead size
-     * @param int    $formattedSize     formatted size
+     * @param string $formattedSize     formatted size
      * @param string $unit              unit
-     * @param int    $formattedOverhead overhead formatted
+     * @param string $formattedOverhead overhead formatted
      * @param string $overheadUnit      overhead unit
      *
      * @return array
      */
     protected function getValuesForAriaTable(
         array $currentTable,
-        $sumSize,
-        $overheadSize,
-        $formattedSize,
-        $unit,
-        $formattedOverhead,
-        $overheadUnit,
+        int $sumSize,
+        int $overheadSize,
+        string $formattedSize,
+        string $unit,
+        string $formattedOverhead,
+        string $overheadUnit,
     ): array {
         if ($this->dbIsSystemSchema) {
             $currentTable['Rows'] = $this->dbi
@@ -830,7 +830,7 @@ class StructureController extends AbstractController
      */
     protected function getValuesForInnodbTable(
         array $currentTable,
-        $sumSize,
+        int $sumSize,
     ): array {
         $formattedSize = $unit = '';
 

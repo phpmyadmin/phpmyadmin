@@ -173,13 +173,13 @@ class EpsRelationSchema extends ExportRelationSchema
      * @param bool   $tableDimension Whether to display table position or not
      */
     private function addRelation(
-        $masterTable,
-        $font,
-        $fontSize,
-        $masterField,
-        $foreignTable,
-        $foreignField,
-        $tableDimension,
+        string $masterTable,
+        string $font,
+        int $fontSize,
+        string $masterField,
+        string $foreignTable,
+        string $foreignField,
+        bool $tableDimension,
     ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsEps(

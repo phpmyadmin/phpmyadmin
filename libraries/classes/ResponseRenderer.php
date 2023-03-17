@@ -238,7 +238,7 @@ class ResponseRenderer
      * @param mixed|null       $value Null, if passing an array in $json otherwise
      *                                it's a string value to the key
      */
-    public function addJSON(string|int|array $json, $value = null): void
+    public function addJSON(string|int|array $json, mixed $value = null): void
     {
         if (is_array($json)) {
             foreach ($json as $key => $value) {
@@ -390,7 +390,7 @@ class ResponseRenderer
      *
      * @param string $text header string
      */
-    public function header($text): void
+    public function header(string $text): void
     {
         // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
         \header($text);
@@ -409,7 +409,7 @@ class ResponseRenderer
      *
      * @param int $response_code will set the response code.
      */
-    public function httpResponseCode($response_code): void
+    public function httpResponseCode(int $response_code): void
     {
         http_response_code($response_code);
     }
@@ -441,7 +441,7 @@ class ResponseRenderer
      *
      * @param string $location will set location to redirect.
      */
-    public function generateHeader303($location): void
+    public function generateHeader303(string $location): void
     {
         $this->setHttpResponseCode(303);
         $this->header('Location: ' . $location);

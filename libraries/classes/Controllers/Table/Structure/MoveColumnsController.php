@@ -14,7 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
-use function array_keys;
+use function array_column;
 use function array_splice;
 use function count;
 use function implode;
@@ -51,7 +51,7 @@ final class MoveColumnsController extends AbstractController
          * load the definitions for all columns
          */
         $columns = $this->dbi->getColumnsFull($GLOBALS['db'], $GLOBALS['table']);
-        $column_names = array_keys($columns);
+        $column_names = array_column($columns, 'Field');
         $changes = [];
 
         // @see https://mariadb.com/kb/en/library/changes-improvements-in-mariadb-102/#information-schema

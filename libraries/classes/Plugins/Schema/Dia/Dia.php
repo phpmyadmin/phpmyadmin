@@ -56,12 +56,12 @@ class Dia extends XMLWriter
      * @param string $orientation  orientation of the document, portrait or landscape
      */
     public function startDiaDoc(
-        $paper,
-        $topMargin,
-        $bottomMargin,
-        $leftMargin,
-        $rightMargin,
-        $orientation,
+        string $paper,
+        float $topMargin,
+        float $bottomMargin,
+        float $leftMargin,
+        float $rightMargin,
+        string $orientation,
     ): void {
         $isPortrait = 'false';
 

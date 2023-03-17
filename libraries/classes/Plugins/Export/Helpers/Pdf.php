@@ -80,13 +80,13 @@ class Pdf extends PdfLib
      * @param false|int $pdfa        If not false, set the document to PDF/A mode and the good version (1 or 3)
      */
     public function __construct(
-        $orientation = 'P',
-        $unit = 'mm',
-        $format = 'A4',
-        $unicode = true,
-        $encoding = 'UTF-8',
-        $diskcache = false,
-        $pdfa = false,
+        string $orientation = 'P',
+        string $unit = 'mm',
+        string $format = 'A4',
+        bool $unicode = true,
+        string $encoding = 'UTF-8',
+        bool $diskcache = false,
+        false|int $pdfa = false,
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
 
@@ -213,7 +213,7 @@ class Pdf extends PdfLib
      *
      * @param int $lineheight Height of line
      */
-    public function morepagestable($lineheight = 8): void
+    public function morepagestable(int $lineheight = 8): void
     {
         // some things to set and 'remember'
         $l = $this->lMargin;
@@ -307,7 +307,7 @@ class Pdf extends PdfLib
      * @param string $db    database name
      * @param string $table table name
      */
-    public function getTriggers($db, $table): void
+    public function getTriggers(string $db, string $table): void
     {
         $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
         if ($triggers === []) {
@@ -447,12 +447,12 @@ class Pdf extends PdfLib
      * @param array  $aliases     aliases of db/table/columns
      */
     public function getTableDef(
-        $db,
-        $table,
-        $do_relation,
-        $do_comments,
-        $do_mime,
-        $view = false,
+        string $db,
+        string $table,
+        bool $do_relation,
+        bool $do_comments,
+        bool $do_mime,
+        bool $view = false,
         array $aliases = [],
     ): void {
         $relationParameters = $this->relation->getRelationParameters();
@@ -669,7 +669,7 @@ class Pdf extends PdfLib
      *
      * @param string $query Query to execute
      */
-    public function mysqlReport($query): void
+    public function mysqlReport(string $query): void
     {
         unset(
             $this->tablewidths,

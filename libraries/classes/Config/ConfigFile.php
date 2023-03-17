@@ -77,7 +77,7 @@ class ConfigFile
      *                               {@link PhpMyAdmin\Config::$base_config},
      *                               use only when not in PMA Setup
      */
-    public function __construct($baseConfig = null)
+    public function __construct(array|null $baseConfig = null)
     {
         // load default config values
         $settings = new Settings([]);
@@ -132,7 +132,7 @@ class ConfigFile
      *
      * @param array|null $keys array of allowed keys or null to remove filter
      */
-    public function setAllowedKeys($keys): void
+    public function setAllowedKeys(array|null $keys): void
     {
         if ($keys === null) {
             $this->setFilter = null;
@@ -178,12 +178,8 @@ class ConfigFile
 
     /**
      * Sets config value
-     *
-     * @param string $path          Path
-     * @param mixed  $value         Value
-     * @param string $canonicalPath Canonical path
      */
-    public function set($path, $value, $canonicalPath = null): void
+    public function set(string $path, mixed $value, string|null $canonicalPath = null): void
     {
         if ($canonicalPath === null) {
             $canonicalPath = $this->getCanonicalPath($path);
@@ -284,7 +280,7 @@ class ConfigFile
      * @param string $path    Path of config file
      * @param mixed  $default Default values
      */
-    public function get($path, $default = null): mixed
+    public function get(string $path, mixed $default = null): mixed
     {
         return Core::arrayRead($path, $_SESSION[$this->id], $default);
     }
@@ -297,7 +293,7 @@ class ConfigFile
      * @param string $canonicalPath Canonical path
      * @param mixed  $default       Default value
      */
-    public function getDefault($canonicalPath, $default = null): mixed
+    public function getDefault(string $canonicalPath, mixed $default = null): mixed
     {
         return Core::arrayRead($canonicalPath, $this->defaultCfg, $default);
     }
@@ -309,7 +305,7 @@ class ConfigFile
      * @param string $path    Path
      * @param mixed  $default Default value
      */
-    public function getValue($path, $default = null): mixed
+    public function getValue(string $path, mixed $default = null): mixed
     {
         $v = Core::arrayRead($path, $_SESSION[$this->id], null);
         if ($v !== null) {
@@ -326,7 +322,7 @@ class ConfigFile
      *
      * @param string $path Path
      */
-    public function getCanonicalPath($path): string
+    public function getCanonicalPath(string $path): string
     {
         return preg_replace('#^Servers/([\d]+)/#', 'Servers/1/', $path);
     }
@@ -337,7 +333,7 @@ class ConfigFile
      * @param string $path    path of the variable in config db
      * @param mixed  $default default value
      */
-    public function getDbEntry($path, $default = null): mixed
+    public function getDbEntry(string $path, mixed $default = null): mixed
     {
         return Core::arrayRead($path, $this->cfgDb, $default);
     }
@@ -367,7 +363,7 @@ class ConfigFile
      *
      * @param int $server server index
      */
-    public function getServerDSN($server): string
+    public function getServerDSN(int $server): string
     {
         if (! isset($_SESSION[$this->id]['Servers'][$server])) {
             return '';
@@ -402,7 +398,7 @@ class ConfigFile
      *
      * @param int $id server index
      */
-    public function getServerName($id): string
+    public function getServerName(int $id): string
     {
         if (! isset($_SESSION[$this->id]['Servers'][$id])) {
             return '';
@@ -423,7 +419,7 @@ class ConfigFile
      *
      * @param int $server server index
      */
-    public function removeServer($server): void
+    public function removeServer(int $server): void
     {
         if (! isset($_SESSION[$this->id]['Servers'][$server])) {
             return;

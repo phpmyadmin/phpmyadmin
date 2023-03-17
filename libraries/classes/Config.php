@@ -542,8 +542,8 @@ class Config
     public function setUserValue(
         string|null $cookie_name,
         string $cfg_path,
-        $new_cfg_value,
-        $default_value = null,
+        string $new_cfg_value,
+        string|null $default_value = null,
     ): bool|Message {
         $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $result = true;
@@ -578,7 +578,7 @@ class Config
      * @param string $cookie_name cookie name
      * @param mixed  $cfg_value   config value
      */
-    public function getUserValue(string $cookie_name, $cfg_value): mixed
+    public function getUserValue(string $cookie_name, mixed $cfg_value): mixed
     {
         $cookie_exists = ! empty($this->getCookie($cookie_name));
         $prefs_type = $this->get('user_preferences');
@@ -712,7 +712,7 @@ class Config
      * @param string $setting configuration option
      * @param mixed  $value   new value for configuration option
      */
-    public function set(string $setting, $value): void
+    public function set(string $setting, mixed $value): void
     {
         if (isset($this->settings[$setting]) && $this->settings[$setting] === $value) {
             return;

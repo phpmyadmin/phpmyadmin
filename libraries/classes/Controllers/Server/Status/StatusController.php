@@ -59,7 +59,7 @@ class StatusController extends AbstractController
             }
 
             if (isset($this->data->status['Uptime'])) {
-                $uptime = Util::timespanFormat($this->data->status['Uptime']);
+                $uptime = Util::timespanFormat((int) $this->data->status['Uptime']);
             }
 
             $startTime = Util::localisedDate($this->getStartTime());

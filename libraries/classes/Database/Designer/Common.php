@@ -313,7 +313,7 @@ class Common
      *
      * @param int $pg page id
      */
-    public function deletePage($pg): bool
+    public function deletePage(int $pg): bool
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -341,7 +341,7 @@ class Common
      *
      * @return int id of the default pdf page for the database
      */
-    public function getDefaultPage($db): int
+    public function getDefaultPage(string $db): int
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -398,7 +398,7 @@ class Common
      *
      * @return int id of the page to load
      */
-    public function getLoadingPage($db): int
+    public function getLoadingPage(string $db): int
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -430,7 +430,7 @@ class Common
      * @param string $pageName name of the page
      * @param string $db       name of the database
      */
-    public function createNewPage($pageName, $db): int|null
+    public function createNewPage(string $pageName, string $db): int|null
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -445,7 +445,7 @@ class Common
      *
      * @param int $pg pdf page id
      */
-    public function saveTablePositions($pg): bool
+    public function saveTablePositions(int $pg): bool
     {
         $pageId = $this->dbi->escapeString((string) $pg);
 
@@ -495,7 +495,7 @@ class Common
      * @return array<int,string|bool|null>
      * @psalm-return array{0: bool, 1: string|null}
      */
-    public function saveDisplayField($db, $table, $field): array
+    public function saveDisplayField(string $db, string $table, string $field): array
     {
         $displayFeature = $this->relation->getRelationParameters()->displayFeature;
         if ($displayFeature === null) {
@@ -534,8 +534,17 @@ class Common
      * @return array<int,string|bool> array of success/failure and message
      * @psalm-return array{0: bool, 1: string}
      */
-    public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2): array
-    {
+    public function addNewRelation(
+        string $db,
+        string $T1,
+        string $F1,
+        string $T2,
+        string $F2,
+        string $on_delete,
+        string $on_update,
+        string $DB1,
+        string $DB2,
+    ): array {
         $tables = $this->dbi->getTablesFull($DB1, $T1);
         $type_T1 = mb_strtoupper($tables[$T1]['ENGINE'] ?? '');
         $tables = $this->dbi->getTablesFull($DB2, $T2);
@@ -671,7 +680,7 @@ class Common
      *
      * @return array array of success/failure and message
      */
-    public function removeRelation($T1, $F1, $T2, $F2): array
+    public function removeRelation(string $T1, string $F1, string $T2, string $F2): array
     {
         [$DB1, $T1] = explode('.', $T1);
         [$DB2, $T2] = explode('.', $T2);
@@ -741,7 +750,7 @@ class Common
      * @param string $index setting
      * @param string $value value
      */
-    public function saveSetting($index, $value): bool
+    public function saveSetting(string $index, string $value): bool
     {
         $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
         if ($databaseDesignerSettingsFeature !== null) {

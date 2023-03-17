@@ -83,7 +83,7 @@ class VersionInformation
      *
      * @return mixed false on failure, integer on success
      */
-    public function versionToInt($version): mixed
+    public function versionToInt(string $version): mixed
     {
         $parts = explode('-', $version);
         if (count($parts) > 1) {

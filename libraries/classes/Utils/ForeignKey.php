@@ -16,9 +16,9 @@ final class ForeignKey
      *
      * @param string $engine engine
      */
-    public static function isSupported($engine): bool
+    public static function isSupported(string $engine): bool
     {
-        $engine = strtoupper((string) $engine);
+        $engine = strtoupper($engine);
         if (($engine === 'INNODB') || ($engine === 'PBXT')) {
             return true;
         }

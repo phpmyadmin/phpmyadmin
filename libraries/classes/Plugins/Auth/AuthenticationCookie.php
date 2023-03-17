@@ -531,7 +531,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @param string $username User name
      */
-    public function storeUsernameCookie($username): void
+    public function storeUsernameCookie(string $username): void
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
@@ -549,7 +549,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @param string $password Password
      */
-    public function storePasswordCookie($password): void
+    public function storePasswordCookie(string $password): void
     {
         $payload = ['password' => $password];
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
@@ -579,7 +579,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure($failure): void
+    public function showFailure(string $failure): void
     {
         $GLOBALS['conn_error'] ??= null;
 
@@ -674,7 +674,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @param string $password New password to set
      */
-    public function handlePasswordChange($password): void
+    public function handlePasswordChange(string $password): void
     {
         $this->storePasswordCookie($password);
     }

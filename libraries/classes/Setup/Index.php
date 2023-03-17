@@ -53,7 +53,7 @@ class Index
      * @param string $title   language string id (in $str array)
      * @param string $message message text
      */
-    public static function messagesSet($type, $msgId, $title, $message): void
+    public static function messagesSet(string $type, string $msgId, string $title, string $message): void
     {
         $fresh = ! isset($_SESSION['messages'][$type][$msgId]);
         $_SESSION['messages'][$type][$msgId] = [

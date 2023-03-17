@@ -25,5 +25,5 @@ interface UploadInterface
      *
      * @param string $id upload id
      */
-    public static function getUploadStatus($id): array|null;
+    public static function getUploadStatus(string $id): array|null;
 }

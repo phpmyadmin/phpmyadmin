@@ -179,8 +179,7 @@ class WrapperController extends AbstractController
         }
     }
 
-    /** @param mixed $size */
-    private function formatSize($size): int
+    private function formatSize(mixed $size): int
     {
         if (! is_numeric($size) || $size < 2) {
             return 1;
@@ -193,11 +192,7 @@ class WrapperController extends AbstractController
         return (int) $size;
     }
 
-    /**
-     * @param mixed $whereClause
-     * @param mixed $whereClauseSign
-     */
-    private function getQuery(TableName $table, $whereClause, $whereClauseSign): string|null
+    private function getQuery(TableName $table, mixed $whereClause, mixed $whereClauseSign): string|null
     {
         if ($whereClause === null) {
             return sprintf('SELECT * FROM %s LIMIT 1;', Util::backquote($table));

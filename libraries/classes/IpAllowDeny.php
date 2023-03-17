@@ -35,7 +35,7 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      */
-    public function ipMaskTest($testRange, $ipToTest): bool
+    public function ipMaskTest(string $testRange, string $ipToTest): bool
     {
         if (mb_strpos($testRange, ':') > -1 || mb_strpos($ipToTest, ':') > -1) {
             // assume IPv6
@@ -62,7 +62,7 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      */
-    public function ipv4MaskTest($testRange, $ipToTest): bool
+    public function ipv4MaskTest(string $testRange, string $ipToTest): bool
     {
         $result = true;
         $match = preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs);
@@ -124,7 +124,7 @@ class IpAllowDeny
      * @param string $test_range string of IP range to match
      * @param string $ip_to_test string of IP to test against range
      */
-    public function ipv6MaskTest($test_range, $ip_to_test): bool
+    public function ipv6MaskTest(string $test_range, string $ip_to_test): bool
     {
         $result = true;
 
@@ -234,7 +234,7 @@ class IpAllowDeny
      *
      * @param string $type 'allow' | 'deny' type of rule to match
      */
-    private function allowDeny($type): bool
+    private function allowDeny(string $type): bool
     {
         // Grabs true IP of the user and returns if it can't be found
         $remote_ip = Core::getIp();

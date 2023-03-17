@@ -33,8 +33,13 @@ class Language
      * @param string $regex  Match regular expression
      * @param string $mysql  MySQL locale code
      */
-    public function __construct(protected $code, protected $name, protected $native, $regex, protected $mysql)
-    {
+    public function __construct(
+        protected string $code,
+        protected string $name,
+        protected string $native,
+        string $regex,
+        protected string $mysql,
+    ) {
         if (! str_contains($regex, '[-_]')) {
             $regex = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $regex);
         }
@@ -111,7 +116,7 @@ class Language
      *
      * @param string $header Header content
      */
-    public function matchesAcceptLanguage($header): bool
+    public function matchesAcceptLanguage(string $header): bool
     {
         $pattern = '/^('
             . addcslashes($this->regex, '/')
@@ -125,7 +130,7 @@ class Language
      *
      * @param string $header Header content
      */
-    public function matchesUserAgent($header): bool
+    public function matchesUserAgent(string $header): bool
     {
         $pattern = '/(\(|\[|;[[:space:]])('
             . addcslashes($this->regex, '/')

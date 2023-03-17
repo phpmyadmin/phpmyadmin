@@ -250,7 +250,7 @@ class ExportRelationSchema
      * @param string $type          Schema Type
      * @param string $error_message The error message
      */
-    public static function dieSchema($pageNumber, $type = '', $error_message = ''): void
+    public static function dieSchema(int $pageNumber, string $type = '', string $error_message = ''): void
     {
         echo '<p><strong>' , __('SCHEMA ERROR: ') , $type , '</strong></p>' , "\n";
         if (! empty($error_message)) {

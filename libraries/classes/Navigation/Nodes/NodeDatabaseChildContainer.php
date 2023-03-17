@@ -18,7 +18,7 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
      * @param string $name An identifier for the new node
      * @param int    $type Type of node, may be one of CONTAINER or OBJECT
      */
-    public function __construct($name, $type = Node::OBJECT)
+    public function __construct(string $name, int $type = Node::OBJECT)
     {
         parent::__construct($name, $type);
 

@@ -29,8 +29,8 @@ class NodeFactory
     public static function getInstance(
         string $class,
         string|array $name = 'default',
-        $type = Node::OBJECT,
-        $isGroup = false,
+        int $type = Node::OBJECT,
+        bool $isGroup = false,
     ): Node {
         return new $class($name, $type, $isGroup);
     }

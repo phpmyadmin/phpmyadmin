@@ -60,7 +60,7 @@ class UserPassword
      *
      * @param string $password New password
      */
-    public function changePassword($password, string|null $authenticationPlugin): string
+    public function changePassword(string $password, string|null $authenticationPlugin): string
     {
         $hashing_function = $this->changePassHashingFunction($authenticationPlugin);
 
@@ -135,12 +135,12 @@ class UserPassword
      * @param string $orig_auth_plugin Original Authentication Plugin
      */
     private function changePassUrlParamsAndSubmitQuery(
-        $username,
-        $hostname,
-        $password,
-        $sql_query,
-        $hashing_function,
-        $orig_auth_plugin,
+        string $username,
+        string $hostname,
+        string $password,
+        string $sql_query,
+        string $hashing_function,
+        string $orig_auth_plugin,
     ): void {
         $err_url = Url::getFromRoute('/user-password');
 

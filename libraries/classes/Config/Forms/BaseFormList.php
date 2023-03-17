@@ -67,7 +67,7 @@ class BaseFormList
      *                               on failed validation
      * @param bool $checkFormSubmit  whether check for $_POST['submit_save']
      */
-    public function process($allowPartialSave = true, $checkFormSubmit = true): bool
+    public function process(bool $allowPartialSave = true, bool $checkFormSubmit = true): bool
     {
         $ret = true;
         foreach ($this->forms as $form) {

@@ -352,10 +352,10 @@ class DatabaseInterface implements DbalInterface
      */
     public function getTablesFull(
         string $database,
-        $table = '',
+        string|array $table = '',
         bool $tableIsGroup = false,
         int $limitOffset = 0,
-        $limitCount = false,
+        bool|int $limitCount = false,
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
         string|null $tableType = null,
@@ -639,7 +639,7 @@ class DatabaseInterface implements DbalInterface
         string $sortBy = 'SCHEMA_NAME',
         string $sortOrder = 'ASC',
         int $limitOffset = 0,
-        $limitCount = false,
+        bool|int $limitCount = false,
     ): array {
         $sortOrder = strtoupper($sortOrder);
 
@@ -1159,7 +1159,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function fetchValue(
         string $query,
-        $field = 0,
+        int|string $field = 0,
         int $connectionType = Connection::TYPE_USER,
     ): string|false|null {
         $result = $this->tryQuery($query, $connectionType, self::QUERY_BUFFERED, false);
@@ -1204,7 +1204,7 @@ class DatabaseInterface implements DbalInterface
      * @param array|string    $row   Row to process
      * @param string|int|null $value Which column to return
      */
-    private function fetchValueOrValueByIndex(array|string $row, $value): mixed
+    private function fetchValueOrValueByIndex(array|string $row, string|int|null $value): mixed
     {
         return $value === null ? $row : $row[$value];
     }
@@ -1274,8 +1274,8 @@ class DatabaseInterface implements DbalInterface
      */
     public function fetchResult(
         string $query,
-        $key = null,
-        $value = null,
+        string|int|array|null $key = null,
+        string|int|null $value = null,
         int $connectionType = Connection::TYPE_USER,
     ): array {
         $resultRows = [];
@@ -1616,7 +1616,7 @@ class DatabaseInterface implements DbalInterface
      * @param string|DatabaseName $dbname database name to select
      * @psalm-param ConnectionType $connectionType
      */
-    public function selectDb($dbname, int $connectionType = Connection::TYPE_USER): bool
+    public function selectDb(string|DatabaseName $dbname, int $connectionType = Connection::TYPE_USER): bool
     {
         if (! isset($this->connections[$connectionType])) {
             return false;

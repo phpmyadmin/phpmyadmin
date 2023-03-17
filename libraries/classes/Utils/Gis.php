@@ -20,7 +20,7 @@ final class Gis
      *
      * @return string GIS data in Well Know Text format
      */
-    public static function convertToWellKnownText($data, $includeSRID = false): string
+    public static function convertToWellKnownText(string $data, bool $includeSRID = false): string
     {
         // Convert to WKT format
         $hex = bin2hex($data);
@@ -65,7 +65,7 @@ final class Gis
      *
      * @return string[] GIS data types
      */
-    public static function getDataTypes($upperCase = false): array
+    public static function getDataTypes(bool $upperCase = false): array
     {
         $gisDataTypes = [
             'geometry',
@@ -92,7 +92,7 @@ final class Gis
      *
      * @return string GIS data enclosed in 'ST_GeomFromText' or 'GeomFromText' function
      */
-    public static function createData($gisString, $mysqlVersion): string
+    public static function createData(string $gisString, int $mysqlVersion): string
     {
         $geomFromText = $mysqlVersion >= 50600 ? 'ST_GeomFromText' : 'GeomFromText';
         $gisString = trim($gisString);
@@ -112,20 +112,20 @@ final class Gis
      * Returns the names and details of the functions
      * that can be applied on geometry data types.
      *
-     * @param string $geomType if provided the output is limited to the functions
+     * @param string|null $geomType if provided the output is limited to the functions
      *                          that are applicable to the provided geometry type.
-     * @param bool   $binary   if set to false functions that take two geometries
-     *                         as arguments will not be included.
-     * @param bool   $display  if set to true separators will be added to the
-     *                         output array.
+     * @param bool        $binary   if set to false functions that take two geometries
+     *                              as arguments will not be included.
+     * @param bool        $display  if set to true separators will be added to the
+     *                              output array.
      *
      * @return array<int|string,array<string,int|string>> names and details of the functions that can be applied on
      *                                                    geometry data types.
      */
     public static function getFunctions(
-        $geomType = null,
-        $binary = true,
-        $display = false,
+        string|null $geomType = null,
+        bool $binary = true,
+        bool $display = false,
     ): array {
         $funcs = [];
         if ($display) {

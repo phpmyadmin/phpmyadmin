@@ -24,7 +24,7 @@ interface DbiExtension
      *
      * @param string|DatabaseName $databaseName database name to select
      */
-    public function selectDb($databaseName, Connection $connection): bool;
+    public function selectDb(string|DatabaseName $databaseName, Connection $connection): bool;
 
     /**
      * runs a query and returns the result
@@ -41,7 +41,7 @@ interface DbiExtension
      *
      * @param string $query multi query statement to execute
      */
-    public function realMultiQuery(Connection $connection, $query): bool;
+    public function realMultiQuery(Connection $connection, string $query): bool;
 
     /**
      * Check if there are any more query results from a multi query
@@ -100,7 +100,7 @@ interface DbiExtension
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(Connection $connection, $string): string;
+    public function escapeString(Connection $connection, string $string): string;
 
     /**
      * Prepare an SQL statement for execution.

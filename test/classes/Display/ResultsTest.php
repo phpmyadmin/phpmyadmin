@@ -869,7 +869,7 @@ class ResultsTest extends AbstractTestCase
             [
                 [
                     3600,
-                    true,
+                    'true',
                 ],
                 0,
                 false,

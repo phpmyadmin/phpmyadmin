@@ -134,7 +134,7 @@ class Partition extends SubPartition
      *
      * @return Partition[]
      */
-    public static function getPartitions($db, $table): array
+    public static function getPartitions(string $db, string $table): array
     {
         if (self::havePartitioning()) {
             $result = $GLOBALS['dbi']->fetchResult(
@@ -177,7 +177,7 @@ class Partition extends SubPartition
      *
      * @return array   of partition names
      */
-    public static function getPartitionNames($db, $table): array
+    public static function getPartitionNames(string $db, string $table): array
     {
         if (self::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
@@ -198,7 +198,7 @@ class Partition extends SubPartition
      *
      * @return string|null partition method
      */
-    public static function getPartitionMethod($db, $table): string|null
+    public static function getPartitionMethod(string $db, string $table): string|null
     {
         if (self::havePartitioning()) {
             $partition_method = $GLOBALS['dbi']->fetchResult(

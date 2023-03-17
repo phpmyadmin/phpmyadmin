@@ -110,7 +110,7 @@ class ExportCodegen extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader($db, $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -120,7 +120,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter($db): bool
+    public function exportDBFooter(string $db): bool
     {
         return true;
     }
@@ -132,7 +132,7 @@ class ExportCodegen extends ExportPlugin
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -147,10 +147,10 @@ class ExportCodegen extends ExportPlugin
      * @param array  $aliases  Aliases of db/table/columns
      */
     public function exportData(
-        $db,
-        $table,
-        $errorUrl,
-        $sqlQuery,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $sqlQuery,
         array $aliases = [],
     ): bool {
         $format = (int) $GLOBALS['codegen_format'];
@@ -174,7 +174,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return string identifier
      */
-    public static function cgMakeIdentifier($str, $ucfirst = true): string
+    public static function cgMakeIdentifier(string $str, bool $ucfirst = true): string
     {
         // remove unsafe characters
         $str = (string) preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
@@ -199,7 +199,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return string containing C# code lines, separated by "\n"
      */
-    private function handleNHibernateCSBody($db, $table, array $aliases = []): string
+    private function handleNHibernateCSBody(string $db, string $table, array $aliases = []): string
     {
         $db_alias = $db;
         $table_alias = $table;
@@ -302,8 +302,8 @@ class ExportCodegen extends ExportPlugin
      * @return string containing XML code lines, separated by "\n"
      */
     private function handleNHibernateXMLBody(
-        $db,
-        $table,
+        string $db,
+        string $table,
         array $aliases = [],
     ): string {
         $db_alias = $db;

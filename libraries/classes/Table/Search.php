@@ -135,12 +135,12 @@ final class Search
      * @return string generated where clause.
      */
     private function getWhereClause(
-        $criteriaValues,
-        $names,
-        $types,
-        $func_type,
-        $unaryFlag,
-        $geom_func = null,
+        mixed $criteriaValues,
+        string $names,
+        string $types,
+        string $func_type,
+        bool $unaryFlag,
+        string|null $geom_func = null,
     ): string {
         // If geometry function is set
         if (! empty($geom_func)) {
@@ -258,11 +258,11 @@ final class Search
      * @return string part of where clause.
      */
     private function getGeomWhereClause(
-        $criteriaValues,
-        $names,
-        $func_type,
-        $types,
-        $geom_func = null,
+        mixed $criteriaValues,
+        string $names,
+        string $func_type,
+        string $types,
+        string|null $geom_func = null,
     ): string {
         $geom_unary_functions = [
             'IsEmpty' => 1,
@@ -316,7 +316,7 @@ final class Search
      *
      * @return string part of where clause.
      */
-    private function getEnumWhereClause($criteriaValues, $func_type): string
+    private function getEnumWhereClause(mixed $criteriaValues, string $func_type): string
     {
         if (! is_array($criteriaValues)) {
             $criteriaValues = explode(',', $criteriaValues);

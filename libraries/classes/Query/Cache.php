@@ -55,7 +55,7 @@ class Cache
      * @param array|null $contentPath Array with the target path
      * @param mixed      $value       Target value
      */
-    public function cacheTableContent(array|null $contentPath, $value): void
+    public function cacheTableContent(array|null $contentPath, mixed $value): void
     {
         $loc = &$this->tableCache;
 
@@ -90,7 +90,7 @@ class Cache
      *
      * @return mixed cached value or default
      */
-    public function getCachedTableContent(array $contentPath, $default = null): mixed
+    public function getCachedTableContent(array $contentPath, mixed $default = null): mixed
     {
         return Util::getValueByKey($this->tableCache, $contentPath, $default);
     }

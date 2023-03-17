@@ -157,11 +157,11 @@ class DiaRelationSchema extends ExportRelationSchema
      * @param bool   $showKeys     Whether to display ONLY keys or not
      */
     private function addRelation(
-        $masterTable,
-        $masterField,
-        $foreignTable,
-        $foreignField,
-        $showKeys,
+        string $masterTable,
+        string $masterField,
+        string $foreignTable,
+        string $foreignField,
+        bool $showKeys,
     ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsDia(

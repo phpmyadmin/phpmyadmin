@@ -24,7 +24,6 @@ use function is_string;
 use function preg_match;
 use function sort;
 use function sprintf;
-use function strlen;
 use function strpos;
 use function strstr;
 
@@ -134,9 +133,9 @@ class Node
      * @param bool   $isGroup Whether this object has been created
      *                        while grouping nodes
      */
-    public function __construct($name, $type = self::OBJECT, $isGroup = false)
+    public function __construct(string $name, int $type = self::OBJECT, bool $isGroup = false)
     {
-        if (strlen((string) $name)) {
+        if ($name !== '') {
             $this->name = $name;
             $this->realName = $name;
         }
@@ -145,7 +144,7 @@ class Node
             $this->type = self::CONTAINER;
         }
 
-        $this->isGroup = (bool) $isGroup;
+        $this->isGroup = $isGroup;
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 
@@ -154,7 +153,7 @@ class Node
      *
      * @param Node $child A child node
      */
-    public function addChild($child): void
+    public function addChild(Node $child): void
     {
         $this->children[] = $child;
         $child->parent = $this;
@@ -170,7 +169,7 @@ class Node
      * @return Node|null The requested child node or null,
      *                   if the requested node cannot be found
      */
-    public function getChild($name, $realName = false): Node|null
+    public function getChild(string $name, bool $realName = false): Node|null
     {
         if ($realName) {
             foreach ($this->children as $child) {
@@ -194,7 +193,7 @@ class Node
      *
      * @param string $name The name of child to be removed
      */
-    public function removeChild($name): void
+    public function removeChild(string $name): void
     {
         foreach ($this->children as $key => $child) {
             if ($child->name == $name) {
@@ -213,7 +212,7 @@ class Node
      *
      * @return Node[] An array of parent Nodes
      */
-    public function parents($self = false, $containers = false, $groups = false): array
+    public function parents(bool $self = false, bool $containers = false, bool $groups = false): array
     {
         $parents = [];
         if ($self && ($this->type != self::CONTAINER || $containers) && (! $this->isGroup || $groups)) {
@@ -383,7 +382,7 @@ class Node
      *                             ('tables', 'views', etc)
      * @param string $searchClause A string used to filter the results of the query
      */
-    public function getPresence($type = '', $searchClause = ''): int
+    public function getPresence(string $type = '', string $searchClause = ''): int
     {
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS']) && ! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -473,7 +472,7 @@ class Node
      *
      * @param string $db database name
      */
-    private function isHideDb($db): bool
+    private function isHideDb(string $db): bool
     {
         return ! empty($GLOBALS['cfg']['Server']['hide_db'])
             && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db);
@@ -489,7 +488,7 @@ class Node
      *
      * @return array array of databases
      */
-    private function getDatabasesToSearch($searchClause): array
+    private function getDatabasesToSearch(string $searchClause): array
     {
         $databases = [];
         if (! empty($searchClause)) {
@@ -514,7 +513,7 @@ class Node
      * @param string $columnName   Column name of the column having database names
      * @param string $searchClause A string used to filter the results of the query
      */
-    private function getWhereClause($columnName, $searchClause = ''): string
+    private function getWhereClause(string $columnName, string $searchClause = ''): string
     {
         $whereClause = 'WHERE TRUE ';
         if (! empty($searchClause)) {
@@ -569,7 +568,7 @@ class Node
      *
      * @return string with html classes.
      */
-    public function getCssClasses($match): string
+    public function getCssClasses(bool $match): string
     {
         if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']) {
             return '';
@@ -595,7 +594,7 @@ class Node
      *
      * @return string with image name
      */
-    public function getIcon($match): string
+    public function getIcon(bool $match): string
     {
         if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']) {
             return '';

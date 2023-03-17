@@ -50,7 +50,7 @@ class Types
      *
      * @param string $op operator name
      */
-    public function isUnaryOperator($op): bool
+    public function isUnaryOperator(string $op): bool
     {
         return in_array($op, $this->getUnaryOperators());
     }
@@ -159,7 +159,7 @@ class Types
      *
      * @return string[]
      */
-    public function getTypeOperators($type, $null): array
+    public function getTypeOperators(string $type, bool $null): array
     {
         $ret = [];
         $class = $this->getTypeClass($type);
@@ -184,18 +184,18 @@ class Types
     /**
      * Returns operators for given type as html options
      *
-     * @param string $type             Type of field
-     * @param bool   $null             Whether field can be NULL
-     * @param string $selectedOperator Option to be selected
+     * @param string      $type             Type of field
+     * @param bool        $null             Whether field can be NULL
+     * @param string|null $selectedOperator Option to be selected
      *
      * @return string Generated Html
      */
-    public function getTypeOperatorsHtml($type, $null, $selectedOperator = null): string
+    public function getTypeOperatorsHtml(string $type, bool $null, string|null $selectedOperator = null): string
     {
         $html = '';
 
         foreach ($this->getTypeOperators($type, $null) as $fc) {
-            if (isset($selectedOperator) && $selectedOperator == $fc) {
+            if ($selectedOperator !== null && $selectedOperator === $fc) {
                 $selected = ' selected="selected"';
             } else {
                 $selected = '';

@@ -53,14 +53,14 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    abstract public function exportDBHeader($db, $dbAlias = ''): bool;
+    abstract public function exportDBHeader(string $db, string $dbAlias = ''): bool;
 
     /**
      * Outputs database footer
      *
      * @param string $db Database name
      */
-    abstract public function exportDBFooter($db): bool;
+    abstract public function exportDBFooter(string $db): bool;
 
     /**
      * Outputs CREATE DATABASE statement
@@ -69,7 +69,7 @@ abstract class ExportPlugin implements Plugin
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      */
-    abstract public function exportDBCreate($db, $exportType, $dbAlias = ''): bool;
+    abstract public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool;
 
     /**
      * Outputs the content of a table
@@ -81,10 +81,10 @@ abstract class ExportPlugin implements Plugin
      * @param array  $aliases  Aliases of db/table/columns
      */
     abstract public function exportData(
-        $db,
-        $table,
-        $errorUrl,
-        $sqlQuery,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $sqlQuery,
         array $aliases = [],
     ): bool;
 
@@ -99,7 +99,7 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database
      * @param array  $aliases Aliases of db/table/columns
      */
-    public function exportRoutines($db, array $aliases = []): bool
+    public function exportRoutines(string $db, array $aliases = []): bool
     {
         return true;
     }
@@ -109,7 +109,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db Database
      */
-    public function exportEvents($db): bool
+    public function exportEvents(string $db): bool
     {
         return true;
     }
@@ -146,15 +146,15 @@ abstract class ExportPlugin implements Plugin
      * @param array  $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
-        $db,
-        $table,
-        $errorUrl,
-        $exportMode,
-        $exportType,
-        $relation = false,
-        $comments = false,
-        $mime = false,
-        $dates = false,
+        string $db,
+        string $table,
+        string $errorUrl,
+        string $exportMode,
+        string $exportType,
+        bool $relation = false,
+        bool $comments = false,
+        bool $mime = false,
+        bool $dates = false,
         array $aliases = [],
     ): bool {
         return true;
@@ -168,7 +168,7 @@ abstract class ExportPlugin implements Plugin
      * @param string[]        $metadataTypes types of metadata to export
      */
     public function exportMetadata(
-        $db,
+        string $db,
         string|array $tables,
         array $metadataTypes,
     ): bool {
@@ -184,7 +184,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = []): string
+    public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
         return '';
     }
@@ -197,7 +197,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers($db, $table): string
+    protected function getTriggers(string $db, string $table): string
     {
         return '';
     }
@@ -234,11 +234,11 @@ abstract class ExportPlugin implements Plugin
     /**
      * Initialize aliases
      *
-     * @param array  $aliases Alias information for db/table/column
-     * @param string $db      the database
-     * @param string $table   the table
+     * @param array       $aliases Alias information for db/table/column
+     * @param string      $db      the database
+     * @param string|null $table   the table
      */
-    public function initAlias($aliases, &$db, &$table = null): void
+    public function initAlias(array $aliases, string &$db, string|null &$table = null): void
     {
         if (! empty($aliases[$db]['tables'][$table]['alias'])) {
             $table = $aliases[$db]['tables'][$table]['alias'];
@@ -263,8 +263,13 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string alias of the identifier if found or ''
      */
-    public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = ''): string
-    {
+    public function getAlias(
+        array $aliases,
+        string $id,
+        string $type = 'dbtblcol',
+        string $db = '',
+        string $tbl = '',
+    ): string {
         if ($db !== '' && isset($aliases[$db])) {
             $aliases = [
                 $db => $aliases[$db],
@@ -327,8 +332,8 @@ abstract class ExportPlugin implements Plugin
      */
     public function getRelationString(
         array $foreigners,
-        $fieldName,
-        $db,
+        string $fieldName,
+        string $db,
         array $aliases = [],
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);

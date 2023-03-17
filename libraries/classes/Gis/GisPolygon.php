@@ -76,7 +76,7 @@ class GisPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
@@ -119,11 +119,10 @@ class GisPolygon extends GisGeometry
      * @param string $label      Label for the GIS POLYGON object
      * @param int[]  $color      Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
-     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
+    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scale_data, TCPDF $pdf): TCPDF
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -159,7 +158,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
     {
         $polygon_options = [
             'name' => $label,
@@ -240,7 +239,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string the code to draw the ring
      */
-    private function drawPath($polygon, array $scale_data): string
+    private function drawPath(string $polygon, array $scale_data): string
     {
         $points_arr = $this->extractPoints1d($polygon, $scale_data);
 
@@ -264,7 +263,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = ''): string
+    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
     {
         $no_of_lines = $gis_data[$index]['POLYGON']['no_of_lines'] ?? 1;
         if ($no_of_lines < 1) {

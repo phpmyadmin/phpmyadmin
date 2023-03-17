@@ -66,7 +66,7 @@ class Transformations
      *
      * @return string[]
      */
-    public function getOptions($optionString): array
+    public function getOptions(string $optionString): array
     {
         if ($optionString === '') {
             return [];
@@ -189,7 +189,7 @@ class Transformations
      *
      * @return string the class name of transformation
      */
-    public function getClassName($filename): string
+    public function getClassName(string $filename): string
     {
         return 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr(explode('.php', $filename)[0], 18));
     }
@@ -201,7 +201,7 @@ class Transformations
      *
      * @return string the description of the transformation
      */
-    public function getDescription($file): string
+    public function getDescription(string $file): string
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         /** @psalm-var class-string<TransformationsInterface> $class_name */
@@ -220,7 +220,7 @@ class Transformations
      *
      * @return string the name of the transformation
      */
-    public function getName($file): string
+    public function getName(string $file): string
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         /** @psalm-var class-string<TransformationsInterface> $class_name */
@@ -242,7 +242,7 @@ class Transformations
      *
      * @param string $value Value to fixup
      */
-    public function fixUpMime($value): string
+    public function fixUpMime(string $value): string
     {
         $value = str_replace(
             [
@@ -282,7 +282,7 @@ class Transformations
      *     input_transformation_options: string
      * }>|null
      */
-    public function getMime($db, $table, $strict = false, $fullName = false): array|null
+    public function getMime(string $db, string $table, bool $strict = false, bool $fullName = false): array|null
     {
         $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
@@ -361,15 +361,15 @@ class Transformations
      *                                   comments for this column
      */
     public function setMime(
-        $db,
-        $table,
-        $key,
-        $mimetype,
-        $transformation,
-        $transformationOpts,
-        $inputTransform,
-        $inputTransformOpts,
-        $forcedelete = false,
+        string $db,
+        string $table,
+        string $key,
+        string $mimetype,
+        string $transformation,
+        string $transformationOpts,
+        string $inputTransform,
+        string $inputTransformOpts,
+        bool $forcedelete = false,
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
@@ -468,7 +468,7 @@ class Transformations
      * @param string $table  Table name
      * @param string $column Column name
      */
-    public function clear($db, $table = '', $column = ''): bool
+    public function clear(string $db, string $table = '', string $column = ''): bool
     {
         $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;

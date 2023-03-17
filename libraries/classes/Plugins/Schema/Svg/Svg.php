@@ -9,8 +9,6 @@ namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use XMLWriter;
 
-use function intval;
-use function is_int;
 use function is_string;
 use function sprintf;
 
@@ -54,7 +52,7 @@ class Svg extends XMLWriter
      *
      * @param string $value sets the title text
      */
-    public function setTitle($value): void
+    public function setTitle(string $value): void
     {
         $this->title = $value;
     }
@@ -64,7 +62,7 @@ class Svg extends XMLWriter
      *
      * @param string $value sets the author
      */
-    public function setAuthor($value): void
+    public function setAuthor(string $value): void
     {
         $this->author = $value;
     }
@@ -119,22 +117,17 @@ class Svg extends XMLWriter
      * @see XMLWriter::startElement()
      * @see XMLWriter::writeAttribute()
      *
-     * @param int $width  total width of the RelationStatsSvg document
-     * @param int $height total height of the RelationStatsSvg document
-     * @param int $x      min-x of the view box
-     * @param int $y      min-y of the view box
+     * @param int|float $width  total width of the RelationStatsSvg document
+     * @param int|float $height total height of the RelationStatsSvg document
+     * @param int|float $x      min-x of the view box
+     * @param int|float $y      min-y of the view box
      */
-    public function startSvgDoc($width, $height, $x = 0, $y = 0): void
+    public function startSvgDoc(int|float $width, int|float $height, int|float $x = 0, int|float $y = 0): void
     {
         $this->startElement('svg');
 
-        if (! is_int($width)) {
-            $width = intval($width);
-        }
-
-        if (! is_int($height)) {
-            $height = intval($height);
-        }
+        $width = (int) $width;
+        $height = (int) $height;
 
         if ($x != 0 || $y != 0) {
             $this->writeAttribute('viewBox', sprintf('%d %d %d %d', $x, $y, $width, $height));
@@ -191,20 +184,20 @@ class Svg extends XMLWriter
      *                            styles can be defined like CSS styles
      */
     public function printElement(
-        $name,
-        $x,
-        $y,
+        string $name,
+        int $x,
+        int $y,
         int|float $width,
         int $height,
         string|null $text = '',
-        $styles = '',
+        string $styles = '',
     ): void {
         $this->startElement($name);
         $this->writeAttribute('width', (string) $width);
         $this->writeAttribute('height', (string) $height);
         $this->writeAttribute('x', (string) $x);
         $this->writeAttribute('y', (string) $y);
-        $this->writeAttribute('style', (string) $styles);
+        $this->writeAttribute('style', $styles);
         if (isset($text)) {
             $this->writeAttribute('font-family', $this->font);
             $this->writeAttribute('font-size', $this->fontSize . 'px');
@@ -233,14 +226,14 @@ class Svg extends XMLWriter
      * @param string $styles The style attribute defines the style the element
      *                       styles can be defined like CSS styles
      */
-    public function printElementLine($name, $x1, $y1, $x2, $y2, $styles): void
+    public function printElementLine(string $name, int $x1, int $y1, int $x2, int $y2, string $styles): void
     {
         $this->startElement($name);
         $this->writeAttribute('x1', (string) $x1);
         $this->writeAttribute('y1', (string) $y1);
         $this->writeAttribute('x2', (string) $x2);
         $this->writeAttribute('y2', (string) $y2);
-        $this->writeAttribute('style', (string) $styles);
+        $this->writeAttribute('style', $styles);
         $this->endElement();
     }
 }

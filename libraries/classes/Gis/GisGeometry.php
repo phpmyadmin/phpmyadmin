@@ -38,7 +38,7 @@ abstract class GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    abstract public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string;
+    abstract public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string;
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
@@ -49,7 +49,7 @@ abstract class GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      */
     abstract public function prepareRowAsPng(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
@@ -63,16 +63,15 @@ abstract class GisGeometry
      * @param string $label      label for the GIS data object
      * @param int[]  $color      color for the GIS data object
      * @param array  $scale_data array containing data related to scaling
-     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
     abstract public function prepareRowAsPdf(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
-        $pdf,
+        TCPDF $pdf,
     ): TCPDF;
 
     /**
@@ -111,7 +110,7 @@ abstract class GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    abstract public function generateWkt(array $gis_data, $index, $empty = ''): string;
+    abstract public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string;
 
     /**
      * Updates the min, max values with the given point set.

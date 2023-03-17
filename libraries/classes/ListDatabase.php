@@ -77,11 +77,11 @@ class ListDatabase extends ListAbstract
     /**
      * retrieves database list from server
      *
-     * @param string $like_db_name usually a db_name containing wildcards
+     * @param string|null $like_db_name usually a db_name containing wildcards
      *
      * @return array
      */
-    protected function retrieve($like_db_name = null): array
+    protected function retrieve(string|null $like_db_name = null): array
     {
         $database_list = [];
         $command = '';

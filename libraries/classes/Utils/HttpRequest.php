@@ -107,9 +107,9 @@ class HttpRequest
      * @param bool  $returnOnlyStatus If set to true, the method would only return response status
      */
     private function response(
-        $response,
-        $httpStatus,
-        $returnOnlyStatus,
+        mixed $response,
+        int $httpStatus,
+        bool $returnOnlyStatus,
     ): string|bool|null {
         if ($httpStatus == 404) {
             return false;
@@ -136,11 +136,11 @@ class HttpRequest
      * @param string $header           Header to be set for the HTTP request
      */
     private function curl(
-        $url,
-        $method,
-        $returnOnlyStatus = false,
-        $content = null,
-        $header = '',
+        string $url,
+        string $method,
+        bool $returnOnlyStatus = false,
+        mixed $content = null,
+        string $header = '',
     ): string|bool|null {
         $curlHandle = curl_init($url);
         if ($curlHandle === false) {
@@ -213,11 +213,11 @@ class HttpRequest
      * @param string $header           Header to be set for the HTTP request
      */
     private function fopen(
-        $url,
-        $method,
-        $returnOnlyStatus = false,
-        $content = null,
-        $header = '',
+        string $url,
+        string $method,
+        bool $returnOnlyStatus = false,
+        mixed $content = null,
+        string $header = '',
     ): string|bool|null {
         $context = [
             'http' => [
@@ -274,11 +274,11 @@ class HttpRequest
      * @param string $header           Header to be set for the HTTP request
      */
     public function create(
-        $url,
-        $method,
-        $returnOnlyStatus = false,
-        $content = null,
-        $header = '',
+        string $url,
+        string $method,
+        bool $returnOnlyStatus = false,
+        mixed $content = null,
+        string $header = '',
     ): string|bool|null {
         if (function_exists('curl_init')) {
             return $this->curl($url, $method, $returnOnlyStatus, $content, $header);

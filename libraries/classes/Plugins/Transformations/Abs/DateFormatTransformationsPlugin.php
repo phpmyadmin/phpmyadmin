@@ -144,7 +144,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                 . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
         }
 
-        return htmlspecialchars((string) $buffer);
+        return htmlspecialchars($buffer);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

@@ -57,9 +57,11 @@ class Routines
     /** @var array<int, string> */
     private array $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
 
-    /** @param ResponseRenderer $response */
-    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Template $template,
+        private ResponseRenderer $response,
+    ) {
     }
 
     /**
@@ -165,7 +167,7 @@ class Routines
      *
      * @return array
      */
-    public function handleRequestCreateOrEdit(array $errors, $db): array
+    public function handleRequestCreateOrEdit(array $errors, string $db): array
     {
         $GLOBALS['message'] ??= null;
 
@@ -320,8 +322,8 @@ class Routines
      * @return array
      */
     public function create(
-        $routine_query,
-        $create_routine,
+        string $routine_query,
+        string $create_routine,
         array $privilegesBackup,
     ): array {
         $result = $this->dbi->tryQuery($routine_query);
@@ -382,7 +384,7 @@ class Routines
      *
      * @param bool $flushPrivileges Flush privileges
      */
-    public function flushPrivileges($flushPrivileges): Message
+    public function flushPrivileges(bool $flushPrivileges): Message
     {
         if ($flushPrivileges) {
             // Flush the Privileges
@@ -533,7 +535,7 @@ class Routines
      *
      * @return array|null    Data necessary to create the routine editor.
      */
-    public function getDataFromName($name, $type, $all = true): array|null
+    public function getDataFromName(string $name, string $type, bool $all = true): array|null
     {
         $retval = [];
 
@@ -650,7 +652,7 @@ class Routines
      *
      * @return string    HTML code of one row of parameter table for the editor.
      */
-    public function getParameterRow(array $routine = [], $index = null, $class = ''): string
+    public function getParameterRow(array $routine = [], mixed $index = null, string $class = ''): string
     {
         if ($index === null) {
             // template row for AJAX request
@@ -716,7 +718,7 @@ class Routines
      *
      * @return string   HTML code for the editor.
      */
-    public function getEditorForm($mode, $operation, array $routine): string
+    public function getEditorForm(string $mode, string $operation, array $routine): string
     {
         $GLOBALS['errors'] ??= null;
 
@@ -1417,7 +1419,7 @@ class Routines
      *
      * @return string HTML code of a row for the list of routines
      */
-    public function getRow(array $routine, $rowClass = ''): string
+    public function getRow(array $routine, string $rowClass = ''): string
     {
         $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -1506,7 +1508,7 @@ class Routines
      *
      * @return array
      */
-    private function checkResult($createStatement, array $errors): array
+    private function checkResult(string $createStatement, array $errors): array
     {
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one

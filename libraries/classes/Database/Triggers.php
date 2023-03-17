@@ -37,9 +37,11 @@ class Triggers
     /** @var array<int, string> */
     private array $event = ['INSERT', 'UPDATE', 'DELETE'];
 
-    /** @param ResponseRenderer $response */
-    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Template $template,
+        private ResponseRenderer $response,
+    ) {
     }
 
     /**
@@ -296,7 +298,7 @@ class Triggers
      *
      * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name): array|null
+    public function getDataFromName(string $name): array|null
     {
         $temp = [];
         $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
@@ -328,12 +330,10 @@ class Triggers
     /**
      * Displays a form used to add/edit a trigger
      *
-     * @param string $db
-     * @param string $table
-     * @param string $mode  If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
-     * @param array  $item  Data for the trigger returned by getDataFromRequest() or getDataFromName()
+     * @param string $mode If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
+     * @param array  $item Data for the trigger returned by getDataFromRequest() or getDataFromName()
      */
-    public function getEditorForm($db, $table, $mode, array $item): string
+    public function getEditorForm(string $db, string $table, string $mode, array $item): string
     {
         $query = 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ';
         $query .= 'WHERE `TABLE_SCHEMA`=\'' . $this->dbi->escapeString($db) . '\' ';
@@ -414,7 +414,7 @@ class Triggers
      *
      * @return array
      */
-    private function checkResult($createStatement, array $errors): array
+    private function checkResult(string $createStatement, array $errors): array
     {
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
@@ -438,7 +438,7 @@ class Triggers
      * @param string     $db    Database
      * @param string     $table Table
      */
-    private function sendEditor($mode, array|null $item, $title, $db, $table): void
+    private function sendEditor(string $mode, array|null $item, string $title, string $db, string $table): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($db, $table, $mode, $item);

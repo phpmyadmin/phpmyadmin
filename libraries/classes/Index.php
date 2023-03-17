@@ -139,7 +139,7 @@ class Index
      *
      * @return Index[] array of indexes
      */
-    public static function getFromTableByChoice($table, $schema, $choices = 31): array
+    public static function getFromTableByChoice(string $table, string $schema, int $choices = 31): array
     {
         $indexes = [];
         foreach (self::getFromTable($GLOBALS['dbi'], $table, $schema) as $index) {
@@ -260,7 +260,7 @@ class Index
      *
      * @param string $column the column
      */
-    public function hasColumn($column): bool
+    public function hasColumn(string $column): bool
     {
         return isset($this->columns[$column]);
     }
@@ -476,7 +476,7 @@ class Index
      *
      * @return string|bool whether the index is a 'Unique' index
      */
-    public function isUnique($as_text = false): string|bool
+    public function isUnique(bool $as_text = false): string|bool
     {
         if ($as_text) {
             return $this->nonUnique ? __('No') : __('Yes');
@@ -497,12 +497,10 @@ class Index
 
     /**
      * Sets the name of the index
-     *
-     * @param string $name index name
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
-        $this->name = (string) $name;
+        $this->name = $name;
     }
 
     /**
@@ -553,7 +551,7 @@ class Index
      *
      * @return string  Output HTML
      */
-    public static function findDuplicates($table, $schema): string
+    public static function findDuplicates(string $table, string $schema): string
     {
         $indexes = self::getFromTable($GLOBALS['dbi'], $table, $schema);
 

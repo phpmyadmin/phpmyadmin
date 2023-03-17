@@ -125,7 +125,7 @@ class Validator
         ConfigFile $cf,
         string|array $validatorId,
         array $values,
-        $isPostSource,
+        bool $isPostSource,
     ): bool|array {
         // find validators
         $validatorId = (array) $validatorId;
@@ -210,12 +210,12 @@ class Validator
      * @param string $errorKey key to use in return array
      */
     public static function testDBConnection(
-        $host,
-        $port,
-        $socket,
-        $user,
-        $pass = null,
-        $errorKey = 'Server',
+        string $host,
+        string $port,
+        string $socket,
+        string $user,
+        string $pass,
+        string $errorKey = 'Server',
     ): bool|array {
         if ($GLOBALS['cfg']['DBG']['demo']) {
             // Connection test disabled on the demo server!
@@ -234,7 +234,7 @@ class Validator
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
-        $conn = @mysqli_connect($host, $user, (string) $pass, '', $port, $socket);
+        $conn = @mysqli_connect($host, $user, $pass, '', $port, $socket);
         if (! $conn) {
             $error = __('Could not connect to the database server!');
         } else {
@@ -261,7 +261,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateServer($path, array $values): array
+    public static function validateServer(string $path, array $values): array
     {
         $result = [
             'Server' => '',
@@ -328,7 +328,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePMAStorage($path, array $values): array
+    public static function validatePMAStorage(string $path, array $values): array
     {
         $result = [
             'Server_pmadb' => '',
@@ -381,7 +381,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateRegex($path, array $values): array
+    public static function validateRegex(string $path, array $values): array
     {
         $result = [$path => ''];
 
@@ -415,7 +415,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateTrustedProxies($path, array $values): array
+    public static function validateTrustedProxies(string $path, array $values): array
     {
         $result = [$path => []];
 
@@ -474,12 +474,12 @@ class Validator
      * @return string  empty string if test is successful
      */
     public static function validateNumber(
-        $path,
+        string $path,
         array $values,
-        $allowNegative,
-        $allowZero,
-        $maxValue,
-        $errorString,
+        bool $allowNegative,
+        bool $allowZero,
+        int $maxValue,
+        string $errorString,
     ): string {
         if (empty($values[$path])) {
             return '';
@@ -507,7 +507,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePortNumber($path, array $values): array
+    public static function validatePortNumber(string $path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -529,7 +529,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePositiveNumber($path, array $values): array
+    public static function validatePositiveNumber(string $path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -551,7 +551,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateNonNegativeNumber($path, array $values): array
+    public static function validateNonNegativeNumber(string $path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -573,7 +573,7 @@ class Validator
      * @param array  $values config values
      * @param string $regex  regular expression to match
      */
-    public static function validateByRegex($path, array $values, $regex): array|string
+    public static function validateByRegex(string $path, array $values, string $regex): array|string
     {
         if (! isset($values[$path])) {
             return '';
@@ -593,7 +593,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateUpperBound($path, array $values, $maxValue): array
+    public static function validateUpperBound(string $path, array $values, int $maxValue): array
     {
         $result = $values[$path] <= $maxValue;
 

@@ -48,15 +48,15 @@ class TableStatsEps extends TableStats
      *                               from the browser
      */
     public function __construct(
-        $diagram,
-        $db,
-        $tableName,
-        $font,
-        $fontSize,
-        $pageNumber,
-        $showKeys = false,
-        $tableDimension = false,
-        $offline = false,
+        Eps $diagram,
+        string $db,
+        string $tableName,
+        string $font,
+        int $fontSize,
+        int $pageNumber,
+        bool $showKeys = false,
+        bool $tableDimension = false,
+        bool $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline);
 
@@ -87,18 +87,18 @@ class TableStatsEps extends TableStats
      * @param string $font     The font name
      * @param int    $fontSize The font size
      */
-    private function setWidthTable($font, $fontSize): void
+    private function setWidthTable(string $font, int $fontSize): void
     {
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                $this->font->getStringWidth($field, $font, (int) $fontSize),
+                $this->font->getStringWidth($field, $font, $fontSize),
             );
         }
 
-        $this->width += $this->font->getStringWidth('      ', $font, (int) $fontSize);
+        $this->width += $this->font->getStringWidth('      ', $font, $fontSize);
         // it is unknown what value must be added, because table title is affected by the table width value
-        while ($this->width < $this->font->getStringWidth($this->getTitle(), $font, (int) $fontSize)) {
+        while ($this->width < $this->font->getStringWidth($this->getTitle(), $font, $fontSize)) {
             $this->width += 7;
         }
     }
@@ -108,7 +108,7 @@ class TableStatsEps extends TableStats
      *
      * @param int $fontSize The font size
      */
-    private function setHeightTable($fontSize): void
+    private function setHeightTable(int $fontSize): void
     {
         $this->heightCell = $fontSize + 4;
         $this->height = (count($this->fields) + 1) * $this->heightCell;
@@ -123,7 +123,7 @@ class TableStatsEps extends TableStats
      *
      * @param bool $showColor Whether to display color
      */
-    public function tableDraw($showColor): void
+    public function tableDraw(bool $showColor): void
     {
         $this->diagram->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
         $this->diagram->showXY($this->getTitle(), $this->x + 5, $this->y + 14);

@@ -252,7 +252,7 @@ class RecentFavoriteTable
      *
      * @return true|Message True if success, Message if not
      */
-    public function add($db, $table): bool|Message
+    public function add(string $db, string $table): bool|Message
     {
         // If table does not exist, do not add._getPmaTable()
         if (! $GLOBALS['dbi']->getColumns($db, $table)) {
@@ -285,7 +285,7 @@ class RecentFavoriteTable
      * @return bool|Message True if invalid and removed, False if not invalid,
      * Message if error while removing
      */
-    public function removeIfInvalid($db, $table): bool|Message
+    public function removeIfInvalid(string $db, string $table): bool|Message
     {
         foreach ($this->tables as $tbl) {
             if ($tbl['db'] != $db || $tbl['table'] != $table) {
@@ -309,7 +309,7 @@ class RecentFavoriteTable
      *
      * @return true|Message True if success, Message if not
      */
-    public function remove($db, $table): bool|Message
+    public function remove(string $db, string $table): bool|Message
     {
         foreach ($this->tables as $key => $value) {
             if ($value['db'] != $db || $value['table'] != $table) {

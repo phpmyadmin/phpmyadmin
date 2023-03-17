@@ -412,7 +412,7 @@ class Error extends Message
      * @param mixed  $arg      argument to process
      * @param string $function function name
      */
-    public static function getArg($arg, string $function): string
+    public static function getArg(mixed $arg, string $function): string
     {
         $retval = '';
         $includeFunctions = [

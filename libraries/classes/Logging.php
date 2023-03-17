@@ -53,7 +53,7 @@ class Logging
      * @param string $user   user name
      * @param string $status status message
      */
-    public static function getLogMessage($user, $status): string
+    public static function getLogMessage(string $user, string $status): string
     {
         if ($status === 'ok') {
             return 'user authenticated: ' . $user . ' from ' . Core::getIp();
@@ -68,7 +68,7 @@ class Logging
      * @param string $user   user name
      * @param string $status status message
      */
-    public static function logUser($user, $status = 'ok'): void
+    public static function logUser(string $user, string $status = 'ok'): void
     {
         if (function_exists('apache_note')) {
             apache_note('userID', $user);

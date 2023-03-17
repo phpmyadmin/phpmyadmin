@@ -32,11 +32,11 @@ class MySQLDocumentation
      * @return string  the html link
      */
     public static function show(
-        $link,
+        string $link,
         bool $bigIcon = false,
-        $url = null,
-        $text = null,
-        $anchor = '',
+        string|null $url = null,
+        string|null $text = null,
+        string $anchor = '',
     ): string {
         if ($url === null) {
             $url = Util::getMySQLDocuURL($link, $anchor);
@@ -66,8 +66,12 @@ class MySQLDocumentation
      *
      * @return string  the html link
      */
-    public static function showDocumentation($page, $anchor = '', $bbcode = false, $disableTabIndex = false): string
-    {
+    public static function showDocumentation(
+        string $page,
+        string $anchor = '',
+        bool $bbcode = false,
+        bool $disableTabIndex = false,
+    ): string {
         return Generator::showDocumentationLink(
             self::getDocumentationLink($page, $anchor),
             'documentation',
@@ -85,7 +89,7 @@ class MySQLDocumentation
      *
      * @return string URL
      */
-    public static function getDocumentationLink($page, $anchor = '', string $pathPrefix = './'): string
+    public static function getDocumentationLink(string $page, string $anchor = '', string $pathPrefix = './'): string
     {
         /* Construct base URL */
         $url = $page . '.html';

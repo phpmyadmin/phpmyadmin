@@ -99,7 +99,7 @@ class VariablesController extends AbstractController
      *
      * @return array formatted string and bool if string is HTML formatted
      */
-    private function formatVariable($name, int|string $value): array
+    private function formatVariable(string $name, int|string $value): array
     {
         $isHtmlFormatted = false;
         $formattedValue = $value;

@@ -21,7 +21,7 @@ class GisFactory
      *
      * @return GisGeometry|false the singleton instance of geometric class of the given type
      */
-    public static function factory($type): GisGeometry|false
+    public static function factory(string $type): GisGeometry|false
     {
         return match (strtoupper($type)) {
             'MULTIPOLYGON' => GisMultiPolygon::singleton(),

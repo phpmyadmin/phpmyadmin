@@ -188,7 +188,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure($failure): void
+    public function showFailure(string $failure): void
     {
         parent::showFailure($failure);
 

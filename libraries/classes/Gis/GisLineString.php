@@ -69,7 +69,7 @@ class GisLineString extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
-        $spatial,
+        string $spatial,
         string $label,
         array $color,
         array $scale_data,
@@ -119,11 +119,10 @@ class GisLineString extends GisGeometry
      * @param string $label      Label for the GIS LINESTRING object
      * @param int[]  $color      Color for the GIS LINESTRING object
      * @param array  $scale_data Array containing data related to scaling
-     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
+    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scale_data, TCPDF $pdf): TCPDF
     {
         $line = [
             'width' => 1.5,
@@ -163,7 +162,7 @@ class GisLineString extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
     {
         $line_options = [
             'name' => $label,
@@ -240,7 +239,7 @@ class GisLineString extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = ''): string
+    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
     {
         $no_of_points = $gis_data[$index]['LINESTRING']['no_of_points'] ?? 2;
         if ($no_of_points < 2) {

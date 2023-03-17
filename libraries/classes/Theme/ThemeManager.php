@@ -120,9 +120,9 @@ class ThemeManager
      *
      * @param bool $perServer Whether to enable per server flag
      */
-    public function setThemePerServer($perServer): void
+    public function setThemePerServer(bool $perServer): void
     {
-        $this->perServer = (bool) $perServer;
+        $this->perServer = $perServer;
     }
 
     /**

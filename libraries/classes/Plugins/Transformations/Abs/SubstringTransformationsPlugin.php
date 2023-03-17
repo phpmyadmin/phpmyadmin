@@ -43,6 +43,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
+        $buffer = (string) $buffer;
         // possibly use a global transform and feed it with special options
 
         // further operations on $buffer using the $options[] array.
@@ -52,13 +53,13 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         $optionZero = (int) $options[0];
 
         if ($options[1] !== 'all') {
-            $newtext = mb_substr((string) $buffer, $optionZero, (int) $options[1]);
+            $newtext = mb_substr($buffer, $optionZero, (int) $options[1]);
         } else {
-            $newtext = mb_substr((string) $buffer, $optionZero);
+            $newtext = mb_substr($buffer, $optionZero);
         }
 
         $length = mb_strlen($newtext);
-        $baselength = mb_strlen((string) $buffer);
+        $baselength = mb_strlen($buffer);
         if ($length !== $baselength) {
             if ($optionZero !== 0) {
                 $newtext = $options[2] . $newtext;
