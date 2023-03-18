@@ -213,6 +213,8 @@ class HomeController extends AbstractController
 
         $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
+        $isLoggedIn = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isConnected();
+
         $this->render('home/index', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
@@ -239,6 +241,7 @@ class HomeController extends AbstractController
             'has_theme_manager' => $GLOBALS['cfg']['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),
             'errors' => $this->errors,
+            'is_logged_in' => $isLoggedIn,
         ]);
     }
 

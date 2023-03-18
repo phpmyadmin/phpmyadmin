@@ -331,4 +331,11 @@
   </div>
 {% endif %}
 
+{%- if is_logged_in -%}
+{{ include('modals/preview_sql_modal.twig') }}
+{{ include('modals/enum_set_editor.twig') }}
+{{ include('modals/create_view.twig') }}
+{{ include('modals/change_password.twig') }}
+{%- endif -%}
+
 {{ config_storage_message|raw }}
