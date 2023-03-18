@@ -5,15 +5,21 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Tracking;
 
 use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
-use function array_key_exists;
 use function array_merge;
 use function array_multisort;
 use function count;
@@ -21,7 +27,6 @@ use function date;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
-use function is_array;
 use function json_encode;
 use function mb_strstr;
 use function preg_replace;
@@ -32,7 +37,7 @@ use function strtotime;
 use const SORT_ASC;
 
 /**
- * PhpMyAdmin\Tracking class
+ * PhpMyAdmin\Tracking\Tracking class
  */
 class Tracking
 {
@@ -41,6 +46,7 @@ class Tracking
         public Template $template,
         protected Relation $relation,
         private DatabaseInterface $dbi,
+        private TrackingChecker $trackingChecker,
     ) {
     }
 
@@ -117,18 +123,6 @@ class Tracking
         string $textDir,
         int|null $lastVersion = null,
     ): string {
-        $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
-        $selectableTablesEntries = [];
-        $selectableTablesNumRows = 0;
-        if ($selectableTablesSqlResult !== false) {
-            foreach ($selectableTablesSqlResult as $entry) {
-                $entry['is_tracked'] = Tracker::isTracked($entry['db_name'], $entry['table_name']);
-                $selectableTablesEntries[] = $entry;
-            }
-
-            $selectableTablesNumRows = $selectableTablesSqlResult->numRows();
-        }
-
         $versionSqlResult = $this->getListOfVersionsOfTable($db, $table);
         if ($lastVersion === null && $versionSqlResult !== false) {
             $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
@@ -145,8 +139,7 @@ class Tracking
             'url_params' => $urlParams,
             'db' => $db,
             'table' => $table,
-            'selectable_tables_num_rows' => $selectableTablesNumRows,
-            'selectable_tables_entries' => $selectableTablesEntries,
+            'selectable_tables_entries' => $this->trackingChecker->getTrackedTables($db),
             'selected_table' => $_POST['table'] ?? null,
             'last_version' => $lastVersion,
             'versions' => $versions,
@@ -162,24 +155,6 @@ class Tracking
     public function getTableLastVersionNumber(ResultInterface $result): int
     {
         return (int) $result->fetchValue('version');
-    }
-
-    /**
-     * Function to get sql results for selectable tables
-     */
-    public function getSqlResultForSelectableTables(string $db): ResultInterface|false
-    {
-        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return false;
-        }
-
-        $sql_query = ' SELECT DISTINCT db_name, table_name FROM '
-            . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
-            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "' "
-            . ' ORDER BY db_name, table_name';
-
-        return $this->dbi->queryAsControlUser($sql_query);
     }
 
     /**
@@ -774,7 +749,7 @@ class Tracking
      *
      * @return string HTML SQL query form
      */
-    public function exportAsSqlDump(string $db, string $table, array $entries): string
+    public function exportAsSqlDump(array $entries): string
     {
         $html = '';
         $new_query = '# '
@@ -1082,7 +1057,7 @@ class Tracking
             . '\'  GROUP BY table_name ORDER BY table_name ASC';
 
         $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
-        $untrackedTables = $this->getUntrackedTables($db);
+        $untrackedTables = $this->trackingChecker->getUntrackedTableNames($db);
 
         // If a HEAD version exists
         $versions = [];
@@ -1106,45 +1081,5 @@ class Tracking
             'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
         ]);
-    }
-
-    /**
-     * Helper function: Recursive function for getting table names from $table_list
-     *
-     * @param array  $table_list Table list
-     * @param string $db         Current database
-     *
-     * @return array
-     */
-    public function extractTableNames(array $table_list, string $db): array
-    {
-        $untracked_tables = [];
-        $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-
-        foreach ($table_list as $value) {
-            if (is_array($value) && array_key_exists('is' . $sep . 'group', $value) && $value['is' . $sep . 'group']) {
-                // Recursion step
-                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables);
-            } elseif (is_array($value) && (Tracker::getVersion($db, $value['Name']) == -1)) {
-                $untracked_tables[] = $value['Name'];
-            }
-        }
-
-        return $untracked_tables;
-    }
-
-    /**
-     * Get untracked tables
-     *
-     * @param string $db current database
-     *
-     * @return array
-     */
-    public function getUntrackedTables(string $db): array
-    {
-        $table_list = Util::getTableList($db);
-
-        //Use helper function to get table list recursively.
-        return $this->extractTableNames($table_list, $db);
     }
 }

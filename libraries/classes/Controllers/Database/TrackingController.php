@@ -13,8 +13,8 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Tracking\Tracker;
+use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 

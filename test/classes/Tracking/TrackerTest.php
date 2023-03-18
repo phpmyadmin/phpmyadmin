@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Tracking;
 
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Util;
 use ReflectionMethod;
 
-/** @covers \PhpMyAdmin\Tracker */
+/** @covers \PhpMyAdmin\Tracking\Tracker */
 class TrackerTest extends AbstractTestCase
 {
     /**

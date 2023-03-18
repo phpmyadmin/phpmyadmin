@@ -2340,12 +2340,6 @@ class DbiDummy implements DbiExtension
                 'result' => [['10']],
             ],
             [
-                'query' => 'SELECT DISTINCT db_name, table_name FROM `pmadb`.`tracking`'
-                    . ' WHERE db_name = \'PMA_db\' ORDER BY db_name, table_name',
-                'columns' => ['db_name', 'table_name', 'version'],
-                'result' => [['PMA_db', 'PMA_table', '10']],
-            ],
-            [
                 'query' => 'SELECT * FROM `pmadb`.`tracking` WHERE db_name = \'PMA_db\''
                     . ' AND table_name = \'PMA_table\' ORDER BY version DESC',
                 'columns' => ['db_name', 'table_name', 'version', 'date_created', 'date_updated', 'tracking_active'],
@@ -2359,6 +2353,22 @@ class DbiDummy implements DbiExtension
                     . ' AND table_name = \'PMA_table\' ORDER BY version DESC LIMIT 1',
                 'columns' => ['tracking_active'],
                 'result' => [['1']],
+            ],
+            [
+                'query' => 'SELECT table_name, tracking_active '
+                . 'FROM ( '
+                    . 'SELECT table_name, MAX(version) version '
+                    . "FROM `pmadb`.`tracking` WHERE db_name = 'dummyDb' AND table_name <> '' "
+                    . 'GROUP BY table_name '
+                . ') filtered_tables '
+                . 'JOIN `pmadb`.`tracking` USING(table_name, version)',
+                'columns' => ['table_name', 'tracking_active'],
+                'result' => [['0', '1'],['actor', '0']],
+            ],
+            [
+                'query' => 'SHOW TABLES FROM `dummyDb`;',
+                'columns' => ['Tables_in_dummyDb'],
+                'result' => [['0'], ['actor'], ['untrackedTable']],
             ],
             [
                 'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` LIKE \'PMA\\\\_table%\'',

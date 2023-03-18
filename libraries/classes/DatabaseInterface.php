@@ -20,6 +20,7 @@ use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
 

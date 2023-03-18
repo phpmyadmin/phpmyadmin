@@ -422,6 +422,7 @@ return [
                 '$relation' => '@relation',
                 '$replication' => '@replication',
                 '$dbi' => '@dbi',
+                '$trackingChecker' => '@tracking_checker',
             ],
         ],
         Database\TrackingController::class => [
@@ -1614,6 +1615,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$tracking' => '@tracking',
+                '$trackingChecker' => '@tracking_checker',
             ],
         ],
         Table\TriggersController::class => [

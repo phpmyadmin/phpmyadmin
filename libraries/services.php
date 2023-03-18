@@ -236,12 +236,20 @@ return [
             'arguments' => ['$config' => '@config'],
         ],
         'tracking' => [
-            'class' => PhpMyAdmin\Tracking::class,
+            'class' => PhpMyAdmin\Tracking\Tracking::class,
             'arguments' => [
                 '$sqlQueryForm' => '@sql_query_form',
                 '$template' => '@template',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$trackingChecker' => '@tracking_checker',
+            ],
+        ],
+        'tracking_checker' => [
+            'class' => PhpMyAdmin\Tracking\TrackingChecker::class,
+            'arguments' => [
+                '$dbi' => '@dbi',
+                '$relation' => '@relation',
             ],
         ],
         'transformations' => [

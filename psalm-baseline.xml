@@ -13644,7 +13644,7 @@
       <code>return false;</code>
     </UnevaluatedCode>
   </file>
-  <file src="libraries/classes/Tracker.php">
+  <file src="libraries/classes/Tracking/Tracker.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -13770,9 +13770,8 @@
       <code>getTableName</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Tracking.php">
+  <file src="libraries/classes/Tracking/Tracking.php">
     <DeprecatedMethod>
-      <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -13797,7 +13796,6 @@
       <code>$indexes</code>
       <code>$selected_table</code>
       <code>$selected_table</code>
-      <code><![CDATA[$value['Name']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$urlParams + [
@@ -13843,9 +13841,7 @@
       <code>$statements[$key]</code>
       <code>$temp</code>
       <code>$timestamps[$key]</code>
-      <code>$untracked_tables[]</code>
       <code>$usernames[$key]</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>string</code>
@@ -13858,18 +13854,8 @@
     <MixedReturnStatement>
       <code>$html</code>
     </MixedReturnStatement>
-    <PossiblyFalseOperand>
-      <code>$sep</code>
-      <code>$sep</code>
-    </PossiblyFalseOperand>
-    <PossiblyInvalidOperand>
-      <code>$sep</code>
-      <code>$sep</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$data['schema_snapshot']]]></code>
-      <code><![CDATA[$entry['db_name']]]></code>
-      <code><![CDATA[$entry['table_name']]]></code>
       <code>$tableName</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
@@ -13879,13 +13865,14 @@
       <code><![CDATA[$data['ddlog']]]></code>
       <code><![CDATA[$data['schema_snapshot']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedParam>
-      <code>$db</code>
-      <code>$table</code>
-    </PossiblyUnusedParam>
     <RiskyCast>
       <code>$delete_id</code>
     </RiskyCast>
+  </file>
+  <file src="libraries/classes/Tracking/TrackingChecker.php">
+    <MixedAssignment>
+      <code>$trackingEnabled</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Transformations.php">
     <DeprecatedMethod>
@@ -14033,27 +14020,18 @@
       <code>$byteUnits[$d]</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <InvalidReturnStatement>
-      <code>$tableGroups</code>
-    </InvalidReturnStatement>
     <MixedArgument>
       <code>$maxSize</code>
       <code>$maxUnit</code>
       <code>$row[$i] ?? null</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code><![CDATA[$table['Name']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$columnNames</code>
-      <code><![CDATA[uksort($tables, 'strnatcasecmp')]]></code>
       <code><![CDATA[uksort($tables, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code>$array[$p]</code>
-      <code>$group[$groupName]</code>
-      <code><![CDATA[$group[$groupName]['tab' . $sep . 'count']]]></code>
       <code><![CDATA[$row['Cardinality']]]></code>
       <code><![CDATA[$row['Column_name']]]></code>
       <code><![CDATA[$row['Column_name']]]></code>
@@ -14073,27 +14051,11 @@
       <code><![CDATA[$row['Seq_in_index']]]></code>
       <code><![CDATA[$row['Seq_in_index']]]></code>
       <code><![CDATA[$row['Sub_part']]]></code>
-      <code><![CDATA[$table['Name']]]></code>
-      <code><![CDATA[$table['TABLE_NAME']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code><![CDATA[$group[$groupName]['tab' . $sep . 'count']]]></code>
-      <code>$group[$tableName]</code>
-      <code>$tableGroups[$tableName]</code>
-      <code><![CDATA[$table['disp_name']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code>$array[$p]</code>
@@ -14112,8 +14074,6 @@
       <code>$array</code>
       <code>$columnNames[]</code>
       <code>$columnNames[]</code>
-      <code>$group[$groupName][$groupName]</code>
-      <code><![CDATA[$group[$groupName]['tab' . $sep . 'count']]]></code>
       <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name']]]></code>
       <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part']]]></code>
       <code><![CDATA[$indexesInfo[$row['Key_name']]['Cardinality']]]></code>
@@ -14124,18 +14084,13 @@
       <code>$p</code>
       <code>$p</code>
       <code>$row</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code><![CDATA[$table['disp_name']]]></code>
       <code>$unit</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
       <code>int</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code><![CDATA[$group[$groupName]['tab' . $sep . 'count']]]></code>
       <code><![CDATA[$row['Column_name']]]></code>
       <code>$unit</code>
       <code>$unit</code>
@@ -14143,7 +14098,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code>$tableGroups</code>
     </MixedReturnStatement>
     <PossiblyFalseOperand>
       <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
@@ -14151,34 +14105,9 @@
       <code><![CDATA[mb_strpos($value, '.')]]></code>
       <code><![CDATA[mb_strrpos($columnSpecification, ')')]]></code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument>
-      <code>$sep</code>
-      <code>$sep</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$groupName]</code>
-      <code>$group[$tableName]</code>
-      <code>$tableGroups[$tableName]</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code>$sep</code>
-      <code>$sep</code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
-      <code>$sep</code>
-      <code>$sep</code>
-      <code>$sep</code>
-      <code>$sep</code>
-      <code>$sep</code>
-      <code>$sep</code>
-      <code>$sep</code>
-      <code>$sep</code>
-      <code>$sep</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code>$maxSize</code>
@@ -15849,7 +15778,7 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/TrackerTest.php">
+  <file src="test/classes/Tracking/TrackerTest.php">
     <MixedInferredReturnType>
       <code>array</code>
       <code>array</code>
@@ -15860,7 +15789,7 @@
       <code>$fetchArrayReturn[0]</code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="test/classes/TrackingTest.php">
+  <file src="test/classes/Tracking/TrackingTest.php">
     <MixedArgument>
       <code>$html</code>
     </MixedArgument>

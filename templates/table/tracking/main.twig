@@ -1,12 +1,12 @@
-{% if selectable_tables_num_rows > 0 %}
+{% if selectable_tables_entries|length > 0 %}
     <form method="post" action="{{ url('/table/tracking', url_params) }}">
         {{ get_hidden_inputs(db, table) }}
         <select name="table" class="autosubmit">
             {% for entry in selectable_tables_entries %}
-                <option value="{{ entry.table_name }}"
-                    {{- entry.table_name == selected_table ? ' selected' }}>
-                    {{ entry.db_name }}.{{ entry.table_name }}
-                    {% if entry.is_tracked %}
+                <option value="{{ entry.name }}"
+                    {{- entry.name == selected_table ? ' selected' }}>
+                    {{ db }}.{{ entry.name }}
+                    {% if entry.active %}
                         ({% trans 'active' %})
                     {% else %}
                         ({% trans 'not active' %})
