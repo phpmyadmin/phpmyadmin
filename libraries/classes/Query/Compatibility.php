@@ -19,6 +19,7 @@ use function substr;
  */
 class Compatibility
 {
+    /** @return mixed[][] */
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
         foreach ($eachTables as $table_name => $_) {
