@@ -336,11 +336,11 @@ class StorageEngine
      * DETAILS_TYPE_SIZE type needs to be
      * handled differently for a particular engine.
      *
-     * @param int $value Value to format
+     * @param int|string $value Value to format
      *
      * @return array|null the formatted value and its unit
      */
-    public function resolveTypeSize(int $value): array|null
+    public function resolveTypeSize(int|string $value): array|null
     {
         return Util::formatByteDown($value);
     }

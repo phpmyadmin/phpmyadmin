@@ -1308,9 +1308,9 @@ class Results
      * @param int                $sessionMaxRows            maximum rows resulted by sql
      * @param string             $comments                  comment for row
      * @param array              $sortDirection             sort direction
-     * @param bool               $colVisib                  column is visible(false)
+     * @param bool|array         $colVisib                  column is visible(false)
      *                                                      or column isn't visible(string array)
-     * @param string|null        $colVisibElement           element of $col_visib array
+     * @param int|string|null    $colVisibElement           element of $col_visib array
      *
      * @return array   2 element array - $orderLink, $sortedHeaderHtml
      * @psalm-return array{
@@ -1331,8 +1331,8 @@ class Results
         int $sessionMaxRows,
         string $comments,
         array $sortDirection,
-        bool $colVisib,
-        string|null $colVisibElement,
+        bool|array $colVisib,
+        int|string|null $colVisibElement,
     ): array {
         // Checks if the table name is required; it's the case
         // for a query with a "JOIN" statement and if the column
