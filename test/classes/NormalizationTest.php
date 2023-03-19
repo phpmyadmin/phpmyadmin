@@ -67,9 +67,9 @@ class NormalizationTest extends AbstractTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'id' => ['Type' => 'integer'],
-                        'col1' => ['Type' => 'varchar(100)'],
-                        'col2' => ['Type' => 'DATETIME'],
+                        'id' => ['Field' => 'id', 'Type' => 'integer'],
+                        'col1' => ['Field' => 'col1', 'Type' => 'varchar(100)'],
+                        'col2' => ['Field' => 'col2', 'Type' => 'DATETIME'],
                     ],
                 ),
             );

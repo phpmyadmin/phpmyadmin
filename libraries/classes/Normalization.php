@@ -71,7 +71,8 @@ class Normalization
         $columns = $this->dbi->getColumns($db, $table, true);
         $type = '';
         $selectColHtml = '';
-        foreach ($columns as $column => $def) {
+        foreach ($columns as $def) {
+            $column = (string) $def['Field'];
             if (isset($def['Type'])) {
                 $extractedColumnSpec = Util::extractColumnSpec($def['Type']);
                 $type = $extractedColumnSpec['type'];

@@ -802,7 +802,7 @@ class Results
         $sqlMd5 = md5($this->properties['server'] . $this->properties['db'] . $this->properties['sql_query']);
         $sessionMaxRows = $isLimitedDisplay
             ? 0
-            : $_SESSION['tmpval']['query'][$sqlMd5]['max_rows'];
+            : (int) $_SESSION['tmpval']['query'][$sqlMd5]['max_rows'];
 
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in the for loop

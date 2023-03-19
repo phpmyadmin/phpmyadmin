@@ -134,14 +134,17 @@ class CentralColumnsTest extends AbstractTestCase
                 $this->returnValue(
                     [
                         'id' => [
+                            'Field' => 'id',
                             'Type' => 'integer',
                             'Null' => 'NO',
                         ],
                         'col1' => [
+                            'Field' => 'col1',
                             'Type' => 'varchar(100)',
                             'Null' => 'YES',
                         ],
                         'col2' => [
+                            'Field' => 'col2',
                             'Type' => 'DATETIME',
                             'Null' => 'NO',
                         ],
