@@ -6370,7 +6370,6 @@
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code>$row[$i]</code>
       <code>$row[$i]</code>
-      <code>$sessionMaxRows</code>
       <code>$sortDirection[$index]</code>
       <code>$sortDirection[$index]</code>
       <code>$sortDirection[$index]</code>
@@ -6574,7 +6573,6 @@
       <code>$rel</code>
       <code>$relationalDisplay</code>
       <code><![CDATA[$rowInfo[mb_strtolower($fieldsMeta[$m]->orgname)]]]></code>
-      <code>$sessionMaxRows</code>
       <code>$sortDirection[$specialIndex]</code>
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
