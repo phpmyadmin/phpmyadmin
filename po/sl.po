@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-19 00:20+0000\n"
-"PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2023-03-20 19:01+0000\n"
+"Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
 "Language: sl\n"
@@ -8945,10 +8945,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:82
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "Se ne uporablja v tej različici MySQL."
+msgstr "V poizvedbi SQL nismo našli prostorskega stolpca."
 
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:66
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:66
@@ -16052,19 +16050,17 @@ msgstr "Pokaži vse"
 
 #: templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Barvni način preobleke"
 
 #: templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Desno"
+msgstr "Svetlo"
 
 #: templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Temno"
 
 #: templates/home/index.twig:177
 msgid "Database server"
