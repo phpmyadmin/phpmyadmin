@@ -213,6 +213,9 @@ class HomeController extends AbstractController
 
         $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
+        $hasChangePasswordLink = ($GLOBALS['cfg']['Server']['auth_type'] ?? '') !== 'config'
+            && $GLOBALS['cfg']['ShowChgPassword'];
+
         $this->render('home/index', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
@@ -225,8 +228,8 @@ class HomeController extends AbstractController
             'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'has_change_password_link' => ($GLOBALS['cfg']['Server']['auth_type'] ?? '') !== 'config'
-                && $GLOBALS['cfg']['ShowChgPassword'],
+            'has_change_password_link' => $hasChangePasswordLink,
+            'has_change_password_modal' => $hasChangePasswordLink && !$this->response->isAjax(),
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,
             'database_server' => $databaseServer,

@@ -6,7 +6,7 @@
 
 {{ partial_logout|raw }}
 
-{%- if has_change_password_link -%}
+{%- if has_change_password_modal == false %}
   {{ include('modals/change_password.twig') }}
 {%- endif -%}
 
