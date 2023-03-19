@@ -506,7 +506,7 @@ class Index
     /**
      * Returns the columns of the index
      *
-     * @return array<string, IndexColumn>
+     * @return IndexColumn[]
      */
     public function getColumns(): array
     {

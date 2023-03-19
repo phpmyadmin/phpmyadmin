@@ -866,7 +866,7 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array<string, array> array indexed by column names
+     * @return array[] array indexed by column names
      */
     public function getColumns(
         string $database,
@@ -880,7 +880,7 @@ class DatabaseInterface implements DbalInterface
             null,
             $full,
         );
-        /** @var array<string, array> $fields */
+        /** @var array[] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
         return $this->attachIndexInfoToColumns($database, $table, $fields);
@@ -889,11 +889,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Attach index information to the column definition
      *
-     * @param string               $database name of database
-     * @param string               $table    name of table to retrieve columns from
-     * @param array<string, array> $fields   column array indexed by their names
+     * @param string  $database name of database
+     * @param string  $table    name of table to retrieve columns from
+     * @param array[] $fields   column array indexed by their names
      *
-     * @return array<string, array> Column defintions with index information
+     * @return array[] Column defintions with index information
      */
     private function attachIndexInfoToColumns(
         string $database,

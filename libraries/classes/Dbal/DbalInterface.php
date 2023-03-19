@@ -190,7 +190,7 @@ interface DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array<string, array> array indexed by column names
+     * @return array[] array indexed by column names
      */
     public function getColumns(
         string $database,
