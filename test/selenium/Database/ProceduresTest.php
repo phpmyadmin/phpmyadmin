@@ -58,8 +58,9 @@ class ProceduresTest extends TestBase
         $this->dbQuery(
             'SELECT @@GLOBAL.SQL_MODE as globalsqm;',
             function () use (&$sqlMode): void {
-                $this->waitForElement('xpath', '//button[contains(., "Extra options")]')->click();
-                $this->waitForElement('cssSelector', '#extraOptions.show');
+                $this->scrollIntoView('extraOptionsButton');
+                $this->waitForElement('id', 'extraOptionsButton')->click();
+                $this->waitForElement('cssSelector', '#extraOptions.collapse.show');
                 $this->waitForElement('xpath', '//label[contains(., "Full texts")]')->click();
                 $this->waitForElement('cssSelector', '.collapse .tblFooters input[type=submit]')->click();
                 $this->waitAjax();

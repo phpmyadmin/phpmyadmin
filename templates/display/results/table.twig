@@ -196,7 +196,7 @@
 
     {% if default_sliders_state != 'disabled' %}
     <div class="mb-3">
-      <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#extraOptions" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="extraOptions">
+      <button class="btn btn-sm btn-secondary" type="button" id="extraOptionsButton" data-bs-toggle="collapse" data-bs-target="#extraOptions" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="extraOptions">
         {% trans 'Extra options' %}
       </button>
     </div>

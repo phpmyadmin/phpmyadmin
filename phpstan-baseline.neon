@@ -3621,6 +3621,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) has parameter \\$colVisib with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) has parameter \\$sortDirection with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3786,12 +3791,12 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$colVisib of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$colVisib of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects array\\|bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$colVisibElement of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$colVisibElement of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
