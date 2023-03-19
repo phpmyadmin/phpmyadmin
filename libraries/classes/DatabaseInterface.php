@@ -912,7 +912,7 @@ class DatabaseInterface implements DbalInterface
             }
 
             foreach ($indexes as $index) {
-                if (! $index->hasColumn($field)) {
+                if (! $index->hasColumn((string) $field)) {
                     continue;
                 }
 
