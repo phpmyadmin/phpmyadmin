@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-19 00:20+0000\n"
-"PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2023-03-20 19:01+0000\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -8970,10 +8970,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:82
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "Bu MySQL sürümü için kullanılmaz."
+msgstr "Bu SQL sorgusu için bulunan uzamsal sütun yok."
 
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:66
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:66
@@ -16079,19 +16077,17 @@ msgstr "Tümünü görüntüle"
 
 #: templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Tema için renk kipi"
 
 #: templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Sağ"
+msgstr "Açık"
 
 #: templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Koyu"
 
 #: templates/home/index.twig:177
 msgid "Database server"
