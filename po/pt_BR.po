@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-03-01 15:35+0000\n"
-"Last-Translator: Nick <nick@nickuc.com>\n"
+"PO-Revision-Date: 2023-03-21 06:25+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-rc\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5371,8 +5371,8 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 "O arquivo de configuração precisa de uma chave válida para a criptografia de "
-"cookie. Uma chave temporária foi gerada automaticamente para você. Por "
-"favor, consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
+"cookies. Uma chave temporária foi gerada automaticamente para você. Por "
+"favor consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:328
 #, php-format
@@ -5381,9 +5381,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"A chave de criptografia de cookie no arquivo de configuração é mais longa do "
-"que o necessário. Deve ter apenas %d bytes. Por favor, consulte a "
-"[doc@cfg_blowfish_secret]documentação[/doc]."
+"A chave de criptografia do cookie no arquivo de configuração é mais longa do "
+"que o necessário. Ela deve ter apenas %d bytes de comprimento. Por favor "
+"consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:346
 msgid ""
@@ -7060,7 +7060,7 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
-"A função HEX irá tratar o inteiro como uma string enquanto calcula o valor "
+"A função HEX tratará o número inteiro como uma string ao calcular o valor "
 "hexadecimal"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:498
@@ -9198,8 +9198,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Erro 1045: Acesso negado para usuário. Informação adicional sobre o erro "
-"pode estar disponível, mas está oculta pela configuração diretiva do %s."
+"Erro 1045: Acesso negado para o usuário. Informações de erro adicionais "
+"podem estar disponíveis, mas estão sendo ocultadas pela diretiva de "
+"configuração %s."
 
 #: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -13361,7 +13362,7 @@ msgstr "A configuração não pôde ser salva"
 #: libraries/classes/UserPreferences.php:192
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"O armazenamento de configuração do phpMyAdmin no banco de dados não pôde ser "
+"O banco de dados de armazenamento de configuração do phpMyAdmin não pôde ser "
 "acessado."
 
 #: libraries/classes/Util.php:132
