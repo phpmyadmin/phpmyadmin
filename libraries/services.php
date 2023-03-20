@@ -148,11 +148,11 @@ return [
             ],
         ],
         'replication' => [
-            'class' => PhpMyAdmin\Replication::class,
+            'class' => PhpMyAdmin\Replication\Replication::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
         'replication_gui' => [
-            'class' => PhpMyAdmin\ReplicationGui::class,
+            'class' => PhpMyAdmin\Replication\ReplicationGui::class,
             'arguments' => [
                 '$replication' => '@replication',
                 '$template' => '@template',

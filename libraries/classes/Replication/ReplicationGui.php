@@ -5,10 +5,16 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Replication;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;

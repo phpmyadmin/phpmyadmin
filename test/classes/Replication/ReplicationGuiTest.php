@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Replication;
 
-use PhpMyAdmin\Replication;
-use PhpMyAdmin\ReplicationGui;
-use PhpMyAdmin\ReplicationInfo;
+use PhpMyAdmin\Replication\Replication;
+use PhpMyAdmin\Replication\ReplicationGui;
+use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/** @covers \PhpMyAdmin\ReplicationGui */
+/** @covers \PhpMyAdmin\Replication\ReplicationGui */
 class ReplicationGuiTest extends AbstractTestCase
 {
     /**

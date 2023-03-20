@@ -11,7 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Utilities;
-use PhpMyAdmin\ReplicationInfo;
+use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;

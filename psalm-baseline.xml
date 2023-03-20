@@ -12130,7 +12130,7 @@
       <code><![CDATA[$this->tables =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id]]]></code>
     </UnsupportedReferenceUsage>
   </file>
-  <file src="libraries/classes/Replication.php">
+  <file src="libraries/classes/Replication/Replication.php">
     <LessSpecificReturnStatement>
       <code>$output</code>
     </LessSpecificReturnStatement>
@@ -12155,7 +12155,7 @@
       <code>$host</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/ReplicationGui.php">
+  <file src="libraries/classes/Replication/ReplicationGui.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
@@ -12217,7 +12217,7 @@
       <code>strtok</code>
     </UnusedFunctionCall>
   </file>
-  <file src="libraries/classes/ReplicationInfo.php">
+  <file src="libraries/classes/Replication/ReplicationInfo.php">
     <MixedArgument>
       <code>$status[0][$key]</code>
     </MixedArgument>

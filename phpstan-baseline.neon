@@ -1556,7 +1556,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
 
@@ -1936,7 +1936,7 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
@@ -1991,17 +1991,17 @@ parameters:
 			path: libraries/classes/Controllers/Server/ReplicationController.php
 
 		-
-			message: "#^Parameter \\#10 \\$hostname of method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$hostname of method PhpMyAdmin\\\\Replication\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/ReplicationController.php
 
 		-
-			message: "#^Parameter \\#8 \\$username of method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$username of method PhpMyAdmin\\\\Replication\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/ReplicationController.php
 
 		-
-			message: "#^Parameter \\#9 \\$pmaPassword of method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$pmaPassword of method PhpMyAdmin\\\\Replication\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/ReplicationController.php
 
@@ -2071,7 +2071,7 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
 
 		-
-			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\ReplicationGui\\:\\:getHtmlForReplicationStatusTable\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationGui\\:\\:getHtmlForReplicationStatusTable\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
 
@@ -7191,84 +7191,84 @@ parameters:
 			path: libraries/classes/RecentFavoriteTable.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Replication\\:\\:replicaChangePrimary\\(\\) has parameter \\$pos with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\Replication\\:\\:replicaChangePrimary\\(\\) has parameter \\$pos with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Replication.php
+			path: libraries/classes/Replication/Replication.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Core\\:\\:sanitizeMySQLHost\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Replication.php
+			path: libraries/classes/Replication/Replication.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:getHtmlForReplicaConfiguration\\(\\) has parameter \\$serverReplicaReplication with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\ReplicationGui\\:\\:getHtmlForReplicaConfiguration\\(\\) has parameter \\$serverReplicaReplication with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationGui.php
+			path: libraries/classes/Replication/ReplicationGui.php
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationGui.php
+			path: libraries/classes/Replication/ReplicationGui.php
 
 		-
-			message: "#^Parameter \\#1 \\$action of method PhpMyAdmin\\\\Replication\\:\\:replicaControl\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$action of method PhpMyAdmin\\\\Replication\\\\Replication\\:\\:replicaControl\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationGui.php
+			path: libraries/classes/Replication/ReplicationGui.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:fill\\(\\) has parameter \\$status with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:fill\\(\\) has parameter \\$status with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:fill\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:fill\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:getPrimaryInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:getPrimaryInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:getPrimaryStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:getPrimaryStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:getReplicaInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:getReplicaInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:getReplicaStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:getReplicaStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ReplicationInfo\\:\\:\\$multiPrimaryStatus type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:\\$multiPrimaryStatus type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ReplicationInfo\\:\\:\\$primaryInfo type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:\\$primaryInfo type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ReplicationInfo\\:\\:\\$primaryStatus type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:\\$primaryStatus type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ReplicationInfo\\:\\:\\$replicaInfo type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:\\$replicaInfo type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ReplicationInfo\\:\\:\\$replicaStatus type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:\\$replicaStatus type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ReplicationInfo.php
+			path: libraries/classes/Replication/ReplicationInfo.php
 
 		-
 			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"

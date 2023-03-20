@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\ReplicationInfo;
+use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Url;
 
 use function __;

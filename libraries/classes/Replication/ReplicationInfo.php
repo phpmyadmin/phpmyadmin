@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Replication;
+
+use PhpMyAdmin\DatabaseInterface;
 
 use function count;
 use function explode;
