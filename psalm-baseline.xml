@@ -1777,7 +1777,7 @@
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="36">
+    <MixedArgument occurrences="37">
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
@@ -1811,6 +1811,7 @@
       <code>$replicaInfo['Wild_Ignore_Table']</code>
       <code>$sumSize</code>
       <code>$tableIsView</code>
+      <code>$trackedTables[$truename] ?? null</code>
       <code>$truename</code>
       <code>$updateTime</code>
       <code>$updateTimeAll</code>
@@ -14038,10 +14039,11 @@
     <MixedArrayAssignment occurrences="1">
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['db']</code>
       <code>$data</code>
       <code>$result['tablename']</code>
+      <code>$trackingEnabled</code>
       <code>$trackingEnabled</code>
       <code>$trackingEnabled</code>
     </MixedAssignment>

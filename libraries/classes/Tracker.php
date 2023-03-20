@@ -973,4 +973,46 @@ class Tracker
 
         return $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
     }
+
+    /**
+     * THIS IS TEMPORARY FIX for performance issues in QA 5.2. Do not merge into 6.0!
+     */
+    public static function getTrackedTables(string $dbName): array
+    {
+        global $dbi;
+
+        $trackingEnabled = Cache::get(self::TRACKER_ENABLED_CACHE_KEY, false);
+        if (! $trackingEnabled) {
+            return [];
+        }
+
+        $relation = new Relation($dbi);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return [];
+        }
+
+        $sqlQuery = sprintf(
+            "SELECT table_name, tracking_active
+            FROM (
+                SELECT table_name, MAX(version) version
+                FROM %s.%s WHERE db_name = %s AND table_name <> ''
+                GROUP BY table_name
+            ) filtered_tables
+            JOIN %s.%s USING(table_name, version)",
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            "'" . $dbi->escapeString($dbName, DatabaseInterface::CONNECT_CONTROL) . "'",
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking)
+        );
+
+        $trackedTables = [];
+        foreach ($dbi->queryAsControlUser($sqlQuery) as $row) {
+            $trackedTable = ['name' => (string) $row['table_name'], 'active' => (bool) $row['tracking_active']];
+            $trackedTables[$trackedTable['name']] = $trackedTable;
+        }
+
+        return $trackedTables;
+    }
 }

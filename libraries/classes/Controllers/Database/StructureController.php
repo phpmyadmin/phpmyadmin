@@ -242,6 +242,7 @@ class StructureController extends AbstractController
         $hiddenFields = [];
         $overallApproxRows = false;
         $structureTableRows = [];
+        $trackedTables = Tracker::getTrackedTables($GLOBALS['db']);
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -417,7 +418,7 @@ class StructureController extends AbstractController
                         )
                     )
                 ),
-                'tracking_icon' => $this->getTrackingIcon($truename),
+                'tracking_icon' => $this->getTrackingIcon($truename, $trackedTables[$truename] ?? null),
                 'server_replica_status' => $replicaInfo['status'],
                 'table_url_params' => $tableUrlParams,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
@@ -521,20 +522,20 @@ class StructureController extends AbstractController
     /**
      * Returns the tracking icon if the table is tracked
      *
-     * @param string $table table name
+     * @param string     $table        table name
+     * @param array|null $trackedTable
      *
      * @return string HTML for tracking icon
      */
-    protected function getTrackingIcon(string $table): string
+    protected function getTrackingIcon(string $table, $trackedTable): string
     {
         $trackingIcon = '';
         if (Tracker::isActive()) {
-            $isTracked = Tracker::isTracked($this->db, $table);
-            if ($isTracked || Tracker::getVersion($this->db, $table) > 0) {
+            if ($trackedTable !== null) {
                 $trackingIcon = $this->template->render('database/structure/tracking_icon', [
                     'db' => $this->db,
                     'table' => $table,
-                    'is_tracked' => $isTracked,
+                    'is_tracked' => $trackedTable['active'],
                 ]);
             }
         }
