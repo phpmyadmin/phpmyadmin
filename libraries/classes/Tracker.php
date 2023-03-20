@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
@@ -836,8 +837,6 @@ class Tracker
     {
         global $dbi;
 
-        $relation = new Relation($dbi);
-
         // If query is marked as untouchable, leave
         if (mb_strstr($query, '/*NOTRACK*/')) {
             return;
@@ -852,6 +851,16 @@ class Tracker
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
         if (empty($dbname)) {
+            return;
+        }
+
+        $relation = new Relation($GLOBALS['dbi']);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return;
+        }
+
+        if (! self::isAnyTrackingInProgress($GLOBALS['dbi'], $trackingFeature, $dbname)) {
             return;
         }
 
@@ -917,11 +926,6 @@ class Tracker
         // Add log information
         $query = self::getLogComment() . $query;
 
-        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return;
-        }
-
         // Mark it as untouchable
         $sqlQuery = sprintf(
             '/*NOTRACK*/' . "\n" . 'UPDATE %s.%s SET %s = CONCAT(%s, \'' . "\n" . '%s\'), `date_updated` = \'%s\'',
@@ -953,5 +957,20 @@ class Tracker
         " AND `version` = '" . $dbi->escapeString((string) $version) . "' ";
 
         $dbi->queryAsControlUser($sqlQuery);
+    }
+
+    private static function isAnyTrackingInProgress(
+        DatabaseInterface $dbi,
+        TrackingFeature $trackingFeature,
+        string $dbname
+    ): bool {
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/ SELECT 1 FROM %s.%s WHERE tracking_active = 1 AND db_name = %s LIMIT 1',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            "'" . $dbi->escapeString($dbname, DatabaseInterface::CONNECT_CONTROL) . "'"
+        );
+
+        return $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
     }
 }
