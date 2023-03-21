@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-08-19 10:18+0000\n"
-"Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
+"PO-Revision-Date: 2023-03-22 03:43+0000\n"
+"Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "bg/>\n"
 "Language: bg\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6806,7 +6806,7 @@ msgstr "Няма данни"
 #: tbl_addfield.php:96
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Таблицата %1$s беше променена."
+msgstr "Таблицата %1$s е променена."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:228
 #, fuzzy
@@ -6875,11 +6875,10 @@ msgid "Query error"
 msgstr "Грешка в заявката"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1012
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Таблицата %1$s беше променена."
+msgstr "Таблицата %1$s е променена."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1228
 #: templates/table/structure/check_all_table_column.twig:17
@@ -11031,10 +11030,9 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Съжаляваме, но възстановяването на изтритата процедура е неуспешно."
 
 #: libraries/classes/Rte/Routines.php:449
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Процедурата%1$s беше променена."
+msgstr "Процедурата%1$s е променена."
 
 #: libraries/classes/Rte/Routines.php:454
 #, php-format
