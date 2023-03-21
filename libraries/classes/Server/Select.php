@@ -1,7 +1,4 @@
 <?php
-/**
- * Code for displaying server selection
- */
 
 declare(strict_types=1);
 
@@ -24,35 +21,32 @@ class Select
     /**
      * Renders the server selection in list or selectbox form, or option tags only
      *
-     * @param bool $not_only_options whether to include form tags or not
-     * @param bool $omit_fieldset    whether to omit fieldset tag or not
+     * @param bool $notOnlyOptions whether to include form tags or not
+     * @param bool $omitFieldset   whether to omit fieldset tag or not
      */
-    public static function render(bool $not_only_options, bool $omit_fieldset): string
+    public static function render(bool $notOnlyOptions, bool $omitFieldset): string
     {
         // Show as list?
-        if ($not_only_options) {
+        if ($notOnlyOptions) {
             $list = $GLOBALS['cfg']['DisplayServersList'];
-            $not_only_options = ! $list;
+            $notOnlyOptions = ! $list;
         } else {
             $list = false;
         }
 
-        $form_action = '';
-        if ($not_only_options) {
-            $form_action = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
+        $formAction = '';
+        if ($notOnlyOptions) {
+            $formAction = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
         }
 
-        $servers = [];
+        /** @var array{list: list<array<string, mixed>>, select: list<array<string, mixed>>} $servers */
+        $servers = ['list' => [], 'select' => []];
         foreach ($GLOBALS['cfg']['Servers'] as $key => $server) {
             if (empty($server['host'])) {
                 continue;
             }
 
-            if (! empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key) {
-                $selected = 1;
-            } else {
-                $selected = 0;
-            }
+            $selected = ! empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key;
 
             if (! empty($server['verbose'])) {
                 $label = $server['verbose'];
@@ -78,41 +72,27 @@ class Select
 
             if ($list) {
                 if ($selected) {
-                    $servers['list'][] = [
-                        'selected' => true,
-                        'label' => $label,
-                    ];
+                    $servers['list'][] = ['selected' => true, 'href' => '', 'label' => $label];
                 } else {
                     $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
                     $href = $scriptName . Url::getCommon(
                         ['server' => $key],
                         ! str_contains($scriptName, '?') ? '?' : '&',
                     );
-                    $servers['list'][] = [
-                        'href' => $href,
-                        'label' => $label,
-                    ];
+                    $servers['list'][] = ['selected' => false, 'href' => $href, 'label' => $label];
                 }
             } else {
-                $servers['select'][] = [
-                    'value' => $key,
-                    'selected' => $selected,
-                    'label' => $label,
-                ];
+                $servers['select'][] = ['value' => $key, 'selected' => $selected, 'label' => $label];
             }
-        }
-
-        $renderDetails = [
-            'not_only_options' => $not_only_options,
-            'omit_fieldset' => $omit_fieldset,
-            'servers' => $servers,
-        ];
-        if ($not_only_options) {
-            $renderDetails['form_action'] = $form_action;
         }
 
         $template = new Template();
 
-        return $template->render('server/select/index', $renderDetails);
+        return $template->render('server/select/index', [
+            'not_only_options' => $notOnlyOptions,
+            'omit_fieldset' => $omitFieldset,
+            'servers' => $servers,
+            'form_action' => $formAction,
+        ]);
     }
 }
