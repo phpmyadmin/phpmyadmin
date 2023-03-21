@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-03-14 00:51+0000\n"
-"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
+"PO-Revision-Date: 2023-03-22 03:43+0000\n"
+"Last-Translator: Marcin Gil <mg@artigo.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -96,258 +96,225 @@ msgid ""
 msgstr "Jest wysoki procent powolnych zapytań w odniesieniu do pracy serwera."
 
 #: libraries/advisory_rules_generic.php:58
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Masz powolne zapytania %s na godzinę, trzeba mieć mniej niż 1%% na godzinę."
+"Twój wskaźnik powolnych zapytań to %s na godzinę, powinieneś mieć mniej niż "
+"1%% na godzinę."
 
 #: libraries/advisory_rules_generic.php:63
-#, fuzzy
 msgid "Long query time"
 msgstr "Długi czas zapytania"
 
 #: libraries/advisory_rules_generic.php:67
-#, fuzzy
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"{long_query_time} jest ustawiony na 10 sekund lub więcej, a więc tylko "
-"powolnych zapytań, które biorą ponad 10 sekund są rejestrowane."
+"{long_query_time} jest ustawiony na 10 sekund lub więcej, dlatego "
+"rejestrowane są tylko te powolne zapytania, które trwają powyżej 10 sekund."
 
 #: libraries/advisory_rules_generic.php:71
-#, fuzzy
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
-"Sugeruje się, aby ustawić {long_query_time} do wartości niższej, w "
-"zależności od danego środowiska. Zazwyczaj sugerujemy wartość 1-5 sekund."
+"Sugeruje się, aby ustawić {long_query_time} na niższą wartość, w zależności "
+"od Twojego środowiska. Najczęściej sugerowaną wartością jest 1-5 sekund."
 
 #: libraries/advisory_rules_generic.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time jest aktualnie ustawiony na %ds."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
-#, fuzzy
 msgid "Slow query logging"
 msgstr "Rejestrowanie powolnych zapytań"
 
 #: libraries/advisory_rules_generic.php:83
 #: libraries/advisory_rules_generic.php:96
-#, fuzzy
 msgid "The slow query log is disabled."
 msgstr "Rejestrowanie powolnych zapytań jest wyłączone."
 
 #: libraries/advisory_rules_generic.php:85
-#, fuzzy
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Włącz wolne rejestrowanie zapytań, ustawiając {log_slow_queries} na „ON”. "
-"Pomoże to rozwiązać źle działające zapytania."
+"Włącz logowanie powolnych zapytań ustawiając {log_slow_queries} na 'ON'. "
+"Pomoże to w rozwiązywaniu problemów z powoli wykonującymi się zapytaniami."
 
 #: libraries/advisory_rules_generic.php:88
-#, fuzzy
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries jest ustawiony na 'WYŁ'"
+msgstr "log_slow_queries jest ustawiony na 'OFF'"
 
 #: libraries/advisory_rules_generic.php:98
-#, fuzzy
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Włącz powolne rejestrowanie zapytań, ustawiając {slow_query_log} na „ON”. "
-"Pomoże to rozwiązać źle działające zapytania."
+"Włącz rejestrowanie powolnych zapytań ustawiając {slow_query_log} na 'ON'. "
+"Pomoże to w rozwiązywaniu problemów z powoli wykonującymi się zapytaniami."
 
 #: libraries/advisory_rules_generic.php:101
-#, fuzzy
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries jest ustawiony na 'WYŁ'"
+msgstr "slow_query_log jest ustawiony na 'OFF'"
 
 #: libraries/advisory_rules_generic.php:106
-#, fuzzy
 msgid "Release Series"
 msgstr "Seria wydania"
 
 #: libraries/advisory_rules_generic.php:109
-#, fuzzy
 msgid "The MySQL server version less than 5.1."
-msgstr "Wersja serwera MySQL jest mniejsza niż 5,1."
+msgstr "Wersja serwera MySQL jest mniejsza niż 5.1."
 
 #: libraries/advisory_rules_generic.php:111
-#, fuzzy
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"Powinieneś zaktualizować, jak MySQL 5.1 ma lepsze osiągi i MySQL 5.5 jeszcze "
-"bardziej."
+"Powinieneś zaktualizować, ponieważ MySQL 5.1 poprawił wydajność, a MySQL 5.5 "
+"jeszcze bardziej."
 
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
 #: libraries/advisory_rules_generic.php:138
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Bieżąca wersja: %s"
+msgstr "Aktualna wersja: %s"
 
 #: libraries/advisory_rules_generic.php:118
 #: libraries/advisory_rules_generic.php:132
-#, fuzzy
 msgid "Minor Version"
-msgstr "Mniejsza wersja"
+msgstr "Wersja mniejsza"
 
 #: libraries/advisory_rules_generic.php:122
-#, fuzzy
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "Wersja starsza niż 5.1.30 (pierwsze wydanie GA 5,1)."
+msgstr "Wersja starsza niż 5.1.30 (pierwsze wydanie GA wersji 5.1)."
 
 #: libraries/advisory_rules_generic.php:124
-#, fuzzy
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Powinieneś zaktualizować, jako ostatnie wersje MySQL 5.1 poprawiają "
-"wydajność a MySQL 5.5 jeszcze bardziej."
+"Powinieneś zaktualizować, ponieważ ostatnie wersje MySQL 5.1 poprawiły "
+"wydajność, a MySQL 5.5 jeszcze bardziej."
 
 #: libraries/advisory_rules_generic.php:136
-#, fuzzy
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "Wersja starsza niż 5.5.8 (pierwsze wydanie GA 5,5)."
+msgstr "Wersja starsza niż 5.5.8 (pierwsze wydanie GA dla 5.5)."
 
 #: libraries/advisory_rules_generic.php:137
-#, fuzzy
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Powinieneś dokonać aktualizacji do stabilnej wersji MySQL 5.5."
+msgstr "Należy dokonać aktualizacji, do stabilnej wersji MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
-#, fuzzy
 msgid "Distribution"
 msgstr "Dystrybucja"
 
 #: libraries/advisory_rules_generic.php:146
-#, fuzzy
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "Wersja jest skompilowana ze źródeł, a nie oficjalnych binarnek MySQL."
+msgstr "Wersja jest skompilowana ze źródła, a nie z oficjalnej binarki MySQL."
 
 #: libraries/advisory_rules_generic.php:148
-#, fuzzy
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"Jeśli nie kompilować ze źródeł, być może przy użyciu pakietu zmodyfikowane "
-"przez dystrybucji. Instrukcja MySQL tylko jest dokładna dla oficjalnych "
-"plików binarnych MySQL, a nie wszelkie dystrybucje pakietów (takich jak "
-"RedHat, Debian/Ubuntu itp)."
+"Jeśli nie skompilowałeś ze źródła, możesz używać pakietu zmodyfikowanego "
+"przez dystrybucję. Podręcznik MySQL jest dokładny jedynie dla oficjalnych "
+"binariów MySQL, a nie dla każdego pakietu z dystrybucji (takich jak RedHat, "
+"Debian/Ubuntu itp.)."
 
 #: libraries/advisory_rules_generic.php:152
-#, fuzzy
 msgid "'source' found in version_comment"
-msgstr "\"Źródło\" znaleziono w version_comment"
+msgstr "'source' znalezione w version_comment"
 
 #: libraries/advisory_rules_generic.php:159
-#, fuzzy
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "MySQL instrukcji tylko jest dokładna dla oficjalnych binarnych MySQL."
+msgstr "Podręcznik MySQL jest dokładny tylko dla oficjalnych binariów MySQL."
 
 #: libraries/advisory_rules_generic.php:161
-#, fuzzy
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Dokumentacja Percona znajduje się na stronie <a href=\"https://www.percona."
+"Dokumentacja Percony znajduje się na stronie <a href=\"https://www.percona."
 "com/software/documentation/\"> https://www.percona.com/software/"
 "documentation </a>"
 
 #: libraries/advisory_rules_generic.php:164
-#, fuzzy
 msgid "'percona' found in version_comment"
 msgstr "'percona' znaleziono w version_comment"
 
 #: libraries/advisory_rules_generic.php:168
-#, fuzzy
 msgid "MySQL Architecture"
 msgstr "Architektura MySQL"
 
 #: libraries/advisory_rules_generic.php:172
-#, fuzzy
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL nie jest skompilowany jako pakiet 64-bitowy."
 
 #: libraries/advisory_rules_generic.php:174
-#, fuzzy
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Twoja pojemność pamięci wynosi powyżej 3 GB (przy założeniu, że serwer jest "
-"na localhost), więc MySQL nie może być w stanie uzyskać dostęp do całej "
-"pamięci. Warto rozważyć zainstalowanie 64-bitowej wersji MySQL."
+"Twoja pojemność pamięci jest powyżej 3 GiB (zakładając, że serwer jest na "
+"localhost), więc MySQL może nie być w stanie uzyskać dostępu do całej "
+"pamięci. Możesz rozważyć zainstalowanie 64-bitowej wersji MySQL."
 
 #: libraries/advisory_rules_generic.php:178
-#, fuzzy, php-format
+#, php-format
 msgid "Available memory on this host: %s"
-msgstr "Dostępna pamięć na tym hostie: %s"
+msgstr "Dostępna pamięć na tym hoście: %s"
 
 #: libraries/advisory_rules_generic.php:184
-#, fuzzy
 msgid "Query caching method"
-msgstr "Metoda buforowania zapytania"
+msgstr "Metoda buforowania zapytań"
 
 #: libraries/advisory_rules_generic.php:188
-#, fuzzy
 msgid "Suboptimal caching method."
-msgstr "Optymalna metoda buforowania."
+msgstr "Nieoptymalna metoda buforowania."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"Używasz pamięci podręcznej zapytań MySQL z wysokim obciążeniem bazy danych. "
-"Warto rozważyć użycie <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
-"memcached.html\">memcached</a> zamiast pamięci podręcznej zapytań MySQL, "
-"zwłaszcza jeśli masz wiele replik bazy danych."
+"Używasz bufora zapytań MySQL z bazą danych o dość dużym ruchu. Być może "
+"warto rozważyć użycie <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> zamiast bufora zapytań MySQL, zwłaszcza jeśli "
+"masz wiele replik."
 
 #: libraries/advisory_rules_generic.php:196
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"Zapytanie pamięci podręcznej jest włączone i serwer odbiera %d zapytań na "
-"sekundę. Zasada ta zadziała, jeśli istnieje więcej niż 100 zapytań na "
-"sekundę."
+"Bufor zapytań jest włączony i serwer otrzymuje %d zapytań na sekundę. Reguła "
+"zostanie uruchomiona, gdy liczba zapytań będzie większa niż 100 na sekundę."
 
 #: libraries/advisory_rules_generic.php:204
-#, fuzzy
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Procent sortuje, które powodują tabele tymczasowe"
+msgstr "Procent sortowań, które powodują powstanie tabel tymczasowych"
 
 #: libraries/advisory_rules_generic.php:208
 #: libraries/advisory_rules_generic.php:221
-#, fuzzy
 msgid "Too many sorts are causing temporary tables."
-msgstr "Zbyt wiele rodzajów jest przyczyną tabel tymczasowych."
+msgstr "Zbyt wiele sortowań powoduje powstawanie tabel tymczasowych."
 
 #: libraries/advisory_rules_generic.php:210
 #: libraries/advisory_rules_generic.php:223
-#, fuzzy
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
@@ -356,36 +323,33 @@ msgstr ""
 "zależności od limitów pamięci systemowej."
 
 #: libraries/advisory_rules_generic.php:213
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"%s%% wszelkiego rodzaju spowodować tabel tymczasowych, ta wartość ta powinna "
-"być niższa niż 10%%."
+"%s%% z wszystkich sortowań powoduje powstawanie tabel tymczasowych, ta "
+"wartość powinna być niższa niż 10%%."
 
 #: libraries/advisory_rules_generic.php:218
-#, fuzzy
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Kurs sortuje, które powodują tabele tymczasowe"
+msgstr "Tempo sortowań, które powoduje powstawanie tabeli tymczasowych"
 
 #: libraries/advisory_rules_generic.php:226
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
-"Średnie tabele tymczasowe: %s ta wartość powinna być mniejsza niż 1 na "
+"Średnia tabel tymczasowych: %s, ta wartość powinna być mniejsza niż 1 na "
 "godzinę."
 
 #: libraries/advisory_rules_generic.php:231
-#, fuzzy
 msgid "Sort rows"
-msgstr "Sortowanie wierszy"
+msgstr "Sortuj wiersze"
 
 #: libraries/advisory_rules_generic.php:234
-#, fuzzy
 msgid "There are lots of rows being sorted."
-msgstr "Istnieje wiele wierszy posortowanych."
+msgstr "Jest wiele wierszy, które są sortowane."
 
 #: libraries/advisory_rules_generic.php:236
 #, fuzzy
