@@ -1588,7 +1588,7 @@ Generic settings
     :type: boolean
     :default: false
 
-    You can disable phpMyAdmin shortcut keys by setting :config:option:`$cfg['DisableShortcutKeys']` to false.
+    You can disable phpMyAdmin shortcut keys by setting :config:option:`$cfg['DisableShortcutKeys']` to true.
 
 .. config:option:: $cfg['ServerDefault']
 
