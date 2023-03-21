@@ -89,13 +89,6 @@ class ConfigFile
         // load additional config information
         $this->cfgDb = $this->getAllowedValues();
 
-        // apply default values overrides
-        if (count($this->cfgDb['_overrides'])) {
-            foreach ($this->cfgDb['_overrides'] as $path => $value) {
-                Core::arrayWrite($path, $this->defaultCfg, $value);
-            }
-        }
-
         $this->baseCfg = $baseConfig;
         $this->isInSetup = $baseConfig === null;
         $this->id = 'ConfigFile' . $GLOBALS['server'];
@@ -290,8 +283,7 @@ class ConfigFile
 
     /**
      * Returns default config value or $default it it's not set ie. it doesn't
-     * exist in {@see \PhpMyAdmin\Config\Settings} ($cfg) and config.values.php
-     * ($_cfg_db['_overrides'])
+     * exist in {@see \PhpMyAdmin\Config\Settings} ($cfg).
      *
      * @param string $canonicalPath Canonical path
      * @param mixed  $default       Default value
@@ -849,12 +841,6 @@ class ConfigFile
                     'desc',
                 ],
             ],
-
-            /**
-             * Default values overrides
-             * Use only full paths
-             */
-            '_overrides' => [],
 
             /**
              * Basic validator assignments (functions from libraries/config/Validator.php

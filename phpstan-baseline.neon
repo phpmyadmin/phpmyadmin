@@ -221,11 +221,6 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Argument of an invalid type array\\|string supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Config/ConfigFile.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:__construct\\(\\) has parameter \\$baseConfig with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
@@ -312,11 +307,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Core\\:\\:arrayWrite\\(\\) expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: libraries/classes/Config/ConfigFile.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
 

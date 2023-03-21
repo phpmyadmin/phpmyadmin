@@ -377,7 +377,6 @@
       <code>$k</code>
       <code>$mapTo</code>
       <code>$mapTo</code>
-      <code>$path</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$this->id]['Servers'][$i + 1]]]></code>
@@ -404,7 +403,6 @@
       <code>$result[$prefix . $key]</code>
       <code>$value</code>
       <code>$value</code>
-      <code>$value</code>
       <code>$verbose</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -427,9 +425,6 @@
       <code><![CDATA[empty($host) ? 'localhost' : $host]]></code>
       <code><![CDATA[empty($host) ? 'localhost' : $host]]></code>
     </MixedReturnStatement>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->cfgDb['_overrides']]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
@@ -439,9 +434,6 @@
       <code><![CDATA[$_SESSION[$this->id]]]></code>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidIterator>
-      <code><![CDATA[$this->cfgDb['_overrides']]]></code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArgument>
       <code><![CDATA[$this->baseCfg]]></code>
     </PossiblyNullArgument>
