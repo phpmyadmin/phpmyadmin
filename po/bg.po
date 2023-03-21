@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-19 00:20+0000\n"
-"PO-Revision-Date: 2022-08-19 10:18+0000\n"
-"Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
+"PO-Revision-Date: 2023-03-22 03:43+0000\n"
+"Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
 "Language: bg\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -8873,7 +8873,7 @@ msgstr "Отметката не беше създадена!"
 #: libraries/classes/Table/Indexes.php:77
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Таблицата %1$s беше променена."
+msgstr "Таблицата %1$s е променена."
 
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:33
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:28
@@ -9083,11 +9083,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:199
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Таблицата %1$s беше променена."
+msgstr "Таблицата %1$s е променена."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:79
 #, php-format
@@ -9440,10 +9439,9 @@ msgid "Routine %1$s has been created."
 msgstr "Процедура %1$s беше създадена."
 
 #: libraries/classes/Database/Routines.php:396
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Процедурата%1$s беше променена."
+msgstr "Процедурата%1$s е променена."
 
 #: libraries/classes/Database/Routines.php:401
 #, php-format
