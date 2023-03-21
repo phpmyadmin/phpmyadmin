@@ -372,12 +372,12 @@
       <code>$mapFrom</code>
       <code>$path</code>
       <code>$path</code>
-      <code>$path</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$k</code>
       <code>$mapTo</code>
       <code>$mapTo</code>
+      <code>$path</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$this->id]['Servers'][$i + 1]]]></code>
@@ -399,7 +399,6 @@
       <code>$instanceDefaultValue</code>
       <code>$mapFrom</code>
       <code>$mapFrom</code>
-      <code>$path</code>
       <code>$path</code>
       <code>$port</code>
       <code>$result[$prefix . $key]</code>
@@ -428,6 +427,9 @@
       <code><![CDATA[empty($host) ? 'localhost' : $host]]></code>
       <code><![CDATA[empty($host) ? 'localhost' : $host]]></code>
     </MixedReturnStatement>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$this->cfgDb['_overrides']]]></code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
@@ -437,13 +439,12 @@
       <code><![CDATA[$_SESSION[$this->id]]]></code>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
     </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidIterator>
+      <code><![CDATA[$this->cfgDb['_overrides']]]></code>
+    </PossiblyInvalidIterator>
     <PossiblyNullArgument>
       <code><![CDATA[$this->baseCfg]]></code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType>
-      <code><![CDATA[count($this->cfgDb['_overrides'])]]></code>
-      <code><![CDATA[count($this->cfgDb['_overrides'])]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Config/Form.php">
     <MissingClosureParamType>
@@ -14387,6 +14388,9 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Config/ConfigFileTest.php">
+    <MixedArrayAccess>
+      <code><![CDATA[$cfg_db['Servers'][1]['port']]]></code>
+    </MixedArrayAccess>
     <MixedAssignment>
       <code>$default_host</code>
       <code>$default_host</code>
@@ -14402,6 +14406,9 @@
       <code>$default_host</code>
       <code>$default_value</code>
     </MixedOperand>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$cfg_db['Servers'][1]['port']]]></code>
+    </PossiblyInvalidArrayOffset>
   </file>
   <file src="test/classes/Config/DescriptionTest.php">
     <MixedAssignment>

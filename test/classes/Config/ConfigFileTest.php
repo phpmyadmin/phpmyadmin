@@ -353,7 +353,7 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testGetDbEntry(): void
     {
-        $cfg_db = include ROOT_PATH . 'libraries/config.values.php';
+        $cfg_db = $this->object->getAllowedValues();
         // verify that $cfg_db read from config.values.php is valid
         $this->assertGreaterThanOrEqual(20, count($cfg_db));
 

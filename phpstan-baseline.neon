@@ -221,6 +221,11 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
+			message: "#^Argument of an invalid type array\\|string supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Config/ConfigFile.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:__construct\\(\\) has parameter \\$baseConfig with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
@@ -311,17 +316,17 @@ parameters:
 			path: libraries/classes/Config/ConfigFile.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Config/ConfigFile.php
+
+		-
 			message: "#^Parameter \\#2 \\$array of static method PhpMyAdmin\\\\Core\\:\\:arrayRead\\(\\) expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:\\$baseCfg type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/ConfigFile.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:\\$cfgDb type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
 
@@ -9174,6 +9179,11 @@ parameters:
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\WriteGitRevisionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: test/classes/Command/WriteGitRevisionCommandTest.php
+
+		-
+			message: "#^Cannot access offset 'port' on mixed\\.$#"
+			count: 1
+			path: test/classes/Config/ConfigFileTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
