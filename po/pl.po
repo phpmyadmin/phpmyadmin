@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-02-17 01:49+0000\n"
-"Last-Translator: Bartosz Pazoła <mmmalfc@gmail.com>\n"
+"PO-Revision-Date: 2023-03-22 03:43+0000\n"
+"Last-Translator: Marcin Gil <mg@artigo.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -16513,7 +16513,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Masz powolne zapytania %s na godzinę, trzeba mieć mniej niż 1%% na godzinę."
+"Twój wskaźnik powolnych zapytań to %s na godzinę, powinieneś mieć mniej niż "
+"1%% na godzinę."
 
 #: libraries/advisory_rules_generic.txt:77
 msgid "Long query time"
@@ -16524,16 +16525,16 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"{long_query_time} jest ustawiony na 10 sekund lub więcej, a więc tylko "
-"powolnych zapytań, które biorą ponad 10 sekund są rejestrowane."
+"{long_query_time} jest ustawiony na 10 sekund lub więcej, dlatego "
+"rejestrowane są tylko te powolne zapytania, które trwają powyżej 10 sekund."
 
 #: libraries/advisory_rules_generic.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
-"Sugeruje się, aby ustawić {long_query_time} do wartości niższej, w "
-"zależności od danego środowiska. Zazwyczaj sugerujemy wartość 1-5 sekund."
+"Sugeruje się, aby ustawić {long_query_time} na niższą wartość, w zależności "
+"od Twojego środowiska. Najczęściej sugerowaną wartością jest 1-5 sekund."
 
 #: libraries/advisory_rules_generic.txt:82
 #, php-format
@@ -16555,24 +16556,24 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Włącz wolne rejestrowanie zapytań, ustawiając {log_slow_queries} na „ON”. "
-"Pomoże to rozwiązać źle działające zapytania."
+"Włącz logowanie powolnych zapytań ustawiając {log_slow_queries} na 'ON'. "
+"Pomoże to w rozwiązywaniu problemów z powoli wykonującymi się zapytaniami."
 
 #: libraries/advisory_rules_generic.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries jest ustawiony na 'WYŁ'"
+msgstr "log_slow_queries jest ustawiony na 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:95
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Włącz powolne rejestrowanie zapytań, ustawiając {slow_query_log} na „ON”. "
-"Pomoże to rozwiązać źle działające zapytania."
+"Włącz rejestrowanie powolnych zapytań ustawiając {slow_query_log} na 'ON'. "
+"Pomoże to w rozwiązywaniu problemów z powoli wykonującymi się zapytaniami."
 
 #: libraries/advisory_rules_generic.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries jest ustawiony na 'WYŁ'"
+msgstr "slow_query_log jest ustawiony na 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:100
 msgid "Release Series"
@@ -16580,47 +16581,47 @@ msgstr "Seria wydania"
 
 #: libraries/advisory_rules_generic.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr "Wersja serwera MySQL jest mniejsza niż 5,1."
+msgstr "Wersja serwera MySQL jest mniejsza niż 5.1."
 
 #: libraries/advisory_rules_generic.txt:104
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"Powinieneś zaktualizować, jak MySQL 5.1 ma lepsze osiągi i MySQL 5.5 jeszcze "
-"bardziej."
+"Powinieneś zaktualizować, ponieważ MySQL 5.1 poprawił wydajność, a MySQL 5.5 "
+"jeszcze bardziej."
 
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
 #: libraries/advisory_rules_generic.txt:119
 #, php-format
 msgid "Current version: %s"
-msgstr "Bieżąca wersja: %s"
+msgstr "Aktualna wersja: %s"
 
 #: libraries/advisory_rules_generic.txt:107
 #: libraries/advisory_rules_generic.txt:114
 msgid "Minor Version"
-msgstr "Mniejsza wersja"
+msgstr "Wersja mniejsza"
 
 #: libraries/advisory_rules_generic.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "Wersja starsza niż 5.1.30 (pierwsze wydanie GA 5,1)."
+msgstr "Wersja starsza niż 5.1.30 (pierwsze wydanie GA wersji 5.1)."
 
 #: libraries/advisory_rules_generic.txt:111
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Powinieneś zaktualizować, jako ostatnie wersje MySQL 5.1 poprawiają "
-"wydajność a MySQL 5.5 jeszcze bardziej."
+"Powinieneś zaktualizować, ponieważ ostatnie wersje MySQL 5.1 poprawiły "
+"wydajność, a MySQL 5.5 jeszcze bardziej."
 
 #: libraries/advisory_rules_generic.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "Wersja starsza niż 5.5.8 (pierwsze wydanie GA 5,5)."
+msgstr "Wersja starsza niż 5.5.8 (pierwsze wydanie GA dla 5.5)."
 
 #: libraries/advisory_rules_generic.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Powinieneś dokonać aktualizacji do stabilnej wersji MySQL 5.5."
+msgstr "Należy dokonać aktualizacji, do stabilnej wersji MySQL 5.5."
 
 #: libraries/advisory_rules_generic.txt:121
 #: libraries/advisory_rules_generic.txt:128
@@ -16629,7 +16630,7 @@ msgstr "Dystrybucja"
 
 #: libraries/advisory_rules_generic.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "Wersja jest skompilowana ze źródeł, a nie oficjalnych binarnek MySQL."
+msgstr "Wersja jest skompilowana ze źródła, a nie z oficjalnej binarki MySQL."
 
 #: libraries/advisory_rules_generic.txt:125
 msgid ""
@@ -16637,25 +16638,25 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"Jeśli nie kompilować ze źródeł, być może przy użyciu pakietu zmodyfikowane "
-"przez dystrybucji. Instrukcja MySQL tylko jest dokładna dla oficjalnych "
-"plików binarnych MySQL, a nie wszelkie dystrybucje pakietów (takich jak "
-"RedHat, Debian/Ubuntu itp)."
+"Jeśli nie skompilowałeś ze źródła, możesz używać pakietu zmodyfikowanego "
+"przez dystrybucję. Podręcznik MySQL jest dokładny jedynie dla oficjalnych "
+"binariów MySQL, a nie dla każdego pakietu z dystrybucji (takich jak RedHat, "
+"Debian/Ubuntu itp.)."
 
 #: libraries/advisory_rules_generic.txt:126
 msgid "'source' found in version_comment"
-msgstr "\"Źródło\" znaleziono w version_comment"
+msgstr "'source' znalezione w version_comment"
 
 #: libraries/advisory_rules_generic.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "MySQL instrukcji tylko jest dokładna dla oficjalnych binarnych MySQL."
+msgstr "Podręcznik MySQL jest dokładny tylko dla oficjalnych binariów MySQL."
 
 #: libraries/advisory_rules_generic.txt:132
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Dokumentacja Percona znajduje się na stronie <a href=\"https://www.percona."
+"Dokumentacja Percony znajduje się na stronie <a href=\"https://www.percona."
 "com/software/documentation/\"> https://www.percona.com/software/"
 "documentation </a>"
 
@@ -16677,22 +16678,22 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Twoja pojemność pamięci wynosi powyżej 3 GB (przy założeniu, że serwer jest "
-"na localhost), więc MySQL nie może być w stanie uzyskać dostęp do całej "
-"pamięci. Warto rozważyć zainstalowanie 64-bitowej wersji MySQL."
+"Twoja pojemność pamięci jest powyżej 3 GiB (zakładając, że serwer jest na "
+"localhost), więc MySQL może nie być w stanie uzyskać dostępu do całej "
+"pamięci. Możesz rozważyć zainstalowanie 64-bitowej wersji MySQL."
 
 #: libraries/advisory_rules_generic.txt:140
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr "Dostępna pamięć na tym hostie: %s"
+msgstr "Dostępna pamięć na tym hoście: %s"
 
 #: libraries/advisory_rules_generic.txt:145
 msgid "Query caching method"
-msgstr "Metoda buforowania zapytania"
+msgstr "Metoda buforowania zapytań"
 
 #: libraries/advisory_rules_generic.txt:148
 msgid "Suboptimal caching method."
-msgstr "Optymalna metoda buforowania."
+msgstr "Nieoptymalna metoda buforowania."
 
 #: libraries/advisory_rules_generic.txt:149
 msgid ""
@@ -16712,18 +16713,17 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"Zapytanie pamięci podręcznej jest włączone i serwer odbiera %d zapytań na "
-"sekundę. Zasada ta zadziała, jeśli istnieje więcej niż 100 zapytań na "
-"sekundę."
+"Bufor zapytań jest włączony i serwer otrzymuje %d zapytań na sekundę. Reguła "
+"zostanie uruchomiona, gdy liczba zapytań będzie większa niż 100 na sekundę."
 
 #: libraries/advisory_rules_generic.txt:154
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Procent sortuje, które powodują tabele tymczasowe"
+msgstr "Procent sortowań, które powodują powstanie tabel tymczasowych"
 
 #: libraries/advisory_rules_generic.txt:157
 #: libraries/advisory_rules_generic.txt:164
 msgid "Too many sorts are causing temporary tables."
-msgstr "Zbyt wiele rodzajów jest przyczyną tabel tymczasowych."
+msgstr "Zbyt wiele sortowań powoduje powstawanie tabel tymczasowych."
 
 #: libraries/advisory_rules_generic.txt:158
 #: libraries/advisory_rules_generic.txt:165
@@ -16740,28 +16740,28 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"%s%% wszelkiego rodzaju spowodować tabel tymczasowych, ta wartość ta powinna "
-"być niższa niż 10%%."
+"%s%% z wszystkich sortowań powoduje powstawanie tabel tymczasowych, ta "
+"wartość powinna być niższa niż 10%%."
 
 #: libraries/advisory_rules_generic.txt:161
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Kurs sortuje, które powodują tabele tymczasowe"
+msgstr "Tempo sortowań, które powoduje powstawanie tabeli tymczasowych"
 
 #: libraries/advisory_rules_generic.txt:166
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
-"Średnie tabele tymczasowe: %s ta wartość powinna być mniejsza niż 1 na "
+"Średnia tabel tymczasowych: %s, ta wartość powinna być mniejsza niż 1 na "
 "godzinę."
 
 #: libraries/advisory_rules_generic.txt:168
 msgid "Sort rows"
-msgstr "Sortowanie wierszy"
+msgstr "Sortuj wiersze"
 
 #: libraries/advisory_rules_generic.txt:171
 msgid "There are lots of rows being sorted."
-msgstr "Istnieje wiele wierszy posortowanych."
+msgstr "Jest wiele wierszy, które są sortowane."
 
 #: libraries/advisory_rules_generic.txt:172
 msgid ""
