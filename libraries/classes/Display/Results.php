@@ -449,7 +449,7 @@ class Results
     {
         return $displayParts->with([
             'hasEditLink' => false,
-            'deleteLink' => DisplayParts::NO_DELETE,
+            'deleteLink' => DeleteLinkEnum::NO_DELETE,
             'hasSortLink' => false,
             'hasNavigationBar' => false,
             'hasBookmarkForm' => false,
@@ -479,7 +479,7 @@ class Results
 
         return $displayParts->with([
             'hasEditLink' => false,
-            'deleteLink' => $bIsProcessList ? DisplayParts::KILL_PROCESS : DisplayParts::NO_DELETE,
+            'deleteLink' => $bIsProcessList ? DeleteLinkEnum::KILL_PROCESS : DeleteLinkEnum::NO_DELETE,
             'hasSortLink' => false,
             'hasNavigationBar' => false,
             'hasBookmarkForm' => true,
@@ -498,7 +498,7 @@ class Results
         // contains a "PROC ANALYSE" part
         return $displayParts->with([
             'hasEditLink' => false,
-            'deleteLink' => DisplayParts::NO_DELETE,
+            'deleteLink' => DeleteLinkEnum::NO_DELETE,
             'hasSortLink' => false,
             'hasNavigationBar' => false,
             'hasBookmarkForm' => true,
@@ -520,7 +520,7 @@ class Results
         $hasPrintLink = $displayParts->hasPrintLink;
 
         for ($i = 0; $i < $numberOfColumns; $i++) {
-            $isLink = $hasEditLink || $deleteLink !== DisplayParts::NO_DELETE || $displayParts->hasSortLink;
+            $isLink = $hasEditLink || $deleteLink !== DeleteLinkEnum::NO_DELETE || $displayParts->hasSortLink;
 
             // Displays edit/delete/sort/insert links?
             if (
@@ -531,7 +531,7 @@ class Results
             ) {
                 // don't display links
                 $hasEditLink = false;
-                $deleteLink = DisplayParts::NO_DELETE;
+                $deleteLink = DeleteLinkEnum::NO_DELETE;
                 break;
             }
 
@@ -547,7 +547,7 @@ class Results
         if ($previousTable == '') { // no table for any of the columns
             // don't display links
             $hasEditLink = false;
-            $deleteLink = DisplayParts::NO_DELETE;
+            $deleteLink = DeleteLinkEnum::NO_DELETE;
         }
 
         return $displayParts->with([
@@ -943,7 +943,7 @@ class Results
         // 1. Set $colspan and generate html with full/partial
         // text button or link
         $colspan = $displayParts->hasEditLink
-            && $displayParts->deleteLink !== DisplayParts::NO_DELETE ? ' colspan="4"' : '';
+            && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? ' colspan="4"' : '';
         $buttonHtml = $this->getFieldVisibilityParams($displayParts, $fullOrPartialTextLink, $colspan);
 
         // 2. Displays the fields' name
@@ -974,8 +974,8 @@ class Results
         return [
             'column_order' => $columnOrder,
             'options' => $optionsBlock,
-            'has_bulk_actions_form' => $displayParts->deleteLink === DisplayParts::DELETE_ROW
-                || $displayParts->deleteLink === DisplayParts::KILL_PROCESS,
+            'has_bulk_actions_form' => $displayParts->deleteLink === DeleteLinkEnum::DELETE_ROW
+                || $displayParts->deleteLink === DeleteLinkEnum::KILL_PROCESS,
             'button' => $buttonHtml,
             'table_headers_for_columns' => $tableHeadersForColumns,
             'column_at_right_side' => $columnAtRightSide,
@@ -1091,7 +1091,7 @@ class Results
         // 1. Displays the full/partial text button (part 1)...
         $buttonHtml = '<thead><tr>' . "\n";
 
-        $emptyPreCondition = $displayParts->hasEditLink && $displayParts->deleteLink !== DisplayParts::NO_DELETE;
+        $emptyPreCondition = $displayParts->hasEditLink && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE;
 
         $leftOrBoth = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT
                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
@@ -1099,7 +1099,7 @@ class Results
         //     ... before the result table
         if (
             ! $displayParts->hasEditLink
-            && $displayParts->deleteLink === DisplayParts::NO_DELETE
+            && $displayParts->deleteLink === DeleteLinkEnum::NO_DELETE
             && $displayParts->hasTextButton
         ) {
             $displayParams['emptypre'] = 0;
@@ -1113,7 +1113,7 @@ class Results
                 . '>' . $fullOrPartialTextLink . '</th>';
         } elseif (
             $leftOrBoth
-            && ($displayParts->hasEditLink || $displayParts->deleteLink !== DisplayParts::NO_DELETE)
+            && ($displayParts->hasEditLink || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
         ) {
             //     ... elseif no button, displays empty(ies) col(s) if required
 
@@ -1765,11 +1765,11 @@ class Results
         if (
             ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
             || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-            && ($displayParts->hasEditLink || $displayParts->deleteLink !== DisplayParts::NO_DELETE)
+            && ($displayParts->hasEditLink || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
             && $displayParts->hasTextButton
         ) {
             $displayParams['emptyafter'] = $displayParts->hasEditLink
-                && $displayParts->deleteLink !== DisplayParts::NO_DELETE ? 4 : 1;
+                && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? 4 : 1;
 
             $rightColumnHtml .= "\n"
                 . '<th class="column_action d-print-none"' . $colspan . '>'
@@ -1779,14 +1779,14 @@ class Results
             ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             && (! $displayParts->hasEditLink
-            && $displayParts->deleteLink === DisplayParts::NO_DELETE)
+            && $displayParts->deleteLink === DeleteLinkEnum::NO_DELETE)
             && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
         ) {
             //     ... elseif no button, displays empty columns if required
             // (unless coming from Browse mode print view)
 
             $displayParams['emptyafter'] = $displayParts->hasEditLink
-                && $displayParts->deleteLink !== DisplayParts::NO_DELETE ? 4 : 1;
+                && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? 4 : 1;
 
             $rightColumnHtml .= "\n" . '<td class="d-print-none"' . $colspan
                 . '></td>';
@@ -2035,7 +2035,7 @@ class Results
 
             if (
                 $displayParts->hasEditLink
-                || ($displayParts->deleteLink !== DisplayParts::NO_DELETE)
+                || ($displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
             ) {
                 $expressions = [];
 
@@ -2091,7 +2091,7 @@ class Results
                 ) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_LEFT,
-                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DisplayParts::KILL_PROCESS,
+                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
                         'edit' => [
                             'url' => $editUrl,
                             'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -2114,7 +2114,7 @@ class Results
                 } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_NONE,
-                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DisplayParts::KILL_PROCESS,
+                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
                         'edit' => [
                             'url' => $editUrl,
                             'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -2156,13 +2156,13 @@ class Results
             // 3. Displays the modify/delete links on the right if required
             if (
                 ($displayParts->hasEditLink
-                    || $displayParts->deleteLink !== DisplayParts::NO_DELETE)
+                    || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
                 && ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
                     || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             ) {
                 $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                     'position' => self::POSITION_RIGHT,
-                    'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DisplayParts::KILL_PROCESS,
+                    'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
                     'edit' => [
                         'url' => $editUrl,
                         'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -2776,7 +2776,6 @@ class Results
      * @param bool   $clauseIsUnique the unique condition of clause
      * @param string $urlSqlQuery    the analyzed sql query
      * @param int    $processId      Process ID
-     * @psalm-param DisplayParts::NO_DELETE|DisplayParts::DELETE_ROW|DisplayParts::KILL_PROCESS $deleteLink
      *
      * @return array  $del_url, $del_str, $js_conf
      * @psalm-return array{?string, ?string, ?string}
@@ -2785,12 +2784,12 @@ class Results
         string $whereClause,
         bool $clauseIsUnique,
         string $urlSqlQuery,
-        int $deleteLink,
+        DeleteLinkEnum $deleteLink,
         int $processId,
     ): array {
         $goto = $this->properties['goto'];
 
-        if ($deleteLink === DisplayParts::DELETE_ROW) { // delete row case
+        if ($deleteLink === DeleteLinkEnum::DELETE_ROW) { // delete row case
             $urlParams = [
                 'db' => $this->properties['db'],
                 'table' => $this->properties['table'],
@@ -2820,7 +2819,7 @@ class Results
                 . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $deleteString = $this->getActionLinkContent('b_drop', __('Delete'));
-        } elseif ($deleteLink === DisplayParts::KILL_PROCESS) { // kill process case
+        } elseif ($deleteLink === DeleteLinkEnum::KILL_PROCESS) { // kill process case
             $urlParams = [
                 'db' => $this->properties['db'],
                 'table' => $this->properties['table'],
@@ -3568,7 +3567,7 @@ class Results
             'navigation' => $navigation,
             'headers' => $headers,
             'body' => $body,
-            'has_bulk_links' => $displayParts->deleteLink === DisplayParts::DELETE_ROW,
+            'has_bulk_links' => $displayParts->deleteLink === DeleteLinkEnum::DELETE_ROW,
             'has_export_button' => $this->hasExportButton($statementInfo, $displayParts->deleteLink),
             'clause_is_unique' => $isClauseUnique,
             'operations' => $operations,
@@ -3876,14 +3875,13 @@ class Results
      * @see     getTable()
      *
      * @param ResultInterface $dtResult the link id associated to the query which results have to be displayed
-     * @psalm-param DisplayParts::NO_DELETE|DisplayParts::DELETE_ROW|DisplayParts::KILL_PROCESS $deleteLink
      */
     private function isClauseUnique(
         ResultInterface $dtResult,
         StatementInfo $statementInfo,
-        int $deleteLink,
+        DeleteLinkEnum $deleteLink,
     ): bool {
-        if ($deleteLink !== DisplayParts::DELETE_ROW) {
+        if ($deleteLink !== DeleteLinkEnum::DELETE_ROW) {
             return false;
         }
 
@@ -3916,9 +3914,9 @@ class Results
         return $clauseIsUnique;
     }
 
-    private function hasExportButton(StatementInfo $statementInfo, int $deleteLink): bool
+    private function hasExportButton(StatementInfo $statementInfo, DeleteLinkEnum $deleteLink): bool
     {
-        return $deleteLink === DisplayParts::DELETE_ROW && $statementInfo->queryType === 'SELECT';
+        return $deleteLink === DeleteLinkEnum::DELETE_ROW && $statementInfo->queryType === 'SELECT';
     }
 
     /**
