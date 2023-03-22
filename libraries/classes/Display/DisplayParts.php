@@ -13,13 +13,13 @@ final class DisplayParts
 
     /** @psalm-param self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS $deleteLink */
     private function __construct(
-        public bool $hasEditLink,
-        public int $deleteLink,
-        public bool $hasSortLink,
-        public bool $hasNavigationBar,
-        public bool $hasBookmarkForm,
-        public bool $hasTextButton,
-        public bool $hasPrintLink,
+        public readonly bool $hasEditLink,
+        public readonly int $deleteLink,
+        public readonly bool $hasSortLink,
+        public readonly bool $hasNavigationBar,
+        public readonly bool $hasBookmarkForm,
+        public readonly bool $hasTextButton,
+        public readonly bool $hasPrintLink,
     ) {
     }
 
