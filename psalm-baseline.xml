@@ -4492,7 +4492,6 @@
       <code><![CDATA[$this->columnNullFlags[$column_index]]]></code>
       <code><![CDATA[$this->originalColumnTypes[$column_index]]]></code>
       <code>$type</code>
-      <code>$uniqueCondition</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
@@ -4505,8 +4504,6 @@
       <code>$collation</code>
       <code>$columnName</code>
       <code>$is_unsigned</code>
-      <code><![CDATA[$row['where_clause']]]></code>
-      <code>$tmpData[$dataLabel]</code>
       <code>$type</code>
     </MixedAssignment>
     <PossiblyFalseArgument>
@@ -6340,8 +6337,6 @@
       <code>$clause</code>
       <code>$clause</code>
       <code>$clause</code>
-      <code>$clauseIsUnique</code>
-      <code>$clauseIsUnique</code>
       <code>$colOrder</code>
       <code>$colVisib</code>
       <code>$colVisib</code>
@@ -6373,8 +6368,6 @@
       <code>$sqlQuery</code>
       <code><![CDATA[$statementInfo->statement->from]]></code>
       <code><![CDATA[$urlParams['where_clause']]]></code>
-      <code>$whereClause</code>
-      <code>$whereClause</code>
       <code><![CDATA[$whereClauseMap[$rowNumber][$meta->orgtable]]]></code>
       <code><![CDATA[(int) $this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']]]></code>
@@ -6571,12 +6564,9 @@
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
       <code>$value</code>
-      <code><![CDATA[$whereClauseMap[$rowNumber][$meta->orgtable]]]></code>
-      <code><![CDATA[$whereClauseMap[$rowNumber][$this->properties['table']]]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>Message</code>
-      <code>bool</code>
     </MixedInferredReturnType>
     <MixedMethodCall>
       <code>new $className()</code>
@@ -6603,9 +6593,6 @@
       <code><![CDATA[$statementInfo->statement->from[0]->table]]></code>
       <code><![CDATA[$statementInfo->statement->limit->offset]]></code>
     </MixedPropertyFetch>
-    <MixedReturnStatement>
-      <code>$clauseIsUnique</code>
-    </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code>$map</code>
       <code><![CDATA[[
@@ -8193,7 +8180,6 @@
       <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$_SESSION['edit_next']]]></code>
       <code><![CDATA[$column['pma_type']]]></code>
       <code>$currCellEditedValues</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -9914,7 +9900,6 @@
       <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$definition['Type']]]></code>
       <code><![CDATA[$statement->entityOptions->has('AUTO_INCREMENT')]]></code>
-      <code>$tmpUniqueCondition</code>
       <code><![CDATA[$trigger['drop']]]></code>
     </MixedOperand>
     <MixedPropertyTypeCoercion>
