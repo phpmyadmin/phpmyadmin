@@ -298,7 +298,7 @@
     </table>
   </div>
 
-{% if bulk_links is not empty %}
+{% if has_bulk_links %}
     <div class="d-print-none">
       <img class="selectallarrow" src="{{ image('arrow_' ~ text_dir ~ '.png') }}" width="38" height="22" alt="{% trans 'With selected:' %}">
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
@@ -317,14 +317,14 @@
         {{ get_icon('b_drop', 'Delete'|trans) }}
       </button>
 
-      {% if bulk_links.has_export_button %}
+      {% if has_export_button %}
         <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
           {{ get_icon('b_tblexport', 'Export'|trans) }}
         </button>
       {% endif %}
     </div>
 
-    <input type="hidden" name="clause_is_unique" value="{{ bulk_links.clause_is_unique }}">
+    <input type="hidden" name="clause_is_unique" value="{{ clause_is_unique }}">
     <input type="hidden" name="sql_query" value="{{ sql_query }}">
   </form>
 {% endif %}

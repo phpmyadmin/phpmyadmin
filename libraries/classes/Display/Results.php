@@ -3553,7 +3553,7 @@ class Results
         $this->properties['display_params'] = null;
 
         // 4. ----- Prepares the link for multi-fields edit and delete
-        $bulkLinks = $this->getBulkLinks($dtResult, $statementInfo, $displayParts->deleteLink);
+        $isClauseUnique = $this->isClauseUnique($dtResult, $statementInfo, $displayParts->deleteLink);
 
         // 5. ----- Prepare "Query results operations"
         $operations = [];
@@ -3568,7 +3568,9 @@ class Results
             'navigation' => $navigation,
             'headers' => $headers,
             'body' => $body,
-            'bulk_links' => $bulkLinks,
+            'has_bulk_links' => $displayParts->deleteLink === DisplayParts::DELETE_ROW,
+            'has_export_button' => $this->hasExportButton($statementInfo, $displayParts->deleteLink),
+            'clause_is_unique' => $isClauseUnique,
             'operations' => $operations,
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -3873,19 +3875,16 @@ class Results
      *
      * @see     getTable()
      *
-     * @param ResultInterface $dtResult the link id associated to the query which
-     *                          results have to be displayed
+     * @param ResultInterface $dtResult the link id associated to the query which results have to be displayed
      * @psalm-param DisplayParts::NO_DELETE|DisplayParts::DELETE_ROW|DisplayParts::KILL_PROCESS $deleteLink
-     *
-     * @psalm-return array{has_export_button:bool, clause_is_unique:mixed}|array<empty, empty>
      */
-    private function getBulkLinks(
+    private function isClauseUnique(
         ResultInterface $dtResult,
         StatementInfo $statementInfo,
         int $deleteLink,
-    ): array {
+    ): bool {
         if ($deleteLink !== DisplayParts::DELETE_ROW) {
-            return [];
+            return false;
         }
 
         // fetch last row of the result set
@@ -3894,7 +3893,7 @@ class Results
 
         $expressions = [];
 
-        if (isset($statementInfo->statement) && $statementInfo->statement instanceof SelectStatement) {
+        if ($statementInfo->statement instanceof SelectStatement) {
             $expressions = $statementInfo->statement->expr;
         }
 
@@ -3914,10 +3913,12 @@ class Results
         // reset to first row for the loop in getTableBody()
         $dtResult->seek(0);
 
-        return [
-            'has_export_button' => $statementInfo->queryType === 'SELECT',
-            'clause_is_unique' => $clauseIsUnique,
-        ];
+        return $clauseIsUnique;
+    }
+
+    private function hasExportButton(StatementInfo $statementInfo, int $deleteLink): bool
+    {
+        return $deleteLink === DisplayParts::DELETE_ROW && $statementInfo->queryType === 'SELECT';
     }
 
     /**

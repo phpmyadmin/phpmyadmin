@@ -704,6 +704,7 @@ class Util
      * @psalm-param array<int, mixed> $row
      *
      * @return array the calculated condition and whether condition is unique
+     * @psalm-return array{string, bool, array}
      */
     public static function getUniqueCondition(
         int $fieldsCount,
