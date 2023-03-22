@@ -6576,6 +6576,7 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>Message</code>
+      <code>bool</code>
     </MixedInferredReturnType>
     <MixedMethodCall>
       <code>new $className()</code>
@@ -6602,6 +6603,9 @@
       <code><![CDATA[$statementInfo->statement->from[0]->table]]></code>
       <code><![CDATA[$statementInfo->statement->limit->offset]]></code>
     </MixedPropertyFetch>
+    <MixedReturnStatement>
+      <code>$clauseIsUnique</code>
+    </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code>$map</code>
       <code><![CDATA[[
