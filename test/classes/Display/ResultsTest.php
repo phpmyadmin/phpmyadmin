@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
@@ -1357,7 +1358,7 @@ class ResultsTest extends AbstractTestCase
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => true,
-            'deleteLink' => DisplayParts::DELETE_ROW,
+            'deleteLink' => DeleteLinkEnum::DELETE_ROW,
             'hasSortLink' => true,
             'hasNavigationBar' => true,
             'hasBookmarkForm' => true,
@@ -1638,7 +1639,7 @@ class ResultsTest extends AbstractTestCase
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => false,
-            'deleteLink' => DisplayParts::NO_DELETE,
+            'deleteLink' => DeleteLinkEnum::NO_DELETE,
             'hasSortLink' => true,
             'hasNavigationBar' => true,
             'hasBookmarkForm' => true,

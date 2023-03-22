@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
@@ -1005,7 +1006,7 @@ class Sql
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => false,
-            'deleteLink' => DisplayParts::NO_DELETE,
+            'deleteLink' => DeleteLinkEnum::NO_DELETE,
             'hasSortLink' => true,
             'hasNavigationBar' => false,
             'hasBookmarkForm' => true,
@@ -1171,7 +1172,7 @@ class Sql
 
                     $displayParts = DisplayParts::fromArray([
                         'hasEditLink' => false,
-                        'deleteLink' => DisplayParts::NO_DELETE,
+                        'deleteLink' => DeleteLinkEnum::NO_DELETE,
                         'hasSortLink' => true,
                         'hasNavigationBar' => true,
                         'hasBookmarkForm' => true,
@@ -1400,7 +1401,7 @@ class Sql
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => true,
-            'deleteLink' => DisplayParts::DELETE_ROW,
+            'deleteLink' => DeleteLinkEnum::DELETE_ROW,
             'hasSortLink' => true,
             'hasNavigationBar' => true,
             'hasBookmarkForm' => true,
@@ -1411,7 +1412,7 @@ class Sql
         if (! $editable) {
             $displayParts = DisplayParts::fromArray([
                 'hasEditLink' => false,
-                'deleteLink' => DisplayParts::NO_DELETE,
+                'deleteLink' => DeleteLinkEnum::NO_DELETE,
                 'hasSortLink' => true,
                 'hasNavigationBar' => true,
                 'hasBookmarkForm' => true,
@@ -1423,7 +1424,7 @@ class Sql
         if (isset($_POST['printview']) && $_POST['printview'] == '1') {
             $displayParts = DisplayParts::fromArray([
                 'hasEditLink' => false,
-                'deleteLink' => DisplayParts::NO_DELETE,
+                'deleteLink' => DeleteLinkEnum::NO_DELETE,
                 'hasSortLink' => false,
                 'hasNavigationBar' => false,
                 'hasBookmarkForm' => false,

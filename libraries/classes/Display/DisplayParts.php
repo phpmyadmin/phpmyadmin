@@ -7,19 +7,14 @@ namespace PhpMyAdmin\Display;
 /** @psalm-immutable */
 final class DisplayParts
 {
-    public const NO_DELETE = 0;
-    public const DELETE_ROW = 1;
-    public const KILL_PROCESS = 2;
-
-    /** @psalm-param self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS $deleteLink */
     private function __construct(
-        public bool $hasEditLink,
-        public int $deleteLink,
-        public bool $hasSortLink,
-        public bool $hasNavigationBar,
-        public bool $hasBookmarkForm,
-        public bool $hasTextButton,
-        public bool $hasPrintLink,
+        public readonly bool $hasEditLink,
+        public readonly DeleteLinkEnum $deleteLink,
+        public readonly bool $hasSortLink,
+        public readonly bool $hasNavigationBar,
+        public readonly bool $hasBookmarkForm,
+        public readonly bool $hasTextButton,
+        public readonly bool $hasPrintLink,
     ) {
     }
 
@@ -27,7 +22,7 @@ final class DisplayParts
      * @param array<string, bool|int> $parts
      * @psalm-param array{
      *     hasEditLink?: bool,
-     *     deleteLink?: self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS,
+     *     deleteLink?: DeleteLinkEnum,
      *     hasSortLink?: bool,
      *     hasNavigationBar?: bool,
      *     hasBookmarkForm?: bool,
@@ -39,7 +34,7 @@ final class DisplayParts
     {
         return new self(
             $parts['hasEditLink'] ?? false,
-            $parts['deleteLink'] ?? self::NO_DELETE,
+            $parts['deleteLink'] ?? DeleteLinkEnum::NO_DELETE,
             $parts['hasSortLink'] ?? false,
             $parts['hasNavigationBar'] ?? false,
             $parts['hasBookmarkForm'] ?? false,
@@ -52,7 +47,7 @@ final class DisplayParts
      * @param array<string, bool|int> $parts
      * @psalm-param array{
      *     hasEditLink?: bool,
-     *     deleteLink?: self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS,
+     *     deleteLink?: DeleteLinkEnum,
      *     hasSortLink?: bool,
      *     hasNavigationBar?: bool,
      *     hasBookmarkForm?: bool,
