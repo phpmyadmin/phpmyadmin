@@ -385,6 +385,15 @@ class DatabaseInterface implements DbalInterface
         }
 
         $tables = [];
+        $paging_applied = false;
+
+        if ($limit_count && is_array($table) && $sort_by === 'Name') {
+            if ($sort_order === 'DESC') {
+                $table = array_reverse($table);
+            }
+            $table = array_slice($table, $limit_offset, $limit_count);
+            $paging_applied = true;
+        }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_where_table = QueryGenerator::getTableCondition(
@@ -412,7 +421,7 @@ class DatabaseInterface implements DbalInterface
             // Sort the tables
             $sql .= ' ORDER BY ' . $sort_by . ' ' . $sort_order;
 
-            if ($limit_count) {
+            if ($limit_count && ! $paging_applied) {
                 $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
             }
 
@@ -593,7 +602,7 @@ class DatabaseInterface implements DbalInterface
                 unset($sortValues);
             }
 
-            if ($limit_count) {
+            if ($limit_count && ! $paging_applied) {
                 $each_tables = array_slice($each_tables, $limit_offset, $limit_count, true);
             }
 

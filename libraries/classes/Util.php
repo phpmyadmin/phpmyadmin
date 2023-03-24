@@ -2292,7 +2292,7 @@ class Util
 
             $tables = $groupTable + $dbi->getTablesFull(
                 $db,
-                $groupWithSeparator !== false ? $groupWithSeparator : '',
+                $groupWithSeparator !== false ? $groupWithSeparator : $tables,
                 $groupWithSeparator !== false,
                 $limitOffset,
                 $limitCount,
