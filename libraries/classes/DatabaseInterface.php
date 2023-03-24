@@ -412,7 +412,7 @@ class DatabaseInterface implements DbalInterface
                 $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
             }
 
-            /** @var array<string, array<string, array<string, mixed>>> $tables */
+            /** @var mixed[][][] $tables */
             $tables = $this->fetchResult(
                 $sql,
                 [
@@ -438,7 +438,7 @@ class DatabaseInterface implements DbalInterface
                     [
                         $tables[$oneDatabaseName][$oneTableName]['Data_length'],
                         $tables[$oneDatabaseName][$oneTableName]['Index_length'],
-                    ] = StorageEngine::getMroongaLengths($oneDatabaseName, $oneTableName);
+                    ] = StorageEngine::getMroongaLengths((string) $oneDatabaseName, (string) $oneTableName);
                 }
             }
 
@@ -543,7 +543,7 @@ class DatabaseInterface implements DbalInterface
                 [
                     $eachTables[$tableName]['Data_length'],
                     $eachTables[$tableName]['Index_length'],
-                ] = StorageEngine::getMroongaLengths($database, $tableName);
+                ] = StorageEngine::getMroongaLengths($database, (string) $tableName);
             }
 
             // Sort naturally if the config allows it and we're sorting

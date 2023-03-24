@@ -6137,8 +6137,8 @@
       <code>$user</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>$tableName</code>
       <code><![CDATA[uksort($eachTables, 'strnatcasecmp')]]></code>
+      <code><![CDATA[uksort($oneDatabaseTables, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$resultTarget[$row[$keyIndex]]</code>
