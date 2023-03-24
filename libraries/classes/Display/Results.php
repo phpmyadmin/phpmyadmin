@@ -1609,10 +1609,9 @@ class Results
         }
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
-                     . $tmp_txt . '" title="' . $tmp_txt . '">';
-        $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
+                     . $tmp_txt . '" title="' . $tmp_txt . '" />';
 
-        return Util::linkOrButton($tmp_url, $tmp_image);
+        return Util::linkOrButton('sql.php', $url_params_full_text, $tmp_image);
     }
 
     /**
@@ -1730,16 +1729,14 @@ class Results
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
         ];
-        $single_order_url  = 'sql.php' . Url::getCommon($_single_url_params);
-        $multi_order_url = 'sql.php' . Url::getCommon($_multi_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
         $order_link = $this->_getSortOrderLink(
             $order_img,
             $fields_meta,
-            $single_order_url,
-            $multi_order_url
+            $_single_url_params,
+            $_multi_url_params
         );
 
         $sorted_header_html .= $this->_getDraggableClassForSortableColumns(
@@ -2041,10 +2038,10 @@ class Results
     /**
      * Get sort order link
      *
-     * @param string   $order_img       the sort order image
-     * @param stdClass $fields_meta     set of field properties
-     * @param string   $order_url       the url for sort
-     * @param string   $multi_order_url the url for sort
+     * @param string $order_img              the sort order image
+     * @param array  $fields_meta            set of field properties
+     * @param array  $order_url_params       the url params for sort
+     * @param array  $multi_order_url_params the url params for sort
      *
      * @return  string                      the sort order link
      *
@@ -2055,8 +2052,8 @@ class Results
     private function _getSortOrderLink(
         $order_img,
         $fields_meta,
-        $order_url,
-        $multi_order_url
+        $order_url_params,
+        $multi_order_url_params
     ) {
         $order_link_params = [
             'class' => 'sortlink',
@@ -2064,10 +2061,13 @@ class Results
 
         $order_link_content = htmlspecialchars($fields_meta->name);
         $inner_link_content = $order_link_content . $order_img
-            . '<input type="hidden" value="' . $multi_order_url . '">';
+            . '<input type="hidden" value="sql.php'
+            . Url::getCommon($multi_order_url_params, '?', false)
+            . '" />';
 
         return Util::linkOrButton(
-            $order_url,
+            'sql.php',
+            $order_url_params,
             $inner_link_content,
             $order_link_params
         );
@@ -2517,7 +2517,7 @@ class Results
             // 1. Prepares the row
 
             // In print view these variable needs to be initialized
-            $del_url = $del_str = $edit_anchor_class
+            $del_url = $del_str = $edit_anchor_class = $editCopyUrlParams = $delUrlParams
                 = $edit_str = $js_conf = $copy_url = $copy_str = $edit_url = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
@@ -2550,7 +2550,7 @@ class Results
                 // 1.2.1 Modify link(s) - update row case
                 if ($displayParts['edit_lnk'] == self::UPDATE_ROW) {
                     list($edit_url, $copy_url, $edit_str, $copy_str,
-                        $edit_anchor_class)
+                        $edit_anchor_class, $editCopyUrlParams)
                             = $this->_getModifiedLinks(
                                 $where_clause,
                                 $clause_is_unique,
@@ -2559,7 +2559,7 @@ class Results
                 } // end if (1.2.1)
 
                 // 1.2.2 Delete/Kill link(s)
-                list($del_url, $del_str, $js_conf)
+                list($del_url, $del_str, $js_conf, $delUrlParams)
                     = $this->_getDeleteAndKillLinks(
                         $where_clause,
                         $clause_is_unique,
@@ -2586,7 +2586,9 @@ class Results
                         $edit_str,
                         $copy_str,
                         $del_str,
-                        $js_conf
+                        $js_conf,
+                        $editCopyUrlParams,
+                        $delUrlParams
                     );
                 } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
                     $table_body_html .= $this->_getPlacedLinks(
@@ -2603,7 +2605,9 @@ class Results
                         $edit_str,
                         $copy_str,
                         $del_str,
-                        $js_conf
+                        $js_conf,
+                        $editCopyUrlParams,
+                        $delUrlParams
                     );
                 } // end if (1.3)
             } // end if (1)
@@ -2645,7 +2649,9 @@ class Results
                         $edit_str,
                         $copy_str,
                         $del_str,
-                        $js_conf
+                        $js_conf,
+                        $editCopyUrlParams,
+                        $delUrlParams
                     );
                 }
             } // end if (3)
@@ -3247,15 +3253,9 @@ class Results
             'goto'             => 'sql.php',
         ];
 
-        $edit_url = 'tbl_change.php'
-            . Url::getCommon(
-                $_url_params + ['default_action' => 'update']
-            );
+        $edit_url = 'tbl_change.php';
 
-        $copy_url = 'tbl_change.php'
-            . Url::getCommon(
-                $_url_params + ['default_action' => 'insert']
-            );
+        $copy_url = 'tbl_change.php';
 
         $edit_str = $this->_getActionLinkContent(
             'b_edit',
@@ -3278,6 +3278,7 @@ class Results
             $edit_str,
             $copy_str,
             $edit_anchor_class,
+            $_url_params
         ];
     }
 
@@ -3330,7 +3331,7 @@ class Results
                 'message_to_show' => __('The row has been deleted.'),
                 'goto'      => $lnk_goto,
             ];
-            $del_url  = 'sql.php' . Url::getCommon($_url_params);
+            $del_url  = 'sql.php';
 
             $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
                 . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
@@ -3355,20 +3356,21 @@ class Results
                 'goto'      => $lnk_goto,
             ];
 
-            $del_url  = 'sql.php' . Url::getCommon($_url_params);
+            $del_url  = 'sql.php';
             $js_conf  = $kill;
             $del_str = Util::getIcon(
                 'b_drop',
                 __('Kill')
             );
         } else {
-            $del_url = $del_str = $js_conf = null;
+            $del_url = $del_str = $js_conf = $_url_params = null;
         }
 
         return [
             $del_url,
             $del_str,
             $js_conf,
+            $_url_params
         ];
     }
 
@@ -3415,20 +3417,22 @@ class Results
     /**
      * Prepare placed links
      *
-     * @param string      $dir               the direction of links should place
-     * @param string      $del_url           the url for delete row
-     * @param array       $displayParts      which elements to display
-     * @param integer     $row_no            the index of current row
-     * @param string      $where_clause      the where clause of the sql
-     * @param string      $where_clause_html the html encoded where clause
-     * @param array       $condition_array   array of keys (primary, unique, condition)
-     * @param string      $edit_url          the url for edit row
-     * @param string      $copy_url          the url for copy row
-     * @param string      $edit_anchor_class the class for html element for edit
-     * @param string      $edit_str          the label for edit row
-     * @param string      $copy_str          the label for copy row
-     * @param string      $del_str           the label for delete row
-     * @param string|null $js_conf           text for the JS confirmation
+     * @param string  $dir               the direction of links should place
+     * @param string  $del_url           the url for delete row
+     * @param array   $displayParts      which elements to display
+     * @param integer $row_no            the index of current row
+     * @param string  $where_clause      the where clause of the sql
+     * @param string  $where_clause_html the html encoded where clause
+     * @param array   $condition_array   array of keys (primary, unique, condition)
+     * @param string  $edit_url          the url for edit row
+     * @param string  $copy_url          the url for copy row
+     * @param string  $edit_anchor_class the class for html element for edit
+     * @param string  $edit_str          the label for edit row
+     * @param string  $copy_str          the label for copy row
+     * @param string  $del_str           the label for delete row
+     * @param string  $js_conf           text for the JS confirmation
+     * @param array   $editCopyUrlParams URL parameters
+     * @param array   $delUrlParams      URL parameters
      *
      * @return  string                      html content
      *
@@ -3450,7 +3454,9 @@ class Results
         $edit_str,
         $copy_str,
         $del_str,
-        ?string $js_conf
+        $js_conf,
+        $editCopyUrlParams,
+        $delUrlParams
     ) {
 
         if (! isset($js_conf)) {
@@ -3471,7 +3477,9 @@ class Results
             $edit_str,
             $copy_str,
             $del_str,
-            $js_conf
+            $js_conf,
+            $editCopyUrlParams,
+            $delUrlParams
         );
     }
 
@@ -4781,8 +4789,8 @@ class Results
     /**
      * Generates HTML to display the Create view in span tag
      *
-     * @param array  $analyzed_sql_results analyzed sql results
-     * @param string $url_query            String with URL Parameters
+     * @param array $analyzed_sql_results analyzed sql results
+     * @param array $urlParams            URL Parameters
      *
      * @return string
      *
@@ -4790,13 +4798,14 @@ class Results
      *
      * @see _getResultsOperations()
      */
-    private function _getLinkForCreateView(array $analyzed_sql_results, $url_query)
+    private function _getLinkForCreateView(array $analyzed_sql_results, $urlParams)
     {
         $results_operations_html = '';
         if (empty($analyzed_sql_results['procedure'])) {
             $results_operations_html .= '<span>'
                 . Util::linkOrButton(
-                    'view_create.php' . $url_query,
+                    'view_create.php',
+                    $urlParams,
                     Util::getIcon(
                         'b_view_add',
                         __('Create view'),
@@ -4843,6 +4852,7 @@ class Results
     {
         return Util::linkOrButton(
             '#',
+            null,
             Util::getIcon(
                 'b_insrow',
                 __('Copy to clipboard'),
@@ -4866,6 +4876,7 @@ class Results
     {
         return Util::linkOrButton(
             '#',
+            null,
             Util::getIcon(
                 'b_print',
                 __('Print'),
@@ -4911,7 +4922,6 @@ class Results
             'printview' => '1',
             'sql_query' => $this->__get('sql_query'),
         ];
-        $url_query = Url::getCommon($_url_params);
 
         if (! $header_shown) {
             $results_operations_html .= $header;
@@ -4921,8 +4931,7 @@ class Results
         // show only view and not other options
         if ($only_view) {
             $results_operations_html .= $this->_getLinkForCreateView(
-                $analyzed_sql_results,
-                $url_query
+                $analyzed_sql_results, $_url_params
             );
 
             if ($header_shown) {
@@ -4976,7 +4985,8 @@ class Results
             }
 
             $results_operations_html .= Util::linkOrButton(
-                'tbl_export.php' . Url::getCommon($_url_params),
+                'tbl_export.php',
+                $_url_params,
                 Util::getIcon(
                     'b_tblexport',
                     __('Export'),
@@ -4987,7 +4997,8 @@ class Results
 
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
-                'tbl_chart.php' . Url::getCommon($_url_params),
+                'tbl_chart.php',
+                $_url_params,
                 Util::getIcon(
                     'b_chart',
                     __('Display chart'),
@@ -5009,8 +5020,8 @@ class Results
             if ($geometry_found) {
                 $results_operations_html
                     .= Util::linkOrButton(
-                        'tbl_gis_visualization.php'
-                        . Url::getCommon($_url_params),
+                        'tbl_gis_visualization.php',
+                        $_url_params,
                         Util::getIcon(
                             'b_globe',
                             __('Visualize GIS data'),
@@ -5035,8 +5046,7 @@ class Results
         }
 
         $results_operations_html .= $this->_getLinkForCreateView(
-            $analyzed_sql_results,
-            $url_query
+            $analyzed_sql_results, $_url_params
         );
 
         if ($header_shown) {
@@ -5364,7 +5374,8 @@ class Results
                     $tag_params['class'] = 'ajax';
                 }
                 $result .= Util::linkOrButton(
-                    'sql.php' . Url::getCommon($_url_params),
+                    'sql.php',
+                    $_url_params,
                     $displayedData,
                     $tag_params
                 );
@@ -5438,6 +5449,7 @@ class Results
      * Prepares an Edit link
      *
      * @param string $edit_url          edit url
+     * @param array  $urlParams         URL parameters
      * @param string $class             css classes for td element
      * @param string $edit_str          text for the edit link
      * @param string $where_clause      where clause
@@ -5451,6 +5463,7 @@ class Results
      */
     private function _getEditLink(
         $edit_url,
+        $urlParams,
         $class,
         $edit_str,
         $where_clause,
@@ -5460,7 +5473,7 @@ class Results
         if (! empty($edit_url)) {
             $ret .= '<td class="' . $class . ' center print_ignore">'
                 . '<span class="nowrap">'
-                . Util::linkOrButton($edit_url, $edit_str);
+                . Util::linkOrButton($edit_url, $urlParams, $edit_str);
             /*
              * Where clause for selecting this row uniquely is provided as
              * a hidden input. Used by jQuery scripts for handling grid editing
@@ -5479,6 +5492,7 @@ class Results
      * Prepares an Copy link
      *
      * @param string $copy_url          copy url
+     * @param array  $urlParams         URL parameters
      * @param string $copy_str          text for the copy link
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
@@ -5492,6 +5506,7 @@ class Results
      */
     private function _getCopyLink(
         $copy_url,
+        $urlParams,
         $copy_str,
         $where_clause,
         $where_clause_html,
@@ -5504,8 +5519,8 @@ class Results
                 $ret .= $class . ' ';
             }
 
-            $ret .= 'center print_ignore"><span class="nowrap">'
-               . Util::linkOrButton($copy_url, $copy_str);
+            $ret .= 'center print_ignore" ' . ' ><span class="nowrap">'
+               . Util::linkOrButton($copy_url, $urlParams, $copy_str);
 
             /*
              * Where clause for selecting this row uniquely is provided as
@@ -5524,10 +5539,11 @@ class Results
     /**
      * Prepares a Delete link
      *
-     * @param string $del_url delete url
-     * @param string $del_str text for the delete link
-     * @param string $js_conf text for the JS confirmation
-     * @param string $class   css classes for the td element
+     * @param string $del_url      delete url
+     * @param array  $delUrlParams URL parameters
+     * @param string $del_str      text for the delete link
+     * @param string $js_conf      text for the JS confirmation
+     * @param string $class        css classes for the td element
      *
      * @return string  the generated HTML
      *
@@ -5535,7 +5551,7 @@ class Results
      *
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
-    private function _getDeleteLink($del_url, $del_str, $js_conf, $class)
+    private function _getDeleteLink($del_url, $delUrlParams, $del_str, $js_conf, $class)
     {
 
         $ret = '';
@@ -5551,6 +5567,7 @@ class Results
         $ret .= 'center print_ignore">'
             . Util::linkOrButton(
                 $del_url,
+                $delUrlParams,
                 $del_str,
                 ['class' => 'delete_row requireConfirm' . $ajax]
             )
@@ -5579,6 +5596,8 @@ class Results
      * @param string $copy_str          text for the copy link
      * @param string $del_str           text for the delete link
      * @param string $js_conf           text for the JS confirmation
+     * @param array  $editCopyUrlParams URL parameters
+     * @param array  $delUrlParams      URL parameters
      *
      * @return string  the generated HTML
      *
@@ -5600,13 +5619,17 @@ class Results
         $edit_str,
         $copy_str,
         $del_str,
-        $js_conf
+        $js_conf,
+        $editCopyUrlParams,
+        $delUrlParams
     ) {
         $ret = '';
+        $editUrlParams = $editCopyUrlParams + ['default_action' => 'update'];
+        $copyUrlParams = $editCopyUrlParams + ['default_action' => 'insert'];
 
         if ($position == self::POSITION_LEFT) {
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url,
+                $del_url . Url::getCommon($delUrlParams),
                 $displayParts,
                 $row_no,
                 $where_clause_html,
@@ -5617,6 +5640,7 @@ class Results
 
             $ret .= $this->_getEditLink(
                 $edit_url,
+                $editUrlParams,
                 $class,
                 $edit_str,
                 $where_clause,
@@ -5625,18 +5649,22 @@ class Results
 
             $ret .= $this->_getCopyLink(
                 $copy_url,
+                $copyUrlParams,
                 $copy_str,
                 $where_clause,
                 $where_clause_html,
                 ''
             );
 
-            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '');
+            $ret .= $this->_getDeleteLink($del_url, $delUrlParams, $del_str, $js_conf, '');
+
         } elseif ($position == self::POSITION_RIGHT) {
-            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '');
+
+            $ret .= $this->_getDeleteLink($del_url, $delUrlParams, $del_str, $js_conf, '');
 
             $ret .= $this->_getCopyLink(
                 $copy_url,
+                $copyUrlParams,
                 $copy_str,
                 $where_clause,
                 $where_clause_html,
@@ -5645,6 +5673,7 @@ class Results
 
             $ret .= $this->_getEditLink(
                 $edit_url,
+                $editUrlParams,
                 $class,
                 $edit_str,
                 $where_clause,
@@ -5652,7 +5681,7 @@ class Results
             );
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url,
+                $del_url . Url::getCommon($delUrlParams),
                 $displayParts,
                 $row_no,
                 $where_clause_html,
@@ -5662,7 +5691,7 @@ class Results
             );
         } else { // $position == self::POSITION_NONE
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url,
+                $del_url . Url::getCommon($delUrlParams),
                 $displayParts,
                 $row_no,
                 $where_clause_html,

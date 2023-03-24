@@ -649,7 +649,7 @@ class Tracking
                     'report' => 'true',
                     'version' => $_POST['version'],
                     $deleteParam => $lineNumber - $offset,
-                ], '');
+                ], '', false);
                 $entry['line_number'] = $lineNumber;
                 $entries[] = $entry;
             }

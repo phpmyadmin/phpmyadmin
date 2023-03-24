@@ -134,7 +134,7 @@
             {% if partitions is empty %}
                 <input class="btn btn-secondary" type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}">
             {% else %}
-                {{ link_or_button(remove_url, 'Remove partitioning'|trans, {
+                {{ link_or_button('sql.php', remove_url_params, 'Remove partitioning'|trans, {
                     'class': 'button ajax',
                     'id': 'remove_partitioning'
                 }) }}

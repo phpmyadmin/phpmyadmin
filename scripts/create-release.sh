@@ -247,20 +247,7 @@ if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
     composer update --no-dev
-
-    # Parse the required versions from composer.json
-    PACKAGES_VERSIONS=''
-    case "$branch" in
-      QA_4*) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server" ;;
-      *) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server" ;;
-    esac
-
-    for PACKAGES in $PACKAGE_LIST
-    do
-        PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
-    done
-    composer require --update-no-dev $PACKAGES_VERSIONS
-
+    composer require --update-no-dev tecnickcom/tcpdf:\^6.3 pragmarx/google2fa:\^3.0.0 bacon/bacon-qr-code:\^1.0.0 samyoul/u2f-php-server:\^1.1
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
@@ -290,8 +277,8 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/twig/twig/test \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
-    find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
-    find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
+    find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm -f
+    find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm -f
     if [ $do_tag -eq 1 ] ; then
         echo "* Commiting composer.lock"
         git add --force composer.lock

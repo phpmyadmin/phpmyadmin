@@ -68,7 +68,7 @@
         "samyoul/u2f-php-server": "<1.1"
     },
     "suggest": {
-        "ext-openssl": "Cookie encryption",
+        "ext-openssl": "For encryption performance",
         "ext-curl": "Updates checking",
         "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",
@@ -78,7 +78,10 @@
         "ext-mbstring": "For best performance",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "For 2FA authentication",
-        "samyoul/u2f-php-server": "For FIDO U2F authentication"
+        "pragmarx/google2fa": "For 2FA authentication",
+        "bacon/bacon-qr-code": "For 2FA authentication",
+        "samyoul/u2f-php-server": "For FIDO U2F authentication",
+        "paragonie/sodium_compat": "For modern encryption support"
     },
     "require-dev": {
         "php-webdriver/webdriver": "^1.7.1",
@@ -88,7 +91,9 @@
         "pragmarx/google2fa-qrcode": "^1.0.1",
         "samyoul/u2f-php-server": "^1.1",
         "squizlabs/php_codesniffer": "^3.0",
-        "tecnickcom/tcpdf": "^6.3"
+        "tecnickcom/tcpdf": "^6.3",
+        "paragonie/random_compat": ">=2",
+        "paragonie/sodium_compat": "^1.17"
     },
     "extra": {
         "branch-alias": {
@@ -107,6 +112,11 @@
         ]
     },
     "config":{
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true,
+            "composer/package-versions-deprecated": true
+        }
     }
 }

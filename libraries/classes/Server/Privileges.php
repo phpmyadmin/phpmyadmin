@@ -2985,7 +2985,7 @@ class Privileges
 
         $html .= ' href="server_privileges.php';
         if ($linktype == 'revoke') {
-            $html .= '" data-post="' . Url::getCommon($params, '');
+            $html .= '" data-post="' . Url::getCommon($params, '', false);
         } else {
             $html .= Url::getCommon($params);
         }

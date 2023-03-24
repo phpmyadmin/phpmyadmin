@@ -681,7 +681,7 @@ class NodeDatabase extends Node
                 ];
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php" data-post="'
-                    . Url::getCommon($params, '') . '"'
+                    . Url::getCommon($params, '', false) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
                         'show',

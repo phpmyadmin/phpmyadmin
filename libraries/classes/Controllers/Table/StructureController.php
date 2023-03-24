@@ -342,7 +342,10 @@ class StructureController extends AbstractController
         // got to be eliminated in long run
         $db = &$this->db;
         $table = &$this->table;
-        $url_params = [];
+        $url_params = [
+            'db' => $db,
+            'table' => $table,
+        ];
         include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = Url::getCommonRaw([
@@ -1280,14 +1283,6 @@ class StructureController extends AbstractController
             'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
         ];
 
-        $edit_view_url = '';
-        if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
-            $edit_view_url = Url::getCommon([
-                'db' => $this->db,
-                'table' => $this->table,
-            ]);
-        }
-
         /**
          * Displays Space usage and row statistics
          */
@@ -1359,10 +1354,6 @@ class StructureController extends AbstractController
 
         $engine = $this->table_obj->getStorageEngine();
         return $this->template->render('table/structure/display_structure', [
-            'url_params' => [
-                'db' => $this->db,
-                'table' => $this->table,
-            ],
             'collations' => $collations,
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
@@ -1374,11 +1365,11 @@ class StructureController extends AbstractController
             'tbl_is_view' => $this->_tbl_is_view,
             'mime_map' => $mime_map,
             'url_query' => $this->_url_query,
+            'url_params' => $url_params,
             'titles' => $titles,
             'tbl_storage_engine' => $this->_tbl_storage_engine,
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,
-            'edit_view_url' => $edit_view_url,
             'columns_list' => $columns_list,
             'table_stats' => isset($tablestats) ? $tablestats : null,
             'fields' => $fields,

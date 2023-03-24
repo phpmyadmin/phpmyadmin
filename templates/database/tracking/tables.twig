@@ -52,7 +52,7 @@
                                         'back': 'db_tracking.php',
                                         'table': version.table_name,
                                         'delete_tracking': true
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_drop', 'Delete tracking'|trans) }}
                                 </a>
                             </td>
@@ -63,7 +63,7 @@
                                         'goto': 'tbl_tracking.php',
                                         'back': 'db_tracking.php',
                                         'table': version.table_name
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_versions', 'Versions'|trans) }}
                                 </a>
                                 <a href="tbl_tracking.php" data-post="
@@ -74,7 +74,7 @@
                                         'table': version.table_name,
                                         'report': true,
                                         'version': version.version
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_report', 'Tracking report'|trans) }}
                                 </a>
                                 <a href="tbl_tracking.php" data-post="
@@ -85,7 +85,7 @@
                                         'table': version.table_name,
                                         'snapshot': true,
                                         'version': version.version
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_props', 'Structure snapshot'|trans) }}
                                 </a>
                             </td>

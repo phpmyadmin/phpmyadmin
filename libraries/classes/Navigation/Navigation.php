@@ -92,7 +92,8 @@ class Navigation
                     $hasStartChar = strpos($logo['link'], '?');
                     $logo['link'] .= Url::getCommon(
                         [],
-                        is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
+                        is_bool($hasStartChar) ? '?' : Url::getArgSeparator(),
+                        false
                     );
                 }
                 $logo['attributes'] = '';

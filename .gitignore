@@ -61,3 +61,4 @@ composer.lock
 phpstan.neon
 libraries/cache/
 js/dist/
+/setup/styles.css.map

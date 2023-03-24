@@ -499,16 +499,17 @@ class Export
          */
         $back_button = '<p id="export_back_button">[ <a href="';
         if ($export_type == 'server') {
-            $back_button .= 'server_export.php" data-post="' . Url::getCommon([], '');
+            $back_button .= 'server_export.php" data-post="' . Url::getCommon([], '', false);
         } elseif ($export_type == 'database') {
-            $back_button .= 'db_export.php" data-post="' . Url::getCommon(['db' => $db], '');
+            $back_button .= 'db_export.php" data-post="' . Url::getCommon(['db' => $db], '', false);
         } else {
             $back_button .= 'tbl_export.php" data-post="' . Url::getCommon(
                 [
                     'db' => $db,
                     'table' => $table,
                 ],
-                ''
+                '',
+                false
             );
         }
 

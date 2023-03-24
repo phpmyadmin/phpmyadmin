@@ -40,6 +40,7 @@ class AuthenticationCookieTest extends PmaTestCase
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';

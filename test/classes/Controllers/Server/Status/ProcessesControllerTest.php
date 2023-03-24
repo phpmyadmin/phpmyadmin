@@ -250,7 +250,7 @@ class ProcessesControllerTest extends TestCase
         ]);
 
         $killProcess = 'href="server_status_processes.php" data-post="'
-            . Url::getCommon(['kill' => $process['Id']], '') . '"';
+            . Url::getCommon(['kill' => $process['Id']], '', false) . '"';
         $this->assertStringContainsString(
             $killProcess,
             $html

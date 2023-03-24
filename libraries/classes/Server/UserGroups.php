@@ -118,7 +118,7 @@ class UserGroups
                             'viewUsers' => 1,
                             'userGroup' => $groupName,
                         ],
-                        ''
+                        '', false
                     )
                     . '">'
                     . Util::getIcon('b_usrlist', __('View users'))
@@ -130,7 +130,7 @@ class UserGroups
                             'editUserGroup' => 1,
                             'userGroup' => $groupName,
                         ],
-                        ''
+                        '', false
                     )
                     . '">'
                     . Util::getIcon('b_edit', __('Edit')) . '</a>';
@@ -142,7 +142,7 @@ class UserGroups
                             'deleteUserGroup' => 1,
                             'userGroup' => $groupName,
                         ],
-                        ''
+                        '', false
                     )
                     . '">'
                     . Util::getIcon('b_drop', __('Delete')) . '</a>';

@@ -161,7 +161,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     }
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-    $.get(url, params, function (data) {
+    $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             if (isNode) {
@@ -1070,14 +1070,12 @@ Navigation.selectCurrentDatabase = function () {
 Navigation.treePagination = function ($this) {
     var $msgbox = Functions.ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
-    var url;
-    var params;
+    var url = 'navigation.php';
+    var params = 'ajax_request=true';
     if ($this[0].tagName === 'A') {
-        url = $this.attr('href');
-        params = 'ajax_request=true';
+        params += PMA_commonParams.get('arg_separator') + $this.getPostData();
     } else { // tagName === 'SELECT'
-        url = 'navigation.php';
-        params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
+        params += PMA_commonParams.get('arg_separator') + $this.closest('form').serialize();
     }
     var searchClause = Navigation.FastFilter.getSearchClause();
     if (searchClause) {

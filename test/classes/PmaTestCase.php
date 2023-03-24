@@ -40,6 +40,7 @@ class PmaTestCase extends TestCase
     {
         require ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
     }
 
     /**

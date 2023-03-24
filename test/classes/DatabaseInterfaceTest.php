@@ -266,6 +266,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             'host' => '',
             'controluser' => 'u2',
             'controlpass' => 'p2',
+            'hide_connection_errors' => false,
         ];
         $cfg_ssl = [
             'user' => 'u',
@@ -274,6 +275,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             'ssl' => true,
             'controluser' => 'u2',
             'controlpass' => 'p2',
+            'hide_connection_errors' => false,
         ];
         $cfg_control_ssl = [
             'user' => 'u',
@@ -282,6 +284,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             'control_ssl' => true,
             'controluser' => 'u2',
             'controlpass' => 'p2',
+            'hide_connection_errors' => false,
         ];
         return [
             [
@@ -301,6 +304,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -317,6 +321,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => false,
                         'compress' => false,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -337,6 +342,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -353,6 +359,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -374,6 +381,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
                         'control_ssl' => true,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -390,6 +398,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
