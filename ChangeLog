@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #16451 Increase password characters limit to 2000 during login
 - issue        Fix "IS NULL" is shown for non-nullable columns on search page
 - issue #16199 Fix dragging of tables in designer
+- issue #17702 Fix performance issue when handling large number of tables in a single database
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid

@@ -391,6 +391,7 @@ class DatabaseInterface implements DbalInterface
             if ($sort_order === 'DESC') {
                 $table = array_reverse($table);
             }
+
             $table = array_slice($table, $limit_offset, $limit_count);
             $paging_applied = true;
         }
