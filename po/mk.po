@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-03-19 00:20+0000\n"
-"PO-Revision-Date: 2023-02-17 10:24+0000\n"
+"PO-Revision-Date: 2023-03-25 02:11+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:184
 #, php-format
@@ -729,9 +729,9 @@ msgid "The thread cache is set to 0"
 msgstr "Кеш на тредови е подесен на 0"
 
 #: libraries/classes/Advisory/Rules.php:521
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Вид на упит"
+msgstr "Тред кеш рата на користење %"
 
 #: libraries/classes/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
@@ -785,9 +785,8 @@ msgid "slow_launch_time is set to %s"
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:559
-#, fuzzy
 msgid "Percentage of used connections"
-msgstr "Конекции"
+msgstr "Процентажа на искористени конекции"
 
 #: libraries/classes/Advisory/Rules.php:563
 msgid ""
