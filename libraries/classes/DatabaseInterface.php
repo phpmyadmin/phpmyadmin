@@ -367,6 +367,16 @@ class DatabaseInterface implements DbalInterface
         }
 
         $tables = [];
+        $paging_applied = false;
+
+        if ($limitCount && is_array($table) && $sortBy === 'Name') {
+            if ($sortOrder === 'DESC') {
+                $table = array_reverse($table);
+            }
+
+            $table = array_slice($table, $limitOffset, $limitCount);
+            $paging_applied = true;
+        }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sqlWhereTable = '';
@@ -398,7 +408,7 @@ class DatabaseInterface implements DbalInterface
             // Sort the tables
             $sql .= ' ORDER BY ' . $sortBy . ' ' . $sortOrder;
 
-            if ($limitCount) {
+            if ($limitCount && ! $paging_applied) {
                 $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
             }
 
@@ -467,6 +477,15 @@ class DatabaseInterface implements DbalInterface
                     $tables[$oneDatabaseName] = $oneDatabaseTables;
                 }
             }
+
+            // on windows with lower_case_table_names = 1
+            // MySQL returns
+            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
+            // but information_schema.TABLES gives `test`
+            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
+            $tables = $tables[$database]
+                ?? $tables[mb_strtolower($database)]
+                ?? [];
         }
 
         // If permissions are wrong on even one database directory,
@@ -474,10 +493,10 @@ class DatabaseInterface implements DbalInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if ($tables === []) {
             $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database);
-            if ($table || ($tableIsGroup === true) || $tableType) {
+            if (($table !== '' && $table !== []) || ($tableIsGroup === true) || $tableType) {
                 $sql .= ' WHERE';
                 $needAnd = false;
-                if ($table || ($tableIsGroup === true)) {
+                if (($table !== '' && $table !== []) || ($tableIsGroup === true)) {
                     if (is_array($table)) {
                         $sql .= ' `Name` IN ('
                             . implode(
@@ -566,28 +585,16 @@ class DatabaseInterface implements DbalInterface
                 unset($sortValues);
             }
 
-            if ($limitCount) {
-                $eachTables = array_slice($eachTables, $limitOffset, $limitCount);
+            if ($limitCount && ! $paging_applied) {
+                $eachTables = array_slice($eachTables, $limitOffset, $limitCount, true);
             }
 
-            $tables[$database] = Compatibility::getISCompatForGetTablesFull($eachTables, $database);
+            $tables = Compatibility::getISCompatForGetTablesFull($eachTables, $database);
         }
 
-        // cache table data
-        // so Table does not require to issue SHOW TABLE STATUS again
-        $this->cache->cacheTableData($tables, $table);
-
-        if (isset($tables[$database])) {
-            return $tables[$database];
-        }
-
-        if (isset($tables[mb_strtolower($database)])) {
-            // on windows with lower_case_table_names = 1
-            // MySQL returns
-            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
-            // but information_schema.TABLES gives `test`
-            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
-            return $tables[mb_strtolower($database)];
+        if ($tables !== []) {
+            // cache table data, so Table does not require to issue SHOW TABLE STATUS again
+            $this->cache->cacheTableData($database, $tables);
         }
 
         return $tables;

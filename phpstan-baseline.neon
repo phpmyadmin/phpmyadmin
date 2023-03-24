@@ -3446,11 +3446,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\StorageEngine\\:\\:getMroongaLengths\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -7116,11 +7111,6 @@ parameters:
 			path: libraries/classes/Query/Cache.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) has parameter \\$tables with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Query/Cache.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Query\\\\Cache\\:\\:getCache\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Query/Cache.php
@@ -7147,11 +7137,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:getISCompatForGetTablesFull\\(\\) has parameter \\$eachTables with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Query/Compatibility.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:getISCompatForGetTablesFull\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Query/Compatibility.php
 

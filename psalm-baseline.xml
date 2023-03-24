@@ -6213,9 +6213,6 @@
     <NullableReturnStatement>
       <code>$user</code>
     </NullableReturnStatement>
-    <PossiblyInvalidArgument>
-      <code>$table</code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code>$row[$value]</code>
     </PossiblyInvalidArrayOffset>
@@ -11972,9 +11969,6 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Query/Cache.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$this->tableCache[$one_database][$table]]]></code>
-    </MixedArrayAccess>
     <MixedArrayOffset>
       <code>$loc[$key]</code>
       <code>$loc[$key]</code>
@@ -11984,11 +11978,7 @@
       <code>$key</code>
       <code>$loc</code>
       <code>$loc[array_shift($contentPath)]</code>
-      <code>$tablesInDatabase</code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$this->tableCache[$one_database]]]></code>
-    </MixedOperand>
     <PossiblyUnusedMethod>
       <code>getCache</code>
     </PossiblyUnusedMethod>
@@ -12046,6 +12036,10 @@
       <code>$colCollation</code>
       <code>$colType</code>
     </MixedAssignment>
+    <MixedReturnTypeCoercion>
+      <code>$eachTables</code>
+      <code>mixed[][]</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Query/Utilities.php">
     <MixedArrayAssignment>
@@ -13625,6 +13619,7 @@
   </file>
   <file src="libraries/classes/Tracking/Tracker.php">
     <DeprecatedMethod>
+      <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>

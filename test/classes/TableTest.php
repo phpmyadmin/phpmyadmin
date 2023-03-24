@@ -1594,7 +1594,7 @@ class TableTest extends AbstractTestCase
         $target_db = 'pma_test';
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object = new Table($target_table, $target_db, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'DBIDUMMY';
         $tbl_storage_engine = $dbi->getTable($target_db, $target_table)->getStorageEngine();
@@ -1610,7 +1610,7 @@ class TableTest extends AbstractTestCase
         $target_db = 'pma_test';
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object = new Table($target_table, $target_db, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'Test comment for "table1" in \'pma_test\'';
         $show_comment = $dbi->getTable($target_db, $target_table)->getComment();
@@ -1626,7 +1626,7 @@ class TableTest extends AbstractTestCase
         $target_db = 'pma_test';
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object = new Table($target_table, $target_db, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'utf8mb4_general_ci';
         $tbl_collation = $dbi->getTable($target_db, $target_table)->getCollation();
@@ -1642,7 +1642,7 @@ class TableTest extends AbstractTestCase
         $target_db = 'pma_test';
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object = new Table($target_table, $target_db, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'Redundant';
         $row_format = $dbi->getTable($target_db, $target_table)->getRowFormat();
@@ -1658,7 +1658,7 @@ class TableTest extends AbstractTestCase
         $target_db = 'pma_test';
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object = new Table($target_table, $target_db, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = '5';
         $auto_increment = $dbi->getTable($target_db, $target_table)->getAutoIncrement();
@@ -1674,7 +1674,7 @@ class TableTest extends AbstractTestCase
         $target_db = 'pma_test';
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object = new Table($target_table, $target_db, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = [
             'pack_keys' => 'DEFAULT',

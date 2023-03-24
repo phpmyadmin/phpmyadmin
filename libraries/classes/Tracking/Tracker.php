@@ -8,7 +8,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tracking;
 
 use PhpMyAdmin\Cache;
+use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -820,6 +822,16 @@ class Tracker
             return;
         }
 
+        $relation = new Relation($GLOBALS['dbi']);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return;
+        }
+
+        if (! self::isAnyTrackingInProgress($GLOBALS['dbi'], $trackingFeature, $dbname)) {
+            return;
+        }
+
         // Get some information about query
         $result = self::parseQuery($query);
 
@@ -919,5 +931,20 @@ class Tracker
         " AND `version` = '" . $GLOBALS['dbi']->escapeString((string) $version) . "' ";
 
         $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
+    }
+
+    private static function isAnyTrackingInProgress(
+        DatabaseInterface $dbi,
+        TrackingFeature $trackingFeature,
+        string $dbname,
+    ): bool {
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/ SELECT 1 FROM %s.%s WHERE tracking_active = 1 AND db_name = %s LIMIT 1',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            "'" . $dbi->escapeString($dbname, Connection::TYPE_CONTROL) . "'",
+        );
+
+        return $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
     }
 }

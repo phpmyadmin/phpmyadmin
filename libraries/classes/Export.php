@@ -674,6 +674,13 @@ class Export
 
         $views = [];
 
+        if ($tables !== []) {
+            // Prefetch table information to improve performance.
+            // Table status will get saved in Query Cache,
+            // and all instantiations of Table below should be much faster.
+            $this->dbi->getTablesFull($db->getName(), $tables);
+        }
+
         foreach ($tables as $table) {
             $tableObject = new Table($table, $db->getName(), $this->dbi);
             // if this is a view, collect it for later;
