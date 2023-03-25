@@ -944,11 +944,6 @@
       <code>readgzfile</code>
     </UnusedFunctionCall>
   </file>
-  <file src="libraries/classes/Controllers/CollationConnectionController.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getParsedBodyParam('collation_connection')]]></code>
-    </MixedArgument>
-  </file>
   <file src="libraries/classes/Controllers/ColumnController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -960,9 +955,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Config/SetConfigController.php">
-    <MixedArgument>
-      <code>json_decode($value)</code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -14477,6 +14469,9 @@
     <InvalidArgument>
       <code>$v</code>
     </InvalidArgument>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['cfg']['NavigationWidth']]]></code>
+    </InvalidArrayOffset>
     <InvalidCast>
       <code>$v</code>
     </InvalidCast>

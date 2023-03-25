@@ -534,7 +534,7 @@ class Config
      *
      * @param string|null $cookie_name   can be null
      * @param string      $cfg_path      configuration path
-     * @param string      $new_cfg_value new value
+     * @param mixed       $new_cfg_value new value
      * @param string|null $default_value default value
      *
      * @return true|Message
@@ -542,7 +542,7 @@ class Config
     public function setUserValue(
         string|null $cookie_name,
         string $cfg_path,
-        string $new_cfg_value,
+        mixed $new_cfg_value,
         string|null $default_value = null,
     ): bool|Message {
         $userPreferences = new UserPreferences($GLOBALS['dbi']);
@@ -563,7 +563,7 @@ class Config
                 $default_value = Core::arrayRead($cfg_path, $this->settings);
             }
 
-            $this->setCookie($cookie_name, $new_cfg_value, $default_value);
+            $this->setCookie($cookie_name, (string) $new_cfg_value, $default_value);
         }
 
         Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
