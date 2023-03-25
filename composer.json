@@ -78,6 +78,7 @@
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "For 2FA authentication",
         "code-lts/u2f-php-server": "For FIDO U2F authentication",
+        "bacon/bacon-qr-code": "For 2FA authentication",
         "paragonie/sodium_compat": "For modern encryption support"
     },
     "require-dev": {
@@ -94,7 +95,9 @@
         "symfony/finder": "^4.4",
         "symfony/twig-bridge": "^4.4",
         "tecnickcom/tcpdf": "^6.4.4",
-        "vimeo/psalm": "^4.22"
+        "vimeo/psalm": "^4.22",
+        "paragonie/random_compat": ">=2",
+        "paragonie/sodium_compat": "^1.17"
     },
     "extra": {
         "branch-alias": {
