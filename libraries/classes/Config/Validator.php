@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -183,7 +184,7 @@ class Validator
                         $result[$key] = [];
                     }
 
-                    $errorList = array_map('PhpMyAdmin\Sanitize::sanitizeMessage', (array) $errorList);
+                    $errorList = array_map(Sanitize::sanitizeMessage(...), (array) $errorList);
                     $result[$key] = array_merge($result[$key], $errorList);
                 }
             }

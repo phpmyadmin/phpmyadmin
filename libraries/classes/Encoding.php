@@ -19,6 +19,7 @@ use function mb_convert_kana;
 use function mb_detect_encoding;
 use function mb_list_encodings;
 use function recode_string;
+use function strtolower;
 use function tempnam;
 use function unlink;
 
@@ -340,7 +341,7 @@ class Encoding
         }
 
         return array_intersect(
-            array_map('strtolower', mb_list_encodings()),
+            array_map(strtolower(...), mb_list_encodings()),
             $GLOBALS['cfg']['AvailableCharsets'],
         );
     }

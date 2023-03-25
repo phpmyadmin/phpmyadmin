@@ -2370,7 +2370,7 @@ class Util
             $disabled = ini_get('disable_functions');
             if (is_string($disabled)) {
                 $disabled = explode(',', $disabled);
-                $disabled = array_map(static fn (string $part) => trim($part), $disabled);
+                $disabled = array_map(trim(...), $disabled);
 
                 return ! in_array('error_reporting', $disabled);
             }
