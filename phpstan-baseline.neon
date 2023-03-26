@@ -3446,11 +3446,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\StorageEngine\\:\\:getMroongaLengths\\(\\) expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php

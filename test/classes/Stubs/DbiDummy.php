@@ -1634,21 +1634,6 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\\\\_users%'",
-                'result' => [],
-            ],
-            [
-                'query' => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
-                . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,'
-                . ' `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,'
-                . ' `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`,'
-                . ' `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`,'
-                . ' `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,'
-                . ' `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`,'
-                . ' `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`,'
-                . ' `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,'
-                . ' `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment`'
-                . " FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN ('table1')"
-                . " AND t.`TABLE_NAME` COLLATE utf8_bin = 'pma_test' ORDER BY Name ASC",
                 'columns' => [
                     'Name',
                     'TABLE_TYPE',
@@ -2833,7 +2818,8 @@ class DbiDummy implements DbiExtension
                     . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` IN (\'test_db\') AND t.`TABLE_NAME` IN (\'test_table\') ORDER BY Name ASC',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'test_db\')'
+                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin IN (\'test_table\') ORDER BY Name ASC',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
