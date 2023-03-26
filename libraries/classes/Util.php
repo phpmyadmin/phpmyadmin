@@ -1988,7 +1988,8 @@ class Util
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $totalNumTables = count($GLOBALS['dbi']->getTables($db));
+                $tables = $GLOBALS['dbi']->getTables($db);
+                $totalNumTables = count($tables);
                 if ($isResultLimited) {
                     // fetch the details for a possible limited subset
                     $limitOffset = self::getTableListPosition($request, $db);
