@@ -941,6 +941,11 @@ class ConfigTest extends AbstractTestCase
             $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
             'cfg_val_1',
         );
+        $this->object->setUserValue(null, 'NavigationWidth', 300);
+        $this->assertSame(
+            $GLOBALS['cfg']['NavigationWidth'],
+            300,
+        );
     }
 
     /**
