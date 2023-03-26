@@ -238,7 +238,7 @@ abstract class AbstractTestCase extends TestCase
      * @param mixed       $value        The parameters for the invocation
      * @phpstan-param class-string $className
      */
-    protected function setProperty($object, string $className, string $propertyName, mixed $value): void
+    protected function setProperty(object|null $object, string $className, string $propertyName, mixed $value): void
     {
         $class = new ReflectionClass($className);
         $property = $class->getProperty($propertyName);

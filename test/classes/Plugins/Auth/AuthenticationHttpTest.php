@@ -52,8 +52,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    /** @param mixed ...$headers */
-    public function doMockResponse(int $set_minimal, int $body_id, int $set_title, ...$headers): void
+    public function doMockResponse(int $set_minimal, int $body_id, int $set_title, mixed ...$headers): void
     {
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()

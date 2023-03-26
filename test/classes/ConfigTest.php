@@ -223,14 +223,9 @@ class ConfigTest extends AbstractTestCase
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
         $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
-        if ($os != null) {
-            $this->assertEquals(
-                $browser,
-                $this->object->get('PMA_USR_BROWSER_AGENT'),
-            );
-        }
+        $this->assertEquals($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
 
-        if ($version == null) {
+        if ($version === null) {
             return;
         }
 

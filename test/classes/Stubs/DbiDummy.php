@@ -107,7 +107,7 @@ class DbiDummy implements DbiExtension
      *
      * @param string|DatabaseName $databaseName name of db to select
      */
-    public function selectDb($databaseName, Connection $connection): bool
+    public function selectDb(string|DatabaseName $databaseName, Connection $connection): bool
     {
         $databaseName = $databaseName instanceof DatabaseName
                         ? $databaseName->getName() : $databaseName;
@@ -220,7 +220,7 @@ class DbiDummy implements DbiExtension
      *
      * @param string $query multi query statement to execute
      */
-    public function realMultiQuery(Connection $connection, $query): bool
+    public function realMultiQuery(Connection $connection, string $query): bool
     {
         return false;
     }
@@ -439,7 +439,7 @@ class DbiDummy implements DbiExtension
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(Connection $connection, $string): string
+    public function escapeString(Connection $connection, string $string): string
     {
         return addslashes($string);
     }

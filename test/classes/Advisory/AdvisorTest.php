@@ -82,7 +82,7 @@ class AdvisorTest extends AbstractTestCase
             $this->assertEquals([$error], $runResult['errors']);
         }
 
-        if ($runResult['fired'] === [] && $expected == []) {
+        if ($runResult['fired'] === [] && $expected === []) {
             return;
         }
 

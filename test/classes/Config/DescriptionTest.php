@@ -123,12 +123,12 @@ class DescriptionTest extends AbstractTestCase
 
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);
-            if ($key == 'Servers') {
+            if ($key === 'Servers') {
                 $this->assertIsArray($value);
                 $this->assertIsArray($value[1]);
                 foreach ($value[1] as $item => $val) {
                     $this->assertGet($key . '/1/' . $item);
-                    if ($item != 'AllowDeny') {
+                    if ($item !== 'AllowDeny') {
                         continue;
                     }
 
