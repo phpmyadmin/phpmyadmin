@@ -47,17 +47,10 @@ class CreateAddFieldTest extends AbstractTestCase
     public static function providerGetPartitionsDefinition(): array
     {
         return [
-            [
-                '',
-                [],
-            ],
+            ['', []],
             [
                 ' PARTITION BY HASH (EXPR()) PARTITIONS 2',
-                [
-                    'partition_by' => 'HASH',
-                    'partition_expr' => 'EXPR()',
-                    'partition_count' => '2',
-                ],
+                ['partition_by' => 'HASH', 'partition_expr' => 'EXPR()', 'partition_count' => '2'],
             ],
             [
                 ' PARTITION BY LIST (EXPR2()) PARTITIONS 2 ( PARTITION p0,  PARTITION p1)',
@@ -320,12 +313,7 @@ class CreateAddFieldTest extends AbstractTestCase
      */
     public static function providerGetNumberOfFieldsFromRequest(): array
     {
-        return [
-            [
-                4,
-                [],
-            ],
-        ];
+        return [[4, []]];
     }
 
     /**
@@ -434,16 +422,7 @@ class CreateAddFieldTest extends AbstractTestCase
                             'Key_block_size' => '',
                             'Parser' => '',
                             'Index_type' => '',
-                            'columns' => [
-                                [
-                                    'col_index' => '0',
-                                    'size' => '12',
-                                ],
-                                [
-                                    'col_index' => '0',
-                                    'size' => '',
-                                ],
-                            ],
+                            'columns' => [['col_index' => '0','size' => '12'], ['col_index' => '0','size' => '']],
                         ],
                         [
                             'Key_name' => 'un3',
@@ -452,12 +431,7 @@ class CreateAddFieldTest extends AbstractTestCase
                             'Key_block_size' => '',
                             'Parser' => 'Parser 1',
                             'Index_type' => 'BTREE',
-                            'columns' => [
-                                [
-                                    'col_index' => '0',
-                                    'size' => '12',
-                                ],
-                            ],
+                            'columns' => [['col_index' => '0', 'size' => '12']],
                         ],
                         [
                             'Key_name' => 'un3.1',
@@ -466,12 +440,7 @@ class CreateAddFieldTest extends AbstractTestCase
                             'Key_block_size' => '',
                             'Parser' => 'Parser 1',
                             'Index_type' => 'BTREE',
-                            'columns' => [
-                                [
-                                    'col_index' => '0',
-                                    'size' => '12',
-                                ],
-                            ],
+                            'columns' => [['col_index' => '0', 'size' => '12']],
                         ],
                         [
                             'Key_name' => 'un2',
@@ -480,12 +449,7 @@ class CreateAddFieldTest extends AbstractTestCase
                             'Key_block_size' => '32',
                             'Parser' => '',
                             'Index_type' => 'BTREE',
-                            'columns' => [
-                                [
-                                    'col_index' => '0',
-                                    'size' => '12',
-                                ],
-                            ],
+                            'columns' => [['col_index' => '0', 'size' => '12']],
                         ],
                     ]),
                     'indexes' => json_encode([]),

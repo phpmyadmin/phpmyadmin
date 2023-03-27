@@ -415,10 +415,7 @@ class DatabaseInterface implements DbalInterface
             /** @var mixed[][][] $tables */
             $tables = $this->fetchResult(
                 $sql,
-                [
-                    'TABLE_SCHEMA',
-                    'TABLE_NAME',
-                ],
+                ['TABLE_SCHEMA', 'TABLE_NAME'],
                 null,
                 $connectionType,
             );

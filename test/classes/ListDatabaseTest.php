@@ -52,23 +52,13 @@ class ListDatabaseTest extends AbstractTestCase
 
         $GLOBALS['db'] = 'db';
         $this->assertEquals(
-            [
-                [
-                    'name' => 'single_db',
-                    'is_selected' => false,
-                ],
-            ],
+            [['name' => 'single_db', 'is_selected' => false]],
             $arr->getList(),
         );
 
         $GLOBALS['db'] = 'single_db';
         $this->assertEquals(
-            [
-                [
-                    'name' => 'single_db',
-                    'is_selected' => true,
-                ],
-            ],
+            [['name' => 'single_db', 'is_selected' => true]],
             $arr->getList(),
         );
     }

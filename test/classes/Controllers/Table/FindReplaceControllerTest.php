@@ -35,18 +35,8 @@ class FindReplaceControllerTest extends AbstractTestCase
         $dbi->types = new Types($dbi);
 
         $columns = [
-            [
-                'Field' => 'Field1',
-                'Type' => 'Type1',
-                'Null' => 'Null1',
-                'Collation' => 'Collation1',
-            ],
-            [
-                'Field' => 'Field2',
-                'Type' => 'Type2',
-                'Null' => 'Null2',
-                'Collation' => 'Collation2',
-            ],
+            ['Field' => 'Field1', 'Type' => 'Type1', 'Null' => 'Null1', 'Collation' => 'Collation1'],
+            ['Field' => 'Field2', 'Type' => 'Type2', 'Null' => 'Null2', 'Collation' => 'Collation2'],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($columns));

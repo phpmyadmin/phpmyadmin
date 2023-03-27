@@ -84,10 +84,7 @@ final class ColumnsDefinition
 
         $formParams = array_merge(
             $formParams,
-            [
-                'orig_field_where' => $_POST['field_where'] ?? null,
-                'orig_after_field' => $_POST['after_field'] ?? null,
-            ],
+            ['orig_field_where' => $_POST['field_where'] ?? null, 'orig_after_field' => $_POST['after_field'] ?? null],
         );
 
         if (is_array($selected)) {
@@ -113,10 +110,7 @@ final class ColumnsDefinition
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
-        $mimeTypes = [
-            'input_transformation',
-            'transformation',
-        ];
+        $mimeTypes = ['input_transformation', 'transformation'];
         foreach ($mimeTypes as $mimeType) {
             if (! isset($availableMime[$mimeType]) || ! is_array($availableMime[$mimeType])) {
                 continue;
@@ -260,12 +254,7 @@ final class ColumnsDefinition
                 );
             } elseif (isset($fieldsMeta[$columnNumber])) {
                 $columnMeta = $fieldsMeta[$columnNumber];
-                $virtual = [
-                    'VIRTUAL',
-                    'PERSISTENT',
-                    'VIRTUAL GENERATED',
-                    'STORED GENERATED',
-                ];
+                $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
                 if (in_array($columnMeta['Extra'], $virtual)) {
                     $tableObj = new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi);
                     $expressions = $tableObj->getColumnGenerationExpression($columnMeta['Field']);
@@ -394,10 +383,7 @@ final class ColumnsDefinition
         foreach ($charsets as $charset) {
             $collationsList = [];
             foreach ($collations[$charset->getName()] as $collation) {
-                $collationsList[] = [
-                    'name' => $collation->getName(),
-                    'description' => $collation->getDescription(),
-                ];
+                $collationsList[] = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
             }
 
             $charsetsList[] = [
@@ -458,10 +444,7 @@ final class ColumnsDefinition
      */
     public static function decorateColumnMetaDefault(array $columnMeta): array
     {
-        $metaDefault = [
-            'DefaultType' => 'USER_DEFINED',
-            'DefaultValue' => '',
-        ];
+        $metaDefault = ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''];
 
         switch ($columnMeta['Default']) {
             case null:

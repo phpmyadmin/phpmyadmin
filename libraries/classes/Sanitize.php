@@ -43,12 +43,7 @@ class Sanitize
     public static function checkLink(string $url, bool $http = false, bool $other = false): bool
     {
         $url = strtolower($url);
-        $validStarts = [
-            'https://',
-            'index.php?route=/url&url=https%3a%2f%2f',
-            './doc/html/',
-            './index.php?',
-        ];
+        $validStarts = ['https://', 'index.php?route=/url&url=https%3a%2f%2f', './doc/html/', './index.php?'];
         $isSetup = self::isSetup();
         // Adjust path to setup script location
         if ($isSetup) {

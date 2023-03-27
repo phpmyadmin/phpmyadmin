@@ -91,10 +91,7 @@ class AbstractControllerTest extends AbstractTestCase
         $this->assertSame(404, $response->getHttpResponseCode());
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame('', $response->getHTMLResult());
-        $this->assertSame([
-            'isErrorResponse' => true,
-            'message' => 'Error message.',
-        ], $response->getJSONResult());
+        $this->assertSame(['isErrorResponse' => true, 'message' => 'Error message.'], $response->getJSONResult());
     }
 
     public function testSendErrorResponseWithHtml(): void

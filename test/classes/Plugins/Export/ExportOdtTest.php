@@ -164,11 +164,7 @@ class ExportOdtTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
 
@@ -387,12 +383,7 @@ class ExportOdtTest extends AbstractTestCase
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [
-                    null,
-                    'a<b',
-                    'a>b',
-                    'a&b',
-                ],
+                [null, 'a<b', 'a>b', 'a&b'],
                 [],
             );
 
@@ -595,13 +586,7 @@ class ExportOdtTest extends AbstractTestCase
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
                 [],
-                [
-                    'fieldname' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $columns = ['Field' => 'fieldname'];
@@ -685,19 +670,8 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                [
-                    'fieldname' => [
-                        'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield',
-                    ],
-                ],
-                [
-                    'field' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['fieldname' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
+                ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $columns = ['Field' => 'fieldname'];
@@ -949,12 +923,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportOdt::class, 'formatOneColumnDefinition');
 
-        $cols = [
-            'Null' => 'Yes',
-            'Field' => 'field',
-            'Key' => 'PRI',
-            'Type' => 'set(abc)enum123',
-        ];
+        $cols = ['Null' => 'Yes', 'Field' => 'field', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'];
 
         $colAlias = 'alias';
 
@@ -968,13 +937,7 @@ class ExportOdtTest extends AbstractTestCase
             $method->invoke($this->object, $cols, $colAlias),
         );
 
-        $cols = [
-            'Null' => 'NO',
-            'Field' => 'fields',
-            'Key' => 'COMP',
-            'Type' => '',
-            'Default' => 'def',
-        ];
+        $cols = ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'];
 
         $this->assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .

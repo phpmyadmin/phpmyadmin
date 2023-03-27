@@ -58,22 +58,8 @@ class ErrorHandlerTest extends AbstractTestCase
     public static function providerForTestHandleError(): array
     {
         return [
-            [
-                E_RECOVERABLE_ERROR,
-                'Compile Error',
-                'error.txt',
-                12,
-                'Compile Error',
-                '',
-            ],
-            [
-                E_USER_NOTICE,
-                'User notice',
-                'error.txt',
-                12,
-                'User notice',
-                'User notice',
-            ],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'Compile Error', ''],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'User notice', 'User notice'],
         ];
     }
 
@@ -222,9 +208,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
         // Gives the last element
         $this->assertEquals(
-            [
-                $firstKey => $elements[$firstKey],
-            ],
+            [$firstKey => $elements[$firstKey]],
             $elements,
         );
         $this->assertEquals(9, count($this->object->getCurrentErrors()));

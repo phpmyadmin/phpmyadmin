@@ -147,11 +147,7 @@ class ExportMediawikiTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $sgHeader->getValues(),
         );
 
@@ -238,14 +234,7 @@ class ExportMediawikiTest extends AbstractTestCase
                 'Default' => '',
                 'Extra' => '',
             ],
-            [
-                'Null' => 'NO',
-                'Field' => 'fields',
-                'Key' => 'COMP',
-                'Type' => '',
-                'Default' => 'def',
-                'Extra' => 'ext',
-            ],
+            ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def', 'Extra' => 'ext'],
         ];
 
         $dbi->expects($this->once())

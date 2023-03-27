@@ -79,14 +79,7 @@ class SetValuesControllerTest extends AbstractTestCase
                     '',
                 ],
             ],
-            [
-                'Field',
-                'Type',
-                'Null',
-                'Key',
-                'Default',
-                'Extra',
-            ],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
 
         $request = $this->createStub(ServerRequest::class);

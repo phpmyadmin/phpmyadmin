@@ -131,16 +131,8 @@ class ExportCsv extends ExportPlugin
                 $GLOBALS['csv_terminated'] = "\n";
             } else {
                 $GLOBALS['csv_terminated'] = str_replace(
-                    [
-                        '\\r',
-                        '\\n',
-                        '\\t',
-                    ],
-                    [
-                        "\015",
-                        "\012",
-                        "\011",
-                    ],
+                    ['\\r', '\\n', '\\t'],
+                    ["\015", "\012", "\011"],
                     $GLOBALS['csv_terminated'],
                 );
             }
@@ -270,10 +262,7 @@ class ExportCsv extends ExportPlugin
                         isset($GLOBALS[$GLOBALS['what'] . '_removeCRLF']) && $GLOBALS[$GLOBALS['what'] . '_removeCRLF']
                     ) {
                         $field = str_replace(
-                            [
-                                "\r",
-                                "\n",
-                            ],
+                            ["\r", "\n"],
                             '',
                             $field,
                         );

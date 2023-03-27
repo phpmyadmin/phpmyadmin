@@ -608,11 +608,7 @@ class Events
         $events = $this->dbi->fetchResult($query);
 
         foreach ($events as $event) {
-            $result[] = [
-                'name' => $event['Name'],
-                'type' => $event['Type'],
-                'status' => $event['Status'],
-            ];
+            $result[] = ['name' => $event['Name'], 'type' => $event['Type'], 'status' => $event['Status']];
         }
 
         // Sort results by name

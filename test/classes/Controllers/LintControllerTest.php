@@ -28,10 +28,7 @@ class LintControllerTest extends AbstractTestCase
     public function testWithoutParams(): void
     {
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['sql_query', '', ''],
-            ['options', null, null],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['sql_query', '', ''], ['options', null, null]]);
 
         $this->getLintController()($request);
 

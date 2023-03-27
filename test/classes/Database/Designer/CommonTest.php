@@ -340,12 +340,7 @@ class CommonTest extends AbstractTestCase
 
         $this->dummyDbi->addResult(
             'SHOW CREATE TABLE `db\'2`.`table\'2`',
-            [
-                [
-                    'table\'2',
-                    $createTableString,
-                ],
-            ],
+            [['table\'2', $createTableString]],
             ['Table', 'Create Table'],
         );
     }
@@ -369,10 +364,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            false,
-            'Error: Relational features are disabled!',
-        ], $result);
+        $this->assertSame([false, 'Error: Relational features are disabled!'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDb(): void
@@ -414,10 +406,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            true,
-            'Internal relationship has been removed.',
-        ], $result);
+        $this->assertSame([true, 'Internal relationship has been removed.'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
@@ -479,10 +468,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            true,
-            'FOREIGN KEY relationship has been removed.',
-        ], $result);
+        $this->assertSame([true, 'FOREIGN KEY relationship has been removed.'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
@@ -524,9 +510,6 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            false,
-            'Error: Internal relationship could not be removed!<br>',
-        ], $result);
+        $this->assertSame([false, 'Error: Internal relationship could not be removed!<br>'], $result);
     }
 }

@@ -75,33 +75,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public static function currentUserData(): array
     {
         return [
-            [
-                [['pma@localhost']],
-                'pma@localhost',
-                [
-                    'pma',
-                    'localhost',
-                ],
-                false,
-            ],
-            [
-                [['@localhost']],
-                '@localhost',
-                [
-                    '',
-                    'localhost',
-                ],
-                false,
-            ],
-            [
-                false,
-                '@',
-                [
-                    '',
-                    '',
-                ],
-                true,
-            ],
+            [[['pma@localhost']], 'pma@localhost', ['pma', 'localhost'], false],
+            [[['@localhost']], '@localhost', ['', 'localhost'], false],
+            [false, '@', ['', ''], true],
         ];
     }
 
@@ -277,36 +253,12 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public static function errorData(): array
     {
         return [
-            [
-                2002,
-                'msg',
-                'The server is not responding',
-            ],
-            [
-                2003,
-                'msg',
-                'The server is not responding',
-            ],
-            [
-                1698,
-                'msg',
-                'index.php?route=/logout',
-            ],
-            [
-                1005,
-                'msg',
-                'index.php?route=/server/engines',
-            ],
-            [
-                1005,
-                'errno: 13',
-                'Please check privileges',
-            ],
-            [
-                -1,
-                'error message',
-                'error message',
-            ],
+            [2002, 'msg', 'The server is not responding'],
+            [2003, 'msg', 'The server is not responding'],
+            [1698, 'msg', 'index.php?route=/logout'],
+            [1005, 'msg', 'index.php?route=/server/engines'],
+            [1005, 'errno: 13', 'Please check privileges'],
+            [-1, 'error message', 'error message'],
         ];
     }
 
@@ -343,22 +295,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public static function isAmazonRdsData(): array
     {
         return [
-            [
-                [['/usr']],
-                false,
-            ],
-            [
-                [['E:/mysql']],
-                false,
-            ],
-            [
-                [['/rdsdbbin/mysql/']],
-                true,
-            ],
-            [
-                [['/rdsdbbin/mysql-5.7.18/']],
-                true,
-            ],
+            [[['/usr']], false],
+            [[['E:/mysql']], false],
+            [[['/rdsdbbin/mysql/']], true],
+            [[['/rdsdbbin/mysql-5.7.18/']], true],
         ];
     }
 
@@ -384,30 +324,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public static function versionData(): array
     {
         return [
-            [
-                '5.0.5',
-                50005,
-                5,
-                true,
-            ],
-            [
-                '5.05.01',
-                50501,
-                5,
-                false,
-            ],
-            [
-                '5.6.35',
-                50635,
-                5,
-                false,
-            ],
-            [
-                '10.1.22-MariaDB-',
-                100122,
-                10,
-                false,
-            ],
+            ['5.0.5', 50005, 5, true],
+            ['5.05.01', 50501, 5, false],
+            ['5.6.35', 50635, 5, false],
+            ['10.1.22-MariaDB-', 100122, 10, false],
         ];
     }
 
@@ -589,16 +509,12 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addResult('SHOW DATABASES', [['db1'], ['db2']], ['Database']);
         $dummyDbi->addResult(
             'SELECT @@collation_database',
-            [
-                ['utf8_general_ci'],
-            ],
+            [['utf8_general_ci']],
             ['@@collation_database'],
         );
         $dummyDbi->addResult(
             'SELECT @@collation_database',
-            [
-                ['utf8_general_ci'],
-            ],
+            [['utf8_general_ci']],
             ['@@collation_database'],
         );
         $dummyDbi->addResult(
@@ -831,24 +747,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 true,
                 false,
             ],
-            [
-                [
-                    '@@version' => '7.10.3',
-                    '@@version_comment' => 'MySQL Community Server (GPL)',
-                ],
-                71003,
-                false,
-                false,
-            ],
-            [
-                [
-                    '@@version' => '5.5.0',
-                    '@@version_comment' => '',
-                ],
-                50500,
-                false,
-                false,
-            ],
+            [['@@version' => '7.10.3', '@@version_comment' => 'MySQL Community Server (GPL)'], 71003, false, false],
+            [['@@version' => '5.5.0', '@@version_comment' => ''], 50500, false, false],
         ];
     }
 

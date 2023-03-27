@@ -260,18 +260,7 @@ class FindReplaceController extends AbstractController
         $result = $this->dbi->fetchResult($sqlQuery, 0);
 
         /* Iterate over possible delimiters to get one */
-        $delimiters = [
-            '/',
-            '@',
-            '#',
-            '~',
-            '!',
-            '$',
-            '%',
-            '^',
-            '&',
-            '_',
-        ];
+        $delimiters = ['/', '@', '#', '~', '!', '$', '%', '^', '&', '_'];
 
         foreach ($delimiters as $delimiter) {
             if (! str_contains($find, $delimiter)) {

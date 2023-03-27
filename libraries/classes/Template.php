@@ -64,10 +64,7 @@ class Template
         }
 
         $loader = new FilesystemLoader(self::TEMPLATES_FOLDER);
-        $twig = new Environment($loader, [
-            'auto_reload' => true,
-            'cache' => $cacheDir,
-        ]);
+        $twig = new Environment($loader, ['auto_reload' => true, 'cache' => $cacheDir]);
 
         $twig->addRuntimeLoader(new ContainerRuntimeLoader(Core::getContainerBuilder()));
 

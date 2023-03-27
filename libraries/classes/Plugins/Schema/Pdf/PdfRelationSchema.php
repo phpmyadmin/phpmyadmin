@@ -658,17 +658,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell($commentsWidth, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
                 $this->diagram->setWidths(
-                    [
-                        25,
-                        20,
-                        20,
-                        10,
-                        20,
-                        25,
-                        45,
-                        $commentsWidth,
-                        45,
-                    ],
+                    [25, 20, 20, 10, 20, 25, 45, $commentsWidth, 45],
                 );
             } else {
                 $this->diagram->Cell(20, 8, __('Column'), 1, 0, 'C');

@@ -61,10 +61,7 @@ class ImportSql extends ImportPlugin
             );
             $leaf->setValues($values);
             $leaf->setDoc(
-                [
-                    'manual_MySQL_Database_Administration',
-                    'Server_SQL_mode',
-                ],
+                ['manual_MySQL_Database_Administration', 'Server_SQL_mode'],
             );
             $generalOptions->addProperty($leaf);
             $leaf = new BoolPropertyItem(
@@ -72,11 +69,7 @@ class ImportSql extends ImportPlugin
                 __('Do not use <code>AUTO_INCREMENT</code> for zero values'),
             );
             $leaf->setDoc(
-                [
-                    'manual_MySQL_Database_Administration',
-                    'Server_SQL_mode',
-                    'sqlmode_no_auto_value_on_zero',
-                ],
+                ['manual_MySQL_Database_Administration', 'Server_SQL_mode', 'sqlmode_no_auto_value_on_zero'],
             );
             $generalOptions->addProperty($leaf);
 

@@ -1109,10 +1109,7 @@ class Qbe
             }
         }
 
-        return [
-            'unique' => $uniqueColumns,
-            'index' => $indexColumns,
-        ];
+        return ['unique' => $uniqueColumns, 'index' => $indexColumns];
     }
 
     /**
@@ -1302,10 +1299,7 @@ class Qbe
             $whereClauseTables[$table] = $table;
         }
 
-        return [
-            'where_clause_tables' => $whereClauseTables,
-            'where_clause_columns' => $whereClauseColumns,
-        ];
+        return ['where_clause_tables' => $whereClauseTables, 'where_clause_columns' => $whereClauseColumns];
     }
 
     /**
@@ -1712,38 +1706,26 @@ class Qbe
             $candidateColumns = $uniqueColumns;
             $needSort = 1;
 
-            return [
-                $candidateColumns,
-                $needSort,
-            ];
+            return [$candidateColumns, $needSort];
         }
 
         if (isset($indexColumns) && count($indexColumns) > 0) {
             $candidateColumns = $indexColumns;
             $needSort = 1;
 
-            return [
-                $candidateColumns,
-                $needSort,
-            ];
+            return [$candidateColumns, $needSort];
         }
 
         if (isset($whereClauseColumns) && count($whereClauseColumns) > 0) {
             $candidateColumns = $whereClauseColumns;
             $needSort = 0;
 
-            return [
-                $candidateColumns,
-                $needSort,
-            ];
+            return [$candidateColumns, $needSort];
         }
 
         $candidateColumns = $searchTables;
         $needSort = 0;
 
-        return [
-            $candidateColumns,
-            $needSort,
-        ];
+        return [$candidateColumns, $needSort];
     }
 }

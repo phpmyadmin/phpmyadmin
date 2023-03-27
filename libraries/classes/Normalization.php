@@ -148,10 +148,7 @@ class Normalization
         foreach ($charsets as $charset) {
             $collationsList = [];
             foreach ($collations[$charset->getName()] as $collation) {
-                $collationsList[] = [
-                    'name' => $collation->getName(),
-                    'description' => $collation->getDescription(),
-                ];
+                $collationsList[] = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
             }
 
             $charsetsList[] = [
@@ -312,12 +309,7 @@ class Normalization
             . '<input class="btn btn-secondary" type="submit" value="' . __('No redundant column')
             . '" onclick="goToFinish1NF();">';
 
-        return [
-            'legendText' => $legendText,
-            'headText' => $headText,
-            'subText' => $subText,
-            'extra' => $extra,
-        ];
+        return ['legendText' => $legendText, 'headText' => $headText, 'subText' => $subText, 'extra' => $extra];
     }
 
     /**
@@ -514,11 +506,7 @@ class Normalization
             htmlspecialchars($table),
         ) . '</h3>';
         if (count($partialDependencies) === 1) {
-            return [
-                'legendText' => __('End of step'),
-                'headText' => $headText,
-                'queryError' => false,
-            ];
+            return ['legendText' => __('End of step'), 'headText' => $headText, 'queryError' => false];
         }
 
         $message = '';
@@ -640,20 +628,13 @@ class Normalization
                     . '( <u>' . htmlspecialchars($key) . '</u>'
                     . (count($dependents) > 0 ? ', ' : '')
                     . htmlspecialchars(implode(', ', $dependents)) . ' )';
-                $newTables[$table][$tableName] = [
-                    'pk' => $key,
-                    'nonpk' => implode(', ', $dependents),
-                ];
+                $newTables[$table][$tableName] = ['pk' => $key, 'nonpk' => implode(', ', $dependents)];
                 $i++;
                 $tableName = 'table' . $i;
             }
         }
 
-        return [
-            'html' => $html,
-            'newTables' => $newTables,
-            'success' => true,
-        ];
+        return ['html' => $html, 'newTables' => $newTables, 'success' => true];
     }
 
     /**
@@ -671,11 +652,7 @@ class Normalization
         $error = false;
         $headText = '<h3>' . __('The third step of normalization is complete.') . '</h3>';
         if (count($newTables) === 0) {
-            return [
-                'legendText' => __('End of step'),
-                'headText' => $headText,
-                'queryError' => false,
-            ];
+            return ['legendText' => __('End of step'), 'headText' => $headText, 'queryError' => false];
         }
 
         $message = '';
@@ -808,10 +785,7 @@ class Normalization
         }
 
         $query2 = trim($query2, ',');
-        $queries = [
-            $query1,
-            $query2,
-        ];
+        $queries = [$query1, $query2];
         $this->dbi->selectDb($db);
         foreach ($queries as $query) {
             if (! $this->dbi->tryQuery($query)) {
@@ -825,10 +799,7 @@ class Normalization
             }
         }
 
-        return [
-            'queryError' => $error,
-            'message' => $message,
-        ];
+        return ['queryError' => $error, 'message' => $message];
     }
 
     /**
@@ -905,12 +876,7 @@ class Normalization
             $extra = '<h3>' . __('Table is already in Third normal form!') . '</h3>';
         }
 
-        return [
-            'legendText' => $legendText,
-            'headText' => $headText,
-            'subText' => $subText,
-            'extra' => $extra,
-        ];
+        return ['legendText' => $legendText, 'headText' => $headText, 'subText' => $subText, 'extra' => $extra];
     }
 
     /**

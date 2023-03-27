@@ -52,10 +52,7 @@ class UserGroups
         if ($result) {
             $i = 0;
             while ($row = $result->fetchRow()) {
-                $users[] = [
-                    'count' => ++$i,
-                    'user' => $row[0],
-                ];
+                $users[] = ['count' => ++$i, 'user' => $row[0]];
             }
         }
 
@@ -102,20 +99,14 @@ class UserGroups
                 $userGroupVal['tableTab'] = self::getAllowedTabNames($tabs, 'table');
                 $userGroupVal['userGroupUrl'] = Url::getFromRoute('/server/user-groups');
                 $userGroupVal['viewUsersUrl'] = Url::getCommon(
-                    [
-                        'viewUsers' => 1,
-                        'userGroup' => $groupName,
-                    ],
+                    ['viewUsers' => 1, 'userGroup' => $groupName],
                     '',
                     false,
                 );
                 $userGroupVal['viewUsersIcon'] = Generator::getIcon('b_usrlist', __('View users'));
 
                 $userGroupVal['editUsersUrl'] = Url::getCommon(
-                    [
-                        'editUserGroup' => 1,
-                        'userGroup' => $groupName,
-                    ],
+                    ['editUserGroup' => 1, 'userGroup' => $groupName],
                     '',
                     false,
                 );
@@ -210,11 +201,7 @@ class UserGroups
             $urlParams['addUserGroupSubmit'] = '1';
         }
 
-        $allowedTabs = [
-            'server' => [],
-            'db' => [],
-            'table' => [],
-        ];
+        $allowedTabs = ['server' => [], 'db' => [], 'table' => []];
         if ($userGroup !== null) {
             $groupTable = Util::backquote($configurableMenusFeature->database)
                 . '.' . Util::backquote($configurableMenusFeature->userGroups);

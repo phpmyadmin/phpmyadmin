@@ -27,28 +27,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
             0 => [
                 'MULTILINESTRING' => [
                     'no_of_lines' => 2,
-                    0 => [
-                        'no_of_points' => 2,
-                        0 => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                        1 => [
-                            'x' => 6.14,
-                            'y' => 0.15,
-                        ],
-                    ],
-                    1 => [
-                        'no_of_points' => 2,
-                        0 => [
-                            'x' => 1.23,
-                            'y' => 4.25,
-                        ],
-                        1 => [
-                            'x' => 9.15,
-                            'y' => 0.47,
-                        ],
-                    ],
+                    0 => ['no_of_points' => 2, 0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]],
+                    1 => ['no_of_points' => 2, 0 => ['x' => 1.23, 'y' => 4.25], 1 => ['x' => 9.15, 'y' => 0.47]],
                 ],
             ],
         ];
@@ -63,40 +43,15 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $temp3[0]['MULTILINESTRING'][1]['no_of_points'] = 1;
 
         return [
-            [
-                $temp,
-                0,
-                null,
-                'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
-            ],
+            [$temp, 0, null, 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'],
             // if a coordinate is missing, default is empty string
-            [
-                $temp1,
-                0,
-                null,
-                'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 ))',
-            ],
+            [$temp1, 0, null, 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 ))'],
             // missing coordinates are replaced with provided values (3rd parameter)
-            [
-                $temp1,
-                0,
-                '0',
-                'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0))',
-            ],
+            [$temp1, 0, '0', 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0))'],
             // at least one line should be there
-            [
-                $temp2,
-                0,
-                null,
-                'MULTILINESTRING((5.02 8.45,6.14 0.15))',
-            ],
+            [$temp2, 0, null, 'MULTILINESTRING((5.02 8.45,6.14 0.15))'],
             // a line should have at least two points
-            [
-                $temp3,
-                0,
-                '0',
-                'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
-            ],
+            [$temp3, 0, '0', 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'],
         ];
     }
 
@@ -124,30 +79,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $rowData = [
             'numparts' => 2,
             'parts' => [
-                0 => [
-                    'points' => [
-                        0 => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                        1 => [
-                            'x' => 6.14,
-                            'y' => 0.15,
-                        ],
-                    ],
-                ],
-                1 => [
-                    'points' => [
-                        0 => [
-                            'x' => 1.23,
-                            'y' => 4.25,
-                        ],
-                        1 => [
-                            'x' => 9.15,
-                            'y' => 0.47,
-                        ],
-                    ],
-                ],
+                0 => ['points' => [0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]]],
+                1 => ['points' => [0 => ['x' => 1.23, 'y' => 4.25], 1 => ['x' => 9.15, 'y' => 0.47]]],
             ],
         ];
 
@@ -187,28 +120,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
                     0 => [
                         'MULTILINESTRING' => [
                             'no_of_lines' => 2,
-                            0 => [
-                                'no_of_points' => 2,
-                                0 => [
-                                    'x' => 5.02,
-                                    'y' => 8.45,
-                                ],
-                                1 => [
-                                    'x' => 6.14,
-                                    'y' => 0.15,
-                                ],
-                            ],
-                            1 => [
-                                'no_of_points' => 2,
-                                0 => [
-                                    'x' => 1.23,
-                                    'y' => 4.25,
-                                ],
-                                1 => [
-                                    'x' => 9.15,
-                                    'y' => 0.47,
-                                ],
-                            ],
+                            0 => ['no_of_points' => 2, 0 => ['x' => 5.02,'y' => 8.45], 1 => ['x' => 6.14,'y' => 0.15]],
+                            1 => ['no_of_points' => 2, 0 => ['x' => 1.23,'y' => 4.25], 1 => ['x' => 9.15,'y' => 0.47]],
                         ],
                     ],
                 ],
@@ -237,12 +150,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      */
     public static function providerForTestScaleRow(): array
     {
-        return [
-            [
-                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
-                new ScaleData(178, 17, 75, 10),
-            ],
-        ];
+        return [['MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))', new ScaleData(178, 17, 75, 10)]];
     }
 
     /** @requires extension gd */
@@ -347,12 +255,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 'svg',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
+                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
                 '<polyline points="48,260 70,242 100,138 " name="svg" '
                 . 'class="linestring vector" fill="none" stroke="#b02ee0" '
                 . 'stroke-width="2" id="svg1234567890"/><polyline points="48,268 10,'

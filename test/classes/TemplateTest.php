@@ -50,10 +50,7 @@ class TemplateTest extends AbstractTestCase
      */
     public function testSet(string $data): void
     {
-        $result = $this->template->render($data, [
-            'variable1' => 'value1',
-            'variable2' => 'value2',
-        ]);
+        $result = $this->template->render($data, ['variable1' => 'value1', 'variable2' => 'value2']);
         $this->assertStringContainsString('value1', $result);
         $this->assertStringContainsString('value2', $result);
     }
@@ -65,9 +62,7 @@ class TemplateTest extends AbstractTestCase
      */
     public static function providerTestSet(): array
     {
-        return [
-            ['test/add_data'],
-        ];
+        return [['test/add_data']];
     }
 
     /**
@@ -94,13 +89,7 @@ class TemplateTest extends AbstractTestCase
      */
     public static function providerTestDynamicRender(): array
     {
-        return [
-            [
-                'test/echo',
-                'variable',
-                'value',
-            ],
-        ];
+        return [['test/echo', 'variable', 'value']];
     }
 
     /**
@@ -135,12 +124,7 @@ class TemplateTest extends AbstractTestCase
      */
     public static function providerTestRender(): array
     {
-        return [
-            [
-                'test/static',
-                'static content',
-            ],
-        ];
+        return [['test/static', 'static content']];
     }
 
     /**
@@ -168,41 +152,13 @@ class TemplateTest extends AbstractTestCase
     public static function providerTestRenderGettext(): array
     {
         return [
-            [
-                'test/gettext/gettext',
-                [],
-                'Text',
-            ],
-            [
-                'test/gettext/pgettext',
-                [],
-                'Text',
-            ],
-            [
-                'test/gettext/notes',
-                [],
-                'Text',
-            ],
-            [
-                'test/gettext/plural',
-                ['table_count' => 1],
-                'One table',
-            ],
-            [
-                'test/gettext/plural',
-                ['table_count' => 2],
-                '2 tables',
-            ],
-            [
-                'test/gettext/plural_notes',
-                ['table_count' => 1],
-                'One table',
-            ],
-            [
-                'test/gettext/plural_notes',
-                ['table_count' => 2],
-                '2 tables',
-            ],
+            ['test/gettext/gettext', [], 'Text'],
+            ['test/gettext/pgettext', [], 'Text'],
+            ['test/gettext/notes', [], 'Text'],
+            ['test/gettext/plural', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural', ['table_count' => 2], '2 tables'],
+            ['test/gettext/plural_notes', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural_notes', ['table_count' => 2], '2 tables'],
         ];
     }
 }

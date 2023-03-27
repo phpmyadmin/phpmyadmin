@@ -88,11 +88,7 @@ class StructureController extends AbstractController
      */
     private function getDatabaseInfo(ServerRequest $request): void
     {
-        [
-            $tables,
-            $numTables,
-            $totalNumTables,
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
+        [$tables, $numTables, $totalNumTables] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
@@ -121,10 +117,7 @@ class StructureController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $parameters = [
-            'sort' => $_REQUEST['sort'] ?? null,
-            'sort_order' => $_REQUEST['sort_order'] ?? null,
-        ];
+        $parameters = ['sort' => $_REQUEST['sort'] ?? null, 'sort_order' => $_REQUEST['sort_order'] ?? null];
 
         $this->checkParameters(['db']);
 
@@ -159,10 +152,7 @@ class StructureController extends AbstractController
         $this->response->addHTML($pageSettings->getHTML());
 
         if ($this->numTables > 0) {
-            $urlParams = [
-                'pos' => $this->position,
-                'db' => $GLOBALS['db'],
-            ];
+            $urlParams = ['pos' => $this->position, 'db' => $GLOBALS['db']];
             if (isset($parameters['sort'])) {
                 $urlParams['sort'] = $parameters['sort'];
             }
@@ -234,10 +224,7 @@ class StructureController extends AbstractController
             $inputClass = ['checkall'];
 
             // Sets parameters for links
-            $tableUrlParams = [
-                'db' => $GLOBALS['db'],
-                'table' => $currentTable['TABLE_NAME'],
-            ];
+            $tableUrlParams = ['db' => $GLOBALS['db'], 'table' => $currentTable['TABLE_NAME']];
             // do not list the previous table's size info for a view
 
             [
@@ -444,10 +431,7 @@ class StructureController extends AbstractController
             $this->dbi->getDbCollation($GLOBALS['db']),
         );
         if ($collation !== null) {
-            $databaseCollation = [
-                'name' => $collation->getName(),
-                'description' => $collation->getDescription(),
-            ];
+            $databaseCollation = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
             $databaseCharset = $collation->getCharset();
         }
 
@@ -564,10 +548,7 @@ class StructureController extends AbstractController
             }
         }
 
-        return [
-            $approxRows,
-            $showSuperscript,
-        ];
+        return [$approxRows, $showSuperscript];
     }
 
     /**
@@ -599,10 +580,7 @@ class StructureController extends AbstractController
                 || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);
         }
 
-        return [
-            $do,
-            $ignored,
-        ];
+        return [$do, $ignored];
     }
 
     /**
@@ -806,15 +784,7 @@ class StructureController extends AbstractController
             }
         }
 
-        return [
-            $currentTable,
-            $formattedSize,
-            $unit,
-            $formattedOverhead,
-            $overheadUnit,
-            $overheadSize,
-            $sumSize,
-        ];
+        return [$currentTable, $formattedSize, $unit, $formattedOverhead, $overheadUnit, $overheadSize, $sumSize];
     }
 
     /**
@@ -852,12 +822,7 @@ class StructureController extends AbstractController
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
         }
 
-        return [
-            $currentTable,
-            $formattedSize,
-            $unit,
-            $sumSize,
-        ];
+        return [$currentTable, $formattedSize, $unit, $sumSize];
     }
 
     /**
@@ -882,11 +847,6 @@ class StructureController extends AbstractController
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
         }
 
-        return [
-            $currentTable,
-            $formattedSize,
-            $unit,
-            $sumSize,
-        ];
+        return [$currentTable, $formattedSize, $unit, $sumSize];
     }
 }

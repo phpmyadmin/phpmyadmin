@@ -132,13 +132,7 @@ class UserGroupsTest extends AbstractTestCase
         $resultStub->expects($this->exactly(1))
             ->method('getIterator')
             ->will($this->returnCallback(static function (): Generator {
-                yield from [
-                    [
-                        'usergroup' => 'ug',
-                        'tab' => 'server_sql',
-                        'allowed' => 'Y',
-                    ],
-                ];
+                yield from [['usergroup' => 'ug', 'tab' => 'server_sql', 'allowed' => 'Y']];
             }));
         $dbi->expects($this->any())->method('quoteString')
             ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));

@@ -160,10 +160,7 @@ abstract class GisGeometry
             $wkt = $value;
         }
 
-        return [
-            'srid' => $srid,
-            'wkt' => $wkt,
-        ];
+        return ['srid' => $srid, 'wkt' => $wkt];
     }
 
     /**
@@ -190,12 +187,7 @@ abstract class GisGeometry
         preg_match('/^\w+/', $wkt, $matches);
         $wktType = strtoupper($matches[0]);
 
-        return [
-            'srid' => $data['srid'],
-            $index => [
-                $wktType => $this->getCoordinateParams($wkt),
-            ],
-        ];
+        return ['srid' => $data['srid'], $index => [$wktType => $this->getCoordinateParams($wkt)]];
     }
 
     /**

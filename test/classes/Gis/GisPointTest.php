@@ -26,50 +26,11 @@ class GisPointTest extends GisGeomTestCase
     public static function providerForTestGenerateWkt(): array
     {
         return [
-            [
-                [
-                    0 => [
-                        'POINT' => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                    ],
-                ],
-                0,
-                null,
-                'POINT(5.02 8.45)',
-            ],
-            [
-                [
-                    0 => [
-                        'POINT' => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                    ],
-                ],
-                1,
-                null,
-                'POINT( )',
-            ],
-            [
-                [0 => ['POINT' => ['x' => 5.02]]],
-                0,
-                null,
-                'POINT(5.02 )',
-            ],
-            [
-                [0 => ['POINT' => ['y' => 8.45]]],
-                0,
-                null,
-                'POINT( 8.45)',
-            ],
-            [
-                [0 => ['POINT' => []]],
-                0,
-                null,
-                'POINT( )',
-            ],
+            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 0, null, 'POINT(5.02 8.45)'],
+            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 1, null, 'POINT( )'],
+            [[0 => ['POINT' => ['x' => 5.02]]], 0, null, 'POINT(5.02 )'],
+            [[0 => ['POINT' => ['y' => 8.45]]], 0, null, 'POINT( 8.45)'],
+            [[0 => ['POINT' => []]], 0, null, 'POINT( )'],
         ];
     }
 
@@ -110,15 +71,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForTestGetShape(): array
     {
-        return [
-            [
-                [
-                    'x' => 5.02,
-                    'y' => 8.45,
-                ],
-                'POINT(5.02 8.45)',
-            ],
-        ];
+        return [[['x' => 5.02, 'y' => 8.45], 'POINT(5.02 8.45)']];
     }
 
     /**
@@ -142,20 +95,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateParams(): array
     {
-        return [
-            [
-                "'POINT(5.02 8.45)',124",
-                [
-                    'srid' => 124,
-                    0 => [
-                        'POINT' => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                    ],
-                ],
-            ],
-        ];
+        return [["'POINT(5.02 8.45)',124", ['srid' => 124, 0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]]]];
     }
 
     /**
@@ -179,12 +119,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForTestScaleRow(): array
     {
-        return [
-            [
-                'POINT(12 35)',
-                new ScaleData(12, 12, 35, 35),
-            ],
-        ];
+        return [['POINT(12 35)', new ScaleData(12, 12, 35, 35)]];
     }
 
     /** @requires extension gd */
@@ -286,20 +221,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForPrepareRowAsSvg(): array
     {
-        return [
-            [
-                'POINT(12 35)',
-                'svg',
-                [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                '',
-            ],
-        ];
+        return [['POINT(12 35)', 'svg', [176, 46, 224], ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150], '']];
     }
 
     /**

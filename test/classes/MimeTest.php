@@ -35,22 +35,10 @@ class MimeTest extends AbstractTestCase
     public static function providerForTestDetect(): array
     {
         return [
-            [
-                'pma',
-                'application/octet-stream',
-            ],
-            [
-                'GIF',
-                'image/gif',
-            ],
-            [
-                "\x89PNG",
-                'image/png',
-            ],
-            [
-                chr(0xff) . chr(0xd8),
-                'image/jpeg',
-            ],
+            ['pma', 'application/octet-stream'],
+            ['GIF', 'image/gif'],
+            ["\x89PNG", 'image/png'],
+            [chr(0xff) . chr(0xd8), 'image/jpeg'],
         ];
     }
 }

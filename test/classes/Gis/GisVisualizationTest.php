@@ -42,12 +42,7 @@ class GisVisualizationTest extends AbstractTestCase
             ],
         );
         $this->assertSame(
-            [
-                'scale' => 1,
-                'x' => -300.0,
-                'y' => -225.0,
-                'height' => 450,
-            ],
+            ['scale' => 1, 'x' => -300.0, 'y' => -225.0, 'height' => 450],
             $dataSet,
         );
 
@@ -66,12 +61,7 @@ class GisVisualizationTest extends AbstractTestCase
             ],
         );
         $this->assertSame(
-            [
-                'scale' => 2.1,
-                'x' => -45.35714285714286,
-                'y' => 42.85714285714286,
-                'height' => 450,
-            ],
+            ['scale' => 2.1, 'x' => -45.35714285714286, 'y' => 42.85714285714286, 'height' => 450],
             $dataSet,
         );
 
@@ -88,12 +78,7 @@ class GisVisualizationTest extends AbstractTestCase
             ],
         );
         $this->assertSame(
-            [
-                'scale' => 32.30769230769231,
-                'x' => -2.7857142857142865,
-                'y' => -0.4642857142857143,
-                'height' => 450,
-            ],
+            ['scale' => 32.30769230769231, 'x' => -2.7857142857142865, 'y' => -0.4642857142857143, 'height' => 450],
             $dataSet,
         );
     }

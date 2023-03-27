@@ -70,12 +70,7 @@ class PrivilegesTest extends AbstractTestCase
         //pre variable have been defined
         $_POST['pred_tablename'] = 'PMA_pred__tablename';
         $_POST['pred_dbname'] = ['PMA_pred_dbname'];
-        [,,
-            $dbname,
-            $tablename,
-            $routinename,
-            $dbnameIsWildcard,
-        ] = $serverPrivileges->getDataForDBInfo();
+        [, , $dbname, $tablename, $routinename, $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA_pred_dbname', $dbname);
         $this->assertEquals('PMA_pred__tablename', $tablename);
         $this->assertTrue($dbnameIsWildcard);
@@ -83,12 +78,7 @@ class PrivilegesTest extends AbstractTestCase
         // Escaped database
         $_POST['pred_tablename'] = 'PMA_pred__tablename';
         $_POST['pred_dbname'] = ['PMA\_pred\_dbname'];
-        [,,
-            $dbname,
-            $tablename,
-            $routinename,
-            $dbnameIsWildcard,
-        ] = $serverPrivileges->getDataForDBInfo();
+        [, , $dbname, $tablename, $routinename, $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA\_pred\_dbname', $dbname);
         $this->assertEquals('PMA_pred__tablename', $tablename);
         $this->assertEquals(false, $dbnameIsWildcard);
@@ -96,11 +86,7 @@ class PrivilegesTest extends AbstractTestCase
         // Multiselect database - pred
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_REQUEST['dbname']);
         $_POST['pred_dbname'] = ['PMA\_pred\_dbname', 'PMADbname2'];
-        [,,
-            $dbname,
-            $tablename,,
-            $dbnameIsWildcard,
-        ] = $serverPrivileges->getDataForDBInfo();
+        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
         $this->assertEquals(false, $dbnameIsWildcard);
@@ -108,11 +94,7 @@ class PrivilegesTest extends AbstractTestCase
         // Multiselect database
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_POST['pred_dbname']);
         $_REQUEST['dbname'] = ['PMA\_dbname', 'PMADbname2'];
-        [,,
-            $dbname,
-            $tablename,,
-            $dbnameIsWildcard,
-        ] = $serverPrivileges->getDataForDBInfo();
+        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
         $this->assertEquals(false, $dbnameIsWildcard);
@@ -155,19 +137,11 @@ class PrivilegesTest extends AbstractTestCase
 
         $ret = $serverPrivileges->getTableGrantsArray();
         $this->assertEquals(
-            [
-                'Delete',
-                'DELETE',
-                __('Allows deleting data.'),
-            ],
+            ['Delete', 'DELETE', __('Allows deleting data.')],
             $ret[0],
         );
         $this->assertEquals(
-            [
-                'Create',
-                'CREATE',
-                __('Allows creating new tables.'),
-            ],
+            ['Create', 'CREATE', __('Allows creating new tables.')],
             $ret[1],
         );
     }
@@ -178,19 +152,11 @@ class PrivilegesTest extends AbstractTestCase
 
         $ret = $serverPrivileges->getGrantsArray();
         $this->assertEquals(
-            [
-                'Select_priv',
-                'SELECT',
-                __('Allows reading data.'),
-            ],
+            ['Select_priv', 'SELECT', __('Allows reading data.')],
             $ret[0],
         );
         $this->assertEquals(
-            [
-                'Insert_priv',
-                'INSERT',
-                __('Allows inserting and replacing data.'),
-            ],
+            ['Insert_priv', 'INSERT', __('Allows inserting and replacing data.')],
             $ret[1],
         );
     }
@@ -312,10 +278,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $dbi->setVersion([
-            '@@version' => '5.7.6',
-            '@@version_comment' => 'MySQL Community Server (GPL)',
-        ]);
+        $dbi->setVersion(['@@version' => '5.7.6', '@@version_comment' => 'MySQL Community Server (GPL)']);
 
         $serverPrivileges = $this->getPrivileges($dbi);
 
@@ -363,10 +326,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $dbi->setVersion([
-            '@@version' => '5.5.6',
-            '@@version_comment' => 'MySQL Community Server (GPL)',
-        ]);
+        $dbi->setVersion(['@@version' => '5.5.6', '@@version_comment' => 'MySQL Community Server (GPL)']);
 
         $serverPrivileges = $this->getPrivileges($dbi);
 
@@ -680,10 +640,7 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi->addResult('SET `old_passwords` = 0;', []);
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $dbi->setVersion([
-            '@@version' => '8.0.11',
-            '@@version_comment' => 'MySQL Community Server - GPL',
-        ]);
+        $dbi->setVersion(['@@version' => '8.0.11', '@@version_comment' => 'MySQL Community Server - GPL']);
 
         $serverPrivileges = $this->getPrivileges($dbi);
 
@@ -717,10 +674,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
 
-        $dbi->setVersion([
-            '@@version' => '8.0.16',
-            '@@version_comment' => 'MySQL Community Server - GPL',
-        ]);
+        $dbi->setVersion(['@@version' => '8.0.16', '@@version_comment' => 'MySQL Community Server - GPL']);
 
         $serverPrivileges = $this->getPrivileges($dbi);
 
@@ -754,10 +708,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $dbi->setVersion([
-            '@@version' => '5.7.6',
-            '@@version_comment' => 'MySQL Community Server (GPL)',
-        ]);
+        $dbi->setVersion(['@@version' => '5.7.6', '@@version_comment' => 'MySQL Community Server (GPL)']);
 
         $serverPrivileges = $this->getPrivileges($dbi);
 
@@ -880,14 +831,8 @@ class PrivilegesTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fieldsInfo = [
-            [
-                'COLUMN_NAME' => 'Host',
-                'CHARACTER_MAXIMUM_LENGTH' => 80,
-            ],
-            [
-                'COLUMN_NAME' => 'User',
-                'CHARACTER_MAXIMUM_LENGTH' => 40,
-            ],
+            ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
+            ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fieldsInfo));
@@ -954,14 +899,8 @@ class PrivilegesTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fieldsInfo = [
-            [
-                'COLUMN_NAME' => 'Host',
-                'CHARACTER_MAXIMUM_LENGTH' => 80,
-            ],
-            [
-                'COLUMN_NAME' => 'User',
-                'CHARACTER_MAXIMUM_LENGTH' => 40,
-            ],
+            ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
+            ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fieldsInfo));
@@ -1333,10 +1272,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $ret = $serverPrivileges->getDataForDeleteUsers($queries);
 
-        $item = [
-            "# Deleting 'old_username'@'old_hostname' ...",
-            "DROP USER 'old_username'@'old_hostname';",
-        ];
+        $item = ["# Deleting 'old_username'@'old_hostname' ...", "DROP USER 'old_username'@'old_hostname';"];
         $this->assertEquals($item, $ret);
     }
 
@@ -1500,10 +1436,7 @@ class PrivilegesTest extends AbstractTestCase
             ),
             $actual,
         );
-        $item = Url::getCommon([
-            'db' => 'sakila',
-            'reload' => 1,
-        ], '');
+        $item = Url::getCommon(['db' => 'sakila', 'reload' => 1], '');
         $this->assertStringContainsString($item, $actual);
         $this->assertStringContainsString('sakila', $actual);
 
@@ -1519,11 +1452,7 @@ class PrivilegesTest extends AbstractTestCase
             ),
             $actual,
         );
-        $item = Url::getCommon([
-            'db' => 'sakila',
-            'table' => 'actor',
-            'reload' => 1,
-        ], '');
+        $item = Url::getCommon(['db' => 'sakila', 'table' => 'actor', 'reload' => 1], '');
         $this->assertStringContainsString($item, $actual);
         $this->assertStringContainsString('table', $actual);
         $item = Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
@@ -1617,9 +1546,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult(
             'SELECT 1 FROM `mysql`.`user`',
-            [
-                ['1'],
-            ],
+            [['1']],
         );
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
         $actual = $serverPrivileges->getHtmlForUserOverview('ltr', '');
@@ -1751,10 +1678,7 @@ class PrivilegesTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->will(
                 $this->onConsecutiveCalls(
-                    [
-                        'User' => 'pmauser',
-                        'Host' => 'local',
-                    ],
+                    ['User' => 'pmauser', 'Host' => 'local'],
                     [],
                 ),
             );
@@ -1943,38 +1867,14 @@ class PrivilegesTest extends AbstractTestCase
     public static function providerUnEscapeMysqlWildcards(): array
     {
         return [
-            [
-                '\_test',
-                '_test',
-            ],
-            [
-                '\_\\',
-                '_\\',
-            ],
-            [
-                '\\_\%',
-                '_%',
-            ],
-            [
-                '\\\_',
-                '\_',
-            ],
-            [
-                '\\\_\\\%',
-                '\_\%',
-            ],
-            [
-                '\_\\%\_\_\%',
-                '_%__%',
-            ],
-            [
-                '\%\_',
-                '%_',
-            ],
-            [
-                '\\\%\\\_',
-                '\%\_',
-            ],
+            ['\_test', '_test'],
+            ['\_\\', '_\\'],
+            ['\\_\%', '_%'],
+            ['\\\_', '\_'],
+            ['\\\_\\\%', '\_\%'],
+            ['\_\\%\_\_\%', '_%__%'],
+            ['\%\_', '%_'],
+            ['\\\%\\\_', '\%\_'],
         ];
     }
 

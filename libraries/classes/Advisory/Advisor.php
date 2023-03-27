@@ -44,12 +44,7 @@ class Advisor
     private array $rules = [];
 
     /** @var array{fired:array, notfired:array, unchecked:array, errors:array} */
-    private array $runResult = [
-        'fired' => [],
-        'notfired' => [],
-        'unchecked' => [],
-        'errors' => [],
-    ];
+    private array $runResult = ['fired' => [], 'notfired' => [], 'unchecked' => [], 'errors' => []];
 
     public function __construct(private DatabaseInterface $dbi, private ExpressionLanguage $expression)
     {
@@ -191,12 +186,7 @@ class Advisor
      */
     private function runRules(): void
     {
-        $this->runResult = [
-            'fired' => [],
-            'notfired' => [],
-            'unchecked' => [],
-            'errors' => [],
-        ];
+        $this->runResult = ['fired' => [], 'notfired' => [], 'unchecked' => [], 'errors' => []];
 
         foreach ($this->rules as $rule) {
             $this->variables['value'] = 0;

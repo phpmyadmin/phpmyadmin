@@ -65,9 +65,7 @@ final class MainController
             /** @var mixed $mode */
             $mode = $request->getQueryParam('mode');
             if ($mode === 'remove' && $request->isPost()) {
-                $controller->destroy([
-                    'id' => $request->getQueryParam('id'),
-                ]);
+                $controller->destroy(['id' => $request->getQueryParam('id')]);
                 header('Location: ../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
 
                 return;

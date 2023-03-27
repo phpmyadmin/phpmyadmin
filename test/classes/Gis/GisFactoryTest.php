@@ -39,34 +39,13 @@ class GisFactoryTest extends AbstractTestCase
     public static function providerForTestFactory(): array
     {
         return [
-            [
-                'MULTIPOLYGON',
-                GisMultiPolygon::class,
-            ],
-            [
-                'POLYGON',
-                GisPolygon::class,
-            ],
-            [
-                'MULTILINESTRING',
-                GisMultiLineString::class,
-            ],
-            [
-                'LINESTRING',
-                GisLineString::class,
-            ],
-            [
-                'MULTIPOINT',
-                GisMultiPoint::class,
-            ],
-            [
-                'POINT',
-                GisPoint::class,
-            ],
-            [
-                'GEOMETRYCOLLECTION',
-                GisGeometryCollection::class,
-            ],
+            ['MULTIPOLYGON', GisMultiPolygon::class],
+            ['POLYGON', GisPolygon::class],
+            ['MULTILINESTRING', GisMultiLineString::class],
+            ['LINESTRING', GisLineString::class],
+            ['MULTIPOINT', GisMultiPoint::class],
+            ['POINT', GisPoint::class],
+            ['GEOMETRYCOLLECTION', GisGeometryCollection::class],
         ];
     }
 }

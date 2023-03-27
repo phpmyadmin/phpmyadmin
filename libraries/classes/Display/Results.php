@@ -301,16 +301,10 @@ class Results
                 'views' => ['view_definition' => $sqlHighlightingData],
             ],
             'mysql' => [
-                'event' => [
-                    'body' => $blobSqlHighlightingData,
-                    'body_utf8' => $blobSqlHighlightingData,
-                ],
+                'event' => ['body' => $blobSqlHighlightingData, 'body_utf8' => $blobSqlHighlightingData],
                 'general_log' => ['argument' => $sqlHighlightingData],
                 'help_category' => ['url' => $linkData],
-                'help_topic' => [
-                    'example' => $sqlHighlightingData,
-                    'url' => $linkData,
-                ],
+                'help_topic' => ['example' => $sqlHighlightingData, 'url' => $linkData],
                 'proc' => [
                     'param_list' => $blobSqlHighlightingData,
                     'returns' => $blobSqlHighlightingData,
@@ -611,10 +605,7 @@ class Results
         // if for COUNT query, number of rows returned more than 1
         // (may be being used GROUP BY)
         if ($this->properties['is_count'] && $numRows > 1) {
-            $displayParts = $displayParts->with([
-                'hasNavigationBar' => true,
-                'hasSortLink' => true,
-            ]);
+            $displayParts = $displayParts->with(['hasNavigationBar' => true, 'hasSortLink' => true]);
         }
 
         // 4. If navigation bar or sorting fields names URLs should be
@@ -631,10 +622,7 @@ class Results
             }
         }
 
-        return [
-            $displayParts,
-            (int) $theTotal,
-        ];
+        return [$displayParts, (int) $theTotal];
     }
 
     /**
@@ -687,10 +675,7 @@ class Results
             ]);
         }
 
-        return [
-            $output,
-            $nbTotalPage,
-        ];
+        return [$output, $nbTotalPage];
     }
 
     /**
@@ -716,10 +701,7 @@ class Results
         $pageSelector = '';
         $numberTotalPage = 1;
         if (! $isShowingAll) {
-            [
-                $pageSelector,
-                $numberTotalPage,
-            ] = $this->getHtmlPageSelector();
+            [$pageSelector, $numberTotalPage] = $this->getHtmlPageSelector();
         }
 
         $isLastPage = $this->properties['unlim_num_rows'] !== -1 && $this->properties['unlim_num_rows'] !== false
@@ -1061,11 +1043,7 @@ class Results
             ];
         }
 
-        $options[] = [
-            'value' => $unsortedSqlQuery,
-            'content' => __('None'),
-            'is_selected' => ! $isIndexUsed,
-        ];
+        $options[] = ['value' => $unsortedSqlQuery, 'content' => __('None'), 'is_selected' => ! $isIndexUsed];
 
         return ['hidden_fields' => $hiddenFields, 'options' => $options];
     }
@@ -1521,11 +1499,7 @@ class Results
             $sortOrderColumns[] = $sortOrder;
         }
 
-        return [
-            $singleSortOrder,
-            implode(', ', $sortOrderColumns),
-            $orderImg ?? '',
-        ];
+        return [$singleSortOrder, implode(', ', $sortOrderColumns), $orderImg ?? ''];
     }
 
     /**
@@ -1612,43 +1586,28 @@ class Results
             $orderImg = ' ' . Generator::getImage(
                 's_desc',
                 __('Descending'),
-                [
-                    'class' => 'soimg',
-                    'title' => '',
-                ],
+                ['class' => 'soimg', 'title' => ''],
             );
             $orderImg .= ' ' . Generator::getImage(
                 's_asc',
                 __('Ascending'),
-                [
-                    'class' => 'soimg hide',
-                    'title' => '',
-                ],
+                ['class' => 'soimg hide', 'title' => ''],
             );
         } else {
             $sortOrder .= self::DESCENDING_SORT_DIR;
             $orderImg = ' ' . Generator::getImage(
                 's_asc',
                 __('Ascending'),
-                [
-                    'class' => 'soimg',
-                    'title' => '',
-                ],
+                ['class' => 'soimg', 'title' => ''],
             );
             $orderImg .= ' ' . Generator::getImage(
                 's_desc',
                 __('Descending'),
-                [
-                    'class' => 'soimg hide',
-                    'title' => '',
-                ],
+                ['class' => 'soimg hide', 'title' => ''],
             );
         }
 
-        return [
-            $sortOrder,
-            $orderImg,
-        ];
+        return [$sortOrder, $orderImg];
     }
 
     /**
@@ -1883,10 +1842,7 @@ class Results
         bool $isFieldTruncated = false,
         bool $hasTransformationPlugin = false,
     ): string {
-        $classes = array_filter([
-            $class,
-            $nowrap,
-        ]);
+        $classes = array_filter([$class, $nowrap]);
 
         if ($meta->internalMediaType !== null) {
             $classes[] = preg_replace('/\//', '_', $meta->internalMediaType);
@@ -2413,10 +2369,7 @@ class Results
                 );
                 $transformationPlugin = new Text_Plain_Link();
 
-                $transformOptions = [
-                    0 => $linkingUrl,
-                    2 => true,
-                ];
+                $transformOptions = [0 => $linkingUrl, 2 => true];
 
                 $meta->internalMediaType = str_replace('_', '/', 'Text/Plain');
             }
@@ -2669,10 +2622,7 @@ class Results
             $colVisib = false;
         }
 
-        return [
-            $colOrder,
-            $colVisib,
-        ];
+        return [$colOrder, $colVisib];
     }
 
     /**
@@ -2754,13 +2704,7 @@ class Results
             __('Copy'),
         );
 
-        return [
-            $editUrl,
-            $copyUrl,
-            $editStr,
-            $copyStr,
-            $urlParams,
-        ];
+        return [$editUrl, $copyUrl, $editStr, $copyStr, $urlParams];
     }
 
     /**
@@ -2827,11 +2771,7 @@ class Results
 
             $kill = $this->dbi->getKillQuery($processId);
 
-            $urlParams = [
-                'db' => 'mysql',
-                'sql_query' => $kill,
-                'goto' => $linkGoto,
-            ];
+            $urlParams = ['db' => 'mysql', 'sql_query' => $kill, 'goto' => $linkGoto];
 
             $deleteUrl = Url::getFromRoute('/sql');
             $jsConf = $kill;
@@ -2843,12 +2783,7 @@ class Results
             $deleteUrl = $deleteString = $jsConf = $urlParams = null;
         }
 
-        return [
-            $deleteUrl,
-            $deleteString,
-            $jsConf,
-            $urlParams,
-        ];
+        return [$deleteUrl, $deleteString, $jsConf, $urlParams];
     }
 
     /**
@@ -3139,11 +3074,7 @@ class Results
             && str_contains($transformationPlugin->getName(), 'Link'))
             && ! $meta->isBinary()
         ) {
-            [
-                $isFieldTruncated,
-                $column,
-                $originalLength,
-            ] = $this->getPartialText($column);
+            [$isFieldTruncated, $column, $originalLength] = $this->getPartialText($column);
         }
 
         if ($meta->isMappedTypeBit) {
@@ -3411,10 +3342,7 @@ class Results
         // 1.1 Gets the information about which functionalities should be
         //     displayed
 
-        [
-            $displayParts,
-            $total,
-        ] = $this->setDisplayPartsAndTotal($displayParts);
+        [$displayParts, $total] = $this->setDisplayPartsAndTotal($displayParts);
 
         // 1.2 Defines offsets for the next and previous pages
         $posNext = 0;
@@ -3834,12 +3762,7 @@ class Results
         foreach ($existRel as $masterField => $rel) {
             if ($masterField !== 'foreign_keys_data') {
                 $displayField = $this->relation->getDisplayField($rel['foreign_db'], $rel['foreign_table']);
-                $map[$masterField] = [
-                    $rel['foreign_table'],
-                    $rel['foreign_field'],
-                    $displayField,
-                    $rel['foreign_db'],
-                ];
+                $map[$masterField] = [$rel['foreign_table'], $rel['foreign_field'], $displayField, $rel['foreign_db']];
             } else {
                 foreach ($rel as $oneKey) {
                     foreach ($oneKey['index_list'] as $index => $oneField) {
@@ -4303,10 +4226,6 @@ class Results
             $truncated = false;
         }
 
-        return [
-            $truncated,
-            $str,
-            $originalLength,
-        ];
+        return [$truncated, $str, $originalLength];
     }
 }

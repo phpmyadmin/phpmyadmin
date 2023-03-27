@@ -72,10 +72,7 @@ final class IndexRenameController extends AbstractController
     {
         $this->dbi->selectDb($GLOBALS['db']);
 
-        $formParams = [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ];
+        $formParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
 
         if (isset($_POST['old_index'])) {
             $formParams['old_index'] = $_POST['old_index'];
@@ -83,9 +80,6 @@ final class IndexRenameController extends AbstractController
             $formParams['old_index'] = $_POST['index'];
         }
 
-        $this->render('table/index_rename_form', [
-            'index' => $index,
-            'form_params' => $formParams,
-        ]);
+        $this->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
     }
 }

@@ -90,11 +90,7 @@ class ExportLatex extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
@@ -321,10 +317,7 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
-                    [
-                        'table' => $tableAlias,
-                        'database' => $dbAlias,
-                    ],
+                    ['table' => $tableAlias, 'database' => $dbAlias],
                 )
                 . '} \\\\';
         }
@@ -539,10 +532,7 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
-                    [
-                        'table' => $tableAlias,
-                        'database' => $dbAlias,
-                    ],
+                    ['table' => $tableAlias, 'database' => $dbAlias],
                 )
                 . '} \\\\' . "\n";
         }
@@ -642,16 +632,7 @@ class ExportLatex extends ExportPlugin
      */
     public static function texEscape(string $string): string
     {
-        $escape = [
-            '$',
-            '%',
-            '{',
-            '}',
-            '&',
-            '#',
-            '_',
-            '^',
-        ];
+        $escape = ['$', '%', '{', '}', '&', '#', '_', '^'];
         $cntEscape = count($escape);
         for ($k = 0; $k < $cntEscape; $k++) {
             $string = str_replace($escape[$k], '\\' . $escape[$k], $string);

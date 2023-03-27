@@ -85,10 +85,7 @@ class Linter
             $line = $lineNo;
         }
 
-        return [
-            $line,
-            $pos - $lines[$line],
-        ];
+        return [$line, $pos - $lines[$line]];
     }
 
     /**

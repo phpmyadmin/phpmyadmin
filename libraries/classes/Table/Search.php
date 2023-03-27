@@ -264,12 +264,7 @@ final class Search
         string $types,
         string|null $geomFunc = null,
     ): string {
-        $geomUnaryFunctions = [
-            'IsEmpty' => 1,
-            'IsSimple' => 1,
-            'IsRing' => 1,
-            'IsClosed' => 1,
-        ];
+        $geomUnaryFunctions = ['IsEmpty' => 1, 'IsSimple' => 1, 'IsRing' => 1, 'IsClosed' => 1];
         $where = '';
 
         // Get details about the geometry functions

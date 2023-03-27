@@ -310,10 +310,7 @@ class ExportJson extends ExportPlugin
      */
     public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
-        $buffer = $this->encode([
-            'type' => 'raw',
-            'data' => '@@DATA@@',
-        ]);
+        $buffer = $this->encode(['type' => 'raw', 'data' => '@@DATA@@']);
         if ($buffer === false) {
             return false;
         }

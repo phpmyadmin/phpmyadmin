@@ -79,16 +79,7 @@ class DbiDummyTest extends AbstractTestCase
      */
     public static function schemaData(): array
     {
-        return [
-            [
-                'information_schema',
-                true,
-            ],
-            [
-                'pma_test',
-                false,
-            ],
-        ];
+        return [['information_schema', true], ['pma_test', false]];
     }
 
     /**
@@ -115,16 +106,8 @@ class DbiDummyTest extends AbstractTestCase
     public static function errorData(): array
     {
         return [
-            [
-                1234,
-                '',
-                '#1234 - ',
-            ],
-            [
-                1234,
-                'foobar',
-                '#1234 - foobar',
-            ],
+            [1234, '', '#1234 - '],
+            [1234, 'foobar', '#1234 - foobar'],
             [
                 2002,
                 'foobar',

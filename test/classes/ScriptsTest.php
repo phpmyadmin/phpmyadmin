@@ -85,16 +85,7 @@ class ScriptsTest extends AbstractTestCase
 
         $this->object->addFile('common.js');
         $this->assertEquals(
-            [
-                [
-                    'name' => 'vendor/codemirror/lib/codemirror.js',
-                    'fire' => 0,
-                ],
-                [
-                    'name' => 'common.js',
-                    'fire' => 1,
-                ],
-            ],
+            [['name' => 'vendor/codemirror/lib/codemirror.js', 'fire' => 0], ['name' => 'common.js', 'fire' => 1]],
             $this->object->getFiles(),
         );
     }
@@ -113,13 +104,7 @@ class ScriptsTest extends AbstractTestCase
         // Add one script file
         $file = 'common.js';
         $hash = 'd7716810d825f4b55d18727c3ccb24e6';
-        $files = [
-            $hash => [
-                'has_onload' => 1,
-                'filename' => 'common.js',
-                'params' => [],
-            ],
-        ];
+        $files = [$hash => ['has_onload' => 1, 'filename' => 'common.js', 'params' => []]];
         $this->object->addFile($file);
         $this->assertEquals($files, $reflection->getValue($this->object));
     }
@@ -131,22 +116,10 @@ class ScriptsTest extends AbstractTestCase
     {
         $reflection = new ReflectionProperty(Scripts::class, 'files');
 
-        $filenames = [
-            'common.js',
-            'sql.js',
-            'common.js',
-        ];
+        $filenames = ['common.js', 'sql.js', 'common.js'];
         $files = [
-            'd7716810d825f4b55d18727c3ccb24e6' => [
-                'has_onload' => 1,
-                'filename' => 'common.js',
-                'params' => [],
-            ],
-            '347a57484fcd6ea6d8a125e6e1d31f78' => [
-                'has_onload' => 1,
-                'filename' => 'sql.js',
-                'params' => [],
-            ],
+            'd7716810d825f4b55d18727c3ccb24e6' => ['has_onload' => 1, 'filename' => 'common.js', 'params' => []],
+            '347a57484fcd6ea6d8a125e6e1d31f78' => ['has_onload' => 1, 'filename' => 'sql.js', 'params' => []],
         ];
         $this->object->addFiles($filenames);
         $this->assertEquals($files, $reflection->getValue($this->object));

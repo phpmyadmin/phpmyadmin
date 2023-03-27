@@ -29,14 +29,8 @@ class GisMultiPointTest extends GisGeomTestCase
             0 => [
                 'MULTIPOINT' => [
                     'no_of_points' => 2,
-                    0 => [
-                        'x' => 5.02,
-                        'y' => 8.45,
-                    ],
-                    1 => [
-                        'x' => 1.56,
-                        'y' => 4.36,
-                    ],
+                    0 => ['x' => 5.02, 'y' => 8.45],
+                    1 => ['x' => 1.56, 'y' => 4.36],
                 ],
             ],
         ];
@@ -45,18 +39,8 @@ class GisMultiPointTest extends GisGeomTestCase
         $gisData2[0]['MULTIPOINT']['no_of_points'] = -1;
 
         return [
-            [
-                $gisData1,
-                0,
-                null,
-                'MULTIPOINT(5.02 8.45,1.56 4.36)',
-            ],
-            [
-                $gisData2,
-                0,
-                null,
-                'MULTIPOINT(5.02 8.45)',
-            ],
+            [$gisData1, 0, null, 'MULTIPOINT(5.02 8.45,1.56 4.36)'],
+            [$gisData2, 0, null, 'MULTIPOINT(5.02 8.45)'],
         ];
     }
 
@@ -81,19 +65,7 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function testGetShape(): void
     {
-        $gisData = [
-            'numpoints' => 2,
-            'points' => [
-                0 => [
-                    'x' => 5.02,
-                    'y' => 8.45,
-                ],
-                1 => [
-                    'x' => 6.14,
-                    'y' => 0.15,
-                ],
-            ],
-        ];
+        $gisData = ['numpoints' => 2, 'points' => [0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]]];
 
         $object = GisMultiPoint::singleton();
         $this->assertEquals('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gisData));
@@ -128,14 +100,8 @@ class GisMultiPointTest extends GisGeomTestCase
                     0 => [
                         'MULTIPOINT' => [
                             'no_of_points' => 2,
-                            0 => [
-                                'x' => 5.02,
-                                'y' => 8.45,
-                            ],
-                            1 => [
-                                'x' => 6.14,
-                                'y' => 0.15,
-                            ],
+                            0 => ['x' => 5.02, 'y' => 8.45],
+                            1 => ['x' => 6.14, 'y' => 0.15],
                         ],
                     ],
                 ],
@@ -164,12 +130,7 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public static function providerForTestScaleRow(): array
     {
-        return [
-            [
-                'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
-                new ScaleData(69, 12, 78, 23),
-            ],
-        ];
+        return [['MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)', new ScaleData(69, 12, 78, 23)]];
     }
 
     /** @requires extension gd */
@@ -276,12 +237,7 @@ class GisMultiPointTest extends GisGeomTestCase
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'svg',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
+                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
                 '<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
                 . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="'
                 . 'svg1234567890"/><circle cx="114" cy="242" r="3" name="svg" class="mult'

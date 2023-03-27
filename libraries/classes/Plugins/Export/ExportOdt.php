@@ -71,11 +71,7 @@ class ExportOdt extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group

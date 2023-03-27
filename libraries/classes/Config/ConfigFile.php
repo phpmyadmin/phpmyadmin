@@ -501,40 +501,15 @@ class ConfigFile
             'Servers' => [
                 1 => [
                     'port' => 'integer',
-                    'auth_type' => [
-                        'config',
-                        'http',
-                        'signon',
-                        'cookie',
-                    ],
-                    'AllowDeny' => [
-                        'order' => [
-                            '',
-                            'deny,allow',
-                            'allow,deny',
-                            'explicit',
-                        ],
-                    ],
+                    'auth_type' => ['config', 'http', 'signon', 'cookie'],
+                    'AllowDeny' => ['order' => ['', 'deny,allow', 'allow,deny', 'explicit']],
                     'only_db' => 'array',
                 ],
             ],
-            'RecodingEngine' => [
-                'auto',
-                'iconv',
-                'recode',
-                'mb',
-                'none',
-            ],
-            'OBGzip' => [
-                'auto',
-                true,
-                false,
-            ],
+            'RecodingEngine' => ['auto', 'iconv', 'recode', 'mb', 'none'],
+            'OBGzip' => ['auto', true, false],
             'MemoryLimit' => 'short_string',
-            'NavigationLogoLinkWindow' => [
-                'main',
-                'new',
-            ],
+            'NavigationLogoLinkWindow' => ['main', 'new'],
             'NavigationTreeDefaultTabTable' => [
                 // fields list
                 'structure' => __('Structure'),
@@ -564,49 +539,19 @@ class ConfigFile
             'NavigationTreeDbSeparator' => 'short_string',
             'NavigationTreeTableSeparator' => 'short_string',
             'NavigationWidth' => 'integer',
-            'TableNavigationLinksMode' => [
-                'icons' => __('Icons'),
-                'text' => __('Text'),
-                'both' => __('Both'),
-            ],
-            'MaxRows' => [
-                25,
-                50,
-                100,
-                250,
-                500,
-            ],
-            'Order' => [
-                'ASC',
-                'DESC',
-                'SMART',
-            ],
+            'TableNavigationLinksMode' => ['icons' => __('Icons'), 'text' => __('Text'), 'both' => __('Both')],
+            'MaxRows' => [25, 50, 100, 250, 500],
+            'Order' => ['ASC', 'DESC', 'SMART'],
             'RowActionLinks' => [
                 'none' => __('Nowhere'),
                 'left' => __('Left'),
                 'right' => __('Right'),
                 'both' => __('Both'),
             ],
-            'TablePrimaryKeyOrder' => [
-                'NONE' => __('None'),
-                'ASC' => __('Ascending'),
-                'DESC' => __('Descending'),
-            ],
-            'ProtectBinary' => [
-                false,
-                'blob',
-                'noblob',
-                'all',
-            ],
-            'CharEditing' => [
-                'input',
-                'textarea',
-            ],
-            'TabsMode' => [
-                'icons' => __('Icons'),
-                'text' => __('Text'),
-                'both' => __('Both'),
-            ],
+            'TablePrimaryKeyOrder' => ['NONE' => __('None'), 'ASC' => __('Ascending'), 'DESC' => __('Descending')],
+            'ProtectBinary' => [false, 'blob', 'noblob', 'all'],
+            'CharEditing' => ['input', 'textarea'],
+            'TabsMode' => ['icons' => __('Icons'), 'text' => __('Text'), 'both' => __('Both')],
             'PDFDefaultPageSize' => [
                 'A3' => 'A3',
                 'A4' => 'A4',
@@ -614,20 +559,13 @@ class ConfigFile
                 'letter' => 'letter',
                 'legal' => 'legal',
             ],
-            'ActionLinksMode' => [
-                'icons' => __('Icons'),
-                'text' => __('Text'),
-                'both' => __('Both'),
-            ],
+            'ActionLinksMode' => ['icons' => __('Icons'), 'text' => __('Text'), 'both' => __('Both')],
             'GridEditing' => [
                 'click' => __('Click'),
                 'double-click' => __('Double click'),
                 'disabled' => __('Disabled'),
             ],
-            'RelationalDisplay' => [
-                'K' => __('key'),
-                'D' => __('display column'),
-            ],
+            'RelationalDisplay' => ['K' => __('key'), 'D' => __('display column')],
             'DefaultTabServer' => [
                 // the welcome page (recommended for multiuser setups)
                 'welcome' => __('Welcome'),
@@ -662,11 +600,7 @@ class ConfigFile
                 // browse page
                 'browse' => __('Browse'),
             ],
-            'InitialSlidersState' => [
-                'open' => __('Open'),
-                'closed' => __('Closed'),
-                'disabled' => __('Disabled'),
-            ],
+            'InitialSlidersState' => ['open' => __('Open'), 'closed' => __('Closed'), 'disabled' => __('Disabled')],
             'FirstDayOfCalendar' => [
                 '1' => _pgettext('Week day name', 'Monday'),
                 '2' => _pgettext('Week day name', 'Tuesday'),
@@ -719,11 +653,7 @@ class ConfigFile
                 'ldi_terminated' => 'short_string',
                 'ldi_enclosed' => 'short_string',
                 'ldi_escaped' => 'short_string',
-                'ldi_local_option' => [
-                    'auto',
-                    true,
-                    false,
-                ],
+                'ldi_local_option' => ['auto', true, false],
             ],
 
             'Export' => [
@@ -752,11 +682,7 @@ class ConfigFile
                     'xml',
                     'yaml',
                 ],
-                'compression' => [
-                    'none',
-                    'zip',
-                    'gzip',
-                ],
+                'compression' => ['none', 'zip', 'gzip'],
                 'charset' => array_merge([''], $GLOBALS['cfg']['AvailableCharsets'] ?? []),
                 'sql_compatibility' => [
                     'NONE',
@@ -772,11 +698,7 @@ class ConfigFile
                     //'POSTGRESQL',
                     'TRADITIONAL',
                 ],
-                'codegen_format' => [
-                    '#',
-                    'NHibernate C# DO',
-                    'NHibernate XML',
-                ],
+                'codegen_format' => ['#', 'NHibernate C# DO', 'NHibernate XML'],
                 'csv_separator' => 'short_string',
                 'csv_terminated' => 'short_string',
                 'csv_enclosed' => 'short_string',
@@ -793,11 +715,7 @@ class ConfigFile
                     'data' => __('data'),
                     'structure_and_data' => __('structure and data'),
                 ],
-                'sql_type' => [
-                    'INSERT',
-                    'UPDATE',
-                    'REPLACE',
-                ],
+                'sql_type' => ['INSERT', 'UPDATE', 'REPLACE'],
                 'sql_insert_syntax' => [
                     'complete' => __('complete inserts'),
                     'extended' => __('extended inserts'),
@@ -826,20 +744,9 @@ class ConfigFile
             ],
 
             'Console' => [
-                'Mode' => [
-                    'info',
-                    'show',
-                    'collapse',
-                ],
-                'OrderBy' => [
-                    'exec',
-                    'time',
-                    'count',
-                ],
-                'Order' => [
-                    'asc',
-                    'desc',
-                ],
+                'Mode' => ['info', 'show', 'collapse'],
+                'OrderBy' => ['exec', 'time', 'count'],
+                'Order' => ['asc', 'desc'],
             ],
 
             /**
@@ -855,42 +762,12 @@ class ConfigFile
                 'Export/sql_max_query_size' => 'validatePositiveNumber',
                 'FirstLevelNavigationItems' => 'validatePositiveNumber',
                 'ForeignKeyMaxLimit' => 'validatePositiveNumber',
-                'Import/csv_enclosed' => [
-                    [
-                        'validateByRegex',
-                        '/^.?$/',
-                    ],
-                ],
-                'Import/csv_escaped' => [
-                    [
-                        'validateByRegex',
-                        '/^.$/',
-                    ],
-                ],
-                'Import/csv_terminated' => [
-                    [
-                        'validateByRegex',
-                        '/^.$/',
-                    ],
-                ],
-                'Import/ldi_enclosed' => [
-                    [
-                        'validateByRegex',
-                        '/^.?$/',
-                    ],
-                ],
-                'Import/ldi_escaped' => [
-                    [
-                        'validateByRegex',
-                        '/^.$/',
-                    ],
-                ],
-                'Import/ldi_terminated' => [
-                    [
-                        'validateByRegex',
-                        '/^.$/',
-                    ],
-                ],
+                'Import/csv_enclosed' => [['validateByRegex', '/^.?$/']],
+                'Import/csv_escaped' => [['validateByRegex', '/^.$/']],
+                'Import/csv_terminated' => [['validateByRegex', '/^.$/']],
+                'Import/ldi_enclosed' => [['validateByRegex', '/^.?$/']],
+                'Import/ldi_escaped' => [['validateByRegex', '/^.$/']],
+                'Import/ldi_terminated' => [['validateByRegex', '/^.$/']],
                 'Import/skip_queries' => 'validateNonNegativeNumber',
                 'InsertRows' => 'validatePositiveNumber',
                 'NumRecentTables' => 'validateNonNegativeNumber',
@@ -905,12 +782,7 @@ class ConfigFile
                 'MaxSizeForInputField' => 'validatePositiveNumber',
                 'MinSizeForInputField' => 'validateNonNegativeNumber',
                 'MaxTableList' => 'validatePositiveNumber',
-                'MemoryLimit' => [
-                    [
-                        'validateByRegex',
-                        '/^(-1|(\d+(?:[kmg])?))$/i',
-                    ],
-                ],
+                'MemoryLimit' => [['validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i']],
                 'NavigationTreeDisplayItemFilterMinimum' => 'validatePositiveNumber',
                 'NavigationTreeTableLevel' => 'validatePositiveNumber',
                 'NavigationWidth' => 'validateNonNegativeNumber',
@@ -929,24 +801,9 @@ class ConfigFile
              * Additional validators used for user preferences
              */
             '_userValidators' => [
-                'MaxDbList' => [
-                    [
-                        'validateUpperBound',
-                        'value:MaxDbList',
-                    ],
-                ],
-                'MaxTableList' => [
-                    [
-                        'validateUpperBound',
-                        'value:MaxTableList',
-                    ],
-                ],
-                'QueryHistoryMax' => [
-                    [
-                        'validateUpperBound',
-                        'value:QueryHistoryMax',
-                    ],
-                ],
+                'MaxDbList' => [['validateUpperBound', 'value:MaxDbList']],
+                'MaxTableList' => [['validateUpperBound', 'value:MaxTableList']],
+                'QueryHistoryMax' => [['validateUpperBound', 'value:QueryHistoryMax']],
             ],
         ];
     }

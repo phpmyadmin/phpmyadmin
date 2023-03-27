@@ -44,46 +44,18 @@ class DescriptionTest extends AbstractTestCase
     public static function getValues(): array
     {
         return [
-            'valid name' => [
-                'AllowArbitraryServer',
-                'name',
-                'Allow login to any MySQL server',
-            ],
+            'valid name' => ['AllowArbitraryServer', 'name', 'Allow login to any MySQL server'],
             'valid description' => [
                 'AllowArbitraryServer',
                 'desc',
                 'If enabled, user can enter any MySQL server in login form for cookie auth.',
             ],
-            'valid comment' => [
-                'MaxDbList',
-                'cmt',
-                'Users cannot set a higher value',
-            ],
-            'invalid name' => [
-                'UnknownSetting',
-                'name',
-                'UnknownSetting',
-            ],
-            'invalid description' => [
-                'UnknownSetting',
-                'desc',
-                '',
-            ],
-            'invalid comment' => [
-                'UnknownSetting',
-                'cmt',
-                '',
-            ],
-            'server number' => [
-                'Servers/1/DisableIS',
-                'name',
-                'Disable use of INFORMATION_SCHEMA',
-            ],
-            'composed name' => [
-                'Import/format',
-                'name',
-                'Format of imported file',
-            ],
+            'valid comment' => ['MaxDbList', 'cmt', 'Users cannot set a higher value'],
+            'invalid name' => ['UnknownSetting', 'name', 'UnknownSetting'],
+            'invalid description' => ['UnknownSetting', 'desc', ''],
+            'invalid comment' => ['UnknownSetting', 'cmt', ''],
+            'server number' => ['Servers/1/DisableIS', 'name', 'Disable use of INFORMATION_SCHEMA'],
+            'composed name' => ['Import/format', 'name', 'Format of imported file'],
             'bb code' => [
                 'NavigationLogoLinkWindow',
                 'desc',
@@ -109,14 +81,7 @@ class DescriptionTest extends AbstractTestCase
      */
     public function testAll(): void
     {
-        $nested = [
-            'Export',
-            'Import',
-            'Schema',
-            'DBG',
-            'DefaultTransformations',
-            'SQLQuery',
-        ];
+        $nested = ['Export', 'Import', 'Schema', 'DBG', 'DefaultTransformations', 'SQLQuery'];
 
         $settings = new Settings([]);
         $cfg = $settings->asArray();

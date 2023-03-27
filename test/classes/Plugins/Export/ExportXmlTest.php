@@ -183,15 +183,8 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['db'] = 'd<"b';
 
         $result = [
-            0 => [
-                'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
-                'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
-
-            ],
-            'table' => [
-                null,
-                '"tbl"',
-            ],
+            0 => ['DEFAULT_COLLATION_NAME' => 'utf8_general_ci', 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8'],
+            'table' => [null, '"tbl"'],
         ];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -280,26 +273,10 @@ class ExportXmlTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $result1 = [
-            [
-                'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
-                'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
+        $result1 = [['DEFAULT_COLLATION_NAME' => 'utf8_general_ci', 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8']];
+        $result2 = ['t1' => [null, '"tbl"']];
 
-            ],
-        ];
-        $result2 = [
-            't1' => [
-                null,
-                '"tbl"',
-            ],
-        ];
-
-        $result3 = [
-            't2' => [
-                null,
-                '"tbl"',
-            ],
-        ];
+        $result3 = ['t2' => [null, '"tbl"']];
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
@@ -315,10 +292,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $GLOBALS['tables'] = [
-            't1',
-            't2',
-        ];
+        $GLOBALS['tables'] = ['t1', 't2'];
 
         ob_start();
         $this->assertTrue(

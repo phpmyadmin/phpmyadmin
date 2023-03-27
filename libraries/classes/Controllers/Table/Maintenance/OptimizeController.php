@@ -76,9 +76,6 @@ final class OptimizeController extends AbstractController
             'success',
         );
 
-        $this->render('table/maintenance/optimize', [
-            'message' => $message,
-            'rows' => $rows,
-        ]);
+        $this->render('table/maintenance/optimize', ['message' => $message, 'rows' => $rows]);
     }
 }

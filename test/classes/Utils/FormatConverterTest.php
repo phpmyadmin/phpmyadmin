@@ -38,46 +38,14 @@ class FormatConverterTest extends AbstractTestCase
         // input
         // isBinary
         return [
-            [
-                '10.11.12.13',
-                '0x0a0b0c0d',
-                false,
-            ],
-            [
-                'my ip',
-                'my ip',
-                false,
-            ],
-            [
-                '10.11.12.13',
-                '0x0a0b0c0d',
-                true,
-            ],
-            [
-                '6d79206970',
-                'my ip',
-                true,
-            ],
-            [
-                '10.11.12.13',
-                '0x0a0b0c0d',
-                true,
-            ],
-            [
-                '666566',
-                'fef',
-                true,
-            ],
-            [
-                '0ded',
-                hex2bin('0DED'),
-                true,
-            ],
-            [
-                '127.0.0.1',
-                hex2bin('30783766303030303031'),
-                true,
-            ],
+            ['10.11.12.13', '0x0a0b0c0d', false],
+            ['my ip', 'my ip', false],
+            ['10.11.12.13', '0x0a0b0c0d', true],
+            ['6d79206970', 'my ip', true],
+            ['10.11.12.13', '0x0a0b0c0d', true],
+            ['666566', 'fef', true],
+            ['0ded', hex2bin('0DED'), true],
+            ['127.0.0.1', hex2bin('30783766303030303031'), true],
         ];
     }
 
@@ -102,16 +70,7 @@ class FormatConverterTest extends AbstractTestCase
      */
     public static function providerIpToBinary(): array
     {
-        return [
-            [
-                '0x0a0b0c0d',
-                '10.11.12.13',
-            ],
-            [
-                'my ip',
-                'my ip',
-            ],
-        ];
+        return [['0x0a0b0c0d', '10.11.12.13'], ['my ip', 'my ip']];
     }
 
     /**
@@ -135,16 +94,7 @@ class FormatConverterTest extends AbstractTestCase
      */
     public static function providerIpToLong(): array
     {
-        return [
-            [
-                '168496141',
-                '10.11.12.13',
-            ],
-            [
-                'my ip',
-                'my ip',
-            ],
-        ];
+        return [['168496141', '10.11.12.13'], ['my ip', 'my ip']];
     }
 
     /**
@@ -168,15 +118,6 @@ class FormatConverterTest extends AbstractTestCase
      */
     public static function providerLongToIp(): array
     {
-        return [
-            [
-                '10.11.12.13',
-                '168496141',
-            ],
-            [
-                'my ip',
-                'my ip',
-            ],
-        ];
+        return [['10.11.12.13', '168496141'], ['my ip', 'my ip']];
     }
 }

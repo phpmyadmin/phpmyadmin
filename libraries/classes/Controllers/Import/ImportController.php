@@ -248,10 +248,7 @@ final class ImportController extends AbstractController
         $GLOBALS['format'] = Core::securePath($GLOBALS['format']);
 
         if (strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
-            $GLOBALS['urlParams'] = [
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
-            ];
+            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         } elseif (strlen($GLOBALS['db']) > 0) {
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db']];
         } else {

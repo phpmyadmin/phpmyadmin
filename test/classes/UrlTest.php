@@ -59,10 +59,7 @@ class UrlTest extends AbstractTestCase
         $expected = '?db=db'
             . $separator . 'table=table'
             . $separator . $expected;
-        $params = [
-            'db' => 'db',
-            'table' => 'table',
-        ];
+        $params = ['db' => 'db', 'table' => 'table'];
         $this->assertEquals($expected, Url::getCommon($params));
     }
 
@@ -82,10 +79,7 @@ class UrlTest extends AbstractTestCase
         $this->assertEquals(
             $expected,
             Url::getCommonRaw(
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                ],
+                ['db' => 'db', 'table' => 'table'],
                 '#ABC#',
             ),
         );

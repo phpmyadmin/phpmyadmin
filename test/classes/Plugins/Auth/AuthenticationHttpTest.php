@@ -57,11 +57,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
             ->onlyMethods(
-                [
-                    'setBodyId',
-                    'setTitle',
-                    'disableMenuAndConsole',
-                ],
+                ['setBodyId', 'setTitle', 'disableMenuAndConsole'],
             )
             ->getMock();
 
@@ -204,16 +200,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     public static function readCredentialsProvider(): array
     {
         return [
-            [
-                'Basic ' . base64_encode('foo:bar'),
-                'pswd',
-                'PHP_AUTH_USER',
-                'PHP_AUTH_PW',
-                false,
-                '',
-                'bar',
-                'foo',
-            ],
+            ['Basic ' . base64_encode('foo:bar'), 'pswd', 'PHP_AUTH_USER', 'PHP_AUTH_PW', false, '', 'bar', 'foo'],
             [
                 'Basic ' . base64_encode('foobar'),
                 'pswd',
@@ -223,15 +210,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
                 'Basic Zm9vYmFy',
                 'pswd',
             ],
-            [
-                'Basic ' . base64_encode('foobar:'),
-                'pswd',
-                'AUTH_USER',
-                'AUTH_PASSWORD',
-                true,
-                'foobar',
-                false,
-            ],
+            ['Basic ' . base64_encode('foobar:'), 'pswd', 'AUTH_USER', 'AUTH_PASSWORD', true, 'foobar', false],
             [
                 'Basic ' . base64_encode(':foobar'),
                 'pswd',
@@ -241,15 +220,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
                 'Basic OmZvb2Jhcg==',
                 'pswd',
             ],
-            [
-                'BasicTest',
-                'pswd',
-                'Authorization',
-                'AUTH_PASSWORD',
-                true,
-                'BasicTest',
-                'pswd',
-            ],
+            ['BasicTest', 'pswd', 'Authorization', 'AUTH_PASSWORD', true, 'BasicTest', 'pswd'],
         ];
     }
 
@@ -277,27 +248,16 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         // case 2
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
-        $GLOBALS['cfg']['Servers'][1] = [
-            'host' => 'a',
-            'user' => 'testUser',
-            'foo' => 'bar',
-        ];
+        $GLOBALS['cfg']['Servers'][1] = ['host' => 'a', 'user' => 'testUser', 'foo' => 'bar'];
 
-        $GLOBALS['cfg']['Server'] = [
-            'host' => 'a',
-            'user' => 'user2',
-        ];
+        $GLOBALS['cfg']['Server'] = ['host' => 'a', 'user' => 'user2'];
 
         $this->assertTrue(
             $this->object->storeCredentials(),
         );
 
         $this->assertEquals(
-            [
-                'user' => 'testUser',
-                'password' => 'testPass',
-                'host' => 'a',
-            ],
+            ['user' => 'testUser', 'password' => 'testPass', 'host' => 'a'],
             $GLOBALS['cfg']['Server'],
         );
 
@@ -307,27 +267,16 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 3;
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
-        $GLOBALS['cfg']['Servers'][1] = [
-            'host' => 'a',
-            'user' => 'testUsers',
-            'foo' => 'bar',
-        ];
+        $GLOBALS['cfg']['Servers'][1] = ['host' => 'a', 'user' => 'testUsers', 'foo' => 'bar'];
 
-        $GLOBALS['cfg']['Server'] = [
-            'host' => 'a',
-            'user' => 'user2',
-        ];
+        $GLOBALS['cfg']['Server'] = ['host' => 'a', 'user' => 'user2'];
 
         $this->assertTrue(
             $this->object->storeCredentials(),
         );
 
         $this->assertEquals(
-            [
-                'user' => 'testUser',
-                'password' => 'testPass',
-                'host' => 'a',
-            ],
+            ['user' => 'testUser', 'password' => 'testPass', 'host' => 'a'],
             $GLOBALS['cfg']['Server'],
         );
 

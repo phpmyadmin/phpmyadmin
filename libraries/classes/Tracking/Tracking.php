@@ -277,13 +277,7 @@ class Tracking
         $str5 = '<input type="hidden" name="list_report" value="1">'
             . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
-        return [
-            $str1,
-            $str2,
-            $str3,
-            $str4,
-            $str5,
-        ];
+        return [$str1, $str2, $str3, $str4, $str5];
     }
 
     /**
@@ -320,10 +314,7 @@ class Tracking
         $ddlogCount = 0;
 
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
-        $html .= Url::getHiddenInputs($urlParams + [
-            'report' => 'true',
-            'version' => $version,
-        ]);
+        $html .= Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => $version]);
 
         $html .= sprintf(
             __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -394,10 +385,7 @@ class Tracking
         string $users,
     ): string {
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
-        $html .= Url::getHiddenInputs($urlParams + [
-            'report' => 'true',
-            'version' => $version,
-        ]);
+        $html .= Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => $version]);
 
         $html .= sprintf(
             __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -509,10 +497,7 @@ class Tracking
             $dateTo,
         );
 
-        return [
-            $html,
-            $lineNumber,
-        ];
+        return [$html, $lineNumber];
     }
 
     /**
@@ -573,10 +558,7 @@ class Tracking
             'drop_image_or_text' => $dropImageOrText,
         ]);
 
-        return [
-            $html,
-            $lineNumber,
-        ];
+        return [$html, $lineNumber];
     }
 
     /**
@@ -613,10 +595,7 @@ class Tracking
         // Unserialize snapshot
         $temp = Core::safeUnserialize($data['schema_snapshot']);
         if ($temp === null) {
-            $temp = [
-                'COLUMNS' => [],
-                'INDEXES' => [],
-            ];
+            $temp = ['COLUMNS' => [], 'INDEXES' => []];
         }
 
         $columns = $temp['COLUMNS'];

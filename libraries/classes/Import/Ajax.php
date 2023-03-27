@@ -61,11 +61,7 @@ final class Ajax
             }
         }
 
-        return [
-            $sessionKey,
-            $uploadId,
-            $plugins,
-        ];
+        return [$sessionKey, $uploadId, $plugins];
     }
 
     /**

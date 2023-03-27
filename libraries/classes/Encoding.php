@@ -65,26 +65,10 @@ class Encoding
      * @var array
      */
     private static array $enginemap = [
-        'iconv' => [
-            'iconv',
-            self::ENGINE_ICONV,
-            'iconv',
-        ],
-        'recode' => [
-            'recode_string',
-            self::ENGINE_RECODE,
-            'recode',
-        ],
-        'mb' => [
-            'mb_convert_encoding',
-            self::ENGINE_MB,
-            'mbstring',
-        ],
-        'none' => [
-            'isset',
-            self::ENGINE_NONE,
-            '',
-        ],
+        'iconv' => ['iconv', self::ENGINE_ICONV, 'iconv'],
+        'recode' => ['recode_string', self::ENGINE_RECODE, 'recode'],
+        'mb' => ['mb_convert_encoding', self::ENGINE_MB, 'mbstring'],
+        'none' => ['isset', self::ENGINE_NONE, ''],
     ];
 
     /**
@@ -92,11 +76,7 @@ class Encoding
      *
      * @var array
      */
-    private static array $engineorder = [
-        'iconv',
-        'mb',
-        'recode',
-    ];
+    private static array $engineorder = ['iconv', 'mb', 'recode'];
 
     /**
      * Kanji encodings list

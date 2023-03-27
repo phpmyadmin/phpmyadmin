@@ -87,48 +87,13 @@ class RoutingTest extends AbstractTestCase
                 '/; cookieinj=value/',
                 '/phpmyadmin/index.php',
             ],
-            [
-                '',
-                '/phpmyadmin/index.php/;%20cookieinj=value///',
-                '/; cookieinj=value/',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../../.././phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/page.php/malicouspathinfo?malicouspathinfo',
-                'malicouspathinfo',
-                '/page.php',
-            ],
-            [
-                '/phpmyadmin/./index.php',
-                '/phpmyadmin/./index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '/phpmyadmin/index.php',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
+            ['', '/phpmyadmin/index.php/;%20cookieinj=value///', '/; cookieinj=value/', '/phpmyadmin/index.php'],
+            ['', '//example.com/../phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
+            ['', '//example.com/../../.././phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
+            ['', '/page.php/malicouspathinfo?malicouspathinfo', 'malicouspathinfo', '/page.php'],
+            ['/phpmyadmin/./index.php', '/phpmyadmin/./index.php', '', '/phpmyadmin/index.php'],
+            ['/phpmyadmin/index.php', '/phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
+            ['', '/phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
         ];
     }
 }

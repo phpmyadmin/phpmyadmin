@@ -243,36 +243,16 @@ class ConfigTest extends AbstractTestCase
     public static function userAgentProvider(): array
     {
         return [
-            [
-                'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00',
-                'Linux',
-                'OPERA',
-                '9.80',
-            ],
+            ['Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00', 'Linux', 'OPERA', '9.80'],
             [
                 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941',
                 'Mac',
                 'OMNIWEB',
                 '622',
             ],
-            [
-                'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)',
-                'Win',
-                'IE',
-                '8.0',
-            ],
-            [
-                'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
-                'Win',
-                'IE',
-                '9.0',
-            ],
-            [
-                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)',
-                'Win',
-                'IE',
-                '10.0',
-            ],
+            ['Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)', 'Win', 'IE', '8.0'],
+            ['Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 'Win', 'IE', '9.0'],
+            ['Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)', 'Win', 'IE', '10.0'],
             [
                 'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko',
                 'Win',
@@ -301,29 +281,14 @@ class ConfigTest extends AbstractTestCase
                 'SAFARI',
                 '5.0.419',
             ],
-            [
-                'Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208',
-                'Win',
-                'GECKO',
-                '1.9',
-            ],
+            ['Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208', 'Win', 'GECKO', '1.9'],
             [
                 'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)',
                 'Other',
                 'KONQUEROR',
             ],
-            [
-                'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0',
-                'Linux',
-                'FIREFOX',
-                '5.0',
-            ],
-            [
-                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
-                'Linux',
-                'FIREFOX',
-                '12.0',
-            ],
+            ['Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0', 'Linux', 'FIREFOX', '5.0'],
+            ['Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0', 'Linux', 'FIREFOX', '12.0'],
             /** @todo Is this version really expected? */
             [
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like G'
@@ -425,16 +390,7 @@ class ConfigTest extends AbstractTestCase
      */
     public static function serverNames(): array
     {
-        return [
-            [
-                'Microsoft-IIS 7.0',
-                1,
-            ],
-            [
-                'Apache/2.2.17',
-                0,
-            ],
-        ];
+        return [['Microsoft-IIS 7.0', 1], ['Apache/2.2.17', 0]];
     }
 
     /**
@@ -588,201 +544,21 @@ class ConfigTest extends AbstractTestCase
     public static function httpsParams(): array
     {
         return [
-            [
-                'http',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'http',
-                '',
-                '',
-                80,
-                false,
-            ],
-            [
-                'http',
-                '',
-                '',
-                'http://',
-                '',
-                '',
-                'http',
-                '',
-                '',
-                80,
-                false,
-            ],
-            [
-                'http',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'http',
-                '',
-                '',
-                443,
-                true,
-            ],
-            [
-                'http',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'https',
-                '',
-                '',
-                80,
-                true,
-            ],
-            [
-                'http',
-                '',
-                '',
-                '',
-                '',
-                'on',
-                'http',
-                '',
-                '',
-                80,
-                true,
-            ],
-            [
-                'http',
-                '',
-                '',
-                '',
-                'on',
-                '',
-                'http',
-                '',
-                '',
-                80,
-                true,
-            ],
-            [
-                'http',
-                '',
-                '',
-                'https://',
-                '',
-                '',
-                'http',
-                '',
-                '',
-                80,
-                true,
-            ],
-            [
-                'http',
-                'on',
-                '',
-                '',
-                '',
-                '',
-                'http',
-                '',
-                '',
-                80,
-                true,
-            ],
-            [
-                'https',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'http',
-                '',
-                '',
-                80,
-                true,
-            ],
-            [
-                'http',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'https',
-                '',
-                80,
-                true,
-            ],
-            [
-                'http',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'https',
-                'http',
-                '',
-                80,
-                true,
-            ],
-            [
-                'https',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                80,
-                true,
-            ],
-            [
-                'http',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                8080,
-                false,
-            ],
-            [
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'https://127.0.0.1',
-                80,
-                true,
-            ],
-            [
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'http://127.0.0.1',
-                80,
-                false,
-            ],
+            ['http', '', '', '', '', '', 'http', '', '', 80, false],
+            ['http', '', '', 'http://', '', '', 'http', '', '', 80, false],
+            ['http', '', '', '', '', '', 'http', '', '', 443, true],
+            ['http', '', '', '', '', '', 'https', '', '', 80, true],
+            ['http', '', '', '', '', 'on', 'http', '', '', 80, true],
+            ['http', '', '', '', 'on', '', 'http', '', '', 80, true],
+            ['http', '', '', 'https://', '', '', 'http', '', '', 80, true],
+            ['http', 'on', '', '', '', '', 'http', '', '', 80, true],
+            ['https', '', '', '', '', '', 'http', '', '', 80, true],
+            ['http', '', '', '', '', '', '', 'https', '', 80, true],
+            ['http', '', '', '', '', '', 'https', 'http', '', 80, true],
+            ['https', '', '', '', '', '', '', '', '', 80, true],
+            ['http', '', '', '', '', '', '', '', '', 8080, false],
+            ['', '', '', '', '', '', '', '', 'https://127.0.0.1', 80, true],
+            ['', '', '', '', '', '', '', '', 'http://127.0.0.1', 80, false],
             [
                 '',
                 '',
@@ -825,56 +601,16 @@ class ConfigTest extends AbstractTestCase
     public static function rootUris(): array
     {
         return [
-            [
-                '',
-                '',
-                '/',
-            ],
-            [
-                '/',
-                '',
-                '/',
-            ],
-            [
-                '/index.php',
-                '',
-                '/',
-            ],
-            [
-                '/foo/bar/phpmyadmin/index.php',
-                '',
-                '/foo/bar/phpmyadmin/',
-            ],
-            [
-                '/foo/bar/phpmyadmin/',
-                '',
-                '/foo/bar/phpmyadmin/',
-            ],
-            [
-                '/foo/bar/phpmyadmin',
-                '',
-                '/foo/bar/phpmyadmin/',
-            ],
-            [
-                'http://example.net/',
-                'http://example.net/phpmyadmin/',
-                '/phpmyadmin/',
-            ],
-            [
-                'http://example.net/',
-                'http://example.net/phpmyadmin',
-                '/phpmyadmin/',
-            ],
-            [
-                'http://example.net/',
-                '/phpmyadmin2',
-                '/phpmyadmin2/',
-            ],
-            [
-                'http://example.net/',
-                '/phpmyadmin3/',
-                '/phpmyadmin3/',
-            ],
+            ['', '', '/'],
+            ['/', '', '/'],
+            ['/index.php', '', '/'],
+            ['/foo/bar/phpmyadmin/index.php', '', '/foo/bar/phpmyadmin/'],
+            ['/foo/bar/phpmyadmin/', '', '/foo/bar/phpmyadmin/'],
+            ['/foo/bar/phpmyadmin', '', '/foo/bar/phpmyadmin/'],
+            ['http://example.net/', 'http://example.net/phpmyadmin/', '/phpmyadmin/'],
+            ['http://example.net/', 'http://example.net/phpmyadmin', '/phpmyadmin/'],
+            ['http://example.net/', '/phpmyadmin2', '/phpmyadmin2/'],
+            ['http://example.net/', '/phpmyadmin3/', '/phpmyadmin3/'],
         ];
     }
 
@@ -903,14 +639,8 @@ class ConfigTest extends AbstractTestCase
     public static function configPaths(): array
     {
         return [
-            [
-                TEST_PATH . 'test/test_data/config.inc.php',
-                true,
-            ],
-            [
-                TEST_PATH . 'test/test_data/config-nonexisting.inc.php',
-                false,
-            ],
+            [TEST_PATH . 'test/test_data/config.inc.php', true],
+            [TEST_PATH . 'test/test_data/config-nonexisting.inc.php', false],
         ];
     }
 
@@ -1075,21 +805,9 @@ class ConfigTest extends AbstractTestCase
     public static function serverSettingsProvider(): array
     {
         return [
-            'empty' => [
-                [],
-                [],
-            ],
-            'only_host' => [
-                [1 => ['host' => '127.0.0.1']],
-                ['host' => '127.0.0.1'],
-            ],
-            'empty_host' => [
-                [1 => ['host' => '']],
-                [
-                    'verbose' => 'Server 1',
-                    'host' => '',
-                ],
-            ],
+            'empty' => [[], []],
+            'only_host' => [[1 => ['host' => '127.0.0.1']], ['host' => '127.0.0.1']],
+            'empty_host' => [[1 => ['host' => '']], ['verbose' => 'Server 1', 'host' => '']],
         ];
     }
 
@@ -1159,51 +877,13 @@ class ConfigTest extends AbstractTestCase
     public static function selectServerProvider(): array
     {
         return [
-            'zero' => [
-                [],
-                '0',
-                1,
-            ],
-            'number' => [
-                [1 => []],
-                '1',
-                1,
-            ],
-            'host' => [
-                [2 => ['host' => '127.0.0.1']],
-                '127.0.0.1',
-                2,
-            ],
-            'verbose' => [
-                [
-                    1 => [
-                        'verbose' => 'Server 1',
-                        'host' => '',
-                    ],
-                ],
-                'Server 1',
-                1,
-            ],
-            'md5' => [
-                [
-                    66 => [
-                        'verbose' => 'Server 1',
-                        'host' => '',
-                    ],
-                ],
-                '753f173bd4ac8a45eae0fe9a4fbe0fc0',
-                66,
-            ],
-            'nonexisting_string' => [
-                [1 => []],
-                'invalid',
-                1,
-            ],
-            'nonexisting' => [
-                [1 => []],
-                '100',
-                1,
-            ],
+            'zero' => [[], '0', 1],
+            'number' => [[1 => []], '1', 1],
+            'host' => [[2 => ['host' => '127.0.0.1']], '127.0.0.1', 2],
+            'verbose' => [[1 => ['verbose' => 'Server 1', 'host' => '']], 'Server 1', 1],
+            'md5' => [[66 => ['verbose' => 'Server 1', 'host' => '']], '753f173bd4ac8a45eae0fe9a4fbe0fc0', 66],
+            'nonexisting_string' => [[1 => []], 'invalid', 1],
+            'nonexisting' => [[1 => []], '100', 1],
         ];
     }
 

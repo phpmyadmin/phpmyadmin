@@ -49,10 +49,7 @@ class UserPassword
             }
         }
 
-        return [
-            'error' => $error,
-            'msg' => $message,
-        ];
+        return ['error' => $error, 'msg' => $message];
     }
 
     /**

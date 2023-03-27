@@ -107,9 +107,7 @@ class IndexesController extends AbstractController
         // Get fields and stores their name/type
         if (isset($_POST['create_edit_table'])) {
             $fields = json_decode($_POST['columns'], true);
-            $indexParams = [
-                'Non_unique' => $_POST['index']['Index_choice'] !== 'UNIQUE',
-            ];
+            $indexParams = ['Non_unique' => $_POST['index']['Index_choice'] !== 'UNIQUE'];
             $index->set($indexParams);
             $addFields = count($fields);
         } else {
@@ -117,10 +115,7 @@ class IndexesController extends AbstractController
                 ->getNameAndTypeOfTheColumns();
         }
 
-        $formParams = [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ];
+        $formParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
 
         if (isset($_POST['create_index'])) {
             $formParams['create_index'] = 1;

@@ -49,9 +49,7 @@ class InnodbTest extends AbstractTestCase
                     'title' => __('Data home directory'),
                     'desc' => __('The common part of the directory path for all InnoDB data files.'),
                 ],
-                'innodb_data_file_path' => [
-                    'title' => __('Data files'),
-                ],
+                'innodb_data_file_path' => ['title' => __('Data files')],
                 'innodb_autoextend_increment' => [
                     'title' => __('Autoextend increment'),
                     'desc' => __(
@@ -65,10 +63,7 @@ class InnodbTest extends AbstractTestCase
                     'desc' => __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.'),
                     'type' => 1,
                 ],
-                'innodb_additional_mem_pool_size' => [
-                    'title' => 'innodb_additional_mem_pool_size',
-                    'type' => 1,
-                ],
+                'innodb_additional_mem_pool_size' => ['title' => 'innodb_additional_mem_pool_size', 'type' => 1],
                 'innodb_buffer_pool_awe_mem_mb' => ['type' => 1],
                 'innodb_checksums' => [],
                 'innodb_commit_concurrency' => [],
@@ -124,10 +119,7 @@ class InnodbTest extends AbstractTestCase
         );
         $this->object->support = 2;
         $this->assertEquals(
-            [
-                'Bufferpool' => 'Buffer Pool',
-                'Status' => 'InnoDB Status',
-            ],
+            ['Bufferpool' => 'Buffer Pool', 'Status' => 'InnoDB Status'],
             $this->object->getInfoPages(),
         );
     }

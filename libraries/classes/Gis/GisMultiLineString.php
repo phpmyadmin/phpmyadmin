@@ -141,10 +141,7 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
     {
-        $line = [
-            'width' => 1.5,
-            'color' => $color,
-        ];
+        $line = ['width' => 1.5, 'color' => $color];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilineString = mb_substr($spatial, 17, -2);
@@ -236,10 +233,7 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
-        $strokeStyle = [
-            'color' => $color,
-            'width' => 2,
-        ];
+        $strokeStyle = ['color' => $color, 'width' => 2];
 
         $style = 'new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
@@ -349,10 +343,7 @@ class GisMultiLineString extends GisGeometry
             $noOfPoints = count($points);
             $coords[$j] = ['no_of_points' => $noOfPoints];
             for ($i = 0; $i < $noOfPoints; $i++) {
-                $coords[$j][$i] = [
-                    'x' => $points[$i][0],
-                    'y' => $points[$i][1],
-                ];
+                $coords[$j][$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];
             }
         }
 

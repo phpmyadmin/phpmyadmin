@@ -78,14 +78,7 @@ class EnumValuesControllerTest extends AbstractTestCase
                     '',
                 ],
             ],
-            [
-                'Field',
-                'Type',
-                'Null',
-                'Key',
-                'Default',
-                'Extra',
-            ],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
 
         $GLOBALS['db'] = 'cvv';

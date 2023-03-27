@@ -77,54 +77,28 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 Connection::TYPE_USER,
-                [
-                    [
-                        'COLUMN_NAME' => 'COLUMN_NAME',
-                        'DATA_TYPE' => 'DATA_TYPE',
-                    ],
-                ],
+                [['COLUMN_NAME' => 'COLUMN_NAME', 'DATA_TYPE' => 'DATA_TYPE']],
             ],
             [
                 $getUniqueColumnsSql . ' WHERE (Non_unique = 0)',
-                [
-                    'Key_name',
-                    null,
-                ],
+                ['Key_name', null],
                 'Column_name',
                 Connection::TYPE_USER,
-                [
-                    ['index1'],
-                    ['index3'],
-                    ['index5'],
-                ],
+                [['index1'], ['index3'], ['index5']],
             ],
             [
                 $getUniqueColumnsSql,
                 'Column_name',
                 'Column_name',
                 Connection::TYPE_USER,
-                [
-                    'column1',
-                    'column3',
-                    'column5',
-                    'ACCESSIBLE',
-                    'ADD',
-                    'ALL',
-                ],
+                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
             ],
             [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 'Field',
                 'Field',
                 Connection::TYPE_USER,
-                [
-                    'column1',
-                    'column3',
-                    'column5',
-                    'ACCESSIBLE',
-                    'ADD',
-                    'ALL',
-                ],
+                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
             ],
             [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
@@ -217,36 +191,11 @@ class TableTest extends AbstractTestCase
         ];
 
         $fetchValue = [
-            [
-                $sqlIsViewTrue,
-                0,
-                Connection::TYPE_USER,
-                'PMA_BookMark',
-            ],
-            [
-                $sqlCopyData,
-                0,
-                Connection::TYPE_USER,
-                false,
-            ],
-            [
-                $sqlIsViewFalse,
-                0,
-                Connection::TYPE_USER,
-                false,
-            ],
-            [
-                $sqlIsUpdatableViewTrue,
-                0,
-                Connection::TYPE_USER,
-                'PMA_BookMark',
-            ],
-            [
-                $sqlIsUpdatableViewFalse,
-                0,
-                Connection::TYPE_USER,
-                false,
-            ],
+            [$sqlIsViewTrue, 0, Connection::TYPE_USER, 'PMA_BookMark'],
+            [$sqlCopyData, 0, Connection::TYPE_USER, false],
+            [$sqlIsViewFalse, 0, Connection::TYPE_USER, false],
+            [$sqlIsUpdatableViewTrue, 0, Connection::TYPE_USER, 'PMA_BookMark'],
+            [$sqlIsUpdatableViewFalse, 0, Connection::TYPE_USER, false],
             [
                 "SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = 'aa' AND TABLE_NAME = 'ad'",
                 0,
@@ -436,49 +385,16 @@ class TableTest extends AbstractTestCase
     public static function dataValidateName(): array
     {
         return [
-            [
-                'test',
-                true,
-            ],
-            [
-                'te/st',
-                false,
-            ],
-            [
-                'te.st',
-                false,
-            ],
-            [
-                'te\\st',
-                false,
-            ],
-            [
-                'te st',
-                false,
-            ],
-            [
-                '  te st',
-                true,
-                true,
-            ],
-            [
-                'test ',
-                false,
-            ],
-            [
-                'te.st',
-                false,
-            ],
-            [
-                'test ',
-                false,
-                true,
-            ],
-            [
-                'te.st ',
-                false,
-                true,
-            ],
+            ['test', true],
+            ['te/st', false],
+            ['te.st', false],
+            ['te\\st', false],
+            ['te st', false],
+            ['  te st', true, true],
+            ['test ', false],
+            ['te.st', false],
+            ['test ', false, true],
+            ['te.st ', false, true],
         ];
     }
 
@@ -968,18 +884,9 @@ class TableTest extends AbstractTestCase
      */
     public function testDuplicateInfo(): void
     {
-        $getFields = [
-            'filed0',
-            'field6',
-        ];
-        $whereFields = [
-            'field2',
-            'filed5',
-        ];
-        $newFields = [
-            'field3',
-            'filed4',
-        ];
+        $getFields = ['filed0', 'field6'];
+        $whereFields = ['field2', 'filed5'];
+        $newFields = ['field3', 'filed4'];
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'PMA_db',
@@ -1177,11 +1084,7 @@ class TableTest extends AbstractTestCase
 
         $table = new Table($table, $db, $GLOBALS['dbi']);
         $return = $table->getUniqueColumns();
-        $expect = [
-            '`PMA`.`PMA_BookMark`.`index1`',
-            '`PMA`.`PMA_BookMark`.`index3`',
-            '`PMA`.`PMA_BookMark`.`index5`',
-        ];
+        $expect = ['`PMA`.`PMA_BookMark`.`index1`', '`PMA`.`PMA_BookMark`.`index3`', '`PMA`.`PMA_BookMark`.`index5`'];
         $this->assertEquals($expect, $return);
     }
 
@@ -1243,16 +1146,10 @@ class TableTest extends AbstractTestCase
     public function testGetSQLToCreateForeignKey(): void
     {
         $table = 'PMA_table';
-        $field = [
-            'PMA_field1',
-            'PMA_field2',
-        ];
+        $field = ['PMA_field1', 'PMA_field2'];
         $foreignDb = 'foreignDb';
         $foreignTable = 'foreignTable';
-        $foreignField = [
-            'foreignField1',
-            'foreignField2',
-        ];
+        $foreignField = ['foreignField1', 'foreignField2'];
 
         $tableObj = new Table('PMA_table', 'db', $GLOBALS['dbi']);
 
@@ -1260,13 +1157,7 @@ class TableTest extends AbstractTestCase
             $tableObj,
             Table::class,
             'getSQLToCreateForeignKey',
-            [
-                $table,
-                $field,
-                $foreignDb,
-                $foreignTable,
-                $foreignField,
-            ],
+            [$table, $field, $foreignDb, $foreignTable, $foreignField],
         );
         $sqlExcepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
@@ -1278,13 +1169,7 @@ class TableTest extends AbstractTestCase
             $tableObj,
             Table::class,
             'getSQLToCreateForeignKey',
-            [
-                $table,
-                $field,
-                'db',
-                $foreignTable,
-                $foreignField,
-            ],
+            [$table, $field, 'db', $foreignTable, $foreignField],
         );
         $sqlExcepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
@@ -1349,11 +1234,7 @@ class TableTest extends AbstractTestCase
         $this->assertEquals($expect, $return);
 
         $return = $table->getReservedColumnNames();
-        $expect = [
-            'ACCESSIBLE',
-            'ADD',
-            'ALL',
-        ];
+        $expect = ['ACCESSIBLE', 'ADD', 'ALL'];
         $this->assertEquals($expect, $return);
     }
 
@@ -1380,10 +1261,7 @@ class TableTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls(
                 [['`one_pk`']],
                 [], // No Uniques found
-                [
-                    '`one_ind`',
-                    '`sec_ind`',
-                ],
+                ['`one_ind`', '`sec_ind`'],
                 [], // No Uniques found
                 [], // No Indexed found
             );
@@ -1480,16 +1358,8 @@ class TableTest extends AbstractTestCase
         unset($GLOBALS['sql_drop_table']);
 
         $getTableMap = [
-            [
-                $targetDb,
-                $targetTable,
-                new Table($targetTable, $targetDb, $GLOBALS['dbi']),
-            ],
-            [
-                'aa',
-                'ad',
-                new Table('ad', 'aa', $GLOBALS['dbi']),
-            ],
+            [$targetDb, $targetTable, new Table($targetTable, $targetDb, $GLOBALS['dbi'])],
+            ['aa', 'ad', new Table('ad', 'aa', $GLOBALS['dbi'])],
         ];
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
@@ -1537,13 +1407,7 @@ class TableTest extends AbstractTestCase
                     true,
                     $resultStub,
                 ],
-                [
-                    'USE `aa`',
-                    Connection::TYPE_USER,
-                    DatabaseInterface::QUERY_BUFFERED,
-                    true,
-                    $resultStub,
-                ],
+                ['USE `aa`', Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
             ]));
         $resultStub->expects($this->any())
             ->method('fetchRow')
@@ -1661,10 +1525,7 @@ class TableTest extends AbstractTestCase
         $dbi = new DatabaseInterface($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null, true);
-        $expect = [
-            'pack_keys' => 'DEFAULT',
-            'row_format' => 'REDUNDANT',
-        ];
+        $expect = ['pack_keys' => 'DEFAULT', 'row_format' => 'REDUNDANT'];
         $createOptions = $dbi->getTable($targetDb, $targetTable)->getCreateOptions();
         $this->assertEquals($expect, $createOptions);
     }

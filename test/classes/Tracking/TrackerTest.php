@@ -126,20 +126,7 @@ class TrackerTest extends AbstractTestCase
      */
     public static function getTableNameData(): array
     {
-        return [
-            [
-                '`tbl`;',
-                'tbl',
-            ],
-            [
-                ' `pma.table` ',
-                'table',
-            ],
-            [
-                " `pma.table\nfoobar` ",
-                'table',
-            ],
-        ];
+        return [['`tbl`;', 'tbl'], [' `pma.table` ', 'table'], [" `pma.table\nfoobar` ", 'table']];
     }
 
     /**
@@ -216,28 +203,14 @@ class TrackerTest extends AbstractTestCase
          */
 
         $getColumnsResult = [
-            [
-                'Field' => 'field1',
-                'Type' => 'int(11)',
-                'Key' => 'PRI',
-            ],
-            [
-                'Field' => 'field2',
-                'Type' => 'text',
-                'Key' => '',
-            ],
+            ['Field' => 'field1', 'Type' => 'int(11)', 'Key' => 'PRI'],
+            ['Field' => 'field2', 'Type' => 'text', 'Key' => ''],
         ];
         $dbi->expects($this->once())->method('getColumns')
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getColumnsResult));
 
-        $getIndexesResult = [
-            [
-                'Table' => 'pma_tbl',
-                'Field' => 'field1',
-                'Key' => 'PRIMARY',
-            ],
-        ];
+        $getIndexesResult = [['Table' => 'pma_tbl', 'Field' => 'field1', 'Key' => 'PRIMARY']];
         $dbi->expects($this->once())->method('getTableIndexes')
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getIndexesResult));
@@ -398,14 +371,8 @@ class TrackerTest extends AbstractTestCase
         $date = Util::date('Y-m-d H:i:s');
 
         $newData = [
-            [
-                'username' => 'user1',
-                'statement' => 'test_statement1',
-            ],
-            [
-                'username' => 'user2',
-                'statement' => 'test_statement2',
-            ],
+            ['username' => 'user1', 'statement' => 'test_statement1'],
+            ['username' => 'user2', 'statement' => 'test_statement2'],
         ];
 
         $sqlQuery2 = 'UPDATE `pmadb`.`tracking`' .
@@ -421,16 +388,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->method('queryAsControlUser')
             ->will(
                 $this->returnValueMap(
-                    [
-                        [
-                            $sqlQuery1,
-                            $resultStub1,
-                        ],
-                        [
-                            $sqlQuery2,
-                            $resultStub2,
-                        ],
-                    ],
+                    [[$sqlQuery1, $resultStub1], [$sqlQuery2, $resultStub2]],
                 ),
             );
 
@@ -505,21 +463,9 @@ class TrackerTest extends AbstractTestCase
             ->will(
                 $this->returnValueMap(
                     [
-                        [
-                            "pma'db",
-                            Connection::TYPE_USER,
-                            "pma\'db",
-                        ],
-                        [
-                            "pma'table",
-                            Connection::TYPE_USER,
-                            "pma\'table",
-                        ],
-                        [
-                            '1.0',
-                            Connection::TYPE_USER,
-                            '1.0',
-                        ],
+                        ["pma'db", Connection::TYPE_USER, "pma\'db"],
+                        ["pma'table", Connection::TYPE_USER, "pma\'table"],
+                        ['1.0', Connection::TYPE_USER, '1.0'],
                     ],
                 ),
             );
@@ -552,16 +498,8 @@ class TrackerTest extends AbstractTestCase
                 'date_from' => '20-03-2013 23:33:58',
                 'date_to' => '20-03-2013 23:39:58',
                 'ddlog' => [
-                    [
-                        'date' => '20-03-2013 23:33:58',
-                        'username' => 'user1',
-                        'statement' => "\nstat1",
-                    ],
-                    [
-                        'date' => '20-03-2013 23:39:58',
-                        'username' => 'user2',
-                        'statement' => '',
-                    ],
+                    ['date' => '20-03-2013 23:33:58', 'username' => 'user1', 'statement' => "\nstat1"],
+                    ['date' => '20-03-2013 23:39:58', 'username' => 'user2', 'statement' => ''],
                 ],
                 'dmlog' => [],
                 'schema_snapshot' => 'dataschema',
@@ -582,43 +520,18 @@ class TrackerTest extends AbstractTestCase
             'date_from' => '20-03-2012 23:33:58',
             'date_to' => '20-03-2013 23:39:58',
             'ddlog' => [
-                [
-                    'date' => '20-03-2012 23:33:58',
-                    'username' => 'user1',
-                    'statement' => '',
-                ],
-                [
-                    'date' => '20-03-2012 23:39:58',
-                    'username' => 'user2',
-                    'statement' => '',
-                ],
+                ['date' => '20-03-2012 23:33:58', 'username' => 'user1', 'statement' => ''],
+                ['date' => '20-03-2012 23:39:58', 'username' => 'user2', 'statement' => ''],
             ],
             'dmlog' => [
-                [
-                    'date' => '20-03-2013 23:33:58',
-                    'username' => 'user3',
-                    'statement' => '',
-                ],
-                [
-                    'date' => '20-03-2013 23:39:58',
-                    'username' => 'user4',
-                    'statement' => '',
-                ],
+                ['date' => '20-03-2013 23:33:58', 'username' => 'user3', 'statement' => ''],
+                ['date' => '20-03-2013 23:39:58', 'username' => 'user4', 'statement' => ''],
             ],
             'schema_snapshot' => 'dataschema',
             'tracking' => 'SELECT, DELETE',
         ];
 
-        return [
-            [
-                $fetchArrayReturn[0],
-                $data[0],
-            ],
-            [
-                $fetchArrayReturn[1],
-                $data[1],
-            ],
-        ];
+        return [[$fetchArrayReturn[0], $data[0]], [$fetchArrayReturn[1], $data[1]]];
     }
 
     /**
@@ -683,130 +596,26 @@ class TrackerTest extends AbstractTestCase
             "db1"
         );
         */
-        $query[] = [
-            'CREATE VIEW v AS SELECT * FROM t;',
-            'DDL',
-            'CREATE VIEW',
-            'v',
-        ];
-        $query[] = [
-            'ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t',
-            'DDL',
-            'ALTER VIEW',
-            'v',
-        ];
-        $query[] = [
-            'DROP VIEW db1.v;',
-            'DDL',
-            'DROP VIEW',
-            'v',
-        ];
-        $query[] = [
-            'DROP VIEW IF EXISTS db1.v;',
-            'DDL',
-            'DROP VIEW',
-            'v',
-        ];
-        $query[] = [
-            'CREATE DATABASE db1;',
-            'DDL',
-            'CREATE DATABASE',
-            '',
-            'db1',
-        ];
-        $query[] = [
-            'ALTER DATABASE db1;',
-            'DDL',
-            'ALTER DATABASE',
-            '',
-        ];
-        $query[] = [
-            'DROP DATABASE db1;',
-            'DDL',
-            'DROP DATABASE',
-            '',
-            'db1',
-        ];
-        $query[] = [
-            'CREATE TABLE db1.t1 (c1 INT);',
-            'DDL',
-            'CREATE TABLE',
-            't1',
-        ];
-        $query[] = [
-            'ALTER TABLE db1.t1 ADD c2 TEXT;',
-            'DDL',
-            'ALTER TABLE',
-            't1',
-        ];
-        $query[] = [
-            'DROP TABLE db1.t1',
-            'DDL',
-            'DROP TABLE',
-            't1',
-        ];
-        $query[] = [
-            'DROP TABLE IF EXISTS db1.t1',
-            'DDL',
-            'DROP TABLE',
-            't1',
-        ];
-        $query[] = [
-            'CREATE INDEX ind ON db1.t1 (c2(10));',
-            'DDL',
-            'CREATE INDEX',
-            't1',
-        ];
-        $query[] = [
-            'CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));',
-            'DDL',
-            'CREATE INDEX',
-            't1',
-        ];
-        $query[] = [
-            'CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));',
-            'DDL',
-            'CREATE INDEX',
-            't1',
-        ];
-        $query[] = [
-            'DROP INDEX ind ON db1.t1;',
-            'DDL',
-            'DROP INDEX',
-            't1',
-        ];
-        $query[] = [
-            'RENAME TABLE db1.t1 TO db1.t2',
-            'DDL',
-            'RENAME TABLE',
-            't1',
-            '',
-            't2',
-        ];
-        $query[] = [
-            'UPDATE db1.t1 SET a = 2',
-            'DML',
-            'UPDATE',
-            't1',
-        ];
-        $query[] = [
-            'INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)',
-            'DML',
-            'INSERT',
-            't1',
-        ];
-        $query[] = [
-            'DELETE FROM db1.t1',
-            'DML',
-            'DELETE',
-            't1',
-        ];
-        $query[] = [
-            'TRUNCATE db1.t1',
-            'DML',
-            'TRUNCATE',
-            't1',
-        ];
+        $query[] = ['CREATE VIEW v AS SELECT * FROM t;', 'DDL', 'CREATE VIEW', 'v'];
+        $query[] = ['ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t', 'DDL', 'ALTER VIEW', 'v'];
+        $query[] = ['DROP VIEW db1.v;', 'DDL', 'DROP VIEW', 'v'];
+        $query[] = ['DROP VIEW IF EXISTS db1.v;', 'DDL', 'DROP VIEW', 'v'];
+        $query[] = ['CREATE DATABASE db1;', 'DDL', 'CREATE DATABASE', '', 'db1'];
+        $query[] = ['ALTER DATABASE db1;', 'DDL', 'ALTER DATABASE', ''];
+        $query[] = ['DROP DATABASE db1;', 'DDL', 'DROP DATABASE', '', 'db1'];
+        $query[] = ['CREATE TABLE db1.t1 (c1 INT);', 'DDL', 'CREATE TABLE', 't1'];
+        $query[] = ['ALTER TABLE db1.t1 ADD c2 TEXT;', 'DDL', 'ALTER TABLE', 't1'];
+        $query[] = ['DROP TABLE db1.t1', 'DDL', 'DROP TABLE', 't1'];
+        $query[] = ['DROP TABLE IF EXISTS db1.t1', 'DDL', 'DROP TABLE', 't1'];
+        $query[] = ['CREATE INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'];
+        $query[] = ['CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'];
+        $query[] = ['CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'];
+        $query[] = ['DROP INDEX ind ON db1.t1;', 'DDL', 'DROP INDEX', 't1'];
+        $query[] = ['RENAME TABLE db1.t1 TO db1.t2', 'DDL', 'RENAME TABLE', 't1', '', 't2'];
+        $query[] = ['UPDATE db1.t1 SET a = 2', 'DML', 'UPDATE', 't1'];
+        $query[] = ['INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)', 'DML', 'INSERT', 't1'];
+        $query[] = ['DELETE FROM db1.t1', 'DML', 'DELETE', 't1'];
+        $query[] = ['TRUNCATE db1.t1', 'DML', 'TRUNCATE', 't1'];
         $query[] = [
             'create table event(' . "\n"
             . 'eventID varchar(10) not null,' . "\n"

@@ -96,47 +96,20 @@ final class Processes
         // This array contains display name and real column name of each
         // sortable column in the table
         $sortableColumns = [
-            [
-                'column_name' => __('ID'),
-                'order_by_field' => 'Id',
-            ],
-            [
-                'column_name' => __('User'),
-                'order_by_field' => 'User',
-            ],
-            [
-                'column_name' => __('Host'),
-                'order_by_field' => 'Host',
-            ],
-            [
-                'column_name' => __('Database'),
-                'order_by_field' => 'Db',
-            ],
-            [
-                'column_name' => __('Command'),
-                'order_by_field' => 'Command',
-            ],
-            [
-                'column_name' => __('Time'),
-                'order_by_field' => 'Time',
-            ],
-            [
-                'column_name' => __('Status'),
-                'order_by_field' => 'State',
-            ],
+            ['column_name' => __('ID'), 'order_by_field' => 'Id'],
+            ['column_name' => __('User'), 'order_by_field' => 'User'],
+            ['column_name' => __('Host'), 'order_by_field' => 'Host'],
+            ['column_name' => __('Database'), 'order_by_field' => 'Db'],
+            ['column_name' => __('Command'), 'order_by_field' => 'Command'],
+            ['column_name' => __('Time'), 'order_by_field' => 'Time'],
+            ['column_name' => __('Status'), 'order_by_field' => 'State'],
         ];
 
         if ($this->dbi->isMariaDB()) {
-            $sortableColumns[] = [
-                'column_name' => __('Progress'),
-                'order_by_field' => 'Progress',
-            ];
+            $sortableColumns[] = ['column_name' => __('Progress'), 'order_by_field' => 'Progress'];
         }
 
-        $sortableColumns[] = [
-            'column_name' => __('SQL query'),
-            'order_by_field' => 'Info',
-        ];
+        $sortableColumns[] = ['column_name' => __('SQL query'), 'order_by_field' => 'Info'];
 
         $sortableColCount = count($sortableColumns);
 

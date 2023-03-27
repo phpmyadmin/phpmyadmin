@@ -69,10 +69,7 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
 
         $link = '<a href="' . Url::getFromRoute(
             '/transformation/wrapper',
-            array_merge($options['wrapper_params'], [
-                'ct' => 'application/octet-stream',
-                'cn' => $cn,
-            ]),
+            array_merge($options['wrapper_params'], ['ct' => 'application/octet-stream', 'cn' => $cn]),
         );
         $link .= '" title="' . htmlspecialchars($cn);
         $link .= '" class="disableAjax">' . htmlspecialchars($cn);

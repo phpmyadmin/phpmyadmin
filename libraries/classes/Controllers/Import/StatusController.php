@@ -35,11 +35,7 @@ class StatusController
         $GLOBALS['plugins'] ??= null;
         $GLOBALS['timestamp'] ??= null;
 
-        [
-            $GLOBALS['SESSION_KEY'],
-            $GLOBALS['upload_id'],
-            $GLOBALS['plugins'],
-        ] = Ajax::uploadProgressSetup();
+        [$GLOBALS['SESSION_KEY'], $GLOBALS['upload_id'], $GLOBALS['plugins']] = Ajax::uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
         if ($request->hasQueryParam('message')) {

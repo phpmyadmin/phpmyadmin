@@ -54,26 +54,17 @@ class ZipExtensionTest extends AbstractTestCase
             'null as specific entry' => [
                 './test/test_data/test.zip',
                 null,
-                [
-                    'error' => '',
-                    'data' => 'TEST FILE' . "\n",
-                ],
+                ['error' => '', 'data' => 'TEST FILE' . "\n"],
             ],
             'an existent specific entry' => [
                 './test/test_data/test.zip',
                 '/test.file/',
-                [
-                    'error' => '',
-                    'data' => 'TEST FILE' . "\n",
-                ],
+                ['error' => '', 'data' => 'TEST FILE' . "\n"],
             ],
             'a nonexistent specific entry' => [
                 './test/test_data/test.zip',
                 '/foobar/',
-                [
-                    'error' => 'Error in ZIP archive: Could not find "/foobar/"',
-                    'data' => '',
-                ],
+                ['error' => 'Error in ZIP archive: Could not find "/foobar/"', 'data' => ''],
             ],
         ];
     }
@@ -105,16 +96,8 @@ class ZipExtensionTest extends AbstractTestCase
     public static function provideTestFindFile(): array
     {
         return [
-            [
-                './test/test_data/test.zip',
-                '/test/',
-                'test.file',
-            ],
-            [
-                './test/test_data/test.zip',
-                '/invalid/',
-                false,
-            ],
+            ['./test/test_data/test.zip', '/test/', 'test.file'],
+            ['./test/test_data/test.zip', '/invalid/', false],
         ];
     }
 
@@ -181,10 +164,7 @@ class ZipExtensionTest extends AbstractTestCase
         $this->assertFalse(
             $this->zipExtension->createFile(
                 'Content',
-                [
-                    'name1.txt',
-                    'name2.txt',
-                ],
+                ['name1.txt', 'name2.txt'],
             ),
         );
     }
@@ -195,14 +175,8 @@ class ZipExtensionTest extends AbstractTestCase
     public function testCreateMultiFile(): void
     {
         $file = $this->zipExtension->createFile(
-            [
-                'Content',
-                'Content2',
-            ],
-            [
-                'name1.txt',
-                'name2.txt',
-            ],
+            ['Content', 'Content2'],
+            ['name1.txt', 'name2.txt'],
         );
         $this->assertIsString($file);
         $this->assertNotEmpty($file);

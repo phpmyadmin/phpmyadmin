@@ -118,10 +118,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $desc = 'foobar<baz';
 
         $this->assertEquals(
-            [
-                'foobar<baz',
-                '',
-            ],
+            ['foobar<baz', ''],
             $this->callFunction(
                 $this->browseForeigners,
                 BrowseForeigners::class,
@@ -135,10 +132,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $browseForeigners = new BrowseForeigners(new Template(), $config);
 
         $this->assertEquals(
-            [
-                'fooba...',
-                'foobar<baz',
-            ],
+            ['fooba...', 'foobar<baz'],
             $this->callFunction(
                 $browseForeigners,
                 BrowseForeigners::class,

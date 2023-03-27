@@ -160,11 +160,7 @@ class Monitor
             } /* foreach */
         }
 
-        return [
-            $serverVars,
-            $statusVars,
-            $ret,
-        ];
+        return [$serverVars, $statusVars, $ret];
     }
 
     /**
@@ -246,11 +242,7 @@ class Monitor
                 break;
         }
 
-        return [
-            $serverVars,
-            $statusVars,
-            $ret,
-        ];
+        return [$serverVars, $statusVars, $ret];
     }
 
     /**
@@ -277,10 +269,7 @@ class Monitor
             return null;
         }
 
-        $return = [
-            'rows' => [],
-            'sum' => [],
-        ];
+        $return = ['rows' => [], 'sum' => []];
 
         while ($row = $result->fetchAssoc()) {
             $type = mb_strtolower(
@@ -360,10 +349,7 @@ class Monitor
             return null;
         }
 
-        $return = [
-            'rows' => [],
-            'sum' => [],
-        ];
+        $return = ['rows' => [], 'sum' => []];
         $insertTables = [];
         $insertTablesFirst = -1;
         $i = 0;

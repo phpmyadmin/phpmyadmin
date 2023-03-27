@@ -220,10 +220,7 @@ class Tracker
 
         $indexes = $GLOBALS['dbi']->getTableIndexes($dbName, $tableName);
 
-        $snapshot = [
-            'COLUMNS' => $columns,
-            'INDEXES' => $indexes,
-        ];
+        $snapshot = ['COLUMNS' => $columns, 'INDEXES' => $indexes];
         $snapshot = serialize($snapshot);
 
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
@@ -557,12 +554,7 @@ class Tracker
 
         // PHP 7.4 fix for accessing array offset on null
         if ($mixed === []) {
-            $mixed = [
-                'schema_sql' => null,
-                'data_sql' => null,
-                'tracking' => null,
-                'schema_snapshot' => null,
-            ];
+            $mixed = ['schema_sql' => null, 'data_sql' => null, 'tracking' => null, 'schema_snapshot' => null];
         }
 
         // Parse log
@@ -594,11 +586,7 @@ class Tracker
 
             $statement = rtrim((string) mb_strstr($logEntry, "\n"));
 
-            $ddlog[] = [
-                'date' => $date,
-                'username' => $username,
-                'statement' => $statement,
-            ];
+            $ddlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
         }
 
         $dateFrom = $ddlDateFrom;
@@ -629,11 +617,7 @@ class Tracker
 
             $statement = rtrim((string) mb_strstr($logEntry, "\n"));
 
-            $dmlog[] = [
-                'date' => $date,
-                'username' => $username,
-                'statement' => $statement,
-            ];
+            $dmlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
         }
 
         $dmlDateTo = $date;

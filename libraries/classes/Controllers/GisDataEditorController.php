@@ -99,17 +99,8 @@ class GisDataEditorController extends AbstractController
         $result = "'" . $wkt . "'," . $srid;
 
         // Generate SVG based visualization
-        $visualizationSettings = [
-            'width' => 450,
-            'height' => 300,
-            'spatialColumn' => 'wkt',
-        ];
-        $data = [
-            [
-                'wkt' => $wktWithZero,
-                'srid' => $srid,
-            ],
-        ];
+        $visualizationSettings = ['width' => 450, 'height' => 300, 'spatialColumn' => 'wkt'];
+        $data = [['wkt' => $wktWithZero, 'srid' => $srid]];
 
         $visualization = GisVisualization::getByData($data, $visualizationSettings);
         $svg = $visualization->asSVG();
@@ -117,11 +108,7 @@ class GisDataEditorController extends AbstractController
 
         // If the call is to update the WKT and visualization make an AJAX response
         if ($request->hasBodyParam('generate')) {
-            $this->response->addJSON([
-                'result' => $result,
-                'visualization' => $svg,
-                'openLayers' => $openLayers,
-            ]);
+            $this->response->addJSON(['result' => $result, 'visualization' => $svg, 'openLayers' => $openLayers]);
 
             return;
         }

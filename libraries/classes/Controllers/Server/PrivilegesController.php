@@ -78,10 +78,7 @@ class PrivilegesController extends AbstractController
         /**
          * Sets globals from $_POST patterns, for privileges and max_* vars
          */
-        Core::setPostAsGlobal([
-            '/_priv$/i',
-            '/^max_/i',
-        ]);
+        Core::setPostAsGlobal(['/_priv$/i', '/^max_/i']);
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -109,10 +106,7 @@ class PrivilegesController extends AbstractController
         $isCreateUser = $this->dbi->isCreateUser();
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
-            $this->render('server/sub_page_header', [
-                'type' => 'privileges',
-                'is_image' => false,
-            ]);
+            $this->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay(),
@@ -162,13 +156,7 @@ class PrivilegesController extends AbstractController
          * Adds a user
          *   (Changes / copies a user, part II)
          */
-        [
-            $retMessage,
-            $queries,
-            $queriesForDisplay,
-            $GLOBALS['sql_query'],
-            $addUserError,
-        ] = $serverPrivileges->addUser(
+        [$retMessage, $queries, $queriesForDisplay, $GLOBALS['sql_query'], $addUserError] = $serverPrivileges->addUser(
             $GLOBALS['dbname'] ?? null,
             $GLOBALS['username'] ?? '',
             $GLOBALS['hostname'] ?? '',
@@ -365,14 +353,8 @@ class PrivilegesController extends AbstractController
             if (isset($GLOBALS['dbname']) && ! is_array($GLOBALS['dbname'])) {
                 $urlDbname = urlencode(
                     str_replace(
-                        [
-                            '\_',
-                            '\%',
-                        ],
-                        [
-                            '_',
-                            '%',
-                        ],
+                        ['\_', '\%'],
+                        ['_', '%'],
                         $GLOBALS['dbname'],
                     ),
                 );

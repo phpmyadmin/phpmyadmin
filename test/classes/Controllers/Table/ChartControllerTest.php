@@ -60,12 +60,7 @@ class ChartControllerTest extends AbstractTestCase
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`table_for_chart`;',
-            [
-                ['1', '7', '2022-02-08'],
-                ['2', '5', '2022-02-09'],
-                ['3', '3', '2022-02-10'],
-                ['4', '9', '2022-02-11'],
-            ],
+            [['1', '7', '2022-02-08'], ['2', '5', '2022-02-09'], ['3', '3', '2022-02-10'], ['4', '9', '2022-02-11']],
             ['id', 'amount', 'date'],
             $fieldsMeta,
         );

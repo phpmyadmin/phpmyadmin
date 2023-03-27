@@ -71,16 +71,8 @@ class TrackingTest extends AbstractTestCase
     public function testFilter(): void
     {
         $data = [
-            [
-                'date' => '2012-01-01 12:34:56',
-                'username' => 'username1',
-                'statement' => 'statement1',
-            ],
-            [
-                'date' => '2013-01-01 12:34:56',
-                'username' => 'username2',
-                'statement' => 'statement2',
-            ],
+            ['date' => '2012-01-01 12:34:56', 'username' => 'username1', 'statement' => 'statement1'],
+            ['date' => '2013-01-01 12:34:56', 'username' => 'username2', 'statement' => 'statement2'],
         ];
         $filterUsers = ['username1'];
 
@@ -275,10 +267,7 @@ class TrackingTest extends AbstractTestCase
 
         $this->assertStringContainsString($data['tracking'], $html);
 
-        $version = Url::getHiddenInputs($urlParams + [
-            'report' => 'true',
-            'version' => '10',
-        ]);
+        $version = Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => '10']);
 
         $this->assertStringContainsString($version, $html);
 
@@ -311,13 +300,7 @@ class TrackingTest extends AbstractTestCase
     {
         $data = [
             'tracking' => 'tracking',
-            'dmlog' => [
-                [
-                    'statement' => 'statement',
-                    'date' => '2013-01-01 12:34:56',
-                    'username' => 'username',
-                ],
-            ],
+            'dmlog' => [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
             'ddlog' => ['ddlog'],
         ];
         $urlParams = [];
@@ -363,13 +346,7 @@ class TrackingTest extends AbstractTestCase
     {
         $data = [
             'tracking' => 'tracking',
-            'ddlog' => [
-                [
-                    'statement' => 'statement',
-                    'date' => '2013-01-01 12:34:56',
-                    'username' => 'username',
-                ],
-            ],
+            'ddlog' => [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
             'dmlog' => ['dmlog'],
         ];
         $filterUsers = ['*'];
@@ -529,20 +506,8 @@ class TrackingTest extends AbstractTestCase
     {
         $data = [
             'tracking' => 'tracking',
-            'ddlog' => [
-                [
-                    'statement' => 'statement1',
-                    'date' => '2012-01-01 12:34:56',
-                    'username' => 'username3',
-                ],
-            ],
-            'dmlog' => [
-                [
-                    'statement' => 'statement1',
-                    'date' => '2013-01-01 12:34:56',
-                    'username' => 'username3',
-                ],
-            ],
+            'ddlog' => [['statement' => 'statement1', 'date' => '2012-01-01 12:34:56', 'username' => 'username3']],
+            'dmlog' => [['statement' => 'statement1', 'date' => '2013-01-01 12:34:56', 'username' => 'username3']],
         ];
         $filterUsers = ['*'];
 

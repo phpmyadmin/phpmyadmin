@@ -54,15 +54,7 @@ class RelationStatsSvg extends RelationStats
     public function relationDraw(bool $showColor): void
     {
         if ($showColor) {
-            $listOfColors = [
-                '#c00',
-                '#bbb',
-                '#333',
-                '#cb0',
-                '#0b0',
-                '#0bf',
-                '#b0b',
-            ];
+            $listOfColors = ['#c00', '#bbb', '#333', '#cb0', '#0b0', '#0bf', '#b0b'];
             shuffle($listOfColors);
             $color = $listOfColors[0];
         } else {

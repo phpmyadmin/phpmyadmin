@@ -169,11 +169,7 @@ class ImportCsv extends AbstractImportCsv
         $GLOBALS['timeout_passed'] ??= null;
         $GLOBALS['finished'] ??= null;
 
-        $replacements = [
-            '\\n' => "\n",
-            '\\t' => "\t",
-            '\\r' => "\r",
-        ];
+        $replacements = ['\\n' => "\n", '\\t' => "\t", '\\r' => "\r"];
         $GLOBALS['csv_terminated'] = strtr($GLOBALS['csv_terminated'], $replacements);
         $GLOBALS['csv_enclosed'] = strtr($GLOBALS['csv_enclosed'], $replacements);
         $GLOBALS['csv_escaped'] = strtr($GLOBALS['csv_escaped'], $replacements);
@@ -581,11 +577,7 @@ class ImportCsv extends AbstractImportCsv
 
             $tblName = $this->getTableNameFromImport((string) $GLOBALS['db']);
 
-            $tables[] = [
-                $tblName,
-                $colNames,
-                $rows,
-            ];
+            $tables[] = [$tblName, $colNames, $rows];
 
             /* Obtain the best-fit MySQL types for each column */
             $analyses = [];

@@ -50,10 +50,7 @@ class Linux extends Base
             return ['busy' => 0, 'idle' => 0];
         }
 
-        return [
-            'busy' => (int) $nums[1] + (int) $nums[2] + (int) $nums[3],
-            'idle' => (int) $nums[4],
-        ];
+        return ['busy' => (int) $nums[1] + (int) $nums[2] + (int) $nums[3], 'idle' => (int) $nums[4]];
     }
 
     /**

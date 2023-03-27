@@ -43,12 +43,7 @@ class ForeignKeyTest extends AbstractTestCase
      */
     public static function providerIsSupported(): array
     {
-        return [
-            ['MyISAM', false],
-            ['innodb', true],
-            ['pBxT', true],
-            ['ndb', true],
-        ];
+        return [['MyISAM', false], ['innodb', true], ['pBxT', true], ['ndb', true]];
     }
 
     public function testIsCheckEnabled(): void
@@ -74,11 +69,7 @@ class ForeignKeyTest extends AbstractTestCase
     /** @return array[] */
     public static function providerCheckInit(): array
     {
-        return [
-            ['', 'OFF'],
-            ['0', 'OFF'],
-            ['1', 'ON'],
-        ];
+        return [['', 'OFF'], ['0', 'OFF'], ['1', 'ON']];
     }
 
     /** @dataProvider providerCheckInit */
@@ -128,10 +119,7 @@ class ForeignKeyTest extends AbstractTestCase
     /** @return array[] */
     public static function providerCheckCleanup(): array
     {
-        return [
-            [true, 'ON'],
-            [false, 'OFF'],
-        ];
+        return [[true, 'ON'], [false, 'OFF']];
     }
 
     /** @dataProvider providerCheckCleanup */

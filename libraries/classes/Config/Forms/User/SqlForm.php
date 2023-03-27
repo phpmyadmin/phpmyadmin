@@ -29,12 +29,7 @@ class SqlForm extends BaseForm
                 'EnableAutocompleteForTablesAndColumns',
                 'DefaultForeignKeyChecks',
             ],
-            'Sql_box' => [
-                'SQLQuery/Edit',
-                'SQLQuery/Explain',
-                'SQLQuery/ShowAsPHP',
-                'SQLQuery/Refresh',
-            ],
+            'Sql_box' => ['SQLQuery/Edit', 'SQLQuery/Explain', 'SQLQuery/ShowAsPHP', 'SQLQuery/Refresh'],
         ];
     }
 

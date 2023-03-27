@@ -166,11 +166,7 @@ class ExportSql extends ExportPlugin
             __('Enclose export in a transaction'),
         );
         $leaf->setDoc(
-            [
-                'programs',
-                'mysqldump',
-                'option_mysqldump_single-transaction',
-            ],
+            ['programs', 'mysqldump', 'option_mysqldump_single-transaction'],
         );
         $generalOptions->addProperty($leaf);
 
@@ -180,11 +176,7 @@ class ExportSql extends ExportPlugin
             __('Disable foreign key checks'),
         );
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'server-system-variables',
-                'sysvar_foreign_key_checks',
-            ],
+            ['manual_MySQL_Database_Administration', 'server-system-variables', 'sysvar_foreign_key_checks'],
         );
         $generalOptions->addProperty($leaf);
 
@@ -215,11 +207,7 @@ class ExportSql extends ExportPlugin
         );
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
         $subgroup->setSubgroupHeader($leaf);
         $generalOptions->addProperty($subgroup);
@@ -388,10 +376,7 @@ class ExportSql extends ExportPlugin
             __('<code>INSERT DELAYED</code> statements'),
         );
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'insert_delayed',
-            ],
+            ['manual_MySQL_Database_Administration', 'insert_delayed'],
         );
         $subgroup->addProperty($leaf);
 
@@ -400,10 +385,7 @@ class ExportSql extends ExportPlugin
             __('<code>INSERT IGNORE</code> statements'),
         );
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'insert',
-            ],
+            ['manual_MySQL_Database_Administration', 'insert'],
         );
         $subgroup->addProperty($leaf);
         $dataOptions->addProperty($subgroup);
@@ -414,11 +396,7 @@ class ExportSql extends ExportPlugin
             __('Function to use when dumping data:'),
         );
         $leaf->setValues(
-            [
-                'INSERT' => 'INSERT',
-                'UPDATE' => 'UPDATE',
-                'REPLACE' => 'REPLACE',
-            ],
+            ['INSERT' => 'INSERT', 'UPDATE' => 'UPDATE', 'REPLACE' => 'REPLACE'],
         );
         $dataOptions->addProperty($leaf);
 
@@ -1060,11 +1038,7 @@ class ExportSql extends ExportPlugin
         $relationParams = $relationParameters->toArray();
 
         if (isset($table)) {
-            $types = [
-                'column_info' => 'db_name',
-                'table_uiprefs' => 'db_name',
-                'tracking' => 'db_name',
-            ];
+            $types = ['column_info' => 'db_name', 'table_uiprefs' => 'db_name', 'tracking' => 'db_name'];
         } else {
             $types = [
                 'bookmark' => 'dbase',
@@ -2731,10 +2705,7 @@ class ExportSql extends ExportPlugin
         );
         $leaf->setValues($values);
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'Server_SQL_mode',
-            ],
+            ['manual_MySQL_Database_Administration', 'Server_SQL_mode'],
         );
         $generalOptions->addProperty($leaf);
     }

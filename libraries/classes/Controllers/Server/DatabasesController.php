@@ -272,10 +272,7 @@ class DatabasesController extends AbstractController
             ];
         }
 
-        return [
-            'databases' => $databases,
-            'total_statistics' => $totalStatistics,
-        ];
+        return ['databases' => $databases, 'total_statistics' => $totalStatistics];
     }
 
     /**
@@ -286,36 +283,12 @@ class DatabasesController extends AbstractController
     private function getStatisticsColumns(): array
     {
         return [
-            'SCHEMA_TABLES' => [
-                'title' => __('Tables'),
-                'format' => 'number',
-                'raw' => 0,
-            ],
-            'SCHEMA_TABLE_ROWS' => [
-                'title' => __('Rows'),
-                'format' => 'number',
-                'raw' => 0,
-            ],
-            'SCHEMA_DATA_LENGTH' => [
-                'title' => __('Data'),
-                'format' => 'byte',
-                'raw' => 0,
-            ],
-            'SCHEMA_INDEX_LENGTH' => [
-                'title' => __('Indexes'),
-                'format' => 'byte',
-                'raw' => 0,
-            ],
-            'SCHEMA_LENGTH' => [
-                'title' => __('Total'),
-                'format' => 'byte',
-                'raw' => 0,
-            ],
-            'SCHEMA_DATA_FREE' => [
-                'title' => __('Overhead'),
-                'format' => 'byte',
-                'raw' => 0,
-            ],
+            'SCHEMA_TABLES' => ['title' => __('Tables'), 'format' => 'number', 'raw' => 0],
+            'SCHEMA_TABLE_ROWS' => ['title' => __('Rows'), 'format' => 'number', 'raw' => 0],
+            'SCHEMA_DATA_LENGTH' => ['title' => __('Data'), 'format' => 'byte', 'raw' => 0],
+            'SCHEMA_INDEX_LENGTH' => ['title' => __('Indexes'), 'format' => 'byte', 'raw' => 0],
+            'SCHEMA_LENGTH' => ['title' => __('Total'), 'format' => 'byte', 'raw' => 0],
+            'SCHEMA_DATA_FREE' => ['title' => __('Overhead'), 'format' => 'byte', 'raw' => 0],
         ];
     }
 }

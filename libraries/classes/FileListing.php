@@ -84,10 +84,7 @@ class FileListing
 
         $template = new Template();
 
-        return $template->render('file_select_options', [
-            'filesList' => $list,
-            'active' => $active,
-        ]);
+        return $template->render('file_select_options', ['filesList' => $list, 'active' => $active]);
     }
 
     /**

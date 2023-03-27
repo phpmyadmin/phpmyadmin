@@ -71,10 +71,7 @@ final class ImportController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
         $idKey = $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey();
-        $hiddenInputs = [
-            $idKey => $uploadId,
-            'import_type' => 'server',
-        ];
+        $hiddenInputs = [$idKey => $uploadId, 'import_type' => 'server'];
 
         $default = isset($_GET['format']) ? (string) $_GET['format'] : Plugins::getDefault('Import', 'format');
         $choice = Plugins::getChoice($importList, $default);

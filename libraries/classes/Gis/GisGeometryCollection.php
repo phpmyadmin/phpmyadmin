@@ -322,12 +322,7 @@ class GisGeometryCollection extends GisGeometry
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $geomCol = mb_substr($wkt, 19, -1);
         $wktGeometries = $this->explodeGeomCol($geomCol);
-        $params = [
-            'srid' => $data['srid'],
-            'GEOMETRYCOLLECTION' => [
-                'geom_count' => count($wktGeometries),
-            ],
-        ];
+        $params = ['srid' => $data['srid'], 'GEOMETRYCOLLECTION' => ['geom_count' => count($wktGeometries)]];
 
         $i = 0;
         foreach ($wktGeometries as $wktGeometry) {
@@ -342,10 +337,7 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $params[$i++] = [
-                'gis_type' => $wktType,
-                $wktType => $gisObj->getCoordinateParams($wktGeometry),
-            ];
+            $params[$i++] = ['gis_type' => $wktType, $wktType => $gisObj->getCoordinateParams($wktGeometry)];
         }
 
         return $params;

@@ -180,29 +180,7 @@ class PbxtTest extends AbstractTestCase
      */
     public static function providerFortTestResolveTypeSize(): array
     {
-        return [
-            [
-                '8MB',
-                [
-                    0 => '8,192',
-                    1 => 'KiB',
-                ],
-            ],
-            [
-                '10mb',
-                [
-                    0 => '-1',
-                    1 => 'B',
-                ],
-            ],
-            [
-                'A4',
-                [
-                    0 => '0',
-                    1 => 'B',
-                ],
-            ],
-        ];
+        return [['8MB', [0 => '8,192', 1 => 'KiB']], ['10mb', [0 => '-1', 1 => 'B']], ['A4', [0 => '0', 1 => 'B']]];
     }
 
     /**

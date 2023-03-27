@@ -83,16 +83,7 @@ class Core
     public static function getPHPDocLink(string $target): string
     {
         /* List of PHP documentation translations */
-        $phpDocLanguages = [
-            'pt_BR',
-            'zh_CN',
-            'fr',
-            'de',
-            'ja',
-            'ru',
-            'es',
-            'tr',
-        ];
+        $phpDocLanguages = ['pt_BR', 'zh_CN', 'fr', 'de', 'ja', 'ru', 'es', 'tr'];
 
         $lang = 'en';
         if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $phpDocLanguages)) {

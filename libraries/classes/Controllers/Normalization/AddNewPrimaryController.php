@@ -29,10 +29,7 @@ final class AddNewPrimaryController extends AbstractController
         $dbName = isset($db) ? $db->getName() : '';
         $tableName = isset($table) ? $table->getName() : '';
 
-        $columnMeta = [
-            'Field' => $tableName . '_id',
-            'Extra' => 'auto_increment',
-        ];
+        $columnMeta = ['Field' => $tableName . '_id', 'Extra' => 'auto_increment'];
         $html = $this->normalization->getHtmlForCreateNewColumn($numFields, $dbName, $tableName, $columnMeta);
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);

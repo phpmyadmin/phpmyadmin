@@ -224,11 +224,7 @@ class Sql
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
-            $urlParams = [
-                'db' => $db,
-                'table' => $table,
-                'field' => $column,
-            ];
+            $urlParams = ['db' => $db, 'table' => $table, 'field' => $column];
 
             return $this->template->render('sql/relational_column_dropdown', [
                 'current_value' => $_POST['curr_value'],
@@ -250,12 +246,7 @@ class Sql
     /** @return array<string, int|array> */
     private function getDetailedProfilingStats(array $profilingResults): array
     {
-        $profiling = [
-            'total_time' => 0,
-            'states' => [],
-            'chart' => [],
-            'profile' => [],
-        ];
+        $profiling = ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []];
 
         foreach ($profilingResults as $oneResult) {
             $status = ucwords($oneResult['Status']);
@@ -267,10 +258,7 @@ class Sql
             ];
 
             if (! isset($profiling['states'][$status])) {
-                $profiling['states'][$status] = [
-                    'total_time' => $oneResult['Duration'],
-                    'calls' => 1,
-                ];
+                $profiling['states'][$status] = ['total_time' => $oneResult['Duration'], 'calls' => 1];
                 $profiling['chart'][$status] = $oneResult['Duration'];
             } else {
                 $profiling['states'][$status]['calls']++;
@@ -818,13 +806,7 @@ class Sql
             }
         }
 
-        return [
-            $result,
-            $numRows,
-            $unlimNumRows,
-            $profilingResults,
-            $extraData,
-        ];
+        return [$result, $numRows, $unlimNumRows, $profilingResults, $extraData];
     }
 
     /**
@@ -1631,13 +1613,7 @@ class Sql
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
-        [
-            $result,
-            $numRows,
-            $unlimNumRows,
-            $profilingResults,
-            $extraData,
-        ] = $this->executeTheQuery(
+        [$result, $numRows, $unlimNumRows, $profilingResults, $extraData] = $this->executeTheQuery(
             $statementInfo,
             $fullSqlQuery,
             $isGotoFile,

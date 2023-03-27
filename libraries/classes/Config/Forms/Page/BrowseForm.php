@@ -15,8 +15,6 @@ class BrowseForm extends BaseForm
     /** @return array */
     public static function getForms(): array
     {
-        return [
-            'Browse' => MainForm::getForms()['Browse'],
-        ];
+        return ['Browse' => MainForm::getForms()['Browse']];
     }
 }

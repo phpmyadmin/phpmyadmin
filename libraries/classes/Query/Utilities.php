@@ -34,12 +34,7 @@ class Utilities
      */
     public static function getSystemSchemas(): array
     {
-        $schemas = [
-            'information_schema',
-            'performance_schema',
-            'mysql',
-            'sys',
-        ];
+        $schemas = ['information_schema', 'performance_schema', 'mysql', 'sys'];
         $systemSchemas = [];
         foreach ($schemas as $schema) {
             if (! self::isSystemSchema($schema, true)) {

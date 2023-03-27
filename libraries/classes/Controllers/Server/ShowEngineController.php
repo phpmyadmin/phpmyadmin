@@ -51,9 +51,6 @@ final class ShowEngineController extends AbstractController
             ];
         }
 
-        $this->render('server/engines/show', [
-            'engine' => $engine,
-            'page' => $page,
-        ]);
+        $this->render('server/engines/show', ['engine' => $engine, 'page' => $page]);
     }
 }

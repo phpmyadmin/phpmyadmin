@@ -395,11 +395,6 @@ class SearchController extends AbstractController
             'is_float' => $isFloat,
         ]);
 
-        return [
-            'type' => $type,
-            'collation' => $collation,
-            'func' => $func,
-            'value' => $value,
-        ];
+        return ['type' => $type, 'collation' => $collation, 'func' => $func, 'value' => $value];
     }
 }

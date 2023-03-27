@@ -171,10 +171,6 @@ class SqlQueryForm
 
         $legend .= ': ' . MySQLDocumentation::show('SELECT');
 
-        return [
-            $legend,
-            $query,
-            $columnsList,
-        ];
+        return [$legend, $query, $columnsList];
     }
 }

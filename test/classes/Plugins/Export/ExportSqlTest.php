@@ -201,10 +201,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertInstanceOf(SelectPropertyItem::class, $property);
 
         $this->assertEquals(
-            [
-                'v1' => 'v1',
-                'v2' => 'v2',
-            ],
+            ['v1' => 'v1', 'v2' => 'v2'],
             $property->getValues(),
         );
 
@@ -901,19 +898,8 @@ SQL;
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                [
-                    'foo' => [
-                        'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield',
-                    ],
-                ],
-                [
-                    'fieldname' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['foo' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
+                ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -1108,13 +1094,7 @@ SQL;
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [
-                    null,
-                    'test',
-                    '10',
-                    '6',
-                    "\x00\x0a\x0d\x1a",
-                ],
+                [null, 'test', '10', '6', "\x00\x0a\x0d\x1a"],
                 [],
             );
         $dbi->expects($this->any())->method('quoteString')
@@ -1215,10 +1195,7 @@ SQL;
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [
-                    null,
-                    null,
-                ],
+                [null, null],
                 [],
             );
 
@@ -1404,10 +1381,7 @@ SQL;
         $aliases = [
             'a' => [
                 'alias' => 'aliastest',
-                'tables' => [
-                    'foo' => ['alias' => 'qwerty'],
-                    'bar' => ['alias' => 'f'],
-                ],
+                'tables' => ['foo' => ['alias' => 'qwerty'], 'bar' => ['alias' => 'f']],
             ],
         ];
         $db = 'a';
@@ -1438,17 +1412,8 @@ SQL;
             'a' => [
                 'alias' => 'aliastest',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'qwerty',
-                        'columns' => [
-                            'baz' => 'p',
-                            'pqr' => 'pphymdain',
-                        ],
-                    ],
-                    'bar' => [
-                        'alias' => 'f',
-                        'columns' => ['xy' => 'n'],
-                    ],
+                    'foo' => ['alias' => 'qwerty', 'columns' => ['baz' => 'p', 'pqr' => 'pphymdain']],
+                    'bar' => ['alias' => 'f', 'columns' => ['xy' => 'n']],
                 ],
             ],
         ];
@@ -1480,17 +1445,8 @@ SQL;
             'a' => [
                 'alias' => 'aliastest',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'bartest',
-                        'columns' => [
-                            'baz' => 'p',
-                            'pqr' => 'pphymdain',
-                        ],
-                    ],
-                    'bar' => [
-                        'alias' => 'f',
-                        'columns' => ['xy' => 'n'],
-                    ],
+                    'foo' => ['alias' => 'bartest', 'columns' => ['baz' => 'p', 'pqr' => 'pphymdain']],
+                    'bar' => ['alias' => 'f', 'columns' => ['xy' => 'n']],
                 ],
             ],
         ];

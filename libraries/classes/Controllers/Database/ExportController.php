@@ -56,10 +56,7 @@ final class ExportController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
 
-        [
-            $GLOBALS['tables'],
-            $GLOBALS['num_tables'],
-        ] = Util::getDbInfo($request, $GLOBALS['db'], false);
+        [$GLOBALS['tables'], $GLOBALS['num_tables']] = Util::getDbInfo($request, $GLOBALS['db'], false);
 
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {

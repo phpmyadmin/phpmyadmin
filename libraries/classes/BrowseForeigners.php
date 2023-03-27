@@ -71,10 +71,7 @@ class BrowseForeigners
         // key names and descriptions for the left section,
         // sorted by key names
         $leftKeyname = $keys[$indexByKeyname];
-        [
-            $leftDescription,
-            $leftDescriptionTitle,
-        ] = $this->getDescriptionAndTitle($descriptions[$indexByKeyname]);
+        [$leftDescription, $leftDescriptionTitle] = $this->getDescriptionAndTitle($descriptions[$indexByKeyname]);
 
         // key names and descriptions for the right section,
         // sorted by descriptions
@@ -129,11 +126,7 @@ class BrowseForeigners
 
         $output .= '</tr>';
 
-        return [
-            $output,
-            $horizontalCount,
-            $indexByDescription,
-        ];
+        return [$output, $horizontalCount, $indexByDescription];
     }
 
     /**
@@ -230,11 +223,7 @@ class BrowseForeigners
         $indexByDescription = 0;
 
         foreach (array_keys($keys) as $indexByKeyname) {
-            [
-                $html,
-                $horizontalCount,
-                $indexByDescription,
-            ] = $this->getHtmlForOneKey(
+            [$html, $horizontalCount, $indexByDescription] = $this->getHtmlForOneKey(
                 $horizontalCount,
                 $header,
                 $keys,
@@ -267,10 +256,7 @@ class BrowseForeigners
             $description = mb_substr($description, 0, $this->settings->limitChars) . '...';
         }
 
-        return [
-            $description,
-            $descriptionTitle,
-        ];
+        return [$description, $descriptionTitle];
     }
 
     /**

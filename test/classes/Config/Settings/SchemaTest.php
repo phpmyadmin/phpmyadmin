@@ -143,12 +143,7 @@ class SchemaTest extends TestCase
                     ['svg_all_tables_same_width', true, true],
                 ],
             ],
-            'valid values 3' => [
-                [
-                    ['format', 'dia', 'dia'],
-                    ['pdf_table_order', 'name_desc', 'name_desc'],
-                ],
-            ],
+            'valid values 3' => [[['format','dia','dia'], ['pdf_table_order','name_desc','name_desc']]],
             'valid values 4' => [[['format', 'svg', 'svg']]],
             'valid values with type coercion' => [
                 [

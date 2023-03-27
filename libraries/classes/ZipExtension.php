@@ -69,20 +69,14 @@ class ZipExtension
             $errorMessage = __('Error in ZIP archive:') . ' ' . $this->zip->getStatusString();
             $this->zip->close();
 
-            return [
-                'error' => $errorMessage,
-                'data' => $fileData,
-            ];
+            return ['error' => $errorMessage, 'data' => $fileData];
         }
 
         if ($this->zip->numFiles === 0) {
             $errorMessage = __('No files found inside ZIP archive!');
             $this->zip->close();
 
-            return [
-                'error' => $errorMessage,
-                'data' => $fileData,
-            ];
+            return ['error' => $errorMessage, 'data' => $fileData];
         }
 
         /* Is the the zip really an ODS file? */
@@ -96,10 +90,7 @@ class ZipExtension
             $fileData = $firstZipEntry;
             $this->zip->close();
 
-            return [
-                'error' => $errorMessage,
-                'data' => $fileData,
-            ];
+            return ['error' => $errorMessage, 'data' => $fileData];
         }
 
         /* Return the correct contents, not just the first entry */
@@ -118,10 +109,7 @@ class ZipExtension
 
         $this->zip->close();
 
-        return [
-            'error' => $errorMessage,
-            'data' => $fileData,
-        ];
+        return ['error' => $errorMessage, 'data' => $fileData];
     }
 
     /**

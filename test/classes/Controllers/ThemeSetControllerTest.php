@@ -77,13 +77,6 @@ class ThemeSetControllerTest extends AbstractTestCase
      */
     public static function providerForTestWithoutTheme(): iterable
     {
-        return [
-            [true, null],
-            [true, ''],
-            [true, ['theme_name']],
-            [false, null],
-            [false, ''],
-            [false, ['theme_name']],
-        ];
+        return [[true, null], [true, ''], [true, ['theme_name']], [false, null], [false, ''], [false, ['theme_name']]];
     }
 }

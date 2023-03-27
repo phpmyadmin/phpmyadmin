@@ -756,10 +756,7 @@ class Generator
          * The errors found by the lexer and the parser.
          */
         $errors = ParserError::get(
-            [
-                $lexer,
-                $parser,
-            ],
+            [$lexer, $parser],
         );
 
         if ($sqlQuery === '') {
@@ -806,10 +803,7 @@ class Generator
             }
 
             if ($isModifyLink) {
-                $urlParams = [
-                    'sql_query' => $sqlQuery,
-                    'show_query' => 1,
-                ];
+                $urlParams = ['sql_query' => $sqlQuery, 'show_query' => 1];
                 if (strlen($GLOBALS['table']) > 0) {
                     $urlParams['db'] = $GLOBALS['db'];
                     $urlParams['table'] = $GLOBALS['table'];
@@ -849,14 +843,8 @@ class Generator
             // All non-single blanks and  TAB-characters are replaced with their
             // HTML-counterpart
             $serverMessage = str_replace(
-                [
-                    '  ',
-                    "\t",
-                ],
-                [
-                    '&nbsp;&nbsp;',
-                    '&nbsp;&nbsp;&nbsp;&nbsp;',
-                ],
+                ['  ', "\t"],
+                ['&nbsp;&nbsp;', '&nbsp;&nbsp;&nbsp;&nbsp;'],
                 $serverMessage,
             );
 

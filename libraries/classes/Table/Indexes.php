@@ -88,10 +88,7 @@ final class Indexes
                 $this->response->addJSON(
                     'index_table',
                     $this->template->render('indexes', [
-                        'url_params' => [
-                            'db' => $db,
-                            'table' => $table,
-                        ],
+                        'url_params' => ['db' => $db, 'table' => $table],
                         'indexes' => $indexes,
                         'indexes_duplicates' => $indexesDuplicates,
                     ]),

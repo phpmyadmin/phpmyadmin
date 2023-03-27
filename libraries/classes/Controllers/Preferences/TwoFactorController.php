@@ -36,9 +36,7 @@ class TwoFactorController extends AbstractController
 
         if ($request->hasBodyParam('2fa_remove')) {
             if (! $twoFactor->check(true)) {
-                echo $this->template->render('preferences/two_factor/confirm', [
-                    'form' => $twoFactor->render(),
-                ]);
+                echo $this->template->render('preferences/two_factor/confirm', ['form' => $twoFactor->render()]);
 
                 return;
             }

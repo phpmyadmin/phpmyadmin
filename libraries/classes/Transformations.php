@@ -120,11 +120,7 @@ class Transformations
         }
 
         $stack = [];
-        $subDirs = [
-            'Input/' => 'input_',
-            'Output/' => '',
-            '' => '',
-        ];
+        $subDirs = ['Input/' => 'input_', 'Output/' => '', '' => ''];
 
         foreach ($subDirs as $sd => $prefix) {
             $handle = opendir(ROOT_PATH . 'libraries/classes/Plugins/Transformations/' . $sd);
@@ -245,14 +241,8 @@ class Transformations
     public function fixUpMime(string $value): string
     {
         $value = str_replace(
-            [
-                'jpeg',
-                'png',
-            ],
-            [
-                'JPEG',
-                'PNG',
-            ],
+            ['jpeg', 'png'],
+            ['JPEG', 'PNG'],
             $value,
         );
 

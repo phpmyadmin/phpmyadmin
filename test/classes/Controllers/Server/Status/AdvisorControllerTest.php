@@ -56,9 +56,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $controller($this->createStub(ServerRequest::class));
 
-        $expected = $this->template->render('server/status/advisor/index', [
-            'data' => [],
-        ]);
+        $expected = $this->template->render('server/status/advisor/index', ['data' => []]);
 
         $this->assertSame(
             $expected,

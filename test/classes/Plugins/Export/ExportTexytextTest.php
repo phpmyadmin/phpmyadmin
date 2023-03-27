@@ -260,16 +260,7 @@ class ExportTexytextTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $keys = [
-            [
-                'Non_unique' => 0,
-                'Column_name' => 'cname',
-            ],
-            [
-                'Non_unique' => 1,
-                'Column_name' => 'cname2',
-            ],
-        ];
+        $keys = [['Non_unique' => 0, 'Column_name' => 'cname'], ['Non_unique' => 1, 'Column_name' => 'cname2']];
 
         $dbi->expects($this->once())
             ->method('getTableIndexes')
@@ -279,19 +270,8 @@ class ExportTexytextTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                [
-                    'fname' => [
-                        'foreign_table' => '<ftable',
-                        'foreign_field' => 'ffield>',
-                    ],
-                ],
-                [
-                    'fname' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['fname' => ['foreign_table' => '<ftable', 'foreign_field' => 'ffield>']],
+                ['fname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $dbi->expects($this->once())
@@ -302,10 +282,7 @@ class ExportTexytextTest extends AbstractTestCase
                 ),
             );
 
-        $columns = [
-            'Field' => 'fname',
-            'Comment' => 'comm',
-        ];
+        $columns = ['Field' => 'fname', 'Comment' => 'comm'];
 
         $dbi->expects($this->exactly(2))
             ->method('getColumns')
@@ -475,12 +452,7 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testFormatOneColumnDefinition(): void
     {
-        $cols = [
-            'Null' => 'Yes',
-            'Field' => 'field',
-            'Key' => 'PRI',
-            'Type' => 'set(abc)enum123',
-        ];
+        $cols = ['Null' => 'Yes', 'Field' => 'field', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'];
 
         $uniqueKeys = ['field'];
 
@@ -489,13 +461,7 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->formatOneColumnDefinition($cols, $uniqueKeys),
         );
 
-        $cols = [
-            'Null' => 'NO',
-            'Field' => 'fields',
-            'Key' => 'COMP',
-            'Type' => '',
-            'Default' => 'def',
-        ];
+        $cols = ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'];
 
         $uniqueKeys = ['field'];
 

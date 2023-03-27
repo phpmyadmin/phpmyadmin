@@ -152,10 +152,7 @@ class FormDisplayTemplate
      */
     public function displayErrors(string $name, array $errorList): string
     {
-        return $this->template->render('config/form_display/errors', [
-            'name' => $name,
-            'error_list' => $errorList,
-        ]);
+        return $this->template->render('config/form_display/errors', ['name' => $name, 'error_list' => $errorList]);
     }
 
     public function display(array $data): string

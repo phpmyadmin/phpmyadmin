@@ -192,10 +192,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
         try {
             $result = call_user_func_array(
-                [
-                    Generator::class,
-                    'linkOrButton',
-                ],
+                [Generator::class, 'linkOrButton'],
                 $params,
             );
             $this->assertEquals($match, $result);
@@ -212,35 +209,13 @@ class GeneratorTest extends AbstractTestCase
     public static function linksOrButtons(): array
     {
         return [
+            [['index.php', null, 'text'], 1000, '<a href="index.php" >text</a>'],
             [
-                [
-                    'index.php',
-                    null,
-                    'text',
-                ],
-                1000,
-                '<a href="index.php" >text</a>',
-            ],
-            [
-                [
-                    'index.php',
-                    ['some' => 'parameter'],
-                    'text',
-                ],
+                ['index.php', ['some' => 'parameter'], 'text'],
                 20,
                 '<a href="index.php" data-post="some=parameter&lang=en">text</a>',
             ],
-            [
-                [
-                    'index.php',
-                    null,
-                    'text',
-                    [],
-                    'target',
-                ],
-                1000,
-                '<a href="index.php" target="target">text</a>',
-            ],
+            [['index.php', null, 'text', [], 'target'], 1000, '<a href="index.php" target="target">text</a>'],
             [
                 [
                     'https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B',
@@ -268,50 +243,28 @@ class GeneratorTest extends AbstractTestCase
                 . ' target="target">text</a>',
             ],
             [
-                [
-                    'index.php?route=/url&url=http://phpmyadmin.net/',
-                    null,
-                    'text',
-                    [],
-                    '_blank',
-                ],
+                ['index.php?route=/url&url=http://phpmyadmin.net/', null, 'text', [], '_blank'],
                 1000,
                 '<a href="index.php?route=/url&url=http://phpmyadmin.net/" target="_blank"'
                 . ' rel="noopener noreferrer">text</a>',
             ],
             [
-                [
-                    'index.php?route=/server/databases',
-                    ['some' => 'parameter'],
-                    'text',
-                ],
+                ['index.php?route=/server/databases', ['some' => 'parameter'], 'text'],
                 20,
                 '<a href="index.php" data-post="route=/server/databases&some=parameter&lang=en">text</a>',
             ],
             [
-                [
-                    'index.php?route=/server/databases',
-                    null,
-                    'text',
-                ],
+                ['index.php?route=/server/databases', null, 'text'],
                 20,
                 '<a href="index.php" data-post="route=/server/databases">text</a>',
             ],
             [
-                [
-                    'index.php?route=/server/databases',
-                    ['some' => 'parameter'],
-                    'text',
-                ],
+                ['index.php?route=/server/databases', ['some' => 'parameter'], 'text'],
                 100,
                 '<a href="index.php?route=/server/databases&some=parameter&lang=en" >text</a>',
             ],
             [
-                [
-                    'index.php?route=/server/databases',
-                    null,
-                    'text',
-                ],
+                ['index.php?route=/server/databases', null, 'text'],
                 100,
                 '<a href="index.php?route=/server/databases" >text</a>',
             ],
@@ -352,19 +305,13 @@ class GeneratorTest extends AbstractTestCase
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
-        $GLOBALS['cfg']['Server'] = [
-            'ssl' => false,
-            'host' => '127.0.0.1',
-        ];
+        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'host' => '127.0.0.1'];
         $this->assertEquals(
             $sslNotUsed,
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = [
-            'ssl' => false,
-            'host' => 'custom.host',
-        ];
+        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'host' => 'custom.host'];
         $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
         $this->assertEquals(
@@ -372,10 +319,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = [
-            'ssl' => false,
-            'host' => 'custom.host',
-        ];
+        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'host' => 'custom.host'];
         $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
 
         $this->assertEquals(
@@ -383,22 +327,14 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = [
-            'ssl' => false,
-            'ssl_verify' => true,
-            'host' => 'custom.host',
-        ];
+        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'ssl_verify' => true, 'host' => 'custom.host'];
 
         $this->assertEquals(
             $sslNotUsed,
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = [
-            'ssl' => true,
-            'ssl_verify' => false,
-            'host' => 'custom.host',
-        ];
+        $GLOBALS['cfg']['Server'] = ['ssl' => true, 'ssl_verify' => false, 'host' => 'custom.host'];
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used with disabled verification</span>'
@@ -408,11 +344,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = [
-            'ssl' => true,
-            'ssl_verify' => true,
-            'host' => 'custom.host',
-        ];
+        $GLOBALS['cfg']['Server'] = ['ssl' => true, 'ssl_verify' => true, 'host' => 'custom.host'];
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used without certification authority</span>'
@@ -497,26 +429,8 @@ class GeneratorTest extends AbstractTestCase
                 true,
                 'NOW',
             ],
-            [
-                [
-                    'True_Type' => 'uuid',
-                    'first_timestamp' => false,
-                    'Key' => '',
-                    'Type' => '',
-                ],
-                true,
-                '',
-            ],
-            [
-                [
-                    'True_Type' => '',
-                    'first_timestamp' => false,
-                    'Key' => 'PRI',
-                    'Type' => 'char(36)',
-                ],
-                true,
-                'UUID',
-            ],
+            [['True_Type' => 'uuid', 'first_timestamp' => false, 'Key' => '', 'Type' => ''], true, ''],
+            [['True_Type' => '', 'first_timestamp' => false, 'Key' => 'PRI', 'Type' => 'char(36)'], true, 'UUID'],
         ];
     }
 }

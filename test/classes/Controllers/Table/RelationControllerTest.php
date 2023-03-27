@@ -58,11 +58,7 @@ class RelationControllerTest extends AbstractTestCase
      */
     public function testGetDropdownValueForTableActionIsView(): void
     {
-        $viewColumns = [
-            'viewCol',
-            'viewCol2',
-            'viewCol3',
-        ];
+        $viewColumns = ['viewCol', 'viewCol2', 'viewCol3'];
         $tableMock = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -136,12 +132,7 @@ class RelationControllerTest extends AbstractTestCase
         $resultStub->expects($this->any())
             ->method('getIterator')
             ->will($this->returnCallback(static function (): Generator {
-                yield from [
-                    [
-                        'Engine' => 'InnoDB',
-                        'Name' => 'table',
-                    ],
-                ];
+                yield from [['Engine' => 'InnoDB', 'Name' => 'table']];
             }));
 
         $ctrl = new RelationController(

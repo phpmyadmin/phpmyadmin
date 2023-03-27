@@ -76,9 +76,6 @@ final class RepairController extends AbstractController
             'success',
         );
 
-        $this->render('table/maintenance/repair', [
-            'message' => $message,
-            'rows' => $rows,
-        ]);
+        $this->render('table/maintenance/repair', ['message' => $message, 'rows' => $rows]);
     }
 }

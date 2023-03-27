@@ -46,10 +46,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             ->willReturn($privileges);
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParam')->willReturnMap([
-            ['db', null, 'db'],
-            ['table', null, 'table'],
-        ]);
+        $request->method('getParam')->willReturnMap([['db', null, 'db'], ['table', null, 'table']]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController(
@@ -63,10 +60,7 @@ class PrivilegesControllerTest extends AbstractTestCase
         $this->assertStringContainsString($GLOBALS['db'] . '.' . $GLOBALS['table'], $actual);
 
         //validate 2: Url::getCommon
-        $item = Url::getCommon([
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ], '');
+        $item = Url::getCommon(['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']], '');
         $this->assertStringContainsString($item, $actual);
 
         //validate 3: items
@@ -109,10 +103,7 @@ class PrivilegesControllerTest extends AbstractTestCase
     public function testWithInvalidDatabaseName(): void
     {
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParam')->willReturnMap([
-            ['db', null, ''],
-            ['table', null, 'table'],
-        ]);
+        $request->method('getParam')->willReturnMap([['db', null, ''], ['table', null, 'table']]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController(
@@ -130,10 +121,7 @@ class PrivilegesControllerTest extends AbstractTestCase
     public function testWithInvalidTableName(): void
     {
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParam')->willReturnMap([
-            ['db', null, 'db'],
-            ['table', null, ''],
-        ]);
+        $request->method('getParam')->willReturnMap([['db', null, 'db'], ['table', null, '']]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController(

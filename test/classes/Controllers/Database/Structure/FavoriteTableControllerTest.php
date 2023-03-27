@@ -56,14 +56,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
 
         // The user hash for test
         $user = 'abcdefg';
-        $favoriteTable = [
-            $user => [
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                ],
-            ],
-        ];
+        $favoriteTable = [$user => [['db' => 'db', 'table' => 'table']]];
 
         $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
 

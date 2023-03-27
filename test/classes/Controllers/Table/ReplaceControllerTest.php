@@ -72,39 +72,19 @@ class ReplaceControllerTest extends AbstractTestCase
         $_POST['table'] = $GLOBALS['table'];
         $_POST['ajax_request'] = 'true';
         $_POST['clause_is_unique'] = 1;
-        $_POST['where_clause'] = [
-            '`test`.`ser` = 2',
-            '`test`.`ser` = 1',
-        ];
+        $_POST['where_clause'] = ['`test`.`ser` = 2', '`test`.`ser` = 1'];
         $_POST['rel_fields_list'] = '';
         $_POST['do_transformations'] = true;
         $_POST['transform_fields_list'] = '0%5Bvc%5D=sss%20s%20s&1%5Bvc%5D=zzff%20s%20sf%0A';
         $_POST['relational_display'] = 'K';
         $_POST['goto'] = 'index.php?route=/sql';
         $_POST['submit_type'] = 'save';
-        $_POST['fields'] = [
-            'multi_edit' => [
-                0 => ['zzff s sf'],
-                1 => ['sss s s'],
-            ],
-        ];
-        $_POST['fields_name'] = [
-            'multi_edit' => [
-                0 => ['vc'],
-                1 => ['vc'],
-            ],
-        ];
-        $_POST['fields_null'] = [
-            'multi_edit' => [
-                0 => [],
-                1 => [],
-            ],
-        ];
+        $_POST['fields'] = ['multi_edit' => [0 => ['zzff s sf'], 1 => ['sss s s']]];
+        $_POST['fields_name'] = ['multi_edit' => [0 => ['vc'], 1 => ['vc']]];
+        $_POST['fields_null'] = ['multi_edit' => [0 => [], 1 => []]];
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['sql_query', null, ''],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['sql_query', null, '']]);
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);

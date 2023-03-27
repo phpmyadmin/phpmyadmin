@@ -29,57 +29,24 @@ class ExportTest extends AbstractTestCase
             'test_db' => [
                 'alias' => 'aliastest',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'foobar',
-                        'columns' => [
-                            'bar' => 'foo',
-                            'baz' => 'barbaz',
-                        ],
-                    ],
-                    'bar' => [
-                        'alias' => 'foobaz',
-                        'columns' => [
-                            'a' => 'a_alias',
-                            'b' => 'b',
-                        ],
-                    ],
+                    'foo' => ['alias' => 'foobar', 'columns' => ['bar' => 'foo', 'baz' => 'barbaz']],
+                    'bar' => ['alias' => 'foobaz', 'columns' => ['a' => 'a_alias', 'b' => 'b']],
                 ],
             ],
         ];
         $aliases2 = [
             'test_db' => [
                 'alias' => 'test',
-                'tables' => [
-                    'foo' => [
-                        'columns' => ['bar' => 'foobar'],
-                    ],
-                    'baz' => [
-                        'columns' => ['a' => 'x'],
-                    ],
-                ],
+                'tables' => ['foo' => ['columns' => ['bar' => 'foobar']], 'baz' => ['columns' => ['a' => 'x']]],
             ],
         ];
         $expected = [
             'test_db' => [
                 'alias' => 'test',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'foobar',
-                        'columns' => [
-                            'bar' => 'foobar',
-                            'baz' => 'barbaz',
-                        ],
-                    ],
-                    'bar' => [
-                        'alias' => 'foobaz',
-                        'columns' => [
-                            'a' => 'a_alias',
-                            'b' => 'b',
-                        ],
-                    ],
-                    'baz' => [
-                        'columns' => ['a' => 'x'],
-                    ],
+                    'foo' => ['alias' => 'foobar', 'columns' => ['bar' => 'foobar', 'baz' => 'barbaz']],
+                    'bar' => ['alias' => 'foobaz', 'columns' => ['a' => 'a_alias', 'b' => 'b']],
+                    'baz' => ['columns' => ['a' => 'x']],
                 ],
             ],
         ];
@@ -97,24 +64,15 @@ class ExportTest extends AbstractTestCase
             new Transformations(),
         );
         $finalFileName = $export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
-        $this->assertSame([
-            'myfilename.php.zip',
-            'application/zip',
-        ], $finalFileName);
+        $this->assertSame(['myfilename.php.zip', 'application/zip'], $finalFileName);
         $finalFileName = $export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'myfilename');
-        $this->assertSame([
-            'myfilename.php.gz',
-            'application/x-gzip',
-        ], $finalFileName);
+        $this->assertSame(['myfilename.php.gz', 'application/x-gzip'], $finalFileName);
         $finalFileName = $export->getFinalFilenameAndMimetypeForFilename(
             $exportPlugin,
             'gzip',
             'export.db1.table1.file',
         );
-        $this->assertSame([
-            'export.db1.table1.file.php.gz',
-            'application/x-gzip',
-        ], $finalFileName);
+        $this->assertSame(['export.db1.table1.file.php.gz', 'application/x-gzip'], $finalFileName);
     }
 
     public function testExportDatabase(): void

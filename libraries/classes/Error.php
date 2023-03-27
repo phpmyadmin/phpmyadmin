@@ -157,12 +157,7 @@ class Error extends Message
     {
         $result = [];
 
-        $members = [
-            'line',
-            'function',
-            'class',
-            'type',
-        ];
+        $members = ['line', 'function', 'class', 'type'];
 
         foreach ($backtrace as $idx => $step) {
             /* Create new backtrace entry */
@@ -415,12 +410,7 @@ class Error extends Message
     public static function getArg(mixed $arg, string $function): string
     {
         $retval = '';
-        $includeFunctions = [
-            'include',
-            'include_once',
-            'require',
-            'require_once',
-        ];
+        $includeFunctions = ['include', 'include_once', 'require', 'require_once'];
         $connectFunctions = [
             'mysql_connect',
             'mysql_pconnect',

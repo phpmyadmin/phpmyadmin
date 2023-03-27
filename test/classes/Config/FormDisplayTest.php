@@ -57,14 +57,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $attrForms = $reflection->getProperty('forms');
 
-        $array = [
-            'Servers' => [
-                '1' => [
-                    'test' => 1,
-                    1 => ':group:end',
-                ],
-            ],
-        ];
+        $array = ['Servers' => ['1' => ['test' => 1, 1 => ':group:end']]];
 
         $this->object->registerForm('pma_testform', $array, 2);
         $forms = $attrForms->getValue($this->object);
@@ -73,20 +66,14 @@ class FormDisplayTest extends AbstractTestCase
         $attrSystemPaths = $reflection->getProperty('systemPaths');
 
         $this->assertEquals(
-            [
-                'Servers/2/test' => 'Servers/1/test',
-                'Servers/2/:group:end:0' => 'Servers/1/:group:end:0',
-            ],
+            ['Servers/2/test' => 'Servers/1/test', 'Servers/2/:group:end:0' => 'Servers/1/:group:end:0'],
             $attrSystemPaths->getValue($this->object),
         );
 
         $attrTranslatedPaths = $reflection->getProperty('translatedPaths');
 
         $this->assertEquals(
-            [
-                'Servers/2/test' => 'Servers-2-test',
-                'Servers/2/:group:end:0' => 'Servers-2-:group:end:0',
-            ],
+            ['Servers/2/test' => 'Servers-2-test', 'Servers/2/:group:end:0' => 'Servers-2-:group:end:0'],
             $attrTranslatedPaths->getValue($this->object),
         );
     }
@@ -143,13 +130,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->assertSame($result, '');
 
-        $arr = [
-            'Servers/1/test' => ['e1'],
-            'foobar' => [
-                'e2',
-                'e3',
-            ],
-        ];
+        $arr = ['Servers/1/test' => ['e1'], 'foobar' => ['e2', 'e3']];
 
         $sysArr = ['Servers/1/test' => 'Servers/1/test2'];
 
@@ -182,14 +163,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->object->fixErrors();
 
-        $arr = [
-            'Servers/1/test' => ['e1'],
-            'Servers/2/test' => [
-                'e2',
-                'e3',
-            ],
-            'Servers/3/test' => [],
-        ];
+        $arr = ['Servers/1/test' => ['e1'], 'Servers/2/test' => ['e2', 'e3'], 'Servers/3/test' => []];
 
         $sysArr = ['Servers/1/test' => 'Servers/1/host'];
 
@@ -201,11 +175,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->object->fixErrors();
 
         $this->assertEquals(
-            [
-                'Servers' => [
-                    '1' => ['test' => 'localhost'],
-                ],
-            ],
+            ['Servers' => ['1' => ['test' => 'localhost']]],
             $_SESSION['ConfigFile0'],
         );
     }
@@ -222,10 +192,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->assertTrue(
             $attrValidateSelect->invokeArgs(
                 $this->object,
-                [
-                    &$value,
-                    $arr,
-                ],
+                [&$value, $arr],
             ),
         );
 
@@ -234,10 +201,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->assertTrue(
             $attrValidateSelect->invokeArgs(
                 $this->object,
-                [
-                    &$value,
-                    $arr,
-                ],
+                [&$value, $arr],
             ),
         );
         $this->assertEquals(
@@ -250,10 +214,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->assertTrue(
             $attrValidateSelect->invokeArgs(
                 $this->object,
-                [
-                    &$value,
-                    $arr,
-                ],
+                [&$value, $arr],
             ),
         );
 
@@ -262,10 +223,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->assertFalse(
             $attrValidateSelect->invokeArgs(
                 $this->object,
-                [
-                    &$value,
-                    $arr,
-                ],
+                [&$value, $arr],
             ),
         );
     }
@@ -283,10 +241,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $attrErrors->setValue(
             $this->object,
-            [
-                1,
-                2,
-            ],
+            [1, 2],
         );
 
         $this->assertTrue(
@@ -369,10 +324,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $method->invokeArgs(
             $this->object,
-            [
-                'RecodingEngine',
-                &$opts,
-            ],
+            ['RecodingEngine', &$opts],
         );
 
         $expect['comment'] = '';
@@ -393,10 +345,7 @@ class FormDisplayTest extends AbstractTestCase
         // ZipDump, GZipDump, BZipDump
         $method->invokeArgs(
             $this->object,
-            [
-                'ZipDump',
-                &$opts,
-            ],
+            ['ZipDump', &$opts],
         );
 
         $comment = '';
@@ -415,10 +364,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $method->invokeArgs(
             $this->object,
-            [
-                'GZipDump',
-                &$opts,
-            ],
+            ['GZipDump', &$opts],
         );
 
         $comment = '';
@@ -437,10 +383,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $method->invokeArgs(
             $this->object,
-            [
-                'BZipDump',
-                &$opts,
-            ],
+            ['BZipDump', &$opts],
         );
 
         $comment = '';
@@ -465,30 +408,21 @@ class FormDisplayTest extends AbstractTestCase
 
         $method->invokeArgs(
             $this->object,
-            [
-                'MaxDbList',
-                &$opts,
-            ],
+            ['MaxDbList', &$opts],
         );
 
         $this->assertEquals('maximum 10', $opts['comment']);
 
         $method->invokeArgs(
             $this->object,
-            [
-                'MaxTableList',
-                &$opts,
-            ],
+            ['MaxTableList', &$opts],
         );
 
         $this->assertEquals('maximum 10', $opts['comment']);
 
         $method->invokeArgs(
             $this->object,
-            [
-                'QueryHistoryMax',
-                &$opts,
-            ],
+            ['QueryHistoryMax', &$opts],
         );
 
         $this->assertEquals('maximum 10', $opts['comment']);

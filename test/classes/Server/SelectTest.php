@@ -105,18 +105,9 @@ class SelectTest extends AbstractTestCase
     public static function renderDataProvider(): array
     {
         return [
-            'only options, don\'t omit fieldset' => [
-                false,
-                false,
-            ],
-            'not only options, omits fieldset' => [
-                true,
-                true,
-            ],
-            'not only options, don\'t omit fieldset' => [
-                true,
-                false,
-            ],
+            'only options, don\'t omit fieldset' => [false, false],
+            'not only options, omits fieldset' => [true, true],
+            'not only options, don\'t omit fieldset' => [true, false],
         ];
     }
 }

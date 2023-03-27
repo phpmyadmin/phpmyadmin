@@ -64,10 +64,7 @@ final class SaveController extends AbstractController
      */
     private function updateColumns(): bool
     {
-        $errUrl = Url::getFromRoute('/table/structure', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ]);
+        $errUrl = Url::getFromRoute('/table/structure', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
         $regenerate = false;
         $fieldCnt = count($_POST['field_name'] ?? []);
         $changes = [];

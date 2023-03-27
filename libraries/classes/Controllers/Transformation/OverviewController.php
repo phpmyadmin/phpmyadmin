@@ -34,16 +34,10 @@ class OverviewController extends AbstractController
 
         $mimeTypes = [];
         foreach ($types['mimetype'] as $mimeType) {
-            $mimeTypes[] = [
-                'name' => $mimeType,
-                'is_empty' => isset($types['empty_mimetype'][$mimeType]),
-            ];
+            $mimeTypes[] = ['name' => $mimeType, 'is_empty' => isset($types['empty_mimetype'][$mimeType])];
         }
 
-        $transformations = [
-            'transformation' => [],
-            'input_transformation' => [],
-        ];
+        $transformations = ['transformation' => [], 'input_transformation' => []];
 
         foreach (array_keys($transformations) as $type) {
             foreach ($types[$type] as $key => $transformation) {
@@ -54,9 +48,6 @@ class OverviewController extends AbstractController
             }
         }
 
-        $this->render('transformation_overview', [
-            'mime_types' => $mimeTypes,
-            'transformations' => $transformations,
-        ]);
+        $this->render('transformation_overview', ['mime_types' => $mimeTypes, 'transformations' => $transformations]);
     }
 }

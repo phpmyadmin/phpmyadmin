@@ -65,10 +65,7 @@ class AddFieldController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/table/sql', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ]);
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/table/sql', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
 
         // check number of fields to be created
         if (isset($_POST['submit_num_fields'])) {

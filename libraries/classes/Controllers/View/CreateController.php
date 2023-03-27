@@ -34,21 +34,11 @@ use function substr;
 class CreateController extends AbstractController
 {
     /** @todo Move the whole view rebuilding logic to SQL parser */
-    private const VIEW_SECURITY_OPTIONS = [
-        'DEFINER',
-        'INVOKER',
-    ];
+    private const VIEW_SECURITY_OPTIONS = ['DEFINER', 'INVOKER'];
 
-    private const VIEW_ALGORITHM_OPTIONS = [
-        'UNDEFINED',
-        'MERGE',
-        'TEMPTABLE',
-    ];
+    private const VIEW_ALGORITHM_OPTIONS = ['UNDEFINED', 'MERGE', 'TEMPTABLE'];
 
-    private const VIEW_WITH_OPTIONS = [
-        'CASCADED',
-        'LOCAL',
-    ];
+    private const VIEW_WITH_OPTIONS = ['CASCADED', 'LOCAL'];
 
     public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {

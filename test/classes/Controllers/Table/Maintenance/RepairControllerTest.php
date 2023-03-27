@@ -36,14 +36,6 @@ class RepairControllerTest extends AbstractTestCase
     /** @return array<int, array{string[][]|string[]|string|null}> */
     public static function providerForTestNoTableSelected(): array
     {
-        return [
-            [null],
-            [''],
-            ['table'],
-            [[]],
-            [['']],
-            [['table', '']],
-            [[['table']]],
-        ];
+        return [[null], [''], ['table'], [[]], [['']], [['table', '']], [[['table']]]];
     }
 }

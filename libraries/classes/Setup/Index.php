@@ -30,10 +30,7 @@ class Index
     public static function messagesBegin(): void
     {
         if (! isset($_SESSION['messages']) || ! is_array($_SESSION['messages'])) {
-            $_SESSION['messages'] = [
-                'error' => [],
-                'notice' => [],
-            ];
+            $_SESSION['messages'] = ['error' => [], 'notice' => []];
         } else {
             // reset message states
             foreach ($_SESSION['messages'] as &$messages) {

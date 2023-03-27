@@ -67,10 +67,7 @@ class VersionInformation
         }
 
         if ($save) {
-            $_SESSION['cache']['version_check'] = [
-                'response' => $response,
-                'timestamp' => time(),
-            ];
+            $_SESSION['cache']['version_check'] = ['response' => $response, 'timestamp' => time()];
         }
 
         return $data;
@@ -182,10 +179,7 @@ class VersionInformation
                 continue;
             }
 
-            $latestRelease = [
-                'version' => $release->version,
-                'date' => $release->date,
-            ];
+            $latestRelease = ['version' => $release->version, 'date' => $release->date];
         }
 
         // no compatible version
@@ -204,15 +198,7 @@ class VersionInformation
     {
         $operator = null;
         $version = null;
-        $operators = [
-            '<=',
-            '>=',
-            '!=',
-            '<>',
-            '<',
-            '>',
-            '=',
-        ]; // preserve order
+        $operators = ['<=', '>=', '!=', '<>', '<', '>', '=']; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {
                 $operator = $oneOperator;

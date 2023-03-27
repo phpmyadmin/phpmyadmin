@@ -71,10 +71,7 @@ class RefreshControllerTest extends AbstractTestCase
             ['order_by_field', '', 'process'],
             ['sort_order', '', 'DESC'],
         ]);
-        $request->method('hasBodyParam')->willReturnMap([
-            ['full', true],
-            ['showExecuting', false],
-        ]);
+        $request->method('hasBodyParam')->willReturnMap([['full', true], ['showExecuting', false]]);
 
         $controller($request);
         $html = $response->getHTMLResult();

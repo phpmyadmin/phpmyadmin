@@ -24,12 +24,7 @@ $secureCookie = false;
 /**
  * Map of authenticated users to MySQL user/password pairs.
  */
-$authMap = [
-    'https://launchpad.net/~username' => [
-        'user' => 'root',
-        'password' => '',
-    ],
-];
+$authMap = ['https://launchpad.net/~username' => ['user' => 'root', 'password' => '']];
 
 // phpcs:disable PSR1.Files.SideEffects,Squiz.Functions.GlobalFunction
 

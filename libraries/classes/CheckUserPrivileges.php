@@ -65,11 +65,7 @@ class CheckUserPrivileges
         );
         $showGrantsTableName = Util::unQuote($showGrantsTableName, '`');
 
-        return [
-            $showGrantsString,
-            $showGrantsDbName,
-            $showGrantsTableName,
-        ];
+        return [$showGrantsString, $showGrantsDbName, $showGrantsTableName];
     }
 
     /**
@@ -190,11 +186,7 @@ class CheckUserPrivileges
         $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
         while ($row = $showGrantsResult->fetchRow()) {
-            [
-                $showGrantsString,
-                $showGrantsDbName,
-                $showGrantsTableName,
-            ] = $this->getItemsFromShowGrantsRow($row[0]);
+            [$showGrantsString, $showGrantsDbName, $showGrantsTableName] = $this->getItemsFromShowGrantsRow($row[0]);
 
             if ($showGrantsDbName === '*') {
                 if ($showGrantsString !== 'USAGE') {

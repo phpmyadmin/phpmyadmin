@@ -65,16 +65,9 @@ class FormProcessing
             $formId = $formDisplay->getConfigFile()->getServerCount();
         }
 
-        $urlParams = [
-            'page' => $page,
-            'formset' => $formset,
-            'id' => $formId,
-        ];
+        $urlParams = ['page' => $page, 'formset' => $formset, 'id' => $formId];
 
         $template = new Template();
-        echo $template->render('setup/error', [
-            'url_params' => $urlParams,
-            'errors' => $formDisplay->displayErrors(),
-        ]);
+        echo $template->render('setup/error', ['url_params' => $urlParams, 'errors' => $formDisplay->displayErrors()]);
     }
 }

@@ -58,12 +58,7 @@ class UtilTest extends AbstractTestCase
     public function testListPHPExtensions(): void
     {
         $this->assertSame(
-            [
-                'mysqli',
-                'curl',
-                'mbstring',
-                'sodium',
-            ],
+            ['mysqli', 'curl', 'mbstring', 'sodium'],
             Util::listPHPExtensions(),
         );
     }
@@ -298,11 +293,7 @@ class UtilTest extends AbstractTestCase
                     ]),
                 ],
                 [123],
-                [
-                    '`table`.`col` = 123',
-                    false,
-                    ['`table`.`col`' => '= 123'],
-                ],
+                ['`table`.`col` = 123', false, ['`table`.`col`' => '= 123']],
             ],
             'field type is unknown, value is string - escape string' => [
                 [
@@ -313,11 +304,7 @@ class UtilTest extends AbstractTestCase
                     ]),
                 ],
                 ['test'],
-                [
-                    "`table`.`col` = 'test'",
-                    false,
-                    ['`table`.`col`' => "= 'test'"],
-                ],
+                ["`table`.`col` = 'test'", false, ['`table`.`col`' => "= 'test'"]],
             ],
             'field type is varchar, value is string - escape string' => [
                 [
@@ -328,11 +315,7 @@ class UtilTest extends AbstractTestCase
                     ]),
                 ],
                 ['test'],
-                [
-                    "`table`.`col` = 'test'",
-                    false,
-                    ['`table`.`col`' => "= 'test'"],
-                ],
+                ["`table`.`col` = 'test'", false, ['`table`.`col`' => "= 'test'"]],
             ],
             'field type is varchar, value is string with double quote - escape string' => [
                 [
@@ -343,11 +326,7 @@ class UtilTest extends AbstractTestCase
                     ]),
                 ],
                 ['"test"'],
-                [
-                    "`table`.`col` = '\\\"test\\\"'",
-                    false,
-                    ['`table`.`col`' => "= '\\\"test\\\"'"],
-                ],
+                ["`table`.`col` = '\\\"test\\\"'", false, ['`table`.`col`' => "= '\\\"test\\\"'"]],
             ],
             'field type is varchar, value is string with single quote - escape string' => [
                 [
@@ -358,11 +337,7 @@ class UtilTest extends AbstractTestCase
                     ]),
                 ],
                 ["'test'"],
-                [
-                    "`table`.`col` = '\'test\''",
-                    false,
-                    ['`table`.`col`' => "= '\'test\''"],
-                ],
+                ["`table`.`col` = '\'test\''", false, ['`table`.`col`' => "= '\'test\''"]],
             ],
             'group by multiple columns and field type is mixed' => [
                 [
@@ -381,10 +356,7 @@ class UtilTest extends AbstractTestCase
                 [
                     "`table`.`col` = 'test' AND `table`.`status_id` = 2",
                     false,
-                    [
-                        '`table`.`col`' => "= 'test'",
-                        '`table`.`status_id`' => '= 2',
-                    ],
+                    ['`table`.`col`' => "= 'test'", '`table`.`status_id`' => '= 2'],
                 ],
             ],
         ];
@@ -430,20 +402,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function charsetQueryData(): array
     {
-        return [
-            [
-                'a_b_c_d',
-                ' CHARSET=a COLLATE a_b_c_d',
-            ],
-            [
-                'a_',
-                ' CHARSET=a COLLATE a_',
-            ],
-            [
-                'a',
-                ' CHARSET=a',
-            ],
-        ];
+        return [['a_b_c_d', ' CHARSET=a COLLATE a_b_c_d'], ['a_', ' CHARSET=a COLLATE a_'], ['a', ' CHARSET=a']];
     }
 
     /**
@@ -493,38 +452,14 @@ class UtilTest extends AbstractTestCase
     public static function providerConvertBitDefaultValue(): array
     {
         return [
-            [
-                null,
-                '',
-            ],
-            [
-                "b'",
-                '',
-            ],
-            [
-                "b'01'",
-                '01',
-            ],
-            [
-                "b'010111010'",
-                '010111010',
-            ],
-            'database name starting with b' => [
-                'big database',
-                'big database',
-            ],
-            "database name containing b'" => [
-                "a b'ig database",
-                "a b'ig database",
-            ],
-            'database name in single quotes' => [
-                "'a*database*name'",
-                "'a*database*name'",
-            ],
-            "database name with multiple b'" => [
-                "b'ens datab'ase'",
-                "b'ens datab'ase'",
-            ],
+            [null, ''],
+            ["b'", ''],
+            ["b'01'", '01'],
+            ["b'010111010'", '010111010'],
+            'database name starting with b' => ['big database', 'big database'],
+            "database name containing b'" => ["a b'ig database", "a b'ig database"],
+            'database name in single quotes' => ["'a*database*name'", "'a*database*name'"],
+            "database name with multiple b'" => ["b'ens datab'ase'", "b'ens datab'ase'"],
         ];
     }
 
@@ -540,12 +475,7 @@ class UtilTest extends AbstractTestCase
     {
         parent::setGlobalConfig();
 
-        $GLOBALS['cfg'] = [
-            'Server' => [
-                'host' => 'host&',
-                'verbose' => 'verbose',
-            ],
-        ];
+        $GLOBALS['cfg'] = ['Server' => ['host' => 'host&', 'verbose' => 'verbose']];
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
 
@@ -571,30 +501,12 @@ class UtilTest extends AbstractTestCase
     public static function providerExpandUserString(): array
     {
         return [
-            [
-                '@SERVER@',
-                'host&',
-            ],
-            [
-                '@VSERVER@',
-                'verbose',
-            ],
-            [
-                '@DATABASE@',
-                'database',
-            ],
-            [
-                '@TABLE@',
-                'table',
-            ],
-            [
-                '@IGNORE@',
-                '@IGNORE@',
-            ],
-            [
-                '@PHPMYADMIN@',
-                'phpMyAdmin ' . Version::VERSION,
-            ],
+            ['@SERVER@', 'host&'],
+            ['@VSERVER@', 'verbose'],
+            ['@DATABASE@', 'database'],
+            ['@TABLE@', 'table'],
+            ['@IGNORE@', '@IGNORE@'],
+            ['@PHPMYADMIN@', 'phpMyAdmin ' . Version::VERSION],
         ];
     }
 
@@ -633,10 +545,7 @@ class UtilTest extends AbstractTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'a','b'",
-                    'enum_set_values' => [
-                        'a',
-                        'b',
-                    ],
+                    'enum_set_values' => ['a', 'b'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "set('a', 'b')",
@@ -651,10 +560,7 @@ class UtilTest extends AbstractTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'\'a','b'",
-                    'enum_set_values' => [
-                        "'a",
-                        'b',
-                    ],
+                    'enum_set_values' => ["'a", 'b'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "set('\'a', 'b')",
@@ -669,10 +575,7 @@ class UtilTest extends AbstractTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'''a','b'",
-                    'enum_set_values' => [
-                        "'a",
-                        'b',
-                    ],
+                    'enum_set_values' => ["'a", 'b'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "set('''a', 'b')",
@@ -687,11 +590,7 @@ class UtilTest extends AbstractTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'a&b', 'b''c\\'d', 'e\\\\f'",
-                    'enum_set_values' => [
-                        'a&b',
-                        'b\'c\'d',
-                        'e\\f',
-                    ],
+                    'enum_set_values' => ['a&b', 'b\'c\'d', 'e\\f'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')",
@@ -783,24 +682,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerExtractValueFromFormattedSize(): array
     {
-        return [
-            [
-                100,
-                -1,
-            ],
-            [
-                '10GB',
-                10737418240,
-            ],
-            [
-                '15MB',
-                15728640,
-            ],
-            [
-                '256K',
-                262144,
-            ],
-        ];
+        return [[100, -1], ['10GB', 10737418240], ['15MB', 15728640], ['256K', 262144]];
     }
 
     public function testFormatByteDownWithNullValue(): void
@@ -834,168 +716,24 @@ class UtilTest extends AbstractTestCase
     public static function providerFormatByteDown(): array
     {
         return [
-            [
-                '0',
-                6,
-                0,
-                [
-                    '0',
-                    __('B'),
-                ],
-            ],
-            [
-                'A4',
-                6,
-                0,
-                [
-                    '0',
-                    __('B'),
-                ],
-            ],
-            [
-                10,
-                2,
-                2,
-                [
-                    '10',
-                    __('B'),
-                ],
-            ],
-            [
-                100,
-                2,
-                0,
-                [
-                    '0',
-                    __('KiB'),
-                ],
-            ],
-            [
-                100,
-                3,
-                0,
-                [
-                    '100',
-                    __('B'),
-                ],
-            ],
-            [
-                100,
-                2,
-                2,
-                [
-                    '0.10',
-                    __('KiB'),
-                ],
-            ],
-            [
-                1034,
-                3,
-                2,
-                [
-                    '1.01',
-                    __('KiB'),
-                ],
-            ],
-            [
-                100233,
-                3,
-                3,
-                [
-                    '97.884',
-                    __('KiB'),
-                ],
-            ],
-            [
-                '100233',
-                3,
-                3,
-                [
-                    '97.884',
-                    __('KiB'),
-                ],
-            ],
-            [
-                '102400K',
-                3,
-                3,
-                [
-                    '100.000',
-                    __('KiB'),
-                ],
-            ],
-            [
-                '102401K',
-                3,
-                3,
-                [
-                    '100.001',
-                    __('KiB'),
-                ],
-            ],
-            [
-                '153600K',
-                3,
-                3,
-                [
-                    '150.000',
-                    __('KiB'),
-                ],
-            ],
-            [
-                '153600K',
-                3,
-                0,
-                [
-                    '150',
-                    __('KiB'),
-                ],
-            ],
-            [
-                102400 * 1024,
-                3,
-                0,
-                [
-                    '100',
-                    __('MiB'),
-                ],
-            ],
-            [
-                2206451,
-                1,
-                2,
-                [
-                    '2.10',
-                    __('MiB'),
-                ],
-            ],
-            [
-                21474836480,
-                4,
-                0,
-                [
-                    '20',
-                    __('GiB'),
-                ],
-            ],
-            [
-                floatval(52) + floatval(2048),
-                3,
-                1,
-                [
-                    '2.1',
-                    'KiB',
-                ],
-            ],
-            [
-                '' . (floatval(52) + floatval(2048)),
-                3,
-                1,
-                [
-                    '2.1',
-                    'KiB',
-                ],
-            ],
+            ['0', 6, 0, ['0', __('B')]],
+            ['A4', 6, 0, ['0', __('B')]],
+            [10, 2, 2, ['10', __('B')]],
+            [100, 2, 0, ['0', __('KiB')]],
+            [100, 3, 0, ['100', __('B')]],
+            [100, 2, 2, ['0.10', __('KiB')]],
+            [1034, 3, 2, ['1.01', __('KiB')]],
+            [100233, 3, 3, ['97.884', __('KiB')]],
+            ['100233', 3, 3, ['97.884', __('KiB')]],
+            ['102400K', 3, 3, ['100.000', __('KiB')]],
+            ['102401K', 3, 3, ['100.001', __('KiB')]],
+            ['153600K', 3, 3, ['150.000', __('KiB')]],
+            ['153600K', 3, 0, ['150', __('KiB')]],
+            [102400 * 1024, 3, 0, ['100', __('MiB')]],
+            [2206451, 1, 2, ['2.10', __('MiB')]],
+            [21474836480, 4, 0, ['20', __('GiB')]],
+            [floatval(52) + floatval(2048), 3, 1, ['2.1', 'KiB']],
+            ['' . (floatval(52) + floatval(2048)), 3, 1, ['2.1', 'KiB']],
         ];
     }
 
@@ -1081,114 +819,24 @@ class UtilTest extends AbstractTestCase
     public static function providerFormatNumber(): array
     {
         return [
-            [
-                10,
-                2,
-                2,
-                '10  ',
-            ],
-            [
-                100,
-                2,
-                0,
-                '100  ',
-            ],
-            [
-                100,
-                2,
-                2,
-                '100  ',
-            ],
-            [
-                '100',
-                2,
-                2,
-                '100  ',
-            ],
-            [
-                -1000.454,
-                4,
-                2,
-                '-1,000.45  ',
-            ],
-            [
-                '-1000.454',
-                4,
-                2,
-                '-1,000.45  ',
-            ],
-            [
-                0.00003,
-                3,
-                2,
-                '30 µ',
-            ],
-            [
-                0.003,
-                3,
-                3,
-                '3 m',
-            ],
-            [
-                -0.003,
-                6,
-                0,
-                '-3,000 µ',
-            ],
-            [
-                100.98,
-                0,
-                2,
-                '100.98',
-            ],
-            [
-                21010101,
-                0,
-                2,
-                '21,010,101.00',
-            ],
-            [
-                1100000000,
-                5,
-                0,
-                '1,100 M',
-            ],
-            [
-                '1100000000',
-                5,
-                0,
-                '1,100 M',
-            ],
-            [
-                20000,
-                2,
-                2,
-                '20 k',
-            ],
-            [
-                20011,
-                2,
-                2,
-                '20.01 k',
-            ],
-            [
-                123456789,
-                6,
-                0,
-                '123,457 k',
-            ],
-            [
-                -123456789,
-                4,
-                2,
-                '-123.46 M',
-            ],
-            [
-                0,
-                6,
-                0,
-                '0',
-            ],
+            [10, 2, 2, '10  '],
+            [100, 2, 0, '100  '],
+            [100, 2, 2, '100  '],
+            ['100', 2, 2, '100  '],
+            [-1000.454, 4, 2, '-1,000.45  '],
+            ['-1000.454', 4, 2, '-1,000.45  '],
+            [0.00003, 3, 2, '30 µ'],
+            [0.003, 3, 3, '3 m'],
+            [-0.003, 6, 0, '-3,000 µ'],
+            [100.98, 0, 2, '100.98'],
+            [21010101, 0, 2, '21,010,101.00'],
+            [1100000000, 5, 0, '1,100 M'],
+            ['1100000000', 5, 0, '1,100 M'],
+            [20000, 2, 2, '20 k'],
+            [20011, 2, 2, '20.01 k'],
+            [123456789, 6, 0, '123,457 k'],
+            [-123456789, 4, 2, '-123.46 M'],
+            [0, 6, 0, '0'],
         ];
     }
 
@@ -1217,51 +865,15 @@ class UtilTest extends AbstractTestCase
     public static function providerGetFormattedMaximumUploadSize(): array
     {
         return [
-            [
-                10,
-                __('B'),
-                '10',
-            ],
-            [
-                100,
-                __('B'),
-                '100',
-            ],
-            [
-                1024,
-                __('B'),
-                '1,024',
-            ],
-            [
-                102400,
-                __('KiB'),
-                '100',
-            ],
-            [
-                10240000,
-                __('MiB'),
-                '10',
-            ],
-            [
-                2147483648,
-                __('MiB'),
-                '2,048',
-            ],
-            [
-                21474836480,
-                __('GiB'),
-                '20',
-            ],
-            [
-                '153600K',
-                __('KiB'),
-                '150',
-            ],
-            [
-                '157286400',
-                __('MiB'),
-                '150',
-            ],
+            [10, __('B'), '10'],
+            [100, __('B'), '100'],
+            [1024, __('B'), '1,024'],
+            [102400, __('KiB'), '100'],
+            [10240000, __('MiB'), '10'],
+            [2147483648, __('MiB'), '2,048'],
+            [21474836480, __('GiB'), '20'],
+            ['153600K', __('KiB'), '150'],
+            ['157286400', __('MiB'), '150'],
             [
                 // Equals to Core::getRealSize of '102400K'
                 // according to PHP FAQ on "shorthandbytes"
@@ -1296,30 +908,12 @@ class UtilTest extends AbstractTestCase
     public static function providerGetTitleForTarget(): array
     {
         return [
-            [
-                'structure',
-                __('Structure'),
-            ],
-            [
-                'sql',
-                __('SQL'),
-            ],
-            [
-                'search',
-                __('Search'),
-            ],
-            [
-                'insert',
-                __('Insert'),
-            ],
-            [
-                'browse',
-                __('Browse'),
-            ],
-            [
-                'operations',
-                __('Operations'),
-            ],
+            ['structure', __('Structure')],
+            ['sql', __('SQL')],
+            ['search', __('Search')],
+            ['insert', __('Insert')],
+            ['browse', __('Browse')],
+            ['operations', __('Operations')],
         ];
     }
 
@@ -1363,48 +957,12 @@ class UtilTest extends AbstractTestCase
         $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
 
         return [
-            [
-                1227455558,
-                '',
-                'Nov 23, 2008 at 03:52 PM',
-                'Europe/London',
-                'en',
-            ],
-            [
-                1227455558,
-                '%Y-%m-%d %H:%M:%S %a',
-                '2008-11-23 15:52:38 Sun',
-                'Europe/London',
-                'en',
-            ],
-            [
-                1227455558,
-                '%Y-%m-%d %H:%M:%S %a',
-                '2008-11-23 16:52:38 Sun',
-                'Europe/Paris',
-                'en',
-            ],
-            [
-                1227455558,
-                '%Y-%m-%d %H:%M:%S %a',
-                '2008-11-24 00:52:38 Mon',
-                'Asia/Tokyo',
-                'en',
-            ],
-            [
-                1227455558,
-                '%a %A %b %B',
-                'Mon Mon Nov Nov',
-                'Asia/Tokyo',
-                'en',
-            ],
-            [
-                1227455558,
-                '%a %A %b %B %P',
-                'Mon Mon Nov Nov AM',
-                'Asia/Tokyo',
-                'en',
-            ],
+            [1227455558, '', 'Nov 23, 2008 at 03:52 PM', 'Europe/London', 'en'],
+            [1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-23 15:52:38 Sun', 'Europe/London', 'en'],
+            [1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-23 16:52:38 Sun', 'Europe/Paris', 'en'],
+            [1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-24 00:52:38 Mon', 'Asia/Tokyo', 'en'],
+            [1227455558, '%a %A %b %B', 'Mon Mon Nov Nov', 'Asia/Tokyo', 'en'],
+            [1227455558, '%a %A %b %B %P', 'Mon Mon Nov Nov AM', 'Asia/Tokyo', 'en'],
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
@@ -1426,27 +984,9 @@ class UtilTest extends AbstractTestCase
                 'Asia/Tokyo',
                 'ja',
             ],
-            [
-                1227455558,
-                '月月',
-                '月月',
-                'Asia/Tokyo',
-                'ja',
-            ],
-            [
-                1227455558,
-                '%Y 年 2 月 %d 日 %H:%M',
-                '2008 年 2 月 24 日 00:52',
-                'Asia/Tokyo',
-                'ja',
-            ],
-            [
-                1227455558,
-                '%Y 年 2 � %d 日 %H:%M',
-                '2008 年 2 � 24 日 00:52',
-                'Asia/Tokyo',
-                'ja',
-            ],
+            [1227455558, '月月', '月月', 'Asia/Tokyo', 'ja'],
+            [1227455558, '%Y 年 2 月 %d 日 %H:%M', '2008 年 2 月 24 日 00:52', 'Asia/Tokyo', 'ja'],
+            [1227455558, '%Y 年 2 � %d 日 %H:%M', '2008 年 2 � 24 日 00:52', 'Asia/Tokyo', 'ja'],
             [
                 1617153941,
                 'H:i:s Y-d-m',
@@ -1494,14 +1034,8 @@ class UtilTest extends AbstractTestCase
     public static function providerTimespanFormat(): array
     {
         return [
-            [
-                1258,
-                '0 days, 0 hours, 20 minutes and 58 seconds',
-            ],
-            [
-                821958,
-                '9 days, 12 hours, 19 minutes and 18 seconds',
-            ],
+            [1258, '0 days, 0 hours, 20 minutes and 58 seconds'],
+            [821958, '9 days, 12 hours, 19 minutes and 18 seconds'],
         ];
     }
 
@@ -1530,16 +1064,8 @@ class UtilTest extends AbstractTestCase
     public static function providerPrintableBitValue(): array
     {
         return [
-            [
-                20131009,
-                64,
-                '0000000000000000000000000000000000000001001100110010110011000001',
-            ],
-            [
-                5,
-                32,
-                '00000000000000000000000000000101',
-            ],
+            [20131009, 64, '0000000000000000000000000000000000000001001100110010110011000001'],
+            [5, 32, '00000000000000000000000000000101'],
         ];
     }
 
@@ -1566,24 +1092,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerUnQuote(): array
     {
-        return [
-            [
-                '"test\'"',
-                "test'",
-            ],
-            [
-                "'test''",
-                "test'",
-            ],
-            [
-                "`test'`",
-                "test'",
-            ],
-            [
-                "'test'test",
-                "'test'test",
-            ],
-        ];
+        return [['"test\'"', "test'"], ["'test''", "test'"], ["`test'`", "test'"], ["'test'test", "'test'test"]];
     }
 
     /**
@@ -1609,24 +1118,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerUnQuoteSelectedChar(): array
     {
-        return [
-            [
-                '"test\'"',
-                "test'",
-            ],
-            [
-                "'test''",
-                "'test''",
-            ],
-            [
-                "`test'`",
-                "`test'`",
-            ],
-            [
-                "'test'test",
-                "'test'test",
-            ],
-        ];
+        return [['"test\'"', "test'"], ["'test''", "'test''"], ["`test'`", "`test'`"], ["'test'test", "'test'test"]];
     }
 
     /** @dataProvider providerForTestBackquote */
@@ -1643,41 +1135,13 @@ class UtilTest extends AbstractTestCase
     public static function providerForTestBackquote(): array
     {
         return [
-            [
-                '0',
-                '`0`',
-                '"0"',
-            ],
-            [
-                'test',
-                '`test`',
-                '"test"',
-            ],
-            [
-                'te`st',
-                '`te``st`',
-                '"te`st"',
-            ],
-            [
-                'te"st',
-                '`te"st`',
-                '"te\"st"',
-            ],
-            [
-                '',
-                '',
-                '',
-            ],
-            [
-                '*',
-                '*',
-                '*',
-            ],
-            [
-                null,
-                '',
-                '',
-            ],
+            ['0', '`0`', '"0"'],
+            ['test', '`test`', '"test"'],
+            ['te`st', '`te``st`', '"te`st"'],
+            ['te"st', '`te"st`', '"te\"st"'],
+            ['', '', ''],
+            ['*', '*', '*'],
+            [null, '', ''],
         ];
     }
 
@@ -1723,16 +1187,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerUserDir(): array
     {
-        return [
-            [
-                '/var/pma_tmp/%u/',
-                '/var/pma_tmp/root/',
-            ],
-            [
-                '/home/%u/pma',
-                '/home/root/pma/',
-            ],
-        ];
+        return [['/var/pma_tmp/%u/', '/var/pma_tmp/root/'], ['/home/%u/pma', '/home/root/pma/']];
     }
 
     /**
@@ -1758,24 +1213,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerDuplicateFirstNewline(): array
     {
-        return [
-            [
-                'test',
-                'test',
-            ],
-            [
-                "\r\ntest",
-                "\n\r\ntest",
-            ],
-            [
-                "\ntest",
-                "\ntest",
-            ],
-            [
-                "\n\r\ntest",
-                "\n\r\ntest",
-            ],
-        ];
+        return [['test', 'test'], ["\r\ntest", "\n\r\ntest"], ["\ntest", "\ntest"], ["\n\r\ntest", "\n\r\ntest"]];
     }
 
     public function testUnsupportedDatatypes(): void
@@ -1816,28 +1254,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerIsInteger(): array
     {
-        return [
-            [
-                true,
-                1000,
-            ],
-            [
-                true,
-                '1000',
-            ],
-            [
-                false,
-                1000.1,
-            ],
-            [
-                false,
-                '1000.1',
-            ],
-            [
-                false,
-                'input',
-            ],
-        ];
+        return [[true, 1000], [true, '1000'], [false, 1000.1], [false, '1000.1'], [false, 'input']];
     }
 
     /**
@@ -1865,90 +1282,27 @@ class UtilTest extends AbstractTestCase
     public static function providerForwardedHeaders(): array
     {
         return [
-            [
-                '',
-                '',
-            ],
-            [
-                '=',
-                '',
-            ],
-            [
-                'https',
-                '',
-            ],
-            [
-                'https',
-                '',
-            ],
-            [
-                '=https',
-                '',
-            ],
-            [
-                '=http',
-                '',
-            ],
-            [
-                'For="[2001:db8:cafe::17]:4711"',
-                '',
-            ],
-            [
-                'for=192.0.2.60;proto=http;by=203.0.113.43',
-                'http',
-            ],
-            [
-                'for=192.0.2.43, for=198.51.100.17',
-                '',
-            ],
-            [
-                'for=123.34.567.89',
-                '',
-            ],
-            [
-                'for=192.0.2.43, for="[2001:db8:cafe::17]"',
-                '',
-            ],
-            [
-                'for=12.34.56.78;host=example.com;proto=https, for=23.45.67.89',
-                'https',
-            ],
-            [
-                'for=12.34.56.78, for=23.45.67.89;secret=egah2CGj55fSJFs, for=10.1.2.3',
-                '',
-            ],
-            [
-                'for=injected;by="',
-                '',
-            ],
-            [
-                'for=injected;by=", for=real',
-                '',
-            ],
-            [
-                'for=192.0.2.60;proto=http;by=203.0.113.43',
-                'http',
-            ],
-            [
-                'for=192.0.2.60;proto=htTp;by=203.0.113.43',
-                'http',
-            ],
-            [
-                'for=192.0.2.60;proto=HTTP;by=203.0.113.43',
-                'http',
-            ],
-            [
-                'for=192.0.2.60;proto= http;by=203.0.113.43',
-                'http',
-            ],
-            [
-                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=http,for=23.45.67.89',
-                'http',
-            ],
-            [
-                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=418,for=23.45.67.89',
-                '',
-            ],
+            ['', ''],
+            ['=', ''],
+            ['https', ''],
+            ['https', ''],
+            ['=https', ''],
+            ['=http', ''],
+            ['For="[2001:db8:cafe::17]:4711"', ''],
+            ['for=192.0.2.60;proto=http;by=203.0.113.43', 'http'],
+            ['for=192.0.2.43, for=198.51.100.17', ''],
+            ['for=123.34.567.89', ''],
+            ['for=192.0.2.43, for="[2001:db8:cafe::17]"', ''],
+            ['for=12.34.56.78;host=example.com;proto=https, for=23.45.67.89', 'https'],
+            ['for=12.34.56.78, for=23.45.67.89;secret=egah2CGj55fSJFs, for=10.1.2.3', ''],
+            ['for=injected;by="', ''],
+            ['for=injected;by=", for=real', ''],
+            ['for=192.0.2.60;proto=http;by=203.0.113.43', 'http'],
+            ['for=192.0.2.60;proto=htTp;by=203.0.113.43', 'http'],
+            ['for=192.0.2.60;proto=HTTP;by=203.0.113.43', 'http'],
+            ['for=192.0.2.60;proto= http;by=203.0.113.43', 'http'],
+            ['for=12.34.45.67;secret="special;proto=abc;test=1";proto=http,for=23.45.67.89', 'http'],
+            ['for=12.34.45.67;secret="special;proto=abc;test=1";proto=418,for=23.45.67.89', ''],
             /*[ // this test case is very special and would need a different implementation
                 'for=12.34.45.67;secret="special;proto=http;test=1";proto=https,for=23.45.67.89',
                 'https'
@@ -2108,141 +1462,85 @@ SQL;
                 'table',
                 'index.php?route=/table/structure&lang=en',
             ],
-            [
-                'structure',
-                'table',
-                'index.php?route=/table/structure&lang=en',
-            ],
+            ['structure', 'table', 'index.php?route=/table/structure&lang=en'],
             [
                 'tbl_sql.php', // Support the legacy value
                 'table',
                 'index.php?route=/table/sql&lang=en',
             ],
-            [
-                'sql',
-                'table',
-                'index.php?route=/table/sql&lang=en',
-            ],
+            ['sql', 'table', 'index.php?route=/table/sql&lang=en'],
             [
                 'tbl_select.php', // Support the legacy value
                 'table',
                 'index.php?route=/table/search&lang=en',
             ],
-            [
-                'search',
-                'table',
-                'index.php?route=/table/search&lang=en',
-            ],
+            ['search', 'table', 'index.php?route=/table/search&lang=en'],
             [
                 'tbl_change.php', // Support the legacy value
                 'table',
                 'index.php?route=/table/change&lang=en',
             ],
-            [
-                'insert',
-                'table',
-                'index.php?route=/table/change&lang=en',
-            ],
+            ['insert', 'table', 'index.php?route=/table/change&lang=en'],
             [
                 'sql.php', // Support the legacy value
                 'table',
                 'index.php?route=/sql&lang=en',
             ],
-            [
-                'browse',
-                'table',
-                'index.php?route=/sql&lang=en',
-            ],
+            ['browse', 'table', 'index.php?route=/sql&lang=en'],
             [
                 'db_structure.php', // Support the legacy value
                 'database',
                 'index.php?route=/database/structure&lang=en',
             ],
-            [
-                'structure',
-                'database',
-                'index.php?route=/database/structure&lang=en',
-            ],
+            ['structure', 'database', 'index.php?route=/database/structure&lang=en'],
             [
                 'db_sql.php', // Support the legacy value
                 'database',
                 'index.php?route=/database/sql&lang=en',
             ],
-            [
-                'sql',
-                'database',
-                'index.php?route=/database/sql&lang=en',
-            ],
+            ['sql', 'database', 'index.php?route=/database/sql&lang=en'],
             [
                 'db_search.php', // Support the legacy value
                 'database',
                 'index.php?route=/database/search&lang=en',
             ],
-            [
-                'search',
-                'database',
-                'index.php?route=/database/search&lang=en',
-            ],
+            ['search', 'database', 'index.php?route=/database/search&lang=en'],
             [
                 'db_operations.php', // Support the legacy value
                 'database',
                 'index.php?route=/database/operations&lang=en',
             ],
-            [
-                'operations',
-                'database',
-                'index.php?route=/database/operations&lang=en',
-            ],
+            ['operations', 'database', 'index.php?route=/database/operations&lang=en'],
             [
                 'index.php', // Support the legacy value
                 'server',
                 'index.php?route=/&lang=en',
             ],
-            [
-                'welcome',
-                'server',
-                'index.php?route=/&lang=en',
-            ],
+            ['welcome', 'server', 'index.php?route=/&lang=en'],
             [
                 'server_databases.php', // Support the legacy value
                 'server',
                 'index.php?route=/server/databases&lang=en',
             ],
-            [
-                'databases',
-                'server',
-                'index.php?route=/server/databases&lang=en',
-            ],
+            ['databases', 'server', 'index.php?route=/server/databases&lang=en'],
             [
                 'server_status.php', // Support the legacy value
                 'server',
                 'index.php?route=/server/status&lang=en',
             ],
-            [
-                'status',
-                'server',
-                'index.php?route=/server/status&lang=en',
-            ],
+            ['status', 'server', 'index.php?route=/server/status&lang=en'],
             [
                 'server_variables.php', // Support the legacy value
                 'server',
                 'index.php?route=/server/variables&lang=en',
             ],
-            [
-                'variables',
-                'server',
-                'index.php?route=/server/variables&lang=en',
-            ],
+            ['variables', 'server', 'index.php?route=/server/variables&lang=en'],
             [
                 'server_privileges.php', // Support the legacy value
                 'server',
                 'index.php?route=/server/privileges&lang=en',
             ],
-            [
-                'privileges',
-                'server',
-                'index.php?route=/server/privileges&lang=en',
-            ],
+            ['privileges', 'server', 'index.php?route=/server/privileges&lang=en'],
         ];
     }
 
@@ -2280,10 +1578,7 @@ SQL;
     public function testGetMySQLDocuURL(string $link, string $anchor, string $version, string $expected): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['dbi']->setVersion([
-            '@@version' => $version,
-            '@@version_comment' => 'MySQL Community Server (GPL)',
-        ]);
+        $GLOBALS['dbi']->setVersion(['@@version' => $version, '@@version_comment' => 'MySQL Community Server (GPL)']);
         $this->assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
     }
 
@@ -2469,28 +1764,7 @@ SQL;
      */
     public static function provideForTestIsUUIDSupported(): array
     {
-        return [
-            [
-                false,
-                60100,
-                false,
-            ],
-            [
-                false,
-                100700,
-                false,
-            ],
-            [
-                true,
-                60100,
-                false,
-            ],
-            [
-                true,
-                100700,
-                true,
-            ],
-        ];
+        return [[false, 60100, false], [false, 100700, false], [true, 60100, false], [true, 100700, true]];
     }
 
     /** @dataProvider providerForTestGetLowerCaseNames */

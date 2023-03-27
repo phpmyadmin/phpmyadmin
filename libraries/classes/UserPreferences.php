@@ -51,10 +51,7 @@ class UserPreferences
         $cf->resetConfigData(); // start with a clean instance
         $cf->setAllowedKeys($formsAllKeys);
         $cf->setCfgUpdateReadMapping(
-            [
-                'Server/hide_db' => 'Servers/1/hide_db',
-                'Server/only_db' => 'Servers/1/only_db',
-            ],
+            ['Server/hide_db' => 'Servers/1/hide_db', 'Server/only_db' => 'Servers/1/only_db'],
         );
         $cf->updateWithGlobalConfig($GLOBALS['cfg']);
     }
@@ -127,10 +124,7 @@ class UserPreferences
             || $relationParameters->db === null
         ) {
             // no pmadb table, use session storage
-            $_SESSION['userconfig'] = [
-                'db' => $configArray,
-                'ts' => time(),
-            ];
+            $_SESSION['userconfig'] = ['db' => $configArray, 'ts' => time()];
             if (isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
                 unset($_SESSION['cache'][$cacheKey]['userprefs']);
             }

@@ -31,11 +31,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
         SessionCache::set('profiling_supported', true);
 
-        $value = [
-            'sql_text' => 'insert sql_text',
-            '#' => 10,
-            'argument' => 'argument argument2',
-        ];
+        $value = ['sql_text' => 'insert sql_text', '#' => 10, 'argument' => 'argument argument2'];
 
         $response = new ResponseRenderer();
         $response->setAjax(true);
@@ -47,10 +43,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['database', '', 'database'],
-            ['query', '', 'query'],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['database', '', 'database'], ['query', '', 'query']]);
 
         $dummyDbi->addSelectDb('mysql');
         $dummyDbi->addSelectDb('database');

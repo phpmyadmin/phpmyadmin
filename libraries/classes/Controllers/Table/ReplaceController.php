@@ -72,10 +72,7 @@ final class ReplaceController extends AbstractController
         $insertRows = $_POST['insert_rows'] ?? null;
         if (is_numeric($insertRows) && $insertRows != $GLOBALS['cfg']['InsertRows']) {
             // check whether insert row mode, if so include /table/change
-            $this->addScriptFiles([
-                'vendor/jquery/additional-methods.js',
-                'table/change.js',
-            ]);
+            $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
             $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
             /** @var ChangeController $controller */
             $controller = Core::getContainerBuilder()->get(ChangeController::class);
@@ -84,11 +81,7 @@ final class ReplaceController extends AbstractController
             return;
         }
 
-        $afterInsertActions = [
-            'new_insert',
-            'same_insert',
-            'edit_next',
-        ];
+        $afterInsertActions = ['new_insert', 'same_insert', 'edit_next'];
         if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $afterInsertActions)) {
             $GLOBALS['urlParams']['after_insert'] = $_POST['after_insert'];
             if (isset($_POST['where_clause'])) {
@@ -111,12 +104,7 @@ final class ReplaceController extends AbstractController
         /**
          * Prepares the update/insert of a row
          */
-        [
-            $loopArray,
-            $usingKey,
-            $isInsert,
-            $isInsertignore,
-        ] = $this->insertEdit->getParamsForUpdateOrInsert();
+        [$loopArray, $usingKey, $isInsert, $isInsertignore] = $this->insertEdit->getParamsForUpdateOrInsert();
 
         $GLOBALS['query'] = [];
         $valueSets = [];
@@ -433,10 +421,7 @@ final class ReplaceController extends AbstractController
                 $extraData = [];
             }
 
-            $transformationTypes = [
-                'input_transformation',
-                'transformation',
-            ];
+            $transformationTypes = ['input_transformation', 'transformation'];
             foreach ($mimeMap as $transformation) {
                 $columnName = $transformation['column_name'];
                 foreach ($transformationTypes as $type) {

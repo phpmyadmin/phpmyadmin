@@ -148,10 +148,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
         $this->assertEquals(
-            [
-                0,
-                0,
-            ],
+            [0, 0],
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
@@ -169,10 +166,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
         $this->assertEquals(
-            [
-                9,
-                0,
-            ],
+            [9, 0],
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
@@ -194,11 +188,7 @@ class ResultsTest extends AbstractTestCase
                 'information_schema',
                 'routines',
                 'circumference',
-                [
-                    'routine_name' => 'circumference',
-                    'routine_schema' => 'data',
-                    'routine_type' => 'FUNCTION',
-                ],
+                ['routine_name' => 'circumference', 'routine_schema' => 'data', 'routine_type' => 'FUNCTION'],
                 'routine_name',
                 'index.php?route=/database/routines&item_name=circumference&db=data'
                 . '&item_type=FUNCTION&server=0&lang=en',
@@ -207,11 +197,7 @@ class ResultsTest extends AbstractTestCase
                 'information_schema',
                 'routines',
                 'area',
-                [
-                    'routine_name' => 'area',
-                    'routine_schema' => 'data',
-                    'routine_type' => 'PROCEDURE',
-                ],
+                ['routine_name' => 'area', 'routine_schema' => 'data', 'routine_type' => 'PROCEDURE'],
                 'routine_name',
                 'index.php?route=/database/routines&item_name=area&db=data&item_type=PROCEDURE&server=0&lang=en',
             ],
@@ -244,14 +230,8 @@ class ResultsTest extends AbstractTestCase
                     'routine_name' => [
                         'link_param' => 'item_name',
                         'link_dependancy_params' => [
-                            0 => [
-                                'param_info' => 'db',
-                                'column_name' => 'routine_schema',
-                            ],
-                            1 => [
-                                'param_info' => 'item_type',
-                                'column_name' => 'routine_type',
-                            ],
+                            0 => ['param_info' => 'db', 'column_name' => 'routine_schema'],
+                            1 => ['param_info' => 'item_type', 'column_name' => 'routine_type'],
                         ],
                         'default_page' => 'index.php?route=/database/routines',
                     ],
@@ -260,14 +240,8 @@ class ResultsTest extends AbstractTestCase
                     'column_name' => [
                         'link_param' => 'table_schema',
                         'link_dependancy_params' => [
-                            0 => [
-                                'param_info' => 'db',
-                                'column_name' => 'table_schema',
-                            ],
-                            1 => [
-                                'param_info' => 'db2',
-                                'column_name' => 'table_schema',
-                            ],
+                            0 => ['param_info' => 'db', 'column_name' => 'table_schema'],
+                            1 => ['param_info' => 'db2', 'column_name' => 'table_schema'],
                         ],
                         'default_page' => 'index.php',
                     ],
@@ -281,11 +255,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getSpecialLinkUrl',
-                [
-                    $specialSchemaLinks[$db][$table][$fieldName],
-                    $columnValue,
-                    $rowInfo,
-                ],
+                [$specialSchemaLinks[$db][$table][$fieldName], $columnValue, $rowInfo],
             ),
         );
     }
@@ -297,12 +267,7 @@ class ResultsTest extends AbstractTestCase
      */
     public static function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
-        $columnNames = [
-            'host',
-            'db',
-            'user',
-            'select_privilages',
-        ];
+        $columnNames = ['host', 'db', 'user', 'select_privilages'];
         $fieldsMeta = [];
 
         foreach ($columnNames as $columnName) {
@@ -315,24 +280,9 @@ class ResultsTest extends AbstractTestCase
             [
                 $fieldsMeta,
                 count($fieldsMeta),
-                [
-                    0 => 'localhost',
-                    1 => 'phpmyadmin',
-                    2 => 'pmauser',
-                    3 => 'Y',
-                ],
-                [
-                    0 => '0',
-                    1 => '3',
-                    2 => '1',
-                    3 => '2',
-                ],
-                [
-                    'host' => 'localhost',
-                    'select_privilages' => 'Y',
-                    'db' => 'phpmyadmin',
-                    'user' => 'pmauser',
-                ],
+                [0 => 'localhost', 1 => 'phpmyadmin', 2 => 'pmauser', 3 => 'Y'],
+                [0 => '0', 1 => '3', 2 => '1', 3 => '2'],
+                ['host' => 'localhost', 'select_privilages' => 'Y', 'db' => 'phpmyadmin', 'user' => 'pmauser'],
             ],
         ];
     }
@@ -364,10 +314,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getRowInfoForSpecialLinks',
-                [
-                    $row,
-                    $colOrder,
-                ],
+                [$row, $colOrder],
             ),
         );
     }
@@ -397,46 +344,10 @@ class ResultsTest extends AbstractTestCase
     public static function dataProviderForTestGetPartialText(): array
     {
         return [
-            [
-                'P',
-                10,
-                'foo',
-                [
-                    false,
-                    'foo',
-                    3,
-                ],
-            ],
-            [
-                'P',
-                1,
-                'foo',
-                [
-                    true,
-                    'f...',
-                    3,
-                ],
-            ],
-            [
-                'F',
-                10,
-                'foo',
-                [
-                    false,
-                    'foo',
-                    3,
-                ],
-            ],
-            [
-                'F',
-                1,
-                'foo',
-                [
-                    false,
-                    'foo',
-                    3,
-                ],
-            ],
+            ['P', 10, 'foo', [false, 'foo', 3]],
+            ['P', 1, 'foo', [true, 'f...', 3]],
+            ['F', 10, 'foo', [false, 'foo', 3]],
+            ['F', 1, 'foo', [false, 'foo', 3]],
         ];
     }
 
@@ -484,25 +395,10 @@ class ResultsTest extends AbstractTestCase
     {
         $transformationPlugin = new Text_Plain_Link();
         $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
-        $urlParams = [
-            'db' => 'foo',
-            'table' => 'bar',
-            'where_clause' => 'where_clause',
-        ];
+        $urlParams = ['db' => 'foo', 'table' => 'bar', 'where_clause' => 'where_clause'];
 
         return [
-            [
-                true,
-                true,
-                'BLOB',
-                '1001',
-                null,
-                [],
-                $meta,
-                $urlParams,
-                false,
-                'class="disableAjax">1001</a>',
-            ],
+            [true, true, 'BLOB', '1001', null, [], $meta, $urlParams, false, 'class="disableAjax">1001</a>'],
             [
                 true,
                 true,
@@ -515,42 +411,9 @@ class ResultsTest extends AbstractTestCase
                 false,
                 'class="disableAjax">0x123456</a>',
             ],
-            [
-                true,
-                false,
-                'BLOB',
-                '1001',
-                null,
-                [],
-                $meta,
-                $urlParams,
-                false,
-                'class="disableAjax">[BLOB - 4 B]</a>',
-            ],
-            [
-                false,
-                false,
-                'BINARY',
-                '1001',
-                $transformationPlugin,
-                [],
-                $meta,
-                $urlParams,
-                false,
-                '1001',
-            ],
-            [
-                false,
-                true,
-                'GEOMETRY',
-                null,
-                null,
-                [],
-                $meta,
-                $urlParams,
-                false,
-                '[GEOMETRY - NULL]',
-            ],
+            [true, false, 'BLOB', '1001', null, [], $meta, $urlParams, false, 'class="disableAjax">[BLOB - 4 B]</a>'],
+            [false, false, 'BINARY', '1001', $transformationPlugin, [], $meta, $urlParams, false, '1001'],
+            [false, true, 'GEOMETRY', null, null, [], $meta, $urlParams, false, '[GEOMETRY - NULL]'],
         ];
     }
 
@@ -588,15 +451,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'handleNonPrintableContents',
-                [
-                    $category,
-                    $content,
-                    $transformationPlugin,
-                    $transformOptions,
-                    $meta,
-                    $urlParams,
-                    &$isTruncated,
-                ],
+                [$category, $content, $transformationPlugin, $transformOptions, $meta, $urlParams, &$isTruncated],
             ),
         );
     }
@@ -646,11 +501,7 @@ class ResultsTest extends AbstractTestCase
         $meta3->orgname = 'datetime';
         $meta3 = new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, $meta3);
 
-        $urlParams = [
-            'db' => 'foo',
-            'table' => 'tbl',
-            'where_clause' => 'where_clause',
-        ];
+        $urlParams = ['db' => 'foo', 'table' => 'tbl', 'where_clause' => 'where_clause'];
 
         return [
             [
@@ -846,14 +697,8 @@ class ResultsTest extends AbstractTestCase
             ->method('fetchResult')
             ->willReturn(
                 [
-                    'db.table.1' => [
-                        'mimetype' => '',
-                        'transformation' => 'output/text_plain_dateformat.php',
-                    ],
-                    'db.table.2' => [
-                        'mimetype' => '',
-                        'transformation' => 'output/text_plain_bool2text.php',
-                    ],
+                    'db.table.1' => ['mimetype' => '', 'transformation' => 'output/text_plain_dateformat.php'],
+                    'db.table.2' => ['mimetype' => '', 'transformation' => 'output/text_plain_bool2text.php'],
                 ],
             );
 
@@ -867,19 +712,7 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'getRowValues',
-            [
-                [
-                    3600,
-                    'true',
-                ],
-                0,
-                false,
-                [],
-                'disabled',
-                false,
-                $query,
-                StatementInfo::fromArray(Query::getAll($query)),
-            ],
+            [[3600, 'true'], 0, false, [], 'disabled', false, $query, StatementInfo::fromArray(Query::getAll($query))],
         );
 
         // Dateformat
@@ -895,13 +728,7 @@ class ResultsTest extends AbstractTestCase
         // The URL params
         // The column name
         return [
-            [
-                '',
-                '',
-                ['sql_query' => ''],
-                'colname',
-                '',
-            ],
+            ['', '', ['sql_query' => ''], 'colname', ''],
             [
                 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC',
                 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`name` ASC',
@@ -969,10 +796,7 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'getSortOrderHiddenInputs',
-            [
-                $urlParams,
-                $colName,
-            ],
+            [$urlParams, $colName],
         );
         $out = urldecode(htmlspecialchars_decode($output));
         $this->assertStringContainsString(
@@ -1009,22 +833,14 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'buildValueDisplay',
-            [
-                'my_class',
-                false,
-                '  special value  ',
-            ],
+            ['my_class', false, '  special value  '],
         );
         $this->assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
             'buildValueDisplay',
-            [
-                'my_class',
-                false,
-                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
-            ],
+            ['my_class', false, '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b'],
         );
         $this->assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
         $output = $this->callFunction(

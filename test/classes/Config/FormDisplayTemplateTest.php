@@ -151,15 +151,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         // select case 1
         $opts['values_escaped'] = true;
-        $opts['values_disabled'] = [
-            1,
-            2,
-        ];
-        $opts['values'] = [
-            1 => 'test',
-            'key1' => true,
-            'key2' => false,
-        ];
+        $opts['values_disabled'] = [1, 2];
+        $opts['values'] = [1 => 'test', 'key1' => true, 'key2' => false];
         $result = $this->formDisplayTemplate->displayInput('test/path', 'testName', 'select', true, '', true, $opts);
         $this->assertStringContainsString('<select name="test/path" id="test/path" class="w-75">', $result);
 
@@ -171,15 +164,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         // select case 2
         $opts['values_escaped'] = false;
-        $opts['values_disabled'] = [
-            1,
-            2,
-        ];
-        $opts['values'] = [
-            'a<b' => 'c&d',
-            'key1' => true,
-            'key2' => false,
-        ];
+        $opts['values_disabled'] = [1, 2];
+        $opts['values'] = ['a<b' => 'c&d', 'key1' => true, 'key2' => false];
         $result = $this->formDisplayTemplate->displayInput('test/path', 'testName', 'select', false, '', true, $opts);
 
         $this->assertStringContainsString('<select name="test/path" id="test/path" class="w-75">', $result);
@@ -192,10 +178,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
             'test/path',
             'testName',
             'list',
-            [
-                'foo',
-                'bar',
-            ],
+            ['foo', 'bar'],
             '',
             true,
             $opts,
@@ -250,13 +233,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
      */
     public function testAddJsValidate(): void
     {
-        $validators = [
-            'one' => [
-                '\\\';',
-                '\r\n\\\'<scrIpt></\' + \'script>',
-            ],
-            'two' => [],
-        ];
+        $validators = ['one' => ['\\\';', '\r\n\\\'<scrIpt></\' + \'script>'], 'two' => []];
 
         $js = [];
 

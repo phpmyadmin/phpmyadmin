@@ -68,16 +68,8 @@ class RelationTest extends AbstractTestCase
             ->getMock();
 
         $getColumnsResult = [
-            [
-                'Field' => 'field1',
-                'Type' => 'int(11)',
-                'Comment' => 'Comment1',
-            ],
-            [
-                'Field' => 'field2',
-                'Type' => 'text',
-                'Comment' => 'Comment1',
-            ],
+            ['Field' => 'field1', 'Type' => 'int(11)', 'Comment' => 'Comment1'],
+            ['Field' => 'field2', 'Type' => 'text', 'Comment' => 'Comment1'],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($getColumnsResult));
@@ -95,10 +87,7 @@ class RelationTest extends AbstractTestCase
         $db = 'information_schema';
         $table = 'TABLES';
         $this->assertEquals(
-            [
-                'field1' => 'Comment1',
-                'field2' => 'Comment1',
-            ],
+            ['field1' => 'Comment1', 'field2' => 'Comment1'],
             $relation->getComments($db, $table),
         );
     }
@@ -159,16 +148,10 @@ class RelationTest extends AbstractTestCase
             'foreign_keys_data' => [
                 0 => [
                     'constraint' => 'ad',
-                    'index_list' => [
-                        'id',
-                        'value',
-                    ],
+                    'index_list' => ['id', 'value'],
                     'ref_db_name' => 'GSoC14',
                     'ref_table_name' => 'table_1',
-                    'ref_index_list' => [
-                        'id',
-                        'value',
-                    ],
+                    'ref_index_list' => ['id', 'value'],
                     'on_delete' => 'CASCADE',
                     'on_update' => 'CASCADE',
                 ],
@@ -236,17 +219,13 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`;',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_db_pma'],
         );
 
         $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_db_pma'],
         );
 
@@ -309,17 +288,13 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`;',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_db_pma'],
         );
 
         $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_db_pma'],
         );
 
@@ -879,9 +854,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`;',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_db_pma'],
         );
 
@@ -1463,9 +1436,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`;',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_phpmyadmin'],
         );
 
@@ -1522,25 +1493,19 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`;',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_phpmyadmin'],
         );
 
         $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_phpmyadmin'],
         );
 
         $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [
-                ['NULL'],
-            ],
+            [['NULL']],
             ['NULL'],
         );
 
@@ -1623,17 +1588,13 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`;',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_phpmyadmin'],
         );
 
         $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`',
-            [
-                ['pma__userconfig'],
-            ],
+            [['pma__userconfig']],
             ['Tables_in_phpmyadmin'],
         );
 
@@ -1717,31 +1678,19 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
             'SHOW TABLES FROM `PMA-storage`;',
-            [
-                [
-                    'pma__userconfig_custom',
-                    'pma__usergroups',
-                ],
-            ],
+            [['pma__userconfig_custom', 'pma__usergroups']],
             ['Tables_in_PMA-storage'],
         );
 
         $dummyDbi->addResult(
             'SHOW TABLES FROM `PMA-storage`',
-            [
-                [
-                    'pma__userconfig_custom',
-                    'pma__usergroups',
-                ],
-            ],
+            [['pma__userconfig_custom', 'pma__usergroups']],
             ['Tables_in_PMA-storage'],
         );
 
         $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
-            [
-                ['NULL'],
-            ],
+            [['NULL']],
             ['NULL'],
         );
 
@@ -1764,20 +1713,13 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi->addResult(
             'SHOW TABLES FROM `PMA-storage`',
-            [
-                [
-                    'pma__userconfig_custom',
-                    'pma__usergroups',
-                ],
-            ],
+            [['pma__userconfig_custom', 'pma__usergroups']],
             ['Tables_in_PMA-storage'],
         );
 
         $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
-            [
-                ['NULL'],
-            ],
+            [['NULL']],
             ['NULL'],
         );
 

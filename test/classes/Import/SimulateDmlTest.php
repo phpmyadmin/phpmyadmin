@@ -64,10 +64,7 @@ class SimulateDmlTest extends AbstractTestCase
                 'UPDATE `table_1` SET `id` = 20 WHERE `id` > 10',
                 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)',
             ],
-            'delete statement' => [
-                'DELETE FROM `table_1` WHERE `id` > 10',
-                'SELECT * FROM `table_1` WHERE `id` > 10',
-            ],
+            'delete statement' => ['DELETE FROM `table_1` WHERE `id` > 10', 'SELECT * FROM `table_1` WHERE `id` > 10'],
         ];
     }
 }

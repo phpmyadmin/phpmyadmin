@@ -55,9 +55,6 @@ class VersionCheckController extends AbstractController
             $date = $latestCompatible['date'];
         }
 
-        echo json_encode([
-            'version' => ! empty($version) ? $version : '',
-            'date' => ! empty($date) ? $date : '',
-        ]);
+        echo json_encode(['version' => ! empty($version) ? $version : '', 'date' => ! empty($date) ? $date : '']);
     }
 }

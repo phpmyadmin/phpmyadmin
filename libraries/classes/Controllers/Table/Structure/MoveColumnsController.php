@@ -94,12 +94,7 @@ final class MoveColumnsController extends AbstractController
                 $defaultType = 'USER_DEFINED';
             }
 
-            $virtual = [
-                'VIRTUAL',
-                'PERSISTENT',
-                'VIRTUAL GENERATED',
-                'STORED GENERATED',
-            ];
+            $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
             $data['Virtuality'] = '';
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {

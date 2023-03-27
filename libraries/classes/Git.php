@@ -364,16 +364,8 @@ class Git
      */
     private function extractDataFormTextBody(array $commit): array
     {
-        $author = [
-            'name' => '',
-            'email' => '',
-            'date' => '',
-        ];
-        $committer = [
-            'name' => '',
-            'email' => '',
-            'date' => '',
-        ];
+        $author = ['name' => '', 'email' => '', 'date' => ''];
+        $committer = ['name' => '', 'email' => '', 'date' => ''];
 
         do {
             $dataline = array_shift($commit);
@@ -388,11 +380,7 @@ class Git
             $timezone = new DateTimeZone($user[4] ?? '+0000');
             $date = (new DateTimeImmutable())->setTimestamp((int) $user[3])->setTimezone($timezone);
 
-            $user2 = [
-                'name' => trim($user[1]),
-                'email' => trim($user[2]),
-                'date' => $date->format('Y-m-d H:i:s O'),
-            ];
+            $user2 = ['name' => trim($user[1]), 'email' => trim($user[2]), 'date' => $date->format('Y-m-d H:i:s O')];
 
             if ($linetype === 'author') {
                 $author = $user2;

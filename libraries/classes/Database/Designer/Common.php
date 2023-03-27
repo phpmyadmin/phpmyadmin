@@ -171,10 +171,7 @@ class Common
             $retval[$ti][$cNameI] = [];
             if (in_array($dtnI, $tableDbNames) && in_array($con['STN'][$i], $tableDbNames)) {
                 $retval[$ti][$cNameI][$dtnI] = [];
-                $retval[$ti][$cNameI][$dtnI][$con['DCN'][$i]] = [
-                    0 => $con['STN'][$i],
-                    1 => $con['SCN'][$i],
-                ];
+                $retval[$ti][$cNameI][$dtnI][$con['DCN'][$i]] = [0 => $con['STN'][$i], 1 => $con['SCN'][$i]];
             }
 
             $ti++;
@@ -234,10 +231,7 @@ class Common
      */
     public function getScriptTabs(array $designerTables): array
     {
-        $retval = [
-            'j_tabs' => [],
-            'h_tabs' => [],
-        ];
+        $retval = ['j_tabs' => [], 'h_tabs' => []];
 
         foreach ($designerTables as $designerTable) {
             $key = rawurlencode($designerTable->getDbTableString());
@@ -490,10 +484,7 @@ class Common
         $updQuery = new Table($table, $db, $this->dbi);
         $updQuery->updateDisplayField($field, $displayFeature);
 
-        return [
-            true,
-            null,
-        ];
+        return [true, null];
     }
 
     /**
@@ -534,10 +525,7 @@ class Common
             $existRelForeign = $this->relation->getForeigners($db2, $t2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existRelForeign, $f2);
             if ($foreigner && isset($foreigner['constraint'])) {
-                return [
-                    false,
-                    __('Error: relationship already exists.'),
-                ];
+                return [false, __('Error: relationship already exists.')];
             }
 
             // note: in InnoDB, the index does not requires to be on a PRIMARY
@@ -586,33 +574,20 @@ class Common
 
                 $updQuery .= ';';
                 if ($this->dbi->tryQuery($updQuery)) {
-                    return [
-                        true,
-                        __('FOREIGN KEY relationship has been added.'),
-                    ];
+                    return [true, __('FOREIGN KEY relationship has been added.')];
                 }
 
                 $error = $this->dbi->getError();
 
-                return [
-                    false,
-                    __('Error: FOREIGN KEY relationship could not be added!')
-                    . '<br>' . $error,
-                ];
+                return [false, __('Error: FOREIGN KEY relationship could not be added!') . '<br>' . $error];
             }
 
-            return [
-                false,
-                __('Error: Missing index on column(s).'),
-            ];
+            return [false, __('Error: Missing index on column(s).')];
         }
 
         $relationFeature = $this->relation->getRelationParameters()->relationFeature;
         if ($relationFeature === null) {
-            return [
-                false,
-                __('Error: Relational features are disabled!'),
-            ];
+            return [false, __('Error: Relational features are disabled!')];
         }
 
         // no need to recheck if the keys are primary or unique at this point,
@@ -633,19 +608,12 @@ class Common
             . "'" . $this->dbi->escapeString($f1) . "')";
 
         if ($this->dbi->tryQueryAsControlUser($q)) {
-            return [
-                true,
-                __('Internal relationship has been added.'),
-            ];
+            return [true, __('Internal relationship has been added.')];
         }
 
         $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
-        return [
-            false,
-            __('Error: Internal relationship could not be added!')
-            . '<br>' . $error,
-        ];
+        return [false, __('Error: Internal relationship could not be added!') . '<br>' . $error];
     }
 
     /**
@@ -679,19 +647,13 @@ class Common
                     . Util::backquote($foreigner['constraint']) . ';';
                 $this->dbi->query($updQuery);
 
-                return [
-                    true,
-                    __('FOREIGN KEY relationship has been removed.'),
-                ];
+                return [true, __('FOREIGN KEY relationship has been removed.')];
             }
         }
 
         $relationFeature = $this->relation->getRelationParameters()->relationFeature;
         if ($relationFeature === null) {
-            return [
-                false,
-                __('Error: Relational features are disabled!'),
-            ];
+            return [false, __('Error: Relational features are disabled!')];
         }
 
         // internal relations
@@ -710,16 +672,10 @@ class Common
         if (! $result) {
             $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
-            return [
-                false,
-                __('Error: Internal relationship could not be removed!') . '<br>' . $error,
-            ];
+            return [false, __('Error: Internal relationship could not be removed!') . '<br>' . $error];
         }
 
-        return [
-            true,
-            __('Internal relationship has been removed.'),
-        ];
+        return [true, __('Internal relationship has been removed.')];
     }
 
     /**

@@ -225,15 +225,9 @@ class Relation
 
         $workToTable = [
             'relwork' => 'relation',
-            'displaywork' => [
-                'relation',
-                'table_info',
-            ],
+            'displaywork' => ['relation', 'table_info'],
             'bookmarkwork' => 'bookmarktable',
-            'pdfwork' => [
-                'table_coords',
-                'pdf_pages',
-            ],
+            'pdfwork' => ['table_coords', 'pdf_pages'],
             'commwork' => 'column_info',
             'mimework' => 'column_info',
             'historywork' => 'history',
@@ -242,10 +236,7 @@ class Relation
             'uiprefswork' => 'table_uiprefs',
             'trackingwork' => 'tracking',
             'userconfigwork' => 'userconfig',
-            'menuswork' => [
-                'users',
-                'usergroups',
-            ],
+            'menuswork' => ['users', 'usergroups'],
             'navwork' => 'navigationhiding',
             'savedsearcheswork' => 'savedsearches',
             'centralcolumnswork' => 'central_columns',
@@ -347,10 +338,7 @@ class Relation
     {
         // From 4.3, new input oriented transformation feature was introduced.
         // Check whether column_info table has input transformation columns
-        $newCols = [
-            'input_transformation',
-            'input_transformation_options',
-        ];
+        $newCols = ['input_transformation', 'input_transformation_options'];
         $query = 'SHOW COLUMNS FROM '
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
             . '.' . Util::backquote($GLOBALS['cfg']['Server']['column_info'])
@@ -373,10 +361,7 @@ class Relation
             // replace pma__column_info table name from query
             // to with set in config.inc.php
             $query = str_replace(
-                [
-                    '`phpmyadmin`',
-                    '`pma__column_info`',
-                ],
+                ['`phpmyadmin`', '`pma__column_info`'],
                 [
                     Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
                     Util::backquote($GLOBALS['cfg']['Server']['column_info']),
@@ -672,11 +657,7 @@ class Relation
             $_SESSION['sql_history'] = [];
         }
 
-        $_SESSION['sql_history'][] = [
-            'db' => $db,
-            'table' => $table,
-            'sqlquery' => $sqlquery,
-        ];
+        $_SESSION['sql_history'][] = ['db' => $db, 'table' => $table, 'sqlquery' => $sqlquery];
 
         if (count($_SESSION['sql_history']) > $GLOBALS['cfg']['QueryHistoryMax']) {
             // history should not exceed a maximum count
@@ -1365,10 +1346,7 @@ class Relation
 
             return $this->dbi->fetchResult(
                 $relQuery,
-                [
-                    'referenced_column_name',
-                    null,
-                ],
+                ['referenced_column_name', null],
             );
         }
 
@@ -1394,12 +1372,7 @@ class Relation
         array|null $foreignersFull = null,
         array|null $childReferencesFull = null,
     ): array {
-        $columnStatus = [
-            'isEditable' => true,
-            'isReferenced' => false,
-            'isForeignKey' => false,
-            'references' => [],
-        ];
+        $columnStatus = ['isEditable' => true, 'isReferenced' => false, 'isForeignKey' => false, 'references' => []];
 
         $foreigners = [];
         if ($foreignersFull !== null) {
@@ -1691,10 +1664,7 @@ class Relation
             $haveRel = count($resRel) > 0;
         }
 
-        return [
-            $resRel,
-            $haveRel,
-        ];
+        return [$resRel, $haveRel];
     }
 
     /**

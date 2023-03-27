@@ -96,10 +96,7 @@ class Node
      *   title?: string
      * }
      */
-    public array $links = [
-        'text' => ['route' => '', 'params' => []],
-        'icon' => ['route' => '', 'params' => []],
-    ];
+    public array $links = ['text' => ['route' => '', 'params' => []], 'icon' => ['route' => '', 'params' => []]];
 
     /** @var string HTML title */
     public string $title = '';
@@ -340,12 +337,7 @@ class Node
         $vPath = implode('.', array_reverse($vPath));
         $vPathClean = array_reverse($vPathClean);
 
-        return [
-            'aPath' => $aPath,
-            'aPath_clean' => $aPathClean,
-            'vPath' => $vPath,
-            'vPath_clean' => $vPathClean,
-        ];
+        return ['aPath' => $aPath, 'aPath_clean' => $aPathClean, 'vPath' => $vPath, 'vPath_clean' => $vPathClean];
     }
 
     /**
@@ -492,9 +484,7 @@ class Node
     {
         $databases = [];
         if (! empty($searchClause)) {
-            $databases = [
-                '%' . $GLOBALS['dbi']->escapeString($searchClause) . '%',
-            ];
+            $databases = ['%' . $GLOBALS['dbi']->escapeString($searchClause) . '%'];
         } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
         } elseif (! empty($GLOBALS['dbs_to_test'])) {
@@ -532,9 +522,7 @@ class Node
 
         if (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             if (is_string($GLOBALS['cfg']['Server']['only_db'])) {
-                $GLOBALS['cfg']['Server']['only_db'] = [
-                    $GLOBALS['cfg']['Server']['only_db'],
-                ];
+                $GLOBALS['cfg']['Server']['only_db'] = [$GLOBALS['cfg']['Server']['only_db']];
             }
 
             $whereClause .= 'AND (';

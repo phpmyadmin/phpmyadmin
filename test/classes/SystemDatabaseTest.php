@@ -99,9 +99,7 @@ class SystemDatabaseTest extends AbstractTestCase
             );
 
         $db = 'PMA_db';
-        $columnMap = [
-            new SystemColumn('table_name', 'column_name', null),
-        ];
+        $columnMap = [new SystemColumn('table_name', 'column_name', null)];
         $viewName = 'view_name';
 
         $ret = $this->sysDb->getNewTransformationDataSql($resultStub, $columnMap, $viewName, $db);
@@ -125,22 +123,13 @@ class SystemDatabaseTest extends AbstractTestCase
             [true],
             [],
             [
-                (object) [
-                    'table' => 'meta1_table',
-                    'name' => 'meta1_name',
-                ],
-                (object) [
-                    'table' => 'meta2_table',
-                    'name' => 'meta2_name',
-                ],
+                (object) ['table' => 'meta1_table', 'name' => 'meta1_name'],
+                (object) ['table' => 'meta2_table', 'name' => 'meta2_name'],
             ],
         );
 
         $sqlQuery = 'PMA_sql_query';
-        $viewColumns = [
-            'view_columns1',
-            'view_columns2',
-        ];
+        $viewColumns = ['view_columns1', 'view_columns2'];
 
         $systemDatabase = new SystemDatabase($dbi);
         $columnMap = $systemDatabase->getColumnMapFromSql($sqlQuery, $viewColumns);

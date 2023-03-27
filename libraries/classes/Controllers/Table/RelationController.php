@@ -251,12 +251,7 @@ final class RelationController extends AbstractController
             isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
             && isset($_POST['destination_foreign_column'])
         ) {
-            [
-                $html,
-                $previewSqlData,
-                $displayQuery,
-                $seenError,
-            ] = $table->updateForeignKeys(
+            [$html, $previewSqlData, $displayQuery, $seenError] = $table->updateForeignKeys(
                 $_POST['destination_foreign_db'],
                 $multiEditColumnsName,
                 $_POST['destination_foreign_table'],

@@ -796,18 +796,9 @@ class FormDisplay
         if ($systemPath === 'ZipDump' || $systemPath === 'GZipDump' || $systemPath === 'BZipDump') {
             $comment = '';
             $funcs = [
-                'ZipDump' => [
-                    'zip_open',
-                    'gzcompress',
-                ],
-                'GZipDump' => [
-                    'gzopen',
-                    'gzencode',
-                ],
-                'BZipDump' => [
-                    'bzopen',
-                    'bzcompress',
-                ],
+                'ZipDump' => ['zip_open', 'gzcompress'],
+                'GZipDump' => ['gzopen', 'gzencode'],
+                'BZipDump' => ['bzopen', 'bzcompress'],
             ];
             if (! function_exists($funcs[$systemPath][0])) {
                 $comment = sprintf(

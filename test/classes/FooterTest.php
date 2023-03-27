@@ -70,16 +70,8 @@ class FooterTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['DBG']['sql'] = true;
         $_SESSION['debug']['queries'] = [
-            [
-                'count' => 1,
-                'time' => 0.2,
-                'query' => 'SELECT * FROM `pma_bookmark` WHERE 1',
-            ],
-            [
-                'count' => 1,
-                'time' => 2.5,
-                'query' => 'SELECT * FROM `db` WHERE 1',
-            ],
+            ['count' => 1, 'time' => 0.2, 'query' => 'SELECT * FROM `pma_bookmark` WHERE 1'],
+            ['count' => 1, 'time' => 2.5, 'query' => 'SELECT * FROM `db` WHERE 1'],
         ];
 
         $this->assertEquals(

@@ -81,58 +81,37 @@ class ImportTest extends AbstractTestCase
     public function testLookForUse(): void
     {
         $this->assertEquals(
-            [
-                null,
-                null,
-            ],
+            [null, null],
             $this->import->lookForUse(null, null, null),
         );
 
         $this->assertEquals(
-            [
-                'myDb',
-                null,
-            ],
+            ['myDb', null],
             $this->import->lookForUse(null, 'myDb', null),
         );
 
         $this->assertEquals(
-            [
-                'myDb',
-                true,
-            ],
+            ['myDb', true],
             $this->import->lookForUse(null, 'myDb', true),
         );
 
         $this->assertEquals(
-            [
-                'myDb',
-                true,
-            ],
+            ['myDb', true],
             $this->import->lookForUse('select 1 from myTable', 'myDb', true),
         );
 
         $this->assertEquals(
-            [
-                'anotherDb',
-                true,
-            ],
+            ['anotherDb', true],
             $this->import->lookForUse('use anotherDb', 'myDb', false),
         );
 
         $this->assertEquals(
-            [
-                'anotherDb',
-                true,
-            ],
+            ['anotherDb', true],
             $this->import->lookForUse('use anotherDb', 'myDb', true),
         );
 
         $this->assertEquals(
-            [
-                'anotherDb',
-                true,
-            ],
+            ['anotherDb', true],
             $this->import->lookForUse('use `anotherDb`;', 'myDb', true),
         );
     }
@@ -157,32 +136,7 @@ class ImportTest extends AbstractTestCase
      */
     public static function provGetColumnAlphaName(): array
     {
-        return [
-            [
-                'A',
-                1,
-            ],
-            [
-                'Z',
-                0,
-            ],
-            [
-                'AA',
-                27,
-            ],
-            [
-                'AZ',
-                52,
-            ],
-            [
-                'BA',
-                53,
-            ],
-            [
-                'BB',
-                54,
-            ],
-        ];
+        return [['A', 1], ['Z', 0], ['AA', 27], ['AZ', 52], ['BA', 53], ['BB', 54]];
     }
 
     /**
@@ -205,32 +159,7 @@ class ImportTest extends AbstractTestCase
      */
     public static function provGetColumnNumberFromName(): array
     {
-        return [
-            [
-                1,
-                'A',
-            ],
-            [
-                26,
-                'Z',
-            ],
-            [
-                27,
-                'AA',
-            ],
-            [
-                52,
-                'AZ',
-            ],
-            [
-                53,
-                'BA',
-            ],
-            [
-                54,
-                'BB',
-            ],
-        ];
+        return [[1, 'A'], [26, 'Z'], [27, 'AA'], [52, 'AZ'], [53, 'BA'], [54, 'BB']];
     }
 
     /**
@@ -253,24 +182,7 @@ class ImportTest extends AbstractTestCase
      */
     public static function provGetDecimalPrecision(): array
     {
-        return [
-            [
-                2,
-                '2,1',
-            ],
-            [
-                6,
-                '6,2',
-            ],
-            [
-                6,
-                '6,0',
-            ],
-            [
-                16,
-                '16,2',
-            ],
-        ];
+        return [[2, '2,1'], [6, '6,2'], [6, '6,0'], [16, '16,2']];
     }
 
     /**
@@ -293,24 +205,7 @@ class ImportTest extends AbstractTestCase
      */
     public static function provGetDecimalScale(): array
     {
-        return [
-            [
-                1,
-                '2,1',
-            ],
-            [
-                2,
-                '6,2',
-            ],
-            [
-                0,
-                '6,0',
-            ],
-            [
-                20,
-                '30,20',
-            ],
-        ];
+        return [[1, '2,1'], [2, '6,2'], [0, '6,0'], [20, '30,20']];
     }
 
     /**
@@ -333,40 +228,7 @@ class ImportTest extends AbstractTestCase
      */
     public static function provGetDecimalSize(): array
     {
-        return [
-            [
-                [
-                    2,
-                    1,
-                    '2,1',
-                ],
-                '2.1',
-            ],
-            [
-                [
-                    2,
-                    1,
-                    '2,1',
-                ],
-                '6.2',
-            ],
-            [
-                [
-                    3,
-                    1,
-                    '3,1',
-                ],
-                '10.0',
-            ],
-            [
-                [
-                    4,
-                    2,
-                    '4,2',
-                ],
-                '30.20',
-            ],
-        ];
+        return [[[2, 1, '2,1'], '2.1'], [[2, 1, '2,1'], '6.2'], [[3, 1, '3,1'], '10.0'], [[4, 2, '4,2'], '30.20']];
     }
 
     /**
@@ -393,87 +255,27 @@ class ImportTest extends AbstractTestCase
     public static function provDetectType(): array
     {
         $data = [
-            [
-                Import::NONE,
-                null,
-                'NULL',
-            ],
-            [
-                Import::NONE,
-                Import::NONE,
-                'NULL',
-            ],
-            [
-                Import::INT,
-                Import::INT,
-                'NULL',
-            ],
-            [
-                Import::VARCHAR,
-                Import::VARCHAR,
-                'NULL',
-            ],
-            [
-                Import::VARCHAR,
-                null,
-                null,
-            ],
-            [
-                Import::VARCHAR,
-                Import::INT,
-                null,
-            ],
-            [
-                Import::INT,
-                Import::INT,
-                '10',
-            ],
-            [
-                Import::DECIMAL,
-                Import::DECIMAL,
-                '10.2',
-            ],
-            [
-                Import::DECIMAL,
-                Import::INT,
-                '10.2',
-            ],
-            [
-                Import::VARCHAR,
-                Import::VARCHAR,
-                'test',
-            ],
-            [
-                Import::VARCHAR,
-                Import::INT,
-                'test',
-            ],
+            [Import::NONE, null, 'NULL'],
+            [Import::NONE, Import::NONE, 'NULL'],
+            [Import::INT, Import::INT, 'NULL'],
+            [Import::VARCHAR, Import::VARCHAR, 'NULL'],
+            [Import::VARCHAR, null, null],
+            [Import::VARCHAR, Import::INT, null],
+            [Import::INT, Import::INT, '10'],
+            [Import::DECIMAL, Import::DECIMAL, '10.2'],
+            [Import::DECIMAL, Import::INT, '10.2'],
+            [Import::VARCHAR, Import::VARCHAR, 'test'],
+            [Import::VARCHAR, Import::INT, 'test'],
         ];
 
         if (PHP_INT_MAX > 2147483647) {
-            $data[] = [
-                Import::BIGINT,
-                Import::BIGINT,
-                '2147483648',
-            ];
-            $data[] = [
-                Import::BIGINT,
-                Import::INT,
-                '2147483648',
-            ];
+            $data[] = [Import::BIGINT, Import::BIGINT, '2147483648'];
+            $data[] = [Import::BIGINT, Import::INT, '2147483648'];
         } else {
             // To be fixed ?
             // Can not detect a BIGINT since the value is over PHP_INT_MAX
-            $data[] = [
-                Import::VARCHAR,
-                Import::BIGINT,
-                '2147483648',
-            ];
-            $data[] = [
-                Import::VARCHAR,
-                Import::INT,
-                '2147483648',
-            ];
+            $data[] = [Import::VARCHAR, Import::BIGINT, '2147483648'];
+            $data[] = [Import::VARCHAR, Import::INT, '2147483648'];
         }
 
         return $data;
@@ -499,34 +301,13 @@ class ImportTest extends AbstractTestCase
     public static function providerContentWithByteOrderMarks(): array
     {
         return [
-            [
-                "\xEF\xBB\xBF blabla上海",
-                ' blabla上海',
-            ],
-            [
-                "\xEF\xBB\xBF blabla",
-                ' blabla',
-            ],
-            [
-                "\xEF\xBB\xBF blabla\xEF\xBB\xBF",
-                " blabla\xEF\xBB\xBF",
-            ],
-            [
-                "\xFE\xFF blabla",
-                ' blabla',
-            ],
-            [
-                "\xFE\xFF blabla\xFE\xFF",
-                " blabla\xFE\xFF",
-            ],
-            [
-                "\xFF\xFE blabla",
-                ' blabla',
-            ],
-            [
-                "\xFF\xFE blabla\xFF\xFE",
-                " blabla\xFF\xFE",
-            ],
+            ["\xEF\xBB\xBF blabla上海", ' blabla上海'],
+            ["\xEF\xBB\xBF blabla", ' blabla'],
+            ["\xEF\xBB\xBF blabla\xEF\xBB\xBF", " blabla\xEF\xBB\xBF"],
+            ["\xFE\xFF blabla", ' blabla'],
+            ["\xFE\xFF blabla\xFE\xFF", " blabla\xFE\xFF"],
+            ["\xFF\xFE blabla", ' blabla'],
+            ["\xFF\xFE blabla\xFF\xFE", " blabla\xFF\xFE"],
             [
                 "\xEF\xBB\xBF\x44\x52\x4F\x50\x20\x54\x41\x42\x4C\x45\x20\x49\x46\x20\x45\x58\x49\x53\x54\x53",
                 'DROP TABLE IF EXISTS',
@@ -571,10 +352,7 @@ class ImportTest extends AbstractTestCase
 
         $this->import->runQuery('', $sqlData);
 
-        $this->assertSame([
-            'SELECT 1;',
-            'SELECT 2;',
-        ], $sqlData);
+        $this->assertSame(['SELECT 1;', 'SELECT 2;'], $sqlData);
 
         $this->assertSame('SELECT 2;', $GLOBALS['sql_query']);
         $this->assertSame('SELECT 1;SELECT 2;', $GLOBALS['complete_query']);

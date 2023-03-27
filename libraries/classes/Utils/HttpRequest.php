@@ -85,10 +85,7 @@ class HttpRequest
     private function handleContext(array $context): array
     {
         if (strlen($this->proxyUrl) > 0) {
-            $context['http'] = [
-                'proxy' => $this->proxyUrl,
-                'request_fulluri' => true,
-            ];
+            $context['http'] = ['proxy' => $this->proxyUrl, 'request_fulluri' => true];
             if (strlen($this->proxyUser) > 0) {
                 $auth = base64_encode($this->proxyUser . ':' . $this->proxyPass);
                 $context['http']['header'] = 'Proxy-Authorization: Basic '
@@ -227,10 +224,7 @@ class HttpRequest
                 'user_agent' => 'phpMyAdmin',
                 'header' => 'Accept: */*',
             ],
-            'ssl' => [
-                'verify_peer' => true,
-                'verify_peer_name' => true,
-            ],
+            'ssl' => ['verify_peer' => true, 'verify_peer_name' => true],
         ];
         if ($header) {
             $context['http']['header'] .= "\n" . $header;

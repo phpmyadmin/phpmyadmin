@@ -212,36 +212,11 @@ class HttpRequestTest extends AbstractTestCase
     public static function httpRequests(): array
     {
         return [
-            [
-                'https://www.phpmyadmin.net/test/data',
-                'GET',
-                true,
-                true,
-            ],
-            [
-                'https://www.phpmyadmin.net/test/data',
-                'POST',
-                true,
-                null,
-            ],
-            [
-                'https://nonexisting.phpmyadmin.net/test/data',
-                'GET',
-                true,
-                null,
-            ],
-            [
-                'https://www.phpmyadmin.net/test/data',
-                'GET',
-                false,
-                'TEST DATA',
-            ],
-            [
-                'https://www.phpmyadmin.net/test/nothing',
-                'GET',
-                true,
-                false,
-            ],
+            ['https://www.phpmyadmin.net/test/data', 'GET', true, true],
+            ['https://www.phpmyadmin.net/test/data', 'POST', true, null],
+            ['https://nonexisting.phpmyadmin.net/test/data', 'GET', true, null],
+            ['https://www.phpmyadmin.net/test/data', 'GET', false, 'TEST DATA'],
+            ['https://www.phpmyadmin.net/test/nothing', 'GET', true, false],
         ];
     }
 }

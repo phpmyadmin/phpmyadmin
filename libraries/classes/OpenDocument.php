@@ -163,13 +163,7 @@ EOT;
             . '</manifest:manifest>',
         ];
 
-        $name = [
-            'mimetype',
-            'content.xml',
-            'meta.xml',
-            'styles.xml',
-            'META-INF/manifest.xml',
-        ];
+        $name = ['mimetype', 'content.xml', 'meta.xml', 'styles.xml', 'META-INF/manifest.xml'];
 
         $zipExtension = new ZipExtension();
 

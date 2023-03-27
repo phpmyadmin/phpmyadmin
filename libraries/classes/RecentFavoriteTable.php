@@ -188,10 +188,7 @@ class RecentFavoriteTable
             if ($this->tableType === 'recent') {
                 $tables = [];
                 foreach ($this->tables as $table) {
-                    $tables[] = [
-                        'db' => $table['db'],
-                        'table' => $table['table'],
-                    ];
+                    $tables[] = ['db' => $table['db'], 'table' => $table['table']];
                 }
 
                 return $this->template->render('recent_favorite_table_recent', ['tables' => $tables]);
@@ -211,10 +208,7 @@ class RecentFavoriteTable
                     'md5' => md5($table['db'] . '.' . $table['table']),
                 ];
 
-                $tables[] = [
-                    'remove_parameters' => $removeParameters,
-                    'table_parameters' => $tableParameters,
-                ];
+                $tables[] = ['remove_parameters' => $removeParameters, 'table_parameters' => $tableParameters];
             }
 
             return $this->template->render('recent_favorite_table_favorite', ['tables' => $tables]);
@@ -361,10 +355,7 @@ class RecentFavoriteTable
     public static function getHtmlUpdateRecentTables(): string
     {
         return '<a class="hide" id="update_recent_tables" href="'
-                    . Url::getFromRoute('/recent-table', [
-                        'ajax_request' => true,
-                        'recent_table' => true,
-                    ])
+                    . Url::getFromRoute('/recent-table', ['ajax_request' => true, 'recent_table' => true])
                 . '"></a>';
     }
 

@@ -96,11 +96,7 @@ class OptionsTest extends AbstractTestCase
             'export_type' => $exportType,
             'db' => $db,
             'table' => $table,
-            'templates' => [
-                'is_enabled' => '',
-                'templates' => [],
-                'selected' => null,
-            ],
+            'templates' => ['is_enabled' => '', 'templates' => [], 'selected' => null],
             'sql_query' => '',
             'hidden_inputs' => [
                 'db' => $db,

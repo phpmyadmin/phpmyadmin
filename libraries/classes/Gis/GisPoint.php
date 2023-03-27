@@ -125,10 +125,7 @@ class GisPoint extends GisGeometry
         array $scaleData,
         TCPDF $pdf,
     ): TCPDF {
-        $line = [
-            'width' => 1.25,
-            'color' => $color,
-        ];
+        $line = ['width' => 1.25, 'color' => $color];
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
@@ -205,10 +202,7 @@ class GisPoint extends GisGeometry
         array $color,
     ): string {
         $fillStyle = ['color' => 'white'];
-        $strokeStyle = [
-            'color' => $color,
-            'width' => 2,
-        ];
+        $strokeStyle = ['color' => $color, 'width' => 2];
         $style = 'new ol.style.Style({'
             . 'image: new ol.style.Circle({'
             . 'fill: new ol.style.Fill(' . json_encode($fillStyle) . '),'
@@ -216,10 +210,7 @@ class GisPoint extends GisGeometry
             . 'radius: 3'
             . '})';
         if ($label !== '') {
-            $textStyle = [
-                'text' => $label,
-                'offsetY' => -9,
-            ];
+            $textStyle = ['text' => $label, 'offsetY' => -9];
             $style .= ',text: new ol.style.Text(' . json_encode($textStyle) . ')';
         }
 
@@ -283,9 +274,6 @@ class GisPoint extends GisGeometry
         $wktPoint = mb_substr($wkt, 6, -1);
         $points = $this->extractPoints1d($wktPoint, null);
 
-        return [
-            'x' => $points[0][0],
-            'y' => $points[0][1],
-        ];
+        return ['x' => $points[0][0], 'y' => $points[0][1]];
     }
 }

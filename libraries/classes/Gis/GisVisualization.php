@@ -533,12 +533,7 @@ class GisVisualization
             ? ($minMax->maxY + $minMax->minY - $this->height / $scale) / 2
             : $minMax->minY - ($border / $scale);
 
-        return [
-            'scale' => $scale,
-            'x' => $x,
-            'y' => $y,
-            'height' => $this->height,
-        ];
+        return ['scale' => $scale, 'x' => $x, 'y' => $y, 'height' => $this->height];
     }
 
     /**

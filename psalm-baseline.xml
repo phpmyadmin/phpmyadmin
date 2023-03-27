@@ -4776,14 +4776,7 @@
       <code>escapeString</code>
     </DeprecatedMethod>
     <LessSpecificReturnStatement>
-      <code>[
-            $fieldCount,
-            $fieldPrimary,
-            $fieldIndex,
-            $fieldUnique,
-            $fieldFullText,
-            $fieldSpatial,
-        ]</code>
+      <code>[$fieldCount, $fieldPrimary, $fieldIndex, $fieldUnique, $fieldFullText, $fieldSpatial]</code>
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$_POST['field_name'][$column['col_index']]]]></code>
@@ -6307,12 +6300,7 @@
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement>
-      <code>[
-            $deleteUrl,
-            $deleteString,
-            $jsConf,
-            $urlParams,
-        ]</code>
+      <code>[$deleteUrl, $deleteString, $jsConf, $urlParams]</code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code>array{?string, ?string, ?string}</code>
@@ -6583,11 +6571,7 @@
     </MixedPropertyFetch>
     <MixedReturnTypeCoercion>
       <code>$map</code>
-      <code><![CDATA[[
-            $singleSortOrder,
-            implode(', ', $sortOrderColumns),
-            $orderImg ?? '',
-        ]]]></code>
+      <code><![CDATA[[$singleSortOrder, implode(', ', $sortOrderColumns), $orderImg ?? '']]]></code>
       <code><![CDATA[array<string, string[]>]]></code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
@@ -8709,16 +8693,12 @@
   <file src="libraries/classes/Normalization.php">
     <InvalidReturnStatement>
       <code><![CDATA[[
-                'legendText' => __('End of step'),
-                'headText' => $headText,
-                'queryError' => false,
-            ]]]></code>
-      <code><![CDATA[[
             'legendText' => __('End of step'),
             'headText' => $headText,
             'queryError' => $error,
             'extra' => $message,
         ]]]></code>
+      <code><![CDATA[['legendText' => __('End of step'), 'headText' => $headText, 'queryError' => false]]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code>array{legendText: string, headText: string, queryError: bool, extra: Message}</code>
@@ -14746,10 +14726,7 @@
                 $this->centralColumns,
                 CentralColumns::class,
                 'getHtmlForEditTableRow',
-                [
-                    $listDetailCols[0],
-                    0,
-                ],
+                [$listDetailCols[0], 0],
             )]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -14910,15 +14887,7 @@
                 $this->object,
                 DisplayResults::class,
                 'handleNonPrintableContents',
-                [
-                    $category,
-                    $content,
-                    $transformationPlugin,
-                    $transformOptions,
-                    $meta,
-                    $urlParams,
-                    &$isTruncated,
-                ],
+                [$category, $content, $transformationPlugin, $transformOptions, $meta, $urlParams, &$isTruncated],
             )]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -15157,22 +15126,10 @@
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
     <InvalidConstantAssignmentValue>
       <code><![CDATA[IMPLEMENTATION_CLASSES = [
-        'slim/psr7' => [
-            SlimServerRequestFactory::class,
-            'Slim PSR-7',
-        ],
-        'guzzlehttp/psr7' => [
-            GuzzleHttpFactory::class,
-            'Guzzle PSR-7',
-        ],
-        'nyholm/psr7' => [
-            NyholmPsr17Factory::class,
-            'Nyholm PSR-7',
-        ],
-        'laminas/laminas-diactoros' => [
-            LaminasServerRequestFactory::class,
-            'Laminas diactoros PSR-7',
-        ],
+        'slim/psr7' => [SlimServerRequestFactory::class, 'Slim PSR-7'],
+        'guzzlehttp/psr7' => [GuzzleHttpFactory::class, 'Guzzle PSR-7'],
+        'nyholm/psr7' => [NyholmPsr17Factory::class, 'Nyholm PSR-7'],
+        'laminas/laminas-diactoros' => [LaminasServerRequestFactory::class, 'Laminas diactoros PSR-7'],
     ]]]></code>
     </InvalidConstantAssignmentValue>
     <MixedInferredReturnType>

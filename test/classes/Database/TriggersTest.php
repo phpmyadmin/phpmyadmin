@@ -240,10 +240,7 @@ class TriggersTest extends AbstractTestCase
             'item_definer' => '',
         ];
 
-        return [
-            [$data, 'name="editor_process_edit"'],
-            [$data, 'name="ajax_request"'],
-        ];
+        return [[$data, 'name="editor_process_edit"'], [$data, 'name="ajax_request"']];
     }
 
     /**
@@ -292,16 +289,7 @@ class TriggersTest extends AbstractTestCase
     public static function providerGetQueryFromRequest(): array
     {
         return [
-            [
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'CREATE TRIGGER ON  FOR EACH ROW ',
-                5,
-            ],
+            ['', '', '', '', '', '', 'CREATE TRIGGER ON  FOR EACH ROW ', 5],
             [
                 'root',
                 'trigger',

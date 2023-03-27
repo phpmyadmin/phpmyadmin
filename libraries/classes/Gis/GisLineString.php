@@ -124,10 +124,7 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
     {
-        $line = [
-            'width' => 1.5,
-            'color' => $color,
-        ];
+        $line = ['width' => 1.5, 'color' => $color];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($spatial, 11, -1);
@@ -205,10 +202,7 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
-        $strokeStyle = [
-            'color' => $color,
-            'width' => 2,
-        ];
+        $strokeStyle = ['color' => $color, 'width' => 2];
 
         $style = 'new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
@@ -277,10 +271,7 @@ class GisLineString extends GisGeometry
         $noOfPoints = count($pointsArr);
         $coords = ['no_of_points' => $noOfPoints];
         for ($i = 0; $i < $noOfPoints; $i++) {
-            $coords[$i] = [
-                'x' => $pointsArr[$i][0],
-                'y' => $pointsArr[$i][1],
-            ];
+            $coords[$i] = ['x' => $pointsArr[$i][0], 'y' => $pointsArr[$i][1]];
         }
 
         return $coords;

@@ -1077,11 +1077,7 @@ class Config
     {
         // First try configured temp dir
         // Fallback to PHP upload_tmp_dir
-        $dirs = [
-            $this->getTempDir('upload'),
-            ini_get('upload_tmp_dir'),
-            sys_get_temp_dir(),
-        ];
+        $dirs = [$this->getTempDir('upload'), ini_get('upload_tmp_dir'), sys_get_temp_dir()];
 
         foreach ($dirs as $dir) {
             if (! empty($dir) && @is_writable($dir)) {
@@ -1262,11 +1258,7 @@ class Config
             }
         } else {
             if ($server === null) {
-                return [
-                    null,
-                    null,
-                    null,
-                ];
+                return [null, null, null];
             }
 
             if (isset($server['user'])) {
@@ -1301,11 +1293,7 @@ class Config
             $server['hide_connection_errors'] = false;
         }
 
-        return [
-            $user,
-            $password,
-            $server,
-        ];
+        return [$user, $password, $server];
     }
 
     /**

@@ -105,12 +105,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
             ->onlyMethods(
-                [
-                    'setBodyId',
-                    'setTitle',
-                    'disableMenuAndConsole',
-                    'disableWarnings',
-                ],
+                ['setBodyId', 'setTitle', 'disableMenuAndConsole', 'disableWarnings'],
             )
             ->getMock();
 
@@ -141,10 +136,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->with()
             ->will($this->returnValue($mockHeader));
 
-        $GLOBALS['cfg']['Servers'] = [
-            1,
-            2,
-        ];
+        $GLOBALS['cfg']['Servers'] = [1, 2];
 
         // mock error handler
 
@@ -394,11 +386,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $GLOBALS['config']->set('is_https', false);
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
-        $GLOBALS['cfg']['Servers'] = [
-            1,
-            2,
-            3,
-        ];
+        $GLOBALS['cfg']['Servers'] = [1, 2, 3];
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
 
@@ -642,13 +630,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testAuthSetUser(): void
     {
         $this->object->user = 'pmaUser2';
-        $arr = [
-            'host' => 'a',
-            'port' => 1,
-            'socket' => true,
-            'ssl' => true,
-            'user' => 'pmaUser2',
-        ];
+        $arr = ['host' => 'a', 'port' => 1, 'socket' => true, 'ssl' => true, 'user' => 'pmaUser2'];
 
         $GLOBALS['cfg']['Server'] = $arr;
         $GLOBALS['cfg']['Server']['user'] = 'pmaUser';
@@ -678,13 +660,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testAuthSetUserWithHeaders(): void
     {
         $this->object->user = 'pmaUser2';
-        $arr = [
-            'host' => 'a',
-            'port' => 1,
-            'socket' => true,
-            'ssl' => true,
-            'user' => 'pmaUser2',
-        ];
+        $arr = ['host' => 'a', 'port' => 1, 'socket' => true, 'ssl' => true, 'user' => 'pmaUser2'];
 
         $GLOBALS['cfg']['Server'] = $arr;
         $GLOBALS['cfg']['Server']['host'] = 'b';
@@ -742,16 +718,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
                 'Your password is too long. To prevent denial-of-service attacks,'
                 . ' phpMyAdmin restricts passwords to less than 2000 characters.',
             ],
-            [
-                str_repeat('a', 256),
-                true,
-                null,
-            ],
-            [
-                '',
-                true,
-                null,
-            ],
+            [str_repeat('a', 256), true, null],
+            ['', true, null],
         ];
     }
 
@@ -1040,55 +1008,17 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public static function checkRulesProvider(): array
     {
         return [
-            'nopass-ok' => [
-                'testUser',
-                '',
-                '1.2.3.4',
-                true,
-                true,
-                [],
-                '',
-            ],
-            'nopass' => [
-                'testUser',
-                '',
-                '1.2.3.4',
-                true,
-                false,
-                [],
-                'Login without a password is forbidden',
-            ],
-            'root-ok' => [
-                'root',
-                'root',
-                '1.2.3.4',
-                true,
-                true,
-                [],
-                '',
-            ],
-            'root' => [
-                'root',
-                'root',
-                '1.2.3.4',
-                false,
-                true,
-                [],
-                'Access denied!',
-            ],
+            'nopass-ok' => ['testUser', '', '1.2.3.4', true, true, [], ''],
+            'nopass' => ['testUser', '', '1.2.3.4', true, false, [], 'Login without a password is forbidden'],
+            'root-ok' => ['root', 'root', '1.2.3.4', true, true, [], ''],
+            'root' => ['root', 'root', '1.2.3.4', false, true, [], 'Access denied!'],
             'rules-deny-allow-ok' => [
                 'root',
                 'root',
                 '1.2.3.4',
                 true,
                 true,
-                [
-                    'order' => 'deny,allow',
-                    'rules' => [
-                        'allow root 1.2.3.4',
-                        'deny % from all',
-                    ],
-                ],
+                ['order' => 'deny,allow', 'rules' => ['allow root 1.2.3.4', 'deny % from all']],
                 '',
             ],
             'rules-deny-allow-reject' => [
@@ -1097,13 +1027,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
                 '1.2.3.4',
                 true,
                 true,
-                [
-                    'order' => 'deny,allow',
-                    'rules' => [
-                        'allow root 1.2.3.4',
-                        'deny % from all',
-                    ],
-                ],
+                ['order' => 'deny,allow', 'rules' => ['allow root 1.2.3.4', 'deny % from all']],
                 'Access denied!',
             ],
             'rules-allow-deny-ok' => [
@@ -1112,13 +1036,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
                 '1.2.3.4',
                 true,
                 true,
-                [
-                    'order' => 'allow,deny',
-                    'rules' => [
-                        'deny user from all',
-                        'allow root 1.2.3.4',
-                    ],
-                ],
+                ['order' => 'allow,deny', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
                 '',
             ],
             'rules-allow-deny-reject' => [
@@ -1127,13 +1045,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
                 '1.2.3.4',
                 true,
                 true,
-                [
-                    'order' => 'allow,deny',
-                    'rules' => [
-                        'deny user from all',
-                        'allow root 1.2.3.4',
-                    ],
-                ],
+                ['order' => 'allow,deny', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
                 'Access denied!',
             ],
             'rules-explicit-ok' => [
@@ -1142,13 +1054,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
                 '1.2.3.4',
                 true,
                 true,
-                [
-                    'order' => 'explicit',
-                    'rules' => [
-                        'deny user from all',
-                        'allow root 1.2.3.4',
-                    ],
-                ],
+                ['order' => 'explicit', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
                 '',
             ],
             'rules-explicit-reject' => [
@@ -1157,13 +1063,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
                 '1.2.3.4',
                 true,
                 true,
-                [
-                    'order' => 'explicit',
-                    'rules' => [
-                        'deny user from all',
-                        'allow root 1.2.3.4',
-                    ],
-                ],
+                ['order' => 'explicit', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
                 'Access denied!',
             ],
         ];

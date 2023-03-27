@@ -237,10 +237,7 @@ class Index
             // $columns[sub_parts][]
             foreach ($columns['names'] as $key => $name) {
                 $subPart = $columns['sub_parts'][$key] ?? '';
-                $addedColumns[] = [
-                    'Column_name' => $name,
-                    'Sub_part' => $subPart,
-                ];
+                $addedColumns[] = ['Column_name' => $name, 'Sub_part' => $subPart];
             }
         } else {
             // coming from SHOW INDEXES
@@ -425,10 +422,7 @@ class Index
      */
     public static function getIndexTypes(): array
     {
-        return [
-            'BTREE',
-            'HASH',
-        ];
+        return ['BTREE', 'HASH'];
     }
 
     public function hasPrimary(): bool
@@ -531,10 +525,7 @@ class Index
      */
     public function getCompareData(): array
     {
-        $data = [
-            'Packed' => $this->packed,
-            'Index_choice' => $this->choice,
-        ];
+        $data = ['Packed' => $this->packed, 'Index_choice' => $this->choice];
 
         foreach ($this->columns as $column) {
             $data['columns'][] = $column->getCompareData();

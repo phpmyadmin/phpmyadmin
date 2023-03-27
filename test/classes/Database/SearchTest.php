@@ -34,10 +34,7 @@ class SearchTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('pma', 'table1')
-            ->will($this->returnValue([
-                ['Field' => 'column1'],
-                ['Field' => 'column2'],
-            ]));
+            ->will($this->returnValue([['Field' => 'column1'], ['Field' => 'column2']]));
 
         $dbi->expects($this->any())
             ->method('quoteString')

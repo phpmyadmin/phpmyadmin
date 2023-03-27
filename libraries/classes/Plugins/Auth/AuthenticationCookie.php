@@ -121,10 +121,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 'session_expired' => 1,
             ]);
         } else {
-            $loginHeader = $this->template->render('login/header', [
-                'add_class' => '',
-                'session_expired' => 0,
-            ]);
+            $loginHeader = $this->template->render('login/header', ['add_class' => '', 'session_expired' => 0]);
         }
 
         $errorMessages = '';

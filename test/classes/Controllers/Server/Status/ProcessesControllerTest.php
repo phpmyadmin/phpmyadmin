@@ -91,10 +91,7 @@ class ProcessesControllerTest extends AbstractTestCase
             ['order_by_field', '', 'Db'],
             ['sort_order', '', 'ASC'],
         ]);
-        $request->method('hasBodyParam')->willReturnMap([
-            ['full', true],
-            ['showExecuting', false],
-        ]);
+        $request->method('hasBodyParam')->willReturnMap([['full', true], ['showExecuting', false]]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);
@@ -111,10 +108,7 @@ class ProcessesControllerTest extends AbstractTestCase
             ['order_by_field', '', 'Host'],
             ['sort_order', '', 'DESC'],
         ]);
-        $request->method('hasBodyParam')->willReturnMap([
-            ['full', true],
-            ['showExecuting', false],
-        ]);
+        $request->method('hasBodyParam')->willReturnMap([['full', true], ['showExecuting', false]]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);

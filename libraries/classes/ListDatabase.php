@@ -47,10 +47,7 @@ class ListDatabase extends ListAbstract
                 continue;
             }
 
-            $list[] = [
-                'name' => $eachItem,
-                'is_selected' => $selected === $eachItem,
-            ];
+            $list[] = ['name' => $eachItem, 'is_selected' => $selected === $eachItem];
         }
 
         return $list;
@@ -140,9 +137,7 @@ class ListDatabase extends ListAbstract
     protected function checkOnlyDatabase(): bool
     {
         if (is_string($GLOBALS['cfg']['Server']['only_db']) && strlen($GLOBALS['cfg']['Server']['only_db']) > 0) {
-            $GLOBALS['cfg']['Server']['only_db'] = [
-                $GLOBALS['cfg']['Server']['only_db'],
-            ];
+            $GLOBALS['cfg']['Server']['only_db'] = [$GLOBALS['cfg']['Server']['only_db']];
         }
 
         if (! is_array($GLOBALS['cfg']['Server']['only_db'])) {

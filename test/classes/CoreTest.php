@@ -51,27 +51,8 @@ class CoreTest extends AbstractNetworkTestCase
         $arr = [
             'int' => 1,
             'str' => 'str_val',
-            'arr' => [
-                'val1',
-                'val2',
-                'val3',
-            ],
-            'sarr' => [
-                'arr1' => [
-                    1,
-                    2,
-                    3,
-                ],
-                [
-                    3,
-                    [
-                        'a',
-                        'b',
-                        'c',
-                    ],
-                    4,
-                ],
-            ],
+            'arr' => ['val1', 'val2', 'val3'],
+            'sarr' => ['arr1' => [1, 2, 3], [3, ['a', 'b', 'c'], 4]],
         ];
 
         $this->assertEquals(
@@ -153,27 +134,8 @@ class CoreTest extends AbstractNetworkTestCase
         $arr = [
             'int' => 1,
             'str' => 'str_val',
-            'arr' => [
-                'val1',
-                'val2',
-                'val3',
-            ],
-            'sarr' => [
-                'arr1' => [
-                    1,
-                    2,
-                    3,
-                ],
-                [
-                    3,
-                    [
-                        'a',
-                        'b',
-                        'c',
-                    ],
-                    4,
-                ],
-            ],
+            'arr' => ['val1', 'val2', 'val3'],
+            'sarr' => ['arr1' => [1, 2, 3], [3, ['a', 'b', 'c'], 4]],
         ];
 
         Core::arrayWrite('int', $arr, 5);
@@ -221,27 +183,8 @@ class CoreTest extends AbstractNetworkTestCase
         $arr = [
             'int' => 1,
             'str' => 'str_val',
-            'arr' => [
-                'val1',
-                'val2',
-                'val3',
-            ],
-            'sarr' => [
-                'arr1' => [
-                    1,
-                    2,
-                    3,
-                ],
-                [
-                    3,
-                    [
-                        'a',
-                        'b',
-                        'c',
-                    ],
-                    4,
-                ],
-            ],
+            'arr' => ['val1', 'val2', 'val3'],
+            'sarr' => ['arr1' => [1, 2, 3], [3, ['a', 'b', 'c'], 4]],
         ];
 
         Core::arrayRemove('int', $arr);
@@ -312,54 +255,14 @@ class CoreTest extends AbstractNetworkTestCase
     public static function providerTestGotoNowhere(): array
     {
         return [
-            [
-                '',
-                [],
-                false,
-                false,
-            ],
-            [
-                '',
-                [],
-                true,
-                false,
-            ],
-            [
-                'shell.php',
-                ['index.php'],
-                false,
-                false,
-            ],
-            [
-                'shell.php',
-                ['index.php'],
-                true,
-                false,
-            ],
-            [
-                'index.php?sql.php&test=true',
-                ['index.php'],
-                false,
-                true,
-            ],
-            [
-                'index.php?sql.php&test=true',
-                ['index.php'],
-                true,
-                false,
-            ],
-            [
-                'index.php%3Fsql.php%26test%3Dtrue',
-                ['index.php'],
-                false,
-                true,
-            ],
-            [
-                'index.php%3Fsql.php%26test%3Dtrue',
-                ['index.php'],
-                true,
-                false,
-            ],
+            ['', [], false, false],
+            ['', [], true, false],
+            ['shell.php', ['index.php'], false, false],
+            ['shell.php', ['index.php'], true, false],
+            ['index.php?sql.php&test=true', ['index.php'], false, true],
+            ['index.php?sql.php&test=true', ['index.php'], true, false],
+            ['index.php%3Fsql.php%26test%3Dtrue', ['index.php'], false, true],
+            ['index.php%3Fsql.php%26test%3Dtrue', ['index.php'], true, false],
         ];
     }
 
@@ -386,54 +289,18 @@ class CoreTest extends AbstractNetworkTestCase
     public static function providerTestGetRealSize(): array
     {
         return [
-            [
-                '0',
-                0,
-            ],
-            [
-                '1kb',
-                1024,
-            ],
-            [
-                '1024k',
-                1024 * 1024,
-            ],
-            [
-                '8m',
-                8 * 1024 * 1024,
-            ],
-            [
-                '12gb',
-                12 * 1024 * 1024 * 1024,
-            ],
-            [
-                '1024',
-                1024,
-            ],
-            [
-                '8000m',
-                8 * 1000 * 1024 * 1024,
-            ],
-            [
-                '8G',
-                8 * 1024 * 1024 * 1024,
-            ],
-            [
-                '2048',
-                2048,
-            ],
-            [
-                '2048K',
-                2048 * 1024,
-            ],
-            [
-                '2048K',
-                2048 * 1024,
-            ],
-            [
-                '102400K',
-                102400 * 1024,
-            ],
+            ['0', 0],
+            ['1kb', 1024],
+            ['1024k', 1024 * 1024],
+            ['8m', 8 * 1024 * 1024],
+            ['12gb', 12 * 1024 * 1024 * 1024],
+            ['1024', 1024],
+            ['8000m', 8 * 1000 * 1024 * 1024],
+            ['8G', 8 * 1024 * 1024 * 1024],
+            ['2048', 2048],
+            ['2048K', 2048 * 1024],
+            ['2048K', 2048 * 1024],
+            ['102400K', 102400 * 1024],
         ];
     }
 
@@ -471,22 +338,10 @@ class CoreTest extends AbstractNetworkTestCase
     public static function providerTestLinkURL(): array
     {
         return [
-            [
-                'https://wiki.phpmyadmin.net',
-                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
-            ],
-            [
-                'https://wiki.phpmyadmin.net',
-                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
-            ],
-            [
-                'wiki.phpmyadmin.net',
-                'wiki.phpmyadmin.net',
-            ],
-            [
-                'index.php?db=phpmyadmin',
-                'index.php?db=phpmyadmin',
-            ],
+            ['https://wiki.phpmyadmin.net', 'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net'],
+            ['https://wiki.phpmyadmin.net', 'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net'],
+            ['wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'],
+            ['index.php?db=phpmyadmin', 'index.php?db=phpmyadmin'],
         ];
     }
 
@@ -642,51 +497,20 @@ class CoreTest extends AbstractNetworkTestCase
     public static function provideTestSafeUnserialize(): array
     {
         return [
-            [
-                's:6:"foobar";',
-                'foobar',
-            ],
-            [
-                'foobar',
-                null,
-            ],
-            [
-                'b:0;',
-                false,
-            ],
-            [
-                'O:1:"a":1:{s:5:"value";s:3:"100";}',
-                null,
-            ],
-            [
-                'O:8:"stdClass":1:{s:5:"field";O:8:"stdClass":0:{}}',
-                null,
-            ],
+            ['s:6:"foobar";', 'foobar'],
+            ['foobar', null],
+            ['b:0;', false],
+            ['O:1:"a":1:{s:5:"value";s:3:"100";}', null],
+            ['O:8:"stdClass":1:{s:5:"field";O:8:"stdClass":0:{}}', null],
             [
                 'a:2:{i:0;s:90:"1234567890;a3456789012345678901234567890123456789012'
                 . '34567890123456789012345678901234567890";i:1;O:8:"stdClass":0:{}}',
                 null,
             ],
-            [
-                serialize([1, 2, 3]),
-                [
-                    1,
-                    2,
-                    3,
-                ],
-            ],
-            [
-                serialize('string""'),
-                'string""',
-            ],
-            [
-                serialize(['foo' => 'bar']),
-                ['foo' => 'bar'],
-            ],
-            [
-                serialize(['1', new stdClass(), '2']),
-                null,
-            ],
+            [serialize([1, 2, 3]), [1, 2, 3]],
+            [serialize('string""'), 'string""'],
+            [serialize(['foo' => 'bar']), ['foo' => 'bar']],
+            [serialize(['1', new stdClass(), '2']), null],
         ];
     }
 
@@ -714,22 +538,10 @@ class CoreTest extends AbstractNetworkTestCase
     public static function provideTestSanitizeMySQLHost(): array
     {
         return [
-            [
-                'p:foo.bar',
-                'foo.bar',
-            ],
-            [
-                'p:p:foo.bar',
-                'foo.bar',
-            ],
-            [
-                'bar.baz',
-                'bar.baz',
-            ],
-            [
-                'P:example.com',
-                'example.com',
-            ],
+            ['p:foo.bar', 'foo.bar'],
+            ['p:p:foo.bar', 'foo.bar'],
+            ['bar.baz', 'bar.baz'],
+            ['P:example.com', 'example.com'],
         ];
     }
 
@@ -937,12 +749,7 @@ class CoreTest extends AbstractNetworkTestCase
     /** @return array<int, array<int, array<string, string|mixed[]>>> */
     public static function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
     {
-        return [
-            [[], []],
-            [['eq' => []], []],
-            [['eq' => ''], []],
-            [['eq' => 'invalid'], []],
-        ];
+        return [[[], []], [['eq' => []], []], [['eq' => ''], []], [['eq' => 'invalid'], []]];
     }
 
     /**

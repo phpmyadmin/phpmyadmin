@@ -19,10 +19,7 @@ class SchemaExportControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, 'test_db'],
-            ['export_type', null, 'svg'],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['db', null, 'test_db'], ['export_type', null, 'svg']]);
         $export = $this->createStub(Export::class);
         $export->method('getExportSchemaInfo')->willReturn([
             'fileName' => 'file.svg',

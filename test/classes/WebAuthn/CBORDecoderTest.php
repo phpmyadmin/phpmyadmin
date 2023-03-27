@@ -127,10 +127,7 @@ class CBORDecoderTest extends TestCase
             ],
             [
                 '82a263616c672664747970656a7075626C69632D6B6579a263616c6739010064747970656a7075626C69632D6B6579',
-                [
-                    ['alg' => -7, 'type' => 'public-key'],
-                    ['alg' => -257, 'type' => 'public-key'],
-                ],
+                [['alg' => -7,'type' => 'public-key'], ['alg' => -257,'type' => 'public-key']],
             ],
             [
                 'A501020326200121582065eda5a12577c2bae829437fe338701a10aaa375e1bb5b5de108de439c08551d'

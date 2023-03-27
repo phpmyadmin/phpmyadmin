@@ -685,10 +685,7 @@ abstract class TestBase extends TestCase
         file_put_contents($htmlOutput, $this->webDriver->getPageSource());
         $testInfo = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . $key . '.json';
         file_put_contents($testInfo, json_encode(
-            [
-                'filesKey' => $key,
-                'testName' => $this->getTestName(),
-            ],
+            ['filesKey' => $key, 'testName' => $this->getTestName()],
             JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,
         ));
     }
@@ -1122,10 +1119,7 @@ JS;
         }
 
         $payload = json_encode(
-            [
-                'status' => $status,
-                'reason' => $message,
-            ],
+            ['status' => $status, 'reason' => $message],
         );
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, self::SESSION_REST_URL . $this->sessionId . '.json');

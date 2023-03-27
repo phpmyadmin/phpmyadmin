@@ -147,11 +147,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
 
@@ -333,16 +329,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 1
 
-        $keys = [
-            [
-                'Non_unique' => 0,
-                'Column_name' => 'name1',
-            ],
-            [
-                'Non_unique' => 1,
-                'Column_name' => 'name2',
-            ],
-        ];
+        $keys = [['Non_unique' => 0, 'Column_name' => 'name1'], ['Non_unique' => 1, 'Column_name' => 'name2']];
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -383,16 +370,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->setConstructorArgs([new Relation($GLOBALS['dbi']), new Export($GLOBALS['dbi']), new Transformations()])
             ->getMock();
 
-        $keys = [
-            [
-                'Non_unique' => 0,
-                'Column_name' => 'name1',
-            ],
-            [
-                'Non_unique' => 1,
-                'Column_name' => 'name2',
-            ],
-        ];
+        $keys = [['Non_unique' => 0, 'Column_name' => 'name1'], ['Non_unique' => 1, 'Column_name' => 'name2']];
 
         // case 1
 
@@ -406,13 +384,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
                 [],
-                [
-                    'fieldname' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $dbi->expects($this->once())
@@ -484,19 +456,8 @@ class ExportHtmlwordTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                [
-                    'fieldname' => [
-                        'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield',
-                    ],
-                ],
-                [
-                    'field' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['fieldname' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
+                ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $dbi->expects($this->once())
@@ -741,12 +702,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
 
-        $cols = [
-            'Null' => 'Yes',
-            'Field' => 'field',
-            'Key' => 'PRI',
-            'Type' => 'set(abc)enum123',
-        ];
+        $cols = ['Null' => 'Yes', 'Field' => 'field', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'];
 
         $uniqueKeys = ['field'];
 
@@ -757,13 +713,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             $method->invoke($this->object, $cols, $uniqueKeys),
         );
 
-        $cols = [
-            'Null' => 'NO',
-            'Field' => 'fields',
-            'Key' => 'COMP',
-            'Type' => '',
-            'Default' => 'def',
-        ];
+        $cols = ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'];
 
         $uniqueKeys = ['field'];
 

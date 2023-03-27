@@ -31,31 +31,16 @@ class IndexesTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['urlParams'] = [
-            'db' => 'db',
-            'server' => 1,
-        ];
+        $GLOBALS['urlParams'] = ['db' => 'db', 'server' => 1];
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $indexs = [
-            [
-                'Schema' => 'Schema1',
-                'Key_name' => 'Key_name1',
-                'Column_name' => 'Column_name1',
-            ],
-            [
-                'Schema' => 'Schema2',
-                'Key_name' => 'Key_name2',
-                'Column_name' => 'Column_name2',
-            ],
-            [
-                'Schema' => 'Schema3',
-                'Key_name' => 'Key_name3',
-                'Column_name' => 'Column_name3',
-            ],
+            ['Schema' => 'Schema1', 'Key_name' => 'Key_name1', 'Column_name' => 'Column_name1'],
+            ['Schema' => 'Schema2', 'Key_name' => 'Key_name2', 'Column_name' => 'Column_name2'],
+            ['Schema' => 'Schema3', 'Key_name' => 'Key_name3', 'Column_name' => 'Column_name3'],
         ];
 
         $dbi->expects($this->any())->method('getTableIndexes')

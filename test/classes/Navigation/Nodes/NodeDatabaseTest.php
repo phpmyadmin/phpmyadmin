@@ -33,10 +33,7 @@ class NodeDatabaseTest extends AbstractTestCase
         $parent = new NodeDatabase('default');
         $this->assertEquals(
             [
-                'text' => [
-                    'route' => '/database/structure',
-                    'params' => ['db' => null],
-                ],
+                'text' => ['route' => '/database/structure', 'params' => ['db' => null]],
                 'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
                 'title' => 'Structure',
             ],

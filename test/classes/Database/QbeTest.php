@@ -185,11 +185,7 @@ class QbeTest extends AbstractTestCase
                 $object,
                 Qbe::class,
                 'getIndexes',
-                [
-                    ['`table1`', 'table2'],
-                    ['column1', 'column2', 'column3'],
-                    ['column2'],
-                ],
+                [['`table1`', 'table2'], ['column1', 'column2', 'column3'], ['column2']],
             ),
         );
     }
@@ -207,11 +203,7 @@ class QbeTest extends AbstractTestCase
                 $object,
                 Qbe::class,
                 'getLeftJoinColumnCandidates',
-                [
-                    ['`table1`', 'table2'],
-                    ['column1', 'column2', 'column3'],
-                    ['column2'],
-                ],
+                [['`table1`', 'table2'], ['column1', 'column2', 'column3'], ['column2']],
             ),
         );
     }
@@ -226,12 +218,7 @@ class QbeTest extends AbstractTestCase
                 $object,
                 Qbe::class,
                 'getMasterTable',
-                [
-                    ['table1', 'table2'],
-                    ['column1', 'column2', 'column3'],
-                    ['column2'],
-                    ['qbe_test'],
-                ],
+                [['table1', 'table2'], ['column1', 'column2', 'column3'], ['column2'], ['qbe_test']],
             ),
         );
     }
@@ -240,12 +227,7 @@ class QbeTest extends AbstractTestCase
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
-        $_POST['criteriaColumn'] = [
-            'table1.id',
-            'table1.value',
-            'table1.name',
-            'table1.deleted',
-        ];
+        $_POST['criteriaColumn'] = ['table1.id', 'table1.value', 'table1.name', 'table1.deleted'];
         $this->assertEquals(
             ['where_clause_tables' => [], 'where_clause_columns' => []],
             $this->callFunction($object, Qbe::class, 'getWhereClauseTablesAndColumns', []),
@@ -263,12 +245,7 @@ class QbeTest extends AbstractTestCase
         $dbiDummy->addResult('SHOW CREATE TABLE `pma_test`.`table1`', [[$createTableStatement]]);
         $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
         $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
-        $_POST['criteriaColumn'] = [
-            'table1.id',
-            'table1.value',
-            'table1.name',
-            'table1.deleted',
-        ];
+        $_POST['criteriaColumn'] = ['table1.id', 'table1.value', 'table1.name', 'table1.deleted'];
         $this->assertEquals('`table1`', $this->callFunction($object, Qbe::class, 'getFromClause', [['`table1`.`id`']]));
     }
 
@@ -283,12 +260,7 @@ class QbeTest extends AbstractTestCase
         $dbiDummy->addResult('SHOW CREATE TABLE `pma_test`.`table1`', [[$createTableStatement]]);
         $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
         $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
-        $_POST['criteriaColumn'] = [
-            'table1.id',
-            'table1.value',
-            'table1.name',
-            'table1.deleted',
-        ];
+        $_POST['criteriaColumn'] = ['table1.id', 'table1.value', 'table1.name', 'table1.deleted'];
         $this->assertEquals(
             'FROM `table1`' . "\n",
             $this->callFunction($object, Qbe::class, 'getSQLQuery', [['`table1`.`id`']]),

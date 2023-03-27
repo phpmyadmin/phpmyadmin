@@ -245,26 +245,10 @@ class ThemeTest extends AbstractTestCase
     public static function providerForGetImgPath(): array
     {
         return [
-            [
-                null,
-                null,
-                '',
-            ],
-            [
-                'screen.png',
-                null,
-                './themes/pmahomme/img/screen.png',
-            ],
-            [
-                'arrow_ltr.png',
-                null,
-                './themes/pmahomme/img/arrow_ltr.png',
-            ],
-            [
-                'logo_right.png',
-                'pma_logo.png',
-                './themes/pmahomme/img/pma_logo.png',
-            ],
+            [null, null, ''],
+            ['screen.png', null, './themes/pmahomme/img/screen.png'],
+            ['arrow_ltr.png', null, './themes/pmahomme/img/arrow_ltr.png'],
+            ['logo_right.png', 'pma_logo.png', './themes/pmahomme/img/pma_logo.png'],
         ];
     }
 }

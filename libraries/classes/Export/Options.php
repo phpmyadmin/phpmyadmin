@@ -76,10 +76,7 @@ final class Options
                 $isSelected = true;
             }
 
-            $databases[] = [
-                'name' => $currentDb,
-                'is_selected' => $isSelected,
-            ];
+            $databases[] = ['name' => $currentDb, 'is_selected' => $isSelected];
         }
 
         return $databases;

@@ -271,9 +271,7 @@ abstract class ExportPlugin implements Plugin
         string $tbl = '',
     ): string {
         if ($db !== '' && isset($aliases[$db])) {
-            $aliases = [
-                $db => $aliases[$db],
-            ];
+            $aliases = [$db => $aliases[$db]];
         }
 
         // search each database
@@ -288,9 +286,7 @@ abstract class ExportPlugin implements Plugin
             }
 
             if ($tbl !== '' && isset($db['tables'][$tbl])) {
-                $db['tables'] = [
-                    $tbl => $db['tables'][$tbl],
-                ];
+                $db['tables'] = [$tbl => $db['tables'][$tbl]];
             }
 
             // search each of its tables

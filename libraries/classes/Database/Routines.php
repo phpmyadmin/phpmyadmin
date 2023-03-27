@@ -343,10 +343,7 @@ class Routines
                 $errors = $this->checkResult($createRoutine, $errors);
             }
 
-            return [
-                $errors,
-                null,
-            ];
+            return [$errors, null];
         }
 
         // Default value
@@ -373,10 +370,7 @@ class Routines
 
         $message = $this->flushPrivileges($resultAdjust);
 
-        return [
-            [],
-            $message,
-        ];
+        return [[], $message];
     }
 
     /**

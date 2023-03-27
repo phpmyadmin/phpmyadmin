@@ -37,12 +37,7 @@ class Types
      */
     public function getUnaryOperators(): array
     {
-        return [
-            'IS NULL',
-            'IS NOT NULL',
-            "= ''",
-            "!= ''",
-        ];
+        return ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"];
     }
 
     /**
@@ -62,10 +57,7 @@ class Types
      */
     public function getNullOperators(): array
     {
-        return [
-            'IS NULL',
-            'IS NOT NULL',
-        ];
+        return ['IS NULL', 'IS NOT NULL'];
     }
 
     /**
@@ -75,10 +67,7 @@ class Types
      */
     public function getEnumOperators(): array
     {
-        return [
-            '=',
-            '!=',
-        ];
+        return ['=', '!='];
     }
 
     /**
@@ -139,16 +128,7 @@ class Types
      */
     public function getUUIDOperators(): array
     {
-        return [
-            '=',
-            '!=',
-            'LIKE',
-            'LIKE %...%',
-            'NOT LIKE',
-            'NOT LIKE %...%',
-            'IN (...)',
-            'NOT IN (...)',
-        ];
+        return ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'];
     }
 
     /**
@@ -640,13 +620,7 @@ class Types
     {
         $serverVersion = $this->dbi->getVersion();
 
-        $attributes = [
-            '',
-            'BINARY',
-            'UNSIGNED',
-            'UNSIGNED ZEROFILL',
-            'on update CURRENT_TIMESTAMP',
-        ];
+        $attributes = ['', 'BINARY', 'UNSIGNED', 'UNSIGNED ZEROFILL', 'on update CURRENT_TIMESTAMP'];
 
         if (Compatibility::supportsCompressedColumns($serverVersion)) {
             $attributes[] = 'COMPRESSED=zlib';
@@ -670,12 +644,7 @@ class Types
         $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         // most used types
-        $ret = [
-            'INT',
-            'VARCHAR',
-            'TEXT',
-            'DATE',
-        ];
+        $ret = ['INT', 'VARCHAR', 'TEXT', 'DATE'];
 
         if ($isUUIDSupported) {
             $ret[] = 'UUID';
@@ -700,13 +669,7 @@ class Types
         ];
 
         // Date/Time
-        $ret[_pgettext('date and time types', 'Date and time')] = [
-            'DATE',
-            'DATETIME',
-            'TIMESTAMP',
-            'TIME',
-            'YEAR',
-        ];
+        $ret[_pgettext('date and time types', 'Date and time')] = ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'];
 
         // Text
         $stringTypes = [
@@ -765,13 +728,7 @@ class Types
      */
     public function getIntegerTypes(): array
     {
-        return [
-            'tinyint',
-            'smallint',
-            'mediumint',
-            'int',
-            'bigint',
-        ];
+        return ['tinyint', 'smallint', 'mediumint', 'int', 'bigint'];
     }
 
     /**
@@ -781,12 +738,7 @@ class Types
      */
     public function getFloatTypes(): array
     {
-        return [
-            'decimal',
-            'float',
-            'double',
-            'real',
-        ];
+        return ['decimal', 'float', 'double', 'real'];
     }
 
     /**
@@ -801,57 +753,24 @@ class Types
     {
         $minMaxData = [
             'unsigned' => [
-                'tinyint' => [
-                    '0',
-                    '255',
-                ],
-                'smallint' => [
-                    '0',
-                    '65535',
-                ],
-                'mediumint' => [
-                    '0',
-                    '16777215',
-                ],
-                'int' => [
-                    '0',
-                    '4294967295',
-                ],
-                'bigint' => [
-                    '0',
-                    '18446744073709551615',
-                ],
+                'tinyint' => ['0', '255'],
+                'smallint' => ['0', '65535'],
+                'mediumint' => ['0', '16777215'],
+                'int' => ['0', '4294967295'],
+                'bigint' => ['0', '18446744073709551615'],
             ],
             'signed' => [
-                'tinyint' => [
-                    '-128',
-                    '127',
-                ],
-                'smallint' => [
-                    '-32768',
-                    '32767',
-                ],
-                'mediumint' => [
-                    '-8388608',
-                    '8388607',
-                ],
-                'int' => [
-                    '-2147483648',
-                    '2147483647',
-                ],
-                'bigint' => [
-                    '-9223372036854775808',
-                    '9223372036854775807',
-                ],
+                'tinyint' => ['-128', '127'],
+                'smallint' => ['-32768', '32767'],
+                'mediumint' => ['-8388608', '8388607'],
+                'int' => ['-2147483648', '2147483647'],
+                'bigint' => ['-9223372036854775808', '9223372036854775807'],
             ],
         ];
         $relevantArray = $signed
             ? $minMaxData['signed']
             : $minMaxData['unsigned'];
 
-        return $relevantArray[$type] ?? [
-            '',
-            '',
-        ];
+        return $relevantArray[$type] ?? ['', ''];
     }
 }

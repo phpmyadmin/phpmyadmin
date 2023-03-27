@@ -76,9 +76,6 @@ final class AnalyzeController extends AbstractController
             'success',
         );
 
-        $this->render('table/maintenance/analyze', [
-            'message' => $message,
-            'rows' => $rows,
-        ]);
+        $this->render('table/maintenance/analyze', ['message' => $message, 'rows' => $rows]);
     }
 }

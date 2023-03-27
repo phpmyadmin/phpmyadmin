@@ -34,10 +34,7 @@ class OpenDocumentTest extends AbstractTestCase
             'data' => 'application/vnd.oasis.opendocument.text',
         ], $zipExtension->getContents($tmpFile));
 
-        $this->assertSame([
-            'error' => '',
-            'data' => '<data>',
-        ], $zipExtension->getContents($tmpFile, '/content\.xml/'));
+        $this->assertSame(['error' => '', 'data' => '<data>'], $zipExtension->getContents($tmpFile, '/content\.xml/'));
 
         $dateTimeCreation = (new DateTime())->format('Y-m-d\TH:i');
         $this->assertStringContainsString(

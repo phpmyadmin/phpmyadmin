@@ -38,16 +38,8 @@ class SqlQueryFormTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dummyDbi->addResult(
             'SHOW FULL COLUMNS FROM `PMA_db`.`PMA_table`',
-            [
-                [
-                    'field1',
-                    'Comment1',
-                ],
-            ],
-            [
-                'Field',
-                'Comment',
-            ],
+            [['field1', 'Comment1']],
+            ['Field', 'Comment'],
         );
 
         $this->dummyDbi->addResult(

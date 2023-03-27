@@ -96,22 +96,12 @@ class ExportTest extends TestBase
     public function exportDataProvider(): array
     {
         return [
-            [
-                'CSV',
-                ['"1","2"'],
-            ],
+            ['CSV', ['"1","2"']],
             [
                 'SQL',
-                [
-                    'CREATE TABLE IF NOT EXISTS `test_table`',
-                    'INSERT INTO `test_table` (`id`, `val`) VALUES',
-                    '(1, 2)',
-                ],
+                ['CREATE TABLE IF NOT EXISTS `test_table`', 'INSERT INTO `test_table` (`id`, `val`) VALUES', '(1, 2)'],
             ],
-            [
-                'JSON',
-                ['{"id":"1","val":"2"}'],
-            ],
+            ['JSON', ['{"id":"1","val":"2"}']],
         ];
     }
 

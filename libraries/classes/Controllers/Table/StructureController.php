@@ -356,10 +356,7 @@ class StructureController extends AbstractController
             $GLOBALS['tbl_collation'],
         );
         if ($collation !== null) {
-            $tableCollation = [
-                'name' => $collation->getName(),
-                'description' => $collation->getDescription(),
-            ];
+            $tableCollation = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
         }
 
         if (isset($GLOBALS['showtable']['Create_time'])) {

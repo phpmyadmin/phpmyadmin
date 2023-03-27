@@ -34,24 +34,7 @@ class SysInfoTest extends AbstractTestCase
      */
     public static function sysInfoOsProvider(): array
     {
-        return [
-            [
-                'FreeBSD',
-                'Linux',
-            ],
-            [
-                'Linux',
-                'Linux',
-            ],
-            [
-                'Winnt',
-                'Winnt',
-            ],
-            [
-                'SunOS',
-                'SunOS',
-            ],
-        ];
+        return [['FreeBSD', 'Linux'], ['Linux', 'Linux'], ['Winnt', 'Winnt'], ['SunOS', 'SunOS']];
     }
 
     /**

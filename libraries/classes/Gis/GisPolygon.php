@@ -206,10 +206,7 @@ class GisPolygon extends GisGeometry
     {
         $color[] = 0.8;
         $fillStyle = ['color' => $color];
-        $strokeStyle = [
-            'color' => [0, 0, 0],
-            'width' => 0.5,
-        ];
+        $strokeStyle = ['color' => [0, 0, 0], 'width' => 0.5];
         $style = 'new ol.style.Style({'
             . 'fill: new ol.style.Fill(' . json_encode($fillStyle) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
@@ -479,10 +476,7 @@ class GisPolygon extends GisGeometry
             $noOfPoints = count($points);
             $coords[$j] = ['no_of_points' => $noOfPoints];
             for ($i = 0; $i < $noOfPoints; $i++) {
-                $coords[$j][$i] = [
-                    'x' => $points[$i][0],
-                    'y' => $points[$i][1],
-                ];
+                $coords[$j][$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];
             }
         }
 

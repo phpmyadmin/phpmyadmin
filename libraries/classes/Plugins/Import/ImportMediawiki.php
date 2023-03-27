@@ -224,11 +224,7 @@ class ImportMediawiki extends ImportPlugin
 
                     // No more processing required at the end of the table
                     if (mb_substr($curBufferLine, 0, 2) === '|}') {
-                        $currentTable = [
-                            $curTableName,
-                            $curTempTableHeaders,
-                            $curTempTable,
-                        ];
+                        $currentTable = [$curTableName, $curTempTableHeaders, $curTempTable];
 
                         // Import the current table data into the database
                         $this->importDataOneTable($currentTable, $sqlStatements);
@@ -305,11 +301,7 @@ class ImportMediawiki extends ImportPlugin
 
             // Create the tables array to be used in Import::buildSql()
             $tables = [];
-            $tables[] = [
-                $table[0],
-                $table[1],
-                $table[2],
-            ];
+            $tables[] = [$table[0], $table[1], $table[2]];
 
             // Obtain the best-fit MySQL types for each column
             $analyses = [];

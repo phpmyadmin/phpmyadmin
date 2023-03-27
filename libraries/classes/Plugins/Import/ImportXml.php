@@ -249,11 +249,7 @@ class ImportXml extends ImportPlugin
                     $tempCells[] = (string) $v2;
                 }
 
-                $rows[] = [
-                    (string) $tblAttr['name'],
-                    $tempRow,
-                    $tempCells,
-                ];
+                $rows[] = [(string) $tblAttr['name'], $tempRow, $tempCells];
 
                 $tempRow = [];
                 $tempCells = [];
@@ -317,10 +313,7 @@ class ImportXml extends ImportPlugin
             $options = null;
         } else {
             /* Set database collation/charset */
-            $options = [
-                'db_collation' => $collation,
-                'db_charset' => $charset,
-            ];
+            $options = ['db_collation' => $collation, 'db_charset' => $charset];
         }
 
         $createDb = $GLOBALS['db'] === '';

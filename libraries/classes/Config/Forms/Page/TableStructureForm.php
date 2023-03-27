@@ -15,8 +15,6 @@ class TableStructureForm extends BaseForm
     /** @return array */
     public static function getForms(): array
     {
-        return [
-            'TableStructure' => MainForm::getForms()['TableStructure'],
-        ];
+        return ['TableStructure' => MainForm::getForms()['TableStructure']];
     }
 }

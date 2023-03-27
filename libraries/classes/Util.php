@@ -336,10 +336,7 @@ class Util
             $returnValue = self::formatNumber($value, 0);
         }
 
-        return [
-            trim($returnValue),
-            $unit,
-        ];
+        return [trim($returnValue), $unit];
     }
 
     /**
@@ -820,11 +817,7 @@ class Util
 
         $whereClause = trim((string) preg_replace('|\s?AND$|', '', $preferredCondition));
 
-        return [
-            $whereClause,
-            $clauseIsUnique,
-            $conditionArray,
-        ];
+        return [$whereClause, $clauseIsUnique, $conditionArray];
     }
 
     /**
@@ -1886,12 +1879,7 @@ class Util
             $indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
         }
 
-        return [
-            $primary,
-            $pkArray,
-            $indexesInfo,
-            $indexesData,
-        ];
+        return [$primary, $pkArray, $indexesInfo, $indexesData];
     }
 
     /**
@@ -2256,18 +2244,12 @@ class Util
                 $orderImg = ' ' . Generator::getImage(
                     's_asc',
                     __('Ascending'),
-                    [
-                        'class' => 'sort_arrow',
-                        'title' => '',
-                    ],
+                    ['class' => 'sort_arrow', 'title' => ''],
                 );
                 $orderImg .= ' ' . Generator::getImage(
                     's_desc',
                     __('Descending'),
-                    [
-                        'class' => 'sort_arrow hide',
-                        'title' => '',
-                    ],
+                    ['class' => 'sort_arrow hide', 'title' => ''],
                 );
                 // but on mouse over, show the reverse order (DESC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
@@ -2279,18 +2261,12 @@ class Util
                 $orderImg = ' ' . Generator::getImage(
                     's_asc',
                     __('Ascending'),
-                    [
-                        'class' => 'sort_arrow hide',
-                        'title' => '',
-                    ],
+                    ['class' => 'sort_arrow hide', 'title' => ''],
                 );
                 $orderImg .= ' ' . Generator::getImage(
                     's_desc',
                     __('Descending'),
-                    [
-                        'class' => 'sort_arrow',
-                        'title' => '',
-                    ],
+                    ['class' => 'sort_arrow', 'title' => ''],
                 );
                 // but on mouse over, show the reverse order (ASC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
@@ -2347,10 +2323,7 @@ class Util
                     continue;
                 }
 
-                [
-                    $keyName,
-                    $value,
-                ] = $keyValueArray;
+                [$keyName, $value] = $keyValueArray;
                 $value = trim(strtolower($value));
                 if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
                     return $value;

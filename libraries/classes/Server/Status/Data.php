@@ -177,31 +177,19 @@ class Data
         ];
         $links['table'][__('Show open tables')] = [
             'url' => Url::getFromRoute('/sql'),
-            'params' => Url::getCommon([
-                'sql_query' => 'SHOW OPEN TABLES',
-                'goto' => $selfUrl,
-            ], ''),
+            'params' => Url::getCommon(['sql_query' => 'SHOW OPEN TABLES', 'goto' => $selfUrl], ''),
         ];
 
         if ($primaryInfo['status']) {
             $links['repl'][__('Show replica hosts')] = [
                 'url' => Url::getFromRoute('/sql'),
-                'params' => Url::getCommon([
-                    'sql_query' => 'SHOW SLAVE HOSTS',
-                    'goto' => $selfUrl,
-                ], ''),
+                'params' => Url::getCommon(['sql_query' => 'SHOW SLAVE HOSTS', 'goto' => $selfUrl], ''),
             ];
-            $links['repl'][__('Show primary status')] = [
-                'url' => '#replication_primary',
-                'params' => '',
-            ];
+            $links['repl'][__('Show primary status')] = ['url' => '#replication_primary', 'params' => ''];
         }
 
         if ($replicaInfo['status']) {
-            $links['repl'][__('Show replica status')] = [
-                'url' => '#replication_replica',
-                'params' => '',
-            ];
+            $links['repl'][__('Show replica status')] = ['url' => '#replication_replica', 'params' => ''];
         }
 
         $links['repl']['doc'] = 'replication';
@@ -220,10 +208,7 @@ class Data
 
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
-        $links['innodb'][__('Variables')] = [
-            'url' => Url::getFromRoute('/server/engines/InnoDB'),
-            'params' => '',
-        ];
+        $links['innodb'][__('Variables')] = ['url' => Url::getFromRoute('/server/engines/InnoDB'), 'params' => ''];
         $links['innodb'][__('InnoDB Status')] = [
             'url' => Url::getFromRoute('/server/engines/InnoDB/Status'),
             'params' => '',
@@ -337,11 +322,7 @@ class Data
             $sectionUsed['other'] = true;
         }
 
-        return [
-            $allocationMap,
-            $sectionUsed,
-            $usedQueries,
-        ];
+        return [$allocationMap, $sectionUsed, $usedQueries];
     }
 
     public function __construct(private DatabaseInterface $dbi, private Config $config)

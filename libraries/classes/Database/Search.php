@@ -231,11 +231,7 @@ class Search
             $resultCount = (int) $this->dbi->fetchValue($newSearchSqls['select_count']);
             $resultTotal += $resultCount;
             // Gets the result row's HTML for a table
-            $rows[] = [
-                'table' => $eachTable,
-                'new_search_sqls' => $newSearchSqls,
-                'result_count' => $resultCount,
-            ];
+            $rows[] = ['table' => $eachTable, 'new_search_sqls' => $newSearchSqls, 'result_count' => $resultCount];
         }
 
         return $this->template->render('database/search/results', [

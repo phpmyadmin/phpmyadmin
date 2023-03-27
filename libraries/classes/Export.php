@@ -318,10 +318,7 @@ class Export
             $mediaType = 'application/zip';
         }
 
-        return [
-            $filename,
-            $mediaType,
-        ];
+        return [$filename, $mediaType];
     }
 
     /**
@@ -437,11 +434,7 @@ class Export
             }
         }
 
-        return [
-            $saveFilename,
-            $message,
-            $fileHandle,
-        ];
+        return [$saveFilename, $message, $fileHandle];
     }
 
     /**

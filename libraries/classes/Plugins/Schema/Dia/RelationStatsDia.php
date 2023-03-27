@@ -78,18 +78,10 @@ class RelationStatsDia
         // left, right, position
         $value = 12;
         if ($pos != 0) {
-            return [
-                $pos + $value + $pos,
-                $pos + $value + $pos + 1,
-                $pos,
-            ];
+            return [$pos + $value + $pos, $pos + $value + $pos + 1, $pos];
         }
 
-        return [
-            $pos + $value,
-            $pos + $value + 1,
-            $pos,
-        ];
+        return [$pos + $value, $pos + $value + 1, $pos];
     }
 
     /**
@@ -121,11 +113,7 @@ class RelationStatsDia
         }
 
         if ($showColor) {
-            $listOfColors = [
-                'FF0000',
-                '000099',
-                '00FF00',
-            ];
+            $listOfColors = ['FF0000', '000099', '00FF00'];
             shuffle($listOfColors);
             $this->referenceColor = '#' . $listOfColors[0];
         } else {

@@ -131,10 +131,7 @@ class GisMultiPoint extends GisGeometry
         array $scaleData,
         TCPDF $pdf,
     ): TCPDF {
-        $line = [
-            'width' => 1.25,
-            'color' => $color,
-        ];
+        $line = ['width' => 1.25, 'color' => $color];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -220,10 +217,7 @@ class GisMultiPoint extends GisGeometry
         array $color,
     ): string {
         $fillStyle = ['color' => 'white'];
-        $strokeStyle = [
-            'color' => $color,
-            'width' => 2,
-        ];
+        $strokeStyle = ['color' => $color, 'width' => 2];
         $style = 'new ol.style.Style({'
             . 'image: new ol.style.Circle({'
             . 'fill: new ol.style.Fill(' . json_encode($fillStyle) . '),'
@@ -231,10 +225,7 @@ class GisMultiPoint extends GisGeometry
             . 'radius: 3'
             . '})';
         if ($label !== '') {
-            $textStyle = [
-                'text' => $label,
-                'offsetY' => -9,
-            ];
+            $textStyle = ['text' => $label, 'offsetY' => -9];
             $style .= ',text: new ol.style.Text(' . json_encode($textStyle) . ')';
         }
 
@@ -318,10 +309,7 @@ class GisMultiPoint extends GisGeometry
         $noOfPoints = count($points);
         $coords = ['no_of_points' => $noOfPoints];
         for ($i = 0; $i < $noOfPoints; $i++) {
-            $coords[$i] = [
-                'x' => $points[$i][0],
-                'y' => $points[$i][1],
-            ];
+            $coords[$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];
         }
 
         return $coords;

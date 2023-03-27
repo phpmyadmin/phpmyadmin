@@ -36,9 +36,7 @@ class FirstStepControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['normalizeTo', null, $normalizeTo],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['normalizeTo', null, $normalizeTo]]);
 
         $controller = new FirstStepController(
             $response,
@@ -69,13 +67,6 @@ class FirstStepControllerTest extends AbstractTestCase
     /** @return array<int, array{string|null, '1nf'|'2nf'|'3nf'}> */
     public static function providerForTestDefault(): iterable
     {
-        return [
-            [null, '1nf'],
-            ['', '1nf'],
-            ['invalid', '1nf'],
-            ['1nf', '1nf'],
-            ['2nf', '2nf'],
-            ['3nf', '3nf'],
-        ];
+        return [[null, '1nf'], ['', '1nf'], ['invalid', '1nf'], ['1nf', '1nf'], ['2nf', '2nf'], ['3nf', '3nf']];
     }
 }
