@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-03-25 02:11+0000\n"
+"PO-Revision-Date: 2023-03-27 04:38+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -150,7 +150,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries е подесено на 'ИСКЛУЧЕНО'"
 
 #: libraries/advisory_rules_generic.php:98
 msgid ""
@@ -766,9 +766,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:542
-#, fuzzy
 msgid "Percentage of aborted connections"
-msgstr "Конекции"
+msgstr "Процентажа на прекинати конекции"
 
 #: libraries/advisory_rules_generic.php:545
 #: libraries/advisory_rules_generic.php:559
@@ -789,9 +788,8 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:556
-#, fuzzy
 msgid "Rate of aborted connections"
-msgstr "Конекции"
+msgstr "Рата на прекинати конекции"
 
 #: libraries/advisory_rules_generic.php:565
 #, php-format
