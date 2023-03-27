@@ -3867,7 +3867,7 @@
       <code><![CDATA[$columnHashArray[$column['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['displayQuery']]]></code>
+      <code><![CDATA[$GLOBALS['display_query']]]></code>
       <code><![CDATA[$columnArray[$column['Field']]]]></code>
       <code>$existrelForeign</code>
       <code>$foreignDb</code>

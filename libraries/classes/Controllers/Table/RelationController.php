@@ -281,7 +281,7 @@ final class RelationController extends AbstractController
             return;
         }
 
-        $GLOBALS['displayQuery'] = $displayQuery;
+        $GLOBALS['display_query'] = $displayQuery;
         $this->response->addHTML(
             Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
