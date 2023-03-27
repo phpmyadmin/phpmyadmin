@@ -46,9 +46,9 @@ class UserGroups
         $userGroupSpecialChars = htmlspecialchars($userGroup);
         $usersTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->users);
-        $sql_query = 'SELECT `username` FROM ' . $usersTable
+        $sqlQuery = 'SELECT `username` FROM ' . $usersTable
             . ' WHERE `usergroup`=' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL);
-        $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
+        $result = $GLOBALS['dbi']->tryQueryAsControlUser($sqlQuery);
         if ($result) {
             $i = 0;
             while ($row = $result->fetchRow()) {
@@ -77,14 +77,14 @@ class UserGroups
     {
         $groupTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
-        $sql_query = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
-        $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
+        $sqlQuery = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
+        $result = $GLOBALS['dbi']->tryQueryAsControlUser($sqlQuery);
         $userGroups = [];
         $userGroupsValues = [];
         $action = Url::getFromRoute('/server/privileges');
-        $hidden_inputs = null;
+        $hiddenInputs = null;
         if ($result && $result->numRows()) {
-            $hidden_inputs = Url::getHiddenInputs();
+            $hiddenInputs = Url::getHiddenInputs();
             foreach ($result as $row) {
                 $groupName = $row['usergroup'];
                 if (! isset($userGroups[$groupName])) {
@@ -130,7 +130,7 @@ class UserGroups
 
         return $template->render('server/user_groups/user_groups', [
             'action' => $action,
-            'hidden_inputs' => $hidden_inputs ?? '',
+            'hidden_inputs' => $hiddenInputs ?? '',
             'has_rows' => $userGroups !== [],
             'user_groups_values' => $userGroupsValues,
             'add_user_url' => $addUserUrl,
@@ -218,9 +218,9 @@ class UserGroups
         if ($userGroup !== null) {
             $groupTable = Util::backquote($configurableMenusFeature->database)
                 . '.' . Util::backquote($configurableMenusFeature->userGroups);
-            $sql_query = 'SELECT * FROM ' . $groupTable
+            $sqlQuery = 'SELECT * FROM ' . $groupTable
                 . ' WHERE `usergroup`=' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL);
-            $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
+            $result = $GLOBALS['dbi']->tryQueryAsControlUser($sqlQuery);
             if ($result) {
                 foreach ($result as $row) {
                     $key = $row['tab'];
@@ -312,12 +312,12 @@ class UserGroups
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
 
         if (! $new) {
-            $sql_query = 'DELETE FROM ' . $groupTable
+            $sqlQuery = 'DELETE FROM ' . $groupTable
                 . ' WHERE `usergroup`=' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL) . ';';
-            $GLOBALS['dbi']->queryAsControlUser($sql_query);
+            $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
         }
 
-        $sql_query = 'INSERT INTO ' . $groupTable
+        $sqlQuery = 'INSERT INTO ' . $groupTable
             . '(`usergroup`, `tab`, `allowed`)'
             . ' VALUES ';
         $first = true;
@@ -325,19 +325,19 @@ class UserGroups
         foreach ($tabs as $tabGroupName => $tabGroup) {
             foreach (array_keys($tabGroup) as $tab) {
                 if (! $first) {
-                    $sql_query .= ', ';
+                    $sqlQuery .= ', ';
                 }
 
                 $tabName = $tabGroupName . '_' . $tab;
                 $allowed = isset($_POST[$tabName]) && $_POST[$tabName] === 'Y';
-                $sql_query .= '(' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL)
+                $sqlQuery .= '(' . $GLOBALS['dbi']->quoteString($userGroup, Connection::TYPE_CONTROL)
                     . ', ' . $GLOBALS['dbi']->quoteString($tabName, Connection::TYPE_CONTROL) . ", '"
                     . ($allowed ? 'Y' : 'N') . "')";
                 $first = false;
             }
         }
 
-        $sql_query .= ';';
-        $GLOBALS['dbi']->queryAsControlUser($sql_query);
+        $sqlQuery .= ';';
+        $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
     }
 }

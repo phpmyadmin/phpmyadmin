@@ -58,21 +58,21 @@ class AuthenticationHttp extends AuthenticationPlugin
     {
         if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
             if (empty($GLOBALS['cfg']['Server']['verbose'])) {
-                $server_message = $GLOBALS['cfg']['Server']['host'];
+                $serverMessage = $GLOBALS['cfg']['Server']['host'];
             } else {
-                $server_message = $GLOBALS['cfg']['Server']['verbose'];
+                $serverMessage = $GLOBALS['cfg']['Server']['verbose'];
             }
 
-            $realm_message = 'phpMyAdmin ' . $server_message;
+            $realmMessage = 'phpMyAdmin ' . $serverMessage;
         } else {
-            $realm_message = $GLOBALS['cfg']['Server']['auth_http_realm'];
+            $realmMessage = $GLOBALS['cfg']['Server']['auth_http_realm'];
         }
 
         $response = ResponseRenderer::getInstance();
 
         // remove non US-ASCII to respect RFC2616
-        $realm_message = preg_replace('/[^\x20-\x7e]/i', '', $realm_message);
-        $response->header('WWW-Authenticate: Basic realm="' . $realm_message . '"');
+        $realmMessage = preg_replace('/[^\x20-\x7e]/i', '', $realmMessage);
+        $response->header('WWW-Authenticate: Basic realm="' . $realmMessage . '"');
         $response->setHttpResponseCode(401);
 
         /* HTML header */
@@ -156,26 +156,26 @@ class AuthenticationHttp extends AuthenticationPlugin
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
         // (do not use explode() because a user might have a colon in their password
         if (strcmp(substr($this->user, 0, 6), 'Basic ') == 0) {
-            $usr_pass = base64_decode(substr($this->user, 6));
-            if (! empty($usr_pass)) {
-                $colon = strpos($usr_pass, ':');
+            $userPass = base64_decode(substr($this->user, 6));
+            if (! empty($userPass)) {
+                $colon = strpos($userPass, ':');
                 if ($colon) {
-                    $this->user = substr($usr_pass, 0, $colon);
-                    $this->password = substr($usr_pass, $colon + 1);
+                    $this->user = substr($userPass, 0, $colon);
+                    $this->password = substr($userPass, $colon + 1);
                 }
 
                 unset($colon);
             }
 
-            unset($usr_pass);
+            unset($userPass);
         }
 
         // sanitize username
         $this->user = Core::sanitizeMySQLUser($this->user);
 
         // User logged out -> ensure the new username is not the same
-        $old_usr = $_REQUEST['old_usr'] ?? '';
-        if (! empty($old_usr) && hash_equals($old_usr, $this->user)) {
+        $oldUser = $_REQUEST['old_usr'] ?? '';
+        if (! empty($oldUser) && hash_equals($oldUser, $this->user)) {
             $this->user = '';
         }
 

@@ -224,18 +224,18 @@ class Routing
             $pmaPhpSelf = urldecode(Core::getenv('REQUEST_URI'));
         }
 
-        $_PATH_INFO = Core::getenv('PATH_INFO');
-        if ($_PATH_INFO !== '' && $pmaPhpSelf !== '') {
-            $question_pos = mb_strpos($pmaPhpSelf, '?');
-            if ($question_pos != false) {
-                $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $question_pos);
+        $pathInfo = Core::getenv('PATH_INFO');
+        if ($pathInfo !== '' && $pmaPhpSelf !== '') {
+            $questionPos = mb_strpos($pmaPhpSelf, '?');
+            if ($questionPos != false) {
+                $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $questionPos);
             }
 
-            $path_info_pos = mb_strrpos($pmaPhpSelf, $_PATH_INFO);
-            if ($path_info_pos !== false) {
-                $path_info_part = mb_substr($pmaPhpSelf, $path_info_pos, mb_strlen($_PATH_INFO));
-                if ($path_info_part === $_PATH_INFO) {
-                    $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $path_info_pos);
+            $pathInfoPos = mb_strrpos($pmaPhpSelf, $pathInfo);
+            if ($pathInfoPos !== false) {
+                $pathInfoPart = mb_substr($pmaPhpSelf, $pathInfoPos, mb_strlen($pathInfo));
+                if ($pathInfoPart === $pathInfo) {
+                    $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $pathInfoPos);
                 }
             }
         }

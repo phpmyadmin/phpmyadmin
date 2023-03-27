@@ -2172,7 +2172,7 @@ class ExportSql extends ExportPlugin
         }
 
         //\x08\\x09, not required
-        $current_row = 0;
+        $currentRow = 0;
         $querySize = 0;
         if (
             ($GLOBALS['sql_insert_syntax'] === 'extended'
@@ -2187,7 +2187,7 @@ class ExportSql extends ExportPlugin
         }
 
         while ($row = $result->fetchRow()) {
-            if ($current_row === 0) {
+            if ($currentRow === 0) {
                 $head = $this->possibleCRLF()
                     . $this->exportComment()
                     . $this->exportComment(
@@ -2203,7 +2203,7 @@ class ExportSql extends ExportPlugin
 
             // We need to SET IDENTITY_INSERT ON for MSSQL
             if (
-                $current_row === 0
+                $currentRow === 0
                 && isset($GLOBALS['sql_compatibility'])
                 && $GLOBALS['sql_compatibility'] === 'MSSQL'
             ) {
@@ -2222,7 +2222,7 @@ class ExportSql extends ExportPlugin
                 }
             }
 
-            $current_row++;
+            $currentRow++;
             $values = [];
             foreach ($fieldsMeta as $j => $metaInfo) {
                 // NULL
@@ -2292,7 +2292,7 @@ class ExportSql extends ExportPlugin
                 unset($tmpUniqueCondition);
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {
                 // Extended inserts case
-                if ($current_row === 1) {
+                if ($currentRow === 1) {
                     $insertLine = $schemaInsert . '('
                         . implode(', ', $values) . ')';
                 } else {
@@ -2305,7 +2305,7 @@ class ExportSql extends ExportPlugin
                         }
 
                         $querySize = 0;
-                        $current_row = 1;
+                        $currentRow = 1;
                         $insertLine = $schemaInsert . $insertLine;
                     }
                 }
@@ -2316,12 +2316,12 @@ class ExportSql extends ExportPlugin
                 $insertLine = $schemaInsert . '(' . implode(', ', $values) . ')';
             }
 
-            if (! $this->export->outputHandler(($current_row === 1 ? '' : $separator . "\n") . $insertLine)) {
+            if (! $this->export->outputHandler(($currentRow === 1 ? '' : $separator . "\n") . $insertLine)) {
                 return false;
             }
         }
 
-        if ($current_row > 0) {
+        if ($currentRow > 0) {
             if (! $this->export->outputHandler(';' . "\n")) {
                 return false;
             }
@@ -2331,7 +2331,7 @@ class ExportSql extends ExportPlugin
         if (
             isset($GLOBALS['sql_compatibility'])
             && $GLOBALS['sql_compatibility'] === 'MSSQL'
-            && $current_row > 0
+            && $currentRow > 0
         ) {
             $outputSucceeded = $this->export->outputHandler(
                 "\n" . 'SET IDENTITY_INSERT '

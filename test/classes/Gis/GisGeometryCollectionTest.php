@@ -35,30 +35,30 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisGeometryCollection::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisGeometryCollection::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -353,11 +353,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsPdf
      *
-     * @param string $spatial    string to parse
-     * @param string $label      field label
-     * @param int[]  $color      line color
-     * @param array  $scale_data scaling parameters
-     * @param TCPDF  $pdf        expected output
+     * @param string $spatial   string to parse
+     * @param string $label     field label
+     * @param int[]  $color     line color
+     * @param array  $scaleData scaling parameters
+     * @param TCPDF  $pdf       expected output
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -365,11 +365,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisGeometryCollection::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/geometrycollection-expected.pdf';
         $fileActual = $this->testDir . '/geometrycollection-actual.pdf';

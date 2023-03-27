@@ -260,17 +260,17 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Test error formatting
      *
-     * @param int    $error_number  Error code
-     * @param string $error_message Error message as returned by server
-     * @param string $match         Expected text
+     * @param int    $errorNumber  Error code
+     * @param string $errorMessage Error message as returned by server
+     * @param string $match        Expected text
      *
      * @dataProvider errorData
      */
-    public function testFormatError(int $error_number, string $error_message, string $match): void
+    public function testFormatError(int $errorNumber, string $errorMessage, string $match): void
     {
         $this->assertStringContainsString(
             $match,
-            Utilities::formatError($error_number, $error_message),
+            Utilities::formatError($errorNumber, $errorMessage),
         );
     }
 
@@ -374,11 +374,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testVersion(string $version, int $expected, int $major, bool $upgrade): void
     {
-        $ver_int = Utilities::versionToInt($version);
-        $this->assertEquals($expected, $ver_int);
-        $this->assertEquals($major, (int) ($ver_int / 10000));
+        $verInt = Utilities::versionToInt($version);
+        $this->assertEquals($expected, $verInt);
+        $this->assertEquals($major, (int) ($verInt / 10000));
         $mysqlMinVersion = 50500;
-        $this->assertEquals($upgrade, $ver_int < $mysqlMinVersion);
+        $this->assertEquals($upgrade, $verInt < $mysqlMinVersion);
     }
 
     public static function versionData(): array

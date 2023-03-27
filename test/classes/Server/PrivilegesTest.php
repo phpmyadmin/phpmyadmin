@@ -59,13 +59,13 @@ class PrivilegesTest extends AbstractTestCase
             $dbname,
             $tablename,
             $routinename,
-            $dbname_is_wildcard,
+            $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA_username', $username);
         $this->assertEquals('PMA_hostname', $hostname);
         $this->assertEquals('PMA_dbname', $dbname);
         $this->assertEquals('PMA_tablename', $tablename);
-        $this->assertTrue($dbname_is_wildcard);
+        $this->assertTrue($dbnameIsWildcard);
 
         //pre variable have been defined
         $_POST['pred_tablename'] = 'PMA_pred__tablename';
@@ -74,11 +74,11 @@ class PrivilegesTest extends AbstractTestCase
             $dbname,
             $tablename,
             $routinename,
-            $dbname_is_wildcard,
+            $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA_pred_dbname', $dbname);
         $this->assertEquals('PMA_pred__tablename', $tablename);
-        $this->assertTrue($dbname_is_wildcard);
+        $this->assertTrue($dbnameIsWildcard);
 
         // Escaped database
         $_POST['pred_tablename'] = 'PMA_pred__tablename';
@@ -87,11 +87,11 @@ class PrivilegesTest extends AbstractTestCase
             $dbname,
             $tablename,
             $routinename,
-            $dbname_is_wildcard,
+            $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA\_pred\_dbname', $dbname);
         $this->assertEquals('PMA_pred__tablename', $tablename);
-        $this->assertEquals(false, $dbname_is_wildcard);
+        $this->assertEquals(false, $dbnameIsWildcard);
 
         // Multiselect database - pred
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_REQUEST['dbname']);
@@ -99,11 +99,11 @@ class PrivilegesTest extends AbstractTestCase
         [,,
             $dbname,
             $tablename,,
-            $dbname_is_wildcard,
+            $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
-        $this->assertEquals(false, $dbname_is_wildcard);
+        $this->assertEquals(false, $dbnameIsWildcard);
 
         // Multiselect database
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_POST['pred_dbname']);
@@ -111,11 +111,11 @@ class PrivilegesTest extends AbstractTestCase
         [,,
             $dbname,
             $tablename,,
-            $dbname_is_wildcard,
+            $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
-        $this->assertEquals(false, $dbname_is_wildcard);
+        $this->assertEquals(false, $dbnameIsWildcard);
     }
 
     public function testWildcardEscapeForGrant(): void
@@ -124,18 +124,18 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbname = '';
         $tablename = '';
-        $db_and_table = $serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
-        $this->assertEquals('*.*', $db_and_table);
+        $dbAndTable = $serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
+        $this->assertEquals('*.*', $dbAndTable);
 
         $dbname = 'dbname';
         $tablename = '';
-        $db_and_table = $serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
-        $this->assertEquals('`dbname`.*', $db_and_table);
+        $dbAndTable = $serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
+        $this->assertEquals('`dbname`.*', $dbAndTable);
 
         $dbname = 'dbname';
         $tablename = 'tablename';
-        $db_and_table = $serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
-        $this->assertEquals('`dbname`.`tablename`', $db_and_table);
+        $dbAndTable = $serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
+        $this->assertEquals('`dbname`.`tablename`', $dbAndTable);
     }
 
     public function testRangeOfUsers(): void
@@ -331,21 +331,21 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
         [
-            $ret_message,,,
-            $sql_query,
-            $_add_user_error,
+            $retMessage,,,
+            $sqlQuery,
+            $addUserError,
         ] = $serverPrivileges->addUser($dbname, $username, $hostname, $dbname, true);
         $this->assertEquals(
             'You have added a new user.',
-            $ret_message->getMessage(),
+            $retMessage->getMessage(),
         );
         $this->assertEquals(
             "CREATE USER ''@'localhost' IDENTIFIED WITH mysql_native_password AS '***';"
             . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
             . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
-            $sql_query,
+            $sqlQuery,
         );
-        $this->assertFalse($_add_user_error);
+        $this->assertFalse($addUserError);
     }
 
     public function testAddUserOld(): void
@@ -383,23 +383,23 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
         [
-            $ret_message,,,
-            $sql_query,
-            $_add_user_error,
+            $retMessage,,,
+            $sqlQuery,
+            $addUserError,
         ] = $serverPrivileges->addUser($dbname, $username, $hostname, $dbname, true);
 
         $this->assertEquals(
             'You have added a new user.',
-            $ret_message->getMessage(),
+            $retMessage->getMessage(),
         );
         $this->assertEquals(
             "CREATE USER ''@'localhost';"
             . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
             . "SET PASSWORD FOR ''@'localhost' = '***';"
             . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
-            $sql_query,
+            $sqlQuery,
         );
-        $this->assertFalse($_add_user_error);
+        $this->assertFalse($addUserError);
     }
 
     public function testUpdatePassword(): void
@@ -414,11 +414,11 @@ class PrivilegesTest extends AbstractTestCase
 
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $err_url = 'error.php';
+        $errUrl = 'error.php';
         $_POST['pma_pw'] = 'pma_pw';
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
-        $message = $serverPrivileges->updatePassword($err_url, $username, $hostname);
+        $message = $serverPrivileges->updatePassword($errUrl, $username, $hostname);
 
         $this->assertEquals(
             'The password for \'pma_username\'@\'pma_hostname\' was changed successfully.',
@@ -450,7 +450,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        [$message, $sql_query] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
+        [$message, $sqlQuery] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
             $dbname,
             $tablename,
             $username,
@@ -467,7 +467,7 @@ class PrivilegesTest extends AbstractTestCase
             . "FROM 'pma_username'@'pma_hostname'; "
             . 'REVOKE GRANT OPTION ON  `pma_dbname`.`pma_tablename` '
             . "FROM 'pma_username'@'pma_hostname';",
-            $sql_query,
+            $sqlQuery,
         );
     }
 
@@ -490,7 +490,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        [$sql_query, $message] = $serverPrivileges->updatePrivileges(
+        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges(
             $username,
             $hostname,
             $tablename,
@@ -504,7 +504,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $this->assertEquals(
             'REVOKE ALL PRIVILEGES ON  `pma_dbname`.`pma_tablename` FROM \'pma_username\'@\'pma_hostname\';   ',
-            $sql_query,
+            $sqlQuery,
         );
     }
 
@@ -541,7 +541,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges->dbi = $dbi;
 
-        [$sql_query, $message] = $serverPrivileges->updatePrivileges(
+        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges(
             $username,
             $hostname,
             $tablename,
@@ -557,7 +557,7 @@ class PrivilegesTest extends AbstractTestCase
             '  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\' REQUIRE NONE'
             . ' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR 20'
             . ' MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40; ',
-            $sql_query,
+            $sqlQuery,
         );
     }
 
@@ -593,7 +593,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges->dbi = $dbi;
 
-        [$sql_query, $message] = $serverPrivileges->updatePrivileges(
+        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges(
             $username,
             $hostname,
             $tablename,
@@ -610,7 +610,7 @@ class PrivilegesTest extends AbstractTestCase
             . ' ALTER USER \'pma_username\'@\'pma_hostname\'  REQUIRE NONE'
             . ' WITH MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR'
             . ' 20 MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40;',
-            $sql_query,
+            $sqlQuery,
         );
     }
 
@@ -712,20 +712,20 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
         [
-            $create_user_real,
-            $create_user_show,
+            $createUserReal,
+            $createUserShow,
         ] = $serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
         //validate 1: $create_user_real
         $this->assertEquals(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password BY \'pma_password\';',
-            $create_user_real,
+            $createUserReal,
         );
 
         //validate 2: $create_user_show
         $this->assertEquals(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password BY \'***\';',
-            $create_user_show,
+            $createUserShow,
         );
     }
 
@@ -748,18 +748,18 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['pred_password'] = 'keep';
 
         [
-            $create_user_real,
-            $create_user_show,
+            $createUserReal,
+            $createUserShow,
         ] = $serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
-        //validate 1: $create_user_real
+        //validate 1: $createUserReal
         $this->assertEquals(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'pma_password\';',
-            $create_user_real,
+            $createUserReal,
         );
 
-        //validate 2: $create_user_show
-        $this->assertEquals('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $create_user_show);
+        //validate 2: $createUserShow
+        $this->assertEquals('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $createUserShow);
     }
 
     public function testGetSqlQueriesForDisplayAndAddUser(): void
@@ -787,53 +787,53 @@ class PrivilegesTest extends AbstractTestCase
         $dbname = 'PMA_db';
 
         [
-            $create_user_real,
-            $create_user_show,
-            $real_sql_query,
-            $sql_query,,,
-            $alter_real_sql_query,
-            $alter_sql_query,
+            $createUserReal,
+            $createUserShow,
+            $realSqlQuery,
+            $sqlQuery,,,
+            $alterRealSqlQuery,
+            $alterSqlQuery,
         ] = $serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
-        //validate 1: $create_user_real
+        //validate 1: $createUserReal
         $this->assertEquals(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password AS \'pma_password\';',
-            $create_user_real,
+            $createUserReal,
         );
 
-        //validate 2: $create_user_show
+        //validate 2: $createUserShow
         $this->assertEquals(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password AS \'***\';',
-            $create_user_show,
+            $createUserShow,
         );
 
-        //validate 3:$real_sql_query
-        $this->assertEquals('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', $real_sql_query);
+        //validate 3:$realSqlQuery
+        $this->assertEquals('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', $realSqlQuery);
 
-        //validate 4:$sql_query
-        $this->assertEquals('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', $sql_query);
+        //validate 4:$sqlQuery
+        $this->assertEquals('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', $sqlQuery);
 
-        $this->assertSame('', $alter_real_sql_query);
+        $this->assertSame('', $alterRealSqlQuery);
 
-        $this->assertSame('', $alter_sql_query);
+        $this->assertSame('', $alterSqlQuery);
 
         //Test for addUserAndCreateDatabase
-        [$sql_query, $message] = $serverPrivileges->addUserAndCreateDatabase(
+        [$sqlQuery, $message] = $serverPrivileges->addUserAndCreateDatabase(
             false,
-            $real_sql_query,
-            $sql_query,
+            $realSqlQuery,
+            $sqlQuery,
             $username,
             $hostname,
             $dbname,
-            $alter_real_sql_query,
-            $alter_sql_query,
+            $alterRealSqlQuery,
+            $alterSqlQuery,
             false,
             false,
             false,
         );
 
-        //validate 5: $sql_query
-        $this->assertEquals('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', $sql_query);
+        //validate 5: $sqlQuery
+        $this->assertEquals('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', $sqlQuery);
 
         $this->assertInstanceOf(Message::class, $message);
 
@@ -897,7 +897,7 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $fields_info = [
+        $fieldsInfo = [
             [
                 'COLUMN_NAME' => 'Host',
                 'CHARACTER_MAXIMUM_LENGTH' => 80,
@@ -908,7 +908,7 @@ class PrivilegesTest extends AbstractTestCase
             ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($fields_info));
+            ->will($this->returnValue($fieldsInfo));
         $dbi->expects($this->any())
             ->method('quoteString')
             ->will($this->returnCallback(static function (string $string) {
@@ -955,11 +955,11 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['max_updates'] = 30;
         $_POST['max_user_connections'] = 40;
 
-        $sql_query = $serverPrivileges->getWithClauseForAddUserAndUpdatePrivs();
+        $sqlQuery = $serverPrivileges->getWithClauseForAddUserAndUpdatePrivs();
         $expect = 'WITH GRANT OPTION MAX_QUERIES_PER_HOUR 10 '
             . 'MAX_CONNECTIONS_PER_HOUR 20'
             . ' MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40';
-        $this->assertStringContainsString($expect, $sql_query);
+        $this->assertStringContainsString($expect, $sqlQuery);
     }
 
     /** @group medium */
@@ -971,7 +971,7 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $fields_info = [
+        $fieldsInfo = [
             [
                 'COLUMN_NAME' => 'Host',
                 'CHARACTER_MAXIMUM_LENGTH' => 80,
@@ -982,7 +982,7 @@ class PrivilegesTest extends AbstractTestCase
             ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($fields_info));
+            ->will($this->returnValue($fieldsInfo));
         $dbi->expects($this->any())
             ->method('quoteString')
             ->will($this->returnCallback(static function (string $string) {
@@ -1043,14 +1043,14 @@ class PrivilegesTest extends AbstractTestCase
         $html = $serverPrivileges->getUserLink('edit', $username, $hostname, $dbname, $tablename, '');
 
         $dbname = 'pma_dbname';
-        $url_html = Url::getCommon([
+        $urlHtml = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
             'dbname' => $dbname,
             'tablename' => $tablename,
             'routinename' => '',
         ], '');
-        $this->assertStringContainsString($url_html, $html);
+        $this->assertStringContainsString($urlHtml, $html);
         $this->assertStringContainsString(
             __('Edit privileges'),
             $html,
@@ -1060,7 +1060,7 @@ class PrivilegesTest extends AbstractTestCase
         $html = $serverPrivileges->getUserLink('revoke', $username, $hostname, $dbname, $tablename, '');
 
         $dbname = 'pma_dbname';
-        $url_html = Url::getCommon(
+        $urlHtml = Url::getCommon(
             [
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1071,7 +1071,7 @@ class PrivilegesTest extends AbstractTestCase
             ],
             '',
         );
-        $this->assertStringContainsString($url_html, $html);
+        $this->assertStringContainsString($urlHtml, $html);
         $this->assertStringContainsString(
             __('Revoke'),
             $html,
@@ -1079,13 +1079,13 @@ class PrivilegesTest extends AbstractTestCase
 
         $html = $serverPrivileges->getUserLink('export', $username, $hostname);
 
-        $url_html = Url::getCommon([
+        $urlHtml = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
             'initial' => '',
             'export' => 1,
         ], '');
-        $this->assertStringContainsString($url_html, $html);
+        $this->assertStringContainsString($urlHtml, $html);
         $this->assertStringContainsString(
             __('Export'),
             $html,
@@ -1104,14 +1104,14 @@ class PrivilegesTest extends AbstractTestCase
         $html = $serverPrivileges->getUserLink('edit', $username, $hostname, $dbname, $tablename, '');
 
         $dbname = 'pma\_dbname';
-        $url_html = Url::getCommon([
+        $urlHtml = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
             'dbname' => $dbname,
             'tablename' => $tablename,
             'routinename' => '',
         ], '');
-        $this->assertStringContainsString($url_html, $html);
+        $this->assertStringContainsString($urlHtml, $html);
         $this->assertStringContainsString(
             __('Edit privileges'),
             $html,
@@ -1121,7 +1121,7 @@ class PrivilegesTest extends AbstractTestCase
         $html = $serverPrivileges->getUserLink('revoke', $username, $hostname, $dbname, $tablename, '');
 
         $dbname = 'pma\_dbname';
-        $url_html = Url::getCommon(
+        $urlHtml = Url::getCommon(
             [
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1132,7 +1132,7 @@ class PrivilegesTest extends AbstractTestCase
             ],
             '',
         );
-        $this->assertStringContainsString($url_html, $html);
+        $this->assertStringContainsString($urlHtml, $html);
         $this->assertStringContainsString(
             __('Revoke'),
             $html,
@@ -1140,13 +1140,13 @@ class PrivilegesTest extends AbstractTestCase
 
         $html = $serverPrivileges->getUserLink('export', $username, $hostname);
 
-        $url_html = Url::getCommon([
+        $urlHtml = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
             'initial' => '',
             'export' => 1,
         ], '');
-        $this->assertStringContainsString($url_html, $html);
+        $this->assertStringContainsString($urlHtml, $html);
         $this->assertStringContainsString(
             __('Export'),
             $html,
@@ -1163,7 +1163,7 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $password = 'pma_password';
-        $sql_query = 'pma_sql_query';
+        $sqlQuery = 'pma_sql_query';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $GLOBALS['dbname'] = 'pma_dbname';
@@ -1174,42 +1174,42 @@ class PrivilegesTest extends AbstractTestCase
         $_GET['username'] = 'username';
         $_POST['update_privs'] = 'update_privs';
 
-        $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior($password, $sql_query, $hostname, $username);
+        $extraData = $serverPrivileges->getExtraDataForAjaxBehavior($password, $sqlQuery, $hostname, $username);
 
         //user_exists
-        $this->assertFalse($extra_data['user_exists']);
+        $this->assertFalse($extraData['user_exists']);
 
         //db_wildcard_privs
-        $this->assertTrue($extra_data['db_wildcard_privs']);
+        $this->assertTrue($extraData['db_wildcard_privs']);
 
         //user_exists
-        $this->assertFalse($extra_data['db_specific_privs']);
+        $this->assertFalse($extraData['db_specific_privs']);
 
         //new_user_initial
-        $this->assertEquals('P', $extra_data['new_user_initial']);
+        $this->assertEquals('P', $extraData['new_user_initial']);
 
         //sql_query
         $this->assertEquals(
-            Generator::getMessage('', $sql_query),
-            $extra_data['sql_query'],
+            Generator::getMessage('', $sqlQuery),
+            $extraData['sql_query'],
         );
 
         //new_user_string
-        $this->assertIsString($extra_data['new_user_string']);
+        $this->assertIsString($extraData['new_user_string']);
         $this->assertStringContainsString(
             htmlspecialchars($hostname),
-            $extra_data['new_user_string'],
+            $extraData['new_user_string'],
         );
         $this->assertStringContainsString(
             htmlspecialchars($username),
-            $extra_data['new_user_string'],
+            $extraData['new_user_string'],
         );
 
         //new_privileges
-        $this->assertIsString($extra_data['new_privileges']);
+        $this->assertIsString($extraData['new_privileges']);
         $this->assertStringContainsString(
             implode(', ', $serverPrivileges->extractPrivInfo(null, true)),
-            $extra_data['new_privileges'],
+            $extraData['new_privileges'],
         );
     }
 
@@ -1259,10 +1259,10 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $resultStub = $this->createMock(DummyResult::class);
-        $db_rights = [];
-        $text_dir = 'text_dir';
+        $dbRights = [];
+        $textDir = 'text_dir';
 
-        $html = $serverPrivileges->getUsersOverview($resultStub, $db_rights, $text_dir);
+        $html = $serverPrivileges->getUsersOverview($resultStub, $dbRights, $textDir);
 
         //Url::getHiddenInputs
         $this->assertStringContainsString(
@@ -1311,7 +1311,7 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         //$text_dir
-        $this->assertStringContainsString($text_dir, $html);
+        $this->assertStringContainsString($textDir, $html);
 
         $this->assertStringContainsString(
             Url::getCommon(['adduser' => 1], ''),
@@ -1369,8 +1369,8 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
-        $dbname_is_wildcard = true;
-        $url_dbname = 'url_dbname';
+        $dbnameIsWildcard = true;
+        $urlDbname = 'url_dbname';
         $dbname = 'dbname';
         $username = 'username';
         $hostname = 'hostname';
@@ -1378,8 +1378,8 @@ class PrivilegesTest extends AbstractTestCase
         $_REQUEST['tablename'] = 'tablename';
 
         $html = $serverPrivileges->getHtmlForUserProperties(
-            $dbname_is_wildcard,
-            $url_dbname,
+            $dbnameIsWildcard,
+            $urlDbname,
             $username,
             $hostname,
             $tablename,
@@ -1416,13 +1416,13 @@ class PrivilegesTest extends AbstractTestCase
             $html,
         );
 
-        //$dbname_is_wildcard = true
+        //$dbnameIsWildcard = true
         $this->assertStringContainsString(
             __('Databases'),
             $html,
         );
 
-        //$dbname_is_wildcard = true
+        //$dbnameIsWildcard = true
         $this->assertStringContainsString(
             __('Databases'),
             $html,
@@ -1432,7 +1432,7 @@ class PrivilegesTest extends AbstractTestCase
         $item = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
-            'dbname' => $url_dbname,
+            'dbname' => $urlDbname,
             'tablename' => '',
         ], '');
         $this->assertStringContainsString($item, $html);

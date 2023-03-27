@@ -22,7 +22,7 @@ final class AddNewPrimaryController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $num_fields = 1;
+        $numFields = 1;
 
         $db = DatabaseName::tryFromValue($GLOBALS['db']);
         $table = TableName::tryFromValue($GLOBALS['table']);
@@ -34,7 +34,7 @@ final class AddNewPrimaryController extends AbstractController
             'Extra' => 'auto_increment',
         ];
         $html = $this->normalization->getHtmlForCreateNewColumn(
-            $num_fields,
+            $numFields,
             $dbName,
             $tableName,
             $columnMeta,

@@ -150,7 +150,7 @@ class CommonTest extends AbstractTestCase
     public function testGetDefaultPage(): void
     {
         $db = 'db';
-        $default_pg = '2';
+        $defaultPg = '2';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -165,7 +165,7 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue($default_pg));
+            ->will($this->returnValue($defaultPg));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -173,7 +173,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        $this->assertEquals($default_pg, $result);
+        $this->assertEquals($defaultPg, $result);
     }
 
     /**
@@ -213,7 +213,7 @@ class CommonTest extends AbstractTestCase
     public function testGetLoadingPageWithDefaultPage(): void
     {
         $db = 'db';
-        $default_pg = '2';
+        $defaultPg = '2';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -228,7 +228,7 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue($default_pg));
+            ->will($this->returnValue($defaultPg));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -236,7 +236,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($default_pg, $result);
+        $this->assertEquals($defaultPg, $result);
     }
 
     /**
@@ -245,7 +245,7 @@ class CommonTest extends AbstractTestCase
     public function testGetLoadingPageWithNoDefaultPage(): void
     {
         $db = 'db';
-        $first_pg = '1';
+        $firstPg = '1';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -255,7 +255,7 @@ class CommonTest extends AbstractTestCase
             ->method('fetchValue')
             ->willReturnOnConsecutiveCalls(
                 false,
-                $first_pg,
+                $firstPg,
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -264,7 +264,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($first_pg, $result);
+        $this->assertEquals($firstPg, $result);
     }
 
     private function loadTestDataForRelationDeleteAddTests(string $createTableString): void

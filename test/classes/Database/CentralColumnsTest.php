@@ -431,7 +431,7 @@ class CentralColumnsTest extends AbstractTestCase
             ],
             'phpmyadmin',
         );
-        $list_detail_cols = $this->callFunction(
+        $listDetailCols = $this->callFunction(
             $this->centralColumns,
             CentralColumns::class,
             'findExistingColNames',
@@ -447,7 +447,7 @@ class CentralColumnsTest extends AbstractTestCase
                 CentralColumns::class,
                 'getHtmlForEditTableRow',
                 [
-                    $list_detail_cols[0],
+                    $listDetailCols[0],
                     0,
                 ],
             ),

@@ -67,8 +67,8 @@ class FormDisplayTest extends AbstractTestCase
         ];
 
         $this->object->registerForm('pma_testform', $array, 2);
-        $_forms = $attrForms->getValue($this->object);
-        $this->assertInstanceOf(Form::class, $_forms['pma_testform']);
+        $forms = $attrForms->getValue($this->object);
+        $this->assertInstanceOf(Form::class, $forms['pma_testform']);
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
 

@@ -1128,17 +1128,17 @@ class RoutinesTest extends AbstractTestCase
      *
      * @param array<string, string|array<string>> $request Request
      * @param string                              $query   Query
-     * @param int                                 $num_err Error number
+     * @param int                                 $numErr  Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
+    public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = false;
 
         $GLOBALS['errors'] = [];
 
-        $old_dbi = $GLOBALS['dbi'] ?? null;
+        $oldDbi = $GLOBALS['dbi'] ?? null;
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -1177,10 +1177,10 @@ class RoutinesTest extends AbstractTestCase
         unset($_POST);
         $_POST = $request;
         $this->assertEquals($query, $routines->getQueryFromRequest());
-        $this->assertCount($num_err, $GLOBALS['errors']);
+        $this->assertCount($numErr, $GLOBALS['errors']);
 
         // reset
-        $GLOBALS['dbi'] = $old_dbi;
+        $GLOBALS['dbi'] = $oldDbi;
     }
 
     /**

@@ -65,8 +65,8 @@ class ConfigFileTest extends AbstractTestCase
         );
 
         // Validate default value used in tests
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
-        $this->assertNotNull($default_value);
+        $defaultValue = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $this->assertNotNull($defaultValue);
     }
 
     /**
@@ -74,31 +74,31 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testPersistentKeys(): void
     {
-        $default_simple_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
-        $default_host = $this->object->getDefault('Servers/1/host');
-        $default_config = [
-            self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_simple_value,
-            'Servers/1/host' => $default_host,
-            'Servers/2/host' => $default_host,
+        $defaultSimpleValue = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $defaultHost = $this->object->getDefault('Servers/1/host');
+        $defaultConfig = [
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $defaultSimpleValue,
+            'Servers/1/host' => $defaultHost,
+            'Servers/2/host' => $defaultHost,
         ];
 
         /**
          * Case 1: set default value, key should not be persisted
          */
-        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_simple_value);
-        $this->object->set('Servers/1/host', $default_host);
-        $this->object->set('Servers/2/host', $default_host);
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $defaultSimpleValue);
+        $this->object->set('Servers/1/host', $defaultHost);
+        $this->object->set('Servers/2/host', $defaultHost);
         $this->assertEmpty($this->object->getConfig());
 
         /**
          * Case 2: persistent keys should be always present in flat array,
          * even if not explicitly set (unless they are Server entries)
          */
-        $this->object->setPersistKeys(array_keys($default_config));
+        $this->object->setPersistKeys(array_keys($defaultConfig));
         $this->object->resetConfigData();
         $this->assertEmpty($this->object->getConfig());
         $this->assertEquals(
-            $default_config,
+            $defaultConfig,
             $this->object->getConfigArray(),
         );
 
@@ -106,9 +106,9 @@ class ConfigFileTest extends AbstractTestCase
          * Case 3: persistent keys should be always saved,
          * even if set to default values
          */
-        $this->object->set('Servers/2/host', $default_host);
+        $this->object->set('Servers/2/host', $defaultHost);
         $this->assertEquals(
-            ['Servers' => [2 => ['host' => $default_host]]],
+            ['Servers' => [2 => ['host' => $defaultHost]]],
             $this->object->getConfig(),
         );
     }
@@ -219,14 +219,14 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testBasicSetUsage(): void
     {
-        $default_host = $this->object->getDefault('Servers/1/host');
-        $nondefault_host = $default_host . '.abc';
+        $defaultHost = $this->object->getDefault('Servers/1/host');
+        $nonDefaultHost = $defaultHost . '.abc';
 
-        $this->object->set('Servers/4/host', $nondefault_host);
-        $this->object->set('Servers/5/host', $default_host);
-        $this->object->set('Servers/6/host', $default_host, 'Servers/6/host');
+        $this->object->set('Servers/4/host', $nonDefaultHost);
+        $this->object->set('Servers/5/host', $defaultHost);
+        $this->object->set('Servers/6/host', $defaultHost, 'Servers/6/host');
         $this->assertEquals(
-            $nondefault_host,
+            $nonDefaultHost,
             $this->object->get('Servers/4/host'),
         );
         $this->assertEquals(
@@ -234,7 +234,7 @@ class ConfigFileTest extends AbstractTestCase
             $this->object->get('Servers/5/host'),
         );
         $this->assertEquals(
-            $default_host,
+            $defaultHost,
             $this->object->get('Servers/6/host'),
         );
 
@@ -258,10 +258,10 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testConfigFileSetInSetup(): void
     {
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $defaultValue = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
 
         // default values are not written
-        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $defaultValue);
         $this->assertEmpty($this->object->getConfig());
     }
 
@@ -270,24 +270,24 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testConfigFileSetInUserPreferences(): void
     {
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $defaultValue = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
 
         // values are not written when they are the same as in config.inc.php
         $this->object = new ConfigFile(
-            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value],
+            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $defaultValue],
         );
-        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $defaultValue);
         $this->assertEmpty($this->object->getConfig());
 
         // but if config.inc.php differs from the default values,
         // allow to overwrite with value from the default values
-        $config_inc_php_value = $default_value . 'suffix';
+        $configIncPhpValue = $defaultValue . 'suffix';
         $this->object = new ConfigFile(
-            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $config_inc_php_value],
+            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $configIncPhpValue],
         );
-        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $defaultValue);
         $this->assertEquals(
-            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value],
+            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $defaultValue],
             $this->object->getConfig(),
         );
     }
@@ -299,19 +299,19 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testGetFlatDefaultConfig(): void
     {
-        $flat_default_config = $this->object->getFlatDefaultConfig();
+        $flatDefaultConfig = $this->object->getFlatDefaultConfig();
 
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
-        $this->assertEquals($default_value, $flat_default_config[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
+        $defaultValue = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $this->assertEquals($defaultValue, $flatDefaultConfig[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
 
-        $localhost_value = $this->object->getDefault('Servers/1/host');
-        $this->assertEquals($localhost_value, $flat_default_config['Servers/1/host']);
+        $localhostValue = $this->object->getDefault('Servers/1/host');
+        $this->assertEquals($localhostValue, $flatDefaultConfig['Servers/1/host']);
 
         $settings = new Settings([]);
         $cfg = $settings->asArray();
 
         $this->assertGreaterThanOrEqual(100, count($cfg));
-        $this->assertGreaterThanOrEqual(count($cfg), count($flat_default_config));
+        $this->assertGreaterThanOrEqual(count($cfg), count($flatDefaultConfig));
     }
 
     /**
@@ -353,12 +353,12 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testGetDbEntry(): void
     {
-        $cfg_db = $this->object->getAllowedValues();
+        $cfgDb = $this->object->getAllowedValues();
         // verify that $cfg_db read from config.values.php is valid
-        $this->assertGreaterThanOrEqual(20, count($cfg_db));
+        $this->assertGreaterThanOrEqual(20, count($cfgDb));
 
         $this->assertEquals(
-            $cfg_db['Servers'][1]['port'],
+            $cfgDb['Servers'][1]['port'],
             $this->object->getDbEntry('Servers/1/port'),
         );
         $this->assertNull($this->object->getDbEntry('no such key'));
@@ -526,11 +526,11 @@ class ConfigFileTest extends AbstractTestCase
     {
         $this->object->setPersistKeys([self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
         $this->object->set('Array/test', ['x', 'y']);
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $defaultValue = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
 
         $this->assertEquals(
             [
-                self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value,
+                self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $defaultValue,
                 'Array/test' => [
                     'x',
                     'y',

@@ -43,9 +43,9 @@ final class SqlController extends AbstractController
 
         $this->checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($url_params, '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 

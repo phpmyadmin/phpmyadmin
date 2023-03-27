@@ -801,7 +801,7 @@ class Types
      */
     public function getIntegerRange(string $type, bool $signed = true): array
     {
-        $min_max_data = [
+        $minMaxData = [
             'unsigned' => [
                 'tinyint' => [
                     '0',
@@ -848,8 +848,8 @@ class Types
             ],
         ];
         $relevantArray = $signed
-            ? $min_max_data['signed']
-            : $min_max_data['unsigned'];
+            ? $minMaxData['signed']
+            : $minMaxData['unsigned'];
 
         return $relevantArray[$type] ?? [
             '',

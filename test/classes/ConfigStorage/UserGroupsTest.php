@@ -65,8 +65,8 @@ class UserGroupsTest extends AbstractTestCase
 
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
         $this->assertStringNotContainsString('<table id="userGroupsTable">', $html);
-        $url_tag = '<a href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
-        $this->assertStringContainsString($url_tag, $html);
+        $urlTag = '<a href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
+        $this->assertStringContainsString($urlTag, $html);
     }
 
     /**

@@ -163,18 +163,18 @@ class Encoding
      * Converts encoding of text according to parameters with detected
      * conversion function.
      *
-     * @param string $src_charset  source charset
-     * @param string $dest_charset target charset
-     * @param string $what         what to convert
+     * @param string $srcCharset  source charset
+     * @param string $destCharset target charset
+     * @param string $what        what to convert
      *
      * @return string   converted text
      */
     public static function convertString(
-        string $src_charset,
-        string $dest_charset,
+        string $srcCharset,
+        string $destCharset,
         string $what,
     ): string {
-        if ($src_charset === $dest_charset) {
+        if ($srcCharset === $destCharset) {
             return $what;
         }
 
@@ -183,13 +183,13 @@ class Encoding
         }
 
         return match (self::$engine) {
-            self::ENGINE_RECODE => recode_string($src_charset . '..' . $dest_charset, $what),
+            self::ENGINE_RECODE => recode_string($srcCharset . '..' . $destCharset, $what),
             self::ENGINE_ICONV => iconv(
-                $src_charset,
-                $dest_charset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
+                $srcCharset,
+                $destCharset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
                 $what,
             ),
-            self::ENGINE_MB => mb_convert_encoding($what, $dest_charset, $src_charset),
+            self::ENGINE_MB => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };
     }
@@ -250,18 +250,18 @@ class Encoding
             return $str;
         }
 
-        $string_encoding = mb_detect_encoding($str, self::$kanjiEncodings);
-        if ($string_encoding === false) {
-            $string_encoding = 'utf-8';
+        $stringEncoding = mb_detect_encoding($str, self::$kanjiEncodings);
+        if ($stringEncoding === false) {
+            $stringEncoding = 'utf-8';
         }
 
         if ($kana === 'kana') {
-            $dist = mb_convert_kana($str, 'KV', $string_encoding);
+            $dist = mb_convert_kana($str, 'KV', $stringEncoding);
             $str = $dist;
         }
 
-        if ($string_encoding !== $enc && $enc != '') {
-            return mb_convert_encoding($str, $enc, $string_encoding);
+        if ($stringEncoding !== $enc && $enc != '') {
+            return mb_convert_encoding($str, $enc, $stringEncoding);
         }
 
         return $str;

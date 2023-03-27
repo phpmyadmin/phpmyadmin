@@ -74,7 +74,7 @@ class ChartController extends AbstractController
             'vendor/jqplot/plugins/jqplot.highlighter.js',
         ]);
 
-        $url_params = [];
+        $urlParams = [];
 
         /**
          * Runs common work
@@ -82,18 +82,18 @@ class ChartController extends AbstractController
         if (strlen($GLOBALS['table']) > 0) {
             $this->checkParameters(['db', 'table']);
 
-            $url_params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+            $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-            $GLOBALS['errorUrl'] .= Url::getCommon($url_params, '&');
+            $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
             DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
-            $url_params['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-            $url_params['back'] = Url::getFromRoute('/table/sql');
+            $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $urlParams['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($GLOBALS['db']) > 0) {
-            $url_params['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
-            $url_params['back'] = Url::getFromRoute('/sql');
+            $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $urlParams['back'] = Url::getFromRoute('/sql');
 
             $this->checkParameters(['db']);
 
@@ -104,8 +104,8 @@ class ChartController extends AbstractController
                 return;
             }
         } else {
-            $url_params['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
-            $url_params['back'] = Url::getFromRoute('/sql');
+            $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
+            $urlParams['back'] = Url::getFromRoute('/sql');
             $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
             if ($this->dbi->isSuperUser()) {
@@ -114,9 +114,9 @@ class ChartController extends AbstractController
         }
 
         $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
-        $fields_meta = $row = [];
+        $fieldsMeta = $row = [];
         if ($result !== false) {
-            $fields_meta = $this->dbi->getFieldsMeta($result);
+            $fieldsMeta = $this->dbi->getFieldsMeta($result);
             $row = $result->fetchAssoc();
         }
 
@@ -124,9 +124,9 @@ class ChartController extends AbstractController
         $numericColumnFound = false;
         foreach (array_keys($keys) as $idx) {
             if (
-                isset($fields_meta[$idx]) && (
-                $fields_meta[$idx]->isType(FieldMetadata::TYPE_INT)
-                || $fields_meta[$idx]->isType(FieldMetadata::TYPE_REAL)
+                isset($fieldsMeta[$idx]) && (
+                $fieldsMeta[$idx]->isType(FieldMetadata::TYPE_INT)
+                || $fieldsMeta[$idx]->isType(FieldMetadata::TYPE_REAL)
                 )
             ) {
                 $numericColumnFound = true;
@@ -144,8 +144,8 @@ class ChartController extends AbstractController
             return;
         }
 
-        $url_params['db'] = $GLOBALS['db'];
-        $url_params['reload'] = 1;
+        $urlParams['db'] = $GLOBALS['db'];
+        $urlParams['reload'] = 1;
 
         $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($GLOBALS['sql_query']);
 
@@ -153,9 +153,9 @@ class ChartController extends AbstractController
          * Displays the page
          */
         $this->render('table/chart/tbl_chart', [
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
             'keys' => $keys,
-            'fields_meta' => $fields_meta,
+            'fields_meta' => $fieldsMeta,
             'table_has_a_numeric_column' => true,
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
         ]);
@@ -189,9 +189,9 @@ class ChartController extends AbstractController
             $statement->limit = new Limit($rows, $start);
         }
 
-        $sql_with_limit = $statement->build();
+        $sqlWithLimit = $statement->build();
 
-        $result = $this->dbi->tryQuery($sql_with_limit);
+        $result = $this->dbi->tryQuery($sqlWithLimit);
         $data = [];
         if ($result !== false) {
             $data = $result->fetchAllAssoc();
@@ -204,20 +204,20 @@ class ChartController extends AbstractController
             return;
         }
 
-        $sanitized_data = [];
+        $sanitizedData = [];
 
-        foreach ($data as $data_row) {
-            $tmp_row = [];
-            foreach ($data_row as $data_column => $data_value) {
-                $escaped_value = $data_value === null ? null : htmlspecialchars($data_value);
-                $tmp_row[htmlspecialchars($data_column)] = $escaped_value;
+        foreach ($data as $dataRow) {
+            $tmpRow = [];
+            foreach ($dataRow as $dataColumn => $dataValue) {
+                $escapedValue = $dataValue === null ? null : htmlspecialchars($dataValue);
+                $tmpRow[htmlspecialchars($dataColumn)] = $escapedValue;
             }
 
-            $sanitized_data[] = $tmp_row;
+            $sanitizedData[] = $tmpRow;
         }
 
         $this->response->setRequestStatus(true);
         $this->response->addJSON('message', null);
-        $this->response->addJSON('chartData', json_encode($sanitized_data));
+        $this->response->addJSON('chartData', json_encode($sanitizedData));
     }
 }

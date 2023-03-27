@@ -68,13 +68,13 @@ class IndexesTest extends AbstractTestCase
 
     public function testDoSaveData(): void
     {
-        $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
+        $sqlQuery = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
-            ->will($this->returnValue($sql_query));
+            ->will($this->returnValue($sqlQuery));
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
@@ -89,7 +89,7 @@ class IndexesTest extends AbstractTestCase
         $indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table']);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertStringContainsString($sql_query, $jsonArray['sql_data']);
+        $this->assertStringContainsString($sqlQuery, $jsonArray['sql_data']);
 
         // Alter success
         $response->clear();

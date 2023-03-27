@@ -252,8 +252,8 @@ class HomeController extends AbstractController
             /**
              * Check whether session.gc_maxlifetime limits session validity.
              */
-            $gc_time = (int) ini_get('session.gc_maxlifetime');
-            if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity']) {
+            $gcTime = (int) ini_get('session.gc_maxlifetime');
+            if ($gcTime < $GLOBALS['cfg']['LoginCookieValidity']) {
                 $this->errors[] = [
                     'message' => __(
                         'Your PHP parameter [a@https://www.php.net/manual/en/session.' .

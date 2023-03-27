@@ -66,11 +66,11 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
                 if (is_array($param[0][0]) && count($param) === 1) {
                     $param = $param[0];
                     if (is_int(end($param))) {
-                        $http_response_code_param = end($param);
+                        $httpResponseCodeParam = end($param);
                         $param = array_slice($param, 0, -1);
 
                         $mockResponse->expects($this->once())
-                        ->method('httpResponseCode')->with($http_response_code_param);
+                        ->method('httpResponseCode')->with($httpResponseCodeParam);
                     }
                 }
             } else {

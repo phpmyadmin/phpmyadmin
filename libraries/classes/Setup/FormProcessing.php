@@ -24,27 +24,27 @@ class FormProcessing
     /**
      * Processes forms registered in $form_display, handles error correction
      *
-     * @param FormDisplay $form_display Form to display
+     * @param FormDisplay $formDisplay Form to display
      */
-    public static function process(FormDisplay $form_display): void
+    public static function process(FormDisplay $formDisplay): void
     {
         if (isset($_GET['mode']) && $_GET['mode'] === 'revert') {
             // revert erroneous fields to their default values
-            $form_display->fixErrors();
+            $formDisplay->fixErrors();
             $response = ResponseRenderer::getInstance();
             $response->disable();
             $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
         }
 
-        if (! $form_display->process(false)) {
+        if (! $formDisplay->process(false)) {
             // handle form view and failed POST
-            echo $form_display->getDisplay();
+            echo $formDisplay->getDisplay();
 
             return;
         }
 
         // check for form errors
-        if (! $form_display->hasErrors()) {
+        if (! $formDisplay->hasErrors()) {
             $response = ResponseRenderer::getInstance();
             $response->disable();
             $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
@@ -62,7 +62,7 @@ class FormProcessing
         $formId = isset($_GET['id']) && is_numeric($_GET['id']) && (int) $_GET['id'] >= 1 ? (int) $_GET['id'] : 0;
         if ($formId === 0 && $page === 'servers') {
             // we've just added a new server, get its id
-            $formId = $form_display->getConfigFile()->getServerCount();
+            $formId = $formDisplay->getConfigFile()->getServerCount();
         }
 
         $urlParams = [
@@ -74,7 +74,7 @@ class FormProcessing
         $template = new Template();
         echo $template->render('setup/error', [
             'url_params' => $urlParams,
-            'errors' => $form_display->displayErrors(),
+            'errors' => $formDisplay->displayErrors(),
         ]);
     }
 }

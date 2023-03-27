@@ -127,13 +127,13 @@ class Pdf extends TCPDF
     /**
      * Displays an error message
      *
-     * @param string $error_message the error message
+     * @param string $errorMessage the error message
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function Error($error_message = ''): void
+    public function Error($errorMessage = ''): void
     {
         echo Message::error(
-            __('Error while creating PDF:') . ' ' . $error_message,
+            __('Error while creating PDF:') . ' ' . $errorMessage,
         )->getDisplay();
         exit;
     }

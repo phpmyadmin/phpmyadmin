@@ -29,17 +29,17 @@ class ZipExtensionTest extends AbstractTestCase
     /**
      * Test for getContents
      *
-     * @param string                $file           path to zip file
-     * @param string|null           $specific_entry regular expression to match a file
-     * @param array<string, string> $output         expected output
+     * @param string                $file          path to zip file
+     * @param string|null           $specificEntry regular expression to match a file
+     * @param array<string, string> $output        expected output
      * @psalm-param array{error: string, data: string} $output
      *
      * @dataProvider provideTestGetContents
      */
-    public function testGetContents(string $file, string|null $specific_entry, array $output): void
+    public function testGetContents(string $file, string|null $specificEntry, array $output): void
     {
         $this->assertEquals(
-            $this->zipExtension->getContents($file, $specific_entry),
+            $this->zipExtension->getContents($file, $specificEntry),
             $output,
         );
     }
@@ -81,17 +81,17 @@ class ZipExtensionTest extends AbstractTestCase
     /**
      * Test for findFile
      *
-     * @param string      $file        path to zip file
-     * @param string      $file_regexp regular expression for the file name to match
-     * @param string|bool $output      expected output
+     * @param string      $file       path to zip file
+     * @param string      $fileRegexp regular expression for the file name to match
+     * @param string|bool $output     expected output
      * @psalm-param string|false $output
      *
      * @dataProvider provideTestFindFile
      */
-    public function testFindFile(string $file, string $file_regexp, string|bool $output): void
+    public function testFindFile(string $file, string $fileRegexp, string|bool $output): void
     {
         $this->assertEquals(
-            $this->zipExtension->findFile($file, $file_regexp),
+            $this->zipExtension->findFile($file, $fileRegexp),
             $output,
         );
     }

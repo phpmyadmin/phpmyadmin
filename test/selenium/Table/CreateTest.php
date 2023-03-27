@@ -43,7 +43,7 @@ class CreateTest extends TestBase
         $this->waitForElement('id', 'field_0_9')->click(); // auto increment
 
         // column details
-        $column_text_details = [
+        $columnTextDetails = [
             'field_0_1' => 'test_id',
             'field_0_3' => '14',
             'field_0_10' => 'comm1',
@@ -52,18 +52,18 @@ class CreateTest extends TestBase
             'field_1_10' => 'comm2',
         ];
 
-        foreach ($column_text_details as $field => $val) {
+        foreach ($columnTextDetails as $field => $val) {
             $this->byId($field)->sendKeys($val);
         }
 
-        $column_dropdown_details = [
+        $columnDropdownDetails = [
             'field_0_6' => 'UNSIGNED',
             'field_1_2' => 'VARCHAR',
             'field_1_5' => 'utf8mb4_general_ci',
             'field_1_4' => 'As defined:',
         ];
 
-        foreach ($column_dropdown_details as $selector => $value) {
+        foreach ($columnDropdownDetails as $selector => $value) {
             $this->waitForElement(
                 'xpath',
                 '//select[@id=\'' . $selector . '\']//option[contains(text(), \'' . $value . '\')]',

@@ -63,15 +63,15 @@ class OptionsTest extends AbstractTestCase
         $GLOBALS['cfg']['ZipDump'] = false;
         $GLOBALS['cfg']['GZipDump'] = false;
 
-        $export_type = 'server';
+        $exportType = 'server';
         $db = 'PMA';
         $table = 'PMA_test';
-        $num_tables_str = '10';
-        $unlim_num_rows_str = 'unlim_num_rows_str';
+        $numTablesStr = '10';
+        $unlimNumRowsStr = 'unlim_num_rows_str';
         //$single_table = "single_table";
         $GLOBALS['dbi']->getCache()->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
-        $columns_info = [
+        $columnsInfo = [
             'test_column1' => ['COLUMN_NAME' => 'test_column1'],
             'test_column2' => ['COLUMN_NAME' => 'test_column2'],
         ];
@@ -80,28 +80,28 @@ class OptionsTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->any())->method('getColumnsFull')
-            ->will($this->returnValue($columns_info));
+            ->will($this->returnValue($columnsInfo));
         $dbi->expects($this->any())->method('getCompatibilities')
             ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
 
-        $exportList = Plugins::getExport($export_type, true);
+        $exportList = Plugins::getExport($exportType, true);
         $dropdown = Plugins::getChoice($exportList, 'sql');
 
         //Call the test function
         $actual = $this->export->getOptions(
-            $export_type,
+            $exportType,
             $db,
             $table,
             '',
-            $num_tables_str,
-            $unlim_num_rows_str,
+            $numTablesStr,
+            $unlimNumRowsStr,
             $exportList,
         );
 
         $expected = [
-            'export_type' => $export_type,
+            'export_type' => $exportType,
             'db' => $db,
             'table' => $table,
             'templates' => [
@@ -113,7 +113,7 @@ class OptionsTest extends AbstractTestCase
             'hidden_inputs' => [
                 'db' => $db,
                 'table' => $table,
-                'export_type' => $export_type,
+                'export_type' => $exportType,
                 'export_method' => $GLOBALS['cfg']['Export']['method'],
                 'template_id' => '',
             ],

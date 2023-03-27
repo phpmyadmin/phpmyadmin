@@ -956,7 +956,7 @@ class ExportOdtTest extends AbstractTestCase
             'Type' => 'set(abc)enum123',
         ];
 
-        $col_alias = 'alias';
+        $colAlias = 'alias';
 
         $this->assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .
@@ -965,7 +965,7 @@ class ExportOdtTest extends AbstractTestCase
             '-cell><table:table-cell office:value-type="string"><text:p>Yes' .
             '</text:p></table:table-cell><table:table-cell office:value-typ' .
             'e="string"><text:p>NULL</text:p></table:table-cell>',
-            $method->invoke($this->object, $cols, $col_alias),
+            $method->invoke($this->object, $cols, $colAlias),
         );
 
         $cols = [

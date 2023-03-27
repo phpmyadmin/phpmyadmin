@@ -23,20 +23,20 @@ class SysInfo
     /**
      * Returns OS type used for sysinfo class
      *
-     * @param string $php_os PHP_OS constant
+     * @param string $phpOs PHP_OS constant
      */
-    public static function getOs(string $php_os = PHP_OS): string
+    public static function getOs(string $phpOs = PHP_OS): string
     {
         // look for common UNIX-like systems
-        $unix_like = [
+        $unixLike = [
             'FreeBSD',
             'DragonFly',
         ];
-        if (in_array($php_os, $unix_like)) {
-            $php_os = 'Linux';
+        if (in_array($phpOs, $unixLike)) {
+            $phpOs = 'Linux';
         }
 
-        return ucfirst($php_os);
+        return ucfirst($phpOs);
     }
 
     /**
@@ -46,9 +46,9 @@ class SysInfo
      */
     public static function get(): Base
     {
-        $php_os = self::getOs();
+        $phpOs = self::getOs();
 
-        switch ($php_os) {
+        switch ($phpOs) {
             case 'Linux':
                 if (Linux::isSupported()) {
                     return new Linux();

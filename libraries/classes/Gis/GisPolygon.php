@@ -62,48 +62,48 @@ class GisPolygon extends GisGeometry
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
-        $wkt_outer_ring = explode('),(', $polygon)[0];
+        $wktOuterRing = explode('),(', $polygon)[0];
 
-        return $this->setMinMax($wkt_outer_ring);
+        return $this->setMinMax($wktOuterRing);
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param int[]  $color      Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POLYGON object
+     * @param string $label     Label for the GIS POLYGON object
+     * @param int[]  $color     Color for the GIS POLYGON object
+     * @param array  $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         ImageWrapper $image,
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $fill_color = $image->colorAllocate(...$color);
+        $fillColor = $image->colorAllocate(...$color);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
-        $points_arr = [];
-        $wkt_rings = explode('),(', $polygon);
-        foreach ($wkt_rings as $wkt_ring) {
-            $ring = $this->extractPoints1dLinear($wkt_ring, $scale_data);
-            $points_arr = array_merge($points_arr, $ring);
+        $pointsArr = [];
+        $wktRings = explode('),(', $polygon);
+        foreach ($wktRings as $wktRing) {
+            $ring = $this->extractPoints1dLinear($wktRing, $scaleData);
+            $pointsArr = array_merge($pointsArr, $ring);
         }
 
         // draw polygon
-        $image->filledPolygon($points_arr, $fill_color);
+        $image->filledPolygon($pointsArr, $fillColor);
         // print label if applicable
         if ($label !== '') {
             $image->string(
                 1,
-                (int) round($points_arr[2]),
-                (int) round($points_arr[3]),
+                (int) round($pointsArr[2]),
+                (int) round($pointsArr[3]),
                 $label,
                 $black,
             );
@@ -115,32 +115,32 @@ class GisPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param int[]  $color      Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POLYGON object
+     * @param string $label     Label for the GIS POLYGON object
+     * @param int[]  $color     Color for the GIS POLYGON object
+     * @param array  $scaleData Array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scale_data, TCPDF $pdf): TCPDF
+    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
-        $wkt_rings = explode('),(', $polygon);
+        $wktRings = explode('),(', $polygon);
 
-        $points_arr = [];
+        $pointsArr = [];
 
-        foreach ($wkt_rings as $wkt_ring) {
-            $ring = $this->extractPoints1dLinear($wkt_ring, $scale_data);
-            $points_arr = array_merge($points_arr, $ring);
+        foreach ($wktRings as $wktRing) {
+            $ring = $this->extractPoints1dLinear($wktRing, $scaleData);
+            $pointsArr = array_merge($pointsArr, $ring);
         }
 
         // draw polygon
-        $pdf->Polygon($points_arr, 'F*', [], $color, true);
+        $pdf->Polygon($pointsArr, 'F*', [], $color, true);
         // print label if applicable
         if ($label !== '') {
-            $pdf->setXY($points_arr[2], $points_arr[3]);
+            $pdf->setXY($pointsArr[2], $pointsArr[3]);
             $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
@@ -151,16 +151,16 @@ class GisPolygon extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param int[]  $color      Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POLYGON object
+     * @param string $label     Label for the GIS POLYGON object
+     * @param int[]  $color     Color for the GIS POLYGON object
+     * @param array  $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
     {
-        $polygon_options = [
+        $polygonOptions = [
             'name' => $label,
             'id' => $label . $this->getRandomId(),
             'class' => 'polygon vector',
@@ -176,13 +176,13 @@ class GisPolygon extends GisGeometry
 
         $row = '<path d="';
 
-        $wkt_rings = explode('),(', $polygon);
-        foreach ($wkt_rings as $wkt_ring) {
-            $row .= $this->drawPath($wkt_ring, $scale_data);
+        $wktRings = explode('),(', $polygon);
+        foreach ($wktRings as $wktRing) {
+            $row .= $this->drawPath($wktRing, $scaleData);
         }
 
         $row .= '"';
-        foreach ($polygon_options as $option => $val) {
+        foreach ($polygonOptions as $option => $val) {
             $row .= ' ' . $option . '="' . $val . '"';
         }
 
@@ -205,17 +205,17 @@ class GisPolygon extends GisGeometry
     public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
         $color[] = 0.8;
-        $fill_style = ['color' => $color];
-        $stroke_style = [
+        $fillStyle = ['color' => $color];
+        $strokeStyle = [
             'color' => [0, 0, 0],
             'width' => 0.5,
         ];
         $style = 'new ol.style.Style({'
-            . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
-            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
+            . 'fill: new ol.style.Fill(' . json_encode($fillStyle) . '),'
+            . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
         if ($label !== '') {
-            $text_style = ['text' => $label];
-            $style .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $textStyle = ['text' => $label];
+            $style .= ',text: new ol.style.Text(' . json_encode($textStyle) . ')';
         }
 
         $style .= '})';
@@ -234,18 +234,18 @@ class GisPolygon extends GisGeometry
     /**
      * Draws a ring of the polygon using SVG path element.
      *
-     * @param string $polygon    The ring
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $polygon   The ring
+     * @param array  $scaleData Array containing data related to scaling
      *
      * @return string the code to draw the ring
      */
-    private function drawPath(string $polygon, array $scale_data): string
+    private function drawPath(string $polygon, array $scaleData): string
     {
-        $points_arr = $this->extractPoints1d($polygon, $scale_data);
+        $pointsArr = $this->extractPoints1d($polygon, $scaleData);
 
-        $row = ' M ' . $points_arr[0][0] . ', ' . $points_arr[0][1];
-        $other_points = array_slice($points_arr, 1, count($points_arr) - 2);
-        foreach ($other_points as $point) {
+        $row = ' M ' . $pointsArr[0][0] . ', ' . $pointsArr[0][1];
+        $otherPoints = array_slice($pointsArr, 1, count($pointsArr) - 2);
+        foreach ($otherPoints as $point) {
             $row .= ' L ' . $point[0] . ', ' . $point[1];
         }
 
@@ -257,34 +257,34 @@ class GisPolygon extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gis_data GIS data
-     * @param int         $index    Index into the parameter object
-     * @param string|null $empty    Value for empty points
+     * @param array       $gisData GIS data
+     * @param int         $index   Index into the parameter object
+     * @param string|null $empty   Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
-        $no_of_lines = $gis_data[$index]['POLYGON']['no_of_lines'] ?? 1;
-        if ($no_of_lines < 1) {
-            $no_of_lines = 1;
+        $noOfLines = $gisData[$index]['POLYGON']['no_of_lines'] ?? 1;
+        if ($noOfLines < 1) {
+            $noOfLines = 1;
         }
 
         $wkt = 'POLYGON(';
-        for ($i = 0; $i < $no_of_lines; $i++) {
-            $no_of_points = $gis_data[$index]['POLYGON'][$i]['no_of_points'] ?? 4;
-            if ($no_of_points < 4) {
-                $no_of_points = 4;
+        for ($i = 0; $i < $noOfLines; $i++) {
+            $noOfPoints = $gisData[$index]['POLYGON'][$i]['no_of_points'] ?? 4;
+            if ($noOfPoints < 4) {
+                $noOfPoints = 4;
             }
 
             $wkt .= '(';
-            for ($j = 0; $j < $no_of_points; $j++) {
-                $wkt .= (isset($gis_data[$index]['POLYGON'][$i][$j]['x'])
-                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['x']) != ''
-                        ? $gis_data[$index]['POLYGON'][$i][$j]['x'] : $empty)
-                    . ' ' . (isset($gis_data[$index]['POLYGON'][$i][$j]['y'])
-                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['y']) != ''
-                        ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
+            for ($j = 0; $j < $noOfPoints; $j++) {
+                $wkt .= (isset($gisData[$index]['POLYGON'][$i][$j]['x'])
+                        && trim((string) $gisData[$index]['POLYGON'][$i][$j]['x']) != ''
+                        ? $gisData[$index]['POLYGON'][$i][$j]['x'] : $empty)
+                    . ' ' . (isset($gisData[$index]['POLYGON'][$i][$j]['y'])
+                        && trim((string) $gisData[$index]['POLYGON'][$i][$j]['y']) != ''
+                        ? $gisData[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
 
             $wkt = mb_substr($wkt, 0, -1);
@@ -305,12 +305,12 @@ class GisPolygon extends GisGeometry
      */
     public static function area(array $ring): float
     {
-        $no_of_points = count($ring);
+        $noOfPoints = count($ring);
 
         // If the last point is same as the first point ignore it
         $last = count($ring) - 1;
         if (($ring[0]['x'] == $ring[$last]['x']) && ($ring[0]['y'] == $ring[$last]['y'])) {
-            $no_of_points--;
+            $noOfPoints--;
         }
 
         //         _n-1
@@ -318,8 +318,8 @@ class GisPolygon extends GisGeometry
         //      2  /__
         //         i=0
         $area = 0;
-        for ($i = 0; $i < $no_of_points; $i++) {
-            $j = ($i + 1) % $no_of_points;
+        for ($i = 0; $i < $noOfPoints; $i++) {
+            $j = ($i + 1) % $noOfPoints;
             $area += $ring[$i]['x'] * $ring[$j]['y'];
             $area -= $ring[$i]['y'] * $ring[$j]['x'];
         }
@@ -356,13 +356,13 @@ class GisPolygon extends GisGeometry
             $polygon = array_slice($polygon, 0, $last);
         }
 
-        $no_of_points = count($polygon);
+        $noOfPoints = count($polygon);
         $counter = 0;
 
         // Use ray casting algorithm
         $p1 = $polygon[0];
-        for ($i = 1; $i <= $no_of_points; $i++) {
-            $p2 = $polygon[$i % $no_of_points];
+        for ($i = 1; $i <= $noOfPoints; $i++) {
+            $p2 = $polygon[$i % $noOfPoints];
             if ($point['y'] <= min([$p1['y'], $p2['y']])) {
                 $p1 = $p2;
                 continue;
@@ -470,15 +470,15 @@ class GisPolygon extends GisGeometry
     protected function getCoordinateParams(string $wkt): array
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $wkt_polygon = mb_substr($wkt, 9, -2);
-        $wkt_rings = explode('),(', $wkt_polygon);
-        $coords = ['no_of_lines' => count($wkt_rings)];
+        $wktPolygon = mb_substr($wkt, 9, -2);
+        $wktRings = explode('),(', $wktPolygon);
+        $coords = ['no_of_lines' => count($wktRings)];
 
-        foreach ($wkt_rings as $j => $wkt_ring) {
-            $points = $this->extractPoints1d($wkt_ring, null);
-            $no_of_points = count($points);
-            $coords[$j] = ['no_of_points' => $no_of_points];
-            for ($i = 0; $i < $no_of_points; $i++) {
+        foreach ($wktRings as $j => $wktRing) {
+            $points = $this->extractPoints1d($wktRing, null);
+            $noOfPoints = count($points);
+            $coords[$j] = ['no_of_points' => $noOfPoints];
+            for ($i = 0; $i < $noOfPoints; $i++) {
                 $coords[$j][$i] = [
                     'x' => $points[$i][0],
                     'y' => $points[$i][1],

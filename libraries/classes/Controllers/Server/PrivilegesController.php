@@ -204,12 +204,12 @@ class PrivilegesController extends AbstractController
          */
         if ($request->hasBodyParam('update_privs')) {
             if (is_array($GLOBALS['dbname'])) {
-                foreach ($GLOBALS['dbname'] as $key => $db_name) {
+                foreach ($GLOBALS['dbname'] as $key => $dbName) {
                     [$GLOBALS['sql_query'][$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                         ($GLOBALS['username'] ?? ''),
                         ($GLOBALS['hostname'] ?? ''),
                         ($tablename ?? ($routinename ?? '')),
-                        ($db_name ?? ''),
+                        ($dbName ?? ''),
                         $itemType,
                     );
                 }
@@ -290,10 +290,10 @@ class PrivilegesController extends AbstractController
         /**
          * Reloads the privilege tables into memory
          */
-        $message_ret = $serverPrivileges->updateMessageForReload();
-        if ($message_ret !== null) {
-            $GLOBALS['message'] = $message_ret;
-            unset($message_ret);
+        $messageRet = $serverPrivileges->updateMessageForReload();
+        if ($messageRet !== null) {
+            $GLOBALS['message'] = $messageRet;
+            unset($messageRet);
         }
 
         /**
@@ -309,7 +309,7 @@ class PrivilegesController extends AbstractController
                 || $request->getParsedBodyParam('delete') === __('Go'))
             && ! $request->hasQueryParam('showall')
         ) {
-            $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior(
+            $extraData = $serverPrivileges->getExtraDataForAjaxBehavior(
                 ($password ?? ''),
                 ($GLOBALS['sql_query'] ?? ''),
                 ($GLOBALS['hostname'] ?? ''),
@@ -319,7 +319,7 @@ class PrivilegesController extends AbstractController
             if (! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message) {
                 $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                 $this->response->addJSON('message', $GLOBALS['message']);
-                $this->response->addJSON($extra_data);
+                $this->response->addJSON($extraData);
 
                 return;
             }

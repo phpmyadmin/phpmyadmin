@@ -125,14 +125,14 @@ class IndexesControllerTest extends AbstractTestCase
             $html,
         );
 
-        $doc_html = Generator::showHint(
+        $docHtml = Generator::showHint(
             Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!',
                 ),
             )->getMessage(),
         );
-        $this->assertStringContainsString($doc_html, $html);
+        $this->assertStringContainsString($docHtml, $html);
 
         $this->assertStringContainsString(
             MySQLDocumentation::show('ALTER_TABLE'),

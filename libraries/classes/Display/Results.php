@@ -2560,12 +2560,12 @@ class Results
                 . Url::getCommonRaw($linkingUrlParams, $divider);
         }
 
-        foreach ($linkRelations['link_dependancy_params'] as $new_param) {
-            $columnName = mb_strtolower($new_param['column_name']);
+        foreach ($linkRelations['link_dependancy_params'] as $newParam) {
+            $columnName = mb_strtolower($newParam['column_name']);
 
             // If there is a value for this column name in the rowInfo provided
             if (isset($rowInfo[$columnName])) {
-                $linkingUrlParams[$new_param['param_info']] = $rowInfo[$columnName];
+                $linkingUrlParams[$newParam['param_info']] = $rowInfo[$columnName];
             }
 
             // Special case 1 - when executing routines, according

@@ -37,27 +37,27 @@ class RelationStatsDia
     /**
      * @see Relation_Stats_Dia::getXy
      *
-     * @param Dia           $diagram       The DIA diagram
-     * @param TableStatsDia $master_table  The master table name
-     * @param string        $master_field  The relation field in the master table
-     * @param TableStatsDia $foreign_table The foreign table name
-     * @param string        $foreign_field The relation field in the foreign table
+     * @param Dia           $diagram      The DIA diagram
+     * @param TableStatsDia $masterTable  The master table name
+     * @param string        $masterField  The relation field in the master table
+     * @param TableStatsDia $foreignTable The foreign table name
+     * @param string        $foreignField The relation field in the foreign table
      */
     public function __construct(
         protected Dia $diagram,
-        TableStatsDia $master_table,
-        string $master_field,
-        TableStatsDia $foreign_table,
-        string $foreign_field,
+        TableStatsDia $masterTable,
+        string $masterField,
+        TableStatsDia $foreignTable,
+        string $foreignField,
     ) {
-        $src_pos = $this->getXy($master_table, $master_field);
-        $dest_pos = $this->getXy($foreign_table, $foreign_field);
-        $this->srcConnPointsLeft = $src_pos[0];
-        $this->srcConnPointsRight = $src_pos[1];
-        $this->destConnPointsLeft = $dest_pos[0];
-        $this->destConnPointsRight = $dest_pos[1];
-        $this->masterTableId = $master_table->tableId;
-        $this->foreignTableId = $foreign_table->tableId;
+        $srcPos = $this->getXy($masterTable, $masterField);
+        $destPos = $this->getXy($foreignTable, $foreignField);
+        $this->srcConnPointsLeft = $srcPos[0];
+        $this->srcConnPointsRight = $srcPos[1];
+        $this->destConnPointsLeft = $destPos[0];
+        $this->destConnPointsRight = $destPos[1];
+        $this->masterTableId = $masterTable->tableId;
+        $this->foreignTableId = $foreignTable->tableId;
     }
 
     /**

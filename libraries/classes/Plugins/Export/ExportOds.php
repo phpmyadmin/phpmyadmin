@@ -199,33 +199,33 @@ class ExportOds extends ExportPlugin
     ): bool {
         $GLOBALS['what'] ??= null;
 
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
         // Gets the data from the database
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
             Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED,
         );
-        $fields_cnt = $result->numFields();
+        $fieldsCnt = $result->numFields();
         /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
 
-        $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($table_alias) . '">';
+        $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
-                $col_as = $field->name;
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                    $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+                $colAs = $field->name;
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
                 $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
-                    . htmlspecialchars($col_as)
+                    . htmlspecialchars($colAs)
                     . '</text:p>'
                     . '</table:table-cell>';
             }
@@ -236,7 +236,7 @@ class ExportOds extends ExportPlugin
         // Format the data
         while ($row = $result->fetchRow()) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
-            for ($j = 0; $j < $fields_cnt; $j++) {
+            for ($j = 0; $j < $fieldsCnt; $j++) {
                 if ($fieldsMeta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);

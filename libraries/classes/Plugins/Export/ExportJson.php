@@ -181,9 +181,9 @@ class ExportJson extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         if (! $this->first) {
             if (! $this->export->outputHandler(',')) {
@@ -195,8 +195,8 @@ class ExportJson extends ExportPlugin
 
         $buffer = $this->encode([
             'type' => 'table',
-            'name' => $table_alias,
-            'database' => $db_alias,
+            'name' => $tableAlias,
+            'database' => $dbAlias,
             'data' => '@@DATA@@',
         ]);
         if ($buffer === false) {
@@ -234,28 +234,28 @@ class ExportJson extends ExportPlugin
         }
 
         $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $columns_cnt = $result->numFields();
+        $columnsCnt = $result->numFields();
         $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $columns = [];
         foreach ($fieldsMeta as $i => $field) {
-            $col_as = $field->name;
+            $colAs = $field->name;
             if (
                 $db !== null && $table !== null && $aliases !== null
-                && ! empty($aliases[$db]['tables'][$table]['columns'][$col_as])
+                && ! empty($aliases[$db]['tables'][$table]['columns'][$colAs])
             ) {
-                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            $columns[$i] = $col_as;
+            $columns[$i] = $colAs;
         }
 
-        $record_cnt = 0;
+        $recordCnt = 0;
         while ($record = $result->fetchRow()) {
-            $record_cnt++;
+            $recordCnt++;
 
             // Output table name as comment if this is the first record of the table
-            if ($record_cnt > 1) {
+            if ($recordCnt > 1) {
                 if (! $this->export->outputHandler(',' . "\n")) {
                     return false;
                 }
@@ -263,7 +263,7 @@ class ExportJson extends ExportPlugin
 
             $data = [];
 
-            for ($i = 0; $i < $columns_cnt; $i++) {
+            for ($i = 0; $i < $columnsCnt; $i++) {
                 // 63 is the binary charset, see: https://dev.mysql.com/doc/internals/en/charsets.html
                 $isBlobAndIsBinaryCharset = isset($fieldsMeta[$i])
                                                 && $fieldsMeta[$i]->isType(FieldMetadata::TYPE_BLOB)

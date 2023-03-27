@@ -103,17 +103,17 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisMultiLineString::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -121,7 +121,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      */
     public function testGetShape(): void
     {
-        $row_data = [
+        $rowData = [
             'numparts' => 2,
             'parts' => [
                 0 => [
@@ -154,7 +154,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $object = GisMultiLineString::singleton();
         $this->assertEquals(
             'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
-            $object->getShape($row_data),
+            $object->getShape($rowData),
         );
     }
 
@@ -220,14 +220,14 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisMultiLineString::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
@@ -270,10 +270,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param string $label      label for the GIS MULTILINESTRING object
-     * @param int[]  $color      color for the GIS MULTILINESTRING object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial   GIS MULTILINESTRING object
+     * @param string $label     label for the GIS MULTILINESTRING object
+     * @param int[]  $color     color for the GIS MULTILINESTRING object
+     * @param array  $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -281,11 +281,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisMultiLineString::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multilinestring-expected.pdf';
         $fileActual = $this->testDir . '/multilinestring-actual.pdf';

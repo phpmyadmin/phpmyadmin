@@ -50,17 +50,17 @@ class DbiMysqli implements DbiExtension
             return null;
         }
 
-        $client_flags = 0;
+        $clientFlags = 0;
 
         /* Optionally compress connection */
         if ($server->compress && defined('MYSQLI_CLIENT_COMPRESS')) {
-            $client_flags |= MYSQLI_CLIENT_COMPRESS;
+            $clientFlags |= MYSQLI_CLIENT_COMPRESS;
         }
 
         // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         /* Optionally enable SSL */
         if ($server->ssl) {
-            $client_flags |= MYSQLI_CLIENT_SSL;
+            $clientFlags |= MYSQLI_CLIENT_SSL;
             if (
                 $server->ssl_key !== null && $server->ssl_key !== '' ||
                 $server->ssl_cert !== null && $server->ssl_cert !== '' ||
@@ -85,7 +85,7 @@ class DbiMysqli implements DbiExtension
              */
             if (! $server->ssl_verify) {
                 $mysqli->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, (int) $server->ssl_verify);
-                $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+                $clientFlags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
         }
 
@@ -103,7 +103,7 @@ class DbiMysqli implements DbiExtension
                 '',
                 (int) $server->port,
                 $server->socket,
-                $client_flags,
+                $clientFlags,
             );
         } catch (mysqli_sql_exception) {
             /**
@@ -114,13 +114,13 @@ class DbiMysqli implements DbiExtension
              * - #2001 - SSL Connection is required. Please specify SSL options and retry.
              * - #9002 - SSL connection is required. Please specify SSL options and retry.
              */
-            $error_number = $mysqli->connect_errno;
-            $error_message = $mysqli->connect_error;
+            $errorNumber = $mysqli->connect_errno;
+            $errorMessage = $mysqli->connect_error;
             if (
                 ! $server->ssl
-                && ($error_number == 3159
-                    || (($error_number == 2001 || $error_number == 9002)
-                        && stripos($error_message, 'SSL Connection is required') !== false))
+                && ($errorNumber == 3159
+                    || (($errorNumber == 2001 || $errorNumber == 9002)
+                        && stripos($errorMessage, 'SSL Connection is required') !== false))
             ) {
                 trigger_error(
                     __('SSL connection enforced by server, automatically enabling it.'),
@@ -130,7 +130,7 @@ class DbiMysqli implements DbiExtension
                 return self::connect($user, $password, $server->withSSL(true));
             }
 
-            if ($error_number === 1045 && $server->hide_connection_errors) {
+            if ($errorNumber === 1045 && $server->hide_connection_errors) {
                 trigger_error(
                     sprintf(
                         __(
@@ -143,7 +143,7 @@ class DbiMysqli implements DbiExtension
                     E_USER_ERROR,
                 );
             } else {
-                trigger_error($error_number . ': ' . $error_message, E_USER_WARNING);
+                trigger_error($errorNumber . ': ' . $errorMessage, E_USER_WARNING);
             }
 
             mysqli_report(MYSQLI_REPORT_OFF);
@@ -295,18 +295,18 @@ class DbiMysqli implements DbiExtension
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
 
-        $error_number = $mysqli->errno;
-        $error_message = $mysqli->error;
+        $errorNumber = $mysqli->errno;
+        $errorMessage = $mysqli->error;
 
-        if ($error_number === 0 || $error_message === '') {
+        if ($errorNumber === 0 || $errorMessage === '') {
             return '';
         }
 
         // keep the error number for further check after
         // the call to getError()
-        $GLOBALS['errno'] = $error_number;
+        $GLOBALS['errno'] = $errorNumber;
 
-        return Utilities::formatError($error_number, $error_message);
+        return Utilities::formatError($errorNumber, $errorMessage);
     }
 
     /**

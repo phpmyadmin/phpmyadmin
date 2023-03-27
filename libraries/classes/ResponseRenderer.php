@@ -407,11 +407,11 @@ class ResponseRenderer
     /**
      * Wrapper around PHP's http_response_code() function.
      *
-     * @param int $response_code will set the response code.
+     * @param int $responseCode will set the response code.
      */
-    public function httpResponseCode(int $response_code): void
+    public function httpResponseCode(int $responseCode): void
     {
-        http_response_code($response_code);
+        http_response_code($responseCode);
     }
 
     /**

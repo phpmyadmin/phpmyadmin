@@ -1041,7 +1041,7 @@ class UtilTest extends AbstractTestCase
         $this->assertFormatNumber($a, $b, $c, $d);
 
         // Test with various precisions
-        $old_precision = (string) ini_get('precision');
+        $oldPrecision = (string) ini_get('precision');
         try {
             ini_set('precision', '20');
             $this->assertFormatNumber($a, $b, $c, $d);
@@ -1054,7 +1054,7 @@ class UtilTest extends AbstractTestCase
             ini_set('precision', '-1');
             $this->assertFormatNumber($a, $b, $c, $d);
         } finally {
-            ini_set('precision', $old_precision);
+            ini_set('precision', $oldPrecision);
         }
 
         // Test with different translations
@@ -1786,9 +1786,9 @@ class UtilTest extends AbstractTestCase
 
     public function testUnsupportedDatatypes(): void
     {
-        $no_support_types = [];
+        $noSupportTypes = [];
         $this->assertEquals(
-            $no_support_types,
+            $noSupportTypes,
             Util::unsupportedDatatypes(),
         );
     }

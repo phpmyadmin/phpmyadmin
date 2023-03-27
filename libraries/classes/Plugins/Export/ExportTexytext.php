@@ -166,14 +166,14 @@ class ExportTexytext extends ExportPlugin
     ): bool {
         $GLOBALS['what'] ??= null;
 
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         if (
             ! $this->export->outputHandler(
-                $table_alias != ''
-                ? '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
+                $tableAlias != ''
+                ? '== ' . __('Dumping data for table') . ' ' . $tableAlias . "\n\n"
                 : '==' . __('Dumping data for query result') . "\n\n",
             )
         ) {
@@ -194,24 +194,24 @@ class ExportTexytext extends ExportPlugin
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
-            $text_output = "|------\n";
-            foreach ($result->getFieldNames() as $col_as) {
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                    $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            $textOutput = "|------\n";
+            foreach ($result->getFieldNames() as $colAs) {
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
-                $text_output .= '|' . htmlspecialchars($col_as);
+                $textOutput .= '|' . htmlspecialchars($colAs);
             }
 
-            $text_output .= "\n|------\n";
-            if (! $this->export->outputHandler($text_output)) {
+            $textOutput .= "\n|------\n";
+            if (! $this->export->outputHandler($textOutput)) {
                 return false;
             }
         }
 
         // Format the data
         while ($row = $result->fetchRow()) {
-            $text_output = '';
+            $textOutput = '';
             foreach ($row as $field) {
                 if ($field === null) {
                     $value = $GLOBALS[$GLOBALS['what'] . '_null'];
@@ -221,7 +221,7 @@ class ExportTexytext extends ExportPlugin
                     $value = ' ';
                 }
 
-                $text_output .= '|'
+                $textOutput .= '|'
                     . str_replace(
                         '|',
                         '&#124;',
@@ -229,8 +229,8 @@ class ExportTexytext extends ExportPlugin
                     );
             }
 
-            $text_output .= "\n";
-            if (! $this->export->outputHandler($text_output)) {
+            $textOutput .= "\n";
+            if (! $this->export->outputHandler($textOutput)) {
                 return false;
             }
         }
@@ -265,19 +265,19 @@ class ExportTexytext extends ExportPlugin
      */
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
-        $text_output = '';
+        $textOutput = '';
 
         /**
          * Get the unique keys in the table
          */
-        $unique_keys = [];
+        $uniqueKeys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
             }
 
-            $unique_keys[] = $key['Column_name'];
+            $uniqueKeys[] = $key['Column_name'];
         }
 
         /**
@@ -289,7 +289,7 @@ class ExportTexytext extends ExportPlugin
          * Displays the table structure
          */
 
-        $text_output .= "|------\n"
+        $textOutput .= "|------\n"
             . '|' . __('Column')
             . '|' . __('Type')
             . '|' . __('Null')
@@ -298,67 +298,67 @@ class ExportTexytext extends ExportPlugin
 
         $columns = $GLOBALS['dbi']->getColumns($db, $view);
         foreach ($columns as $column) {
-            $col_as = $column['Field'] ?? null;
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
-                $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
+            $colAs = $column['Field'] ?? null;
+            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
+                $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
             }
 
-            $text_output .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
-            $text_output .= "\n";
+            $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
+            $textOutput .= "\n";
         }
 
-        return $text_output;
+        return $textOutput;
     }
 
     /**
      * Returns $table's CREATE definition
      *
-     * @param string $db            the database name
-     * @param string $table         the table name
-     * @param string $error_url     the url to go back in case of error
-     * @param bool   $do_relation   whether to include relation comments
-     * @param bool   $do_comments   whether to include the pmadb-style column
+     * @param string $db           the database name
+     * @param string $table        the table name
+     * @param string $errorUrl     the url to go back in case of error
+     * @param bool   $doRelation   whether to include relation comments
+     * @param bool   $doComments   whether to include the pmadb-style column
      *                              comments as comments in the structure;
      *                              this is deprecated but the parameter is
      *                              left here because /export calls
      *                              $this->exportStructure() also for other
      *                              export types which use this parameter
-     * @param bool   $do_mime       whether to include mime comments
-     * @param bool   $show_dates    whether to include creation/update/check dates
-     * @param bool   $add_semicolon whether to add semicolon and end-of-line
+     * @param bool   $doMime       whether to include mime comments
+     * @param bool   $showDates    whether to include creation/update/check dates
+     * @param bool   $addSemicolon whether to add semicolon and end-of-line
      *                              at the end
-     * @param bool   $view          whether we're handling a view
-     * @param array  $aliases       Aliases of db/table/columns
+     * @param bool   $view         whether we're handling a view
+     * @param array  $aliases      Aliases of db/table/columns
      *
      * @return string resulting schema
      */
     public function getTableDef(
         string $db,
         string $table,
-        string $error_url,
-        bool $do_relation,
-        bool $do_comments,
-        bool $do_mime,
-        bool $show_dates = false,
-        bool $add_semicolon = true,
+        string $errorUrl,
+        bool $doRelation,
+        bool $doComments,
+        bool $doMime,
+        bool $showDates = false,
+        bool $addSemicolon = true,
         bool $view = false,
         array $aliases = [],
     ): string {
         $relationParameters = $this->relation->getRelationParameters();
 
-        $text_output = '';
+        $textOutput = '';
 
         /**
          * Get the unique keys in the table
          */
-        $unique_keys = [];
+        $uniqueKeys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
             }
 
-            $unique_keys[] = $key['Column_name'];
+            $uniqueKeys[] = $key['Column_name'];
         }
 
         /**
@@ -367,8 +367,8 @@ class ExportTexytext extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && $relationParameters->relationFeature !== null,
+        [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
+            $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table,
         );
@@ -377,67 +377,67 @@ class ExportTexytext extends ExportPlugin
          * Displays the table structure
          */
 
-        $text_output .= "|------\n";
-        $text_output .= '|' . __('Column');
-        $text_output .= '|' . __('Type');
-        $text_output .= '|' . __('Null');
-        $text_output .= '|' . __('Default');
-        if ($do_relation && $have_rel) {
-            $text_output .= '|' . __('Links to');
+        $textOutput .= "|------\n";
+        $textOutput .= '|' . __('Column');
+        $textOutput .= '|' . __('Type');
+        $textOutput .= '|' . __('Null');
+        $textOutput .= '|' . __('Default');
+        if ($doRelation && $haveRel) {
+            $textOutput .= '|' . __('Links to');
         }
 
-        if ($do_comments) {
-            $text_output .= '|' . __('Comments');
+        if ($doComments) {
+            $textOutput .= '|' . __('Comments');
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
-            $text_output .= '|' . __('Media type');
-            $mime_map = $this->transformations->getMime($db, $table, true);
+        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            $textOutput .= '|' . __('Media type');
+            $mimeMap = $this->transformations->getMime($db, $table, true);
         }
 
-        $text_output .= "\n|------\n";
+        $textOutput .= "\n|------\n";
 
         $columns = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($columns as $column) {
-            $col_as = $column['Field'];
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            $colAs = $column['Field'];
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            $text_output .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
-            $field_name = $column['Field'];
-            if ($do_relation && $have_rel) {
-                $text_output .= '|' . htmlspecialchars(
+            $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
+            $fieldName = $column['Field'];
+            if ($doRelation && $haveRel) {
+                $textOutput .= '|' . htmlspecialchars(
                     $this->getRelationString(
-                        $res_rel,
-                        $field_name,
+                        $resRel,
+                        $fieldName,
                         $db,
                         $aliases,
                     ),
                 );
             }
 
-            if ($do_comments && $relationParameters->columnCommentsFeature !== null) {
-                $text_output .= '|'
-                    . (isset($comments[$field_name])
-                        ? htmlspecialchars($comments[$field_name])
+            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+                $textOutput .= '|'
+                    . (isset($comments[$fieldName])
+                        ? htmlspecialchars($comments[$fieldName])
                         : '');
             }
 
-            if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
-                $text_output .= '|'
-                    . (isset($mime_map[$field_name])
+            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+                $textOutput .= '|'
+                    . (isset($mimeMap[$fieldName])
                         ? htmlspecialchars(
-                            str_replace('_', '/', $mime_map[$field_name]['mimetype']),
+                            str_replace('_', '/', $mimeMap[$fieldName]['mimetype']),
                         )
                         : '');
             }
 
-            $text_output .= "\n";
+            $textOutput .= "\n";
         }
 
-        return $text_output;
+        return $textOutput;
     }
 
     /**
@@ -473,22 +473,22 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs table's structure
      *
-     * @param string $db          database name
-     * @param string $table       table name
-     * @param string $errorUrl    the url to go back in case of error
-     * @param string $exportMode  'create_table', 'triggers', 'create_view',
-     *                             'stand_in'
-     * @param string $exportType  'server', 'database', 'table'
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $db         database name
+     * @param string $table      table name
+     * @param string $errorUrl   the url to go back in case of error
+     * @param string $exportMode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
+     * @param string $exportType 'server', 'database', 'table'
+     * @param bool   $doRelation whether to include relation comments
+     * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
      *                            left here because /export calls
      *                            $this->exportStructure() also for other
      *                            export types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $dates       whether to include creation/update/check dates
-     * @param array  $aliases     Aliases of db/table/columns
+     * @param bool   $doMime     whether to include mime comments
+     * @param bool   $dates      whether to include creation/update/check dates
+     * @param array  $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
@@ -496,28 +496,28 @@ class ExportTexytext extends ExportPlugin
         string $errorUrl,
         string $exportMode,
         string $exportType,
-        bool $do_relation = false,
-        bool $do_comments = false,
-        bool $do_mime = false,
+        bool $doRelation = false,
+        bool $doComments = false,
+        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
         $dump = '';
 
         switch ($exportMode) {
             case 'create_table':
                 $dump .= '== ' . __('Table structure for table') . ' '
-                . $table_alias . "\n\n";
+                . $tableAlias . "\n\n";
                 $dump .= $this->getTableDef(
                     $db,
                     $table,
                     $errorUrl,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
+                    $doRelation,
+                    $doComments,
+                    $doMime,
                     $dates,
                     true,
                     false,
@@ -527,20 +527,20 @@ class ExportTexytext extends ExportPlugin
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers) {
-                    $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
+                    $dump .= '== ' . __('Triggers') . ' ' . $tableAlias . "\n\n";
                     $dump .= $this->getTriggers($db, $table);
                 }
 
                 break;
             case 'create_view':
-                $dump .= '== ' . __('Structure for view') . ' ' . $table_alias . "\n\n";
+                $dump .= '== ' . __('Structure for view') . ' ' . $tableAlias . "\n\n";
                 $dump .= $this->getTableDef(
                     $db,
                     $table,
                     $errorUrl,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
+                    $doRelation,
+                    $doComments,
+                    $doMime,
                     $dates,
                     true,
                     true,
@@ -560,23 +560,23 @@ class ExportTexytext extends ExportPlugin
     /**
      * Formats the definition for one column
      *
-     * @param array  $column      info about this column
-     * @param array  $unique_keys unique keys for this table
-     * @param string $col_alias   Column Alias
+     * @param array  $column     info about this column
+     * @param array  $uniqueKeys unique keys for this table
+     * @param string $colAlias   Column Alias
      *
      * @return string Formatted column definition
      */
     public function formatOneColumnDefinition(
         array $column,
-        array $unique_keys,
-        string $col_alias = '',
+        array $uniqueKeys,
+        string $colAlias = '',
     ): string {
-        if ($col_alias === '') {
-            $col_alias = $column['Field'];
+        if ($colAlias === '') {
+            $colAlias = $column['Field'];
         }
 
-        $extracted_columnspec = Util::extractColumnSpec($column['Type']);
-        $type = $extracted_columnspec['print_type'];
+        $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
+        $type = $extractedColumnSpec['print_type'];
         if (empty($type)) {
             $type = '&nbsp;';
         }
@@ -587,20 +587,20 @@ class ExportTexytext extends ExportPlugin
             }
         }
 
-        $fmt_pre = '';
-        $fmt_post = '';
-        if (in_array($column['Field'], $unique_keys)) {
-            $fmt_pre = '**' . $fmt_pre;
-            $fmt_post .= '**';
+        $fmtPre = '';
+        $fmtPost = '';
+        if (in_array($column['Field'], $uniqueKeys)) {
+            $fmtPre = '**' . $fmtPre;
+            $fmtPost .= '**';
         }
 
         if ($column['Key'] === 'PRI') {
-            $fmt_pre = '//' . $fmt_pre;
-            $fmt_post .= '//';
+            $fmtPre = '//' . $fmtPre;
+            $fmtPost .= '//';
         }
 
         $definition = '|'
-            . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;
+            . $fmtPre . htmlspecialchars($colAlias) . $fmtPost;
         $definition .= '|' . htmlspecialchars($type);
         $definition .= '|'
             . ($column['Null'] == '' || $column['Null'] === 'NO'

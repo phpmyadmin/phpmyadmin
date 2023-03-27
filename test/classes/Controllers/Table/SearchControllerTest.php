@@ -78,7 +78,7 @@ class SearchControllerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($columns));
 
-        $show_create_table = "CREATE TABLE `pma_bookmark` (
+        $showCreateTable = "CREATE TABLE `pma_bookmark` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
         `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -90,7 +90,7 @@ class SearchControllerTest extends AbstractTestCase
         . "COMMENT='Bookmarks'";
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($show_create_table));
+            ->will($this->returnValue($showCreateTable));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 

@@ -28,17 +28,17 @@ final class Ajax
         /**
          * constant for differentiating array in $_SESSION variable
          */
-        $SESSION_KEY = '__upload_status';
+        $sessionKey = '__upload_status';
 
         /**
          * sets default plugin for handling the import process
          */
-        $_SESSION[$SESSION_KEY]['handler'] = '';
+        $_SESSION[$sessionKey]['handler'] = '';
 
         /**
          * unique ID for each upload
          */
-        $upload_id = ! defined('TESTSUITE') ? uniqid('') : 'abc1234567890';
+        $uploadId = ! defined('TESTSUITE') ? uniqid('') : 'abc1234567890';
 
         /**
          * list of available plugins
@@ -55,15 +55,15 @@ final class Ajax
             $check = $plugin . 'Check';
 
             if (self::$check()) {
-                $upload_class = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords($plugin);
-                $_SESSION[$SESSION_KEY]['handler'] = $upload_class;
+                $uploadClass = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords($plugin);
+                $_SESSION[$sessionKey]['handler'] = $uploadClass;
                 break;
             }
         }
 
         return [
-            $SESSION_KEY,
-            $upload_id,
+            $sessionKey,
+            $uploadId,
             $plugins,
         ];
     }

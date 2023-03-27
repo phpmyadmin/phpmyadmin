@@ -19,12 +19,12 @@ if (false === @include_once 'OpenID/RelyingParty.php') {
 }
 
 /* Change this to true if using phpMyAdmin over https */
-$secure_cookie = false;
+$secureCookie = false;
 
 /**
  * Map of authenticated users to MySQL user/password pairs.
  */
-$AUTH_MAP = [
+$authMap = [
     'https://launchpad.net/~username' => [
         'user' => 'root',
         'password' => '',
@@ -79,10 +79,10 @@ function Die_error($e): void
 // phpcs:enable
 
 /* Need to have cookie visible from parent directory */
-session_set_cookie_params(0, '/', '', $secure_cookie, true);
+session_set_cookie_params(0, '/', '', $secureCookie, true);
 /* Create signon session */
-$session_name = 'SignonSession';
-session_name($session_name);
+$sessionName = 'SignonSession';
+session_name($sessionName);
 @session_start();
 
 // Determine realm and return_to
@@ -158,13 +158,13 @@ try {
 
 $id = $message->get('openid.claimed_id');
 
-if (empty($id) || ! isset($AUTH_MAP[$id])) {
+if (empty($id) || ! isset($authMap[$id])) {
     Show_page('<p>User not allowed!</p>');
     exit;
 }
 
-$_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
-$_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
+$_SESSION['PMA_single_signon_user'] = $authMap[$id]['user'];
+$_SESSION['PMA_single_signon_password'] = $authMap[$id]['password'];
 $_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(random_int(0, mt_getrandmax())), true));
 session_write_close();
 /* Redirect to phpMyAdmin (should use absolute URL here!) */

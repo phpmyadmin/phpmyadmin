@@ -122,9 +122,9 @@ class TwoFactorPlugin
      *
      * Either hostname or hostname with scheme.
      *
-     * @param bool $return_url Whether to generate URL
+     * @param bool $returnUrl Whether to generate URL
      */
-    public function getAppId(bool $return_url): string
+    public function getAppId(bool $returnUrl): string
     {
         $GLOBALS['config'] ??= null;
 
@@ -146,7 +146,7 @@ class TwoFactorPlugin
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
 
-        if ($return_url) {
+        if ($returnUrl) {
             $port = '';
             if (isset($parsed['port'])) {
                 $port = ':' . $parsed['port'];

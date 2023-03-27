@@ -193,12 +193,12 @@ class ExportXml extends ExportPlugin
         $table = $this->getTable();
         $tables = $this->getTables();
 
-        $export_struct = isset($GLOBALS['xml_export_functions'])
+        $exportStruct = isset($GLOBALS['xml_export_functions'])
             || isset($GLOBALS['xml_export_procedures'])
             || isset($GLOBALS['xml_export_tables'])
             || isset($GLOBALS['xml_export_triggers'])
             || isset($GLOBALS['xml_export_views']);
-        $export_data = isset($GLOBALS['xml_export_contents']);
+        $exportData = isset($GLOBALS['xml_export_contents']);
 
         if ($GLOBALS['output_charset_conversion']) {
             $charset = $GLOBALS['charset'];
@@ -225,26 +225,26 @@ class ExportXml extends ExportPlugin
             . '-->' . "\n\n";
 
         $head .= '<pma_xml_export version="1.0"'
-            . ($export_struct
+            . ($exportStruct
                 ? ' xmlns:pma="https://www.phpmyadmin.net/some_doc_url/"'
                 : '')
             . '>' . "\n";
 
-        if ($export_struct) {
+        if ($exportStruct) {
             $result = $GLOBALS['dbi']->fetchResult(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
                 . ' = ' . $GLOBALS['dbi']->quoteString($GLOBALS['db']) . ' LIMIT 1',
             );
-            $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
-            $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
+            $dbCollation = $result[0]['DEFAULT_COLLATION_NAME'];
+            $dbCharset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
 
             $head .= '    <!--' . "\n";
             $head .= '    - Structure schemas' . "\n";
             $head .= '    -->' . "\n";
             $head .= '    <pma:structure_schemas>' . "\n";
             $head .= '        <pma:database name="' . htmlspecialchars($GLOBALS['db'])
-                . '" collation="' . htmlspecialchars($db_collation) . '" charset="' . htmlspecialchars($db_charset)
+                . '" collation="' . htmlspecialchars($dbCollation) . '" charset="' . htmlspecialchars($dbCharset)
                 . '">' . "\n";
 
             if (count($tables) === 0) {
@@ -265,20 +265,20 @@ class ExportXml extends ExportPlugin
 
                 $tbl = (string) $result[$table][1];
 
-                $is_view = $GLOBALS['dbi']->getTable($GLOBALS['db'], $table)
+                $isView = $GLOBALS['dbi']->getTable($GLOBALS['db'], $table)
                     ->isView();
 
-                if ($is_view) {
+                if ($isView) {
                     $type = 'view';
                 } else {
                     $type = 'table';
                 }
 
-                if ($is_view && ! isset($GLOBALS['xml_export_views'])) {
+                if ($isView && ! isset($GLOBALS['xml_export_views'])) {
                     continue;
                 }
 
-                if (! $is_view && ! isset($GLOBALS['xml_export_tables'])) {
+                if (! $isView && ! isset($GLOBALS['xml_export_tables'])) {
                     continue;
                 }
 
@@ -348,7 +348,7 @@ class ExportXml extends ExportPlugin
             $head .= '        </pma:database>' . "\n";
             $head .= '    </pma:structure_schemas>' . "\n";
 
-            if ($export_data) {
+            if ($exportData) {
                 $head .= "\n";
             }
         }
@@ -438,9 +438,9 @@ class ExportXml extends ExportPlugin
             return true;
         }
 
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
             $result = $GLOBALS['dbi']->query(
                 $sqlQuery,
@@ -448,22 +448,22 @@ class ExportXml extends ExportPlugin
                 DatabaseInterface::QUERY_UNBUFFERED,
             );
 
-            $columns_cnt = $result->numFields();
+            $columnsCnt = $result->numFields();
             $columns = $result->getFieldNames();
 
             $buffer = '        <!-- ' . __('Table') . ' '
-                . htmlspecialchars($table_alias) . ' -->' . "\n";
+                . htmlspecialchars($tableAlias) . ' -->' . "\n";
             if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
 
             while ($record = $result->fetchRow()) {
                 $buffer = '        <table name="'
-                    . htmlspecialchars($table_alias) . '">' . "\n";
-                for ($i = 0; $i < $columns_cnt; $i++) {
-                    $col_as = $columns[$i];
-                    if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                        $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+                    . htmlspecialchars($tableAlias) . '">' . "\n";
+                for ($i = 0; $i < $columnsCnt; $i++) {
+                    $colAs = $columns[$i];
+                    if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                        $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                     }
 
                     // If a cell is NULL, still export it to preserve
@@ -473,7 +473,7 @@ class ExportXml extends ExportPlugin
                     }
 
                     $buffer .= '            <column name="'
-                        . htmlspecialchars($col_as) . '">'
+                        . htmlspecialchars($colAs) . '">'
                         . htmlspecialchars($record[$i])
                         . '</column>' . "\n";
                 }

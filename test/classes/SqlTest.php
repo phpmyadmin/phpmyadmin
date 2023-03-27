@@ -235,32 +235,32 @@ class SqlTest extends AbstractTestCase
         $col3 = new stdClass();
         $col3->table = 'table3';
 
-        $fields_meta = [
+        $fieldsMeta = [
             $col1,
             $col2,
             $col3,
         ];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
         // should not matter on where the odd column occurs
-        $fields_meta = [
+        $fieldsMeta = [
             $col2,
             $col3,
             $col1,
         ];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
-        $fields_meta = [
+        $fieldsMeta = [
             $col3,
             $col1,
             $col2,
         ];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 
@@ -275,14 +275,14 @@ class SqlTest extends AbstractTestCase
         $col2->table = 'table1';
         $col3 = new stdClass();
         $col3->table = 'table1';
-        $fields_meta = [
+        $fieldsMeta = [
             $col1,
             $col2,
             $col3,
         ];
 
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 
@@ -299,32 +299,32 @@ class SqlTest extends AbstractTestCase
         $col3 = new stdClass();
         $col3->table = 'table1';
 
-        $fields_meta = [
+        $fieldsMeta = [
             $col1,
             $col2,
             $col3,
         ];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
         // should not matter on where the function column occurs
-        $fields_meta = [
+        $fieldsMeta = [
             $col2,
             $col3,
             $col1,
         ];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
-        $fields_meta = [
+        $fieldsMeta = [
             $col3,
             $col1,
             $col2,
         ];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 
@@ -340,14 +340,14 @@ class SqlTest extends AbstractTestCase
         $col2->table = '';
         $col3 = new stdClass();
         $col3->table = '';
-        $fields_meta = [
+        $fieldsMeta = [
             $col1,
             $col2,
             $col3,
         ];
 
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 

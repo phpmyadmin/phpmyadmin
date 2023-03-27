@@ -38,7 +38,7 @@ final class DestroyController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['reload'] ??= null;
 
-        $selected_dbs = $request->getParsedBodyParam('selected_dbs');
+        $selectedDbs = $request->getParsedBodyParam('selected_dbs');
 
         if (
             ! $this->response->isAjax()
@@ -53,8 +53,8 @@ final class DestroyController extends AbstractController
         }
 
         if (
-            ! is_array($selected_dbs)
-            || $selected_dbs === []
+            ! is_array($selectedDbs)
+            || $selectedDbs === []
         ) {
             $message = Message::error(__('No databases selected.'));
             $json = ['message' => $message];
@@ -65,10 +65,10 @@ final class DestroyController extends AbstractController
         }
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/server/databases');
-        $GLOBALS['selected'] = $selected_dbs;
-        $numberOfDatabases = count($selected_dbs);
+        $GLOBALS['selected'] = $selectedDbs;
+        $numberOfDatabases = count($selectedDbs);
 
-        foreach ($selected_dbs as $database) {
+        foreach ($selectedDbs as $database) {
             $this->relationCleanup->database($database);
             $aQuery = 'DROP DATABASE ' . Util::backquote($database);
             $GLOBALS['reload'] = true;

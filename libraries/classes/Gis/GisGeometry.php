@@ -31,38 +31,38 @@ abstract class GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial    GIS data object
-     * @param string $label      label for the GIS data object
-     * @param int[]  $color      color for the GIS data object
-     * @param array  $scale_data data related to scaling
+     * @param string $spatial   GIS data object
+     * @param string $label     label for the GIS data object
+     * @param int[]  $color     color for the GIS data object
+     * @param array  $scaleData data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    abstract public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string;
+    abstract public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string;
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param int[]  $color      Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POLYGON object
+     * @param string $label     Label for the GIS POLYGON object
+     * @param int[]  $color     Color for the GIS POLYGON object
+     * @param array  $scaleData Array containing data related to scaling
      */
     abstract public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         ImageWrapper $image,
     ): ImageWrapper;
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS data object
-     * @param string $label      label for the GIS data object
-     * @param int[]  $color      color for the GIS data object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial   GIS data object
+     * @param string $label     label for the GIS data object
+     * @param int[]  $color     color for the GIS data object
+     * @param array  $scaleData array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
@@ -70,7 +70,7 @@ abstract class GisGeometry
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): TCPDF;
 
@@ -104,26 +104,26 @@ abstract class GisGeometry
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gis_data GIS data
-     * @param int         $index    index into the parameter object
-     * @param string|null $empty    value for empty points
+     * @param array       $gisData GIS data
+     * @param int         $index   index into the parameter object
+     * @param string|null $empty   value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    abstract public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string;
+    abstract public function generateWkt(array $gisData, int $index, string|null $empty = ''): string;
 
     /**
      * Updates the min, max values with the given point set.
      *
-     * @param string         $point_set point set
+     * @param string         $pointSet  point set
      * @param ScaleData|null $scaleData existing min, max values
      *
      * @return ScaleData|null the updated min, max values
      */
-    protected function setMinMax(string $point_set, ScaleData|null $scaleData = null): ScaleData|null
+    protected function setMinMax(string $pointSet, ScaleData|null $scaleData = null): ScaleData|null
     {
         // Separate each point
-        $points = explode(',', $point_set);
+        $points = explode(',', $pointSet);
 
         foreach ($points as $point) {
             // Extract coordinates of the point
@@ -148,15 +148,15 @@ abstract class GisGeometry
      */
     protected function parseWktAndSrid(string $value): array
     {
-        $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+        $geomTypes = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
         $wkt = '';
 
-        if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
-            $last_comma = mb_strripos($value, ',');
-            $srid = (int) trim(mb_substr($value, $last_comma + 1));
-            $wkt = trim(mb_substr($value, 1, $last_comma - 2));
-        } elseif (preg_match('/^' . $geom_types . '\(.*\)$/i', $value)) {
+        if (preg_match("/^'" . $geomTypes . "\(.*\)',[0-9]*$/i", $value)) {
+            $lastComma = mb_strripos($value, ',');
+            $srid = (int) trim(mb_substr($value, $lastComma + 1));
+            $wkt = trim(mb_substr($value, 1, $lastComma - 2));
+        } elseif (preg_match('/^' . $geomTypes . '\(.*\)$/i', $value)) {
             $wkt = $value;
         }
 
@@ -188,12 +188,12 @@ abstract class GisGeometry
         $index = 0;
         $wkt = $data['wkt'];
         preg_match('/^\w+/', $wkt, $matches);
-        $wkt_type = strtoupper($matches[0]);
+        $wktType = strtoupper($matches[0]);
 
         return [
             'srid' => $data['srid'],
             $index => [
-                $wkt_type => $this->getCoordinateParams($wkt),
+                $wktType => $this->getCoordinateParams($wkt),
             ],
         ];
     }
@@ -201,18 +201,18 @@ abstract class GisGeometry
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string     $point_set  string of comma separated points
-     * @param array|null $scale_data data related to scaling
-     * @param bool       $linear     if true, as a 1D array, else as a 2D array
+     * @param string     $pointSet  string of comma separated points
+     * @param array|null $scaleData data related to scaling
+     * @param bool       $linear    if true, as a 1D array, else as a 2D array
      *
      * @return float[]|float[][] scaled points
      */
-    private function extractPointsInternal(string $point_set, array|null $scale_data, bool $linear): array
+    private function extractPointsInternal(string $pointSet, array|null $scaleData, bool $linear): array
     {
-        $points_arr = [];
+        $pointsArr = [];
 
         // Separate each point
-        $points = explode(',', $point_set);
+        $points = explode(',', $pointSet);
 
         foreach ($points as $point) {
             $point = str_replace(['(', ')'], '', $point);
@@ -220,13 +220,13 @@ abstract class GisGeometry
             $coordinates = explode(' ', $point);
 
             if (isset($coordinates[1]) && trim($coordinates[0]) != '' && trim($coordinates[1]) != '') {
-                if ($scale_data === null) {
+                if ($scaleData === null) {
                     $x = (float) $coordinates[0];
                     $y = (float) $coordinates[1];
                 } else {
-                    $x = (float) (((float) $coordinates[0] - $scale_data['x']) * $scale_data['scale']);
-                    $y = (float) ($scale_data['height']
-                        - ((float) $coordinates[1] - $scale_data['y']) * $scale_data['scale']);
+                    $x = (float) (((float) $coordinates[0] - $scaleData['x']) * $scaleData['scale']);
+                    $y = (float) ($scaleData['height']
+                        - ((float) $coordinates[1] - $scaleData['y']) * $scaleData['scale']);
                 }
             } else {
                 $x = 0.0;
@@ -234,75 +234,75 @@ abstract class GisGeometry
             }
 
             if ($linear) {
-                $points_arr[] = $x;
-                $points_arr[] = $y;
+                $pointsArr[] = $x;
+                $pointsArr[] = $y;
             } else {
-                $points_arr[] = [$x, $y];
+                $pointsArr[] = [$x, $y];
             }
         }
 
-        return $points_arr;
+        return $pointsArr;
     }
 
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string     $wktCoords  string of comma separated points
-     * @param array|null $scale_data data related to scaling
+     * @param string     $wktCoords string of comma separated points
+     * @param array|null $scaleData data related to scaling
      *
      * @return float[][] scaled points
      */
-    protected function extractPoints1d(string $wktCoords, array|null $scale_data): array
+    protected function extractPoints1d(string $wktCoords, array|null $scaleData): array
     {
-        /** @var float[][] $points_arr */
-        $points_arr = $this->extractPointsInternal($wktCoords, $scale_data, false);
+        /** @var float[][] $pointsArr */
+        $pointsArr = $this->extractPointsInternal($wktCoords, $scaleData, false);
 
-        return $points_arr;
+        return $pointsArr;
     }
 
     /**
      * Extracts points, scales and returns them as an linear array.
      *
-     * @param string     $wktCoords  string of comma separated points
-     * @param array|null $scale_data data related to scaling
+     * @param string     $wktCoords string of comma separated points
+     * @param array|null $scaleData data related to scaling
      *
      * @return float[] scaled points
      */
-    protected function extractPoints1dLinear(string $wktCoords, array|null $scale_data): array
+    protected function extractPoints1dLinear(string $wktCoords, array|null $scaleData): array
     {
-        /** @var float[] $points_arr */
-        $points_arr = $this->extractPointsInternal($wktCoords, $scale_data, true);
+        /** @var float[] $pointsArr */
+        $pointsArr = $this->extractPointsInternal($wktCoords, $scaleData, true);
 
-        return $points_arr;
+        return $pointsArr;
     }
 
     /**
-     * @param string     $wktCoords  string of ),( separated points
-     * @param array|null $scale_data data related to scaling
+     * @param string     $wktCoords string of ),( separated points
+     * @param array|null $scaleData data related to scaling
      *
      * @return float[][][]  scaled points
      */
-    protected function extractPoints2d(string $wktCoords, array|null $scale_data): array
+    protected function extractPoints2d(string $wktCoords, array|null $scaleData): array
     {
         $parts = explode('),(', $wktCoords);
 
-        return array_map(function ($coord) use ($scale_data) {
-            return $this->extractPoints1d($coord, $scale_data);
+        return array_map(function ($coord) use ($scaleData) {
+            return $this->extractPoints1d($coord, $scaleData);
         }, $parts);
     }
 
     /**
-     * @param string     $wktCoords  string of )),(( separated points
-     * @param array|null $scale_data data related to scaling
+     * @param string     $wktCoords string of )),(( separated points
+     * @param array|null $scaleData data related to scaling
      *
      * @return float[][][][] scaled points
      */
-    protected function extractPoints3d(string $wktCoords, array|null $scale_data): array
+    protected function extractPoints3d(string $wktCoords, array|null $scaleData): array
     {
         $parts = explode(')),((', $wktCoords);
 
-        return array_map(function ($coord) use ($scale_data) {
-            return $this->extractPoints2d($coord, $scale_data);
+        return array_map(function ($coord) use ($scaleData) {
+            return $this->extractPoints2d($coord, $scaleData);
         }, $parts);
     }
 

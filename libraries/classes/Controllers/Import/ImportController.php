@@ -178,11 +178,11 @@ final class ImportController extends AbstractController
                 preg_match(
                     '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
                     $GLOBALS['sql_query'],
-                    $rename_table_names,
+                    $renameTableNames,
                 )
             ) {
                 $GLOBALS['ajax_reload']['reload'] = true;
-                $GLOBALS['ajax_reload']['table_name'] = Util::unQuote($rename_table_names[2]);
+                $GLOBALS['ajax_reload']['table_name'] = Util::unQuote($renameTableNames[2]);
             }
 
             $GLOBALS['sql_query'] = '';
@@ -223,9 +223,9 @@ final class ImportController extends AbstractController
         }
 
         // Add console message id to response output
-        $console_message_id = $request->getParsedBodyParam('console_message_id');
-        if ($console_message_id !== null) {
-            $this->response->addJSON('console_message_id', $console_message_id);
+        $consoleMessageId = $request->getParsedBodyParam('console_message_id');
+        if ($consoleMessageId !== null) {
+            $this->response->addJSON('console_message_id', $consoleMessageId);
         }
 
         /**
@@ -242,9 +242,9 @@ final class ImportController extends AbstractController
             return;
         }
 
-        $post_patterns = ['/^' . $GLOBALS['format'] . '_/'];
+        $postPatterns = ['/^' . $GLOBALS['format'] . '_/'];
 
-        Core::setPostAsGlobal($post_patterns);
+        Core::setPostAsGlobal($postPatterns);
 
         $this->checkParameters(['import_type', 'format']);
 
@@ -317,16 +317,16 @@ final class ImportController extends AbstractController
         $GLOBALS['result'] = false;
 
         // Bookmark Support: get a query back from bookmark if required
-        $id_bookmark = (int) $request->getParsedBodyParam('id_bookmark');
-        $action_bookmark = (int) $request->getParsedBodyParam('action_bookmark');
-        if ($id_bookmark !== 0) {
-            switch ($action_bookmark) {
+        $idBookmark = (int) $request->getParsedBodyParam('id_bookmark');
+        $actionBookmark = (int) $request->getParsedBodyParam('action_bookmark');
+        if ($idBookmark !== 0) {
+            switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
                         DatabaseName::fromValue($GLOBALS['db']),
-                        $id_bookmark,
+                        $idBookmark,
                         'id',
                         $request->hasBodyParam('action_bookmark_all'),
                     );
@@ -334,9 +334,9 @@ final class ImportController extends AbstractController
                         break;
                     }
 
-                    $bookmark_variables = $request->getParsedBodyParam('bookmark_variable');
-                    if (is_array($bookmark_variables)) {
-                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmark_variables);
+                    $bookmarkVariables = $request->getParsedBodyParam('bookmark_variable');
+                    if (is_array($bookmarkVariables)) {
+                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmarkVariables);
                     } else {
                         $GLOBALS['import_text'] = $bookmark->getQuery();
                     }
@@ -358,7 +358,7 @@ final class ImportController extends AbstractController
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
                         DatabaseName::fromValue($GLOBALS['db']),
-                        $id_bookmark,
+                        $idBookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
@@ -370,7 +370,7 @@ final class ImportController extends AbstractController
                         $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                         $this->response->addJSON('message', $GLOBALS['message']);
                         $this->response->addJSON('sql_query', $GLOBALS['import_text']);
-                        $this->response->addJSON('action_bookmark', $action_bookmark);
+                        $this->response->addJSON('action_bookmark', $actionBookmark);
 
                         return;
                     }
@@ -382,7 +382,7 @@ final class ImportController extends AbstractController
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
                         DatabaseName::fromValue($GLOBALS['db']),
-                        $id_bookmark,
+                        $idBookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
@@ -395,8 +395,8 @@ final class ImportController extends AbstractController
                         );
                         $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                         $this->response->addJSON('message', $GLOBALS['message']);
-                        $this->response->addJSON('action_bookmark', $action_bookmark);
-                        $this->response->addJSON('id_bookmark', $id_bookmark);
+                        $this->response->addJSON('action_bookmark', $actionBookmark);
+                        $this->response->addJSON('id_bookmark', $idBookmark);
 
                         return;
                     }
@@ -542,7 +542,7 @@ final class ImportController extends AbstractController
 
         // Something to skip? (because timeout has passed)
         if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
-            $original_skip = $skip = intval($request->getParsedBodyParam('skip'));
+            $originalSkip = $skip = intval($request->getParsedBodyParam('skip'));
             while ($skip > 0 && ! $GLOBALS['finished']) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
@@ -561,9 +561,9 @@ final class ImportController extends AbstractController
         $queriesToBeExecuted = [];
 
         if (! $GLOBALS['error']) {
-            /** @var ImportPlugin $import_plugin */
-            $import_plugin = Plugins::getPlugin('import', $GLOBALS['format'], $GLOBALS['import_type']);
-            if ($import_plugin == null) {
+            /** @var ImportPlugin $importPlugin */
+            $importPlugin = Plugins::getPlugin('import', $GLOBALS['format'], $GLOBALS['import_type']);
+            if ($importPlugin == null) {
                 $GLOBALS['message'] = Message::error(
                     __('Could not load import plugins, please check your installation!'),
                 );
@@ -578,12 +578,12 @@ final class ImportController extends AbstractController
             }
 
             // Do the real import
-            $default_fk_check = ForeignKey::handleDisableCheckInit();
+            $defaultFkCheck = ForeignKey::handleDisableCheckInit();
             try {
-                $queriesToBeExecuted = $import_plugin->doImport($importHandle ?? null);
-                ForeignKey::handleDisableCheckCleanup($default_fk_check);
+                $queriesToBeExecuted = $importPlugin->doImport($importHandle ?? null);
+                ForeignKey::handleDisableCheckCleanup($defaultFkCheck);
             } catch (Throwable $e) {
-                ForeignKey::handleDisableCheckCleanup($default_fk_check);
+                ForeignKey::handleDisableCheckCleanup($defaultFkCheck);
 
                 throw $e;
             }
@@ -600,11 +600,11 @@ final class ImportController extends AbstractController
         }
 
         // Show correct message
-        if ($id_bookmark !== 0 && $action_bookmark === 2) {
+        if ($idBookmark !== 0 && $actionBookmark === 2) {
             $GLOBALS['message'] = Message::success(__('The bookmark has been deleted.'));
             $GLOBALS['display_query'] = $GLOBALS['import_text'];
             $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
-        } elseif ($id_bookmark !== 0 && $action_bookmark === 1) {
+        } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
             $GLOBALS['message'] = Message::notice(__('Showing bookmark'));
         } elseif ($GLOBALS['finished'] && ! $GLOBALS['error']) {
             // Do not display the query with message, we do it separately
@@ -657,7 +657,7 @@ final class ImportController extends AbstractController
             $GLOBALS['message']->addParamHtml('<a href="' . $importUrl . '">');
             $GLOBALS['message']->addParamHtml('</a>');
 
-            if ($GLOBALS['offset'] == 0 || (isset($original_skip) && $original_skip == $GLOBALS['offset'])) {
+            if ($GLOBALS['offset'] == 0 || (isset($originalSkip) && $originalSkip == $GLOBALS['offset'])) {
                 $GLOBALS['message']->addText(
                     __(
                         'However on last run no data has been parsed,'
@@ -680,7 +680,7 @@ final class ImportController extends AbstractController
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen($GLOBALS['sql_query']);
         if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-            [$statementInfo, $GLOBALS['db'], $table_from_sql] = ParseAnalyze::sqlQuery(
+            [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery(
                 $GLOBALS['sql_query'],
                 $GLOBALS['db'],
             );
@@ -688,8 +688,8 @@ final class ImportController extends AbstractController
             $GLOBALS['reload'] = $statementInfo->reload;
             $GLOBALS['offset'] = $statementInfo->offset;
 
-            if ($GLOBALS['table'] != $table_from_sql && $table_from_sql !== '') {
-                $GLOBALS['table'] = $table_from_sql;
+            if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
+                $GLOBALS['table'] = $tableFromSql;
             }
         }
 
@@ -707,11 +707,11 @@ final class ImportController extends AbstractController
                 $queriesToBeExecuted = [$GLOBALS['sql_query']];
             }
 
-            $html_output = '';
+            $htmlOutput = '';
 
             foreach ($queriesToBeExecuted as $GLOBALS['sql_query']) {
                 // parse sql query
-                [$statementInfo, $GLOBALS['db'], $table_from_sql] = ParseAnalyze::sqlQuery(
+                [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery(
                     $GLOBALS['sql_query'],
                     $GLOBALS['db'],
                 );
@@ -737,11 +737,11 @@ final class ImportController extends AbstractController
                     return;
                 }
 
-                if ($GLOBALS['table'] != $table_from_sql && $table_from_sql !== '') {
-                    $GLOBALS['table'] = $table_from_sql;
+                if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
+                    $GLOBALS['table'] = $tableFromSql;
                 }
 
-                $html_output .= $this->sql->executeQueryAndGetQueryResponse(
+                $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
                     $statementInfo,
                     false, // is_gotofile
                     $GLOBALS['db'], // db
@@ -776,7 +776,7 @@ final class ImportController extends AbstractController
             }
 
             $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
-            $this->response->addHTML($html_output);
+            $this->response->addHTML($htmlOutput);
 
             return;
         }

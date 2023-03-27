@@ -748,13 +748,13 @@ class ExportHtmlwordTest extends AbstractTestCase
             'Type' => 'set(abc)enum123',
         ];
 
-        $unique_keys = ['field'];
+        $uniqueKeys = ['field'];
 
         $this->assertEquals(
             '<tr class="print-category"><td class="print"><em>' .
             '<strong>field</strong></em></td><td class="print">set(abc)</td>' .
             '<td class="print">Yes</td><td class="print">NULL</td>',
-            $method->invoke($this->object, $cols, $unique_keys),
+            $method->invoke($this->object, $cols, $uniqueKeys),
         );
 
         $cols = [
@@ -765,13 +765,13 @@ class ExportHtmlwordTest extends AbstractTestCase
             'Default' => 'def',
         ];
 
-        $unique_keys = ['field'];
+        $uniqueKeys = ['field'];
 
         $this->assertEquals(
             '<tr class="print-category"><td class="print">fields</td>' .
             '<td class="print">&amp;nbsp;</td><td class="print">No</td>' .
             '<td class="print">def</td>',
-            $method->invoke($this->object, $cols, $unique_keys),
+            $method->invoke($this->object, $cols, $uniqueKeys),
         );
     }
 }

@@ -109,8 +109,8 @@ class SqlQueryFormTest extends AbstractTestCase
         );
 
         //validate 2: enable auto select text in textarea
-        $auto_sel = ' data-textarea-auto-select="true"';
-        $this->assertStringContainsString($auto_sel, $html);
+        $autoSel = ' data-textarea-auto-select="true"';
+        $this->assertStringContainsString($autoSel, $html);
 
         //validate 3: MySQLDocumentation::show
         $this->assertStringContainsString(

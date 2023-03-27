@@ -173,19 +173,19 @@ class ImportSql extends ImportPlugin
      */
     private function setSQLMode(DatabaseInterface $dbi, array $request): void
     {
-        $sql_modes = [];
+        $sqlModes = [];
         if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
-            $sql_modes[] = $request['sql_compatibility'];
+            $sqlModes[] = $request['sql_compatibility'];
         }
 
         if (isset($request['sql_no_auto_value_on_zero'])) {
-            $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
+            $sqlModes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
 
-        if ($sql_modes === []) {
+        if ($sqlModes === []) {
             return;
         }
 
-        $dbi->tryQuery('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
+        $dbi->tryQuery('SET SQL_MODE="' . implode(',', $sqlModes) . '"');
     }
 }

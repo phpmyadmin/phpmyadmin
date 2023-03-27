@@ -56,7 +56,7 @@ parameters:
 			path: libraries/classes/Bookmark.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:createBookmark\\(\\) has parameter \\$bkm_fields with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:createBookmark\\(\\) has parameter \\$bkmFields with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Bookmark.php
 
@@ -881,17 +881,17 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$child_references_full with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$childReferencesFull with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$foreigners_full with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$foreignersFull with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) has parameter \\$disp_row with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) has parameter \\$dispRow with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1041,7 +1041,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$field_select of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects array, array\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$fieldSelect of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects array, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/CentralColumnsController.php
 
@@ -1052,11 +1052,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#1 \\$T1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
@@ -1136,17 +1131,17 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#2 \\$F1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#2 \\$T1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$t1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
 			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:createNewPage\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$f1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
@@ -1157,6 +1152,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$page of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForSchemaExport\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$t1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
@@ -1176,12 +1176,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#3 \\$F1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#3 \\$T2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$f1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
@@ -1191,37 +1186,42 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#4 \\$F2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$t2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#4 \\$T2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$f2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#5 \\$F2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$t2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#6 \\$on_delete of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$f2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#7 \\$on_update of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$onDelete of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#8 \\$DB1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$onUpdate of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#9 \\$DB2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$db1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#9 \\$db2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
@@ -1866,7 +1866,7 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Parameter \\#1 \\$file_name of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
+			message: "#^Parameter \\#1 \\$fileName of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
@@ -2276,7 +2276,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^PHPDoc tag @var for variable \\$relation_fields has no value type specified in iterable type array\\.$#"
+			message: "#^PHPDoc tag @var for variable \\$relationFields has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -2306,7 +2306,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -2386,7 +2386,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\SaveController\\:\\:adjustColumnPrivileges\\(\\) has parameter \\$adjust_privileges with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\SaveController\\:\\:adjustColumnPrivileges\\(\\) has parameter \\$adjustPrivileges with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
 
@@ -2436,12 +2436,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayStructure\\(\\) has parameter \\$columns_with_index with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayStructure\\(\\) has parameter \\$columnsWithIndex with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayStructure\\(\\) has parameter \\$columns_with_unique_index with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayStructure\\(\\) has parameter \\$columnsWithUniqueIndex with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
@@ -2486,12 +2486,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
+			message: "#^Parameter \\#2 \\$columnIndex of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -2601,12 +2601,12 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:previewSQL\\(\\) has parameter \\$query_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Core\\:\\:previewSQL\\(\\) has parameter \\$queryData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:setPostAsGlobal\\(\\) has parameter \\$post_patterns with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Core\\:\\:setPostAsGlobal\\(\\) has parameter \\$postPatterns with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -2641,7 +2641,7 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) has parameter \\$field_select with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) has parameter \\$fieldSelect with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
@@ -2666,7 +2666,7 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getHtmlForEditingPage\\(\\) has parameter \\$selected_fld with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getHtmlForEditingPage\\(\\) has parameter \\$selectedFld with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
@@ -2691,12 +2691,12 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:handleColumnExtra\\(\\) has parameter \\$columns_list with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:handleColumnExtra\\(\\) has parameter \\$columnsList with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) has parameter \\$field_select with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) has parameter \\$fieldSelect with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
@@ -2711,22 +2711,22 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_column with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tabColumn with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_pos with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tabPos with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tables_all_keys with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tablesAllKeys with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tables_pk_or_unique_keys with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tablesPkOrUniqueKeys with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
 
@@ -3266,7 +3266,7 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#2 \\$create_routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$createRoutine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
@@ -4146,27 +4146,27 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints1d\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints1d\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints1dLinear\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints1dLinear\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints2d\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints2d\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints3d\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints3d\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPointsInternal\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPointsInternal\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
@@ -4176,7 +4176,7 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
@@ -4186,17 +4186,17 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
@@ -4216,7 +4216,7 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
@@ -4226,22 +4226,22 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -4251,17 +4251,17 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -4281,7 +4281,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -4291,22 +4291,22 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:getShape\\(\\) has parameter \\$row_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:getShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -4321,7 +4321,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -4331,22 +4331,22 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:getShape\\(\\) has parameter \\$row_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:getShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -4371,12 +4371,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:drawPath\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:drawPath\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4386,22 +4386,22 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:getShape\\(\\) has parameter \\$row_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:getShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4421,12 +4421,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Variable \\$label_point in isset\\(\\) always exists and is not nullable\\.$#"
+			message: "#^Variable \\$labelPoint in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 2
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -4436,22 +4436,22 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:getShape\\(\\) has parameter \\$row_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:getShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -4476,12 +4476,12 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:drawPath\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:drawPath\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:generateWkt\\(\\) has parameter \\$gisData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -4516,17 +4516,17 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsPng\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsPng\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -4561,7 +4561,7 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:prepareDataSet\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:prepareDataSet\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
@@ -5186,7 +5186,7 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -5861,7 +5861,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportCodegen.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportCodegen\\:\\:setCgFormats\\(\\) has parameter \\$CG_FORMATS with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportCodegen\\:\\:setCgFormats\\(\\) has parameter \\$cgFormats with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportCodegen.php
 
@@ -5896,7 +5896,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportHtmlword\\:\\:formatOneColumnDefinition\\(\\) has parameter \\$unique_keys with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportHtmlword\\:\\:formatOneColumnDefinition\\(\\) has parameter \\$uniqueKeys with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
@@ -6151,7 +6151,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportTexytext\\:\\:formatOneColumnDefinition\\(\\) has parameter \\$unique_keys with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportTexytext\\:\\:formatOneColumnDefinition\\(\\) has parameter \\$uniqueKeys with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
@@ -6386,12 +6386,12 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:setTableHeaders\\(\\) has parameter \\$table_headers with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:setTableHeaders\\(\\) has parameter \\$tableHeaders with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:setTableHeaders\\(\\) has parameter \\$table_row with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:setTableHeaders\\(\\) has parameter \\$tableRow with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
@@ -6411,7 +6411,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverColumns\\(\\) has parameter \\$col_names with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverColumns\\(\\) has parameter \\$colNames with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
@@ -6426,7 +6426,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverRows\\(\\) has parameter \\$col_names with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverRows\\(\\) has parameter \\$colNames with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
@@ -6471,7 +6471,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#1 \\$cell_attrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$cellAttrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
@@ -6596,7 +6596,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php
 
 		-
-			message: "#^Parameter \\#1 \\$x_from of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#1 \\$xFrom of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
@@ -6606,12 +6606,12 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Parameter \\#2 \\$y_from of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#2 \\$yFrom of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Parameter \\#3 \\$x_to of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#3 \\$xTo of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
@@ -7556,12 +7556,12 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:calculateValues\\(\\) has parameter \\$server_status with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:calculateValues\\(\\) has parameter \\$serverStatus with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:calculateValues\\(\\) has parameter \\$server_variables with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:calculateValues\\(\\) has parameter \\$serverVariables with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
@@ -7571,7 +7571,7 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:cleanDeprecated\\(\\) has parameter \\$server_status with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:cleanDeprecated\\(\\) has parameter \\$serverStatus with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
@@ -7611,12 +7611,12 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:sortVariables\\(\\) has parameter \\$server_status with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:sortVariables\\(\\) has parameter \\$serverStatus with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:sortVariables\\(\\) has parameter \\$used_queries with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:sortVariables\\(\\) has parameter \\$usedQueries with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
@@ -7876,7 +7876,7 @@ parameters:
 			path: libraries/classes/Setup/ConfigGenerator.php
 
 		-
-			message: "#^Parameter \\#1 \\$var_name of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getVarExport\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$varName of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getVarExport\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Setup/ConfigGenerator.php
 
@@ -8041,7 +8041,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -8331,7 +8331,7 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$fields_meta with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$fieldsMeta with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
 
@@ -8521,7 +8521,7 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:filter\\(\\) has parameter \\$filter_users with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:filter\\(\\) has parameter \\$filterUsers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8536,7 +8536,7 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getEntries\\(\\) has parameter \\$filter_users with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getEntries\\(\\) has parameter \\$filterUsers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8556,12 +8556,12 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataDefinitionStatements\\(\\) has parameter \\$filter_users with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataDefinitionStatements\\(\\) has parameter \\$filterUsers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataDefinitionStatements\\(\\) has parameter \\$url_params with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataDefinitionStatements\\(\\) has parameter \\$urlParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8576,12 +8576,12 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) has parameter \\$filter_users with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) has parameter \\$filterUsers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) has parameter \\$url_params with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) has parameter \\$urlParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8631,12 +8631,12 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) has parameter \\$filter_users with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) has parameter \\$filterUsers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) has parameter \\$url_params with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) has parameter \\$urlParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8646,17 +8646,17 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReportExportForm1\\(\\) has parameter \\$filter_users with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReportExportForm1\\(\\) has parameter \\$filterUsers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReportExportForm1\\(\\) has parameter \\$url_params with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReportExportForm1\\(\\) has parameter \\$urlParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReportExportForm2\\(\\) has parameter \\$url_params with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForTrackingReportExportForm2\\(\\) has parameter \\$urlParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8766,7 +8766,7 @@ parameters:
 			path: libraries/classes/UserPassword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\UserPreferences\\:\\:apply\\(\\) has parameter \\$config_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\UserPreferences\\:\\:apply\\(\\) has parameter \\$configData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/UserPreferences.php
 
@@ -8781,7 +8781,7 @@ parameters:
 			path: libraries/classes/UserPreferences.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) has parameter \\$config_array with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) has parameter \\$configArray with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/UserPreferences.php
 
@@ -9291,7 +9291,7 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigTest\\:\\:testGetConnectionParams\\(\\) has parameter \\$server_cfg with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigTest\\:\\:testGetConnectionParams\\(\\) has parameter \\$serverCfg with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
 
@@ -9636,17 +9636,17 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetDataCellForNonNumericColumns\\(\\) has parameter \\$_url_params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetDataCellForNonNumericColumns\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetDataCellForNonNumericColumns\\(\\) has parameter \\$transform_options with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetDataCellForNonNumericColumns\\(\\) has parameter \\$transformOptions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Display/ResultsTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetDataCellForNonNumericColumns\\(\\) has parameter \\$urlParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
@@ -9656,7 +9656,7 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetRowInfoForSpecialLinks\\(\\) has parameter \\$col_order with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetRowInfoForSpecialLinks\\(\\) has parameter \\$colOrder with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
@@ -9676,17 +9676,17 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetSpecialLinkUrl\\(\\) has parameter \\$row_info with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testGetSpecialLinkUrl\\(\\) has parameter \\$rowInfo with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testHandleNonPrintableContents\\(\\) has parameter \\$transform_options with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testHandleNonPrintableContents\\(\\) has parameter \\$transformOptions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testHandleNonPrintableContents\\(\\) has parameter \\$url_params with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testHandleNonPrintableContents\\(\\) has parameter \\$urlParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
@@ -9791,7 +9791,7 @@ parameters:
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
@@ -9821,7 +9821,7 @@ parameters:
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPointsInternal\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPointsInternal\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 
@@ -9851,7 +9851,7 @@ parameters:
 			path: test/classes/Gis/GisLineStringTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisLineStringTest.php
 
@@ -9881,7 +9881,7 @@ parameters:
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
@@ -9911,7 +9911,7 @@ parameters:
 			path: test/classes/Gis/GisMultiPointTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPointTest.php
 
@@ -9951,12 +9951,12 @@ parameters:
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testGetShape\\(\\) has parameter \\$row_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testGetShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
@@ -9991,12 +9991,12 @@ parameters:
 			path: test/classes/Gis/GisPointTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testGetShape\\(\\) has parameter \\$row_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testGetShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPointTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPointTest.php
 
@@ -10076,7 +10076,7 @@ parameters:
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 

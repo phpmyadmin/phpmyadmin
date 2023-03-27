@@ -231,13 +231,13 @@ class ExportRelationSchema
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
         if ($this->pageNumber != -1 && ! $this->offline && $pdfFeature !== null) {
-            $_name_sql = 'SELECT page_descr FROM '
+            $nameSql = 'SELECT page_descr FROM '
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
-            $_name_rs = $GLOBALS['dbi']->queryAsControlUser($_name_sql);
-            $_name_row = $_name_rs->fetchRow();
-            $filename = $_name_row[0] . $extension;
+            $nameRs = $GLOBALS['dbi']->queryAsControlUser($nameSql);
+            $nameRow = $nameRs->fetchRow();
+            $filename = $nameRow[0] . $extension;
         }
 
         return $filename;
@@ -246,19 +246,19 @@ class ExportRelationSchema
     /**
      * Displays an error message
      *
-     * @param int    $pageNumber    ID of the chosen page
-     * @param string $type          Schema Type
-     * @param string $error_message The error message
+     * @param int    $pageNumber   ID of the chosen page
+     * @param string $type         Schema Type
+     * @param string $errorMessage The error message
      */
-    public static function dieSchema(int $pageNumber, string $type = '', string $error_message = ''): void
+    public static function dieSchema(int $pageNumber, string $type = '', string $errorMessage = ''): void
     {
         echo '<p><strong>' , __('SCHEMA ERROR: ') , $type , '</strong></p>' , "\n";
-        if (! empty($error_message)) {
-            $error_message = htmlspecialchars($error_message);
+        if (! empty($errorMessage)) {
+            $errorMessage = htmlspecialchars($errorMessage);
         }
 
         echo '<p>' , "\n";
-        echo '    ' , $error_message , "\n";
+        echo '    ' , $errorMessage , "\n";
         echo '</p>' , "\n";
         echo '<a href="';
         echo Url::getFromRoute('/database/designer', [

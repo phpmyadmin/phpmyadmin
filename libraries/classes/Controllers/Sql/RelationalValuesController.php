@@ -34,19 +34,19 @@ final class RelationalValuesController extends AbstractController
         $this->checkUserPrivileges->getPrivileges();
 
         $column = $request->getParsedBodyParam('column');
-        $relation_key_or_display_column = $request->getParsedBodyParam('relation_key_or_display_column');
+        $relationKeyOrDisplayColumn = $request->getParsedBodyParam('relation_key_or_display_column');
 
-        if ($_SESSION['tmpval']['relational_display'] === 'D' && $relation_key_or_display_column !== null) {
-            $curr_value = $relation_key_or_display_column;
+        if ($_SESSION['tmpval']['relational_display'] === 'D' && $relationKeyOrDisplayColumn !== null) {
+            $currValue = $relationKeyOrDisplayColumn;
         } else {
-            $curr_value = $request->getParsedBodyParam('curr_value');
+            $currValue = $request->getParsedBodyParam('curr_value');
         }
 
         $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
             $GLOBALS['db'],
             $GLOBALS['table'],
             strval($column),
-            strval($curr_value),
+            strval($currValue),
         );
         $this->response->addJSON('dropdown', $dropdown);
     }

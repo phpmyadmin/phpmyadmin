@@ -78,41 +78,41 @@ class Events
         $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $sql_query = '';
+            $sqlQuery = '';
 
-            $item_query = $this->getQueryFromRequest();
+            $itemQuery = $this->getQueryFromRequest();
 
             // set by getQueryFromRequest()
             if (! count($GLOBALS['errors'])) {
                 // Execute the created query
                 if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $create_item = self::getDefinition($this->dbi, $GLOBALS['db'], $_POST['item_original_name']);
-                    $drop_item = 'DROP EVENT IF EXISTS '
+                    $createItem = self::getDefinition($this->dbi, $GLOBALS['db'], $_POST['item_original_name']);
+                    $dropItem = 'DROP EVENT IF EXISTS '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
-                    $result = $this->dbi->tryQuery($drop_item);
+                    $result = $this->dbi->tryQuery($dropItem);
                     if (! $result) {
                         $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($drop_item),
+                            htmlspecialchars($dropItem),
                         )
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
-                        $result = $this->dbi->tryQuery($item_query);
+                        $result = $this->dbi->tryQuery($itemQuery);
                         if (! $result) {
                             $GLOBALS['errors'][] = sprintf(
                                 __('The following query has failed: "%s"'),
-                                htmlspecialchars($item_query),
+                                htmlspecialchars($itemQuery),
                             )
                             . '<br>'
                             . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
-                            $result = $this->dbi->tryQuery($create_item);
+                            $result = $this->dbi->tryQuery($createItem);
                             if (! $result) {
-                                $GLOBALS['errors'] = $this->checkResult($create_item, $GLOBALS['errors']);
+                                $GLOBALS['errors'] = $this->checkResult($createItem, $GLOBALS['errors']);
                             }
                         } else {
                             $GLOBALS['message'] = Message::success(
@@ -121,16 +121,16 @@ class Events
                             $GLOBALS['message']->addParam(
                                 Util::backquote($_POST['item_name']),
                             );
-                            $sql_query = $drop_item . $item_query;
+                            $sqlQuery = $dropItem . $itemQuery;
                         }
                     }
                 } else {
                     // 'Add a new item' mode
-                    $result = $this->dbi->tryQuery($item_query);
+                    $result = $this->dbi->tryQuery($itemQuery);
                     if (! $result) {
                         $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($item_query),
+                            htmlspecialchars($itemQuery),
                         )
                         . '<br><br>'
                         . __('MySQL said: ') . $this->dbi->getError();
@@ -141,7 +141,7 @@ class Events
                         $GLOBALS['message']->addParam(
                             Util::backquote($_POST['item_name']),
                         );
-                        $sql_query = $item_query;
+                        $sqlQuery = $itemQuery;
                     }
                 }
             }
@@ -162,7 +162,7 @@ class Events
                 $GLOBALS['message']->addHtml('</ul>');
             }
 
-            $output = Generator::getMessage($GLOBALS['message'], $sql_query);
+            $output = Generator::getMessage($GLOBALS['message'], $sqlQuery);
 
             if ($this->response->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {

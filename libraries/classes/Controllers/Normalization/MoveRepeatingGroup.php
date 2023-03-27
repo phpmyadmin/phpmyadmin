@@ -22,10 +22,10 @@ final class MoveRepeatingGroup extends AbstractController
         $repeatingColumns = $request->getParsedBodyParam('repeatingColumns');
         $newTable = $request->getParsedBodyParam('newTable');
         $newColumn = $request->getParsedBodyParam('newColumn');
-        $primary_columns = $request->getParsedBodyParam('primary_columns');
+        $primaryColumns = $request->getParsedBodyParam('primary_columns');
         $res = $this->normalization->moveRepeatingGroup(
             $repeatingColumns,
-            $primary_columns,
+            $primaryColumns,
             $newTable,
             $newColumn,
             $GLOBALS['table'],

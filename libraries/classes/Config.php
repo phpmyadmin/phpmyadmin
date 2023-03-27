@@ -156,19 +156,19 @@ class Config
     /**
      * Sets the client platform based on user agent
      *
-     * @param string $user_agent the user agent
+     * @param string $userAgent the user agent
      */
-    private function setClientPlatform(string $user_agent): void
+    private function setClientPlatform(string $userAgent): void
     {
-        if (mb_strstr($user_agent, 'Win')) {
+        if (mb_strstr($userAgent, 'Win')) {
             $this->set('PMA_USR_OS', 'Win');
-        } elseif (mb_strstr($user_agent, 'Mac')) {
+        } elseif (mb_strstr($userAgent, 'Mac')) {
             $this->set('PMA_USR_OS', 'Mac');
-        } elseif (mb_strstr($user_agent, 'Linux')) {
+        } elseif (mb_strstr($userAgent, 'Linux')) {
             $this->set('PMA_USR_OS', 'Linux');
-        } elseif (mb_strstr($user_agent, 'Unix')) {
+        } elseif (mb_strstr($userAgent, 'Unix')) {
             $this->set('PMA_USR_OS', 'Unix');
-        } elseif (mb_strstr($user_agent, 'OS/2')) {
+        } elseif (mb_strstr($userAgent, 'OS/2')) {
             $this->set('PMA_USR_OS', 'OS/2');
         } else {
             $this->set('PMA_USR_OS', 'Other');
@@ -183,60 +183,60 @@ class Config
      */
     public function checkClient(): void
     {
-        $HTTP_USER_AGENT = '';
+        $httpUserAgent = '';
         if (Core::getenv('HTTP_USER_AGENT')) {
-            $HTTP_USER_AGENT = Core::getenv('HTTP_USER_AGENT');
+            $httpUserAgent = Core::getenv('HTTP_USER_AGENT');
         }
 
         // 1. Platform
-        $this->setClientPlatform($HTTP_USER_AGENT);
+        $this->setClientPlatform($httpUserAgent);
 
         // 2. browser and version
         // (must check everything else before Mozilla)
 
-        $is_mozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $HTTP_USER_AGENT, $mozilla_version);
+        $isMozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $httpUserAgent, $mozillaVersion);
 
-        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
+        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
-        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
+        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@Trident/(7)\.0@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', intval($log_version[1]) + 4);
+        } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', intval($logVersion[1]) + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
             // Konqueror 2.2.2 says Konqueror/2.2.2
             // Konqueror 3.0.3 says Konqueror/3
-        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
+        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
             // must check Chrome before Safari
-        } elseif ($is_mozilla && preg_match('@Chrome/([0-9.]*)@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+        } elseif ($isMozilla && preg_match('@Chrome/([0-9.]*)@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
-        } elseif ($is_mozilla && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+        } elseif ($isMozilla && preg_match('@Version/(.*) Safari@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
-        } elseif ($is_mozilla && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $mozilla_version[1] . '.' . $log_version[1]);
+        } elseif ($isMozilla && preg_match('@Safari/([0-9]*)@', $httpUserAgent, $logVersion)) {
+            $this->set('PMA_USR_BROWSER_VER', $mozillaVersion[1] . '.' . $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
         } elseif (
-            ! mb_strstr($HTTP_USER_AGENT, 'compatible')
-            && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
+            ! mb_strstr($httpUserAgent, 'compatible')
+            && preg_match('@Firefox/([\w.]+)@', $httpUserAgent, $logVersion)
         ) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $HTTP_USER_AGENT)) {
+        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $httpUserAgent)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
-        } elseif ($is_mozilla) {
-            $this->set('PMA_USR_BROWSER_VER', $mozilla_version[1]);
+        } elseif ($isMozilla) {
+            $this->set('PMA_USR_BROWSER_VER', $mozillaVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         } else {
             $this->set('PMA_USR_BROWSER_VER', 0);
@@ -268,8 +268,8 @@ class Config
         }
 
         if (function_exists('gd_info')) {
-            $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
+            $gdInfo = gd_info();
+            if (mb_strstr($gdInfo['GD Version'], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
 
                 return;
@@ -371,7 +371,7 @@ class Config
         ob_start();
         try {
             /** @psalm-suppress UnresolvableInclude */
-            $eval_result = include $this->getSource();
+            $evalResult = include $this->getSource();
         } catch (Throwable) {
             throw new ConfigException('Failed to load phpMyAdmin configuration.');
         }
@@ -382,7 +382,7 @@ class Config
             error_reporting($oldErrorReporting);
         }
 
-        if ($eval_result === false) {
+        if ($evalResult === false) {
             $this->errorConfigFile = true;
         } else {
             $this->errorConfigFile = false;
@@ -416,12 +416,12 @@ class Config
      */
     private function setConnectionCollation(): void
     {
-        $collation_connection = $this->get('DefaultConnectionCollation');
-        if (empty($collation_connection) || $collation_connection == $GLOBALS['collation_connection']) {
+        $collationConnection = $this->get('DefaultConnectionCollation');
+        if (empty($collationConnection) || $collationConnection == $GLOBALS['collationConnection']) {
             return;
         }
 
-        $GLOBALS['dbi']->setCollation($collation_connection);
+        $GLOBALS['dbi']->setCollation($collationConnection);
     }
 
     /**
@@ -435,34 +435,34 @@ class Config
         $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
-        $cache_key = 'server_' . $server;
+        $cacheKey = 'server_' . $server;
         if ($server > 0 && ! $isMinimumCommon) {
             // cache user preferences, use database only when needed
             if (
-                ! isset($_SESSION['cache'][$cache_key]['userprefs'])
-                || $_SESSION['cache'][$cache_key]['config_mtime'] < $this->sourceMtime
+                ! isset($_SESSION['cache'][$cacheKey]['userprefs'])
+                || $_SESSION['cache'][$cacheKey]['config_mtime'] < $this->sourceMtime
             ) {
                 $userPreferences = new UserPreferences($GLOBALS['dbi']);
                 $prefs = $userPreferences->load();
-                $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
-                $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
-                $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
-                $_SESSION['cache'][$cache_key]['config_mtime'] = $this->sourceMtime;
+                $_SESSION['cache'][$cacheKey]['userprefs'] = $userPreferences->apply($prefs['config_data']);
+                $_SESSION['cache'][$cacheKey]['userprefs_mtime'] = $prefs['mtime'];
+                $_SESSION['cache'][$cacheKey]['userprefs_type'] = $prefs['type'];
+                $_SESSION['cache'][$cacheKey]['config_mtime'] = $this->sourceMtime;
             }
-        } elseif ($server == 0 || ! isset($_SESSION['cache'][$cache_key]['userprefs'])) {
+        } elseif ($server == 0 || ! isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
             $this->set('user_preferences', false);
 
             return;
         }
 
-        $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
+        $configData = $_SESSION['cache'][$cacheKey]['userprefs'];
         // type is 'db' or 'session'
-        $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
-        $this->set('user_preferences_mtime', $_SESSION['cache'][$cache_key]['userprefs_mtime']);
+        $this->set('user_preferences', $_SESSION['cache'][$cacheKey]['userprefs_type']);
+        $this->set('user_preferences_mtime', $_SESSION['cache'][$cacheKey]['userprefs_mtime']);
 
         // load config array
-        $this->settings = array_replace_recursive($this->settings, $config_data);
-        $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
+        $this->settings = array_replace_recursive($this->settings, $configData);
+        $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $configData);
 
         if ($isMinimumCommon) {
             return;
@@ -476,10 +476,10 @@ class Config
         $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if (
-                (! isset($config_data['ThemeDefault'])
+                (! isset($configData['ThemeDefault'])
                 && $tmanager->theme->getId() !== 'original')
-                || isset($config_data['ThemeDefault'])
-                && $config_data['ThemeDefault'] != $tmanager->theme->getId()
+                || isset($configData['ThemeDefault'])
+                && $configData['ThemeDefault'] != $tmanager->theme->getId()
             ) {
                 $this->setUserValue(
                     null,
@@ -502,17 +502,17 @@ class Config
         // save language
         if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
             if (
-                (! isset($config_data['lang'])
+                (! isset($configData['lang'])
                 && $GLOBALS['lang'] !== 'en')
-                || isset($config_data['lang'])
-                && $GLOBALS['lang'] != $config_data['lang']
+                || isset($configData['lang'])
+                && $GLOBALS['lang'] != $configData['lang']
             ) {
                 $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
             }
         } else {
             // read language from settings
-            if (isset($config_data['lang'])) {
-                $language = LanguageManager::getInstance()->getLanguage($config_data['lang']);
+            if (isset($configData['lang'])) {
+                $language = LanguageManager::getInstance()->getLanguage($configData['lang']);
                 if ($language !== false) {
                     $language->activate();
                     $this->setCookie('pma_lang', $language->getCode());
@@ -532,42 +532,42 @@ class Config
      * global config and added to a update queue, which is processed
      * by {@link loadUserPreferences()}
      *
-     * @param string|null $cookie_name   can be null
-     * @param string      $cfg_path      configuration path
-     * @param mixed       $new_cfg_value new value
-     * @param string|null $default_value default value
+     * @param string|null $cookieName   can be null
+     * @param string      $cfgPath      configuration path
+     * @param mixed       $newCfgValue  new value
+     * @param string|null $defaultValue default value
      *
      * @return true|Message
      */
     public function setUserValue(
-        string|null $cookie_name,
-        string $cfg_path,
-        mixed $new_cfg_value,
-        string|null $default_value = null,
+        string|null $cookieName,
+        string $cfgPath,
+        mixed $newCfgValue,
+        string|null $defaultValue = null,
     ): bool|Message {
         $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $result = true;
         // use permanent user preferences if possible
-        $prefs_type = $this->get('user_preferences');
-        if ($prefs_type) {
-            if ($default_value === null) {
-                $default_value = Core::arrayRead($cfg_path, $this->default);
+        $prefsType = $this->get('user_preferences');
+        if ($prefsType) {
+            if ($defaultValue === null) {
+                $defaultValue = Core::arrayRead($cfgPath, $this->default);
             }
 
-            $result = $userPreferences->persistOption($cfg_path, $new_cfg_value, $default_value);
+            $result = $userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
         }
 
-        if ($prefs_type !== 'db' && $cookie_name) {
+        if ($prefsType !== 'db' && $cookieName) {
             // fall back to cookies
-            if ($default_value === null) {
-                $default_value = Core::arrayRead($cfg_path, $this->settings);
+            if ($defaultValue === null) {
+                $defaultValue = Core::arrayRead($cfgPath, $this->settings);
             }
 
-            $this->setCookie($cookie_name, (string) $new_cfg_value, $default_value);
+            $this->setCookie($cookieName, (string) $newCfgValue, $defaultValue);
         }
 
-        Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
-        Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
+        Core::arrayWrite($cfgPath, $GLOBALS['cfg'], $newCfgValue);
+        Core::arrayWrite($cfgPath, $this->settings, $newCfgValue);
 
         return $result;
     }
@@ -575,24 +575,24 @@ class Config
     /**
      * Reads value stored by {@link setUserValue()}
      *
-     * @param string $cookie_name cookie name
-     * @param mixed  $cfg_value   config value
+     * @param string $cookieName cookie name
+     * @param mixed  $cfgValue   config value
      */
-    public function getUserValue(string $cookie_name, mixed $cfg_value): mixed
+    public function getUserValue(string $cookieName, mixed $cfgValue): mixed
     {
-        $cookie_exists = ! empty($this->getCookie($cookie_name));
-        $prefs_type = $this->get('user_preferences');
-        if ($prefs_type === 'db') {
+        $cookieExists = ! empty($this->getCookie($cookieName));
+        $prefsType = $this->get('user_preferences');
+        if ($prefsType === 'db') {
             // permanent user preferences value exists, remove cookie
-            if ($cookie_exists) {
-                $this->removeCookie($cookie_name);
+            if ($cookieExists) {
+                $this->removeCookie($cookieName);
             }
-        } elseif ($cookie_exists) {
-            return $this->getCookie($cookie_name);
+        } elseif ($cookieExists) {
+            return $this->getCookie($cookieName);
         }
 
         // return value from $cfg array
-        return $cfg_value;
+        return $cfgValue;
     }
 
     /**
@@ -783,42 +783,42 @@ class Config
      */
     public function isHttps(): bool
     {
-        $is_https = $this->get('is_https');
-        if ($is_https !== null) {
-            return (bool) $is_https;
+        $isHttps = $this->get('is_https');
+        if ($isHttps !== null) {
+            return (bool) $isHttps;
         }
 
         $url = $this->get('PmaAbsoluteUri');
 
-        $is_https = false;
+        $isHttps = false;
         if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
-            $is_https = true;
+            $isHttps = true;
         } elseif (strtolower(Core::getenv('HTTP_SCHEME')) === 'https') {
-            $is_https = true;
+            $isHttps = true;
         } elseif (strtolower(Core::getenv('HTTPS')) === 'on') {
-            $is_https = true;
+            $isHttps = true;
         } elseif (strtolower(substr(Core::getenv('REQUEST_URI'), 0, 6)) === 'https:') {
-            $is_https = true;
+            $isHttps = true;
         } elseif (strtolower(Core::getenv('HTTP_HTTPS_FROM_LB')) === 'on') {
             // A10 Networks load balancer
-            $is_https = true;
+            $isHttps = true;
         } elseif (strtolower(Core::getenv('HTTP_FRONT_END_HTTPS')) === 'on') {
-            $is_https = true;
+            $isHttps = true;
         } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) === 'https') {
-            $is_https = true;
+            $isHttps = true;
         } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
             // Amazon CloudFront, issue #15621
-            $is_https = true;
+            $isHttps = true;
         } elseif (Util::getProtoFromForwardedHeader(Core::getenv('HTTP_FORWARDED')) === 'https') {
             // RFC 7239 Forwarded header
-            $is_https = true;
+            $isHttps = true;
         } elseif (Core::getenv('SERVER_PORT') == 443) {
-            $is_https = true;
+            $isHttps = true;
         }
 
-        $this->set('is_https', $is_https);
+        $this->set('is_https', $isHttps);
 
-        return $is_https;
+        return $isHttps;
     }
 
     /**
@@ -828,10 +828,10 @@ class Config
      */
     public function getRootPath(): string
     {
-        static $cookie_path = null;
+        static $cookiePath = null;
 
-        if ($cookie_path !== null && ! defined('TESTSUITE')) {
-            return $cookie_path;
+        if ($cookiePath !== null && ! defined('TESTSUITE')) {
+            return $cookiePath;
         }
 
         $url = $this->get('PmaAbsoluteUri');
@@ -1048,10 +1048,10 @@ class Config
      */
     public function getTempDir(string $name): string|null
     {
-        static $temp_dir = [];
+        static $tempDir = [];
 
-        if (isset($temp_dir[$name]) && ! defined('TESTSUITE')) {
-            return $temp_dir[$name];
+        if (isset($tempDir[$name]) && ! defined('TESTSUITE')) {
+            return $tempDir[$name];
         }
 
         $path = $this->get('TempDir');
@@ -1068,7 +1068,7 @@ class Config
             }
         }
 
-        $temp_dir[$name] = $path;
+        $tempDir[$name] = $path;
 
         return $path;
     }

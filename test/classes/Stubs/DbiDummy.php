@@ -232,13 +232,13 @@ class DbiDummy implements DbiExtension
      */
     public function fetchAny(int $result): array|null
     {
-        $query_data = &$this->getQueryData($result);
-        if ($query_data['pos'] >= count((array) $query_data['result'])) {
+        $queryData = &$this->getQueryData($result);
+        if ($queryData['pos'] >= count((array) $queryData['result'])) {
             return null;
         }
 
-        $ret = $query_data['result'][$query_data['pos']];
-        $query_data['pos'] += 1;
+        $ret = $queryData['result'][$queryData['pos']];
+        $queryData['pos'] += 1;
 
         return $ret;
     }
@@ -251,14 +251,14 @@ class DbiDummy implements DbiExtension
     public function fetchAssoc(int $result): array|null
     {
         $data = $this->fetchAny($result);
-        $query_data = $this->getQueryData($result);
-        if (! is_array($data) || ! isset($query_data['columns'])) {
+        $queryData = $this->getQueryData($result);
+        if (! is_array($data) || ! isset($queryData['columns'])) {
             return $data;
         }
 
         $ret = [];
         foreach ($data as $key => $val) {
-            $ret[$query_data['columns'][$key]] = $val;
+            $ret[$queryData['columns'][$key]] = $val;
         }
 
         return $ret;
@@ -282,12 +282,12 @@ class DbiDummy implements DbiExtension
      */
     public function dataSeek(int $result, int $offset): bool
     {
-        $query_data = &$this->getQueryData($result);
-        if ($offset > count($query_data['result'])) {
+        $queryData = &$this->getQueryData($result);
+        if ($offset > count($queryData['result'])) {
             return false;
         }
 
-        $query_data['pos'] = $offset;
+        $queryData['pos'] = $offset;
 
         return true;
     }
@@ -375,9 +375,9 @@ class DbiDummy implements DbiExtension
             return 0;
         }
 
-        $query_data = $this->getQueryData($result);
+        $queryData = $this->getQueryData($result);
 
-        return count($query_data['result']);
+        return count($queryData['result']);
     }
 
     /**
@@ -399,13 +399,13 @@ class DbiDummy implements DbiExtension
      */
     public function getFieldsMeta(int $result): array
     {
-        $query_data = $this->getQueryData($result);
+        $queryData = $this->getQueryData($result);
         /** @var FieldMetadata[] $metadata */
-        $metadata = $query_data['metadata'] ?? [];
+        $metadata = $queryData['metadata'] ?? [];
 
-        if (isset($query_data['columns'])) {
+        if (isset($queryData['columns'])) {
             /** @var string[] $columns */
-            $columns = $query_data['columns'];
+            $columns = $queryData['columns'];
             foreach ($columns as $i => $column) {
                 if (isset($metadata[$i])) {
                     $metadata[$i]->name = $column;
@@ -427,9 +427,9 @@ class DbiDummy implements DbiExtension
      */
     public function numFields(int $result): int
     {
-        $query_data = $this->getQueryData($result);
+        $queryData = $this->getQueryData($result);
 
-        return count($query_data['columns'] ?? []);
+        return count($queryData['columns'] ?? []);
     }
 
     /**

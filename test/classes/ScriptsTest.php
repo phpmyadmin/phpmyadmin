@@ -113,7 +113,7 @@ class ScriptsTest extends AbstractTestCase
         // Add one script file
         $file = 'common.js';
         $hash = 'd7716810d825f4b55d18727c3ccb24e6';
-        $_files = [
+        $files = [
             $hash => [
                 'has_onload' => 1,
                 'filename' => 'common.js',
@@ -121,7 +121,7 @@ class ScriptsTest extends AbstractTestCase
             ],
         ];
         $this->object->addFile($file);
-        $this->assertEquals($_files, $reflection->getValue($this->object));
+        $this->assertEquals($files, $reflection->getValue($this->object));
     }
 
     /**
@@ -136,7 +136,7 @@ class ScriptsTest extends AbstractTestCase
             'sql.js',
             'common.js',
         ];
-        $_files = [
+        $files = [
             'd7716810d825f4b55d18727c3ccb24e6' => [
                 'has_onload' => 1,
                 'filename' => 'common.js',
@@ -149,6 +149,6 @@ class ScriptsTest extends AbstractTestCase
             ],
         ];
         $this->object->addFiles($filenames);
-        $this->assertEquals($_files, $reflection->getValue($this->object));
+        $this->assertEquals($files, $reflection->getValue($this->object));
     }
 }

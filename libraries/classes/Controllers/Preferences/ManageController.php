@@ -153,7 +153,7 @@ class ManageController extends AbstractController
                 }
 
                 $GLOBALS['new_config'] = array_merge($GLOBALS['new_config'], $configuration);
-                $_POST_bak = $_POST;
+                $postParamBackup = $_POST;
                 foreach ($GLOBALS['new_config'] as $k => $v) {
                     $_POST[str_replace('/', '-', (string) $k)] = $v;
                 }
@@ -161,7 +161,7 @@ class ManageController extends AbstractController
                 $GLOBALS['cf']->resetConfigData();
                 $GLOBALS['all_ok'] = $GLOBALS['form_display']->process(true, false);
                 $GLOBALS['all_ok'] = $GLOBALS['all_ok'] && ! $GLOBALS['form_display']->hasErrors();
-                $_POST = $_POST_bak;
+                $_POST = $postParamBackup;
 
                 if (! $GLOBALS['all_ok'] && $request->hasBodyParam('fix_errors')) {
                     $GLOBALS['form_display']->fixErrors();

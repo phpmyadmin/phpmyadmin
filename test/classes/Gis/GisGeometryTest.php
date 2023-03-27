@@ -40,13 +40,13 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests setMinMax method
      *
-     * @param string         $point_set Point set
-     * @param ScaleData|null $min_max   Existing min, max values
-     * @param ScaleData|null $output    Expected output array
+     * @param string         $pointSet Point set
+     * @param ScaleData|null $minMax   Existing min, max values
+     * @param ScaleData|null $output   Expected output array
      *
      * @dataProvider providerForTestSetMinMax
      */
-    public function testSetMinMax(string $point_set, ScaleData|null $min_max, ScaleData|null $output): void
+    public function testSetMinMax(string $pointSet, ScaleData|null $minMax, ScaleData|null $output): void
     {
         $this->assertEquals(
             $output,
@@ -55,8 +55,8 @@ class GisGeometryTest extends AbstractTestCase
                 GisGeometry::class,
                 'setMinMax',
                 [
-                    $point_set,
-                    $min_max,
+                    $pointSet,
+                    $minMax,
                 ],
             ),
         );
@@ -139,16 +139,16 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests extractPointsInternal method
      *
-     * @param string     $point_set  String of comma separated points
-     * @param array|null $scale_data Data related to scaling
-     * @param bool       $linear     If true, as a 1D array, else as a 2D array
-     * @param array      $output     Expected output
+     * @param string     $pointSet  String of comma separated points
+     * @param array|null $scaleData Data related to scaling
+     * @param bool       $linear    If true, as a 1D array, else as a 2D array
+     * @param array      $output    Expected output
      *
      * @dataProvider providerForTestExtractPointsInternal
      */
     public function testExtractPointsInternal(
-        string $point_set,
-        array|null $scale_data,
+        string $pointSet,
+        array|null $scaleData,
         bool $linear,
         array $output,
     ): void {
@@ -157,8 +157,8 @@ class GisGeometryTest extends AbstractTestCase
             GisGeometry::class,
             'extractPointsInternal',
             [
-                $point_set,
-                $scale_data,
+                $pointSet,
+                $scaleData,
                 $linear,
             ],
         );

@@ -83,7 +83,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         // further operations on $buffer using the $options[] array.
 
-        $allowed_programs = [];
+        $allowedPrograms = [];
 
         // WARNING:
         //
@@ -99,17 +99,17 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         //$allowed_programs[1] = '/usr/local/bin/validate';
 
         // no-op when no allowed programs
-        if (count($allowed_programs) === 0) {
+        if (count($allowedPrograms) === 0) {
             return $buffer;
         }
 
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['External']);
 
-        if (isset($allowed_programs[$options[0]])) {
-            $program = $allowed_programs[$options[0]];
+        if (isset($allowedPrograms[$options[0]])) {
+            $program = $allowedPrograms[$options[0]];
         } else {
-            $program = $allowed_programs[0];
+            $program = $allowedPrograms[0];
         }
 
         if (isset($options[1]) && strlen((string) $options[1]) > 0) {

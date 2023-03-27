@@ -1080,9 +1080,9 @@ JS;
     public function waitAjaxMessage(): void
     {
         /* Get current message count */
-        $ajax_message_count = $this->webDriver->executeScript('return window.getAjaxMessageCount();');
+        $ajaxMessageCount = $this->webDriver->executeScript('return window.getAjaxMessageCount();');
         /* Ensure the popup is gone */
-        $this->waitForElementNotPresent('id', 'ajax_message_num_' . $ajax_message_count);
+        $this->waitForElementNotPresent('id', 'ajax_message_num_' . $ajaxMessageCount);
     }
 
     /**

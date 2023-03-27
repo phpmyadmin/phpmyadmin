@@ -579,15 +579,15 @@ class InsertEdit
     /**
      * Get column values
      *
-     * @param string[] $enum_set_values
+     * @param string[] $enumSetValues
      *
      * @return array column values as an associative array
      * @psalm-return list<array{html: string, plain: string}>
      */
-    private function getColumnEnumValues(array $enum_set_values): array
+    private function getColumnEnumValues(array $enumSetValues): array
     {
         $values = [];
-        foreach ($enum_set_values as $val) {
+        foreach ($enumSetValues as $val) {
             $values[] = [
                 'plain' => $val,
                 'html' => htmlspecialchars($val),
@@ -600,18 +600,18 @@ class InsertEdit
     /**
      * Retrieve column 'set' value and select size
      *
-     * @param array    $column          description of column in given table
-     * @param string[] $enum_set_values
+     * @param array    $column        description of column in given table
+     * @param string[] $enumSetValues
      *
      * @return array $column['values'], $column['select_size']
      */
     private function getColumnSetValueAndSelectSize(
         array $column,
-        array $enum_set_values,
+        array $enumSetValues,
     ): array {
         if (! isset($column['values'])) {
             $column['values'] = [];
-            foreach ($enum_set_values as $val) {
+            foreach ($enumSetValues as $val) {
                 $column['values'][] = [
                     'plain' => $val,
                     'html' => htmlspecialchars($val),
@@ -726,13 +726,13 @@ class InsertEdit
     /**
      * Retrieve the maximum upload file size
      *
-     * @param string $pma_type           column type
+     * @param string $pmaType            column type
      * @param int    $biggestMaxFileSize biggest max file size for uploading
      *
      * @return array an html snippet and $biggest_max_file_size
      * @psalm-return array{non-empty-string, int}
      */
-    private function getMaxUploadSize(string $pma_type, int $biggestMaxFileSize): array
+    private function getMaxUploadSize(string $pmaType, int $biggestMaxFileSize): array
     {
         // find maximum upload size, based on field type
         /**
@@ -747,8 +747,8 @@ class InsertEdit
         ];
 
         $thisFieldMaxSize = (int) $GLOBALS['config']->get('max_upload_size'); // from PHP max
-        if ($thisFieldMaxSize > $maxFieldSizes[$pma_type]) {
-            $thisFieldMaxSize = $maxFieldSizes[$pma_type];
+        if ($thisFieldMaxSize > $maxFieldSizes[$pmaType]) {
+            $thisFieldMaxSize = $maxFieldSizes[$pmaType];
         }
 
         $htmlOutput = Util::getFormattedMaximumUploadSize($thisFieldMaxSize) . "\n";

@@ -221,21 +221,21 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getSpecialLinkUrl
      *
-     * @param string $db           the database name
-     * @param string $table        the table name
-     * @param string $column_value column value
-     * @param array  $row_info     information about row
-     * @param string $field_name   column name
-     * @param string $output       output of getSpecialLinkUrl
+     * @param string $db          the database name
+     * @param string $table       the table name
+     * @param string $columnValue column value
+     * @param array  $rowInfo     information about row
+     * @param string $fieldName   column name
+     * @param string $output      output of getSpecialLinkUrl
      *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
     public function testGetSpecialLinkUrl(
         string $db,
         string $table,
-        string $column_value,
-        array $row_info,
-        string $field_name,
+        string $columnValue,
+        array $rowInfo,
+        string $fieldName,
         string $output,
     ): void {
         $specialSchemaLinks = [
@@ -282,9 +282,9 @@ class ResultsTest extends AbstractTestCase
                 DisplayResults::class,
                 'getSpecialLinkUrl',
                 [
-                    $specialSchemaLinks[$db][$table][$field_name],
-                    $column_value,
-                    $row_info,
+                    $specialSchemaLinks[$db][$table][$fieldName],
+                    $columnValue,
+                    $rowInfo,
                 ],
             ),
         );
@@ -297,24 +297,24 @@ class ResultsTest extends AbstractTestCase
      */
     public static function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
-        $column_names = [
+        $columnNames = [
             'host',
             'db',
             'user',
             'select_privilages',
         ];
-        $fields_mata = [];
+        $fieldsMeta = [];
 
-        foreach ($column_names as $column_name) {
-            $field_meta = new stdClass();
-            $field_meta->orgname = $column_name;
-            $fields_mata[] = $field_meta;
+        foreach ($columnNames as $columnName) {
+            $fieldMeta = new stdClass();
+            $fieldMeta->orgname = $columnName;
+            $fieldsMeta[] = $fieldMeta;
         }
 
         return [
             [
-                $fields_mata,
-                count($fields_mata),
+                $fieldsMeta,
+                count($fieldsMeta),
                 [
                     0 => 'localhost',
                     1 => 'phpmyadmin',
@@ -340,23 +340,23 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getRowInfoForSpecialLinks
      *
-     * @param FieldMetadata[] $fields_meta  meta information about fields
-     * @param int             $fields_count number of fields
-     * @param array           $row          current row data
-     * @param array           $col_order    the column order
-     * @param array           $output       output of getRowInfoForSpecialLinks
+     * @param FieldMetadata[] $fieldsMeta  meta information about fields
+     * @param int             $fieldsCount number of fields
+     * @param array           $row         current row data
+     * @param array           $colOrder    the column order
+     * @param array           $output      output of getRowInfoForSpecialLinks
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
-        array $fields_meta,
-        int $fields_count,
+        array $fieldsMeta,
+        int $fieldsCount,
         array $row,
-        array $col_order,
+        array $colOrder,
         array $output,
     ): void {
-        $this->object->properties['fields_meta'] = $fields_meta;
-        $this->object->properties['fields_cnt'] = $fields_count;
+        $this->object->properties['fields_meta'] = $fieldsMeta;
+        $this->object->properties['fields_cnt'] = $fieldsCount;
 
         $this->assertEquals(
             $output,
@@ -366,7 +366,7 @@ class ResultsTest extends AbstractTestCase
                 'getRowInfoForSpecialLinks',
                 [
                     $row,
-                    $col_order,
+                    $colOrder,
                 ],
             ),
         );
@@ -482,9 +482,9 @@ class ResultsTest extends AbstractTestCase
      */
     public static function dataProviderForTestHandleNonPrintableContents(): array
     {
-        $transformation_plugin = new Text_Plain_Link();
+        $transformationPlugin = new Text_Plain_Link();
         $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
-        $url_params = [
+        $urlParams = [
             'db' => 'foo',
             'table' => 'bar',
             'where_clause' => 'where_clause',
@@ -499,7 +499,7 @@ class ResultsTest extends AbstractTestCase
                 null,
                 [],
                 $meta,
-                $url_params,
+                $urlParams,
                 false,
                 'class="disableAjax">1001</a>',
             ],
@@ -511,7 +511,7 @@ class ResultsTest extends AbstractTestCase
                 null,
                 [],
                 $meta,
-                $url_params,
+                $urlParams,
                 false,
                 'class="disableAjax">0x123456</a>',
             ],
@@ -523,7 +523,7 @@ class ResultsTest extends AbstractTestCase
                 null,
                 [],
                 $meta,
-                $url_params,
+                $urlParams,
                 false,
                 'class="disableAjax">[BLOB - 4 B]</a>',
             ],
@@ -532,10 +532,10 @@ class ResultsTest extends AbstractTestCase
                 false,
                 'BINARY',
                 '1001',
-                $transformation_plugin,
+                $transformationPlugin,
                 [],
                 $meta,
-                $url_params,
+                $urlParams,
                 false,
                 '1001',
             ],
@@ -547,7 +547,7 @@ class ResultsTest extends AbstractTestCase
                 null,
                 [],
                 $meta,
-                $url_params,
+                $urlParams,
                 false,
                 '[GEOMETRY - NULL]',
             ],
@@ -555,32 +555,32 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param bool         $display_binary    show binary contents?
-     * @param bool         $display_blob      show blob contents?
-     * @param string       $category          BLOB|BINARY|GEOMETRY
-     * @param string|null  $content           the binary content
-     * @param array|object $transform_options transformation parameters
-     * @param object       $meta              the meta-information about the field
-     * @param array        $url_params        parameters that should go to the download link
-     * @param bool         $is_truncated      the result is truncated or not
-     * @param string       $output            the output of this function
+     * @param bool         $displayBinary    show binary contents?
+     * @param bool         $displayBlob      show blob contents?
+     * @param string       $category         BLOB|BINARY|GEOMETRY
+     * @param string|null  $content          the binary content
+     * @param array|object $transformOptions transformation parameters
+     * @param object       $meta             the meta-information about the field
+     * @param array        $urlParams        parameters that should go to the download link
+     * @param bool         $isTruncated      the result is truncated or not
+     * @param string       $output           the output of this function
      *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
     public function testHandleNonPrintableContents(
-        bool $display_binary,
-        bool $display_blob,
+        bool $displayBinary,
+        bool $displayBlob,
         string $category,
         string|null $content,
-        TransformationsPlugin|null $transformation_plugin,
-        array|object $transform_options,
+        TransformationsPlugin|null $transformationPlugin,
+        array|object $transformOptions,
         object $meta,
-        array $url_params,
-        bool $is_truncated,
+        array $urlParams,
+        bool $isTruncated,
         string $output,
     ): void {
-        $_SESSION['tmpval']['display_binary'] = $display_binary;
-        $_SESSION['tmpval']['display_blob'] = $display_blob;
+        $_SESSION['tmpval']['display_binary'] = $displayBinary;
+        $_SESSION['tmpval']['display_blob'] = $displayBlob;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $this->assertStringContainsString(
             $output,
@@ -591,11 +591,11 @@ class ResultsTest extends AbstractTestCase
                 [
                     $category,
                     $content,
-                    $transformation_plugin,
-                    $transform_options,
+                    $transformationPlugin,
+                    $transformOptions,
                     $meta,
-                    $url_params,
-                    &$is_truncated,
+                    $urlParams,
+                    &$isTruncated,
                 ],
             ),
         );
@@ -618,8 +618,8 @@ class ResultsTest extends AbstractTestCase
      */
     public static function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
-        $transformation_plugin = new Text_Plain_Link();
-        $transformation_plugin_external = new Text_Plain_External();
+        $transformationPlugin = new Text_Plain_Link();
+        $transformationPluginExternal = new Text_Plain_External();
 
         $meta = new stdClass();
         $meta->db = 'foo';
@@ -646,7 +646,7 @@ class ResultsTest extends AbstractTestCase
         $meta3->orgname = 'datetime';
         $meta3 = new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, $meta3);
 
-        $url_params = [
+        $urlParams = [
             'db' => 'foo',
             'table' => 'tbl',
             'where_clause' => 'where_clause',
@@ -659,7 +659,7 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta,
                 [],
-                $url_params,
+                $urlParams,
                 false,
                 null,
                 ['https://www.example.com/'],
@@ -672,9 +672,9 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta,
                 [],
-                $url_params,
+                $urlParams,
                 false,
-                $transformation_plugin,
+                $transformationPlugin,
                 [],
                 '<td class="text-start grid_edit transformed hex">'
                 . '1001'
@@ -686,9 +686,9 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta2,
                 [],
-                $url_params,
+                $urlParams,
                 false,
-                $transformation_plugin,
+                $transformationPlugin,
                 [],
                 '<td data-decimals="0"' . "\n"
                 . '    data-type="string"' . "\n"
@@ -702,7 +702,7 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta2,
                 [],
-                $url_params,
+                $urlParams,
                 false,
                 null,
                 [],
@@ -716,9 +716,9 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta2,
                 [],
-                $url_params,
+                $urlParams,
                 false,
-                $transformation_plugin_external,
+                $transformationPluginExternal,
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
@@ -730,7 +730,7 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta3,
                 [],
-                $url_params,
+                $urlParams,
                 false,
                 null,
                 [],
@@ -742,15 +742,15 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param string      $protectBinary     all|blob|noblob|no
-     * @param string|null $column            the relevant column in data row
-     * @param string      $class             the html class for column
-     * @param object      $meta              the meta-information about the field
-     * @param array       $map               the list of relations
-     * @param array       $_url_params       the parameters for generate url
-     * @param bool        $condition_field   the column should highlighted or not
-     * @param array       $transform_options the transformation parameters
-     * @param string      $output            the output of this function
+     * @param string      $protectBinary    all|blob|noblob|no
+     * @param string|null $column           the relevant column in data row
+     * @param string      $class            the html class for column
+     * @param object      $meta             the meta-information about the field
+     * @param array       $map              the list of relations
+     * @param array       $urlParams        the parameters for generate url
+     * @param bool        $conditionField   the column should highlighted or not
+     * @param array       $transformOptions the transformation parameters
+     * @param string      $output           the output of this function
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
@@ -760,10 +760,10 @@ class ResultsTest extends AbstractTestCase
         string $class,
         object $meta,
         array $map,
-        array $_url_params,
-        bool $condition_field,
-        TransformationsPlugin|null $transformation_plugin,
-        array $transform_options,
+        array $urlParams,
+        bool $conditionField,
+        TransformationsPlugin|null $transformationPlugin,
+        array $transformOptions,
         string $output,
     ): void {
         $_SESSION['tmpval']['display_binary'] = true;
@@ -783,10 +783,10 @@ class ResultsTest extends AbstractTestCase
                     $class,
                     $meta,
                     $map,
-                    $_url_params,
-                    $condition_field,
-                    $transformation_plugin,
-                    $transform_options,
+                    $urlParams,
+                    $conditionField,
+                    $transformationPlugin,
+                    $transformOptions,
                     $statementInfo,
                 ],
             ),
@@ -831,11 +831,11 @@ class ResultsTest extends AbstractTestCase
         $meta2->name = '2';
         $meta2->orgname = '2';
         $meta2->blob = false;
-        $fields_meta = [
+        $fieldsMeta = [
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta),
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta2),
         ];
-        $this->object->properties['fields_meta'] = $fields_meta;
+        $this->object->properties['fields_meta'] = $fieldsMeta;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

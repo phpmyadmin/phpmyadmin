@@ -55,24 +55,23 @@ class Utilities
     /**
      * Checks whether given schema is a system schema
      *
-     * @param string $schema_name        Name of schema (database) to test
-     * @param bool   $testForMysqlSchema Whether 'mysql' schema should
-     *                                   be treated the same as IS and DD
+     * @param string $schemaName         Name of schema (database) to test
+     * @param bool   $testForMysqlSchema Whether 'mysql' schema should be treated the same as IS and DD
      *
      * @psalm-pure
      */
     public static function isSystemSchema(
-        string $schema_name,
+        string $schemaName,
         bool $testForMysqlSchema = false,
     ): bool {
-        $schema_name = strtolower($schema_name);
+        $schemaName = strtolower($schemaName);
 
-        $isMySqlSystemSchema = $schema_name === 'mysql' && $testForMysqlSchema;
+        $isMySqlSystemSchema = $schemaName === 'mysql' && $testForMysqlSchema;
 
-        return $schema_name === 'information_schema'
-            || $schema_name === 'performance_schema'
+        return $schemaName === 'information_schema'
+            || $schemaName === 'performance_schema'
             || $isMySqlSystemSchema
-            || $schema_name === 'sys';
+            || $schemaName === 'sys';
     }
 
     /**
@@ -80,33 +79,33 @@ class Utilities
      * This is needed because some errors messages cannot
      * be obtained by mysql_error().
      *
-     * @param int    $error_number  Error code
-     * @param string $error_message Error message as returned by server
+     * @param int    $errorNumber  Error code
+     * @param string $errorMessage Error message as returned by server
      *
      * @return string HML text with error details
      * @psalm-return non-empty-string
      */
-    public static function formatError(int $error_number, string $error_message): string
+    public static function formatError(int $errorNumber, string $errorMessage): string
     {
-        $error_message = htmlspecialchars($error_message);
+        $errorMessage = htmlspecialchars($errorMessage);
 
-        $error = '#' . $error_number;
+        $error = '#' . $errorNumber;
         $separator = ' &mdash; ';
 
-        if ($error_number == 2002) {
-            $error .= ' - ' . $error_message;
+        if ($errorNumber == 2002) {
+            $error .= ' - ' . $errorMessage;
             $error .= $separator;
             $error .= __('The server is not responding (or the local server\'s socket is not correctly configured).');
-        } elseif ($error_number == 2003) {
-            $error .= ' - ' . $error_message;
+        } elseif ($errorNumber == 2003) {
+            $error .= ' - ' . $errorMessage;
             $error .= $separator . __('The server is not responding.');
-        } elseif ($error_number == 1698) {
-            $error .= ' - ' . $error_message;
+        } elseif ($errorNumber == 1698) {
+            $error .= ' - ' . $errorMessage;
             $error .= $separator . '<a href="' . Url::getFromRoute('/logout') . '" class="disableAjax">';
             $error .= __('Logout and try as another user.') . '</a>';
-        } elseif ($error_number == 1005) {
-            if (str_contains($error_message, 'errno: 13')) {
-                $error .= ' - ' . $error_message;
+        } elseif ($errorNumber == 1005) {
+            if (str_contains($errorMessage, 'errno: 13')) {
+                $error .= ' - ' . $errorMessage;
                 $error .= $separator
                     . __('Please check privileges of directory containing database.');
             } else {
@@ -114,12 +113,12 @@ class Utilities
                  * InnoDB constraints, see
                  * https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html
                  */
-                $error .= ' - ' . $error_message . ' (<a href="'
+                $error .= ' - ' . $errorMessage . ' (<a href="'
                     . Url::getFromRoute('/server/engines/InnoDB/Status')
                     . '">' . __('Details…') . '</a>)';
             }
         } else {
-            $error .= ' - ' . $error_message;
+            $error .= ' - ' . $errorMessage;
         }
 
         return $error;

@@ -625,8 +625,8 @@ class Message implements Stringable
             $message = self::decodeBB($message);
         }
 
-        foreach ($this->getAddedMessages() as $add_message) {
-            $message .= $add_message;
+        foreach ($this->getAddedMessages() as $addMessage) {
+            $message .= $addMessage;
         }
 
         return $message;

@@ -182,14 +182,14 @@ class ExportHtmlword extends ExportPlugin
     ): bool {
         $GLOBALS['what'] ??= null;
 
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         if (
             ! $this->export->outputHandler(
                 '<h2>'
-                . __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
+                . __('Dumping data for table') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>',
             )
         ) {
@@ -214,26 +214,26 @@ class ExportHtmlword extends ExportPlugin
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['htmlword_columns'])) {
-            $schema_insert = '<tr class="print-category">';
-            foreach ($result->getFieldNames() as $col_as) {
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                    $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            $schemaInsert = '<tr class="print-category">';
+            foreach ($result->getFieldNames() as $colAs) {
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
-                $schema_insert .= '<td class="print"><strong>'
-                    . htmlspecialchars($col_as)
+                $schemaInsert .= '<td class="print"><strong>'
+                    . htmlspecialchars($colAs)
                     . '</strong></td>';
             }
 
-            $schema_insert .= '</tr>';
-            if (! $this->export->outputHandler($schema_insert)) {
+            $schemaInsert .= '</tr>';
+            if (! $this->export->outputHandler($schemaInsert)) {
                 return false;
             }
         }
 
         // Format the data
         while ($row = $result->fetchRow()) {
-            $schema_insert = '<tr class="print-category">';
+            $schemaInsert = '<tr class="print-category">';
             foreach ($row as $field) {
                 if ($field === null) {
                     $value = $GLOBALS[$GLOBALS['what'] . '_null'];
@@ -241,13 +241,13 @@ class ExportHtmlword extends ExportPlugin
                     $value = $field;
                 }
 
-                $schema_insert .= '<td class="print">'
+                $schemaInsert .= '<td class="print">'
                     . htmlspecialchars((string) $value)
                     . '</td>';
             }
 
-            $schema_insert .= '</tr>';
-            if (! $this->export->outputHandler($schema_insert)) {
+            $schemaInsert .= '</tr>';
+            if (! $this->export->outputHandler($schemaInsert)) {
                 return false;
             }
         }
@@ -266,7 +266,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
-        $schema_insert = '<table width="100%" cellspacing="1">'
+        $schemaInsert = '<table width="100%" cellspacing="1">'
             . '<tr class="print-category">'
             . '<th class="print">'
             . __('Column')
@@ -285,63 +285,63 @@ class ExportHtmlword extends ExportPlugin
         /**
          * Get the unique keys in the view
          */
-        $unique_keys = [];
+        $uniqueKeys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
             }
 
-            $unique_keys[] = $key['Column_name'];
+            $uniqueKeys[] = $key['Column_name'];
         }
 
         $columns = $GLOBALS['dbi']->getColumns($db, $view);
         foreach ($columns as $column) {
-            $col_as = $column['Field'];
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
-                $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
+            $colAs = $column['Field'];
+            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
+                $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
             }
 
-            $schema_insert .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
-            $schema_insert .= '</tr>';
+            $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
+            $schemaInsert .= '</tr>';
         }
 
-        $schema_insert .= '</table>';
+        $schemaInsert .= '</table>';
 
-        return $schema_insert;
+        return $schemaInsert;
     }
 
     /**
      * Returns $table's CREATE definition
      *
-     * @param string $db          the database name
-     * @param string $table       the table name
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $db         the database name
+     * @param string $table      the table name
+     * @param bool   $doRelation whether to include relation comments
+     * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
      *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      *                            export types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
+     * @param bool   $doMime     whether to include mime comments
      *                            at the end
-     * @param bool   $view        whether we're handling a view
-     * @param array  $aliases     Aliases of db/table/columns
+     * @param bool   $view       whether we're handling a view
+     * @param array  $aliases    Aliases of db/table/columns
      *
      * @return string resulting schema
      */
     public function getTableDef(
         string $db,
         string $table,
-        bool $do_relation,
-        bool $do_comments,
-        bool $do_mime,
+        bool $doRelation,
+        bool $doComments,
+        bool $doMime,
         bool $view = false,
         array $aliases = [],
     ): string {
         $relationParameters = $this->relation->getRelationParameters();
 
-        $schema_insert = '';
+        $schemaInsert = '';
 
         /**
          * Gets fields properties
@@ -349,8 +349,8 @@ class ExportHtmlword extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && $relationParameters->relationFeature !== null,
+        [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
+            $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table,
         );
@@ -358,71 +358,71 @@ class ExportHtmlword extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $schema_insert .= '<table width="100%" cellspacing="1">';
+        $schemaInsert .= '<table width="100%" cellspacing="1">';
 
-        $schema_insert .= '<tr class="print-category">';
-        $schema_insert .= '<th class="print">'
+        $schemaInsert .= '<tr class="print-category">';
+        $schemaInsert .= '<th class="print">'
             . __('Column')
             . '</th>';
-        $schema_insert .= '<td class="print"><strong>'
+        $schemaInsert .= '<td class="print"><strong>'
             . __('Type')
             . '</strong></td>';
-        $schema_insert .= '<td class="print"><strong>'
+        $schemaInsert .= '<td class="print"><strong>'
             . __('Null')
             . '</strong></td>';
-        $schema_insert .= '<td class="print"><strong>'
+        $schemaInsert .= '<td class="print"><strong>'
             . __('Default')
             . '</strong></td>';
-        if ($do_relation && $have_rel) {
-            $schema_insert .= '<td class="print"><strong>'
+        if ($doRelation && $haveRel) {
+            $schemaInsert .= '<td class="print"><strong>'
                 . __('Links to')
                 . '</strong></td>';
         }
 
-        if ($do_comments) {
-            $schema_insert .= '<td class="print"><strong>'
+        if ($doComments) {
+            $schemaInsert .= '<td class="print"><strong>'
                 . __('Comments')
                 . '</strong></td>';
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
-            $schema_insert .= '<td class="print"><strong>'
+        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            $schemaInsert .= '<td class="print"><strong>'
                 . __('Media type')
                 . '</strong></td>';
-            $mime_map = $this->transformations->getMime($db, $table, true);
+            $mimeMap = $this->transformations->getMime($db, $table, true);
         }
 
-        $schema_insert .= '</tr>';
+        $schemaInsert .= '</tr>';
 
         $columns = $GLOBALS['dbi']->getColumns($db, $table);
         /**
          * Get the unique keys in the table
          */
-        $unique_keys = [];
+        $uniqueKeys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
             }
 
-            $unique_keys[] = $key['Column_name'];
+            $uniqueKeys[] = $key['Column_name'];
         }
 
         foreach ($columns as $column) {
-            $col_as = $column['Field'];
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            $colAs = $column['Field'];
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            $schema_insert .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
-            $field_name = $column['Field'];
-            if ($do_relation && $have_rel) {
-                $schema_insert .= '<td class="print">'
+            $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
+            $fieldName = $column['Field'];
+            if ($doRelation && $haveRel) {
+                $schemaInsert .= '<td class="print">'
                     . htmlspecialchars(
                         $this->getRelationString(
-                            $res_rel,
-                            $field_name,
+                            $resRel,
+                            $fieldName,
                             $db,
                             $aliases,
                         ),
@@ -430,28 +430,28 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             }
 
-            if ($do_comments && $relationParameters->columnCommentsFeature !== null) {
-                $schema_insert .= '<td class="print">'
-                    . (isset($comments[$field_name])
-                        ? htmlspecialchars($comments[$field_name])
+            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+                $schemaInsert .= '<td class="print">'
+                    . (isset($comments[$fieldName])
+                        ? htmlspecialchars($comments[$fieldName])
                         : '') . '</td>';
             }
 
-            if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
-                $schema_insert .= '<td class="print">'
-                    . (isset($mime_map[$field_name]) ?
+            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+                $schemaInsert .= '<td class="print">'
+                    . (isset($mimeMap[$fieldName]) ?
                         htmlspecialchars(
-                            str_replace('_', '/', $mime_map[$field_name]['mimetype']),
+                            str_replace('_', '/', $mimeMap[$fieldName]['mimetype']),
                         )
                         : '') . '</td>';
             }
 
-            $schema_insert .= '</tr>';
+            $schemaInsert .= '</tr>';
         }
 
-        $schema_insert .= '</table>';
+        $schemaInsert .= '</table>';
 
-        return $schema_insert;
+        return $schemaInsert;
     }
 
     /**
@@ -499,22 +499,22 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs table's structure
      *
-     * @param string $db          database name
-     * @param string $table       table name
-     * @param string $errorUrl    the url to go back in case of error
-     * @param string $exportMode  'create_table', 'triggers', 'create_view',
-     *                             'stand_in'
-     * @param string $exportType  'server', 'database', 'table'
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $db         database name
+     * @param string $table      table name
+     * @param string $errorUrl   the url to go back in case of error
+     * @param string $exportMode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
+     * @param string $exportType 'server', 'database', 'table'
+     * @param bool   $doRelation whether to include relation comments
+     * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
      *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      *                            export types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $dates       whether to include creation/update/check dates
-     * @param array  $aliases     Aliases of db/table/columns
+     * @param bool   $doMime     whether to include mime comments
+     * @param bool   $dates      whether to include creation/update/check dates
+     * @param array  $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
@@ -522,15 +522,15 @@ class ExportHtmlword extends ExportPlugin
         string $errorUrl,
         string $exportMode,
         string $exportType,
-        bool $do_relation = false,
-        bool $do_comments = false,
-        bool $do_mime = false,
+        bool $doRelation = false,
+        bool $doComments = false,
+        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         $dump = '';
 
@@ -538,15 +538,15 @@ class ExportHtmlword extends ExportPlugin
             case 'create_table':
                 $dump .= '<h2>'
                 . __('Table structure for table') . ' '
-                . htmlspecialchars($table_alias)
+                . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, false, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers) {
                     $dump .= '<h2>'
-                    . __('Triggers') . ' ' . htmlspecialchars($table_alias)
+                    . __('Triggers') . ' ' . htmlspecialchars($tableAlias)
                     . '</h2>';
                     $dump .= $this->getTriggers($db, $table);
                 }
@@ -554,14 +554,14 @@ class ExportHtmlword extends ExportPlugin
                 break;
             case 'create_view':
                 $dump .= '<h2>'
-                . __('Structure for view') . ' ' . htmlspecialchars($table_alias)
+                . __('Structure for view') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, true, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, true, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '<h2>'
                 . __('Stand-in structure for view') . ' '
-                . htmlspecialchars($table_alias)
+                . htmlspecialchars($tableAlias)
                 . '</h2>';
                 // export a stand-in definition to resolve view dependencies
                 $dump .= $this->getTableDefStandIn($db, $table, $aliases);
@@ -573,26 +573,26 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Formats the definition for one column
      *
-     * @param array  $column      info about this column
-     * @param array  $unique_keys unique keys of the table
-     * @param string $col_alias   Column Alias
+     * @param array  $column     info about this column
+     * @param array  $uniqueKeys unique keys of the table
+     * @param string $colAlias   Column Alias
      *
      * @return string Formatted column definition
      */
     protected function formatOneColumnDefinition(
         array $column,
-        array $unique_keys,
-        string $col_alias = '',
+        array $uniqueKeys,
+        string $colAlias = '',
     ): string {
-        if ($col_alias === '') {
-            $col_alias = $column['Field'];
+        if ($colAlias === '') {
+            $colAlias = $column['Field'];
         }
 
         $definition = '<tr class="print-category">';
 
-        $extracted_columnspec = Util::extractColumnSpec($column['Type']);
+        $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
 
-        $type = htmlspecialchars($extracted_columnspec['print_type']);
+        $type = htmlspecialchars($extractedColumnSpec['print_type']);
         if ($type === '') {
             $type = '&nbsp;';
         }
@@ -603,20 +603,20 @@ class ExportHtmlword extends ExportPlugin
             }
         }
 
-        $fmt_pre = '';
-        $fmt_post = '';
-        if (in_array($column['Field'], $unique_keys)) {
-            $fmt_pre = '<strong>' . $fmt_pre;
-            $fmt_post .= '</strong>';
+        $fmtPre = '';
+        $fmtPost = '';
+        if (in_array($column['Field'], $uniqueKeys)) {
+            $fmtPre = '<strong>' . $fmtPre;
+            $fmtPost .= '</strong>';
         }
 
         if ($column['Key'] === 'PRI') {
-            $fmt_pre = '<em>' . $fmt_pre;
-            $fmt_post .= '</em>';
+            $fmtPre = '<em>' . $fmtPre;
+            $fmtPost .= '</em>';
         }
 
-        $definition .= '<td class="print">' . $fmt_pre
-            . htmlspecialchars($col_alias) . $fmt_post . '</td>';
+        $definition .= '<td class="print">' . $fmtPre
+            . htmlspecialchars($colAlias) . $fmtPost . '</td>';
         $definition .= '<td class="print">' . htmlspecialchars($type) . '</td>';
         $definition .= '<td class="print">'
             . ($column['Null'] == '' || $column['Null'] === 'NO'

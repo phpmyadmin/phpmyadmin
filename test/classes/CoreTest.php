@@ -259,9 +259,9 @@ class CoreTest extends AbstractNetworkTestCase
         Core::arrayRemove('arr/2', $arr);
         $this->assertArrayNotHasKey('arr', $arr);
 
-        $tmp_arr = $arr;
+        $tmpArr = $arr;
         Core::arrayRemove('sarr/not_existing/1', $arr);
-        $this->assertEquals($tmp_arr, $arr);
+        $this->assertEquals($tmpArr, $arr);
 
         Core::arrayRemove('sarr/arr1/0', $arr);
         $this->assertArrayNotHasKey(0, $arr['sarr']['arr1']);
@@ -547,7 +547,7 @@ class CoreTest extends AbstractNetworkTestCase
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test';
-        $testUri_js = strtr($testUri, [
+        $testUriJs = strtr($testUri, [
             ':' => '\u003A',
             '/' => '\/', // Twig uses the short escape sequence
             '?' => '\u003F',
@@ -561,10 +561,10 @@ class CoreTest extends AbstractNetworkTestCase
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . htmlspecialchars($testUri, ENT_QUOTES) . '">'
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA["
-            . "\n        setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);"
+            . "\n        setTimeout(function() { window.location = decodeURI('" . $testUriJs . "'); }, 2000);"
             . "\n        //]]>\n    </script>\n</head>"
             . "\n<body>\n<script type=\"text/javascript\">\n    //<![CDATA["
-            . "\n    document.write('<p><a href=\"" . $testUri_js . '">' . __('Go') . "</a></p>');"
+            . "\n    document.write('<p><a href=\"" . $testUriJs . '">' . __('Go') . "</a></p>');"
             . "\n    //]]>\n</script>\n</body>\n</html>\n";
 
         $this->expectOutputString($header);

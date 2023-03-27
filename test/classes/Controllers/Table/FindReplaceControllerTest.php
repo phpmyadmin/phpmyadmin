@@ -51,7 +51,7 @@ class FindReplaceControllerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($columns));
 
-        $show_create_table = "CREATE TABLE `table` (
+        $showCreateTable = "CREATE TABLE `table` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
         `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -63,7 +63,7 @@ class FindReplaceControllerTest extends AbstractTestCase
             . "COMMENT='table'";
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($show_create_table));
+            ->will($this->returnValue($showCreateTable));
         $dbi->expects($this->any())->method('quoteString')
             ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
@@ -84,11 +84,11 @@ class FindReplaceControllerTest extends AbstractTestCase
         $charSet = 'UTF-8';
         $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
 
-        $sql_query = $GLOBALS['sql_query'];
+        $sqlQuery = $GLOBALS['sql_query'];
         $result = 'UPDATE `table` SET `Field1` = '
             . "REPLACE(`Field1`, 'Field', 'Column') "
             . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
-        $this->assertEquals($result, $sql_query);
+        $this->assertEquals($result, $sqlQuery);
     }
 
     public function testReplaceWithRegex(): void
@@ -103,11 +103,11 @@ class FindReplaceControllerTest extends AbstractTestCase
 
         $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
 
-        $sql_query = $GLOBALS['sql_query'];
+        $sqlQuery = $GLOBALS['sql_query'];
 
         $result = 'UPDATE `table` SET `Field1` = `Field1`'
             . " WHERE `Field1` RLIKE 'Field' COLLATE UTF-8_bin";
 
-        $this->assertEquals($result, $sql_query);
+        $this->assertEquals($result, $sqlQuery);
     }
 }

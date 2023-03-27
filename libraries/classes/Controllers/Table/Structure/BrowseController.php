@@ -49,7 +49,7 @@ final class BrowseController extends AbstractController
             $fields[] = Util::backquote($sval);
         }
 
-        $sql_query = sprintf(
+        $sqlQuery = sprintf(
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
             Util::backquote($GLOBALS['db']),
@@ -57,7 +57,7 @@ final class BrowseController extends AbstractController
         );
 
         // Parse and analyze the query
-        [$statementInfo, $GLOBALS['db']] = ParseAnalyze::sqlQuery($sql_query, $GLOBALS['db']);
+        [$statementInfo, $GLOBALS['db']] = ParseAnalyze::sqlQuery($sqlQuery, $GLOBALS['db']);
 
         $this->response->addHTML(
             $this->sql->executeQueryAndGetQueryResponse(
@@ -73,7 +73,7 @@ final class BrowseController extends AbstractController
                 $goto, // goto
                 null, // disp_query
                 null, // disp_message
-                $sql_query, // sql_query
+                $sqlQuery, // sql_query
                 null, // complete_query
             ),
         );

@@ -55,9 +55,9 @@ class ExportLatex extends ExportPlugin
     {
         $GLOBALS['plugin_param'] ??= null;
 
-        $hide_structure = false;
+        $hideStructure = false;
         if ($GLOBALS['plugin_param']['export_type'] === 'table' && ! $GLOBALS['plugin_param']['single_table']) {
-            $hide_structure = true;
+            $hideStructure = true;
         }
 
         $exportPluginProperties = new ExportPluginProperties();
@@ -101,7 +101,7 @@ class ExportLatex extends ExportPlugin
         $exportSpecificOptions->addProperty($dumpWhat);
 
         // structure options main group
-        if (! $hide_structure) {
+        if (! $hideStructure) {
             $structureOptions = new OptionsPropertyMainGroup(
                 'structure',
                 __('Object creation options'),
@@ -284,9 +284,9 @@ class ExportLatex extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         $result = $GLOBALS['dbi']->tryQuery(
             $sqlQuery,
@@ -294,22 +294,22 @@ class ExportLatex extends ExportPlugin
             DatabaseInterface::QUERY_UNBUFFERED,
         );
 
-        $columns_cnt = $result->numFields();
+        $columnsCnt = $result->numFields();
         $columns = [];
-        $columns_alias = [];
-        foreach ($result->getFieldNames() as $i => $col_as) {
-            $columns[$i] = $col_as;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+        $columnsAlias = [];
+        foreach ($result->getFieldNames() as $i => $colAs) {
+            $columns[$i] = $colAs;
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            $columns_alias[$i] = $col_as;
+            $columnsAlias[$i] = $colAs;
         }
 
-        $buffer = "\n" . '%' . "\n" . '% ' . __('Data:') . ' ' . $table_alias
+        $buffer = "\n" . '%' . "\n" . '% ' . __('Data:') . ' ' . $tableAlias
             . "\n" . '%' . "\n" . ' \\begin{longtable}{|';
 
-        $buffer .= str_repeat('l|', $columns_cnt);
+        $buffer .= str_repeat('l|', $columnsCnt);
 
         $buffer .= '} ' . "\n";
 
@@ -319,15 +319,15 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_data_caption'],
                     [static::class, 'texEscape'],
-                    ['table' => $table_alias, 'database' => $db_alias],
+                    ['table' => $tableAlias, 'database' => $dbAlias],
                 )
                 . '} \\label{'
                 . Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
                     [
-                        'table' => $table_alias,
-                        'database' => $db_alias,
+                        'table' => $tableAlias,
+                        'database' => $dbAlias,
                     ],
                 )
                 . '} \\\\';
@@ -340,9 +340,9 @@ class ExportLatex extends ExportPlugin
         // show column names
         if (isset($GLOBALS['latex_columns'])) {
             $buffer = '\\hline ';
-            for ($i = 0; $i < $columns_cnt; $i++) {
+            for ($i = 0; $i < $columnsCnt; $i++) {
                 $buffer .= '\\multicolumn{1}{|c|}{\\textbf{'
-                    . self::texEscape($columns_alias[$i]) . '}} & ';
+                    . self::texEscape($columnsAlias[$i]) . '}} & ';
             }
 
             $buffer = mb_substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
@@ -357,7 +357,7 @@ class ExportLatex extends ExportPlugin
                         . Util::expandUserString(
                             $GLOBALS['latex_data_continued_caption'],
                             [static::class, 'texEscape'],
-                            ['table' => $table_alias, 'database' => $db_alias],
+                            ['table' => $tableAlias, 'database' => $dbAlias],
                         )
                         . '} \\\\ ',
                     )
@@ -379,18 +379,18 @@ class ExportLatex extends ExportPlugin
         while ($record = $result->fetchAssoc()) {
             $buffer = '';
             // print each row
-            for ($i = 0; $i < $columns_cnt; $i++) {
+            for ($i = 0; $i < $columnsCnt; $i++) {
                 if ($record[$columns[$i]] !== null) {
-                    $column_value = self::texEscape($record[$columns[$i]]);
+                    $columnValue = self::texEscape($record[$columns[$i]]);
                 } else {
-                    $column_value = $GLOBALS['latex_null'];
+                    $columnValue = $GLOBALS['latex_null'];
                 }
 
                 // last column ... no need for & character
-                if ($i == $columns_cnt - 1) {
-                    $buffer .= $column_value;
+                if ($i == $columnsCnt - 1) {
+                    $buffer .= $columnValue;
                 } else {
-                    $buffer .= $column_value . ' & ';
+                    $buffer .= $columnValue . ' & ';
                 }
             }
 
@@ -424,22 +424,22 @@ class ExportLatex extends ExportPlugin
     /**
      * Outputs table's structure
      *
-     * @param string $db          database name
-     * @param string $table       table name
-     * @param string $errorUrl    the url to go back in case of error
-     * @param string $exportMode  'create_table', 'triggers', 'create_view',
-     *                             'stand_in'
-     * @param string $exportType  'server', 'database', 'table'
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $db         database name
+     * @param string $table      table name
+     * @param string $errorUrl   the url to go back in case of error
+     * @param string $exportMode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
+     * @param string $exportType 'server', 'database', 'table'
+     * @param bool   $doRelation whether to include relation comments
+     * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
      *                            left here because /export calls
      *                            exportStructure() also for other
      *                            export types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $dates       whether to include creation/update/check dates
-     * @param array  $aliases     Aliases of db/table/columns
+     * @param bool   $doMime     whether to include mime comments
+     * @param bool   $dates      whether to include creation/update/check dates
+     * @param array  $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
@@ -447,15 +447,15 @@ class ExportLatex extends ExportPlugin
         string $errorUrl,
         string $exportMode,
         string $exportType,
-        bool $do_relation = false,
-        bool $do_comments = false,
-        bool $do_mime = false,
+        bool $doRelation = false,
+        bool $doComments = false,
+        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -467,14 +467,14 @@ class ExportLatex extends ExportPlugin
         /**
          * Get the unique keys in the table
          */
-        $unique_keys = [];
+        $uniqueKeys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
             }
 
-            $unique_keys[] = $key['Column_name'];
+            $uniqueKeys[] = $key['Column_name'];
         }
 
         /**
@@ -483,8 +483,8 @@ class ExportLatex extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && $relationParameters->relationFeature !== null,
+        [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
+            $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table,
         );
@@ -492,21 +492,21 @@ class ExportLatex extends ExportPlugin
          * Displays the table structure
          */
         $buffer = "\n" . '%' . "\n" . '% ' . __('Structure:') . ' '
-            . $table_alias . "\n" . '%' . "\n" . ' \\begin{longtable}{';
+            . $tableAlias . "\n" . '%' . "\n" . ' \\begin{longtable}{';
         if (! $this->export->outputHandler($buffer)) {
             return false;
         }
 
         $alignment = '|l|c|c|c|';
-        if ($do_relation && $have_rel) {
+        if ($doRelation && $haveRel) {
             $alignment .= 'l|';
         }
 
-        if ($do_comments) {
+        if ($doComments) {
             $alignment .= 'l|';
         }
 
-        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
+        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
             $alignment .= 'l|';
         }
 
@@ -517,18 +517,18 @@ class ExportLatex extends ExportPlugin
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
-        if ($do_relation && $have_rel) {
+        if ($doRelation && $haveRel) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
         }
 
-        if ($do_comments) {
+        if ($doComments) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Comments') . '}}';
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
+        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
-            $mime_map = $this->transformations->getMime($db, $table, true);
+            $mimeMap = $this->transformations->getMime($db, $table, true);
         }
 
         // Table caption for first page and label
@@ -537,15 +537,15 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_caption'],
                     [static::class, 'texEscape'],
-                    ['table' => $table_alias, 'database' => $db_alias],
+                    ['table' => $tableAlias, 'database' => $dbAlias],
                 )
                 . '} \\label{'
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
                     [
-                        'table' => $table_alias,
-                        'database' => $db_alias,
+                        'table' => $tableAlias,
+                        'database' => $dbAlias,
                     ],
                 )
                 . '} \\\\' . "\n";
@@ -559,7 +559,7 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
                     [static::class, 'texEscape'],
-                    ['table' => $table_alias, 'database' => $db_alias],
+                    ['table' => $tableAlias, 'database' => $dbAlias],
                 )
                 . '} \\\\ ' . "\n";
         }
@@ -572,8 +572,8 @@ class ExportLatex extends ExportPlugin
 
         $fields = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($fields as $row) {
-            $extracted_columnspec = Util::extractColumnSpec($row['Type']);
-            $type = $extracted_columnspec['print_type'];
+            $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
+            $type = $extractedColumnSpec['print_type'];
             if (empty($type)) {
                 $type = ' ';
             }
@@ -584,47 +584,47 @@ class ExportLatex extends ExportPlugin
                 }
             }
 
-            $field_name = $col_as = $row['Field'];
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            $fieldName = $colAs = $row['Field'];
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            $local_buffer = $col_as . "\000" . $type . "\000"
+            $localBuffer = $colAs . "\000" . $type . "\000"
                 . ($row['Null'] == '' || $row['Null'] === 'NO'
                     ? __('No') : __('Yes'))
                 . "\000" . ($row['Default'] ?? '');
 
-            if ($do_relation && $have_rel) {
-                $local_buffer .= "\000";
-                $local_buffer .= $this->getRelationString($res_rel, $field_name, $db, $aliases);
+            if ($doRelation && $haveRel) {
+                $localBuffer .= "\000";
+                $localBuffer .= $this->getRelationString($resRel, $fieldName, $db, $aliases);
             }
 
-            if ($do_comments && $relationParameters->columnCommentsFeature !== null) {
-                $local_buffer .= "\000";
-                if (isset($comments[$field_name])) {
-                    $local_buffer .= $comments[$field_name];
+            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+                $localBuffer .= "\000";
+                if (isset($comments[$fieldName])) {
+                    $localBuffer .= $comments[$fieldName];
                 }
             }
 
-            if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
-                $local_buffer .= "\000";
-                if (isset($mime_map[$field_name])) {
-                    $local_buffer .= str_replace('_', '/', $mime_map[$field_name]['mimetype']);
+            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+                $localBuffer .= "\000";
+                if (isset($mimeMap[$fieldName])) {
+                    $localBuffer .= str_replace('_', '/', $mimeMap[$fieldName]['mimetype']);
                 }
             }
 
-            $local_buffer = self::texEscape($local_buffer);
+            $localBuffer = self::texEscape($localBuffer);
             if ($row['Key'] === 'PRI') {
-                $pos = (int) mb_strpos($local_buffer, "\000");
-                $local_buffer = '\\textit{' . mb_substr($local_buffer, 0, $pos) . '}' . mb_substr($local_buffer, $pos);
+                $pos = (int) mb_strpos($localBuffer, "\000");
+                $localBuffer = '\\textit{' . mb_substr($localBuffer, 0, $pos) . '}' . mb_substr($localBuffer, $pos);
             }
 
-            if (in_array($field_name, $unique_keys)) {
-                $pos = (int) mb_strpos($local_buffer, "\000");
-                $local_buffer = '\\textbf{' . mb_substr($local_buffer, 0, $pos) . '}' . mb_substr($local_buffer, $pos);
+            if (in_array($fieldName, $uniqueKeys)) {
+                $pos = (int) mb_strpos($localBuffer, "\000");
+                $localBuffer = '\\textbf{' . mb_substr($localBuffer, 0, $pos) . '}' . mb_substr($localBuffer, $pos);
             }
 
-            $buffer = str_replace("\000", ' & ', $local_buffer);
+            $buffer = str_replace("\000", ' & ', $localBuffer);
             $buffer .= ' \\\\ \\hline ' . "\n";
 
             if (! $this->export->outputHandler($buffer)) {
@@ -656,8 +656,8 @@ class ExportLatex extends ExportPlugin
             '_',
             '^',
         ];
-        $cnt_escape = count($escape);
-        for ($k = 0; $k < $cnt_escape; $k++) {
+        $cntEscape = count($escape);
+        for ($k = 0; $k < $cntEscape; $k++) {
             $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
         }
 

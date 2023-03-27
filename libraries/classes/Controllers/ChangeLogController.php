@@ -61,8 +61,8 @@ class ChangeLogController extends AbstractController
          */
         $changelog = htmlspecialchars((string) $changelog);
 
-        $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
-        $faq_url = 'https://docs.phpmyadmin.net/en/latest/faq.html';
+        $githubUrl = 'https://github.com/phpmyadmin/phpmyadmin/';
+        $faqUrl = 'https://docs.phpmyadmin.net/en/latest/faq.html';
 
         $replaces = [
             '@(https?://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@' => '<a href="'
@@ -73,11 +73,11 @@ class ChangeLogController extends AbstractController
 
             // FAQ entries
             '/FAQ ([0-9]+)\.([0-9a-z]+)/i' => '<a href="'
-                . Url::getFromRoute('/url') . '&url=' . $faq_url . '#faq\\1-\\2">FAQ \\1.\\2</a>',
+                . Url::getFromRoute('/url') . '&url=' . $faqUrl . '#faq\\1-\\2">FAQ \\1.\\2</a>',
 
             // GitHub issues
             '/issue\s*#?([0-9]{4,5}) /i' => '<a href="'
-                . Url::getFromRoute('/url') . '&url=' . $github_url . 'issues/\\1">issue #\\1</a> ',
+                . Url::getFromRoute('/url') . '&url=' . $githubUrl . 'issues/\\1">issue #\\1</a> ',
 
             // CVE/CAN entries
             '/((CAN|CVE)-[0-9]+-[0-9]+)/' => '<a href="' . Url::getFromRoute('/url') . '&url='
@@ -89,10 +89,10 @@ class ChangeLogController extends AbstractController
 
             // Highlight releases (with links)
             '/([0-9]+)\.([0-9]+)\.([0-9]+)\.0 (\([0-9-]+\))/' => '<a id="\\1_\\2_\\3"></a>'
-                . '<a href="' . Url::getFromRoute('/url') . '&url=' . $github_url . 'commits/RELEASE_\\1_\\2_\\3">'
+                . '<a href="' . Url::getFromRoute('/url') . '&url=' . $githubUrl . 'commits/RELEASE_\\1_\\2_\\3">'
                 . '\\1.\\2.\\3.0 \\4</a>',
             '/([0-9]+)\.([0-9]+)\.([0-9]+)\.([1-9][0-9]*) (\([0-9-]+\))/' => '<a id="\\1_\\2_\\3_\\4"></a>'
-                . '<a href="' . Url::getFromRoute('/url') . '&url=' . $github_url . 'commits/RELEASE_\\1_\\2_\\3_\\4">'
+                . '<a href="' . Url::getFromRoute('/url') . '&url=' . $githubUrl . 'commits/RELEASE_\\1_\\2_\\3_\\4">'
                 . '\\1.\\2.\\3.\\4 \\5</a>',
 
             // Highlight releases (not linkable)

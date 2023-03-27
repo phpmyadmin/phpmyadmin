@@ -124,7 +124,7 @@ class ImportXml extends ImportPlugin
         /**
          * CREATE code included (by default: no)
          */
-        $struct_present = false;
+        $structPresent = false;
 
         /**
          * Analyze the data in each table
@@ -134,22 +134,22 @@ class ImportXml extends ImportPlugin
         /**
          * Get the database name, collation and charset
          */
-        $db_attr = $xml->children($namespaces['pma'] ?? null)
+        $dbAttr = $xml->children($namespaces['pma'] ?? null)
             ->{'structure_schemas'}->{'database'};
 
-        if ($db_attr instanceof SimpleXMLElement) {
-            $db_attr = $db_attr->attributes();
-            $db_name = (string) $db_attr['name'];
-            $collation = (string) $db_attr['collation'];
-            $charset = (string) $db_attr['charset'];
+        if ($dbAttr instanceof SimpleXMLElement) {
+            $dbAttr = $dbAttr->attributes();
+            $dbName = (string) $dbAttr['name'];
+            $collation = (string) $dbAttr['collation'];
+            $charset = (string) $dbAttr['charset'];
         } else {
             /**
              * If the structure section is not present
              * get the database name from the data section
              */
-            $db_attr = $xml->children()
+            $dbAttr = $xml->children()
                 ->attributes();
-            $db_name = (string) $db_attr['name'];
+            $dbName = (string) $dbAttr['name'];
             $collation = null;
             $charset = null;
         }
@@ -157,7 +157,7 @@ class ImportXml extends ImportPlugin
         /**
          * The XML was malformed
          */
-        if ($db_name === '') {
+        if ($dbName === '') {
             echo Message::error(__(
                 'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
             ))->getDisplay();
@@ -201,7 +201,7 @@ class ImportXml extends ImportPlugin
                 }
             }
 
-            $struct_present = true;
+            $structPresent = true;
         }
 
         /**
@@ -210,47 +210,47 @@ class ImportXml extends ImportPlugin
         $xml = $xml->children()
             ->children();
 
-        $data_present = false;
+        $dataPresent = false;
         $analyses = null;
 
         /**
          * Only attempt to analyze/collect data if there is data present
          */
         if ($xml && $xml->children()->count()) {
-            $data_present = true;
+            $dataPresent = true;
 
             /**
              * Process all database content
              */
             foreach ($xml as $v1) {
                 /** @psalm-suppress PossiblyNullReference */
-                $tbl_attr = $v1->attributes();
+                $tblAttr = $v1->attributes();
 
                 $isInTables = false;
-                $num_tables = count($tables);
-                for ($i = 0; $i < $num_tables; ++$i) {
-                    if (! strcmp($tables[$i][Import::TBL_NAME], (string) $tbl_attr['name'])) {
+                $numTables = count($tables);
+                for ($i = 0; $i < $numTables; ++$i) {
+                    if (! strcmp($tables[$i][Import::TBL_NAME], (string) $tblAttr['name'])) {
                         $isInTables = true;
                         break;
                     }
                 }
 
                 if (! $isInTables) {
-                    $tables[] = [(string) $tbl_attr['name']];
+                    $tables[] = [(string) $tblAttr['name']];
                 }
 
                 foreach ($v1 as $v2) {
                     /** @psalm-suppress PossiblyNullReference */
-                    $row_attr = $v2->attributes();
-                    if (! in_array((string) $row_attr['name'], $tempRow)) {
-                        $tempRow[] = (string) $row_attr['name'];
+                    $rowAttr = $v2->attributes();
+                    if (! in_array((string) $rowAttr['name'], $tempRow)) {
+                        $tempRow[] = (string) $rowAttr['name'];
                     }
 
                     $tempCells[] = (string) $v2;
                 }
 
                 $rows[] = [
-                    (string) $tbl_attr['name'],
+                    (string) $tblAttr['name'],
                     $tempRow,
                     $tempCells,
                 ];
@@ -264,10 +264,10 @@ class ImportXml extends ImportPlugin
             /**
              * Bring accumulated rows into the corresponding table
              */
-            $num_tables = count($tables);
-            for ($i = 0; $i < $num_tables; ++$i) {
-                $num_rows = count($rows);
-                for ($j = 0; $j < $num_rows; ++$j) {
+            $numTables = count($tables);
+            for ($i = 0; $i < $numTables; ++$i) {
+                $numRows = count($rows);
+                for ($j = 0; $j < $numRows; ++$j) {
                     if (strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
                         continue;
                     }
@@ -282,7 +282,7 @@ class ImportXml extends ImportPlugin
 
             unset($rows);
 
-            if (! $struct_present) {
+            if (! $structPresent) {
                 $analyses = [];
 
                 $len = count($tables);
@@ -297,14 +297,14 @@ class ImportXml extends ImportPlugin
         /**
          * Only build SQL from data if there is data present
          */
-        if ($data_present) {
+        if ($dataPresent) {
             /**
              * Set values to NULL if they were not present
              * to maintain Import::buildSql() call integrity
              */
             if (! isset($analyses)) {
                 $analyses = null;
-                if (! $struct_present) {
+                if (! $structPresent) {
                     $create = null;
                 }
             }
@@ -313,7 +313,7 @@ class ImportXml extends ImportPlugin
         /* Set database name to the currently selected one, if applicable */
         if ($GLOBALS['db'] !== '') {
             /* Override the database name in the XML file, if one is selected */
-            $db_name = $GLOBALS['db'];
+            $dbName = $GLOBALS['db'];
             $options = null;
         } else {
             /* Set database collation/charset */
@@ -327,7 +327,7 @@ class ImportXml extends ImportPlugin
 
         /* Created and execute necessary SQL statements from data */
         $sqlStatements = [];
-        $this->import->buildSql($db_name, $tables, $analyses, $create, $createDb, $options, $sqlStatements);
+        $this->import->buildSql($dbName, $tables, $analyses, $create, $createDb, $options, $sqlStatements);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', $sqlStatements);

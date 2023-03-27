@@ -47,7 +47,4 @@
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
         <severity>4</severity>
     </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
-        <severity>4</severity>
-    </rule>
 </ruleset>

@@ -75,9 +75,9 @@ class AuthenticationConfig extends AuthenticationPlugin
     {
         parent::showFailure($failure);
 
-        $conn_error = $GLOBALS['dbi']->getError();
-        if (! $conn_error) {
-            $conn_error = __('Cannot connect: invalid settings.');
+        $connError = $GLOBALS['dbi']->getError();
+        if (! $connError) {
+            $connError = __('Cannot connect: invalid settings.');
         }
 
         /* HTML header */
@@ -135,7 +135,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 );
             }
 
-            echo Generator::mysqlDie($conn_error, '', true, '', false);
+            echo Generator::mysqlDie($connError, '', true, '', false);
         }
 
         $GLOBALS['errorHandler']->dispUserErrors();

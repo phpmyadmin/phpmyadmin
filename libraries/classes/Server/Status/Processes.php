@@ -142,12 +142,12 @@ final class Processes
 
         $columns = [];
         foreach ($sortableColumns as $columnKey => $column) {
-            $is_sorted = $orderByField !== ''
+            $isSorted = $orderByField !== ''
                 && $sortOrder !== ''
                 && ($orderByField == $column['order_by_field']);
 
             $column['sort_order'] = 'ASC';
-            if ($is_sorted && $sortOrder === 'ASC') {
+            if ($isSorted && $sortOrder === 'ASC') {
                 $column['sort_order'] = 'DESC';
             }
 
@@ -158,7 +158,7 @@ final class Processes
             $columns[$columnKey] = [
                 'name' => $column['column_name'],
                 'params' => $column,
-                'is_sorted' => $is_sorted,
+                'is_sorted' => $isSorted,
                 'sort_order' => $column['sort_order'],
                 'has_full_query' => false,
                 'is_full' => false,

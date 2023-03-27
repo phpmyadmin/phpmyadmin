@@ -277,9 +277,9 @@ abstract class ExportPlugin implements Plugin
         }
 
         // search each database
-        foreach ($aliases as $db_key => $db) {
+        foreach ($aliases as $dbKey => $db) {
             // check if id is database and has alias
-            if (stripos($type, 'db') !== false && $db_key === $id && ! empty($db['alias'])) {
+            if (stripos($type, 'db') !== false && $dbKey === $id && ! empty($db['alias'])) {
                 return $db['alias'];
             }
 
@@ -294,9 +294,9 @@ abstract class ExportPlugin implements Plugin
             }
 
             // search each of its tables
-            foreach ($db['tables'] as $table_key => $table) {
+            foreach ($db['tables'] as $tableKey => $table) {
                 // check if id is table and has alias
-                if (stripos($type, 'tbl') !== false && $table_key === $id && ! empty($table['alias'])) {
+                if (stripos($type, 'tbl') !== false && $tableKey === $id && ! empty($table['alias'])) {
                     return $table['alias'];
                 }
 
@@ -305,9 +305,9 @@ abstract class ExportPlugin implements Plugin
                 }
 
                 // search each of its columns
-                foreach ($table['columns'] as $col_key => $col) {
+                foreach ($table['columns'] as $colKey => $col) {
                     // check if id is column
-                    if (stripos($type, 'col') !== false && $col_key === $id && ! empty($col)) {
+                    if (stripos($type, 'col') !== false && $colKey === $id && ! empty($col)) {
                         return $col;
                     }
                 }

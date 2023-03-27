@@ -76,31 +76,31 @@ class GisPointTest extends GisGeomTestCase
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
      * test getShape method
      *
-     * @param array  $row_data array of GIS data
-     * @param string $shape    expected shape in WKT
+     * @param array  $rowData array of GIS data
+     * @param string $shape   expected shape in WKT
      *
      * @dataProvider providerForTestGetShape
      */
-    public function testGetShape(array $row_data, string $shape): void
+    public function testGetShape(array $rowData, string $shape): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($shape, $object->getShape($row_data));
+        $this->assertEquals($shape, $object->getShape($rowData));
     }
 
     /**
@@ -162,14 +162,14 @@ class GisPointTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
@@ -212,10 +212,10 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial    GIS POINT object
-     * @param string $label      label for the GIS POINT object
-     * @param int[]  $color      color for the GIS POINT object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial   GIS POINT object
+     * @param string $label     label for the GIS POINT object
+     * @param int[]  $color     color for the GIS POINT object
+     * @param array  $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -223,11 +223,11 @@ class GisPointTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisPoint::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/point-expected.pdf';

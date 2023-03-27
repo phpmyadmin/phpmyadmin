@@ -924,9 +924,9 @@ class LanguageManager
         $langs = $this->availableLanguages();
 
         // try to find out user's language by checking its HTTP_ACCEPT_LANGUAGE variable;
-        $accepted_languages = Core::getenv('HTTP_ACCEPT_LANGUAGE');
-        if ($accepted_languages) {
-            foreach (explode(',', $accepted_languages) as $header) {
+        $acceptedLanguages = Core::getenv('HTTP_ACCEPT_LANGUAGE');
+        if ($acceptedLanguages) {
+            foreach (explode(',', $acceptedLanguages) as $header) {
                 foreach ($langs as $language) {
                     if ($language->matchesAcceptLanguage($header)) {
                         return $language;
@@ -936,10 +936,10 @@ class LanguageManager
         }
 
         // try to find out user's language by checking its HTTP_USER_AGENT variable
-        $user_agent = Core::getenv('HTTP_USER_AGENT');
-        if ($user_agent !== '') {
+        $userAgent = Core::getenv('HTTP_USER_AGENT');
+        if ($userAgent !== '') {
             foreach ($langs as $language) {
-                if ($language->matchesUserAgent($user_agent)) {
+                if ($language->matchesUserAgent($userAgent)) {
                     return $language;
                 }
             }

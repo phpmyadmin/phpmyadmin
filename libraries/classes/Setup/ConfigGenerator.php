@@ -88,34 +88,34 @@ class ConfigGenerator
     /**
      * Returns exported configuration variable
      *
-     * @param string $var_name  configuration name
-     * @param mixed  $var_value configuration value(s)
-     * @param string $eol       line ending
+     * @param string $varName  configuration name
+     * @param mixed  $varValue configuration value(s)
+     * @param string $eol      line ending
      */
-    private static function getVarExport(string $var_name, mixed $var_value, string $eol): string
+    private static function getVarExport(string $varName, mixed $varValue, string $eol): string
     {
-        if ($var_name === 'blowfish_secret') {
-            $secret = self::getBlowfishSecretKey($var_value);
+        if ($varName === 'blowfish_secret') {
+            $secret = self::getBlowfishSecretKey($varValue);
 
             return sprintf('$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\'%s\');%s', sodium_bin2hex($secret), $eol);
         }
 
-        if (! is_array($var_value) || empty($var_value)) {
-            return "\$cfg['" . $var_name . "'] = "
-                . var_export($var_value, true) . ';' . $eol;
+        if (! is_array($varValue) || empty($varValue)) {
+            return "\$cfg['" . $varName . "'] = "
+                . var_export($varValue, true) . ';' . $eol;
         }
 
-        if (self::isZeroBasedArray($var_value)) {
-            return "\$cfg['" . $var_name . "'] = "
-                . self::exportZeroBasedArray($var_value, $eol)
+        if (self::isZeroBasedArray($varValue)) {
+            return "\$cfg['" . $varName . "'] = "
+                . self::exportZeroBasedArray($varValue, $eol)
                 . ';' . $eol;
         }
 
         $ret = '';
         // string keys: $cfg[key][subkey] = value
-        foreach ($var_value as $k => $v) {
+        foreach ($varValue as $k => $v) {
             $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-            $ret .= "\$cfg['" . $var_name . "']['" . $k . "'] = "
+            $ret .= "\$cfg['" . $varName . "']['" . $k . "'] = "
                 . var_export($v, true) . ';' . $eol;
         }
 

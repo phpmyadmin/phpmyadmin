@@ -96,15 +96,15 @@ abstract class TableStats
 
         if ($this->showKeys) {
             $indexes = Index::getFromTable($GLOBALS['dbi'], $this->tableName, $this->db);
-            $all_columns = [];
+            $allColumns = [];
             foreach ($indexes as $index) {
-                $all_columns = array_merge(
-                    $all_columns,
+                $allColumns = array_merge(
+                    $allColumns,
                     array_flip(array_keys($index->getColumns())),
                 );
             }
 
-            $this->fields = array_keys($all_columns);
+            $this->fields = array_keys($allColumns);
         } else {
             $this->fields = $result->fetchAllColumn();
         }

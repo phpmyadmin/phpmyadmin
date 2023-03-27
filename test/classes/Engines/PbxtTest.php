@@ -160,15 +160,15 @@ class PbxtTest extends AbstractTestCase
     /**
      * Test for resolveTypeSize
      *
-     * @param string $formatted_size the size expression (for example 8MB)
-     * @param array  $output         Expected output
+     * @param string $formattedSize the size expression (for example 8MB)
+     * @param array  $output        Expected output
      *
      * @dataProvider providerFortTestResolveTypeSize
      */
-    public function testResolveTypeSize(string $formatted_size, array $output): void
+    public function testResolveTypeSize(string $formattedSize, array $output): void
     {
         $this->assertEquals(
-            $this->object->resolveTypeSize($formatted_size),
+            $this->object->resolveTypeSize($formattedSize),
             $output,
         );
     }

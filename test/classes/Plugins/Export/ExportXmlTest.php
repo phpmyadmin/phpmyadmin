@@ -280,21 +280,21 @@ class ExportXmlTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $result_1 = [
+        $result1 = [
             [
                 'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
                 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
 
             ],
         ];
-        $result_2 = [
+        $result2 = [
             't1' => [
                 null,
                 '"tbl"',
             ],
         ];
 
-        $result_3 = [
+        $result3 = [
             't2' => [
                 null,
                 '"tbl"',
@@ -303,7 +303,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result_1, $result_2, $result_3);
+            ->willReturnOnConsecutiveCalls($result1, $result2, $result3);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchValue')

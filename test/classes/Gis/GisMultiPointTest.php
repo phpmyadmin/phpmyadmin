@@ -25,7 +25,7 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateWkt(): array
     {
-        $gis_data1 = [
+        $gisData1 = [
             0 => [
                 'MULTIPOINT' => [
                     'no_of_points' => 2,
@@ -41,18 +41,18 @@ class GisMultiPointTest extends GisGeomTestCase
             ],
         ];
 
-        $gis_data2 = $gis_data1;
-        $gis_data2[0]['MULTIPOINT']['no_of_points'] = -1;
+        $gisData2 = $gisData1;
+        $gisData2[0]['MULTIPOINT']['no_of_points'] = -1;
 
         return [
             [
-                $gis_data1,
+                $gisData1,
                 0,
                 null,
                 'MULTIPOINT(5.02 8.45,1.56 4.36)',
             ],
             [
-                $gis_data2,
+                $gisData2,
                 0,
                 null,
                 'MULTIPOINT(5.02 8.45)',
@@ -63,17 +63,17 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisMultiPoint::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -81,7 +81,7 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function testGetShape(): void
     {
-        $gis_data = [
+        $gisData = [
             'numpoints' => 2,
             'points' => [
                 0 => [
@@ -96,7 +96,7 @@ class GisMultiPointTest extends GisGeomTestCase
         ];
 
         $object = GisMultiPoint::singleton();
-        $this->assertEquals('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gis_data));
+        $this->assertEquals('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gisData));
     }
 
     /**
@@ -147,14 +147,14 @@ class GisMultiPointTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisMultiPoint::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
@@ -197,10 +197,10 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial    GIS MULTIPOINT object
-     * @param string $label      label for the GIS MULTIPOINT object
-     * @param int[]  $color      color for the GIS MULTIPOINT object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial   GIS MULTIPOINT object
+     * @param string $label     label for the GIS MULTIPOINT object
+     * @param int[]  $color     color for the GIS MULTIPOINT object
+     * @param array  $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -208,11 +208,11 @@ class GisMultiPointTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisMultiPoint::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpectedArch = $this->testDir . '/multipoint-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/multipoint-expected.pdf';

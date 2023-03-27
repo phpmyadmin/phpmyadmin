@@ -120,20 +120,20 @@ final class RelationController extends AbstractController
         // in mysqli
         $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
-        $column_array = [];
-        $column_hash_array = [];
-        $column_array[''] = '';
+        $columnArray = [];
+        $columnHashArray = [];
+        $columnArray[''] = '';
         foreach ($columns as $column) {
             if (strtoupper($storageEngine) !== 'INNODB' && empty($column['Key'])) {
                 continue;
             }
 
-            $column_array[$column['Field']] = $column['Field'];
-            $column_hash_array[$column['Field']] = md5($column['Field']);
+            $columnArray[$column['Field']] = $column['Field'];
+            $columnHashArray[$column['Field']] = md5($column['Field']);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            uksort($column_array, 'strnatcasecmp');
+            uksort($columnArray, 'strnatcasecmp');
         }
 
         $foreignKeyRow = '';
@@ -165,7 +165,7 @@ final class RelationController extends AbstractController
             $foreignKeyRow .= $this->template->render('table/relation/foreign_key_row', [
                 'i' => $i,
                 'one_key' => $oneKey,
-                'column_array' => $column_array,
+                'column_array' => $columnArray,
                 'options_array' => $options,
                 'tbl_storage_engine' => $storageEngine,
                 'db' => $GLOBALS['db'],
@@ -184,7 +184,7 @@ final class RelationController extends AbstractController
         $foreignKeyRow .= $this->template->render('table/relation/foreign_key_row', [
             'i' => $i,
             'one_key' => [],
-            'column_array' => $column_array,
+            'column_array' => $columnArray,
             'options_array' => $options,
             'tbl_storage_engine' => $storageEngine,
             'db' => $GLOBALS['db'],
@@ -207,8 +207,8 @@ final class RelationController extends AbstractController
             'existrel' => $relations,
             'existrel_foreign' => $existrelForeign,
             'options_array' => $options,
-            'column_array' => $column_array,
-            'column_hash_array' => $column_hash_array,
+            'column_array' => $columnArray,
+            'column_hash_array' => $columnHashArray,
             'save_row' => array_values($columns),
             'url_params' => $GLOBALS['urlParams'],
             'databases' => $this->dbi->getDatabaseList(),
@@ -245,9 +245,9 @@ final class RelationController extends AbstractController
      */
     private function updateForForeignKeys(Table $table, array $options, array $relationsForeign): void
     {
-        $multi_edit_columns_name = $_POST['foreign_key_fields_name'] ?? null;
-        $preview_sql_data = '';
-        $seen_error = false;
+        $multiEditColumnsName = $_POST['foreign_key_fields_name'] ?? null;
+        $previewSqlData = '';
+        $seenError = false;
 
         // (for now, one index name only; we keep the definitions if the
         // foreign db is not the same)
@@ -257,12 +257,12 @@ final class RelationController extends AbstractController
         ) {
             [
                 $html,
-                $preview_sql_data,
-                $display_query,
-                $seen_error,
+                $previewSqlData,
+                $displayQuery,
+                $seenError,
             ] = $table->updateForeignKeys(
                 $_POST['destination_foreign_db'],
-                $multi_edit_columns_name,
+                $multiEditColumnsName,
                 $_POST['destination_foreign_table'],
                 $_POST['destination_foreign_column'],
                 $options,
@@ -276,16 +276,16 @@ final class RelationController extends AbstractController
 
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
-            Core::previewSQL($preview_sql_data);
+            Core::previewSQL($previewSqlData);
 
             exit;
         }
 
-        if (empty($display_query) || $seen_error) {
+        if (empty($displayQuery) || $seenError) {
             return;
         }
 
-        $GLOBALS['display_query'] = $display_query;
+        $GLOBALS['displayQuery'] = $displayQuery;
         $this->response->addHTML(
             Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
@@ -305,11 +305,11 @@ final class RelationController extends AbstractController
         RelationFeature $relationFeature,
         array $relations,
     ): void {
-        $multi_edit_columns_name = $_POST['fields_name'] ?? null;
+        $multiEditColumnsName = $_POST['fields_name'] ?? null;
 
         if (
             ! $table->updateInternalRelations(
-                $multi_edit_columns_name,
+                $multiEditColumnsName,
                 $_POST['destination_db'],
                 $_POST['destination_table'],
                 $_POST['destination_column'],
@@ -335,13 +335,13 @@ final class RelationController extends AbstractController
     public function getDropdownValueForTable(): void
     {
         $foreignTable = $_POST['foreignTable'];
-        $table_obj = $this->dbi->getTable($_POST['foreignDb'], $foreignTable);
+        $tableObj = $this->dbi->getTable($_POST['foreignDb'], $foreignTable);
         // Since views do not have keys defined on them provide the full list of
         // columns
-        if ($table_obj->isView()) {
-            $columnList = $table_obj->getColumns(false, false);
+        if ($tableObj->isView()) {
+            $columnList = $tableObj->getColumns(false, false);
         } else {
-            $columnList = $table_obj->getIndexedColumns(false, false);
+            $columnList = $tableObj->getIndexedColumns(false, false);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -371,9 +371,9 @@ final class RelationController extends AbstractController
         if ($foreign) {
             $query = 'SHOW TABLE STATUS FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query($query);
+            $tablesRs = $this->dbi->query($query);
 
-            foreach ($tables_rs as $row) {
+            foreach ($tablesRs as $row) {
                 if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) !== $storageEngine) {
                     continue;
                 }
@@ -383,8 +383,8 @@ final class RelationController extends AbstractController
         } else {
             $query = 'SHOW TABLES FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query($query);
-            $tables = $tables_rs->fetchAllColumn();
+            $tablesRs = $this->dbi->query($query);
+            $tables = $tablesRs->fetchAllColumn();
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {

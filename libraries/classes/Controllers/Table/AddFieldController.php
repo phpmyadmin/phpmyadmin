@@ -114,8 +114,8 @@ class AddFieldController extends AbstractController
             );
 
             if ($GLOBALS['result'] !== true) {
-                $error_message_html = Generator::mysqlDie('', '', false, $GLOBALS['errorUrl'], false);
-                $this->response->addHTML($error_message_html ?? '');
+                $errorMessageHtml = Generator::mysqlDie('', '', false, $GLOBALS['errorUrl'], false);
+                $this->response->addHTML($errorMessageHtml ?? '');
                 $this->response->setRequestStatus(false);
 
                 return;
@@ -164,9 +164,9 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $url_params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($url_params, '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 

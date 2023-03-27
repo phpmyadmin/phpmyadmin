@@ -367,7 +367,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         $tables = [];
-        $paging_applied = false;
+        $pagingApplied = false;
 
         if ($limitCount && is_array($table) && $sortBy === 'Name') {
             if ($sortOrder === 'DESC') {
@@ -375,7 +375,7 @@ class DatabaseInterface implements DbalInterface
             }
 
             $table = array_slice($table, $limitOffset, $limitCount);
-            $paging_applied = true;
+            $pagingApplied = true;
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -408,7 +408,7 @@ class DatabaseInterface implements DbalInterface
             // Sort the tables
             $sql .= ' ORDER BY ' . $sortBy . ' ' . $sortOrder;
 
-            if ($limitCount && ! $paging_applied) {
+            if ($limitCount && ! $pagingApplied) {
                 $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
             }
 
@@ -585,7 +585,7 @@ class DatabaseInterface implements DbalInterface
                 unset($sortValues);
             }
 
-            if ($limitCount && ! $paging_applied) {
+            if ($limitCount && ! $pagingApplied) {
                 $eachTables = array_slice($eachTables, $limitOffset, $limitCount, true);
             }
 

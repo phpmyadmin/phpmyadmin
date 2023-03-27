@@ -99,15 +99,15 @@ class SystemDatabaseTest extends AbstractTestCase
             );
 
         $db = 'PMA_db';
-        $column_map = [
+        $columnMap = [
             new SystemColumn('table_name', 'column_name', null),
         ];
-        $view_name = 'view_name';
+        $viewName = 'view_name';
 
         $ret = $this->sysDb->getNewTransformationDataSql(
             $resultStub,
-            $column_map,
-            $view_name,
+            $columnMap,
+            $viewName,
             $db,
         );
 
@@ -141,22 +141,22 @@ class SystemDatabaseTest extends AbstractTestCase
             ],
         );
 
-        $sql_query = 'PMA_sql_query';
-        $view_columns = [
+        $sqlQuery = 'PMA_sql_query';
+        $viewColumns = [
             'view_columns1',
             'view_columns2',
         ];
 
         $systemDatabase = new SystemDatabase($dbi);
-        $column_map = $systemDatabase->getColumnMapFromSql($sql_query, $view_columns);
+        $columnMap = $systemDatabase->getColumnMapFromSql($sqlQuery, $viewColumns);
 
         $this->assertEquals(
             new SystemColumn('meta1_table', 'meta1_name', 'view_columns1'),
-            $column_map[0],
+            $columnMap[0],
         );
         $this->assertEquals(
             new SystemColumn('meta2_table', 'meta2_name', 'view_columns2'),
-            $column_map[1],
+            $columnMap[1],
         );
 
         $dummyDbi->assertAllQueriesConsumed();

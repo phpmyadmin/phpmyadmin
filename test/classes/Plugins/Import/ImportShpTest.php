@@ -210,18 +210,18 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Validates import messages
      *
-     * @param string $import_notice Messages to check
+     * @param string $importNotice Messages to check
      */
-    protected function assertMessages(string $import_notice): void
+    protected function assertMessages(string $importNotice): void
     {
         $this->assertStringContainsString(
             'The following structures have either been created or altered.',
-            $import_notice,
+            $importNotice,
         );
-        $this->assertStringContainsString('Go to database: `SHP_DB`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `SHP_DB`', $import_notice);
-        $this->assertStringContainsString('Go to table: `TBL_NAME`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `TBL_NAME`', $import_notice);
+        $this->assertStringContainsString('Go to database: `SHP_DB`', $importNotice);
+        $this->assertStringContainsString('Edit settings for `SHP_DB`', $importNotice);
+        $this->assertStringContainsString('Go to table: `TBL_NAME`', $importNotice);
+        $this->assertStringContainsString('Edit settings for `TBL_NAME`', $importNotice);
 
         //asset that the import process is finished
         $this->assertTrue($GLOBALS['finished']);

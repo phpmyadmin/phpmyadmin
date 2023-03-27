@@ -255,11 +255,11 @@ class SanitizeTest extends AbstractTestCase
         $_REQUEST['foo'] = 'bar';
         $_REQUEST['allow'] = 'all';
         $_REQUEST['second'] = 1;
-        $allow_list = [
+        $allowList = [
             'allow',
             'second',
         ];
-        Sanitize::removeRequestVars($allow_list);
+        Sanitize::removeRequestVars($allowList);
         $this->assertArrayNotHasKey('foo', $_REQUEST);
         $this->assertArrayNotHasKey('second', $_REQUEST);
         $this->assertArrayHasKey('allow', $_REQUEST);

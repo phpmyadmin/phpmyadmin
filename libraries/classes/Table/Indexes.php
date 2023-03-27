@@ -52,14 +52,14 @@ final class Indexes
                 }
             }
 
-            $sql_query = QueryGenerator::getSqlQueryForIndexRename(
+            $sqlQuery = QueryGenerator::getSqlQueryForIndexRename(
                 $db,
                 $table,
                 $oldIndexName,
                 $index->getName(),
             );
         } else {
-            $sql_query = $this->dbi->getTable($db, $table)
+            $sqlQuery = $this->dbi->getTable($db, $table)
                 ->getSqlQueryForIndexCreateOrEdit($index, $error);
         }
 
@@ -67,10 +67,10 @@ final class Indexes
         if (isset($_POST['preview_sql'])) {
             $this->response->addJSON(
                 'sql_data',
-                $this->template->render('preview_sql', ['query_data' => $sql_query]),
+                $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
             );
         } elseif (! $error) {
-            $this->dbi->query($sql_query);
+            $this->dbi->query($sqlQuery);
             $response = ResponseRenderer::getInstance();
             if ($response->isAjax()) {
                 $message = Message::success(
@@ -79,7 +79,7 @@ final class Indexes
                 $message->addParam($table);
                 $this->response->addJSON(
                     'message',
-                    Generator::getMessage($message, $sql_query, 'success'),
+                    Generator::getMessage($message, $sqlQuery, 'success'),
                 );
 
                 $indexes = Index::getFromTable($this->dbi, $table, $db);

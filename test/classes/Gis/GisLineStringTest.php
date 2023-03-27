@@ -84,17 +84,17 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisLineString::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -145,14 +145,14 @@ class GisLineStringTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisLineString::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
@@ -195,10 +195,10 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial    GIS LINESTRING object
-     * @param string $label      label for the GIS LINESTRING object
-     * @param int[]  $color      color for the GIS LINESTRING object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial   GIS LINESTRING object
+     * @param string $label     label for the GIS LINESTRING object
+     * @param int[]  $color     color for the GIS LINESTRING object
+     * @param array  $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -206,11 +206,11 @@ class GisLineStringTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisLineString::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/linestring-expected.pdf';
         $fileActual = $this->testDir . '/linestring-actual.pdf';

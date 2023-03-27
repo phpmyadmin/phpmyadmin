@@ -361,8 +361,8 @@ class ConfigTest extends AbstractTestCase
 
         if (function_exists('gd_info')) {
             $this->object->checkGd2();
-            $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
+            $gdNfo = gd_info();
+            if (mb_strstr($gdNfo['GD Version'], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -1213,16 +1213,16 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for getConnectionParams
      *
-     * @param array      $server_cfg Server configuration
-     * @param array|null $server     Server array to test
-     * @param array      $expected   Expected result
+     * @param array      $serverCfg Server configuration
+     * @param array|null $server    Server array to test
+     * @param array      $expected  Expected result
      * @psalm-param ConnectionType $mode
      *
      * @dataProvider connectionParams
      */
-    public function testGetConnectionParams(array $server_cfg, int $mode, array|null $server, array $expected): void
+    public function testGetConnectionParams(array $serverCfg, int $mode, array|null $server, array $expected): void
     {
-        $GLOBALS['cfg']['Server'] = $server_cfg;
+        $GLOBALS['cfg']['Server'] = $serverCfg;
         $result = Config::getConnectionParams($mode, $server);
         $this->assertEquals($expected, $result);
     }
@@ -1234,7 +1234,7 @@ class ConfigTest extends AbstractTestCase
      */
     public static function connectionParams(): array
     {
-        $cfg_basic = [
+        $cfgBasic = [
             'user' => 'u',
             'password' => 'pass',
             'host' => '',
@@ -1242,7 +1242,7 @@ class ConfigTest extends AbstractTestCase
             'controlpass' => 'p2',
             'hide_connection_errors' => false,
         ];
-        $cfg_ssl = [
+        $cfgSsl = [
             'user' => 'u',
             'password' => 'pass',
             'host' => '',
@@ -1251,7 +1251,7 @@ class ConfigTest extends AbstractTestCase
             'controlpass' => 'p2',
             'hide_connection_errors' => false,
         ];
-        $cfg_control_ssl = [
+        $cfgControlSsl = [
             'user' => 'u',
             'password' => 'pass',
             'host' => '',
@@ -1263,7 +1263,7 @@ class ConfigTest extends AbstractTestCase
 
         return [
             [
-                $cfg_basic,
+                $cfgBasic,
                 Connection::TYPE_USER,
                 null,
                 [
@@ -1284,7 +1284,7 @@ class ConfigTest extends AbstractTestCase
                 ],
             ],
             [
-                $cfg_basic,
+                $cfgBasic,
                 Connection::TYPE_CONTROL,
                 null,
                 [
@@ -1301,7 +1301,7 @@ class ConfigTest extends AbstractTestCase
                 ],
             ],
             [
-                $cfg_ssl,
+                $cfgSsl,
                 Connection::TYPE_USER,
                 null,
                 [
@@ -1322,7 +1322,7 @@ class ConfigTest extends AbstractTestCase
                 ],
             ],
             [
-                $cfg_ssl,
+                $cfgSsl,
                 Connection::TYPE_CONTROL,
                 null,
                 [
@@ -1339,7 +1339,7 @@ class ConfigTest extends AbstractTestCase
                 ],
             ],
             [
-                $cfg_control_ssl,
+                $cfgControlSsl,
                 Connection::TYPE_USER,
                 null,
                 [
@@ -1361,7 +1361,7 @@ class ConfigTest extends AbstractTestCase
                 ],
             ],
             [
-                $cfg_control_ssl,
+                $cfgControlSsl,
                 Connection::TYPE_CONTROL,
                 null,
                 [

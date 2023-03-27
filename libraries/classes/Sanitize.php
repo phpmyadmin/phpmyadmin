@@ -43,39 +43,39 @@ class Sanitize
     public static function checkLink(string $url, bool $http = false, bool $other = false): bool
     {
         $url = strtolower($url);
-        $valid_starts = [
+        $validStarts = [
             'https://',
             'index.php?route=/url&url=https%3a%2f%2f',
             './doc/html/',
             './index.php?',
         ];
-        $is_setup = self::isSetup();
+        $isSetup = self::isSetup();
         // Adjust path to setup script location
-        if ($is_setup) {
-            foreach ($valid_starts as $key => $value) {
+        if ($isSetup) {
+            foreach ($validStarts as $key => $value) {
                 if (substr($value, 0, 2) !== './') {
                     continue;
                 }
 
-                $valid_starts[$key] = '.' . $value;
+                $validStarts[$key] = '.' . $value;
             }
         }
 
         if ($other) {
-            $valid_starts[] = 'mailto:';
-            $valid_starts[] = 'ftp://';
+            $validStarts[] = 'mailto:';
+            $validStarts[] = 'ftp://';
         }
 
         if ($http) {
-            $valid_starts[] = 'http://';
+            $validStarts[] = 'http://';
         }
 
-        if ($is_setup) {
-            $valid_starts[] = '?page=form&';
-            $valid_starts[] = '?page=servers&';
+        if ($isSetup) {
+            $validStarts[] = '?page=form&';
+            $validStarts[] = '?page=servers&';
         }
 
-        foreach ($valid_starts as $val) {
+        foreach ($validStarts as $val) {
             if (substr($url, 0, strlen($val)) == $val) {
                 return true;
             }
@@ -182,7 +182,7 @@ class Sanitize
         }
 
         /* Interpret bb code */
-        $replace_pairs = [
+        $replacePairs = [
             '[em]' => '<em>',
             '[/em]' => '</em>',
             '[strong]' => '<strong>',
@@ -202,7 +202,7 @@ class Sanitize
             '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
         ];
 
-        $message = strtr($message, $replace_pairs);
+        $message = strtr($message, $replacePairs);
 
         /* Match links in bb code ([a@url@target], where @target is options) */
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';

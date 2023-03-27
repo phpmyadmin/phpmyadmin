@@ -52,7 +52,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    public function doMockResponse(int $set_minimal, int $body_id, int $set_title, mixed ...$headers): void
+    public function doMockResponse(int $setMinimal, int $bodyId, int $setTitle, mixed ...$headers): void
     {
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
@@ -65,26 +65,26 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             )
             ->getMock();
 
-        $mockHeader->expects($this->exactly($body_id))
+        $mockHeader->expects($this->exactly($bodyId))
             ->method('setBodyId')
             ->with('loginform');
 
-        $mockHeader->expects($this->exactly($set_title))
+        $mockHeader->expects($this->exactly($setTitle))
             ->method('setTitle')
             ->with('Access denied!');
 
-        $mockHeader->expects($this->exactly($set_title))
+        $mockHeader->expects($this->exactly($setTitle))
             ->method('disableMenuAndConsole')
             ->with();
 
         // set mocked headers and footers
         $mockResponse = $this->mockResponse($headers);
 
-        $mockResponse->expects($this->exactly($set_minimal))
+        $mockResponse->expects($this->exactly($setMinimal))
             ->method('setMinimalFooter')
             ->with();
 
-        $mockResponse->expects($this->exactly($set_title))
+        $mockResponse->expects($this->exactly($setTitle))
             ->method('getHeader')
             ->with()
             ->will($this->returnValue($mockHeader));
@@ -164,7 +164,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @param string|bool $expectedReturn expected return value from test
      * @param string      $expectedUser   expected username to be set
      * @param string|bool $expectedPass   expected password to be set
-     * @param string|bool $old_usr        value for $_REQUEST['old_usr']
+     * @param string|bool $oldUsr         value for $_REQUEST['old_usr']
      *
      * @dataProvider readCredentialsProvider
      */
@@ -176,12 +176,12 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         string|bool $expectedReturn,
         string $expectedUser,
         string|bool $expectedPass,
-        string|bool $old_usr = '',
+        string|bool $oldUsr = '',
     ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
 
-        $_REQUEST['old_usr'] = $old_usr;
+        $_REQUEST['old_usr'] = $oldUsr;
 
         $this->assertEquals(
             $expectedReturn,

@@ -128,26 +128,26 @@ class Eps
      * drawing the lines from x,y source to x,y destination and set the
      * width of the line. lines helps in showing relationships of tables
      *
-     * @param int $x_from    The x_from attribute defines the start
-     *                       left position of the element
-     * @param int $y_from    The y_from attribute defines the start
-     *                       right position of the element
-     * @param int $x_to      The x_to attribute defines the end
-     *                       left position of the element
-     * @param int $y_to      The y_to attribute defines the end
-     *                       right position of the element
+     * @param int $xFrom     The x_from attribute defines the start
+     *                        left position of the element
+     * @param int $yFrom     The y_from attribute defines the start
+     *                        right position of the element
+     * @param int $xTo       The x_to attribute defines the end
+     *                        left position of the element
+     * @param int $yTo       The y_to attribute defines the end
+     *                        right position of the element
      * @param int $lineWidth Sets the width of the line e.g 2
      */
     public function line(
-        int $x_from = 0,
-        int $y_from = 0,
-        int $x_to = 0,
-        int $y_to = 0,
+        int $xFrom = 0,
+        int $yFrom = 0,
+        int $xTo = 0,
+        int $yTo = 0,
         int $lineWidth = 0,
     ): void {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
-        $this->stringCommands .= $x_from . ' ' . $y_from . " moveto \n";
-        $this->stringCommands .= $x_to . ' ' . $y_to . " lineto \n";
+        $this->stringCommands .= $xFrom . ' ' . $yFrom . " moveto \n";
+        $this->stringCommands .= $xTo . ' ' . $yTo . " lineto \n";
         $this->stringCommands .= "stroke \n";
     }
 
@@ -157,24 +157,24 @@ class Eps
      * drawing the rectangle from x,y source to x,y destination and set the
      * width of the line. rectangles drawn around the text shown of fields
      *
-     * @param int $x_from    The x_from attribute defines the start
-     *                       left position of the element
-     * @param int $y_from    The y_from attribute defines the start
-     *                       right position of the element
-     * @param int $x_to      The x_to attribute defines the end
-     *                       left position of the element
-     * @param int $y_to      The y_to attribute defines the end
-     *                       right position of the element
+     * @param int $xFrom     The x_from attribute defines the start
+     *                        left position of the element
+     * @param int $yFrom     The y_from attribute defines the start
+     *                        right position of the element
+     * @param int $xTo       The x_to attribute defines the end
+     *                        left position of the element
+     * @param int $yTo       The y_to attribute defines the end
+     *                        right position of the element
      * @param int $lineWidth Sets the width of the line e.g 2
      */
-    public function rect(int $x_from, int $y_from, int $x_to, int $y_to, int $lineWidth): void
+    public function rect(int $xFrom, int $yFrom, int $xTo, int $yTo, int $lineWidth): void
     {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= "newpath \n";
-        $this->stringCommands .= $x_from . ' ' . $y_from . " moveto \n";
-        $this->stringCommands .= '0 ' . $y_to . " rlineto \n";
-        $this->stringCommands .= $x_to . " 0 rlineto \n";
-        $this->stringCommands .= '0 -' . $y_to . " rlineto \n";
+        $this->stringCommands .= $xFrom . ' ' . $yFrom . " moveto \n";
+        $this->stringCommands .= '0 ' . $yTo . " rlineto \n";
+        $this->stringCommands .= $xTo . " 0 rlineto \n";
+        $this->stringCommands .= '0 -' . $yTo . " rlineto \n";
         $this->stringCommands .= "closepath \n";
         $this->stringCommands .= "stroke \n";
     }
