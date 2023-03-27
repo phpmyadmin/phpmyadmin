@@ -104,12 +104,7 @@ class SystemDatabaseTest extends AbstractTestCase
         ];
         $viewName = 'view_name';
 
-        $ret = $this->sysDb->getNewTransformationDataSql(
-            $resultStub,
-            $columnMap,
-            $viewName,
-            $db,
-        );
+        $ret = $this->sysDb->getNewTransformationDataSql($resultStub, $columnMap, $viewName, $db);
 
         $sql = 'INSERT INTO `information_schema`.`column_info` '
             . '(`db_name`, `table_name`, `column_name`, `comment`, `mimetype`, '

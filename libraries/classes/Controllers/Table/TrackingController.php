@@ -105,11 +105,7 @@ final class TrackingController extends AbstractController
 
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
-            $trackedData = Tracker::getTrackedData(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-            );
+            $trackedData = Tracker::getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
                 $request->getParsedBodyParam('date_from', $trackedData['date_from']),
@@ -169,20 +165,12 @@ final class TrackingController extends AbstractController
 
         $deleteVersion = '';
         if ($request->hasBodyParam('submit_delete_version')) {
-            $deleteVersion = $this->tracking->deleteTrackingVersion(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-            );
+            $deleteVersion = $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
         }
 
         $createVersion = '';
         if ($request->hasBodyParam('submit_create_version')) {
-            $createVersion = $this->tracking->createTrackingVersion(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-            );
+            $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
         }
 
         $deactivateTracking = '';

@@ -1076,7 +1076,7 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query'  => 'SELECT 1 FROM information_schema.VIEWS'
+                'query' => 'SELECT 1 FROM information_schema.VIEWS'
                 . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'Feuille 1\'',
                 'result' => [],
             ],

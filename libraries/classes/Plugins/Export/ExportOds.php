@@ -203,11 +203,7 @@ class ExportOds extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query(
-            $sqlQuery,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fieldsCnt = $result->numFields();
         /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);

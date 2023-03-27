@@ -544,11 +544,7 @@ class Sql
             }
         }
 
-        $bookmark = Bookmark::createBookmark(
-            $this->dbi,
-            $bfields,
-            isset($_POST['bkm_all_users']),
-        );
+        $bookmark = Bookmark::createBookmark($this->dbi, $bfields, isset($_POST['bkm_all_users']));
 
         if ($bookmark === false) {
             return;

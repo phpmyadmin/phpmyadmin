@@ -219,11 +219,7 @@ class SqlController extends AbstractController
     /** @param array<string> $bkmFields */
     private function addBookmark(string $goto, array $bkmFields, bool $bkmAllUsers): void
     {
-        $bookmark = Bookmark::createBookmark(
-            $this->dbi,
-            $bkmFields,
-            $bkmAllUsers,
-        );
+        $bookmark = Bookmark::createBookmark($this->dbi, $bkmFields, $bkmAllUsers);
 
         $result = null;
         if ($bookmark instanceof Bookmark) {

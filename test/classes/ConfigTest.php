@@ -937,10 +937,7 @@ class ConfigTest extends AbstractTestCase
             'cfg_val_1',
         );
         $this->object->setUserValue(null, 'NavigationWidth', 300);
-        $this->assertSame(
-            $GLOBALS['cfg']['NavigationWidth'],
-            300,
-        );
+        $this->assertSame($GLOBALS['cfg']['NavigationWidth'], 300);
     }
 
     /**

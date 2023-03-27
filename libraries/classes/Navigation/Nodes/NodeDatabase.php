@@ -115,10 +115,7 @@ class NodeDatabase extends Node
         $query .= Util::backquote($this->realName);
         $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
         if ($searchClause !== '') {
-            $query .= 'AND ' . $this->getWhereClauseForSearch(
-                $searchClause,
-                'Tables_in_' . $this->realName,
-            );
+            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Tables_in_' . $this->realName);
         }
 
         return $GLOBALS['dbi']->queryAndGetNumRows($query);

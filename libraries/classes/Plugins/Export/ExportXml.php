@@ -442,11 +442,7 @@ class ExportXml extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
-            $result = $GLOBALS['dbi']->query(
-                $sqlQuery,
-                Connection::TYPE_USER,
-                DatabaseInterface::QUERY_UNBUFFERED,
-            );
+            $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
             $columnsCnt = $result->numFields();
             $columns = $result->getFieldNames();

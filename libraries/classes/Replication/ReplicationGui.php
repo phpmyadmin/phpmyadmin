@@ -497,12 +497,7 @@ class ReplicationGui
         $_SESSION['replication']['m_correct'] = '';
 
         // Attempt to connect to the new primary server
-        $connectionToPrimary = $this->replication->connectToPrimary(
-            $username,
-            $pmaPassword,
-            $hostname,
-            $port,
-        );
+        $connectionToPrimary = $this->replication->connectToPrimary($username, $pmaPassword, $hostname, $port);
 
         if ($connectionToPrimary === null) {
             $_SESSION['replication']['sr_action_status'] = 'error';
@@ -559,11 +554,7 @@ class ReplicationGui
             return $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
         }
 
-        $qControl = $this->replication->replicaControl(
-            $srReplicaAction,
-            $control,
-            Connection::TYPE_USER,
-        );
+        $qControl = $this->replication->replicaControl($srReplicaAction, $control, Connection::TYPE_USER);
 
         return $qControl !== false && $qControl !== -1;
     }

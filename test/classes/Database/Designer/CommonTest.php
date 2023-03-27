@@ -253,10 +253,7 @@ class CommonTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchValue')
-            ->willReturnOnConsecutiveCalls(
-                false,
-                $firstPg,
-            );
+            ->willReturnOnConsecutiveCalls(false, $firstPg);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 

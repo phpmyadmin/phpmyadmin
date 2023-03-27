@@ -405,11 +405,7 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             $this->diagram->setXY(0, $l * $gridSize + $topSpace);
-            $label = sprintf(
-                '%.0f',
-                ($l * $gridSize + $topSpace - $this->topMargin)
-                * $this->scale + $this->yMin,
-            );
+            $label = sprintf('%.0f', ($l * $gridSize + $topSpace - $this->topMargin) * $this->scale + $this->yMin);
             $this->diagram->Cell($labelWidth, $labelHeight, ' ' . $label);
         }
 

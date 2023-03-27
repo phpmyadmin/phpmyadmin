@@ -90,15 +90,7 @@ class OptionsTest extends AbstractTestCase
         $dropdown = Plugins::getChoice($exportList, 'sql');
 
         //Call the test function
-        $actual = $this->export->getOptions(
-            $exportType,
-            $db,
-            $table,
-            '',
-            $numTablesStr,
-            $unlimNumRowsStr,
-            $exportList,
-        );
+        $actual = $this->export->getOptions($exportType, $db, $table, '', $numTablesStr, $unlimNumRowsStr, $exportList);
 
         $expected = [
             'export_type' => $exportType,

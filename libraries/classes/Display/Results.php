@@ -2618,11 +2618,7 @@ class Results
             return $this->properties['sql_query'];
         }
 
-        $query = 'SELECT ' . Query::getClause(
-            $statementInfo->statement,
-            $statementInfo->parser->list,
-            'SELECT',
-        );
+        $query = 'SELECT ' . Query::getClause($statementInfo->statement, $statementInfo->parser->list, 'SELECT');
 
         $fromClause = Query::getClause($statementInfo->statement, $statementInfo->parser->list, 'FROM');
 
@@ -3500,10 +3496,7 @@ class Results
 
             // Data is sorted by indexes only if there is only one table.
             if ($this->isSelect($statementInfo)) {
-                $sortByKeyData = $this->getSortByKeyDropDown(
-                    $sortExpression,
-                    $unsortedSqlQuery,
-                );
+                $sortByKeyData = $this->getSortByKeyDropDown($sortExpression, $unsortedSqlQuery);
             }
         }
 

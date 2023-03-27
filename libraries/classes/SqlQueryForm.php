@@ -85,12 +85,7 @@ class SqlQueryForm
 
         $bookmarks = [];
         if ($displayTab === 'full' && $bookmarkFeature !== null) {
-            $bookmarkList = Bookmark::getList(
-                $bookmarkFeature,
-                $this->dbi,
-                $GLOBALS['cfg']['Server']['user'],
-                $db,
-            );
+            $bookmarkList = Bookmark::getList($bookmarkFeature, $this->dbi, $GLOBALS['cfg']['Server']['user'], $db);
 
             foreach ($bookmarkList as $bookmarkItem) {
                 $bookmarks[] = [

@@ -186,11 +186,7 @@ class ExportTexytext extends ExportPlugin
          * @var ResultInterface $result
          * @psalm-ignore-var
          */
-        $result = $GLOBALS['dbi']->query(
-            $sqlQuery,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {

@@ -723,13 +723,7 @@ class Tracking
         if ($deleteId == (int) $deleteId) {
             unset($data[$whichLog][$deleteId]);
 
-            $successfullyDeleted = Tracker::changeTrackingData(
-                $db,
-                $table,
-                $version,
-                $type,
-                $data[$whichLog],
-            );
+            $successfullyDeleted = Tracker::changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
             if ($successfullyDeleted) {
                 $msg = Message::success($message);
             } else {

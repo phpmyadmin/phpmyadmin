@@ -96,15 +96,7 @@ class DbiMysqli implements DbiExtension
         }
 
         try {
-            $mysqli->real_connect(
-                $host,
-                $user,
-                $password,
-                '',
-                (int) $server->port,
-                $server->socket,
-                $clientFlags,
-            );
+            $mysqli->real_connect($host, $user, $password, '', (int) $server->port, $server->socket, $clientFlags);
         } catch (mysqli_sql_exception) {
             /**
              * Switch to SSL if server asked us to do so, unfortunately

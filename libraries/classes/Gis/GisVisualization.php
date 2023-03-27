@@ -584,35 +584,13 @@ class GisVisualization
             $label = trim((string) ($row[$this->labelColumn] ?? ''));
 
             if ($format === 'svg') {
-                $results .= $gisObj->prepareRowAsSvg(
-                    $refData,
-                    $label,
-                    $color,
-                    $scaleData,
-                );
+                $results .= $gisObj->prepareRowAsSvg($refData, $label, $color, $scaleData);
             } elseif ($format === 'png') {
-                $results = $gisObj->prepareRowAsPng(
-                    $refData,
-                    $label,
-                    $color,
-                    $scaleData,
-                    $results,
-                );
+                $results = $gisObj->prepareRowAsPng($refData, $label, $color, $scaleData, $results);
             } elseif ($format === 'pdf' && $results instanceof TCPDF) {
-                $results = $gisObj->prepareRowAsPdf(
-                    $refData,
-                    $label,
-                    $color,
-                    $scaleData,
-                    $results,
-                );
+                $results = $gisObj->prepareRowAsPdf($refData, $label, $color, $scaleData, $results);
             } elseif ($format === 'ol') {
-                $results .= $gisObj->prepareRowAsOl(
-                    $refData,
-                    (int) $row['srid'],
-                    $label,
-                    $color,
-                );
+                $results .= $gisObj->prepareRowAsOl($refData, (int) $row['srid'], $label, $color);
             }
 
             $colorIndex = ($colorIndex + 1) % count(self::COLORS);

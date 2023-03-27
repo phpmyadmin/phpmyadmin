@@ -184,11 +184,7 @@ class Encoding
 
         return match (self::$engine) {
             self::ENGINE_RECODE => recode_string($srcCharset . '..' . $destCharset, $what),
-            self::ENGINE_ICONV => iconv(
-                $srcCharset,
-                $destCharset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
-                $what,
-            ),
+            self::ENGINE_ICONV => iconv($srcCharset, $destCharset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''), $what),
             self::ENGINE_MB => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };

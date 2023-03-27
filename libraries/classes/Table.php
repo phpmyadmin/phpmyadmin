@@ -558,10 +558,7 @@ class Table implements Stringable
                             $query .= ' DEFAULT 0';
                         } elseif (
                             $isTimestamp
-                            && preg_match(
-                                '/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/',
-                                $defaultValue,
-                            )
+                            && preg_match('/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/', $defaultValue)
                         ) {
                             $query .= ' DEFAULT ' . $defaultValue;
                         } elseif ($type === 'BIT') {
@@ -1294,10 +1291,7 @@ class Table implements Stringable
                     . ','
                     . $GLOBALS['dbi']->quoteString($commentsCopyRow['comment'], Connection::TYPE_CONTROL)
                     . ($relationParameters->browserTransformationFeature !== null
-                        ? ',' . $GLOBALS['dbi']->quoteString(
-                            $commentsCopyRow['mimetype'],
-                            Connection::TYPE_CONTROL,
-                        )
+                        ? ',' . $GLOBALS['dbi']->quoteString($commentsCopyRow['mimetype'], Connection::TYPE_CONTROL)
                         . ',' . $GLOBALS['dbi']->quoteString(
                             $commentsCopyRow['transformation'],
                             Connection::TYPE_CONTROL,

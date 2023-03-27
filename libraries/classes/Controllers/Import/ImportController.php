@@ -175,11 +175,7 @@ final class ImportController extends AbstractController
             // do a dynamic reload if table is RENAMED
             // (by sending the instruction to the AJAX response handler)
             if (
-                preg_match(
-                    '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
-                    $GLOBALS['sql_query'],
-                    $renameTableNames,
-                )
+                preg_match('/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i', $GLOBALS['sql_query'], $renameTableNames)
             ) {
                 $GLOBALS['ajax_reload']['reload'] = true;
                 $GLOBALS['ajax_reload']['table_name'] = Util::unQuote($renameTableNames[2]);

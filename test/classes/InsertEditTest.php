@@ -435,9 +435,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with(
-                'SELECT * FROM `db`.`table` LIMIT 1;',
-            )
+            ->with('SELECT * FROM `db`.`table` LIMIT 1;')
             ->will($this->returnValue($resultStub));
 
         $GLOBALS['dbi'] = $dbi;
@@ -1717,10 +1715,7 @@ class InsertEditTest extends AbstractTestCase
             [$column],
         );
 
-        $this->assertEquals(
-            $expected,
-            $result,
-        );
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -2118,9 +2113,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with(
-                'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1',
-            )
+            ->with('SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1')
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())
@@ -2241,10 +2234,7 @@ class InsertEditTest extends AbstractTestCase
             false,
             '',
         );
-        $this->assertEquals(
-            "'foo'",
-            $result,
-        );
+        $this->assertEquals("'foo'", $result);
 
         // Test for file upload
         $result = $this->insertEdit->getQueryValueForInsert(
@@ -2641,10 +2631,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ),
         );
-        $this->assertEquals(
-            "`fld` = 'foo'",
-            $result,
-        );
+        $this->assertEquals("`fld` = 'foo'", $result);
 
         // Update of null when it was null previously
         $result = $this->insertEdit->getQueryValueForUpdate(
@@ -2661,10 +2648,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ),
         );
-        $this->assertEquals(
-            '',
-            $result,
-        );
+        $this->assertEquals('', $result);
 
         // Update of null when it was NOT null previously
         $result = $this->insertEdit->getQueryValueForUpdate(
@@ -2681,10 +2665,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ),
         );
-        $this->assertEquals(
-            '`fld` = NULL',
-            $result,
-        );
+        $this->assertEquals('`fld` = NULL', $result);
 
         // Update to NOT null when it was null previously
         $result = $this->insertEdit->getQueryValueForUpdate(
@@ -2701,10 +2682,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ),
         );
-        $this->assertEquals(
-            "`fld` = 'ab\'c'",
-            $result,
-        );
+        $this->assertEquals("`fld` = 'ab\'c'", $result);
 
         // Test to see if a zero-string is not ignored
         $result = $this->insertEdit->getQueryValueForUpdate(
@@ -2721,10 +2699,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ),
         );
-        $this->assertEquals(
-            "`fld` = '0'",
-            $result,
-        );
+        $this->assertEquals("`fld` = '0'", $result);
 
         // Test to check if blob field that was left unchanged during edit will be ignored
         $result = $this->insertEdit->getQueryValueForUpdate(
@@ -2741,10 +2716,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ),
         );
-        $this->assertEquals(
-            '',
-            $result,
-        );
+        $this->assertEquals('', $result);
 
         // Test to see if a field will be ignored if it the value is unchanged
         $result = $this->insertEdit->getQueryValueForUpdate(
@@ -2762,10 +2734,7 @@ class InsertEditTest extends AbstractTestCase
             ),
         );
 
-        $this->assertEquals(
-            '',
-            $result,
-        );
+        $this->assertEquals('', $result);
 
         // Test that an empty value uses the uuid function to generate a value
         $result = $this->insertEdit->getQueryValueForUpdate(

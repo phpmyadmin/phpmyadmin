@@ -69,10 +69,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
-        $this->waitForElement(
-            'xpath',
-            "//a[contains(text(),'Database: ') and contains(text(),'" . $newDbName . "')]",
-        );
+        $this->waitForElement('xpath', "//a[contains(text(),'Database: ') and contains(text(),'" . $newDbName . "')]");
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $newDbName . '\'',

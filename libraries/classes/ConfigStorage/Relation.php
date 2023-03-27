@@ -498,11 +498,7 @@ class Relation
                     . ' WHERE `db_name` = ' . $this->dbi->quoteString($db)
                     . ' AND `table_name` = ' . $this->dbi->quoteString($table);
 
-            $row = $this->dbi->fetchSingleRow(
-                $dispQuery,
-                DatabaseInterface::FETCH_ASSOC,
-                Connection::TYPE_CONTROL,
-            );
+            $row = $this->dbi->fetchSingleRow($dispQuery, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
             if (isset($row['display_field'])) {
                 return $row['display_field'];
             }
@@ -1073,10 +1069,7 @@ class Relation
                     }
                 }
 
-                $disp = $this->dbi->tryQuery(
-                    $fQueryMain . $fQueryFrom . $fQueryFilter
-                    . $fQueryOrder . $fQueryLimit,
-                );
+                $disp = $this->dbi->tryQuery($fQueryMain . $fQueryFrom . $fQueryFilter . $fQueryOrder . $fQueryLimit);
                 if ($disp && $disp->numRows() > 0) {
                     // If a resultset has been created, pre-cache it in the $disp_row
                     // array. This helps us from not needing to use mysql_data_seek by

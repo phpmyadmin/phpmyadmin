@@ -881,12 +881,7 @@ class DatabaseInterface implements DbalInterface
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
     ): array {
-        $sql = QueryGenerator::getColumnsSql(
-            $database,
-            $table,
-            null,
-            $full,
-        );
+        $sql = QueryGenerator::getColumnsSql($database, $table, null, $full);
         /** @var array[] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 

@@ -262,11 +262,7 @@ class OperationsController extends AbstractController
                 is_string($tableCollationParam) && $tableCollationParam !== ''
                 && $request->getParsedBodyParam('change_all_collations')
             ) {
-                $this->operations->changeAllColumnsCollation(
-                    $GLOBALS['db'],
-                    $GLOBALS['table'],
-                    $tableCollationParam,
-                );
+                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $GLOBALS['table'], $tableCollationParam);
             }
 
             if ($tableCollationParam !== null && (! is_string($tableCollationParam) || $tableCollationParam === '')) {

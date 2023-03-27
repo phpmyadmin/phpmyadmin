@@ -95,11 +95,7 @@ class UserPreferences
             . ' FROM ' . $queryTable
             . ' WHERE `username` = '
             . $this->dbi->quoteString((string) $relationParameters->user);
-        $row = $this->dbi->fetchSingleRow(
-            $query,
-            DatabaseInterface::FETCH_ASSOC,
-            Connection::TYPE_CONTROL,
-        );
+        $row = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
         }

@@ -273,12 +273,7 @@ class Common
                 . '.' . Util::backquote($pdfFeature->tableCoords) . '
             WHERE pdf_page_number = ' . $pg;
 
-        return $this->dbi->fetchResult(
-            $query,
-            'name',
-            null,
-            Connection::TYPE_CONTROL,
-        );
+        return $this->dbi->fetchResult($query, 'name', null, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -299,11 +294,7 @@ class Common
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . $pg;
-        $pageName = $this->dbi->fetchValue(
-            $query,
-            0,
-            Connection::TYPE_CONTROL,
-        );
+        $pageName = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
 
         return $pageName !== false ? $pageName : null;
     }
@@ -354,11 +345,7 @@ class Common
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'"
             . " AND `page_descr` = '" . $this->dbi->escapeString($db) . "'";
 
-        $defaultPageNo = $this->dbi->fetchValue(
-            $query,
-            0,
-            Connection::TYPE_CONTROL,
-        );
+        $defaultPageNo = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
 
         return is_string($defaultPageNo) ? intval($defaultPageNo) : -1;
     }
@@ -380,12 +367,7 @@ class Common
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `page_descr` = '" . $this->dbi->escapeString($pg) . "'";
-        $pageNos = $this->dbi->fetchResult(
-            $query,
-            null,
-            null,
-            Connection::TYPE_CONTROL,
-        );
+        $pageNos = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
 
         return $pageNos !== [];
     }
@@ -415,11 +397,7 @@ class Common
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
 
-        $minPageNo = $this->dbi->fetchValue(
-            $query,
-            0,
-            Connection::TYPE_CONTROL,
-        );
+        $minPageNo = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
 
         return is_string($minPageNo) ? intval($minPageNo) : -1;
     }

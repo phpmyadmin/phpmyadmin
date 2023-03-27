@@ -237,12 +237,7 @@ class Bookmark
 
         $query .= ' ORDER BY label ASC';
 
-        $result = $dbi->fetchResult(
-            $query,
-            null,
-            null,
-            Connection::TYPE_CONTROL,
-        );
+        $result = $dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
 
         $bookmarks = [];
         foreach ($result as $row) {

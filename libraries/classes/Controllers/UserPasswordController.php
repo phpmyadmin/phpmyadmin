@@ -82,11 +82,7 @@ class UserPasswordController extends AbstractController
                 );
 
                 if ($this->response->isAjax()) {
-                    $sqlQuery = Generator::getMessage(
-                        $GLOBALS['change_password_message']['msg'],
-                        $sqlQuery,
-                        'success',
-                    );
+                    $sqlQuery = Generator::getMessage($GLOBALS['change_password_message']['msg'], $sqlQuery, 'success');
                     $this->response->addJSON('message', $sqlQuery);
 
                     return;

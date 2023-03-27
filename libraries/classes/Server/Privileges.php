@@ -936,7 +936,7 @@ class Privileges
                 // MariaDB uses "SET PASSWORD" syntax to change user password.
                 // On Galera cluster only DDL queries are replicated, since
                 // users are stored in MyISAM storage engine.
-                $sqlQuery = $localQuery =  'SET PASSWORD FOR '
+                $sqlQuery = $localQuery = 'SET PASSWORD FOR '
                     . $this->dbi->quoteString($username)
                     . '@' . $this->dbi->quoteString($hostname)
                     . ' = PASSWORD (' . $this->dbi->quoteString($_POST['pma_pw']) . ')';

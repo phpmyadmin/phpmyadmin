@@ -279,10 +279,7 @@ class PrivilegesController extends AbstractController
          * Changes / copies a user, part V
          */
         if ($request->hasBodyParam('change_copy')) {
-            $queries = $serverPrivileges->getDataForQueries(
-                $queries,
-                $queriesForDisplay,
-            );
+            $queries = $serverPrivileges->getDataForQueries($queries, $queriesForDisplay);
             $GLOBALS['message'] = Message::success();
             $GLOBALS['sql_query'] = implode("\n", $queries);
         }
@@ -338,11 +335,7 @@ class PrivilegesController extends AbstractController
             /** @var string[]|null $selectedUsers */
             $selectedUsers = $request->getParsedBodyParam('selected_usr');
 
-            $title = $this->getExportPageTitle(
-                $GLOBALS['username'] ?? '',
-                $GLOBALS['hostname'] ?? '',
-                $selectedUsers,
-            );
+            $title = $this->getExportPageTitle($GLOBALS['username'] ?? '', $GLOBALS['hostname'] ?? '', $selectedUsers);
 
             $export = $serverPrivileges->getExportUserDefinitionTextarea(
                 $GLOBALS['username'] ?? '',

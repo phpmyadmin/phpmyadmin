@@ -333,9 +333,7 @@ class Types
                 '(2^32 - 1) bytes, stored with a four-byte prefix indicating the ' .
                 'length of the value',
             ),
-            'ENUM' => __(
-                'An enumeration, chosen from the list of up to 65,535 values or the special \'\' error value',
-            ),
+            'ENUM' => __('An enumeration, chosen from the list of up to 65,535 values or the special \'\' error value'),
             'SET' => __('A single value chosen from a set of up to 64 members'),
             'GEOMETRY' => __('A type that can store a geometry of any type'),
             'POINT' => __('A point in 2-dimensional space'),

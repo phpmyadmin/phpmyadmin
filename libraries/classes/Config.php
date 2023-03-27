@@ -849,10 +849,7 @@ class Config
 
         $parsedUrlPath = Routing::getCleanPathInfo();
 
-        $parts = explode(
-            '/',
-            $parsedUrlPath,
-        );
+        $parts = explode('/', $parsedUrlPath);
 
         /* Remove filename */
         if (substr($parts[count($parts) - 1], -4) === '.php') {

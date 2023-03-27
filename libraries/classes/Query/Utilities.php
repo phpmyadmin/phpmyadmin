@@ -147,10 +147,7 @@ class Utilities
         $compare = $GLOBALS['cfg']['NaturalOrder'] ? strnatcasecmp(
             (string) $a[$sortBy],
             (string) $b[$sortBy],
-        ) : strcasecmp(
-            (string) $a[$sortBy],
-            (string) $b[$sortBy],
-        );
+        ) : strcasecmp((string) $a[$sortBy], (string) $b[$sortBy]);
 
         return ($sortOrder === 'ASC' ? 1 : -1) * $compare;
     }

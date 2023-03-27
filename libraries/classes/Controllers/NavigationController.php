@@ -63,11 +63,7 @@ class NavigationController extends AbstractController
 
             if ($request->getParsedBodyParam('hideNavItem') !== null) {
                 if ($itemName !== '' && $itemType !== '' && $dbName !== '') {
-                    $this->navigation->hideNavigationItem(
-                        $itemName,
-                        $itemType,
-                        $dbName,
-                    );
+                    $this->navigation->hideNavigationItem($itemName, $itemType, $dbName);
                 }
 
                 return;
@@ -75,11 +71,7 @@ class NavigationController extends AbstractController
 
             if ($request->hasBodyParam('unhideNavItem')) {
                 if ($itemName !== '' && $itemType !== '' && $dbName !== '') {
-                    $this->navigation->unhideNavigationItem(
-                        $itemName,
-                        $itemType,
-                        $dbName,
-                    );
+                    $this->navigation->unhideNavigationItem($itemName, $itemType, $dbName);
                 }
 
                 return;

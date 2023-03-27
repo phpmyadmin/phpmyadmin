@@ -490,13 +490,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges(
-            $username,
-            $hostname,
-            $tablename,
-            $dbname,
-            '',
-        );
+        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges($username, $hostname, $tablename, $dbname, '');
 
         $this->assertEquals(
             "You have updated the privileges for 'pma_username'@'pma_hostname'.",
@@ -541,13 +535,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges->dbi = $dbi;
 
-        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges(
-            $username,
-            $hostname,
-            $tablename,
-            $dbname,
-            '',
-        );
+        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges($username, $hostname, $tablename, $dbname, '');
 
         $this->assertEquals(
             "You have updated the privileges for 'pma_username'@'pma_hostname'.",
@@ -593,13 +581,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges->dbi = $dbi;
 
-        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges(
-            $username,
-            $hostname,
-            $tablename,
-            $dbname,
-            '',
-        );
+        [$sqlQuery, $message] = $serverPrivileges->updatePrivileges($username, $hostname, $tablename, $dbname, '');
 
         $this->assertEquals(
             "You have updated the privileges for 'pma_username'@'pma_hostname'.",
@@ -1605,10 +1587,7 @@ class PrivilegesTest extends AbstractTestCase
             'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ;',
             false,
         );
-        $dummyDbi->addResult(
-            'SELECT 1 FROM `mysql`.`user`',
-            false,
-        );
+        $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', false);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
         $html = $serverPrivileges->getHtmlForUserOverview('ltr', '');
 
@@ -1894,10 +1873,7 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         //labels
-        $this->assertStringContainsString(
-            'change_password_form',
-            $html,
-        );
+        $this->assertStringContainsString('change_password_form', $html);
         $this->assertStringContainsString(
             __('No Password'),
             $html,

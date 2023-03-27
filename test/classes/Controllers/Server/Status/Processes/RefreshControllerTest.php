@@ -102,10 +102,7 @@ class RefreshControllerTest extends AbstractTestCase
         );
 
         //validate 4: $process['db']
-        $this->assertStringContainsString(
-            $process['Db'],
-            $html,
-        );
+        $this->assertStringContainsString($process['Db'], $html);
 
         //validate 5: $process['Command']
         $this->assertStringContainsString(

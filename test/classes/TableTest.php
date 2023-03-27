@@ -776,10 +776,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $moveTo,
         );
-        $this->assertEquals(
-            '`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()',
-            $query,
-        );
+        $this->assertEquals('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()', $query);
 
         //$default_type is uuid()
         $type = 'UUID';
@@ -800,10 +797,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $moveTo,
         );
-        $this->assertEquals(
-            '`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()',
-            $query,
-        );
+        $this->assertEquals('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()', $query);
 
         //$default_type is NONE
         $type = 'BOOLEAN';
@@ -1565,16 +1559,7 @@ class TableTest extends AbstractTestCase
         $this->loadDbiIntoContainerBuilder();
 
         $GLOBALS['sql_query'] = '';
-        $return = Table::moveCopy(
-            'aa',
-            'ad',
-            'bb',
-            'ad',
-            'structure',
-            true,
-            'db_copy',
-            true,
-        );
+        $return = Table::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, 'db_copy', true);
         $this->assertEquals(true, $return);
         $this->assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
         $this->assertStringContainsString(

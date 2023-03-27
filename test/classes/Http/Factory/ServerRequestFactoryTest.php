@@ -197,9 +197,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $serverRequestFactory = new $className();
         $this->assertInstanceOf(ServerRequestFactoryInterface::class, $serverRequestFactory);
 
-        $factory = new ServerRequestFactory(
-            $serverRequestFactory,
-        );
+        $factory = new ServerRequestFactory($serverRequestFactory);
         $this->assertInstanceOf(ServerRequestFactory::class, $factory);
     }
 }

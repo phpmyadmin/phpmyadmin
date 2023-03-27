@@ -681,11 +681,7 @@ class Pdf extends PdfLib
         /**
          * Pass 1 for column widths
          */
-        $this->results = $GLOBALS['dbi']->query(
-            $query,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $this->results = $GLOBALS['dbi']->query($query, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $numFields = $this->results->numFields();
         $fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
@@ -812,11 +808,7 @@ class Pdf extends PdfLib
 
         // Pass 2
 
-        $this->results = $GLOBALS['dbi']->query(
-            $query,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $this->results = $GLOBALS['dbi']->query($query, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->setFont(PdfLib::PMA_PDF_FONT, '', 9);

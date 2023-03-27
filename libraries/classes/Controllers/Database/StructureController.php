@@ -801,11 +801,7 @@ class StructureController extends AbstractController
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
             if (isset($currentTable['Data_free']) && $currentTable['Data_free'] > 0) {
-                [$formattedOverhead, $overheadUnit] = Util::formatByteDown(
-                    $currentTable['Data_free'],
-                    3,
-                    1,
-                );
+                [$formattedOverhead, $overheadUnit] = Util::formatByteDown($currentTable['Data_free'], 3, 1);
                 $overheadSize += $currentTable['Data_free'];
             }
         }

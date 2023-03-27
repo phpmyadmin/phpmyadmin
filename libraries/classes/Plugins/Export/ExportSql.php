@@ -2074,11 +2074,7 @@ class ExportSql extends ExportPlugin
             return $this->export->outputHandler($head);
         }
 
-        $result = $GLOBALS['dbi']->tryQuery(
-            $sqlQuery,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $result = $GLOBALS['dbi']->tryQuery($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         // a possible error: the table has crashed
         $tmpError = $GLOBALS['dbi']->getError();
         if ($tmpError) {
@@ -2250,10 +2246,7 @@ class ExportSql extends ExportPlugin
                     }
                 } elseif ($metaInfo->isMappedTypeBit) {
                     // detection of 'bit' works only on mysqli extension
-                    $values[] = "b'" . Util::printableBitValue(
-                        (int) $row[$j],
-                        $metaInfo->length,
-                    ) . "'";
+                    $values[] = "b'" . Util::printableBitValue((int) $row[$j], $metaInfo->length) . "'";
                 } elseif ($metaInfo->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
@@ -2283,11 +2276,7 @@ class ExportSql extends ExportPlugin
                     $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmpUniqueCondition] = Util::getUniqueCondition(
-                    $fieldsCnt,
-                    $fieldsMeta,
-                    $row,
-                );
+                [$tmpUniqueCondition] = Util::getUniqueCondition($fieldsCnt, $fieldsMeta, $row);
                 $insertLine .= ' WHERE ' . $tmpUniqueCondition;
                 unset($tmpUniqueCondition);
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {

@@ -733,15 +733,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addSelectDb('db1');
         $dummyDbi->addSelectDb('db2');
 
-        $databaseList = $dbi->getDatabasesFull(
-            null,
-            true,
-            Connection::TYPE_USER,
-            'SCHEMA_DATA_LENGTH',
-            'ASC',
-            0,
-            100,
-        );
+        $databaseList = $dbi->getDatabasesFull(null, true, Connection::TYPE_USER, 'SCHEMA_DATA_LENGTH', 'ASC', 0, 100);
 
         $this->assertSame([
             [

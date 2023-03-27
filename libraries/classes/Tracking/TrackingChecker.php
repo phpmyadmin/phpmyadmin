@@ -36,7 +36,7 @@ class TrackingChecker
      */
     public function getUntrackedTableNames(string $dbName): array
     {
-        $tableList =  $this->dbi->getTables($dbName, Connection::TYPE_CONTROL);
+        $tableList = $this->dbi->getTables($dbName, Connection::TYPE_CONTROL);
 
         if ($this->trackingFeature === null) {
             return $tableList;

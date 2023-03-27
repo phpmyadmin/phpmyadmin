@@ -18,7 +18,7 @@ class PageFormList extends BaseFormList
         'DbStructure' => DbStructureForm::class,
         'Edit' => EditForm::class,
         'Export' => ExportForm::class,
-        'Import' =>  ImportForm::class,
+        'Import' => ImportForm::class,
         'Navi' => NaviForm::class,
         'Sql' => SqlForm::class,
         'TableStructure' => TableStructureForm::class,

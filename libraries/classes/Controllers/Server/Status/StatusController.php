@@ -70,17 +70,11 @@ class StatusController extends AbstractController
             $primaryConnection = $request->getParsedBodyParam('primary_connection');
 
             if ($primaryInfo['status']) {
-                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
-                    $primaryConnection,
-                    'primary',
-                );
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable($primaryConnection, 'primary');
             }
 
             if ($replicaInfo['status']) {
-                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
-                    $primaryConnection,
-                    'replica',
-                );
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable($primaryConnection, 'replica');
             }
         }
 

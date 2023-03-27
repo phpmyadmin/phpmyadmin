@@ -1589,10 +1589,7 @@ class InsertEdit
             return $this->formatAsSqlFunction($editField);
         }
 
-        return $this->formatAsSqlValueBasedOnType(
-            $editField,
-            $protectedValue,
-        );
+        return $this->formatAsSqlValueBasedOnType($editField, $protectedValue);
     }
 
     /**
