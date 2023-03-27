@@ -263,7 +263,6 @@
       <code><![CDATA[$GLOBALS['cfg']['Server']['controlport']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Server']['controluser']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Server']['hide_connection_errors']]]></code>
-      <code><![CDATA[$GLOBALS['collationConnection']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$collationConnection</code>

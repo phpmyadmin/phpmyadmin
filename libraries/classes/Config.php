@@ -417,7 +417,7 @@ class Config
     private function setConnectionCollation(): void
     {
         $collationConnection = $this->get('DefaultConnectionCollation');
-        if (empty($collationConnection) || $collationConnection == $GLOBALS['collationConnection']) {
+        if (empty($collationConnection) || $collationConnection == $GLOBALS['collation_connection']) {
             return;
         }
 
