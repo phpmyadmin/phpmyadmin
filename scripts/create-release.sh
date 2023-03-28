@@ -513,6 +513,8 @@ if [ -f ./scripts/console ]; then
     composer update --no-interaction
     # Warm up the routing cache for 5.1+ releases
     ./scripts/console cache:warmup --routing
+    # Warm up the Twig cache
+    ./scripts/console cache:warmup --twig
 fi
 
 PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json)
@@ -656,6 +658,9 @@ for kit in $KITS ; do
 
     # Remove possible tmp folder
     rm -rf tmp
+
+    mkdir tmp
+    mv twig-templates tmp/twig
 
     cd ..
 
