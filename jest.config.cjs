@@ -5,7 +5,6 @@ module.exports = {
     collectCoverageFrom: ['<rootDir>/js/src/**/*.js'],
     projects: [
         {
-            verbose: true,
             coveragePathIgnorePatterns: [
                 '<rootDir>/node_modules/',
                 '<rootDir>/js/vendor/',
