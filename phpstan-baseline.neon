@@ -1036,6 +1036,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/ImportController.php
+
+		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
@@ -1811,6 +1816,11 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/ImportController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\PrivilegesController\\:\\:getExportPageTitle\\(\\) has parameter \\$selectedUsers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
@@ -2076,9 +2086,29 @@ parameters:
 			path: libraries/classes/Controllers/Sql/SetValuesController.php
 
 		-
+			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SqlController.php
+
+		-
+			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SqlController.php
+
+		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/AddFieldController.php
+
+		-
+			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ChangeController.php
+
+		-
+			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
 			message: "#^Parameter \\#2 \\$offset of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int, \\(float\\|int\\) given\\.$#"
@@ -2129,6 +2159,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$test of static method PhpMyAdmin\\\\Mime\\:\\:detect\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GetFieldController.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ImportController.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
@@ -2274,6 +2309,16 @@ parameters:
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SqlController.php
+
+		-
+			message: "#^Parameter \\#3 \\$query of method PhpMyAdmin\\\\SqlQueryForm\\:\\:getHtml\\(\\) expects bool\\|string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SqlController.php
 
 		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\ChangeController\\:\\:displayHtmlForColumnChange\\(\\) expects array\\<string\\>, array\\<int, mixed\\> given\\.$#"
@@ -2611,7 +2656,22 @@ parameters:
 			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
+			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php
 

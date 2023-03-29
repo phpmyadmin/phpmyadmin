@@ -112,9 +112,10 @@ class SqlController extends AbstractController
             $GLOBALS['sql_query'] = $bkmFields['bkm_sql_query'];
         } elseif ($sqlQuery !== null) {
             $GLOBALS['sql_query'] = $sqlQuery;
-        } elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
-            if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
-                $GLOBALS['sql_query'] = $_GET['sql_query'];
+        } elseif ($request->hasQueryParam('sql_query') && $request->hasQueryParam('sql_signature')) {
+            $sqlQuery = $request->getQueryParam('sql_query');
+            if (Core::checkSqlQuerySignature($sqlQuery, $request->getQueryParam('sql_signature'))) {
+                $GLOBALS['sql_query'] = $sqlQuery;
             }
         }
 

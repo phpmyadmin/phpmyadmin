@@ -121,18 +121,20 @@ class CreateController extends AbstractController
         ];
 
         // Used to prefill the fields when editing a view
-        if (isset($_GET['db'], $_GET['table'])) {
+        if ($request->hasQueryParam('db') && $request->hasQueryParam('table')) {
+            $db = $request->getQueryParam('db');
+            $table = $request->getQueryParam('table');
             $item = $this->dbi->fetchSingleRow(
                 sprintf(
                     'SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
                         FROM `INFORMATION_SCHEMA`.`VIEWS`
                         WHERE TABLE_SCHEMA=%s
                         AND TABLE_NAME=%s;',
-                    $this->dbi->quoteString($_GET['db']),
-                    $this->dbi->quoteString($_GET['table']),
+                    $this->dbi->quoteString($db),
+                    $this->dbi->quoteString($table),
                 ),
             );
-            $createView = $this->dbi->getTable($_GET['db'], $_GET['table'])
+            $createView = $this->dbi->getTable($db, $table)
                 ->showCreate();
 
             // CREATE ALGORITHM=<ALGORITHM> DE...
@@ -141,7 +143,7 @@ class CreateController extends AbstractController
             $viewData['operation'] = 'alter';
             $viewData['definer'] = $item['DEFINER'];
             $viewData['sql_security'] = $item['SECURITY_TYPE'];
-            $viewData['name'] = $_GET['table'];
+            $viewData['name'] = $table;
             $viewData['as'] = $item['VIEW_DEFINITION'];
             $viewData['with'] = $item['CHECK_OPTION'];
             $viewData['algorithm'] = $item['ALGORITHM'];

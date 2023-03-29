@@ -89,7 +89,9 @@ final class ImportController extends AbstractController
             'table' => $GLOBALS['table'],
         ];
 
-        $default = isset($_GET['format']) ? (string) $_GET['format'] : Plugins::getDefault('Import', 'format');
+        $default = $request->hasQueryParam('format')
+            ? (string) $request->getQueryParam('format')
+            : Plugins::getDefault('Import', 'format');
         $choice = Plugins::getChoice($importList, $default);
         $options = Plugins::getOptions('Import', $importList);
         $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
