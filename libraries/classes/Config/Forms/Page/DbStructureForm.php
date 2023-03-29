@@ -15,8 +15,6 @@ class DbStructureForm extends BaseForm
     /** @return array */
     public static function getForms(): array
     {
-        return [
-            'DbStructure' => MainForm::getForms()['DbStructure'],
-        ];
+        return ['DbStructure' => MainForm::getForms()['DbStructure']];
     }
 }

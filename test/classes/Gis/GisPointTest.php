@@ -26,81 +26,42 @@ class GisPointTest extends GisGeomTestCase
     public static function providerForTestGenerateWkt(): array
     {
         return [
-            [
-                [
-                    0 => [
-                        'POINT' => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                    ],
-                ],
-                0,
-                null,
-                'POINT(5.02 8.45)',
-            ],
-            [
-                [
-                    0 => [
-                        'POINT' => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                    ],
-                ],
-                1,
-                null,
-                'POINT( )',
-            ],
-            [
-                [0 => ['POINT' => ['x' => 5.02]]],
-                0,
-                null,
-                'POINT(5.02 )',
-            ],
-            [
-                [0 => ['POINT' => ['y' => 8.45]]],
-                0,
-                null,
-                'POINT( 8.45)',
-            ],
-            [
-                [0 => ['POINT' => []]],
-                0,
-                null,
-                'POINT( )',
-            ],
+            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 0, null, 'POINT(5.02 8.45)'],
+            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 1, null, 'POINT( )'],
+            [[0 => ['POINT' => ['x' => 5.02]]], 0, null, 'POINT(5.02 )'],
+            [[0 => ['POINT' => ['y' => 8.45]]], 0, null, 'POINT( 8.45)'],
+            [[0 => ['POINT' => []]], 0, null, 'POINT( )'],
         ];
     }
 
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
      * test getShape method
      *
-     * @param array  $row_data array of GIS data
-     * @param string $shape    expected shape in WKT
+     * @param array  $rowData array of GIS data
+     * @param string $shape   expected shape in WKT
      *
      * @dataProvider providerForTestGetShape
      */
-    public function testGetShape(array $row_data, string $shape): void
+    public function testGetShape(array $rowData, string $shape): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($shape, $object->getShape($row_data));
+        $this->assertEquals($shape, $object->getShape($rowData));
     }
 
     /**
@@ -110,15 +71,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForTestGetShape(): array
     {
-        return [
-            [
-                [
-                    'x' => 5.02,
-                    'y' => 8.45,
-                ],
-                'POINT(5.02 8.45)',
-            ],
-        ];
+        return [[['x' => 5.02, 'y' => 8.45], 'POINT(5.02 8.45)']];
     }
 
     /**
@@ -155,6 +108,18 @@ class GisPointTest extends GisGeomTestCase
                     ],
                 ],
             ],
+            [
+                '',
+                [
+                    'srid' => 0,
+                    0 => [
+                        'POINT' => [
+                            'x' => 0.0,
+                            'y' => 0.0,
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -162,14 +127,14 @@ class GisPointTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
@@ -179,12 +144,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForTestScaleRow(): array
     {
-        return [
-            [
-                'POINT(12 35)',
-                new ScaleData(12, 12, 35, 35),
-            ],
-        ];
+        return [['POINT(12 35)', new ScaleData(12, 12, 35, 35)]];
     }
 
     /** @requires extension gd */
@@ -212,10 +172,10 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial    GIS POINT object
-     * @param string $label      label for the GIS POINT object
-     * @param int[]  $color      color for the GIS POINT object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial   GIS POINT object
+     * @param string $label     label for the GIS POINT object
+     * @param int[]  $color     color for the GIS POINT object
+     * @param array  $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -223,11 +183,11 @@ class GisPointTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisPoint::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/point-expected.pdf';
@@ -286,20 +246,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public static function providerForPrepareRowAsSvg(): array
     {
-        return [
-            [
-                'POINT(12 35)',
-                'svg',
-                [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                '',
-            ],
-        ];
+        return [['POINT(12 35)', 'svg', [176, 46, 224], ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150], '']];
     }
 
     /**

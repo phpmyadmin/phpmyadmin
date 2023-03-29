@@ -41,14 +41,7 @@ class CreateAddField
         $fieldFullText = json_decode($_POST['fulltext_indexes'], true);
         $fieldSpatial = json_decode($_POST['spatial_indexes'], true);
 
-        return [
-            $fieldCount,
-            $fieldPrimary,
-            $fieldIndex,
-            $fieldUnique,
-            $fieldFullText,
-            $fieldSpatial,
-        ];
+        return [$fieldCount, $fieldPrimary, $fieldIndex, $fieldUnique, $fieldFullText, $fieldSpatial];
     }
 
     /**

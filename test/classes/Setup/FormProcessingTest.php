@@ -35,11 +35,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
     public function testProcessFormSet(): void
     {
         $this->mockResponse(
-            [
-                ['status: 303 See Other'],
-                ['Location: ../setup/index.php?route=%2Fsetup&lang=en'],
-                303,
-            ],
+            [['status: 303 See Other'], ['Location: ../setup/index.php?route=%2Fsetup&lang=en'], 303],
         );
 
         // case 1

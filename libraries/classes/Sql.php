@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
@@ -223,11 +224,7 @@ class Sql
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
-            $urlParams = [
-                'db' => $db,
-                'table' => $table,
-                'field' => $column,
-            ];
+            $urlParams = ['db' => $db, 'table' => $table, 'field' => $column];
 
             return $this->template->render('sql/relational_column_dropdown', [
                 'current_value' => $_POST['curr_value'],
@@ -249,12 +246,7 @@ class Sql
     /** @return array<string, int|array> */
     private function getDetailedProfilingStats(array $profilingResults): array
     {
-        $profiling = [
-            'total_time' => 0,
-            'states' => [],
-            'chart' => [],
-            'profile' => [],
-        ];
+        $profiling = ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []];
 
         foreach ($profilingResults as $oneResult) {
             $status = ucwords($oneResult['Status']);
@@ -266,10 +258,7 @@ class Sql
             ];
 
             if (! isset($profiling['states'][$status])) {
-                $profiling['states'][$status] = [
-                    'total_time' => $oneResult['Duration'],
-                    'calls' => 1,
-                ];
+                $profiling['states'][$status] = ['total_time' => $oneResult['Duration'], 'calls' => 1];
                 $profiling['chart'][$status] = $oneResult['Duration'];
             } else {
                 $profiling['states'][$status]['calls']++;
@@ -543,11 +532,7 @@ class Sql
             }
         }
 
-        $bookmark = Bookmark::createBookmark(
-            $this->dbi,
-            $bfields,
-            isset($_POST['bkm_all_users']),
-        );
+        $bookmark = Bookmark::createBookmark($this->dbi, $bfields, isset($_POST['bkm_all_users']));
 
         if ($bookmark === false) {
             return;
@@ -821,13 +806,7 @@ class Sql
             }
         }
 
-        return [
-            $result,
-            $numRows,
-            $unlimNumRows,
-            $profilingResults,
-            $extraData,
-        ];
+        return [$result, $numRows, $unlimNumRows, $profilingResults, $extraData];
     }
 
     /**
@@ -1005,7 +984,7 @@ class Sql
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => false,
-            'deleteLink' => DisplayParts::NO_DELETE,
+            'deleteLink' => DeleteLinkEnum::NO_DELETE,
             'hasSortLink' => true,
             'hasNavigationBar' => false,
             'hasBookmarkForm' => true,
@@ -1171,7 +1150,7 @@ class Sql
 
                     $displayParts = DisplayParts::fromArray([
                         'hasEditLink' => false,
-                        'deleteLink' => DisplayParts::NO_DELETE,
+                        'deleteLink' => DeleteLinkEnum::NO_DELETE,
                         'hasSortLink' => true,
                         'hasNavigationBar' => true,
                         'hasBookmarkForm' => true,
@@ -1375,8 +1354,8 @@ class Sql
         $statement = $statementInfo->statement;
         if ($statement instanceof SelectStatement) {
             if ($statement->expr && $statement->expr[0]->expr === '*' && $table) {
-                $_table = new Table($table, $db, $this->dbi);
-                $updatableView = $_table->isUpdatableView();
+                $tableObj = new Table($table, $db, $this->dbi);
+                $updatableView = $tableObj->isUpdatableView();
             }
 
             if (
@@ -1400,7 +1379,7 @@ class Sql
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => true,
-            'deleteLink' => DisplayParts::DELETE_ROW,
+            'deleteLink' => DeleteLinkEnum::DELETE_ROW,
             'hasSortLink' => true,
             'hasNavigationBar' => true,
             'hasBookmarkForm' => true,
@@ -1411,7 +1390,7 @@ class Sql
         if (! $editable) {
             $displayParts = DisplayParts::fromArray([
                 'hasEditLink' => false,
-                'deleteLink' => DisplayParts::NO_DELETE,
+                'deleteLink' => DeleteLinkEnum::NO_DELETE,
                 'hasSortLink' => true,
                 'hasNavigationBar' => true,
                 'hasBookmarkForm' => true,
@@ -1423,7 +1402,7 @@ class Sql
         if (isset($_POST['printview']) && $_POST['printview'] == '1') {
             $displayParts = DisplayParts::fromArray([
                 'hasEditLink' => false,
-                'deleteLink' => DisplayParts::NO_DELETE,
+                'deleteLink' => DeleteLinkEnum::NO_DELETE,
                 'hasSortLink' => false,
                 'hasNavigationBar' => false,
                 'hasBookmarkForm' => false,
@@ -1634,13 +1613,7 @@ class Sql
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
-        [
-            $result,
-            $numRows,
-            $unlimNumRows,
-            $profilingResults,
-            $extraData,
-        ] = $this->executeTheQuery(
+        [$result, $numRows, $unlimNumRows, $profilingResults, $extraData] = $this->executeTheQuery(
             $statementInfo,
             $fullSqlQuery,
             $isGotoFile,

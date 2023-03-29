@@ -447,11 +447,7 @@ class Operations
             return;
         }
 
-        $getFields = [
-            'user',
-            'label',
-            'query',
-        ];
+        $getFields = ['user', 'label', 'query'];
         $whereFields = ['dbase' => $db];
         $newFields = ['dbase' => $newDatabaseName->getName()];
         Table::duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
@@ -469,28 +465,11 @@ class Operations
 
         $possibleRowFormats = [
             'ARCHIVE' => ['COMPRESSED' => 'COMPRESSED'],
-            'ARIA' => [
-                'FIXED' => 'FIXED',
-                'DYNAMIC' => 'DYNAMIC',
-                'PAGE' => 'PAGE',
-            ],
-            'MARIA' => [
-                'FIXED' => 'FIXED',
-                'DYNAMIC' => 'DYNAMIC',
-                'PAGE' => 'PAGE',
-            ],
-            'MYISAM' => [
-                'FIXED' => 'FIXED',
-                'DYNAMIC' => 'DYNAMIC',
-            ],
-            'PBXT' => [
-                'FIXED' => 'FIXED',
-                'DYNAMIC' => 'DYNAMIC',
-            ],
-            'INNODB' => [
-                'COMPACT' => 'COMPACT',
-                'REDUNDANT' => 'REDUNDANT',
-            ],
+            'ARIA' => ['FIXED' => 'FIXED', 'DYNAMIC' => 'DYNAMIC', 'PAGE' => 'PAGE'],
+            'MARIA' => ['FIXED' => 'FIXED', 'DYNAMIC' => 'DYNAMIC', 'PAGE' => 'PAGE'],
+            'MYISAM' => ['FIXED' => 'FIXED', 'DYNAMIC' => 'DYNAMIC'],
+            'PBXT' => ['FIXED' => 'FIXED', 'DYNAMIC' => 'DYNAMIC'],
+            'INNODB' => ['COMPACT' => 'COMPACT', 'REDUNDANT' => 'REDUNDANT'],
         ];
 
         /** @var Innodb $innodbEnginePlugin */
@@ -599,10 +578,7 @@ class Operations
                 . ' IS NOT NULL';
             $thisUrlParams = array_merge(
                 $urlParams,
-                [
-                    'sql_query' => $joinQuery,
-                    'sql_signature' => Core::signSqlQuery($joinQuery),
-                ],
+                ['sql_query' => $joinQuery, 'sql_signature' => Core::signSqlQuery($joinQuery)],
             );
 
             $foreigners[] = [

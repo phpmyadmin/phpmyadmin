@@ -241,11 +241,11 @@ final class PartitioningController extends AbstractController
 
     private function updatePartitioning(): void
     {
-        $sql_query = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']) . ' '
+        $sqlQuery = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']) . ' '
             . $this->createAddField->getPartitionsDefinition();
 
         // Execute alter query
-        $result = $this->dbi->tryQuery($sql_query);
+        $result = $this->dbi->tryQuery($sqlQuery);
 
         if ($result === false) {
             $this->response->setRequestStatus(false);
@@ -264,7 +264,7 @@ final class PartitioningController extends AbstractController
         );
         $message->addParam($GLOBALS['table']);
         $this->response->addHTML(
-            Generator::getMessage($message, $sql_query, 'success'),
+            Generator::getMessage($message, $sqlQuery, 'success'),
         );
     }
 }

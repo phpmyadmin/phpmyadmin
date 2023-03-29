@@ -76,10 +76,6 @@ final class ChecksumController extends AbstractController
             'success',
         );
 
-        $this->render('table/maintenance/checksum', [
-            'message' => $message,
-            'rows' => $rows,
-            'warnings' => $warnings,
-        ]);
+        $this->render('table/maintenance/checksum', ['message' => $message, 'rows' => $rows, 'warnings' => $warnings]);
     }
 }

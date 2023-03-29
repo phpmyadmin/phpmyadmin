@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
@@ -147,10 +148,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
         $this->assertEquals(
-            [
-                0,
-                0,
-            ],
+            [0, 0],
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
@@ -168,10 +166,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
         $this->assertEquals(
-            [
-                9,
-                0,
-            ],
+            [9, 0],
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
@@ -193,11 +188,7 @@ class ResultsTest extends AbstractTestCase
                 'information_schema',
                 'routines',
                 'circumference',
-                [
-                    'routine_name' => 'circumference',
-                    'routine_schema' => 'data',
-                    'routine_type' => 'FUNCTION',
-                ],
+                ['routine_name' => 'circumference', 'routine_schema' => 'data', 'routine_type' => 'FUNCTION'],
                 'routine_name',
                 'index.php?route=/database/routines&item_name=circumference&db=data'
                 . '&item_type=FUNCTION&server=0&lang=en',
@@ -206,11 +197,7 @@ class ResultsTest extends AbstractTestCase
                 'information_schema',
                 'routines',
                 'area',
-                [
-                    'routine_name' => 'area',
-                    'routine_schema' => 'data',
-                    'routine_type' => 'PROCEDURE',
-                ],
+                ['routine_name' => 'area', 'routine_schema' => 'data', 'routine_type' => 'PROCEDURE'],
                 'routine_name',
                 'index.php?route=/database/routines&item_name=area&db=data&item_type=PROCEDURE&server=0&lang=en',
             ],
@@ -220,21 +207,21 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getSpecialLinkUrl
      *
-     * @param string $db           the database name
-     * @param string $table        the table name
-     * @param string $column_value column value
-     * @param array  $row_info     information about row
-     * @param string $field_name   column name
-     * @param string $output       output of getSpecialLinkUrl
+     * @param string $db          the database name
+     * @param string $table       the table name
+     * @param string $columnValue column value
+     * @param array  $rowInfo     information about row
+     * @param string $fieldName   column name
+     * @param string $output      output of getSpecialLinkUrl
      *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
     public function testGetSpecialLinkUrl(
         string $db,
         string $table,
-        string $column_value,
-        array $row_info,
-        string $field_name,
+        string $columnValue,
+        array $rowInfo,
+        string $fieldName,
         string $output,
     ): void {
         $specialSchemaLinks = [
@@ -243,14 +230,8 @@ class ResultsTest extends AbstractTestCase
                     'routine_name' => [
                         'link_param' => 'item_name',
                         'link_dependancy_params' => [
-                            0 => [
-                                'param_info' => 'db',
-                                'column_name' => 'routine_schema',
-                            ],
-                            1 => [
-                                'param_info' => 'item_type',
-                                'column_name' => 'routine_type',
-                            ],
+                            0 => ['param_info' => 'db', 'column_name' => 'routine_schema'],
+                            1 => ['param_info' => 'item_type', 'column_name' => 'routine_type'],
                         ],
                         'default_page' => 'index.php?route=/database/routines',
                     ],
@@ -259,14 +240,8 @@ class ResultsTest extends AbstractTestCase
                     'column_name' => [
                         'link_param' => 'table_schema',
                         'link_dependancy_params' => [
-                            0 => [
-                                'param_info' => 'db',
-                                'column_name' => 'table_schema',
-                            ],
-                            1 => [
-                                'param_info' => 'db2',
-                                'column_name' => 'table_schema',
-                            ],
+                            0 => ['param_info' => 'db', 'column_name' => 'table_schema'],
+                            1 => ['param_info' => 'db2', 'column_name' => 'table_schema'],
                         ],
                         'default_page' => 'index.php',
                     ],
@@ -280,11 +255,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getSpecialLinkUrl',
-                [
-                    $specialSchemaLinks[$db][$table][$field_name],
-                    $column_value,
-                    $row_info,
-                ],
+                [$specialSchemaLinks[$db][$table][$fieldName], $columnValue, $rowInfo],
             ),
         );
     }
@@ -296,42 +267,22 @@ class ResultsTest extends AbstractTestCase
      */
     public static function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
-        $column_names = [
-            'host',
-            'db',
-            'user',
-            'select_privilages',
-        ];
-        $fields_mata = [];
+        $columnNames = ['host', 'db', 'user', 'select_privilages'];
+        $fieldsMeta = [];
 
-        foreach ($column_names as $column_name) {
-            $field_meta = new stdClass();
-            $field_meta->orgname = $column_name;
-            $fields_mata[] = $field_meta;
+        foreach ($columnNames as $columnName) {
+            $fieldMeta = new stdClass();
+            $fieldMeta->orgname = $columnName;
+            $fieldsMeta[] = $fieldMeta;
         }
 
         return [
             [
-                $fields_mata,
-                count($fields_mata),
-                [
-                    0 => 'localhost',
-                    1 => 'phpmyadmin',
-                    2 => 'pmauser',
-                    3 => 'Y',
-                ],
-                [
-                    0 => '0',
-                    1 => '3',
-                    2 => '1',
-                    3 => '2',
-                ],
-                [
-                    'host' => 'localhost',
-                    'select_privilages' => 'Y',
-                    'db' => 'phpmyadmin',
-                    'user' => 'pmauser',
-                ],
+                $fieldsMeta,
+                count($fieldsMeta),
+                [0 => 'localhost', 1 => 'phpmyadmin', 2 => 'pmauser', 3 => 'Y'],
+                [0 => '0', 1 => '3', 2 => '1', 3 => '2'],
+                ['host' => 'localhost', 'select_privilages' => 'Y', 'db' => 'phpmyadmin', 'user' => 'pmauser'],
             ],
         ];
     }
@@ -339,23 +290,23 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getRowInfoForSpecialLinks
      *
-     * @param FieldMetadata[] $fields_meta  meta information about fields
-     * @param int             $fields_count number of fields
-     * @param array           $row          current row data
-     * @param array           $col_order    the column order
-     * @param array           $output       output of getRowInfoForSpecialLinks
+     * @param FieldMetadata[] $fieldsMeta  meta information about fields
+     * @param int             $fieldsCount number of fields
+     * @param array           $row         current row data
+     * @param array           $colOrder    the column order
+     * @param array           $output      output of getRowInfoForSpecialLinks
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
-        array $fields_meta,
-        int $fields_count,
+        array $fieldsMeta,
+        int $fieldsCount,
         array $row,
-        array $col_order,
+        array $colOrder,
         array $output,
     ): void {
-        $this->object->properties['fields_meta'] = $fields_meta;
-        $this->object->properties['fields_cnt'] = $fields_count;
+        $this->object->properties['fields_meta'] = $fieldsMeta;
+        $this->object->properties['fields_cnt'] = $fieldsCount;
 
         $this->assertEquals(
             $output,
@@ -363,10 +314,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getRowInfoForSpecialLinks',
-                [
-                    $row,
-                    $col_order,
-                ],
+                [$row, $colOrder],
             ),
         );
     }
@@ -396,46 +344,10 @@ class ResultsTest extends AbstractTestCase
     public static function dataProviderForTestGetPartialText(): array
     {
         return [
-            [
-                'P',
-                10,
-                'foo',
-                [
-                    false,
-                    'foo',
-                    3,
-                ],
-            ],
-            [
-                'P',
-                1,
-                'foo',
-                [
-                    true,
-                    'f...',
-                    3,
-                ],
-            ],
-            [
-                'F',
-                10,
-                'foo',
-                [
-                    false,
-                    'foo',
-                    3,
-                ],
-            ],
-            [
-                'F',
-                1,
-                'foo',
-                [
-                    false,
-                    'foo',
-                    3,
-                ],
-            ],
+            ['P', 10, 'foo', [false, 'foo', 3]],
+            ['P', 1, 'foo', [true, 'f...', 3]],
+            ['F', 10, 'foo', [false, 'foo', 3]],
+            ['F', 1, 'foo', [false, 'foo', 3]],
         ];
     }
 
@@ -481,27 +393,12 @@ class ResultsTest extends AbstractTestCase
      */
     public static function dataProviderForTestHandleNonPrintableContents(): array
     {
-        $transformation_plugin = new Text_Plain_Link();
+        $transformationPlugin = new Text_Plain_Link();
         $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
-        $url_params = [
-            'db' => 'foo',
-            'table' => 'bar',
-            'where_clause' => 'where_clause',
-        ];
+        $urlParams = ['db' => 'foo', 'table' => 'bar', 'where_clause' => 'where_clause'];
 
         return [
-            [
-                true,
-                true,
-                'BLOB',
-                '1001',
-                null,
-                [],
-                $meta,
-                $url_params,
-                false,
-                'class="disableAjax">1001</a>',
-            ],
+            [true, true, 'BLOB', '1001', null, [], $meta, $urlParams, false, 'class="disableAjax">1001</a>'],
             [
                 true,
                 true,
@@ -510,76 +407,43 @@ class ResultsTest extends AbstractTestCase
                 null,
                 [],
                 $meta,
-                $url_params,
+                $urlParams,
                 false,
                 'class="disableAjax">0x123456</a>',
             ],
-            [
-                true,
-                false,
-                'BLOB',
-                '1001',
-                null,
-                [],
-                $meta,
-                $url_params,
-                false,
-                'class="disableAjax">[BLOB - 4 B]</a>',
-            ],
-            [
-                false,
-                false,
-                'BINARY',
-                '1001',
-                $transformation_plugin,
-                [],
-                $meta,
-                $url_params,
-                false,
-                '1001',
-            ],
-            [
-                false,
-                true,
-                'GEOMETRY',
-                null,
-                null,
-                [],
-                $meta,
-                $url_params,
-                false,
-                '[GEOMETRY - NULL]',
-            ],
+            [true, false, 'BLOB', '1001', null, [], $meta, $urlParams, false, 'class="disableAjax">[BLOB - 4 B]</a>'],
+            [false, false, 'BINARY', '1001', $transformationPlugin, [], $meta, $urlParams, false, '1001'],
+            [false, true, 'GEOMETRY', null, null, [], $meta, $urlParams, false, '[GEOMETRY - NULL]'],
         ];
     }
 
     /**
-     * @param bool         $display_binary    show binary contents?
-     * @param bool         $display_blob      show blob contents?
-     * @param string       $category          BLOB|BINARY|GEOMETRY
-     * @param string|null  $content           the binary content
-     * @param array|object $transform_options transformation parameters
-     * @param object       $meta              the meta-information about the field
-     * @param array        $url_params        parameters that should go to the download link
-     * @param bool         $is_truncated      the result is truncated or not
-     * @param string       $output            the output of this function
+     * @param bool         $displayBinary    show binary contents?
+     * @param bool         $displayBlob      show blob contents?
+     * @param string       $category         BLOB|BINARY|GEOMETRY
+     * @param string|null  $content          the binary content
+     * @param array|object $transformOptions transformation parameters
+     * @param object       $meta             the meta-information about the field
+     * @param array        $urlParams        parameters that should go to the download link
+     * @param bool         $isTruncated      the result is truncated or not
+     * @param string       $output           the output of this function
      *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
     public function testHandleNonPrintableContents(
-        bool $display_binary,
-        bool $display_blob,
+        bool $displayBinary,
+        bool $displayBlob,
         string $category,
         string|null $content,
-        TransformationsPlugin|null $transformation_plugin,
-        array|object $transform_options,
+        TransformationsPlugin|null $transformationPlugin,
+        array|object $transformOptions,
         object $meta,
-        array $url_params,
-        bool $is_truncated,
+        array $urlParams,
+        bool $isTruncated,
         string $output,
     ): void {
-        $_SESSION['tmpval']['display_binary'] = $display_binary;
-        $_SESSION['tmpval']['display_blob'] = $display_blob;
+        $_SESSION['tmpval']['display_binary'] = $displayBinary;
+        $_SESSION['tmpval']['display_blob'] = $displayBlob;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $this->assertStringContainsString(
             $output,
@@ -587,15 +451,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'handleNonPrintableContents',
-                [
-                    $category,
-                    $content,
-                    $transformation_plugin,
-                    $transform_options,
-                    $meta,
-                    $url_params,
-                    &$is_truncated,
-                ],
+                [$category, $content, $transformationPlugin, $transformOptions, $meta, $urlParams, &$isTruncated],
             ),
         );
     }
@@ -617,8 +473,8 @@ class ResultsTest extends AbstractTestCase
      */
     public static function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
-        $transformation_plugin = new Text_Plain_Link();
-        $transformation_plugin_external = new Text_Plain_External();
+        $transformationPlugin = new Text_Plain_Link();
+        $transformationPluginExternal = new Text_Plain_External();
 
         $meta = new stdClass();
         $meta->db = 'foo';
@@ -645,11 +501,7 @@ class ResultsTest extends AbstractTestCase
         $meta3->orgname = 'datetime';
         $meta3 = new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, $meta3);
 
-        $url_params = [
-            'db' => 'foo',
-            'table' => 'tbl',
-            'where_clause' => 'where_clause',
-        ];
+        $urlParams = ['db' => 'foo', 'table' => 'tbl', 'where_clause' => 'where_clause'];
 
         return [
             [
@@ -658,7 +510,7 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta,
                 [],
-                $url_params,
+                $urlParams,
                 false,
                 null,
                 ['https://www.example.com/'],
@@ -671,9 +523,9 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta,
                 [],
-                $url_params,
+                $urlParams,
                 false,
-                $transformation_plugin,
+                $transformationPlugin,
                 [],
                 '<td class="text-start grid_edit transformed hex">'
                 . '1001'
@@ -685,9 +537,9 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta2,
                 [],
-                $url_params,
+                $urlParams,
                 false,
-                $transformation_plugin,
+                $transformationPlugin,
                 [],
                 '<td data-decimals="0"' . "\n"
                 . '    data-type="string"' . "\n"
@@ -701,7 +553,7 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta2,
                 [],
-                $url_params,
+                $urlParams,
                 false,
                 null,
                 [],
@@ -715,9 +567,9 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta2,
                 [],
-                $url_params,
+                $urlParams,
                 false,
-                $transformation_plugin_external,
+                $transformationPluginExternal,
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
@@ -729,7 +581,7 @@ class ResultsTest extends AbstractTestCase
                 'grid_edit',
                 $meta3,
                 [],
-                $url_params,
+                $urlParams,
                 false,
                 null,
                 [],
@@ -741,15 +593,15 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param string      $protectBinary     all|blob|noblob|no
-     * @param string|null $column            the relevant column in data row
-     * @param string      $class             the html class for column
-     * @param object      $meta              the meta-information about the field
-     * @param array       $map               the list of relations
-     * @param array       $_url_params       the parameters for generate url
-     * @param bool        $condition_field   the column should highlighted or not
-     * @param array       $transform_options the transformation parameters
-     * @param string      $output            the output of this function
+     * @param string      $protectBinary    all|blob|noblob|no
+     * @param string|null $column           the relevant column in data row
+     * @param string      $class            the html class for column
+     * @param object      $meta             the meta-information about the field
+     * @param array       $map              the list of relations
+     * @param array       $urlParams        the parameters for generate url
+     * @param bool        $conditionField   the column should highlighted or not
+     * @param array       $transformOptions the transformation parameters
+     * @param string      $output           the output of this function
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
@@ -759,10 +611,10 @@ class ResultsTest extends AbstractTestCase
         string $class,
         object $meta,
         array $map,
-        array $_url_params,
-        bool $condition_field,
-        TransformationsPlugin|null $transformation_plugin,
-        array $transform_options,
+        array $urlParams,
+        bool $conditionField,
+        TransformationsPlugin|null $transformationPlugin,
+        array $transformOptions,
         string $output,
     ): void {
         $_SESSION['tmpval']['display_binary'] = true;
@@ -782,10 +634,10 @@ class ResultsTest extends AbstractTestCase
                     $class,
                     $meta,
                     $map,
-                    $_url_params,
-                    $condition_field,
-                    $transformation_plugin,
-                    $transform_options,
+                    $urlParams,
+                    $conditionField,
+                    $transformationPlugin,
+                    $transformOptions,
                     $statementInfo,
                 ],
             ),
@@ -830,11 +682,11 @@ class ResultsTest extends AbstractTestCase
         $meta2->name = '2';
         $meta2->orgname = '2';
         $meta2->blob = false;
-        $fields_meta = [
+        $fieldsMeta = [
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta),
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta2),
         ];
-        $this->object->properties['fields_meta'] = $fields_meta;
+        $this->object->properties['fields_meta'] = $fieldsMeta;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -845,14 +697,8 @@ class ResultsTest extends AbstractTestCase
             ->method('fetchResult')
             ->willReturn(
                 [
-                    'db.table.1' => [
-                        'mimetype' => '',
-                        'transformation' => 'output/text_plain_dateformat.php',
-                    ],
-                    'db.table.2' => [
-                        'mimetype' => '',
-                        'transformation' => 'output/text_plain_bool2text.php',
-                    ],
+                    'db.table.1' => ['mimetype' => '', 'transformation' => 'output/text_plain_dateformat.php'],
+                    'db.table.2' => ['mimetype' => '', 'transformation' => 'output/text_plain_bool2text.php'],
                 ],
             );
 
@@ -866,19 +712,7 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'getRowValues',
-            [
-                [
-                    3600,
-                    'true',
-                ],
-                0,
-                false,
-                [],
-                'disabled',
-                false,
-                $query,
-                StatementInfo::fromArray(Query::getAll($query)),
-            ],
+            [[3600, 'true'], 0, false, [], 'disabled', false, $query, StatementInfo::fromArray(Query::getAll($query))],
         );
 
         // Dateformat
@@ -894,13 +728,7 @@ class ResultsTest extends AbstractTestCase
         // The URL params
         // The column name
         return [
-            [
-                '',
-                '',
-                ['sql_query' => ''],
-                'colname',
-                '',
-            ],
+            ['', '', ['sql_query' => ''], 'colname', ''],
             [
                 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC',
                 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`name` ASC',
@@ -968,10 +796,7 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'getSortOrderHiddenInputs',
-            [
-                $urlParams,
-                $colName,
-            ],
+            [$urlParams, $colName],
         );
         $out = urldecode(htmlspecialchars_decode($output));
         $this->assertStringContainsString(
@@ -1008,22 +833,14 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'buildValueDisplay',
-            [
-                'my_class',
-                false,
-                '  special value  ',
-            ],
+            ['my_class', false, '  special value  '],
         );
         $this->assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
             'buildValueDisplay',
-            [
-                'my_class',
-                false,
-                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
-            ],
+            ['my_class', false, '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b'],
         );
         $this->assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
         $output = $this->callFunction(
@@ -1357,7 +1174,7 @@ class ResultsTest extends AbstractTestCase
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => true,
-            'deleteLink' => DisplayParts::DELETE_ROW,
+            'deleteLink' => DeleteLinkEnum::DELETE_ROW,
             'hasSortLink' => true,
             'hasNavigationBar' => true,
             'hasBookmarkForm' => true,
@@ -1638,7 +1455,7 @@ class ResultsTest extends AbstractTestCase
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => false,
-            'deleteLink' => DisplayParts::NO_DELETE,
+            'deleteLink' => DeleteLinkEnum::NO_DELETE,
             'hasSortLink' => true,
             'hasNavigationBar' => true,
             'hasBookmarkForm' => true,

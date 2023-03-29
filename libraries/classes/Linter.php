@@ -85,10 +85,7 @@ class Linter
             $line = $lineNo;
         }
 
-        return [
-            $line,
-            $pos - $lines[$line],
-        ];
+        return [$line, $pos - $lines[$line]];
     }
 
     /**
@@ -145,7 +142,7 @@ class Linter
         // Building the response.
         foreach ($errors as $error) {
             // Starting position of the string that caused the error.
-            [$fromLine, $fromColumn] = static::findLineNumberAndColumn($lines, $error[3]);
+            [$fromLine, $fromColumn] = static::findLineNumberAndColumn($lines, (int) $error[3]);
 
             // Ending position of the string that caused the error.
             [$toLine, $toColumn] = static::findLineNumberAndColumn(

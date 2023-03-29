@@ -50,9 +50,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('hasBodyParam')->willReturnMap([
-            ['original_sql_query', true],
-        ]);
+        $request->method('hasBodyParam')->willReturnMap([['original_sql_query', true]]);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['original_sql_query', '', 'SELECT * FROM `test_db`.`test_table`'],
         ]);

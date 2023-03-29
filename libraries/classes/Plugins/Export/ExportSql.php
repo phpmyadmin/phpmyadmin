@@ -166,11 +166,7 @@ class ExportSql extends ExportPlugin
             __('Enclose export in a transaction'),
         );
         $leaf->setDoc(
-            [
-                'programs',
-                'mysqldump',
-                'option_mysqldump_single-transaction',
-            ],
+            ['programs', 'mysqldump', 'option_mysqldump_single-transaction'],
         );
         $generalOptions->addProperty($leaf);
 
@@ -180,11 +176,7 @@ class ExportSql extends ExportPlugin
             __('Disable foreign key checks'),
         );
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'server-system-variables',
-                'sysvar_foreign_key_checks',
-            ],
+            ['manual_MySQL_Database_Administration', 'server-system-variables', 'sysvar_foreign_key_checks'],
         );
         $generalOptions->addProperty($leaf);
 
@@ -215,11 +207,7 @@ class ExportSql extends ExportPlugin
         );
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
         $subgroup->setSubgroupHeader($leaf);
         $generalOptions->addProperty($subgroup);
@@ -388,10 +376,7 @@ class ExportSql extends ExportPlugin
             __('<code>INSERT DELAYED</code> statements'),
         );
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'insert_delayed',
-            ],
+            ['manual_MySQL_Database_Administration', 'insert_delayed'],
         );
         $subgroup->addProperty($leaf);
 
@@ -400,10 +385,7 @@ class ExportSql extends ExportPlugin
             __('<code>INSERT IGNORE</code> statements'),
         );
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'insert',
-            ],
+            ['manual_MySQL_Database_Administration', 'insert'],
         );
         $subgroup->addProperty($leaf);
         $dataOptions->addProperty($subgroup);
@@ -414,11 +396,7 @@ class ExportSql extends ExportPlugin
             __('Function to use when dumping data:'),
         );
         $leaf->setValues(
-            [
-                'INSERT' => 'INSERT',
-                'UPDATE' => 'UPDATE',
-                'REPLACE' => 'REPLACE',
-            ],
+            ['INSERT' => 'INSERT', 'UPDATE' => 'UPDATE', 'REPLACE' => 'REPLACE'],
         );
         $dataOptions->addProperty($leaf);
 
@@ -1060,11 +1038,7 @@ class ExportSql extends ExportPlugin
         $relationParams = $relationParameters->toArray();
 
         if (isset($table)) {
-            $types = [
-                'column_info' => 'db_name',
-                'table_uiprefs' => 'db_name',
-                'tracking' => 'db_name',
-            ];
+            $types = ['column_info' => 'db_name', 'table_uiprefs' => 'db_name', 'tracking' => 'db_name'];
         } else {
             $types = [
                 'bookmark' => 'dbase',
@@ -2074,11 +2048,7 @@ class ExportSql extends ExportPlugin
             return $this->export->outputHandler($head);
         }
 
-        $result = $GLOBALS['dbi']->tryQuery(
-            $sqlQuery,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $result = $GLOBALS['dbi']->tryQuery($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         // a possible error: the table has crashed
         $tmpError = $GLOBALS['dbi']->getError();
         if ($tmpError) {
@@ -2172,7 +2142,7 @@ class ExportSql extends ExportPlugin
         }
 
         //\x08\\x09, not required
-        $current_row = 0;
+        $currentRow = 0;
         $querySize = 0;
         if (
             ($GLOBALS['sql_insert_syntax'] === 'extended'
@@ -2187,7 +2157,7 @@ class ExportSql extends ExportPlugin
         }
 
         while ($row = $result->fetchRow()) {
-            if ($current_row === 0) {
+            if ($currentRow === 0) {
                 $head = $this->possibleCRLF()
                     . $this->exportComment()
                     . $this->exportComment(
@@ -2203,7 +2173,7 @@ class ExportSql extends ExportPlugin
 
             // We need to SET IDENTITY_INSERT ON for MSSQL
             if (
-                $current_row === 0
+                $currentRow === 0
                 && isset($GLOBALS['sql_compatibility'])
                 && $GLOBALS['sql_compatibility'] === 'MSSQL'
             ) {
@@ -2222,7 +2192,7 @@ class ExportSql extends ExportPlugin
                 }
             }
 
-            $current_row++;
+            $currentRow++;
             $values = [];
             foreach ($fieldsMeta as $j => $metaInfo) {
                 // NULL
@@ -2250,10 +2220,7 @@ class ExportSql extends ExportPlugin
                     }
                 } elseif ($metaInfo->isMappedTypeBit) {
                     // detection of 'bit' works only on mysqli extension
-                    $values[] = "b'" . Util::printableBitValue(
-                        (int) $row[$j],
-                        $metaInfo->length,
-                    ) . "'";
+                    $values[] = "b'" . Util::printableBitValue((int) $row[$j], $metaInfo->length) . "'";
                 } elseif ($metaInfo->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
@@ -2283,16 +2250,12 @@ class ExportSql extends ExportPlugin
                     $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmpUniqueCondition] = Util::getUniqueCondition(
-                    $fieldsCnt,
-                    $fieldsMeta,
-                    $row,
-                );
+                [$tmpUniqueCondition] = Util::getUniqueCondition($fieldsCnt, $fieldsMeta, $row);
                 $insertLine .= ' WHERE ' . $tmpUniqueCondition;
                 unset($tmpUniqueCondition);
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {
                 // Extended inserts case
-                if ($current_row === 1) {
+                if ($currentRow === 1) {
                     $insertLine = $schemaInsert . '('
                         . implode(', ', $values) . ')';
                 } else {
@@ -2305,7 +2268,7 @@ class ExportSql extends ExportPlugin
                         }
 
                         $querySize = 0;
-                        $current_row = 1;
+                        $currentRow = 1;
                         $insertLine = $schemaInsert . $insertLine;
                     }
                 }
@@ -2316,12 +2279,12 @@ class ExportSql extends ExportPlugin
                 $insertLine = $schemaInsert . '(' . implode(', ', $values) . ')';
             }
 
-            if (! $this->export->outputHandler(($current_row === 1 ? '' : $separator . "\n") . $insertLine)) {
+            if (! $this->export->outputHandler(($currentRow === 1 ? '' : $separator . "\n") . $insertLine)) {
                 return false;
             }
         }
 
-        if ($current_row > 0) {
+        if ($currentRow > 0) {
             if (! $this->export->outputHandler(';' . "\n")) {
                 return false;
             }
@@ -2331,7 +2294,7 @@ class ExportSql extends ExportPlugin
         if (
             isset($GLOBALS['sql_compatibility'])
             && $GLOBALS['sql_compatibility'] === 'MSSQL'
-            && $current_row > 0
+            && $currentRow > 0
         ) {
             $outputSucceeded = $this->export->outputHandler(
                 "\n" . 'SET IDENTITY_INSERT '
@@ -2742,10 +2705,7 @@ class ExportSql extends ExportPlugin
         );
         $leaf->setValues($values);
         $leaf->setDoc(
-            [
-                'manual_MySQL_Database_Administration',
-                'Server_SQL_mode',
-            ],
+            ['manual_MySQL_Database_Administration', 'Server_SQL_mode'],
         );
         $generalOptions->addProperty($leaf);
     }

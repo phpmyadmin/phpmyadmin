@@ -62,43 +62,43 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param int[]  $color      Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POLYGON object
+     * @param string $label     Label for the GIS POLYGON object
+     * @param int[]  $color     Color for the GIS POLYGON object
+     * @param array  $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         ImageWrapper $image,
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $point_color = $image->colorAllocate(...$color);
+        $pointColor = $image->colorAllocate(...$color);
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPoints1dLinear($point, $scale_data);
+        $pointsArr = $this->extractPoints1dLinear($point, $scaleData);
 
         // draw a small circle to mark the point
-        if ($points_arr[0] != '' && $points_arr[0] != '') {
+        if ($pointsArr[0] != '' && $pointsArr[0] != '') {
             $image->arc(
-                (int) round($points_arr[0]),
-                (int) round($points_arr[1]),
+                (int) round($pointsArr[0]),
+                (int) round($pointsArr[1]),
                 7,
                 7,
                 0,
                 360,
-                $point_color,
+                $pointColor,
             );
             // print label if applicable
             if ($label !== '') {
                 $image->string(
                     1,
-                    (int) round($points_arr[0]),
-                    (int) round($points_arr[1]),
+                    (int) round($pointsArr[0]),
+                    (int) round($pointsArr[1]),
                     $label,
                     $black,
                 );
@@ -111,10 +111,10 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POINT object
-     * @param string $label      Label for the GIS POINT object
-     * @param int[]  $color      Color for the GIS POINT object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POINT object
+     * @param string $label     Label for the GIS POINT object
+     * @param int[]  $color     Color for the GIS POINT object
+     * @param array  $scaleData Array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
@@ -122,24 +122,21 @@ class GisPoint extends GisGeometry
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): TCPDF {
-        $line = [
-            'width' => 1.25,
-            'color' => $color,
-        ];
+        $line = ['width' => 1.25, 'color' => $color];
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPoints1dLinear($point, $scale_data);
+        $pointsArr = $this->extractPoints1dLinear($point, $scaleData);
 
         // draw a small circle to mark the point
-        if ($points_arr[0] != '' && $points_arr[1] != '') {
-            $pdf->Circle($points_arr[0], $points_arr[1], 2, 0, 360, 'D', $line);
+        if ($pointsArr[0] != '' && $pointsArr[1] != '') {
+            $pdf->Circle($pointsArr[0], $pointsArr[1], 2, 0, 360, 'D', $line);
             // print label if applicable
             if ($label !== '') {
-                $pdf->setXY($points_arr[0], $points_arr[1]);
+                $pdf->setXY($pointsArr[0], $pointsArr[1]);
                 $pdf->setFontSize(5);
                 $pdf->Cell(0, 0, $label);
             }
@@ -151,16 +148,16 @@ class GisPoint extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial    GIS POINT object
-     * @param string $label      Label for the GIS POINT object
-     * @param int[]  $color      Color for the GIS POINT object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POINT object
+     * @param string $label     Label for the GIS POINT object
+     * @param int[]  $color     Color for the GIS POINT object
+     * @param array  $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
     {
-        $point_options = [
+        $pointOptions = [
             'name' => $label,
             'id' => $label . $this->getRandomId(),
             'class' => 'point vector',
@@ -171,13 +168,13 @@ class GisPoint extends GisGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPoints1dLinear($point, $scale_data);
+        $pointsArr = $this->extractPoints1dLinear($point, $scaleData);
 
         $row = '';
-        if ($points_arr[0] !== 0.0 && $points_arr[1] !== 0.0) {
-            $row .= '<circle cx="' . $points_arr[0]
-                . '" cy="' . $points_arr[1] . '" r="3"';
-            foreach ($point_options as $option => $val) {
+        if ($pointsArr[0] !== 0.0 && $pointsArr[1] !== 0.0) {
+            $row .= '<circle cx="' . $pointsArr[0]
+                . '" cy="' . $pointsArr[1] . '" r="3"';
+            foreach ($pointOptions as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }
 
@@ -204,23 +201,17 @@ class GisPoint extends GisGeometry
         string $label,
         array $color,
     ): string {
-        $fill_style = ['color' => 'white'];
-        $stroke_style = [
-            'color' => $color,
-            'width' => 2,
-        ];
+        $fillStyle = ['color' => 'white'];
+        $strokeStyle = ['color' => $color, 'width' => 2];
         $style = 'new ol.style.Style({'
             . 'image: new ol.style.Circle({'
-            . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
-            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . '),'
+            . 'fill: new ol.style.Fill(' . json_encode($fillStyle) . '),'
+            . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . '),'
             . 'radius: 3'
             . '})';
         if ($label !== '') {
-            $text_style = [
-                'text' => $label,
-                'offsetY' => -9,
-            ];
-            $style .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $textStyle = ['text' => $label, 'offsetY' => -9];
+            $style .= ',text: new ol.style.Text(' . json_encode($textStyle) . ')';
         }
 
         $style .= '})';
@@ -239,35 +230,35 @@ class GisPoint extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gis_data GIS data
-     * @param int         $index    Index into the parameter object
-     * @param string|null $empty    Point does not adhere to this parameter
+     * @param array       $gisData GIS data
+     * @param int         $index   Index into the parameter object
+     * @param string|null $empty   Point does not adhere to this parameter
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
         return 'POINT('
-        . (isset($gis_data[$index]['POINT']['x'])
-            && trim((string) $gis_data[$index]['POINT']['x']) != ''
-            ? $gis_data[$index]['POINT']['x'] : '')
+        . (isset($gisData[$index]['POINT']['x'])
+            && trim((string) $gisData[$index]['POINT']['x']) != ''
+            ? $gisData[$index]['POINT']['x'] : '')
         . ' '
-        . (isset($gis_data[$index]['POINT']['y'])
-            && trim((string) $gis_data[$index]['POINT']['y']) != ''
-            ? $gis_data[$index]['POINT']['y'] : '') . ')';
+        . (isset($gisData[$index]['POINT']['y'])
+            && trim((string) $gisData[$index]['POINT']['y']) != ''
+            ? $gisData[$index]['POINT']['y'] : '') . ')';
     }
 
     /**
      * Generate the WKT for the data from ESRI shape files.
      *
-     * @param array $row_data GIS data
+     * @param array $rowData GIS data
      *
      * @return string the WKT for the data from ESRI shape files
      */
-    public function getShape(array $row_data): string
+    public function getShape(array $rowData): string
     {
-        return 'POINT(' . ($row_data['x'] ?? '')
-        . ' ' . ($row_data['y'] ?? '') . ')';
+        return 'POINT(' . ($rowData['x'] ?? '')
+        . ' ' . ($rowData['y'] ?? '') . ')';
     }
 
     /**
@@ -280,12 +271,9 @@ class GisPoint extends GisGeometry
     protected function getCoordinateParams(string $wkt): array
     {
         // Trim to remove leading 'POINT(' and trailing ')'
-        $wkt_point = mb_substr($wkt, 6, -1);
-        $points = $this->extractPoints1d($wkt_point, null);
+        $wktPoint = mb_substr($wkt, 6, -1);
+        $points = $this->extractPoints1d($wktPoint, null);
 
-        return [
-            'x' => $points[0][0],
-            'y' => $points[0][1],
-        ];
+        return ['x' => $points[0][0], 'y' => $points[0][1]];
     }
 }

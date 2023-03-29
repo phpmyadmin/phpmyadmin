@@ -111,27 +111,27 @@ class SvgRelationSchema extends ExportRelationSchema
             $this->yMin - $border,
         );
 
-        $seen_a_relation = false;
-        foreach ($alltables as $one_table) {
-            $exist_rel = $this->relation->getForeigners($this->db->getName(), $one_table, '', 'both');
-            if (! $exist_rel) {
+        $seenARelation = false;
+        foreach ($alltables as $oneTable) {
+            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'both');
+            if (! $existRel) {
                 continue;
             }
 
-            $seen_a_relation = true;
-            foreach ($exist_rel as $master_field => $rel) {
+            $seenARelation = true;
+            foreach ($existRel as $masterField => $rel) {
                 /* put the foreign table on the schema only if selected
                 * by the user
                 * (do not use array_search() because we would have to
                 * to do a === false and this is not PHP3 compatible)
                 */
-                if ($master_field !== 'foreign_keys_data') {
+                if ($masterField !== 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->addRelation(
-                            $one_table,
+                            $oneTable,
                             $this->diagram->getFont(),
                             $this->diagram->getFontSize(),
-                            $master_field,
+                            $masterField,
                             $rel['foreign_table'],
                             $rel['foreign_field'],
                             $this->tableDimension,
@@ -141,19 +141,19 @@ class SvgRelationSchema extends ExportRelationSchema
                     continue;
                 }
 
-                foreach ($rel as $one_key) {
-                    if (! in_array($one_key['ref_table_name'], $alltables)) {
+                foreach ($rel as $oneKey) {
+                    if (! in_array($oneKey['ref_table_name'], $alltables)) {
                         continue;
                     }
 
-                    foreach ($one_key['index_list'] as $index => $one_field) {
+                    foreach ($oneKey['index_list'] as $index => $oneField) {
                         $this->addRelation(
-                            $one_table,
+                            $oneTable,
                             $this->diagram->getFont(),
                             $this->diagram->getFontSize(),
-                            $one_field,
-                            $one_key['ref_table_name'],
-                            $one_key['ref_index_list'][$index],
+                            $oneField,
+                            $oneKey['ref_table_name'],
+                            $oneKey['ref_index_list'][$index],
                             $this->tableDimension,
                         );
                     }
@@ -161,7 +161,7 @@ class SvgRelationSchema extends ExportRelationSchema
             }
         }
 
-        if ($seen_a_relation) {
+        if ($seenARelation) {
             $this->drawRelations();
         }
 

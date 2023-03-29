@@ -175,8 +175,8 @@ class Routines
             return $errors;
         }
 
-        $sql_query = '';
-        $routine_query = $this->getQueryFromRequest();
+        $sqlQuery = '';
+        $routineQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
         if (! count($errors)) {
@@ -190,32 +190,32 @@ class Routines
                 } else {
                     // Backup the old routine, in case something goes wrong
                     if ($_POST['item_original_type'] === 'FUNCTION') {
-                        $create_routine = self::getFunctionDefinition($this->dbi, $db, $_POST['item_original_name']);
+                        $createRoutine = self::getFunctionDefinition($this->dbi, $db, $_POST['item_original_name']);
                     } else {
-                        $create_routine = self::getProcedureDefinition($this->dbi, $db, $_POST['item_original_name']);
+                        $createRoutine = self::getProcedureDefinition($this->dbi, $db, $_POST['item_original_name']);
                     }
 
                     $privilegesBackup = $this->backupPrivileges();
 
-                    $drop_routine = 'DROP ' . $_POST['item_original_type'] . ' '
+                    $dropRoutine = 'DROP ' . $_POST['item_original_type'] . ' '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
-                    $result = $this->dbi->tryQuery($drop_routine);
+                    $result = $this->dbi->tryQuery($dropRoutine);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($drop_routine),
+                            htmlspecialchars($dropRoutine),
                         )
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         [$newErrors, $GLOBALS['message']] = $this->create(
-                            $routine_query,
-                            $create_routine,
+                            $routineQuery,
+                            $createRoutine,
                             $privilegesBackup,
                         );
                         if (empty($newErrors)) {
-                            $sql_query = $drop_routine . $routine_query;
+                            $sqlQuery = $dropRoutine . $routineQuery;
                         } else {
                             $errors = array_merge($errors, $newErrors);
                         }
@@ -225,11 +225,11 @@ class Routines
                 }
             } else {
                 // 'Add a new routine' mode
-                $result = $this->dbi->tryQuery($routine_query);
+                $result = $this->dbi->tryQuery($routineQuery);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
-                        htmlspecialchars($routine_query),
+                        htmlspecialchars($routineQuery),
                     )
                     . '<br><br>'
                     . __('MySQL said: ') . $this->dbi->getError();
@@ -240,7 +240,7 @@ class Routines
                     $GLOBALS['message']->addParam(
                         Util::backquote($_POST['item_name']),
                     );
-                    $sql_query = $routine_query;
+                    $sqlQuery = $routineQuery;
                 }
             }
         }
@@ -259,7 +259,7 @@ class Routines
             $GLOBALS['message']->addHtml('</ul>');
         }
 
-        $output = Generator::getMessage($GLOBALS['message'], $sql_query);
+        $output = Generator::getMessage($GLOBALS['message'], $sqlQuery);
 
         if (! $this->response->isAjax()) {
             return $errors;
@@ -315,38 +315,35 @@ class Routines
     /**
      * Create the routine
      *
-     * @param string $routine_query    Query to create routine
-     * @param string $create_routine   Query to restore routine
+     * @param string $routineQuery     Query to create routine
+     * @param string $createRoutine    Query to restore routine
      * @param array  $privilegesBackup Privileges backup
      *
      * @return array
      */
     public function create(
-        string $routine_query,
-        string $create_routine,
+        string $routineQuery,
+        string $createRoutine,
         array $privilegesBackup,
     ): array {
-        $result = $this->dbi->tryQuery($routine_query);
+        $result = $this->dbi->tryQuery($routineQuery);
         if (! $result) {
             $errors = [];
             $errors[] = sprintf(
                 __('The following query has failed: "%s"'),
-                htmlspecialchars($routine_query),
+                htmlspecialchars($routineQuery),
             )
             . '<br>'
             . __('MySQL said: ') . $this->dbi->getError();
             // We dropped the old routine,
             // but were unable to create the new one
             // Try to restore the backup query
-            $result = $this->dbi->tryQuery($create_routine);
+            $result = $this->dbi->tryQuery($createRoutine);
             if (! $result) {
-                $errors = $this->checkResult($create_routine, $errors);
+                $errors = $this->checkResult($createRoutine, $errors);
             }
 
-            return [
-                $errors,
-                null,
-            ];
+            return [$errors, null];
         }
 
         // Default value
@@ -373,10 +370,7 @@ class Routines
 
         $message = $this->flushPrivileges($resultAdjust);
 
-        return [
-            [],
-            $message,
-        ];
+        return [[], $message];
     }
 
     /**
@@ -658,7 +652,7 @@ class Routines
             // template row for AJAX request
             $i = 0;
             $index = '%s';
-            $drop_class = '';
+            $dropClass = '';
             $routine = [
                 'item_param_dir' => [0 => ''],
                 'item_param_name' => [0 => ''],
@@ -669,7 +663,7 @@ class Routines
             ];
         } elseif ($routine !== []) {
             // regular row for routine editor
-            $drop_class = ' hide';
+            $dropClass = ' hide';
             $i = $index;
         } else {
             // No input data. This shouldn't happen,
@@ -701,7 +695,7 @@ class Routines
                 $routine['item_param_type'][$i],
             ),
             'charsets' => $charsets,
-            'drop_class' => $drop_class,
+            'drop_class' => $dropClass,
         ]);
     }
 
@@ -953,19 +947,19 @@ class Routines
             if (str_contains($itemDefiner, '@')) {
                 $arr = explode('@', $itemDefiner);
 
-                $do_backquote = true;
+                $doBackquote = true;
                 if (substr($arr[0], 0, 1) === '`' && substr($arr[0], -1) === '`') {
-                    $do_backquote = false;
+                    $doBackquote = false;
                 }
 
-                $query .= 'DEFINER=' . Util::backquoteCompat($arr[0], 'NONE', $do_backquote);
+                $query .= 'DEFINER=' . Util::backquoteCompat($arr[0], 'NONE', $doBackquote);
 
-                $do_backquote = true;
+                $doBackquote = true;
                 if (substr($arr[1], 0, 1) === '`' && substr($arr[1], -1) === '`') {
-                    $do_backquote = false;
+                    $doBackquote = false;
                 }
 
-                $query .= '@' . Util::backquoteCompat($arr[1], 'NONE', $do_backquote) . ' ';
+                $query .= '@' . Util::backquoteCompat($arr[1], 'NONE', $doBackquote) . ' ';
             } else {
                 $GLOBALS['errors'][] = __('The definer must be in the "username@hostname" format!');
             }
@@ -1064,9 +1058,9 @@ class Routines
     private function getQueriesFromRoutineForm(array $routine): array
     {
         $queries = [];
-        $end_query = [];
+        $endQuery = [];
         $args = [];
-        $all_functions = $this->dbi->types->getAllFunctions();
+        $allFunctions = $this->dbi->types->getAllFunctions();
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
             if (isset($_POST['params'][$routine['item_param_name'][$i]])) {
                 $value = $_POST['params'][$routine['item_param_name'][$i]];
@@ -1077,7 +1071,7 @@ class Routines
                 $value = $this->dbi->escapeString($value);
                 if (
                     ! empty($_POST['funcs'][$routine['item_param_name'][$i]])
-                    && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $all_functions)
+                    && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $allFunctions)
                 ) {
                     $queries[] = 'SET @p' . $i . '='
                         . $_POST['funcs'][$routine['item_param_name'][$i]]
@@ -1099,15 +1093,15 @@ class Routines
                 continue;
             }
 
-            $end_query[] = '@p' . $i . ' AS '
+            $endQuery[] = '@p' . $i . ' AS '
                 . Util::backquote($routine['item_param_name'][$i]);
         }
 
         if ($routine['item_type'] === 'PROCEDURE') {
             $queries[] = 'CALL ' . Util::backquote($routine['item_name'])
                         . '(' . implode(', ', $args) . ");\n";
-            if (count($end_query)) {
-                $queries[] = 'SELECT ' . implode(', ', $end_query) . ";\n";
+            if (count($endQuery)) {
+                $queries[] = 'SELECT ' . implode(', ', $endQuery) . ";\n";
             }
         } else {
             $queries[] = 'SELECT ' . Util::backquote($routine['item_name'])
@@ -1145,13 +1139,13 @@ class Routines
         $queries = is_array($routine) ? $this->getQueriesFromRoutineForm($routine) : [];
 
         // Get all the queries as one SQL statement
-        $multiple_query = implode('', $queries);
+        $multipleQuery = implode('', $queries);
 
         $outcome = true;
         $affected = 0;
 
         // Execute query
-        if (! $this->dbi->tryMultiQuery($multiple_query)) {
+        if (! $this->dbi->tryMultiQuery($multipleQuery)) {
             $outcome = false;
         }
 
@@ -1232,7 +1226,7 @@ class Routines
             $message = Message::error(
                 sprintf(
                     __('The following query has failed: "%s"'),
-                    htmlspecialchars($multiple_query),
+                    htmlspecialchars($multipleQuery),
                 )
                 . '<br><br>'
                 . __('MySQL said: ') . $this->dbi->getError(),
@@ -1343,10 +1337,10 @@ class Routines
             $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
         }
 
-        $no_support_types = Util::unsupportedDatatypes();
+        $noSupportTypes = Util::unsupportedDatatypes();
 
         $params = [];
-        $params['no_support_types'] = $no_support_types;
+        $params['no_support_types'] = $noSupportTypes;
 
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
             if ($routine['item_type'] === 'PROCEDURE' && $routine['item_param_dir'][$i] === 'OUT') {
@@ -1359,7 +1353,7 @@ class Routines
                     || stripos($routine['item_param_type'][$i], 'set') !== false
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
-                        $no_support_types,
+                        $noSupportTypes,
                     )
                 ) {
                     $params[$i]['generator'] = null;
@@ -1395,7 +1389,7 @@ class Routines
                     $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
                     $params[$i]['htmlentities'][] = $value;
                 }
-            } elseif (in_array(mb_strtolower($routine['item_param_type'][$i]), $no_support_types)) {
+            } elseif (in_array(mb_strtolower($routine['item_param_type'][$i]), $noSupportTypes)) {
                 $params[$i]['input_type'] = null;
             } else {
                 $params[$i]['input_type'] = 'text';

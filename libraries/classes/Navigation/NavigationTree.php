@@ -789,10 +789,7 @@ class NavigationTree
                         $newChild->addChild($elm);
                     }
 
-                    $newChildren[] = [
-                        'node' => $newChild,
-                        'replaces_name' => $child->name,
-                    ];
+                    $newChildren[] = ['node' => $newChild, 'replaces_name' => $child->name];
                 }
             }
 
@@ -874,10 +871,7 @@ class NavigationTree
 
         $this->groupTree();
         $children = $this->tree->children;
-        usort($children, [
-            self::class,
-            'sortNode',
-        ]);
+        usort($children, [self::class, 'sortNode']);
         $this->setVisibility();
 
         $nodes = $this->renderNodes($children);
@@ -905,10 +899,7 @@ class NavigationTree
             $listContent = $this->fastFilterHtml($node);
             $listContent .= $this->getPageSelector($node);
             $children = $node->children;
-            usort($children, [
-                self::class,
-                'sortNode',
-            ]);
+            usort($children, [self::class, 'sortNode']);
 
             $listContent .= $this->renderNodes($children, false);
 
@@ -1076,13 +1067,7 @@ class NavigationTree
 
             $paginationParams = $this->getPaginationParamsHtml($node);
 
-            $haveAjax = [
-                'functions',
-                'procedures',
-                'events',
-                'triggers',
-                'indexes',
-            ];
+            $haveAjax = ['functions', 'procedures', 'events', 'triggers', 'indexes'];
             $parent = $node->parents(false, true);
             $isNewView = $parent[0]->realName === 'views' && $node->isNew === true;
             $linkHasAjaxClass = $parent[0]->type == Node::CONTAINER
@@ -1223,20 +1208,13 @@ class NavigationTree
             $options[] = [
                 'title' => $title,
                 'name' => $node->realName,
-                'data' => [
-                    'apath' => $paths['aPath'],
-                    'vpath' => $paths['vPath'],
-                    'pos' => $this->pos,
-                ],
+                'data' => ['apath' => $paths['aPath'], 'vpath' => $paths['vPath'], 'pos' => $this->pos],
                 'isSelected' => $node->realName === $selected,
             ];
         }
 
         $children = $this->tree->children;
-        usort($children, [
-            self::class,
-            'sortNode',
-        ]);
+        usort($children, [self::class, 'sortNode']);
         $this->setVisibility();
 
         $nodes = $this->renderNodes($children);

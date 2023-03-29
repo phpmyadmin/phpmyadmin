@@ -47,12 +47,7 @@ class FeaturesForm extends BaseForm
                 'TextareaRows',
                 'LongtextDoubleTextarea',
             ],
-            'Page_titles' => [
-                'TitleDefault',
-                'TitleTable',
-                'TitleDatabase',
-                'TitleServer',
-            ],
+            'Page_titles' => ['TitleDefault', 'TitleTable', 'TitleDatabase', 'TitleServer'],
             'Warnings' => [
                 'PmaNoRelation_DisableWarning',
                 'SuhosinDisableWarning',

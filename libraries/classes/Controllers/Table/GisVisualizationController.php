@@ -64,15 +64,15 @@ final class GisVisualizationController extends AbstractController
         // Find the candidate fields for label column and spatial column
         $labelCandidates = [];
         $spatialCandidates = [];
-        foreach ($meta as $column_meta) {
-            if ($column_meta->name === '') {
+        foreach ($meta as $columnMeta) {
+            if ($columnMeta->name === '') {
                 continue;
             }
 
-            if ($column_meta->isMappedTypeGeometry) {
-                $spatialCandidates[] = $column_meta->name;
+            if ($columnMeta->isMappedTypeGeometry) {
+                $spatialCandidates[] = $columnMeta->name;
             } else {
-                $labelCandidates[] = $column_meta->name;
+                $labelCandidates[] = $columnMeta->name;
             }
         }
 

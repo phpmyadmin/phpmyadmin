@@ -21,9 +21,7 @@ class Ndbcluster extends StorageEngine
      */
     public function getVariables(): array
     {
-        return [
-            'ndb_connectstring' => [],
-        ];
+        return ['ndb_connectstring' => []];
     }
 
     /**

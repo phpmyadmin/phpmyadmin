@@ -38,7 +38,7 @@ final class DeleteRowsController extends AbstractController
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['active_page'] ??= null;
 
-        $mult_btn = $_POST['mult_btn'] ?? '';
+        $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
         $relation = new Relation($this->dbi);
@@ -51,8 +51,8 @@ final class DeleteRowsController extends AbstractController
             $this->template,
         );
 
-        if ($mult_btn === __('Yes')) {
-            $default_fk_check_value = ForeignKey::handleDisableCheckInit();
+        if ($multBtn === __('Yes')) {
+            $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
             $GLOBALS['sql_query'] = '';
 
             foreach ($selected as $row) {
@@ -70,7 +70,7 @@ final class DeleteRowsController extends AbstractController
                 $_REQUEST['pos'] = $sql->calculatePosForLastPage($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['pos']);
             }
 
-            ForeignKey::handleDisableCheckCleanup($default_fk_check_value);
+            ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
             $GLOBALS['disp_message'] = __('Your SQL query has been executed successfully.');
             $GLOBALS['disp_query'] = $GLOBALS['sql_query'];

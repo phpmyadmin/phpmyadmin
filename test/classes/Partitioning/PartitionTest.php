@@ -62,11 +62,7 @@ class PartitionTest extends AbstractTestCase
                 true,
                 50600,
                 false,
-                [
-                    ['Name' => 'mysql_native_password'],
-                    ['Name' => 'partition'],
-                    ['Name' => 'InnoDB'],
-                ],
+                [['Name' => 'mysql_native_password'], ['Name' => 'partition'], ['Name' => 'InnoDB']],
             ],
             '5.6.0 without partitioning support' => [
                 false,

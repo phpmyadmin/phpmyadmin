@@ -410,16 +410,16 @@ class Generator
         string $partitionOperation,
         array $partitionNames,
     ): string {
-        $sql_query = 'ALTER TABLE '
+        $sqlQuery = 'ALTER TABLE '
             . Util::backquote($table) . ' '
             . $partitionOperation
             . ' PARTITION ';
 
         if ($partitionOperation === 'COALESCE') {
-            return $sql_query . count($partitionNames);
+            return $sqlQuery . count($partitionNames);
         }
 
-        return $sql_query . implode(', ', $partitionNames) . ';';
+        return $sqlQuery . implode(', ', $partitionNames) . ';';
     }
 
     /** @param string[] $selectedColumns */

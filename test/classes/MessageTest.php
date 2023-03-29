@@ -164,19 +164,12 @@ class MessageTest extends AbstractTestCase
         );
         $this->object->addParam('test');
         $this->assertEquals(
-            [
-                Message::notice('test'),
-                'test',
-            ],
+            [Message::notice('test'), 'test'],
             $this->object->getParams(),
         );
         $this->object->addParam('test');
         $this->assertEquals(
-            [
-                Message::notice('test'),
-                'test',
-                Message::notice('test'),
-            ],
+            [Message::notice('test'), 'test', Message::notice('test')],
             $this->object->getParams(),
         );
     }
@@ -203,19 +196,12 @@ class MessageTest extends AbstractTestCase
     {
         $this->object->addText('test', '*');
         $this->assertEquals(
-            [
-                '*',
-                Message::notice('test'),
-            ],
+            ['*', Message::notice('test')],
             $this->object->getAddedMessages(),
         );
         $this->object->addText('test', '');
         $this->assertEquals(
-            [
-                '*',
-                Message::notice('test'),
-                Message::notice('test'),
-            ],
+            ['*', Message::notice('test'), Message::notice('test')],
             $this->object->getAddedMessages(),
         );
     }
@@ -232,11 +218,7 @@ class MessageTest extends AbstractTestCase
         );
         $this->object->addHtml('<b>test</b>');
         $this->assertEquals(
-            [
-                Message::notice('test&lt;&gt;'),
-                ' ',
-                Message::rawNotice('<b>test</b>'),
-            ],
+            [Message::notice('test&lt;&gt;'), ' ', Message::rawNotice('<b>test</b>')],
             $this->object->getAddedMessages(),
         );
         $this->object->addMessage(Message::notice('test<>'));
@@ -258,11 +240,7 @@ class MessageTest extends AbstractTestCase
         $this->object->addMessages($messages, '');
 
         $this->assertEquals(
-            [
-                Message::notice('Test1'),
-                Message::error('PMA_Test2'),
-                Message::notice('Test3'),
-            ],
+            [Message::notice('Test1'), Message::error('PMA_Test2'), Message::notice('Test3')],
             $this->object->getAddedMessages(),
         );
     }
@@ -272,19 +250,11 @@ class MessageTest extends AbstractTestCase
      */
     public function testAddMessagesString(): void
     {
-        $messages = [
-            'test1',
-            'test<b>',
-            'test2',
-        ];
+        $messages = ['test1', 'test<b>', 'test2'];
         $this->object->addMessagesString($messages, '');
 
         $this->assertEquals(
-            [
-                Message::notice('test1'),
-                Message::notice('test&lt;b&gt;'),
-                Message::notice('test2'),
-            ],
+            [Message::notice('test1'), Message::notice('test&lt;b&gt;'), Message::notice('test2')],
             $this->object->getAddedMessages(),
         );
 
@@ -316,10 +286,7 @@ class MessageTest extends AbstractTestCase
             Message::sanitize($this->object),
         );
         $this->assertEquals(
-            [
-                'test&amp;string&lt;&gt;',
-                'test&amp;string&lt;&gt;',
-            ],
+            ['test&amp;string&lt;&gt;', 'test&amp;string&lt;&gt;'],
             Message::sanitize([$this->object, $this->object]),
         );
     }
@@ -332,30 +299,15 @@ class MessageTest extends AbstractTestCase
     public static function decodeBBDataProvider(): array
     {
         return [
-            [
-                '[em]test[/em][em]aa[em/][em]test[/em]',
-                '<em>test</em><em>aa[em/]<em>test</em>',
-            ],
-            [
-                '[strong]test[/strong][strong]test[/strong]',
-                '<strong>test</strong><strong>test</strong>',
-            ],
-            [
-                '[code]test[/code][code]test[/code]',
-                '<code>test</code><code>test</code>',
-            ],
-            [
-                '[kbd]test[/kbd][br][sup]test[/sup]',
-                '<kbd>test</kbd><br><sup>test</sup>',
-            ],
+            ['[em]test[/em][em]aa[em/][em]test[/em]', '<em>test</em><em>aa[em/]<em>test</em>'],
+            ['[strong]test[/strong][strong]test[/strong]', '<strong>test</strong><strong>test</strong>'],
+            ['[code]test[/code][code]test[/code]', '<code>test</code><code>test</code>'],
+            ['[kbd]test[/kbd][br][sup]test[/sup]', '<kbd>test</kbd><br><sup>test</sup>'],
             [
                 '[a@https://example.com/@Documentation]link[/a]',
                 '<a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
             ],
-            [
-                '[a@./non-existing@Documentation]link[/a]',
-                '[a@./non-existing@Documentation]link</a>',
-            ],
+            ['[a@./non-existing@Documentation]link[/a]', '[a@./non-existing@Documentation]link</a>'],
             [
                 '[doc@foo]link[/doc]',
                 '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'

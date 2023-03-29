@@ -62,18 +62,18 @@ class RoutingTest extends AbstractTestCase
     }
 
     /**
-     * @param string $php_self  The PHP_SELF value
-     * @param string $request   The REQUEST_URI value
-     * @param string $path_info The PATH_INFO value
-     * @param string $expected  Expected result
+     * @param string $phpSelf  The PHP_SELF value
+     * @param string $request  The REQUEST_URI value
+     * @param string $pathInfo The PATH_INFO value
+     * @param string $expected Expected result
      *
      * @dataProvider providerForTestCleanupPathInfo
      */
-    public function testCleanupPathInfo(string $php_self, string $request, string $path_info, string $expected): void
+    public function testCleanupPathInfo(string $phpSelf, string $request, string $pathInfo, string $expected): void
     {
-        $_SERVER['PHP_SELF'] = $php_self;
+        $_SERVER['PHP_SELF'] = $phpSelf;
         $_SERVER['REQUEST_URI'] = $request;
-        $_SERVER['PATH_INFO'] = $path_info;
+        $_SERVER['PATH_INFO'] = $pathInfo;
         $actual = Routing::getCleanPathInfo();
         $this->assertEquals($expected, $actual);
     }
@@ -87,48 +87,13 @@ class RoutingTest extends AbstractTestCase
                 '/; cookieinj=value/',
                 '/phpmyadmin/index.php',
             ],
-            [
-                '',
-                '/phpmyadmin/index.php/;%20cookieinj=value///',
-                '/; cookieinj=value/',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../../.././phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/page.php/malicouspathinfo?malicouspathinfo',
-                'malicouspathinfo',
-                '/page.php',
-            ],
-            [
-                '/phpmyadmin/./index.php',
-                '/phpmyadmin/./index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '/phpmyadmin/index.php',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
+            ['', '/phpmyadmin/index.php/;%20cookieinj=value///', '/; cookieinj=value/', '/phpmyadmin/index.php'],
+            ['', '//example.com/../phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
+            ['', '//example.com/../../.././phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
+            ['', '/page.php/malicouspathinfo?malicouspathinfo', 'malicouspathinfo', '/page.php'],
+            ['/phpmyadmin/./index.php', '/phpmyadmin/./index.php', '', '/phpmyadmin/index.php'],
+            ['/phpmyadmin/index.php', '/phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
+            ['', '/phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
         ];
     }
 }

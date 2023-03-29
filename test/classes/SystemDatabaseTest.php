@@ -99,17 +99,10 @@ class SystemDatabaseTest extends AbstractTestCase
             );
 
         $db = 'PMA_db';
-        $column_map = [
-            new SystemColumn('table_name', 'column_name', null),
-        ];
-        $view_name = 'view_name';
+        $columnMap = [new SystemColumn('table_name', 'column_name', null)];
+        $viewName = 'view_name';
 
-        $ret = $this->sysDb->getNewTransformationDataSql(
-            $resultStub,
-            $column_map,
-            $view_name,
-            $db,
-        );
+        $ret = $this->sysDb->getNewTransformationDataSql($resultStub, $columnMap, $viewName, $db);
 
         $sql = 'INSERT INTO `information_schema`.`column_info` '
             . '(`db_name`, `table_name`, `column_name`, `comment`, `mimetype`, '
@@ -130,33 +123,24 @@ class SystemDatabaseTest extends AbstractTestCase
             [true],
             [],
             [
-                (object) [
-                    'table' => 'meta1_table',
-                    'name' => 'meta1_name',
-                ],
-                (object) [
-                    'table' => 'meta2_table',
-                    'name' => 'meta2_name',
-                ],
+                (object) ['table' => 'meta1_table', 'name' => 'meta1_name'],
+                (object) ['table' => 'meta2_table', 'name' => 'meta2_name'],
             ],
         );
 
-        $sql_query = 'PMA_sql_query';
-        $view_columns = [
-            'view_columns1',
-            'view_columns2',
-        ];
+        $sqlQuery = 'PMA_sql_query';
+        $viewColumns = ['view_columns1', 'view_columns2'];
 
         $systemDatabase = new SystemDatabase($dbi);
-        $column_map = $systemDatabase->getColumnMapFromSql($sql_query, $view_columns);
+        $columnMap = $systemDatabase->getColumnMapFromSql($sqlQuery, $viewColumns);
 
         $this->assertEquals(
             new SystemColumn('meta1_table', 'meta1_name', 'view_columns1'),
-            $column_map[0],
+            $columnMap[0],
         );
         $this->assertEquals(
             new SystemColumn('meta2_table', 'meta2_name', 'view_columns2'),
-            $column_map[1],
+            $columnMap[1],
         );
 
         $dummyDbi->assertAllQueriesConsumed();

@@ -71,10 +71,7 @@ class RefreshControllerTest extends AbstractTestCase
             ['order_by_field', '', 'process'],
             ['sort_order', '', 'DESC'],
         ]);
-        $request->method('hasBodyParam')->willReturnMap([
-            ['full', true],
-            ['showExecuting', false],
-        ]);
+        $request->method('hasBodyParam')->willReturnMap([['full', true], ['showExecuting', false]]);
 
         $controller($request);
         $html = $response->getHTMLResult();
@@ -102,10 +99,7 @@ class RefreshControllerTest extends AbstractTestCase
         );
 
         //validate 4: $process['db']
-        $this->assertStringContainsString(
-            $process['Db'],
-            $html,
-        );
+        $this->assertStringContainsString($process['Db'], $html);
 
         //validate 5: $process['Command']
         $this->assertStringContainsString(

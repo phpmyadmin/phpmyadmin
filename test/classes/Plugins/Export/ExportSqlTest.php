@@ -201,10 +201,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertInstanceOf(SelectPropertyItem::class, $property);
 
         $this->assertEquals(
-            [
-                'v1' => 'v1',
-                'v2' => 'v2',
-            ],
+            ['v1' => 'v1', 'v2' => 'v2'],
             $property->getValues(),
         );
 
@@ -901,19 +898,8 @@ SQL;
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                [
-                    'foo' => [
-                        'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield',
-                    ],
-                ],
-                [
-                    'fieldname' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['foo' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
+                ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -1108,13 +1094,7 @@ SQL;
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [
-                    null,
-                    'test',
-                    '10',
-                    '6',
-                    "\x00\x0a\x0d\x1a",
-                ],
+                [null, 'test', '10', '6', "\x00\x0a\x0d\x1a"],
                 [],
             );
         $dbi->expects($this->any())->method('quoteString')
@@ -1122,19 +1102,19 @@ SQL;
                 return "'" . $string . "'";
             }));
 
-        $_table = $this->getMockBuilder(Table::class)
+        $tableObj = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isMerge')
             ->will($this->returnValue(false));
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isView')
             ->will($this->returnValue(false));
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->will($this->returnValue($tableObj));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1215,26 +1195,23 @@ SQL;
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [
-                    null,
-                    null,
-                ],
+                [null, null],
                 [],
             );
 
-        $_table = $this->getMockBuilder(Table::class)
+        $tableObj = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isMerge')
             ->will($this->returnValue(false));
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isView')
             ->will($this->returnValue(false));
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->will($this->returnValue($tableObj));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -1270,19 +1247,19 @@ SQL;
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder(Table::class)
+        $tableObj = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isMerge')
             ->will($this->returnValue(false));
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isView')
             ->will($this->returnValue(true));
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->will($this->returnValue($tableObj));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -1321,19 +1298,19 @@ SQL;
             ->method('getError')
             ->will($this->returnValue('err'));
 
-        $_table = $this->getMockBuilder(Table::class)
+        $tableObj = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isMerge')
             ->will($this->returnValue(false));
-        $_table->expects($this->once())
+        $tableObj->expects($this->once())
             ->method('isView')
             ->will($this->returnValue(false));
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->will($this->returnValue($tableObj));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -1404,10 +1381,7 @@ SQL;
         $aliases = [
             'a' => [
                 'alias' => 'aliastest',
-                'tables' => [
-                    'foo' => ['alias' => 'qwerty'],
-                    'bar' => ['alias' => 'f'],
-                ],
+                'tables' => ['foo' => ['alias' => 'qwerty'], 'bar' => ['alias' => 'f']],
             ],
         ];
         $db = 'a';
@@ -1438,17 +1412,8 @@ SQL;
             'a' => [
                 'alias' => 'aliastest',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'qwerty',
-                        'columns' => [
-                            'baz' => 'p',
-                            'pqr' => 'pphymdain',
-                        ],
-                    ],
-                    'bar' => [
-                        'alias' => 'f',
-                        'columns' => ['xy' => 'n'],
-                    ],
+                    'foo' => ['alias' => 'qwerty', 'columns' => ['baz' => 'p', 'pqr' => 'pphymdain']],
+                    'bar' => ['alias' => 'f', 'columns' => ['xy' => 'n']],
                 ],
             ],
         ];
@@ -1480,23 +1445,14 @@ SQL;
             'a' => [
                 'alias' => 'aliastest',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'bartest',
-                        'columns' => [
-                            'baz' => 'p',
-                            'pqr' => 'pphymdain',
-                        ],
-                    ],
-                    'bar' => [
-                        'alias' => 'f',
-                        'columns' => ['xy' => 'n'],
-                    ],
+                    'foo' => ['alias' => 'bartest', 'columns' => ['baz' => 'p', 'pqr' => 'pphymdain']],
+                    'bar' => ['alias' => 'f', 'columns' => ['xy' => 'n']],
                 ],
             ],
         ];
 
         $db = 'a';
-        $sql_query = "CREATE TABLE IF NOT EXISTS foo (\n"
+        $sqlQuery = "CREATE TABLE IF NOT EXISTS foo (\n"
             . "baz tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',\n"
             . 'xyz varchar(255) COLLATE latin1_general_ci NOT NULL '
             . "COMMENT 'xyz',\n"
@@ -1506,7 +1462,7 @@ SQL;
             . "REFERENCES dept_master (baz)\n"
             . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
-        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db);
+        $result = $this->object->replaceWithAliases($sqlQuery, $aliases, $db);
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
@@ -1518,7 +1474,7 @@ SQL;
             $result,
         );
 
-        $result = $this->object->replaceWithAliases($sql_query, [], '');
+        $result = $this->object->replaceWithAliases($sqlQuery, [], '');
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
@@ -1530,7 +1486,7 @@ SQL;
             $result,
         );
 
-        $sql_query = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
+        $sqlQuery = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
             . 'BEFORE INSERT ON `bar` '
             . 'FOR EACH ROW BEGIN '
             . 'SET @cnt=(SELECT count(*) FROM bar WHERE '
@@ -1539,7 +1495,7 @@ SQL;
             . 'IF @cnt<>0 THEN '
             . 'SET NEW.xy=1; '
             . 'END IF; END';
-        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db);
+        $result = $this->object->replaceWithAliases($sqlQuery, $aliases, $db);
 
         $this->assertEquals(
             'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .

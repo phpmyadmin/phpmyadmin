@@ -165,8 +165,8 @@ class ImportLdi extends AbstractImportCsv
                 $tmp = [];
             }
 
-            $cnt_tmp = count($tmp);
-            for ($i = 0; $i < $cnt_tmp; $i++) {
+            $cntTmp = count($tmp);
+            for ($i = 0; $i < $cntTmp; $i++) {
                 if ($i > 0) {
                     $sql .= ', ';
                 }

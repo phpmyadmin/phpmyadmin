@@ -121,19 +121,11 @@ class OperationsController extends AbstractController
                     );
 
                     // handle the views
-                    $this->operations->handleTheViews(
-                        $views,
-                        $move,
-                        $GLOBALS['db'],
-                        $newDatabaseName,
-                    );
+                    $this->operations->handleTheViews($views, $move, $GLOBALS['db'], $newDatabaseName);
 
                     // now that all tables exist, create all the accumulated constraints
                     if ($sqlConstraints !== []) {
-                        $this->operations->createAllAccumulatedConstraints(
-                            $sqlConstraints,
-                            $newDatabaseName,
-                        );
+                        $this->operations->createAllAccumulatedConstraints($sqlConstraints, $newDatabaseName);
                     }
 
                     if ($this->dbi->getVersion() >= 50100) {

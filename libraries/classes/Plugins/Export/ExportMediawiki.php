@@ -61,11 +61,7 @@ class ExportMediawiki extends ExportPlugin
         );
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
         $subgroup->setSubgroupHeader($leaf);
         $generalOptions->addProperty($subgroup);
@@ -144,22 +140,22 @@ class ExportMediawiki extends ExportPlugin
     /**
      * Outputs table's structure
      *
-     * @param string $db          database name
-     * @param string $table       table name
-     * @param string $errorUrl    the url to go back in case of error
-     * @param string $exportMode  'create_table','triggers','create_view',
-     *                             'stand_in'
-     * @param string $exportType  'server', 'database', 'table'
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $db         database name
+     * @param string $table      table name
+     * @param string $errorUrl   the url to go back in case of error
+     * @param string $exportMode 'create_table','triggers','create_view',
+     *                            'stand_in'
+     * @param string $exportType 'server', 'database', 'table'
+     * @param bool   $doRelation whether to include relation comments
+     * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
      *                            deprecated but the parameter is left here
      *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $dates       whether to include creation/update/check dates
-     * @param array  $aliases     Aliases of db/table/columns
+     * @param bool   $doMime     whether to include mime comments
+     * @param bool   $dates      whether to include creation/update/check dates
+     * @param array  $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
@@ -167,26 +163,26 @@ class ExportMediawiki extends ExportPlugin
         string $errorUrl,
         string $exportMode,
         string $exportType,
-        bool $do_relation = false,
-        bool $do_comments = false,
-        bool $do_mime = false,
+        bool $doRelation = false,
+        bool $doComments = false,
+        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         $output = '';
         if ($exportMode === 'create_table') {
             $columns = $GLOBALS['dbi']->getColumns($db, $table);
             $columns = array_values($columns);
-            $row_cnt = count($columns);
+            $rowCnt = count($columns);
 
             // Print structure comment
             $output = $this->exportComment(
                 'Table structure for '
-                . Util::backquote($table_alias),
+                . Util::backquote($tableAlias),
             );
 
             // Begin the table construction
@@ -195,7 +191,7 @@ class ExportMediawiki extends ExportPlugin
 
             // Add the table name
             if (isset($GLOBALS['mediawiki_caption'])) {
-                $output .= "|+'''" . $table_alias . "'''" . $this->exportCRLF();
+                $output .= "|+'''" . $tableAlias . "'''" . $this->exportCRLF();
             }
 
             // Add the table headers
@@ -203,38 +199,38 @@ class ExportMediawiki extends ExportPlugin
                 $output .= '|- style="background:#ffdead;"' . $this->exportCRLF();
                 $output .= '! style="background:#ffffff" | '
                     . $this->exportCRLF();
-                for ($i = 0; $i < $row_cnt; ++$i) {
-                    $col_as = $columns[$i]['Field'];
-                    if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                        $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+                for ($i = 0; $i < $rowCnt; ++$i) {
+                    $colAs = $columns[$i]['Field'];
+                    if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                        $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                     }
 
-                    $output .= ' | ' . $col_as . $this->exportCRLF();
+                    $output .= ' | ' . $colAs . $this->exportCRLF();
                 }
             }
 
             // Add the table structure
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Type' . $this->exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
+            for ($i = 0; $i < $rowCnt; ++$i) {
                 $output .= ' | ' . $columns[$i]['Type'] . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Null' . $this->exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
+            for ($i = 0; $i < $rowCnt; ++$i) {
                 $output .= ' | ' . $columns[$i]['Null'] . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Default' . $this->exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
+            for ($i = 0; $i < $rowCnt; ++$i) {
                 $output .= ' | ' . $columns[$i]['Default'] . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Extra' . $this->exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
+            for ($i = 0; $i < $rowCnt; ++$i) {
                 $output .= ' | ' . $columns[$i]['Extra'] . $this->exportCRLF();
             }
 
@@ -260,14 +256,14 @@ class ExportMediawiki extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         // Print data comment
         $output = $this->exportComment(
-            $table_alias != ''
-                ? 'Table data for ' . Util::backquote($table_alias)
+            $tableAlias != ''
+                ? 'Table data for ' . Util::backquote($tableAlias)
                 : 'Query results',
         );
 
@@ -279,21 +275,21 @@ class ExportMediawiki extends ExportPlugin
 
         // Add the table name
         if (isset($GLOBALS['mediawiki_caption'])) {
-            $output .= "|+'''" . $table_alias . "'''" . $this->exportCRLF();
+            $output .= "|+'''" . $tableAlias . "'''" . $this->exportCRLF();
         }
 
         // Add the table headers
         if (isset($GLOBALS['mediawiki_headers'])) {
             // Get column names
-            $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
+            $columnNames = $GLOBALS['dbi']->getColumnNames($db, $table);
 
             // Add column names as table headers
-            if ($column_names !== []) {
+            if ($columnNames !== []) {
                 // Use '|-' for separating rows
                 $output .= '|-' . $this->exportCRLF();
 
                 // Use '!' for separating table headers
-                foreach ($column_names as $column) {
+                foreach ($columnNames as $column) {
                     if (! empty($aliases[$db]['tables'][$table]['columns'][$column])) {
                         $column = $aliases[$db]['tables'][$table]['columns'][$column];
                     }
@@ -304,18 +300,14 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = $GLOBALS['dbi']->query(
-            $sqlQuery,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
-        $fields_cnt = $result->numFields();
+        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $fieldsCnt = $result->numFields();
 
         while ($row = $result->fetchRow()) {
             $output .= '|-' . $this->exportCRLF();
 
             // Use '|' for separating table columns
-            for ($i = 0; $i < $fields_cnt; ++$i) {
+            for ($i = 0; $i < $fieldsCnt; ++$i) {
                 $output .= ' | ' . $row[$i] . $this->exportCRLF();
             }
         }

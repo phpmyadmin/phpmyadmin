@@ -145,23 +145,23 @@ class IndexTest extends AbstractTestCase
         $index = new Index();
         $index->addColumns($this->params['columns']);
 
-        $index_columns = $index->getColumns();
-        $index_column = $index_columns['column1'];
+        $indexColumns = $index->getColumns();
+        $indexColumn = $indexColumns['column1'];
         $this->assertEquals(
             'column1',
-            $index_column->getName(),
+            $indexColumn->getName(),
         );
         $this->assertEquals(
             '1',
-            $index_column->getSeqInIndex(),
+            $indexColumn->getSeqInIndex(),
         );
         $this->assertEquals(
             'Collation1',
-            $index_column->getCollation(),
+            $indexColumn->getCollation(),
         );
         $this->assertEquals(
             '1',
-            $index_column->getCardinality(),
+            $indexColumn->getCardinality(),
         );
     }
 }

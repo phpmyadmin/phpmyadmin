@@ -27,28 +27,28 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
      * Returns the html for input field to override default textarea.
      * Note: Return empty string if default textarea is required.
      *
-     * @param array  $column               column details
-     * @param int    $row_id               row number
-     * @param string $column_name_appendix the name attribute
-     * @param array  $options              transformation options
-     * @param string $value                Current field value
-     * @param string $text_dir             text direction
-     * @param int    $tabindex             tab index
-     * @param int    $tabindex_for_value   offset for the values tabindex
-     * @param int    $idindex              id index
+     * @param array  $column             column details
+     * @param int    $rowId              row number
+     * @param string $columnNameAppendix the name attribute
+     * @param array  $options            transformation options
+     * @param string $value              Current field value
+     * @param string $textDir            text direction
+     * @param int    $tabIndex           tab index
+     * @param int    $tabIndexForValue   offset for the values tabindex
+     * @param int    $idIndex            id index
      *
      * @return string the html for input field
      */
     public function getInputHtml(
         array $column,
-        int $row_id,
-        string $column_name_appendix,
+        int $rowId,
+        string $columnNameAppendix,
         array $options,
         string $value,
-        string $text_dir,
-        int $tabindex,
-        int $tabindex_for_value,
-        int $idindex,
+        string $textDir,
+        int $tabIndex,
+        int $tabIndexForValue,
+        int $idIndex,
     ): string {
         return '';
     }

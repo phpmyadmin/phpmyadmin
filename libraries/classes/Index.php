@@ -98,16 +98,16 @@ class Index
         DatabaseInterface $dbi,
         string $schema,
         string $table,
-        string $index_name = '',
+        string $indexName = '',
     ): Index {
         self::loadIndexes($dbi, $table, $schema);
-        if (isset(self::$registry[$schema][$table][$index_name])) {
-            return self::$registry[$schema][$table][$index_name];
+        if (isset(self::$registry[$schema][$table][$indexName])) {
+            return self::$registry[$schema][$table][$indexName];
         }
 
         $index = new Index();
-        if ($index_name !== '') {
-            $index->setName($index_name);
+        if ($indexName !== '') {
+            $index->setName($indexName);
             self::$registry[$schema][$table][$index->getName()] = $index;
         }
 
@@ -185,18 +185,18 @@ class Index
             return true;
         }
 
-        $_raw_indexes = $dbi->getTableIndexes($schema, $table);
-        foreach ($_raw_indexes as $_each_index) {
-            $_each_index['Schema'] = $schema;
-            $keyName = $_each_index['Key_name'];
+        $rawIndexes = $dbi->getTableIndexes($schema, $table);
+        foreach ($rawIndexes as $eachIndex) {
+            $eachIndex['Schema'] = $schema;
+            $keyName = $eachIndex['Key_name'];
             if (! isset(self::$registry[$schema][$table][$keyName])) {
-                $key = new Index($_each_index);
+                $key = new Index($eachIndex);
                 self::$registry[$schema][$table][$keyName] = $key;
             } else {
                 $key = self::$registry[$schema][$table][$keyName];
             }
 
-            $key->addColumn($_each_index);
+            $key->addColumn($eachIndex);
         }
 
         return true;
@@ -229,28 +229,25 @@ class Index
      */
     public function addColumns(array $columns): void
     {
-        $_columns = [];
+        $addedColumns = [];
 
         if (isset($columns['names'])) {
             // coming from form
             // $columns[names][]
             // $columns[sub_parts][]
             foreach ($columns['names'] as $key => $name) {
-                $sub_part = $columns['sub_parts'][$key] ?? '';
-                $_columns[] = [
-                    'Column_name' => $name,
-                    'Sub_part' => $sub_part,
-                ];
+                $subPart = $columns['sub_parts'][$key] ?? '';
+                $addedColumns[] = ['Column_name' => $name, 'Sub_part' => $subPart];
             }
         } else {
             // coming from SHOW INDEXES
             // $columns[][name]
             // $columns[][sub_part]
             // ...
-            $_columns = $columns;
+            $addedColumns = $columns;
         }
 
-        foreach ($_columns as $column) {
+        foreach ($addedColumns as $column) {
             $this->addColumn($column);
         }
     }
@@ -425,10 +422,7 @@ class Index
      */
     public static function getIndexTypes(): array
     {
-        return [
-            'BTREE',
-            'HASH',
-        ];
+        return ['BTREE', 'HASH'];
     }
 
     public function hasPrimary(): bool
@@ -472,13 +466,13 @@ class Index
     /**
      * Returns whether the index is a 'Unique' index
      *
-     * @param bool $as_text whether to output should be in text
+     * @param bool $asText whether to output should be in text
      *
      * @return string|bool whether the index is a 'Unique' index
      */
-    public function isUnique(bool $as_text = false): string|bool
+    public function isUnique(bool $asText = false): string|bool
     {
-        if ($as_text) {
+        if ($asText) {
             return $this->nonUnique ? __('No') : __('Yes');
         }
 
@@ -506,7 +500,7 @@ class Index
     /**
      * Returns the columns of the index
      *
-     * @return array<string, IndexColumn>
+     * @return IndexColumn[]
      */
     public function getColumns(): array
     {
@@ -531,10 +525,7 @@ class Index
      */
     public function getCompareData(): array
     {
-        $data = [
-            'Packed' => $this->packed,
-            'Index_choice' => $this->choice,
-        ];
+        $data = ['Packed' => $this->packed, 'Index_choice' => $this->choice];
 
         foreach ($this->columns as $column) {
             $data['columns'][] = $column->getCompareData();
@@ -564,10 +555,10 @@ class Index
         }
 
         // remove last index from stack and ...
-        while ($while_index = array_pop($indexes)) {
+        while ($whileIndex = array_pop($indexes)) {
             // ... compare with every remaining index in stack
-            foreach ($indexes as $each_index) {
-                if ($each_index->getCompareData() !== $while_index->getCompareData()) {
+            foreach ($indexes as $eachIndex) {
+                if ($eachIndex->getCompareData() !== $whileIndex->getCompareData()) {
                     continue;
                 }
 
@@ -579,8 +570,8 @@ class Index
                         'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.',
                     ),
                 );
-                $message->addParam($each_index->getName());
-                $message->addParam($while_index->getName());
+                $message->addParam($eachIndex->getName());
+                $message->addParam($whileIndex->getName());
                 $output .= $message->getDisplay();
 
                 // there is no need to check any further indexes if we have already

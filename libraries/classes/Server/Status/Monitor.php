@@ -102,15 +102,15 @@ class Monitor
         array $statusVarValues,
         array $serverVarValues,
     ): array {
-        foreach ($ret as $chart_id => $chartNodes) {
-            foreach ($chartNodes as $node_id => $nodeDataPoints) {
-                foreach ($nodeDataPoints as $point_id => $dataPoint) {
+        foreach ($ret as $chartId => $chartNodes) {
+            foreach ($chartNodes as $nodeId => $nodeDataPoints) {
+                foreach ($nodeDataPoints as $pointId => $dataPoint) {
                     switch ($dataPoint['type']) {
                         case 'statusvar':
-                            $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
+                            $ret[$chartId][$nodeId][$pointId]['value'] = $statusVarValues[$dataPoint['name']];
                             break;
                         case 'servervar':
-                            $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
+                            $ret[$chartId][$nodeId][$pointId]['value'] = $serverVarValues[$dataPoint['name']];
                             break;
                     }
                 }
@@ -160,11 +160,7 @@ class Monitor
             } /* foreach */
         }
 
-        return [
-            $serverVars,
-            $statusVars,
-            $ret,
-        ];
+        return [$serverVars, $statusVars, $ret];
     }
 
     /**
@@ -246,11 +242,7 @@ class Monitor
                 break;
         }
 
-        return [
-            $serverVars,
-            $statusVars,
-            $ret,
-        ];
+        return [$serverVars, $statusVars, $ret];
     }
 
     /**
@@ -277,10 +269,7 @@ class Monitor
             return null;
         }
 
-        $return = [
-            'rows' => [],
-            'sum' => [],
-        ];
+        $return = ['rows' => [], 'sum' => []];
 
         while ($row = $result->fetchAssoc()) {
             $type = mb_strtolower(
@@ -360,10 +349,7 @@ class Monitor
             return null;
         }
 
-        $return = [
-            'rows' => [],
-            'sum' => [],
-        ];
+        $return = ['rows' => [], 'sum' => []];
         $insertTables = [];
         $insertTablesFirst = -1;
         $i = 0;

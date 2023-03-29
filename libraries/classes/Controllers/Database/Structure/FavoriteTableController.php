@@ -156,10 +156,7 @@ final class FavoriteTableController extends AbstractController
         // Set flag when localStorage and pmadb(if present) are in sync.
         $_SESSION['tmpval']['favorites_synced'][$GLOBALS['server']] = true;
 
-        return [
-            'favoriteTables' => json_encode($favoriteTables),
-            'list' => $favoriteInstance->getHtmlList(),
-        ];
+        return ['favoriteTables' => json_encode($favoriteTables), 'list' => $favoriteInstance->getHtmlList()];
     }
 
     /**

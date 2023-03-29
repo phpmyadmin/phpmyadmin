@@ -76,9 +76,7 @@ class NavigationControllerTest extends AbstractTestCase
                 . 'DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE('
                 . "CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) "
                 . 'ORDER BY SCHEMA_NAME ASC',
-            [
-                ['air-balloon_burner_dev2'],
-            ],
+            [['air-balloon_burner_dev2']],
             ['SCHEMA_NAME'],
         );
         $sqlCount = 'SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, \'_\', 1) '
@@ -228,11 +226,7 @@ class NavigationControllerTest extends AbstractTestCase
                 . 'DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE('
                 . "CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) "
                 . 'ORDER BY SCHEMA_NAME ASC',
-            [
-                ['air-balloon_burner_dev'],
-                ['air-balloon_burner_dev2'],
-                ['air-balloon_dev'],
-            ],
+            [['air-balloon_burner_dev'], ['air-balloon_burner_dev2'], ['air-balloon_dev']],
             ['SCHEMA_NAME'],
         );
 

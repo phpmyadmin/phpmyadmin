@@ -37,9 +37,7 @@ final class GetVariableController extends AbstractController
             DatabaseInterface::FETCH_NUM,
         );
 
-        $json = [
-            'message' => $varValue[1],
-        ];
+        $json = ['message' => $varValue[1]];
 
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($params['name']);
 

@@ -24,15 +24,9 @@ function get_login_credentials($user): array
 {
     /* Optionally we can use passed username */
     if (! empty($user)) {
-        return [
-            $user,
-            'password',
-        ];
+        return [$user, 'password'];
     }
 
     /* Here we would retrieve the credentials */
-    return [
-        'root',
-        '',
-    ];
+    return ['root', ''];
 }

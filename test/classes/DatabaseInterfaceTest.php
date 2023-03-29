@@ -75,33 +75,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public static function currentUserData(): array
     {
         return [
-            [
-                [['pma@localhost']],
-                'pma@localhost',
-                [
-                    'pma',
-                    'localhost',
-                ],
-                false,
-            ],
-            [
-                [['@localhost']],
-                '@localhost',
-                [
-                    '',
-                    'localhost',
-                ],
-                false,
-            ],
-            [
-                false,
-                '@',
-                [
-                    '',
-                    '',
-                ],
-                true,
-            ],
+            [[['pma@localhost']], 'pma@localhost', ['pma', 'localhost'], false],
+            [[['@localhost']], '@localhost', ['', 'localhost'], false],
+            [false, '@', ['', ''], true],
         ];
     }
 
@@ -260,53 +236,29 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Test error formatting
      *
-     * @param int    $error_number  Error code
-     * @param string $error_message Error message as returned by server
-     * @param string $match         Expected text
+     * @param int    $errorNumber  Error code
+     * @param string $errorMessage Error message as returned by server
+     * @param string $match        Expected text
      *
      * @dataProvider errorData
      */
-    public function testFormatError(int $error_number, string $error_message, string $match): void
+    public function testFormatError(int $errorNumber, string $errorMessage, string $match): void
     {
         $this->assertStringContainsString(
             $match,
-            Utilities::formatError($error_number, $error_message),
+            Utilities::formatError($errorNumber, $errorMessage),
         );
     }
 
     public static function errorData(): array
     {
         return [
-            [
-                2002,
-                'msg',
-                'The server is not responding',
-            ],
-            [
-                2003,
-                'msg',
-                'The server is not responding',
-            ],
-            [
-                1698,
-                'msg',
-                'index.php?route=/logout',
-            ],
-            [
-                1005,
-                'msg',
-                'index.php?route=/server/engines',
-            ],
-            [
-                1005,
-                'errno: 13',
-                'Please check privileges',
-            ],
-            [
-                -1,
-                'error message',
-                'error message',
-            ],
+            [2002, 'msg', 'The server is not responding'],
+            [2003, 'msg', 'The server is not responding'],
+            [1698, 'msg', 'index.php?route=/logout'],
+            [1005, 'msg', 'index.php?route=/server/engines'],
+            [1005, 'errno: 13', 'Please check privileges'],
+            [-1, 'error message', 'error message'],
         ];
     }
 
@@ -343,22 +295,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public static function isAmazonRdsData(): array
     {
         return [
-            [
-                [['/usr']],
-                false,
-            ],
-            [
-                [['E:/mysql']],
-                false,
-            ],
-            [
-                [['/rdsdbbin/mysql/']],
-                true,
-            ],
-            [
-                [['/rdsdbbin/mysql-5.7.18/']],
-                true,
-            ],
+            [[['/usr']], false],
+            [[['E:/mysql']], false],
+            [[['/rdsdbbin/mysql/']], true],
+            [[['/rdsdbbin/mysql-5.7.18/']], true],
         ];
     }
 
@@ -374,40 +314,20 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testVersion(string $version, int $expected, int $major, bool $upgrade): void
     {
-        $ver_int = Utilities::versionToInt($version);
-        $this->assertEquals($expected, $ver_int);
-        $this->assertEquals($major, (int) ($ver_int / 10000));
+        $verInt = Utilities::versionToInt($version);
+        $this->assertEquals($expected, $verInt);
+        $this->assertEquals($major, (int) ($verInt / 10000));
         $mysqlMinVersion = 50500;
-        $this->assertEquals($upgrade, $ver_int < $mysqlMinVersion);
+        $this->assertEquals($upgrade, $verInt < $mysqlMinVersion);
     }
 
     public static function versionData(): array
     {
         return [
-            [
-                '5.0.5',
-                50005,
-                5,
-                true,
-            ],
-            [
-                '5.05.01',
-                50501,
-                5,
-                false,
-            ],
-            [
-                '5.6.35',
-                50635,
-                5,
-                false,
-            ],
-            [
-                '10.1.22-MariaDB-',
-                100122,
-                10,
-                false,
-            ],
+            ['5.0.5', 50005, 5, true],
+            ['5.05.01', 50501, 5, false],
+            ['5.6.35', 50635, 5, false],
+            ['10.1.22-MariaDB-', 100122, 10, false],
         ];
     }
 
@@ -589,16 +509,12 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addResult('SHOW DATABASES', [['db1'], ['db2']], ['Database']);
         $dummyDbi->addResult(
             'SELECT @@collation_database',
-            [
-                ['utf8_general_ci'],
-            ],
+            [['utf8_general_ci']],
             ['@@collation_database'],
         );
         $dummyDbi->addResult(
             'SELECT @@collation_database',
-            [
-                ['utf8_general_ci'],
-            ],
+            [['utf8_general_ci']],
             ['@@collation_database'],
         );
         $dummyDbi->addResult(
@@ -733,15 +649,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addSelectDb('db1');
         $dummyDbi->addSelectDb('db2');
 
-        $databaseList = $dbi->getDatabasesFull(
-            null,
-            true,
-            Connection::TYPE_USER,
-            'SCHEMA_DATA_LENGTH',
-            'ASC',
-            0,
-            100,
-        );
+        $databaseList = $dbi->getDatabasesFull(null, true, Connection::TYPE_USER, 'SCHEMA_DATA_LENGTH', 'ASC', 0, 100);
 
         $this->assertSame([
             [
@@ -839,24 +747,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 true,
                 false,
             ],
-            [
-                [
-                    '@@version' => '7.10.3',
-                    '@@version_comment' => 'MySQL Community Server (GPL)',
-                ],
-                71003,
-                false,
-                false,
-            ],
-            [
-                [
-                    '@@version' => '5.5.0',
-                    '@@version_comment' => '',
-                ],
-                50500,
-                false,
-                false,
-            ],
+            [['@@version' => '7.10.3', '@@version_comment' => 'MySQL Community Server (GPL)'], 71003, false, false],
+            [['@@version' => '5.5.0', '@@version_comment' => ''], 50500, false, false],
         ];
     }
 

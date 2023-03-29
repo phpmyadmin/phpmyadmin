@@ -64,9 +64,6 @@ final class DropController extends AbstractController
             );
         }
 
-        $this->render('table/partition/drop', [
-            'partition_name' => $partitionName,
-            'message' => $message,
-        ]);
+        $this->render('table/partition/drop', ['partition_name' => $partitionName, 'message' => $message]);
     }
 }

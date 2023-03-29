@@ -53,10 +53,7 @@ class SchemaDia extends SchemaPlugin
             __('Orientation'),
         );
         $leaf->setValues(
-            [
-                'L' => __('Landscape'),
-                'P' => __('Portrait'),
-            ],
+            ['L' => __('Landscape'), 'P' => __('Portrait')],
         );
         $specificOptions->addProperty($leaf);
 

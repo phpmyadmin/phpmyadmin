@@ -53,7 +53,7 @@ class CentralColumnsController extends AbstractController
         }
 
         if ($request->hasBodyParam('add_new_column')) {
-            $tmp_msg = $this->addNewColumn([
+            $tmpMsg = $this->addNewColumn([
                 'col_name' => $request->getParsedBodyParam('col_name'),
                 'col_default' => $request->getParsedBodyParam('col_default'),
                 'col_default_sel' => $request->getParsedBodyParam('col_default_sel'),
@@ -75,7 +75,7 @@ class CentralColumnsController extends AbstractController
         }
 
         if ($request->hasBodyParam('add_column')) {
-            $tmp_msg = $this->addColumn([
+            $tmpMsg = $this->addColumn([
                 'table-select' => $request->getParsedBodyParam('table-select'),
                 'column-select' => $request->getParsedBodyParam('column-select'),
             ]);
@@ -117,7 +117,7 @@ class CentralColumnsController extends AbstractController
         }
 
         if ($request->hasBodyParam('delete_save')) {
-            $tmp_msg = $this->deleteSave([
+            $tmpMsg = $this->deleteSave([
                 'db' => $request->getParsedBodyParam('db'),
                 'col_name' => $request->getParsedBodyParam('col_name'),
             ]);
@@ -141,11 +141,11 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['message'] = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols']),
         );
-        if (! isset($tmp_msg) || $tmp_msg === true) {
+        if (! isset($tmpMsg) || $tmpMsg === true) {
             return;
         }
 
-        $GLOBALS['message'] = $tmp_msg;
+        $GLOBALS['message'] = $tmpMsg;
     }
 
     /** @param array $params Request parameters */

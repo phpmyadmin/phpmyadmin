@@ -103,7 +103,7 @@ class SearchController extends AbstractController
         // Gets the list and number of columns
         $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
         // Get details about the geometry functions
-        $geom_types = Gis::getDataTypes();
+        $geomTypes = Gis::getDataTypes();
 
         foreach ($columns as $row) {
             // set column name
@@ -113,7 +113,7 @@ class SearchController extends AbstractController
             // before any replacement
             $this->originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
-            if (in_array($type, $geom_types)) {
+            if (in_array($type, $geomTypes)) {
                 $this->geomColumnFlag = true;
             }
 
@@ -194,26 +194,26 @@ class SearchController extends AbstractController
             return;
         }
 
-        $extra_data = [];
-        $row_info_query = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
+        $extraData = [];
+        $rowInfoQuery = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
             . Util::backquote($_POST['table']) . ' WHERE ' . $_POST['where_clause'];
-        $result = $this->dbi->query($row_info_query . ';');
-        $fields_meta = $this->dbi->getFieldsMeta($result);
+        $result = $this->dbi->query($rowInfoQuery . ';');
+        $fieldsMeta = $this->dbi->getFieldsMeta($result);
         while ($row = $result->fetchAssoc()) {
             // for bit fields we need to convert them to printable form
             $i = 0;
             foreach ($row as $col => $val) {
-                if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, $fields_meta[$i]->length);
+                if (isset($fieldsMeta[$i]) && $fieldsMeta[$i]->isMappedTypeBit) {
+                    $row[$col] = Util::printableBitValue((int) $val, $fieldsMeta[$i]->length);
                 }
 
                 $i++;
             }
 
-            $extra_data['row_info'] = $row;
+            $extraData['row_info'] = $row;
         }
 
-        $this->response->addJSON($extra_data);
+        $this->response->addJSON($extraData);
     }
 
     /**
@@ -224,7 +224,7 @@ class SearchController extends AbstractController
         /**
          * Selection criteria have been submitted -> do the work
          */
-        $sql_query = $this->search->buildSqlQuery();
+        $sqlQuery = $this->search->buildSqlQuery();
 
         /**
          * Add this to ensure following procedures included running correctly.
@@ -251,7 +251,7 @@ class SearchController extends AbstractController
             $GLOBALS['goto'], // goto
             null, // disp_query
             null, // disp_message
-            $sql_query, // sql_query
+            $sqlQuery, // sql_query
             null, // complete_query
         ));
     }
@@ -284,8 +284,8 @@ class SearchController extends AbstractController
      */
     public function rangeSearchAction(): void
     {
-        $min_max = $this->getColumnMinMax($_POST['column']);
-        $this->response->addJSON('column_data', $min_max);
+        $minMax = $this->getColumnMinMax($_POST['column']);
+        $this->response->addJSON('column_data', $minMax);
     }
 
     /**
@@ -295,45 +295,45 @@ class SearchController extends AbstractController
      */
     public function getColumnMinMax(string $column): array|null
     {
-        $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
+        $sqlQuery = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
             . 'FROM ' . Util::backquote($GLOBALS['db']) . '.'
             . Util::backquote($GLOBALS['table']);
 
-        return $this->dbi->fetchSingleRow($sql_query);
+        return $this->dbi->fetchSingleRow($sqlQuery);
     }
 
     /**
      * Provides a column's type, collation, operators list, and criteria value
      * to display in table search form
      *
-     * @param int $search_index Row number in table search form
-     * @param int $column_index Column index in ColumnNames array
+     * @param int $searchIndex Row number in table search form
+     * @param int $columnIndex Column index in ColumnNames array
      *
      * @return array Array containing column's properties
      */
-    public function getColumnProperties(int $search_index, int $column_index): array
+    public function getColumnProperties(int $searchIndex, int $columnIndex): array
     {
-        $selected_operator = ($_POST['criteriaColumnOperators'][$search_index] ?? '');
-        $entered_value = ($_POST['criteriaValues'] ?? '');
+        $selectedOperator = ($_POST['criteriaColumnOperators'][$searchIndex] ?? '');
+        $enteredValue = ($_POST['criteriaValues'] ?? '');
         //Gets column's type and collation
-        $type = $this->columnTypes[$column_index];
-        $collation = $this->columnCollations[$column_index];
+        $type = $this->columnTypes[$columnIndex];
+        $collation = $this->columnCollations[$columnIndex];
         $cleanType = preg_replace('@\(.*@s', '', $type);
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
             $cleanType,
-            $this->columnNullFlags[$column_index],
-            $selected_operator,
+            $this->columnNullFlags[$columnIndex],
+            $selectedOperator,
         );
         $func = $this->template->render('table/search/column_comparison_operators', [
-            'search_index' => $search_index,
+            'search_index' => $searchIndex,
             'type_operators' => $typeOperators,
         ]);
         //Gets link to browse foreign data(if any) and criteria inputbox
         $foreignData = $this->relation->getForeignData(
             $this->foreigners,
-            $this->columnNames[$column_index],
+            $this->columnNames[$columnIndex],
             false,
             '',
             '',
@@ -342,21 +342,21 @@ class SearchController extends AbstractController
         $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
         $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes());
         if ($isInteger) {
-            $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
-            $is_unsigned = $extractedColumnspec['unsigned'];
-            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
+            $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$columnIndex]);
+            $isUnsigned = $extractedColumnspec['unsigned'];
+            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $isUnsigned);
             $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
                             . 'data-max="' . $minMaxValues[1] . '"';
         }
 
         $htmlAttributes .= ' onfocus="return '
-                        . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#tbl_search_form\')"';
+                        . 'verifyAfterSearchFieldChange(' . $searchIndex . ', \'#tbl_search_form\')"';
 
         $foreignDropdown = '';
 
         $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
             $this->foreigners,
-            $this->columnNames[$column_index],
+            $this->columnNames[$columnIndex],
         );
 
         if (
@@ -381,12 +381,12 @@ class SearchController extends AbstractController
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
             'foreigners' => $this->foreigners,
-            'column_name' => $this->columnNames[$column_index],
-            'column_name_hash' => md5($this->columnNames[$column_index]),
+            'column_name' => $this->columnNames[$columnIndex],
+            'column_name_hash' => md5($this->columnNames[$columnIndex]),
             'foreign_data' => $foreignData,
             'table' => $GLOBALS['table'],
-            'column_index' => $search_index,
-            'criteria_values' => $entered_value,
+            'column_index' => $searchIndex,
+            'criteria_values' => $enteredValue,
             'db' => $GLOBALS['db'],
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
@@ -395,11 +395,6 @@ class SearchController extends AbstractController
             'is_float' => $isFloat,
         ]);
 
-        return [
-            'type' => $type,
-            'collation' => $collation,
-            'func' => $func,
-            'value' => $value,
-        ];
+        return ['type' => $type, 'collation' => $collation, 'func' => $func, 'value' => $value];
     }
 }

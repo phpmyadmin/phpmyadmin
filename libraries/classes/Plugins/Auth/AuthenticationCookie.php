@@ -75,8 +75,8 @@ class AuthenticationCookie extends AuthenticationPlugin
          * new token explicitly with the response to update the token
          * in all the forms having a hidden token.
          */
-        $session_expired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
-        if (! $session_expired && $response->loginPage()) {
+        $sessionExpired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
+        if (! $sessionExpired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
             }
@@ -89,7 +89,7 @@ class AuthenticationCookie extends AuthenticationPlugin
          * new token explicitly with the response to update the token
          * in all the forms having a hidden token.
          */
-        if ($session_expired) {
+        if ($sessionExpired) {
             $response->setRequestStatus(false);
             $response->addJSON('new_token', $_SESSION[' PMA_token ']);
         }
@@ -105,26 +105,23 @@ class AuthenticationCookie extends AuthenticationPlugin
         // No recall if blowfish secret is not configured as it would produce
         // garbage
         if ($GLOBALS['cfg']['LoginCookieRecall'] && ! empty($GLOBALS['cfg']['blowfish_secret'])) {
-            $default_user = $this->user;
-            $default_server = $GLOBALS['pma_auth_server'];
+            $defaultUser = $this->user;
+            $defaultServer = $GLOBALS['pma_auth_server'];
             $hasAutocomplete = true;
         } else {
-            $default_user = '';
-            $default_server = '';
+            $defaultUser = '';
+            $defaultServer = '';
             $hasAutocomplete = false;
         }
 
         // wrap the login form in a div which overlays the whole page.
-        if ($session_expired) {
+        if ($sessionExpired) {
             $loginHeader = $this->template->render('login/header', [
                 'add_class' => ' modal_form',
                 'session_expired' => 1,
             ]);
         } else {
-            $loginHeader = $this->template->render('login/header', [
-                'add_class' => '',
-                'session_expired' => 0,
-            ]);
+            $loginHeader = $this->template->render('login/header', ['add_class' => '', 'session_expired' => 0]);
         }
 
         $errorMessages = '';
@@ -149,15 +146,15 @@ class AuthenticationCookie extends AuthenticationPlugin
             $serversOptions = Select::render(false, false);
         }
 
-        $_form_params = [];
-        $_form_params['route'] = Common::getRequest()->getRoute();
+        $formParams = [];
+        $formParams['route'] = Common::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db'])) {
-            $_form_params['db'] = $GLOBALS['db'];
+            $formParams['db'] = $GLOBALS['db'];
         }
 
         if (strlen($GLOBALS['table'])) {
-            $_form_params['table'] = $GLOBALS['table'];
+            $formParams['table'] = $GLOBALS['table'];
         }
 
         $errors = '';
@@ -166,7 +163,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // close the wrapping div tag, if the request is after session timeout
-        if ($session_expired) {
+        if ($sessionExpired) {
             $loginFooter = $this->template->render('login/footer', ['session_expired' => 1]);
         } else {
             $loginFooter = $this->template->render('login/footer', ['session_expired' => 0]);
@@ -179,12 +176,12 @@ class AuthenticationCookie extends AuthenticationPlugin
             'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
             'error_messages' => $errorMessages,
             'available_languages' => $availableLanguages,
-            'is_session_expired' => $session_expired,
+            'is_session_expired' => $sessionExpired,
             'has_autocomplete' => $hasAutocomplete,
             'session_id' => session_id(),
             'is_arbitrary_server_allowed' => $GLOBALS['cfg']['AllowArbitraryServer'],
-            'default_server' => $default_server,
-            'default_user' => $default_user,
+            'default_server' => $defaultServer,
+            'default_user' => $defaultUser,
             'has_servers' => $hasServers,
             'server_options' => $serversOptions,
             'server' => $GLOBALS['server'],
@@ -199,7 +196,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'captcha_req' => $GLOBALS['cfg']['CaptchaRequestParam'],
             'captcha_resp' => $GLOBALS['cfg']['CaptchaResponseParam'],
             'captcha_key' => $GLOBALS['cfg']['CaptchaLoginPublicKey'],
-            'form_params' => $_form_params,
+            'form_params' => $formParams,
             'errors' => $errors,
             'login_footer' => $loginFooter,
             'config_footer' => $configFooter,
@@ -313,12 +310,12 @@ class AuthenticationCookie extends AuthenticationPlugin
                 if ($GLOBALS['cfg']['ArbitraryServerRegexp']) {
                     $parts = explode(' ', $_REQUEST['pma_servername']);
                     if (count($parts) === 2) {
-                        $tmp_host = $parts[0];
+                        $tmpHost = $parts[0];
                     } else {
-                        $tmp_host = $_REQUEST['pma_servername'];
+                        $tmpHost = $_REQUEST['pma_servername'];
                     }
 
-                    $match = preg_match($GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host);
+                    $match = preg_match($GLOBALS['cfg']['ArbitraryServerRegexp'], $tmpHost);
                     if (! $match) {
                         $GLOBALS['conn_error'] = __('You are not allowed to log in to this MySQL server!');
 
@@ -370,9 +367,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // User inactive too long
-        $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
+        $lastAccessTime = time() - $GLOBALS['cfg']['LoginCookieValidity'];
         foreach ($_SESSION['browser_access_time'] as $key => $value) {
-            if ($value >= $last_access_time) {
+            if ($value >= $lastAccessTime) {
                 continue;
             }
 
@@ -414,15 +411,15 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        $auth_data = json_decode($value, true);
+        $authData = json_decode($value, true);
 
-        if (! is_array($auth_data) || ! isset($auth_data['password'])) {
+        if (! is_array($authData) || ! isset($authData['password'])) {
             return false;
         }
 
-        $this->password = $auth_data['password'];
-        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($auth_data['server'])) {
-            $GLOBALS['pma_auth_server'] = $auth_data['server'];
+        $this->password = $authData['password'];
+        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($authData['server'])) {
+            $GLOBALS['pma_auth_server'] = $authData['server'];
         }
 
         $GLOBALS['from_cookie'] = true;
@@ -441,21 +438,21 @@ class AuthenticationCookie extends AuthenticationPlugin
             /* Allow to specify 'host port' */
             $parts = explode(' ', $GLOBALS['pma_auth_server']);
             if (count($parts) === 2) {
-                $tmp_host = $parts[0];
-                $tmp_port = $parts[1];
+                $tmpHost = $parts[0];
+                $tmpPort = $parts[1];
             } else {
-                $tmp_host = $GLOBALS['pma_auth_server'];
-                $tmp_port = '';
+                $tmpHost = $GLOBALS['pma_auth_server'];
+                $tmpPort = '';
             }
 
             if ($GLOBALS['cfg']['Server']['host'] != $GLOBALS['pma_auth_server']) {
-                $GLOBALS['cfg']['Server']['host'] = $tmp_host;
-                if (! empty($tmp_port)) {
-                    $GLOBALS['cfg']['Server']['port'] = $tmp_port;
+                $GLOBALS['cfg']['Server']['host'] = $tmpHost;
+                if (! empty($tmpPort)) {
+                    $GLOBALS['cfg']['Server']['port'] = $tmpPort;
                 }
             }
 
-            unset($tmp_host, $tmp_port, $parts);
+            unset($tmpHost, $tmpPort, $parts);
         }
 
         return parent::storeCredentials();
@@ -478,15 +475,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // any parameters to pass?
-        $url_params = [];
-        $url_params['route'] = Common::getRequest()->getRoute();
+        $urlParams = [];
+        $urlParams['route'] = Common::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db']) > 0) {
-            $url_params['db'] = $GLOBALS['db'];
+            $urlParams['db'] = $GLOBALS['db'];
         }
 
         if (strlen($GLOBALS['table']) > 0) {
-            $url_params['table'] = $GLOBALS['table'];
+            $urlParams['table'] = $GLOBALS['table'];
         }
 
         // user logged in successfully after session expiration
@@ -517,7 +514,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         ResponseRenderer::getInstance()->disable();
 
         Core::sendHeaderLocation(
-            './index.php?route=/' . Url::getCommonRaw($url_params, '&'),
+            './index.php?route=/' . Url::getCommonRaw($urlParams, '&'),
             true,
         );
 

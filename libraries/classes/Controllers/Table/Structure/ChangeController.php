@@ -58,7 +58,7 @@ final class ChangeController extends AbstractController
         $GLOBALS['num_fields'] ??= null;
 
         /** @todo optimize in case of multiple fields to modify */
-        $fields_meta = [];
+        $fieldsMeta = [];
         foreach ($selected as $column) {
             $value = $this->dbi->getColumn($GLOBALS['db'], $GLOBALS['table'], $column, true);
             if ($value === []) {
@@ -68,11 +68,11 @@ final class ChangeController extends AbstractController
                 $message->addParam($column);
                 $this->response->addHTML($message->getDisplay());
             } else {
-                $fields_meta[] = $value;
+                $fieldsMeta[] = $value;
             }
         }
 
-        $GLOBALS['num_fields'] = count($fields_meta);
+        $GLOBALS['num_fields'] = count($fieldsMeta);
 
         /**
          * Form for changing properties.
@@ -89,7 +89,7 @@ final class ChangeController extends AbstractController
             $GLOBALS['num_fields'],
             null,
             $selected,
-            $fields_meta,
+            $fieldsMeta,
         );
 
         $this->render('columns_definitions/column_definitions_form', $templateData);

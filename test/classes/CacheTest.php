@@ -19,18 +19,9 @@ class CacheTest extends AbstractTestCase
     public static function dataProviderCacheKeyValues(): array
     {
         return [
-            'normal key and false value' => [
-                'mykey',
-                false,
-            ],
-            'normal key and null value' => [
-                'mykey',
-                null,
-            ],
-            'normal key and object value' => [
-                'mykey',
-                new stdClass(),
-            ],
+            'normal key and false value' => ['mykey', false],
+            'normal key and null value' => ['mykey', null],
+            'normal key and object value' => ['mykey', new stdClass()],
         ];
     }
 

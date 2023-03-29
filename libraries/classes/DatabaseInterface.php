@@ -20,6 +20,7 @@ use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
 
@@ -366,6 +367,16 @@ class DatabaseInterface implements DbalInterface
         }
 
         $tables = [];
+        $pagingApplied = false;
+
+        if ($limitCount && is_array($table) && $sortBy === 'Name') {
+            if ($sortOrder === 'DESC') {
+                $table = array_reverse($table);
+            }
+
+            $table = array_slice($table, $limitOffset, $limitCount);
+            $pagingApplied = true;
+        }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sqlWhereTable = '';
@@ -397,17 +408,14 @@ class DatabaseInterface implements DbalInterface
             // Sort the tables
             $sql .= ' ORDER BY ' . $sortBy . ' ' . $sortOrder;
 
-            if ($limitCount) {
+            if ($limitCount && ! $pagingApplied) {
                 $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
             }
 
-            /** @var array<string, array<string, array<string, mixed>>> $tables */
+            /** @var mixed[][][] $tables */
             $tables = $this->fetchResult(
                 $sql,
-                [
-                    'TABLE_SCHEMA',
-                    'TABLE_NAME',
-                ],
+                ['TABLE_SCHEMA', 'TABLE_NAME'],
                 null,
                 $connectionType,
             );
@@ -427,7 +435,7 @@ class DatabaseInterface implements DbalInterface
                     [
                         $tables[$oneDatabaseName][$oneTableName]['Data_length'],
                         $tables[$oneDatabaseName][$oneTableName]['Index_length'],
-                    ] = StorageEngine::getMroongaLengths($oneDatabaseName, $oneTableName);
+                    ] = StorageEngine::getMroongaLengths((string) $oneDatabaseName, (string) $oneTableName);
                 }
             }
 
@@ -466,6 +474,15 @@ class DatabaseInterface implements DbalInterface
                     $tables[$oneDatabaseName] = $oneDatabaseTables;
                 }
             }
+
+            // on windows with lower_case_table_names = 1
+            // MySQL returns
+            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
+            // but information_schema.TABLES gives `test`
+            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
+            $tables = $tables[$database]
+                ?? $tables[mb_strtolower($database)]
+                ?? [];
         }
 
         // If permissions are wrong on even one database directory,
@@ -473,10 +490,10 @@ class DatabaseInterface implements DbalInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if ($tables === []) {
             $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database);
-            if ($table || ($tableIsGroup === true) || $tableType) {
+            if (($table !== '' && $table !== []) || ($tableIsGroup === true) || $tableType) {
                 $sql .= ' WHERE';
                 $needAnd = false;
-                if ($table || ($tableIsGroup === true)) {
+                if (($table !== '' && $table !== []) || ($tableIsGroup === true)) {
                     if (is_array($table)) {
                         $sql .= ' `Name` IN ('
                             . implode(
@@ -523,7 +540,7 @@ class DatabaseInterface implements DbalInterface
                 [
                     $eachTables[$tableName]['Data_length'],
                     $eachTables[$tableName]['Index_length'],
-                ] = StorageEngine::getMroongaLengths($database, $tableName);
+                ] = StorageEngine::getMroongaLengths($database, (string) $tableName);
             }
 
             // Sort naturally if the config allows it and we're sorting
@@ -565,28 +582,16 @@ class DatabaseInterface implements DbalInterface
                 unset($sortValues);
             }
 
-            if ($limitCount) {
-                $eachTables = array_slice($eachTables, $limitOffset, $limitCount);
+            if ($limitCount && ! $pagingApplied) {
+                $eachTables = array_slice($eachTables, $limitOffset, $limitCount, true);
             }
 
-            $tables[$database] = Compatibility::getISCompatForGetTablesFull($eachTables, $database);
+            $tables = Compatibility::getISCompatForGetTablesFull($eachTables, $database);
         }
 
-        // cache table data
-        // so Table does not require to issue SHOW TABLE STATUS again
-        $this->cache->cacheTableData($tables, $table);
-
-        if (isset($tables[$database])) {
-            return $tables[$database];
-        }
-
-        if (isset($tables[mb_strtolower($database)])) {
-            // on windows with lower_case_table_names = 1
-            // MySQL returns
-            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
-            // but information_schema.TABLES gives `test`
-            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
-            return $tables[mb_strtolower($database)];
+        if ($tables !== []) {
+            // cache table data, so Table does not require to issue SHOW TABLE STATUS again
+            $this->cache->cacheTableData($database, $tables);
         }
 
         return $tables;
@@ -865,7 +870,7 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array<string, array> array indexed by column names
+     * @return array[] array indexed by column names
      */
     public function getColumns(
         string $database,
@@ -873,13 +878,8 @@ class DatabaseInterface implements DbalInterface
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
     ): array {
-        $sql = QueryGenerator::getColumnsSql(
-            $database,
-            $table,
-            null,
-            $full,
-        );
-        /** @var array<string, array> $fields */
+        $sql = QueryGenerator::getColumnsSql($database, $table, null, $full);
+        /** @var array[] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
         return $this->attachIndexInfoToColumns($database, $table, $fields);
@@ -888,11 +888,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Attach index information to the column definition
      *
-     * @param string               $database name of database
-     * @param string               $table    name of table to retrieve columns from
-     * @param array<string, array> $fields   column array indexed by their names
+     * @param string  $database name of database
+     * @param string  $table    name of table to retrieve columns from
+     * @param array[] $fields   column array indexed by their names
      *
-     * @return array<string, array> Column defintions with index information
+     * @return array[] Column defintions with index information
      */
     private function attachIndexInfoToColumns(
         string $database,
@@ -911,7 +911,7 @@ class DatabaseInterface implements DbalInterface
             }
 
             foreach ($indexes as $index) {
-                if (! $index->hasColumn($field)) {
+                if (! $index->hasColumn((string) $field)) {
                     continue;
                 }
 

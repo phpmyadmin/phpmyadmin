@@ -38,10 +38,7 @@ class TwoFactorTest extends AbstractTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = 'table';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['DBG'] = [
-            'simple2fa' => false,
-            'sql' => false,
-        ];
+        $GLOBALS['cfg']['DBG'] = ['simple2fa' => false, 'sql' => false];
         $GLOBALS['cfg']['NaturalOrder'] = true;
         $this->initStorageConfigAndData();
     }
@@ -98,9 +95,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [
-                ['NULL'],
-            ],
+            [['NULL']],
             ['NULL'],
         );
     }
@@ -131,19 +126,14 @@ class TwoFactorTest extends AbstractTestCase
     {
         $this->dummyDbi->addResult(
             'SELECT `username` FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = \'groot\'',
-            [
-                ['groot'],
-            ],
+            [['groot']],
             ['username'],
         );
 
         $jsonData = (string) json_encode([
             'Console\\\\\\/Mode' => 'collapse',
             'lang' => 'fr',
-            '2fa' => [
-                'backend' => $backend,
-                'settings' => $backendSettings,
-            ],
+            '2fa' => ['backend' => $backend, 'settings' => $backendSettings],
         ], JSON_UNESCAPED_SLASHES);
         $jsonData = str_replace('"', '\"', $jsonData);
 
@@ -160,14 +150,7 @@ class TwoFactorTest extends AbstractTestCase
             'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = \'groot\'',
             $config === null ? [] : [
-                [
-                    (string) json_encode([
-                        'Console\/Mode' => 'collapse',
-                        'lang' => 'fr',
-                        '2fa' => $config,
-                    ]),
-                    '1628632378',
-                ],
+                [(string) json_encode(['Console\/Mode' => 'collapse', 'lang' => 'fr', '2fa' => $config]), '1628632378'],
             ],
             ['config_data', 'ts'],
         );
@@ -287,9 +270,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->dummyDbi->assertAllQueriesConsumed();
         $this->loadResultForConfig([]);
-        $this->loadQueriesForConfigure('application', [
-            'secret' => $object->config['settings']['secret'],
-        ]);
+        $this->loadQueriesForConfigure('application', ['secret' => $object->config['settings']['secret']]);
 
         $this->assertTrue($object->configure('application'));
 

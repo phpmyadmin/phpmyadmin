@@ -73,22 +73,10 @@ class SanitizeTest extends AbstractTestCase
     public static function docLinks(): array
     {
         return [
-            [
-                'foo',
-                'setup.html%23foo',
-            ],
-            [
-                'cfg_TitleTable',
-                'config.html%23cfg_TitleTable',
-            ],
-            [
-                'faq3-11',
-                'faq.html%23faq3-11',
-            ],
-            [
-                'bookmarks@',
-                'bookmarks.html',
-            ],
+            ['foo', 'setup.html%23foo'],
+            ['cfg_TitleTable', 'config.html%23cfg_TitleTable'],
+            ['faq3-11', 'faq.html%23faq3-11'],
+            ['bookmarks@', 'bookmarks.html'],
         ];
     }
 
@@ -194,55 +182,15 @@ class SanitizeTest extends AbstractTestCase
     public static function variables(): array
     {
         return [
-            [
-                'foo',
-                true,
-                "foo = true;\n",
-            ],
-            [
-                'foo',
-                false,
-                "foo = false;\n",
-            ],
-            [
-                'foo',
-                100,
-                "foo = 100;\n",
-            ],
-            [
-                'foo',
-                0,
-                "foo = 0;\n",
-            ],
-            [
-                'foo',
-                'text',
-                "foo = \"text\";\n",
-            ],
-            [
-                'foo',
-                'quote"',
-                "foo = \"quote\\\"\";\n",
-            ],
-            [
-                'foo',
-                'apostroph\'',
-                "foo = \"apostroph'\";\n",
-            ],
-            [
-                'foo',
-                [
-                    '1',
-                    '2',
-                    '3',
-                ],
-                "foo = [\"1\",\"2\",\"3\"];\n",
-            ],
-            [
-                'foo',
-                'bar"baz',
-                "foo = \"bar\\\"baz\";\n",
-            ],
+            ['foo', true, "foo = true;\n"],
+            ['foo', false, "foo = false;\n"],
+            ['foo', 100, "foo = 100;\n"],
+            ['foo', 0, "foo = 0;\n"],
+            ['foo', 'text', "foo = \"text\";\n"],
+            ['foo', 'quote"', "foo = \"quote\\\"\";\n"],
+            ['foo', 'apostroph\'', "foo = \"apostroph'\";\n"],
+            ['foo', ['1', '2', '3'], "foo = [\"1\",\"2\",\"3\"];\n"],
+            ['foo', 'bar"baz', "foo = \"bar\\\"baz\";\n"],
         ];
     }
 
@@ -255,11 +203,8 @@ class SanitizeTest extends AbstractTestCase
         $_REQUEST['foo'] = 'bar';
         $_REQUEST['allow'] = 'all';
         $_REQUEST['second'] = 1;
-        $allow_list = [
-            'allow',
-            'second',
-        ];
-        Sanitize::removeRequestVars($allow_list);
+        $allowList = ['allow', 'second'];
+        Sanitize::removeRequestVars($allowList);
         $this->assertArrayNotHasKey('foo', $_REQUEST);
         $this->assertArrayNotHasKey('second', $_REQUEST);
         $this->assertArrayHasKey('allow', $_REQUEST);
@@ -277,102 +222,22 @@ class SanitizeTest extends AbstractTestCase
         // Allow http links
         // Allow other links
         return [
-            [
-                false,
-                'foo',
-                false,
-                false,
-            ],
-            [
-                true,
-                './doc/html/',
-                false,
-                false,
-            ],
-            [
-                false,
-                'index.php',
-                false,
-                false,
-            ],
-            [
-                false,
-                './index.php',
-                false,
-                false,
-            ],
-            [
-                true,
-                './index.php?',
-                false,
-                false,
-            ],
-            [
-                true,
-                './index.php?route=/server/sql',
-                false,
-                false,
-            ],
-            [
-                false,
-                'index.php?route=/server/sql',
-                false,
-                false,
-            ],
-            [
-                false,
-                'ftp://ftp.example.com',
-                false,
-                false,
-            ],
-            [
-                true,
-                'ftp://ftp.example.com',
-                false,
-                true,
-            ],
-            [
-                false,
-                'mailto:admin@domain.tld',
-                false,
-                false,
-            ],
-            [
-                true,
-                'mailto:admin@domain.tld',
-                false,
-                true,
-            ],
-            [
-                false,
-                'index.php?route=/url&url=https://example.com',
-                false,
-                false,
-            ],
-            [
-                true,
-                'index.php?route=/url&url=https%3a%2f%2fexample.com',
-                false,
-                false,
-            ],
-            [
-                true,
-                'https://example.com',
-                false,
-                false,
-            ],
-            [
-                false,
-                'http://example.com',
-                false,
-                false,
-            ],
-            [
-                true,
-                'http://example.com',
-                true,
-                false,
-            ],
+            [false, 'foo', false, false],
+            [true, './doc/html/', false, false],
+            [false, 'index.php', false, false],
+            [false, './index.php', false, false],
+            [true, './index.php?', false, false],
+            [true, './index.php?route=/server/sql', false, false],
+            [false, 'index.php?route=/server/sql', false, false],
+            [false, 'ftp://ftp.example.com', false, false],
+            [true, 'ftp://ftp.example.com', false, true],
+            [false, 'mailto:admin@domain.tld', false, false],
+            [true, 'mailto:admin@domain.tld', false, true],
+            [false, 'index.php?route=/url&url=https://example.com', false, false],
+            [true, 'index.php?route=/url&url=https%3a%2f%2fexample.com', false, false],
+            [true, 'https://example.com', false, false],
+            [false, 'http://example.com', false, false],
+            [true, 'http://example.com', true, false],
         ];
     }
 

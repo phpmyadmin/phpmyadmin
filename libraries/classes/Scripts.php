@@ -53,11 +53,7 @@ class Scripts
         }
 
         $hasOnload = $this->hasOnloadEvent($filename);
-        $this->files[$hash] = [
-            'has_onload' => (int) $hasOnload,
-            'filename' => $filename,
-            'params' => $params,
-        ];
+        $this->files[$hash] = ['has_onload' => (int) $hasOnload, 'filename' => $filename, 'params' => $params];
     }
 
     /**
@@ -116,10 +112,7 @@ class Scripts
                 continue;
             }
 
-            $retval[] = [
-                'name' => $file['filename'],
-                'fire' => $file['has_onload'],
-            ];
+            $retval[] = ['name' => $file['filename'], 'fire' => $file['has_onload']];
         }
 
         return $retval;

@@ -13,6 +13,7 @@
   displayDetailsOnTestsThatTriggerNotices="true"
   displayDetailsOnTestsThatTriggerErrors="true"
   displayDetailsOnTestsThatTriggerDeprecations="false"
+  displayDetailsOnIncompleteTests="true"
   requireCoverageMetadata="true"
   beStrictAboutOutputDuringTests="true"
   colors="true"

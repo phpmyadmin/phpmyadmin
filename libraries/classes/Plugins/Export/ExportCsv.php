@@ -131,16 +131,8 @@ class ExportCsv extends ExportPlugin
                 $GLOBALS['csv_terminated'] = "\n";
             } else {
                 $GLOBALS['csv_terminated'] = str_replace(
-                    [
-                        '\\r',
-                        '\\n',
-                        '\\t',
-                    ],
-                    [
-                        "\015",
-                        "\012",
-                        "\011",
-                    ],
+                    ['\\r', '\\n', '\\t'],
+                    ["\015", "\012", "\011"],
                     $GLOBALS['csv_terminated'],
                 );
             }
@@ -214,9 +206,9 @@ class ExportCsv extends ExportPlugin
         $GLOBALS['csv_enclosed'] ??= null;
         $GLOBALS['csv_escaped'] ??= null;
 
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         /**
          * Gets the data from the database
@@ -224,35 +216,31 @@ class ExportCsv extends ExportPlugin
          * @var ResultInterface $result
          * @psalm-ignore-var
          */
-        $result = $GLOBALS['dbi']->query(
-            $sqlQuery,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns']) && $GLOBALS['csv_columns']) {
             $insertFields = [];
-            foreach ($result->getFieldNames() as $col_as) {
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                    $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            foreach ($result->getFieldNames() as $colAs) {
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
                 if ($GLOBALS['csv_enclosed'] == '') {
-                    $insertFields[] = $col_as;
+                    $insertFields[] = $colAs;
                 } else {
                     $insertFields[] = $GLOBALS['csv_enclosed']
                         . str_replace(
                             $GLOBALS['csv_enclosed'],
                             $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
-                            $col_as,
+                            $colAs,
                         )
                         . $GLOBALS['csv_enclosed'];
                 }
             }
 
-            $schema_insert = implode($GLOBALS['csv_separator'], $insertFields);
-            if (! $this->export->outputHandler($schema_insert . $GLOBALS['csv_terminated'])) {
+            $schemaInsert = implode($GLOBALS['csv_separator'], $insertFields);
+            if (! $this->export->outputHandler($schemaInsert . $GLOBALS['csv_terminated'])) {
                 return false;
             }
         }
@@ -274,10 +262,7 @@ class ExportCsv extends ExportPlugin
                         isset($GLOBALS[$GLOBALS['what'] . '_removeCRLF']) && $GLOBALS[$GLOBALS['what'] . '_removeCRLF']
                     ) {
                         $field = str_replace(
-                            [
-                                "\r",
-                                "\n",
-                            ],
+                            ["\r", "\n"],
                             '',
                             $field,
                         );
@@ -315,8 +300,8 @@ class ExportCsv extends ExportPlugin
                 }
             }
 
-            $schema_insert = implode($GLOBALS['csv_separator'], $insertValues);
-            if (! $this->export->outputHandler($schema_insert . $GLOBALS['csv_terminated'])) {
+            $schemaInsert = implode($GLOBALS['csv_separator'], $insertValues);
+            if (! $this->export->outputHandler($schemaInsert . $GLOBALS['csv_terminated'])) {
                 return false;
             }
         }

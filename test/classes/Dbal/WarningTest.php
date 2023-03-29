@@ -38,41 +38,11 @@ class WarningTest extends TestCase
                 'No database selected',
                 'Error: #1046 No database selected',
             ],
-            [
-                ['Level' => 'Warning', 'Code' => '0', 'Message' => ''],
-                'Warning',
-                0,
-                '',
-                'Warning: #0',
-            ],
-            [
-                ['Level' => 'Note', 'Code' => '1', 'Message' => 'Message'],
-                'Note',
-                1,
-                'Message',
-                'Note: #1 Message',
-            ],
-            [
-                ['Level' => 'Invalid', 'Code' => 'Invalid', 'Message' => 'Invalid'],
-                '?',
-                0,
-                'Invalid',
-                '?: #0 Invalid',
-            ],
-            [
-                ['Level' => 'Unknown', 'Code' => '-1', 'Message' => ''],
-                '?',
-                0,
-                '',
-                '?: #0',
-            ],
-            [
-                [],
-                '?',
-                0,
-                '',
-                '?: #0',
-            ],
+            [['Level' => 'Warning','Code' => '0','Message' => ''], 'Warning', 0, '', 'Warning: #0'],
+            [['Level' => 'Note','Code' => '1','Message' => 'Message'], 'Note', 1, 'Message', 'Note: #1 Message'],
+            [['Level' => 'Invalid','Code' => 'Invalid','Message' => 'Invalid'], '?', 0, 'Invalid', '?: #0 Invalid'],
+            [['Level' => 'Unknown','Code' => '-1','Message' => ''], '?', 0, '', '?: #0'],
+            [[], '?', 0, '', '?: #0'],
         ];
     }
 }

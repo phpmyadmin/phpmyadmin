@@ -41,7 +41,7 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
      */
-    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
+    public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         $GLOBALS['row'] ??= null;
         $GLOBALS['fields_meta'] ??= null;
@@ -69,10 +69,7 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
 
         $link = '<a href="' . Url::getFromRoute(
             '/transformation/wrapper',
-            array_merge($options['wrapper_params'], [
-                'ct' => 'application/octet-stream',
-                'cn' => $cn,
-            ]),
+            array_merge($options['wrapper_params'], ['ct' => 'application/octet-stream', 'cn' => $cn]),
         );
         $link .= '" title="' . htmlspecialchars($cn);
         $link .= '" class="disableAjax">' . htmlspecialchars($cn);

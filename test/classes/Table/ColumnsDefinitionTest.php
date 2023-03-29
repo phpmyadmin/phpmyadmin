@@ -230,73 +230,30 @@ SQL;
     {
         return [
             'when Default is null and Null is YES' => [
-                [
-                    'Default' => null,
-                    'Null' => 'YES',
-                ],
-                [
-                    'DefaultType' => 'NULL',
-                    'DefaultValue' => '',
-                ],
+                ['Default' => null, 'Null' => 'YES'],
+                ['DefaultType' => 'NULL', 'DefaultValue' => ''],
             ],
             'when Default is null and Null is NO' => [
-                [
-                    'Default' => null,
-                    'Null' => 'NO',
-                ],
-                [
-                    'DefaultType' => 'NONE',
-                    'DefaultValue' => '',
-                ],
+                ['Default' => null, 'Null' => 'NO'],
+                ['DefaultType' => 'NONE', 'DefaultValue' => ''],
             ],
             'when Default is CURRENT_TIMESTAMP' => [
                 ['Default' => 'CURRENT_TIMESTAMP'],
-                [
-                    'DefaultType' => 'CURRENT_TIMESTAMP',
-                    'DefaultValue' => '',
-                ],
+                ['DefaultType' => 'CURRENT_TIMESTAMP', 'DefaultValue' => ''],
             ],
             'when Default is current_timestamp' => [
                 ['Default' => 'current_timestamp()'],
-                [
-                    'DefaultType' => 'CURRENT_TIMESTAMP',
-                    'DefaultValue' => '',
-                ],
+                ['DefaultType' => 'CURRENT_TIMESTAMP', 'DefaultValue' => ''],
             ],
-            'when Default is UUID' => [
-                ['Default' => 'UUID'],
-                [
-                    'DefaultType' => 'UUID',
-                    'DefaultValue' => '',
-                ],
-            ],
-            'when Default is uuid()' => [
-                ['Default' => 'uuid()'],
-                [
-                    'DefaultType' => 'UUID',
-                    'DefaultValue' => '',
-                ],
-            ],
+            'when Default is UUID' => [['Default' => 'UUID'], ['DefaultType' => 'UUID', 'DefaultValue' => '']],
+            'when Default is uuid()' => [['Default' => 'uuid()'], ['DefaultType' => 'UUID', 'DefaultValue' => '']],
             'when Default is anything else and Type is text' => [
-                [
-                    'Default' => '"some\/thing"',
-                    'Type' => 'text',
-                ],
-                [
-                    'Default' => 'some/thing',
-                    'DefaultType' => 'USER_DEFINED',
-                    'DefaultValue' => '"some\/thing"',
-                ],
+                ['Default' => '"some\/thing"', 'Type' => 'text'],
+                ['Default' => 'some/thing', 'DefaultType' => 'USER_DEFINED', 'DefaultValue' => '"some\/thing"'],
             ],
             'when Default is anything else and Type is not text' => [
-                [
-                    'Default' => '"some\/thing"',
-                    'Type' => 'something',
-                ],
-                [
-                    'DefaultType' => 'USER_DEFINED',
-                    'DefaultValue' => '"some\/thing"',
-                ],
+                ['Default' => '"some\/thing"', 'Type' => 'something'],
+                ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => '"some\/thing"'],
             ],
         ];
     }

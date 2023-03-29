@@ -64,9 +64,6 @@ final class RebuildController extends AbstractController
             );
         }
 
-        $this->render('table/partition/rebuild', [
-            'partition_name' => $partitionName,
-            'message' => $message,
-        ]);
+        $this->render('table/partition/rebuild', ['partition_name' => $partitionName, 'message' => $message]);
     }
 }

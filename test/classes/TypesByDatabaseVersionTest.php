@@ -650,13 +650,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'BOOLEAN',
                         'SERIAL',
                     ],
-                    'Date and time' => [
-                        'DATE',
-                        'DATETIME',
-                        'TIMESTAMP',
-                        'TIME',
-                        'YEAR',
-                    ],
+                    'Date and time' => ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'],
                     'String' => [
                         'CHAR',
                         'VARCHAR',
@@ -713,13 +707,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'BOOLEAN',
                         'SERIAL',
                     ],
-                    'Date and time' => [
-                        'DATE',
-                        'DATETIME',
-                        'TIMESTAMP',
-                        'TIME',
-                        'YEAR',
-                    ],
+                    'Date and time' => ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'],
                     'String' => [
                         'CHAR',
                         'VARCHAR',
@@ -777,13 +765,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'BOOLEAN',
                         'SERIAL',
                     ],
-                    'Date and time' => [
-                        'DATE',
-                        'DATETIME',
-                        'TIMESTAMP',
-                        'TIME',
-                        'YEAR',
-                    ],
+                    'Date and time' => ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'],
                     'String' => [
                         'CHAR',
                         'VARCHAR',
@@ -840,13 +822,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'BOOLEAN',
                         'SERIAL',
                     ],
-                    'Date and time' => [
-                        'DATE',
-                        'DATETIME',
-                        'TIMESTAMP',
-                        'TIME',
-                        'YEAR',
-                    ],
+                    'Date and time' => ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'],
                     'String' => [
                         'CHAR',
                         'VARCHAR',
@@ -904,13 +880,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'BOOLEAN',
                         'SERIAL',
                     ],
-                    'Date and time' => [
-                        'DATE',
-                        'DATETIME',
-                        'TIMESTAMP',
-                        'TIME',
-                        'YEAR',
-                    ],
+                    'Date and time' => ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'],
                     'String' => [
                         'CHAR',
                         'VARCHAR',
@@ -971,13 +941,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'BOOLEAN',
                         'SERIAL',
                     ],
-                    'Date and time' => [
-                        'DATE',
-                        'DATETIME',
-                        'TIMESTAMP',
-                        'TIME',
-                        'YEAR',
-                    ],
+                    'Date and time' => ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'],
                     'String' => [
                         'CHAR',
                         'VARCHAR',

@@ -89,13 +89,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                'LoginCookieValidity',
-                'GZipDump',
-                'BZipDump',
-                'ZipDump_import',
-                'ZipDump_export',
-            ],
+            ['LoginCookieValidity', 'GZipDump', 'BZipDump', 'ZipDump_import', 'ZipDump_export'],
             array_keys($_SESSION['messages']['error']),
         );
     }
@@ -105,12 +99,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $_SESSION[$this->sessionID] = [];
         $_SESSION[$this->sessionID]['blowfish_secret'] = null;
         $_SESSION[$this->sessionID]['Servers'] = [
-            '1' => [
-                'host' => 'localhost',
-                'ssl' => true,
-                'auth_type' => 'cookie',
-                'AllowRoot' => false,
-            ],
+            '1' => ['host' => 'localhost', 'ssl' => true, 'auth_type' => 'cookie', 'AllowRoot' => false],
         ];
         $_SESSION[$this->sessionID]['AllowArbitraryServer'] = false;
         $_SESSION[$this->sessionID]['LoginCookieValidity'] = -1;
@@ -144,12 +133,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $_SESSION[$this->sessionID] = [];
         $_SESSION[$this->sessionID]['blowfish_secret'] = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES + 1);
         $_SESSION[$this->sessionID]['Servers'] = [
-            '1' => [
-                'host' => 'localhost',
-                'ssl' => true,
-                'auth_type' => 'cookie',
-                'AllowRoot' => false,
-            ],
+            '1' => ['host' => 'localhost', 'ssl' => true, 'auth_type' => 'cookie', 'AllowRoot' => false],
         ];
 
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);

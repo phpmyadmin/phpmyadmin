@@ -47,9 +47,9 @@ class FormListTest extends AbstractTestCase
         $this->assertTrue($class::isValid('Export'));
         $this->assertEquals($prefix, $class::get('Export'));
         foreach ($class::getAllFormNames() as $form) {
-            $form_class = $class::get($form);
-            $this->assertNotNull($form_class);
-            $this->assertNotNull($form_class::getName());
+            $formClass = $class::get($form);
+            $this->assertNotNull($formClass);
+            $this->assertNotNull($formClass::getName());
         }
 
         $this->assertContains('Export/texytext_columns', $class::getFields());

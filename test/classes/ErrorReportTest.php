@@ -69,10 +69,7 @@ class ErrorReportTest extends AbstractTestCase
         $actual = $this->errorReport->getData('php');
         $this->assertEquals([], $actual);
 
-        $_SESSION['prev_errors'] = [
-            new Error(0, 'error 0', 'file', 1),
-            new Error(1, 'error 1', 'file', 2),
-        ];
+        $_SESSION['prev_errors'] = [new Error(0, 'error 0', 'file', 1), new Error(1, 'error 1', 'file', 2)];
 
         $report = [
             'pma_version' => Version::VERSION,
@@ -286,13 +283,7 @@ class ErrorReportTest extends AbstractTestCase
     public static function urlsToSanitize(): array
     {
         return [
-            [
-                '',
-                [
-                    'index.php?',
-                    'index.php',
-                ],
-            ],
+            ['', ['index.php?', 'index.php']],
             [
                 'http://localhost/js/vendor/codemirror/addon/hint/show-hint.js?v=4.8.6-dev',
                 [
@@ -300,47 +291,17 @@ class ErrorReportTest extends AbstractTestCase
                     'js/vendor/codemirror/addon/hint/show-hint.js',
                 ],
             ],
-            [
-                'http://pma.7.3.local/tbl_sql.php?db=aaaaa&table=a&server=14',
-                [
-                    'tbl_sql.php?',
-                    'tbl_sql.php',
-                ],
-            ],
-            [
-                'http://pma.7.3.local/tbl_sql.php?db=aaaaa;table=a;server=14',
-                [
-                    'tbl_sql.php?',
-                    'tbl_sql.php',
-                ],
-            ],
-            [
-                'https://pma.7.3.local/tbl_sql.php?db=aaaaa;table=a;server=14',
-                [
-                    'tbl_sql.php?',
-                    'tbl_sql.php',
-                ],
-            ],
-            [
-                'https://pma.7.3.local/fileDotPhp.php?db=aaaaa;table=a;server=14',
-                [
-                    'fileDotPhp.php?',
-                    'fileDotPhp.php',
-                ],
-            ],
+            ['http://pma.7.3.local/tbl_sql.php?db=aaaaa&table=a&server=14', ['tbl_sql.php?', 'tbl_sql.php']],
+            ['http://pma.7.3.local/tbl_sql.php?db=aaaaa;table=a;server=14', ['tbl_sql.php?', 'tbl_sql.php']],
+            ['https://pma.7.3.local/tbl_sql.php?db=aaaaa;table=a;server=14', ['tbl_sql.php?', 'tbl_sql.php']],
+            ['https://pma.7.3.local/fileDotPhp.php?db=aaaaa;table=a;server=14', ['fileDotPhp.php?','fileDotPhp.php']],
             [
                 'https://pma.7.3.local/secretFolder/fileDotPhp.php?db=aaaaa;table=a;server=14',
-                [
-                    'fileDotPhp.php?',
-                    'fileDotPhp.php',
-                ],
+                ['fileDotPhp.php?', 'fileDotPhp.php'],
             ],
             [
                 'http://7.2.local/@williamdes/theREALphpMyAdminREPO/js/vendor/jquery/jquery-ui.min.js?v=5.0.0-dev',
-                [
-                    'js/vendor/jquery/jquery-ui.min.js?v=5.0.0-dev',
-                    'js/vendor/jquery/jquery-ui.min.js',
-                ],
+                ['js/vendor/jquery/jquery-ui.min.js?v=5.0.0-dev', 'js/vendor/jquery/jquery-ui.min.js'],
             ],
         ];
     }

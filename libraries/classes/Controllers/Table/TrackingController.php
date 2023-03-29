@@ -12,8 +12,9 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Tracking\Tracker;
+use PhpMyAdmin\Tracking\Tracking;
+use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
@@ -28,6 +29,7 @@ use function in_array;
 use function is_array;
 use function mb_strlen;
 use function sprintf;
+use function trim;
 
 final class TrackingController extends AbstractController
 {
@@ -35,6 +37,7 @@ final class TrackingController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Tracking $tracking,
+        private TrackingChecker $trackingChecker,
     ) {
         parent::__construct($response, $template);
     }
@@ -64,9 +67,11 @@ final class TrackingController extends AbstractController
         $toggleActivation = $request->getParsedBodyParam('toggle_activation');
         $reportExport = $request->getParsedBodyParam('report_export');
 
+        $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
         if (
             Tracker::isActive()
-            && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
+            && isset($trackedTables[$GLOBALS['table']])
+            && $trackedTables[$GLOBALS['table']]->active
             && $toggleActivation !== 'deactivate_now'
             && $reportExport !== 'sqldumpfile'
         ) {
@@ -100,11 +105,7 @@ final class TrackingController extends AbstractController
 
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
-            $trackedData = Tracker::getTrackedData(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-            );
+            $trackedData = Tracker::getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
                 $request->getParsedBodyParam('date_from', $trackedData['date_from']),
@@ -114,7 +115,7 @@ final class TrackingController extends AbstractController
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
 
-            $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
+            $GLOBALS['filter_users'] = array_map(trim(...), explode(',', $users));
         }
 
         $dateFrom ??= new DateTimeImmutable();
@@ -164,20 +165,12 @@ final class TrackingController extends AbstractController
 
         $deleteVersion = '';
         if ($request->hasBodyParam('submit_delete_version')) {
-            $deleteVersion = $this->tracking->deleteTrackingVersion(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-            );
+            $deleteVersion = $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
         }
 
         $createVersion = '';
         if ($request->hasBodyParam('submit_create_version')) {
-            $createVersion = $this->tracking->createTrackingVersion(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-            );
+            $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
         }
 
         $deactivateTracking = '';
@@ -209,7 +202,7 @@ final class TrackingController extends AbstractController
             $message = $GLOBALS['msg']->getDisplay();
         } elseif ($reportExport === 'sqldump') {
             $this->addScriptFiles(['sql.js']);
-            $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['db'], $GLOBALS['table'], $GLOBALS['entries']);
+            $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['entries']);
         }
 
         $schemaSnapshot = '';

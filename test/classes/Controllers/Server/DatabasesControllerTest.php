@@ -47,11 +47,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController(
-            $response,
-            $template,
-            $GLOBALS['dbi'],
-        );
+        $controller = new DatabasesController($response, $template, $GLOBALS['dbi']);
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -81,11 +77,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController(
-            $response,
-            $template,
-            $GLOBALS['dbi'],
-        );
+        $controller = new DatabasesController($response, $template, $GLOBALS['dbi']);
 
         $GLOBALS['cfg']['ShowCreateDb'] = true;
         $GLOBALS['is_create_db_priv'] = true;

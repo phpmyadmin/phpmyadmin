@@ -46,9 +46,7 @@ class BdbTest extends AbstractTestCase
         $this->assertEquals(
             $this->object->getVariables(),
             [
-                'version_bdb' => [
-                    'title' => __('Version information'),
-                ],
+                'version_bdb' => ['title' => __('Version information')],
                 'bdb_cache_size' => ['type' => 1],
                 'bdb_home' => [],
                 'bdb_log_buffer_size' => ['type' => 1],

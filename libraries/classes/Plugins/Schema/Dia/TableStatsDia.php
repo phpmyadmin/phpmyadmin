@@ -86,11 +86,7 @@ class TableStatsDia extends TableStats
     public function tableDraw(bool $showColor): void
     {
         if ($showColor) {
-            $listOfColors = [
-                'FF0000',
-                '000099',
-                '00FF00',
-            ];
+            $listOfColors = ['FF0000', '000099', '00FF00'];
             shuffle($listOfColors);
             $this->tableColor = '#' . $listOfColors[0];
         } else {

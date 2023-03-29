@@ -62,23 +62,13 @@ class SearchControllerTest extends AbstractTestCase
         $dbi->types = new Types($dbi);
 
         $columns = [
-            [
-                'Field' => 'Field1',
-                'Type' => 'Type1',
-                'Null' => 'Null1',
-                'Collation' => 'Collation1',
-            ],
-            [
-                'Field' => 'Field2',
-                'Type' => 'Type2',
-                'Null' => 'Null2',
-                'Collation' => 'Collation2',
-            ],
+            ['Field' => 'Field1', 'Type' => 'Type1', 'Null' => 'Null1', 'Collation' => 'Collation1'],
+            ['Field' => 'Field2', 'Type' => 'Type2', 'Null' => 'Null2', 'Collation' => 'Collation2'],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($columns));
 
-        $show_create_table = "CREATE TABLE `pma_bookmark` (
+        $showCreateTable = "CREATE TABLE `pma_bookmark` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
         `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -90,7 +80,7 @@ class SearchControllerTest extends AbstractTestCase
         . "COMMENT='Bookmarks'";
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($show_create_table));
+            ->will($this->returnValue($showCreateTable));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -153,16 +143,8 @@ class SearchControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addResult(
             'SELECT * FROM `PMA`.`PMA_BookMark` WHERE `col1` = 1;',
-            [
-                [
-                    1,
-                    2,
-                ],
-            ],
-            [
-                'col1',
-                'col2',
-            ],
+            [[1, 2]],
+            ['col1', 'col2'],
             [
                 new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
                 new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
@@ -179,10 +161,7 @@ class SearchControllerTest extends AbstractTestCase
         $_POST['table'] = 'PMA_BookMark';
         $_POST['where_clause'] = '`col1` = 1';
         $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
-        $expected = [
-            'col1' => 1,
-            'col2' => 2,
-        ];
+        $expected = ['col1' => 1, 'col2' => 2];
         $ctrl->getDataRowAction();
 
         $json = $this->getResponseJsonResult();

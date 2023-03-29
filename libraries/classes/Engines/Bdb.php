@@ -24,9 +24,7 @@ class Bdb extends StorageEngine
     public function getVariables(): array
     {
         return [
-            'version_bdb' => [
-                'title' => __('Version information'),
-            ],
+            'version_bdb' => ['title' => __('Version information')],
             'bdb_cache_size' => ['type' => StorageEngine::DETAILS_TYPE_SIZE],
             'bdb_home' => [],
             'bdb_log_buffer_size' => ['type' => StorageEngine::DETAILS_TYPE_SIZE],

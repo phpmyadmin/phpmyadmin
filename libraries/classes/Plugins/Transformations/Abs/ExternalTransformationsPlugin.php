@@ -77,13 +77,13 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
      */
-    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
+    public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         // possibly use a global transform and feed it with special options
 
         // further operations on $buffer using the $options[] array.
 
-        $allowed_programs = [];
+        $allowedPrograms = [];
 
         // WARNING:
         //
@@ -99,17 +99,17 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         //$allowed_programs[1] = '/usr/local/bin/validate';
 
         // no-op when no allowed programs
-        if (count($allowed_programs) === 0) {
+        if (count($allowedPrograms) === 0) {
             return $buffer;
         }
 
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['External']);
 
-        if (isset($allowed_programs[$options[0]])) {
-            $program = $allowed_programs[$options[0]];
+        if (isset($allowedPrograms[$options[0]])) {
+            $program = $allowedPrograms[$options[0]];
         } else {
-            $program = $allowed_programs[0];
+            $program = $allowedPrograms[0];
         }
 
         if (isset($options[1]) && strlen((string) $options[1]) > 0) {
@@ -125,16 +125,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         // needs PHP >= 4.3.0
         $newstring = '';
-        $descriptorspec = [
-            0 => [
-                'pipe',
-                'r',
-            ],
-            1 => [
-                'pipe',
-                'w',
-            ],
-        ];
+        $descriptorspec = [0 => ['pipe', 'r'], 1 => ['pipe', 'w']];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
         if (is_resource($process)) {
             fwrite($pipes[0], $buffer);

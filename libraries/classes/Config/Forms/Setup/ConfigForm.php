@@ -14,11 +14,6 @@ class ConfigForm extends BaseForm
     /** @return array */
     public static function getForms(): array
     {
-        return [
-            'Config' => [
-                'DefaultLang',
-                'ServerDefault',
-            ],
-        ];
+        return ['Config' => ['DefaultLang', 'ServerDefault']];
     }
 }

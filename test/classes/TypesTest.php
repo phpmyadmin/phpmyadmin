@@ -38,12 +38,7 @@ class TypesTest extends AbstractTestCase
     public function testGetUnaryOperators(): void
     {
         $this->assertEquals(
-            [
-                'IS NULL',
-                'IS NOT NULL',
-                "= ''",
-                "!= ''",
-            ],
+            ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"],
             $this->object->getUnaryOperators(),
         );
     }
@@ -54,10 +49,7 @@ class TypesTest extends AbstractTestCase
     public function testGetNullOperators(): void
     {
         $this->assertEquals(
-            [
-                'IS NULL',
-                'IS NOT NULL',
-            ],
+            ['IS NULL', 'IS NOT NULL'],
             $this->object->getNullOperators(),
         );
     }
@@ -68,10 +60,7 @@ class TypesTest extends AbstractTestCase
     public function testGetEnumOperators(): void
     {
         $this->assertEquals(
-            [
-                '=',
-                '!=',
-            ],
+            ['=', '!='],
             $this->object->getEnumOperators(),
         );
     }
@@ -135,16 +124,7 @@ class TypesTest extends AbstractTestCase
     public function testGetUUIDOperators(): void
     {
         $this->assertEquals(
-            [
-                '=',
-                '!=',
-                'LIKE',
-                'LIKE %...%',
-                'NOT LIKE',
-                'NOT LIKE %...%',
-                'IN (...)',
-                'NOT IN (...)',
-            ],
+            ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'],
             $this->object->getUUIDOperators(),
         );
     }
@@ -174,14 +154,7 @@ class TypesTest extends AbstractTestCase
     public static function providerForGetTypeOperators(): array
     {
         return [
-            [
-                'enum',
-                false,
-                [
-                    '=',
-                    '!=',
-                ],
-            ],
+            ['enum', false, ['=', '!=']],
             [
                 'CHAR',
                 true,
@@ -204,28 +177,12 @@ class TypesTest extends AbstractTestCase
                     'IS NULL',
                     'IS NOT NULL',
                 ],
-                [
-                    'int',
-                    false,
-                    [
-                        '=',
-                        '!=',
-                    ],
-                ],
+                ['int', false, ['=', '!=']],
             ],
             [
                 'UUID',
                 false,
-                [
-                    '=',
-                    '!=',
-                    'LIKE',
-                    'LIKE %...%',
-                    'NOT LIKE',
-                    'NOT LIKE %...%',
-                    'IN (...)',
-                    'NOT IN (...)',
-                ],
+                ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'],
             ],
             [
                 'UUID',
@@ -276,12 +233,7 @@ class TypesTest extends AbstractTestCase
     public static function providerForTestGetTypeOperatorsHtml(): array
     {
         return [
-            [
-                'enum',
-                false,
-                '=',
-                '<option value="=" selected="selected">=</option><option value="!=">!=</option>',
-            ],
+            ['enum', false, '=', '<option value="=" selected="selected">=</option><option value="!=">!=</option>'],
         ];
     }
 
@@ -524,10 +476,7 @@ class TypesTest extends AbstractTestCase
                     'YEARWEEK',
                 ],
             ],
-            [
-                'UNKNOWN',
-                [],
-            ],
+            ['UNKNOWN', []],
         ];
     }
 
@@ -714,13 +663,7 @@ class TypesTest extends AbstractTestCase
     public function testGetAttributes(): void
     {
         $this->assertEquals(
-            [
-                '',
-                'BINARY',
-                'UNSIGNED',
-                'UNSIGNED ZEROFILL',
-                'on update CURRENT_TIMESTAMP',
-            ],
+            ['', 'BINARY', 'UNSIGNED', 'UNSIGNED ZEROFILL', 'on update CURRENT_TIMESTAMP'],
             $this->object->getAttributes(),
         );
     }
@@ -752,13 +695,7 @@ class TypesTest extends AbstractTestCase
                     'BOOLEAN',
                     'SERIAL',
                 ],
-                'Date and time' => [
-                    'DATE',
-                    'DATETIME',
-                    'TIMESTAMP',
-                    'TIME',
-                    'YEAR',
-                ],
+                'Date and time' => ['DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR'],
                 'String' => [
                     'CHAR',
                     'VARCHAR',
@@ -817,34 +754,13 @@ class TypesTest extends AbstractTestCase
     public static function providerFortTestGetTypeClass(): array
     {
         return [
-            [
-                'SERIAL',
-                'NUMBER',
-            ],
-            [
-                'YEAR',
-                'DATE',
-            ],
-            [
-                'GEOMETRYCOLLECTION',
-                'SPATIAL',
-            ],
-            [
-                'SET',
-                'CHAR',
-            ],
-            [
-                'JSON',
-                'JSON',
-            ],
-            [
-                'UUID',
-                'UUID',
-            ],
-            [
-                'UNKNOWN',
-                '',
-            ],
+            ['SERIAL', 'NUMBER'],
+            ['YEAR', 'DATE'],
+            ['GEOMETRYCOLLECTION', 'SPATIAL'],
+            ['SET', 'CHAR'],
+            ['JSON', 'JSON'],
+            ['UUID', 'UUID'],
+            ['UNKNOWN', ''],
         ];
     }
 }

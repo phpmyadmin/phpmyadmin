@@ -109,7 +109,7 @@ class Pdf extends PdfLib
             $y = $this->y;
         }
 
-        $current_page = $this->page;
+        $currentPage = $this->page;
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         if ($y + $h > $this->PageBreakTrigger && ! $this->InFooter && $this->AcceptPageBreak()) {
             if ($addpage) {
@@ -120,19 +120,19 @@ class Pdf extends PdfLib
                 $this->y = $this->dataY;
                 $oldpage = $this->page - 1;
 
-                $this_page_orm = $this->pagedim[$this->page]['orm'];
-                $old_page_orm = $this->pagedim[$oldpage]['orm'];
-                $this_page_olm = $this->pagedim[$this->page]['olm'];
-                $old_page_olm = $this->pagedim[$oldpage]['olm'];
+                $thisPageOrm = $this->pagedim[$this->page]['orm'];
+                $oldPageOrm = $this->pagedim[$oldpage]['orm'];
+                $thisPageOlm = $this->pagedim[$this->page]['olm'];
+                $oldPageOlm = $this->pagedim[$oldpage]['olm'];
                 if ($this->rtl) {
-                    if ($this_page_orm != $old_page_orm) {
-                        $this->x = $x - ($this_page_orm - $old_page_orm);
+                    if ($thisPageOrm != $oldPageOrm) {
+                        $this->x = $x - ($thisPageOrm - $oldPageOrm);
                     } else {
                         $this->x = $x;
                     }
                 } else {
-                    if ($this_page_olm != $old_page_olm) {
-                        $this->x = $x + $this_page_olm - $old_page_olm;
+                    if ($thisPageOlm != $oldPageOlm) {
+                        $this->x = $x + $thisPageOlm - $oldPageOlm;
                     } else {
                         $this->x = $x;
                     }
@@ -143,7 +143,7 @@ class Pdf extends PdfLib
         }
 
         // account for columns mode
-        return $current_page != $this->page;
+        return $currentPage != $this->page;
     }
 
     /**
@@ -334,9 +334,9 @@ class Pdf extends PdfLib
         $this->colTitles[3] = __('Definition');
         $this->tablewidths[3] = 240;
 
-        for ($columns_cnt = 0; $columns_cnt < 4; $columns_cnt++) {
-            $this->colAlign[$columns_cnt] = 'L';
-            $this->displayColumn[$columns_cnt] = true;
+        for ($columnsCnt = 0; $columnsCnt < 4; $columnsCnt++) {
+            $this->colAlign[$columnsCnt] = 'L';
+            $this->displayColumn[$columnsCnt] = true;
         }
 
         // Starting to fill table with required info
@@ -433,25 +433,25 @@ class Pdf extends PdfLib
     /**
      * Print $table's CREATE definition
      *
-     * @param string $db          the database name
-     * @param string $table       the table name
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $db         the database name
+     * @param string $table      the table name
+     * @param bool   $doRelation whether to include relation comments
+     * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
      *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      *                            export types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $view        whether we're handling a view
-     * @param array  $aliases     aliases of db/table/columns
+     * @param bool   $doMime     whether to include mime comments
+     * @param bool   $view       whether we're handling a view
+     * @param array  $aliases    aliases of db/table/columns
      */
     public function getTableDef(
         string $db,
         string $table,
-        bool $do_relation,
-        bool $do_comments,
-        bool $do_mime,
+        bool $doRelation,
+        bool $doComments,
+        bool $doMime,
         bool $view = false,
         array $aliases = [],
     ): void {
@@ -476,13 +476,13 @@ class Pdf extends PdfLib
          * it will be of use
          */
         // Check if we can use Relations
-        if ($do_relation) {
+        if ($doRelation) {
             // Find which tables are related with the current one and write it in
             // an array
-            $res_rel = $this->relation->getForeigners($db, $table);
-            $have_rel = $res_rel !== [];
+            $resRel = $this->relation->getForeigners($db, $table);
+            $haveRel = $resRel !== [];
         } else {
-            $have_rel = false;
+            $haveRel = false;
         }
 
         //column count and table heading
@@ -496,32 +496,32 @@ class Pdf extends PdfLib
         $this->colTitles[3] = __('Default');
         $this->tablewidths[3] = 120;
 
-        for ($columns_cnt = 0; $columns_cnt < 4; $columns_cnt++) {
-            $this->colAlign[$columns_cnt] = 'L';
-            $this->displayColumn[$columns_cnt] = true;
+        for ($columnsCnt = 0; $columnsCnt < 4; $columnsCnt++) {
+            $this->colAlign[$columnsCnt] = 'L';
+            $this->displayColumn[$columnsCnt] = true;
         }
 
-        if ($do_relation && $have_rel) {
-            $this->colTitles[$columns_cnt] = __('Links to');
-            $this->displayColumn[$columns_cnt] = true;
-            $this->colAlign[$columns_cnt] = 'L';
-            $this->tablewidths[$columns_cnt] = 120;
+        if ($doRelation && $haveRel) {
+            $this->colTitles[$columnsCnt] = __('Links to');
+            $this->displayColumn[$columnsCnt] = true;
+            $this->colAlign[$columnsCnt] = 'L';
+            $this->tablewidths[$columnsCnt] = 120;
         }
 
-        if ($do_comments) {
-            $columns_cnt++;
-            $this->colTitles[$columns_cnt] = __('Comments');
-            $this->displayColumn[$columns_cnt] = true;
-            $this->colAlign[$columns_cnt] = 'L';
-            $this->tablewidths[$columns_cnt] = 120;
+        if ($doComments) {
+            $columnsCnt++;
+            $this->colTitles[$columnsCnt] = __('Comments');
+            $this->displayColumn[$columnsCnt] = true;
+            $this->colAlign[$columnsCnt] = 'L';
+            $this->tablewidths[$columnsCnt] = 120;
         }
 
-        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
-            $columns_cnt++;
-            $this->colTitles[$columns_cnt] = __('Media type');
-            $this->displayColumn[$columns_cnt] = true;
-            $this->colAlign[$columns_cnt] = 'L';
-            $this->tablewidths[$columns_cnt] = 120;
+        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            $columnsCnt++;
+            $this->colTitles[$columnsCnt] = __('Media type');
+            $this->displayColumn[$columnsCnt] = true;
+            $this->colAlign[$columnsCnt] = 'L';
+            $this->tablewidths[$columnsCnt] = 120;
         }
 
         // Starting to fill table with required info
@@ -532,12 +532,12 @@ class Pdf extends PdfLib
 
         // Now let's start to write the table structure
 
-        if ($do_comments) {
+        if ($doComments) {
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
-            $mime_map = $this->transformations->getMime($db, $table, true);
+        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            $mimeMap = $this->transformations->getMime($db, $table, true);
         }
 
         $columns = $GLOBALS['dbi']->getColumns($db, $table);
@@ -559,9 +559,9 @@ class Pdf extends PdfLib
 
         // fun begin
         foreach ($columns as $column) {
-            $extracted_columnspec = Util::extractColumnSpec($column['Type']);
+            $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
 
-            $type = $extracted_columnspec['print_type'];
+            $type = $extractedColumnSpec['print_type'];
             if (empty($type)) {
                 $type = ' ';
             }
@@ -579,23 +579,23 @@ class Pdf extends PdfLib
                 : 'Yes';
             $data[] = $column['Default'] ?? '';
 
-            $field_name = $column['Field'];
+            $fieldName = $column['Field'];
 
-            if ($do_relation && $have_rel) {
-                $data[] = isset($res_rel[$field_name])
-                    ? $res_rel[$field_name]['foreign_table']
-                    . ' (' . $res_rel[$field_name]['foreign_field']
+            if ($doRelation && $haveRel) {
+                $data[] = isset($resRel[$fieldName])
+                    ? $resRel[$fieldName]['foreign_table']
+                    . ' (' . $resRel[$fieldName]['foreign_field']
                     . ')'
                     : '';
             }
 
-            if ($do_comments) {
-                $data[] = $comments[$field_name] ?? '';
+            if ($doComments) {
+                $data[] = $comments[$fieldName] ?? '';
             }
 
-            if ($do_mime) {
-                $data[] = isset($mime_map[$field_name])
-                    ? $mime_map[$field_name]['mimetype']
+            if ($doMime) {
+                $data[] = isset($mimeMap[$fieldName])
+                    ? $mimeMap[$fieldName]['mimetype']
                     : '';
             }
 
@@ -681,11 +681,7 @@ class Pdf extends PdfLib
         /**
          * Pass 1 for column widths
          */
-        $this->results = $GLOBALS['dbi']->query(
-            $query,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $this->results = $GLOBALS['dbi']->query($query, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $numFields = $this->results->numFields();
         $fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
@@ -701,15 +697,15 @@ class Pdf extends PdfLib
         $colFits = [];
         $titleWidth = [];
         for ($i = 0; $i < $numFields; $i++) {
-            $col_as = $fields[$i]->name;
+            $colAs = $fields[$i]->name;
             $db = $this->currentDb;
             $table = $this->currentTable;
-            if (! empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                $col_as = $this->aliases[$db]['tables'][$table]['columns'][$col_as];
+            if (! empty($this->aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                $colAs = $this->aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
             /** @var float $stringWidth */
-            $stringWidth = $this->GetStringWidth($col_as);
+            $stringWidth = $this->GetStringWidth($colAs);
             $stringWidth += 6;
             // save the real title's width
             $titleWidth[$i] = $stringWidth;
@@ -721,7 +717,7 @@ class Pdf extends PdfLib
                 $colFits[$i] = $stringWidth;
             }
 
-            $this->colTitles[$i] = $col_as;
+            $this->colTitles[$i] = $colAs;
             $this->displayColumn[$i] = true;
 
             $this->colAlign[$i] = 'L';
@@ -812,11 +808,7 @@ class Pdf extends PdfLib
 
         // Pass 2
 
-        $this->results = $GLOBALS['dbi']->query(
-            $query,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $this->results = $GLOBALS['dbi']->query($query, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->setFont(PdfLib::PMA_PDF_FONT, '', 9);

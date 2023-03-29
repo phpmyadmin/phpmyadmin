@@ -171,11 +171,7 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
+            ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
 
@@ -543,16 +539,7 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testExportStructure(): void
     {
-        $keys = [
-            [
-                'Non_unique' => 0,
-                'Column_name' => 'name1',
-            ],
-            [
-                'Non_unique' => 1,
-                'Column_name' => 'name2',
-            ],
-        ];
+        $keys = [['Non_unique' => 0, 'Column_name' => 'name1'], ['Non_unique' => 1, 'Column_name' => 'name2']];
 
         // case 1
 
@@ -571,29 +558,12 @@ class ExportLatexTest extends AbstractTestCase
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
                 [],
-                [
-                    'name1' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'testmimetype_',
-                    ],
-                ],
+                ['name1' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'testmimetype_']],
             );
 
         $columns = [
-            [
-                'Null' => 'Yes',
-                'Field' => 'name1',
-                'Key' => 'PRI',
-                'Type' => 'set(abc)enum123',
-            ],
-            [
-                'Null' => 'NO',
-                'Field' => 'fields',
-                'Key' => 'COMP',
-                'Type' => '',
-                'Default' => 'def',
-            ],
+            ['Null' => 'Yes', 'Field' => 'name1', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'],
+            ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'],
         ];
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -678,20 +648,8 @@ class ExportLatexTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                [
-                    'name1' => [
-                        'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield',
-                    ],
-                    'foreign_keys_data' => [],
-                ],
-                [
-                    'field' => [
-                        'values' => 'test-',
-                        'transformation' => 'testfoo',
-                        'mimetype' => 'test<',
-                    ],
-                ],
+                ['name1' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield'], 'foreign_keys_data' => []],
+                ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $dbi->expects($this->once())

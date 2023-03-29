@@ -176,16 +176,16 @@ class EncodingTest extends AbstractTestCase
      */
     public function testFileConv(): void
     {
-        $file_str = '教育漢字常用漢字';
+        $fileStr = '教育漢字常用漢字';
         $filename = 'test.kanji';
-        $this->assertNotFalse(file_put_contents($filename, $file_str));
+        $this->assertNotFalse(file_put_contents($filename, $fileStr));
         $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
 
         $result = Encoding::kanjiFileConv($filename, 'JIS', 'kana');
 
         $string = file_get_contents($result);
         Encoding::kanjiChangeOrder();
-        $expected = Encoding::kanjiStrConv($file_str, 'JIS', 'kana');
+        $expected = Encoding::kanjiStrConv($fileStr, 'JIS', 'kana');
         Encoding::kanjiChangeOrder();
         $this->assertEquals($string, $expected);
         unlink($result);

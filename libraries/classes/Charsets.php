@@ -167,10 +167,7 @@ class Charsets
 
         if (self::$serverCharset === null) {// Fallback in case nothing is found
             return Charset::fromServer(
-                [
-                    'Charset' => __('Unknown'),
-                    'Description' => __('Unknown'),
-                ],
+                ['Charset' => __('Unknown'), 'Description' => __('Unknown')],
             );
         }
 

@@ -115,10 +115,7 @@ class NodeDatabase extends Node
         $query .= Util::backquote($this->realName);
         $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
         if ($searchClause !== '') {
-            $query .= 'AND ' . $this->getWhereClauseForSearch(
-                $searchClause,
-                'Tables_in_' . $this->realName,
-            );
+            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Tables_in_' . $this->realName);
         }
 
         return $GLOBALS['dbi']->queryAndGetNumRows($query);
@@ -573,10 +570,7 @@ class NodeDatabase extends Node
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
             if ($this->hiddenCount > 0) {
-                $params = [
-                    'showUnhideDialog' => true,
-                    'dbName' => $this->realName,
-                ];
+                $params = ['showUnhideDialog' => true, 'dbName' => $this->realName];
                 $ret = '<span class="dbItemControls">'
                     . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
                     . Url::getCommon($params, '', false) . '"'

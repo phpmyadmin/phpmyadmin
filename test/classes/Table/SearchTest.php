@@ -42,42 +42,10 @@ class SearchTest extends AbstractTestCase
             $this->search->buildSqlQuery(),
         );
 
-        $_POST['criteriaValues'] = [
-            'value1',
-            'value2',
-            'value3',
-            'value4',
-            'value5',
-            'value6',
-            'value7,value8',
-        ];
-        $_POST['criteriaColumnNames'] = [
-            'name',
-            'id',
-            'index',
-            'index2',
-            'index3',
-            'index4',
-            'index5',
-        ];
-        $_POST['criteriaColumnTypes'] = [
-            'varchar',
-            'int',
-            'enum',
-            'type1',
-            'type2',
-            'type3',
-            'type4',
-        ];
-        $_POST['criteriaColumnCollations'] = [
-            'char1',
-            'char2',
-            'char3',
-            'char4',
-            'char5',
-            'char6',
-            'char7',
-        ];
+        $_POST['criteriaValues'] = ['value1', 'value2', 'value3', 'value4', 'value5', 'value6', 'value7,value8'];
+        $_POST['criteriaColumnNames'] = ['name', 'id', 'index', 'index2', 'index3', 'index4', 'index5'];
+        $_POST['criteriaColumnTypes'] = ['varchar', 'int', 'enum', 'type1', 'type2', 'type3', 'type4'];
+        $_POST['criteriaColumnCollations'] = ['char1', 'char2', 'char3', 'char4', 'char5', 'char6', 'char7'];
         $_POST['criteriaColumnOperators'] = [
             '!=',
             '>',
@@ -116,30 +84,10 @@ class SearchTest extends AbstractTestCase
         );
 
         unset($_POST['customWhereClause']);
-        $_POST['criteriaColumnNames'] = [
-            'b',
-            'a',
-            'c',
-            'd',
-        ];
-        $_POST['criteriaColumnOperators'] = [
-            '<=',
-            '=',
-            'IS NULL',
-            'IS NOT NULL',
-        ];
-        $_POST['criteriaValues'] = [
-            '10',
-            '2',
-            '',
-            '',
-        ];
-        $_POST['criteriaColumnTypes'] = [
-            'int(11)',
-            'int(11)',
-            'int(11)',
-            'int(11)',
-        ];
+        $_POST['criteriaColumnNames'] = ['b', 'a', 'c', 'd'];
+        $_POST['criteriaColumnOperators'] = ['<=', '=', 'IS NULL', 'IS NOT NULL'];
+        $_POST['criteriaValues'] = ['10', '2', '', ''];
+        $_POST['criteriaColumnTypes'] = ['int(11)', 'int(11)', 'int(11)', 'int(11)'];
 
         $this->assertEquals(
             'SELECT *  FROM `PMA` WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL',

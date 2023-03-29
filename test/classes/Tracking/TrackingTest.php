@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Tracking;
 
 use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -10,7 +10,9 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tracking\Tracking;
+use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -22,7 +24,7 @@ use function ini_restore;
 use function ini_set;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Tracking */
+/** @covers \PhpMyAdmin\Tracking\Tracking */
 class TrackingTest extends AbstractTestCase
 {
     private Tracking $tracking;
@@ -59,6 +61,7 @@ class TrackingTest extends AbstractTestCase
             $template,
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi'],
+            $this->createStub(TrackingChecker::class),
         );
     }
 
@@ -68,52 +71,20 @@ class TrackingTest extends AbstractTestCase
     public function testFilter(): void
     {
         $data = [
-            [
-                'date' => '2012-01-01 12:34:56',
-                'username' => 'username1',
-                'statement' => 'statement1',
-            ],
-            [
-                'date' => '2013-01-01 12:34:56',
-                'username' => 'username2',
-                'statement' => 'statement2',
-            ],
+            ['date' => '2012-01-01 12:34:56', 'username' => 'username1', 'statement' => 'statement1'],
+            ['date' => '2013-01-01 12:34:56', 'username' => 'username2', 'statement' => 'statement2'],
         ];
-        $filter_users = ['username1'];
+        $filterUsers = ['username1'];
 
         $ret = $this->tracking->filter(
             $data,
-            $filter_users,
+            $filterUsers,
             new DateTimeImmutable('2010-01-01 12:34:56'),
             new DateTimeImmutable('2020-01-01 12:34:56'),
         );
 
         $this->assertEquals('username1', $ret[0]['username']);
         $this->assertEquals('statement1', $ret[0]['statement']);
-    }
-
-    /**
-     * Tests for extractTableNames() method from nested table_list.
-     */
-    public function testExtractTableNames(): void
-    {
-        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '_';
-
-        $table_list = [
-            'hello_' => [
-                'is_group' => 1,
-                'lovely_' => [
-                    'is_group' => 1,
-                    'hello_lovely_world' => ['Name' => 'hello_lovely_world'],
-                    'hello_lovely_world2' => ['Name' => 'hello_lovely_world2'],
-                ],
-                'hello_world' => ['Name' => 'hello_world'],
-            ],
-        ];
-        $untracked_tables = $this->tracking->extractTableNames($table_list, 'db');
-        $this->assertContains('hello_world', $untracked_tables);
-        $this->assertContains('hello_lovely_world', $untracked_tables);
-        $this->assertNotContains('hello_lovely_world2', $untracked_tables);
     }
 
     public function testGetHtmlForMain(): void
@@ -150,21 +121,11 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetTableLastVersionNumber(): void
     {
-        $sql_result = $this->tracking->getSqlResultForSelectableTables('PMA_db');
-        $this->assertNotFalse($sql_result);
+        $sqlResult = $this->tracking->getListOfVersionsOfTable('PMA_db', 'PMA_table');
+        $this->assertNotFalse($sqlResult);
 
-        $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
-        $this->assertSame(10, $last_version);
-    }
-
-    /**
-     * Tests for getSqlResultForSelectableTables() method.
-     */
-    public function testGetSQLResultForSelectableTables(): void
-    {
-        $ret = $this->tracking->getSqlResultForSelectableTables('PMA_db');
-
-        $this->assertNotFalse($ret);
+        $lastVersion = $this->tracking->getTableLastVersionNumber($sqlResult);
+        $this->assertSame(1, $lastVersion);
     }
 
     /**
@@ -280,14 +241,14 @@ class TrackingTest extends AbstractTestCase
             'ddlog' => [['date' => '2022-11-02 22:15:24']],
             'dmlog' => [['date' => '2022-11-02 22:15:24']],
         ];
-        $url_params = [];
-        $filter_users = [];
+        $urlParams = [];
+        $filterUsers = [];
 
         $html = $this->tracking->getHtmlForTrackingReport(
             $data,
-            $url_params,
+            $urlParams,
             'schema_and_data',
-            $filter_users,
+            $filterUsers,
             '10',
             new DateTimeImmutable('2022-11-03 22:15:24'),
             new DateTimeImmutable('2022-11-04 22:15:24'),
@@ -306,10 +267,7 @@ class TrackingTest extends AbstractTestCase
 
         $this->assertStringContainsString($data['tracking'], $html);
 
-        $version = Url::getHiddenInputs($url_params + [
-            'report' => 'true',
-            'version' => '10',
-        ]);
+        $version = Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => '10']);
 
         $this->assertStringContainsString($version, $html);
 
@@ -342,26 +300,20 @@ class TrackingTest extends AbstractTestCase
     {
         $data = [
             'tracking' => 'tracking',
-            'dmlog' => [
-                [
-                    'statement' => 'statement',
-                    'date' => '2013-01-01 12:34:56',
-                    'username' => 'username',
-                ],
-            ],
+            'dmlog' => [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
             'ddlog' => ['ddlog'],
         ];
-        $url_params = [];
-        $ddlog_count = 10;
-        $drop_image_or_text = 'text';
-        $filter_users = ['*'];
+        $urlParams = [];
+        $ddlogCount = 10;
+        $dropImageOrText = 'text';
+        $filterUsers = ['*'];
 
         $html = $this->tracking->getHtmlForDataManipulationStatements(
             $data,
-            $filter_users,
-            $url_params,
-            $ddlog_count,
-            $drop_image_or_text,
+            $filterUsers,
+            $urlParams,
+            $ddlogCount,
+            $dropImageOrText,
             '10',
             new DateTimeImmutable('2010-01-01 12:34:56'),
             new DateTimeImmutable('2020-01-01 12:34:56'),
@@ -394,24 +346,18 @@ class TrackingTest extends AbstractTestCase
     {
         $data = [
             'tracking' => 'tracking',
-            'ddlog' => [
-                [
-                    'statement' => 'statement',
-                    'date' => '2013-01-01 12:34:56',
-                    'username' => 'username',
-                ],
-            ],
+            'ddlog' => [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
             'dmlog' => ['dmlog'],
         ];
-        $filter_users = ['*'];
-        $url_params = [];
-        $drop_image_or_text = 'text';
+        $filterUsers = ['*'];
+        $urlParams = [];
+        $dropImageOrText = 'text';
 
         [$html, $count] = $this->tracking->getHtmlForDataDefinitionStatements(
             $data,
-            $filter_users,
-            $url_params,
-            $drop_image_or_text,
+            $filterUsers,
+            $urlParams,
+            $dropImageOrText,
             '10',
             new DateTimeImmutable('2010-01-01 12:34:56'),
             new DateTimeImmutable('2020-01-01 12:34:56'),
@@ -534,8 +480,8 @@ class TrackingTest extends AbstractTestCase
         $_POST['delete'] = true;
         $_POST['truncate'] = true;
 
-        $tracking_set = $this->tracking->getTrackingSet();
-        $this->assertEquals('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $tracking_set);
+        $trackingSet = $this->tracking->getTrackingSet();
+        $this->assertEquals('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $trackingSet);
 
         //other set to true
         $_POST['alter_table'] = true;
@@ -549,8 +495,8 @@ class TrackingTest extends AbstractTestCase
         $_POST['delete'] = false;
         $_POST['truncate'] = false;
 
-        $tracking_set = $this->tracking->getTrackingSet();
-        $this->assertEquals('ALTER TABLE,CREATE INDEX,UPDATE', $tracking_set);
+        $trackingSet = $this->tracking->getTrackingSet();
+        $this->assertEquals('ALTER TABLE,CREATE INDEX,UPDATE', $trackingSet);
     }
 
     /**
@@ -560,26 +506,14 @@ class TrackingTest extends AbstractTestCase
     {
         $data = [
             'tracking' => 'tracking',
-            'ddlog' => [
-                [
-                    'statement' => 'statement1',
-                    'date' => '2012-01-01 12:34:56',
-                    'username' => 'username3',
-                ],
-            ],
-            'dmlog' => [
-                [
-                    'statement' => 'statement1',
-                    'date' => '2013-01-01 12:34:56',
-                    'username' => 'username3',
-                ],
-            ],
+            'ddlog' => [['statement' => 'statement1', 'date' => '2012-01-01 12:34:56', 'username' => 'username3']],
+            'dmlog' => [['statement' => 'statement1', 'date' => '2013-01-01 12:34:56', 'username' => 'username3']],
         ];
-        $filter_users = ['*'];
+        $filterUsers = ['*'];
 
         $entries = $this->tracking->getEntries(
             $data,
-            $filter_users,
+            $filterUsers,
             'schema',
             new DateTimeImmutable('2010-01-01 12:34:56'),
             new DateTimeImmutable('2020-01-01 12:34:56'),
@@ -595,6 +529,7 @@ class TrackingTest extends AbstractTestCase
             $this->createStub(Template::class),
             $this->createStub(Relation::class),
             $this->createStub(DatabaseInterface::class),
+            $this->createStub(TrackingChecker::class),
         );
         ini_set('url_rewriter.tags', 'a=href,area=href,frame=src,form=,fieldset=');
         $entries = [['statement' => 'first statement'], ['statement' => 'second statement']];

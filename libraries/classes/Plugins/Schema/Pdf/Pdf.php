@@ -90,11 +90,11 @@ class Pdf extends PdfLib
     /**
      * Sets the value for margins
      *
-     * @param float $c_margin margin
+     * @param float $cMargin margin
      */
-    public function setCMargin(float $c_margin): void
+    public function setCMargin(float $cMargin): void
     {
-        $this->cMargin = $c_margin;
+        $this->cMargin = $cMargin;
     }
 
     /**
@@ -247,21 +247,21 @@ class Pdf extends PdfLib
 
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($this->offline || $this->pageNumber == -1 || $pdfFeature === null) {
-            $pg_name = __('PDF export page');
+            $pgName = __('PDF export page');
         } else {
-            $test_query = 'SELECT * FROM '
+            $testQuery = 'SELECT * FROM '
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE db_name = ' . $GLOBALS['dbi']->quoteString($this->db, Connection::TYPE_CONTROL)
                 . ' AND page_nr = ' . $this->pageNumber;
-            $test_rs = $GLOBALS['dbi']->queryAsControlUser($test_query);
-            $pageDesc = (string) $test_rs->fetchValue('page_descr');
+            $testRs = $GLOBALS['dbi']->queryAsControlUser($testQuery);
+            $pageDesc = (string) $testRs->fetchValue('page_descr');
 
-            $pg_name = ucfirst($pageDesc);
+            $pgName = ucfirst($pageDesc);
         }
 
         $this->setFont($this->ff, 'B', 14);
-        $this->Cell(0, 6, $pg_name, 'B', 1, 'C');
+        $this->Cell(0, 6, $pgName, 'B', 1, 'C');
         $this->setFont($this->ff, '');
         $this->Ln();
     }
@@ -302,8 +302,8 @@ class Pdf extends PdfLib
     {
         // line height
         $nb = 0;
-        $data_cnt = count($data);
-        for ($i = 0; $i < $data_cnt; $i++) {
+        $dataCnt = count($data);
+        for ($i = 0; $i < $dataCnt; $i++) {
             $nb = max($nb, $this->numLines($this->widths[$i], $data[$i]));
         }
 
@@ -313,8 +313,8 @@ class Pdf extends PdfLib
         // page break if necessary
         $this->checkPageBreak($h);
         // draw the cells
-        $data_cnt = count($data);
-        for ($i = 0; $i < $data_cnt; $i++) {
+        $dataCnt = count($data);
+        for ($i = 0; $i < $dataCnt; $i++) {
             $w = $this->widths[$i];
             // save current position
             $x = $this->GetX();

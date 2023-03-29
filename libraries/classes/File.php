@@ -128,12 +128,12 @@ class File
      * checks or sets the temp flag for this file
      * file objects with temp flags are deleted with object destruction
      *
-     * @param bool $is_temp sets the temp flag
+     * @param bool $isTemp sets the temp flag
      */
-    public function isTemp(bool|null $is_temp = null): bool
+    public function isTemp(bool|null $isTemp = null): bool
     {
-        if ($is_temp !== null) {
-            $this->isTemp = $is_temp;
+        if ($isTemp !== null) {
+            $this->isTemp = $isTemp;
         }
 
         return $this->isTemp;
@@ -450,8 +450,8 @@ class File
             return true;
         }
 
-        $tmp_subdir = $GLOBALS['config']->getUploadTempDir();
-        if ($tmp_subdir === null) {
+        $tmpSubdir = $GLOBALS['config']->getUploadTempDir();
+        if ($tmpSubdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->errorMessage = Message::error(__(
                 'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].',
@@ -460,26 +460,26 @@ class File
             return false;
         }
 
-        $new_file_to_upload = (string) tempnam(
-            $tmp_subdir,
+        $newFileToUpload = (string) tempnam(
+            $tmpSubdir,
             basename((string) $this->getName()),
         );
 
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
         ob_start();
-        $move_uploaded_file_result = move_uploaded_file(
+        $moveUploadedFileResult = move_uploaded_file(
             (string) $this->getName(),
-            $new_file_to_upload,
+            $newFileToUpload,
         );
         ob_end_clean();
-        if (! $move_uploaded_file_result) {
+        if (! $moveUploadedFileResult) {
             $this->errorMessage = Message::error(__('Error while moving uploaded file.'));
 
             return false;
         }
 
-        $this->setName($new_file_to_upload);
+        $this->setName($newFileToUpload);
         $this->isTemp(true);
 
         if (! $this->isReadable()) {
@@ -623,11 +623,11 @@ class File
     /**
      * Opens file from zip
      *
-     * @param string|null $specific_entry Entry to open
+     * @param string|null $specificEntry Entry to open
      */
-    public function openZip(string|null $specific_entry = null): bool
+    public function openZip(string|null $specificEntry = null): bool
     {
-        $result = $this->zipExtension->getContents($this->getName(), $specific_entry);
+        $result = $this->zipExtension->getContents($this->getName(), $specificEntry);
         if (! empty($result['error'])) {
             $this->errorMessage = Message::rawError($result['error']);
 

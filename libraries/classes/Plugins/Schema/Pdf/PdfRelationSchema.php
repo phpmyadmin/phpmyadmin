@@ -197,45 +197,45 @@ class PdfRelationSchema extends ExportRelationSchema
         // previous logic was checking master tables and foreign tables
         // but I think that looping on every table of the pdf page as a master
         // and finding its foreigns is OK (then we can support innodb)
-        $seen_a_relation = false;
-        foreach ($alltables as $one_table) {
-            $exist_rel = $this->relation->getForeigners($this->db->getName(), $one_table, '', 'both');
-            if (! $exist_rel) {
+        $seenARelation = false;
+        foreach ($alltables as $oneTable) {
+            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'both');
+            if (! $existRel) {
                 continue;
             }
 
-            $seen_a_relation = true;
-            foreach ($exist_rel as $master_field => $rel) {
+            $seenARelation = true;
+            foreach ($existRel as $masterField => $rel) {
                 // put the foreign table on the schema only if selected
                 // by the user
                 // (do not use array_search() because we would have to
                 // to do a === false and this is not PHP3 compatible)
-                if ($master_field !== 'foreign_keys_data') {
+                if ($masterField !== 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->addRelation($one_table, $master_field, $rel['foreign_table'], $rel['foreign_field']);
+                        $this->addRelation($oneTable, $masterField, $rel['foreign_table'], $rel['foreign_field']);
                     }
 
                     continue;
                 }
 
-                foreach ($rel as $one_key) {
-                    if (! in_array($one_key['ref_table_name'], $alltables)) {
+                foreach ($rel as $oneKey) {
+                    if (! in_array($oneKey['ref_table_name'], $alltables)) {
                         continue;
                     }
 
-                    foreach ($one_key['index_list'] as $index => $one_field) {
+                    foreach ($oneKey['index_list'] as $index => $oneField) {
                         $this->addRelation(
-                            $one_table,
-                            $one_field,
-                            $one_key['ref_table_name'],
-                            $one_key['ref_index_list'][$index],
+                            $oneTable,
+                            $oneField,
+                            $oneKey['ref_table_name'],
+                            $oneKey['ref_index_list'][$index],
                         );
                     }
                 }
             }
         }
 
-        if ($seen_a_relation) {
+        if ($seenARelation) {
             $this->drawRelations();
         }
 
@@ -405,11 +405,7 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             $this->diagram->setXY(0, $l * $gridSize + $topSpace);
-            $label = sprintf(
-                '%.0f',
-                ($l * $gridSize + $topSpace - $this->topMargin)
-                * $this->scale + $this->yMin,
-            );
+            $label = sprintf('%.0f', ($l * $gridSize + $topSpace - $this->topMargin) * $this->scale + $this->yMin);
             $this->diagram->Cell($labelWidth, $labelHeight, ' ' . $label);
         }
 
@@ -494,8 +490,8 @@ class PdfRelationSchema extends ExportRelationSchema
             $fields = $GLOBALS['dbi']->getColumns($this->db->getName(), $table);
             foreach ($fields as $row) {
                 $this->diagram->setX(20);
-                $field_name = $row['Field'];
-                $this->diagram->customLinks['doc'][$table][$field_name] = $this->diagram->AddLink();
+                $fieldName = $row['Field'];
+                $this->diagram->customLinks['doc'][$table][$fieldName] = $this->diagram->AddLink();
             }
 
             $i++;
@@ -553,28 +549,28 @@ class PdfRelationSchema extends ExportRelationSchema
             $relationParameters = $this->relation->getRelationParameters();
             $comments = $this->relation->getComments($this->db->getName(), $table);
             if ($relationParameters->browserTransformationFeature !== null) {
-                $mime_map = $this->transformations->getMime($this->db->getName(), $table, true);
+                $mimeMap = $this->transformations->getMime($this->db->getName(), $table, true);
             }
 
             /**
              * Gets table information
              */
-            $showtable = $GLOBALS['dbi']->getTable($this->db->getName(), $table)
+            $showTable = $GLOBALS['dbi']->getTable($this->db->getName(), $table)
                 ->getStatusInfo();
-            $show_comment = $showtable['Comment'] ?? '';
-            $create_time = isset($showtable['Create_time'])
+            $showComment = $showTable['Comment'] ?? '';
+            $createTime = isset($showTable['Create_time'])
                 ? Util::localisedDate(
-                    strtotime($showtable['Create_time']),
+                    strtotime($showTable['Create_time']),
                 )
                 : '';
-            $update_time = isset($showtable['Update_time'])
+            $updateTime = isset($showTable['Update_time'])
                 ? Util::localisedDate(
-                    strtotime($showtable['Update_time']),
+                    strtotime($showTable['Update_time']),
                 )
                 : '';
-            $check_time = isset($showtable['Check_time'])
+            $checkTime = isset($showTable['Check_time'])
                 ? Util::localisedDate(
-                    strtotime($showtable['Check_time']),
+                    strtotime($showTable['Check_time']),
                 )
                 : '';
 
@@ -585,51 +581,51 @@ class PdfRelationSchema extends ExportRelationSchema
 
             // Find which tables are related with the current one and write it in
             // an array
-            $res_rel = $this->relation->getForeigners($this->db->getName(), $table);
+            $resRel = $this->relation->getForeigners($this->db->getName(), $table);
 
             /**
              * Displays the comments of the table if MySQL >= 3.23
              */
 
             $break = false;
-            if (! empty($show_comment)) {
+            if (! empty($showComment)) {
                 $this->diagram->Cell(
                     0,
                     3,
-                    __('Table comments:') . ' ' . $show_comment,
+                    __('Table comments:') . ' ' . $showComment,
                     0,
                     1,
                 );
                 $break = true;
             }
 
-            if ($create_time !== '') {
+            if ($createTime !== '') {
                 $this->diagram->Cell(
                     0,
                     3,
-                    __('Creation:') . ' ' . $create_time,
+                    __('Creation:') . ' ' . $createTime,
                     0,
                     1,
                 );
                 $break = true;
             }
 
-            if ($update_time !== '') {
+            if ($updateTime !== '') {
                 $this->diagram->Cell(
                     0,
                     3,
-                    __('Last update:') . ' ' . $update_time,
+                    __('Last update:') . ' ' . $updateTime,
                     0,
                     1,
                 );
                 $break = true;
             }
 
-            if ($check_time !== '') {
+            if ($checkTime !== '') {
                 $this->diagram->Cell(
                     0,
                     3,
-                    __('Last check:') . ' ' . $check_time,
+                    __('Last check:') . ' ' . $checkTime,
                     0,
                     1,
                 );
@@ -652,27 +648,17 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell(45, 8, __('Links to'), 1, 0, 'C');
 
                 if ($this->paper === 'A4') {
-                    $comments_width = 67;
+                    $commentsWidth = 67;
                 } else {
                     // this is really intended for 'letter'
                     /** @todo find optimal width for all formats */
-                    $comments_width = 50;
+                    $commentsWidth = 50;
                 }
 
-                $this->diagram->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
+                $this->diagram->Cell($commentsWidth, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
                 $this->diagram->setWidths(
-                    [
-                        25,
-                        20,
-                        20,
-                        10,
-                        20,
-                        25,
-                        45,
-                        $comments_width,
-                        45,
-                    ],
+                    [25, 20, 20, 10, 20, 25, 45, $commentsWidth, 45],
                 );
             } else {
                 $this->diagram->Cell(20, 8, __('Column'), 1, 0, 'C');
@@ -690,21 +676,21 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->setFont($this->ff, '');
 
             foreach ($columns as $row) {
-                $extracted_columnspec = Util::extractColumnSpec($row['Type']);
-                $type = $extracted_columnspec['print_type'];
-                $attribute = $extracted_columnspec['attribute'];
+                $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
+                $type = $extractedColumnSpec['print_type'];
+                $attribute = $extractedColumnSpec['attribute'];
                 if (! isset($row['Default'])) {
                     if ($row['Null'] != '' && $row['Null'] !== 'NO') {
                         $row['Default'] = 'NULL';
                     }
                 }
 
-                $field_name = $row['Field'];
+                $fieldName = $row['Field'];
                 // $this->diagram->Ln();
-                $this->diagram->customLinks['RT'][$table][$field_name] = $this->diagram->AddLink();
-                $this->diagram->Bookmark($field_name, 1, -1);
-                $this->diagram->setLink($this->diagram->customLinks['doc'][$table][$field_name], -1);
-                $foreigner = $this->relation->searchColumnInForeigners($res_rel, $field_name);
+                $this->diagram->customLinks['RT'][$table][$fieldName] = $this->diagram->AddLink();
+                $this->diagram->Bookmark($fieldName, 1, -1);
+                $this->diagram->setLink($this->diagram->customLinks['doc'][$table][$fieldName], -1);
+                $foreigner = $this->relation->searchColumnInForeigners($resRel, $fieldName);
 
                 $linksTo = '';
                 if ($foreigner) {
@@ -722,8 +708,8 @@ class PdfRelationSchema extends ExportRelationSchema
                     }
                 }
 
-                $diagram_row = [
-                    $field_name,
+                $diagramRow = [
+                    $fieldName,
                     $type,
                     $attribute,
                     $row['Null'] == '' || $row['Null'] === 'NO'
@@ -732,13 +718,13 @@ class PdfRelationSchema extends ExportRelationSchema
                     $row['Default'] ?? '',
                     $row['Extra'],
                     $linksTo,
-                    $comments[$field_name] ?? '',
-                    isset($mime_map, $mime_map[$field_name])
-                        ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                    $comments[$fieldName] ?? '',
+                    isset($mimeMap, $mimeMap[$fieldName])
+                        ? str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])
                         : '',
                 ];
                 $links = [];
-                $links[0] = $this->diagram->customLinks['RT'][$table][$field_name];
+                $links[0] = $this->diagram->customLinks['RT'][$table][$fieldName];
                 if (
                     $foreigner
                     && isset(
@@ -749,7 +735,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     $links[6] = $foreignTable[$foreigner['foreign_field']];
                 }
 
-                $this->diagram->row($diagram_row, $links);
+                $this->diagram->row($diagramRow, $links);
             }
 
             $this->diagram->setFont($this->ff, '', 14);

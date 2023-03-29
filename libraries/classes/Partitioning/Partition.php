@@ -201,14 +201,14 @@ class Partition extends SubPartition
     public static function getPartitionMethod(string $db, string $table): string|null
     {
         if (self::havePartitioning()) {
-            $partition_method = $GLOBALS['dbi']->fetchResult(
+            $partitionMethod = $GLOBALS['dbi']->fetchResult(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $GLOBALS['dbi']->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $GLOBALS['dbi']->quoteString($table)
                 . ' LIMIT 1',
             );
-            if (! empty($partition_method)) {
-                return $partition_method[0];
+            if (! empty($partitionMethod)) {
+                return $partitionMethod[0];
             }
         }
 
@@ -223,30 +223,30 @@ class Partition extends SubPartition
      */
     public static function havePartitioning(): bool
     {
-        static $have_partitioning = false;
-        static $already_checked = false;
+        static $havePartitioning = false;
+        static $alreadyChecked = false;
 
-        if (! $already_checked) {
+        if (! $alreadyChecked) {
             if ($GLOBALS['dbi']->getVersion() < 50600) {
                 if ($GLOBALS['dbi']->fetchValue('SELECT @@have_partitioning;')) {
-                    $have_partitioning = true;
+                    $havePartitioning = true;
                 }
             } elseif ($GLOBALS['dbi']->getVersion() >= 80000) {
-                $have_partitioning = true;
+                $havePartitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                 $plugins = $GLOBALS['dbi']->fetchResult('SHOW PLUGINS');
                 foreach ($plugins as $value) {
                     if ($value['Name'] === 'partition') {
-                        $have_partitioning = true;
+                        $havePartitioning = true;
                         break;
                     }
                 }
             }
 
-            $already_checked = true;
+            $alreadyChecked = true;
         }
 
-        return $have_partitioning;
+        return $havePartitioning;
     }
 }

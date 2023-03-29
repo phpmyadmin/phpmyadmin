@@ -63,47 +63,47 @@ class GisLineString extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param int[]  $color      Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS POLYGON object
+     * @param string $label     Label for the GIS POLYGON object
+     * @param int[]  $color     Color for the GIS POLYGON object
+     * @param array  $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         ImageWrapper $image,
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $line_color = $image->colorAllocate(...$color);
+        $lineColor = $image->colorAllocate(...$color);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $lineString = mb_substr($spatial, 11, -1);
-        $points_arr = $this->extractPoints1d($lineString, $scale_data);
+        $pointsArr = $this->extractPoints1d($lineString, $scaleData);
 
-        foreach ($points_arr as $point) {
-            if (isset($temp_point)) {
+        foreach ($pointsArr as $point) {
+            if (isset($tempPoint)) {
                 // draw line section
                 $image->line(
-                    (int) round($temp_point[0]),
-                    (int) round($temp_point[1]),
+                    (int) round($tempPoint[0]),
+                    (int) round($tempPoint[1]),
                     (int) round($point[0]),
                     (int) round($point[1]),
-                    $line_color,
+                    $lineColor,
                 );
             }
 
-            $temp_point = $point;
+            $tempPoint = $point;
         }
 
         // print label if applicable
         if ($label !== '') {
             $image->string(
                 1,
-                (int) round($points_arr[1][0]),
-                (int) round($points_arr[1][1]),
+                (int) round($pointsArr[1][0]),
+                (int) round($pointsArr[1][1]),
                 $label,
                 $black,
             );
@@ -115,36 +115,33 @@ class GisLineString extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS LINESTRING object
-     * @param string $label      Label for the GIS LINESTRING object
-     * @param int[]  $color      Color for the GIS LINESTRING object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS LINESTRING object
+     * @param string $label     Label for the GIS LINESTRING object
+     * @param int[]  $color     Color for the GIS LINESTRING object
+     * @param array  $scaleData Array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scale_data, TCPDF $pdf): TCPDF
+    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
     {
-        $line = [
-            'width' => 1.5,
-            'color' => $color,
-        ];
+        $line = ['width' => 1.5, 'color' => $color];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr($spatial, 11, -1);
-        $points_arr = $this->extractPoints1d($linesrting, $scale_data);
+        $linestring = mb_substr($spatial, 11, -1);
+        $pointsArr = $this->extractPoints1d($linestring, $scaleData);
 
-        foreach ($points_arr as $point) {
-            if (isset($temp_point)) {
+        foreach ($pointsArr as $point) {
+            if (isset($tempPoint)) {
                 // draw line section
-                $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
+                $pdf->Line($tempPoint[0], $tempPoint[1], $point[0], $point[1], $line);
             }
 
-            $temp_point = $point;
+            $tempPoint = $point;
         }
 
         // print label
         if ($label !== '') {
-            $pdf->setXY($points_arr[1][0], $points_arr[1][1]);
+            $pdf->setXY($pointsArr[1][0], $pointsArr[1][1]);
             $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
@@ -155,16 +152,16 @@ class GisLineString extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial    GIS LINESTRING object
-     * @param string $label      Label for the GIS LINESTRING object
-     * @param int[]  $color      Color for the GIS LINESTRING object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial   GIS LINESTRING object
+     * @param string $label     Label for the GIS LINESTRING object
+     * @param int[]  $color     Color for the GIS LINESTRING object
+     * @param array  $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scale_data): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
     {
-        $line_options = [
+        $lineOptions = [
             'name' => $label,
             'id' => $label . $this->getRandomId(),
             'class' => 'linestring vector',
@@ -174,16 +171,16 @@ class GisLineString extends GisGeometry
         ];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr($spatial, 11, -1);
-        $points_arr = $this->extractPoints1d($linesrting, $scale_data);
+        $linestring = mb_substr($spatial, 11, -1);
+        $pointsArr = $this->extractPoints1d($linestring, $scaleData);
 
         $row = '<polyline points="';
-        foreach ($points_arr as $point) {
+        foreach ($pointsArr as $point) {
             $row .= $point[0] . ',' . $point[1] . ' ';
         }
 
         $row .= '"';
-        foreach ($line_options as $option => $val) {
+        foreach ($lineOptions as $option => $val) {
             $row .= ' ' . $option . '="' . $val . '"';
         }
 
@@ -205,16 +202,13 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
-        $stroke_style = [
-            'color' => $color,
-            'width' => 2,
-        ];
+        $strokeStyle = ['color' => $color, 'width' => 2];
 
         $style = 'new ol.style.Style({'
-            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
+            . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
         if ($label !== '') {
-            $text_style = ['text' => $label];
-            $style .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $textStyle = ['text' => $label];
+            $style .= ', text: new ol.style.Text(' . json_encode($textStyle) . ')';
         }
 
         $style .= '})';
@@ -233,27 +227,27 @@ class GisLineString extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gis_data GIS data
-     * @param int         $index    Index into the parameter object
-     * @param string|null $empty    Value for empty points
+     * @param array       $gisData GIS data
+     * @param int         $index   Index into the parameter object
+     * @param string|null $empty   Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
-        $no_of_points = $gis_data[$index]['LINESTRING']['no_of_points'] ?? 2;
-        if ($no_of_points < 2) {
-            $no_of_points = 2;
+        $noOfPoints = $gisData[$index]['LINESTRING']['no_of_points'] ?? 2;
+        if ($noOfPoints < 2) {
+            $noOfPoints = 2;
         }
 
         $wkt = 'LINESTRING(';
-        for ($i = 0; $i < $no_of_points; $i++) {
-            $wkt .= (isset($gis_data[$index]['LINESTRING'][$i]['x'])
-                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['x']) != ''
-                    ? $gis_data[$index]['LINESTRING'][$i]['x'] : $empty)
-                . ' ' . (isset($gis_data[$index]['LINESTRING'][$i]['y'])
-                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['y']) != ''
-                    ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
+        for ($i = 0; $i < $noOfPoints; $i++) {
+            $wkt .= (isset($gisData[$index]['LINESTRING'][$i]['x'])
+                    && trim((string) $gisData[$index]['LINESTRING'][$i]['x']) != ''
+                    ? $gisData[$index]['LINESTRING'][$i]['x'] : $empty)
+                . ' ' . (isset($gisData[$index]['LINESTRING'][$i]['y'])
+                    && trim((string) $gisData[$index]['LINESTRING'][$i]['y']) != ''
+                    ? $gisData[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
 
         $wkt = mb_substr($wkt, 0, -1);
@@ -272,15 +266,12 @@ class GisLineString extends GisGeometry
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($wkt, 11, -1);
-        $points_arr = $this->extractPoints1d($linestring, null);
+        $pointsArr = $this->extractPoints1d($linestring, null);
 
-        $no_of_points = count($points_arr);
-        $coords = ['no_of_points' => $no_of_points];
-        for ($i = 0; $i < $no_of_points; $i++) {
-            $coords[$i] = [
-                'x' => $points_arr[$i][0],
-                'y' => $points_arr[$i][1],
-            ];
+        $noOfPoints = count($pointsArr);
+        $coords = ['no_of_points' => $noOfPoints];
+        for ($i = 0; $i < $noOfPoints; $i++) {
+            $coords[$i] = ['x' => $pointsArr[$i][0], 'y' => $pointsArr[$i][1]];
         }
 
         return $coords;

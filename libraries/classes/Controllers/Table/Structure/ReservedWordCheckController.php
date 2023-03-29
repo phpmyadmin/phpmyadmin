@@ -24,21 +24,21 @@ final class ReservedWordCheckController extends AbstractController
             return;
         }
 
-        $columns_names = $request->getParsedBodyParam('field_name');
-        $reserved_keywords_names = [];
-        foreach ($columns_names as $column) {
+        $columnsNames = $request->getParsedBodyParam('field_name');
+        $reservedKeywordsNames = [];
+        foreach ($columnsNames as $column) {
             if (! Context::isKeyword(trim($column), true)) {
                 continue;
             }
 
-            $reserved_keywords_names[] = trim($column);
+            $reservedKeywordsNames[] = trim($column);
         }
 
         if (Context::isKeyword(trim($GLOBALS['table']), true)) {
-            $reserved_keywords_names[] = trim($GLOBALS['table']);
+            $reservedKeywordsNames[] = trim($GLOBALS['table']);
         }
 
-        if (count($reserved_keywords_names) === 0) {
+        if (count($reservedKeywordsNames) === 0) {
             $this->response->setRequestStatus(false);
         }
 
@@ -48,9 +48,9 @@ final class ReservedWordCheckController extends AbstractController
                 _ngettext(
                     'The name \'%s\' is a MySQL reserved keyword.',
                     'The names \'%s\' are MySQL reserved keywords.',
-                    count($reserved_keywords_names),
+                    count($reservedKeywordsNames),
                 ),
-                implode(',', $reserved_keywords_names),
+                implode(',', $reservedKeywordsNames),
             ),
         );
     }

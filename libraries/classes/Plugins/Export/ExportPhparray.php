@@ -154,48 +154,44 @@ class ExportPhparray extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $db_alias = $db;
-        $table_alias = $table;
-        $this->initAlias($aliases, $db_alias, $table_alias);
+        $dbAlias = $db;
+        $tableAlias = $table;
+        $this->initAlias($aliases, $dbAlias, $tableAlias);
 
-        $result = $GLOBALS['dbi']->query(
-            $sqlQuery,
-            Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED,
-        );
+        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
-        $columns_cnt = $result->numFields();
+        $columnsCnt = $result->numFields();
         $columns = [];
-        foreach ($result->getFieldNames() as $i => $col_as) {
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+        foreach ($result->getFieldNames() as $i => $colAs) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
+                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            $columns[$i] = $col_as;
+            $columns[$i] = $colAs;
         }
 
-        $tablefixed = $table;
+        $tableFixed = $table;
 
         // fix variable names (based on
         // https://www.php.net/manual/en/language.variables.basics.php)
-        if (! preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $table_alias)) {
+        if (! preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $tableAlias)) {
             // fix invalid characters in variable names by replacing them with
             // underscores
-            $tablefixed = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '_', $table_alias);
+            $tableFixed = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '_', $tableAlias);
 
             // variable name must not start with a number or dash...
-            if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) === 0) {
-                $tablefixed = '_' . $tablefixed;
+            if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tableFixed) === 0) {
+                $tableFixed = '_' . $tableFixed;
             }
         }
 
         $buffer = '';
-        $record_cnt = 0;
+        $recordCnt = 0;
         // Output table name as comment
         $buffer .= "\n" . '/* '
-            . $this->commentString(Util::backquote($db_alias)) . '.'
-            . $this->commentString(Util::backquote($table_alias)) . ' */' . "\n";
-        $buffer .= '$' . $tablefixed . ' = array(';
+            . $this->commentString(Util::backquote($dbAlias)) . '.'
+            . $this->commentString(Util::backquote($tableAlias)) . ' */' . "\n";
+        $buffer .= '$' . $tableFixed . ' = array(';
         if (! $this->export->outputHandler($buffer)) {
             return false;
         }
@@ -203,18 +199,18 @@ class ExportPhparray extends ExportPlugin
         // Reset the buffer
         $buffer = '';
         while ($record = $result->fetchRow()) {
-            $record_cnt++;
+            $recordCnt++;
 
-            if ($record_cnt == 1) {
+            if ($recordCnt == 1) {
                 $buffer .= "\n" . '  array(';
             } else {
                 $buffer .= ',' . "\n" . '  array(';
             }
 
-            for ($i = 0; $i < $columns_cnt; $i++) {
+            for ($i = 0; $i < $columnsCnt; $i++) {
                 $buffer .= var_export($columns[$i], true)
                     . ' => ' . var_export($record[$i], true)
-                    . ($i + 1 >= $columns_cnt ? '' : ',');
+                    . ($i + 1 >= $columnsCnt ? '' : ',');
             }
 
             $buffer .= ')';

@@ -47,14 +47,11 @@ class UserPreferences
      */
     public function pageInit(ConfigFile $cf): void
     {
-        $forms_all_keys = UserFormList::getFields();
+        $formsAllKeys = UserFormList::getFields();
         $cf->resetConfigData(); // start with a clean instance
-        $cf->setAllowedKeys($forms_all_keys);
+        $cf->setAllowedKeys($formsAllKeys);
         $cf->setCfgUpdateReadMapping(
-            [
-                'Server/hide_db' => 'Servers/1/hide_db',
-                'Server/only_db' => 'Servers/1/only_db',
-            ],
+            ['Server/hide_db' => 'Servers/1/hide_db', 'Server/only_db' => 'Servers/1/only_db'],
         );
         $cf->updateWithGlobalConfig($GLOBALS['cfg']);
     }
@@ -89,17 +86,13 @@ class UserPreferences
         }
 
         // load configuration from pmadb
-        $query_table = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
+        $queryTable = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
-            . ' FROM ' . $query_table
+            . ' FROM ' . $queryTable
             . ' WHERE `username` = '
             . $this->dbi->quoteString((string) $relationParameters->user);
-        $row = $this->dbi->fetchSingleRow(
-            $query,
-            DatabaseInterface::FETCH_ASSOC,
-            Connection::TYPE_CONTROL,
-        );
+        $row = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
         }
@@ -116,57 +109,54 @@ class UserPreferences
     /**
      * Saves user preferences
      *
-     * @param array $config_array configuration array
+     * @param array $configArray configuration array
      *
      * @return true|Message
      */
-    public function save(array $config_array): bool|Message
+    public function save(array $configArray): bool|Message
     {
         $relationParameters = $this->relation->getRelationParameters();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
-        $cache_key = 'server_' . $server;
+        $cacheKey = 'server_' . $server;
         if (
             $relationParameters->userPreferencesFeature === null
             || $relationParameters->user === null
             || $relationParameters->db === null
         ) {
             // no pmadb table, use session storage
-            $_SESSION['userconfig'] = [
-                'db' => $config_array,
-                'ts' => time(),
-            ];
-            if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
-                unset($_SESSION['cache'][$cache_key]['userprefs']);
+            $_SESSION['userconfig'] = ['db' => $configArray, 'ts' => time()];
+            if (isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
+                unset($_SESSION['cache'][$cacheKey]['userprefs']);
             }
 
             return true;
         }
 
         // save configuration to pmadb
-        $query_table = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
+        $queryTable = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
-        $query = 'SELECT `username` FROM ' . $query_table
+        $query = 'SELECT `username` FROM ' . $queryTable
             . ' WHERE `username` = '
             . $this->dbi->quoteString($relationParameters->user);
 
-        $has_config = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
-        $config_data = json_encode($config_array);
-        if ($has_config) {
-            $query = 'UPDATE ' . $query_table
+        $hasConfig = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
+        $configData = json_encode($configArray);
+        if ($hasConfig) {
+            $query = 'UPDATE ' . $queryTable
                 . ' SET `timevalue` = NOW(), `config_data` = '
-                . $this->dbi->quoteString($config_data)
+                . $this->dbi->quoteString($configData)
                 . ' WHERE `username` = '
                 . $this->dbi->quoteString($relationParameters->user);
         } else {
-            $query = 'INSERT INTO ' . $query_table
+            $query = 'INSERT INTO ' . $queryTable
                 . ' (`username`, `timevalue`,`config_data`) '
                 . 'VALUES ('
                 . $this->dbi->quoteString($relationParameters->user) . ', NOW(), '
-                . $this->dbi->quoteString($config_data) . ')';
+                . $this->dbi->quoteString($configData) . ')';
         }
 
-        if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
-            unset($_SESSION['cache'][$cache_key]['userprefs']);
+        if (isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
+            unset($_SESSION['cache'][$cacheKey]['userprefs']);
         }
 
         if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
@@ -212,11 +202,11 @@ class UserPreferences
      * Returns a user preferences array filtered by $cfg['UserprefsDisallow']
      * (exclude list) and keys from user preferences form (allow list)
      *
-     * @param array $config_data path => value pairs
+     * @param array $configData path => value pairs
      *
      * @return array
      */
-    public function apply(array $config_data): array
+    public function apply(array $configData): array
     {
         $cfg = [];
         $excludeList = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
@@ -227,7 +217,7 @@ class UserPreferences
         $allowList['Server/hide_db'] = true;
         $allowList['Server/only_db'] = true;
         $allowList['2fa'] = true;
-        foreach ($config_data as $path => $value) {
+        foreach ($configData as $path => $value) {
             if (! isset($allowList[$path]) || isset($excludeList[$path])) {
                 continue;
             }
@@ -243,16 +233,16 @@ class UserPreferences
      *
      * No validation is done!
      *
-     * @param string $path          configuration
-     * @param mixed  $value         value
-     * @param mixed  $default_value default value
+     * @param string $path         configuration
+     * @param mixed  $value        value
+     * @param mixed  $defaultValue default value
      *
      * @return true|Message
      */
-    public function persistOption(string $path, mixed $value, mixed $default_value): bool|Message
+    public function persistOption(string $path, mixed $value, mixed $defaultValue): bool|Message
     {
         $prefs = $this->load();
-        if ($value === $default_value) {
+        if ($value === $defaultValue) {
             if (! isset($prefs['config_data'][$path])) {
                 return true;
             }
@@ -268,27 +258,27 @@ class UserPreferences
     /**
      * Redirects after saving new user preferences
      *
-     * @param string      $file_name Filename
-     * @param array|null  $params    URL parameters
-     * @param string|null $hash      Hash value
+     * @param string      $fileName Filename
+     * @param array|null  $params   URL parameters
+     * @param string|null $hash     Hash value
      */
     public function redirect(
-        string $file_name,
+        string $fileName,
         array|null $params = null,
         string|null $hash = null,
     ): void {
         // redirect
-        $url_params = ['saved' => 1];
+        $urlParams = ['saved' => 1];
         if (is_array($params)) {
-            $url_params = array_merge($params, $url_params);
+            $urlParams = array_merge($params, $urlParams);
         }
 
         if ($hash) {
             $hash = '#' . urlencode($hash);
         }
 
-        Core::sendHeaderLocation('./' . $file_name
-            . Url::getCommonRaw($url_params, ! str_contains($file_name, '?') ? '?' : '&') . $hash);
+        Core::sendHeaderLocation('./' . $fileName
+            . Url::getCommonRaw($urlParams, ! str_contains($fileName, '?') ? '?' : '&') . $hash);
     }
 
     /**
@@ -303,11 +293,11 @@ class UserPreferences
             return '';
         }
 
-        $return_url = '?' . http_build_query($_GET, '', '&');
+        $returnUrl = '?' . http_build_query($_GET, '', '&');
 
         return $this->template->render('preferences/autoload', [
             'hidden_inputs' => Url::getHiddenInputs(),
-            'return_url' => $return_url,
+            'return_url' => $returnUrl,
         ]);
     }
 }

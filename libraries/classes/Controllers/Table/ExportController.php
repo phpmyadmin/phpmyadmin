@@ -65,17 +65,11 @@ class ExportController extends AbstractController
             if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
                 // Checking if the WHERE clause has to be replaced.
                 if (! empty($GLOBALS['where_clause']) && is_array($GLOBALS['where_clause'])) {
-                    $GLOBALS['replaces'][] = [
-                        'WHERE',
-                        'WHERE (' . implode(') OR (', $GLOBALS['where_clause']) . ')',
-                    ];
+                    $GLOBALS['replaces'][] = ['WHERE', 'WHERE (' . implode(') OR (', $GLOBALS['where_clause']) . ')'];
                 }
 
                 // Preparing to remove the LIMIT clause.
-                $GLOBALS['replaces'][] = [
-                    'LIMIT',
-                    '',
-                ];
+                $GLOBALS['replaces'][] = ['LIMIT', ''];
 
                 // Replacing the clauses.
                 $GLOBALS['sql_query'] = Query::replaceClauses(

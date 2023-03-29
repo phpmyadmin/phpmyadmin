@@ -5,10 +5,14 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Tracking;
 
+use PhpMyAdmin\Cache;
+use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
@@ -19,6 +23,7 @@ use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\RenameStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+use PhpMyAdmin\Util;
 
 use function array_values;
 use function count;
@@ -215,10 +220,7 @@ class Tracker
 
         $indexes = $GLOBALS['dbi']->getTableIndexes($dbName, $tableName);
 
-        $snapshot = [
-            'COLUMNS' => $columns,
-            'INDEXES' => $indexes,
-        ];
+        $snapshot = ['COLUMNS' => $columns, 'INDEXES' => $indexes];
         $snapshot = serialize($snapshot);
 
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
@@ -478,7 +480,7 @@ class Tracker
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
-    public static function getVersion(string $dbname, string $tablename, string|null $statement = null): int
+    private static function getVersion(string $dbname, string $tablename, string|null $statement = null): int
     {
         $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
@@ -552,12 +554,7 @@ class Tracker
 
         // PHP 7.4 fix for accessing array offset on null
         if ($mixed === []) {
-            $mixed = [
-                'schema_sql' => null,
-                'data_sql' => null,
-                'tracking' => null,
-                'schema_snapshot' => null,
-            ];
+            $mixed = ['schema_sql' => null, 'data_sql' => null, 'tracking' => null, 'schema_snapshot' => null];
         }
 
         // Parse log
@@ -589,11 +586,7 @@ class Tracker
 
             $statement = rtrim((string) mb_strstr($logEntry, "\n"));
 
-            $ddlog[] = [
-                'date' => $date,
-                'username' => $username,
-                'statement' => $statement,
-            ];
+            $ddlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
         }
 
         $dateFrom = $ddlDateFrom;
@@ -624,11 +617,7 @@ class Tracker
 
             $statement = rtrim((string) mb_strstr($logEntry, "\n"));
 
-            $dmlog[] = [
-                'date' => $date,
-                'username' => $username,
-                'statement' => $statement,
-            ];
+            $dmlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
         }
 
         $dmlDateTo = $date;
@@ -800,8 +789,6 @@ class Tracker
      */
     public static function handleQuery(string $query): void
     {
-        $relation = new Relation($GLOBALS['dbi']);
-
         // If query is marked as untouchable, leave
         if (mb_strstr($query, '/*NOTRACK*/')) {
             return;
@@ -816,6 +803,16 @@ class Tracker
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
         if ($dbname === '') {
+            return;
+        }
+
+        $relation = new Relation($GLOBALS['dbi']);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return;
+        }
+
+        if (! self::isAnyTrackingInProgress($GLOBALS['dbi'], $trackingFeature, $dbname)) {
             return;
         }
 
@@ -881,6 +878,7 @@ class Tracker
         // Add log information
         $query = self::getLogComment() . $query;
 
+        $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {
             return;
@@ -917,5 +915,20 @@ class Tracker
         " AND `version` = '" . $GLOBALS['dbi']->escapeString((string) $version) . "' ";
 
         $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
+    }
+
+    private static function isAnyTrackingInProgress(
+        DatabaseInterface $dbi,
+        TrackingFeature $trackingFeature,
+        string $dbname,
+    ): bool {
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/ SELECT 1 FROM %s.%s WHERE tracking_active = 1 AND db_name = %s LIMIT 1',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            "'" . $dbi->escapeString($dbname, Connection::TYPE_CONTROL) . "'",
+        );
+
+        return $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
     }
 }

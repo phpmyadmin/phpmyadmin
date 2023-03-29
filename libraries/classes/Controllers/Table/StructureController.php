@@ -23,7 +23,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -98,17 +98,17 @@ class StructureController extends AbstractController
         $this->checkParameters(['db', 'table']);
 
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
-        $url_params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($url_params, '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $primary = Index::getPrimary($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
-        $columns_with_index = $this->dbi
+        $columnsWithIndex = $this->dbi
             ->getTable($GLOBALS['db'], $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
-        $columns_with_unique_index = $this->dbi
+        $columnsWithUniqueIndex = $this->dbi
             ->getTable($GLOBALS['db'], $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE);
 
@@ -116,10 +116,10 @@ class StructureController extends AbstractController
 
         $this->response->addHTML($this->displayStructure(
             $relationParameters,
-            $columns_with_unique_index,
+            $columnsWithUniqueIndex,
             $primary,
             $fields,
-            $columns_with_index,
+            $columnsWithIndex,
             $isSystemSchema,
             $request->getRoute(),
         ));
@@ -128,17 +128,17 @@ class StructureController extends AbstractController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param array $columns_with_unique_index Columns with unique index
-     * @param array $fields                    Fields
-     * @param array $columns_with_index        Columns with index
+     * @param array $columnsWithUniqueIndex Columns with unique index
+     * @param array $fields                 Fields
+     * @param array $columnsWithIndex       Columns with index
      * @psalm-param non-empty-string $route
      */
     protected function displayStructure(
         RelationParameters $relationParameters,
-        array $columns_with_unique_index,
+        array $columnsWithUniqueIndex,
         Index|null $primaryIndex,
         array $fields,
-        array $columns_with_index,
+        array $columnsWithIndex,
         bool $isSystemSchema,
         string $route,
     ): string {
@@ -146,18 +146,18 @@ class StructureController extends AbstractController
         $GLOBALS['tbl_storage_engine'] ??= null;
 
         // prepare comments
-        $comments_map = [];
-        $mime_map = [];
+        $commentsMap = [];
+        $mimeMap = [];
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
-            $comments_map = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
+            $commentsMap = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
             if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
-                $mime_map = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table'], true);
+                $mimeMap = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table'], true);
             }
         }
 
         $centralColumns = new CentralColumns($this->dbi);
-        $central_list = $centralColumns->getFromTable($GLOBALS['db'], $GLOBALS['table']);
+        $centralList = $centralColumns->getFromTable($GLOBALS['db'], $GLOBALS['table']);
 
         /**
          * Displays Space usage and row statistics
@@ -175,38 +175,38 @@ class StructureController extends AbstractController
 
         // logic removed from Template
         $rownum = 0;
-        $columns_list = [];
+        $columnsList = [];
         $attributes = [];
-        $displayed_fields = [];
-        $row_comments = [];
-        $extracted_columnspecs = [];
+        $displayedFields = [];
+        $rowComments = [];
+        $extractedColumnSpecs = [];
         $collations = [];
         foreach ($fields as $field) {
             ++$rownum;
-            $columns_list[] = $field['Field'];
+            $columnsList[] = $field['Field'];
 
-            $extracted_columnspecs[$rownum] = Util::extractColumnSpec($field['Type']);
-            $attributes[$rownum] = $extracted_columnspecs[$rownum]['attribute'];
+            $extractedColumnSpecs[$rownum] = Util::extractColumnSpec($field['Type']);
+            $attributes[$rownum] = $extractedColumnSpecs[$rownum]['attribute'];
             if (str_contains($field['Extra'], 'on update CURRENT_TIMESTAMP')) {
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            $displayed_fields[$rownum] = new stdClass();
-            $displayed_fields[$rownum]->text = $field['Field'];
-            $displayed_fields[$rownum]->icon = '';
-            $row_comments[$rownum] = '';
+            $displayedFields[$rownum] = new stdClass();
+            $displayedFields[$rownum]->text = $field['Field'];
+            $displayedFields[$rownum]->icon = '';
+            $rowComments[$rownum] = '';
 
-            if (isset($comments_map[$field['Field']])) {
-                $displayed_fields[$rownum]->comment = $comments_map[$field['Field']];
-                $row_comments[$rownum] = $comments_map[$field['Field']];
+            if (isset($commentsMap[$field['Field']])) {
+                $displayedFields[$rownum]->comment = $commentsMap[$field['Field']];
+                $rowComments[$rownum] = $commentsMap[$field['Field']];
             }
 
             if ($primaryIndex !== null && $primaryIndex->hasColumn($field['Field'])) {
-                $displayed_fields[$rownum]->icon .= Generator::getImage('b_primary', __('Primary'));
+                $displayedFields[$rownum]->icon .= Generator::getImage('b_primary', __('Primary'));
             }
 
-            if (in_array($field['Field'], $columns_with_index)) {
-                $displayed_fields[$rownum]->icon .= Generator::getImage('bd_primary', __('Index'));
+            if (in_array($field['Field'], $columnsWithIndex)) {
+                $displayedFields[$rownum]->icon .= Generator::getImage('bd_primary', __('Index'));
             }
 
             $collation = Charsets::findCollationByName(
@@ -237,17 +237,17 @@ class StructureController extends AbstractController
             'table' => $GLOBALS['table'],
             'db_is_system_schema' => $isSystemSchema,
             'tbl_is_view' => $GLOBALS['tbl_is_view'],
-            'mime_map' => $mime_map,
+            'mime_map' => $mimeMap,
             'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
             'primary' => $primaryIndex,
-            'columns_with_unique_index' => $columns_with_unique_index,
-            'columns_list' => $columns_list,
+            'columns_with_unique_index' => $columnsWithUniqueIndex,
+            'columns_list' => $columnsList,
             'table_stats' => $tablestats ?? null,
             'fields' => $fields,
-            'extracted_columnspecs' => $extracted_columnspecs,
-            'columns_with_index' => $columns_with_index,
-            'central_list' => $central_list,
-            'comments_map' => $comments_map,
+            'extracted_columnspecs' => $extractedColumnSpecs,
+            'columns_with_index' => $columnsWithIndex,
+            'central_list' => $centralList,
+            'comments_map' => $commentsMap,
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
             'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
             'show_stats' => $GLOBALS['cfg']['ShowStats'],
@@ -260,8 +260,8 @@ class StructureController extends AbstractController
             'partition_names' => Partition::getPartitionNames($GLOBALS['db'], $GLOBALS['table']),
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'attributes' => $attributes,
-            'displayed_fields' => $displayed_fields,
-            'row_comments' => $row_comments,
+            'displayed_fields' => $displayedFields,
+            'row_comments' => $rowComments,
             'route' => $route,
         ]);
     }
@@ -292,51 +292,51 @@ class StructureController extends AbstractController
             $GLOBALS['showtable']['Index_length'] = 0;
         }
 
-        $is_innodb = (isset($GLOBALS['showtable']['Type'])
+        $isInnoDB = (isset($GLOBALS['showtable']['Type'])
             && $GLOBALS['showtable']['Type'] === 'InnoDB');
 
         $mergetable = $this->tableObj->isMerge();
 
         // this is to display for example 261.2 MiB instead of 268k KiB
-        $max_digits = 3;
+        $maxDigits = 3;
         $decimals = 1;
-        [$data_size, $data_unit] = Util::formatByteDown($GLOBALS['showtable']['Data_length'], $max_digits, $decimals);
+        [$dataSize, $dataUnit] = Util::formatByteDown($GLOBALS['showtable']['Data_length'], $maxDigits, $decimals);
         if ($mergetable === false) {
-            [$index_size, $index_unit] = Util::formatByteDown(
+            [$indexSize, $indexUnit] = Util::formatByteDown(
                 $GLOBALS['showtable']['Index_length'],
-                $max_digits,
+                $maxDigits,
                 $decimals,
             );
         }
 
         if (isset($GLOBALS['showtable']['Data_free'])) {
-            [$free_size, $free_unit] = Util::formatByteDown($GLOBALS['showtable']['Data_free'], $max_digits, $decimals);
-            [$effect_size, $effect_unit] = Util::formatByteDown(
+            [$freeSize, $freeUnit] = Util::formatByteDown($GLOBALS['showtable']['Data_free'], $maxDigits, $decimals);
+            [$effectSize, $effectUnit] = Util::formatByteDown(
                 $GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length']
                 - $GLOBALS['showtable']['Data_free'],
-                $max_digits,
+                $maxDigits,
                 $decimals,
             );
         } else {
-            [$effect_size, $effect_unit] = Util::formatByteDown(
+            [$effectSize, $effectUnit] = Util::formatByteDown(
                 $GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'],
-                $max_digits,
+                $maxDigits,
                 $decimals,
             );
         }
 
-        [$tot_size, $tot_unit] = Util::formatByteDown(
+        [$totSize, $totUnit] = Util::formatByteDown(
             $GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length'],
-            $max_digits,
+            $maxDigits,
             $decimals,
         );
 
-        $avg_size = '';
-        $avg_unit = '';
+        $avgSize = '';
+        $avgUnit = '';
         if ($GLOBALS['table_info_num_rows'] > 0) {
-            [$avg_size, $avg_unit] = Util::formatByteDown(
+            [$avgSize, $avgUnit] = Util::formatByteDown(
                 ($GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'])
                 / $GLOBALS['showtable']['Rows'],
@@ -347,7 +347,7 @@ class StructureController extends AbstractController
 
         /** @var Innodb $innodbEnginePlugin */
         $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
-        $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
+        $innodbFilePerTable = $innodbEnginePlugin->supportsFilePerTable();
 
         $tableCollation = [];
         $collation = Charsets::findCollationByName(
@@ -356,10 +356,7 @@ class StructureController extends AbstractController
             $GLOBALS['tbl_collation'],
         );
         if ($collation !== null) {
-            $tableCollation = [
-                'name' => $collation->getName(),
-                'description' => $collation->getDescription(),
-            ];
+            $tableCollation = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
         }
 
         if (isset($GLOBALS['showtable']['Create_time'])) {
@@ -383,21 +380,21 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $isSystemSchema,
             'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
             'table_collation' => $tableCollation,
-            'is_innodb' => $is_innodb,
+            'is_innodb' => $isInnoDB,
             'mergetable' => $mergetable,
-            'avg_size' => $avg_size ?? null,
-            'avg_unit' => $avg_unit ?? null,
-            'data_size' => $data_size,
-            'data_unit' => $data_unit,
-            'index_size' => $index_size ?? null,
-            'index_unit' => $index_unit ?? null,
-            'innodb_file_per_table' => $innodb_file_per_table,
-            'free_size' => $free_size ?? null,
-            'free_unit' => $free_unit ?? null,
-            'effect_size' => $effect_size,
-            'effect_unit' => $effect_unit,
-            'tot_size' => $tot_size,
-            'tot_unit' => $tot_unit,
+            'avg_size' => $avgSize ?? null,
+            'avg_unit' => $avgUnit ?? null,
+            'data_size' => $dataSize,
+            'data_unit' => $dataUnit,
+            'index_size' => $indexSize ?? null,
+            'index_unit' => $indexUnit ?? null,
+            'innodb_file_per_table' => $innodbFilePerTable,
+            'free_size' => $freeSize ?? null,
+            'free_unit' => $freeUnit ?? null,
+            'effect_size' => $effectSize,
+            'effect_unit' => $effectUnit,
+            'tot_size' => $totSize,
+            'tot_unit' => $totUnit,
         ]);
     }
 }

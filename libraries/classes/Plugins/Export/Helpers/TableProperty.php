@@ -232,14 +232,8 @@ class TableProperty
     public function formatXml(string $text): string
     {
         $text = str_replace(
-            [
-                '#name#',
-                '#indexName#',
-            ],
-            [
-                htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'),
-                $this->getIndexName(),
-            ],
+            ['#name#', '#indexName#'],
+            [htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'), $this->getIndexName()],
             $text,
         );
 
@@ -256,14 +250,7 @@ class TableProperty
     public function format(string $text): string
     {
         return str_replace(
-            [
-                '#ucfirstName#',
-                '#dotNetPrimitiveType#',
-                '#dotNetObjectType#',
-                '#type#',
-                '#notNull#',
-                '#unique#',
-            ],
+            ['#ucfirstName#', '#dotNetPrimitiveType#', '#dotNetObjectType#', '#type#', '#notNull#', '#unique#'],
             [
                 ExportCodegen::cgMakeIdentifier($this->name),
                 $this->getDotNetPrimitiveType(),

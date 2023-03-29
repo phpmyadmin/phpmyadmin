@@ -41,8 +41,8 @@ final class ChangeRowsController extends AbstractController
         // for the /table/change script.
         $GLOBALS['where_clause'] = [];
         if (isset($_POST['rows_to_delete']) && is_array($_POST['rows_to_delete'])) {
-            foreach ($_POST['rows_to_delete'] as $i_where_clause) {
-                $GLOBALS['where_clause'][] = $i_where_clause;
+            foreach ($_POST['rows_to_delete'] as $eachWhereClause) {
+                $GLOBALS['where_clause'][] = $eachWhereClause;
             }
         }
 

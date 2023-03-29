@@ -235,32 +235,20 @@ class SqlTest extends AbstractTestCase
         $col3 = new stdClass();
         $col3->table = 'table3';
 
-        $fields_meta = [
-            $col1,
-            $col2,
-            $col3,
-        ];
+        $fieldsMeta = [$col1, $col2, $col3];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
         // should not matter on where the odd column occurs
-        $fields_meta = [
-            $col2,
-            $col3,
-            $col1,
-        ];
+        $fieldsMeta = [$col2, $col3, $col1];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
-        $fields_meta = [
-            $col3,
-            $col1,
-            $col2,
-        ];
+        $fieldsMeta = [$col3, $col1, $col2];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 
@@ -275,14 +263,10 @@ class SqlTest extends AbstractTestCase
         $col2->table = 'table1';
         $col3 = new stdClass();
         $col3->table = 'table1';
-        $fields_meta = [
-            $col1,
-            $col2,
-            $col3,
-        ];
+        $fieldsMeta = [$col1, $col2, $col3];
 
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 
@@ -299,32 +283,20 @@ class SqlTest extends AbstractTestCase
         $col3 = new stdClass();
         $col3->table = 'table1';
 
-        $fields_meta = [
-            $col1,
-            $col2,
-            $col3,
-        ];
+        $fieldsMeta = [$col1, $col2, $col3];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
         // should not matter on where the function column occurs
-        $fields_meta = [
-            $col2,
-            $col3,
-            $col1,
-        ];
+        $fieldsMeta = [$col2, $col3, $col1];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
 
-        $fields_meta = [
-            $col3,
-            $col1,
-            $col2,
-        ];
+        $fieldsMeta = [$col3, $col1, $col2];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 
@@ -340,14 +312,10 @@ class SqlTest extends AbstractTestCase
         $col2->table = '';
         $col3 = new stdClass();
         $col3->table = '';
-        $fields_meta = [
-            $col1,
-            $col2,
-            $col3,
-        ];
+        $fieldsMeta = [$col1, $col2, $col3];
 
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fieldsMeta]),
         );
     }
 
@@ -387,168 +355,34 @@ class SqlTest extends AbstractTestCase
                     . 'where al.successfull = 1 group by al.user_id ) AS `last_log` ON last_log.id = l.id'
                     . ' ) as cnt',
             ],
-            [
-                'SELECT * FROM company_users WHERE id != 0 LIMIT 0, 10',
-                ['max_rows' => 250],
-                -1,
-                -1,
-            ],
-            [
-                'SELECT * FROM company_users WHERE id != 0',
-                [
-                    'max_rows' => 250,
-                    'pos' => -1,
-                ],
-                -1,
-                -2,
-            ],
-            [
-                'SELECT * FROM company_users WHERE id != 0',
-                [
-                    'max_rows' => 250,
-                    'pos' => -1,
-                ],
-                -1,
-                -2,
-            ],
-            [
-                'SELECT * FROM company_users WHERE id != 0',
-                [
-                    'max_rows' => 250,
-                    'pos' => 250,
-                ],
-                -1,
-                249,
-            ],
-            [
-                'SELECT * FROM company_users WHERE id != 0',
-                [
-                    'max_rows' => 250,
-                    'pos' => 4,
-                ],
-                2,
-                6,
-            ],
-            [
-                'SELECT * FROM company_users WHERE id != 0',
-                [
-                    'max_rows' => 'all',
-                    'pos' => 4,
-                ],
-                2,
-                2,
-            ],
-            [
-                null,
-                [],
-                2,
-                0,
-            ],
-            [
-
-                'SELECT * FROM company_users LIMIT 1,4',
-                [
-                    'max_rows' => 10,
-                    'pos' => 4,
-                ],
-                20,
-                20,
-
-            ],
-            [
-
-                'SELECT * FROM company_users',
-                [
-                    'max_rows' => 10,
-                    'pos' => 4,
-                ],
-                20,
-                4,
-            ],
-            [
-
-                'SELECT * FROM company_users WHERE not_working_count != 0',
-                [
-                    'max_rows' => 10,
-                    'pos' => 4,
-                ],
-                20,
-                0,
-            ],
-            [
-
-                'SELECT * FROM company_users WHERE working_count = 0',
-                [
-                    'max_rows' => 10,
-                    'pos' => 4,
-                ],
-                20,
-                15,
-
-            ],
-            [
-                'UPDATE company_users SET a=1 WHERE working_count = 0',
-                [
-                    'max_rows' => 10,
-                    'pos' => 4,
-                ],
-                20,
-                20,
-            ],
-            [
-                'UPDATE company_users SET a=1 WHERE working_count = 0',
-                [
-                    'max_rows' => 'all',
-                    'pos' => 4,
-                ],
-                20,
-                20,
-            ],
-            [
-                'UPDATE company_users SET a=1 WHERE working_count = 0',
-                ['max_rows' => 15],
-                20,
-                20,
-            ],
-            [
-                'SELECT * FROM company_users WHERE id != 0',
-                [
-                    'max_rows' => 250,
-                    'pos' => 4,
-                ],
-                2,
-                6,
-                true,
-            ],
+            ['SELECT * FROM company_users WHERE id != 0 LIMIT 0, 10', ['max_rows' => 250], -1, -1],
+            ['SELECT * FROM company_users WHERE id != 0', ['max_rows' => 250, 'pos' => -1], -1, -2],
+            ['SELECT * FROM company_users WHERE id != 0', ['max_rows' => 250, 'pos' => -1], -1, -2],
+            ['SELECT * FROM company_users WHERE id != 0', ['max_rows' => 250, 'pos' => 250], -1, 249],
+            ['SELECT * FROM company_users WHERE id != 0', ['max_rows' => 250, 'pos' => 4], 2, 6],
+            ['SELECT * FROM company_users WHERE id != 0', ['max_rows' => 'all', 'pos' => 4], 2, 2],
+            [null, [], 2, 0],
+            ['SELECT * FROM company_users LIMIT 1,4', ['max_rows' => 10, 'pos' => 4], 20, 20],
+            ['SELECT * FROM company_users', ['max_rows' => 10, 'pos' => 4], 20, 4],
+            ['SELECT * FROM company_users WHERE not_working_count != 0', ['max_rows' => 10, 'pos' => 4], 20, 0],
+            ['SELECT * FROM company_users WHERE working_count = 0', ['max_rows' => 10, 'pos' => 4], 20, 15],
+            ['UPDATE company_users SET a=1 WHERE working_count = 0', ['max_rows' => 10, 'pos' => 4], 20, 20],
+            ['UPDATE company_users SET a=1 WHERE working_count = 0', ['max_rows' => 'all', 'pos' => 4], 20, 20],
+            ['UPDATE company_users SET a=1 WHERE working_count = 0', ['max_rows' => 15], 20, 20],
+            ['SELECT * FROM company_users WHERE id != 0', ['max_rows' => 250, 'pos' => 4], 2, 6, true],
             [
                 'SELECT *, (SELECT COUNT(*) FROM tbl1) as c1, (SELECT 1 FROM tbl2) as c2 '
                 . 'FROM company_users WHERE id != 0',
-                [
-                    'max_rows' => 250,
-                    'pos' => 4,
-                ],
+                ['max_rows' => 250, 'pos' => 4],
                 2,
                 6,
                 true,
             ],
-            [
-
-                'SELECT * FROM company_users',
-                [
-                    'max_rows' => 10,
-                    'pos' => 4,
-                ],
-                20,
-                18,
-                true,
-            ],
+            ['SELECT * FROM company_users', ['max_rows' => 10, 'pos' => 4], 20, 18, true],
             [
                 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) as c1, '
                 . '(SELECT 1 FROM tbl2) as c2 FROM company_users WHERE subquery_case = 0',
-                [
-                    'max_rows' => 10,
-                    'pos' => 4,
-                ],
+                ['max_rows' => 10, 'pos' => 4],
                 20,
                 42,
 

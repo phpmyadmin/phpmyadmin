@@ -41,7 +41,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
+    public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return FormatConverter::ipToBinary($buffer);
     }
@@ -50,28 +50,28 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      * Returns the html for input field to override default textarea.
      * Note: Return empty string if default textarea is required.
      *
-     * @param array  $column               column details
-     * @param int    $row_id               row number
-     * @param string $column_name_appendix the name attribute
-     * @param array  $options              transformation options
-     * @param string $value                Current field value
-     * @param string $text_dir             text direction
-     * @param int    $tabindex             tab index
-     * @param int    $tabindex_for_value   offset for the values tabindex
-     * @param int    $idindex              id index
+     * @param array  $column             column details
+     * @param int    $rowId              row number
+     * @param string $columnNameAppendix the name attribute
+     * @param array  $options            transformation options
+     * @param string $value              Current field value
+     * @param string $textDir            text direction
+     * @param int    $tabIndex           tab index
+     * @param int    $tabIndexForValue   offset for the values tabindex
+     * @param int    $idIndex            id index
      *
      * @return string the html for input field
      */
     public function getInputHtml(
         array $column,
-        int $row_id,
-        string $column_name_appendix,
+        int $rowId,
+        string $columnNameAppendix,
         array $options,
         string $value,
-        string $text_dir,
-        int $tabindex,
-        int $tabindex_for_value,
-        int $idindex,
+        string $textDir,
+        int $tabIndex,
+        int $tabIndexForValue,
+        int $idIndex,
     ): string {
         $html = '';
         $val = '';
@@ -84,19 +84,19 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
                 }
             }
 
-            $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
+            $html = '<input type="hidden" name="fields_prev' . $columnNameAppendix
                 . '" value="' . htmlspecialchars($val) . '">';
         }
 
         $class = 'transform_IPToBin';
 
-        return $html . '<input type="text" name="fields' . $column_name_appendix . '"'
+        return $html . '<input type="text" name="fields' . $columnNameAppendix . '"'
             . ' value="' . htmlspecialchars($val) . '"'
             . ' size="40"'
-            . ' dir="' . $text_dir . '"'
+            . ' dir="' . $textDir . '"'
             . ' class="' . $class . '"'
-            . ' id="field_' . $idindex . '_3"'
-            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">';
+            . ' id="field_' . $idIndex . '_3"'
+            . ' tabindex="' . ($tabIndex + $tabIndexForValue) . '">';
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

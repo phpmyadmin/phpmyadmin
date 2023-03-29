@@ -35,30 +35,30 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisGeometryCollection::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisGeometryCollection::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -71,28 +71,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         $temp1 = [
             0 => [
                 'gis_type' => 'LINESTRING',
-                'LINESTRING' => [
-                    'no_of_points' => 2,
-                    0 => [
-                        'x' => 5.02,
-                        'y' => 8.45,
-                    ],
-                    1 => [
-                        'x' => 6.14,
-                        'y' => 0.15,
-                    ],
-                ],
+                'LINESTRING' => ['no_of_points' => 2, 0 => ['x' => 5.02,'y' => 8.45], 1 => ['x' => 6.14,'y' => 0.15]],
             ],
         ];
 
-        return [
-            [
-                $temp1,
-                0,
-                null,
-                'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
-            ],
-        ];
+        return [[$temp1, 0, null, 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))']];
     }
 
     /**
@@ -134,14 +117,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                         'gis_type' => 'LINESTRING',
                         'LINESTRING' => [
                             'no_of_points' => 2,
-                            0 => [
-                                'x' => 5.02,
-                                'y' => 8.45,
-                            ],
-                            1 => [
-                                'x' => 6.14,
-                                'y' => 0.15,
-                            ],
+                            0 => ['x' => 5.02, 'y' => 8.45],
+                            1 => ['x' => 6.14, 'y' => 0.15],
                         ],
                     ],
                     1 => [
@@ -150,33 +127,15 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                             'no_of_lines' => 2,
                             0 => [
                                 'no_of_points' => 3,
-                                0 => [
-                                    'x' => 36.0,
-                                    'y' => 14.0,
-                                ],
-                                1 => [
-                                    'x' => 47.0,
-                                    'y' => 23.0,
-                                ],
-                                2 => [
-                                    'x' => 62.0,
-                                    'y' => 75.0,
-                                ],
+                                0 => ['x' => 36.0, 'y' => 14.0],
+                                1 => ['x' => 47.0, 'y' => 23.0],
+                                2 => ['x' => 62.0, 'y' => 75.0],
                             ],
                             1 => [
                                 'no_of_points' => 3,
-                                0 => [
-                                    'x' => 36.0,
-                                    'y' => 10.0,
-                                ],
-                                1 => [
-                                    'x' => 17.0,
-                                    'y' => 23.0,
-                                ],
-                                2 => [
-                                    'x' => 178.0,
-                                    'y' => 53.0,
-                                ],
+                                0 => ['x' => 36.0, 'y' => 10.0],
+                                1 => ['x' => 17.0, 'y' => 23.0],
+                                2 => ['x' => 178.0, 'y' => 53.0],
                             ],
                         ],
                     ],
@@ -184,14 +143,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                         'gis_type' => 'MULTIPOINT',
                         'MULTIPOINT' => [
                             'no_of_points' => 2,
-                            0 => [
-                                'x' => 5.02,
-                                'y' => 8.45,
-                            ],
-                            1 => [
-                                'x' => 6.14,
-                                'y' => 0.15,
-                            ],
+                            0 => ['x' => 5.02, 'y' => 8.45],
+                            1 => ['x' => 6.14, 'y' => 0.15],
                         ],
                     ],
                     3 => [
@@ -202,123 +155,51 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                                 'no_of_lines' => 2,
                                 0 => [
                                     'no_of_points' => 5,
-                                    0 => [
-                                        'x' => 35.0,
-                                        'y' => 10.0,
-                                    ],
-                                    1 => [
-                                        'x' => 10.0,
-                                        'y' => 20.0,
-                                    ],
-                                    2 => [
-                                        'x' => 15.0,
-                                        'y' => 40.0,
-                                    ],
-                                    3 => [
-                                        'x' => 45.0,
-                                        'y' => 45.0,
-                                    ],
-                                    4 => [
-                                        'x' => 35.0,
-                                        'y' => 10.0,
-                                    ],
+                                    0 => ['x' => 35.0, 'y' => 10.0],
+                                    1 => ['x' => 10.0, 'y' => 20.0],
+                                    2 => ['x' => 15.0, 'y' => 40.0],
+                                    3 => ['x' => 45.0, 'y' => 45.0],
+                                    4 => ['x' => 35.0, 'y' => 10.0],
                                 ],
                                 1 => [
                                     'no_of_points' => 4,
-                                    0 => [
-                                        'x' => 20.0,
-                                        'y' => 30.0,
-                                    ],
-                                    1 => [
-                                        'x' => 35.0,
-                                        'y' => 32.0,
-                                    ],
-                                    2 => [
-                                        'x' => 30.0,
-                                        'y' => 20.0,
-                                    ],
-                                    3 => [
-                                        'x' => 20.0,
-                                        'y' => 30.0,
-                                    ],
+                                    0 => ['x' => 20.0, 'y' => 30.0],
+                                    1 => ['x' => 35.0, 'y' => 32.0],
+                                    2 => ['x' => 30.0, 'y' => 20.0],
+                                    3 => ['x' => 20.0, 'y' => 30.0],
                                 ],
                             ],
                             1 => [
                                 'no_of_lines' => 1,
                                 0 => [
                                     'no_of_points' => 4,
-                                    0 => [
-                                        'x' => 123.0,
-                                        'y' => 0.0,
-                                    ],
-                                    1 => [
-                                        'x' => 23.0,
-                                        'y' => 30.0,
-                                    ],
-                                    2 => [
-                                        'x' => 17.0,
-                                        'y' => 63.0,
-                                    ],
-                                    3 => [
-                                        'x' => 123.0,
-                                        'y' => 0.0,
-                                    ],
+                                    0 => ['x' => 123.0, 'y' => 0.0],
+                                    1 => ['x' => 23.0, 'y' => 30.0],
+                                    2 => ['x' => 17.0, 'y' => 63.0],
+                                    3 => ['x' => 123.0, 'y' => 0.0],
                                 ],
                             ],
                         ],
                     ],
-                    4 => [
-                        'gis_type' => 'POINT',
-                        'POINT' => [
-                            'x' => 5.02,
-                            'y' => 8.45,
-                        ],
-                    ],
+                    4 => ['gis_type' => 'POINT', 'POINT' => ['x' => 5.02, 'y' => 8.45]],
                     5 => [
                         'gis_type' => 'POLYGON',
                         'POLYGON' => [
                             'no_of_lines' => 2,
                             0 => [
                                 'no_of_points' => 5,
-                                0 => [
-                                    'x' => 35.0,
-                                    'y' => 10.0,
-                                ],
-                                1 => [
-                                    'x' => 10.0,
-                                    'y' => 20.0,
-                                ],
-                                2 => [
-                                    'x' => 15.0,
-                                    'y' => 40.0,
-                                ],
-                                3 => [
-                                    'x' => 45.0,
-                                    'y' => 45.0,
-                                ],
-                                4 => [
-                                    'x' => 35.0,
-                                    'y' => 10.0,
-                                ],
+                                0 => ['x' => 35.0, 'y' => 10.0],
+                                1 => ['x' => 10.0, 'y' => 20.0],
+                                2 => ['x' => 15.0, 'y' => 40.0],
+                                3 => ['x' => 45.0, 'y' => 45.0],
+                                4 => ['x' => 35.0, 'y' => 10.0],
                             ],
                             1 => [
                                 'no_of_points' => 4,
-                                0 => [
-                                    'x' => 20.0,
-                                    'y' => 30.0,
-                                ],
-                                1 => [
-                                    'x' => 35.0,
-                                    'y' => 32.0,
-                                ],
-                                2 => [
-                                    'x' => 30.0,
-                                    'y' => 20.0,
-                                ],
-                                3 => [
-                                    'x' => 20.0,
-                                    'y' => 30.0,
-                                ],
+                                0 => ['x' => 20.0, 'y' => 30.0],
+                                1 => ['x' => 35.0, 'y' => 32.0],
+                                2 => ['x' => 30.0, 'y' => 20.0],
+                                3 => ['x' => 20.0, 'y' => 30.0],
                             ],
                         ],
                     ],
@@ -353,11 +234,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsPdf
      *
-     * @param string $spatial    string to parse
-     * @param string $label      field label
-     * @param int[]  $color      line color
-     * @param array  $scale_data scaling parameters
-     * @param TCPDF  $pdf        expected output
+     * @param string $spatial   string to parse
+     * @param string $label     field label
+     * @param int[]  $color     line color
+     * @param array  $scaleData scaling parameters
+     * @param TCPDF  $pdf       expected output
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -365,11 +246,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisGeometryCollection::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/geometrycollection-expected.pdf';
         $fileActual = $this->testDir . '/geometrycollection-actual.pdf';
@@ -432,12 +313,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 'svg',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
+                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
                 '<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
                 . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg1234567890'
                 . '" class="polygon vector" stroke="black" stroke-width="0.5"'

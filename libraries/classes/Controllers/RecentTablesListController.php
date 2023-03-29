@@ -15,8 +15,6 @@ final class RecentTablesListController extends AbstractController
             return;
         }
 
-        $this->response->addJSON([
-            'list' => RecentFavoriteTable::getInstance('recent')->getHtmlList(),
-        ]);
+        $this->response->addJSON(['list' => RecentFavoriteTable::getInstance('recent')->getHtmlList()]);
     }
 }

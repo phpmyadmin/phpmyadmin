@@ -53,10 +53,7 @@ use const PASSWORD_DEFAULT;
 
 class InsertEdit
 {
-    private const FUNC_OPTIONAL_PARAM = [
-        'RAND',
-        'UNIX_TIMESTAMP',
-    ];
+    private const FUNC_OPTIONAL_PARAM = ['RAND', 'UNIX_TIMESTAMP'];
 
     private const FUNC_NO_PARAM = [
         'CONNECTION_ID',
@@ -197,12 +194,7 @@ class InsertEdit
             $foundUniqueKey = true;
         }
 
-        return [
-            $whereClauses,
-            $result,
-            $rows,
-            $foundUniqueKey,
-        ];
+        return [$whereClauses, $result, $rows, $foundUniqueKey];
     }
 
     /**
@@ -268,10 +260,7 @@ class InsertEdit
         // Can be a string on some old configuration storage settings
         $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
 
-        return [
-            $result,
-            $rows,
-        ];
+        return [$result, $rows];
     }
 
     /**
@@ -375,26 +364,15 @@ class InsertEdit
         $column['Field_title'] = $this->getColumnTitle($column, $commentsMap);
         $column['is_binary'] = $this->isColumn(
             $column,
-            [
-                'binary',
-                'varbinary',
-            ],
+            ['binary', 'varbinary'],
         );
         $column['is_blob'] = $this->isColumn(
             $column,
-            [
-                'blob',
-                'tinyblob',
-                'mediumblob',
-                'longblob',
-            ],
+            ['blob', 'tinyblob', 'mediumblob', 'longblob'],
         );
         $column['is_char'] = $this->isColumn(
             $column,
-            [
-                'char',
-                'varchar',
-            ],
+            ['char', 'varchar'],
         );
 
         [
@@ -456,26 +434,14 @@ class InsertEdit
     private function getEnumSetAndTimestampColumns(array $column, bool $timestampSeen): array
     {
         return match ($column['True_Type']) {
-            'set' => [
-                'set',
-                '',
-                false,
-            ],
-            'enum' => [
-                'enum',
-                '',
-                false,
-            ],
+            'set' => ['set', '', false],
+            'enum' => ['enum', '', false],
             'timestamp' => [
                 $column['Type'],
                 ' text-nowrap',
                 ! $timestampSeen, // can only occur once per table
             ],
-            default => [
-                $column['Type'],
-                ' text-nowrap',
-                false,
-            ],
+            default => [$column['Type'], ' text-nowrap', false],
         };
     }
 
@@ -579,19 +545,16 @@ class InsertEdit
     /**
      * Get column values
      *
-     * @param string[] $enum_set_values
+     * @param string[] $enumSetValues
      *
      * @return array column values as an associative array
      * @psalm-return list<array{html: string, plain: string}>
      */
-    private function getColumnEnumValues(array $enum_set_values): array
+    private function getColumnEnumValues(array $enumSetValues): array
     {
         $values = [];
-        foreach ($enum_set_values as $val) {
-            $values[] = [
-                'plain' => $val,
-                'html' => htmlspecialchars($val),
-            ];
+        foreach ($enumSetValues as $val) {
+            $values[] = ['plain' => $val, 'html' => htmlspecialchars($val)];
         }
 
         return $values;
@@ -600,31 +563,25 @@ class InsertEdit
     /**
      * Retrieve column 'set' value and select size
      *
-     * @param array    $column          description of column in given table
-     * @param string[] $enum_set_values
+     * @param array    $column        description of column in given table
+     * @param string[] $enumSetValues
      *
      * @return array $column['values'], $column['select_size']
      */
     private function getColumnSetValueAndSelectSize(
         array $column,
-        array $enum_set_values,
+        array $enumSetValues,
     ): array {
         if (! isset($column['values'])) {
             $column['values'] = [];
-            foreach ($enum_set_values as $val) {
-                $column['values'][] = [
-                    'plain' => $val,
-                    'html' => htmlspecialchars($val),
-                ];
+            foreach ($enumSetValues as $val) {
+                $column['values'][] = ['plain' => $val, 'html' => htmlspecialchars($val)];
             }
 
             $column['select_size'] = min(4, count($column['values']));
         }
 
-        return [
-            $column['values'],
-            $column['select_size'],
-        ];
+        return [$column['values'], $column['select_size']];
     }
 
     /**
@@ -726,13 +683,13 @@ class InsertEdit
     /**
      * Retrieve the maximum upload file size
      *
-     * @param string $pma_type           column type
+     * @param string $pmaType            column type
      * @param int    $biggestMaxFileSize biggest max file size for uploading
      *
      * @return array an html snippet and $biggest_max_file_size
      * @psalm-return array{non-empty-string, int}
      */
-    private function getMaxUploadSize(string $pma_type, int $biggestMaxFileSize): array
+    private function getMaxUploadSize(string $pmaType, int $biggestMaxFileSize): array
     {
         // find maximum upload size, based on field type
         /**
@@ -747,8 +704,8 @@ class InsertEdit
         ];
 
         $thisFieldMaxSize = (int) $GLOBALS['config']->get('max_upload_size'); // from PHP max
-        if ($thisFieldMaxSize > $maxFieldSizes[$pma_type]) {
-            $thisFieldMaxSize = $maxFieldSizes[$pma_type];
+        if ($thisFieldMaxSize > $maxFieldSizes[$pmaType]) {
+            $thisFieldMaxSize = $maxFieldSizes[$pmaType];
         }
 
         $htmlOutput = Util::getFormattedMaximumUploadSize($thisFieldMaxSize) . "\n";
@@ -758,10 +715,7 @@ class InsertEdit
             $biggestMaxFileSize = $thisFieldMaxSize;
         }
 
-        return [
-            $htmlOutput,
-            $biggestMaxFileSize,
-        ];
+        return [$htmlOutput, $biggestMaxFileSize];
     }
 
     /**
@@ -1054,13 +1008,7 @@ class InsertEdit
             . $columnNameAppendix . '" value="'
             . htmlspecialchars($currentRow[$column['Field']], ENT_COMPAT) . '">';
 
-        return [
-            $realNullValue,
-            (string) $specialCharsEncoded,
-            (string) $specialChars,
-            (string) $data,
-            $backupField,
-        ];
+        return [$realNullValue, (string) $specialCharsEncoded, (string) $specialChars, (string) $data, $backupField];
     }
 
     /**
@@ -1101,13 +1049,7 @@ class InsertEdit
 
         $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
 
-        return [
-            $realNullValue,
-            (string) $data,
-            $specialChars,
-            '',
-            $specialCharsEncoded,
-        ];
+        return [$realNullValue, (string) $data, $specialChars, '', $specialCharsEncoded];
     }
 
     /**
@@ -1142,12 +1084,7 @@ class InsertEdit
         $isInsertIgnore = isset($_POST['submit_type'])
             && $_POST['submit_type'] === 'insertignore';
 
-        return [
-            $loopArray,
-            $usingKey,
-            $isInsert,
-            $isInsertIgnore,
-        ];
+        return [$loopArray, $usingKey, $isInsert, $isInsertIgnore];
     }
 
     /**
@@ -1189,11 +1126,7 @@ class InsertEdit
      */
     public function getGotoInclude(string|false $gotoInclude): string
     {
-        $validOptions = [
-            'new_insert',
-            'same_insert',
-            'edit_next',
-        ];
+        $validOptions = ['new_insert', 'same_insert', 'edit_next'];
         if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions)) {
             return '/table/change';
         }
@@ -1331,14 +1264,7 @@ class InsertEdit
             $warningMessages = $this->getWarningMessages();
         }
 
-        return [
-            $urlParams,
-            $totalAffectedRows,
-            $lastMessages,
-            $warningMessages,
-            $errorMessages,
-            $returnToSqlQuery,
-        ];
+        return [$urlParams, $totalAffectedRows, $lastMessages, $warningMessages, $errorMessages, $returnToSqlQuery];
     }
 
     /**
@@ -1589,10 +1515,7 @@ class InsertEdit
             return $this->formatAsSqlFunction($editField);
         }
 
-        return $this->formatAsSqlValueBasedOnType(
-            $editField,
-            $protectedValue,
-        );
+        return $this->formatAsSqlValueBasedOnType($editField, $protectedValue);
     }
 
     /**
@@ -2370,12 +2293,7 @@ class InsertEdit
                 $columnMime = $mimeMap[$tableColumn['Field']];
             }
 
-            $virtual = [
-                'VIRTUAL',
-                'PERSISTENT',
-                'VIRTUAL GENERATED',
-                'STORED GENERATED',
-            ];
+            $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
             if (in_array($tableColumn['Extra'], $virtual)) {
                 continue;
             }

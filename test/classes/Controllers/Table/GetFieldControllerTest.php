@@ -33,10 +33,7 @@ class GetFieldControllerTest extends AbstractTestCase
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult(
             'SHOW COLUMNS FROM `test_db`.`table_with_blob`',
-            [
-                ['id', 'int(11)', 'NO', 'PRI', null, 'auto_increment'],
-                ['file', 'blob', 'NO', '', null, ''],
-            ],
+            [['id', 'int(11)', 'NO', 'PRI', null, 'auto_increment'], ['file', 'blob', 'NO', '', null, '']],
             ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
         $dummyDbi->addResult(

@@ -118,10 +118,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $desc = 'foobar<baz';
 
         $this->assertEquals(
-            [
-                'foobar<baz',
-                '',
-            ],
+            ['foobar<baz', ''],
             $this->callFunction(
                 $this->browseForeigners,
                 BrowseForeigners::class,
@@ -135,10 +132,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $browseForeigners = new BrowseForeigners(new Template(), $config);
 
         $this->assertEquals(
-            [
-                'fooba...',
-                'foobar<baz',
-            ],
+            ['fooba...', 'foobar<baz'],
             $this->callFunction(
                 $browseForeigners,
                 BrowseForeigners::class,
@@ -159,7 +153,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $foreignData = [];
         $foreignData['disp_row'] = '';
         $fieldkey = 'bar';
-        $current_value = '';
+        $currentValue = '';
         $_POST['rownumber'] = 1;
         $_POST['foreign_filter'] = '5';
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
@@ -168,7 +162,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $field,
             $foreignData,
             $fieldkey,
-            $current_value,
+            $currentValue,
         );
 
         $this->assertStringContainsString(
@@ -213,7 +207,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $field,
             $foreignData,
             $fieldkey,
-            $current_value,
+            $currentValue,
         );
 
         $this->assertStringContainsString(

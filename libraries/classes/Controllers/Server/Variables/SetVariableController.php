@@ -50,14 +50,7 @@ final class SetVariableController extends AbstractController
                 $matches,
             )
         ) {
-            $exp = [
-                'kb' => 1,
-                'kib' => 1,
-                'mb' => 2,
-                'mib' => 2,
-                'gb' => 3,
-                'gib' => 3,
-            ];
+            $exp = ['kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3];
             $value = (float) $matches[1] * 1024 ** $exp[mb_strtolower($matches[3])];
         } else {
             $value = $this->dbi->quoteString($value);
@@ -111,10 +104,7 @@ final class SetVariableController extends AbstractController
                 $formattedValue = trim(
                     $this->template->render(
                         'server/variables/format_variable',
-                        [
-                            'valueTitle' => Util::formatNumber($value, 0),
-                            'value' => implode(' ', $bytes),
-                        ],
+                        ['valueTitle' => Util::formatNumber($value, 0), 'value' => implode(' ', $bytes)],
                     ),
                 );
             } else {
@@ -122,9 +112,6 @@ final class SetVariableController extends AbstractController
             }
         }
 
-        return [
-            $formattedValue,
-            $isHtmlFormatted,
-        ];
+        return [$formattedValue, $isHtmlFormatted];
     }
 }

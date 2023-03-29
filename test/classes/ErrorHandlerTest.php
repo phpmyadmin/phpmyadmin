@@ -58,36 +58,21 @@ class ErrorHandlerTest extends AbstractTestCase
     public static function providerForTestHandleError(): array
     {
         return [
-            [
-                E_RECOVERABLE_ERROR,
-                'Compile Error',
-                'error.txt',
-                12,
-                'Compile Error',
-                '',
-            ],
-            [
-                E_USER_NOTICE,
-                'User notice',
-                'error.txt',
-                12,
-                'User notice',
-                'User notice',
-            ],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'Compile Error', ''],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'User notice', 'User notice'],
         ];
     }
 
     /**
      * Test for getDispErrors when PHP errors are not shown
      *
-     * @param int    $errno       error number
-     * @param string $errstr      error string
-     * @param string $errfile     error file
-     * @param int    $errline     error line
-     * @param string $output_show expected output if showing of errors is
-     *                            enabled
-     * @param string $output_hide expected output if showing of errors is
-     *                            disabled and 'sendErrorReports' is set to 'never'
+     * @param int    $errno      error number
+     * @param string $errstr     error string
+     * @param string $errfile    error file
+     * @param int    $errline    error line
+     * @param string $outputShow expected output if showing of errors is enabled
+     * @param string $outputHide expected output if showing of errors is
+     *                           disabled and 'sendErrorReports' is set to 'never'
      *
      * @dataProvider providerForTestHandleError
      */
@@ -96,8 +81,8 @@ class ErrorHandlerTest extends AbstractTestCase
         string $errstr,
         string $errfile,
         int $errline,
-        string $output_show,
-        string $output_hide,
+        string $outputShow,
+        string $outputHide,
     ): void {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
@@ -106,25 +91,23 @@ class ErrorHandlerTest extends AbstractTestCase
 
         $output = $this->object->getDispErrors();
 
-        if ($output_hide === '') {
+        if ($outputHide === '') {
             $this->assertEquals('', $output);
         } else {
-            $this->assertNotEmpty($output_show);// Useless check
-            $this->assertStringContainsString($output_hide, $output);
+            $this->assertNotEmpty($outputShow);// Useless check
+            $this->assertStringContainsString($outputHide, $output);
         }
     }
 
     /**
      * Test for getDispErrors when PHP errors are shown
      *
-     * @param int    $errno       error number
-     * @param string $errstr      error string
-     * @param string $errfile     error file
-     * @param int    $errline     error line
-     * @param string $output_show expected output if showing of errors is
-     *                            enabled
-     * @param string $output_hide expected output if showing of errors is
-     *                            disabled
+     * @param int    $errno      error number
+     * @param string $errstr     error string
+     * @param string $errfile    error file
+     * @param int    $errline    error line
+     * @param string $outputShow expected output if showing of errors is enabled
+     * @param string $outputHide expected output if showing of errors is disabled
      *
      * @dataProvider providerForTestHandleError
      */
@@ -133,14 +116,14 @@ class ErrorHandlerTest extends AbstractTestCase
         string $errstr,
         string $errfile,
         int $errline,
-        string $output_show,
-        string $output_hide,
+        string $outputShow,
+        string $outputHide,
     ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
-        $this->assertIsString($output_hide);// Useless check
+        $this->assertIsString($outputHide);// Useless check
         $this->assertStringContainsString(
-            $output_show,
+            $outputShow,
             $this->object->getDispErrors(),
         );
     }
@@ -225,9 +208,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
         // Gives the last element
         $this->assertEquals(
-            [
-                $firstKey => $elements[$firstKey],
-            ],
+            [$firstKey => $elements[$firstKey]],
             $elements,
         );
         $this->assertEquals(9, count($this->object->getCurrentErrors()));

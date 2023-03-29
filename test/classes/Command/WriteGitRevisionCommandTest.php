@@ -36,10 +36,7 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
             $this->command,
             WriteGitRevisionCommand::class,
             'getRevisionInfo',
-            [
-                'https://github.com/phpmyadmin/phpmyadmin/commit/%s',
-                'https://github.com/phpmyadmin/phpmyadmin/tree/%s',
-            ],
+            ['https://github.com/phpmyadmin/phpmyadmin/commit/%s', 'https://github.com/phpmyadmin/phpmyadmin/tree/%s'],
         );
         $template = <<<'PHP'
 <?php

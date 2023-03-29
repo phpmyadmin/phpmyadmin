@@ -62,11 +62,7 @@ class Message implements Stringable
      *
      * @var array
      */
-    public static array $level = [
-        self::SUCCESS => 'success',
-        self::NOTICE => 'notice',
-        self::ERROR => 'error',
-    ];
+    public static array $level = [self::SUCCESS => 'success', self::NOTICE => 'notice', self::ERROR => 'error'];
 
     /**
      * The message number
@@ -625,8 +621,8 @@ class Message implements Stringable
             $message = self::decodeBB($message);
         }
 
-        foreach ($this->getAddedMessages() as $add_message) {
-            $message .= $add_message;
+        foreach ($this->getAddedMessages() as $addMessage) {
+            $message .= $addMessage;
         }
 
         return $message;
@@ -689,10 +685,7 @@ class Message implements Stringable
 
         $template = new Template();
 
-        return $template->render('message', [
-            'context' => $context,
-            'message' => $this->getMessage(),
-        ]);
+        return $template->render('message', ['context' => $context, 'message' => $this->getMessage()]);
     }
 
     /**

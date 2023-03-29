@@ -7,9 +7,9 @@
         <label for="select_server">{% trans 'Current server:' %}</label>
         <select id="select_server" class="autosubmit" name="server">
             <option value="">({% trans 'Servers' %}) ...</option>
-            {% include 'server/select/server_options.twig' with {
-                'select': servers.select
-            } only %}
+            {% for server in servers.select %}
+              <option value="{{ server.value }}"{{ server.selected ? ' selected' }}>{{ server.label }}</option>
+            {% endfor %}
         </select>
         {% if omit_fieldset == false %}
             </fieldset>
@@ -31,7 +31,7 @@
         </li>
     </ul>
 {% else %}
-    {% include 'server/select/server_options.twig' with {
-        'select': servers.select
-    } only %}
+  {% for server in servers.select %}
+    <option value="{{ server.value }}"{{ server.selected ? ' selected' }}>{{ server.label }}</option>
+  {% endfor %}
 {% endif %}

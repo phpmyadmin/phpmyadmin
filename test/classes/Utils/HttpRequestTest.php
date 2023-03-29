@@ -53,23 +53,23 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using Curl
      *
-     * @param string           $url                url
-     * @param string           $method             method
-     * @param bool             $return_only_status return only status
-     * @param bool|string|null $expected           expected result
+     * @param string           $url              url
+     * @param string           $method           method
+     * @param bool             $returnOnlyStatus return only status
+     * @param bool|string|null $expected         expected result
      *
      * @group medium
      * @dataProvider httpRequests
      * @group network
      * @requires extension curl
      */
-    public function testCurl(string $url, string $method, bool $return_only_status, bool|string|null $expected): void
+    public function testCurl(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
     {
         $result = $this->callFunction(
             $this->httpRequest,
             HttpRequest::class,
             'curl',
-            [$url, $method, $return_only_status],
+            [$url, $method, $returnOnlyStatus],
         );
         $this->validateHttp($result, $expected);
     }
@@ -77,10 +77,10 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using Curl with CURLOPT_CAPATH
      *
-     * @param string           $url                url
-     * @param string           $method             method
-     * @param bool             $return_only_status return only status
-     * @param bool|string|null $expected           expected result
+     * @param string           $url              url
+     * @param string           $method           method
+     * @param bool             $returnOnlyStatus return only status
+     * @param bool|string|null $expected         expected result
      *
      * @group medium
      * @dataProvider httpRequests
@@ -90,14 +90,14 @@ class HttpRequestTest extends AbstractTestCase
     public function testCurlCAPath(
         string $url,
         string $method,
-        bool $return_only_status,
+        bool $returnOnlyStatus,
         bool|string|null $expected,
     ): void {
         $this->checkCurlSslFlagsSupport();
         $result = $this->callFunction($this->httpRequest, HttpRequest::class, 'curl', [
             $url,
             $method,
-            $return_only_status,
+            $returnOnlyStatus,
             null,
             '',
             CURLOPT_CAPATH,
@@ -108,10 +108,10 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using Curl with CURLOPT_CAINFO
      *
-     * @param string           $url                url
-     * @param string           $method             method
-     * @param bool             $return_only_status return only status
-     * @param bool|string|null $expected           expected result
+     * @param string           $url              url
+     * @param string           $method           method
+     * @param bool             $returnOnlyStatus return only status
+     * @param bool|string|null $expected         expected result
      *
      * @group medium
      * @dataProvider httpRequests
@@ -121,14 +121,14 @@ class HttpRequestTest extends AbstractTestCase
     public function testCurlCAInfo(
         string $url,
         string $method,
-        bool $return_only_status,
+        bool $returnOnlyStatus,
         bool|string|null $expected,
     ): void {
         $this->checkCurlSslFlagsSupport();
         $result = $this->callFunction($this->httpRequest, HttpRequest::class, 'curl', [
             $url,
             $method,
-            $return_only_status,
+            $returnOnlyStatus,
             null,
             '',
             CURLOPT_CAINFO,
@@ -139,16 +139,16 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using fopen
      *
-     * @param string           $url                url
-     * @param string           $method             method
-     * @param bool             $return_only_status return only status
-     * @param bool|string|null $expected           expected result
+     * @param string           $url              url
+     * @param string           $method           method
+     * @param bool             $returnOnlyStatus return only status
+     * @param bool|string|null $expected         expected result
      *
      * @group medium
      * @dataProvider httpRequests
      * @group network
      */
-    public function testFopen(string $url, string $method, bool $return_only_status, bool|string|null $expected): void
+    public function testFopen(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
@@ -158,7 +158,7 @@ class HttpRequestTest extends AbstractTestCase
             $this->httpRequest,
             HttpRequest::class,
             'fopen',
-            [$url, $method, $return_only_status],
+            [$url, $method, $returnOnlyStatus],
         );
         $this->validateHttp($result, $expected);
     }
@@ -166,23 +166,23 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using generic interface
      *
-     * @param string           $url                url
-     * @param string           $method             method
-     * @param bool             $return_only_status return only status
-     * @param bool|string|null $expected           expected result
+     * @param string           $url              url
+     * @param string           $method           method
+     * @param bool             $returnOnlyStatus return only status
+     * @param bool|string|null $expected         expected result
      *
      * @group medium
      * @dataProvider httpRequests
      * @group network
      * @requires extension curl
      */
-    public function testCreate(string $url, string $method, bool $return_only_status, bool|string|null $expected): void
+    public function testCreate(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
         }
 
-        $result = $this->httpRequest->create($url, $method, $return_only_status);
+        $result = $this->httpRequest->create($url, $method, $returnOnlyStatus);
         $this->validateHttp($result, $expected);
     }
 
@@ -212,36 +212,11 @@ class HttpRequestTest extends AbstractTestCase
     public static function httpRequests(): array
     {
         return [
-            [
-                'https://www.phpmyadmin.net/test/data',
-                'GET',
-                true,
-                true,
-            ],
-            [
-                'https://www.phpmyadmin.net/test/data',
-                'POST',
-                true,
-                null,
-            ],
-            [
-                'https://nonexisting.phpmyadmin.net/test/data',
-                'GET',
-                true,
-                null,
-            ],
-            [
-                'https://www.phpmyadmin.net/test/data',
-                'GET',
-                false,
-                'TEST DATA',
-            ],
-            [
-                'https://www.phpmyadmin.net/test/nothing',
-                'GET',
-                true,
-                false,
-            ],
+            ['https://www.phpmyadmin.net/test/data', 'GET', true, true],
+            ['https://www.phpmyadmin.net/test/data', 'POST', true, null],
+            ['https://nonexisting.phpmyadmin.net/test/data', 'GET', true, null],
+            ['https://www.phpmyadmin.net/test/data', 'GET', false, 'TEST DATA'],
+            ['https://www.phpmyadmin.net/test/nothing', 'GET', true, false],
         ];
     }
 }

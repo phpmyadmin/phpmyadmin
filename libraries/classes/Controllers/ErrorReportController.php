@@ -78,12 +78,12 @@ class ErrorReportController extends AbstractController
             $reportData = $this->errorReport->getData($exceptionType);
             // report if and only if there were 'actual' errors.
             if (count($reportData) > 0) {
-                $server_response = $this->errorReport->send($reportData);
-                if (! is_string($server_response)) {
+                $serverResponse = $this->errorReport->send($reportData);
+                if (! is_string($serverResponse)) {
                     $success = false;
                 } else {
-                    $decoded_response = json_decode($server_response, true);
-                    $success = ! empty($decoded_response) && $decoded_response['success'];
+                    $decodedResponse = json_decode($serverResponse, true);
+                    $success = ! empty($decodedResponse) && $decodedResponse['success'];
                 }
 
                 /* Message to show to the user */

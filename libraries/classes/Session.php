@@ -181,17 +181,17 @@ class Session
 
         // on first start of session we check for errors
         // f.e. session dir cannot be accessed - session file not created
-        $orig_error_count = $errorHandler->countErrors(false);
+        $origErrorCount = $errorHandler->countErrors(false);
 
-        $session_result = session_start();
+        $sessionResult = session_start();
 
-        if ($session_result !== true || $orig_error_count !== $errorHandler->countErrors(false)) {
+        if ($sessionResult !== true || $origErrorCount !== $errorHandler->countErrors(false)) {
             setcookie($httpCookieName, '', 1);
-            $errors = $errorHandler->sliceErrors($orig_error_count);
+            $errors = $errorHandler->sliceErrors($origErrorCount);
             self::sessionFailed($errors);
         }
 
-        unset($orig_error_count, $session_result);
+        unset($origErrorCount, $sessionResult);
 
         /**
          * Disable setting of session cookies for further session_start() calls.
@@ -216,10 +216,10 @@ class Session
          * This seems to be most reliable approach to test if sessions are working,
          * otherwise the check would fail with custom session backends.
          */
-        $orig_error_count = $errorHandler->countErrors();
+        $origErrorCount = $errorHandler->countErrors();
         session_write_close();
-        if ($errorHandler->countErrors() > $orig_error_count) {
-            $errors = $errorHandler->sliceErrors($orig_error_count);
+        if ($errorHandler->countErrors() > $origErrorCount) {
+            $errors = $errorHandler->sliceErrors($origErrorCount);
             self::sessionFailed($errors);
         }
 

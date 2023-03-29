@@ -65,15 +65,15 @@ class Console
         }
 
         $bookmarks = Bookmark::getList($bookmarkFeature, $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user']);
-        $count_bookmarks = count($bookmarks);
-        if ($count_bookmarks > 0) {
+        $countBookmarks = count($bookmarks);
+        if ($countBookmarks > 0) {
             $welcomeMessage = sprintf(
                 _ngettext(
                     'Showing %1$d bookmark (both private and shared)',
                     'Showing %1$d bookmarks (both private and shared)',
-                    $count_bookmarks,
+                    $countBookmarks,
                 ),
-                $count_bookmarks,
+                $countBookmarks,
             );
         } else {
             $welcomeMessage = __('No bookmarks');
@@ -105,12 +105,12 @@ class Console
         }
 
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        $_sql_history = $this->relation->getHistory($GLOBALS['cfg']['Server']['user']);
+        $sqlHistory = $this->relation->getHistory($GLOBALS['cfg']['Server']['user']);
         $bookmarkContent = static::getBookmarkContent();
 
         return $this->template->render('console/display', [
             'has_bookmark_feature' => $bookmarkFeature !== null,
-            'sql_history' => $_sql_history,
+            'sql_history' => $sqlHistory,
             'bookmark_content' => $bookmarkContent,
         ]);
     }

@@ -50,18 +50,12 @@ class FlashMessagesTest extends AbstractTestCase
 
     public function testGetMessages(): void
     {
-        $_SESSION[self::STORAGE_KEY] = [
-            'error' => ['Error1', 'Error2'],
-            'warning' => ['Warning'],
-        ];
+        $_SESSION[self::STORAGE_KEY] = ['error' => ['Error1', 'Error2'], 'warning' => ['Warning']];
         $flash = new FlashMessages();
         $flash->addMessage('notice', 'Notice');
         $messages = $flash->getMessages();
         $this->assertEquals(
-            [
-                'error' => ['Error1', 'Error2'],
-                'warning' => ['Warning'],
-            ],
+            ['error' => ['Error1', 'Error2'], 'warning' => ['Warning']],
             $messages,
         );
     }

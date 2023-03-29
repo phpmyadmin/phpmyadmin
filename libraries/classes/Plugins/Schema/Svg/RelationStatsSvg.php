@@ -26,22 +26,22 @@ use function sqrt;
 class RelationStatsSvg extends RelationStats
 {
     /**
-     * @param Svg        $diagram       The SVG diagram
-     * @param TableStats $master_table  The master table name
-     * @param string     $master_field  The relation field in the master table
-     * @param TableStats $foreign_table The foreign table name
-     * @param string     $foreign_field The relation field in the foreign table
+     * @param Svg        $diagram      The SVG diagram
+     * @param TableStats $masterTable  The master table name
+     * @param string     $masterField  The relation field in the master table
+     * @param TableStats $foreignTable The foreign table name
+     * @param string     $foreignField The relation field in the foreign table
      */
     public function __construct(
         Svg $diagram,
-        TableStats $master_table,
-        string $master_field,
-        TableStats $foreign_table,
-        string $foreign_field,
+        TableStats $masterTable,
+        string $masterField,
+        TableStats $foreignTable,
+        string $foreignField,
     ) {
         $this->wTick = 10;
 
-        parent::__construct($diagram, $master_table, $master_field, $foreign_table, $foreign_field);
+        parent::__construct($diagram, $masterTable, $masterField, $foreignTable, $foreignField);
     }
 
     /**
@@ -54,15 +54,7 @@ class RelationStatsSvg extends RelationStats
     public function relationDraw(bool $showColor): void
     {
         if ($showColor) {
-            $listOfColors = [
-                '#c00',
-                '#bbb',
-                '#333',
-                '#cb0',
-                '#0b0',
-                '#0bf',
-                '#b0b',
-            ];
+            $listOfColors = ['#c00', '#bbb', '#333', '#cb0', '#0b0', '#0bf', '#b0b'];
             shuffle($listOfColors);
             $color = $listOfColors[0];
         } else {

@@ -63,17 +63,17 @@ class SelectTest extends AbstractTestCase
      *
      * @dataProvider renderDataProvider
      */
-    public function testRender(bool $not_only_options, bool $omit_fieldset): void
+    public function testRender(bool $notOnlyOptions, bool $omitFieldset): void
     {
-        if ($not_only_options) {
+        if ($notOnlyOptions) {
             $GLOBALS['cfg']['DisplayServersList'] = null;
         }
 
-        $html = Select::render($not_only_options, $omit_fieldset);
+        $html = Select::render($notOnlyOptions, $omitFieldset);
         $server = $GLOBALS['cfg']['Servers']['0'];
 
-        if ($not_only_options) {
-            if (! $omit_fieldset) {
+        if ($notOnlyOptions) {
+            if (! $omitFieldset) {
                 $this->assertStringContainsString('</fieldset>', $html);
             }
 
@@ -105,18 +105,9 @@ class SelectTest extends AbstractTestCase
     public static function renderDataProvider(): array
     {
         return [
-            'only options, don\'t omit fieldset' => [
-                false,
-                false,
-            ],
-            'not only options, omits fieldset' => [
-                true,
-                true,
-            ],
-            'not only options, don\'t omit fieldset' => [
-                true,
-                false,
-            ],
+            'only options, don\'t omit fieldset' => [false, false],
+            'not only options, omits fieldset' => [true, true],
+            'not only options, don\'t omit fieldset' => [true, false],
         ];
     }
 }

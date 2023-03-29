@@ -69,10 +69,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         $this->assertSame(400, $response->getHttpResponseCode());
         $this->assertFalse($response->hasSuccessState());
-        $this->assertSame([
-            'isErrorResponse' => true,
-            'message' => 'No column selected.',
-        ], $response->getJSONResult());
+        $this->assertSame(['isErrorResponse' => true, 'message' => 'No column selected.'], $response->getJSONResult());
         $this->assertSame('', $response->getHTMLResult());
     }
 

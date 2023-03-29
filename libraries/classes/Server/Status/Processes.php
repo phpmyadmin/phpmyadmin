@@ -96,58 +96,31 @@ final class Processes
         // This array contains display name and real column name of each
         // sortable column in the table
         $sortableColumns = [
-            [
-                'column_name' => __('ID'),
-                'order_by_field' => 'Id',
-            ],
-            [
-                'column_name' => __('User'),
-                'order_by_field' => 'User',
-            ],
-            [
-                'column_name' => __('Host'),
-                'order_by_field' => 'Host',
-            ],
-            [
-                'column_name' => __('Database'),
-                'order_by_field' => 'Db',
-            ],
-            [
-                'column_name' => __('Command'),
-                'order_by_field' => 'Command',
-            ],
-            [
-                'column_name' => __('Time'),
-                'order_by_field' => 'Time',
-            ],
-            [
-                'column_name' => __('Status'),
-                'order_by_field' => 'State',
-            ],
+            ['column_name' => __('ID'), 'order_by_field' => 'Id'],
+            ['column_name' => __('User'), 'order_by_field' => 'User'],
+            ['column_name' => __('Host'), 'order_by_field' => 'Host'],
+            ['column_name' => __('Database'), 'order_by_field' => 'Db'],
+            ['column_name' => __('Command'), 'order_by_field' => 'Command'],
+            ['column_name' => __('Time'), 'order_by_field' => 'Time'],
+            ['column_name' => __('Status'), 'order_by_field' => 'State'],
         ];
 
         if ($this->dbi->isMariaDB()) {
-            $sortableColumns[] = [
-                'column_name' => __('Progress'),
-                'order_by_field' => 'Progress',
-            ];
+            $sortableColumns[] = ['column_name' => __('Progress'), 'order_by_field' => 'Progress'];
         }
 
-        $sortableColumns[] = [
-            'column_name' => __('SQL query'),
-            'order_by_field' => 'Info',
-        ];
+        $sortableColumns[] = ['column_name' => __('SQL query'), 'order_by_field' => 'Info'];
 
         $sortableColCount = count($sortableColumns);
 
         $columns = [];
         foreach ($sortableColumns as $columnKey => $column) {
-            $is_sorted = $orderByField !== ''
+            $isSorted = $orderByField !== ''
                 && $sortOrder !== ''
                 && ($orderByField == $column['order_by_field']);
 
             $column['sort_order'] = 'ASC';
-            if ($is_sorted && $sortOrder === 'ASC') {
+            if ($isSorted && $sortOrder === 'ASC') {
                 $column['sort_order'] = 'DESC';
             }
 
@@ -158,7 +131,7 @@ final class Processes
             $columns[$columnKey] = [
                 'name' => $column['column_name'],
                 'params' => $column,
-                'is_sorted' => $is_sorted,
+                'is_sorted' => $isSorted,
                 'sort_order' => $column['sort_order'],
                 'has_full_query' => false,
                 'is_full' => false,

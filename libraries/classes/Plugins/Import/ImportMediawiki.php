@@ -77,25 +77,25 @@ class ImportMediawiki extends ImportPlugin
 
         // Used as storage for the last part of the current chunk data
         // Will be appended to the first line of the next chunk, if there is one
-        $last_chunk_line = '';
+        $lastChunkLine = '';
 
         // Remembers whether the current buffer line is part of a comment
-        $inside_comment = false;
+        $insideComment = false;
         // Remembers whether the current buffer line is part of a data comment
-        $inside_data_comment = false;
+        $insideDataComment = false;
         // Remembers whether the current buffer line is part of a structure comment
-        $inside_structure_comment = false;
+        $insideStructureComment = false;
 
         // MediaWiki only accepts "\n" as row terminator
-        $mediawiki_new_line = "\n";
+        $mediawikiNewLine = "\n";
 
         // Initialize the name of the current table
-        $cur_table_name = '';
+        $curTableName = '';
 
-        $cur_temp_table_headers = [];
-        $cur_temp_table = [];
+        $curTempTableHeaders = [];
+        $curTempTable = [];
 
-        $in_table_header = false;
+        $inTableHeader = false;
 
         while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
@@ -112,7 +112,7 @@ class ImportMediawiki extends ImportPlugin
                 unset($data);
                 // Don't parse string if we're not at the end
                 // and don't have a new line inside
-                if (! str_contains($buffer, $mediawiki_new_line)) {
+                if (! str_contains($buffer, $mediawikiNewLine)) {
                     continue;
                 }
             }
@@ -121,148 +121,144 @@ class ImportMediawiki extends ImportPlugin
             // contains only a portion of an actual line from the imported file.
             // Therefore, we have to append it to the last line from the previous
             // chunk. If we are at the first chunk, $last_chunk_line should be empty.
-            $buffer = $last_chunk_line . $buffer;
+            $buffer = $lastChunkLine . $buffer;
 
             // Process the buffer line by line
-            $buffer_lines = explode($mediawiki_new_line, $buffer);
+            $bufferLines = explode($mediawikiNewLine, $buffer);
 
-            $full_buffer_lines_count = count($buffer_lines);
+            $fullBufferLinesCount = count($bufferLines);
             // If the reading is not finalized, the final line of the current chunk
             // will not be complete
             if (! $GLOBALS['finished']) {
-                $last_chunk_line = $buffer_lines[--$full_buffer_lines_count];
+                $lastChunkLine = $bufferLines[--$fullBufferLinesCount];
             }
 
-            for ($line_nr = 0; $line_nr < $full_buffer_lines_count; ++$line_nr) {
-                $cur_buffer_line = trim($buffer_lines[$line_nr]);
+            for ($lineNr = 0; $lineNr < $fullBufferLinesCount; ++$lineNr) {
+                $curBufferLine = trim($bufferLines[$lineNr]);
 
                 // If the line is empty, go to the next one
-                if ($cur_buffer_line === '') {
+                if ($curBufferLine === '') {
                     continue;
                 }
 
-                $first_character = $cur_buffer_line[0];
+                $firstCharacter = $curBufferLine[0];
                 $matches = [];
 
                 // Check beginning of comment
-                if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '<!--')) {
-                    $inside_comment = true;
+                if (! strcmp(mb_substr($curBufferLine, 0, 4), '<!--')) {
+                    $insideComment = true;
                     continue;
                 }
 
-                if ($inside_comment) {
+                if ($insideComment) {
                     // Check end of comment
-                    if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '-->')) {
+                    if (! strcmp(mb_substr($curBufferLine, 0, 4), '-->')) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
                         // skip structure tables)
-                        if ($inside_data_comment) {
-                            $inside_data_comment = false;
+                        if ($insideDataComment) {
+                            $insideDataComment = false;
                         }
 
                         // End comments that are not related to table structure
-                        if (! $inside_structure_comment) {
-                            $inside_comment = false;
+                        if (! $insideStructureComment) {
+                            $insideComment = false;
                         }
                     } else {
                         // Check table name
-                        $match_table_name = [];
-                        if (preg_match('/^Table data for `(.*)`$/', $cur_buffer_line, $match_table_name)) {
-                            $cur_table_name = $match_table_name[1];
-                            $inside_data_comment = true;
+                        $matchTableName = [];
+                        if (preg_match('/^Table data for `(.*)`$/', $curBufferLine, $matchTableName)) {
+                            $curTableName = $matchTableName[1];
+                            $insideDataComment = true;
 
-                            $inside_structure_comment = false;
-                        } elseif (preg_match('/^Table structure for `(.*)`$/', $cur_buffer_line, $match_table_name)) {
+                            $insideStructureComment = false;
+                        } elseif (preg_match('/^Table structure for `(.*)`$/', $curBufferLine, $matchTableName)) {
                             // The structure comments will be ignored
-                            $inside_structure_comment = true;
+                            $insideStructureComment = true;
                         }
                     }
 
                     continue;
                 }
 
-                if (preg_match('/^\{\|(.*)$/', $cur_buffer_line, $matches)) {
+                if (preg_match('/^\{\|(.*)$/', $curBufferLine, $matches)) {
                     // Check start of table
 
                     // This will store all the column info on all rows from
                     // the current table read from the buffer
-                    $cur_temp_table = [];
+                    $curTempTable = [];
 
                     // Will be used as storage for the current row in the buffer
                     // Once all its columns are read, it will be added to
                     // $cur_temp_table and then it will be emptied
-                    $cur_temp_line = [];
+                    $curTempLine = [];
 
                     // Helps us differentiate the header columns
                     // from the normal columns
-                    $in_table_header = false;
+                    $inTableHeader = false;
                     // End processing because the current line does not
                     // contain any column information
                 } elseif (
-                    mb_substr($cur_buffer_line, 0, 2) === '|-'
-                    || mb_substr($cur_buffer_line, 0, 2) === '|+'
-                    || mb_substr($cur_buffer_line, 0, 2) === '|}'
+                    mb_substr($curBufferLine, 0, 2) === '|-'
+                    || mb_substr($curBufferLine, 0, 2) === '|+'
+                    || mb_substr($curBufferLine, 0, 2) === '|}'
                 ) {
                     // Check begin row or end table
 
                     // Add current line to the values storage
-                    if (! empty($cur_temp_line)) {
+                    if (! empty($curTempLine)) {
                         // If the current line contains header cells
                         // ( marked with '!' ),
                         // it will be marked as table header
-                        if ($in_table_header) {
+                        if ($inTableHeader) {
                             // Set the header columns
-                            $cur_temp_table_headers = $cur_temp_line;
+                            $curTempTableHeaders = $curTempLine;
                         } else {
                             // Normal line, add it to the table
-                            $cur_temp_table[] = $cur_temp_line;
+                            $curTempTable[] = $curTempLine;
                         }
                     }
 
                     // Empty the temporary buffer
-                    $cur_temp_line = [];
+                    $curTempLine = [];
 
                     // No more processing required at the end of the table
-                    if (mb_substr($cur_buffer_line, 0, 2) === '|}') {
-                        $current_table = [
-                            $cur_table_name,
-                            $cur_temp_table_headers,
-                            $cur_temp_table,
-                        ];
+                    if (mb_substr($curBufferLine, 0, 2) === '|}') {
+                        $currentTable = [$curTableName, $curTempTableHeaders, $curTempTable];
 
                         // Import the current table data into the database
-                        $this->importDataOneTable($current_table, $sqlStatements);
+                        $this->importDataOneTable($currentTable, $sqlStatements);
 
                         // Reset table name
-                        $cur_table_name = '';
+                        $curTableName = '';
                     }
                     // What's after the row tag is now only attributes
-                } elseif (($first_character === '|') || ($first_character === '!')) {
+                } elseif (($firstCharacter === '|') || ($firstCharacter === '!')) {
                     // Check cell elements
 
                     // Header cells
-                    if ($first_character === '!') {
+                    if ($firstCharacter === '!') {
                         // Mark as table header, but treat as normal row
-                        $cur_buffer_line = str_replace('!!', '||', $cur_buffer_line);
+                        $curBufferLine = str_replace('!!', '||', $curBufferLine);
                         // Will be used to set $cur_temp_line as table header
-                        $in_table_header = true;
+                        $inTableHeader = true;
                     } else {
-                        $in_table_header = false;
+                        $inTableHeader = false;
                     }
 
                     // Loop through each table cell
-                    $cells = $this->explodeMarkup($cur_buffer_line);
+                    $cells = $this->explodeMarkup($curBufferLine);
                     foreach ($cells as $cell) {
                         $cell = $this->getCellData($cell);
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
-                        foreach (['|', '!'] as $col_start_char) {
-                            $cell = $this->getCellContent($cell, $col_start_char);
+                        foreach (['|', '!'] as $colStartChar) {
+                            $cell = $this->getCellContent($cell, $colStartChar);
                         }
 
                         // Add the cell to the row
-                        $cur_temp_line[] = $cell;
+                        $curTempLine[] = $cell;
                     }
                 } else {
                     // If it's none of the above, then the current line has a bad
@@ -270,7 +266,7 @@ class ImportMediawiki extends ImportPlugin
                     $message = Message::error(
                         __('Invalid format of mediawiki input on line: <br>%s.'),
                     );
-                    $message->addParam($cur_buffer_line);
+                    $message->addParam($curBufferLine);
                     $GLOBALS['error'] = true;
                 }
             }
@@ -305,11 +301,7 @@ class ImportMediawiki extends ImportPlugin
 
             // Create the tables array to be used in Import::buildSql()
             $tables = [];
-            $tables[] = [
-                $table[0],
-                $table[1],
-                $table[2],
-            ];
+            $tables[] = [$table[0], $table[1], $table[2]];
 
             // Obtain the best-fit MySQL types for each column
             $analyses = [];
@@ -325,37 +317,37 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Sets the table name
      *
-     * @param string $table_name reference to the name of the table
+     * @param string $tableName reference to the name of the table
      */
-    private function setTableName(string &$table_name): void
+    private function setTableName(string &$tableName): void
     {
-        if (! empty($table_name)) {
+        if (! empty($tableName)) {
             return;
         }
 
         $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
         // todo check if the name below already exists
-        $table_name = 'TABLE ' . (count($result) + 1);
+        $tableName = 'TABLE ' . (count($result) + 1);
     }
 
     /**
      * Set generic names for table headers, if they don't exist
      *
-     * @param array $table_headers reference to the array containing the headers
+     * @param array $tableHeaders reference to the array containing the headers
      *                             of a table
-     * @param array $table_row     array containing the first content row
+     * @param array $tableRow     array containing the first content row
      */
-    private function setTableHeaders(array &$table_headers, array $table_row): void
+    private function setTableHeaders(array &$tableHeaders, array $tableRow): void
     {
-        if (! empty($table_headers)) {
+        if (! empty($tableHeaders)) {
             return;
         }
 
         // The first table row should contain the number of columns
         // If they are not set, generic names will be given (COL 1, COL 2, etc)
-        $num_cols = count($table_row);
-        for ($i = 0; $i < $num_cols; ++$i) {
-            $table_headers[$i] = 'COL ' . ($i + 1);
+        $numCols = count($tableRow);
+        for ($i = 0; $i < $numCols; ++$i) {
+            $tableHeaders[$i] = 'COL ' . ($i + 1);
         }
     }
 
@@ -378,11 +370,11 @@ class ImportMediawiki extends ImportPlugin
      */
     private function executeImportTables(array &$tables, array $analyses, array &$sqlStatements): void
     {
-        $db_name = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'mediawiki_DB';
+        $dbName = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'mediawiki_DB';
         $createDb = $GLOBALS['db'] === '';
 
         // Create and execute necessary SQL statements from data
-        $this->import->buildSql($db_name, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
+        $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
     }
 
     /**
@@ -399,29 +391,29 @@ class ImportMediawiki extends ImportPlugin
         // String that will be returned
         $cleaned = '';
         // Possible states of current character
-        $inside_tag = false;
-        $inside_attribute = false;
+        $insideTag = false;
+        $insideAttribute = false;
         // Attributes can be declared with either " or '
-        $start_attribute_character = false;
+        $startAttributeCharacter = false;
 
         // The full separator is "||";
         // This remembers if the previous character was '|'
-        $partial_separator = false;
+        $partialSeparator = false;
 
         // Parse text char by char
         for ($i = 0, $iMax = strlen($subject); $i < $iMax; $i++) {
-            $cur_char = $subject[$i];
+            $curChar = $subject[$i];
             // Check for separators
-            if ($cur_char === '|') {
+            if ($curChar === '|') {
                 // If we're not inside a tag, then this is part of a real separator,
                 // so we append it to the current segment
-                if (! $inside_attribute) {
-                    $cleaned .= $cur_char;
-                    if ($partial_separator) {
-                        $inside_tag = false;
-                        $inside_attribute = false;
+                if (! $insideAttribute) {
+                    $cleaned .= $curChar;
+                    if ($partialSeparator) {
+                        $insideTag = false;
+                        $insideAttribute = false;
                     }
-                } elseif ($partial_separator) {
+                } elseif ($partialSeparator) {
                     // If we are inside a tag, we replace the current char with
                     // the placeholder and append that to the current segment
                     $cleaned .= $replace;
@@ -429,38 +421,38 @@ class ImportMediawiki extends ImportPlugin
 
                 // If the previous character was also '|', then this ends a
                 // full separator. If not, this may be the beginning of one
-                $partial_separator = ! $partial_separator;
+                $partialSeparator = ! $partialSeparator;
             } else {
                 // If we're inside a tag attribute and the current character is
                 // not '|', but the previous one was, it means that the single '|'
                 // was not appended, so we append it now
-                if ($partial_separator && $inside_attribute) {
+                if ($partialSeparator && $insideAttribute) {
                     $cleaned .= '|';
                 }
 
                 // If the char is different from "|", no separator can be formed
-                $partial_separator = false;
+                $partialSeparator = false;
 
                 // any other character should be appended to the current segment
-                $cleaned .= $cur_char;
+                $cleaned .= $curChar;
 
-                if ($cur_char === '<' && ! $inside_attribute) {
+                if ($curChar === '<' && ! $insideAttribute) {
                     // start of a tag
-                    $inside_tag = true;
-                } elseif ($cur_char === '>' && ! $inside_attribute) {
+                    $insideTag = true;
+                } elseif ($curChar === '>' && ! $insideAttribute) {
                     // end of a tag
-                    $inside_tag = false;
-                } elseif (($cur_char === '"' || $cur_char == "'") && $inside_tag) {
+                    $insideTag = false;
+                } elseif (($curChar === '"' || $curChar == "'") && $insideTag) {
                     // start or end of an attribute
-                    if (! $inside_attribute) {
-                        $inside_attribute = true;
+                    if (! $insideAttribute) {
+                        $insideAttribute = true;
                         // remember the attribute`s declaration character (" or ')
-                        $start_attribute_character = $cur_char;
+                        $startAttributeCharacter = $curChar;
                     } else {
-                        if ($cur_char == $start_attribute_character) {
-                            $inside_attribute = false;
+                        if ($curChar == $startAttributeCharacter) {
+                            $insideAttribute = false;
                             // unset attribute declaration character
-                            $start_attribute_character = false;
+                            $startAttributeCharacter = false;
                         }
                     }
                 }
@@ -528,30 +520,30 @@ class ImportMediawiki extends ImportPlugin
     private function getCellData(string $cell): mixed
     {
         // A cell could contain both parameters and data
-        $cell_data = explode('|', $cell, 2);
+        $cellData = explode('|', $cell, 2);
 
         // A '|' inside an invalid link should not
         // be mistaken as delimiting cell parameters
-        if (! str_contains($cell_data[0], '[[')) {
+        if (! str_contains($cellData[0], '[[')) {
             return $cell;
         }
 
-        if (count($cell_data) === 1) {
-            return $cell_data[0];
+        if (count($cellData) === 1) {
+            return $cellData[0];
         }
 
-        return $cell_data[1];
+        return $cellData[1];
     }
 
     /**
      * Get cell content
      *
-     * @param string $cell           Cell
-     * @param string $col_start_char Start char
+     * @param string $cell         Cell
+     * @param string $colStartChar Start char
      */
-    private function getCellContent(string $cell, string $col_start_char): string
+    private function getCellContent(string $cell, string $colStartChar): string
     {
-        if (mb_strpos($cell, $col_start_char) === 0) {
+        if (mb_strpos($cell, $colStartChar) === 0) {
             return trim(mb_substr($cell, 1));
         }
 

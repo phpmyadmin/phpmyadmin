@@ -690,12 +690,7 @@ class RelationParametersTest extends TestCase
                 ],
             ],
             'invalid values 3' => [
-                [
-                    'user' => '',
-                    'db' => 'db',
-                    'bookmarkwork' => true,
-                    'bookmark' => ' invalid name ',
-                ],
+                ['user' => '', 'db' => 'db', 'bookmarkwork' => true, 'bookmark' => ' invalid name '],
                 [
                     'version' => Version::VERSION,
                     'user' => null,
@@ -741,10 +736,7 @@ class RelationParametersTest extends TestCase
                 ],
             ],
             'invalid values 4' => [
-                [
-                    'user' => '',
-                    'db' => '',
-                ],
+                ['user' => '', 'db' => ''],
                 [
                     'version' => Version::VERSION,
                     'user' => null,

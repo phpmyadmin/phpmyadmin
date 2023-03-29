@@ -66,13 +66,13 @@ class GitTest extends AbstractTestCase
         $_SESSION['git_location'] = '.cachedgitlocation';
         $_SESSION['is_git_revision'] = true;
 
-        $git_location = '';
+        $gitLocation = '';
 
-        $this->assertTrue($this->object->isGitRevision($git_location));
+        $this->assertTrue($this->object->isGitRevision($gitLocation));
 
         $this->assertFalse($this->object->hasGitInformation());
 
-        $this->assertEquals('.cachedgitlocation', $git_location);
+        $this->assertEquals('.cachedgitlocation', $gitLocation);
     }
 
     /**
@@ -82,7 +82,7 @@ class GitTest extends AbstractTestCase
     {
         $this->object = new Git(false);
         $this->assertFalse(
-            $this->object->isGitRevision($git_location),
+            $this->object->isGitRevision($gitLocation),
         );
     }
 
@@ -465,16 +465,8 @@ class GitTest extends AbstractTestCase
         );
 
         $this->assertSame([
-            [
-                'name' => 'William Desportes',
-                'email' => 'williamdes@wdes.fr',
-                'date' => '2022-07-13 14:56:40 +0200',
-            ],
-            [
-                'name' => 'William Desportes',
-                'email' => 'williamdes@wdes.fr',
-                'date' => '2022-07-13 14:56:40 +0200',
-            ],
+            ['name' => 'William Desportes', 'email' => 'williamdes@wdes.fr', 'date' => '2022-07-13 14:56:40 +0200'],
+            ['name' => 'William Desportes', 'email' => 'williamdes@wdes.fr', 'date' => '2022-07-13 14:56:40 +0200'],
             'Remove ignore config.inc.php for psalm because '
                 . 'it fails the CI  Signed-off-by: William Desportes <williamdes@wdes.fr>',
         ], $extractedData);

@@ -159,7 +159,7 @@ class ChangeController extends AbstractController
         $foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
         // Retrieve form parameters for insert/edit form
-        $_form_params = $this->insertEdit->getFormParametersForInsertForm(
+        $formParams = $this->insertEdit->getFormParametersForInsertForm(
             $GLOBALS['db'],
             $GLOBALS['table'],
             $GLOBALS['where_clauses'],
@@ -173,7 +173,7 @@ class ChangeController extends AbstractController
         // Had to put the URI because when hosted on an https server,
         // some browsers send wrongly this form to the http server.
 
-        $html_output = '';
+        $htmlOutput = '';
         // Set if we passed the first timestamp field
         $GLOBALS['timestamp_seen'] = false;
         $GLOBALS['columns_cnt'] = count($GLOBALS['table_columns']);
@@ -201,49 +201,49 @@ class ChangeController extends AbstractController
         //Insert/Edit form
         //If table has blob fields we have to disable ajax.
         $isUpload = $GLOBALS['config']->get('enable_upload');
-        $html_output .= $this->insertEdit->getHtmlForInsertEditFormHeader($GLOBALS['has_blob_field'], $isUpload);
+        $htmlOutput .= $this->insertEdit->getHtmlForInsertEditFormHeader($GLOBALS['has_blob_field'], $isUpload);
 
-        $html_output .= Url::getHiddenInputs($_form_params);
+        $htmlOutput .= Url::getHiddenInputs($formParams);
 
         // user can toggle the display of Function column and column types
         // (currently does not work for multi-edits)
         if (! $GLOBALS['cfg']['ShowFunctionFields'] || ! $GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
-            $html_output .= __('Show');
+            $htmlOutput .= __('Show');
         }
 
         if (! $GLOBALS['cfg']['ShowFunctionFields']) {
-            $html_output .= $this->insertEdit->showTypeOrFunction('function', $GLOBALS['urlParams'], false);
+            $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', $GLOBALS['urlParams'], false);
         }
 
         if (! $GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
-            $html_output .= $this->insertEdit->showTypeOrFunction('type', $GLOBALS['urlParams'], false);
+            $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', $GLOBALS['urlParams'], false);
         }
 
         $GLOBALS['plugin_scripts'] = [];
-        foreach ($GLOBALS['rows'] as $row_id => $current_row) {
-            if (empty($current_row)) {
-                $current_row = [];
+        foreach ($GLOBALS['rows'] as $rowId => $currentRow) {
+            if (empty($currentRow)) {
+                $currentRow = [];
             }
 
-            $GLOBALS['jsvkey'] = (string) $row_id;
+            $GLOBALS['jsvkey'] = (string) $rowId;
             $GLOBALS['vkey'] = '[multi_edit][' . $GLOBALS['jsvkey'] . ']';
 
             $GLOBALS['current_result'] = (isset($GLOBALS['result'])
-                && is_array($GLOBALS['result']) && isset($GLOBALS['result'][$row_id])
-                ? $GLOBALS['result'][$row_id]
+                && is_array($GLOBALS['result']) && isset($GLOBALS['result'][$rowId])
+                ? $GLOBALS['result'][$rowId]
                 : $GLOBALS['result']);
             $GLOBALS['repopulate'] = [];
             $GLOBALS['checked'] = true;
-            if (isset($GLOBALS['unsaved_values'][$row_id])) {
-                $GLOBALS['repopulate'] = $GLOBALS['unsaved_values'][$row_id];
+            if (isset($GLOBALS['unsaved_values'][$rowId])) {
+                $GLOBALS['repopulate'] = $GLOBALS['unsaved_values'][$rowId];
                 $GLOBALS['checked'] = false;
             }
 
-            if ($GLOBALS['insert_mode'] && $row_id > 0) {
-                $html_output .= $this->insertEdit->getHtmlForIgnoreOption($row_id, $GLOBALS['checked']);
+            if ($GLOBALS['insert_mode'] && $rowId > 0) {
+                $htmlOutput .= $this->insertEdit->getHtmlForIgnoreOption($rowId, $GLOBALS['checked']);
             }
 
-            $html_output .= $this->insertEdit->getHtmlForInsertEditRow(
+            $htmlOutput .= $this->insertEdit->getHtmlForInsertEditRow(
                 $GLOBALS['urlParams'],
                 $GLOBALS['table_columns'],
                 $GLOBALS['comments_map'],
@@ -252,7 +252,7 @@ class ChangeController extends AbstractController
                 $GLOBALS['jsvkey'],
                 $GLOBALS['vkey'],
                 $GLOBALS['insert_mode'],
-                $current_row,
+                $currentRow,
                 $GLOBALS['o_rows'],
                 $GLOBALS['tabindex'],
                 $GLOBALS['columns_cnt'],
@@ -261,7 +261,7 @@ class ChangeController extends AbstractController
                 $GLOBALS['tabindex_for_value'],
                 $GLOBALS['table'],
                 $GLOBALS['db'],
-                $row_id,
+                $rowId,
                 $GLOBALS['biggest_max_file_size'],
                 $GLOBALS['text_dir'],
                 $GLOBALS['repopulate'],
@@ -278,7 +278,7 @@ class ChangeController extends AbstractController
         }
 
         $isNumeric = InsertEdit::isWhereClauseNumeric($GLOBALS['where_clause']);
-        $html_output .= $this->template->render('table/insert/actions_panel', [
+        $htmlOutput .= $this->template->render('table/insert/actions_panel', [
             'where_clause' => $GLOBALS['where_clause'],
             'after_insert' => $GLOBALS['after_insert'],
             'found_unique_key' => $GLOBALS['found_unique_key'],
@@ -286,18 +286,18 @@ class ChangeController extends AbstractController
         ]);
 
         if ($GLOBALS['biggest_max_file_size'] > 0) {
-            $html_output .= '<input type="hidden" name="MAX_FILE_SIZE" value="'
+            $htmlOutput .= '<input type="hidden" name="MAX_FILE_SIZE" value="'
                 . $GLOBALS['biggest_max_file_size'] . '">' . "\n";
         }
 
-        $html_output .= '</form>';
+        $htmlOutput .= '</form>';
 
-        $html_output .= $this->insertEdit->getHtmlForGisEditor();
+        $htmlOutput .= $this->insertEdit->getHtmlForGisEditor();
         // end Insert/Edit form
 
         if ($GLOBALS['insert_mode']) {
             //Continue insertion form
-            $html_output .= $this->insertEdit->getContinueInsertionForm(
+            $htmlOutput .= $this->insertEdit->getContinueInsertionForm(
                 $GLOBALS['table'],
                 $GLOBALS['db'],
                 $GLOBALS['where_clause_array'],
@@ -305,6 +305,6 @@ class ChangeController extends AbstractController
             );
         }
 
-        $this->response->addHTML($html_output);
+        $this->response->addHTML($htmlOutput);
     }
 }

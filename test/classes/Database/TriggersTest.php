@@ -240,10 +240,7 @@ class TriggersTest extends AbstractTestCase
             'item_definer' => '',
         ];
 
-        return [
-            [$data, 'name="editor_process_edit"'],
-            [$data, 'name="ajax_request"'],
-        ];
+        return [[$data, 'name="editor_process_edit"'], [$data, 'name="ajax_request"']];
     }
 
     /**
@@ -256,7 +253,7 @@ class TriggersTest extends AbstractTestCase
      * @param string $table      Table
      * @param string $definition Definition
      * @param string $query      Query
-     * @param int    $num_err    Error number
+     * @param int    $numErr     Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
@@ -268,7 +265,7 @@ class TriggersTest extends AbstractTestCase
         string $table,
         string $definition,
         string $query,
-        int $num_err,
+        int $numErr,
     ): void {
         $GLOBALS['errors'] = [];
 
@@ -281,7 +278,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
 
         $this->assertEquals($query, $this->triggers->getQueryFromRequest());
-        $this->assertCount($num_err, $GLOBALS['errors']);
+        $this->assertCount($numErr, $GLOBALS['errors']);
     }
 
     /**
@@ -292,16 +289,7 @@ class TriggersTest extends AbstractTestCase
     public static function providerGetQueryFromRequest(): array
     {
         return [
-            [
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'CREATE TRIGGER ON  FOR EACH ROW ',
-                5,
-            ],
+            ['', '', '', '', '', '', 'CREATE TRIGGER ON  FOR EACH ROW ', 5],
             [
                 'root',
                 'trigger',

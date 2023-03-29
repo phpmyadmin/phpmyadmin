@@ -19,51 +19,52 @@ use function substr;
  */
 class Compatibility
 {
+    /** @return mixed[][] */
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
-        foreach ($eachTables as $table_name => $_) {
-            if (! isset($eachTables[$table_name]['Type']) && isset($eachTables[$table_name]['Engine'])) {
+        foreach ($eachTables as $tableName => $tableInfo) {
+            if (! isset($eachTables[$tableName]['Type']) && isset($eachTables[$tableName]['Engine'])) {
                 // pma BC, same parts of PMA still uses 'Type'
-                $eachTables[$table_name]['Type'] =& $eachTables[$table_name]['Engine'];
-            } elseif (! isset($eachTables[$table_name]['Engine']) && isset($eachTables[$table_name]['Type'])) {
+                $eachTables[$tableName]['Type'] =& $eachTables[$tableName]['Engine'];
+            } elseif (! isset($eachTables[$tableName]['Engine']) && isset($eachTables[$tableName]['Type'])) {
                 // old MySQL reports Type, newer MySQL reports Engine
-                $eachTables[$table_name]['Engine'] =& $eachTables[$table_name]['Type'];
+                $eachTables[$tableName]['Engine'] =& $eachTables[$tableName]['Type'];
             }
 
             // Compatibility with INFORMATION_SCHEMA output
-            $eachTables[$table_name]['TABLE_SCHEMA'] = $eachDatabase;
-            $eachTables[$table_name]['TABLE_NAME'] =& $eachTables[$table_name]['Name'];
-            $eachTables[$table_name]['ENGINE'] =& $eachTables[$table_name]['Engine'];
-            $eachTables[$table_name]['VERSION'] =& $eachTables[$table_name]['Version'];
-            $eachTables[$table_name]['ROW_FORMAT'] =& $eachTables[$table_name]['Row_format'];
-            $eachTables[$table_name]['TABLE_ROWS'] =& $eachTables[$table_name]['Rows'];
-            $eachTables[$table_name]['AVG_ROW_LENGTH'] =& $eachTables[$table_name]['Avg_row_length'];
-            $eachTables[$table_name]['DATA_LENGTH'] =& $eachTables[$table_name]['Data_length'];
-            $eachTables[$table_name]['MAX_DATA_LENGTH'] =& $eachTables[$table_name]['Max_data_length'];
-            $eachTables[$table_name]['INDEX_LENGTH'] =& $eachTables[$table_name]['Index_length'];
-            $eachTables[$table_name]['DATA_FREE'] =& $eachTables[$table_name]['Data_free'];
-            $eachTables[$table_name]['AUTO_INCREMENT'] =& $eachTables[$table_name]['Auto_increment'];
-            $eachTables[$table_name]['CREATE_TIME'] =& $eachTables[$table_name]['Create_time'];
-            $eachTables[$table_name]['UPDATE_TIME'] =& $eachTables[$table_name]['Update_time'];
-            $eachTables[$table_name]['CHECK_TIME'] =& $eachTables[$table_name]['Check_time'];
-            $eachTables[$table_name]['TABLE_COLLATION'] =& $eachTables[$table_name]['Collation'];
-            $eachTables[$table_name]['CHECKSUM'] =& $eachTables[$table_name]['Checksum'];
-            $eachTables[$table_name]['CREATE_OPTIONS'] =& $eachTables[$table_name]['Create_options'];
-            $eachTables[$table_name]['TABLE_COMMENT'] =& $eachTables[$table_name]['Comment'];
+            $eachTables[$tableName]['TABLE_SCHEMA'] = $eachDatabase;
+            $eachTables[$tableName]['TABLE_NAME'] =& $eachTables[$tableName]['Name'];
+            $eachTables[$tableName]['ENGINE'] =& $eachTables[$tableName]['Engine'];
+            $eachTables[$tableName]['VERSION'] =& $eachTables[$tableName]['Version'];
+            $eachTables[$tableName]['ROW_FORMAT'] =& $eachTables[$tableName]['Row_format'];
+            $eachTables[$tableName]['TABLE_ROWS'] =& $eachTables[$tableName]['Rows'];
+            $eachTables[$tableName]['AVG_ROW_LENGTH'] =& $eachTables[$tableName]['Avg_row_length'];
+            $eachTables[$tableName]['DATA_LENGTH'] =& $eachTables[$tableName]['Data_length'];
+            $eachTables[$tableName]['MAX_DATA_LENGTH'] =& $eachTables[$tableName]['Max_data_length'];
+            $eachTables[$tableName]['INDEX_LENGTH'] =& $eachTables[$tableName]['Index_length'];
+            $eachTables[$tableName]['DATA_FREE'] =& $eachTables[$tableName]['Data_free'];
+            $eachTables[$tableName]['AUTO_INCREMENT'] =& $eachTables[$tableName]['Auto_increment'];
+            $eachTables[$tableName]['CREATE_TIME'] =& $eachTables[$tableName]['Create_time'];
+            $eachTables[$tableName]['UPDATE_TIME'] =& $eachTables[$tableName]['Update_time'];
+            $eachTables[$tableName]['CHECK_TIME'] =& $eachTables[$tableName]['Check_time'];
+            $eachTables[$tableName]['TABLE_COLLATION'] =& $eachTables[$tableName]['Collation'];
+            $eachTables[$tableName]['CHECKSUM'] =& $eachTables[$tableName]['Checksum'];
+            $eachTables[$tableName]['CREATE_OPTIONS'] =& $eachTables[$tableName]['Create_options'];
+            $eachTables[$tableName]['TABLE_COMMENT'] =& $eachTables[$tableName]['Comment'];
 
             if (
-                strtoupper($eachTables[$table_name]['Comment'] ?? '') === 'VIEW'
-                && $eachTables[$table_name]['Engine'] == null
+                strtoupper($eachTables[$tableName]['Comment'] ?? '') === 'VIEW'
+                && $eachTables[$tableName]['Engine'] == null
             ) {
-                $eachTables[$table_name]['TABLE_TYPE'] = 'VIEW';
+                $eachTables[$tableName]['TABLE_TYPE'] = 'VIEW';
             } elseif ($eachDatabase === 'information_schema') {
-                $eachTables[$table_name]['TABLE_TYPE'] = 'SYSTEM VIEW';
+                $eachTables[$tableName]['TABLE_TYPE'] = 'SYSTEM VIEW';
             } else {
                 /**
                  * @todo difference between 'TEMPORARY' and 'BASE TABLE'
                  * but how to detect?
                  */
-                $eachTables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
+                $eachTables[$tableName]['TABLE_TYPE'] = 'BASE TABLE';
             }
         }
 
@@ -72,43 +73,43 @@ class Compatibility
 
     public static function getISCompatForGetColumnsFull(array $columns, string $database, string $table): array
     {
-        $ordinal_position = 1;
-        foreach ($columns as $column_name => $_) {
+        $ordinalPosition = 1;
+        foreach ($columns as $columnName => $columnInfo) {
             // Compatibility with INFORMATION_SCHEMA output
-            $columns[$column_name]['COLUMN_NAME'] =& $columns[$column_name]['Field'];
-            $columns[$column_name]['COLUMN_TYPE'] =& $columns[$column_name]['Type'];
-            $columns[$column_name]['COLLATION_NAME'] =& $columns[$column_name]['Collation'];
-            $columns[$column_name]['IS_NULLABLE'] =& $columns[$column_name]['Null'];
-            $columns[$column_name]['COLUMN_KEY'] =& $columns[$column_name]['Key'];
-            $columns[$column_name]['COLUMN_DEFAULT'] =& $columns[$column_name]['Default'];
-            $columns[$column_name]['EXTRA'] =& $columns[$column_name]['Extra'];
-            $columns[$column_name]['PRIVILEGES'] =& $columns[$column_name]['Privileges'];
-            $columns[$column_name]['COLUMN_COMMENT'] =& $columns[$column_name]['Comment'];
+            $columns[$columnName]['COLUMN_NAME'] =& $columns[$columnName]['Field'];
+            $columns[$columnName]['COLUMN_TYPE'] =& $columns[$columnName]['Type'];
+            $columns[$columnName]['COLLATION_NAME'] =& $columns[$columnName]['Collation'];
+            $columns[$columnName]['IS_NULLABLE'] =& $columns[$columnName]['Null'];
+            $columns[$columnName]['COLUMN_KEY'] =& $columns[$columnName]['Key'];
+            $columns[$columnName]['COLUMN_DEFAULT'] =& $columns[$columnName]['Default'];
+            $columns[$columnName]['EXTRA'] =& $columns[$columnName]['Extra'];
+            $columns[$columnName]['PRIVILEGES'] =& $columns[$columnName]['Privileges'];
+            $columns[$columnName]['COLUMN_COMMENT'] =& $columns[$columnName]['Comment'];
 
-            $columns[$column_name]['TABLE_CATALOG'] = null;
-            $columns[$column_name]['TABLE_SCHEMA'] = $database;
-            $columns[$column_name]['TABLE_NAME'] = $table;
-            $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
-            $colType = $columns[$column_name]['COLUMN_TYPE'];
+            $columns[$columnName]['TABLE_CATALOG'] = null;
+            $columns[$columnName]['TABLE_SCHEMA'] = $database;
+            $columns[$columnName]['TABLE_NAME'] = $table;
+            $columns[$columnName]['ORDINAL_POSITION'] = $ordinalPosition;
+            $colType = $columns[$columnName]['COLUMN_TYPE'];
             $colType = is_string($colType) ? $colType : '';
             $colTypePosComa = strpos($colType, '(');
             $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
-            $columns[$column_name]['DATA_TYPE'] = substr($colType, 0, $colTypePosComa);
+            $columns[$columnName]['DATA_TYPE'] = substr($colType, 0, $colTypePosComa);
             /** @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE */
-            $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH'] = null;
+            $columns[$columnName]['CHARACTER_MAXIMUM_LENGTH'] = null;
             /** @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH */
-            $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
-            $columns[$column_name]['NUMERIC_PRECISION'] = null;
-            $columns[$column_name]['NUMERIC_SCALE'] = null;
-            $colCollation = $columns[$column_name]['COLLATION_NAME'];
+            $columns[$columnName]['CHARACTER_OCTET_LENGTH'] = null;
+            $columns[$columnName]['NUMERIC_PRECISION'] = null;
+            $columns[$columnName]['NUMERIC_SCALE'] = null;
+            $colCollation = $columns[$columnName]['COLLATION_NAME'];
             $colCollation = is_string($colCollation) ? $colCollation : '';
             $colCollationPosUnderscore = strpos($colCollation, '_');
             $colCollationPosUnderscore = $colCollationPosUnderscore !== false
                 ? $colCollationPosUnderscore
                 : strlen($colCollation);
-            $columns[$column_name]['CHARACTER_SET_NAME'] = substr($colCollation, 0, $colCollationPosUnderscore);
+            $columns[$columnName]['CHARACTER_SET_NAME'] = substr($colCollation, 0, $colCollationPosUnderscore);
 
-            $ordinal_position++;
+            $ordinalPosition++;
         }
 
         return $columns;

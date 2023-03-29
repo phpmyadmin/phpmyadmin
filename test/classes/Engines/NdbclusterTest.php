@@ -43,9 +43,7 @@ class NdbclusterTest extends AbstractTestCase
     {
         $this->assertEquals(
             $this->object->getVariables(),
-            [
-                'ndb_connectstring' => [],
-            ],
+            ['ndb_connectstring' => []],
         );
     }
 

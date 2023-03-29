@@ -58,10 +58,7 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     public function testAuthCheck(): void
     {
-        $GLOBALS['cfg']['Server'] = [
-            'user' => 'username',
-            'password' => 'password',
-        ];
+        $GLOBALS['cfg']['Server'] = ['user' => 'username', 'password' => 'password'];
         $this->assertTrue(
             $this->object->readCredentials(),
         );

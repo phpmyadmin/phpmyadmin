@@ -435,10 +435,7 @@ final class CustomServer implements Server
             'id' => $credential['id'],
             'rawId' => $rawId,
             'type' => 'public-key',
-            'response' => [
-                'clientDataJSON' => $clientDataJSON,
-                'attestationObject' => $attestationObject,
-            ],
+            'response' => ['clientDataJSON' => $clientDataJSON, 'attestationObject' => $attestationObject],
         ];
     }
 

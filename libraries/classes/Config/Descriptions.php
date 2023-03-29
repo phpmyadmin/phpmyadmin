@@ -27,14 +27,8 @@ class Descriptions
     public static function get(string $path, string $type = 'name'): string
     {
         $key = str_replace(
-            [
-                'Servers/1/',
-                '/',
-            ],
-            [
-                'Servers/',
-                '_',
-            ],
+            ['Servers/1/', '/'],
+            ['Servers/', '_'],
             $path,
         );
         $value = self::getString($key, $type);

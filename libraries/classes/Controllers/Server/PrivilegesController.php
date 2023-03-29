@@ -78,10 +78,7 @@ class PrivilegesController extends AbstractController
         /**
          * Sets globals from $_POST patterns, for privileges and max_* vars
          */
-        Core::setPostAsGlobal([
-            '/_priv$/i',
-            '/^max_/i',
-        ]);
+        Core::setPostAsGlobal(['/_priv$/i', '/^max_/i']);
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -109,10 +106,7 @@ class PrivilegesController extends AbstractController
         $isCreateUser = $this->dbi->isCreateUser();
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
-            $this->render('server/sub_page_header', [
-                'type' => 'privileges',
-                'is_image' => false,
-            ]);
+            $this->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay(),
@@ -162,13 +156,7 @@ class PrivilegesController extends AbstractController
          * Adds a user
          *   (Changes / copies a user, part II)
          */
-        [
-            $retMessage,
-            $queries,
-            $queriesForDisplay,
-            $GLOBALS['sql_query'],
-            $addUserError,
-        ] = $serverPrivileges->addUser(
+        [$retMessage, $queries, $queriesForDisplay, $GLOBALS['sql_query'], $addUserError] = $serverPrivileges->addUser(
             $GLOBALS['dbname'] ?? null,
             $GLOBALS['username'] ?? '',
             $GLOBALS['hostname'] ?? '',
@@ -204,12 +192,12 @@ class PrivilegesController extends AbstractController
          */
         if ($request->hasBodyParam('update_privs')) {
             if (is_array($GLOBALS['dbname'])) {
-                foreach ($GLOBALS['dbname'] as $key => $db_name) {
+                foreach ($GLOBALS['dbname'] as $key => $dbName) {
                     [$GLOBALS['sql_query'][$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                         ($GLOBALS['username'] ?? ''),
                         ($GLOBALS['hostname'] ?? ''),
                         ($tablename ?? ($routinename ?? '')),
-                        ($db_name ?? ''),
+                        ($dbName ?? ''),
                         $itemType,
                     );
                 }
@@ -279,10 +267,7 @@ class PrivilegesController extends AbstractController
          * Changes / copies a user, part V
          */
         if ($request->hasBodyParam('change_copy')) {
-            $queries = $serverPrivileges->getDataForQueries(
-                $queries,
-                $queriesForDisplay,
-            );
+            $queries = $serverPrivileges->getDataForQueries($queries, $queriesForDisplay);
             $GLOBALS['message'] = Message::success();
             $GLOBALS['sql_query'] = implode("\n", $queries);
         }
@@ -290,10 +275,10 @@ class PrivilegesController extends AbstractController
         /**
          * Reloads the privilege tables into memory
          */
-        $message_ret = $serverPrivileges->updateMessageForReload();
-        if ($message_ret !== null) {
-            $GLOBALS['message'] = $message_ret;
-            unset($message_ret);
+        $messageRet = $serverPrivileges->updateMessageForReload();
+        if ($messageRet !== null) {
+            $GLOBALS['message'] = $messageRet;
+            unset($messageRet);
         }
 
         /**
@@ -309,7 +294,7 @@ class PrivilegesController extends AbstractController
                 || $request->getParsedBodyParam('delete') === __('Go'))
             && ! $request->hasQueryParam('showall')
         ) {
-            $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior(
+            $extraData = $serverPrivileges->getExtraDataForAjaxBehavior(
                 ($password ?? ''),
                 ($GLOBALS['sql_query'] ?? ''),
                 ($GLOBALS['hostname'] ?? ''),
@@ -319,7 +304,7 @@ class PrivilegesController extends AbstractController
             if (! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message) {
                 $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                 $this->response->addJSON('message', $GLOBALS['message']);
-                $this->response->addJSON($extra_data);
+                $this->response->addJSON($extraData);
 
                 return;
             }
@@ -338,11 +323,7 @@ class PrivilegesController extends AbstractController
             /** @var string[]|null $selectedUsers */
             $selectedUsers = $request->getParsedBodyParam('selected_usr');
 
-            $title = $this->getExportPageTitle(
-                $GLOBALS['username'] ?? '',
-                $GLOBALS['hostname'] ?? '',
-                $selectedUsers,
-            );
+            $title = $this->getExportPageTitle($GLOBALS['username'] ?? '', $GLOBALS['hostname'] ?? '', $selectedUsers);
 
             $export = $serverPrivileges->getExportUserDefinitionTextarea(
                 $GLOBALS['username'] ?? '',
@@ -372,14 +353,8 @@ class PrivilegesController extends AbstractController
             if (isset($GLOBALS['dbname']) && ! is_array($GLOBALS['dbname'])) {
                 $urlDbname = urlencode(
                     str_replace(
-                        [
-                            '\_',
-                            '\%',
-                        ],
-                        [
-                            '_',
-                            '%',
-                        ],
+                        ['\_', '\%'],
+                        ['_', '%'],
                         $GLOBALS['dbname'],
                     ),
                 );

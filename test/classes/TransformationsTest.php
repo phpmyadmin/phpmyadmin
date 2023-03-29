@@ -24,10 +24,7 @@ class TransformationsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg'] = [
-            'ServerDefault' => 1,
-            'ActionLinksMode' => 'icons',
-        ];
+        $GLOBALS['cfg'] = ['ServerDefault' => 1, 'ActionLinksMode' => 'icons'];
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -63,39 +60,11 @@ class TransformationsTest extends AbstractTestCase
     public static function getOptionsData(): array
     {
         return [
-            [
-                'option1 , option2 ',
-                [
-                    'option1 ',
-                    ' option2 ',
-                ],
-            ],
-            [
-                "'option1' ,' option2' ",
-                [
-                    'option1',
-                    ' option2',
-                ],
-            ],
-            [
-                "'2,3' ,' ,, option ,,' ",
-                [
-                    '2,3',
-                    ' ,, option ,,',
-                ],
-            ],
-            [
-                "'',,",
-                [
-                    '',
-                    '',
-                    '',
-                ],
-            ],
-            [
-                '',
-                [],
-            ],
+            ['option1 , option2 ', ['option1 ', ' option2 ']],
+            ["'option1' ,' option2' ", ['option1', ' option2']],
+            ["'2,3' ,' ,, option ,,' ", ['2,3', ' ,, option ,,']],
+            ["'',,", ['', '', '']],
+            ['', []],
         ];
     }
 
@@ -279,26 +248,11 @@ class TransformationsTest extends AbstractTestCase
     public static function fixupData(): array
     {
         return [
-            [
-                'text_plain_bool2text.php',
-                'Text_Plain_Bool2Text.php',
-            ],
-            [
-                'application_octetstream_download.php',
-                'Application_Octetstream_Download.php',
-            ],
-            [
-                'text_plain_json.php',
-                'Text_Plain_Json.php',
-            ],
-            [
-                'image_jpeg_link.php',
-                'Image_JPEG_Link.php',
-            ],
-            [
-                'text_plain_dateformat.php',
-                'Text_Plain_Dateformat.php',
-            ],
+            ['text_plain_bool2text.php', 'Text_Plain_Bool2Text.php'],
+            ['application_octetstream_download.php', 'Application_Octetstream_Download.php'],
+            ['text_plain_json.php', 'Text_Plain_Json.php'],
+            ['image_jpeg_link.php', 'Image_JPEG_Link.php'],
+            ['text_plain_dateformat.php', 'Text_Plain_Dateformat.php'],
         ];
     }
 
@@ -321,18 +275,9 @@ class TransformationsTest extends AbstractTestCase
     public static function providerGetDescription(): array
     {
         return [
-            [
-                '../../../../test',
-                '',
-            ],
-            [
-                'Input/Text_Plain_SqlEditor',
-                'Syntax highlighted CodeMirror editor for SQL.',
-            ],
-            [
-                'Output/Text_Plain_Sql',
-                'Formats text as SQL query with syntax highlighting.',
-            ],
+            ['../../../../test', ''],
+            ['Input/Text_Plain_SqlEditor', 'Syntax highlighted CodeMirror editor for SQL.'],
+            ['Output/Text_Plain_Sql', 'Formats text as SQL query with syntax highlighting.'],
         ];
     }
 
@@ -354,19 +299,6 @@ class TransformationsTest extends AbstractTestCase
 
     public static function providerGetName(): array
     {
-        return [
-            [
-                '../../../../test',
-                '',
-            ],
-            [
-                'Input/Text_Plain_SqlEditor',
-                'SQL',
-            ],
-            [
-                'Output/Text_Plain_Sql',
-                'SQL',
-            ],
-        ];
+        return [['../../../../test', ''], ['Input/Text_Plain_SqlEditor', 'SQL'], ['Output/Text_Plain_Sql', 'SQL']];
     }
 }

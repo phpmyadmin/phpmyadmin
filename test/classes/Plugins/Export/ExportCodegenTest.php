@@ -63,10 +63,7 @@ class ExportCodegenTest extends AbstractTestCase
         $attrCgFormats = new ReflectionProperty(ExportCodegen::class, 'cgFormats');
 
         $this->assertEquals(
-            [
-                'NHibernate C# DO',
-                'NHibernate XML',
-            ],
+            ['NHibernate C# DO', 'NHibernate XML'],
             $attrCgFormats->getValue($this->object),
         );
     }
@@ -147,10 +144,7 @@ class ExportCodegenTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                'NHibernate C# DO',
-                'NHibernate XML',
-            ],
+            ['NHibernate C# DO', 'NHibernate XML'],
             $select->getValues(),
         );
     }
@@ -333,10 +327,7 @@ class ExportCodegenTest extends AbstractTestCase
         $setter->invoke($this->object, [1, 2]);
 
         $this->assertEquals(
-            [
-                1,
-                2,
-            ],
+            [1, 2],
             $getter->invoke($this->object),
         );
     }

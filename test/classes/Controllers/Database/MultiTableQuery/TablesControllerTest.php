@@ -38,10 +38,7 @@ class TablesControllerTest extends AbstractTestCase
 
     public function testGetForeignKeyConstrainsForTable(): void
     {
-        $_GET['tables'] = [
-            'table1',
-            'table2',
-        ];
+        $_GET['tables'] = ['table1', 'table2'];
         $_GET['db'] = 'test';
 
         /** @var TablesController $multiTableQueryController */

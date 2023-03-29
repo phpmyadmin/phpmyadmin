@@ -72,18 +72,9 @@ class FileTest extends AbstractTestCase
     public static function compressedFiles(): array
     {
         return [
-            [
-                './test/test_data/test.gz',
-                'application/gzip',
-            ],
-            [
-                './test/test_data/test.bz2',
-                'application/bzip2',
-            ],
-            [
-                './test/test_data/test.zip',
-                'application/zip',
-            ],
+            ['./test/test_data/test.gz', 'application/gzip'],
+            ['./test/test_data/test.bz2', 'application/bzip2'],
+            ['./test/test_data/test.zip', 'application/zip'],
         ];
     }
 }

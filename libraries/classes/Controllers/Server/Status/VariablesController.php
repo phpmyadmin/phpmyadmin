@@ -63,11 +63,7 @@ class VariablesController extends AbstractController
                     continue;
                 }
 
-                $categories[$sectionId] = [
-                    'id' => $sectionId,
-                    'name' => $sectionName,
-                    'is_selected' => false,
-                ];
+                $categories[$sectionId] = ['id' => $sectionId, 'name' => $sectionName, 'is_selected' => false];
                 if (! $filterCategory || $filterCategory !== $sectionId) {
                     continue;
                 }
@@ -77,10 +73,7 @@ class VariablesController extends AbstractController
 
             $links = [];
             foreach ($this->data->links as $sectionName => $sectionLinks) {
-                $links[$sectionName] = [
-                    'name' => 'status_' . $sectionName,
-                    'links' => $sectionLinks,
-                ];
+                $links[$sectionName] = ['name' => 'status_' . $sectionName, 'links' => $sectionLinks];
             }
 
             $descriptions = $this->getDescriptions();
@@ -121,10 +114,7 @@ class VariablesController extends AbstractController
                 }
 
                 foreach ($this->data->links[$name] as $linkName => $linkUrl) {
-                    $variables[$name]['description_doc'][] = [
-                        'name' => $linkName,
-                        'url' => $linkUrl,
-                    ];
+                    $variables[$name]['description_doc'][] = ['name' => $linkName, 'url' => $linkUrl];
                 }
             }
         }
@@ -147,11 +137,7 @@ class VariablesController extends AbstractController
      */
     private function flush(string $flush): void
     {
-        $flushCommands = [
-            'STATUS',
-            'TABLES',
-            'QUERY CACHE',
-        ];
+        $flushCommands = ['STATUS', 'TABLES', 'QUERY CACHE'];
 
         if (! in_array($flush, $flushCommands)) {
             return;

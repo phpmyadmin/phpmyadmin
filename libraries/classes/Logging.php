@@ -31,20 +31,20 @@ class Logging
      */
     public static function getLogDestination(): string
     {
-        $log_file = $GLOBALS['config']->get('AuthLog');
+        $logFile = $GLOBALS['config']->get('AuthLog');
 
         /* Autodetect */
-        if ($log_file === 'auto') {
+        if ($logFile === 'auto') {
             if (function_exists('syslog')) {
-                $log_file = 'syslog';
+                $logFile = 'syslog';
             } elseif (function_exists('error_log')) {
-                $log_file = 'php';
+                $logFile = 'php';
             } else {
-                $log_file = '';
+                $logFile = '';
             }
         }
 
-        return $log_file;
+        return $logFile;
     }
 
     /**
@@ -80,27 +80,27 @@ class Logging
             return;
         }
 
-        $log_file = self::getLogDestination();
-        if (empty($log_file)) {
+        $logFile = self::getLogDestination();
+        if (empty($logFile)) {
             return;
         }
 
         $message = self::getLogMessage($user, $status);
-        if ($log_file === 'syslog') {
+        if ($logFile === 'syslog') {
             if (function_exists('syslog')) {
                 @openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_AUTHPRIV);
                 @syslog(LOG_WARNING, $message);
                 closelog();
             }
-        } elseif ($log_file === 'php') {
+        } elseif ($logFile === 'php') {
             @error_log($message);
-        } elseif ($log_file === 'sapi') {
+        } elseif ($logFile === 'sapi') {
             @error_log($message, 4);
         } else {
             @error_log(
                 date('M d H:i:s') . ' phpmyadmin: ' . $message . "\n",
                 3,
-                $log_file,
+                $logFile,
             );
         }
     }

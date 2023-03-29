@@ -139,14 +139,14 @@ class IndexColumn
     /**
      * Returns whether the column is nullable
      *
-     * @param bool $as_text whether to returned the string representation
+     * @param bool $asText whether to returned the string representation
      *
      * @return string nullability of the column. True/false or Yes/No depending
      *                on the value of the $as_text parameter
      */
-    public function getNull(bool $as_text = false): string
+    public function getNull(bool $asText = false): string
     {
-        if ($as_text) {
+        if ($asText) {
             if (! $this->null || $this->null === 'NO') {
                 return __('No');
             }

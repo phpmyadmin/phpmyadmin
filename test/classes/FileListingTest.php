@@ -36,10 +36,7 @@ class FileListingTest extends AbstractTestCase
         }
 
         $this->assertSame(
-            [
-                'one.txt',
-                'two.md',
-            ],
+            ['one.txt', 'two.md'],
             array_values($dirContent),
         );
     }

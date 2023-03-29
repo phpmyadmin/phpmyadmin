@@ -133,10 +133,7 @@ class Import
                 $GLOBALS['my_die'] = [];
             }
 
-            $GLOBALS['my_die'][] = [
-                'sql' => $sql,
-                'error' => $GLOBALS['dbi']->getError(),
-            ];
+            $GLOBALS['my_die'][] = ['sql' => $sql, 'error' => $GLOBALS['dbi']->getError()];
 
             $GLOBALS['msg'] .= __('Error');
 
@@ -302,10 +299,7 @@ class Import
             $reload = true;
         }
 
-        return [
-            $db,
-            $reload,
-        ];
+        return [$db, $reload];
     }
 
     /**
@@ -559,11 +553,7 @@ class Import
         $m = $currSize - 1;
         $d = $decPrecision;
 
-        return [
-            $m,
-            $d,
-            $m . ',' . $d,
-        ];
+        return [$m, $d, $m . ',' . $d];
     }
 
     /**
@@ -932,10 +922,7 @@ class Import
             $sizes[$n] = '10';
         }
 
-        return [
-            $types,
-            $sizes,
-        ];
+        return [$types, $sizes];
     }
 
     /**
@@ -1239,10 +1226,7 @@ class Import
         unset($params);
 
         foreach ($tables as $table) {
-            $params = [
-                'db' => $dbName,
-                'table' => (string) $table[self::TBL_NAME],
-            ];
+            $params = ['db' => $dbName, 'table' => (string) $table[self::TBL_NAME]];
             $tblUrl = Url::getFromRoute('/sql', $params);
             $tblStructUrl = Url::getFromRoute('/table/structure', $params);
             $tblOpsUrl = Url::getFromRoute('/table/operations', $params);
@@ -1410,16 +1394,7 @@ class Import
         }
 
         // List of Transactional Engines.
-        $transactionalEngines = [
-            'INNODB',
-            'FALCON',
-            'NDB',
-            'INFINIDB',
-            'TOKUDB',
-            'XTRADB',
-            'SEQUENCE',
-            'BDB',
-        ];
+        $transactionalEngines = ['INNODB', 'FALCON', 'NDB', 'INFINIDB', 'TOKUDB', 'XTRADB', 'SEQUENCE', 'BDB'];
 
         // Query to check if table is 'Transactional'.
         $checkQuery = 'SELECT `ENGINE` FROM `information_schema`.`tables` '

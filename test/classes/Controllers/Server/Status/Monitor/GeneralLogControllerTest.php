@@ -48,17 +48,9 @@ class GeneralLogControllerTest extends AbstractTestCase
 
     public function testGeneralLog(): void
     {
-        $value = [
-            'sql_text' => 'insert sql_text',
-            '#' => 10,
-            'argument' => 'argument argument2',
-        ];
+        $value = ['sql_text' => 'insert sql_text', '#' => 10, 'argument' => 'argument argument2'];
 
-        $value2 = [
-            'sql_text' => 'update sql_text',
-            '#' => 11,
-            'argument' => 'argument3 argument4',
-        ];
+        $value2 = ['sql_text' => 'update sql_text', '#' => 11, 'argument' => 'argument3 argument4'];
 
         $response = new ResponseRenderer();
         $response->setAjax(true);
@@ -83,15 +75,8 @@ class GeneralLogControllerTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        $resultRows = [
-            $value,
-            $value2,
-        ];
-        $resultSum = [
-            'argument' => 10,
-            'TOTAL' => 21,
-            'argument3' => 11,
-        ];
+        $resultRows = [$value, $value2];
+        $resultSum = ['argument' => 10, 'TOTAL' => 21, 'argument3' => 11];
 
         $this->assertEquals(2, $ret['message']['numRows']);
         $this->assertEquals($resultRows, $ret['message']['rows']);

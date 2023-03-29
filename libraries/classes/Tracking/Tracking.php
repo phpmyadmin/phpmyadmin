@@ -5,15 +5,21 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Tracking;
 
 use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
-use function array_key_exists;
 use function array_merge;
 use function array_multisort;
 use function count;
@@ -21,7 +27,6 @@ use function date;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
-use function is_array;
 use function json_encode;
 use function mb_strstr;
 use function preg_replace;
@@ -32,7 +37,7 @@ use function strtotime;
 use const SORT_ASC;
 
 /**
- * PhpMyAdmin\Tracking class
+ * PhpMyAdmin\Tracking\Tracking class
  */
 class Tracking
 {
@@ -41,34 +46,35 @@ class Tracking
         public Template $template,
         protected Relation $relation,
         private DatabaseInterface $dbi,
+        private TrackingChecker $trackingChecker,
     ) {
     }
 
     /**
      * Filters tracking entries
      *
-     * @param array $data         the entries to filter
-     * @param array $filter_users users
+     * @param array $data        the entries to filter
+     * @param array $filterUsers users
      *
      * @return array filtered entries
      */
     public function filter(
         array $data,
-        array $filter_users,
+        array $filterUsers,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
     ): array {
-        $tmp_entries = [];
+        $tmpEntries = [];
         $id = 0;
         foreach ($data as $entry) {
             $timestamp = strtotime($entry['date']);
-            $filtered_user = in_array($entry['username'], $filter_users);
+            $filteredUser = in_array($entry['username'], $filterUsers);
             if (
                 $timestamp >= $dateFrom->getTimestamp()
                 && $timestamp <= $dateTo->getTimestamp()
-                && (in_array('*', $filter_users) || $filtered_user)
+                && (in_array('*', $filterUsers) || $filteredUser)
             ) {
-                $tmp_entries[] = [
+                $tmpEntries[] = [
                     'id' => $id,
                     'timestamp' => $timestamp,
                     'username' => $entry['username'],
@@ -79,7 +85,7 @@ class Tracking
             $id++;
         }
 
-        return $tmp_entries;
+        return $tmpEntries;
     }
 
     /**
@@ -117,18 +123,6 @@ class Tracking
         string $textDir,
         int|null $lastVersion = null,
     ): string {
-        $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
-        $selectableTablesEntries = [];
-        $selectableTablesNumRows = 0;
-        if ($selectableTablesSqlResult !== false) {
-            foreach ($selectableTablesSqlResult as $entry) {
-                $entry['is_tracked'] = Tracker::isTracked($entry['db_name'], $entry['table_name']);
-                $selectableTablesEntries[] = $entry;
-            }
-
-            $selectableTablesNumRows = $selectableTablesSqlResult->numRows();
-        }
-
         $versionSqlResult = $this->getListOfVersionsOfTable($db, $table);
         if ($lastVersion === null && $versionSqlResult !== false) {
             $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
@@ -145,8 +139,7 @@ class Tracking
             'url_params' => $urlParams,
             'db' => $db,
             'table' => $table,
-            'selectable_tables_num_rows' => $selectableTablesNumRows,
-            'selectable_tables_entries' => $selectableTablesEntries,
+            'selectable_tables_entries' => $this->trackingChecker->getTrackedTables($db),
             'selected_table' => $_POST['table'] ?? null,
             'last_version' => $lastVersion,
             'versions' => $versions,
@@ -165,43 +158,25 @@ class Tracking
     }
 
     /**
-     * Function to get sql results for selectable tables
-     */
-    public function getSqlResultForSelectableTables(string $db): ResultInterface|false
-    {
-        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return false;
-        }
-
-        $sql_query = ' SELECT DISTINCT db_name, table_name FROM '
-            . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
-            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "' "
-            . ' ORDER BY db_name, table_name';
-
-        return $this->dbi->queryAsControlUser($sql_query);
-    }
-
-    /**
      * Function to get html for tracking report and tracking report export
      *
-     * @param array $data         data
-     * @param array $url_params   url params
-     * @param array $filter_users filter users
+     * @param array $data        data
+     * @param array $urlParams   url params
+     * @param array $filterUsers filter users
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      */
     public function getHtmlForTrackingReport(
         array $data,
-        array $url_params,
+        array $urlParams,
         string $logType,
-        array $filter_users,
+        array $filterUsers,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
         string $users,
     ): string {
         $html = '<h3>' . __('Tracking report')
-            . '  [<a href="' . Url::getFromRoute('/table/tracking', $url_params) . '">' . __('Close')
+            . '  [<a href="' . Url::getFromRoute('/table/tracking', $urlParams) . '">' . __('Close')
             . '</a>]</h3>';
 
         $html .= '<small>' . __('Tracking statements') . ' '
@@ -216,16 +191,16 @@ class Tracking
         );
 
         // Prepare delete link content here
-        $drop_image_or_text = '';
+        $dropImageOrText = '';
         if (Util::showIcons('ActionLinksMode')) {
-            $drop_image_or_text .= Generator::getImage(
+            $dropImageOrText .= Generator::getImage(
                 'b_drop',
                 __('Delete tracking data row from report'),
             );
         }
 
         if (Util::showText('ActionLinksMode')) {
-            $drop_image_or_text .= __('Delete');
+            $dropImageOrText .= __('Delete');
         }
 
         // First, list tracked data definition statements
@@ -236,22 +211,22 @@ class Tracking
 
         $html .= $this->getHtmlForTrackingReportExportForm1(
             $data,
-            $url_params,
+            $urlParams,
             $logType,
-            $filter_users,
+            $filterUsers,
             $str1,
             $str2,
             $str3,
             $str4,
             $str5,
-            $drop_image_or_text,
+            $dropImageOrText,
             $version,
             $dateFrom,
             $dateTo,
         );
 
         $html .= $this->getHtmlForTrackingReportExportForm2(
-            $url_params,
+            $urlParams,
             $str1,
             $str2,
             $str3,
@@ -302,53 +277,44 @@ class Tracking
         $str5 = '<input type="hidden" name="list_report" value="1">'
             . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
-        return [
-            $str1,
-            $str2,
-            $str3,
-            $str4,
-            $str5,
-        ];
+        return [$str1, $str2, $str3, $str4, $str5];
     }
 
     /**
      * Generate HTML for export form
      *
-     * @param array  $data               data
-     * @param array  $url_params         url params
-     * @param array  $filter_users       filter users
-     * @param string $str1               HTML for log_type select
-     * @param string $str2               HTML for "from date"
-     * @param string $str3               HTML for "to date"
-     * @param string $str4               HTML for user
-     * @param string $str5               HTML for "list report"
-     * @param string $drop_image_or_text HTML for image or text
+     * @param array  $data            data
+     * @param array  $urlParams       url params
+     * @param array  $filterUsers     filter users
+     * @param string $str1            HTML for log_type select
+     * @param string $str2            HTML for "from date"
+     * @param string $str3            HTML for "to date"
+     * @param string $str4            HTML for user
+     * @param string $str5            HTML for "list report"
+     * @param string $dropImageOrText HTML for image or text
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
      */
     public function getHtmlForTrackingReportExportForm1(
         array $data,
-        array $url_params,
+        array $urlParams,
         string $logType,
-        array $filter_users,
+        array $filterUsers,
         string $str1,
         string $str2,
         string $str3,
         string $str4,
         string $str5,
-        string $drop_image_or_text,
+        string $dropImageOrText,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
     ): string {
-        $ddlog_count = 0;
+        $ddlogCount = 0;
 
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
-        $html .= Url::getHiddenInputs($url_params + [
-            'report' => 'true',
-            'version' => $version,
-        ]);
+        $html .= Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => $version]);
 
         $html .= sprintf(
             __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -360,11 +326,11 @@ class Tracking
         );
 
         if ($logType === 'schema' || $logType === 'schema_and_data' && count($data['ddlog']) > 0) {
-            [$temp, $ddlog_count] = $this->getHtmlForDataDefinitionStatements(
+            [$temp, $ddlogCount] = $this->getHtmlForDataDefinitionStatements(
                 $data,
-                $filter_users,
-                $url_params,
-                $drop_image_or_text,
+                $filterUsers,
+                $urlParams,
+                $dropImageOrText,
                 $version,
                 $dateFrom,
                 $dateTo,
@@ -377,10 +343,10 @@ class Tracking
         if (($logType === 'data' || $logType === 'schema_and_data') && count($data['dmlog']) > 0) {
             $html .= $this->getHtmlForDataManipulationStatements(
                 $data,
-                $filter_users,
-                $url_params,
-                $ddlog_count,
-                $drop_image_or_text,
+                $filterUsers,
+                $urlParams,
+                $ddlogCount,
+                $dropImageOrText,
                 $version,
                 $dateFrom,
                 $dateTo,
@@ -395,18 +361,18 @@ class Tracking
     /**
      * Generate HTML for export form
      *
-     * @param array  $url_params Parameters
-     * @param string $str1       HTML for log_type select
-     * @param string $str2       HTML for "from date"
-     * @param string $str3       HTML for "to date"
-     * @param string $str4       HTML for user
-     * @param string $str5       HTML for "list report"
+     * @param array  $urlParams Parameters
+     * @param string $str1      HTML for log_type select
+     * @param string $str2      HTML for "from date"
+     * @param string $str3      HTML for "to date"
+     * @param string $str4      HTML for user
+     * @param string $str5      HTML for "list report"
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
      */
     public function getHtmlForTrackingReportExportForm2(
-        array $url_params,
+        array $urlParams,
         string $str1,
         string $str2,
         string $str3,
@@ -419,10 +385,7 @@ class Tracking
         string $users,
     ): string {
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
-        $html .= Url::getHiddenInputs($url_params + [
-            'report' => 'true',
-            'version' => $version,
-        ]);
+        $html .= Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => $version]);
 
         $html .= sprintf(
             __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -435,7 +398,7 @@ class Tracking
         $html .= '</form>';
 
         $html .= '<form class="disableAjax" method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
-        $html .= Url::getHiddenInputs($url_params + [
+        $html .= Url::getHiddenInputs($urlParams + [
             'report' => 'true',
             'version' => $version,
             'log_type' => $logType,
@@ -445,7 +408,7 @@ class Tracking
             'report_export' => 'true',
         ]);
 
-        $str_export1 = '<select name="export_type">'
+        $strExport1 = '<select name="export_type">'
             . '<option value="sqldumpfile">' . __('SQL dump (file download)')
             . '</option>'
             . '<option value="sqldump">' . __('SQL dump') . '</option>'
@@ -455,10 +418,10 @@ class Tracking
             ))
             . ')">' . __('SQL execution') . '</option></select>';
 
-        $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
+        $strExport2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
-        $html .= '<br>' . sprintf(__('Export as %s'), $str_export1)
-            . $str_export2 . '<br>';
+        $html .= '<br>' . sprintf(__('Export as %s'), $strExport1)
+            . $strExport2 . '<br>';
         $html .= '</form>';
 
         return $html;
@@ -467,18 +430,18 @@ class Tracking
     /**
      * Function to get html for data manipulation statements
      *
-     * @param array  $data               data
-     * @param array  $filter_users       filter users
-     * @param array  $url_params         url parameters
-     * @param int    $ddlog_count        data definition log count
-     * @param string $drop_image_or_text drop image or text
+     * @param array  $data            data
+     * @param array  $filterUsers     filter users
+     * @param array  $urlParams       url parameters
+     * @param int    $ddlogCount      data definition log count
+     * @param string $dropImageOrText drop image or text
      */
     public function getHtmlForDataManipulationStatements(
         array $data,
-        array $filter_users,
-        array $url_params,
-        int $ddlog_count,
-        string $drop_image_or_text,
+        array $filterUsers,
+        array $urlParams,
+        int $ddlogCount,
+        string $dropImageOrText,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
@@ -486,12 +449,12 @@ class Tracking
         // no need for the second returned parameter
         [$html] = $this->getHtmlForDataStatements(
             $data,
-            $filter_users,
-            $url_params,
-            $drop_image_or_text,
+            $filterUsers,
+            $urlParams,
+            $dropImageOrText,
             'dmlog',
             __('Data manipulation statement'),
-            $ddlog_count,
+            $ddlogCount,
             'dml_versions',
             $version,
             $dateFrom,
@@ -504,27 +467,27 @@ class Tracking
     /**
      * Function to get html for data definition statements in schema snapshot
      *
-     * @param array  $data               data
-     * @param array  $filter_users       filter users
-     * @param array  $url_params         url parameters
-     * @param string $drop_image_or_text drop image or text
+     * @param array  $data            data
+     * @param array  $filterUsers     filter users
+     * @param array  $urlParams       url parameters
+     * @param string $dropImageOrText drop image or text
      *
      * @return array
      */
     public function getHtmlForDataDefinitionStatements(
         array $data,
-        array $filter_users,
-        array $url_params,
-        string $drop_image_or_text,
+        array $filterUsers,
+        array $urlParams,
+        string $dropImageOrText,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
     ): array {
-        [$html, $line_number] = $this->getHtmlForDataStatements(
+        [$html, $lineNumber] = $this->getHtmlForDataStatements(
             $data,
-            $filter_users,
-            $url_params,
-            $drop_image_or_text,
+            $filterUsers,
+            $urlParams,
+            $dropImageOrText,
             'ddlog',
             __('Data definition statement'),
             1,
@@ -534,10 +497,7 @@ class Tracking
             $dateTo,
         );
 
-        return [
-            $html,
-            $line_number,
-        ];
+        return [$html, $lineNumber];
     }
 
     /**
@@ -598,10 +558,7 @@ class Tracking
             'drop_image_or_text' => $dropImageOrText,
         ]);
 
-        return [
-            $html,
-            $lineNumber,
-        ];
+        return [$html, $lineNumber];
     }
 
     /**
@@ -617,13 +574,13 @@ class Tracking
         $data = Tracker::getTrackedData($db, $table, $version);
 
         // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
-        $drop_create_statements = $data['ddlog'][0]['statement'];
+        $dropCreateStatements = $data['ddlog'][0]['statement'];
 
         if (
             mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
             || mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
         ) {
-            $drop_create_statements .= $data['ddlog'][1]['statement'];
+            $dropCreateStatements .= $data['ddlog'][1]['statement'];
         }
 
         // Print SQL code
@@ -632,16 +589,13 @@ class Tracking
                 __('Version %s snapshot (SQL code)'),
                 htmlspecialchars($version),
             ),
-            $drop_create_statements,
+            $dropCreateStatements,
         );
 
         // Unserialize snapshot
         $temp = Core::safeUnserialize($data['schema_snapshot']);
         if ($temp === null) {
-            $temp = [
-                'COLUMNS' => [],
-                'INDEXES' => [],
-            ];
+            $temp = ['COLUMNS' => [], 'INDEXES' => []];
         }
 
         $columns = $temp['COLUMNS'];
@@ -689,11 +643,11 @@ class Tracking
         string $table,
         string $version,
         array &$data,
-        bool $delete_ddlog,
-        bool $delete_dmlog,
+        bool $deleteDdlog,
+        bool $deleteDmlog,
     ): string {
         $html = '';
-        if ($delete_ddlog) {
+        if ($deleteDdlog) {
             // Delete ddlog row data
             $html .= $this->deleteFromTrackingReportLog(
                 $db,
@@ -706,7 +660,7 @@ class Tracking
             );
         }
 
-        if ($delete_dmlog) {
+        if ($deleteDmlog) {
             // Delete dmlog row data
             $html .= $this->deleteFromTrackingReportLog(
                 $db,
@@ -725,10 +679,10 @@ class Tracking
     /**
      * Function to delete from a tracking report log
      *
-     * @param array  $data      tracked data
-     * @param string $which_log ddlog|dmlog
-     * @param string $type      DDL|DML
-     * @param string $message   success message
+     * @param array  $data     tracked data
+     * @param string $whichLog ddlog|dmlog
+     * @param string $type     DDL|DML
+     * @param string $message  success message
      *
      * @return string HTML for the message
      */
@@ -737,24 +691,18 @@ class Tracking
         string $table,
         string $version,
         array &$data,
-        string $which_log,
+        string $whichLog,
         string $type,
         string $message,
     ): string {
         $html = '';
-        $delete_id = $_POST['delete_' . $which_log];
+        $deleteId = $_POST['delete_' . $whichLog];
 
         // Only in case of valid id
-        if ($delete_id == (int) $delete_id) {
-            unset($data[$which_log][$delete_id]);
+        if ($deleteId == (int) $deleteId) {
+            unset($data[$whichLog][$deleteId]);
 
-            $successfullyDeleted = Tracker::changeTrackingData(
-                $db,
-                $table,
-                $version,
-                $type,
-                $data[$which_log],
-            );
+            $successfullyDeleted = Tracker::changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
             if ($successfullyDeleted) {
                 $msg = Message::success($message);
             } else {
@@ -774,10 +722,10 @@ class Tracking
      *
      * @return string HTML SQL query form
      */
-    public function exportAsSqlDump(string $db, string $table, array $entries): string
+    public function exportAsSqlDump(array $entries): string
     {
         $html = '';
-        $new_query = '# '
+        $newQuery = '# '
             . __(
                 'You can execute the dump by creating and using a temporary database. '
                 . 'Please ensure that you have the privileges to do so.',
@@ -790,7 +738,7 @@ class Tracking
             . "\n";
 
         foreach ($entries as $entry) {
-            $new_query .= $entry['statement'];
+            $newQuery .= $entry['statement'];
         }
 
         $msg = Message::success(
@@ -798,7 +746,7 @@ class Tracking
         );
         $html .= $msg->getDisplay();
 
-        $html .= $this->sqlQueryForm->getHtml('', '', $new_query, 'sql');
+        $html .= $this->sqlQueryForm->getHtml('', '', $newQuery, 'sql');
 
         return $html;
     }
@@ -874,63 +822,63 @@ class Tracking
      */
     public function getTrackingSet(): string
     {
-        $tracking_set = '';
+        $trackingSet = '';
 
         // a key is absent from the request if it has been removed from
         // tracking_default_statements in the config
         if (isset($_POST['alter_table']) && $_POST['alter_table'] == true) {
-            $tracking_set .= 'ALTER TABLE,';
+            $trackingSet .= 'ALTER TABLE,';
         }
 
         if (isset($_POST['rename_table']) && $_POST['rename_table'] == true) {
-            $tracking_set .= 'RENAME TABLE,';
+            $trackingSet .= 'RENAME TABLE,';
         }
 
         if (isset($_POST['create_table']) && $_POST['create_table'] == true) {
-            $tracking_set .= 'CREATE TABLE,';
+            $trackingSet .= 'CREATE TABLE,';
         }
 
         if (isset($_POST['drop_table']) && $_POST['drop_table'] == true) {
-            $tracking_set .= 'DROP TABLE,';
+            $trackingSet .= 'DROP TABLE,';
         }
 
         if (isset($_POST['alter_view']) && $_POST['alter_view'] == true) {
-            $tracking_set .= 'ALTER VIEW,';
+            $trackingSet .= 'ALTER VIEW,';
         }
 
         if (isset($_POST['create_view']) && $_POST['create_view'] == true) {
-            $tracking_set .= 'CREATE VIEW,';
+            $trackingSet .= 'CREATE VIEW,';
         }
 
         if (isset($_POST['drop_view']) && $_POST['drop_view'] == true) {
-            $tracking_set .= 'DROP VIEW,';
+            $trackingSet .= 'DROP VIEW,';
         }
 
         if (isset($_POST['create_index']) && $_POST['create_index'] == true) {
-            $tracking_set .= 'CREATE INDEX,';
+            $trackingSet .= 'CREATE INDEX,';
         }
 
         if (isset($_POST['drop_index']) && $_POST['drop_index'] == true) {
-            $tracking_set .= 'DROP INDEX,';
+            $trackingSet .= 'DROP INDEX,';
         }
 
         if (isset($_POST['insert']) && $_POST['insert'] == true) {
-            $tracking_set .= 'INSERT,';
+            $trackingSet .= 'INSERT,';
         }
 
         if (isset($_POST['update']) && $_POST['update'] == true) {
-            $tracking_set .= 'UPDATE,';
+            $trackingSet .= 'UPDATE,';
         }
 
         if (isset($_POST['delete']) && $_POST['delete'] == true) {
-            $tracking_set .= 'DELETE,';
+            $trackingSet .= 'DELETE,';
         }
 
         if (isset($_POST['truncate']) && $_POST['truncate'] == true) {
-            $tracking_set .= 'TRUNCATE,';
+            $trackingSet .= 'TRUNCATE,';
         }
 
-        return rtrim($tracking_set, ',');
+        return rtrim($trackingSet, ',');
     }
 
     /**
@@ -966,13 +914,13 @@ class Tracking
     public function createTrackingVersion(string $db, string $table, string $version): string
     {
         $html = '';
-        $tracking_set = $this->getTrackingSet();
+        $trackingSet = $this->getTrackingSet();
 
         $versionCreated = Tracker::createVersion(
             $db,
             $table,
             $version,
-            $tracking_set,
+            $trackingSet,
             $this->dbi->getTable($db, $table)->isView(),
         );
         if ($versionCreated) {
@@ -996,15 +944,15 @@ class Tracking
      */
     public function createTrackingForMultipleTables(string $db, array $selected, string $version): void
     {
-        $tracking_set = $this->getTrackingSet();
+        $trackingSet = $this->getTrackingSet();
 
-        foreach ($selected as $selected_table) {
+        foreach ($selected as $selectedTable) {
             Tracker::createVersion(
                 $db,
-                $selected_table,
+                $selectedTable,
                 $version,
-                $tracking_set,
-                $this->dbi->getTable($db, $selected_table)->isView(),
+                $trackingSet,
+                $this->dbi->getTable($db, $selectedTable)->isView(),
             );
         }
     }
@@ -1012,15 +960,15 @@ class Tracking
     /**
      * Function to get the entries
      *
-     * @param array $data         data
-     * @param array $filter_users filter users
+     * @param array $data        data
+     * @param array $filterUsers filter users
      * @phpstan-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return array
      */
     public function getEntries(
         array $data,
-        array $filter_users,
+        array $filterUsers,
         string $logType,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
@@ -1030,7 +978,7 @@ class Tracking
         if ($logType === 'schema' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter($data['ddlog'], $filter_users, $dateFrom, $dateTo),
+                $this->filter($data['ddlog'], $filterUsers, $dateFrom, $dateTo),
             );
         }
 
@@ -1038,7 +986,7 @@ class Tracking
         if ($logType === 'data' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter($data['dmlog'], $filter_users, $dateFrom, $dateTo),
+                $this->filter($data['dmlog'], $filterUsers, $dateFrom, $dateTo),
             );
         }
 
@@ -1082,7 +1030,7 @@ class Tracking
             . '\'  GROUP BY table_name ORDER BY table_name ASC';
 
         $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
-        $untrackedTables = $this->getUntrackedTables($db);
+        $untrackedTables = $this->trackingChecker->getUntrackedTableNames($db);
 
         // If a HEAD version exists
         $versions = [];
@@ -1106,45 +1054,5 @@ class Tracking
             'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
         ]);
-    }
-
-    /**
-     * Helper function: Recursive function for getting table names from $table_list
-     *
-     * @param array  $table_list Table list
-     * @param string $db         Current database
-     *
-     * @return array
-     */
-    public function extractTableNames(array $table_list, string $db): array
-    {
-        $untracked_tables = [];
-        $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-
-        foreach ($table_list as $value) {
-            if (is_array($value) && array_key_exists('is' . $sep . 'group', $value) && $value['is' . $sep . 'group']) {
-                // Recursion step
-                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables);
-            } elseif (is_array($value) && (Tracker::getVersion($db, $value['Name']) == -1)) {
-                $untracked_tables[] = $value['Name'];
-            }
-        }
-
-        return $untracked_tables;
-    }
-
-    /**
-     * Get untracked tables
-     *
-     * @param string $db current database
-     *
-     * @return array
-     */
-    public function getUntrackedTables(string $db): array
-    {
-        $table_list = Util::getTableList($db);
-
-        //Use helper function to get table list recursively.
-        return $this->extractTableNames($table_list, $db);
     }
 }

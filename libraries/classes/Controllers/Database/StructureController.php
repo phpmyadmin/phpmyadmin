@@ -14,13 +14,15 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\RecentFavoriteTable;
-use PhpMyAdmin\Replication;
-use PhpMyAdmin\ReplicationInfo;
+use PhpMyAdmin\Replication\Replication;
+use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Tracking\TrackedTable;
+use PhpMyAdmin\Tracking\Tracker;
+use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -74,6 +76,7 @@ class StructureController extends AbstractController
         private Relation $relation,
         private Replication $replication,
         private DatabaseInterface $dbi,
+        private TrackingChecker $trackingChecker,
     ) {
         parent::__construct($response, $template);
 
@@ -85,11 +88,7 @@ class StructureController extends AbstractController
      */
     private function getDatabaseInfo(ServerRequest $request): void
     {
-        [
-            $tables,
-            $numTables,
-            $totalNumTables,
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
+        [$tables, $numTables, $totalNumTables] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
@@ -118,10 +117,7 @@ class StructureController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $parameters = [
-            'sort' => $_REQUEST['sort'] ?? null,
-            'sort_order' => $_REQUEST['sort_order'] ?? null,
-        ];
+        $parameters = ['sort' => $_REQUEST['sort'] ?? null, 'sort_order' => $_REQUEST['sort_order'] ?? null];
 
         $this->checkParameters(['db']);
 
@@ -156,10 +152,7 @@ class StructureController extends AbstractController
         $this->response->addHTML($pageSettings->getHTML());
 
         if ($this->numTables > 0) {
-            $urlParams = [
-                'pos' => $this->position,
-                'db' => $GLOBALS['db'],
-            ];
+            $urlParams = ['pos' => $this->position, 'db' => $GLOBALS['db']];
             if (isset($parameters['sort'])) {
                 $urlParams['sort'] = $parameters['sort'];
             }
@@ -221,6 +214,7 @@ class StructureController extends AbstractController
         $hiddenFields = [];
         $overallApproxRows = false;
         $structureTableRows = [];
+        $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -230,10 +224,7 @@ class StructureController extends AbstractController
             $inputClass = ['checkall'];
 
             // Sets parameters for links
-            $tableUrlParams = [
-                'db' => $GLOBALS['db'],
-                'table' => $currentTable['TABLE_NAME'],
-            ];
+            $tableUrlParams = ['db' => $GLOBALS['db'], 'table' => $currentTable['TABLE_NAME']];
             // do not list the previous table's size info for a view
 
             [
@@ -396,7 +387,7 @@ class StructureController extends AbstractController
                         ),
                     ),
                 ),
-                'tracking_icon' => $this->getTrackingIcon($truename),
+                'tracking_icon' => $this->getTrackingIcon($truename, $trackedTables[$truename] ?? null),
                 'server_replica_status' => $replicaInfo['status'],
                 'table_url_params' => $tableUrlParams,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
@@ -440,10 +431,7 @@ class StructureController extends AbstractController
             $this->dbi->getDbCollation($GLOBALS['db']),
         );
         if ($collation !== null) {
-            $databaseCollation = [
-                'name' => $collation->getName(),
-                'description' => $collation->getDescription(),
-            ];
+            $databaseCollation = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
             $databaseCharset = $collation->getCharset();
         }
 
@@ -500,20 +488,17 @@ class StructureController extends AbstractController
     /**
      * Returns the tracking icon if the table is tracked
      *
-     * @param string $table table name
-     *
      * @return string HTML for tracking icon
      */
-    protected function getTrackingIcon(string $table): string
+    protected function getTrackingIcon(string $table, TrackedTable|null $trackedTable): string
     {
         $trackingIcon = '';
         if (Tracker::isActive()) {
-            $isTracked = Tracker::isTracked($GLOBALS['db'], $table);
-            if ($isTracked || Tracker::getVersion($GLOBALS['db'], $table) > 0) {
+            if ($trackedTable !== null) {
                 $trackingIcon = $this->template->render('database/structure/tracking_icon', [
                     'db' => $GLOBALS['db'],
                     'table' => $table,
-                    'is_tracked' => $isTracked,
+                    'is_tracked' => $trackedTable->active,
                 ]);
             }
         }
@@ -563,10 +548,7 @@ class StructureController extends AbstractController
             }
         }
 
-        return [
-            $approxRows,
-            $showSuperscript,
-        ];
+        return [$approxRows, $showSuperscript];
     }
 
     /**
@@ -598,10 +580,7 @@ class StructureController extends AbstractController
                 || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);
         }
 
-        return [
-            $do,
-            $ignored,
-        ];
+        return [$do, $ignored];
     }
 
     /**
@@ -800,24 +779,12 @@ class StructureController extends AbstractController
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
             if (isset($currentTable['Data_free']) && $currentTable['Data_free'] > 0) {
-                [$formattedOverhead, $overheadUnit] = Util::formatByteDown(
-                    $currentTable['Data_free'],
-                    3,
-                    1,
-                );
+                [$formattedOverhead, $overheadUnit] = Util::formatByteDown($currentTable['Data_free'], 3, 1);
                 $overheadSize += $currentTable['Data_free'];
             }
         }
 
-        return [
-            $currentTable,
-            $formattedSize,
-            $unit,
-            $formattedOverhead,
-            $overheadUnit,
-            $overheadSize,
-            $sumSize,
-        ];
+        return [$currentTable, $formattedSize, $unit, $formattedOverhead, $overheadUnit, $overheadSize, $sumSize];
     }
 
     /**
@@ -855,12 +822,7 @@ class StructureController extends AbstractController
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
         }
 
-        return [
-            $currentTable,
-            $formattedSize,
-            $unit,
-            $sumSize,
-        ];
+        return [$currentTable, $formattedSize, $unit, $sumSize];
     }
 
     /**
@@ -885,11 +847,6 @@ class StructureController extends AbstractController
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
         }
 
-        return [
-            $currentTable,
-            $formattedSize,
-            $unit,
-            $sumSize,
-        ];
+        return [$currentTable, $formattedSize, $unit, $sumSize];
     }
 }

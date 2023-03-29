@@ -23,10 +23,7 @@ class MultiTableQueryController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $this->addScriptFiles([
-            'database/multi_table_query.js',
-            'database/query_generator.js',
-        ]);
+        $this->addScriptFiles(['database/multi_table_query.js', 'database/query_generator.js']);
 
         $queryInstance = new MultiTableQuery($this->dbi, $this->template, $GLOBALS['db']);
 

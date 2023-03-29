@@ -157,10 +157,7 @@ class NodeTest extends AbstractTestCase
         $this->assertEquals($child->parents(), [$parent]); // exclude self
         $this->assertEquals(
             $child->parents(true),
-            [
-                $child,
-                $parent,
-            ],
+            [$child, $parent],
         ); // include self
     }
 
@@ -278,10 +275,7 @@ class NodeTest extends AbstractTestCase
         unset($GLOBALS['cfg']['Server']['only_db']);
 
         // When only_db directive is present and it's an array of dbs
-        $GLOBALS['cfg']['Server']['only_db'] = [
-            'onlyDbOne',
-            'onlyDbTwo',
-        ];
+        $GLOBALS['cfg']['Server']['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
         $this->assertEquals(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME'),

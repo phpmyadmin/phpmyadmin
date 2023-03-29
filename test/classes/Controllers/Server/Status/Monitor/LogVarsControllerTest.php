@@ -67,9 +67,7 @@ class LogVarsControllerTest extends AbstractTestCase
         );
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['varName', null, 'varName'],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['varName', null, 'varName']]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);

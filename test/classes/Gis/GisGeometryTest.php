@@ -40,13 +40,13 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests setMinMax method
      *
-     * @param string         $point_set Point set
-     * @param ScaleData|null $min_max   Existing min, max values
-     * @param ScaleData|null $output    Expected output array
+     * @param string         $pointSet Point set
+     * @param ScaleData|null $minMax   Existing min, max values
+     * @param ScaleData|null $output   Expected output array
      *
      * @dataProvider providerForTestSetMinMax
      */
-    public function testSetMinMax(string $point_set, ScaleData|null $min_max, ScaleData|null $output): void
+    public function testSetMinMax(string $pointSet, ScaleData|null $minMax, ScaleData|null $output): void
     {
         $this->assertEquals(
             $output,
@@ -54,10 +54,7 @@ class GisGeometryTest extends AbstractTestCase
                 $this->object,
                 GisGeometry::class,
                 'setMinMax',
-                [
-                    $point_set,
-                    $min_max,
-                ],
+                [$pointSet, $minMax],
             ),
         );
     }
@@ -70,16 +67,8 @@ class GisGeometryTest extends AbstractTestCase
     public static function providerForTestSetMinMax(): array
     {
         return [
-            [
-                '12 35,48 75,69 23,25 45,14 53,35 78',
-                null,
-                new ScaleData(69, 12, 78, 23),
-            ],
-            [
-                '12 35,48 75,69 23,25 45,14 53,35 78',
-                new ScaleData(29, 2, 128, 23),
-                new ScaleData(69, 2, 128, 23),
-            ],
+            ['12 35,48 75,69 23,25 45,14 53,35 78', null, new ScaleData(69, 12, 78, 23)],
+            ['12 35,48 75,69 23,25 45,14 53,35 78', new ScaleData(29, 2, 128, 23), new ScaleData(69, 2, 128, 23)],
         ];
     }
 
@@ -114,41 +103,29 @@ class GisGeometryTest extends AbstractTestCase
         return [
             [
                 "'MULTIPOINT(125 50,156 25,178 43,175 80)',125",
-                [
-                    'srid' => 125,
-                    'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
-                ],
+                ['srid' => 125, 'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)'],
             ],
             [
                 'MULTIPOINT(125 50,156 25,178 43,175 80)',
-                [
-                    'srid' => 0,
-                    'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
-                ],
+                ['srid' => 0, 'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)'],
             ],
-            [
-                'foo',
-                [
-                    'srid' => 0,
-                    'wkt' => '',
-                ],
-            ],
+            ['foo', ['srid' => 0, 'wkt' => '']],
         ];
     }
 
     /**
      * tests extractPointsInternal method
      *
-     * @param string     $point_set  String of comma separated points
-     * @param array|null $scale_data Data related to scaling
-     * @param bool       $linear     If true, as a 1D array, else as a 2D array
-     * @param array      $output     Expected output
+     * @param string     $pointSet  String of comma separated points
+     * @param array|null $scaleData Data related to scaling
+     * @param bool       $linear    If true, as a 1D array, else as a 2D array
+     * @param array      $output    Expected output
      *
      * @dataProvider providerForTestExtractPointsInternal
      */
     public function testExtractPointsInternal(
-        string $point_set,
-        array|null $scale_data,
+        string $pointSet,
+        array|null $scaleData,
         bool $linear,
         array $output,
     ): void {
@@ -156,11 +133,7 @@ class GisGeometryTest extends AbstractTestCase
             $this->object,
             GisGeometry::class,
             'extractPointsInternal',
-            [
-                $point_set,
-                $scale_data,
-                $linear,
-            ],
+            [$pointSet, $scaleData, $linear],
         );
         $this->assertEquals($output, $points);
     }
@@ -174,84 +147,18 @@ class GisGeometryTest extends AbstractTestCase
     {
         return [
             // with no scale data
-            [
-                '12 35,48 75,69 23',
-                null,
-                false,
-                [
-                    0 => [
-                        12,
-                        35,
-                    ],
-                    1 => [
-                        48,
-                        75,
-                    ],
-                    2 => [
-                        69,
-                        23,
-                    ],
-                ],
-            ],
+            ['12 35,48 75,69 23', null, false, [0 => [12, 35], 1 => [48, 75], 2 => [69, 23]]],
             // with scale data
             [
                 '12 35,48 75,69 23',
-                [
-                    'x' => 5,
-                    'y' => 5,
-                    'scale' => 2,
-                    'height' => 200,
-                ],
+                ['x' => 5, 'y' => 5, 'scale' => 2, 'height' => 200],
                 false,
-                [
-                    0 => [
-                        14,
-                        140,
-                    ],
-                    1 => [
-                        86,
-                        60,
-                    ],
-                    2 => [
-                        128,
-                        164,
-                    ],
-                ],
+                [0 => [14, 140], 1 => [86, 60], 2 => [128, 164]],
             ],
             // linear output
-            [
-                '12 35,48 75,69 23',
-                null,
-                true,
-                [
-                    12,
-                    35,
-                    48,
-                    75,
-                    69,
-                    23,
-                ],
-            ],
+            ['12 35,48 75,69 23', null, true, [12, 35, 48, 75, 69, 23]],
             // if a single part of a coordinate is empty
-            [
-                '12 35,48 75,69 ',
-                null,
-                false,
-                [
-                    0 => [
-                        12,
-                        35,
-                    ],
-                    1 => [
-                        48,
-                        75,
-                    ],
-                    2 => [
-                        0,
-                        0,
-                    ],
-                ],
-            ],
+            ['12 35,48 75,69 ', null, false, [0 => [12, 35], 1 => [48, 75], 2 => [0, 0]]],
         ];
     }
 }

@@ -36,6 +36,7 @@ use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
+use function intval;
 use function is_array;
 use function is_numeric;
 use function is_string;
@@ -557,10 +558,7 @@ class Table implements Stringable
                             $query .= ' DEFAULT 0';
                         } elseif (
                             $isTimestamp
-                            && preg_match(
-                                '/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/',
-                                $defaultValue,
-                            )
+                            && preg_match('/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/', $defaultValue)
                         ) {
                             $query .= ' DEFAULT ' . $defaultValue;
                         } elseif ($type === 'BIT') {
@@ -1042,10 +1040,7 @@ class Table implements Stringable
                 $tbl = new Table($targetTable, $targetDb, $GLOBALS['dbi']);
 
                 $statement->options = new OptionsArray(
-                    [
-                        $tbl->isView() ? 'VIEW' : 'TABLE',
-                        'IF EXISTS',
-                    ],
+                    [$tbl->isView() ? 'VIEW' : 'TABLE', 'IF EXISTS'],
                 );
 
                 $statement->fields = [$destination];
@@ -1293,10 +1288,7 @@ class Table implements Stringable
                     . ','
                     . $GLOBALS['dbi']->quoteString($commentsCopyRow['comment'], Connection::TYPE_CONTROL)
                     . ($relationParameters->browserTransformationFeature !== null
-                        ? ',' . $GLOBALS['dbi']->quoteString(
-                            $commentsCopyRow['mimetype'],
-                            Connection::TYPE_CONTROL,
-                        )
+                        ? ',' . $GLOBALS['dbi']->quoteString($commentsCopyRow['mimetype'], Connection::TYPE_CONTROL)
                         . ',' . $GLOBALS['dbi']->quoteString(
                             $commentsCopyRow['transformation'],
                             Connection::TYPE_CONTROL,
@@ -1317,47 +1309,19 @@ class Table implements Stringable
         // just once per db
 
         $getFields = ['display_field'];
-        $whereFields = [
-            'db_name' => $sourceDb,
-            'table_name' => $sourceTable,
-        ];
-        $newFields = [
-            'db_name' => $targetDb,
-            'table_name' => $targetTable,
-        ];
+        $whereFields = ['db_name' => $sourceDb, 'table_name' => $sourceTable];
+        $newFields = ['db_name' => $targetDb, 'table_name' => $targetTable];
         self::duplicateInfo('displaywork', 'table_info', $getFields, $whereFields, $newFields);
 
         /** @todo revise this code when we support cross-db relations */
-        $getFields = [
-            'master_field',
-            'foreign_table',
-            'foreign_field',
-        ];
-        $whereFields = [
-            'master_db' => $sourceDb,
-            'master_table' => $sourceTable,
-        ];
-        $newFields = [
-            'master_db' => $targetDb,
-            'foreign_db' => $targetDb,
-            'master_table' => $targetTable,
-        ];
+        $getFields = ['master_field', 'foreign_table', 'foreign_field'];
+        $whereFields = ['master_db' => $sourceDb, 'master_table' => $sourceTable];
+        $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'master_table' => $targetTable];
         self::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
 
-        $getFields = [
-            'foreign_field',
-            'master_table',
-            'master_field',
-        ];
-        $whereFields = [
-            'foreign_db' => $sourceDb,
-            'foreign_table' => $sourceTable,
-        ];
-        $newFields = [
-            'master_db' => $targetDb,
-            'foreign_db' => $targetDb,
-            'foreign_table' => $targetTable,
-        ];
+        $getFields = ['foreign_field', 'master_table', 'master_field'];
+        $whereFields = ['foreign_db' => $sourceDb, 'foreign_table' => $sourceTable];
+        $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'foreign_table' => $targetTable];
         self::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
 
         return true;
@@ -1519,10 +1483,7 @@ class Table implements Stringable
         );
         $uniques = $this->dbi->fetchResult(
             $sql,
-            [
-                'Key_name',
-                null,
-            ],
+            ['Key_name', null],
             'Column_name',
         );
 
@@ -1836,7 +1797,7 @@ class Table implements Stringable
 
             // check if the table has not been modified
             if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
-                return array_map('intval', $this->uiprefs[$property]);
+                return array_map(intval(...), $this->uiprefs[$property]);
             }
 
             // remove the property, since the table has been modified
@@ -2391,12 +2352,7 @@ class Table implements Stringable
             }
         }
 
-        return [
-            $htmlOutput,
-            $previewSqlData,
-            $displayQuery,
-            $seenError,
-        ];
+        return [$htmlOutput, $previewSqlData, $displayQuery, $seenError];
     }
 
     /**

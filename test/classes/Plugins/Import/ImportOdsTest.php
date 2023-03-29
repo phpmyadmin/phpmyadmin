@@ -151,10 +151,7 @@ class ImportOdsTest extends AbstractTestCase
 
     public static function dataProviderOdsEmptyRows(): array
     {
-        return [
-            'remove empty columns' => [true],
-            'keep empty columns' => [false],
-        ];
+        return ['remove empty columns' => [true], 'keep empty columns' => [false]];
     }
 
     /**

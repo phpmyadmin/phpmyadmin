@@ -318,10 +318,7 @@ class Export
             $mediaType = 'application/zip';
         }
 
-        return [
-            $filename,
-            $mediaType,
-        ];
+        return [$filename, $mediaType];
     }
 
     /**
@@ -437,11 +434,7 @@ class Export
             }
         }
 
-        return [
-            $saveFilename,
-            $message,
-            $fileHandle,
-        ];
+        return [$saveFilename, $message, $fileHandle];
     }
 
     /**
@@ -673,6 +666,13 @@ class Export
         }
 
         $views = [];
+
+        if ($tables !== []) {
+            // Prefetch table information to improve performance.
+            // Table status will get saved in Query Cache,
+            // and all instantiations of Table below should be much faster.
+            $this->dbi->getTablesFull($db->getName(), $tables);
+        }
 
         foreach ($tables as $table) {
             $tableObject = new Table($table, $db->getName(), $this->dbi);

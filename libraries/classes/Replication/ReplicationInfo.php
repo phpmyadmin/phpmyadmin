@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Replication;
+
+use PhpMyAdmin\DatabaseInterface;
 
 use function count;
 use function explode;
@@ -11,12 +13,7 @@ use function sprintf;
 final class ReplicationInfo
 {
     /** @var string[] */
-    public array $primaryVariables = [
-        'File',
-        'Position',
-        'Binlog_Do_DB',
-        'Binlog_Ignore_DB',
-    ];
+    public array $primaryVariables = ['File', 'Position', 'Binlog_Do_DB', 'Binlog_Ignore_DB'];
 
     /** @var string[] */
     public array $replicaVariables = [

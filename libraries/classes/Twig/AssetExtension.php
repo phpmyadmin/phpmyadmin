@@ -13,9 +13,7 @@ final class AssetExtension extends AbstractExtension
     /** @return TwigFunction[] */
     public function getFunctions(): array
     {
-        return [
-            new TwigFunction('image', $this->getImagePath(...)),
-        ];
+        return [new TwigFunction('image', $this->getImagePath(...))];
     }
 
     public function getImagePath(string|null $filename = null, string|null $fallback = null): string

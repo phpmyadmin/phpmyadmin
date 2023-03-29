@@ -20,14 +20,7 @@ class TablePropertyTest extends AbstractTestCase
         parent::setUp();
 
         $GLOBALS['server'] = 0;
-        $row = [
-            ' name ',
-            'int ',
-            true,
-            ' PRI',
-            '0',
-            'mysql',
-        ];
+        $row = [' name ', 'int ', true, ' PRI', '0', 'mysql'];
         $this->object = new TableProperty($row);
     }
 
@@ -96,20 +89,7 @@ class TablePropertyTest extends AbstractTestCase
      */
     public static function isNotNullProvider(): array
     {
-        return [
-            [
-                'NO',
-                'true',
-            ],
-            [
-                '',
-                'false',
-            ],
-            [
-                'no',
-                'false',
-            ],
-        ];
+        return [['NO', 'true'], ['', 'false'], ['no', 'false']];
     }
 
     /**
@@ -135,28 +115,7 @@ class TablePropertyTest extends AbstractTestCase
      */
     public static function isUniqueProvider(): array
     {
-        return [
-            [
-                'PRI',
-                'true',
-            ],
-            [
-                'UNI',
-                'true',
-            ],
-            [
-                '',
-                'false',
-            ],
-            [
-                'pri',
-                'false',
-            ],
-            [
-                'uni',
-                'false',
-            ],
-        ];
+        return [['PRI', 'true'], ['UNI', 'true'], ['', 'false'], ['pri', 'false'], ['uni', 'false']];
     }
 
     /**
@@ -183,50 +142,17 @@ class TablePropertyTest extends AbstractTestCase
     public static function getDotNetPrimitiveTypeProvider(): array
     {
         return [
-            [
-                'int',
-                'int',
-            ],
-            [
-                'long',
-                'long',
-            ],
-            [
-                'char',
-                'string',
-            ],
-            [
-                'varchar',
-                'string',
-            ],
-            [
-                'text',
-                'string',
-            ],
-            [
-                'longtext',
-                'string',
-            ],
-            [
-                'tinyint',
-                'bool',
-            ],
-            [
-                'datetime',
-                'DateTime',
-            ],
-            [
-                '',
-                'unknown',
-            ],
-            [
-                'dummy',
-                'unknown',
-            ],
-            [
-                'INT',
-                'unknown',
-            ],
+            ['int', 'int'],
+            ['long', 'long'],
+            ['char', 'string'],
+            ['varchar', 'string'],
+            ['text', 'string'],
+            ['longtext', 'string'],
+            ['tinyint', 'bool'],
+            ['datetime', 'DateTime'],
+            ['', 'unknown'],
+            ['dummy', 'unknown'],
+            ['INT', 'unknown'],
         ];
     }
 
@@ -254,50 +180,17 @@ class TablePropertyTest extends AbstractTestCase
     public static function getDotNetObjectTypeProvider(): array
     {
         return [
-            [
-                'int',
-                'Int32',
-            ],
-            [
-                'long',
-                'Long',
-            ],
-            [
-                'char',
-                'String',
-            ],
-            [
-                'varchar',
-                'String',
-            ],
-            [
-                'text',
-                'String',
-            ],
-            [
-                'longtext',
-                'String',
-            ],
-            [
-                'tinyint',
-                'Boolean',
-            ],
-            [
-                'datetime',
-                'DateTime',
-            ],
-            [
-                '',
-                'Unknown',
-            ],
-            [
-                'dummy',
-                'Unknown',
-            ],
-            [
-                'INT',
-                'Unknown',
-            ],
+            ['int', 'Int32'],
+            ['long', 'Long'],
+            ['char', 'String'],
+            ['varchar', 'String'],
+            ['text', 'String'],
+            ['longtext', 'String'],
+            ['tinyint', 'Boolean'],
+            ['datetime', 'DateTime'],
+            ['', 'Unknown'],
+            ['dummy', 'Unknown'],
+            ['INT', 'Unknown'],
         ];
     }
 

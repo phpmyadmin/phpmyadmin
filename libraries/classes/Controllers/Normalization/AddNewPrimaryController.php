@@ -22,23 +22,15 @@ final class AddNewPrimaryController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $num_fields = 1;
+        $numFields = 1;
 
         $db = DatabaseName::tryFromValue($GLOBALS['db']);
         $table = TableName::tryFromValue($GLOBALS['table']);
         $dbName = isset($db) ? $db->getName() : '';
         $tableName = isset($table) ? $table->getName() : '';
 
-        $columnMeta = [
-            'Field' => $tableName . '_id',
-            'Extra' => 'auto_increment',
-        ];
-        $html = $this->normalization->getHtmlForCreateNewColumn(
-            $num_fields,
-            $dbName,
-            $tableName,
-            $columnMeta,
-        );
+        $columnMeta = ['Field' => $tableName . '_id', 'Extra' => 'auto_increment'];
+        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, $dbName, $tableName, $columnMeta);
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);
     }

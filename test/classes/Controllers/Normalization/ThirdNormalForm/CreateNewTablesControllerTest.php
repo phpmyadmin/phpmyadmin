@@ -45,9 +45,7 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['newTables', null, $newTables],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['newTables', null, $newTables]]);
 
         $controller = new CreateNewTablesController(
             $response,

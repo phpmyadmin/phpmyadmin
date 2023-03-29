@@ -30,10 +30,7 @@ class Index
     public static function messagesBegin(): void
     {
         if (! isset($_SESSION['messages']) || ! is_array($_SESSION['messages'])) {
-            $_SESSION['messages'] = [
-                'error' => [],
-                'notice' => [],
-            ];
+            $_SESSION['messages'] = ['error' => [], 'notice' => []];
         } else {
             // reset message states
             foreach ($_SESSION['messages'] as &$messages) {
@@ -70,16 +67,16 @@ class Index
     public static function messagesEnd(): void
     {
         foreach ($_SESSION['messages'] as &$messages) {
-            $remove_ids = [];
+            $removeIds = [];
             foreach ($messages as $id => $msg) {
                 if ($msg['active'] != false) {
                     continue;
                 }
 
-                $remove_ids[] = $id;
+                $removeIds[] = $id;
             }
 
-            foreach ($remove_ids as $id) {
+            foreach ($removeIds as $id) {
                 unset($messages[$id]);
             }
         }
@@ -115,16 +112,16 @@ class Index
     {
         // version check messages should always be visible so let's make
         // a unique message id each time we run it
-        $message_id = uniqid('version_check');
+        $messageId = uniqid('version_check');
 
         // Fetch data
         $versionInformation = new VersionInformation();
-        $version_data = $versionInformation->getLatestVersion();
+        $versionData = $versionInformation->getLatestVersion();
 
-        if ($version_data === null) {
+        if ($versionData === null) {
             self::messagesSet(
                 'error',
-                $message_id,
+                $messageId,
                 __('Version check'),
                 __(
                     'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.',
@@ -134,7 +131,7 @@ class Index
             return;
         }
 
-        $latestCompatible = $versionInformation->getLatestCompatibleVersion($version_data->releases);
+        $latestCompatible = $versionInformation->getLatestCompatibleVersion($versionData->releases);
         if ($latestCompatible == null) {
             return;
         }
@@ -142,11 +139,11 @@ class Index
         $version = $latestCompatible['version'];
         $date = $latestCompatible['date'];
 
-        $version_upstream = $versionInformation->versionToInt($version);
-        if ($version_upstream === false) {
+        $versionUpstream = $versionInformation->versionToInt($version);
+        if ($versionUpstream === false) {
             self::messagesSet(
                 'error',
-                $message_id,
+                $messageId,
                 __('Version check'),
                 __('Got invalid version string from server'),
             );
@@ -154,11 +151,11 @@ class Index
             return;
         }
 
-        $version_local = $versionInformation->versionToInt(Version::VERSION);
-        if ($version_local === false) {
+        $versionLocal = $versionInformation->versionToInt(Version::VERSION);
+        if ($versionLocal === false) {
             self::messagesSet(
                 'error',
-                $message_id,
+                $messageId,
                 __('Version check'),
                 __('Unparsable version string'),
             );
@@ -166,21 +163,21 @@ class Index
             return;
         }
 
-        if ($version_upstream > $version_local) {
+        if ($versionUpstream > $versionLocal) {
             $version = htmlspecialchars($version);
             $date = htmlspecialchars($date);
             self::messagesSet(
                 'notice',
-                $message_id,
+                $messageId,
                 __('Version check'),
                 sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading.'
                     . ' The newest version is %s, released on %s.'), $version, $date),
             );
         } else {
-            if ($version_local % 100 == 0) {
+            if ($versionLocal % 100 == 0) {
                 self::messagesSet(
                     'notice',
-                    $message_id,
+                    $messageId,
                     __('Version check'),
                     Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
                         . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date)),
@@ -188,7 +185,7 @@ class Index
             } else {
                 self::messagesSet(
                     'notice',
-                    $message_id,
+                    $messageId,
                     __('Version check'),
                     __('No newer stable version is available'),
                 );

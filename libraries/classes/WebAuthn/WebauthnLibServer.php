@@ -122,11 +122,7 @@ final class WebauthnLibServer implements Server
             $this->twofactor->config['settings']['userHandle'],
             SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
-        $userEntity = new PublicKeyCredentialUserEntity(
-            $this->twofactor->user,
-            $userHandle,
-            $this->twofactor->user,
-        );
+        $userEntity = new PublicKeyCredentialUserEntity($this->twofactor->user, $userHandle, $this->twofactor->user);
         $host = $request->getUri()->getHost();
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $host . ')', $host);
         $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
@@ -138,12 +134,7 @@ final class WebauthnLibServer implements Server
             'timeout' => 60000,
         ]);
         Assert::isInstanceOf($requestOptions, PublicKeyCredentialRequestOptions::class);
-        $server->loadAndCheckAssertionResponse(
-            $assertionResponseJson,
-            $requestOptions,
-            $userEntity,
-            $request,
-        );
+        $server->loadAndCheckAssertionResponse($assertionResponseJson, $requestOptions, $userEntity, $request);
     }
 
     public function parseAndValidateAttestationResponse(

@@ -101,10 +101,10 @@ class GisVisualization
     /**
      * Factory
      *
-     * @param string                        $sql_query SQL to fetch raw data for visualization
-     * @param array<string,string|int|null> $options   Users specified options
-     * @param int                           $rows      number of rows
-     * @param int                           $pos       start position
+     * @param string                        $sqlQuery SQL to fetch raw data for visualization
+     * @param array<string,string|int|null> $options  Users specified options
+     * @param int                           $rows     number of rows
+     * @param int                           $pos      start position
      * @psalm-param array{
      *   spatialColumn: non-empty-string,
      *   labelColumn?: non-empty-string|null,
@@ -112,9 +112,9 @@ class GisVisualization
      *   height: int,
      * } $options
      */
-    public static function get(string $sql_query, array $options, int $rows, int $pos): GisVisualization
+    public static function get(string $sqlQuery, array $options, int $rows, int $pos): GisVisualization
     {
-        return new GisVisualization($sql_query, $options, $rows, $pos);
+        return new GisVisualization($sqlQuery, $options, $rows, $pos);
     }
 
     /**
@@ -196,13 +196,13 @@ class GisVisualization
     /**
      * Returns sql for fetching raw data
      *
-     * @param string $sql_query The SQL to modify.
+     * @param string $sqlQuery The SQL to modify.
      *
      * @return string the modified sql query.
      */
-    private function modifySqlQuery(string $sql_query): string
+    private function modifySqlQuery(string $sqlQuery): string
     {
-        $modified_query = 'SELECT ';
+        $modifiedQuery = 'SELECT ';
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
         $axisOrder = '';
@@ -222,31 +222,31 @@ class GisVisualization
 
         // If label column is chosen add it to the query
         if ($this->labelColumn !== null) {
-            $modified_query .= Util::backquote($this->labelColumn)
+            $modifiedQuery .= Util::backquote($this->labelColumn)
             . ', ';
         }
 
         // Wrap the spatial column with 'ST_ASTEXT()' function and add it
-        $modified_query .= $spatialAsText . '('
+        $modifiedQuery .= $spatialAsText . '('
             . Util::backquote($this->spatialColumn)
             . $axisOrder . ') AS ' . Util::backquote($this->spatialColumn)
             . ', ';
 
         // Get the SRID
-        $modified_query .= $spatialSrid . '('
+        $modifiedQuery .= $spatialSrid . '('
             . Util::backquote($this->spatialColumn)
             . ') AS ' . Util::backquote('srid') . ' ';
 
         // Append the original query as the inner query
-        $modified_query .= 'FROM (' . rtrim($sql_query, ';') . ') AS '
+        $modifiedQuery .= 'FROM (' . rtrim($sqlQuery, ';') . ') AS '
             . Util::backquote('temp_gis');
 
         // LIMIT clause
         if ($this->rows > 0) {
-            $modified_query .= ' LIMIT ' . ($this->pos > 0 ? $this->pos . ', ' : '') . $this->rows;
+            $modifiedQuery .= ' LIMIT ' . ($this->pos > 0 ? $this->pos . ', ' : '') . $this->rows;
         }
 
-        return $modified_query;
+        return $modifiedQuery;
     }
 
     /**
@@ -256,50 +256,50 @@ class GisVisualization
      */
     private function fetchRawData(string $modifiedSql): array
     {
-        $modified_result = $GLOBALS['dbi']->tryQuery($modifiedSql);
+        $modifiedResult = $GLOBALS['dbi']->tryQuery($modifiedSql);
 
-        if ($modified_result === false) {
+        if ($modifiedResult === false) {
             return [];
         }
 
-        return $modified_result->fetchAllAssoc();
+        return $modifiedResult->fetchAllAssoc();
     }
 
     /**
      * Sanitizes the file name.
      *
-     * @param string $file_name file name
-     * @param string $ext       extension of the file
+     * @param string $fileName file name
+     * @param string $ext      extension of the file
      *
      * @return string the sanitized file name
      */
-    private function sanitizeName(string $file_name, string $ext): string
+    private function sanitizeName(string $fileName, string $ext): string
     {
-        $file_name = Sanitize::sanitizeFilename($file_name);
+        $fileName = Sanitize::sanitizeFilename($fileName);
 
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $required_extension = '.' . $ext;
-        $extension_length = mb_strlen($required_extension);
-        $user_extension = mb_substr($file_name, -$extension_length);
-        if (mb_strtolower($user_extension) !== $required_extension) {
-            $file_name .= $required_extension;
+        $requiredExtension = '.' . $ext;
+        $extensionLength = mb_strlen($requiredExtension);
+        $userExtension = mb_substr($fileName, -$extensionLength);
+        if (mb_strtolower($userExtension) !== $requiredExtension) {
+            $fileName .= $requiredExtension;
         }
 
-        return $file_name;
+        return $fileName;
     }
 
     /**
      * Handles common tasks of writing the visualization to file for various formats.
      *
-     * @param string $file_name file name
-     * @param string $type      mime type
-     * @param string $ext       extension of the file
+     * @param string $fileName file name
+     * @param string $type     mime type
+     * @param string $ext      extension of the file
      */
-    private function writeToFile(string $file_name, string $type, string $ext): void
+    private function writeToFile(string $fileName, string $type, string $ext): void
     {
-        $file_name = $this->sanitizeName($file_name, $ext);
-        Core::downloadHeader($file_name, $type);
+        $fileName = $this->sanitizeName($fileName, $ext);
+        Core::downloadHeader($fileName, $type);
     }
 
     /**
@@ -309,9 +309,9 @@ class GisVisualization
      */
     private function svg(): string
     {
-        $scale_data = $this->scaleDataSet($this->data);
+        $scaleData = $this->scaleDataSet($this->data);
         /** @var string $svg */
-        $svg = $this->prepareDataSet($this->data, $scale_data, 'svg');
+        $svg = $this->prepareDataSet($this->data, $scaleData, 'svg');
 
         return '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'
             . "\n"
@@ -336,12 +336,12 @@ class GisVisualization
     /**
      * Saves as a SVG image to a file.
      *
-     * @param string $file_name File name
+     * @param string $fileName File name
      */
-    public function toFileAsSvg(string $file_name): void
+    public function toFileAsSvg(string $fileName): void
     {
         $img = $this->svg();
-        $this->writeToFile($file_name, 'image/svg+xml', 'svg');
+        $this->writeToFile($fileName, 'image/svg+xml', 'svg');
         echo $img;
     }
 
@@ -361,9 +361,9 @@ class GisVisualization
             return null;
         }
 
-        $scale_data = $this->scaleDataSet($this->data);
+        $scaleData = $this->scaleDataSet($this->data);
         /** @var ImageWrapper $image */
-        $image = $this->prepareDataSet($this->data, $scale_data, 'png', $image);
+        $image = $this->prepareDataSet($this->data, $scaleData, 'png', $image);
 
         return $image;
     }
@@ -371,16 +371,16 @@ class GisVisualization
     /**
      * Saves as a PNG image to a file.
      *
-     * @param string $file_name File name
+     * @param string $fileName File name
      */
-    public function toFileAsPng(string $file_name): void
+    public function toFileAsPng(string $fileName): void
     {
         $image = $this->png();
         if ($image === null) {
             return;
         }
 
-        $this->writeToFile($file_name, 'image/png', 'png');
+        $this->writeToFile($fileName, 'image/png', 'png');
         $image->png(null, 9, PNG_ALL_FILTERS);
     }
 
@@ -393,9 +393,9 @@ class GisVisualization
      */
     public function asOl(): string
     {
-        $scale_data = $this->scaleDataSet($this->data);
+        $scaleData = $this->scaleDataSet($this->data);
         /** @var string $olCode */
-        $olCode = $this->prepareDataSet($this->data, $scale_data, 'ol');
+        $olCode = $this->prepareDataSet($this->data, $scaleData, 'ol');
 
         return 'function drawOpenLayers() {'
             . 'if (typeof ol === "undefined") { return undefined; }'
@@ -434,9 +434,9 @@ class GisVisualization
     /**
      * Saves as a PDF to a file.
      *
-     * @param string $file_name File name
+     * @param string $fileName File name
      */
-    public function toFileAsPdf(string $file_name): void
+    public function toFileAsPdf(string $fileName): void
     {
         // create pdf
         $pdf = new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false);
@@ -451,12 +451,12 @@ class GisVisualization
         // add a page
         $pdf->AddPage();
 
-        $scale_data = $this->scaleDataSet($this->data);
-        $pdf = $this->prepareDataSet($this->data, $scale_data, 'pdf', $pdf);
+        $scaleData = $this->scaleDataSet($this->data);
+        $pdf = $this->prepareDataSet($this->data, $scaleData, 'pdf', $pdf);
 
         // sanitize file name
-        $file_name = $this->sanitizeName($file_name, 'pdf');
-        $pdf->Output($file_name, 'D');
+        $fileName = $this->sanitizeName($fileName, 'pdf');
+        $pdf->Output($fileName, 'D');
     }
 
     /**
@@ -485,137 +485,110 @@ class GisVisualization
      */
     private function scaleDataSet(array $data): array
     {
-        $min_max = null;
+        $minMax = null;
         $border = 15;
         // effective width and height of the plot
-        $plot_width = $this->width - 2 * $border;
-        $plot_height = $this->height - 2 * $border;
+        $plotWidth = $this->width - 2 * $border;
+        $plotHeight = $this->height - 2 * $border;
 
         foreach ($data as $row) {
             // Figure out the data type
-            $ref_data = $row[$this->spatialColumn];
-            if (! is_string($ref_data)) {
+            $refData = $row[$this->spatialColumn];
+            if (! is_string($refData)) {
                 continue;
             }
 
-            $type_pos = mb_strpos($ref_data, '(');
-            if ($type_pos === false) {
+            $typePos = mb_strpos($refData, '(');
+            if ($typePos === false) {
                 continue;
             }
 
-            $type = mb_substr($ref_data, 0, $type_pos);
+            $type = mb_substr($refData, 0, $typePos);
 
-            $gis_obj = GisFactory::factory($type);
-            if (! $gis_obj) {
+            $gisObj = GisFactory::factory($type);
+            if (! $gisObj) {
                 continue;
             }
 
-            $scaleData = $gis_obj->scaleRow($ref_data);
+            $scaleData = $gisObj->scaleRow($refData);
 
             // Update minimum/maximum values for x and y coordinates.
-            $min_max = $min_max === null ? $scaleData : $scaleData?->merge($min_max);
+            $minMax = $minMax === null ? $scaleData : $scaleData?->merge($minMax);
         }
 
-        $min_max ??= new ScaleData(0, 0, 0, 0);
+        $minMax ??= new ScaleData(0, 0, 0, 0);
 
         // scale the visualization
-        $x_ratio = ($min_max->maxX - $min_max->minX) / $plot_width;
-        $y_ratio = ($min_max->maxY - $min_max->minY) / $plot_height;
-        $ratio = $x_ratio > $y_ratio ? $x_ratio : $y_ratio;
+        $xRatio = ($minMax->maxX - $minMax->minX) / $plotWidth;
+        $yRatio = ($minMax->maxY - $minMax->minY) / $plotHeight;
+        $ratio = $xRatio > $yRatio ? $xRatio : $yRatio;
 
         $scale = $ratio != 0 ? 1 / $ratio : 1;
 
         // Center plot
-        $x = $ratio == 0 || $x_ratio < $y_ratio
-            ? ($min_max->maxX + $min_max->minX - $this->width / $scale) / 2
-            : $min_max->minX - ($border / $scale);
-        $y = $ratio == 0 || $x_ratio >= $y_ratio
-            ? ($min_max->maxY + $min_max->minY - $this->height / $scale) / 2
-            : $min_max->minY - ($border / $scale);
+        $x = $ratio == 0 || $xRatio < $yRatio
+            ? ($minMax->maxX + $minMax->minX - $this->width / $scale) / 2
+            : $minMax->minX - ($border / $scale);
+        $y = $ratio == 0 || $xRatio >= $yRatio
+            ? ($minMax->maxY + $minMax->minY - $this->height / $scale) / 2
+            : $minMax->minY - ($border / $scale);
 
-        return [
-            'scale' => $scale,
-            'x' => $x,
-            'y' => $y,
-            'height' => $this->height,
-        ];
+        return ['scale' => $scale, 'x' => $x, 'y' => $y, 'height' => $this->height];
     }
 
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param mixed[][]                 $data       Raw data
-     * @param array                     $scale_data Data related to scaling
-     * @param string                    $format     Format of the visualization
-     * @param ImageWrapper|TCPDF|string $results    Image object in the case of png
-     *                                              TCPDF object in the case of pdf
+     * @param mixed[][]                 $data      Raw data
+     * @param array                     $scaleData Data related to scaling
+     * @param string                    $format    Format of the visualization
+     * @param ImageWrapper|TCPDF|string $results   Image object in the case of png
+     *                                             TCPDF object in the case of pdf
      *
      * @return mixed the formatted array of data
      */
     private function prepareDataSet(
         array $data,
-        array $scale_data,
+        array $scaleData,
         string $format,
         ImageWrapper|TCPDF|string $results = '',
     ): mixed {
-        $color_index = 0;
+        $colorIndex = 0;
 
         // loop through the rows
         foreach ($data as $row) {
             // Figure out the data type
-            $ref_data = $row[$this->spatialColumn];
-            if (! is_string($ref_data)) {
+            $refData = $row[$this->spatialColumn];
+            if (! is_string($refData)) {
                 continue;
             }
 
-            $type_pos = mb_strpos($ref_data, '(');
-            if ($type_pos === false) {
+            $typePos = mb_strpos($refData, '(');
+            if ($typePos === false) {
                 continue;
             }
 
-            $type = mb_substr($ref_data, 0, $type_pos);
+            $type = mb_substr($refData, 0, $typePos);
 
-            $gis_obj = GisFactory::factory($type);
-            if (! $gis_obj) {
+            $gisObj = GisFactory::factory($type);
+            if (! $gisObj) {
                 continue;
             }
 
-            $color = self::COLORS[$color_index];
+            $color = self::COLORS[$colorIndex];
             $label = trim((string) ($row[$this->labelColumn] ?? ''));
 
             if ($format === 'svg') {
-                $results .= $gis_obj->prepareRowAsSvg(
-                    $ref_data,
-                    $label,
-                    $color,
-                    $scale_data,
-                );
+                $results .= $gisObj->prepareRowAsSvg($refData, $label, $color, $scaleData);
             } elseif ($format === 'png') {
-                $results = $gis_obj->prepareRowAsPng(
-                    $ref_data,
-                    $label,
-                    $color,
-                    $scale_data,
-                    $results,
-                );
+                $results = $gisObj->prepareRowAsPng($refData, $label, $color, $scaleData, $results);
             } elseif ($format === 'pdf' && $results instanceof TCPDF) {
-                $results = $gis_obj->prepareRowAsPdf(
-                    $ref_data,
-                    $label,
-                    $color,
-                    $scale_data,
-                    $results,
-                );
+                $results = $gisObj->prepareRowAsPdf($refData, $label, $color, $scaleData, $results);
             } elseif ($format === 'ol') {
-                $results .= $gis_obj->prepareRowAsOl(
-                    $ref_data,
-                    (int) $row['srid'],
-                    $label,
-                    $color,
-                );
+                $results .= $gisObj->prepareRowAsOl($refData, (int) $row['srid'], $label, $color);
             }
 
-            $color_index = ($color_index + 1) % count(self::COLORS);
+            $colorIndex = ($colorIndex + 1) % count(self::COLORS);
         }
 
         return $results;

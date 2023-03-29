@@ -27,6 +27,13 @@
 
     <rule ref="PhpMyAdmin"/>
 
+    <rule ref="SlevomatCodingStandard.Functions.RequireSingleLineCall"/>
+    <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces">
+        <properties>
+            <property name="ignoreSpacesInComment" value="true"/>
+        </properties>
+    </rule>
+
     <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
         <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
     </rule>
@@ -45,9 +52,6 @@
         <severity>4</severity>
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
-        <severity>4</severity>
-    </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
         <severity>4</severity>
     </rule>
 </ruleset>

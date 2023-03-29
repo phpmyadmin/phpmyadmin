@@ -20,22 +20,10 @@ use function class_exists;
 class ServerRequestFactoryTest extends AbstractTestCase
 {
     private const IMPLEMENTATION_CLASSES = [
-        'slim/psr7' => [
-            SlimServerRequestFactory::class,
-            'Slim PSR-7',
-        ],
-        'guzzlehttp/psr7' => [
-            GuzzleHttpFactory::class,
-            'Guzzle PSR-7',
-        ],
-        'nyholm/psr7' => [
-            NyholmPsr17Factory::class,
-            'Nyholm PSR-7',
-        ],
-        'laminas/laminas-diactoros' => [
-            LaminasServerRequestFactory::class,
-            'Laminas diactoros PSR-7',
-        ],
+        'slim/psr7' => [SlimServerRequestFactory::class, 'Slim PSR-7'],
+        'guzzlehttp/psr7' => [GuzzleHttpFactory::class, 'Guzzle PSR-7'],
+        'nyholm/psr7' => [NyholmPsr17Factory::class, 'Nyholm PSR-7'],
+        'laminas/laminas-diactoros' => [LaminasServerRequestFactory::class, 'Laminas diactoros PSR-7'],
     ];
 
     public static function dataProviderPsr7Implementations(): array
@@ -105,10 +93,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
             'baz',
             $request->getParam('blob'),
         );
-        $this->assertSame([
-            'foo' => 'bar',
-            'blob' => 'baz',
-        ], $request->getQueryParams());
+        $this->assertSame(['foo' => 'bar', 'blob' => 'baz'], $request->getQueryParams());
     }
 
     public function testCreateServerRequestFromGlobals(): void
@@ -168,16 +153,9 @@ class ServerRequestFactoryTest extends AbstractTestCase
             'baz',
             $request->getParam('blob'),
         );
-        $this->assertSame([
-            'foo' => 'bar',
-            'blob' => 'baz',
-        ], $request->getQueryParams());
+        $this->assertSame(['foo' => 'bar', 'blob' => 'baz'], $request->getQueryParams());
 
-        $this->assertSame([
-            'input1' => 'value1',
-            'input2' => 'value2',
-            'input3' => '',
-        ], $request->getParsedBody());
+        $this->assertSame(['input1' => 'value1', 'input2' => 'value2', 'input3' => ''], $request->getParsedBody());
 
         $this->assertNull($request->getParsedBodyParam('foo'));
         $this->assertSame('value1', $request->getParsedBodyParam('input1'));
@@ -197,9 +175,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $serverRequestFactory = new $className();
         $this->assertInstanceOf(ServerRequestFactoryInterface::class, $serverRequestFactory);
 
-        $factory = new ServerRequestFactory(
-            $serverRequestFactory,
-        );
+        $factory = new ServerRequestFactory($serverRequestFactory);
         $this->assertInstanceOf(ServerRequestFactory::class, $factory);
     }
 }

@@ -40,8 +40,6 @@ final class ChartingDataController extends AbstractController
             return;
         }
 
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForChartingData($requiredData),
-        ]);
+        $this->response->addJSON(['message' => $this->monitor->getJsonForChartingData($requiredData)]);
     }
 }

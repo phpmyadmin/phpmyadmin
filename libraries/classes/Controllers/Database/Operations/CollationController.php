@@ -52,9 +52,9 @@ final class CollationController extends AbstractController
             return;
         }
 
-        $sql_query = 'ALTER DATABASE ' . Util::backquote($GLOBALS['db'])
+        $sqlQuery = 'ALTER DATABASE ' . Util::backquote($GLOBALS['db'])
             . ' DEFAULT' . Util::getCharsetQueryPart($dbCollation);
-        $this->dbi->query($sql_query);
+        $this->dbi->query($sqlQuery);
         $message = Message::success();
 
         /**
@@ -69,13 +69,13 @@ final class CollationController extends AbstractController
                     continue;
                 }
 
-                $sql_query = 'ALTER TABLE '
+                $sqlQuery = 'ALTER TABLE '
                     . Util::backquote($GLOBALS['db'])
                     . '.'
                     . Util::backquote($tableName)
                     . ' DEFAULT '
                     . Util::getCharsetQueryPart($dbCollation);
-                $this->dbi->query($sql_query);
+                $this->dbi->query($sqlQuery);
 
                 /**
                  * Changes columns charset if requested by the user

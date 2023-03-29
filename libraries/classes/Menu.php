@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
@@ -93,10 +94,7 @@ class Menu
         // Filter out any tabs that are not allowed
         $tabs = array_intersect_key($tabs, $allowedTabs);
 
-        return $this->template->render('top_menu', [
-            'tabs' => $tabs,
-            'url_params' => $urlParams,
-        ]);
+        return $this->template->render('top_menu', ['tabs' => $tabs, 'url_params' => $urlParams]);
     }
 
     /**
@@ -234,10 +232,7 @@ class Menu
         $tabs['structure']['icon'] = 'b_props';
         $tabs['structure']['route'] = '/table/structure';
         $tabs['structure']['text'] = __('Structure');
-        $tabs['structure']['active'] = in_array($route, [
-            '/table/relation',
-            '/table/structure',
-        ]);
+        $tabs['structure']['active'] = in_array($route, ['/table/relation', '/table/structure']);
 
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['route'] = '/table/sql';
@@ -247,11 +242,7 @@ class Menu
         $tabs['search']['icon'] = 'b_search';
         $tabs['search']['text'] = __('Search');
         $tabs['search']['route'] = '/table/search';
-        $tabs['search']['active'] = in_array($route, [
-            '/table/find-replace',
-            '/table/search',
-            '/table/zoom-search',
-        ]);
+        $tabs['search']['active'] = in_array($route, ['/table/find-replace', '/table/search', '/table/zoom-search']);
 
         if (! $isSystemSchema && (! $tableIsView || $updatableView)) {
             $tabs['insert']['icon'] = 'b_insrow';
@@ -450,10 +441,7 @@ class Menu
         if (SessionCache::has('binary_logs')) {
             $binaryLogs = SessionCache::get('binary_logs');
         } else {
-            $binaryLogs = $this->dbi->fetchResult(
-                'SHOW MASTER LOGS',
-                'Log_name',
-            );
+            $binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
             SessionCache::set('binary_logs', $binaryLogs);
         }
 
@@ -485,10 +473,7 @@ class Menu
             $tabs['rights']['icon'] = 's_rights';
             $tabs['rights']['route'] = '/server/privileges';
             $tabs['rights']['text'] = __('User accounts');
-            $tabs['rights']['active'] = in_array($route, [
-                '/server/privileges',
-                '/server/user-groups',
-            ]);
+            $tabs['rights']['active'] = in_array($route, ['/server/privileges', '/server/user-groups']);
         }
 
         $tabs['export']['icon'] = 'b_export';

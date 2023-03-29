@@ -5,10 +5,16 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Replication;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;
@@ -221,10 +227,7 @@ class ReplicationGui
      */
     public function getHtmlForReplicationChangePrimary(string $submitName): string
     {
-        [
-            $usernameLength,
-            $hostnameLength,
-        ] = $this->getUsernameHostnameLength();
+        [$usernameLength, $hostnameLength] = $this->getUsernameHostnameLength();
 
         return $this->template->render('server/replication/change_primary', [
             'server_id' => time(),
@@ -259,14 +262,8 @@ class ReplicationGui
         $serverReplication = $replicationInfo->getPrimaryStatus();
         if ($type === 'replica') {
             $replicationVariables = $replicationInfo->replicaVariables;
-            $variablesAlerts = [
-                'Slave_IO_Running' => 'No',
-                'Slave_SQL_Running' => 'No',
-            ];
-            $variablesOks = [
-                'Slave_IO_Running' => 'Yes',
-                'Slave_SQL_Running' => 'Yes',
-            ];
+            $variablesAlerts = ['Slave_IO_Running' => 'No', 'Slave_SQL_Running' => 'No'];
+            $variablesOks = ['Slave_IO_Running' => 'Yes', 'Slave_SQL_Running' => 'Yes'];
             $serverReplication = $replicationInfo->getReplicaStatus();
         }
 
@@ -276,11 +273,7 @@ class ReplicationGui
                 ? $serverReplication[0][$variable]
                 : '';
 
-            $variables[$variable] = [
-                'name' => $variable,
-                'status' => '',
-                'value' => $serverReplicationVariable,
-            ];
+            $variables[$variable] = ['name' => $variable, 'status' => '', 'value' => $serverReplicationVariable];
 
             if (isset($variablesAlerts[$variable]) && $variablesAlerts[$variable] === $serverReplicationVariable) {
                 $variables[$variable]['status'] = 'text-danger';
@@ -337,10 +330,7 @@ class ReplicationGui
             }
         }
 
-        return [
-            $usernameLength,
-            $hostnameLength,
-        ];
+        return [$usernameLength, $hostnameLength];
     }
 
     /**
@@ -350,10 +340,7 @@ class ReplicationGui
      */
     public function getHtmlForReplicationPrimaryAddReplicaUser(string|null $postUsername, string|null $hostname): string
     {
-        [
-            $usernameLength,
-            $hostnameLength,
-        ] = $this->getUsernameHostnameLength();
+        [$usernameLength, $hostnameLength] = $this->getUsernameHostnameLength();
 
         $username = '';
         if ($postUsername === '') {
@@ -491,12 +478,7 @@ class ReplicationGui
         $_SESSION['replication']['m_correct'] = '';
 
         // Attempt to connect to the new primary server
-        $connectionToPrimary = $this->replication->connectToPrimary(
-            $username,
-            $pmaPassword,
-            $hostname,
-            $port,
-        );
+        $connectionToPrimary = $this->replication->connectToPrimary($username, $pmaPassword, $hostname, $port);
 
         if ($connectionToPrimary === null) {
             $_SESSION['replication']['sr_action_status'] = 'error';
@@ -553,11 +535,7 @@ class ReplicationGui
             return $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
         }
 
-        $qControl = $this->replication->replicaControl(
-            $srReplicaAction,
-            $control,
-            Connection::TYPE_USER,
-        );
+        $qControl = $this->replication->replicaControl($srReplicaAction, $control, Connection::TYPE_USER);
 
         return $qControl !== false && $qControl !== -1;
     }

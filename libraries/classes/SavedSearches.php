@@ -260,10 +260,7 @@ class SavedSearches
         }
 
         //Else, it's an update.
-        $wheres = [
-            'id != ' . $this->getId(),
-            'search_name = ' . $GLOBALS['dbi']->quoteString($this->getSearchName()),
-        ];
+        $wheres = ['id != ' . $this->getId(), 'search_name = ' . $GLOBALS['dbi']->quoteString($this->getSearchName())];
         $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
         if ($existingSearches !== []) {

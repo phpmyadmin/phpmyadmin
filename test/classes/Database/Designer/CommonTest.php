@@ -150,7 +150,7 @@ class CommonTest extends AbstractTestCase
     public function testGetDefaultPage(): void
     {
         $db = 'db';
-        $default_pg = '2';
+        $defaultPg = '2';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -165,7 +165,7 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue($default_pg));
+            ->will($this->returnValue($defaultPg));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -173,7 +173,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        $this->assertEquals($default_pg, $result);
+        $this->assertEquals($defaultPg, $result);
     }
 
     /**
@@ -213,7 +213,7 @@ class CommonTest extends AbstractTestCase
     public function testGetLoadingPageWithDefaultPage(): void
     {
         $db = 'db';
-        $default_pg = '2';
+        $defaultPg = '2';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -228,7 +228,7 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue($default_pg));
+            ->will($this->returnValue($defaultPg));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -236,7 +236,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($default_pg, $result);
+        $this->assertEquals($defaultPg, $result);
     }
 
     /**
@@ -245,7 +245,7 @@ class CommonTest extends AbstractTestCase
     public function testGetLoadingPageWithNoDefaultPage(): void
     {
         $db = 'db';
-        $first_pg = '1';
+        $firstPg = '1';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -253,10 +253,7 @@ class CommonTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchValue')
-            ->willReturnOnConsecutiveCalls(
-                false,
-                $first_pg,
-            );
+            ->willReturnOnConsecutiveCalls(false, $firstPg);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -264,7 +261,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($first_pg, $result);
+        $this->assertEquals($firstPg, $result);
     }
 
     private function loadTestDataForRelationDeleteAddTests(string $createTableString): void
@@ -343,12 +340,7 @@ class CommonTest extends AbstractTestCase
 
         $this->dummyDbi->addResult(
             'SHOW CREATE TABLE `db\'2`.`table\'2`',
-            [
-                [
-                    'table\'2',
-                    $createTableString,
-                ],
-            ],
+            [['table\'2', $createTableString]],
             ['Table', 'Create Table'],
         );
     }
@@ -372,10 +364,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            false,
-            'Error: Relational features are disabled!',
-        ], $result);
+        $this->assertSame([false, 'Error: Relational features are disabled!'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDb(): void
@@ -417,10 +406,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            true,
-            'Internal relationship has been removed.',
-        ], $result);
+        $this->assertSame([true, 'Internal relationship has been removed.'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
@@ -482,10 +468,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            true,
-            'FOREIGN KEY relationship has been removed.',
-        ], $result);
+        $this->assertSame([true, 'FOREIGN KEY relationship has been removed.'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
@@ -527,9 +510,6 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
-            false,
-            'Error: Internal relationship could not be removed!<br>',
-        ], $result);
+        $this->assertSame([false, 'Error: Internal relationship could not be removed!<br>'], $result);
     }
 }

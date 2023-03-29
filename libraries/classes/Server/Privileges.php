@@ -233,8 +233,7 @@ class Privileges
             ) {
                 // Required for proper escaping of ` (backtick) in a column name
                 $grantCols = array_map(
-                    /** @param string $val */
-                    static fn ($val): string => Util::backquote($val),
+                    Util::backquote(...),
                     $GLOBALS[$currentGrant[0]],
                 );
 
@@ -259,11 +258,7 @@ class Privileges
             }
         } elseif ($allPrivileges && (! isset($_POST['grant_count']) || count($privs) == $_POST['grant_count'])) {
             if ($enableHTML) {
-                $privs = [
-                    '<dfn title="'
-                    . __('Includes all privileges except GRANT.')
-                    . '">ALL PRIVILEGES</dfn>',
-                ];
+                $privs = ['<dfn title="' . __('Includes all privileges except GRANT.') . '">ALL PRIVILEGES</dfn>'];
             } else {
                 $privs = ['ALL PRIVILEGES'];
             }
@@ -280,46 +275,14 @@ class Privileges
     public function getTableGrantsArray(): array
     {
         return [
-            [
-                'Delete',
-                'DELETE',
-                __('Allows deleting data.'),
-            ],
-            [
-                'Create',
-                'CREATE',
-                __('Allows creating new tables.'),
-            ],
-            [
-                'Drop',
-                'DROP',
-                __('Allows dropping tables.'),
-            ],
-            [
-                'Index',
-                'INDEX',
-                __('Allows creating and dropping indexes.'),
-            ],
-            [
-                'Alter',
-                'ALTER',
-                __('Allows altering the structure of existing tables.'),
-            ],
-            [
-                'Create View',
-                'CREATE_VIEW',
-                __('Allows creating new views.'),
-            ],
-            [
-                'Show view',
-                'SHOW_VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.'),
-            ],
-            [
-                'Trigger',
-                'TRIGGER',
-                __('Allows creating and dropping triggers.'),
-            ],
+            ['Delete', 'DELETE', __('Allows deleting data.')],
+            ['Create', 'CREATE', __('Allows creating new tables.')],
+            ['Drop', 'DROP', __('Allows dropping tables.')],
+            ['Index', 'INDEX', __('Allows creating and dropping indexes.')],
+            ['Alter', 'ALTER', __('Allows altering the structure of existing tables.')],
+            ['Create View', 'CREATE_VIEW', __('Allows creating new views.')],
+            ['Show view', 'SHOW_VIEW', __('Allows performing SHOW CREATE VIEW queries.')],
+            ['Trigger', 'TRIGGER', __('Allows creating and dropping triggers.')],
         ];
     }
 
@@ -332,76 +295,20 @@ class Privileges
     public function getGrantsArray(): array
     {
         return [
-            [
-                'Select_priv',
-                'SELECT',
-                __('Allows reading data.'),
-            ],
-            [
-                'Insert_priv',
-                'INSERT',
-                __('Allows inserting and replacing data.'),
-            ],
-            [
-                'Update_priv',
-                'UPDATE',
-                __('Allows changing data.'),
-            ],
-            [
-                'Delete_priv',
-                'DELETE',
-                __('Allows deleting data.'),
-            ],
-            [
-                'Create_priv',
-                'CREATE',
-                __('Allows creating new databases and tables.'),
-            ],
-            [
-                'Drop_priv',
-                'DROP',
-                __('Allows dropping databases and tables.'),
-            ],
-            [
-                'Reload_priv',
-                'RELOAD',
-                __('Allows reloading server settings and flushing the server\'s caches.'),
-            ],
-            [
-                'Shutdown_priv',
-                'SHUTDOWN',
-                __('Allows shutting down the server.'),
-            ],
-            [
-                'Process_priv',
-                'PROCESS',
-                __('Allows viewing processes of all users.'),
-            ],
-            [
-                'File_priv',
-                'FILE',
-                __('Allows importing data from and exporting data into files.'),
-            ],
-            [
-                'References_priv',
-                'REFERENCES',
-                __('Has no effect in this MySQL version.'),
-            ],
-            [
-                'Index_priv',
-                'INDEX',
-                __('Allows creating and dropping indexes.'),
-            ],
-            [
-                'Alter_priv',
-                'ALTER',
-                __('Allows altering the structure of existing tables.'),
-            ],
-            [
-                'Show_db_priv',
-                'SHOW DATABASES',
-                __('Gives access to the complete list of databases.'),
-            ],
+            ['Select_priv', 'SELECT', __('Allows reading data.')],
+            ['Insert_priv', 'INSERT', __('Allows inserting and replacing data.')],
+            ['Update_priv', 'UPDATE', __('Allows changing data.')],
+            ['Delete_priv', 'DELETE', __('Allows deleting data.')],
+            ['Create_priv', 'CREATE', __('Allows creating new databases and tables.')],
+            ['Drop_priv', 'DROP', __('Allows dropping databases and tables.')],
+            ['Reload_priv', 'RELOAD', __('Allows reloading server settings and flushing the server\'s caches.')],
+            ['Shutdown_priv', 'SHUTDOWN', __('Allows shutting down the server.')],
+            ['Process_priv', 'PROCESS', __('Allows viewing processes of all users.')],
+            ['File_priv', 'FILE', __('Allows importing data from and exporting data into files.')],
+            ['References_priv', 'REFERENCES', __('Has no effect in this MySQL version.')],
+            ['Index_priv', 'INDEX', __('Allows creating and dropping indexes.')],
+            ['Alter_priv', 'ALTER', __('Allows altering the structure of existing tables.')],
+            ['Show_db_priv', 'SHOW DATABASES', __('Gives access to the complete list of databases.')],
             [
                 'Super_priv',
                 'SUPER',
@@ -411,58 +318,22 @@ class Privileges
                     . 'like setting global variables or killing threads of other users.',
                 ),
             ],
-            [
-                'Create_tmp_table_priv',
-                'CREATE TEMPORARY TABLES',
-                __('Allows creating temporary tables.'),
-            ],
-            [
-                'Lock_tables_priv',
-                'LOCK TABLES',
-                __('Allows locking tables for the current thread.'),
-            ],
-            [
-                'Repl_slave_priv',
-                'REPLICATION SLAVE',
-                __('Needed for the replication replicas.'),
-            ],
+            ['Create_tmp_table_priv', 'CREATE TEMPORARY TABLES', __('Allows creating temporary tables.')],
+            ['Lock_tables_priv', 'LOCK TABLES', __('Allows locking tables for the current thread.')],
+            ['Repl_slave_priv', 'REPLICATION SLAVE', __('Needed for the replication replicas.')],
             [
                 'Repl_client_priv',
                 'REPLICATION CLIENT',
                 __('Allows the user to ask where the replicas / primaries are.'),
             ],
-            [
-                'Create_view_priv',
-                'CREATE VIEW',
-                __('Allows creating new views.'),
-            ],
-            [
-                'Event_priv',
-                'EVENT',
-                __('Allows to set up events for the event scheduler.'),
-            ],
-            [
-                'Trigger_priv',
-                'TRIGGER',
-                __('Allows creating and dropping triggers.'),
-            ],
+            ['Create_view_priv', 'CREATE VIEW', __('Allows creating new views.')],
+            ['Event_priv', 'EVENT', __('Allows to set up events for the event scheduler.')],
+            ['Trigger_priv', 'TRIGGER', __('Allows creating and dropping triggers.')],
             // for table privs:
-            [
-                'Create View_priv',
-                'CREATE VIEW',
-                __('Allows creating new views.'),
-            ],
-            [
-                'Show_view_priv',
-                'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.'),
-            ],
+            ['Create View_priv', 'CREATE VIEW', __('Allows creating new views.')],
+            ['Show_view_priv', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')],
             // for table privs:
-            [
-                'Show view_priv',
-                'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.'),
-            ],
+            ['Show view_priv', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')],
             [
                 'Delete_history_priv',
                 'DELETE HISTORY',
@@ -479,26 +350,10 @@ class Privileges
                 /* l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement" */
                 __('Allows deleting historical rows.'),
             ],
-            [
-                'Create_routine_priv',
-                'CREATE ROUTINE',
-                __('Allows creating stored routines.'),
-            ],
-            [
-                'Alter_routine_priv',
-                'ALTER ROUTINE',
-                __('Allows altering and dropping stored routines.'),
-            ],
-            [
-                'Create_user_priv',
-                'CREATE USER',
-                __('Allows creating, dropping and renaming user accounts.'),
-            ],
-            [
-                'Execute_priv',
-                'EXECUTE',
-                __('Allows executing stored routines.'),
-            ],
+            ['Create_routine_priv', 'CREATE ROUTINE', __('Allows creating stored routines.')],
+            ['Alter_routine_priv', 'ALTER ROUTINE', __('Allows altering and dropping stored routines.')],
+            ['Create_user_priv', 'CREATE USER', __('Allows creating, dropping and renaming user accounts.')],
+            ['Execute_priv', 'EXECUTE', __('Allows executing stored routines.')],
         ];
     }
 
@@ -814,10 +669,7 @@ class Privileges
             }
         }
 
-        return [
-            $usernameLength,
-            $hostnameLength,
-        ];
+        return [$usernameLength, $hostnameLength];
     }
 
     /**
@@ -937,7 +789,7 @@ class Privileges
                 // MariaDB uses "SET PASSWORD" syntax to change user password.
                 // On Galera cluster only DDL queries are replicated, since
                 // users are stored in MyISAM storage engine.
-                $sqlQuery = $localQuery =  'SET PASSWORD FOR '
+                $sqlQuery = $localQuery = 'SET PASSWORD FOR '
                     . $this->dbi->quoteString($username)
                     . '@' . $this->dbi->quoteString($hostname)
                     . ' = PASSWORD (' . $this->dbi->quoteString($_POST['pma_pw']) . ')';
@@ -1079,10 +931,7 @@ class Privileges
         );
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
-        return [
-            $message,
-            $sqlQuery,
-        ];
+        return [$message, $sqlQuery];
     }
 
     /**
@@ -1233,10 +1082,7 @@ class Privileges
      */
     private function getSpecificPrivilege(array $row): array
     {
-        $privilege = [
-            'type' => $row['Type'],
-            'database' => $row['Db'],
-        ];
+        $privilege = ['type' => $row['Type'], 'database' => $row['Db']];
         if ($row['Type'] === 'r') {
             $privilege['routine'] = $row['Routine_name'];
             $privilege['has_grant'] = str_contains($row['Proc_priv'], 'Grant');
@@ -1402,10 +1248,7 @@ class Privileges
             $linkClass = 'export_user_anchor ajax';
         }
 
-        $params = [
-            'username' => $username,
-            'hostname' => $hostname,
-        ];
+        $params = ['username' => $username, 'hostname' => $hostname];
         switch ($linktype) {
             case 'edit':
                 $params['dbname'] = $dbname;
@@ -1596,11 +1439,7 @@ class Privileges
         $userHostCondition = $this->getUserHostCondition($username, $hostname);
 
         if ($type === 'database') {
-            $tablesToSearchForUsers = [
-                'tables_priv',
-                'columns_priv',
-                'procs_priv',
-            ];
+            $tablesToSearchForUsers = ['tables_priv', 'columns_priv', 'procs_priv'];
             $dbOrTableName = 'Db';
         } elseif ($type === 'table') {
             $userHostCondition .= ' AND `Db` LIKE ' . $this->dbi->quoteString($dbname);
@@ -1626,12 +1465,7 @@ class Privileges
                 . $userHostCondition;
         }
 
-        $userDefaults = [
-            $dbOrTableName => '',
-            'Grant_priv' => 'N',
-            'privs' => ['USAGE'],
-            'Column_priv' => true,
-        ];
+        $userDefaults = [$dbOrTableName => '', 'Grant_priv' => 'N', 'privs' => ['USAGE'], 'Column_priv' => true];
 
         // for the rights
         $dbRights = [];
@@ -1701,11 +1535,7 @@ class Privileges
      */
     public function parseProcPriv(string $privs): array
     {
-        $result = [
-            'Alter_routine_priv' => 'N',
-            'Execute_priv' => 'N',
-            'Grant_priv' => 'N',
-        ];
+        $result = ['Alter_routine_priv' => 'N', 'Execute_priv' => 'N', 'Grant_priv' => 'N'];
         foreach (explode(',', $privs) as $priv) {
             if ($priv === 'Alter Routine') {
                 $result['Alter_routine_priv'] = 'Y';
@@ -1843,10 +1673,7 @@ class Privileges
 
         if ($type === 'database') {
             $predDbArray = $this->dbi->getDatabaseList();
-            $databasesToSkip = [
-                'information_schema',
-                'performance_schema',
-            ];
+            $databasesToSkip = ['information_schema', 'performance_schema'];
 
             $databases = [];
             $escapedDatabases = [];
@@ -2032,13 +1859,7 @@ class Privileges
         // we also want users not in table `user` but in other table
         $tables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`;');
 
-        $tablesSearchForUsers = [
-            'user',
-            'db',
-            'tables_priv',
-            'columns_priv',
-            'procs_priv',
-        ];
+        $tablesSearchForUsers = ['user', 'db', 'tables_priv', 'columns_priv', 'procs_priv'];
 
         $dbRightsSqls = [];
         foreach ($tablesSearchForUsers as $tableSearchIn) {
@@ -2050,13 +1871,7 @@ class Privileges
                 . $tableSearchIn . '` ' . $this->rangeOfUsers($initial);
         }
 
-        $userDefaults = [
-            'User' => '',
-            'Host' => '%',
-            'Password' => '?',
-            'Grant_priv' => 'N',
-            'privs' => ['USAGE'],
-        ];
+        $userDefaults = ['User' => '', 'Host' => '%', 'Password' => '?', 'Grant_priv' => 'N', 'privs' => ['USAGE']];
 
         // for the rights
         $dbRights = [];
@@ -2120,10 +1935,7 @@ class Privileges
             }
         }
 
-        return [
-            $sqlQuery,
-            $message,
-        ];
+        return [$sqlQuery, $message];
     }
 
     /**
@@ -2195,10 +2007,7 @@ class Privileges
         $message = Message::success(__('You have updated the privileges for %s.'));
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
-        return [
-            $sqlQuery,
-            $message,
-        ];
+        return [$sqlQuery, $message];
     }
 
     /**
@@ -2336,9 +2145,7 @@ class Privileges
     public function getDataForDeleteUsers(array $queries): array
     {
         if (isset($_POST['change_copy'])) {
-            $selectedUsr = [
-                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname'],
-            ];
+            $selectedUsr = [$_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname']];
         } else {
             // null happens when no user was selected
             $selectedUsr = $_POST['selected_usr'] ?? null;
@@ -2697,14 +2504,7 @@ class Privileges
         // check if given $dbname is a wildcard or not
         $databaseNameIsWildcard = is_string($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname);
 
-        return [
-            $username,
-            $hostname,
-            $dbname,
-            $tablename,
-            $routinename,
-            $databaseNameIsWildcard,
-        ];
+        return [$username, $hostname, $dbname, $tablename, $routinename, $databaseNameIsWildcard];
     }
 
     /**
@@ -2924,10 +2724,7 @@ class Privileges
             $loginInformationFields = $this->getHtmlForLoginInformationFields();
         }
 
-        $params = [
-            'username' => $username,
-            'hostname' => $hostname,
-        ];
+        $params = ['username' => $username, 'hostname' => $hostname];
         $params['dbname'] = $dbname;
         if (! is_array($dbname) && $dbname !== '' && $tablename !== '') {
             $params['tablename'] = $tablename;
@@ -3037,12 +2834,7 @@ class Privileges
             );
 
             $tmpPrivs1 = $this->extractPrivInfo($row);
-            $tmpPrivs2 = [
-                'Select' => [],
-                'Insert' => [],
-                'Update' => [],
-                'References' => [],
-            ];
+            $tmpPrivs2 = ['Select' => [], 'Insert' => [], 'Update' => [], 'References' => []];
 
             while ($row2 = $res2->fetchAssoc()) {
                 $tmpArray = explode(',', $row2['Column_priv']);
@@ -3212,10 +3004,7 @@ class Privileges
             }
         }
 
-        return [
-            $sqlQuery,
-            $message,
-        ];
+        return [$sqlQuery, $message];
     }
 
     /**

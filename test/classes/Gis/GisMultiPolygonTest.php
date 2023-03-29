@@ -30,67 +30,28 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'no_of_lines' => 2,
                     0 => [
                         'no_of_points' => 5,
-                        0 => [
-                            'x' => 35,
-                            'y' => 10,
-                        ],
-                        1 => [
-                            'x' => 10,
-                            'y' => 20,
-                        ],
-                        2 => [
-                            'x' => 15,
-                            'y' => 40,
-                        ],
-                        3 => [
-                            'x' => 45,
-                            'y' => 45,
-                        ],
-                        4 => [
-                            'x' => 35,
-                            'y' => 10,
-                        ],
+                        0 => ['x' => 35, 'y' => 10],
+                        1 => ['x' => 10, 'y' => 20],
+                        2 => ['x' => 15, 'y' => 40],
+                        3 => ['x' => 45, 'y' => 45],
+                        4 => ['x' => 35, 'y' => 10],
                     ],
                     1 => [
                         'no_of_points' => 4,
-                        0 => [
-                            'x' => 20,
-                            'y' => 30,
-                        ],
-                        1 => [
-                            'x' => 35,
-                            'y' => 32,
-                        ],
-                        2 => [
-                            'x' => 30,
-                            'y' => 20,
-                        ],
-                        3 => [
-                            'x' => 20,
-                            'y' => 30,
-                        ],
+                        0 => ['x' => 20, 'y' => 30],
+                        1 => ['x' => 35, 'y' => 32],
+                        2 => ['x' => 30, 'y' => 20],
+                        3 => ['x' => 20, 'y' => 30],
                     ],
                 ],
                 1 => [
                     'no_of_lines' => 1,
                     0 => [
                         'no_of_points' => 4,
-                        0 => [
-                            'x' => 123,
-                            'y' => 0,
-                        ],
-                        1 => [
-                            'x' => 23,
-                            'y' => 30,
-                        ],
-                        2 => [
-                            'x' => 17,
-                            'y' => 63,
-                        ],
-                        3 => [
-                            'x' => 123,
-                            'y' => 0,
-                        ],
+                        0 => ['x' => 123, 'y' => 0],
+                        1 => ['x' => 23, 'y' => 30],
+                        2 => ['x' => 17, 'y' => 63],
+                        3 => ['x' => 123, 'y' => 0],
                     ],
                 ],
             ],
@@ -100,17 +61,17 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * Test for generateWkt
      *
-     * @param array<mixed> $gis_data
-     * @param int          $index    index in $gis_data
-     * @param string|null  $empty    empty parameter
-     * @param string       $output   expected output
+     * @param array<mixed> $gisData
+     * @param int          $index   index in $gis_data
+     * @param string|null  $empty   empty parameter
+     * @param string       $output  expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($output, $object->generateWkt($gis_data, $index, $empty));
+        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -120,9 +81,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateWkt(): array
     {
-        $temp = [
-            0 => self::getData(),
-        ];
+        $temp = [0 => self::getData()];
 
         $temp1 = $temp;
         $temp1[0]['MULTIPOLYGON']['no_of_polygons'] = 0;
@@ -142,12 +101,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
             ],
             // at lease one polygon should be there
-            [
-                $temp1,
-                0,
-                null,
-                'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-            ],
+            [$temp1, 0, null, 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))'],
             // a polygon should have at least one ring
             [
                 $temp2,
@@ -192,10 +146,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
             [
                 "'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),"
                 . "(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',124",
-                [
-                    'srid' => 124,
-                    0 => self::getData(),
-                ],
+                ['srid' => 124, 0 => self::getData()],
             ],
         ];
     }
@@ -203,15 +154,15 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test getShape method
      *
-     * @param array  $row_data array of GIS data
-     * @param string $shape    expected shape in WKT
+     * @param array  $rowData array of GIS data
+     * @param string $shape   expected shape in WKT
      *
      * @dataProvider providerForTestGetShape
      */
-    public function testGetShape(array $row_data, string $shape): void
+    public function testGetShape(array $rowData, string $shape): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($shape, $object->getShape($row_data));
+        $this->assertEquals($shape, $object->getShape($rowData));
     }
 
     /**
@@ -227,66 +178,27 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'parts' => [
                         0 => [
                             'points' => [
-                                0 => [
-                                    'x' => 10,
-                                    'y' => 10,
-                                ],
-                                1 => [
-                                    'x' => 10,
-                                    'y' => 40,
-                                ],
-                                2 => [
-                                    'x' => 50,
-                                    'y' => 40,
-                                ],
-                                3 => [
-                                    'x' => 50,
-                                    'y' => 10,
-                                ],
-                                4 => [
-                                    'x' => 10,
-                                    'y' => 10,
-                                ],
+                                0 => ['x' => 10, 'y' => 10],
+                                1 => ['x' => 10, 'y' => 40],
+                                2 => ['x' => 50, 'y' => 40],
+                                3 => ['x' => 50, 'y' => 10],
+                                4 => ['x' => 10, 'y' => 10],
                             ],
                         ],
                         1 => [
                             'points' => [
-                                0 => [
-                                    'x' => 60,
-                                    'y' => 40,
-                                ],
-                                1 => [
-                                    'x' => 75,
-                                    'y' => 65,
-                                ],
-                                2 => [
-                                    'x' => 90,
-                                    'y' => 40,
-                                ],
-                                3 => [
-                                    'x' => 60,
-                                    'y' => 40,
-                                ],
+                                0 => ['x' => 60, 'y' => 40],
+                                1 => ['x' => 75, 'y' => 65],
+                                2 => ['x' => 90, 'y' => 40],
+                                3 => ['x' => 60, 'y' => 40],
                             ],
                         ],
                         2 => [
                             'points' => [
-                                0 => [
-                                    'x' => 20,
-                                    'y' => 20,
-                                ],
-                                1 => [
-                                    'x' => 40,
-                                    'y' => 20,
-                                ],
-                                2 => [
-                                    'x' => 25,
-                                    'y' => 30,
-                                ],
-                                3 => [
-                                    'x' => 20,
-                                    'y' => 20,
-                                ],
+                                0 => ['x' => 20, 'y' => 20],
+                                1 => ['x' => 40, 'y' => 20],
+                                2 => ['x' => 25, 'y' => 30],
+                                3 => ['x' => 20, 'y' => 20],
                             ],
                         ],
                     ],
@@ -301,14 +213,14 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
-     * @param ScaleData $min_max expected results
+     * @param ScaleData $minMax  expected results
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow(string $spatial, ScaleData $min_max): void
+    public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($min_max, $object->scaleRow($spatial));
+        $this->assertEquals($minMax, $object->scaleRow($spatial));
     }
 
     /**
@@ -358,10 +270,10 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial    GIS MULTIPOLYGON object
-     * @param string $label      label for the GIS MULTIPOLYGON object
-     * @param int[]  $color      color for the GIS MULTIPOLYGON object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial   GIS MULTIPOLYGON object
+     * @param string $label     label for the GIS MULTIPOLYGON object
+     * @param int[]  $color     color for the GIS MULTIPOLYGON object
+     * @param array  $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -369,11 +281,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
         string $spatial,
         string $label,
         array $color,
-        array $scale_data,
+        array $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisMultiPolygon::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multipolygon-expected.pdf';
         $fileActual = $this->testDir . '/multipolygon-actual.pdf';
@@ -439,12 +351,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . ' -60,-90 -90,-60 -90,-60 -60)))',
                 'svg',
                 [176, 46, 224],
-                [
-                    'x' => -50,
-                    'y' => -50,
-                    'scale' => 2,
-                    'height' => 400,
-                ],
+                ['x' => -50, 'y' => -50, 'scale' => 2, 'height' => 400],
                 '<path d=" M 110, 290 L 290, 290 L 290, 110 L 110, 110 Z  M 120, 280 L 120, 220 L 180, 220 L 180, 28'
                 . '0 Z  M 220, 180 L 280, 180 L 280, 120 L 220, 120 Z " name="svg" class="multipolygon vector" stroke='
                 . '"black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"'

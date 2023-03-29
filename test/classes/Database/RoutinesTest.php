@@ -143,30 +143,12 @@ class RoutinesTest extends AbstractTestCase
                     'item_type' => 'PROCEDURE',
                     'item_type_toggle' => 'FUNCTION',
                     'item_original_type' => 'PROCEDURE',
-                    'item_param_dir' => [
-                        0 => 'IN',
-                        1 => 'FAIL',
-                    ],
-                    'item_param_name' => [
-                        0 => 'bar',
-                        1 => 'baz',
-                    ],
-                    'item_param_type' => [
-                        0 => 'INT',
-                        1 => 'FAIL',
-                    ],
-                    'item_param_length' => [
-                        0 => '20',
-                        1 => '',
-                    ],
-                    'item_param_opts_num' => [
-                        0 => 'UNSIGNED',
-                        1 => '',
-                    ],
-                    'item_param_opts_text' => [
-                        0 => '',
-                        1 => 'latin1',
-                    ],
+                    'item_param_dir' => [0 => 'IN', 1 => 'FAIL'],
+                    'item_param_name' => [0 => 'bar', 1 => 'baz'],
+                    'item_param_type' => [0 => 'INT', 1 => 'FAIL'],
+                    'item_param_length' => [0 => '20', 1 => ''],
+                    'item_param_opts_num' => [0 => 'UNSIGNED', 1 => ''],
+                    'item_param_opts_text' => [0 => '', 1 => 'latin1'],
                     'item_returntype' => '',
                     'item_isdeterministic' => 'ON',
                     'item_securitytype' => 'INVOKER',
@@ -185,30 +167,12 @@ class RoutinesTest extends AbstractTestCase
                     'item_type_toggle' => 'FUNCTION',
                     'item_original_type' => 'PROCEDURE',
                     'item_num_params' => 2,
-                    'item_param_dir' => [
-                        0 => 'IN',
-                        1 => '',
-                    ],
-                    'item_param_name' => [
-                        0 => 'bar',
-                        1 => 'baz',
-                    ],
-                    'item_param_type' => [
-                        0 => 'INT',
-                        1 => '',
-                    ],
-                    'item_param_length' => [
-                        0 => '20',
-                        1 => '',
-                    ],
-                    'item_param_opts_num' => [
-                        0 => 'UNSIGNED',
-                        1 => '',
-                    ],
-                    'item_param_opts_text' => [
-                        0 => '',
-                        1 => 'latin1',
-                    ],
+                    'item_param_dir' => [0 => 'IN', 1 => ''],
+                    'item_param_name' => [0 => 'bar', 1 => 'baz'],
+                    'item_param_type' => [0 => 'INT', 1 => ''],
+                    'item_param_length' => [0 => '20', 1 => ''],
+                    'item_param_opts_num' => [0 => 'UNSIGNED', 1 => ''],
+                    'item_param_opts_text' => [0 => '', 1 => 'latin1'],
                     'item_returntype' => '',
                     'item_isdeterministic' => ' checked=\'checked\'',
                     'item_securitytype_definer' => '',
@@ -229,30 +193,12 @@ class RoutinesTest extends AbstractTestCase
                     'item_type' => 'FUNCTION',
                     'item_type_toggle' => 'PROCEDURE',
                     'item_original_type' => 'FUNCTION',
-                    'item_param_dir' => [
-                        0 => '',
-                        1 => '',
-                    ],
-                    'item_param_name' => [
-                        0 => 'bar',
-                        1 => 'baz',
-                    ],
-                    'item_param_type' => [
-                        0 => '<s>XSS</s>',
-                        1 => 'TEXT',
-                    ],
-                    'item_param_length' => [
-                        0 => '10,10',
-                        1 => '',
-                    ],
-                    'item_param_opts_num' => [
-                        0 => 'UNSIGNED',
-                        1 => '',
-                    ],
-                    'item_param_opts_text' => [
-                        0 => '',
-                        1 => 'utf8',
-                    ],
+                    'item_param_dir' => [0 => '', 1 => ''],
+                    'item_param_name' => [0 => 'bar', 1 => 'baz'],
+                    'item_param_type' => [0 => '<s>XSS</s>', 1 => 'TEXT'],
+                    'item_param_length' => [0 => '10,10', 1 => ''],
+                    'item_param_opts_num' => [0 => 'UNSIGNED', 1 => ''],
+                    'item_param_opts_text' => [0 => '', 1 => 'utf8'],
                     'item_returntype' => 'VARCHAR',
                     'item_isdeterministic' => '',
                     'item_securitytype' => 'DEFINER',
@@ -272,26 +218,11 @@ class RoutinesTest extends AbstractTestCase
                     'item_original_type' => 'FUNCTION',
                     'item_num_params' => '2',
                     'item_param_dir' => [],
-                    'item_param_name' => [
-                        0 => 'bar',
-                        1 => 'baz',
-                    ],
-                    'item_param_type' => [
-                        0 => '',
-                        1 => 'TEXT',
-                    ],
-                    'item_param_length' => [
-                        0 => '10,10',
-                        1 => '',
-                    ],
-                    'item_param_opts_num' => [
-                        0 => 'UNSIGNED',
-                        1 => '',
-                    ],
-                    'item_param_opts_text' => [
-                        0 => '',
-                        1 => 'utf8',
-                    ],
+                    'item_param_name' => [0 => 'bar', 1 => 'baz'],
+                    'item_param_type' => [0 => '', 1 => 'TEXT'],
+                    'item_param_length' => [0 => '10,10', 1 => ''],
+                    'item_param_opts_num' => [0 => 'UNSIGNED', 1 => ''],
+                    'item_param_opts_text' => [0 => '', 1 => 'utf8'],
                     'item_returntype' => 'VARCHAR',
                     'item_isdeterministic' => '',
                     'item_securitytype_definer' => ' selected=\'selected\'',
@@ -360,31 +291,11 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                0,
-                '<select name="item_param_dir[0]"',
-            ],
-            [
-                $data,
-                0,
-                '<input name="item_param_name[0]"',
-            ],
-            [
-                $data,
-                0,
-                '<select name="item_param_type[0]"',
-            ],
-            [
-                $data,
-                0,
-                '<select name="item_param_opts_num[0]"',
-            ],
-            [
-                $data,
-                0,
-                '<a href="#" class="routine_param_remove_anchor"',
-            ],
+            [$data, 0, '<select name="item_param_dir[0]"'],
+            [$data, 0, '<input name="item_param_name[0]"'],
+            [$data, 0, '<select name="item_param_type[0]"'],
+            [$data, 0, '<select name="item_param_opts_num[0]"'],
+            [$data, 0, '<a href="#" class="routine_param_remove_anchor"'],
         ];
     }
 
@@ -440,26 +351,11 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                '<select name="item_param_dir[%s]"',
-            ],
-            [
-                $data,
-                '<input name="item_param_name[%s]"',
-            ],
-            [
-                $data,
-                '<select name="item_param_dir[%s]"',
-            ],
-            [
-                $data,
-                '<select name="item_param_opts_num[%s]"',
-            ],
-            [
-                $data,
-                '<a href="#" class="routine_param_remove_anchor"',
-            ],
+            [$data, '<select name="item_param_dir[%s]"'],
+            [$data, '<input name="item_param_name[%s]"'],
+            [$data, '<select name="item_param_dir[%s]"'],
+            [$data, '<select name="item_param_opts_num[%s]"'],
+            [$data, '<a href="#" class="routine_param_remove_anchor"'],
         ];
     }
 
@@ -513,70 +409,22 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                '<input name="add_item"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_name"',
-            ],
-            [
-                $data,
-                '<input name="item_type"',
-            ],
-            [
-                $data,
-                'name="routine_changetype"',
-            ],
-            [
-                $data,
-                'name="routine_addparameter"',
-            ],
-            [
-                $data,
-                'name="routine_removeparameter"',
-            ],
-            [
-                $data,
-                'select name="item_returntype"',
-            ],
-            [
-                $data,
-                'name="item_returnlength"',
-            ],
-            [
-                $data,
-                'select name="item_returnopts_num"',
-            ],
-            [
-                $data,
-                '<textarea name="item_definition"',
-            ],
-            [
-                $data,
-                'name="item_isdeterministic"',
-            ],
-            [
-                $data,
-                'name="item_definer"',
-            ],
-            [
-                $data,
-                'select name="item_securitytype"',
-            ],
-            [
-                $data,
-                'select name="item_sqldataaccess"',
-            ],
-            [
-                $data,
-                'name="item_comment"',
-            ],
-            [
-                $data,
-                'name="editor_process_add"',
-            ],
+            [$data, '<input name="add_item"'],
+            [$data, '<input type="text" name="item_name"'],
+            [$data, '<input name="item_type"'],
+            [$data, 'name="routine_changetype"'],
+            [$data, 'name="routine_addparameter"'],
+            [$data, 'name="routine_removeparameter"'],
+            [$data, 'select name="item_returntype"'],
+            [$data, 'name="item_returnlength"'],
+            [$data, 'select name="item_returnopts_num"'],
+            [$data, '<textarea name="item_definition"'],
+            [$data, 'name="item_isdeterministic"'],
+            [$data, 'name="item_definer"'],
+            [$data, 'select name="item_securitytype"'],
+            [$data, 'select name="item_sqldataaccess"'],
+            [$data, 'name="item_comment"'],
+            [$data, 'name="editor_process_add"'],
         ];
     }
 
@@ -630,70 +478,22 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                'name="edit_item"',
-            ],
-            [
-                $data,
-                'name="item_name"',
-            ],
-            [
-                $data,
-                '<input name="item_type" type="hidden" value="FUNCTION"',
-            ],
-            [
-                $data,
-                'name="routine_changetype"',
-            ],
-            [
-                $data,
-                'name="routine_addparameter"',
-            ],
-            [
-                $data,
-                'name="routine_removeparameter"',
-            ],
-            [
-                $data,
-                'name="item_returntype"',
-            ],
-            [
-                $data,
-                'name="item_returnlength"',
-            ],
-            [
-                $data,
-                'name="item_returnopts_num"',
-            ],
-            [
-                $data,
-                '<textarea name="item_definition"',
-            ],
-            [
-                $data,
-                'name="item_isdeterministic"',
-            ],
-            [
-                $data,
-                'name="item_definer"',
-            ],
-            [
-                $data,
-                '<select name="item_securitytype"',
-            ],
-            [
-                $data,
-                '<select name="item_sqldataaccess"',
-            ],
-            [
-                $data,
-                'name="item_comment"',
-            ],
-            [
-                $data,
-                'name="editor_process_edit"',
-            ],
+            [$data, 'name="edit_item"'],
+            [$data, 'name="item_name"'],
+            [$data, '<input name="item_type" type="hidden" value="FUNCTION"'],
+            [$data, 'name="routine_changetype"'],
+            [$data, 'name="routine_addparameter"'],
+            [$data, 'name="routine_removeparameter"'],
+            [$data, 'name="item_returntype"'],
+            [$data, 'name="item_returnlength"'],
+            [$data, 'name="item_returnopts_num"'],
+            [$data, '<textarea name="item_definition"'],
+            [$data, 'name="item_isdeterministic"'],
+            [$data, 'name="item_definer"'],
+            [$data, '<select name="item_securitytype"'],
+            [$data, '<select name="item_sqldataaccess"'],
+            [$data, 'name="item_comment"'],
+            [$data, 'name="editor_process_edit"'],
         ];
     }
 
@@ -749,66 +549,21 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                'name="edit_item"',
-            ],
-            [
-                $data,
-                'name="item_name"',
-            ],
-            [
-                $data,
-                '<select name="item_type"',
-            ],
-            [
-                $data,
-                'id="addRoutineParameterButton"',
-            ],
-            [
-                $data,
-                '<select name="item_returntype"',
-            ],
-            [
-                $data,
-                'name="item_returnlength"',
-            ],
-            [
-                $data,
-                '<select name="item_returnopts_num"',
-            ],
-            [
-                $data,
-                '<textarea name="item_definition"',
-            ],
-            [
-                $data,
-                'name="item_isdeterministic"',
-            ],
-            [
-                $data,
-                'name="item_definer"',
-            ],
-            [
-                $data,
-                '<select name="item_securitytype"',
-            ],
-            [
-                $data,
-                '<select name="item_sqldataaccess"',
-            ],
-            [
-                $data,
-                'name="item_comment"',
-            ],
-            [
-                $data,
-                'name="ajax_request"',
-            ],
-            [
-                $data,
-                'name="editor_process_edit"',
-            ],
+            [$data, 'name="edit_item"'],
+            [$data, 'name="item_name"'],
+            [$data, '<select name="item_type"'],
+            [$data, 'id="addRoutineParameterButton"'],
+            [$data, '<select name="item_returntype"'],
+            [$data, 'name="item_returnlength"'],
+            [$data, '<select name="item_returnopts_num"'],
+            [$data, '<textarea name="item_definition"'],
+            [$data, 'name="item_isdeterministic"'],
+            [$data, 'name="item_definer"'],
+            [$data, '<select name="item_securitytype"'],
+            [$data, '<select name="item_sqldataaccess"'],
+            [$data, 'name="item_comment"'],
+            [$data, 'name="ajax_request"'],
+            [$data, 'name="editor_process_edit"'],
         ];
     }
 
@@ -861,12 +616,7 @@ class RoutinesTest extends AbstractTestCase
             'item_sqldataaccess' => 'NO SQL',
         ];
 
-        return [
-            [
-                $data,
-                '<input name="item_type" type="hidden" value="PROCEDURE"',
-            ],
-        ];
+        return [[$data, '<input name="item_type" type="hidden" value="PROCEDURE"']];
     }
 
     /**
@@ -903,22 +653,8 @@ class RoutinesTest extends AbstractTestCase
             'item_definer' => '',
             'item_type' => 'PROCEDURE',
             'item_num_params' => 6,
-            'item_param_dir' => [
-                0 => 'IN',
-                1 => 'OUT',
-                2 => 'IN',
-                3 => 'IN',
-                4 => 'IN',
-                5 => 'IN',
-            ],
-            'item_param_name' => [
-                0 => 'foo',
-                1 => 'foa',
-                2 => 'fob',
-                3 => 'foc',
-                4 => 'fod',
-                5 => 'foe',
-            ],
+            'item_param_dir' => [0 => 'IN', 1 => 'OUT', 2 => 'IN', 3 => 'IN', 4 => 'IN', 5 => 'IN'],
+            'item_param_name' => [0 => 'foo', 1 => 'foa', 2 => 'fob', 3 => 'foc', 4 => 'fod', 5 => 'foe'],
             'item_param_type' => [
                 0 => 'DATE',
                 1 => 'VARCHAR',
@@ -927,44 +663,17 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'ENUM',
                 5 => 'SET',
             ],
-            'item_param_length' => [
-                0 => '',
-                1 => '22',
-                2 => '',
-                3 => '',
-                4 => "'a','b'",
-                5 => "'a','b'",
-            ],
+            'item_param_length' => [0 => '', 1 => '22', 2 => '', 3 => '', 4 => "'a','b'", 5 => "'a','b'"],
             'item_param_length_arr' => [
                 0 => [],
                 1 => ['22'],
                 2 => [],
                 3 => [],
-                4 => [
-                    "'a'",
-                    "'b'",
-                ],
-                5 => [
-                    "'a'",
-                    "'b'",
-                ],
+                4 => ["'a'", "'b'"],
+                5 => ["'a'", "'b'"],
             ],
-            'item_param_opts_num' => [
-                0 => '',
-                1 => '',
-                2 => '',
-                3 => '',
-                4 => '',
-                5 => '',
-            ],
-            'item_param_opts_text' => [
-                0 => '',
-                1 => 'utf8',
-                2 => '',
-                3 => '',
-                4 => '',
-                5 => '',
-            ],
+            'item_param_opts_num' => [0 => '', 1 => '', 2 => '', 3 => '', 4 => '', 5 => ''],
+            'item_param_opts_text' => [0 => '', 1 => 'utf8', 2 => '', 3 => '', 4 => '', 5 => ''],
             'item_returntype' => '',
             'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
@@ -973,38 +682,14 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                'name="item_name"',
-            ],
-            [
-                $data,
-                'name="funcs[foo]"',
-            ],
-            [
-                $data,
-                '<input class="datefield" type="text" name="params[foo]">',
-            ],
-            [
-                $data,
-                'name="funcs[fob]"',
-            ],
-            [
-                $data,
-                '<input class="datetimefield" type="text" name="params[fob]"',
-            ],
-            [
-                $data,
-                'name="params[fod][]"',
-            ],
-            [
-                $data,
-                'name="params[foe][]"',
-            ],
-            [
-                $data,
-                'name="execute_routine"',
-            ],
+            [$data, 'name="item_name"'],
+            [$data, 'name="funcs[foo]"'],
+            [$data, '<input class="datefield" type="text" name="params[foo]">'],
+            [$data, 'name="funcs[fob]"'],
+            [$data, '<input class="datetimefield" type="text" name="params[fob]"'],
+            [$data, 'name="params[fod][]"'],
+            [$data, 'name="params[foe][]"'],
+            [$data, 'name="execute_routine"'],
         ];
     }
 
@@ -1042,22 +727,8 @@ class RoutinesTest extends AbstractTestCase
             'item_definer' => '',
             'item_type' => 'PROCEDURE',
             'item_num_params' => 6,
-            'item_param_dir' => [
-                0 => 'IN',
-                1 => 'OUT',
-                2 => 'IN',
-                3 => 'IN',
-                4 => 'IN',
-                5 => 'IN',
-            ],
-            'item_param_name' => [
-                0 => 'foo',
-                1 => 'foa',
-                2 => 'fob',
-                3 => 'foc',
-                4 => 'fod',
-                5 => 'foe',
-            ],
+            'item_param_dir' => [0 => 'IN', 1 => 'OUT', 2 => 'IN', 3 => 'IN', 4 => 'IN', 5 => 'IN'],
+            'item_param_name' => [0 => 'foo', 1 => 'foa', 2 => 'fob', 3 => 'foc', 4 => 'fod', 5 => 'foe'],
             'item_param_type' => [
                 0 => 'DATE',
                 1 => 'VARCHAR',
@@ -1066,44 +737,17 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'ENUM',
                 5 => 'SET',
             ],
-            'item_param_length' => [
-                0 => '',
-                1 => '22',
-                2 => '',
-                3 => '',
-                4 => "'a','b'",
-                5 => "'a','b'",
-            ],
+            'item_param_length' => [0 => '', 1 => '22', 2 => '', 3 => '', 4 => "'a','b'", 5 => "'a','b'"],
             'item_param_length_arr' => [
                 0 => [],
                 1 => ['22'],
                 2 => [],
                 3 => [],
-                4 => [
-                    "'a'",
-                    "'b'",
-                ],
-                5 => [
-                    "'a'",
-                    "'b'",
-                ],
+                4 => ["'a'", "'b'"],
+                5 => ["'a'", "'b'"],
             ],
-            'item_param_opts_num' => [
-                0 => '',
-                1 => '',
-                2 => '',
-                3 => '',
-                4 => '',
-                5 => '',
-            ],
-            'item_param_opts_text' => [
-                0 => '',
-                1 => 'utf8',
-                2 => '',
-                3 => '',
-                4 => '',
-                5 => '',
-            ],
+            'item_param_opts_num' => [0 => '', 1 => '', 2 => '', 3 => '', 4 => '', 5 => ''],
+            'item_param_opts_text' => [0 => '', 1 => 'utf8', 2 => '', 3 => '', 4 => '', 5 => ''],
             'item_returntype' => '',
             'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
@@ -1111,16 +755,7 @@ class RoutinesTest extends AbstractTestCase
             'item_sqldataaccess' => '',
         ];
 
-        return [
-            [
-                $data,
-                'name="execute_routine"',
-            ],
-            [
-                $data,
-                'name="ajax_request"',
-            ],
-        ];
+        return [[$data, 'name="execute_routine"'], [$data, 'name="ajax_request"']];
     }
 
     /**
@@ -1128,17 +763,17 @@ class RoutinesTest extends AbstractTestCase
      *
      * @param array<string, string|array<string>> $request Request
      * @param string                              $query   Query
-     * @param int                                 $num_err Error number
+     * @param int                                 $numErr  Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
+    public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = false;
 
         $GLOBALS['errors'] = [];
 
-        $old_dbi = $GLOBALS['dbi'] ?? null;
+        $oldDbi = $GLOBALS['dbi'] ?? null;
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -1148,21 +783,9 @@ class RoutinesTest extends AbstractTestCase
             ->will(
                 $this->returnValueMap(
                     [
-                        [
-                            'foo',
-                            Connection::TYPE_USER,
-                            'foo',
-                        ],
-                        [
-                            "foo's bar",
-                            Connection::TYPE_USER,
-                            "foo\'s bar",
-                        ],
-                        [
-                            '',
-                            Connection::TYPE_USER,
-                            '',
-                        ],
+                        ['foo', Connection::TYPE_USER, 'foo'],
+                        ["foo's bar", Connection::TYPE_USER, "foo\'s bar"],
+                        ['', Connection::TYPE_USER, ''],
                     ],
                 ),
             );
@@ -1177,10 +800,10 @@ class RoutinesTest extends AbstractTestCase
         unset($_POST);
         $_POST = $request;
         $this->assertEquals($query, $routines->getQueryFromRequest());
-        $this->assertCount($num_err, $GLOBALS['errors']);
+        $this->assertCount($numErr, $GLOBALS['errors']);
 
         // reset
-        $GLOBALS['dbi'] = $old_dbi;
+        $GLOBALS['dbi'] = $oldDbi;
     }
 
     /**
@@ -1229,30 +852,12 @@ class RoutinesTest extends AbstractTestCase
                     'item_definer' => 'someuser@somehost',
                     'item_type' => 'PROCEDURE',
                     'item_num_params' => '2',
-                    'item_param_dir' => [
-                        'IN',
-                        'INOUT',
-                    ],
-                    'item_param_name' => [
-                        'pa`ram',
-                        'par 2',
-                    ],
-                    'item_param_type' => [
-                        'INT',
-                        'ENUM',
-                    ],
-                    'item_param_length' => [
-                        '10',
-                        '\'a\', \'b\'',
-                    ],
-                    'item_param_opts_num' => [
-                        'ZEROFILL',
-                        '',
-                    ],
-                    'item_param_opts_text' => [
-                        'utf8',
-                        'latin1',
-                    ],
+                    'item_param_dir' => ['IN', 'INOUT'],
+                    'item_param_name' => ['pa`ram', 'par 2'],
+                    'item_param_type' => ['INT', 'ENUM'],
+                    'item_param_length' => ['10', '\'a\', \'b\''],
+                    'item_param_opts_num' => ['ZEROFILL', ''],
+                    'item_param_opts_text' => ['utf8', 'latin1'],
                     'item_returntype' => '',
                     'item_securitytype' => 'DEFINER',
                     'item_sqldataaccess' => 'foobar',
@@ -1352,30 +957,12 @@ class RoutinesTest extends AbstractTestCase
                     'item_definer' => '',
                     'item_type' => 'PROCEDURE',
                     'item_num_params' => '2',
-                    'item_param_dir' => [
-                        'FAIL',
-                        'INOUT',
-                    ], // invalid direction
-                    'item_param_name' => [
-                        'pa`ram',
-                        'goo',
-                    ],
-                    'item_param_type' => [
-                        'INT',
-                        'ENUM',
-                    ],
-                    'item_param_length' => [
-                        '10',
-                        '',
-                    ], // missing ENUM values
-                    'item_param_opts_num' => [
-                        'ZEROFILL',
-                        '',
-                    ],
-                    'item_param_opts_text' => [
-                        'utf8',
-                        'latin1',
-                    ],
+                    'item_param_dir' => ['FAIL', 'INOUT'], // invalid direction
+                    'item_param_name' => ['pa`ram', 'goo'],
+                    'item_param_type' => ['INT', 'ENUM'],
+                    'item_param_length' => ['10', ''], // missing ENUM values
+                    'item_param_opts_num' => ['ZEROFILL', ''],
+                    'item_param_opts_text' => ['utf8', 'latin1'],
                     'item_returntype' => '',
                     'item_securitytype' => 'DEFINER',
                     'item_sqldataaccess' => 'foobar', // invalid, will just be ignored without throwing errors
@@ -1457,11 +1044,7 @@ class RoutinesTest extends AbstractTestCase
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
             'SHOW FUNCTION STATUS;',
-            [
-                ['db_test', 'test_func', 'FUNCTION'],
-                ['test_db', '', 'FUNCTION'],
-                ['test_db', 'test_func', 'PROCEDURE'],
-            ],
+            [['db_test', 'test_func', 'FUNCTION'], ['test_db', '', 'FUNCTION'], ['test_db', 'test_func', 'PROCEDURE']],
             ['Db', 'Name', 'Type'],
         );
 

@@ -32,10 +32,7 @@ class FormTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $this->object = new Form(
             'pma_form_name',
-            [
-                'pma_form1',
-                'pma_form2',
-            ],
+            ['pma_form1', 'pma_form2'],
             new ConfigFile(),
             1,
         );
@@ -90,29 +87,17 @@ class FormTest extends AbstractTestCase
     public function testGetOptionValueList(): void
     {
         $this->assertEquals(
-            [
-                'NHibernate C# DO',
-                'NHibernate XML',
-            ],
+            ['NHibernate C# DO', 'NHibernate XML'],
             $this->object->getOptionValueList('Export/codegen_format'),
         );
 
         $this->assertEquals(
-            [
-                'auto' => 'auto',
-                '1' => 1,
-                '0' => 0,
-            ],
+            ['auto' => 'auto', '1' => 1, '0' => 0],
             $this->object->getOptionValueList('OBGzip'),
         );
 
         $this->assertEquals(
-            [
-                'none' => 'Nowhere',
-                'left' => 'Left',
-                'right' => 'Right',
-                'both' => 'Both',
-            ],
+            ['none' => 'Nowhere', 'left' => 'Left', 'right' => 'Right', 'both' => 'Both'],
             $this->object->getOptionValueList('RowActionLinks'),
         );
     }
@@ -125,14 +110,7 @@ class FormTest extends AbstractTestCase
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPathsCallback');
 
-        $array = [
-            'foo' => [
-                'bar' => [
-                    'test' => 1,
-                    1 => ':group:end',
-                ],
-            ],
-        ];
+        $array = ['foo' => ['bar' => ['test' => 1, 1 => ':group:end']]];
 
         $method->invoke($this->object, $array, 'foo', 'pref');
 
@@ -160,14 +138,7 @@ class FormTest extends AbstractTestCase
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPaths');
 
-        $array = [
-            'foo' => [
-                'bar' => [
-                    'test' => 1,
-                    1 => ':group:end',
-                ],
-            ],
-        ];
+        $array = ['foo' => ['bar' => ['test' => 1, 1 => ':group:end']]];
 
         $method->invoke($this->object, $array);
 
@@ -211,12 +182,7 @@ class FormTest extends AbstractTestCase
         $method->invoke($this->object, null);
 
         $this->assertEquals(
-            [
-                'pma_form1' => 'integer',
-                'pma_form2' => 'select',
-                ':group:end:0' => 'group',
-                '1' => 'NULL',
-            ],
+            ['pma_form1' => 'integer', 'pma_form2' => 'select', ':group:end:0' => 'group', '1' => 'NULL'],
             $attrFieldsTypes->getValue($this->object),
         );
     }

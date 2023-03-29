@@ -64,9 +64,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             ->willReturn($privileges);
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParam')->willReturnMap([
-            ['db', null, 'test_db'],
-        ]);
+        $request->method('getParam')->willReturnMap([['db', null, 'test_db']]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController(
@@ -119,9 +117,7 @@ class PrivilegesControllerTest extends AbstractTestCase
     public function testWithInvalidDatabaseName(): void
     {
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParam')->willReturnMap([
-            ['db', null, ''],
-        ]);
+        $request->method('getParam')->willReturnMap([['db', null, '']]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController(

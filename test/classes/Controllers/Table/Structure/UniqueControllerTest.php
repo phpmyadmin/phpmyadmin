@@ -29,9 +29,7 @@ class UniqueControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['selected_fld', [], ['test_field']],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
@@ -59,9 +57,7 @@ class UniqueControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['selected_fld', [], ['test_field1', 'test_field2']],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field1', 'test_field2']]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
@@ -86,9 +82,7 @@ class UniqueControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['selected_fld', [], null],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], null]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->never())->method('__invoke');
         $response = new ResponseRenderer();
@@ -119,9 +113,7 @@ class UniqueControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['selected_fld', [], ['test_field']],
-        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 

@@ -49,31 +49,19 @@ class LinterTest extends AbstractTestCase
         //      ( d, 4), ( e, 5), (\n, 6),
         //      (\n, 7).
         $this->assertEquals(
-            [
-                1,
-                0,
-            ],
+            [1, 0],
             Linter::findLineNumberAndColumn([0, 4, 7], 4),
         );
         $this->assertEquals(
-            [
-                1,
-                1,
-            ],
+            [1, 1],
             Linter::findLineNumberAndColumn([0, 4, 7], 5),
         );
         $this->assertEquals(
-            [
-                1,
-                2,
-            ],
+            [1, 2],
             Linter::findLineNumberAndColumn([0, 4, 7], 6),
         );
         $this->assertEquals(
-            [
-                2,
-                0,
-            ],
+            [2, 0],
             Linter::findLineNumberAndColumn([0, 4, 7], 7),
         );
     }
@@ -99,14 +87,8 @@ class LinterTest extends AbstractTestCase
     public static function lintProvider(): array
     {
         return [
-            [
-                [],
-                '',
-            ],
-            [
-                [],
-                'SELECT * FROM tbl',
-            ],
+            [[], ''],
+            [[], 'SELECT * FROM tbl'],
             [
                 [
                     [

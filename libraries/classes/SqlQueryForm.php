@@ -34,12 +34,12 @@ class SqlQueryForm
     /**
      * return HTML for the sql query boxes
      *
-     * @param bool|string $query       query to display in the textarea
-     *                                 or true to display last executed
-     * @param bool|string $display_tab sql|full|false
+     * @param bool|string $query      query to display in the textarea
+     *                                or true to display last executed
+     * @param bool|string $displayTab sql|full|false
      *                                 what part to display
      *                                 false if not inside querywindow
-     * @param string      $delimiter   delimiter
+     * @param string      $delimiter  delimiter
      *
      * @usedby  /server/sql
      * @usedby  /database/sql
@@ -51,11 +51,11 @@ class SqlQueryForm
         string $db,
         string $table,
         bool|string $query = true,
-        bool|string $display_tab = false,
+        bool|string $displayTab = false,
         string $delimiter = ';',
     ): string {
-        if (! $display_tab) {
-            $display_tab = 'full';
+        if (! $displayTab) {
+            $displayTab = 'full';
         }
 
         // query to show
@@ -76,23 +76,18 @@ class SqlQueryForm
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         }
 
-        if ($display_tab === 'full' || $display_tab === 'sql') {
-            [$legend, $query, $columns_list] = $this->init($query);
+        if ($displayTab === 'full' || $displayTab === 'sql') {
+            [$legend, $query, $columnsList] = $this->init($query);
         }
 
         $relation = new Relation($this->dbi);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
 
         $bookmarks = [];
-        if ($display_tab === 'full' && $bookmarkFeature !== null) {
-            $bookmark_list = Bookmark::getList(
-                $bookmarkFeature,
-                $this->dbi,
-                $GLOBALS['cfg']['Server']['user'],
-                $db,
-            );
+        if ($displayTab === 'full' && $bookmarkFeature !== null) {
+            $bookmarkList = Bookmark::getList($bookmarkFeature, $this->dbi, $GLOBALS['cfg']['Server']['user'], $db);
 
-            foreach ($bookmark_list as $bookmarkItem) {
+            foreach ($bookmarkList as $bookmarkItem) {
                 $bookmarks[] = [
                     'id' => $bookmarkItem->getId(),
                     'variable_count' => $bookmarkItem->getVariableCount(),
@@ -107,7 +102,7 @@ class SqlQueryForm
             'textarea_cols' => $GLOBALS['cfg']['TextareaCols'],
             'textarea_rows' => $GLOBALS['cfg']['TextareaRows'],
             'textarea_auto_select' => $GLOBALS['cfg']['TextareaAutoSelect'],
-            'columns_list' => $columns_list ?? [],
+            'columns_list' => $columnsList ?? [],
             'codemirror_enable' => $GLOBALS['cfg']['CodemirrorEnable'],
             'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
@@ -117,7 +112,7 @@ class SqlQueryForm
             'table' => $table,
             'goto' => $goto,
             'query' => $query,
-            'display_tab' => $display_tab,
+            'display_tab' => $displayTab,
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
@@ -133,7 +128,7 @@ class SqlQueryForm
      */
     public function init(string $query): array
     {
-        $columns_list = [];
+        $columnsList = [];
         if ($GLOBALS['db'] === '') {
             // prepare for server related
             $legend = sprintf(
@@ -149,11 +144,11 @@ class SqlQueryForm
             $db = $GLOBALS['db'];
             // if you want navigation:
             $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
-            $tmp_db_link = '<a href="' . $scriptName
+            $tmpDbLink = '<a href="' . $scriptName
                 . Url::getCommon(['db' => $db], ! str_contains($scriptName, '?') ? '?' : '&')
                 . '">';
-            $tmp_db_link .= htmlspecialchars($db) . '</a>';
-            $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
+            $tmpDbLink .= htmlspecialchars($db) . '</a>';
+            $legend = sprintf(__('Run SQL query/queries on database %s'), $tmpDbLink);
             if ($query === '') {
                 $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], Util::backquote(...));
             }
@@ -163,12 +158,12 @@ class SqlQueryForm
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columns_list = $this->dbi->getColumns($db, $GLOBALS['table'], true);
+            $columnsList = $this->dbi->getColumns($db, $GLOBALS['table'], true);
 
             $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-            $tmp_tbl_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
-            $tmp_tbl_link .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
-            $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
+            $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
+            $tmpTblLink .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
+            $legend = sprintf(__('Run SQL query/queries on table %s'), $tmpTblLink);
             if ($query === '') {
                 $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryTable'], Util::backquote(...));
             }
@@ -176,10 +171,6 @@ class SqlQueryForm
 
         $legend .= ': ' . MySQLDocumentation::show('SELECT');
 
-        return [
-            $legend,
-            $query,
-            $columns_list,
-        ];
+        return [$legend, $query, $columnsList];
     }
 }

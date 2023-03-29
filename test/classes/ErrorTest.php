@@ -42,14 +42,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testSetBacktrace(): void
     {
-        $bt = [
-            [
-                'file' => 'bt1',
-                'line' => 2,
-                'function' => 'bar',
-                'args' => ['foo' => $this],
-            ],
-        ];
+        $bt = [['file' => 'bt1', 'line' => 2, 'function' => 'bar', 'args' => ['foo' => $this]]];
         $this->object->setBacktrace($bt);
         $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
         $this->assertEquals($bt, $this->object->getBacktrace());
@@ -86,19 +79,13 @@ class ErrorTest extends AbstractTestCase
     public static function filePathProvider(): array
     {
         return [
-            [
-                './ChangeLog',
-                '.' . DIRECTORY_SEPARATOR . 'ChangeLog',
-            ],
+            ['./ChangeLog', '.' . DIRECTORY_SEPARATOR . 'ChangeLog'],
             [
                 __FILE__,
                 '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR
                     . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
             ],
-            [
-                './NONEXISTING',
-                'NONEXISTING',
-            ],
+            ['./NONEXISTING', 'NONEXISTING'],
         ];
     }
 
@@ -165,30 +152,10 @@ class ErrorTest extends AbstractTestCase
     public function testGetBacktrace(): void
     {
         $bt = [
-            [
-                'file' => 'bt1',
-                'line' => 2,
-                'function' => 'bar',
-                'args' => ['foo' => 1],
-            ],
-            [
-                'file' => 'bt2',
-                'line' => 2,
-                'function' => 'bar',
-                'args' => ['foo' => 2],
-            ],
-            [
-                'file' => 'bt3',
-                'line' => 2,
-                'function' => 'bar',
-                'args' => ['foo' => 3],
-            ],
-            [
-                'file' => 'bt4',
-                'line' => 2,
-                'function' => 'bar',
-                'args' => ['foo' => 4],
-            ],
+            ['file' => 'bt1', 'line' => 2, 'function' => 'bar', 'args' => ['foo' => 1]],
+            ['file' => 'bt2', 'line' => 2, 'function' => 'bar', 'args' => ['foo' => 2]],
+            ['file' => 'bt3', 'line' => 2, 'function' => 'bar', 'args' => ['foo' => 3]],
+            ['file' => 'bt4', 'line' => 2, 'function' => 'bar', 'args' => ['foo' => 4]],
         ];
 
         $this->object->setBacktrace($bt);

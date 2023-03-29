@@ -114,10 +114,7 @@ class VariablesController extends AbstractController
                 $formattedValue = trim(
                     $this->template->render(
                         'server/variables/format_variable',
-                        [
-                            'valueTitle' => Util::formatNumber($value, 0),
-                            'value' => implode(' ', $bytes),
-                        ],
+                        ['valueTitle' => Util::formatNumber($value, 0), 'value' => implode(' ', $bytes)],
                     ),
                 );
             } else {
@@ -125,9 +122,6 @@ class VariablesController extends AbstractController
             }
         }
 
-        return [
-            $formattedValue,
-            $isHtmlFormatted,
-        ];
+        return [$formattedValue, $isHtmlFormatted];
     }
 }

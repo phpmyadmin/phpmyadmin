@@ -107,18 +107,18 @@ class Url
      * <input type="hidden" name="ccc[b]" Value="ccc_b">
      * </code>
      *
-     * @param array  $values   hidden values
-     * @param string $pre      prefix
-     * @param bool   $is_token if token already added in hidden input field
+     * @param array  $values  hidden values
+     * @param string $pre     prefix
+     * @param bool   $isToken if token already added in hidden input field
      *
      * @return string form fields of type hidden
      */
-    public static function getHiddenFields(array $values, string $pre = '', bool $is_token = false): string
+    public static function getHiddenFields(array $values, string $pre = '', bool $isToken = false): string
     {
         $fields = '';
 
         /* Always include token in plain forms */
-        if ($is_token === false && isset($_SESSION[' PMA_token '])) {
+        if ($isToken === false && isset($_SESSION[' PMA_token '])) {
             $values['token'] = $_SESSION[' PMA_token '];
         }
 
@@ -313,27 +313,27 @@ class Url
     public static function getArgSeparator(string $encode = 'none'): string
     {
         static $separator = null;
-        static $html_separator = null;
+        static $htmlSeparator = null;
 
         if ($separator === null) {
             // use separators defined by php, but prefer ';'
             // as recommended by W3C
             // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
             // /notes.html#h-B.2.2)
-            $arg_separator = (string) ini_get('arg_separator.input');
-            if (str_contains($arg_separator, ';')) {
+            $argSeparator = (string) ini_get('arg_separator.input');
+            if (str_contains($argSeparator, ';')) {
                 $separator = ';';
-            } elseif ($arg_separator !== '') {
-                $separator = $arg_separator[0];
+            } elseif ($argSeparator !== '') {
+                $separator = $argSeparator[0];
             } else {
                 $separator = '&';
             }
 
-            $html_separator = htmlentities($separator);
+            $htmlSeparator = htmlentities($separator);
         }
 
         return match ($encode) {
-            'html' => $html_separator,
+            'html' => $htmlSeparator,
             default => $separator,
         };
     }
