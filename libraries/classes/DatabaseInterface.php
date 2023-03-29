@@ -218,11 +218,14 @@ class DatabaseInterface implements DbalInterface
 
         $result = $this->extension->realQuery($query, $this->links[$link], $options);
 
+        if ($link === self::CONNECT_USER) {
+            $this->lastQueryExecutionTime = microtime(true) - $time;
+        }
+
         if ($cache_affected_rows) {
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($link, false);
         }
 
-        $this->lastQueryExecutionTime = microtime(true) - $time;
         if ($debug) {
             $errorMessage = $this->getError($link);
             Utilities::debugLogQueryIntoSession(
