@@ -1116,6 +1116,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getTrackingIcon\\(\\) has parameter \\$trackedTable with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) has parameter \\$currentTable with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -8552,6 +8557,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:changeTrackingData\\(\\) has parameter \\$newData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:getTrackedTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
 
