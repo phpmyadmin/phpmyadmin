@@ -106,6 +106,21 @@ class GisLineStringTest extends GisGeomTestCase
                     ],
                 ],
             ],
+            [
+                '',
+                [
+                    'srid' => 0,
+                    0 => [
+                        'LINESTRING' => [
+                            'no_of_points' => 1,
+                            0 => [
+                                'x' => 0,
+                                'y' => 0,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
