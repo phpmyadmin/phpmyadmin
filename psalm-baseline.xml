@@ -4653,13 +4653,14 @@
     <PossiblyInvalidIterator occurrences="1">
       <code>$_POST['partitions']</code>
     </PossiblyInvalidIterator>
-    <PossiblyInvalidOperand occurrences="6">
+    <PossiblyInvalidOperand occurrences="7">
       <code>$_POST['partition_by']</code>
       <code>$_POST['partition_count']</code>
       <code>$_POST['partition_expr']</code>
       <code>$_POST['subpartition_by']</code>
       <code>$_POST['subpartition_count']</code>
       <code>$_POST['subpartition_expr']</code>
+      <code>$_POST['tbl_storage_engine']</code>
     </PossiblyInvalidOperand>
   </file>
   <file src="libraries/classes/Crypto/Crypto.php">
