@@ -35,7 +35,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      * @return string the transformed text
      */
     abstract public function applyTransformation(
-        $buffer,
+        string $buffer,
         array $options = [],
         FieldMetadata|null $meta = null,
     ): string;
