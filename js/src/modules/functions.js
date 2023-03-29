@@ -3417,6 +3417,149 @@ Functions.onloadFilterText = () => {
 };
 
 /**
+ * Update the selected text element as per arrow keys pressed
+ * @param {Array<HTMLElement>} elementsArray
+ * @param {Number} index
+ * @param {boolean} isIncrement
+ */
+function updateSelectedText (elementsArray, index, isIncrement = true) {
+    if ((!isIncrement && index >= 1) || (isIncrement && index < elementsArray.length - 1)) {
+        elementsArray[index].classList.remove('st_selected_text');
+        elementsArray[isIncrement ? index + 1 : index - 1].classList.add('st_selected_text');
+    }
+}
+
+/**
+ * Provides all the filtered elements from the given array
+ * @return {Array<HTMLElement>}
+ */
+function getFilteredTextResults () {
+    var tablesText = Array.from($('.st_text'));
+    return tablesText.filter(t=> !t.classList.contains('st_hidden'));
+}
+
+/**
+ * Update the latest selected table and scroll accordingly
+ */
+$(document).on('keydown', '#filterSearchTablesText', function (e) {
+    if (e.keyCode !== 38 && e.keyCode !== 40) {
+        return;
+    }
+    e.preventDefault();
+
+    var validTexts = getFilteredTextResults();
+    var selectedIndex = validTexts.findIndex(t => t.classList.contains('st_selected_text'));
+
+    var selectionBox = document.querySelector('.st_selection_box');
+    var childEl = validTexts[selectedIndex];
+    if (validTexts.length > 0) {
+        updateSelectedText(validTexts, selectedIndex, e.keyCode === 40);
+        selectionBox.scroll(0, childEl.offsetTop - selectionBox.offsetTop - selectionBox.offsetHeight / 2);
+    }
+});
+
+/**
+ * - Filter the table as per the wildcard provided
+ * - Navigate to the desired table on Enter key press
+ */
+$(document).on('keyup', '#filterSearchTablesText', function (e) {
+    if (e.keyCode === 38 || e.keyCode === 40) {
+        e.preventDefault();
+        return ;
+    }
+
+    var selectedText = $('.st_selected_text')[0];
+    if (selectedText) {
+        var tableName = selectedText.innerText;
+        if ((e.ctrlKey || e.metaKey) && (e.keyCode === 13 || e.keyCode === 10)) {
+            e.preventDefault();
+            window.open(selectedText.href, '_blank');
+            ajaxShowMessage('<div>' + window.Messages.strOpenedTableInNewTab + '<span class="search-table-title">' + tableName + '</div>', 500);
+        } else if (e.keyCode === 13) {
+            e.preventDefault();
+            $('#searchTablesModal').modal('hide');
+            ajaxShowMessage('<div>' + window.Messages.strSwitchingTable + '<span class="search-table-title">' + tableName + '</span></div>');
+            setTimeout(()=>{
+                selectedText.click();
+                ajaxShowMessage('<div>' + window.Messages.strSwitchingTable + '<span class="search-table-title">' + tableName + '</span></div>');
+            },200);
+        }
+        selectedText.classList.remove('st_selected_text');
+    }
+
+    var filterInput = $(this).val().toUpperCase().replace(/ /g, '_');
+    var dataLabelAttr = 'data-filter-table-name';
+    $('[' + dataLabelAttr + ']').each(function () {
+        var $row = $(this);
+        if ($row.attr(dataLabelAttr).indexOf(filterInput) > -1) {
+            $row.removeClass('st_hidden');
+        } else {
+            $row.addClass('st_hidden');
+        }
+    });
+
+    var validTexts = getFilteredTextResults();
+    if (validTexts.length > 0) {
+        validTexts[0].classList.add('st_selected_text');
+    }
+});
+
+/**
+ * Function to convert a HTML format string to HTMLElement
+ * @param {string} str
+ * @return {HTMLElement}
+ */
+var stringToHTML = function (str) {
+    var dom = document.createElement('div');
+    dom.innerHTML = str;
+    return dom;
+};
+
+/**
+ * Function to render a modal with the list of tables in the current database
+ */
+Functions.searchTablesModal = function () {
+    var url = window.location.href;
+    var params = {
+        'ajax_request': true,
+        'db': CommonParams.get('db'),
+        'table': CommonParams.get('table'),
+        'server': CommonParams.get('server'),
+        'current_url': url
+    };
+    // Check to only invoke the function, if user is on a database/table related page
+    if (!CommonParams.get('db')) {
+        return;
+    }
+    var $msg = ajaxShowMessage();
+    $.post('index.php?route=/search-table', params, function (response) {
+        if (response.success === true) {
+            ajaxRemoveMessage($msg);
+            if (response.db) {
+                var html = stringToHTML(response.data);
+                var pageContent = document.querySelector('#page_content');
+                // Ensure that modal element is only created once
+                if (!document.querySelector('#searchTablesModal')) {
+                    pageContent.innerHTML += (html.innerHTML);
+                }
+                $('#searchTablesModal').modal('toggle');
+                setTimeout(function () {
+                    $('#filterSearchTablesText').trigger('focus');
+                    var selectedText = $('.st_selected_text')[0];
+                    if (selectedText) {
+                        selectedText.classList.remove('st_selected_text');
+                    }
+                    var validTexts = getFilteredTextResults();
+                    if (validTexts.length > 0) {
+                        validTexts[0].classList.add('st_selected_text');
+                    }
+                }, 100);
+            }
+        }
+    });
+};
+
+/**
  * Formats a byte number to human-readable form
  *
  * @param bytesToFormat the bytes to format

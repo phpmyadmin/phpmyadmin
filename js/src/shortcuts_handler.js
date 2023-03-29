@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { CommonParams } from './modules/common.js';
+import { Functions } from './modules/functions.js';
 
 /**
  * @fileoverview    Handle shortcuts in various pages
@@ -24,6 +25,7 @@ $(function () {
     var keyH = 72;
     var keyC = 67;
     var keyBackSpace = 8;
+    var keySlash = 191;
     $(document).on('keyup', function (e) {
         // is a string but is also a boolean according to https://api.jquery.com/prop/
         if ($(e.target).prop('contenteditable') === 'true' || $(e.target).prop('contenteditable') === true) {
@@ -112,6 +114,8 @@ $(function () {
             window.history.back();
         } else if (e.keyCode === keyH) {
             $('.ic_b_home').first().trigger('click');
+        } else if (e.keyCode === keySlash) {
+            Functions.searchTablesModal();
         }
     });
 });

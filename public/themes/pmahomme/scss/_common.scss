@@ -2883,3 +2883,52 @@ body .ui-dialog {
 .table-responsive-md .data {
   z-index: 9;
 }
+
+.search_tables_modal_content {
+  .st_db_heading {
+    color: $navbar-light-active-color;
+    font-weight: bold;
+    font-size: 1.15rem;
+  }
+
+  .st_modal_body {
+    padding: 1rem;
+    padding-top: 0.25rem;
+  }
+
+  .st_selection_box {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    padding: 0.25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-weight: bold;
+    background: #ecedee;
+  }
+
+  .st_text {
+    height: 1.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .st_selected_text {
+    display: block;
+    background: $th-background;
+    padding: 0.2rem 0.4rem;
+    width: fit-content;
+    min-width: 5rem;
+    border-radius: 0.25rem;
+    height: 1.6rem;
+  }
+
+  .st_hidden {
+    display: none;
+  }
+}
+
+.search-table-title {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: $link-color;
+}

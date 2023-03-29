@@ -13,6 +13,7 @@ import { AJAX } from '../../modules/ajax.js';
 AJAX.registerTeardown('server/status/variables.js', function () {
     $('#filterAlert').off('change');
     $('#filterText').off('keyup');
+    $('#filterSearchTablesModal').off('keyup keydown');
     $('#filterCategory').off('change');
     $('#dontFormat').off('change');
 });

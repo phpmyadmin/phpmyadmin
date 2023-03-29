@@ -58,6 +58,7 @@ Currently phpMyAdmin supports following shortcuts:
 * t + s - Go to table structure (Provided you are in table related page)
 * t + f - Search table (Provided you are in table related page)
 * backspace - Takes you to older page.
+* / - Jump to selected table (Provided you are in database/table related page)
 
 A word about users
 ------------------

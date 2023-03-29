@@ -27,6 +27,7 @@ use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
+use PhpMyAdmin\Controllers\SearchTablesModalController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
@@ -369,6 +370,13 @@ return [
         DatabaseController::class => [
             'class' => DatabaseController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template'],
+        ],
+        SearchTablesModalController::class => [
+            'class' => SearchTablesModalController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+            ],
         ],
         ErrorReportController::class => [
             'class' => ErrorReportController::class,
