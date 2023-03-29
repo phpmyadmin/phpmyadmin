@@ -112,10 +112,9 @@ final class MoveColumnsController extends AbstractController
                 $data['Collation'] ?? '',
                 $data['Null'] === 'YES' ? 'YES' : 'NO',
                 $defaultType,
-                $currentTimestamp ? '' : $data['Default'],
+                $data['Default'] ?? '',
                 $data['Extra'] ?? '',
-                isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
-                        ? $data['COLUMN_COMMENT'] : false,
+                $data['COLUMN_COMMENT'] ?? '',
                 $data['Virtuality'],
                 $data['Expression'],
                 $i === 0 ? '-first' : $columnNames[$i - 1],
