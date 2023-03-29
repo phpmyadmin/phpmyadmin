@@ -140,12 +140,12 @@
             </td>
         {% endif %}
 
-        {% if not (show_charset > 1) %}
-            {% if charset|length > 0 %}
-                <td class="text-nowrap">
+        {% if show_charset %}
+            <td class="text-nowrap">
+                {% if charset|length > 0 %}
                     {{ charset|raw }}
-                </td>
-            {% endif %}
+                {% endif %}
+            </td>
         {% endif %}
 
         {% if show_comment %}
