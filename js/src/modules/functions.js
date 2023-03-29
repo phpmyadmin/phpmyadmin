@@ -208,6 +208,8 @@ Functions.addDateTimePicker = function () {
                 tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
             } else if ($(this).hasClass('datefield')) {
                 tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
+            } else if ($(this).hasClass('datetimefield')) {
+                tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDatetime);
             }
         });
     }

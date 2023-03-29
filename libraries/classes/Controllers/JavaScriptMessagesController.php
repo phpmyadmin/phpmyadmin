@@ -520,6 +520,12 @@ final class JavaScriptMessagesController
                 . ' key in those values directly if desired',
             ),
 
+            /* For Tip to be shown on Datetime and Timestamp fields */
+            'strMysqlAllowedValuesTipDatetime' => __(
+                'MySQL accepts additional values not selectable by the datepicker or slider;'
+                . ' type those values directly if desired',
+            ),
+
             /* For Lock symbol Tooltip */
             'strLockToolTip' => __(
                 'Indicates that you have made changes to this page;'
