@@ -56,6 +56,8 @@
     "webpack-concat-files-plugin": "^0.5.2"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "babel-jest": "^29.5.0",
     "eslint": "^8.36.0",
     "eslint-plugin-compat": "4.1.1",
