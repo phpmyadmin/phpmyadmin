@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.8.0@9cf4f60a333f779ad3bc704a555920e81d4fdcda">
+<files psalm-version="5.9.0@8b9ad1eb9e8b7d3101f949291da2b9f7767cd163">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -347,7 +347,6 @@
       <code>$request</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Server'][$item]]]></code>
       <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
@@ -4138,8 +4137,9 @@
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
-      <code><![CDATA[$currentTimestamp ? '' : $data['Default']]]></code>
+      <code><![CDATA[$data['COLUMN_COMMENT'] ?? '']]></code>
       <code><![CDATA[$data['Collation'] ?? '']]></code>
+      <code><![CDATA[$data['Default'] ?? '']]></code>
       <code><![CDATA[$data['Expression']]]></code>
       <code><![CDATA[$data['Extra']]]></code>
       <code><![CDATA[$data['Extra'] ?? '']]></code>
@@ -4149,10 +4149,9 @@
       <code><![CDATA[$extractedColumnSpec['spec_in_brackets']]]></code>
       <code><![CDATA[$extractedColumnSpec['type']]]></code>
       <code><![CDATA[$i === 0 ? '-first' : $columnNames[$i - 1]]]></code>
-      <code><![CDATA[isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
-                        ? $data['COLUMN_COMMENT'] : false]]></code>
     </MixedArgument>
     <MixedArrayAccess>
+      <code><![CDATA[$data['COLUMN_COMMENT']]]></code>
       <code><![CDATA[$data['Collation']]]></code>
       <code><![CDATA[$data['Default']]]></code>
       <code><![CDATA[$data['Default']]]></code>
@@ -4180,10 +4179,6 @@
       <code>$data</code>
       <code><![CDATA[$data['Expression']]]></code>
     </MixedAssignment>
-    <PossiblyFalseArgument>
-      <code><![CDATA[isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
-                        ? $data['COLUMN_COMMENT'] : false]]></code>
-    </PossiblyFalseArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$data['Expression']]]></code>
     </PossiblyNullArgument>
@@ -5394,7 +5389,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_definer']]]></code>
-      <code><![CDATA[$_POST['item_definer']]]></code>
       <code><![CDATA[$_POST['item_ends']]]></code>
       <code><![CDATA[$_POST['item_execute_at']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -5412,7 +5406,6 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
-      <code><![CDATA[$_POST['item_definer']]]></code>
       <code><![CDATA[$_POST['item_ends']]]></code>
       <code><![CDATA[$_POST['item_execute_at']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -5845,7 +5838,6 @@
       <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$itemDefiner</code>
-      <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
@@ -5875,7 +5867,6 @@
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
-      <code>$itemDefiner</code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
@@ -6056,7 +6047,6 @@
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_definer']]]></code>
-      <code><![CDATA[$_POST['item_definer']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -6069,7 +6059,6 @@
       <code>$itemName</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_definer']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
@@ -6269,13 +6258,7 @@
       <code><![CDATA[array<int,string|null>]]></code>
       <code><![CDATA[array<string,string|null>]]></code>
     </InvalidReturnType>
-    <MixedArgument>
-      <code><![CDATA[$field->flags]]></code>
-      <code><![CDATA[$field->type]]></code>
-    </MixedArgument>
     <MixedReturnTypeCoercion>
-      <code>$fields</code>
-      <code><![CDATA[array<int, FieldMetadata>]]></code>
       <code><![CDATA[array<int, string|null>]]></code>
       <code><![CDATA[array<string, string|null>]]></code>
       <code><![CDATA[array_column($this->result->fetch_all(), 0)]]></code>
@@ -6310,8 +6293,6 @@
       <code><![CDATA[$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
-      <code>$clause</code>
-      <code>$clause</code>
       <code>$clause</code>
       <code>$colOrder</code>
       <code>$colVisib</code>
@@ -12177,6 +12158,9 @@
     <MixedAssignment>
       <code>$value</code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>response</code>
+    </PossiblyUnusedMethod>
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
       <code><![CDATA[(string) $GLOBALS['table']]]></code>
@@ -13113,7 +13097,6 @@
       <code>$column</code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
-      <code><![CDATA[$column['Extra']]]></code>
       <code>$eachCol</code>
       <code>$eachCol</code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['constraint']]]></code>
@@ -13160,7 +13143,6 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
-      <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
@@ -13550,6 +13532,9 @@
     <PossiblyUnusedProperty>
       <code>$filesizeInfo</code>
     </PossiblyUnusedProperty>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$data['colorModes']]]></code>
+    </PropertyTypeCoercion>
     <UnevaluatedCode>
       <code>return false;</code>
     </UnevaluatedCode>
