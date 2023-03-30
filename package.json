@@ -64,6 +64,7 @@
     "stylelint-config-recommended-scss": "^9.0.1",
     "stylelint-config-standard": "^31.0.0",
     "stylelint-scss": "^4.6.0",
+    "ts-loader": "^9.4.2",
     "typescript": "^5.0.2"
   },
   "scripts": {
