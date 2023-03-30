@@ -66,5 +66,11 @@ class TwoFactorController extends AbstractController
             'backends' => $twoFactor->getAllBackends(),
             'missing' => $twoFactor->getMissingDeps(),
         ]);
+
+        if ($this->response->isAjax()) {
+            $this->response->addJSON('disableNaviSettings', true);
+        } else {
+            define('PMA_DISABLE_NAVI_SETTINGS', true);
+        }
     }
 }
