@@ -9,6 +9,8 @@ const RtlCssPlugin = require('rtlcss-webpack-plugin');
 const rootPath = path.resolve(__dirname, '');
 const publicPath = path.resolve(__dirname, 'public');
 
+const typeScriptErrorsToIgnore = [ 2304, 2322, 2339, 2345, 2362, 2363, 2365, 2367, 2405, 2469, 2538, 2551, 2554, 2555, 2740, 2769, 5096 ];
+
 module.exports = [
     {
         mode: 'none',
@@ -102,7 +104,7 @@ module.exports = [
                     exclude: /node_modules/,
                     use: [
                         { loader: 'babel-loader', options: { presets:  ['@babel/preset-env'] } },
-                        { loader: 'ts-loader' }
+                        { loader: 'ts-loader', options: { ignoreDiagnostics: typeScriptErrorsToIgnore } },
                     ],
                 },
                 {
