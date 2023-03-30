@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import { CommonParams } from './common.js';
-import { Config } from './config.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
-import { getConfigValue, setConfigValue } from './functions/config.js';
-import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
-import isStorageSupported from './functions/isStorageSupported.js';
+import { CommonParams } from './common.ts';
+import { Config } from './config.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
+import { getConfigValue, setConfigValue } from './functions/config.ts';
+import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
+import isStorageSupported from './functions/isStorageSupported.ts';
 
 /**
  * function used in or for navigation panel

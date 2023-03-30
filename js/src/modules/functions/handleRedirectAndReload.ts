@@ -1,4 +1,4 @@
-import { CommonParams } from '../common.js';
+import { CommonParams } from '../common.ts';
 
 /**
  * Handle redirect and reload flags sent as part of AJAX requests

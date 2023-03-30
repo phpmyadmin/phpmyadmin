@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { CommonParams } from './modules/common.js';
-import { escapeHtml } from './modules/functions/escape.js';
+import { AJAX } from './modules/ajax.ts';
+import { CommonParams } from './modules/common.ts';
+import { escapeHtml } from './modules/functions/escape.ts';
 
 /* This script handles PMA Drag Drop Import, loaded only when configuration is enabled.*/
 

@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
 
 /**
  * SQL syntax highlighting transformation plugin js

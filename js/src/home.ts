@@ -1,6 +1,6 @@
-import { AJAX } from './modules/ajax.js';
-import { showGitVersion } from './modules/git-info.js';
-import { ThemesManager } from './modules/themes-manager.js';
+import { AJAX } from './modules/ajax.ts';
+import { showGitVersion } from './modules/git-info.ts';
+import { ThemesManager } from './modules/themes-manager.ts';
 
 AJAX.registerTeardown('home.js', () => {
     const themesModal = document.getElementById('themesModal');

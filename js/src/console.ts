@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Console } from './modules/console.js';
+import { Console } from './modules/console.ts';
 
 $(function () {
     Console.initialize();

@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import { Functions } from '../modules/functions.js';
-import getImageTag from '../modules/functions/getImageTag.js';
-import { DesignerConfig } from './config.js';
+import { Functions } from '../modules/functions.ts';
+import getImageTag from '../modules/functions/getImageTag.ts';
+import { DesignerConfig } from './config.ts';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.

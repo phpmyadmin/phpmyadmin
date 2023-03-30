@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 
 /**
  * Unbind all event handlers before tearing down a page

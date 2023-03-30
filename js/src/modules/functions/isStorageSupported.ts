@@ -1,4 +1,4 @@
-import { ajaxShowMessage } from '../ajax-message.js';
+import { ajaxShowMessage } from '../ajax-message.ts';
 
 /**
  * checks whether browser supports web storage

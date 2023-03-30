@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import { CommonParams } from './common.js';
-import { ajaxShowMessage } from './ajax-message.js';
-import isStorageSupported from './functions/isStorageSupported.js';
-import formatDateTime from './functions/formatDateTime.js';
+import { CommonParams } from './common.ts';
+import { ajaxShowMessage } from './ajax-message.ts';
+import isStorageSupported from './functions/isStorageSupported.ts';
+import formatDateTime from './functions/formatDateTime.ts';
 
 /**
  * Functions used in configuration forms and on user preferences pages

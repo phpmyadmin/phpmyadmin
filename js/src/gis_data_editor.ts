@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { CommonParams } from './modules/common.js';
-import { ajaxShowMessage } from './modules/ajax-message.js';
+import { AJAX } from './modules/ajax.ts';
+import { CommonParams } from './modules/common.ts';
+import { ajaxShowMessage } from './modules/ajax-message.ts';
 
 /**
  * @fileoverview    functions used in GIS data editor

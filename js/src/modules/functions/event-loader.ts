@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { Functions } from '../functions.js';
-import handleCreateViewModal from './handleCreateViewModal.js';
+import { Functions } from '../functions.ts';
+import handleCreateViewModal from './handleCreateViewModal.ts';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener

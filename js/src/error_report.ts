@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { CommonParams } from './modules/common.js';
-import { ajaxShowMessage } from './modules/ajax-message.js';
-import getImageTag from './modules/functions/getImageTag.js';
+import { AJAX } from './modules/ajax.ts';
+import { CommonParams } from './modules/common.ts';
+import { ajaxShowMessage } from './modules/ajax-message.ts';
+import getImageTag from './modules/functions/getImageTag.ts';
 
 /**
  * general function, usually for data manipulation pages

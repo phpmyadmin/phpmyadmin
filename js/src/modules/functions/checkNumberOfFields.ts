@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { ajaxShowMessage } from '../ajax-message.js';
+import { ajaxShowMessage } from '../ajax-message.ts';
 
 /* global maxInputVars */ // templates/javascript/variables.twig
 

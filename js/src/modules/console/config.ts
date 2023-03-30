@@ -1,4 +1,4 @@
-import { setConfigValue } from '../functions/config.js';
+import { setConfigValue } from '../functions/config.ts';
 
 /**
  * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings

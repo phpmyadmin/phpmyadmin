@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { escapeHtml } from '../modules/functions/escape.js';
+import { AJAX } from '../modules/ajax.ts';
+import { escapeHtml } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    functions used for visualizing GIS data

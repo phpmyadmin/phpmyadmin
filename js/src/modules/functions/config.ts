@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { ajaxShowMessage } from '../ajax-message.js';
-import { CommonParams } from '../common.js';
+import { ajaxShowMessage } from '../ajax-message.ts';
+import { CommonParams } from '../common.ts';
 
 /**
  * Sets a configuration value.

@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
-import { escapeHtml } from '../modules/functions/escape.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
+import { escapeHtml } from '../modules/functions/escape.ts';
 
 /* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 

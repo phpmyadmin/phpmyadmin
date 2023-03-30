@@ -1,4 +1,4 @@
-import { escapeHtml } from './escape.js';
+import { escapeHtml } from './escape.ts';
 
 /**
  * Returns an HTML IMG tag for a particular image from a theme,

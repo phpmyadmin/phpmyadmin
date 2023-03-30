@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../ajax-message.js';
-import { CommonParams } from '../common.js';
-import { Functions } from '../functions.js';
-import { Navigation } from '../navigation.js';
-import getJsConfirmCommonParam from './getJsConfirmCommonParam.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../ajax-message.ts';
+import { CommonParams } from '../common.ts';
+import { Functions } from '../functions.ts';
+import { Navigation } from '../navigation.ts';
+import getJsConfirmCommonParam from './getJsConfirmCommonParam.ts';
 
 /**
  * @param {JQuery<HTMLElement>} $this

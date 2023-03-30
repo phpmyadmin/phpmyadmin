@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { DesignerOfflineDB } from './database.js';
-import { DesignerHistory } from './history.js';
-import { DesignerMove } from './move.js';
-import { DesignerPage } from './page.js';
-import { DesignerConfig } from './config.js';
+import { AJAX } from '../modules/ajax.ts';
+import { DesignerOfflineDB } from './database.ts';
+import { DesignerHistory } from './history.ts';
+import { DesignerMove } from './move.ts';
+import { DesignerPage } from './page.ts';
+import { DesignerConfig } from './config.ts';
 
 /**
  * Initializes the data required to run Designer, then fires it up.

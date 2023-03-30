@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
 
 /**
  * @fileoverview    function used in QBE for DB

@@ -1,4 +1,4 @@
-import { ajaxShowMessage } from '../modules/ajax-message.js';
+import { ajaxShowMessage } from '../modules/ajax-message.ts';
 
 var designerTables = [
     {

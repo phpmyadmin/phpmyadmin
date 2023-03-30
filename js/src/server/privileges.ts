@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
-import { CommonParams } from '../modules/common.js';
-import { Navigation } from '../modules/navigation.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
-import getImageTag from '../modules/functions/getImageTag.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
+import { CommonParams } from '../modules/common.ts';
+import { Navigation } from '../modules/navigation.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
+import getImageTag from '../modules/functions/getImageTag.ts';
 
 /**
  * Export privileges modal handler

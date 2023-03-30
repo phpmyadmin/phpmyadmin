@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import { AJAX } from '../../modules/ajax.js';
-import { CommonParams } from '../../modules/common.js';
-import highlightSql from '../../modules/sql-highlight.js';
-import { ajaxShowMessage } from '../../modules/ajax-message.js';
-import { escapeHtml } from '../../modules/functions/escape.js';
-import getImageTag from '../../modules/functions/getImageTag.js';
+import { AJAX } from '../../modules/ajax.ts';
+import { CommonParams } from '../../modules/common.ts';
+import highlightSql from '../../modules/sql-highlight.ts';
+import { ajaxShowMessage } from '../../modules/ajax-message.ts';
+import { escapeHtml } from '../../modules/functions/escape.ts';
+import getImageTag from '../../modules/functions/getImageTag.ts';
 
 /**
  * Server Status Processes

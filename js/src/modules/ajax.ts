@@ -1,14 +1,14 @@
 import $ from 'jquery';
-import { Navigation } from './navigation.js';
-import { CommonParams } from './common.js';
-import highlightSql from './sql-highlight.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
-import { escapeHtml } from './functions/escape.js';
-import getImageTag from './functions/getImageTag.js';
-import { ignorePhpErrors } from './functions/ignorePhpErrors.js';
-import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
-import checkNumberOfFields from './functions/checkNumberOfFields.js';
-import mainMenuResizerCallback from './functions/mainMenuResizerCallback.js';
+import { Navigation } from './navigation.ts';
+import { CommonParams } from './common.ts';
+import highlightSql from './sql-highlight.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
+import { escapeHtml } from './functions/escape.ts';
+import getImageTag from './functions/getImageTag.ts';
+import { ignorePhpErrors } from './functions/ignorePhpErrors.ts';
+import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
+import checkNumberOfFields from './functions/checkNumberOfFields.ts';
+import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 
 /**
  * This object handles ajax requests for pages. It also

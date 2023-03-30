@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { CommonParams } from './modules/common.js';
+import { CommonParams } from './modules/common.ts';
 
 /**
  * @fileoverview    Handle shortcuts in various pages

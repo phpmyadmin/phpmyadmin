@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import { ajaxShowMessage } from '../modules/ajax-message.js';
-import { escapeHtml } from '../modules/functions/escape.js';
-import { DesignerConfig } from './config.js';
-import { DesignerOfflineDB } from './database.js';
-import { DesignerMove } from './move.js';
-import { DesignerObjects } from './objects.js';
+import { ajaxShowMessage } from '../modules/ajax-message.ts';
+import { escapeHtml } from '../modules/functions/escape.ts';
+import { DesignerConfig } from './config.ts';
+import { DesignerOfflineDB } from './database.ts';
+import { DesignerMove } from './move.ts';
+import { DesignerObjects } from './objects.ts';
 
 var DesignerPage = {};
 

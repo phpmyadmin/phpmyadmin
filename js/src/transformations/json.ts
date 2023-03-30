@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
+import { AJAX } from '../modules/ajax.ts';
 
 /**
  * JSON syntax highlighting transformation plugin

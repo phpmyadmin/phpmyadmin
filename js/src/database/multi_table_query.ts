@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
-import { CommonParams } from '../modules/common.js';
-import { ajaxShowMessage } from '../modules/ajax-message.js';
-import { escapeBacktick } from '../modules/functions/escape.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
+import { CommonParams } from '../modules/common.ts';
+import { ajaxShowMessage } from '../modules/ajax-message.ts';
+import { escapeBacktick } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    function used in QBE for DB

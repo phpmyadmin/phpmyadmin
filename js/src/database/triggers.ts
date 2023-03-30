@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
-import { Navigation } from '../modules/navigation.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
-import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
+import { Navigation } from '../modules/navigation.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 
 AJAX.registerTeardown('database/triggers.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');

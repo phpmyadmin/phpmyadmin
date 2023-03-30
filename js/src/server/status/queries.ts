@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { AJAX } from '../../modules/ajax.js';
-import createProfilingChart from '../../modules/functions/createProfilingChart.js';
+import { AJAX } from '../../modules/ajax.ts';
+import createProfilingChart from '../../modules/functions/createProfilingChart.ts';
 
 /**
  * @fileoverview    Javascript functions used in server status query page

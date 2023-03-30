@@ -1,12 +1,12 @@
 import $ from 'jquery';
 import CodeMirror from 'codemirror';
-import { AJAX } from './ajax.js';
-import { Functions } from './functions.js';
-import { CommonParams } from './common.js';
-import { Navigation } from './navigation.js';
-import { Config } from './console/config.js';
-import { getConfigValue } from './functions/config.js';
-import { escapeHtml } from './functions/escape.js';
+import { AJAX } from './ajax.ts';
+import { Functions } from './functions.ts';
+import { CommonParams } from './common.ts';
+import { Navigation } from './navigation.ts';
+import { Config } from './console/config.ts';
+import { getConfigValue } from './functions/config.ts';
+import { escapeHtml } from './functions/escape.ts';
 
 /**
  * Console object

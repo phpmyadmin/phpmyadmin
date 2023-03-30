@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
-import { ajaxShowMessage } from './modules/ajax-message.js';
-import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.js';
+import { AJAX } from './modules/ajax.ts';
+import { Functions } from './modules/functions.ts';
+import { ajaxShowMessage } from './modules/ajax-message.ts';
+import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.ts';
 
 /**
  * @fileoverview    Javascript functions used in server replication page

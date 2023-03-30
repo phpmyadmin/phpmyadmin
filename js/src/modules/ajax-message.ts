@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import tooltip from './tooltip.js';
-import highlightSql from './sql-highlight.js';
+import tooltip from './tooltip.ts';
+import highlightSql from './sql-highlight.ts';
 
 /**
  * Number of AJAX messages shown since page load.

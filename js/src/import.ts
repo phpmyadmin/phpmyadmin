@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
-import { Navigation } from './modules/navigation.js';
-import { CommonParams } from './modules/common.js';
-import { ajaxShowMessage } from './modules/ajax-message.js';
+import { AJAX } from './modules/ajax.ts';
+import { Functions } from './modules/functions.ts';
+import { Navigation } from './modules/navigation.ts';
+import { CommonParams } from './modules/common.ts';
+import { ajaxShowMessage } from './modules/ajax-message.ts';
 
 /* global themeImagePath */ // templates/javascript/variables.twig
 

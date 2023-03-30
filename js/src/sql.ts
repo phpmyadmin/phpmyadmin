@@ -1,14 +1,14 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
-import { Navigation } from './modules/navigation.js';
-import { CommonParams } from './modules/common.js';
-import highlightSql from './modules/sql-highlight.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.js';
-import createProfilingChart from './modules/functions/createProfilingChart.js';
-import { escapeHtml } from './modules/functions/escape.js';
-import refreshMainContent from './modules/functions/refreshMainContent.js';
-import isStorageSupported from './modules/functions/isStorageSupported.js';
+import { AJAX } from './modules/ajax.ts';
+import { Functions } from './modules/functions.ts';
+import { Navigation } from './modules/navigation.ts';
+import { CommonParams } from './modules/common.ts';
+import highlightSql from './modules/sql-highlight.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
+import createProfilingChart from './modules/functions/createProfilingChart.ts';
+import { escapeHtml } from './modules/functions/escape.ts';
+import refreshMainContent from './modules/functions/refreshMainContent.ts';
+import isStorageSupported from './modules/functions/isStorageSupported.ts';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used

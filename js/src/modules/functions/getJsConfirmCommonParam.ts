@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { CommonParams } from '../common.js';
+import { CommonParams } from '../common.ts';
 
 /**
  * @param {HTMLElement} elem

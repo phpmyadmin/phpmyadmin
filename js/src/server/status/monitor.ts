@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import { AJAX } from '../../modules/ajax.js';
-import { Functions } from '../../modules/functions.js';
-import { CommonParams } from '../../modules/common.js';
-import tooltip from '../../modules/tooltip.js';
-import createProfilingChart from '../../modules/functions/createProfilingChart.js';
-import { escapeHtml } from '../../modules/functions/escape.js';
-import getImageTag from '../../modules/functions/getImageTag.js';
-import isStorageSupported from '../../modules/functions/isStorageSupported.js';
+import { AJAX } from '../../modules/ajax.ts';
+import { Functions } from '../../modules/functions.ts';
+import { CommonParams } from '../../modules/common.ts';
+import tooltip from '../../modules/tooltip.ts';
+import createProfilingChart from '../../modules/functions/createProfilingChart.ts';
+import { escapeHtml } from '../../modules/functions/escape.ts';
+import getImageTag from '../../modules/functions/getImageTag.ts';
+import isStorageSupported from '../../modules/functions/isStorageSupported.ts';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page

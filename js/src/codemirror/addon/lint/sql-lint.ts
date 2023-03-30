@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { CommonParams } from '../../../modules/common.js';
+import { CommonParams } from '../../../modules/common.ts';
 
 window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
     // Skipping check if text box is empty.

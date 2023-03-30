@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import getImageTag from './modules/functions/getImageTag.js';
+import getImageTag from './modules/functions/getImageTag.ts';
 
 /**
  * Handles the resizing of a menu according to the available screen width

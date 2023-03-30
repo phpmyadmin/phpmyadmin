@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.js';
+import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    function used in QBE for DB

@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
-import { Navigation } from '../modules/navigation.js';
-import { CommonParams } from '../modules/common.js';
-import tooltip from '../modules/tooltip.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
-import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
-import { escapeHtml } from '../modules/functions/escape.js';
+import { AJAX } from '../modules/ajax.ts';
+import { Functions } from '../modules/functions.ts';
+import { Navigation } from '../modules/navigation.ts';
+import { CommonParams } from '../modules/common.ts';
+import tooltip from '../modules/tooltip.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
+import { escapeHtml } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    functions used on the database structure page

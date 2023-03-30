@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
-import { CommonParams } from '../modules/common.js';
-import { ajaxShowMessage } from '../modules/ajax-message.js';
-import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { AJAX } from '../modules/ajax.ts';
+import { CommonParams } from '../modules/common.ts';
+import { ajaxShowMessage } from '../modules/ajax-message.ts';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 
 /**
  * Unbind all event handlers before tearing down the page

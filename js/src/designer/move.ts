@@ -1,13 +1,13 @@
 import $ from 'jquery';
-import { Functions } from '../modules/functions.js';
-import { CommonParams } from '../modules/common.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
-import refreshMainContent from '../modules/functions/refreshMainContent.js';
-import { Navigation } from '../modules/navigation.js';
-import { DesignerObjects } from './objects.js';
-import { DesignerHistory } from './history.js';
-import { DesignerPage } from './page.js';
-import { DesignerConfig } from './config.js';
+import { Functions } from '../modules/functions.ts';
+import { CommonParams } from '../modules/common.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
+import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { Navigation } from '../modules/navigation.ts';
+import { DesignerObjects } from './objects.ts';
+import { DesignerHistory } from './history.ts';
+import { DesignerPage } from './page.ts';
+import { DesignerConfig } from './config.ts';
 
 /* global themeImagePath */ // templates/javascript/variables.twig
 

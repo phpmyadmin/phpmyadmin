@@ -1,18 +1,18 @@
 import $ from 'jquery';
-import { AJAX } from './ajax.js';
-import { Navigation } from './navigation.js';
-import { CommonParams } from './common.js';
-import tooltip from './tooltip.js';
-import highlightSql from './sql-highlight.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
-import { escapeHtml } from './functions/escape.js';
-import getImageTag from './functions/getImageTag.js';
-import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
-import refreshMainContent from './functions/refreshMainContent.js';
-import checkIndexType from './indexes/checkIndexType.js';
-import checkIndexName from './indexes/checkIndexName.js';
-import mainMenuResizerCallback from './functions/mainMenuResizerCallback.js';
-import isStorageSupported from './functions/isStorageSupported.js';
+import { AJAX } from './ajax.ts';
+import { Navigation } from './navigation.ts';
+import { CommonParams } from './common.ts';
+import tooltip from './tooltip.ts';
+import highlightSql from './sql-highlight.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
+import { escapeHtml } from './functions/escape.ts';
+import getImageTag from './functions/getImageTag.ts';
+import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
+import refreshMainContent from './functions/refreshMainContent.ts';
+import checkIndexType from './indexes/checkIndexType.ts';
+import checkIndexName from './indexes/checkIndexName.ts';
+import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
+import isStorageSupported from './functions/isStorageSupported.ts';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig

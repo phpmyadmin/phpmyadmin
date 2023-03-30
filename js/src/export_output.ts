@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
+import { AJAX } from './modules/ajax.ts';
 
 AJAX.registerOnload('export_output.js', function () {
     $(document).on('keydown', function (e) {

@@ -1,14 +1,14 @@
 import $ from 'jquery';
-import { AJAX } from './ajax.js';
-import { Functions } from './functions.js';
-import { Navigation } from './navigation.js';
-import { CommonParams } from './common.js';
-import highlightSql from './sql-highlight.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
-import getJsConfirmCommonParam from './functions/getJsConfirmCommonParam.js';
-import refreshMainContent from './functions/refreshMainContent.js';
-import checkIndexType from './indexes/checkIndexType.js';
-import checkIndexName from './indexes/checkIndexName.js';
+import { AJAX } from './ajax.ts';
+import { Functions } from './functions.ts';
+import { Navigation } from './navigation.ts';
+import { CommonParams } from './common.ts';
+import highlightSql from './sql-highlight.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
+import getJsConfirmCommonParam from './functions/getJsConfirmCommonParam.ts';
+import refreshMainContent from './functions/refreshMainContent.ts';
+import checkIndexType from './indexes/checkIndexType.ts';
+import checkIndexName from './indexes/checkIndexName.ts';
 
 /**
  * @fileoverview    function used for index manipulation pages

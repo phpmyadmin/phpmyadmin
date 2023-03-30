@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
-import { CommonParams } from './modules/common.js';
-import highlightSql from './modules/sql-highlight.js';
-import { ajaxShowMessage } from './modules/ajax-message.js';
+import { AJAX } from './modules/ajax.ts';
+import { Functions } from './modules/functions.ts';
+import { CommonParams } from './modules/common.ts';
+import highlightSql from './modules/sql-highlight.ts';
+import { ajaxShowMessage } from './modules/ajax-message.ts';
 
 /**
  * Functions used in the export tab

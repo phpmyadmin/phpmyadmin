@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { CommonParams } from './common.js';
-import { escapeHtml } from './functions/escape.js';
+import { CommonParams } from './common.ts';
+import { escapeHtml } from './functions/escape.ts';
 
 const GitInfo = {
     /**

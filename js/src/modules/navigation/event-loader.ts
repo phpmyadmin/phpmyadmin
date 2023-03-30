@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import { CommonParams } from '../common.js';
-import { Navigation } from '../navigation.js';
-import handleCreateViewModal from '../functions/handleCreateViewModal.js';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../ajax-message.js';
-import isStorageSupported from '../functions/isStorageSupported.js';
-import tooltip from '../tooltip.js';
+import { CommonParams } from '../common.ts';
+import { Navigation } from '../navigation.ts';
+import handleCreateViewModal from '../functions/handleCreateViewModal.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../ajax-message.ts';
+import isStorageSupported from '../functions/isStorageSupported.ts';
+import tooltip from '../tooltip.ts';
 
 /**
  * @return {function}
