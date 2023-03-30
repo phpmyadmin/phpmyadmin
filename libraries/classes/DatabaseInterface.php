@@ -204,11 +204,14 @@ class DatabaseInterface implements DbalInterface
 
         $result = $this->extension->realQuery($query, $this->connections[$connectionType], $options);
 
+        if ($connectionType === Connection::TYPE_USER) {
+            $this->lastQueryExecutionTime = microtime(true) - $time;
+        }
+
         if ($cacheAffectedRows) {
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($connectionType, false);
         }
 
-        $this->lastQueryExecutionTime = microtime(true) - $time;
         if ($debug) {
             $errorMessage = $this->getError($connectionType);
             Utilities::debugLogQueryIntoSession(
