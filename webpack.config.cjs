@@ -9,7 +9,25 @@ const RtlCssPlugin = require('rtlcss-webpack-plugin');
 const rootPath = path.resolve(__dirname, '');
 const publicPath = path.resolve(__dirname, 'public');
 
-const typeScriptErrorsToIgnore = [ 2304, 2322, 2339, 2345, 2362, 2363, 2365, 2367, 2405, 2469, 2538, 2551, 2554, 2555, 2740, 2769, 5096 ];
+const typeScriptErrorsToIgnore = [
+    2304, // TS2304: Cannot find name '%s'.
+    2322, // TS2322: Type '%s' is not assignable to type '%s'.
+    2339, // TS2339: Property '%s' does not exist on type '%s'.
+    2345, // TS2345: Argument of type '%s' is not assignable to parameter of type '%s'.
+    2362, // TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+    2363, // TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+    2365, // TS2365: Operator '%s' cannot be applied to types '%s' and '%s'.
+    2367, // TS2367: This comparison appears to be unintentional because the types '%s' and '%s' have no overlap.
+    2405, // TS2405: The left-hand side of a 'for...in' statement must be of type 'string' or 'any'.
+    2469, // TS2469: The '+' operator cannot be applied to type 'symbol'.
+    2538, // TS2538: Type '%s' cannot be used as an index type.
+    2551, // TS2551: Property '%s' does not exist on type '%s'. Did you mean '%s'?
+    2554, // TS2554: Expected %d arguments, but got %d.
+    2555, // TS2555: Expected at least %d arguments, but got %d.
+    2740, // TS2740: Type 'Text' is missing the following properties from type 'HTMLSpanElement': accessKey, accessKeyLabel, autocapitalize, dir, and 226 more.
+    2769, // TS2769: No overload matches this call.
+    5096, // TS5096: Option 'allowImportingTsExtensions' can only be used when either 'noEmit' or 'emitDeclarationOnly' is set.
+];
 
 module.exports = [
     {
