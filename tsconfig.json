@@ -1,14 +1,14 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "es6",
+        "target": "esnext",
+        "moduleResolution": "bundler",
         "allowJs": true,
         "declaration": true,
-        "emitDeclarationOnly": true,
         "declarationMap": true,
         "checkJs": true,
         "outDir": "./build/js",
         "allowSyntheticDefaultImports": true,
+        "allowImportingTsExtensions": true,
         "strict": false,
         "isolatedModules": true
     },

@@ -1,10 +1,13 @@
 {
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:no-jquery/deprecated",
         "plugin:compat/recommended"
     ],
-    "plugins": ["no-jquery"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [ "@typescript-eslint", "no-jquery" ],
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module"
@@ -46,9 +49,13 @@
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "error",
         "no-unneeded-ternary": "error",
+        "no-var": "off",
         "object-curly-spacing": ["error", "always"],
         "one-var": ["error", "never"],
         "padded-blocks": ["error", "never"],
+        "prefer-const": "off",
+        "prefer-rest-params": "off",
+        "prefer-spread": "off",
         "quotes": ["error", "single"],
         "semi": "error",
         "space-before-blocks": "error",
@@ -56,6 +63,10 @@
         "space-in-parens": "error",
         "space-infix-ops": "error",
         "spaced-comment": ["error", "always"],
-        "wrap-iife": "error"
+        "wrap-iife": "error",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-this-alias": "off"
     }
 }
