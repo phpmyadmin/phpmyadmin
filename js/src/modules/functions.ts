@@ -62,10 +62,9 @@ window.centralColumnList = [];
 
 /**
  * Make sure that ajax requests will not be cached by appending a random variable to their parameters.
- * @return {function(JQuery.AjaxSettings, JQuery.AjaxSettings): void}
  */
-Functions.addNoCacheToAjaxRequests = () => function (options, originalOptions) {
-    var nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);
+export function addNoCacheToAjaxRequests (options: JQuery.AjaxSettings, originalOptions: JQuery.AjaxSettings): void {
+    const nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);
     if (typeof options.data === 'string') {
         options.data += '&_nocache=' + nocache + '&token=' + encodeURIComponent(CommonParams.get('token'));
     } else if (typeof options.data === 'object') {
@@ -74,7 +73,7 @@ Functions.addNoCacheToAjaxRequests = () => function (options, originalOptions) {
             'token': CommonParams.get('token')
         });
     }
-};
+}
 
 /**
  * Adds a date/time picker to an element

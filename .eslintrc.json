@@ -17,15 +17,6 @@
         "es6": true
     },
     "rules": {
-        "valid-jsdoc": ["error", {
-            "prefer": {
-                "returns": "return"
-            },
-            "requireReturn": false,
-            "requireParamType": false,
-            "requireReturnDescription": false,
-            "requireParamDescription": false
-        }],
         "array-bracket-spacing": "error",
         "brace-style": "error",
         "camelcase": "error",
