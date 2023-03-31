@@ -14,6 +14,7 @@
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
     "@popperjs/core": "^2.11.7",
     "@types/bootstrap": "^5.2.6",
     "@types/codemirror": "^5.60.7",
@@ -56,6 +57,7 @@
     "webpack-concat-files-plugin": "^0.5.2"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.0",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "babel-jest": "^29.5.0",

@@ -1,6 +1,6 @@
 /* eslint-env node, jest */
 
-import { Functions } from '../../js/src/modules/functions.js';
+import { Functions } from '../../js/src/modules/functions.ts';
 
 describe('Functions', () => {
     describe('Testing stringifyJSON', function () {
