@@ -374,9 +374,10 @@ const DatabaseEvents = {
              *                 the Definition textarea.
              */
             var $elm = $('textarea[name=item_definition]').last();
-            var linterOptions = {};
-            linterOptions.eventEditor = true;
-            that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
+            var linterOptions = {
+                eventEditor: true,
+            };
+            that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
         }); // end $.get()
     },
 

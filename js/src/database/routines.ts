@@ -391,9 +391,10 @@ const DatabaseRoutines = {
              *                 the Definition textarea.
              */
             var $elm = $('textarea[name=item_definition]').last();
-            var linterOptions = {};
-            linterOptions.routineEditor = true;
-            that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
+            var linterOptions = {
+                routineEditor: true,
+            };
+            that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
 
             // Execute item-specific code
             that.postDialogShow(data);

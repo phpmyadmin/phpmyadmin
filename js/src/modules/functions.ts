@@ -256,27 +256,8 @@ function getSqlEditor ($textarea, options, resize, lintOptions) {
         resizeType = 'vertical';
     }
 
-    var handles = '';
-    if (resizeType === 'vertical') {
-        handles = 's';
-    }
-
-    if (resizeType === 'both') {
-        handles = 'all';
-    }
-
-    if (resizeType === 'horizontal') {
-        handles = 'e, w';
-    }
-
     $(codemirrorEditor.getWrapperElement())
-        .css('resize', resizeType)
-        .resizable({
-            handles: handles,
-            resize: function () {
-                codemirrorEditor.setSize($(this).width(), $(this).height());
-            }
-        });
+        .css('resize', resizeType);
 
     // enable autocomplete
     codemirrorEditor.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
