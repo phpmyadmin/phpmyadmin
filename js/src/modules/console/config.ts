@@ -47,9 +47,8 @@ export const Config = {
 
     /**
      * @param {Object} data
-     * @return {void}
      */
-    init: function (data) {
+    init: function (data): void {
         this.StartHistory = !! data.StartHistory;
         this.AlwaysExpand = !! data.AlwaysExpand;
         this.CurrentQuery = data.CurrentQuery !== undefined ? !! data.CurrentQuery : true;
@@ -65,19 +64,16 @@ export const Config = {
     /**
      * @param {'StartHistory'|'AlwaysExpand'|'CurrentQuery'|'EnterExecutes'|'DarkTheme'|'Mode'|'Height'|'GroupQueries'|'OrderBy'|'Order'} key
      * @param {boolean|string|number} value
-     * @return {void}
      */
-    set: function (key, value) {
+    set: function (key, value): void {
         this[key] = value;
         setConfigValue('Console/' + key, value);
     },
 
     /**
      * Used for update console config
-     *
-     * @return {void}
      */
-    update: function () {
+    update: function (): void {
         this.set('AlwaysExpand', !! document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked);
         this.set('StartHistory', !! document.getElementById('consoleOptionsStartHistoryCheckbox').checked);
         this.set('CurrentQuery', !! document.getElementById('consoleOptionsCurrentQueryCheckbox').checked);

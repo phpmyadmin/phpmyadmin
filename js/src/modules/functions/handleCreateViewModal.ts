@@ -7,10 +7,8 @@ import getJsConfirmCommonParam from './getJsConfirmCommonParam.ts';
 
 /**
  * @param {JQuery<HTMLElement>} $this
- *
- * @return {void}
  */
-export default function handleCreateViewModal ($this) {
+export default function handleCreateViewModal ($this): void {
     var $msg = ajaxShowMessage();
     var sep = CommonParams.get('arg_separator');
     var params = getJsConfirmCommonParam(this, $this.getPostData());

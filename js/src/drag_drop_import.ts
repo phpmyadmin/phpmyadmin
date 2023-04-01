@@ -59,10 +59,8 @@ var DragDropImport = {
      *
      * @param {string} hash, hash for specific file upload
      * @param {number} percent (float), file upload percentage
-     *
-     * @return {void}
      */
-    setProgress: function (hash, percent) {
+    setProgress: function (hash, percent): void {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .children('progress').val(percent);
     },
@@ -71,10 +69,8 @@ var DragDropImport = {
      *
      * @param {object} formData FormData object for a specific file
      * @param {string} hash hash of the current file upload
-     *
-     * @return {void}
      */
-    sendFileToServer: function (formData, hash) {
+    sendFileToServer: function (formData, hash): void {
         var jqXHR = $.ajax({
             xhr: function () {
                 var xhrobj = $.ajaxSettings.xhr();
@@ -145,10 +141,8 @@ var DragDropImport = {
      * Triggered when an object is dragged into the PMA UI
      *
      * @param {MouseEvent} event obj
-     *
-     * @return {void}
      */
-    dragEnter: function (event) {
+    dragEnter: function (event): void {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -186,10 +180,8 @@ var DragDropImport = {
      * Triggered when dragged file is being dragged over PMA UI
      *
      * @param {MouseEvent} event obj
-     *
-     * @return {void}
      */
-    dragOver: function (event) {
+    dragOver: function (event): void {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -207,10 +199,8 @@ var DragDropImport = {
      * Triggered when dragged objects are left
      *
      * @param {MouseEvent} event obj
-     *
-     * @return {void}
      */
-    dragLeave: function (event) {
+    dragLeave: function (event): void {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -229,10 +219,8 @@ var DragDropImport = {
      * @param {string} hash unique hash for a certain upload
      * @param {boolean} aborted true if upload was aborted
      * @param {boolean} status status of sql upload, as sent by server
-     *
-     * @return {void}
      */
-    importFinished: function (hash, aborted, status) {
+    importFinished: function (hash, aborted, status): void {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .children('progress').hide();
         var icon = 'icon ic_s_success';
@@ -272,10 +260,8 @@ var DragDropImport = {
      * From this function, the AJAX Upload operation is initiated
      *
      * @param event object
-     *
-     * @return {void}
      */
-    drop: function (event) {
+    drop: function (event): void {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -355,10 +341,7 @@ var DragDropImport = {
 };
 
 /**
- * Called when some user drags, dragover, leave
- *       a file to the PMA UI
- * @param {object}, Event data
- * @return {void}
+ * Called when some user drags, dragover, leave a file to the PMA UI
  */
 $(document).on('dragenter', DragDropImport.dragEnter);
 $(document).on('dragover', DragDropImport.dragOver);

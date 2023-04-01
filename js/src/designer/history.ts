@@ -139,9 +139,8 @@ DesignerHistory.display = function (init, finit) {
  *
  *
  * @param {number} index index of DesignerHistory.historyArray where change is to be made
- * @return {void}
  */
-DesignerHistory.andOr = function (index) {
+DesignerHistory.andOr = function (index): void {
     if (DesignerHistory.historyArray[index].getAndOr()) {
         DesignerHistory.historyArray[index].setAndOr(0);
     } else {
@@ -156,9 +155,8 @@ DesignerHistory.andOr = function (index) {
  * Deletes entry in DesignerHistory.historyArray
  *
  * @param {number} index of DesignerHistory.historyArray[] which is to be deleted
- * @return {void}
  */
-DesignerHistory.historyDelete = function (index) {
+DesignerHistory.historyDelete = function (index): void {
     var fromArrayLength = window.fromArray.length;
     for (var k = 0; k < fromArrayLength; k++) {
         if (window.fromArray[k] === DesignerHistory.historyArray[index].getTab()) {
@@ -174,9 +172,8 @@ DesignerHistory.historyDelete = function (index) {
 
 /**
  * @param {string} elementId
- * @return {void}
  */
-DesignerHistory.changeStyle = function (elementId) {
+DesignerHistory.changeStyle = function (elementId): void {
     var element = document.getElementById(elementId);
     element.style.left = '530px';
     element.style.top = '130px';
@@ -190,9 +187,8 @@ DesignerHistory.changeStyle = function (elementId) {
  * To show where,rename,aggregate,having forms to edit a object
  *
  * @param {number} index index of DesignerHistory.historyArray where change is to be made
- * @return {void}
  */
-DesignerHistory.historyEdit = function (index) {
+DesignerHistory.historyEdit = function (index): void {
     gIndex = index;
     var type = DesignerHistory.historyArray[index].getType();
     if (type === 'Where') {
@@ -218,9 +214,8 @@ DesignerHistory.historyEdit = function (index) {
  * checks for the type of object and then sets the new value
  *
  * @param {string} type of DesignerHistory.historyArray where change is to be made
- * @return {void}
  */
-DesignerHistory.edit = function (type) {
+DesignerHistory.edit = function (type): void {
     if (type === 'Rename') {
         if (document.getElementById('e_rename').value !== '') {
             DesignerHistory.historyArray[gIndex].getObj().setRenameTo(document.getElementById('e_rename').value);

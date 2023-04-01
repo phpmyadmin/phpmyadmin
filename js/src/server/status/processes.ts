@@ -29,10 +29,8 @@ var processList = {
 
     /**
      * Handles killing of a process
-     *
-     * @return {void}
      */
-    init: function () {
+    init: function (): void {
         processList.setRefreshLabel();
         if (processList.refreshUrl === null) {
             processList.refreshUrl = 'index.php?route=/server/status/processes/refresh';
@@ -48,10 +46,8 @@ var processList = {
      * Handles killing of a process
      *
      * @param {object} event the event object
-     *
-     * @return {void}
      */
-    killProcessHandler: function (event) {
+    killProcessHandler: function (event): void {
         event.preventDefault();
         var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
@@ -84,9 +80,8 @@ var processList = {
 
     /**
      * Handles Auto Refreshing
-     * @return {void}
      */
-    refresh: function () {
+    refresh: function (): void {
         // abort any previous pending requests
         // this is necessary, it may go into
         // multiple loops causing unnecessary
@@ -116,10 +111,8 @@ var processList = {
 
     /**
      * Stop current request and clears timeout
-     *
-     * @return {void}
      */
-    abortRefresh: function () {
+    abortRefresh: function (): void {
         if (processList.refreshRequest !== null) {
             processList.refreshRequest.abort();
             processList.refreshRequest = null;
@@ -130,10 +123,8 @@ var processList = {
     /**
      * Set label of refresh button
      * change between play & pause
-     *
-     * @return {void}
      */
-    setRefreshLabel: function () {
+    setRefreshLabel: function (): void {
         var img = 'play';
         var label = window.Messages.strStartRefresh;
         if (processList.autoRefresh) {

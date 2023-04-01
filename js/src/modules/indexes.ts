@@ -48,10 +48,7 @@ let fulltextColumns = [];
  */
 let spatialColumns = [];
 
-/**
- * @return {void}
- */
-Indexes.resetColumnLists = () => {
+Indexes.resetColumnLists = (): void => {
     primaryColumns = [];
     uniqueColumns = [];
     indexColumns = [];
@@ -96,10 +93,8 @@ Indexes.getIndexArray = function (indexChoice) {
  *
  * @param {any[]}  sourceArray Array containing index columns
  * @param {string} indexChoice Choice of index
- *
- * @return {void}
  */
-Indexes.setIndexFormParameters = function (sourceArray, indexChoice) {
+Indexes.setIndexFormParameters = function (sourceArray, indexChoice): void {
     if (indexChoice === 'index') {
         $('input[name="indexes"]').val(JSON.stringify(sourceArray));
     } else {
@@ -111,10 +106,8 @@ Indexes.setIndexFormParameters = function (sourceArray, indexChoice) {
  * Removes a column from an Index.
  *
  * @param {string} colIndex Index of column in form
- *
- * @return {void}
  */
-Indexes.removeColumnFromIndex = function (colIndex) {
+Indexes.removeColumnFromIndex = function (colIndex): void {
     // Get previous index details.
     var previousIndex = $('select[name="field_key[' + colIndex + ']"]')
         .attr('data-index');
@@ -152,10 +145,8 @@ Indexes.removeColumnFromIndex = function (colIndex) {
  * @param {string} arrayIndex  Index of an INDEX in array
  * @param {string} indexChoice Choice of Index
  * @param {string} colIndex    Index of column on form
- *
- * @return {void}
  */
-Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIndex) {
+Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIndex): void {
     if (colIndex >= 0) {
         // Remove column from other indexes (if any).
         Indexes.removeColumnFromIndex(colIndex);
@@ -303,10 +294,8 @@ var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
  * @param {string} colIndex      Index of column on form
  * @param {object} index         Index detail object
  * @param {boolean} showDialog   Whether to show index creation dialog or not
- *
- * @return {void}
  */
-Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog) {
+Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog): void {
     var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
     // Prepare post-data.
     var $table = $('input[name="table"]');
@@ -428,10 +417,8 @@ var removeIndexOnChangeEvent = function () {
  * @param {any[]}  sourceArray Array holding a particular type of indexes
  * @param {string} indexChoice Choice of index
  * @param {string} colIndex    Index of new column on form
- *
- * @return {void}
  */
-Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex) {
+Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex): void {
     var $singleColumnRadio = $('<input type="radio" id="single_column" name="index_choice"' +
         ' checked="checked">' +
         '<label for="single_column">' + window.Messages.strCreateSingleColumnIndex + '</label>');

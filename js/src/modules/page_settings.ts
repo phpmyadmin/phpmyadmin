@@ -34,19 +34,13 @@ function showNaviSettings () {
 }
 
 const PageSettings = {
-    /**
-     * @return {void}
-     */
-    off: () => {
+    off: (): void => {
         $('#page_settings_icon').css('display', 'none');
         $('#page_settings_icon').off('click');
         $('#pma_navigation_settings_icon').off('click');
     },
 
-    /**
-     * @return {void}
-     */
-    on: () => {
+    on: (): void => {
         if ($('#page_settings_modal').length) {
             $('#page_settings_icon').css('display', 'inline');
             $('#page_settings_icon').on('click', showPageSettings);

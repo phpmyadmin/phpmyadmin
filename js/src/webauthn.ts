@@ -28,10 +28,8 @@ const base64ToUint8Array = string => {
 
 /**
  * @param {JQuery<HTMLElement>} $input
- *
- * @return {void}
  */
-const handleCreation = $input => {
+const handleCreation = ($input): void => {
     const $form = $input.parents('form');
     $form.find('input[type=submit]').hide();
 
@@ -71,10 +69,8 @@ const handleCreation = $input => {
 
 /**
  * @param {JQuery<HTMLElement>} $input
- *
- * @return {void}
  */
-const handleRequest = $input => {
+const handleRequest = ($input): void => {
     const $form = $input.parents('form');
     $form.find('input[type=submit]').hide();
 

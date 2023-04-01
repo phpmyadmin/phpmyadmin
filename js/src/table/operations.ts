@@ -29,10 +29,8 @@ AJAX.registerTeardown('table/operations.js', function () {
  *
  * @param {JQuery} linkObject
  * @param {'TRUNCATE'|'DELETE'} action
- *
- * @return {void}
  */
-var confirmAndPost = function (linkObject, action) {
+var confirmAndPost = function (linkObject, action): void {
     /**
      * @var {String} question String containing the question to be asked for confirmation
      */

@@ -27,9 +27,8 @@ TableRelation.showHideClauses = function ($thisDropdown) {
  * @param $dropdown
  * @param values
  * @param selectedValue
- * @return {void}
  */
-TableRelation.setDropdownValues = function ($dropdown, values, selectedValue) {
+TableRelation.setDropdownValues = function ($dropdown, values, selectedValue): void {
     $dropdown.empty();
     var optionsAsString = '';
     // add an empty string to the beginning for empty selection
@@ -44,9 +43,8 @@ TableRelation.setDropdownValues = function ($dropdown, values, selectedValue) {
  * Retrieves and populates dropdowns to the left based on the selected value
  *
  * @param $dropdown the dropdown whose value got changed
- * @return {void}
  */
-TableRelation.getDropdownValues = function ($dropdown) {
+TableRelation.getDropdownValues = function ($dropdown): void {
     var foreignDb = null;
     var foreignTable = null;
     var $databaseDd;

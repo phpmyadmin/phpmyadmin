@@ -49,9 +49,8 @@ Sql.urlEncode = function (str) {
  * Saves SQL query in local storage or cookie
  *
  * @param {string} query SQL query
- * @return {void}
  */
-Sql.autoSave = function (query) {
+Sql.autoSave = function (query): void {
     if (query) {
         var key = Sql.getAutoSavedKey();
         if (isStorageSupported('localStorage')) {
@@ -68,9 +67,8 @@ Sql.autoSave = function (query) {
  * @param {string} db database name
  * @param {string} table table name
  * @param {string} query SQL query
- * @return {void}
  */
-Sql.showThisQuery = function (db, table, query) {
+Sql.showThisQuery = function (db, table, query): void {
     var showThisQueryObject = {
         'db': db,
         'table': table,
@@ -118,9 +116,8 @@ Sql.setShowThisQuery = function () {
  * Saves SQL query with sort in local storage or cookie
  *
  * @param {string} query SQL query
- * @return {void}
  */
-Sql.autoSaveWithSort = function (query) {
+Sql.autoSaveWithSort = function (query): void {
     if (query) {
         if (isStorageSupported('localStorage')) {
             window.localStorage.setItem('autoSavedSqlSort', query);
@@ -132,10 +129,8 @@ Sql.autoSaveWithSort = function (query) {
 
 /**
  * Clear saved SQL query with sort in local storage or cookie
- *
- * @return {void}
  */
-Sql.clearAutoSavedSort = function () {
+Sql.clearAutoSavedSort = function (): void {
     if (isStorageSupported('localStorage')) {
         window.localStorage.removeItem('autoSavedSqlSort');
     } else {
@@ -201,10 +196,8 @@ const onlyOnceElements = [];
 
 /**
  * Handles 'Simulate query' button on SQL query box.
- *
- * @return {void}
  */
-const handleSimulateQueryButton = function () {
+const handleSimulateQueryButton = function (): void {
     const updateRegExp = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
     const deleteRegExp = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     let query = '';
@@ -252,9 +245,8 @@ const selectContent = function (element) {
 /**
  * Sets current value for query box.
  * @param {string} query
- * @return {void}
  */
-const setQuery = function (query) {
+const setQuery = function (query): void {
     if (window.codeMirrorEditor) {
         window.codeMirrorEditor.setValue(query);
         window.codeMirrorEditor.focus();

@@ -13,10 +13,8 @@ import { CommonParams } from '../common.ts';
  *
  * @param {string} key   Configuration key.
  * @param {object} value Configuration value.
- *
- * @return {void}
  */
-export function setConfigValue (key, value) {
+export function setConfigValue (key, value): void {
     // Updating value in local storage.
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
@@ -54,10 +52,8 @@ export function setConfigValue (key, value) {
  * @param {boolean}  cached          Configuration type.
  * @param {Function} successCallback The callback to call after the value is successfully received
  * @param {Function} failureCallback The callback to call when the value can not be received
- *
- * @return {void}
  */
-export function getConfigValue (key, cached, successCallback, failureCallback) {
+export function getConfigValue (key, cached, successCallback, failureCallback): void {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
     if (isCached && value !== undefined && value !== null) {

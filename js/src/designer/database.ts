@@ -53,9 +53,8 @@ var DesignerOfflineDB = (function () {
 
     /**
      * @param {Function} callback
-     * @return {void}
      */
-    designerDB.open = function (callback) {
+    designerDB.open = function (callback): void {
         var version = 1;
         var request = window.indexedDB.open('pma_designer', version);
 
@@ -94,9 +93,8 @@ var DesignerOfflineDB = (function () {
      * @param {String} table
      * @param {String} id
      * @param {Function} callback
-     * @return {void}
      */
-    designerDB.loadObject = function (table, id, callback) {
+    designerDB.loadObject = function (table, id, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
@@ -115,9 +113,8 @@ var DesignerOfflineDB = (function () {
     /**
      * @param {String} table
      * @param {Function} callback
-     * @return {void}
      */
-    designerDB.loadAllObjects = function (table, callback) {
+    designerDB.loadAllObjects = function (table, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
@@ -146,9 +143,8 @@ var DesignerOfflineDB = (function () {
     /**
      * @param {String} table
      * @param {Function} callback
-     * @return {void}
      */
-    designerDB.loadFirstObject = function (table, callback) {
+    designerDB.loadFirstObject = function (table, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
@@ -177,9 +173,8 @@ var DesignerOfflineDB = (function () {
      * @param {String} table
      * @param {Object} obj
      * @param {Function} callback
-     * @return {void}
      */
-    designerDB.addObject = function (table, obj, callback) {
+    designerDB.addObject = function (table, obj, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
@@ -201,9 +196,8 @@ var DesignerOfflineDB = (function () {
      * @param {String} table
      * @param {String} id
      * @param {Function} callback
-     * @return {void}
      */
-    designerDB.deleteObject = function (table, id, callback) {
+    designerDB.deleteObject = function (table, id, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
@@ -223,9 +217,8 @@ var DesignerOfflineDB = (function () {
 
     /**
      * @param {Error} e
-     * @return {void}
      */
-    designerDB.onerror = function (e) {
+    designerDB.onerror = function (e): void {
         // eslint-disable-next-line no-console
         console.log(e);
     };

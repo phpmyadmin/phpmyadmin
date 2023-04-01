@@ -216,9 +216,8 @@ window.verifyAfterSearchFieldChange = verifyAfterSearchFieldChange;
  * Validate the an input contains multiple int values
  * @param {jQuery} jqueryInput the Jquery object
  * @param {boolean} returnValueIfFine the value to return if the validator passes
- * @return {void}
  */
-function validateMultipleIntField (jqueryInput, returnValueIfFine) {
+function validateMultipleIntField (jqueryInput, returnValueIfFine): void {
     // removing previous rules
     jqueryInput.rules('remove');
 
@@ -236,9 +235,8 @@ function validateMultipleIntField (jqueryInput, returnValueIfFine) {
  * Validate the an input contains an int value
  * @param {jQuery} jqueryInput the Jquery object
  * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
- * @return {void}
  */
-function validateIntField (jqueryInput, returnValueIfIsNumber) {
+function validateIntField (jqueryInput, returnValueIfIsNumber): void {
     var mini = parseInt(jqueryInput.data('min'));
     var maxi = parseInt(jqueryInput.data('max'));
     // removing previous rules
@@ -278,9 +276,8 @@ function validateIntField (jqueryInput, returnValueIfIsNumber) {
  * Validate the an input contains an float value
  * @param {jQuery} jqueryInput the Jquery object
  * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
- * @return {void}
  */
-function validateFloatField (jqueryInput, returnValueIfIsNumber) {
+function validateFloatField (jqueryInput, returnValueIfIsNumber): void {
     // removing previous rules
     jqueryInput.rules('remove');
 

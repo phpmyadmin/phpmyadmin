@@ -26,9 +26,8 @@ var ErrorReport = {
      *
      * @param {object} data
      * @param {any} exception
-     * @return {void}
      */
-    errorDataHandler: function (data, exception) {
+    errorDataHandler: function (data, exception): void {
         if (data.success !== true) {
             ajaxShowMessage(data.error, false);
             return;
@@ -78,10 +77,8 @@ var ErrorReport = {
      * Shows the modal dialog previewing the report
      *
      * @param exception object error report info
-     *
-     * @return {void}
      */
-    showReportDialog: function (exception) {
+    showReportDialog: function (exception): void {
         const reportData = ErrorReport.getReportData(exception);
 
         const sendErrorReport = function () {
@@ -119,10 +116,8 @@ var ErrorReport = {
     },
     /**
      * Shows the small notification that asks for user permission
-     *
-     * @return {void}
      */
-    showErrorNotification: function () {
+    showErrorNotification: function (): void {
         var key = Math.random().toString(36).substring(2, 12);
         while (key in ErrorReport.keyDict) {
             key = Math.random().toString(36).substring(2, 12);
@@ -161,9 +156,8 @@ var ErrorReport = {
      * Removes the notification if it was displayed before
      *
      * @param {Event} e
-     * @return {void}
      */
-    removeErrorNotification: function (e) {
+    removeErrorNotification: function (e): void {
         if (e) {
             // don't remove the hash fragment by navigating to #
             e.preventDefault();
@@ -193,10 +187,8 @@ var ErrorReport = {
     },
     /**
      * Shows the modal dialog previewing the report
-     *
-     * @return {void}
      */
-    createReportDialog: function () {
+    createReportDialog: function (): void {
         ErrorReport.removeErrorNotification();
         ErrorReport.showReportDialog(ErrorReport.lastException);
     },
@@ -263,10 +255,8 @@ var ErrorReport = {
     },
     /**
      * Automatically wraps the callback in AJAX.registerOnload
-     *
-     * @return {void}
      */
-    wrapAjaxOnloadCallback: function () {
+    wrapAjaxOnloadCallback: function (): void {
         var oldOnload = AJAX.registerOnload;
         AJAX.registerOnload = function (file, func) {
             var wrappedFunction = ErrorReport.wrapFunction(func);
@@ -275,10 +265,8 @@ var ErrorReport = {
     },
     /**
      * Automatically wraps the callback in $.fn.on
-     *
-     * @return {void}
      */
-    wrapJqueryOnCallback: function () {
+    wrapJqueryOnCallback: function (): void {
         var oldOn = $.fn.on;
         $.fn.on = function () {
             for (var i = 1; i <= 3; i++) {
@@ -292,10 +280,8 @@ var ErrorReport = {
     },
     /**
      * Wraps the callback in AJAX.registerOnload automatically
-     *
-     * @return {void}
      */
-    setUpErrorReporting: function () {
+    setUpErrorReporting: function (): void {
         ErrorReport.wrapAjaxOnloadCallback();
         ErrorReport.wrapJqueryOnCallback();
     }

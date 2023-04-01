@@ -40,10 +40,8 @@ function getFieldType (field) {
  *
  * @param {Element} field
  * @param {boolean} display
- *
- * @return {void}
  */
-function setRestoreDefaultBtn (field, display) {
+function setRestoreDefaultBtn (field, display): void {
     var $el = $(field).closest('td').find('.restore-default img');
     $el[display ? 'show' : 'hide']();
 }
@@ -52,10 +50,8 @@ function setRestoreDefaultBtn (field, display) {
  * Marks field depending on its value (system default or custom)
  *
  * @param {Element | JQuery<Element>} field
- *
- * @return {void}
  */
-function markField (field) {
+function markField (field): void {
     var $field = $(field);
     var type = getFieldType($field);
     var isDefault = checkFieldDefault($field, type);
@@ -571,10 +567,8 @@ function adjustPrefsNotification () {
  * Restores field's default value
  *
  * @param {string} fieldId
- *
- * @return {void}
  */
-function restoreField (fieldId) {
+function restoreField (fieldId): void {
     var $field = $('#' + fieldId);
     if ($field.length === 0 || window.defaultValues[fieldId] === undefined) {
         return;

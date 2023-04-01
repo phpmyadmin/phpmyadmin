@@ -787,10 +787,8 @@ Export.checkTimeOut = function (timeLimit) {
  * Handler for Alias dialog box
  *
  * @param event object the event object
- *
- * @return {void}
  */
-Export.createAliasModal = function (event) {
+Export.createAliasModal = function (event): void {
     event.preventDefault();
     var modal = $('#renameExportModal');
     modal.modal('show');

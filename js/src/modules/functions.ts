@@ -1304,10 +1304,8 @@ function updateCode ($base, htmlValue, rawValue) {
  * Requests SQL for previewing before executing.
  *
  * @param {JQuery<HTMLElement>} $form Form containing query data
- *
- * @return {void}
  */
-function previewSql ($form) {
+function previewSql ($form): void {
     var formUrl = $form.attr('action');
     var sep = CommonParams.get('arg_separator');
     var formData = $form.serialize() +
@@ -1350,10 +1348,8 @@ function previewSql ($form) {
  * @param {string}           sqlData  Sql query to preview
  * @param {string}           url      Url to be sent to callback
  * @param {onSubmitCallback} callback On submit callback function
- *
- * @return {void}
  */
-function confirmPreviewSql (sqlData, url, callback) {
+function confirmPreviewSql (sqlData, url, callback): void {
     $('#previewSqlConfirmModal').modal('show');
     $('#previewSqlConfirmModalLabel').first().html(window.Messages.strPreviewSQL);
     $('#previewSqlConfirmCode').first().text(sqlData);
@@ -1756,10 +1752,7 @@ function sortTable (textSelector) {
     });
 }
 
-/**
- * @return {void}
- */
-function teardownCreateTableEvents () {
+function teardownCreateTableEvents (): void {
     $(document).off('submit', 'form.create_table_form.ajax');
     $(document).off('click', 'form.create_table_form.ajax input[name=submit_num_fields]');
     $(document).off('keyup', 'form.create_table_form.ajax input');
@@ -1768,9 +1761,8 @@ function teardownCreateTableEvents () {
 
 /**
  * Used on /database/operations, /database/structure and /database/tracking
- * @return {void}
  */
-function onloadCreateTableEvents () {
+function onloadCreateTableEvents (): void {
     /**
      * Attach event handler for submission of create table form (save)
      */
@@ -1988,10 +1980,7 @@ function checkPassword ($theForm) {
     return true;
 }
 
-/**
- * @return {void}
- */
-function onloadChangePasswordEvents () {
+function onloadChangePasswordEvents (): void {
     /* Handler for hostname type */
     $(document).on('change', '#select_pred_hostname', function () {
         var hostname = $('#pma_hostname');
@@ -2135,10 +2124,7 @@ function onloadChangePasswordEvents () {
     });
 }
 
-/**
- * @return {void}
- */
-function teardownEnumSetEditorMessage () {
+function teardownEnumSetEditorMessage (): void {
     $(document).off('change', 'select.column_type');
     $(document).off('change', 'select.default_type');
     $(document).off('change', 'select.virtuality');
@@ -2149,9 +2135,8 @@ function teardownEnumSetEditorMessage () {
 /**
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
  * the page loads and when the selected data type changes
- * @return {void}
  */
-function onloadEnumSetEditorMessage () {
+function onloadEnumSetEditorMessage (): void {
     // is called here for normal page loads and also when opening
     // the Create table dialog
     Functions.verifyColumnsProperties();
@@ -2265,10 +2250,7 @@ function autoPopulate (inputId, offset) {
     }
 }
 
-/**
- * @return {void}
- */
-function teardownEnumSetEditor () {
+function teardownEnumSetEditor (): void {
     $(document).off('click', 'a.open_enum_editor');
     $(document).off('click', 'input.add_value');
     $(document).off('click', '#enum_editor td.drop');
@@ -2277,9 +2259,8 @@ function teardownEnumSetEditor () {
 
 /**
  * Opens the ENUM/SET editor and controls its functions
- * @return {void}
  */
-function onloadEnumSetEditor () {
+function onloadEnumSetEditor (): void {
     $(document).on('click', 'a.open_enum_editor', function () {
         // Get the name of the column that is being edited
         var colname = $(this).closest('tr').find('input').first().val();
@@ -2929,10 +2910,7 @@ function toggleButton ($obj) {
     });
 }
 
-/**
- * @return {void}
- */
-function initializeToggleButtons () {
+function initializeToggleButtons (): void {
     $('div.toggleAjax').each(function () {
         var $button = $(this).show();
         $button.find('img').each(function () {
@@ -2965,18 +2943,12 @@ function getPageSelectorEventHandler () {
     };
 }
 
-/**
- * @return {void}
- */
-function teardownRecentFavoriteTables () {
+function teardownRecentFavoriteTables (): void {
     $('#update_recent_tables').off('ready');
     $('#sync_favorite_tables').off('ready');
 }
 
-/**
- * @return {void}
- */
-function onloadRecentFavoriteTables () {
+function onloadRecentFavoriteTables (): void {
     var $updateRecentTables = $('#update_recent_tables');
     if ($updateRecentTables.length) {
         $.get(
@@ -3104,9 +3076,8 @@ function slidingMessage (msg, $object) {
 
 /**
  * Attach CodeMirror editor to SQL edit area.
- * @return {void}
  */
-function onloadCodeMirrorEditor () {
+function onloadCodeMirrorEditor (): void {
     var $elm = $('#sqlquery');
     if ($elm.siblings().filter('.CodeMirror').length > 0) {
         return;
@@ -3124,10 +3095,7 @@ function onloadCodeMirrorEditor () {
     highlightSql($('body'));
 }
 
-/**
- * @return {void}
- */
-function teardownCodeMirrorEditor () {
+function teardownCodeMirrorEditor (): void {
     if (window.codeMirrorEditor) {
         $('#sqlquery').text(window.codeMirrorEditor.getValue());
         window.codeMirrorEditor.toTextArea();
@@ -3135,10 +3103,7 @@ function teardownCodeMirrorEditor () {
     }
 }
 
-/**
- * @return {void}
- */
-function onloadLockPage () {
+function onloadLockPage (): void {
     // initializes all lock-page elements lock-id and
     // val-hash data property
     $('#page_content form.lock-page textarea, ' +

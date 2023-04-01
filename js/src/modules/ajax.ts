@@ -120,10 +120,8 @@ const AJAX = {
      * file that registered to the onload event of that file.
      *
      * @param {string} file The filename for which to fire the event
-     *
-     * @return {void}
      */
-    fireOnload: function (file) {
+    fireOnload: function (file): void {
         var eventName = 'onload_' + AJAX.hash(file);
         $(document).trigger(eventName);
         if (this.debug) {
@@ -139,10 +137,8 @@ const AJAX = {
      * file that registered to the teardown event of that file.
      *
      * @param {string} file The filename for which to fire the event
-     *
-     * @return {void}
      */
-    fireTeardown: function (file) {
+    fireTeardown: function (file): void {
         var eventName = 'teardown_' + AJAX.hash(file);
         $(document).triggerHandler(eventName);
         if (this.debug) {
@@ -157,10 +153,8 @@ const AJAX = {
      * function to handle lock page mechanism
      *
      * @param event the event object
-     *
-     * @return {void}
      */
-    lockPageHandler: function (event) {
+    lockPageHandler: function (event): void {
         // don't consider checkbox event
         if (typeof event.target !== 'undefined') {
             if (event.target.type === 'checkbox') {
@@ -214,10 +208,8 @@ const AJAX = {
     },
     /**
      * resets the lock
-     *
-     * @return {void}
      */
-    resetLock: function () {
+    resetLock: function (): void {
         AJAX.lockedTargets = {};
         $('#lock_page_icon').html('');
     },
@@ -365,10 +357,8 @@ const AJAX = {
      * is called in the jQuery context.
      *
      * @param {object} data Event data
-     *
-     * @return {void}
      */
-    loginResponseHandler: function (data) {
+    loginResponseHandler: function (data): void {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
@@ -471,10 +461,8 @@ const AJAX = {
      * is called in the jQuery context.
      *
      * @param {object} data Event data
-     *
-     * @return {void}
      */
-    responseHandler: function (data) {
+    responseHandler: function (data): void {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
@@ -664,10 +652,8 @@ const AJAX = {
          *
          * @param {string} file The filename
          * @param {boolean} fire Whether this file will be registering onload/teardown events
-         *
-         * @return {void}
          */
-        add: function (file, fire) {
+        add: function (file, fire): void {
             this.scripts.push(file);
             if (fire) {
                 // Record whether to fire any events for the file
@@ -680,10 +666,8 @@ const AJAX = {
          *
          * @param {string[]} files An array of filenames and flags
          * @param {Function} callback
-         *
-         * @return {void}
          */
-        load: function (files, callback) {
+        load: function (files, callback): void {
             var self = this;
             var i;
             // Clear loaded scripts if they are from another version of phpMyAdmin.
@@ -724,10 +708,8 @@ const AJAX = {
          *
          * @param {string} script
          * @param {Function?} callback
-         *
-         * @return {void}
          */
-        done: function (script, callback) {
+        done: function (script, callback): void {
             if ($.inArray(script, this.scriptsToBeFired)) {
                 AJAX.fireOnload(script);
             }
@@ -749,10 +731,8 @@ const AJAX = {
          *
          * @param {string} name
          * @param {Function} callback
-         *
-         * @return {void}
          */
-        appendScript: function (name, callback) {
+        appendScript: function (name, callback): void {
             var head = document.head || document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             var self = this;
@@ -771,10 +751,8 @@ const AJAX = {
          * and rebinds all forms and links to the request handler
          *
          * @param {Function} callback The callback to call after resetting
-         *
-         * @return {void}
          */
-        reset: function (callback) {
+        reset: function (callback): void {
             for (var i in this.scriptsToBeFired) {
                 AJAX.fireTeardown(this.scriptsToBeFired[i]);
             }

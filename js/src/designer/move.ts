@@ -258,9 +258,8 @@ DesignerMove.resizeOsnTab = function () {
  * @param {number} y2
  * @param {HTMLElement} osnTab
  * @param {string} colorTarget
- * @return {void}
  */
-DesignerMove.drawLine0 = function (x1, x2, y1, y2, osnTab, colorTarget) {
+DesignerMove.drawLine0 = function (x1, x2, y1, y2, osnTab, colorTarget): void {
     DesignerMove.line0(
         x1 + directionEffect * osnTab.offsetLeft,
         y1 - osnTab.offsetTop,

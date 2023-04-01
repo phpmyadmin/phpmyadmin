@@ -15,10 +15,8 @@ const Navigation = {};
 
 /**
  * updates the tree state in sessionStorage
- *
- * @return {void}
  */
-Navigation.treeStateUpdate = function () {
+Navigation.treeStateUpdate = function (): void {
     // update if session storage is supported
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
@@ -43,10 +41,8 @@ Navigation.treeStateUpdate = function () {
  *
  * @param {string} filterName
  * @param {string} filterValue
- *
- * @return {void}
  */
-Navigation.filterStateUpdate = function (filterName, filterValue) {
+Navigation.filterStateUpdate = function (filterName, filterValue): void {
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         try {
@@ -63,10 +59,8 @@ Navigation.filterStateUpdate = function (filterName, filterValue) {
 
 /**
  * restores the filter state on navigation reload
- *
- * @return {void}
  */
-Navigation.filterStateRestore = function () {
+Navigation.filterStateRestore = function (): void {
     if (isStorageSupported('sessionStorage')
         && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
     ) {
@@ -128,10 +122,8 @@ Navigation.filterStateRestore = function () {
  * @param isNode
  * @param $expandElem expander
  * @param callback    callback function
- *
- * @return {void}
  */
-Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
+Navigation.loadChildNodes = function (isNode, $expandElem, callback): void {
     var $destination = null;
     var params = null;
 
@@ -217,10 +209,8 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
  * Collapses a node in navigation tree.
  *
  * @param $expandElem expander
- *
- * @return {void}
  */
-Navigation.collapseTreeNode = function ($expandElem) {
+Navigation.collapseTreeNode = function ($expandElem): void {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -283,10 +273,8 @@ Navigation.traverseForPaths = function () {
  *
  * @param $expandElem expander
  * @param callback    callback function
- *
- * @return {void}
  */
-Navigation.expandTreeNode = function ($expandElem, callback) {
+Navigation.expandTreeNode = function ($expandElem, callback): void {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -359,10 +347,8 @@ Navigation.scrollToView = function ($element, $forceToTop) {
 
 /**
  * Expand the navigation and highlight the current database or table/view
- *
- * @return {void}
  */
-Navigation.showCurrent = function () {
+Navigation.showCurrent = function (): void {
     var db = CommonParams.get('db');
     var table = CommonParams.get('table');
 
@@ -569,10 +555,8 @@ Navigation.showCurrent = function () {
 
 /**
  * Disable navigation panel settings
- *
- * @return {void}
  */
-Navigation.disableSettings = function () {
+Navigation.disableSettings = function (): void {
     $('#pma_navigation_settings_icon').addClass('hide');
     $('#pma_navigation_settings').remove();
 };
@@ -582,10 +566,8 @@ Navigation.disableSettings = function () {
  * If not, set it up
  *
  * @param {string} selflink
- *
- * @return {void}
  */
-Navigation.ensureSettings = function (selflink) {
+Navigation.ensureSettings = function (selflink): void {
     $('#pma_navigation_settings_icon').removeClass('hide');
 
     if (! $('#pma_navigation_settings').length) {
@@ -613,10 +595,8 @@ Navigation.ensureSettings = function (selflink) {
  *
  * @param {Function} callback the callback function
  * @param {object} paths stored navigation paths
- *
- * @return {void}
  */
-Navigation.reload = function (callback = null, paths = null) {
+Navigation.reload = function (callback = null, paths = null): void {
     var params = {
         'reload': true,
         'no_debug': true,
@@ -673,10 +653,8 @@ Navigation.selectCurrentDatabase = function () {
  *
  * @param {object} $this A jQuery object that points to the element that
  * initiated the action of changing the page
- *
- * @return {void}
  */
-Navigation.treePagination = function ($this) {
+Navigation.treePagination = function ($this): void {
     var $msgbox = ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url = 'index.php?route=/navigation';
@@ -757,10 +735,8 @@ Navigation.ResizeHandler = function () {
      * Adjusts the width of the navigation panel to the specified value
      *
      * @param {number} position Navigation width in pixels
-     *
-     * @return {void}
      */
-    this.setWidth = function (position) {
+    this.setWidth = function (position): void {
         var pos = position;
         if (typeof pos !== 'number') {
             pos = 240;
@@ -869,10 +845,8 @@ Navigation.ResizeHandler = function () {
      * Event handler for initiating a resize of the panel
      *
      * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
-     *
-     * @return {void}
      */
-    this.mousedown = function (event) {
+    this.mousedown = function (event): void {
         event.preventDefault();
         $(document)
             .on('mousemove', { 'resize_handler': event.data.resize_handler }, event.data.resize_handler.mousemove)
@@ -883,10 +857,8 @@ Navigation.ResizeHandler = function () {
      * Event handler for terminating a resize of the panel
      *
      * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
-     *
-     * @return {void}
      */
-    this.mouseup = function (event) {
+    this.mouseup = function (event): void {
         $('body').css('cursor', '');
         setConfigValue('NavigationWidth', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
@@ -898,10 +870,8 @@ Navigation.ResizeHandler = function () {
      * Event handler for updating the panel during a resize operation
      *
      * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
-     *
-     * @return {void}
      */
-    this.mousemove = function (event) {
+    this.mousemove = function (event): void {
         event.preventDefault();
         if (event.data && event.data.resize_handler) {
             var pos = event.data.resize_handler.getPos(event);
@@ -912,10 +882,8 @@ Navigation.ResizeHandler = function () {
      * Event handler for collapsing the panel
      *
      * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
-     *
-     * @return {void}
      */
-    this.collapse = function (event) {
+    this.collapse = function (event): void {
         event.preventDefault();
         var panelWidth = event.data.resize_handler.panelWidth;
         var width = $('#pma_navigation').width();
@@ -928,10 +896,8 @@ Navigation.ResizeHandler = function () {
     };
     /**
      * Event handler for resizing the navigation tree height on window resize
-     *
-     * @return {void}
      */
-    this.treeResize = function () {
+    this.treeResize = function (): void {
         var $nav = $('#pma_navigation');
         var $navTree = $('#pma_navigation_tree');
         var $navHeader = $('#pma_navigation_header');
@@ -953,10 +919,8 @@ Navigation.ResizeHandler = function () {
     };
     /**
      * Init handlers for the tree resizers
-     *
-     * @return {void}
      */
-    this.treeInit = function () {
+    this.treeInit = function (): void {
         const isLoadedOnMobile = $(window).width() < 768;
         // Hide the pma_navigation initially when loaded on mobile
         if (isLoadedOnMobile) {
@@ -1000,10 +964,8 @@ Navigation.FastFilter = {
      * @param {object} $this        A jQuery object pointing to the list container
      *                              which is the nearest parent of the fast filter
      * @param {string} searchClause The query string for the filter
-     *
-     * @return {void}
      */
-    Filter: function ($this, searchClause) {
+    Filter: function ($this, searchClause): void {
         /**
          * @var {object} $this A jQuery object pointing to the list container
          *                     which is the nearest parent of the fast filter
@@ -1207,10 +1169,8 @@ Navigation.FastFilter = {
  * Handles a change in the search clause
  *
  * @param {string} searchClause The query string for the filter
- *
- * @return {void}
  */
-Navigation.FastFilter.Filter.prototype.update = function (searchClause) {
+Navigation.FastFilter.Filter.prototype.update = function (searchClause): void {
     if (this.searchClause !== searchClause) {
         this.searchClause = searchClause;
         this.request();
@@ -1219,10 +1179,8 @@ Navigation.FastFilter.Filter.prototype.update = function (searchClause) {
 /**
  * After a delay of 250mS, initiates a request to retrieve search results
  * Multiple calls to this function will always abort the previous request
- *
- * @return {void}
  */
-Navigation.FastFilter.Filter.prototype.request = function () {
+Navigation.FastFilter.Filter.prototype.request = function (): void {
     var self = this;
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
         self.$this.find('li.fast_filter').append(
@@ -1265,10 +1223,8 @@ Navigation.FastFilter.Filter.prototype.request = function () {
  * Replaces the contents of the navigation branch with the search results
  *
  * @param {string} list The search results
- *
- * @return {void}
  */
-Navigation.FastFilter.Filter.prototype.swap = function (list) {
+Navigation.FastFilter.Filter.prototype.swap = function (list): void {
     this.$this
         .html($(list).html())
         .children()
@@ -1282,10 +1238,8 @@ Navigation.FastFilter.Filter.prototype.swap = function (list) {
  * Restores the navigation to the original state after the fast filter is cleared
  *
  * @param {boolean} focus Whether to also focus the input box of the fast filter
- *
- * @return {void}
  */
-Navigation.FastFilter.Filter.prototype.restore = function (focus) {
+Navigation.FastFilter.Filter.prototype.restore = function (focus): void {
     if (this.$this.children('ul').first().hasClass('search_results')) {
         this.$this.html(this.$clone.html()).children().show();
         this.$this.data('fastFilter', this);
@@ -1302,10 +1256,8 @@ Navigation.FastFilter.Filter.prototype.restore = function (focus) {
  * Show full name when cursor hover and name not shown completely
  *
  * @param {object} $containerELem Container element
- *
- * @return {void}
  */
-Navigation.showFullName = function ($containerELem) {
+Navigation.showFullName = function ($containerELem): void {
     $containerELem.find('.hover_show_full').on('mouseenter', function () {
         /** mouseenter */
         var $this = $(this);
@@ -1343,9 +1295,8 @@ Navigation.showFullName = function ($containerELem) {
 
 /**
  * @param {boolean} update
- * @return {void}
  */
-Navigation.update = update => {
+Navigation.update = (update): void => {
     if (update && $('#pma_navigation_tree').hasClass('synced')) {
         Navigation.showCurrent();
     }

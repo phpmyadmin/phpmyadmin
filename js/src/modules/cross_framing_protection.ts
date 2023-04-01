@@ -1,8 +1,7 @@
 /**
  * Conditionally included if framing is not allowed.
- * @return {void}
  */
-const crossFramingProtection = () => {
+const crossFramingProtection = (): void => {
     if (window.allowThirdPartyFraming) {
         return;
     }

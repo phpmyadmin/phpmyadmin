@@ -141,10 +141,8 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
  * Removes the message shown for an Ajax operation when it's completed
  *
  * @param {JQuery} $thisMessageBox Element that holds the notification
- *
- * @return {void}
  */
-const ajaxRemoveMessage = function ($thisMessageBox) {
+const ajaxRemoveMessage = function ($thisMessageBox): void {
     if ($thisMessageBox !== undefined && $thisMessageBox instanceof $) {
         $thisMessageBox
             .stop(true, true)
