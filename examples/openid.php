@@ -33,7 +33,7 @@ $authMap = ['https://launchpad.net/~username' => ['user' => 'root', 'password' =
  *
  * @param string $contents Content to include in page
  */
-function Show_page($contents): void
+function Show_page(string $contents): void
 {
     header('Content-Type: text/html; charset=utf-8');
 
@@ -62,7 +62,7 @@ function Show_page($contents): void
  *
  * @param Exception $e Exception object
  */
-function Die_error($e): void
+function Die_error(Throwable $e): void
 {
     $contents = "<div class='relyingparty_results'>\n";
     $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";

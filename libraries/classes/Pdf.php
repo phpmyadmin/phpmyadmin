@@ -130,7 +130,7 @@ class Pdf extends TCPDF
      * @param string $errorMessage the error message
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function Error($errorMessage = ''): void
+    public function Error(mixed $errorMessage = ''): void
     {
         echo Message::error(
             __('Error while creating PDF:') . ' ' . $errorMessage,
