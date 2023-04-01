@@ -15,6 +15,11 @@
 
     <div class="card-body">
       <table class="rte_table table table-borderless table-sm">
+        <colgroup>
+          <col>
+          <col width="100%">
+        </colgroup>
+
         <tr>
           <td>{% trans 'Event name' %}</td>
           <td>
@@ -22,7 +27,7 @@
           </td>
         </tr>
         <tr>
-          <td>{% trans 'Status' %}</td>
+          <td class="text-nowrap">{% trans 'Status' %}</td>
           <td>
             <select name="item_status">
               {% for status in status_display %}
@@ -31,7 +36,7 @@
             </select>
           </td>
         </tr>
-        <tr>
+        <tr class="text-nowrap">
           <td>{% trans 'Event type' %}</td>
           <td>
             {% if is_ajax %}
@@ -50,13 +55,13 @@
           </td>
         </tr>
         <tr class="onetime_event_row{{ event.item_type != 'ONE TIME' ? ' hide' }}">
-          <td>{% trans 'Execute at' %}</td>
+          <td class="text-nowrap">{% trans 'Execute at' %}</td>
           <td class="text-nowrap">
             <input type="text" name="item_execute_at" value="{{ event.item_execute_at }}" class="datetimefield">
           </td>
         </tr>
         <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
-          <td>{% trans 'Execute every' %}</td>
+          <td class="text-nowrap">{% trans 'Execute every' %}</td>
           <td>
             <input class="w-50" type="text" name="item_interval_value" value="{{ event.item_interval_value }}">
             <select class="w-50" name="item_interval_field">
@@ -67,19 +72,19 @@
           </td>
         </tr>
         <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
-          <td>{% trans %}Start{% context %}Start of recurring event{% endtrans %}</td>
+          <td class="text-nowrap">{% trans %}Start{% context %}Start of recurring event{% endtrans %}</td>
           <td class="text-nowrap">
             <input type="text" name="item_starts" value="{{ event.item_starts }}" class="datetimefield">
           </td>
         </tr>
         <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
-          <td>{% trans %}End{% context %}End of recurring event{% endtrans %}</td>
+          <td class="text-nowrap">{% trans %}End{% context %}End of recurring event{% endtrans %}</td>
           <td class="text-nowrap">
             <input type="text" name="item_ends" value="{{ event.item_ends }}" class="datetimefield">
           </td>
         </tr>
         <tr>
-          <td>{% trans 'Definition' %}</td>
+          <td class="text-nowrap">{% trans 'Definition' %}</td>
           <td>
             <textarea name="item_definition" rows="15" cols="40">
               {{- event.item_definition -}}
@@ -87,19 +92,19 @@
           </td>
         </tr>
         <tr>
-          <td>{% trans 'On completion preserve' %}</td>
+          <td class="text-nowrap">{% trans 'On completion preserve' %}</td>
           <td>
             <input type="checkbox" name="item_preserve"{{ event.item_preserve|raw }}>
           </td>
         </tr>
         <tr>
-          <td>{% trans 'Definer' %}</td>
+          <td class="text-nowrap">{% trans 'Definer' %}</td>
           <td>
             <input type="text" name="item_definer" value="{{ event.item_definer }}">
           </td>
         </tr>
         <tr>
-          <td>{% trans 'Comment' %}</td>
+          <td class="text-nowrap">{% trans 'Comment' %}</td>
           <td>
             <input type="text" name="item_comment" value="{{ event.item_comment }}" maxlength="64">
           </td>
