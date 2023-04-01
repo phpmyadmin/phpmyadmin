@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { addNoCacheToAjaxRequests, Functions } from './modules/functions.ts';
+import { Functions } from './modules/functions.ts';
 import { KeyHandlerEvents } from './modules/keyhandler.ts';
 import { PageSettings } from './modules/page_settings.ts';
 import { crossFramingProtection } from './modules/cross_framing_protection.ts';
@@ -29,7 +29,7 @@ crossFramingProtection();
 AJAX.registerTeardown('main.js', Config.off());
 AJAX.registerOnload('main.js', Config.on());
 
-$.ajaxPrefilter(addNoCacheToAjaxRequests);
+$.ajaxPrefilter(Functions.addNoCacheToAjaxRequests);
 
 AJAX.registerTeardown('main.js', teardownFunctions());
 AJAX.registerOnload('main.js', onloadFunctions());
