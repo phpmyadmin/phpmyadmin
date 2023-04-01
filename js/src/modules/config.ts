@@ -4,11 +4,6 @@ import { ajaxShowMessage } from './ajax-message.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 import formatDateTime from './functions/formatDateTime.ts';
 
-/**
- * Functions used in configuration forms and on user preferences pages
- */
-const Config = {};
-
 window.configInlineParams;
 window.configScriptLoaded;
 
@@ -138,7 +133,7 @@ function getFieldValue (field, fieldType) {
  *
  * @return {object}
  */
-Config.getAllValues = () => {
+function getAllValues () {
     var $elements = $('fieldset input, fieldset select, fieldset textarea');
     var values = {};
     var type;
@@ -155,7 +150,7 @@ Config.getAllValues = () => {
         }
     }
     return values;
-};
+}
 
 /**
  * Checks whether field has its default value
@@ -197,9 +192,9 @@ function checkFieldDefault (field, type) {
  *
  * @return {string}
  */
-Config.getIdPrefix = function (element) {
+function getIdPrefix (element) {
     return $(element).attr('id').replace(/[^-]+$/, '');
-};
+}
 
 // ------------------------------------------------------------------
 // Form validation and field operations
@@ -300,7 +295,7 @@ window.validators = {
  * @param {boolean} onKeyUp  whether fire on key up
  * @param {any[]}   params   validation function parameters
  */
-Config.registerFieldValidator = (id, type, onKeyUp, params) => {
+function registerFieldValidator (id, type, onKeyUp, params) {
     if (typeof window.validators[type] === 'undefined') {
         return;
     }
@@ -310,7 +305,7 @@ Config.registerFieldValidator = (id, type, onKeyUp, params) => {
     if (validate[id].length === 0) {
         validate[id].push([type, params, onKeyUp]);
     }
-};
+}
 
 /**
  * Returns validation functions associated with form field
@@ -350,7 +345,7 @@ function getFieldValidators (fieldId, onKeyUpOnly) {
  *
  * @param {object} errorList list of errors in the form {field id: error array}
  */
-Config.displayErrors = function (errorList) {
+function displayErrors (errorList) {
     var tempIsEmpty = function (item) {
         return item !== '';
     };
@@ -398,7 +393,7 @@ Config.displayErrors = function (errorList) {
             $errorCnt.remove();
         }
     }
-};
+}
 
 /**
  * Validates fields and fieldsets and call displayError function as required
@@ -485,7 +480,7 @@ function validateFieldAndFieldset (field, isKeyUp) {
     Config.displayErrors(errors);
 }
 
-Config.loadInlineConfig = () => {
+function loadInlineConfig () {
     if (! Array.isArray(window.configInlineParams)) {
         return;
     }
@@ -494,9 +489,9 @@ Config.loadInlineConfig = () => {
             window.configInlineParams[i]();
         }
     }
-};
+}
 
-Config.setupValidation = function () {
+function setupValidation () {
     validate = {};
     window.configScriptLoaded = true;
     if (window.configScriptLoaded && typeof window.configInlineParams !== 'undefined') {
@@ -543,7 +538,7 @@ Config.setupValidation = function () {
     } else if ($checkPageRefresh) {
         $checkPageRefresh.val('1');
     }
-};
+}
 
 //
 // END: Form validation and field operations
@@ -576,7 +571,7 @@ function restoreField (fieldId): void {
     setFieldValue($field, getFieldType($field), window.defaultValues[fieldId]);
 }
 
-Config.setupRestoreField = function () {
+function setupRestoreField () {
     $('div.tab-content')
         .on('mouseenter', '.restore-default, .set-value', function () {
             $(this).css('opacity', 1);
@@ -601,7 +596,7 @@ Config.setupRestoreField = function () {
         .find('.restore-default, .set-value')
         // inline-block for IE so opacity inheritance works
         .css({ display: 'inline-block', opacity: 0.25 });
-};
+}
 
 //
 // END: "Restore default" and "set value" buttons
@@ -693,7 +688,7 @@ function offerPrefsAutoimport () {
 /**
  * @return {function}
  */
-Config.off = function () {
+function off () {
     return function () {
         $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
         $('.optbox input[type=button][name=submit_reset]').off('click');
@@ -703,12 +698,12 @@ Config.off = function () {
         $(document).off('click', 'div.click-hide-message');
         $('#prefs_autoload').find('a').off('click');
     };
-};
+}
 
 /**
  * @return {function}
  */
-Config.on = function () {
+function on () {
     return function () {
         var $topmenuUpt = $('#user_prefs_tabs');
         $topmenuUpt.find('a.active').attr('rel', 'samepage');
@@ -786,6 +781,21 @@ Config.on = function () {
             $(this).parent('.card-body').find('.prefs-form').show();
         });
     };
+}
+
+/**
+ * Used in configuration forms and on user preferences pages
+ */
+const Config = {
+    getAllValues: getAllValues,
+    getIdPrefix: getIdPrefix,
+    registerFieldValidator: registerFieldValidator,
+    displayErrors: displayErrors,
+    loadInlineConfig: loadInlineConfig,
+    setupValidation: setupValidation,
+    setupRestoreField: setupRestoreField,
+    off: off,
+    on: on,
 };
 
 window.Config = Config;
