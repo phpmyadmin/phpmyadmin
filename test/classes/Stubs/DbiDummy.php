@@ -51,7 +51,6 @@ class DbiDummy implements DbiExtension
      *
      * The results will be distributed in the filo way
      *
-     * @var array
      * @phpstan-var array{
      *     'query': string,
      *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
@@ -73,7 +72,6 @@ class DbiDummy implements DbiExtension
     private array $fifoDatabasesToSelect = [];
 
     /**
-     * @var array
      * @phpstan-var array{
      *     'query': string,
      *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
@@ -137,7 +135,7 @@ class DbiDummy implements DbiExtension
         return $this->fifoDatabasesToSelect;
     }
 
-    /** @return array[] */
+    /** @return mixed[][] */
     public function getUnUsedQueries(): array
     {
         $unUsed = [];
@@ -501,7 +499,7 @@ class DbiDummy implements DbiExtension
      *
      * @param object|int $result result set identifier
      *
-     * @return array
+     * @return array<mixed>
      */
     private function &getQueryData(object|int $result): array
     {

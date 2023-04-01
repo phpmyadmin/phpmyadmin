@@ -62,7 +62,7 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * data provider for testSetMinMax
      *
-     * @return array data for testSetMinMax
+     * @return array<array{string, ScaleData|null, ScaleData|null}>
      */
     public static function providerForTestSetMinMax(): array
     {
@@ -75,8 +75,8 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests parseWktAndSrid method
      *
-     * @param string $value  Geometry data
-     * @param array  $output Expected output
+     * @param string  $value  Geometry data
+     * @param mixed[] $output Expected output
      *
      * @dataProvider providerForTestParseWktAndSrid
      */
@@ -96,7 +96,7 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * data provider for testParseWktAndSrid
      *
-     * @return array data for testParseWktAndSrid
+     * @return array<array{string, mixed[]}>
      */
     public static function providerForTestParseWktAndSrid(): array
     {
@@ -116,10 +116,10 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests extractPointsInternal method
      *
-     * @param string     $pointSet  String of comma separated points
-     * @param array|null $scaleData Data related to scaling
-     * @param bool       $linear    If true, as a 1D array, else as a 2D array
-     * @param array      $output    Expected output
+     * @param string       $pointSet  String of comma separated points
+     * @param mixed[]|null $scaleData Data related to scaling
+     * @param bool         $linear    If true, as a 1D array, else as a 2D array
+     * @param mixed[]      $output    Expected output
      *
      * @dataProvider providerForTestExtractPointsInternal
      */
@@ -141,7 +141,7 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * data provider for testExtractPointsInternal
      *
-     * @return array data for testExtractPointsInternal
+     * @return array<array{string, mixed[]|null, bool, mixed[]}>
      */
     public static function providerForTestExtractPointsInternal(): array
     {

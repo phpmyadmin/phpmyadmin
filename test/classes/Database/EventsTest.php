@@ -45,8 +45,8 @@ class EventsTest extends AbstractTestCase
     /**
      * Test for getDataFromRequest
      *
-     * @param array $in  Input
-     * @param array $out Expected output
+     * @param array<string, string> $in  Input
+     * @param array<string, string> $out Expected output
      *
      * @dataProvider providerGetDataFromRequest
      */
@@ -67,7 +67,7 @@ class EventsTest extends AbstractTestCase
     /**
      * Data provider for testGetDataFromRequestEmpty
      *
-     * @return array
+     * @return array<array{array<string, string>, array<string, string>}>
      */
     public static function providerGetDataFromRequest(): array
     {
@@ -144,8 +144,8 @@ class EventsTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array  $data    Data for routine
-     * @param string $matcher Matcher
+     * @param array<string, string> $data    Data for routine
+     * @param string                $matcher Matcher
      *
      * @dataProvider providerGetEditorFormAdd
      */
@@ -161,7 +161,7 @@ class EventsTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorFormAdd
      *
-     * @return array
+     * @return array<array{array<string, string>, string}>
      */
     public static function providerGetEditorFormAdd(): array
     {
@@ -199,8 +199,8 @@ class EventsTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array  $data    Data for routine
-     * @param string $matcher Matcher
+     * @param array<string, string> $data    Data for routine
+     * @param string                $matcher Matcher
      *
      * @dataProvider providerGetEditorFormEdit
      */
@@ -216,7 +216,7 @@ class EventsTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorFormEdit
      *
-     * @return array
+     * @return array<array{array<string, string>, string}>
      */
     public static function providerGetEditorFormEdit(): array
     {
@@ -254,8 +254,8 @@ class EventsTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array  $data    Data for routine
-     * @param string $matcher Matcher
+     * @param array<string, string> $data    Data for routine
+     * @param string                $matcher Matcher
      *
      * @dataProvider providerGetEditorFormAjax
      */
@@ -272,7 +272,7 @@ class EventsTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorFormAjax
      *
-     * @return array
+     * @return array<array{array<string, string>, string}>
      */
     public static function providerGetEditorFormAjax(): array
     {
@@ -303,9 +303,9 @@ class EventsTest extends AbstractTestCase
     /**
      * Test for getQueryFromRequest
      *
-     * @param array  $request Request
-     * @param string $query   Query
-     * @param int    $numErr  Error number
+     * @param array<string, string> $request Request
+     * @param string                $query   Query
+     * @param int                   $numErr  Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
@@ -331,7 +331,7 @@ class EventsTest extends AbstractTestCase
     /**
      * Data provider for testGetQueryFromRequest
      *
-     * @return array
+     * @return array<array{array<string, string>, string, int}>
      */
     public static function providerGetQueryFromRequest(): array
     {

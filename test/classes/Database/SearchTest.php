@@ -85,7 +85,7 @@ class SearchTest extends AbstractTestCase
     /**
      * Data provider for testGetWhereClause
      *
-     * @return array
+     * @return array<array{string, string}>
      */
     public static function searchTypes(): array
     {

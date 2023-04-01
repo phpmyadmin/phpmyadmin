@@ -235,10 +235,10 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Test for Core::checkPageValidity
      *
-     * @param string $page      Page
-     * @param array  $allowList Allow list
-     * @param bool   $include   whether the page is going to be included
-     * @param bool   $expected  Expected value
+     * @param string   $page      Page
+     * @param string[] $allowList Allow list
+     * @param bool     $include   whether the page is going to be included
+     * @param bool     $expected  Expected value
      *
      * @dataProvider providerTestGotoNowhere
      */
@@ -250,7 +250,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Data provider for testGotoNowhere
      *
-     * @return array
+     * @return array<array{string, string[], bool, bool}>
      */
     public static function providerTestGotoNowhere(): array
     {
@@ -284,7 +284,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Data provider for testGetRealSize
      *
-     * @return array
+     * @return array<array{string, int}>
      */
     public static function providerTestGetRealSize(): array
     {
@@ -333,7 +333,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Data provider for testLinkURL
      *
-     * @return array
+     * @return array<array{string, string}>
      */
     public static function providerTestLinkURL(): array
     {
@@ -492,7 +492,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Test data provider
      *
-     * @return array
+     * @return array<array{string, mixed}>
      */
     public static function provideTestSafeUnserialize(): array
     {
@@ -533,7 +533,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Test data provider
      *
-     * @return array
+     * @return array<array{string, string}>
      */
     public static function provideTestSanitizeMySQLHost(): array
     {

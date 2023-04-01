@@ -65,9 +65,7 @@ class TransformationPluginsTest extends AbstractTestCase
         date_default_timezone_set('UTC');
     }
 
-    /**
-     * Data provider for testGetMulti
-     */
+    /** @return array<array{0: TransformationsPlugin, 1: string, 2: mixed, 3?: mixed[]}> */
     public static function multiDataProvider(): array
     {
         $GLOBALS['cfg']['CodemirrorEnable'] = false;
@@ -354,10 +352,10 @@ class TransformationPluginsTest extends AbstractTestCase
      * Tests for getInfo, getName, getMIMEType, getMIMESubtype
      * getScripts, applyTransformationNoWrap, getOptions
      *
-     * @param object $object   instance of the plugin
-     * @param string $method   the method name
-     * @param mixed  $expected the expected output
-     * @param array  $args     the array of arguments
+     * @param object  $object   instance of the plugin
+     * @param string  $method   the method name
+     * @param mixed   $expected the expected output
+     * @param mixed[] $args     the array of arguments
      *
      * @dataProvider multiDataProvider
      * @group medium
@@ -376,7 +374,13 @@ class TransformationPluginsTest extends AbstractTestCase
     }
 
     /**
-     * Data provider for testTransformation
+     * @return array<array{
+     *     0: TransformationsPlugin,
+     *     1: array{0: string, 1?: mixed[], 2?: FieldMetadata|null},
+     *     2: string|int,
+     *     3?: bool,
+     *     4?: string
+     * }>
      */
     public static function transformationDataProvider(): array
     {

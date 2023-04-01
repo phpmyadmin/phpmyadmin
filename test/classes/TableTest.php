@@ -379,9 +379,7 @@ class TableTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Data provider for name validation
-     */
+    /** @return array<array{0: string, 1: bool, 2?: bool}> */
     public static function dataValidateName(): array
     {
         return [

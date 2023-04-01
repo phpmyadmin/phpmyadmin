@@ -14681,13 +14681,6 @@
       <code><![CDATA[$arr['sarr'][0][1][0]]]></code>
       <code><![CDATA[$arr['sarr'][0][2]]]></code>
     </MixedArrayAccess>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/Crypto/CryptoTest.php">
     <EmptyArrayAccess>
@@ -14762,19 +14755,6 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Database/EventsTest.php">
-    <MixedAssignment>
-      <code>$_POST[$key]</code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="test/classes/Database/QbeTest.php">
     <MixedArgument>
       <code>$actual</code>
@@ -14796,24 +14776,6 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Database/SearchTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Database/TriggersTest.php">
-    <MixedAssignment>
-      <code>$_POST[$key]</code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="test/classes/DatabaseInterfaceTest.php">
     <MixedArgumentTypeCoercion>
       <code>$value</code>
@@ -14832,10 +14794,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/Display/ResultsTest.php">
     <DocblockTypeContradiction>
@@ -14907,9 +14865,6 @@
     <InvalidScalarArgument>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
     <RedundantCondition>
       <code>assertIsString</code>
     </RedundantCondition>
@@ -14968,107 +14923,24 @@
       <code>$privates</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="test/classes/Gis/GisFactoryTest.php">
-    <PossiblyInvalidArgument>
-      <code>testFactory</code>
-      <code>testFactory</code>
-    </PossiblyInvalidArgument>
-  </file>
-  <file src="test/classes/Gis/GisGeometryCollectionTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
     <MixedAssignment>
       <code>$points</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Gis/GisLineStringTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Gis/GisMultiLineStringTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Gis/GisMultiPointTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Gis/GisMultiPolygonTest.php">
-    <MixedArrayAssignment>
-      <code><![CDATA[$temp1[0]['MULTIPOLYGON']['no_of_polygons']]]></code>
-      <code><![CDATA[$temp2[0]['MULTIPOLYGON'][1]]]></code>
-      <code><![CDATA[$temp2[0]['MULTIPOLYGON'][1]['no_of_lines']]]></code>
-      <code><![CDATA[$temp3[0]['MULTIPOLYGON'][1]]]></code>
-      <code><![CDATA[$temp3[0]['MULTIPOLYGON'][1][0]]]></code>
-      <code><![CDATA[$temp3[0]['MULTIPOLYGON'][1][0]['no_of_points']]]></code>
-    </MixedArrayAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Gis/GisPointTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[[[$temp['POLYGON'][0]], [$temp['POLYGON'][1]]]]]></code>
+    </LessSpecificReturnStatement>
     <MixedArrayAccess>
-      <code><![CDATA[$temp1[0]['POLYGON'][1]]]></code>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]]]></code>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]['y']]]></code>
-      <code><![CDATA[$temp['POLYGON'][0]]]></code>
-      <code><![CDATA[$temp['POLYGON'][0]]]></code>
       <code><![CDATA[$temp['POLYGON'][0]['no_of_points']]]></code>
-      <code><![CDATA[$temp['POLYGON'][1]]]></code>
-      <code><![CDATA[$temp['POLYGON'][1]]]></code>
       <code><![CDATA[$temp['POLYGON'][1]['no_of_points']]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$temp2[0]['POLYGON']['no_of_lines']]]></code>
-      <code><![CDATA[$temp3[0]['POLYGON'][1]]]></code>
-      <code><![CDATA[$temp3[0]['POLYGON'][1]['no_of_points']]]></code>
-    </MixedArrayAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <MoreSpecificReturnType>
+      <code><![CDATA[array<array{mixed[]}>]]></code>
+    </MoreSpecificReturnType>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>
@@ -15230,11 +15102,6 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/LinterTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="test/classes/MessageTest.php">
     <MixedInferredReturnType>
       <code>array</code>
@@ -15291,11 +15158,6 @@
     <RedundantCondition>
       <code>assertIsString</code>
     </RedundantCondition>
-  </file>
-  <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/Plugins/Export/ExportCodegenTest.php">
     <MixedAssignment>
@@ -15436,10 +15298,9 @@
     </MixedArgument>
   </file>
   <file src="test/classes/Plugins/Transformations/TransformationPluginsTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <InvalidArgument>
+      <code>testTransformation</code>
+    </InvalidArgument>
   </file>
   <file src="test/classes/PluginsTest.php">
     <InvalidReturnStatement>
@@ -15469,11 +15330,6 @@
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
-  </file>
-  <file src="test/classes/RoutingTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType>
@@ -15591,7 +15447,7 @@
       <code>$val</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code><![CDATA[array<mixed>]]></code>
       <code>array|null</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -15604,7 +15460,7 @@
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code>$unUsed</code>
-      <code>array[]</code>
+      <code>mixed[][]</code>
     </MixedReturnTypeCoercion>
     <UnsupportedReferenceUsage>
       <code><![CDATA[$queryData = &$this->getQueryData($result)]]></code>
@@ -15653,9 +15509,6 @@
       <code>$sql</code>
       <code>$sql</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
     <MixedMethodCall>
       <code>method</code>
       <code>method</code>
@@ -15729,15 +15582,6 @@
       <code><![CDATA[$object->config['settings']['secret']]]></code>
       <code><![CDATA[$object->config['settings']['secret']]]></code>
     </MixedArgument>
-  </file>
-  <file src="test/classes/TypesTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/UserPasswordTest.php">
     <InvalidArgument>

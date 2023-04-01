@@ -19,7 +19,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * Provide some common data to data providers
      *
-     * @return array common data for data providers
+     * @return mixed[][]
      */
     private static function getData(): array
     {
@@ -154,8 +154,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test getShape method
      *
-     * @param array  $rowData array of GIS data
-     * @param string $shape   expected shape in WKT
+     * @param mixed[] $rowData array of GIS data
+     * @param string  $shape   expected shape in WKT
      *
      * @dataProvider providerForTestGetShape
      */
@@ -168,7 +168,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGetShape
      *
-     * @return array data for testGetShape
+     * @return array<array{mixed[], string}>
      */
     public static function providerForTestGetShape(): array
     {
@@ -226,7 +226,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testScaleRow
      *
-     * @return array data for testScaleRow
+     * @return array<array{string, ScaleData}>
      */
     public static function providerForTestScaleRow(): array
     {
@@ -270,10 +270,10 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial   GIS MULTIPOLYGON object
-     * @param string $label     label for the GIS MULTIPOLYGON object
-     * @param int[]  $color     color for the GIS MULTIPOLYGON object
-     * @param array  $scaleData array containing data related to scaling
+     * @param string                   $spatial   GIS MULTIPOLYGON object
+     * @param string                   $label     label for the GIS MULTIPOLYGON object
+     * @param int[]                    $color     color for the GIS MULTIPOLYGON object
+     * @param array<string, int|float> $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -296,7 +296,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array test data for testPrepareRowAsPdf() test case
+     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -317,11 +317,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial   GIS MULTIPOLYGON object
-     * @param string $label     label for the GIS MULTIPOLYGON object
-     * @param int[]  $color     color for the GIS MULTIPOLYGON object
-     * @param array  $scaleData array containing data related to scaling
-     * @param string $output    expected output
+     * @param string             $spatial   GIS MULTIPOLYGON object
+     * @param string             $label     label for the GIS MULTIPOLYGON object
+     * @param int[]              $color     color for the GIS MULTIPOLYGON object
+     * @param array<string, int> $scaleData array containing data related to scaling
+     * @param string             $output    expected output
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
@@ -340,7 +340,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array test data for testPrepareRowAsSvg() test case
+     * @return array<array{string, string, int[], array<string, int>, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -388,7 +388,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array test data for testPrepareRowAsOl() test case
+     * @return array<array{string, int, string, int[], string}>
      */
     public static function providerForPrepareRowAsOl(): array
     {

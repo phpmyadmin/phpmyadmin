@@ -146,7 +146,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testScaleRow
      *
-     * @return array data for testScaleRow
+     * @return array<array{string, ScaleData}>
      */
     public static function providerForTestScaleRow(): array
     {
@@ -178,10 +178,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial   GIS MULTILINESTRING object
-     * @param string $label     label for the GIS MULTILINESTRING object
-     * @param int[]  $color     color for the GIS MULTILINESTRING object
-     * @param array  $scaleData array containing data related to scaling
+     * @param string                   $spatial   GIS MULTILINESTRING object
+     * @param string                   $label     label for the GIS MULTILINESTRING object
+     * @param int[]                    $color     color for the GIS MULTILINESTRING object
+     * @param array<string, int|float> $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -204,7 +204,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array test data for testPrepareRowAsPdf() test case
+     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -223,11 +223,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial   GIS MULTILINESTRING object
-     * @param string $label     label for the GIS MULTILINESTRING object
-     * @param int[]  $color     color for the GIS MULTILINESTRING object
-     * @param array  $scaleData array containing data related to scaling
-     * @param string $output    expected output
+     * @param string                   $spatial   GIS MULTILINESTRING object
+     * @param string                   $label     label for the GIS MULTILINESTRING object
+     * @param int[]                    $color     color for the GIS MULTILINESTRING object
+     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string                   $output    expected output
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
@@ -246,7 +246,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array test data for testPrepareRowAsSvg() test case
+     * @return array<array{string, string, int[], array<string, int|float>, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -291,7 +291,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array test data for testPrepareRowAsOl() test case
+     * @return array<array{string, int, string, int[], string}>
      */
     public static function providerForPrepareRowAsOl(): array
     {

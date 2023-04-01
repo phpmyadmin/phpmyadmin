@@ -53,7 +53,7 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Data provider for testHandleError
      *
-     * @return array data for testHandleError
+     * @return array<array{int, string, string, int, string, string}>
      */
     public static function providerForTestHandleError(): array
     {

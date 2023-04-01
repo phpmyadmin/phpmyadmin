@@ -69,8 +69,8 @@ class LinterTest extends AbstractTestCase
     /**
      * Test for Linter::lint
      *
-     * @param array  $expected The expected result.
-     * @param string $query    The query to be analyzed.
+     * @param mixed[] $expected The expected result.
+     * @param string  $query    The query to be analyzed.
      *
      * @dataProvider lintProvider
      */
@@ -82,7 +82,7 @@ class LinterTest extends AbstractTestCase
     /**
      * Provides data for `testLint`.
      *
-     * @return array
+     * @return array<array{mixed[], string}>
      */
     public static function lintProvider(): array
     {

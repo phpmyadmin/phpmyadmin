@@ -78,6 +78,7 @@ class RoutingTest extends AbstractTestCase
         $this->assertEquals($expected, $actual);
     }
 
+    /** @return array<array{string, string, string, string}> */
     public static function providerForTestCleanupPathInfo(): array
     {
         return [

@@ -132,9 +132,9 @@ class TypesTest extends AbstractTestCase
     /**
      * Test for getting type operators
      *
-     * @param string       $type   Type of field
-     * @param bool         $null   Whether field can be NULL
-     * @param string|array $output Expected output
+     * @param string          $type   Type of field
+     * @param bool            $null   Whether field can be NULL
+     * @param string|string[] $output Expected output
      *
      * @dataProvider providerForGetTypeOperators
      */
@@ -149,7 +149,7 @@ class TypesTest extends AbstractTestCase
     /**
      * data provider for testGetTypeOperators
      *
-     * @return array data for testGetTypeOperators
+     * @return array<array{string, bool, string|string[]}>
      */
     public static function providerForGetTypeOperators(): array
     {
@@ -177,7 +177,26 @@ class TypesTest extends AbstractTestCase
                     'IS NULL',
                     'IS NOT NULL',
                 ],
-                ['int', false, ['=', '!=']],
+            ],
+            [
+                'int',
+                false,
+                [
+                    '=',
+                    '>',
+                    '>=',
+                    '<',
+                    '<=',
+                    '!=',
+                    'LIKE',
+                    'LIKE %...%',
+                    'NOT LIKE',
+                    'NOT LIKE %...%',
+                    'IN (...)',
+                    'NOT IN (...)',
+                    'BETWEEN',
+                    'NOT BETWEEN',
+                ],
             ],
             [
                 'UUID',
@@ -228,7 +247,7 @@ class TypesTest extends AbstractTestCase
     /**
      * Provider for testGetTypeOperatorsHtml
      *
-     * @return array test data for getTypeOperatorsHtml
+     * @return array<array{string, bool, string, string}>
      */
     public static function providerForTestGetTypeOperatorsHtml(): array
     {
@@ -266,7 +285,7 @@ class TypesTest extends AbstractTestCase
     /**
      * Provider for testGetTypeDescription
      *
-     * @return array
+     * @return array<array{string}>
      */
     public static function providerForTestGetTypeDescription(): array
     {
@@ -317,8 +336,8 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
-     * @param string $class  The class to get function list.
-     * @param array  $output Expected function list
+     * @param string   $class  The class to get function list.
+     * @param string[] $output Expected function list
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
@@ -330,9 +349,7 @@ class TypesTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Data provider for testing function lists
-     */
+    /** @return array<array{string, string[]}> */
     public static function providerFortTestGetFunctionsClass(): array
     {
         return [
@@ -749,7 +766,7 @@ class TypesTest extends AbstractTestCase
     /**
      * Data provider for type testing
      *
-     * @return array for testing type detection
+     * @return array<array{string, string}>
      */
     public static function providerFortTestGetTypeClass(): array
     {

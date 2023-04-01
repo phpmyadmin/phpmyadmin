@@ -43,8 +43,8 @@ class TriggersTest extends AbstractTestCase
     /**
      * Test for getDataFromRequest
      *
-     * @param array $in  Input
-     * @param array $out Expected output
+     * @param array<string, string> $in  Input
+     * @param array<string, string> $out Expected output
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
@@ -65,7 +65,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Data provider for testGetDataFromRequestEmpty
      *
-     * @return array
+     * @return array<array{array<string, string>, array<string, string>}>
      */
     public static function providerGetDataFromRequestEmpty(): array
     {
@@ -116,7 +116,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for trigger
+     * @param array<string, string> $data Data for trigger
      *
      * @dataProvider providerGetEditorFormAdd
      * @group medium
@@ -133,7 +133,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Provider for testGetEditorFormAdd
      *
-     * @return array
+     * @return array<array{array<string, string>, string}>
      */
     public static function providerGetEditorFormAdd(): array
     {
@@ -162,7 +162,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for trigger
+     * @param array<string, string> $data Data for trigger
      *
      * @dataProvider providerGetEditorFormEdit
      * @group medium
@@ -179,7 +179,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Provider for testGetEditorFormEdit
      *
-     * @return array
+     * @return array<array{array<string, string>, string}>
      */
     public static function providerGetEditorFormEdit(): array
     {
@@ -208,7 +208,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for trigger
+     * @param array<string, string> $data Data for trigger
      *
      * @dataProvider providerGetEditorFormAjax
      */
@@ -226,7 +226,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Provider for testGetEditorFormAjax
      *
-     * @return array
+     * @return array<array{array<string, string>, string}>
      */
     public static function providerGetEditorFormAjax(): array
     {
@@ -284,7 +284,7 @@ class TriggersTest extends AbstractTestCase
     /**
      * Data provider for testGetQueryFromRequest
      *
-     * @return array
+     * @return array<array{string, string, string, string, string, string, string, int}>
      */
     public static function providerGetQueryFromRequest(): array
     {

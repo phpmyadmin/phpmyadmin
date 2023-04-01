@@ -19,7 +19,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * Provide some common data to data providers
      *
-     * @return array common data for data providers
+     * @return mixed[][]
      */
     private static function getData(): array
     {
@@ -126,8 +126,8 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test for Area
      *
-     * @param array $ring array of points forming the ring
-     * @param float $area area of the ring
+     * @param mixed[] $ring array of points forming the ring
+     * @param float   $area area of the ring
      *
      * @dataProvider providerForTestArea
      */
@@ -140,7 +140,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testArea
      *
-     * @return array data for testArea
+     * @return array<array{mixed[], float}>
      */
     public static function providerForTestArea(): array
     {
@@ -164,9 +164,9 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test for isPointInsidePolygon
      *
-     * @param array $point    x, y coordinates of the point
-     * @param array $polygon  array of points forming the ring
-     * @param bool  $isInside output
+     * @param mixed[] $point    x, y coordinates of the point
+     * @param mixed[] $polygon  array of points forming the ring
+     * @param bool    $isInside output
      *
      * @dataProvider providerForTestIsPointInsidePolygon
      */
@@ -179,7 +179,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testIsPointInsidePolygon
      *
-     * @return array data for testIsPointInsidePolygon
+     * @return array<array{mixed[], mixed[], bool}>
      */
     public static function providerForTestIsPointInsidePolygon(): array
     {
@@ -205,7 +205,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test for getPointOnSurface
      *
-     * @param array $ring array of points forming the ring
+     * @param mixed[] $ring array of points forming the ring
      *
      * @dataProvider providerForTestGetPointOnSurface
      */
@@ -220,7 +220,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGetPointOnSurface
      *
-     * @return array data for testGetPointOnSurface
+     * @return array<array{mixed[]}>
      */
     public static function providerForTestGetPointOnSurface(): array
     {
@@ -248,7 +248,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testScaleRow
      *
-     * @return array data for testScaleRow
+     * @return array<array{string, ScaleData}>
      */
     public static function providerForTestScaleRow(): array
     {
@@ -283,10 +283,10 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     label for the GIS POLYGON object
-     * @param int[]  $color     color for the GIS POLYGON object
-     * @param array  $scaleData array containing data related to scaling
+     * @param string                   $spatial   GIS POLYGON object
+     * @param string                   $label     label for the GIS POLYGON object
+     * @param int[]                    $color     color for the GIS POLYGON object
+     * @param array<string, int|float> $scaleData array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -309,7 +309,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array test data for testPrepareRowAsPdf() test case
+     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -329,11 +329,11 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     label for the GIS POLYGON object
-     * @param int[]  $color     color for the GIS POLYGON object
-     * @param array  $scaleData array containing data related to scaling
-     * @param string $output    expected output
+     * @param string             $spatial   GIS POLYGON object
+     * @param string             $label     label for the GIS POLYGON object
+     * @param int[]              $color     color for the GIS POLYGON object
+     * @param array<string, int> $scaleData array containing data related to scaling
+     * @param string             $output    expected output
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
@@ -352,7 +352,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array test data for testPrepareRowAsSvg() test case
+     * @return array<array{string, string, int[], array<string, int>, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -395,7 +395,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array test data for testPrepareRowAsOl() test case
+     * @return array<array{string, int, string, int[], string}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -417,7 +417,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for isOuterRing() method
      *
-     * @param array $ring coordinates of the points in a ring
+     * @param array<array<string, int>> $ring coordinates of the points in a ring
      *
      * @dataProvider providerForIsOuterRing
      */
@@ -430,7 +430,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testIsOuterRing() test case
      *
-     * @return array test data for testIsOuterRing() test case
+     * @return array<array{array<array<string, int>>}>
      */
     public static function providerForIsOuterRing(): array
     {

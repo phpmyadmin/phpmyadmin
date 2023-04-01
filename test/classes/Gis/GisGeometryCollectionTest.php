@@ -19,7 +19,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Data provider for testScaleRow() test case
      *
-     * @return array test data for testScaleRow() test case
+     * @return array<array{string, ScaleData}>
      */
     public static function providerForTestScaleRow(): array
     {
@@ -234,11 +234,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsPdf
      *
-     * @param string $spatial   string to parse
-     * @param string $label     field label
-     * @param int[]  $color     line color
-     * @param array  $scaleData scaling parameters
-     * @param TCPDF  $pdf       expected output
+     * @param string                   $spatial   string to parse
+     * @param string                   $label     field label
+     * @param int[]                    $color     line color
+     * @param array<string, int|float> $scaleData scaling parameters
+     * @param TCPDF                    $pdf       expected output
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -261,7 +261,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Data provider for testPrepareRowAsPdf() test case
      *
-     * @return array test data for testPrepareRowAsPdf() test case
+     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -281,11 +281,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsSvg
      *
-     * @param string $spatial   string to parse
-     * @param string $label     field label
-     * @param int[]  $color     line color
-     * @param array  $scaleData scaling parameters
-     * @param string $output    expected output
+     * @param string                   $spatial   string to parse
+     * @param string                   $label     field label
+     * @param int[]                    $color     line color
+     * @param array<string, int|float> $scaleData scaling parameters
+     * @param string                   $output    expected output
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
@@ -304,7 +304,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Data provider for testPrepareRowAsSvg() test case
      *
-     * @return array test data for testPrepareRowAsSvg() test case
+     * @return array<array{string, string, int[], array<string, int|float>, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -355,7 +355,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Data provider for testPrepareRowAsOl() test case
      *
-     * @return array test data for testPrepareRowAsOl() test case
+     * @return array<array{string, int, string, int[], string}>
      */
     public static function providerForPrepareRowAsOl(): array
     {

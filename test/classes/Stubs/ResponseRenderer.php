@@ -28,7 +28,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      * An array of JSON key-value pairs
      * to be sent back for ajax requests
      *
-     * @var array
+     * @var mixed[]
      */
     protected array $json;
 
@@ -91,7 +91,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * Return the final JSON array
      *
-     * @return array
+     * @return mixed[]
      */
     public function getJSONResult(): array
     {

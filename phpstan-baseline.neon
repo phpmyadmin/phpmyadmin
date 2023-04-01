@@ -9346,39 +9346,54 @@ parameters:
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
+			message: "#^Cannot access offset 'numRows' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'rows' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'sum' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'affectedRows' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'explain' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'profiling' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'numRows' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'rows' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'sum' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
+
+		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 7
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:provideTestSafeUnserialize\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:provideTestSanitizeMySQLHost\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:providerTestGetRealSize\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:providerTestGotoNowhere\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:providerTestLinkURL\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:testGotoNowhere\\(\\) has parameter \\$allowList with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
@@ -9406,61 +9421,6 @@ parameters:
 			path: test/classes/Database/DesignerTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:providerGetDataFromRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:providerGetEditorFormAdd\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:providerGetEditorFormAjax\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:providerGetEditorFormEdit\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:providerGetQueryFromRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:testGetDataFromRequestEmpty\\(\\) has parameter \\$in with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:testGetDataFromRequestEmpty\\(\\) has parameter \\$out with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:testGetEditorFormAdd\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:testGetEditorFormAjax\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:testGetEditorFormEdit\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:testGetQueryFromRequest\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 7
 			path: test/classes/Database/QbeTest.php
@@ -9469,61 +9429,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Database/QbeTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\SearchTest\\:\\:searchTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/SearchTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:providerGetDataFromRequestEmpty\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:providerGetEditorFormAdd\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:providerGetEditorFormAjax\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:providerGetEditorFormEdit\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:providerGetQueryFromRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:testGetDataFromRequestEmpty\\(\\) has parameter \\$in with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:testGetDataFromRequestEmpty\\(\\) has parameter \\$out with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:testGetEditorFormAdd\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:testGetEditorFormAjax\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\TriggersTest\\:\\:testGetEditorFormEdit\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Dbal\\\\\\\\ResultInterface' and PhpMyAdmin\\\\Dbal\\\\ResultInterface will always evaluate to true\\.$#"
@@ -9569,16 +9474,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\DatabaseInterfaceTest\\:\\:versionData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/DatabaseInterfaceTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Dbal\\\\DbiDummyTest\\:\\:errorData\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Dbal/DbiDummyTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Dbal\\\\DbiDummyTest\\:\\:schemaData\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Dbal/DbiDummyTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestGetDataCellForNonNumericColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9721,11 +9616,6 @@ parameters:
 			path: test/classes/ErrorHandlerTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\ErrorHandlerTest\\:\\:providerForTestHandleError\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/ErrorHandlerTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ErrorReportTest\\:\\:testSanitizeUrl\\(\\) has parameter \\$result with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ErrorReportTest.php
@@ -9746,322 +9636,32 @@ parameters:
 			path: test/classes/FooterTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisFactoryTest\\:\\:providerForTestFactory\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisFactoryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForPrepareRowAsPdf\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestExtractPointsInternal\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestParseWktAndSrid\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestSetMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPointsInternal\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPointsInternal\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testParseWktAndSrid\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForPrepareRowAsPdf\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForPrepareRowAsPdf\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForPrepareRowAsPdf\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access offset 'no_of_lines' on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForPrepareRowAsPdf\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
+			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			count: 3
+			path: test/classes/Gis/GisPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForTestGetShape\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testGetShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForPrepareRowAsPdf\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForTestGetShape\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testGetShape\\(\\) has parameter \\$rowData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPointTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access offset 'y' on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForIsOuterRing\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access offset 3 on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForPrepareRowAsPdf\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForPrepareRowAsSvg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestArea\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestGetPointOnSurface\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestIsPointInsidePolygon\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestScaleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testArea\\(\\) has parameter \\$ring with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testGetPointOnSurface\\(\\) has parameter \\$ring with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testIsOuterRing\\(\\) has parameter \\$ring with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testIsPointInsidePolygon\\(\\) has parameter \\$point with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testIsPointInsidePolygon\\(\\) has parameter \\$polygon with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestGetPointOnSurface\\(\\) should return array\\<array\\{array\\}\\> but returns array\\{array\\{mixed\\}, array\\{mixed\\}\\}\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
@@ -10224,16 +9824,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\LanguageTest\\:\\:listLocales\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/LanguageTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\LinterTest\\:\\:lintProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/LinterTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\LinterTest\\:\\:testLint\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/LinterTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\MessageTest\\:\\:decodeBBDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10451,11 +10041,6 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationHttpTest\\:\\:readCredentialsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
@@ -10506,22 +10091,7 @@ parameters:
 			path: test/classes/Plugins/Import/ImportOdsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:multiDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:testGetMulti\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:testTransformation\\(\\) has parameter \\$applyArgs with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:transformationDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
 
@@ -10548,11 +10118,6 @@ parameters:
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FastRoute\\\\\\\\Dispatcher' and FastRoute\\\\Dispatcher will always evaluate to true\\.$#"
 			count: 4
-			path: test/classes/RoutingTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\RoutingTest\\:\\:providerForTestCleanupPathInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
 			path: test/classes/RoutingTest.php
 
 		-
@@ -10636,6 +10201,11 @@ parameters:
 			path: test/classes/StorageEngineTest.php
 
 		-
+			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
+			count: 1
+			path: test/classes/Stubs/DbiDummy.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:connect\\(\\) never returns null so it can be removed from the return type\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
@@ -10656,16 +10226,6 @@ parameters:
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:getQueryData\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:getUnUsedQueries\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
 			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$dummyQueries contains unresolvable type\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
@@ -10673,6 +10233,11 @@ parameters:
 		-
 			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$filoQueries contains unresolvable type\\.$#"
 			count: 1
+			path: test/classes/Stubs/DbiDummy.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 3
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
@@ -10696,22 +10261,7 @@ parameters:
 			path: test/classes/Stubs/ResponseRenderer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\ResponseRenderer\\:\\:getJSONResult\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/ResponseRenderer.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Stubs\\\\ResponseRenderer\\:\\:\\$json type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/ResponseRenderer.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table' and PhpMyAdmin\\\\Table will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TableTest\\:\\:dataValidateName\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TableTest.php
 
@@ -10839,41 +10389,6 @@ parameters:
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\TypesByDatabaseVersionTest has an uninitialized property \\$object\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: test/classes/TypesByDatabaseVersionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerForGetTypeOperators\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerForTestGetTypeDescription\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerForTestGetTypeOperatorsHtml\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerFortTestGetFunctionsClass\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerFortTestGetTypeClass\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:testGetFunctionsClass\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:testGetTypeOperators\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"

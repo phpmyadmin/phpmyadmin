@@ -193,9 +193,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Data provider for testAuthCheck
-     *
-     * @return array Test data
+     * @return array<array{
+     *     0: string, 1: string, 2: string, 3: string, 4: string|bool, 5: string, 6: string|bool, 7?: string|bool
+     * }>
      */
     public static function readCredentialsProvider(): array
     {

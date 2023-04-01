@@ -74,9 +74,7 @@ class DbiDummyTest extends AbstractTestCase
         $this->assertEquals($expected, Utilities::isSystemSchema($schema));
     }
 
-    /**
-     * Data provider for schema test
-     */
+    /** @return array<array{string, bool}> */
     public static function schemaData(): array
     {
         return [['information_schema', true], ['pma_test', false]];
@@ -100,9 +98,7 @@ class DbiDummyTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Data provider for error formatting test
-     */
+    /** @return array<array{int, string, string}> */
     public static function errorData(): array
     {
         return [
