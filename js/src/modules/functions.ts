@@ -161,45 +161,46 @@ function addDatepicker ($thisElement, type, options) {
  * (only when jquery-ui-timepicker-addon.js is loaded)
  */
 function addDateTimePicker () {
-    if ($.timepicker !== undefined) {
-        $('input.timefield, input.datefield, input.datetimefield').each(function () {
-            var decimals = $(this).parent().attr('data-decimals');
-            var type = $(this).parent().attr('data-type');
-
-            var showMillisec = false;
-            var showMicrosec = false;
-            var timeFormat = 'HH:mm:ss';
-            var hourMax = 23;
-            // check for decimal places of seconds
-            if (decimals > 0 && type.indexOf('time') !== -1) {
-                if (decimals > 3) {
-                    showMillisec = true;
-                    showMicrosec = true;
-                    timeFormat = 'HH:mm:ss.lc';
-                } else {
-                    showMillisec = true;
-                    timeFormat = 'HH:mm:ss.l';
-                }
-            }
-            if (type === 'time') {
-                hourMax = 99;
-            }
-            Functions.addDatepicker($(this), type, {
-                showMillisec: showMillisec,
-                showMicrosec: showMicrosec,
-                timeFormat: timeFormat,
-                hourMax: hourMax,
-                firstDay: window.firstDayOfCalendar
-            });
-            // Add a tip regarding entering MySQL allowed-values
-            // for TIME and DATE data-type
-            if ($(this).hasClass('timefield')) {
-                tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
-            } else if ($(this).hasClass('datefield')) {
-                tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
-            }
-        });
+    if ($.timepicker === undefined) {
+        return;
     }
+    $('input.timefield, input.datefield, input.datetimefield').each(function () {
+        var decimals = $(this).parent().attr('data-decimals');
+        var type = $(this).parent().attr('data-type');
+
+        var showMillisec = false;
+        var showMicrosec = false;
+        var timeFormat = 'HH:mm:ss';
+        var hourMax = 23;
+        // check for decimal places of seconds
+        if (decimals > 0 && type.indexOf('time') !== -1) {
+            if (decimals > 3) {
+                showMillisec = true;
+                showMicrosec = true;
+                timeFormat = 'HH:mm:ss.lc';
+            } else {
+                showMillisec = true;
+                timeFormat = 'HH:mm:ss.l';
+            }
+        }
+        if (type === 'time') {
+            hourMax = 99;
+        }
+        Functions.addDatepicker($(this), type, {
+            showMillisec: showMillisec,
+            showMicrosec: showMicrosec,
+            timeFormat: timeFormat,
+            hourMax: hourMax,
+            firstDay: window.firstDayOfCalendar
+        });
+        // Add a tip regarding entering MySQL allowed-values
+        // for TIME and DATE data-type
+        if ($(this).hasClass('timefield')) {
+            tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
+        } else if ($(this).hasClass('datefield')) {
+            tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
+        }
+    });
 }
 
 /**
@@ -213,71 +214,71 @@ function addDateTimePicker () {
  * @return {object|null}
  */
 function getSqlEditor ($textarea, options, resize, lintOptions) {
-    var resizeType = resize;
-    if ($textarea.length > 0 && typeof window.CodeMirror !== 'undefined') {
-        // merge options for CodeMirror
-        var defaults = {
-            lineNumbers: true,
-            matchBrackets: true,
-            extraKeys: { 'Ctrl-Space': 'autocomplete' },
-            hintOptions: { 'completeSingle': false, 'completeOnSingleClick': true },
-            indentUnit: 4,
-            mode: 'text/x-mysql',
-            lineWrapping: true
-        };
-
-        if (window.CodeMirror.sqlLint) {
-            $.extend(defaults, {
-                gutters: ['CodeMirror-lint-markers'],
-                lint: {
-                    'getAnnotations': window.CodeMirror.sqlLint,
-                    'async': true,
-                    'lintOptions': lintOptions
-                }
-            });
-        }
-
-        $.extend(true, defaults, options);
-
-        // create CodeMirror editor
-        var codemirrorEditor = window.CodeMirror.fromTextArea($textarea[0], defaults);
-        // allow resizing
-        if (! resizeType) {
-            resizeType = 'vertical';
-        }
-        var handles = '';
-        if (resizeType === 'vertical') {
-            handles = 's';
-        }
-        if (resizeType === 'both') {
-            handles = 'all';
-        }
-        if (resizeType === 'horizontal') {
-            handles = 'e, w';
-        }
-        $(codemirrorEditor.getWrapperElement())
-            .css('resize', resizeType)
-            .resizable({
-                handles: handles,
-                resize: function () {
-                    codemirrorEditor.setSize($(this).width(), $(this).height());
-                }
-            });
-        // enable autocomplete
-        codemirrorEditor.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
-
-        // page locking
-        codemirrorEditor.on('change', function (e) {
-            e.data = {
-                value: 3,
-                content: codemirrorEditor.isClean(),
-            };
-            AJAX.lockPageHandler(e);
-        });
-
-        return codemirrorEditor;
+    if ($textarea.length === 0 || typeof window.CodeMirror === 'undefined') {
+        return null;
     }
-    return null;
+    var resizeType = resize;
+    // merge options for CodeMirror
+    var defaults = {
+        lineNumbers: true,
+        matchBrackets: true,
+        extraKeys: { 'Ctrl-Space': 'autocomplete' },
+        hintOptions: { 'completeSingle': false, 'completeOnSingleClick': true },
+        indentUnit: 4,
+        mode: 'text/x-mysql',
+        lineWrapping: true
+    };
+
+    if (window.CodeMirror.sqlLint) {
+        $.extend(defaults, {
+            gutters: ['CodeMirror-lint-markers'],
+            lint: {
+                'getAnnotations': window.CodeMirror.sqlLint,
+                'async': true,
+                'lintOptions': lintOptions
+            }
+        });
+    }
+
+    $.extend(true, defaults, options);
+
+    // create CodeMirror editor
+    var codemirrorEditor = window.CodeMirror.fromTextArea($textarea[0], defaults);
+    // allow resizing
+    if (! resizeType) {
+        resizeType = 'vertical';
+    }
+    var handles = '';
+    if (resizeType === 'vertical') {
+        handles = 's';
+    }
+    if (resizeType === 'both') {
+        handles = 'all';
+    }
+    if (resizeType === 'horizontal') {
+        handles = 'e, w';
+    }
+    $(codemirrorEditor.getWrapperElement())
+        .css('resize', resizeType)
+        .resizable({
+            handles: handles,
+            resize: function () {
+                codemirrorEditor.setSize($(this).width(), $(this).height());
+            }
+        });
+    // enable autocomplete
+    codemirrorEditor.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
+
+    // page locking
+    codemirrorEditor.on('change', function (e) {
+        e.data = {
+            value: 3,
+            content: codemirrorEditor.isClean(),
+        };
+        AJAX.lockPageHandler(e);
+    });
+
+    return codemirrorEditor;
 }
 
 /**
@@ -953,40 +954,40 @@ function setSelectOptions (theForm, theSelect, doCheck) {
  * Updates the input fields for the parameters based on the query
  */
 function updateQueryParameters () {
-    if ($('#parameterized').is(':checked')) {
-        var query = window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val();
-
-        var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
-        var parameters = [];
-        // get unique parameters
-        if (allParameters) {
-            $.each(allParameters, function (i, parameter) {
-                if ($.inArray(parameter, parameters) === -1) {
-                    parameters.push(parameter);
-                }
-            });
-        } else {
-            $('#parametersDiv').text(window.Messages.strNoParam);
-            return;
-        }
-
-        var $temp = $('<div></div>');
-        $temp.append($('#parametersDiv').children());
+    if (! $('#parameterized').is(':checked')) {
         $('#parametersDiv').empty();
+        return;
+    }
+    var query = window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val();
 
-        $.each(parameters, function (i, parameter) {
-            var paramName = parameter.substring(1);
-            var $param = $temp.find('#paramSpan_' + paramName);
-            if (! $param.length) {
-                $param = $('<span class="parameter" id="paramSpan_' + paramName + '"></span>');
-                $('<label for="param_' + paramName + '"></label>').text(parameter).appendTo($param);
-                $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '">').appendTo($param);
+    var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
+    var parameters = [];
+    // get unique parameters
+    if (allParameters) {
+        $.each(allParameters, function (i, parameter) {
+            if ($.inArray(parameter, parameters) === -1) {
+                parameters.push(parameter);
             }
-            $('#parametersDiv').append($param);
         });
     } else {
-        $('#parametersDiv').empty();
+        $('#parametersDiv').text(window.Messages.strNoParam);
+        return;
     }
+
+    var $temp = $('<div></div>');
+    $temp.append($('#parametersDiv').children());
+    $('#parametersDiv').empty();
+
+    $.each(parameters, function (i, parameter) {
+        var paramName = parameter.substring(1);
+        var $param = $temp.find('#paramSpan_' + paramName);
+        if (! $param.length) {
+            $param = $('<span class="parameter" id="paramSpan_' + paramName + '"></span>');
+            $('<label for="param_' + paramName + '"></label>').text(parameter).appendTo($param);
+            $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '">').appendTo($param);
+        }
+        $('#parametersDiv').append($param);
+    });
 }
 
 /**
@@ -1222,20 +1223,21 @@ function removeAutocompleteInfo () {
  */
 function bindCodeMirrorToInlineEditor () {
     var $inlineEditor = $('#sql_query_edit');
-    if ($inlineEditor.length > 0) {
-        if (typeof window.CodeMirror !== 'undefined') {
-            var height = $inlineEditor.css('height');
-            codeMirrorInlineEditor = Functions.getSqlEditor($inlineEditor);
-            codeMirrorInlineEditor.getWrapperElement().style.height = height;
-            codeMirrorInlineEditor.refresh();
-            codeMirrorInlineEditor.focus();
-            $(codeMirrorInlineEditor.getWrapperElement())
-                .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
-        } else {
-            $inlineEditor
-                .trigger('focus')
-                .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
-        }
+    if ($inlineEditor.length === 0) {
+        return;
+    }
+    if (typeof window.CodeMirror !== 'undefined') {
+        var height = $inlineEditor.css('height');
+        codeMirrorInlineEditor = Functions.getSqlEditor($inlineEditor);
+        codeMirrorInlineEditor.getWrapperElement().style.height = height;
+        codeMirrorInlineEditor.refresh();
+        codeMirrorInlineEditor.focus();
+        $(codeMirrorInlineEditor.getWrapperElement())
+            .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
+    } else {
+        $inlineEditor
+            .trigger('focus')
+            .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
     }
 }
 
@@ -1484,18 +1486,19 @@ function showNoticeForEnum (selectElement) {
  * Hides/shows a warning message when LENGTH is used with inappropriate integer type
  */
 function showWarningForIntTypes () {
-    if ($('div#length_not_allowed').length) {
-        var lengthRestrictions = $('select.column_type option').map(function () {
-            return $(this).filter(':selected').attr('data-length-restricted');
-        }).get();
+    if (! $('div#length_not_allowed').length) {
+        return;
+    }
+    var lengthRestrictions = $('select.column_type option').map(function () {
+        return $(this).filter(':selected').attr('data-length-restricted');
+    }).get();
 
-        var restricationFound = lengthRestrictions.some(restriction => Number(restriction) === 1);
+    var restricationFound = lengthRestrictions.some(restriction => Number(restriction) === 1);
 
-        if (restricationFound) {
-            $('div#length_not_allowed').show();
-        } else {
-            $('div#length_not_allowed').hide();
-        }
+    if (restricationFound) {
+        $('div#length_not_allowed').show();
+    } else {
+        $('div#length_not_allowed').hide();
     }
 }
 
@@ -1781,80 +1784,81 @@ function onloadCreateTableEvents (): void {
 
         if (Functions.checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
             Functions.prepareForAjaxRequest($form);
-            if (Functions.checkReservedWordColumns($form)) {
-                ajaxShowMessage(window.Messages.strProcessingRequest);
-                // User wants to submit the form
-                $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
-                    if (typeof data !== 'undefined' && data.success === true) {
-                        $('#properties_message')
-                            .removeClass('alert-danger')
-                            .html('');
-                        ajaxShowMessage(data.message);
-                        // Only if the create table dialog (distinct panel) exists
-                        var $createTableDialog = $('#create_table_dialog');
-                        if ($createTableDialog.length > 0) {
-                            $createTableDialog.dialog('close').remove();
-                        }
-                        $('#tableslistcontainer').before(data.formatted_sql);
-
-                        /**
-                         * @var tables_table    Object referring to the <tbody> element that holds the list of tables
-                         */
-                        var tablesTable = $('#tablesForm').find('tbody').not('#tbl_summary_row');
-                        // this is the first table created in this db
-                        if (tablesTable.length === 0) {
-                            refreshMainContent(CommonParams.get('opendb_url'));
-                        } else {
-                            /**
-                             * @var curr_last_row   Object referring to the last <tr> element in {@link tablesTable}
-                             */
-                            var currLastRow = $(tablesTable).find('tr').last();
-                            /**
-                             * @var curr_last_row_index_string   String containing the index of {@link currLastRow}
-                             */
-                            var currLastRowIndexString = $(currLastRow).find('input:checkbox').attr('id').match(/\d+/)[0];
-                            /**
-                             * @var curr_last_row_index Index of {@link currLastRow}
-                             */
-                            var currLastRowIndex = parseFloat(currLastRowIndexString);
-                            /**
-                             * @var new_last_row_index   Index of the new row to be appended to {@link tablesTable}
-                             */
-                            var newLastRowIndex = currLastRowIndex + 1;
-                            /**
-                             * @var new_last_row_id String containing the id of the row to be appended to {@link tablesTable}
-                             */
-                            var newLastRowId = 'checkbox_tbl_' + newLastRowIndex;
-
-                            data.newTableString = data.newTableString.replace(/checkbox_tbl_/, newLastRowId);
-                            // append to table
-                            $(data.newTableString)
-                                .appendTo(tablesTable);
-
-                            // Sort the table
-                            $(tablesTable).sortTable('th');
-
-                            // Adjust summary row
-                            window.DatabaseStructure.adjustTotals();
-                        }
-
-                        // Refresh navigation as a new table has been added
-                        Navigation.reload();
-                        // Redirect to table structure page on creation of new table
-                        var argsep = CommonParams.get('arg_separator');
-                        var params12 = 'ajax_request=true' + argsep + 'ajax_page_request=true';
-                        var tableStructureUrl = 'index.php?route=/table/structure' + argsep + 'server=' + data.params.server +
-                            argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
-                            argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
-                        $.get(tableStructureUrl, params12, AJAX.responseHandler);
-                    } else {
-                        ajaxShowMessage(
-                            '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
-                            false
-                        );
-                    }
-                }); // end $.post()
+            if (! Functions.checkReservedWordColumns($form)) {
+                return;
             }
+            ajaxShowMessage(window.Messages.strProcessingRequest);
+            // User wants to submit the form
+            $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+                if (typeof data === 'undefined' || data.success !== true) {
+                    ajaxShowMessage(
+                        '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
+                        false
+                    );
+                    return;
+                }
+                $('#properties_message')
+                    .removeClass('alert-danger')
+                    .html('');
+                ajaxShowMessage(data.message);
+                // Only if the create table dialog (distinct panel) exists
+                var $createTableDialog = $('#create_table_dialog');
+                if ($createTableDialog.length > 0) {
+                    $createTableDialog.dialog('close').remove();
+                }
+                $('#tableslistcontainer').before(data.formatted_sql);
+
+                /**
+                 * @var tables_table    Object referring to the <tbody> element that holds the list of tables
+                 */
+                var tablesTable = $('#tablesForm').find('tbody').not('#tbl_summary_row');
+                // this is the first table created in this db
+                if (tablesTable.length === 0) {
+                    refreshMainContent(CommonParams.get('opendb_url'));
+                } else {
+                    /**
+                     * @var curr_last_row   Object referring to the last <tr> element in {@link tablesTable}
+                     */
+                    var currLastRow = $(tablesTable).find('tr').last();
+                    /**
+                     * @var curr_last_row_index_string   String containing the index of {@link currLastRow}
+                     */
+                    var currLastRowIndexString = $(currLastRow).find('input:checkbox').attr('id').match(/\d+/)[0];
+                    /**
+                     * @var curr_last_row_index Index of {@link currLastRow}
+                     */
+                    var currLastRowIndex = parseFloat(currLastRowIndexString);
+                    /**
+                     * @var new_last_row_index   Index of the new row to be appended to {@link tablesTable}
+                     */
+                    var newLastRowIndex = currLastRowIndex + 1;
+                    /**
+                     * @var new_last_row_id String containing the id of the row to be appended to {@link tablesTable}
+                     */
+                    var newLastRowId = 'checkbox_tbl_' + newLastRowIndex;
+
+                    data.newTableString = data.newTableString.replace(/checkbox_tbl_/, newLastRowId);
+                    // append to table
+                    $(data.newTableString)
+                        .appendTo(tablesTable);
+
+                    // Sort the table
+                    $(tablesTable).sortTable('th');
+
+                    // Adjust summary row
+                    window.DatabaseStructure.adjustTotals();
+                }
+
+                // Refresh navigation as a new table has been added
+                Navigation.reload();
+                // Redirect to table structure page on creation of new table
+                var argsep = CommonParams.get('arg_separator');
+                var params12 = 'ajax_request=true' + argsep + 'ajax_page_request=true';
+                var tableStructureUrl = 'index.php?route=/table/structure' + argsep + 'server=' + data.params.server +
+                    argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
+                    argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
+                $.get(tableStructureUrl, params12, AJAX.responseHandler);
+            }); // end $.post()
         }
     }); // end create table form (save)
 
@@ -1875,16 +1879,16 @@ function onloadCreateTableEvents (): void {
 
         // User wants to add more fields to the table
         $.post($form.attr('action'), $form.serialize() + '&' + actionParam, function (data) {
-            if (typeof data !== 'undefined' && data.success) {
-                var $pageContent = $('#page_content');
-                $pageContent.html(data.message);
-                highlightSql($pageContent);
-                Functions.verifyColumnsProperties();
-                Functions.hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
-                ajaxRemoveMessage($msgbox);
-            } else {
+            if (typeof data === 'undefined' || ! data.success) {
                 ajaxShowMessage(data.error);
+                return;
             }
+            var $pageContent = $('#page_content');
+            $pageContent.html(data.message);
+            highlightSql($pageContent);
+            Functions.verifyColumnsProperties();
+            Functions.hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
+            ajaxRemoveMessage($msgbox);
         }); // end $.post()
     }
 
@@ -1897,14 +1901,15 @@ function onloadCreateTableEvents (): void {
     }); // end create table form (add fields)
 
     $(document).on('keydown', 'form.create_table_form.ajax input[name=added_fields]', function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-            $(this)
-                .closest('form')
-                .find('input[name=submit_num_fields]')
-                .trigger('click');
+        if (event.keyCode !== 13) {
+            return;
         }
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        $(this)
+            .closest('form')
+            .find('input[name=submit_num_fields]')
+            .trigger('click');
     });
 
     /**
@@ -1921,13 +1926,14 @@ function onloadCreateTableEvents (): void {
     });
 
     $(document).on('change', 'input[value=AUTO_INCREMENT]', function () {
-        if (this.checked) {
-            var col = /\d/.exec($(this).attr('name'));
-            col = col[0];
-            var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
-            if ($selectFieldKey.val() === 'none_' + col) {
-                $selectFieldKey.val('primary_' + col).trigger('change', [false]);
-            }
+        if (! this.checked) {
+            return;
+        }
+        var col = /\d/.exec($(this).attr('name'));
+        col = col[0];
+        var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
+        if ($selectFieldKey.val() === 'none_' + col) {
+            $selectFieldKey.val('primary_' + col).trigger('change', [false]);
         }
     });
     $('body')
@@ -2682,16 +2688,17 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
         if (typeof data !== 'undefined' && data.success === false) {
             // in the case of an error, show the error message returned.
             ajaxShowMessage(data.error, false);
-        } else {
-            ajaxRemoveMessage($msgbox);
-            // Show dialog if the request was successful
-            modal.modal('show');
-            modal.find('.modal-body').first().html(data.message);
-            $('#indexDialogModalLabel').first().text(title);
-            Functions.verifyColumnsProperties();
-            modal.find('.tblFooters').remove();
-            Functions.showIndexEditDialog(modal);
+            return;
         }
+        ajaxRemoveMessage($msgbox);
+        // Show dialog if the request was successful
+        modal.modal('show');
+        // FIXME data may be undefiend
+        modal.find('.modal-body').first().html(data.message);
+        $('#indexDialogModalLabel').first().text(title);
+        Functions.verifyColumnsProperties();
+        modal.find('.tblFooters').remove();
+        Functions.showIndexEditDialog(modal);
     }); // end $.get()
 }
 
@@ -2960,27 +2967,28 @@ function onloadRecentFavoriteTables (): void {
     }
 
     // Sync favorite tables from localStorage to pmadb.
-    if ($('#sync_favorite_tables').length) {
-        $.ajax({
-            url: $('#sync_favorite_tables').attr('href'),
-            cache: false,
-            type: 'POST',
-            data: {
-                'favoriteTables': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
-                    ? window.localStorage.favoriteTables
-                    : '',
-                'server': CommonParams.get('server'),
-                'no_debug': true
-            },
-            success: function (data) {
-                // Update localStorage.
-                if (isStorageSupported('localStorage')) {
-                    window.localStorage.favoriteTables = data.favoriteTables;
-                }
-                $('#pma_favorite_list').html(data.list);
-            }
-        });
+    if (! $('#sync_favorite_tables').length) {
+        return;
     }
+    $.ajax({
+        url: $('#sync_favorite_tables').attr('href'),
+        cache: false,
+        type: 'POST',
+        data: {
+            'favoriteTables': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
+                ? window.localStorage.favoriteTables
+                : '',
+            'server': CommonParams.get('server'),
+            'no_debug': true
+        },
+        success: function (data) {
+            // Update localStorage.
+            if (isStorageSupported('localStorage')) {
+                window.localStorage.favoriteTables = data.favoriteTables;
+            }
+            $('#pma_favorite_list').html(data.list);
+        }
+    });
 }
 
 /**
@@ -3093,11 +3101,12 @@ function onloadCodeMirrorEditor (): void {
 }
 
 function teardownCodeMirrorEditor (): void {
-    if (window.codeMirrorEditor) {
-        $('#sqlquery').text(window.codeMirrorEditor.getValue());
-        window.codeMirrorEditor.toTextArea();
-        window.codeMirrorEditor = false;
+    if (! window.codeMirrorEditor) {
+        return;
     }
+    $('#sqlquery').text(window.codeMirrorEditor.getValue());
+    window.codeMirrorEditor.toTextArea();
+    window.codeMirrorEditor = false;
 }
 
 function onloadLockPage (): void {
@@ -3227,28 +3236,29 @@ function onloadCreateView () {
  */
 function floatingMenuBar () {
     return function () {
-        if ($('#floating_menubar').length && $('#PMA_disable_floating_menubar').length === 0) {
-            var left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
-            $('#floating_menubar')
-                .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
-                .css(left, 0)
-                .css({
-                    'position': 'fixed',
-                    'top': 0,
-                    'width': '100%',
-                    'z-index': 99
-                })
-                .append($('#server-breadcrumb'))
-                .append($('#topmenucontainer'));
-            // Allow the DOM to render, then adjust the padding on the body
-            setTimeout(function () {
-                $('body').css(
-                    'padding-top',
-                    $('#floating_menubar').outerHeight(true)
-                );
-                $('#topmenu').menuResizer('resize');
-            }, 4);
+        if (! $('#floating_menubar').length || $('#PMA_disable_floating_menubar').length !== 0) {
+            return;
         }
+        var left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
+        $('#floating_menubar')
+            .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
+            .css(left, 0)
+            .css({
+                'position': 'fixed',
+                'top': 0,
+                'width': '100%',
+                'z-index': 99
+            })
+            .append($('#server-breadcrumb'))
+            .append($('#topmenucontainer'));
+        // Allow the DOM to render, then adjust the padding on the body
+        setTimeout(function () {
+            $('body').css(
+                'padding-top',
+                $('#floating_menubar').outerHeight(true)
+            );
+            $('#topmenu').menuResizer('resize');
+        }, 4);
     };
 }
 
@@ -3476,16 +3486,17 @@ window.recaptchaCallback = function () {
  */
 function getKeyboardFormSubmitEventHandler () {
     return function (e) {
-        if ((e.ctrlKey && e.which === 13) || (e.altKey && e.which === 13)) {
-            var $form = $(this).closest('form');
+        if (e.which !== 13 || ! (e.ctrlKey || e.altKey)) {
+            return;
+        }
+        var $form = $(this).closest('form');
 
-            // There could be multiple submit buttons on the same form,
-            // we assume all of them behave identical and just click one.
-            if (! $form.find('input[type="submit"]').first() ||
-                ! $form.find('input[type="submit"]').first().trigger('click')
-            ) {
-                $form.trigger('submit');
-            }
+        // There could be multiple submit buttons on the same form,
+        // we assume all of them behave identical and just click one.
+        if (! $form.find('input[type="submit"]').first() ||
+            ! $form.find('input[type="submit"]').first().trigger('click')
+        ) {
+            $form.trigger('submit');
         }
     };
 }
