@@ -6,6 +6,10 @@
 
 {{ partial_logout|raw }}
 
+{% if has_change_password_link and (is_ajax) %}
+  {{ include('modals/change_password.twig') }}
+{% endif %}
+
 <div id="maincontainer">
   {{ sync_favorite_tables|raw }}
   <div class="container-fluid">

@@ -239,6 +239,7 @@ class HomeController extends AbstractController
             'has_theme_manager' => $GLOBALS['cfg']['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),
             'errors' => $this->errors,
+            'is_ajax' => $this->response->isAjax(),
         ]);
     }
 
