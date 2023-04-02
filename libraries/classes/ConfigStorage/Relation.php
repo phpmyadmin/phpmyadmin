@@ -1572,29 +1572,28 @@ class Relation
             // use the possible replaced name first and fallback on the table name
             // if no replacement exists
             if (! in_array($tableNameReplacements[$table] ?? $table, $existingTables)) {
-                if ($create) {
-                    $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
-
-                    $error = $this->dbi->getError(Connection::TYPE_CONTROL);
-                    if ($error) {
-                        $GLOBALS['message'] = $error;
-
-                        return;
-                    }
-
-                    $foundOne = true;
-                    if (empty($GLOBALS['cfg']['Server'][$feature])) {
-                        // Do not override a user defined value, only fill if empty
-                        $GLOBALS['cfg']['Server'][$feature] = $table;
-                    }
+                if (! $create) {
+                    continue;
                 }
-            } else {
-                $foundOne = true;
-                if (empty($GLOBALS['cfg']['Server'][$feature])) {
-                    // Do not override a user defined value, only fill if empty
-                    $GLOBALS['cfg']['Server'][$feature] = $table;
+
+                $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
+
+                $error = $this->dbi->getError(Connection::TYPE_CONTROL);
+                if ($error) {
+                    $GLOBALS['message'] = $error;
+
+                    return;
                 }
             }
+
+            $foundOne = true;
+
+            // Do not override a user defined value, only fill if empty
+            if (isset($GLOBALS['cfg']['Server'][$feature]) && $GLOBALS['cfg']['Server'][$feature] !== '') {
+                continue;
+            }
+
+            $GLOBALS['cfg']['Server'][$feature] = $table;
         }
 
         if (! $foundOne) {
