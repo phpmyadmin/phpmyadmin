@@ -1456,7 +1456,7 @@ class Relation
      *
      * @return array<string, string> table name, create query
      */
-    public function getDefaultPmaTableNames(array $tableNameReplacements): array
+    public function getCreateTableSqlQueries(array $tableNameReplacements): array
     {
         $pmaTables = [];
         $createTablesFile = (string) file_get_contents(SQL_DIR . 'create_tables.sql');
@@ -1555,7 +1555,7 @@ class Relation
 
         $createQueries = [];
         if ($create) {
-            $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
+            $createQueries = $this->getCreateTableSqlQueries($tableNameReplacements);
             if (! $this->dbi->selectDb($db, Connection::TYPE_CONTROL)) {
                 $GLOBALS['message'] = $this->dbi->getError(Connection::TYPE_CONTROL);
 
@@ -1590,6 +1590,7 @@ class Relation
                 continue;
             }
 
+            // Fill it with the default table name
             $GLOBALS['cfg']['Server'][$feature] = $table;
         }
 
