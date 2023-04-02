@@ -278,13 +278,13 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Imports data from a single table
      *
-     * @param array    $table         containing all table info:
-     *                                <code> $table[0] - string
-     *                                containing table name
-     *                                $table[1] - array[]   of
-     *                                table headers $table[2] -
-     *                                array[][] of table content
-     *                                rows </code>
+     * @param mixed[]  $table         containing all table info:
+     *                              <code> $table[0] - string
+     *                              containing table name
+     *                              $table[1] - array[]   of
+     *                              table headers $table[2] -
+     *                              array[][] of table content
+     *                              rows </code>
      * @param string[] $sqlStatements List of SQL statements to be executed
      *
      * @global bool $analyze whether to scan for column types
@@ -333,9 +333,9 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Set generic names for table headers, if they don't exist
      *
-     * @param array $tableHeaders reference to the array containing the headers
+     * @param mixed[] $tableHeaders reference to the array containing the headers
      *                             of a table
-     * @param array $tableRow     array containing the first content row
+     * @param mixed[] $tableRow     array containing the first content row
      */
     private function setTableHeaders(array &$tableHeaders, array $tableRow): void
     {
@@ -355,15 +355,15 @@ class ImportMediawiki extends ImportPlugin
      * Sets the database name and additional options and calls Import::buildSql()
      * Used in PMA_importDataAllTables() and $this->importDataOneTable()
      *
-     * @param array    $tables        structure:
-     *                                array(
-     *                                array(table_name, array() column_names, array()()
-     *                                rows)
-     *                                )
-     * @param array    $analyses      structure:
-     *                                $analyses = array(
-     *                                array(array() column_types, array() column_sizes)
-     *                                )
+     * @param mixed[]  $tables        structure:
+     *                              array(
+     *                              array(table_name, array() column_names, array()()
+     *                              rows)
+     *                              )
+     * @param mixed[]  $analyses      structure:
+     *                              $analyses = array(
+     *                              array(array() column_types, array() column_sizes)
+     *                              )
      * @param string[] $sqlStatements List of SQL statements to be executed
      *
      * @global string $db      name of the database to import in
@@ -470,7 +470,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @param string $text text to be split
      *
-     * @return array
+     * @return mixed[]
      */
     private function explodeMarkup(string $text): array
     {

@@ -73,13 +73,13 @@ use const PHP_URL_SCHEME;
  */
 class Config
 {
-    /** @var array   default configuration settings */
+    /** @var mixed[]   default configuration settings */
     public array $default = [];
 
-    /** @var array   configuration settings, without user preferences applied */
+    /** @var mixed[]   configuration settings, without user preferences applied */
     public array $baseSettings = [];
 
-    /** @var array   configuration settings */
+    /** @var mixed[]   configuration settings */
     public array $settings = [];
 
     /** @var string  config source */
@@ -90,7 +90,7 @@ class Config
 
     public bool $errorConfigFile = false;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $defaultServer = [];
 
     private bool $isHttps;
@@ -1191,11 +1191,11 @@ class Config
     /**
      * Return connection parameters for the database server
      *
-     * @param int        $mode   Connection mode.
-     * @param array|null $server Server information like host/port/socket/persistent
+     * @param int          $mode   Connection mode.
+     * @param mixed[]|null $server Server information like host/port/socket/persistent
      * @psalm-param ConnectionType $mode
      *
-     * @return array user, host and server settings array
+     * @return mixed[] user, host and server settings array
      */
     public static function getConnectionParams(int $mode, array|null $server = null): array
     {

@@ -22,7 +22,7 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
      * Does the actual work of each specific transformations plugin.
      *
      * @param string             $buffer  text to be transformed
-     * @param array              $options transformation options
+     * @param mixed[]            $options transformation options
      * @param FieldMetadata|null $meta    meta information
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
@@ -34,15 +34,15 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
      * Returns the html for input field to override default textarea.
      * Note: Return empty string if default textarea is required.
      *
-     * @param array  $column             column details
-     * @param int    $rowId              row number
-     * @param string $columnNameAppendix the name attribute
-     * @param array  $options            transformation options
-     * @param string $value              Current field value
-     * @param string $textDir            text direction
-     * @param int    $tabIndex           tab index
-     * @param int    $tabIndexForValue   offset for the values tabindex
-     * @param int    $idIndex            id index
+     * @param mixed[] $column             column details
+     * @param int     $rowId              row number
+     * @param string  $columnNameAppendix the name attribute
+     * @param mixed[] $options            transformation options
+     * @param string  $value              Current field value
+     * @param string  $textDir            text direction
+     * @param int     $tabIndex           tab index
+     * @param int     $tabIndexForValue   offset for the values tabindex
+     * @param int     $idIndex            id index
      *
      * @return string the html for input field
      */

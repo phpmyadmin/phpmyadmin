@@ -103,8 +103,8 @@ class TwoFactorTest extends AbstractTestCase
     /**
      * Creates TwoFactor mock with custom configuration
      *
-     * @param string $user   Username
-     * @param array  $config Two factor authentication configuration
+     * @param string  $user   Username
+     * @param mixed[] $config Two factor authentication configuration
      */
     private function getTwoFactorAndLoadConfig(string $user, array|null $config): TwoFactor
     {
@@ -122,6 +122,7 @@ class TwoFactorTest extends AbstractTestCase
         return new TwoFactor($user);
     }
 
+    /** @param mixed[] $backendSettings */
     private function loadQueriesForConfigure(string $backend, array $backendSettings = []): void
     {
         $this->dummyDbi->addResult(

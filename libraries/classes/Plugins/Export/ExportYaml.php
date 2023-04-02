@@ -116,11 +116,11 @@ class ExportYaml extends ExportPlugin
     /**
      * Outputs the content of a table in JSON format
      *
-     * @param string $db       database name
-     * @param string $table    table name
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery SQL query for obtaining data
-     * @param array  $aliases  Aliases of db/table/columns
+     * @param string  $db       database name
+     * @param string  $table    table name
+     * @param string  $errorUrl the url to go back in case of error
+     * @param string  $sqlQuery SQL query for obtaining data
+     * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,

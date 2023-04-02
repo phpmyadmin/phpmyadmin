@@ -58,7 +58,7 @@ class TemplateTest extends AbstractTestCase
     /**
      * Data provider for testSet
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerTestSet(): array
     {
@@ -85,7 +85,7 @@ class TemplateTest extends AbstractTestCase
     /**
      * Data provider for testDynamicRender
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerTestDynamicRender(): array
     {
@@ -120,7 +120,7 @@ class TemplateTest extends AbstractTestCase
     /**
      * Data provider for testSet
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerTestRender(): array
     {
@@ -130,9 +130,9 @@ class TemplateTest extends AbstractTestCase
     /**
      * Test for render
      *
-     * @param string $templateFile   Template name
-     * @param array  $renderParams   Render params
-     * @param string $expectedResult Expected result
+     * @param string  $templateFile   Template name
+     * @param mixed[] $renderParams   Render params
+     * @param string  $expectedResult Expected result
      *
      * @dataProvider providerTestRenderGettext
      */
@@ -147,7 +147,7 @@ class TemplateTest extends AbstractTestCase
     /**
      * Data provider for testRenderGettext
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerTestRenderGettext(): array
     {

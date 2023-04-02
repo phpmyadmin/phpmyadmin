@@ -44,31 +44,31 @@ class SearchController extends AbstractController
     /**
      * Names of columns
      *
-     * @var array
+     * @var mixed[]
      */
     private array $columnNames = [];
     /**
      * Types of columns
      *
-     * @var array
+     * @var mixed[]
      */
     private array $columnTypes = [];
     /**
      * Types of columns without any replacement
      *
-     * @var array
+     * @var mixed[]
      */
     private array $originalColumnTypes = [];
     /**
      * Collations of columns
      *
-     * @var array
+     * @var mixed[]
      */
     private array $columnCollations = [];
     /**
      * Null Flags of columns
      *
-     * @var array
+     * @var mixed[]
      */
     private array $columnNullFlags = [];
     /**
@@ -78,7 +78,7 @@ class SearchController extends AbstractController
     /**
      * Foreign Keys
      *
-     * @var array
+     * @var mixed[]
      */
     private array $foreigners = [];
 
@@ -310,7 +310,7 @@ class SearchController extends AbstractController
      * @param int $searchIndex Row number in table search form
      * @param int $columnIndex Column index in ColumnNames array
      *
-     * @return array Array containing column's properties
+     * @return mixed[] Array containing column's properties
      */
     public function getColumnProperties(int $searchIndex, int $columnIndex): array
     {

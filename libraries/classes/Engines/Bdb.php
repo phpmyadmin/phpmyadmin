@@ -19,7 +19,7 @@ class Bdb extends StorageEngine
     /**
      * Returns array with variable names related to this storage engine
      *
-     * @return array   variable names
+     * @return mixed[]   variable names
      */
     public function getVariables(): array
     {

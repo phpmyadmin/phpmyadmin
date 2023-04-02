@@ -313,7 +313,7 @@ class Node
      * Returns the actual path and the virtual paths for a node
      * both as clean arrays and base64 encoded strings
      *
-     * @return array
+     * @return mixed[]
      */
     public function getPaths(): array
     {
@@ -350,7 +350,7 @@ class Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     public function getData(string $type, int $pos, string $searchClause = ''): array
     {
@@ -478,7 +478,7 @@ class Node
      *
      * @param string $searchClause search clause
      *
-     * @return array array of databases
+     * @return mixed[] array of databases
      */
     private function getDatabasesToSearch(string $searchClause): array
     {
@@ -600,7 +600,7 @@ class Node
     /**
      * Gets the count of hidden elements for each database
      *
-     * @return array|null array containing the count of hidden elements for each database
+     * @return mixed[]|null array containing the count of hidden elements for each database
      */
     public function getNavigationHidingData(): array|null
     {
@@ -623,7 +623,7 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return array
+     * @return mixed[]
      */
     private function getDataFromInfoSchema(int $pos, string $searchClause): array
     {
@@ -660,7 +660,7 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return array
+     * @return mixed[]
      */
     private function getDataFromShowDatabases(int $pos, string $searchClause): array
     {
@@ -738,7 +738,7 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return array
+     * @return mixed[]
      */
     private function getDataFromShowDatabasesLike(int $pos, string $searchClause): array
     {

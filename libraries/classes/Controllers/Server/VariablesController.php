@@ -97,7 +97,7 @@ class VariablesController extends AbstractController
      * @param string     $name  variable name
      * @param int|string $value variable value
      *
-     * @return array formatted string and bool if string is HTML formatted
+     * @return mixed[] formatted string and bool if string is HTML formatted
      */
     private function formatVariable(string $name, int|string $value): array
     {

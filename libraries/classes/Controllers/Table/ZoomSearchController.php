@@ -42,25 +42,25 @@ use function strtoupper;
  */
 class ZoomSearchController extends AbstractController
 {
-    /** @var array */
+    /** @var mixed[] */
     private array $columnNames = [];
 
-    /** @var array */
+    /** @var mixed[] */
     private array $columnTypes = [];
 
-    /** @var array */
+    /** @var mixed[] */
     private array $originalColumnTypes = [];
 
-    /** @var array */
+    /** @var mixed[] */
     private array $columnCollations = [];
 
-    /** @var array */
+    /** @var mixed[] */
     private array $columnNullFlags = [];
 
     /** @var bool Whether a geometry column is present */
     private bool $geomColumnFlag = false;
 
-    /** @var array Foreign keys */
+    /** @var mixed[] Foreign keys */
     private array $foreigners = [];
 
     public function __construct(
@@ -401,7 +401,7 @@ class ZoomSearchController extends AbstractController
      * @param int $searchIndex Row number in table search form
      * @param int $columnIndex Column index in ColumnNames array
      *
-     * @return array Array containing column's properties
+     * @return mixed[] Array containing column's properties
      */
     public function getColumnProperties(int $searchIndex, int $columnIndex): array
     {

@@ -12,7 +12,7 @@ namespace PhpMyAdmin;
  */
 class InternalRelations
 {
-    /** @var array */
+    /** @var mixed[] */
     private static array $informationSchema = [
         'CHARACTER_SETS' => [
             'DEFAULT_COLLATE_NAME' => [
@@ -325,7 +325,7 @@ class InternalRelations
         ],
     ];
 
-    /** @var array */
+    /** @var mixed[] */
     private static array $mysql = [
         'columns_priv' => [
             'Db' => [
@@ -481,13 +481,13 @@ class InternalRelations
         ],
     ];
 
-    /** @return array */
+    /** @return mixed[] */
     public static function getInformationSchema(): array
     {
         return self::$informationSchema;
     }
 
-    /** @return array */
+    /** @return mixed[] */
     public static function getMySql(): array
     {
         return self::$mysql;

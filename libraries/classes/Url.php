@@ -31,9 +31,9 @@ class Url
      *
      * @see Url::getCommon()
      *
-     * @param string|array $db    optional database name (can also be an array of parameters)
-     * @param string       $table optional table name
-     * @param string|array $skip  do not generate a hidden field for this parameter (can be an array of strings)
+     * @param string|mixed[] $db    optional database name (can also be an array of parameters)
+     * @param string         $table optional table name
+     * @param string|mixed[] $skip  do not generate a hidden field for this parameter (can be an array of strings)
      *
      * @return string   string with input fields
      */
@@ -107,9 +107,9 @@ class Url
      * <input type="hidden" name="ccc[b]" Value="ccc_b">
      * </code>
      *
-     * @param array  $values  hidden values
-     * @param string $pre     prefix
-     * @param bool   $isToken if token already added in hidden input field
+     * @param mixed[] $values  hidden values
+     * @param string  $pre     prefix
+     * @param bool    $isToken if token already added in hidden input field
      *
      * @return string form fields of type hidden
      */
@@ -339,8 +339,8 @@ class Url
     }
 
     /**
-     * @param string $route                Route to use
-     * @param array  $additionalParameters Additional URL parameters
+     * @param string  $route                Route to use
+     * @param mixed[] $additionalParameters Additional URL parameters
      */
     public static function getFromRoute(string $route, array $additionalParameters = []): string
     {

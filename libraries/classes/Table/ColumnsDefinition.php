@@ -44,10 +44,10 @@ final class ColumnsDefinition
     }
 
     /**
-     * @param int         $numFields  The number of fields
-     * @param string|null $regenerate Use regeneration
-     * @param array|null  $selected   Selected
-     * @param array|null  $fieldsMeta Fields meta
+     * @param int          $numFields  The number of fields
+     * @param string|null  $regenerate Use regeneration
+     * @param mixed[]|null $selected   Selected
+     * @param mixed[]|null $fieldsMeta Fields meta
      * @psalm-param '/table/create'|'/table/add-field'|'/table/structure/save' $action
      *
      * @return array<string, mixed>

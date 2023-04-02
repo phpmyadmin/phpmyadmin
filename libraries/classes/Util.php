@@ -283,7 +283,7 @@ class Util
      * @param int                   $limes the sensitiveness
      * @param int                   $comma the number of decimals to retain
      *
-     * @return array|null the formatted value and its unit
+     * @return mixed[]|null the formatted value and its unit
      */
     public static function formatByteDown(float|int|string|null $value, int $limes = 6, int $comma = 0): array|null
     {
@@ -700,7 +700,7 @@ class Util
      * @param Expression[]    $expressions     An array of Expression instances.
      * @psalm-param array<int, mixed> $row
      *
-     * @return array the calculated condition and whether condition is unique
+     * @return mixed[] the calculated condition and whether condition is unique
      * @psalm-return array{string, bool, array}
      */
     public static function getUniqueCondition(
@@ -1104,7 +1104,7 @@ class Util
      *
      * @param string $columnSpecification Column specification
      *
-     * @return array associative array containing type, spec_in_brackets
+     * @return mixed[] associative array containing type, spec_in_brackets
      *          and possibly enum_set_values (another array)
      */
     public static function extractColumnSpec(string $columnSpecification): array
@@ -1489,7 +1489,7 @@ class Util
      * Returns a list of datatypes that are not (yet) handled by PMA.
      * Used by: /table/change and libraries/Routines.php
      *
-     * @return array list of datatypes
+     * @return mixed[] list of datatypes
      */
     public static function unsupportedDatatypes(): array
     {
@@ -1686,7 +1686,7 @@ class Util
      *
      * @param string|null $level 'server', 'db' or 'table' level
      *
-     * @return array|null list of tabs for the menu
+     * @return mixed[]|null list of tabs for the menu
      */
     public static function getMenuTabList(string|null $level = null): array|null
     {
@@ -1834,9 +1834,9 @@ class Util
     /**
      * Process the index data.
      *
-     * @param array $indexes index data
+     * @param mixed[] $indexes index data
      *
-     * @return array processes index data
+     * @return mixed[] processes index data
      */
     public static function processIndexData(array $indexes): array
     {
@@ -2014,7 +2014,7 @@ class Util
      * @param string          $db           database name
      * @param ResultInterface $dbInfoResult result set
      *
-     * @return array list of tables
+     * @return mixed[] list of tables
      */
     public static function getTablesWhenOpen(string $db, ResultInterface $dbInfoResult): array
     {
@@ -2186,9 +2186,9 @@ class Util
     /**
      * Access to a multidimensional array by dot notation
      *
-     * @param array        $array   List of values
-     * @param string|array $path    Path to searched value
-     * @param mixed        $default Default value
+     * @param mixed[]        $array   List of values
+     * @param string|mixed[] $path    Path to searched value
+     * @param mixed          $default Default value
      *
      * @return mixed Searched value
      */

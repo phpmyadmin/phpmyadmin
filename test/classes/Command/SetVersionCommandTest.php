@@ -26,7 +26,7 @@ class SetVersionCommandTest extends AbstractTestCase
         $this->command = new SetVersionCommand();
     }
 
-    /** @return array[] */
+    /** @return mixed[][] */
     public static function dataProviderBadVersions(): array
     {
         return [
@@ -66,7 +66,7 @@ class SetVersionCommandTest extends AbstractTestCase
         );
     }
 
-    /** @return array[] */
+    /** @return mixed[][] */
     public static function dataProviderGoodVersions(): array
     {
         return [

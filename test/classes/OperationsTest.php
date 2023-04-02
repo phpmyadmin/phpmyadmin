@@ -33,7 +33,11 @@ class OperationsTest extends AbstractTestCase
         $this->object = new Operations($this->dbi, new Relation($this->dbi));
     }
 
-    /** @dataProvider providerGetPartitionMaintenanceChoices */
+    /**
+     * @param mixed[] $extraChoice
+     *
+     * @dataProvider providerGetPartitionMaintenanceChoices
+     */
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
         $GLOBALS['db'] = 'database';

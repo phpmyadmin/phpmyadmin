@@ -175,6 +175,7 @@ class CreateController extends AbstractController
         ]);
     }
 
+    /** @param mixed[] $view */
     private function setSuccessResponse(array $view, bool $ajaxdialog, ServerRequest $request): void
     {
         // If different column names defined for VIEW
@@ -221,6 +222,8 @@ class CreateController extends AbstractController
 
     /**
      * Creates the view
+     *
+     * @param mixed[] $view
      */
     private function getSqlQuery(bool $createview, array $view): string
     {

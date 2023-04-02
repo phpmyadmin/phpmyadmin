@@ -185,9 +185,9 @@ class Core
      * Checks given $page against given $allowList and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string $page      page to check
-     * @param array  $allowList allow list to check page against
-     * @param bool   $include   whether the page is going to be included
+     * @param string  $page      page to check
+     * @param mixed[] $allowList allow list to check page against
+     * @param bool    $include   whether the page is going to be included
      */
     public static function checkPageValidity(string $page, array $allowList = [], bool $include = false): bool
     {
@@ -397,11 +397,11 @@ class Core
      * $path is a string describing position of an element in an associative array,
      * eg. Servers/1/host refers to $array[Servers][1][host]
      *
-     * @param string $path    path in the array
-     * @param array  $array   the array
-     * @param mixed  $default default value
+     * @param string  $path    path in the array
+     * @param mixed[] $array   the array
+     * @param mixed   $default default value
      *
-     * @return array|mixed|null array element or $default
+     * @return mixed[]|mixed|null array element or $default
      */
     public static function arrayRead(string $path, array $array, mixed $default = null): mixed
     {
@@ -421,9 +421,9 @@ class Core
     /**
      * Stores value in an array
      *
-     * @param string $path  path in the array
-     * @param array  $array the array
-     * @param mixed  $value value to store
+     * @param string  $path  path in the array
+     * @param mixed[] $array the array
+     * @param mixed   $value value to store
      */
     public static function arrayWrite(string $path, array &$array, mixed $value): void
     {
@@ -444,8 +444,8 @@ class Core
     /**
      * Removes value from an array
      *
-     * @param string $path  path in the array
-     * @param array  $array the array
+     * @param string  $path  path in the array
+     * @param mixed[] $array the array
      */
     public static function arrayRemove(string $path, array &$array): void
     {
@@ -584,7 +584,7 @@ class Core
     /**
      * Displays SQL query before executing.
      *
-     * @param array|string $queryData Array containing queries or query itself
+     * @param mixed[]|string $queryData Array containing queries or query itself
      */
     public static function previewSQL(array|string $queryData): void
     {
@@ -630,7 +630,7 @@ class Core
     /**
      * Creates some globals from $_POST variables matching a pattern
      *
-     * @param array $postPatterns The patterns to search for
+     * @param mixed[] $postPatterns The patterns to search for
      */
     public static function setPostAsGlobal(array $postPatterns): void
     {

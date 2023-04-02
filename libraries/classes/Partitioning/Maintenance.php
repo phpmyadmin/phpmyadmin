@@ -17,6 +17,7 @@ final class Maintenance
     {
     }
 
+    /** @return mixed[] */
     public function analyze(DatabaseName $db, TableName $table, string $partition): array
     {
         $query = sprintf(
@@ -36,6 +37,7 @@ final class Maintenance
         return [$rows, $query];
     }
 
+    /** @return mixed[] */
     public function check(DatabaseName $db, TableName $table, string $partition): array
     {
         $query = sprintf(
@@ -55,6 +57,7 @@ final class Maintenance
         return [$rows, $query];
     }
 
+    /** @return mixed[] */
     public function drop(DatabaseName $db, TableName $table, string $partition): array
     {
         $query = sprintf(
@@ -69,6 +72,7 @@ final class Maintenance
         return [(bool) $result, $query];
     }
 
+    /** @return mixed[] */
     public function optimize(DatabaseName $db, TableName $table, string $partition): array
     {
         $query = sprintf(
@@ -106,6 +110,7 @@ final class Maintenance
         return [(bool) $result, $query];
     }
 
+    /** @return mixed[] */
     public function repair(DatabaseName $db, TableName $table, string $partition): array
     {
         $query = sprintf(

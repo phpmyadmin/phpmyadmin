@@ -305,11 +305,11 @@ class File
      * $file['error'] = [value]
      * </code>
      *
-     * @param array  $file      the array
-     * @param string $rownumber number of row to process
-     * @param string $key       key to process
+     * @param mixed[] $file      the array
+     * @param string  $rownumber number of row to process
+     * @param string  $key       key to process
      *
-     * @return array
+     * @return mixed[]
      */
     public function fetchUploadedFromTblChangeRequestMultiple(
         array $file,

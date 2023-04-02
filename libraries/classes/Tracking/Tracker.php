@@ -55,7 +55,7 @@ class Tracker
     /**
      * Cache to avoid quering tracking status multiple times.
      *
-     * @var array
+     * @var mixed[]
      */
     protected static array $trackingCache = [];
 
@@ -390,11 +390,11 @@ class Tracker
     /**
      * Changes tracking data of a table.
      *
-     * @param string       $dbName    name of database
-     * @param string       $tableName name of table
-     * @param string       $version   version
-     * @param string       $type      type of data(DDL || DML)
-     * @param string|array $newData   the new tracking data
+     * @param string         $dbName    name of database
+     * @param string         $tableName name of table
+     * @param string         $version   version
+     * @param string         $type      type of data(DDL || DML)
+     * @param string|mixed[] $newData   the new tracking data
      */
     public static function changeTrackingData(
         string $dbName,
@@ -652,7 +652,7 @@ class Tracker
      *
      * @param string $query query
      *
-     * @return array containing identifier, type and tablename.
+     * @return mixed[] containing identifier, type and tablename.
      *
      * @todo: using PMA SQL Parser when possible
      * @todo: support multi-table/view drops

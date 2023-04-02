@@ -12,7 +12,7 @@ use PhpMyAdmin\Config\Forms\User\MainForm;
 
 class BrowseForm extends BaseForm
 {
-    /** @return array */
+    /** @return mixed[] */
     public static function getForms(): array
     {
         return ['Browse' => MainForm::getForms()['Browse']];

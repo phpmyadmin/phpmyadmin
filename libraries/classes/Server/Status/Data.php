@@ -28,27 +28,27 @@ use function str_contains;
  */
 class Data
 {
-    /** @var array */
+    /** @var mixed[] */
     public array $status;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $sections;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $variables;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $usedQueries;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $allocationMap;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $links;
 
     public bool $dbIsLocal;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $sectionUsed;
 
     public bool $dataLoaded;
@@ -74,7 +74,7 @@ class Data
     /**
      * Gets the allocations for constructor
      *
-     * @return array
+     * @return mixed[]
      */
     private function getAllocations(): array
     {
@@ -128,7 +128,7 @@ class Data
     /**
      * Gets the sections for constructor
      *
-     * @return array
+     * @return mixed[]
      */
     private function getSections(): array
     {
@@ -159,7 +159,7 @@ class Data
     /**
      * Gets the links for constructor
      *
-     * @return array
+     * @return mixed[]
      */
     private function getLinks(): array
     {
@@ -221,10 +221,10 @@ class Data
     /**
      * Calculate some values
      *
-     * @param array $serverStatus    contains results of SHOW GLOBAL STATUS
-     * @param array $serverVariables contains results of SHOW GLOBAL VARIABLES
+     * @param mixed[] $serverStatus    contains results of SHOW GLOBAL STATUS
+     * @param mixed[] $serverVariables contains results of SHOW GLOBAL VARIABLES
      *
-     * @return array
+     * @return mixed[]
      */
     private function calculateValues(array $serverStatus, array $serverVariables): array
     {
@@ -282,13 +282,13 @@ class Data
     /**
      * Sort variables into arrays
      *
-     * @param array $serverStatus  contains results of SHOW GLOBAL STATUS
-     * @param array $allocations   allocations for sections
-     * @param array $allocationMap map variables to their section
-     * @param array $sectionUsed   is a section used?
-     * @param array $usedQueries   used queries
+     * @param mixed[] $serverStatus  contains results of SHOW GLOBAL STATUS
+     * @param mixed[] $allocations   allocations for sections
+     * @param mixed[] $allocationMap map variables to their section
+     * @param mixed[] $sectionUsed   is a section used?
+     * @param mixed[] $usedQueries   used queries
      *
-     * @return array ($allocationMap, $sectionUsed, $used_queries)
+     * @return mixed[] ($allocationMap, $sectionUsed, $used_queries)
      */
     private function sortVariables(
         array $serverStatus,
@@ -403,9 +403,9 @@ class Data
     /**
      * cleanup of some deprecated values
      *
-     * @param array $serverStatus status array to process
+     * @param mixed[] $serverStatus status array to process
      *
-     * @return array
+     * @return mixed[]
      */
     public static function cleanDeprecated(array $serverStatus): array
     {

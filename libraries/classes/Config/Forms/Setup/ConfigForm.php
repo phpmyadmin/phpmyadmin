@@ -11,7 +11,7 @@ use PhpMyAdmin\Config\Forms\BaseForm;
 
 class ConfigForm extends BaseForm
 {
-    /** @return array */
+    /** @return mixed[] */
     public static function getForms(): array
     {
         return ['Config' => ['DefaultLang', 'ServerDefault']];

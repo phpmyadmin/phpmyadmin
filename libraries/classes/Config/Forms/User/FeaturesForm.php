@@ -13,7 +13,7 @@ use function __;
 
 class FeaturesForm extends BaseForm
 {
-    /** @return array */
+    /** @return mixed[] */
     public static function getForms(): array
     {
         $result = [

@@ -47,13 +47,13 @@ class FormDisplayTemplate
      * o comment - (string) tooltip comment
      * o comment_warning - (bool) whether this comments warns about something
      *
-     * @param string     $path           config option path
-     * @param string     $name           config option name
-     * @param string     $type           type of config option
-     * @param mixed      $value          current value
-     * @param string     $description    verbose description
-     * @param bool       $valueIsDefault whether value is default
-     * @param array|null $opts           see above description
+     * @param string       $path           config option path
+     * @param string       $name           config option name
+     * @param string       $type           type of config option
+     * @param mixed        $value          current value
+     * @param string       $description    verbose description
+     * @param bool         $valueIsDefault whether value is default
+     * @param mixed[]|null $opts           see above description
      */
     public function displayInput(
         string $path,
@@ -127,9 +127,9 @@ class FormDisplayTemplate
     /**
      * Appends JS validation code to $js_array
      *
-     * @param string       $fieldId    ID of field to validate
-     * @param string|array $validators validators callback
-     * @param array        $jsArray    will be updated with javascript code
+     * @param string         $fieldId    ID of field to validate
+     * @param string|mixed[] $validators validators callback
+     * @param mixed[]        $jsArray    will be updated with javascript code
      */
     public function addJsValidate(string $fieldId, string|array $validators, array &$jsArray): void
     {
@@ -145,8 +145,8 @@ class FormDisplayTemplate
     /**
      * Displays error list
      *
-     * @param string $name      Name of item with errors
-     * @param array  $errorList List of errors to show
+     * @param string  $name      Name of item with errors
+     * @param mixed[] $errorList List of errors to show
      *
      * @return string HTML for errors
      */
@@ -155,6 +155,7 @@ class FormDisplayTemplate
         return $this->template->render('config/form_display/errors', ['name' => $name, 'error_list' => $errorList]);
     }
 
+    /** @param mixed[] $data */
     public function display(array $data): string
     {
         return $this->template->render('config/form_display/display', $data);

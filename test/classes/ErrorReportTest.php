@@ -278,7 +278,7 @@ class ErrorReportTest extends AbstractTestCase
     /**
      * The urls to be tested for sanitization
      *
-     * @return array[]
+     * @return mixed[][]
      */
     public static function urlsToSanitize(): array
     {
@@ -309,8 +309,8 @@ class ErrorReportTest extends AbstractTestCase
     /**
      * Test the url sanitization
      *
-     * @param string $url    The url to test
-     * @param array  $result The result
+     * @param string  $url    The url to test
+     * @param mixed[] $result The result
      *
      * @dataProvider urlsToSanitize
      */

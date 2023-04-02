@@ -55,7 +55,7 @@ class ErrorReport
      *
      * @param string $exceptionType whether exception is 'js' or 'php'
      *
-     * @return array error report if success, Empty Array otherwise
+     * @return mixed[] error report if success, Empty Array otherwise
      */
     public function getData(string $exceptionType = 'js'): array
     {
@@ -152,7 +152,7 @@ class ErrorReport
      *
      * @param string $url the url to sanitize
      *
-     * @return array the uri and script name
+     * @return mixed[] the uri and script name
      */
     private function sanitizeUrl(string $url): array
     {
@@ -198,7 +198,7 @@ class ErrorReport
     /**
      * Sends report data to the error reporting server
      *
-     * @param array $report the report info to be sent
+     * @param mixed[] $report the report info to be sent
      *
      * @return string|bool|null the reply of the server
      */
@@ -217,9 +217,9 @@ class ErrorReport
      * Translates the cumulative line numbers in the stack trace as well as sanitize
      * urls and trim long lines in the context
      *
-     * @param array $stack the stack trace
+     * @param mixed[] $stack the stack trace
      *
-     * @return array the modified stack trace
+     * @return mixed[] the modified stack trace
      */
     private function translateStacktrace(array $stack): array
     {

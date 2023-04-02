@@ -75,7 +75,7 @@ class Plugins
         return $description;
     }
 
-    /** @param array $row Row fetched from database */
+    /** @param mixed[] $row Row fetched from database */
     private function mapRowToPlugin(array $row): Plugin
     {
         return Plugin::fromState([

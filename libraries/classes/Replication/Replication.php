@@ -72,13 +72,13 @@ class Replication
     /**
      * Changes primary for replication replica
      *
-     * @param string $user     replication user on primary
-     * @param string $password password for the user
-     * @param string $host     primary's hostname or IP
-     * @param int    $port     port, where mysql is running
-     * @param array  $pos      position of mysql replication, array should contain fields File and Position
-     * @param bool   $stop     shall we stop replica?
-     * @param bool   $start    shall we start replica?
+     * @param string  $user     replication user on primary
+     * @param string  $password password for the user
+     * @param string  $host     primary's hostname or IP
+     * @param int     $port     port, where mysql is running
+     * @param mixed[] $pos      position of mysql replication, array should contain fields File and Position
+     * @param bool    $stop     shall we stop replica?
+     * @param bool    $start    shall we start replica?
      * @psalm-param ConnectionType $connectionType
      *
      * @return ResultInterface|false output of CHANGE MASTER mysql command
@@ -148,7 +148,7 @@ class Replication
      *
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array an array containing File and Position in MySQL replication
+     * @return mixed[] an array containing File and Position in MySQL replication
      * on primary server, useful for {@see Replication::replicaChangePrimary()}.
      * @phpstan-return array{'File'?: string, 'Position'?: string}
      */

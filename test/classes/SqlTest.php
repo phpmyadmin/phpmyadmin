@@ -319,6 +319,7 @@ class SqlTest extends AbstractTestCase
         );
     }
 
+    /** @return mixed[][] */
     public static function dataProviderCountQueryResults(): array
     {
         // sql query
@@ -397,7 +398,11 @@ class SqlTest extends AbstractTestCase
         ];
     }
 
-    /** @dataProvider dataProviderCountQueryResults */
+    /**
+     * @param mixed[] $sessionTmpVal
+     *
+     * @dataProvider dataProviderCountQueryResults
+     */
     public function testCountQueryResults(
         string|null $sqlQuery,
         array $sessionTmpVal,

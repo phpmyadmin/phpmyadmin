@@ -11,7 +11,7 @@ use function is_string;
 class ConfigController extends AbstractController
 {
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return string HTML
      */

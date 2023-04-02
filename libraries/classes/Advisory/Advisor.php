@@ -31,10 +31,10 @@ use function vsprintf;
  */
 class Advisor
 {
-    /** @var array */
+    /** @var mixed[] */
     private array $variables = [];
 
-    /** @var array */
+    /** @var mixed[] */
     private array $globals = [];
 
     /**
@@ -43,7 +43,7 @@ class Advisor
      */
     private array $rules = [];
 
-    /** @var array{fired:array, notfired:array, unchecked:array, errors:array} */
+    /** @var array{fired:mixed[], notfired:mixed[], unchecked:mixed[], errors:mixed[]} */
     private array $runResult = ['fired' => [], 'notfired' => [], 'unchecked' => [], 'errors' => []];
 
     public function __construct(private DatabaseInterface $dbi, private ExpressionLanguage $expression)
@@ -151,13 +151,13 @@ class Advisor
         $this->rules = array_merge($genericRules, $extraRules);
     }
 
-    /** @return array{fired: array, notfired: array, unchecked: array, errors: array} */
+    /** @return array{fired: mixed[], notfired: mixed[], unchecked: mixed[], errors: mixed[]} */
     public function getRunResult(): array
     {
         return $this->runResult;
     }
 
-    /** @psalm-return array{fired:array, notfired:array, unchecked:array, errors:array} */
+    /** @psalm-return array{fired:mixed[], notfired:mixed[], unchecked:mixed[], errors:mixed[]} */
     public function run(): array
     {
         $this->setVariables();
@@ -249,8 +249,8 @@ class Advisor
     /**
      * Adds a rule to the result list
      *
-     * @param string $type type of rule
-     * @param array  $rule rule itself
+     * @param string  $type type of rule
+     * @param mixed[] $rule rule itself
      * @psalm-param 'notfired'|'fired'|'unchecked'|'errors' $type
      */
     public function addRule(string $type, array $rule): void
@@ -302,7 +302,7 @@ class Advisor
     /**
      * Callback for wrapping links with Core::linkURL
      *
-     * @param array $matches List of matched elements form preg_replace_callback
+     * @param mixed[] $matches List of matched elements form preg_replace_callback
      *
      * @return string Replacement value
      */
@@ -314,7 +314,7 @@ class Advisor
     /**
      * Callback for wrapping variable edit links
      *
-     * @param array $matches List of matched elements form preg_replace_callback
+     * @param mixed[] $matches List of matched elements form preg_replace_callback
      *
      * @return string Replacement value
      */

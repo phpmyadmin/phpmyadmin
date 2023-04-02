@@ -41,7 +41,7 @@ class ResponseRenderer
      * An array of JSON key-value pairs
      * to be sent back for ajax requests
      *
-     * @var array
+     * @var mixed[]
      */
     private array $JSON;
     /**
@@ -234,9 +234,9 @@ class ResponseRenderer
     /**
      * Add JSON code to the response
      *
-     * @param string|int|array $json  Either a key (string) or an array or key-value pairs
-     * @param mixed|null       $value Null, if passing an array in $json otherwise
-     *                                it's a string value to the key
+     * @param string|int|mixed[] $json  Either a key (string) or an array or key-value pairs
+     * @param mixed|null         $value Null, if passing an array in $json otherwise
+     *                                  it's a string value to the key
      */
     public function addJSON(string|int|array $json, mixed $value = null): void
     {

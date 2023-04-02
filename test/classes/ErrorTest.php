@@ -74,7 +74,7 @@ class ErrorTest extends AbstractTestCase
     /**
      * Data provider for setFile
      *
-     * @return array
+     * @return mixed[]
      */
     public static function filePathProvider(): array
     {

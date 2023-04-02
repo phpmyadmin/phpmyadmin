@@ -31,10 +31,10 @@ abstract class TableStats
 {
     public mixed $displayfield;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $fields = [];
 
-    /** @var array */
+    /** @var mixed[] */
     public array $primary = [];
 
     public int|float $x = 0;

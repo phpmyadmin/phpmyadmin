@@ -273,6 +273,7 @@ class ThemeManager
         return array_key_exists($theme ?? '', $this->themes);
     }
 
+    /** @return mixed[] */
     public function getThemesArray(): array
     {
         $themes = [];

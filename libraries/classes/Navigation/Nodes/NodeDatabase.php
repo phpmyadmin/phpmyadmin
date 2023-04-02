@@ -255,7 +255,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     public function getData(string $type, int $pos, string $searchClause = ''): array
     {
@@ -302,7 +302,7 @@ class NodeDatabase extends Node
      * @param string $type The type of items we are looking for
      *                     ('table', 'function', 'group', etc.)
      *
-     * @return array Array containing hidden items of given type
+     * @return mixed[] Array containing hidden items of given type
      */
     public function getHiddenItems(string $type): array
     {
@@ -335,7 +335,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     private function getTablesOrViews(string $which, int $pos, string $searchClause): array
     {
@@ -399,7 +399,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     private function getTables(int $pos, string $searchClause): array
     {
@@ -412,7 +412,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     private function getViews(int $pos, string $searchClause): array
     {
@@ -426,7 +426,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     private function getRoutines(string $routineType, int $pos, string $searchClause): array
     {
@@ -483,7 +483,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     private function getProcedures(int $pos, string $searchClause): array
     {
@@ -496,7 +496,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     private function getFunctions(int $pos, string $searchClause): array
     {
@@ -509,7 +509,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     private function getEvents(int $pos, string $searchClause): array
     {

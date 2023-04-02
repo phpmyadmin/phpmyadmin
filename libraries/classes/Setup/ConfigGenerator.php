@@ -125,7 +125,7 @@ class ConfigGenerator
     /**
      * Check whether $array is a continuous 0-based array
      *
-     * @param array $array Array to check
+     * @param mixed[] $array Array to check
      */
     private static function isZeroBasedArray(array $array): bool
     {
@@ -141,8 +141,8 @@ class ConfigGenerator
     /**
      * Exports continuous 0-based array
      *
-     * @param array  $array Array to export
-     * @param string $eol   Newline string
+     * @param mixed[] $array Array to export
+     * @param string  $eol   Newline string
      */
     private static function exportZeroBasedArray(array $array, string $eol): string
     {
@@ -171,7 +171,7 @@ class ConfigGenerator
      *
      * @param ConfigFile $cf      Config file
      * @param string     $eol     Carriage return char
-     * @param array      $servers Servers list
+     * @param mixed[]    $servers Servers list
      */
     protected static function getServerPart(ConfigFile $cf, string $eol, array $servers): string|null
     {

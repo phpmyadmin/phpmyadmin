@@ -31,7 +31,7 @@ use function ucfirst;
 class TwoFactor
 {
     /**
-     * @var array
+     * @var mixed[]
      * @psalm-var array{backend: string, settings: mixed[], type?: 'session'|'db'}
      */
     public array $config;
@@ -40,6 +40,7 @@ class TwoFactor
 
     protected TwoFactorPlugin $backend;
 
+    /** @var mixed[] */
     protected array $available;
 
     private UserPreferences $userPreferences;
@@ -96,7 +97,7 @@ class TwoFactor
         return $this->backend;
     }
 
-    /** @return array */
+    /** @return mixed[] */
     public function getAvailable(): array
     {
         return $this->available;

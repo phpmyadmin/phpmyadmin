@@ -133,8 +133,8 @@ class UserGroups
      * Returns the list of allowed menu tab names
      * based on a data row from usergroup table.
      *
-     * @param array  $row   row of usergroup table
-     * @param string $level 'server', 'db' or 'table'
+     * @param mixed[] $row   row of usergroup table
+     * @param string  $level 'server', 'db' or 'table'
      *
      * @return string comma separated list of allowed menu tab names
      */
@@ -256,9 +256,9 @@ class UserGroups
      * Returns HTML for checkbox groups to choose
      * tabs of 'server', 'db' or 'table' levels.
      *
-     * @param string $title    title of the checkbox group
-     * @param string $level    'server', 'db' or 'table'
-     * @param array  $selected array of selected allowed tabs
+     * @param string  $title    title of the checkbox group
+     * @param string  $level    'server', 'db' or 'table'
+     * @param mixed[] $selected array of selected allowed tabs
      *
      * @return string HTML for checkbox groups
      */

@@ -179,7 +179,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * Data provider for testGetSpecialLinkUrl
      *
-     * @return array parameters and output
+     * @return mixed[] parameters and output
      */
     public static function dataProviderForTestGetSpecialLinkUrl(): array
     {
@@ -207,12 +207,12 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getSpecialLinkUrl
      *
-     * @param string $db          the database name
-     * @param string $table       the table name
-     * @param string $columnValue column value
-     * @param array  $rowInfo     information about row
-     * @param string $fieldName   column name
-     * @param string $output      output of getSpecialLinkUrl
+     * @param string  $db          the database name
+     * @param string  $table       the table name
+     * @param string  $columnValue column value
+     * @param mixed[] $rowInfo     information about row
+     * @param string  $fieldName   column name
+     * @param string  $output      output of getSpecialLinkUrl
      *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
@@ -263,7 +263,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * Data provider for testGetRowInfoForSpecialLinks
      *
-     * @return array parameters and output
+     * @return mixed[] parameters and output
      */
     public static function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
@@ -292,9 +292,9 @@ class ResultsTest extends AbstractTestCase
      *
      * @param FieldMetadata[] $fieldsMeta  meta information about fields
      * @param int             $fieldsCount number of fields
-     * @param array           $row         current row data
-     * @param array           $colOrder    the column order
-     * @param array           $output      output of getRowInfoForSpecialLinks
+     * @param mixed[]         $row         current row data
+     * @param mixed[]         $colOrder    the column order
+     * @param mixed[]         $output      output of getRowInfoForSpecialLinks
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
@@ -339,7 +339,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * Data provider for testGetPartialText
      *
-     * @return array parameters and output
+     * @return mixed[] parameters and output
      */
     public static function dataProviderForTestGetPartialText(): array
     {
@@ -354,10 +354,10 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getPartialText
      *
-     * @param string $pftext     Partial or Full text
-     * @param int    $limitChars Partial or Full text
-     * @param string $str        the string to be tested
-     * @param array  $output     return value of getPartialText
+     * @param string  $pftext     Partial or Full text
+     * @param int     $limitChars Partial or Full text
+     * @param string  $str        the string to be tested
+     * @param mixed[] $output     return value of getPartialText
      *
      * @dataProvider dataProviderForTestGetPartialText
      */
@@ -418,15 +418,15 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param bool         $displayBinary    show binary contents?
-     * @param bool         $displayBlob      show blob contents?
-     * @param string       $category         BLOB|BINARY|GEOMETRY
-     * @param string|null  $content          the binary content
-     * @param array|object $transformOptions transformation parameters
-     * @param object       $meta             the meta-information about the field
-     * @param array        $urlParams        parameters that should go to the download link
-     * @param bool         $isTruncated      the result is truncated or not
-     * @param string       $output           the output of this function
+     * @param bool           $displayBinary    show binary contents?
+     * @param bool           $displayBlob      show blob contents?
+     * @param string         $category         BLOB|BINARY|GEOMETRY
+     * @param string|null    $content          the binary content
+     * @param mixed[]|object $transformOptions transformation parameters
+     * @param object         $meta             the meta-information about the field
+     * @param mixed[]        $urlParams        parameters that should go to the download link
+     * @param bool           $isTruncated      the result is truncated or not
+     * @param string         $output           the output of this function
      *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
@@ -597,10 +597,10 @@ class ResultsTest extends AbstractTestCase
      * @param string|null $column           the relevant column in data row
      * @param string      $class            the html class for column
      * @param object      $meta             the meta-information about the field
-     * @param array       $map              the list of relations
-     * @param array       $urlParams        the parameters for generate url
+     * @param mixed[]     $map              the list of relations
+     * @param mixed[]     $urlParams        the parameters for generate url
      * @param bool        $conditionField   the column should highlighted or not
-     * @param array       $transformOptions the transformation parameters
+     * @param mixed[]     $transformOptions the transformation parameters
      * @param string      $output           the output of this function
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
@@ -721,6 +721,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertStringContainsString('>T<', $output);
     }
 
+    /** @return mixed[][] */
     public static function dataProviderGetSortOrderHiddenInputs(): array
     {
         // SQL to add the column
@@ -784,7 +785,11 @@ class ResultsTest extends AbstractTestCase
         ];
     }
 
-    /** @dataProvider dataProviderGetSortOrderHiddenInputs */
+    /**
+     * @param mixed[] $urlParams
+     *
+     * @dataProvider dataProviderGetSortOrderHiddenInputs
+     */
     public function testGetSortOrderHiddenInputs(
         string $sqlAdd,
         string $sqlRemove,
@@ -881,7 +886,15 @@ class ResultsTest extends AbstractTestCase
         $this->assertSame('P', $_SESSION['tmpval']['pftext']);
     }
 
-    /** @dataProvider providerSetConfigParamsForDisplayTable */
+    /**
+     * @param mixed[] $session
+     * @param mixed[] $get
+     * @param mixed[] $post
+     * @param mixed[] $request
+     * @param mixed[] $expected
+     *
+     * @dataProvider providerSetConfigParamsForDisplayTable
+     */
     public function testSetConfigParamsForDisplayTable(
         array $session,
         array $get,
@@ -907,6 +920,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertSame($expected, $_SESSION['tmpval']);
     }
 
+    /** @return mixed[][] */
     public static function providerSetConfigParamsForDisplayTable(): array
     {
         $cfg = ['RelationalDisplay' => DisplayResults::RELATIONAL_KEY, 'MaxRows' => 25, 'RepeatCells' => 100];

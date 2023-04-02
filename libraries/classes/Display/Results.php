@@ -683,12 +683,12 @@ class Results
      *
      * @see getTable()
      *
-     * @param int   $posNext       the offset for the "next" page
-     * @param int   $posPrevious   the offset for the "previous" page
-     * @param bool  $isInnodb      whether its InnoDB or not
-     * @param array $sortByKeyData the sort by key dialog
+     * @param int     $posNext       the offset for the "next" page
+     * @param int     $posPrevious   the offset for the "previous" page
+     * @param bool    $isInnodb      whether its InnoDB or not
+     * @param mixed[] $sortByKeyData the sort by key dialog
      *
-     * @return array
+     * @return mixed[]
      */
     private function getTableNavigation(
         int $posNext,
@@ -760,10 +760,10 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array              $sortExpression            sort expression
+     * @param mixed[]            $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression
      *                                                        without direction
-     * @param array              $sortDirection             sort direction
+     * @param mixed[]            $sortDirection             sort direction
      * @param bool               $isLimitedDisplay          with limited operations
      *                                                        or not
      * @param string             $unsortedSqlQuery          query without the sort part
@@ -875,9 +875,9 @@ class Results
      * @see getTable()
      *
      * @param string             $unsortedSqlQuery          the unsorted sql query
-     * @param array              $sortExpression            sort expression
+     * @param mixed[]            $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param array              $sortDirection             sort direction
+     * @param mixed[]            $sortDirection             sort direction
      * @param bool               $isLimitedDisplay          with limited operations or not
      *
      * @psalm-return array{
@@ -969,10 +969,10 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array|null $sortExpression   the sort expression
-     * @param string     $unsortedSqlQuery the unsorted sql query
+     * @param mixed[]|null $sortExpression   the sort expression
+     * @param string       $unsortedSqlQuery the unsorted sql query
      *
-     * @return array[]
+     * @return mixed[][]
      * @psalm-return array{hidden_fields?:array, options?:array}
      */
     private function getSortByKeyDropDown(
@@ -1114,7 +1114,7 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @return array table comments
+     * @return mixed[] table comments
      */
     private function getTableCommentsArray(StatementInfo $statementInfo): array
     {
@@ -1162,7 +1162,7 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @return array
+     * @return mixed[]
      */
     private function getDataForResettingColumnOrder(StatementInfo $statementInfo): array
     {
@@ -1194,7 +1194,7 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @return array
+     * @return mixed[]
      */
     private function getOptionsBlock(): array
     {
@@ -1259,7 +1259,7 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array         $commentsMap comments array
+     * @param mixed[]       $commentsMap comments array
      * @param FieldMetadata $fieldsMeta  set of field properties
      *
      * @return string html content
@@ -1280,17 +1280,17 @@ class Results
      * @see getTableHeaders()
      *
      * @param FieldMetadata      $fieldsMeta                set of field properties
-     * @param array              $sortExpression            sort expression
+     * @param mixed[]            $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param string             $unsortedSqlQuery          the unsorted sql query
      * @param int                $sessionMaxRows            maximum rows resulted by sql
      * @param string             $comments                  comment for row
-     * @param array              $sortDirection             sort direction
-     * @param bool|array         $colVisib                  column is visible(false)
+     * @param mixed[]            $sortDirection             sort direction
+     * @param bool|mixed[]       $colVisib                  column is visible(false)
      *                                                      or column isn't visible(string array)
      * @param int|string|null    $colVisibElement           element of $col_visib array
      *
-     * @return array   2 element array - $orderLink, $sortedHeaderHtml
+     * @return mixed[]   2 element array - $orderLink, $sortedHeaderHtml
      * @psalm-return array{
      *   column_name: string,
      *   order_link: string,
@@ -1386,7 +1386,7 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param array              $sortExpression            sort expression
+     * @param mixed[]            $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param string             $sortTable                 The name of the table to which
      *                                                      the current column belongs to
@@ -1507,10 +1507,10 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array  $sortExpression            sort expression
-     * @param array  $sortExpressionNoDirection sort expression without direction
-     * @param string $sortTable                 the table name
-     * @param string $nameToUseInSort           the sorting column name
+     * @param mixed[] $sortExpression            sort expression
+     * @param mixed[] $sortExpressionNoDirection sort expression without direction
+     * @param string  $sortTable                 the table name
+     * @param string  $nameToUseInSort           the sorting column name
      */
     private function isInSorted(
         array $sortExpression,
@@ -1643,6 +1643,7 @@ class Results
         );
     }
 
+    /** @param mixed[] $multipleUrlParams */
     private function getSortOrderHiddenInputs(
         array $multipleUrlParams,
         string $nameToUseInSort,
@@ -2217,15 +2218,15 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param array                   $row         current row data
+     * @param mixed[]                 $row         current row data
      * @param int                     $rowNumber   the index of current row
-     * @param array|false             $colOrder    the column order false when
-     *                                              a property not found false
-     *                                              when a property not found
+     * @param mixed[]|false           $colOrder    the column order false when
+     *                                            a property not found false
+     *                                            when a property not found
      * @param array<string, string[]> $map         the list of relations
-     * @param bool|array|string       $colVisib    column is visible(false);
-     *                                              column isn't visible(string
-     *                                              array)
+     * @param bool|mixed[]|string     $colVisib    column is visible(false);
+     *                                            column isn't visible(string
+     *                                            array)
      * @param string                  $urlSqlQuery the analyzed sql query
      * @psalm-param 'double-click'|'click'|'disabled' $gridEditConfig
      *
@@ -2486,7 +2487,7 @@ class Results
      *
      * @param array<string,array<int,array<string,string>>|string> $linkRelations
      * @param string                                               $columnValue   column value
-     * @param array                                                $rowInfo       information about row
+     * @param mixed[]                                              $rowInfo       information about row
      * @phpstan-param array{
      *                         'link_param': string,
      *                         'link_dependancy_params'?: array<
@@ -2535,8 +2536,8 @@ class Results
     /**
      * Prepare row information for display special links
      *
-     * @param array      $row      current row data
-     * @param array|bool $colOrder the column order
+     * @param mixed[]      $row      current row data
+     * @param mixed[]|bool $colOrder the column order
      *
      * @return array<string, mixed> associative array with column nama -> value
      */
@@ -2717,7 +2718,7 @@ class Results
      * @param string $urlSqlQuery    the analyzed sql query
      * @param int    $processId      Process ID
      *
-     * @return array  $del_url, $del_str, $js_conf
+     * @return mixed[]  $del_url, $del_str, $js_conf
      * @psalm-return array{?string, ?string, ?string}
      */
     private function getDeleteAndKillLinks(
@@ -2851,7 +2852,7 @@ class Results
      * @param bool                    $conditionField   the column should highlighted or not
      * @param FieldMetadata           $meta             the meta-information about this field
      * @param array<string, string[]> $map              the list of relations
-     * @param array                   $transformOptions the transformation parameters
+     * @param mixed[]                 $transformOptions the transformation parameters
      *
      * @return string the prepared cell, html content
      */
@@ -2899,9 +2900,9 @@ class Results
      * @param string                  $class            the html class for column
      * @param FieldMetadata           $meta             the meta-information about this field
      * @param array<string, string[]> $map              the list of relations
-     * @param array                   $urlParams        the parameters for generate url
+     * @param mixed[]                 $urlParams        the parameters for generate url
      * @param bool                    $conditionField   the column should highlighted or not
-     * @param array                   $transformOptions the transformation parameters
+     * @param mixed[]                 $transformOptions the transformation parameters
      *
      * @return string the prepared data cell, html content
      */
@@ -3015,9 +3016,9 @@ class Results
      * @param string                  $class            the html class for column
      * @param FieldMetadata           $meta             the meta-information about the field
      * @param array<string, string[]> $map              the list of relations
-     * @param array                   $urlParams        the parameters for generate url
+     * @param mixed[]                 $urlParams        the parameters for generate url
      * @param bool                    $conditionField   the column should highlighted or not
-     * @param array                   $transformOptions the transformation parameters
+     * @param mixed[]                 $transformOptions the transformation parameters
      *
      * @return string the prepared data cell, html content
      */
@@ -3929,9 +3930,9 @@ class Results
      *
      * @param string        $category         BLOB|BINARY|GEOMETRY
      * @param string|null   $content          the binary content
-     * @param array         $transformOptions transformation parameters
+     * @param mixed[]       $transformOptions transformation parameters
      * @param FieldMetadata $meta             the meta-information about the field
-     * @param array         $urlParams        parameters that should go to the download link
+     * @param mixed[]       $urlParams        parameters that should go to the download link
      * @param bool          $isTruncated      the result is truncated or not
      */
     private function handleNonPrintableContents(
@@ -4070,7 +4071,7 @@ class Results
      * @param string                  $displayedData    data that will be displayed (maybe be chunked)
      * @param string                  $nowrap           'nowrap' if the content should not be wrapped
      * @param string                  $whereComparison  data for the where clause
-     * @param array                   $transformOptions options for transformation
+     * @param mixed[]                 $transformOptions options for transformation
      * @param bool                    $isFieldTruncated whether the field is truncated
      * @param string                  $originalLength   of a truncated column, or ''
      *
@@ -4210,7 +4211,7 @@ class Results
      *
      * @param string $str string to be truncated
      *
-     * @return array
+     * @return mixed[]
      * @psalm-return array{bool, string, int}
      */
     private function getPartialText(string $str): array

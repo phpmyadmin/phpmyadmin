@@ -398,7 +398,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data Provider for testgetCharsetQueryPart
      *
-     * @return array test data
+     * @return mixed[] test data
      */
     public static function charsetQueryData(): array
     {
@@ -447,7 +447,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Provider for testConvertBitDefaultValue
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerConvertBitDefaultValue(): array
     {
@@ -513,8 +513,8 @@ class UtilTest extends AbstractTestCase
     /**
      * Test case for parsing SHOW COLUMNS output
      *
-     * @param string $in  Column specification
-     * @param array  $out Expected value
+     * @param string  $in  Column specification
+     * @param mixed[] $out Expected value
      *
      * @dataProvider providerExtractColumnSpec
      */
@@ -531,7 +531,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for testExtractColumnSpec
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerExtractColumnSpec(): array
     {
@@ -678,7 +678,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for testExtractValueFromFormattedSize
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerExtractValueFromFormattedSize(): array
     {
@@ -696,7 +696,7 @@ class UtilTest extends AbstractTestCase
      * @param float|int|string $a Value to format
      * @param int              $b Sensitiveness
      * @param int              $c Number of decimals to retain
-     * @param array            $e Expected value
+     * @param mixed[]          $e Expected value
      *
      * @dataProvider providerFormatByteDown
      */
@@ -711,7 +711,7 @@ class UtilTest extends AbstractTestCase
     /**
      * format byte down data provider
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerFormatByteDown(): array
     {
@@ -814,7 +814,7 @@ class UtilTest extends AbstractTestCase
     /**
      * format number data provider
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerFormatNumber(): array
     {
@@ -860,7 +860,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for testGetFormattedMaximumUploadSize
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerGetFormattedMaximumUploadSize(): array
     {
@@ -903,7 +903,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for testGetTitleForTarget
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerGetTitleForTarget(): array
     {
@@ -950,7 +950,7 @@ class UtilTest extends AbstractTestCase
     /**
      * data provider for localised date test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerLocalisedDate(): array
     {
@@ -1029,7 +1029,7 @@ class UtilTest extends AbstractTestCase
     /**
      * data provider for localised timestamp test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerTimespanFormat(): array
     {
@@ -1059,7 +1059,7 @@ class UtilTest extends AbstractTestCase
     /**
      * data provider for printable bit value test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerPrintableBitValue(): array
     {
@@ -1088,7 +1088,7 @@ class UtilTest extends AbstractTestCase
     /**
      * data provider for PhpMyAdmin\Util::unQuote test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerUnQuote(): array
     {
@@ -1114,7 +1114,7 @@ class UtilTest extends AbstractTestCase
     /**
      * data provider for PhpMyAdmin\Util::unQuote test with chosen quote
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerUnQuoteSelectedChar(): array
     {
@@ -1183,7 +1183,7 @@ class UtilTest extends AbstractTestCase
     /**
      * data provider for PhpMyAdmin\Util::userDir test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerUserDir(): array
     {
@@ -1209,7 +1209,7 @@ class UtilTest extends AbstractTestCase
     /**
      * data provider for duplicate first newline test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerDuplicateFirstNewline(): array
     {
@@ -1250,7 +1250,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for Util::isInteger test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerIsInteger(): array
     {
@@ -1274,7 +1274,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for Util::getProtoFromForwardedHeader test
      *
-     * @return array
+     * @return mixed[]
      *
      * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
      * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
@@ -1440,7 +1440,7 @@ SQL;
         $dbiDummy->assertAllQueriesConsumed();
     }
 
-    /** @return array[] */
+    /** @return mixed[][] */
     public static function dataProviderScriptNames(): array
     {
         // target
@@ -1759,7 +1759,7 @@ SQL;
     /**
      * Data provider for isUUIDSupported() tests.
      *
-     * @return array
+     * @return mixed[]
      * @psalm-return array<int, array{bool, int, bool}>
      */
     public static function provideForTestIsUUIDSupported(): array

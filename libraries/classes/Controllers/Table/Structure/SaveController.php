@@ -341,7 +341,7 @@ final class SaveController extends AbstractController
     /**
      * Adjusts the Privileges for all the columns whose names have changed
      *
-     * @param array $adjustPrivileges assoc array of old col names mapped to new
+     * @param mixed[] $adjustPrivileges assoc array of old col names mapped to new
      *                                 cols
      */
     private function adjustColumnPrivileges(array $adjustPrivileges): bool

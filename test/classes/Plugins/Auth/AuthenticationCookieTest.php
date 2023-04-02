@@ -703,6 +703,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
+    /** @return mixed[] */
     public static function dataProviderPasswordLength(): array
     {
         return [
@@ -959,13 +960,13 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * @param string $user     user
-     * @param string $pass     pass
-     * @param string $ip       ip
-     * @param bool   $root     root
-     * @param bool   $nopass   nopass
-     * @param array  $rules    rules
-     * @param string $expected expected result
+     * @param string  $user     user
+     * @param string  $pass     pass
+     * @param string  $ip       ip
+     * @param bool    $root     root
+     * @param bool    $nopass   nopass
+     * @param mixed[] $rules    rules
+     * @param string  $expected expected result
      *
      * @dataProvider checkRulesProvider
      */
@@ -1005,6 +1006,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         }
     }
 
+    /** @return mixed[] */
     public static function checkRulesProvider(): array
     {
         return [

@@ -37,7 +37,7 @@ class RecentFavoriteTable
     /**
      * Reference to session variable containing recently used or favorite tables.
      *
-     * @var array
+     * @var mixed[]
      */
     private array $tables;
 
@@ -93,7 +93,7 @@ class RecentFavoriteTable
     /**
      * Returns the recent/favorite tables array
      *
-     * @return array
+     * @return mixed[]
      */
     public function getTables(): array
     {
@@ -103,7 +103,7 @@ class RecentFavoriteTable
     /**
      * Returns recently used tables or favorite from phpMyAdmin database.
      *
-     * @return array
+     * @return mixed[]
      */
     public function getFromDb(): array
     {

@@ -35,7 +35,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      * @param string             $buffer  text to be transformed. a binary string containing
      *                                    an IP address, as returned from MySQL's INET6_ATON
      *                                    function
-     * @param array              $options transformation options
+     * @param mixed[]            $options transformation options
      * @param FieldMetadata|null $meta    meta information
      *
      * @return string IP address

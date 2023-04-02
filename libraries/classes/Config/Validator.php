@@ -60,7 +60,7 @@ class Validator
      *
      * @param ConfigFile $cf Config file instance
      *
-     * @return array
+     * @return mixed[]
      */
     public static function getValidators(ConfigFile $cf): array
     {
@@ -116,11 +116,11 @@ class Validator
      *   cleanup in HTML document
      * o false - when no validators match name(s) given by $validator_id
      *
-     * @param ConfigFile   $cf           Config file instance
-     * @param string|array $validatorId  ID of validator(s) to run
-     * @param array        $values       Values to validate
-     * @param bool         $isPostSource tells whether $values are directly from
-     *                                   POST request
+     * @param ConfigFile     $cf           Config file instance
+     * @param string|mixed[] $validatorId  ID of validator(s) to run
+     * @param mixed[]        $values       Values to validate
+     * @param bool           $isPostSource tells whether $values are directly from
+     *                                     POST request
      */
     public static function validate(
         ConfigFile $cf,
@@ -255,12 +255,12 @@ class Validator
     /**
      * Validate server config
      *
-     * @param string $path   path to config, not used
-     *                       keep this parameter since the method is invoked using
-     *                       reflection along with other similar methods
-     * @param array  $values config values
+     * @param string  $path   path to config, not used
+     *                        keep this parameter since the method is invoked using
+     *                        reflection along with other similar methods
+     * @param mixed[] $values config values
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validateServer(string $path, array $values): array
     {
@@ -322,12 +322,12 @@ class Validator
     /**
      * Validate pmadb config
      *
-     * @param string $path   path to config, not used
-     *                       keep this parameter since the method is invoked using
-     *                       reflection along with other similar methods
-     * @param array  $values config values
+     * @param string  $path   path to config, not used
+     *                        keep this parameter since the method is invoked using
+     *                        reflection along with other similar methods
+     * @param mixed[] $values config values
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validatePMAStorage(string $path, array $values): array
     {
@@ -377,10 +377,10 @@ class Validator
     /**
      * Validates regular expression
      *
-     * @param string $path   path to config
-     * @param array  $values config values
+     * @param string  $path   path to config
+     * @param mixed[] $values config values
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validateRegex(string $path, array $values): array
     {
@@ -411,10 +411,10 @@ class Validator
     /**
      * Validates TrustedProxies field
      *
-     * @param string $path   path to config
-     * @param array  $values config values
+     * @param string  $path   path to config
+     * @param mixed[] $values config values
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validateTrustedProxies(string $path, array $values): array
     {
@@ -465,12 +465,12 @@ class Validator
     /**
      * Tests integer value
      *
-     * @param string $path          path to config
-     * @param array  $values        config values
-     * @param bool   $allowNegative allow negative values
-     * @param bool   $allowZero     allow zero
-     * @param int    $maxValue      max allowed value
-     * @param string $errorString   error message string
+     * @param string  $path          path to config
+     * @param mixed[] $values        config values
+     * @param bool    $allowNegative allow negative values
+     * @param bool    $allowZero     allow zero
+     * @param int     $maxValue      max allowed value
+     * @param string  $errorString   error message string
      *
      * @return string  empty string if test is successful
      */
@@ -503,10 +503,10 @@ class Validator
     /**
      * Validates port number
      *
-     * @param string $path   path to config
-     * @param array  $values config values
+     * @param string  $path   path to config
+     * @param mixed[] $values config values
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validatePortNumber(string $path, array $values): array
     {
@@ -525,10 +525,10 @@ class Validator
     /**
      * Validates positive number
      *
-     * @param string $path   path to config
-     * @param array  $values config values
+     * @param string  $path   path to config
+     * @param mixed[] $values config values
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validatePositiveNumber(string $path, array $values): array
     {
@@ -547,10 +547,10 @@ class Validator
     /**
      * Validates non-negative number
      *
-     * @param string $path   path to config
-     * @param array  $values config values
+     * @param string  $path   path to config
+     * @param mixed[] $values config values
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validateNonNegativeNumber(string $path, array $values): array
     {
@@ -570,9 +570,9 @@ class Validator
      * Validates value according to given regular expression
      * Pattern and modifiers must be a valid for PCRE <b>and</b> JavaScript RegExp
      *
-     * @param string $path   path to config
-     * @param array  $values config values
-     * @param string $regex  regular expression to match
+     * @param string  $path   path to config
+     * @param mixed[] $values config values
+     * @param string  $regex  regular expression to match
      */
     public static function validateByRegex(string $path, array $values, string $regex): array|string
     {
@@ -588,11 +588,11 @@ class Validator
     /**
      * Validates upper bound for numeric inputs
      *
-     * @param string $path     path to config
-     * @param array  $values   config values
-     * @param int    $maxValue maximal allowed value
+     * @param string  $path     path to config
+     * @param mixed[] $values   config values
+     * @param int     $maxValue maximal allowed value
      *
-     * @return array
+     * @return mixed[]
      */
     public static function validateUpperBound(string $path, array $values, int $maxValue): array
     {

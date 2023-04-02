@@ -24,7 +24,7 @@ class Pbxt extends StorageEngine
     /**
      * Returns array with variable names dedicated to PBXT storage engine
      *
-     * @return array   variable names
+     * @return mixed[]   variable names
      */
     public function getVariables(): array
     {
@@ -143,7 +143,7 @@ class Pbxt extends StorageEngine
      *
      * @param int|string $formattedSize the size expression (for example 8MB)
      *
-     * @return array|null the formatted value and its unit
+     * @return mixed[]|null the formatted value and its unit
      */
     public function resolveTypeSize(int|string $formattedSize): array|null
     {

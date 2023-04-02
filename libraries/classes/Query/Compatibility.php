@@ -19,7 +19,11 @@ use function substr;
  */
 class Compatibility
 {
-    /** @return mixed[][] */
+    /**
+     * @param mixed[] $eachTables
+     *
+     * @return mixed[][]
+     */
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
         foreach ($eachTables as $tableName => $tableInfo) {
@@ -71,6 +75,11 @@ class Compatibility
         return $eachTables;
     }
 
+    /**
+     * @param mixed[] $columns
+     *
+     * @return mixed[]
+     */
     public static function getISCompatForGetColumnsFull(array $columns, string $database, string $table): array
     {
         $ordinalPosition = 1;

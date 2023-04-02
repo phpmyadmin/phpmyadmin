@@ -17,7 +17,7 @@ abstract class AbstractController
     {
     }
 
-    /** @return array */
+    /** @return mixed[] */
     protected function getPages(): array
     {
         $ignored = ['Config', 'Servers'];

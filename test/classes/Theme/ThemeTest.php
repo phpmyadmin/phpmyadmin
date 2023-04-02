@@ -240,7 +240,7 @@ class ThemeTest extends AbstractTestCase
     /**
      * Provider for testGetImgPath
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerForGetImgPath(): array
     {

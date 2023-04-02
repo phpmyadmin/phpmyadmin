@@ -73,7 +73,7 @@ class Designer
      *
      * @param string $db database name
      *
-     * @return array array of schema page id and names
+     * @return mixed[] array of schema page id and names
      */
     private function getPageIdsAndNames(string $db): array
     {
@@ -135,7 +135,7 @@ class Designer
     /**
      * Returns array of stored values of Designer Settings
      *
-     * @return array stored values
+     * @return mixed[] stored values
      */
     private function getSideMenuParamsArray(): array
     {
@@ -213,11 +213,11 @@ class Designer
      *
      * @param string          $db                   The database name from the request
      * @param DesignerTable[] $designerTables       The designer tables
-     * @param array           $tabPos               tables positions
+     * @param mixed[]         $tabPos               tables positions
      * @param int             $displayPage          page number of the selected page
-     * @param array           $tabColumn            table column info
-     * @param array           $tablesAllKeys        all indices
-     * @param array           $tablesPkOrUniqueKeys unique or primary indices
+     * @param mixed[]         $tabColumn            table column info
+     * @param mixed[]         $tablesAllKeys        all indices
+     * @param mixed[]         $tablesPkOrUniqueKeys unique or primary indices
      *
      * @return string html
      */
@@ -286,17 +286,17 @@ class Designer
      * @param string          $db                   database in use
      * @param string          $getDb                database in url
      * @param DesignerTable[] $designerTables       The designer tables
-     * @param array           $scriptTables         array on foreign key support for each table
-     * @param array           $scriptContr          initialization data array
+     * @param mixed[]         $scriptTables         array on foreign key support for each table
+     * @param mixed[]         $scriptContr          initialization data array
      * @param DesignerTable[] $scriptDisplayField   displayed tables in designer with their display fields
      * @param int             $displayPage          page number of the selected page
      * @param bool            $visualBuilderMode    whether this is visual query builder
      * @param string|null     $selectedPage         name of the selected page
-     * @param array           $paramsArray          array with class name for various buttons on side menu
-     * @param array           $tablePositions       table positions
-     * @param array           $tabColumn            table column info
-     * @param array           $tablesAllKeys        all indices
-     * @param array           $tablesPkOrUniqueKeys unique or primary indices
+     * @param mixed[]         $paramsArray          array with class name for various buttons on side menu
+     * @param mixed[]         $tablePositions       table positions
+     * @param mixed[]         $tabColumn            table column info
+     * @param mixed[]         $tablesAllKeys        all indices
+     * @param mixed[]         $tablesPkOrUniqueKeys unique or primary indices
      *
      * @return string html
      */

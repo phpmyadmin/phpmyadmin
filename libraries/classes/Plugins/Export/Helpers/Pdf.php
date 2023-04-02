@@ -28,10 +28,10 @@ use function ksort;
  */
 class Pdf extends PdfLib
 {
-    /** @var array */
+    /** @var mixed[] */
     public array $tablewidths = [];
 
-    /** @var array */
+    /** @var mixed[] */
     public array $headerset = [];
 
     private int|float $dataY = 0;
@@ -46,22 +46,22 @@ class Pdf extends PdfLib
 
     private string $purpose = '';
 
-    /** @var array */
+    /** @var mixed[] */
     private array $colTitles = [];
 
     private ResultInterface $results;
 
-    /** @var array */
+    /** @var mixed[] */
     private array $colAlign = [];
 
-    /** @var array */
+    /** @var mixed[] */
     private array $displayColumn = [];
 
     private string $currentDb = '';
 
     private string $currentTable = '';
 
-    /** @var array */
+    /** @var mixed[] */
     private array $aliases = [];
 
     private Relation $relation;
@@ -433,18 +433,18 @@ class Pdf extends PdfLib
     /**
      * Print $table's CREATE definition
      *
-     * @param string $db         the database name
-     * @param string $table      the table name
-     * @param bool   $doRelation whether to include relation comments
-     * @param bool   $doComments whether to include the pmadb-style column
-     *                            comments as comments in the structure;
-     *                            this is deprecated but the parameter is
-     *                            left here because /export calls
-     *                            PMA_exportStructure() also for other
-     *                            export types which use this parameter
-     * @param bool   $doMime     whether to include mime comments
-     * @param bool   $view       whether we're handling a view
-     * @param array  $aliases    aliases of db/table/columns
+     * @param string  $db         the database name
+     * @param string  $table      the table name
+     * @param bool    $doRelation whether to include relation comments
+     * @param bool    $doComments whether to include the pmadb-style column
+     *                             comments as comments in the structure;
+     *                             this is deprecated but the parameter is
+     *                             left here because /export calls
+     *                             PMA_exportStructure() also for other
+     *                             export types which use this parameter
+     * @param bool    $doMime     whether to include mime comments
+     * @param bool    $view       whether we're handling a view
+     * @param mixed[] $aliases    aliases of db/table/columns
      */
     public function getTableDef(
         string $db,
@@ -846,7 +846,7 @@ class Pdf extends PdfLib
         $this->tableAlias = $tableAlias ?? '';
     }
 
-    /** @param array $aliases */
+    /** @param mixed[] $aliases */
     public function setAliases(array $aliases): void
     {
         $this->aliases = $aliases;

@@ -132,7 +132,7 @@ class Header
      * Returns, as an array, a list of parameters
      * used on the client side
      *
-     * @return array
+     * @return mixed[]
      */
     public function getJsParams(): array
     {

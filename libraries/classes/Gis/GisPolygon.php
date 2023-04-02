@@ -70,10 +70,10 @@ class GisPolygon extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     Label for the GIS POLYGON object
-     * @param int[]  $color     Color for the GIS POLYGON object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POLYGON object
+     * @param string  $label     Label for the GIS POLYGON object
+     * @param int[]   $color     Color for the GIS POLYGON object
+     * @param mixed[] $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
@@ -115,10 +115,10 @@ class GisPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     Label for the GIS POLYGON object
-     * @param int[]  $color     Color for the GIS POLYGON object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POLYGON object
+     * @param string  $label     Label for the GIS POLYGON object
+     * @param int[]   $color     Color for the GIS POLYGON object
+     * @param mixed[] $scaleData Array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
@@ -151,10 +151,10 @@ class GisPolygon extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     Label for the GIS POLYGON object
-     * @param int[]  $color     Color for the GIS POLYGON object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POLYGON object
+     * @param string  $label     Label for the GIS POLYGON object
+     * @param int[]   $color     Color for the GIS POLYGON object
+     * @param mixed[] $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
@@ -231,8 +231,8 @@ class GisPolygon extends GisGeometry
     /**
      * Draws a ring of the polygon using SVG path element.
      *
-     * @param string $polygon   The ring
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $polygon   The ring
+     * @param mixed[] $scaleData Array containing data related to scaling
      *
      * @return string the code to draw the ring
      */
@@ -254,7 +254,7 @@ class GisPolygon extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gisData GIS data
+     * @param mixed[]     $gisData GIS data
      * @param int         $index   Index into the parameter object
      * @param string|null $empty   Value for empty points
      *
@@ -296,7 +296,7 @@ class GisPolygon extends GisGeometry
     /**
      * Calculates the area of a closed simple polygon.
      *
-     * @param array $ring array of points forming the ring
+     * @param mixed[] $ring array of points forming the ring
      *
      * @return float the area of a closed simple polygon
      */
@@ -330,7 +330,7 @@ class GisPolygon extends GisGeometry
      * Determines whether a set of points represents an outer ring.
      * If points are in clockwise orientation then, they form an outer ring.
      *
-     * @param array $ring array of points forming the ring
+     * @param mixed[] $ring array of points forming the ring
      */
     public static function isOuterRing(array $ring): bool
     {
@@ -342,8 +342,8 @@ class GisPolygon extends GisGeometry
     /**
      * Determines whether a given point is inside a given polygon.
      *
-     * @param array $point   x, y coordinates of the point
-     * @param array $polygon array of points forming the ring
+     * @param mixed[] $point   x, y coordinates of the point
+     * @param mixed[] $polygon array of points forming the ring
      */
     public static function isPointInsidePolygon(array $point, array $polygon): bool
     {
@@ -394,9 +394,9 @@ class GisPolygon extends GisGeometry
      * Returns a point that is guaranteed to be on the surface of the ring.
      * (for simple closed rings)
      *
-     * @param array $ring array of points forming the ring
+     * @param mixed[] $ring array of points forming the ring
      *
-     * @return array|false a point on the surface of the ring
+     * @return mixed[]|false a point on the surface of the ring
      */
     public static function getPointOnSurface(array $ring): array|false
     {
@@ -462,7 +462,7 @@ class GisPolygon extends GisGeometry
      *
      * @param string $wkt Value of the GIS column
      *
-     * @return array Coordinate params for the GIS data editor from the value of the GIS column
+     * @return mixed[] Coordinate params for the GIS data editor from the value of the GIS column
      */
     protected function getCoordinateParams(string $wkt): array
     {

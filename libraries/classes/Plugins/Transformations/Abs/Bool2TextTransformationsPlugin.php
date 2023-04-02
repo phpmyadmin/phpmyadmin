@@ -32,7 +32,7 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
      * Does the actual work of each specific transformations plugin.
      *
      * @param string             $buffer  text to be transformed
-     * @param array              $options transformation options
+     * @param mixed[]            $options transformation options
      * @param FieldMetadata|null $meta    meta information
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string

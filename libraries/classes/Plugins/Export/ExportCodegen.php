@@ -31,7 +31,7 @@ class ExportCodegen extends ExportPlugin
     /**
      * CodeGen Formats
      *
-     * @var array
+     * @var mixed[]
      */
     private array $cgFormats = [];
 
@@ -140,11 +140,11 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db       database name
-     * @param string $table    table name
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery SQL query for obtaining data
-     * @param array  $aliases  Aliases of db/table/columns
+     * @param string  $db       database name
+     * @param string  $table    table name
+     * @param string  $errorUrl the url to go back in case of error
+     * @param string  $sqlQuery SQL query for obtaining data
+     * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
@@ -193,9 +193,9 @@ class ExportCodegen extends ExportPlugin
     /**
      * C# Handler
      *
-     * @param string $db      database name
-     * @param string $table   table name
-     * @param array  $aliases Aliases of db/table/columns
+     * @param string  $db      database name
+     * @param string  $table   table name
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string containing C# code lines, separated by "\n"
      */
@@ -295,9 +295,9 @@ class ExportCodegen extends ExportPlugin
     /**
      * XML Handler
      *
-     * @param string $db      database name
-     * @param string $table   table name
-     * @param array  $aliases Aliases of db/table/columns
+     * @param string  $db      database name
+     * @param string  $table   table name
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string containing XML code lines, separated by "\n"
      */
@@ -362,7 +362,7 @@ class ExportCodegen extends ExportPlugin
     /**
      * Getter for CodeGen formats
      *
-     * @return array
+     * @return mixed[]
      */
     private function getCgFormats(): array
     {
@@ -372,7 +372,7 @@ class ExportCodegen extends ExportPlugin
     /**
      * Setter for CodeGen formats
      *
-     * @param array $cgFormats contains CodeGen Formats
+     * @param mixed[] $cgFormats contains CodeGen Formats
      */
     private function setCgFormats(array $cgFormats): void
     {

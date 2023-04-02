@@ -125,8 +125,8 @@ class Template
     }
 
     /**
-     * @param string $template Template path name
-     * @param array  $data     Associative array of template variables
+     * @param string  $template Template path name
+     * @param mixed[] $data     Associative array of template variables
      *
      * @throws Throwable
      * @throws LoaderError

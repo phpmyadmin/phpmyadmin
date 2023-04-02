@@ -405,8 +405,8 @@
       <code>$verbose</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -711,7 +711,7 @@
       <code>$vname</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code>$ip</code>
@@ -5089,7 +5089,7 @@
       <code>$type</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array|bool</code>
+      <code>mixed[]|bool</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code>$column</code>
@@ -5201,7 +5201,7 @@
       <code>$params</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$tabColumn[$tableName]['COLUMN_NAME'][$j]]]></code>
@@ -5550,7 +5550,7 @@
       <code>$whereClauseTables</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -6145,8 +6145,8 @@
       <code><![CDATA[$this->versionString]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -8336,7 +8336,7 @@
       <code>$binaryLogs</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code>SessionCache::get($cacheKey)</code>
@@ -10465,7 +10465,7 @@
       <code>$sql</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code>$sql</code>
@@ -12037,7 +12037,7 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$table['db']]]></code>
@@ -12946,7 +12946,7 @@
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code>$profiling</code>
-      <code><![CDATA[array<string, int|array>]]></code>
+      <code><![CDATA[array<string, int|mixed[]>]]></code>
     </MixedReturnTypeCoercion>
     <NoValue>
       <code><![CDATA[$statementInfo->statement->where]]></code>
@@ -13043,7 +13043,7 @@
       <code><![CDATA[$this->title]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array[]</code>
+      <code>mixed[][]</code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -13245,7 +13245,7 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
       <code>string</code>
       <code>string</code>
       <code>string</code>
@@ -13831,7 +13831,7 @@
       <code>$updQuery</code>
     </MixedArgument>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code>$stack</code>
@@ -14245,10 +14245,13 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="test/classes/Advisory/AdvisorTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testAddRule</code>
+      <code>testAddRule</code>
+      <code>testAddRule</code>
+      <code>testAdvisorBytime</code>
+      <code>testAdvisorBytime</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/BrowseForeignersTest.php">
     <MixedArgument>
@@ -14443,14 +14446,14 @@
       <code><![CDATA[$gdNfo['GD Version']]]></code>
     </MixedArgument>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
@@ -14783,11 +14786,18 @@
       <code>$value</code>
     </MixedArgumentTypeCoercion>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testFormatError</code>
+      <code>testFormatError</code>
+      <code>testFormatError</code>
+      <code>testVersion</code>
+      <code>testVersion</code>
+      <code>testVersion</code>
+      <code>testVersion</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Dbal/DbiDummyTest.php">
     <DeprecatedMethod>
@@ -14849,16 +14859,26 @@
       <code>$output</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testGetSortOrderHiddenInputs</code>
+      <code>testGetSortOrderHiddenInputs</code>
+      <code>testGetSortOrderHiddenInputs</code>
+      <code>testGetSortOrderHiddenInputs</code>
+      <code>testGetSortOrderHiddenInputs</code>
+      <code>testSetConfigParamsForDisplayTable</code>
+      <code>testSetConfigParamsForDisplayTable</code>
+      <code>testSetConfigParamsForDisplayTable</code>
+      <code>testSetConfigParamsForDisplayTable</code>
+      <code>testSetConfigParamsForDisplayTable</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Engines/PbxtTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/ErrorHandlerTest.php">
@@ -14883,7 +14903,7 @@
   </file>
   <file src="test/classes/ErrorTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Export/OptionsTest.php">
@@ -14957,9 +14977,17 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/HeaderTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+      <code>testGetHttpHeaders</code>
+    </PossiblyInvalidArgument>
     <RedundantCast>
       <code>(string) gmdate(DATE_RFC1123)</code>
     </RedundantCast>
@@ -14969,7 +14997,7 @@
       <code>$result</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
@@ -14981,12 +15009,15 @@
         'laminas/laminas-diactoros' => [LaminasServerRequestFactory::class, 'Laminas diactoros PSR-7'],
     ]]]></code>
     </InvalidConstantAssignmentValue>
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
     <MixedMethodCall>
       <code>new $className()</code>
     </MixedMethodCall>
+    <PossiblyInvalidArgument>
+      <code>testPsr7ImplementationCreateServerRequestFactory</code>
+      <code>testPsr7ImplementationCreateServerRequestFactory</code>
+      <code>testPsr7ImplementationGet</code>
+      <code>testPsr7ImplementationGet</code>
+    </PossiblyInvalidArgument>
     <UndefinedClass>
       <code>GuzzleHttpFactory</code>
       <code>LaminasServerRequestFactory</code>
@@ -15003,12 +15034,12 @@
       <code>assertSame</code>
     </DocblockTypeContradiction>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <PossiblyInvalidArgument>
       <code>testSkipByteOrderMarksFromContents</code>
@@ -15091,7 +15122,7 @@
   </file>
   <file src="test/classes/IpAllowDenyTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['TrustedProxies']]]></code>
@@ -15099,25 +15130,25 @@
   </file>
   <file src="test/classes/LanguageTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/MessageTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/MimeTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeTableTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/NormalizationTest.php">
@@ -15152,8 +15183,8 @@
       <code>$result</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <RedundantCondition>
       <code>assertIsString</code>
@@ -15229,10 +15260,10 @@
   </file>
   <file src="test/classes/Plugins/Export/Helpers/TablePropertyTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Plugins/Import/ImportLdiTest.php">
@@ -15270,7 +15301,7 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Plugins/Import/ImportShpTest.php">
@@ -15333,9 +15364,9 @@
   </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Server/PluginsTest.php">
@@ -15381,9 +15412,10 @@
       <code><![CDATA[$server['port']]]></code>
       <code><![CDATA[$server['user']]]></code>
     </MixedArgument>
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testRender</code>
+      <code>testRender</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Setup/ConfigGeneratorTest.php">
     <MixedAssignment>
@@ -15401,13 +15433,18 @@
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testCountQueryResults</code>
+      <code>testCountQueryResults</code>
+      <code>testCountQueryResults</code>
+      <code>testCountQueryResults</code>
+      <code>testCountQueryResults</code>
+      <code>testCountQueryResults</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/StorageEngineTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Stubs/DbiDummy.php">
@@ -15525,10 +15562,10 @@
   </file>
   <file src="test/classes/TemplateTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Theme/ThemeManagerTest.php">
@@ -15544,14 +15581,14 @@
       <code><![CDATA[$this->backup]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Tracking/TrackerTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <PossiblyUndefinedArrayOffset>
       <code>$data[0]</code>
@@ -15570,12 +15607,16 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/TransformationsTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testFixup</code>
+      <code>testFixup</code>
+      <code>testGetDescription</code>
+      <code>testGetDescription</code>
+      <code>testGetName</code>
+      <code>testGetName</code>
+      <code>testGetOptions</code>
+      <code>testGetOptions</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/TwoFactorTest.php">
     <MixedArgument>
@@ -15677,23 +15718,23 @@
       <code><![CDATA[$_SESSION['cache']['server_server']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <PossiblyInvalidArgument>
       <code>testBackquote</code>
@@ -15705,7 +15746,7 @@
   </file>
   <file src="test/classes/Utils/ForeignKeyTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
     <PossiblyInvalidArgument>
       <code>testHandleDisableCheckCleanup</code>
@@ -15718,15 +15759,19 @@
   </file>
   <file src="test/classes/Utils/FormatConverterTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Utils/GisTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testConvertToWellKnownText</code>
+      <code>testConvertToWellKnownText</code>
+      <code>testConvertToWellKnownText</code>
+      <code>testConvertToWellKnownText</code>
+      <code>testConvertToWellKnownText</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Utils/HttpRequestTest.php">
     <MixedArgument>
@@ -15741,12 +15786,31 @@
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$curl !== false ? $curl['ssl_version'] : '?']]></code>
     </MixedOperand>
+    <PossiblyInvalidArgument>
+      <code>testCreate</code>
+      <code>testCreate</code>
+      <code>testCreate</code>
+      <code>testCreate</code>
+      <code>testCurl</code>
+      <code>testCurl</code>
+      <code>testCurl</code>
+      <code>testCurl</code>
+      <code>testCurlCAInfo</code>
+      <code>testCurlCAInfo</code>
+      <code>testCurlCAInfo</code>
+      <code>testCurlCAInfo</code>
+      <code>testCurlCAPath</code>
+      <code>testCurlCAPath</code>
+      <code>testCurlCAPath</code>
+      <code>testCurlCAPath</code>
+      <code>testFopen</code>
+      <code>testFopen</code>
+      <code>testFopen</code>
+      <code>testFopen</code>
+    </PossiblyInvalidArgument>
     <RedundantCondition>
       <code>$curl !== false</code>
       <code>$curl !== false</code>
@@ -15777,7 +15841,7 @@
   </file>
   <file src="test/classes/VersionInformationTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
+      <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/selenium/Database/ProceduresTest.php">

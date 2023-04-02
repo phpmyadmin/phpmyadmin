@@ -481,7 +481,7 @@ class GisVisualization
      *
      * @param mixed[][] $data Row data
      *
-     * @return array an array containing the scale, x and y offsets
+     * @return mixed[] an array containing the scale, x and y offsets
      */
     private function scaleDataSet(array $data): array
     {
@@ -540,7 +540,7 @@ class GisVisualization
      * Prepares and return the dataset as needed by the visualization.
      *
      * @param mixed[][]                 $data      Raw data
-     * @param array                     $scaleData Data related to scaling
+     * @param mixed[]                   $scaleData Data related to scaling
      * @param string                    $format    Format of the visualization
      * @param ImageWrapper|TCPDF|string $results   Image object in the case of png
      *                                             TCPDF object in the case of pdf

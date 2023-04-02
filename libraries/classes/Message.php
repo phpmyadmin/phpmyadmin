@@ -60,7 +60,7 @@ class Message implements Stringable
     /**
      * message levels
      *
-     * @var array
+     * @var mixed[]
      */
     public static array $level = [self::SUCCESS => 'success', self::NOTICE => 'notice', self::ERROR => 'error'];
 
@@ -97,23 +97,23 @@ class Message implements Stringable
     /**
      * holds parameters
      *
-     * @var    array
+     * @var    mixed[]
      */
     protected array $params = [];
 
     /**
      * holds additional messages
      *
-     * @var    array
+     * @var    mixed[]
      */
     protected array $addedMessages = [];
 
     /**
-     * @param string $string   The message to be displayed
-     * @param int    $number   A numeric representation of the type of message
-     * @param array  $params   An array of parameters to use in the message
-     * @param int    $sanitize A flag to indicate what to sanitize, see
-     *                         constant definitions above
+     * @param string  $string   The message to be displayed
+     * @param int     $number   A numeric representation of the type of message
+     * @param mixed[] $params   An array of parameters to use in the message
+     * @param int     $sanitize A flag to indicate what to sanitize, see
+     *                          constant definitions above
      */
     public function __construct(
         string $string = '',
@@ -513,7 +513,7 @@ class Message implements Stringable
     /**
      * set all params at once, usually used in conjunction with string
      *
-     * @param array    $params   parameters to set
+     * @param mixed[]  $params   parameters to set
      * @param bool|int $sanitize whether to sanitize params
      */
     public function setParams(array $params, bool|int $sanitize = false): void
@@ -528,7 +528,7 @@ class Message implements Stringable
     /**
      * return all parameters
      *
-     * @return array
+     * @return mixed[]
      */
     public function getParams(): array
     {
@@ -538,7 +538,7 @@ class Message implements Stringable
     /**
      * return all added messages
      *
-     * @return array
+     * @return mixed[]
      */
     public function getAddedMessages(): array
     {

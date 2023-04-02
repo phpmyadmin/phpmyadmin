@@ -29,6 +29,8 @@ class ConfigFile
      * Stores default phpMyAdmin config
      *
      * @see Settings
+     *
+     * @var mixed[]
      */
     private array $defaultCfg;
 
@@ -41,6 +43,8 @@ class ConfigFile
 
     /**
      * Stores original PMA config, not modified by user preferences
+     *
+     * @var mixed[]|null
      */
     private array|null $baseCfg = null;
 
@@ -52,7 +56,7 @@ class ConfigFile
     /**
      * Keys which will be always written to config file
      *
-     * @var array
+     * @var mixed[]
      */
     private array $persistKeys = [];
 
@@ -60,7 +64,7 @@ class ConfigFile
      * Changes keys while updating config in {@link updateWithGlobalConfig()}
      * or reading by {@link getConfig()} or {@link getConfigArray()}
      *
-     * @var array
+     * @var mixed[]
      */
     private array $cfgUpdateReadMapping = [];
 
@@ -76,7 +80,7 @@ class ConfigFile
     private string $id;
 
     /**
-     * @param array|null $baseConfig base configuration read from
+     * @param mixed[]|null $baseConfig base configuration read from
      *                               {@link PhpMyAdmin\Config::$base_config},
      *                               use only when not in PMA Setup
      */
@@ -103,7 +107,7 @@ class ConfigFile
      * Sets names of config options which will be placed in config file even if
      * they are set to their default values (use only full paths)
      *
-     * @param array $keys the names of the config options
+     * @param mixed[] $keys the names of the config options
      */
     public function setPersistKeys(array $keys): void
     {
@@ -115,7 +119,7 @@ class ConfigFile
     /**
      * Returns flipped array set by {@link setPersistKeys()}
      *
-     * @return array
+     * @return mixed[]
      */
     public function getPersistKeysMap(): array
     {
@@ -126,7 +130,7 @@ class ConfigFile
      * By default ConfigFile allows setting of all configuration keys, use
      * this method to set up a filter on {@link set()} method
      *
-     * @param array|null $keys array of allowed keys or null to remove filter
+     * @param mixed[]|null $keys array of allowed keys or null to remove filter
      */
     public function setAllowedKeys(array|null $keys): void
     {
@@ -146,7 +150,7 @@ class ConfigFile
      * {@link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
      *
-     * @param array $mapping Contains the mapping of "Server/config options"
+     * @param mixed[] $mapping Contains the mapping of "Server/config options"
      *                       to "Server/1/config options"
      */
     public function setCfgUpdateReadMapping(array $mapping): void
@@ -165,7 +169,7 @@ class ConfigFile
     /**
      * Sets configuration data (overrides old data)
      *
-     * @param array $cfg Configuration options
+     * @param mixed[] $cfg Configuration options
      */
     public function setConfigData(array $cfg): void
     {
@@ -222,8 +226,10 @@ class ConfigFile
      * Flattens multidimensional array, changes indices to paths
      * (eg. 'key/subkey').
      *
-     * @param array  $array  Multidimensional array
-     * @param string $prefix Prefix
+     * @param mixed[] $array  Multidimensional array
+     * @param string  $prefix Prefix
+     *
+     * @return mixed[]
      */
     private function getFlatArray(array $array, string $prefix = ''): array
     {
@@ -241,6 +247,8 @@ class ConfigFile
 
     /**
      * Returns default config in a flattened array
+     *
+     * @return mixed[]
      */
     public function getFlatDefaultConfig(): array
     {
@@ -251,7 +259,7 @@ class ConfigFile
      * Updates config with values read from given array
      * (config will contain differences to defaults from {@see \PhpMyAdmin\Config\Settings}).
      *
-     * @param array $cfg Configuration
+     * @param mixed[] $cfg Configuration
      */
     public function updateWithGlobalConfig(array $cfg): void
     {
@@ -346,7 +354,7 @@ class ConfigFile
     /**
      * Returns server list
      *
-     * @return array
+     * @return mixed[]
      */
     public function getServers(): array
     {
@@ -438,7 +446,7 @@ class ConfigFile
     /**
      * Returns configuration array (full, multidimensional format)
      *
-     * @return array
+     * @return mixed[]
      */
     public function getConfig(): array
     {
@@ -459,7 +467,7 @@ class ConfigFile
     /**
      * Returns configuration array (flat format)
      *
-     * @return array
+     * @return mixed[]
      */
     public function getConfigArray(): array
     {

@@ -35,6 +35,7 @@ use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
  */
 final class CustomServer implements Server
 {
+    /** @inheritDoc */
     public function getCredentialCreationOptions(string $userName, string $userId, string $relyingPartyId): array
     {
         return [
@@ -51,6 +52,7 @@ final class CustomServer implements Server
         ];
     }
 
+    /** @inheritDoc */
     public function getCredentialRequestOptions(
         string $userName,
         string $userId,
@@ -73,6 +75,7 @@ final class CustomServer implements Server
         ];
     }
 
+    /** @inheritDoc */
     public function parseAndValidateAssertionResponse(
         string $assertionResponseJson,
         array $allowedCredentials,
@@ -109,6 +112,7 @@ final class CustomServer implements Server
         Assert::true($isUserPresent);
     }
 
+    /** @inheritDoc */
     public function parseAndValidateAttestationResponse(
         string $attestationResponse,
         string $credentialCreationOptions,

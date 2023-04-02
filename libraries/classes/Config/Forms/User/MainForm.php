@@ -13,7 +13,7 @@ use function __;
 
 class MainForm extends BaseForm
 {
-    /** @return array */
+    /** @return mixed[] */
     public static function getForms(): array
     {
         return [

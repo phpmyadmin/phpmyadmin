@@ -41,7 +41,7 @@ class ExportXml extends ExportPlugin
     /**
      * Table names
      *
-     * @var array
+     * @var mixed[]
      */
     private array $tables = [];
 
@@ -420,11 +420,11 @@ class ExportXml extends ExportPlugin
     /**
      * Outputs the content of a table in XML format
      *
-     * @param string $db       database name
-     * @param string $table    table name
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery SQL query for obtaining data
-     * @param array  $aliases  Aliases of db/table/columns
+     * @param string  $db       database name
+     * @param string  $table    table name
+     * @param string  $errorUrl the url to go back in case of error
+     * @param string  $sqlQuery SQL query for obtaining data
+     * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
@@ -508,7 +508,7 @@ class ExportXml extends ExportPlugin
     /**
      * Gets the table names
      *
-     * @return array
+     * @return mixed[]
      */
     private function getTables(): array
     {
@@ -518,7 +518,7 @@ class ExportXml extends ExportPlugin
     /**
      * Sets the table names
      *
-     * @param array $tables table names
+     * @param mixed[] $tables table names
      */
     private function setTables(array $tables): void
     {

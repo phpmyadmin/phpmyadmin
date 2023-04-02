@@ -76,7 +76,7 @@ class ListDatabase extends ListAbstract
      *
      * @param string|null $likeDbName usually a db_name containing wildcards
      *
-     * @return array
+     * @return mixed[]
      */
     protected function retrieve(string|null $likeDbName = null): array
     {

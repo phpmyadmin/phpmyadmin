@@ -83,7 +83,7 @@ class Index
      */
     private string $parser = '';
 
-    /** @param array $params parameters */
+    /** @param mixed[] $params parameters */
     public function __construct(array $params = [])
     {
         $this->set($params);
@@ -225,7 +225,7 @@ class Index
     /**
      * Adds a list of columns to the index
      *
-     * @param array $columns array containing details about the columns
+     * @param mixed[] $columns array containing details about the columns
      */
     public function addColumns(array $columns): void
     {
@@ -265,7 +265,7 @@ class Index
     /**
      * Sets index details
      *
-     * @param array $params index details
+     * @param mixed[] $params index details
      */
     public function set(array $params): void
     {

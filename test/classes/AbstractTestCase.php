@@ -118,6 +118,7 @@ abstract class AbstractTestCase extends TestCase
         return $response->getHTMLResult();
     }
 
+    /** @return mixed[] */
     protected function getResponseJsonResult(): array
     {
         /** @var ResponseRenderer $response */
@@ -216,7 +217,7 @@ abstract class AbstractTestCase extends TestCase
      * @param object|null $object     The object to inspect, pass null for static objects()
      * @param string      $className  The class name
      * @param string      $methodName The method name
-     * @param array       $params     The parameters for the invocation
+     * @param mixed[]     $params     The parameters for the invocation
      * @phpstan-param class-string $className
      *
      * @return mixed the output from the protected method.

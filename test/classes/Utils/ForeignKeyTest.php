@@ -39,7 +39,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * data provider for foreign key supported test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerIsSupported(): array
     {
@@ -66,7 +66,7 @@ class ForeignKeyTest extends AbstractTestCase
         );
     }
 
-    /** @return array[] */
+    /** @return mixed[][] */
     public static function providerCheckInit(): array
     {
         return [['', 'OFF'], ['0', 'OFF'], ['1', 'ON']];
@@ -116,7 +116,7 @@ class ForeignKeyTest extends AbstractTestCase
         $this->assertFalse(ForeignKey::handleDisableCheckInit());
     }
 
-    /** @return array[] */
+    /** @return mixed[][] */
     public static function providerCheckCleanup(): array
     {
         return [[true, 'ON'], [false, 'OFF']];

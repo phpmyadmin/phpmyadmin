@@ -358,7 +358,7 @@ class Git
     /**
      * Extract committer, author and message from commit body
      *
-     * @param array $commit The commit body
+     * @param mixed[] $commit The commit body
      *
      * @return array<int,array<string,string>|string>
      */
@@ -440,6 +440,7 @@ class Git
         return null;
     }
 
+    /** @return mixed[] */
     private function getHashFromHeadRef(string $gitFolder, string $refHead): array
     {
         // are we on any branch?

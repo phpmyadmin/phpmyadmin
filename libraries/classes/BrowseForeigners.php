@@ -35,15 +35,15 @@ class BrowseForeigners
     /**
      * Function to get html for one relational key
      *
-     * @param int    $horizontalCount    the current horizontal count
-     * @param string $header             table header
-     * @param array  $keys               all the keys
-     * @param int    $indexByKeyname     index by keyname
-     * @param array  $descriptions       descriptions
-     * @param int    $indexByDescription index by description
-     * @param string $currentValue       current value on the edit form
+     * @param int     $horizontalCount    the current horizontal count
+     * @param string  $header             table header
+     * @param mixed[] $keys               all the keys
+     * @param int     $indexByKeyname     index by keyname
+     * @param mixed[] $descriptions       descriptions
+     * @param int     $indexByDescription index by description
+     * @param string  $currentValue       current value on the edit form
      *
-     * @return array the generated html
+     * @return mixed[] the generated html
      */
     private function getHtmlForOneKey(
         int $horizontalCount,
@@ -135,7 +135,7 @@ class BrowseForeigners
      * @param string      $db           current database
      * @param string      $table        current table
      * @param string      $field        field
-     * @param array       $foreignData  foreign column data
+     * @param mixed[]     $foreignData  foreign column data
      * @param string|null $fieldKey     field key
      * @param string      $currentValue current columns's value
      */
@@ -262,7 +262,7 @@ class BrowseForeigners
     /**
      * Function to get html for the goto page option
      *
-     * @param array|null $foreignData foreign data
+     * @param mixed[]|null $foreignData foreign data
      */
     private function getHtmlForGotoPage(array|null $foreignData): string
     {

@@ -243,6 +243,12 @@ class ImportOds extends ImportPlugin
         return implode("\n", $values);
     }
 
+    /**
+     * @param mixed[] $tempRow
+     * @param mixed[] $colNames
+     *
+     * @return mixed[]
+     */
     private function iterateOverColumns(
         SimpleXMLElement $row,
         bool $colNamesInFirstRow,
@@ -312,6 +318,13 @@ class ImportOds extends ImportPlugin
         return [$tempRow, $colNames, $colCount];
     }
 
+    /**
+     * @param mixed[] $tempRow
+     * @param mixed[] $colNames
+     * @param mixed[] $tempRows
+     *
+     * @return mixed[]
+     */
     private function iterateOverRows(
         SimpleXMLElement $sheet,
         bool $colNamesInFirstRow,
@@ -363,9 +376,9 @@ class ImportOds extends ImportPlugin
     }
 
     /**
-     * @param array|SimpleXMLElement $sheets Sheets of the spreadsheet.
+     * @param mixed[]|SimpleXMLElement $sheets Sheets of the spreadsheet.
      *
-     * @return array|array[]
+     * @return mixed[]|mixed[][]
      */
     private function iterateOverTables(array|SimpleXMLElement $sheets): array
     {

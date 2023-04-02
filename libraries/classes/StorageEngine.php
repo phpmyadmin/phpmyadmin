@@ -85,7 +85,7 @@ class StorageEngine
     /**
      * Returns array of storage engines
      *
-     * @return array[] array of storage engines
+     * @return mixed[][] array of storage engines
      *
      * @staticvar array $storage_engines storage engines
      */
@@ -338,7 +338,7 @@ class StorageEngine
      *
      * @param int|string $value Value to format
      *
-     * @return array|null the formatted value and its unit
+     * @return mixed[]|null the formatted value and its unit
      */
     public function resolveTypeSize(int|string $value): array|null
     {
@@ -348,7 +348,7 @@ class StorageEngine
     /**
      * Returns array with detailed info about engine specific server variables
      *
-     * @return array array with detailed info about specific engine server variables
+     * @return mixed[] array with detailed info about specific engine server variables
      */
     public function getVariablesStatus(): array
     {
@@ -430,7 +430,7 @@ class StorageEngine
      * engine. This function should be overridden when extending this class
      * for a particular engine.
      *
-     * @return array The list of variables.
+     * @return mixed[] The list of variables.
      */
     public function getVariables(): array
     {

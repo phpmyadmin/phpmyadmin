@@ -144,7 +144,7 @@ class NodeTable extends NodeDatabaseChild
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return array
+     * @return mixed[]
      */
     public function getData(string $type, int $pos, string $searchClause = ''): array
     {

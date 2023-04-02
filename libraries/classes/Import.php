@@ -283,7 +283,7 @@ class Import
      * @param string|null $db     current db
      * @param bool|null   $reload reload
      *
-     * @return array (current or new db, whether to reload)
+     * @return mixed[] (current or new db, whether to reload)
      */
     public function lookForUse(string|null $buffer, string|null $db, bool|null $reload): array
     {
@@ -541,7 +541,7 @@ class Import
      *
      * @param string $cell cell content
      *
-     * @return array Contains the precision, scale, and full size
+     * @return mixed[] Contains the precision, scale, and full size
      *                representation of the given decimal cell
      */
     public function getDecimalSize(string $cell): array
@@ -836,9 +836,9 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @param array $table array(string $table_name, array $col_names, array $rows)
+     * @param mixed[] $table array(string $table_name, array $col_names, array $rows)
      *
-     * @return array|bool array(array $types, array $sizes)
+     * @return mixed[]|bool array(array $types, array $sizes)
      *
      * @todo    Handle the error case more elegantly
      */
@@ -931,12 +931,12 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @param string     $dbName        Name of the database
-     * @param array      $tables        Array of tables for the specified database
-     * @param array|null $analyses      Analyses of the tables
-     * @param array|null $additionalSql Additional SQL statements to be executed
-     * @param array|null $options       Associative array of options
-     * @param string[]   $sqlData       List of SQL statements to be executed
+     * @param string       $dbName        Name of the database
+     * @param mixed[]      $tables        Array of tables for the specified database
+     * @param mixed[]|null $analyses      Analyses of the tables
+     * @param mixed[]|null $additionalSql Additional SQL statements to be executed
+     * @param mixed[]|null $options       Associative array of options
+     * @param string[]     $sqlData       List of SQL statements to be executed
      */
     public function buildSql(
         string $dbName,
@@ -1429,7 +1429,7 @@ class Import
         return $compressions;
     }
 
-    /** @param array $importList List of plugin instances. */
+    /** @param mixed[] $importList List of plugin instances. */
     public static function getLocalFiles(array $importList): false|string
     {
         $fileListing = new FileListing();

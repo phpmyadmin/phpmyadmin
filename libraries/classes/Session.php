@@ -72,7 +72,7 @@ class Session
     /**
      * Session failed function
      *
-     * @param array $errors PhpMyAdmin\ErrorHandler array
+     * @param mixed[] $errors PhpMyAdmin\ErrorHandler array
      *
      * @throws SessionHandlerException
      */

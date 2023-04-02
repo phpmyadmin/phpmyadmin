@@ -35,6 +35,7 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals($expected, $result);
     }
 
+    /** @return mixed[][] */
     public static function advisorTimes(): array
     {
         return [
@@ -49,8 +50,8 @@ class AdvisorTest extends AbstractTestCase
     /**
      * Test for adding rule
      *
-     * @param array       $rule     Rule to test
-     * @param array       $expected Expected rendered rule in fired/errors list
+     * @param mixed[]     $rule     Rule to test
+     * @param mixed[]     $expected Expected rendered rule in fired/errors list
      * @param string|null $error    Expected error string (null if none error expected)
      *
      * @dataProvider rulesProvider
@@ -74,6 +75,7 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals([$expected], $runResult['fired']);
     }
 
+    /** @return mixed[][] */
     public static function rulesProvider(): array
     {
         return [

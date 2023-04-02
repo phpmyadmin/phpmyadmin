@@ -223,7 +223,7 @@ SQL;
     /**
      * Data provider for testDecorateColumnMetaDefault
      *
-     * @return array
+     * @return mixed[]
      * @psalm-return array<string, array{array<string, string|null>, array<string, string>}>
      */
     public static function providerColumnMetaDefault(): array

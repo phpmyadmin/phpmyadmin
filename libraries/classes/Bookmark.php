@@ -144,7 +144,7 @@ class Bookmark
     /**
      * Replace the placeholders in the bookmark query with variables
      *
-     * @param array $variables
+     * @param mixed[] $variables
      *
      * @return string query with variables applied
      */
@@ -175,8 +175,8 @@ class Bookmark
     /**
      * Creates a Bookmark object from the parameters
      *
-     * @param array $bkmFields the properties of the bookmark to add; here, $bkm_fields['bkm_sql_query'] is urlencoded
-     * @param bool  $allUsers  whether to make the bookmark available for all users
+     * @param mixed[] $bkmFields the properties of the bookmark to add; here, $bkm_fields['bkm_sql_query'] is urlencoded
+     * @param bool    $allUsers  whether to make the bookmark available for all users
      */
     public static function createBookmark(
         DatabaseInterface $dbi,
@@ -200,7 +200,7 @@ class Bookmark
         return $bookmark;
     }
 
-    /** @param array $row Resource used to build the bookmark */
+    /** @param mixed[] $row Resource used to build the bookmark */
     protected static function createFromRow(DatabaseInterface $dbi, array $row): Bookmark
     {
         $bookmark = new Bookmark($dbi, new Relation($dbi));

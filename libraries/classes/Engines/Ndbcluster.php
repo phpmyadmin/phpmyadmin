@@ -17,7 +17,7 @@ class Ndbcluster extends StorageEngine
     /**
      * Returns array with variable names related to NDBCLUSTER storage engine
      *
-     * @return array   variable names
+     * @return mixed[]   variable names
      */
     public function getVariables(): array
     {

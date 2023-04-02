@@ -18,7 +18,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param array $options transformation options
+     * @param mixed[] $options transformation options
      */
     public function applyTransformationNoWrap(array $options = []): bool
     {
@@ -29,7 +29,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      * Does the actual work of each specific transformations plugin.
      *
      * @param string             $buffer  text to be transformed
-     * @param array              $options transformation options
+     * @param mixed[]            $options transformation options
      * @param FieldMetadata|null $meta    meta information
      *
      * @return string the transformed text

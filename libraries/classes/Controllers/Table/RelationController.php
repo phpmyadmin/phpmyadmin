@@ -235,9 +235,9 @@ final class RelationController extends AbstractController
     /**
      * Update for FK
      *
-     * @param Table $table            Table
-     * @param array $options          Options
-     * @param array $relationsForeign External relations
+     * @param Table   $table            Table
+     * @param mixed[] $options          Options
+     * @param mixed[] $relationsForeign External relations
      */
     private function updateForForeignKeys(Table $table, array $options, array $relationsForeign): void
     {
@@ -289,7 +289,7 @@ final class RelationController extends AbstractController
     /**
      * Update for internal relation
      *
-     * @param array $relations Relations
+     * @param mixed[] $relations Relations
      */
     private function updateForInternalRelation(
         Table $table,

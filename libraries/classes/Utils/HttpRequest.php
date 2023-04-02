@@ -77,10 +77,10 @@ class HttpRequest
     /**
      * Returns information with regards to handling the http request
      *
-     * @param array $context Data about the context for which
+     * @param mixed[] $context Data about the context for which
      *                       to http request is sent
      *
-     * @return array of updated context information
+     * @return mixed[] of updated context information
      */
     private function handleContext(array $context): array
     {

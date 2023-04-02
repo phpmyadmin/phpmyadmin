@@ -150,7 +150,7 @@ class Privileges
     /**
      * Parses privileges into an array, it modifies the array
      *
-     * @param array $row Results row from
+     * @param mixed[] $row Results row from
      */
     public function fillInTablePrivileges(array &$row): void
     {
@@ -182,9 +182,9 @@ class Privileges
     /**
      * Extracts the privilege information of a priv table row
      *
-     * @param array|null $row        the row
-     * @param bool       $enableHTML add <dfn> tag with tooltips
-     * @param bool       $tablePrivs whether row contains table privileges
+     * @param mixed[]|null $row        the row
+     * @param bool         $enableHTML add <dfn> tag with tooltips
+     * @param bool         $tablePrivs whether row contains table privileges
      *
      * @return string[]
      *
@@ -646,7 +646,7 @@ class Privileges
     /**
      * Get username and hostname length
      *
-     * @return array username length and hostname length
+     * @return mixed[] username length and hostname length
      */
     public function getUsernameAndHostnameLength(): array
     {
@@ -899,7 +899,7 @@ class Privileges
      * @param string $hostname  host name
      * @param string $itemType  item type
      *
-     * @return array ($message, $sql_query)
+     * @return mixed[] ($message, $sql_query)
      */
     public function getMessageAndSqlQueryForPrivilegesRevoke(
         string $dbname,
@@ -1050,7 +1050,7 @@ class Privileges
         ]);
     }
 
-    /** @return array */
+    /** @return mixed[] */
     public function getAllPrivileges(DatabaseName $db, TableName|null $table = null): array
     {
         $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);
@@ -1076,9 +1076,9 @@ class Privileges
     }
 
     /**
-     * @param array $row Array with user privileges
+     * @param mixed[] $row Array with user privileges
      *
-     * @return array
+     * @return mixed[]
      */
     private function getSpecificPrivilege(array $row): array
     {
@@ -1113,7 +1113,7 @@ class Privileges
         return $privilege;
     }
 
-    /** @return array */
+    /** @return mixed[] */
     private function getGlobalAndDatabasePrivileges(DatabaseName $db): array
     {
         $listOfPrivileges = '`Select_priv`,
@@ -1174,7 +1174,7 @@ class Privileges
         return $result->fetchAllAssoc();
     }
 
-    /** @return array */
+    /** @return mixed[] */
     private function getTablePrivileges(DatabaseName $db, TableName $table): array
     {
         $query = '
@@ -1196,7 +1196,7 @@ class Privileges
         return $result->fetchAllAssoc();
     }
 
-    /** @return array */
+    /** @return mixed[] */
     private function getRoutinesPrivileges(DatabaseName $db): array
     {
         $query = '
@@ -1432,7 +1432,7 @@ class Privileges
      * @param string $type     database or table
      * @param string $dbname   database name
      *
-     * @return array database rights
+     * @return mixed[] database rights
      */
     public function getUserSpecificRights(string $username, string $hostname, string $type, string $dbname = ''): array
     {
@@ -1735,7 +1735,7 @@ class Privileges
      * (if less than 50 users, display them immediately)
      *
      * @param ResultInterface $result   ran sql query
-     * @param array           $dbRights user's database rights array
+     * @param mixed[]         $dbRights user's database rights array
      * @param string          $textDir  text directory
      *
      * @return string HTML snippet
@@ -1813,7 +1813,7 @@ class Privileges
     /**
      * Get HTML for Displays the initials
      *
-     * @param array $arrayInitials array for all initials, even non A-Z
+     * @param mixed[] $arrayInitials array for all initials, even non A-Z
      *
      * @return string HTML snippet
      */
@@ -1894,7 +1894,7 @@ class Privileges
     /**
      * Delete user and get message and sql query for delete user in privileges
      *
-     * @param array $queries queries
+     * @param mixed[] $queries queries
      *
      * @return array{string, Message} Message
      */
@@ -1941,7 +1941,7 @@ class Privileges
     /**
      * Update the privileges and return the success or error message
      *
-     * @return array success message or error message for update
+     * @return mixed[] success message or error message for update
      */
     public function updatePrivileges(
         string $username,
@@ -2138,9 +2138,9 @@ class Privileges
     /**
      * Update Data for information: Deletes users
      *
-     * @param array $queries queries array
+     * @param mixed[] $queries queries array
      *
-     * @return array
+     * @return mixed[]
      */
     public function getDataForDeleteUsers(array $queries): array
     {
@@ -2206,10 +2206,10 @@ class Privileges
     /**
      * update Data For Queries from queries_for_display
      *
-     * @param array      $queries           queries array
-     * @param array|null $queriesForDisplay queries array for display
+     * @param mixed[]      $queries           queries array
+     * @param mixed[]|null $queriesForDisplay queries array for display
      *
-     * @return array
+     * @return mixed[]
      */
     public function getDataForQueries(array $queries, array|null $queriesForDisplay): array
     {
@@ -2234,13 +2234,13 @@ class Privileges
     /**
      * update Data for information: Adds a user
      *
-     * @param string|array|null $dbname     db name
-     * @param string            $username   user name
-     * @param string            $hostname   host name
-     * @param string|null       $password   password
-     * @param bool              $isMenuwork is_menuwork set?
+     * @param string|mixed[]|null $dbname     db name
+     * @param string              $username   user name
+     * @param string              $hostname   host name
+     * @param string|null         $password   password
+     * @param bool                $isMenuwork is_menuwork set?
      *
-     * @return array
+     * @return mixed[]
      */
     public function addUser(
         string|array|null $dbname,
@@ -2424,7 +2424,7 @@ class Privileges
     /**
      * Update DB information: DB, Table, isWildcard
      *
-     * @return array
+     * @return mixed[]
      * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, bool}
      */
     public function getDataForDBInfo(): array
@@ -2700,12 +2700,12 @@ class Privileges
     /**
      * Get HTML snippet for display user properties
      *
-     * @param bool         $dbnameIsWildcard whether database name is wildcard or not
-     * @param string       $urlDbname        url database name that urlencode() string
-     * @param string       $username         username
-     * @param string       $hostname         host name
-     * @param string|array $dbname           database name
-     * @param string       $tablename        table name
+     * @param bool           $dbnameIsWildcard whether database name is wildcard or not
+     * @param string         $urlDbname        url database name that urlencode() string
+     * @param string         $username         username
+     * @param string         $hostname         host name
+     * @param string|mixed[] $dbname           database name
+     * @param string         $tablename        table name
      * @psalm-param non-empty-string $route
      */
     public function getHtmlForUserProperties(
@@ -2807,12 +2807,12 @@ class Privileges
     /**
      * Get queries for Table privileges to change or copy user
      *
-     * @param string $userHostCondition user host condition to select relevant table privileges
-     * @param array  $queries           queries array
-     * @param string $username          username
-     * @param string $hostname          host name
+     * @param string  $userHostCondition user host condition to select relevant table privileges
+     * @param mixed[] $queries           queries array
+     * @param string  $username          username
+     * @param string  $hostname          host name
      *
-     * @return array
+     * @return mixed[]
      */
     public function getTablePrivsQueriesForChangeOrCopyUser(
         string $userHostCondition,
@@ -2889,11 +2889,11 @@ class Privileges
     /**
      * Get queries for database specific privileges for change or copy user
      *
-     * @param array  $queries  queries array with string
-     * @param string $username username
-     * @param string $hostname host name
+     * @param mixed[] $queries  queries array with string
+     * @param string  $username username
+     * @param string  $hostname host name
      *
-     * @return array
+     * @return mixed[]
      */
     public function getDbSpecificPrivsQueriesForChangeOrCopyUser(
         array $queries,
@@ -3051,7 +3051,7 @@ class Privileges
      * @param string $hostname host name
      * @param string $password password
      *
-     * @return array ($create_user_real, $create_user_show, $real_sql_query, $sql_query
+     * @return mixed[] ($create_user_real, $create_user_show, $real_sql_query, $sql_query
      *                $password_set_real, $password_set_show, $alter_real_sql_query, $alter_sql_query)
      */
     public function getSqlQueriesForDisplayAndAddUser(string $username, string $hostname, string $password): array
@@ -3275,7 +3275,7 @@ class Privileges
      * @param string $database Database name
      * @param string $routine  Routine name
      *
-     * @return array
+     * @return mixed[]
      */
     private function getRoutinePrivileges(
         string $username,

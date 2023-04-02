@@ -50,10 +50,10 @@ class Pdf extends PdfLib
 
     public int|float $scale = 1;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $customLinks = [];
 
-    /** @var array */
+    /** @var mixed[] */
     public array $widths = [];
 
     public float $cMargin = 0;
@@ -284,7 +284,7 @@ class Pdf extends PdfLib
     /**
      * Sets widths
      *
-     * @param array $w array of widths
+     * @param mixed[] $w array of widths
      */
     public function setWidths(array $w): void
     {
@@ -295,8 +295,8 @@ class Pdf extends PdfLib
     /**
      * Generates table row.
      *
-     * @param array $data  Data for table
-     * @param array $links Links for table cells
+     * @param mixed[] $data  Data for table
+     * @param mixed[] $links Links for table cells
      */
     public function row(array $data, array $links): void
     {

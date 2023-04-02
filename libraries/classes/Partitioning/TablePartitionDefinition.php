@@ -12,6 +12,7 @@ use function min;
 
 final class TablePartitionDefinition
 {
+    /** @return mixed[] */
     public static function getDetails(): array
     {
         $partitionDetails = self::extractDetailsFromRequest();
@@ -37,7 +38,7 @@ final class TablePartitionDefinition
     /**
      * Extract some partitioning and subpartitioning parameters from the request
      *
-     * @return array
+     * @return mixed[]
      */
     private static function extractDetailsFromRequest(): array
     {
@@ -73,9 +74,9 @@ final class TablePartitionDefinition
     }
 
     /**
-     * @param array $partitionDetails Details of partitions
+     * @param mixed[] $partitionDetails Details of partitions
      *
-     * @return array
+     * @return mixed[]
      */
     private static function extractPartitions(array $partitionDetails): array
     {

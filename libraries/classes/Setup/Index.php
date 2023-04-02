@@ -85,7 +85,7 @@ class Index
     /**
      * Prints message list, must be called after self::messagesEnd()
      *
-     * @return array
+     * @return mixed[]
      */
     public static function messagesShowHtml(): array
     {

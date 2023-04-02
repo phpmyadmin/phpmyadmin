@@ -87,6 +87,7 @@ final class Processes
         ];
     }
 
+    /** @return mixed[] */
     private function getSortableColumnsForProcessList(
         bool $showExecuting,
         bool $showFullSql,

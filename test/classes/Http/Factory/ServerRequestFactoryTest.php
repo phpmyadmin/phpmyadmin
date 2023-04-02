@@ -26,6 +26,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         'laminas/laminas-diactoros' => [LaminasServerRequestFactory::class, 'Laminas diactoros PSR-7'],
     ];
 
+    /** @return mixed[][] */
     public static function dataProviderPsr7Implementations(): array
     {
         return self::IMPLEMENTATION_CLASSES;

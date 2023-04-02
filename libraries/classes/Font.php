@@ -22,7 +22,7 @@ class Font
     /**
      * Get list with characters and the corresponding width modifiers.
      *
-     * @return array with characters and corresponding width modifier
+     * @return mixed[] with characters and corresponding width modifier
      */
     public function getCharLists(): array
     {
@@ -92,10 +92,10 @@ class Font
      * The text element width is calculated depending on font name
      * and font size.
      *
-     * @param string     $text      string of which the width will be calculated
-     * @param string     $font      name of the font like Arial,sans-serif etc
-     * @param int        $fontSize  size of font
-     * @param array|null $charLists list of characters and their width modifiers
+     * @param string       $text      string of which the width will be calculated
+     * @param string       $font      name of the font like Arial,sans-serif etc
+     * @param int          $fontSize  size of font
+     * @param mixed[]|null $charLists list of characters and their width modifiers
      *
      * @return int width of the text
      */

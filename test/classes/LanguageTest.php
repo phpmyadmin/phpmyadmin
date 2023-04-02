@@ -256,7 +256,7 @@ class LanguageTest extends AbstractTestCase
     /**
      * Data provider to generate list of available locales.
      *
-     * @return array with arrays of available locales
+     * @return mixed[] with arrays of available locales
      */
     public static function listLocales(): array
     {

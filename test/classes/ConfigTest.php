@@ -238,7 +238,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * user Agent Provider
      *
-     * @return array
+     * @return mixed[]
      */
     public static function userAgentProvider(): array
     {
@@ -386,7 +386,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * return server names
      *
-     * @return array
+     * @return mixed[]
      */
     public static function serverNames(): array
     {
@@ -539,7 +539,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for https detection
      *
-     * @return array
+     * @return mixed[]
      */
     public static function httpsParams(): array
     {
@@ -596,7 +596,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for testGetRootPath
      *
-     * @return array data for testGetRootPath
+     * @return mixed[] data for testGetRootPath
      */
     public static function rootUris(): array
     {
@@ -634,7 +634,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * return of config Paths
      *
-     * @return array
+     * @return mixed[]
      */
     public static function configPaths(): array
     {
@@ -783,8 +783,8 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for checkServers
      *
-     * @param array $settings settings array
-     * @param array $expected expected result
+     * @param mixed[] $settings settings array
+     * @param mixed[] $expected expected result
      *
      * @dataProvider serverSettingsProvider
      */
@@ -800,7 +800,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for checkServers test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function serverSettingsProvider(): array
     {
@@ -854,9 +854,9 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for selectServer
      *
-     * @param array  $settings settings array
-     * @param string $request  request
-     * @param int    $expected expected result
+     * @param mixed[] $settings settings array
+     * @param string  $request  request
+     * @param int     $expected expected result
      *
      * @dataProvider selectServerProvider
      * @depends testCheckServers
@@ -872,7 +872,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for selectServer test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function selectServerProvider(): array
     {
@@ -890,9 +890,9 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for getConnectionParams
      *
-     * @param array      $serverCfg Server configuration
-     * @param array|null $server    Server array to test
-     * @param array      $expected  Expected result
+     * @param mixed[]      $serverCfg Server configuration
+     * @param mixed[]|null $server    Server array to test
+     * @param mixed[]      $expected  Expected result
      * @psalm-param ConnectionType $mode
      *
      * @dataProvider connectionParams
@@ -907,7 +907,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for getConnectionParams test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function connectionParams(): array
     {

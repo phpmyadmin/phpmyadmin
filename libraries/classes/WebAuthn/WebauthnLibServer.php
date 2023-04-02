@@ -33,6 +33,7 @@ final class WebauthnLibServer implements Server
     {
     }
 
+    /** @inheritDoc */
     public function getCredentialCreationOptions(string $userName, string $userId, string $relyingPartyId): array
     {
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
@@ -67,6 +68,7 @@ final class WebauthnLibServer implements Server
         return $creationOptions;
     }
 
+    /** @inheritDoc */
     public function getCredentialRequestOptions(
         string $userName,
         string $userId,
@@ -111,6 +113,7 @@ final class WebauthnLibServer implements Server
         return $requestOptions;
     }
 
+    /** @inheritDoc */
     public function parseAndValidateAssertionResponse(
         string $assertionResponseJson,
         array $allowedCredentials,
@@ -137,6 +140,7 @@ final class WebauthnLibServer implements Server
         $server->loadAndCheckAssertionResponse($assertionResponseJson, $requestOptions, $userEntity, $request);
     }
 
+    /** @inheritDoc */
     public function parseAndValidateAttestationResponse(
         string $attestationResponse,
         string $credentialCreationOptions,

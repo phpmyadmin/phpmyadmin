@@ -90,9 +90,9 @@ class InsertEdit
     /**
      * Retrieve form parameters for insert/edit form
      *
-     * @param string $db               name of the database
-     * @param string $table            name of the table
-     * @param array  $whereClauseArray
+     * @param string  $db               name of the database
+     * @param string  $table            name of the table
+     * @param mixed[] $whereClauseArray
      *
      * @return array<string, string> array of insert/edit form parameters
      */
@@ -200,9 +200,9 @@ class InsertEdit
     /**
      * Show message for empty result or set the unique_condition
      *
-     * @param array             $rows             MySQL returned rows
+     * @param mixed[]           $rows             MySQL returned rows
      * @param string|int        $keyId            ID in current key
-     * @param array             $whereClauseArray array of where clauses
+     * @param mixed[]           $whereClauseArray array of where clauses
      * @param string            $localQuery       query performed
      * @param ResultInterface[] $result           MySQL result handle
      */
@@ -266,10 +266,10 @@ class InsertEdit
     /**
      * Add some url parameters
      *
-     * @param array $urlParams        containing $db and $table as url parameters
-     * @param array $whereClauseArray where clauses array
+     * @param mixed[] $urlParams        containing $db and $table as url parameters
+     * @param mixed[] $whereClauseArray where clauses array
      *
-     * @return array Add some url parameters to $url_params array and return it
+     * @return mixed[] Add some url parameters to $url_params array and return it
      */
     public function urlParamsInEditMode(
         array $urlParams,
@@ -289,9 +289,9 @@ class InsertEdit
     /**
      * Show type information or function selectors in Insert/Edit
      *
-     * @param string $which     function|type
-     * @param array  $urlParams containing url parameters
-     * @param bool   $isShow    whether to show the element in $which
+     * @param string  $which     function|type
+     * @param mixed[] $urlParams containing url parameters
+     * @param bool    $isShow    whether to show the element in $which
      *
      * @return string an HTML snippet
      */
@@ -346,11 +346,11 @@ class InsertEdit
     /**
      * Analyze the table column array
      *
-     * @param array $column        description of column in given table
-     * @param array $commentsMap   comments for every column that has a comment
-     * @param bool  $timestampSeen whether a timestamp has been seen
+     * @param mixed[] $column        description of column in given table
+     * @param mixed[] $commentsMap   comments for every column that has a comment
+     * @param bool    $timestampSeen whether a timestamp has been seen
      *
-     * @return array                   description of column in given table
+     * @return mixed[]                   description of column in given table
      */
     private function analyzeTableColumnsArray(
         array $column,
@@ -387,8 +387,8 @@ class InsertEdit
     /**
      * Retrieve the column title
      *
-     * @param array $column      description of column in given table
-     * @param array $commentsMap comments for every column that has a comment
+     * @param mixed[] $column      description of column in given table
+     * @param mixed[] $commentsMap comments for every column that has a comment
      *
      * @return string              column title
      */
@@ -408,7 +408,7 @@ class InsertEdit
      * the goal is to ensure that types such as "enum('one','two','binary',..)"
      * or "enum('one','two','varbinary',..)" are not categorized as binary
      *
-     * @param array    $column description of column in given table
+     * @param mixed[]  $column description of column in given table
      * @param string[] $types  the types to verify
      */
     public function isColumn(array $column, array $types): bool
@@ -425,10 +425,10 @@ class InsertEdit
     /**
      * Retrieve set, enum, timestamp table columns
      *
-     * @param array $column        description of column in given table
-     * @param bool  $timestampSeen whether a timestamp has been seen
+     * @param mixed[] $column        description of column in given table
+     * @param bool    $timestampSeen whether a timestamp has been seen
      *
-     * @return array $column['pma_type'], $column['wrap'], $column['first_timestamp']
+     * @return mixed[] $column['pma_type'], $column['wrap'], $column['first_timestamp']
      * @psalm-return array{0: mixed, 1: string, 2: bool}
      */
     private function getEnumSetAndTimestampColumns(array $column, bool $timestampSeen): array
@@ -448,9 +448,9 @@ class InsertEdit
     /**
      * Retrieve the nullify code for the null column
      *
-     * @param array $column      description of column in given table
-     * @param array $foreigners  keys into foreign fields
-     * @param array $foreignData data about the foreign keys
+     * @param mixed[] $column      description of column in given table
+     * @param mixed[] $foreigners  keys into foreign fields
+     * @param mixed[] $foreignData data about the foreign keys
      */
     private function getNullifyCodeForNullColumn(
         array $column,
@@ -482,17 +482,17 @@ class InsertEdit
     /**
      * Get HTML textarea for insert form
      *
-     * @param array  $column              column information
-     * @param string $backupField         hidden input field
-     * @param string $columnNameAppendix  the name attribute
-     * @param string $onChangeClause      onchange clause for fields
-     * @param int    $tabindex            tab index
-     * @param int    $tabindexForValue    offset for the values tabindex
-     * @param int    $idindex             id index
-     * @param string $textDir             text direction
-     * @param string $specialCharsEncoded replaced char if the string starts
-     *                                      with a \r\n pair (0x0d0a) add an extra \n
-     * @param string $dataType            the html5 data-* attribute type
+     * @param mixed[] $column              column information
+     * @param string  $backupField         hidden input field
+     * @param string  $columnNameAppendix  the name attribute
+     * @param string  $onChangeClause      onchange clause for fields
+     * @param int     $tabindex            tab index
+     * @param int     $tabindexForValue    offset for the values tabindex
+     * @param int     $idindex             id index
+     * @param string  $textDir             text direction
+     * @param string  $specialCharsEncoded replaced char if the string starts
+     *                                       with a \r\n pair (0x0d0a) add an extra \n
+     * @param string  $dataType            the html5 data-* attribute type
      *
      * @return string                       an html snippet
      */
@@ -547,7 +547,7 @@ class InsertEdit
      *
      * @param string[] $enumSetValues
      *
-     * @return array column values as an associative array
+     * @return mixed[] column values as an associative array
      * @psalm-return list<array{html: string, plain: string}>
      */
     private function getColumnEnumValues(array $enumSetValues): array
@@ -563,10 +563,10 @@ class InsertEdit
     /**
      * Retrieve column 'set' value and select size
      *
-     * @param array    $column        description of column in given table
+     * @param mixed[]  $column        description of column in given table
      * @param string[] $enumSetValues
      *
-     * @return array $column['values'], $column['select_size']
+     * @return mixed[] $column['values'], $column['select_size']
      */
     private function getColumnSetValueAndSelectSize(
         array $column,
@@ -587,15 +587,15 @@ class InsertEdit
     /**
      * Get HTML input type
      *
-     * @param array  $column             description of column in given table
-     * @param string $columnNameAppendix the name attribute
-     * @param string $specialChars       special characters
-     * @param int    $fieldsize          html field size
-     * @param string $onChangeClause     onchange clause for fields
-     * @param int    $tabindex           tab index
-     * @param int    $tabindexForValue   offset for the values tabindex
-     * @param int    $idindex            id index
-     * @param string $dataType           the html5 data-* attribute type
+     * @param mixed[] $column             description of column in given table
+     * @param string  $columnNameAppendix the name attribute
+     * @param string  $specialChars       special characters
+     * @param int     $fieldsize          html field size
+     * @param string  $onChangeClause     onchange clause for fields
+     * @param int     $tabindex           tab index
+     * @param int     $tabindexForValue   offset for the values tabindex
+     * @param int     $idindex            id index
+     * @param string  $dataType           the html5 data-* attribute type
      *
      * @return string                       an html snippet
      */
@@ -686,7 +686,7 @@ class InsertEdit
      * @param string $pmaType            column type
      * @param int    $biggestMaxFileSize biggest max file size for uploading
      *
-     * @return array an html snippet and $biggest_max_file_size
+     * @return mixed[] an html snippet and $biggest_max_file_size
      * @psalm-return array{non-empty-string, int}
      */
     private function getMaxUploadSize(string $pmaType, int $biggestMaxFileSize): array
@@ -722,23 +722,23 @@ class InsertEdit
      * Get HTML for the Value column of other datatypes
      * (here, "column" is used in the sense of HTML column in HTML table)
      *
-     * @param array  $column              description of column in given table
-     * @param string $defaultCharEditing  default char editing mode which is stored
-     *                                       in the config.inc.php script
-     * @param string $backupField         hidden input field
-     * @param string $columnNameAppendix  the name attribute
-     * @param string $onChangeClause      onchange clause for fields
-     * @param int    $tabindex            tab index
-     * @param string $specialChars        special characters
-     * @param int    $tabindexForValue    offset for the values tabindex
-     * @param int    $idindex             id index
-     * @param string $textDir             text direction
-     * @param string $specialCharsEncoded replaced char if the string starts
-     *                                      with a \r\n pair (0x0d0a) add an extra \n
-     * @param string $data                data to edit
-     * @param array  $extractedColumnspec associative array containing type,
-     *                                      spec_in_brackets and possibly
-     *                                      enum_set_values (another array)
+     * @param mixed[] $column              description of column in given table
+     * @param string  $defaultCharEditing  default char editing mode which is stored
+     *                                        in the config.inc.php script
+     * @param string  $backupField         hidden input field
+     * @param string  $columnNameAppendix  the name attribute
+     * @param string  $onChangeClause      onchange clause for fields
+     * @param int     $tabindex            tab index
+     * @param string  $specialChars        special characters
+     * @param int     $tabindexForValue    offset for the values tabindex
+     * @param int     $idindex             id index
+     * @param string  $textDir             text direction
+     * @param string  $specialCharsEncoded replaced char if the string starts
+     *                                       with a \r\n pair (0x0d0a) add an extra \n
+     * @param string  $data                data to edit
+     * @param mixed[] $extractedColumnspec associative array containing type,
+     *                                     spec_in_brackets and possibly
+     *                                     enum_set_values (another array)
      *
      * @return string an html snippet
      */
@@ -803,8 +803,8 @@ class InsertEdit
     /**
      * Get the field size
      *
-     * @param array  $column         description of column in given table
-     * @param string $specInBrackets text in brackets inside column definition
+     * @param mixed[] $column         description of column in given table
+     * @param string  $specInBrackets text in brackets inside column definition
      *
      * @return int field size
      */
@@ -837,9 +837,9 @@ class InsertEdit
     /**
      * get html for continue insertion form
      *
-     * @param string $table            name of the table
-     * @param string $db               name of the database
-     * @param array  $whereClauseArray
+     * @param string  $table            name of the table
+     * @param string  $db               name of the database
+     * @param mixed[] $whereClauseArray
      *
      * @return string                   an html snippet
      */
@@ -892,7 +892,7 @@ class InsertEdit
     /**
      * Get table head and table foot for insert row table
      *
-     * @param array $urlParams url parameters
+     * @param mixed[] $urlParams url parameters
      *
      * @return string           an html snippet
      */
@@ -920,16 +920,16 @@ class InsertEdit
     /**
      * Prepares the field value and retrieve special chars, backup field and data array
      *
-     * @param array  $currentRow          a row of the table
-     * @param array  $column              description of column in given table
-     * @param array  $extractedColumnspec associative array containing type,
-     *                                      spec_in_brackets and possibly
-     *                                      enum_set_values (another array)
-     * @param array  $gisDataTypes        list of GIS data types
-     * @param string $columnNameAppendix  string to append to column name in input
-     * @param bool   $asIs                use the data as is, used in repopulating
+     * @param mixed[] $currentRow          a row of the table
+     * @param mixed[] $column              description of column in given table
+     * @param mixed[] $extractedColumnspec associative array containing type,
+     *                                     spec_in_brackets and possibly
+     *                                     enum_set_values (another array)
+     * @param mixed[] $gisDataTypes        list of GIS data types
+     * @param string  $columnNameAppendix  string to append to column name in input
+     * @param bool    $asIs                use the data as is, used in repopulating
      *
-     * @return array $real_null_value, $data, $special_chars, $backup_field,
+     * @return mixed[] $real_null_value, $data, $special_chars, $backup_field,
      *               $special_chars_encoded
      */
     private function getSpecialCharsAndBackupFieldForExistingRow(
@@ -1014,9 +1014,9 @@ class InsertEdit
     /**
      * display default values
      *
-     * @param array $column description of column in given table
+     * @param mixed[] $column description of column in given table
      *
-     * @return array $real_null_value, $data, $special_chars,
+     * @return mixed[] $real_null_value, $data, $special_chars,
      *               $backup_field, $special_chars_encoded
      * @psalm-return array{bool, mixed, string, string, string}
      */
@@ -1055,7 +1055,7 @@ class InsertEdit
     /**
      * Prepares the update/insert of a row
      *
-     * @return array $loop_array, $using_key, $is_insert, $is_insertignore
+     * @return mixed[] $loop_array, $using_key, $is_insert, $is_insertignore
      * @psalm-return array{array, bool, bool, bool}
      */
     public function getParamsForUpdateOrInsert(): array
@@ -1163,7 +1163,7 @@ class InsertEdit
     /**
      * Defines the url to return in case of failure of the query
      *
-     * @param array $urlParams url parameters
+     * @param mixed[] $urlParams url parameters
      *
      * @return string           error url for query failure
      */
@@ -1179,11 +1179,11 @@ class InsertEdit
     /**
      * Builds the sql query
      *
-     * @param bool  $isInsertIgnore $_POST['submit_type'] === 'insertignore'
-     * @param array $queryFields    column names array
-     * @param array $valueSets      array of query values
+     * @param bool    $isInsertIgnore $_POST['submit_type'] === 'insertignore'
+     * @param mixed[] $queryFields    column names array
+     * @param mixed[] $valueSets      array of query values
      *
-     * @return array of query
+     * @return mixed[] of query
      * @psalm-return array{string}
      */
     public function buildSqlQuery(bool $isInsertIgnore, array $queryFields, array $valueSets): array
@@ -1205,10 +1205,10 @@ class InsertEdit
     /**
      * Executes the sql query and get the result, then move back to the calling page
      *
-     * @param array $urlParams url parameters array
-     * @param array $query     built query from buildSqlQuery()
+     * @param mixed[] $urlParams url parameters array
+     * @param mixed[] $query     built query from buildSqlQuery()
      *
-     * @return array $url_params, $total_affected_rows, $last_messages
+     * @return mixed[] $url_params, $total_affected_rows, $last_messages
      *               $warning_messages, $error_messages, $return_to_sql_query
      */
     public function executeSqlQuery(array $urlParams, array $query): array
@@ -1285,10 +1285,10 @@ class InsertEdit
     /**
      * Column to display from the foreign table?
      *
-     * @param string $whereComparison string that contain relation field value
-     * @param array  $map             all Relations to foreign tables for a given
-     *                                             table or optionally a given column in a table
-     * @param string $relationField   relation field
+     * @param string  $whereComparison string that contain relation field value
+     * @param mixed[] $map             all Relations to foreign tables for a given
+     *                                            table or optionally a given column in a table
+     * @param string  $relationField   relation field
      *
      * @return string display value from the foreign table
      */
@@ -1323,12 +1323,12 @@ class InsertEdit
     /**
      * Display option in the cell according to user choices
      *
-     * @param array  $map                all Relations to foreign tables for a given
-     *                                                   table or optionally a given column in a table
-     * @param string $relationField      relation field
-     * @param string $whereComparison    string that contain relation field value
-     * @param string $dispval            display value from the foreign table
-     * @param string $relationFieldValue relation field value
+     * @param mixed[] $map                all Relations to foreign tables for a given
+     *                                                  table or optionally a given column in a table
+     * @param string  $relationField      relation field
+     * @param string  $whereComparison    string that contain relation field value
+     * @param string  $dispval            display value from the foreign table
+     * @param string  $relationFieldValue relation field value
      *
      * @return string HTML <a> tag
      */
@@ -1386,17 +1386,17 @@ class InsertEdit
     /**
      * Transform edited values
      *
-     * @param string $db             db name
-     * @param string $table          table name
-     * @param array  $transformation mimetypes for all columns of a table
-     *                                [field_name][field_key]
-     * @param array  $editedValues   transform columns list and new values
-     * @param string $file           file containing the transformation plugin
-     * @param string $columnName     column name
-     * @param array  $extraData      extra data array
-     * @param string $type           the type of transformation
+     * @param string  $db             db name
+     * @param string  $table          table name
+     * @param mixed[] $transformation mimetypes for all columns of a table
+     *                               [field_name][field_key]
+     * @param mixed[] $editedValues   transform columns list and new values
+     * @param string  $file           file containing the transformation plugin
+     * @param string  $columnName     column name
+     * @param mixed[] $extraData      extra data array
+     * @param string  $type           the type of transformation
      *
-     * @return array
+     * @return mixed[]
      */
     public function transformEditedValues(
         string $db,
@@ -1657,10 +1657,10 @@ class InsertEdit
      * Check whether inline edited value can be truncated or not,
      * and add additional parameters for extra_data array  if needed
      *
-     * @param string $db         Database name
-     * @param string $table      Table name
-     * @param string $columnName Column name
-     * @param array  $extraData  Extra data for ajax response
+     * @param string  $db         Database name
+     * @param string  $table      Table name
+     * @param string  $columnName Column name
+     * @param mixed[] $extraData  Extra data for ajax response
      */
     public function verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         string $db,
@@ -1706,7 +1706,7 @@ class InsertEdit
      * @param string $db    current db
      * @param string $table current table
      *
-     * @return array[]
+     * @return mixed[][]
      */
     public function getTableColumns(string $db, string $table): array
     {
@@ -1802,7 +1802,7 @@ class InsertEdit
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return array comments for columns
+     * @return mixed[] comments for columns
      */
     public function getCommentsMap(string $db, string $table): array
     {
@@ -1857,20 +1857,20 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit column
      *
-     * @param array           $column             column
+     * @param mixed[]         $column             column
      * @param int             $columnNumber       column index in table_columns
-     * @param array           $commentsMap        comments map
+     * @param mixed[]         $commentsMap        comments map
      * @param bool            $timestampSeen      whether timestamp seen
      * @param ResultInterface $currentResult      current result
      * @param string          $jsvkey             javascript validation key
      * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
-     * @param array           $currentRow         current row
+     * @param mixed[]         $currentRow         current row
      * @param int             $oRows              row offset
      * @param int             $tabindex           tab index
      * @param int             $columnsCnt         columns count
      * @param bool            $isUpload           whether upload
-     * @param array           $foreigners         foreigners
+     * @param mixed[]         $foreigners         foreigners
      * @param int             $tabindexForValue   tab index offset for value
      * @param string          $table              table
      * @param string          $db                 database
@@ -1878,8 +1878,8 @@ class InsertEdit
      * @param int             $biggestMaxFileSize biggest max file size
      * @param string          $defaultCharEditing default char editing mode which is stored in the config.inc.php script
      * @param string          $textDir            text direction
-     * @param array           $repopulate         the data to be repopulated
-     * @param array           $columnMime         the mime information of column
+     * @param mixed[]         $repopulate         the data to be repopulated
+     * @param mixed[]         $columnMime         the mime information of column
      * @param string          $whereClause        the where clause
      */
     private function getHtmlForInsertEditFormColumn(
@@ -2214,6 +2214,7 @@ class InsertEdit
         ]);
     }
 
+    /** @param mixed[] $column */
     private function isColumnBinary(array $column, bool $isUpload): bool
     {
         if (! $GLOBALS['cfg']['ShowFunctionFields']) {
@@ -2228,28 +2229,28 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param array           $urlParams          url parameters
-     * @param array[]         $tableColumns       table columns
-     * @param array           $commentsMap        comments map
+     * @param mixed[]         $urlParams          url parameters
+     * @param mixed[][]       $tableColumns       table columns
+     * @param mixed[]         $commentsMap        comments map
      * @param bool            $timestampSeen      whether timestamp seen
      * @param ResultInterface $currentResult      current result
      * @param string          $jsvkey             javascript validation key
      * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
-     * @param array           $currentRow         current row
+     * @param mixed[]         $currentRow         current row
      * @param int             $oRows              row offset
      * @param int             $tabindex           tab index
      * @param int             $columnsCnt         columns count
      * @param bool            $isUpload           whether upload
-     * @param array           $foreigners         foreigners
+     * @param mixed[]         $foreigners         foreigners
      * @param int             $tabindexForValue   tab index offset for value
      * @param string          $table              table
      * @param string          $db                 database
      * @param int             $rowId              row id
      * @param int             $biggestMaxFileSize biggest max file size
      * @param string          $textDir            text direction
-     * @param array           $repopulate         the data to be repopulated
-     * @param array           $whereClauseArray   the array of where clauses
+     * @param mixed[]         $repopulate         the data to be repopulated
+     * @param mixed[]         $whereClauseArray   the array of where clauses
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,

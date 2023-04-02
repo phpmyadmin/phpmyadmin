@@ -122,10 +122,10 @@ class Utilities
     /**
      * usort comparison callback
      *
-     * @param array  $a         first argument to sort
-     * @param array  $b         second argument to sort
-     * @param string $sortBy    Key to sort by
-     * @param string $sortOrder The order (ASC/DESC)
+     * @param mixed[] $a         first argument to sort
+     * @param mixed[] $b         second argument to sort
+     * @param string  $sortBy    Key to sort by
+     * @param string  $sortOrder The order (ASC/DESC)
      *
      * @return int  a value representing whether $a should be before $b in the
      *              sorted array or not

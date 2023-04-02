@@ -76,7 +76,7 @@ class Common
      *
      * @param DesignerTable[] $designerTables The designer tables
      *
-     * @return array table column nfo
+     * @return mixed[] table column nfo
      */
     public function getColumnsInfo(array $designerTables): array
     {
@@ -112,7 +112,7 @@ class Common
      *
      * @param DesignerTable[] $designerTables The designer tables
      *
-     * @return array JavaScript code
+     * @return mixed[] JavaScript code
      */
     public function getScriptContr(array $designerTables): array
     {
@@ -185,7 +185,7 @@ class Common
      *
      * @param DesignerTable[] $designerTables The designer tables
      *
-     * @return array unique or primary indices
+     * @return mixed[] unique or primary indices
      */
     public function getPkOrUniqueKeys(array $designerTables): array
     {
@@ -198,7 +198,7 @@ class Common
      * @param DesignerTable[] $designerTables The designer tables
      * @param bool            $uniqueOnly     whether to include only unique ones
      *
-     * @return array indices
+     * @return mixed[] indices
      */
     public function getAllKeys(array $designerTables, bool $uniqueOnly = false): array
     {
@@ -227,7 +227,7 @@ class Common
      *
      * @param DesignerTable[] $designerTables The designer tables
      *
-     * @return array
+     * @return mixed[]
      */
     public function getScriptTabs(array $designerTables): array
     {
@@ -247,7 +247,7 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return array of table positions
+     * @return mixed[] of table positions
      */
     public function getTablePositions(int $pg): array
     {
@@ -624,7 +624,7 @@ class Common
      * @param string $t2 master db.table
      * @param string $f2 master field
      *
-     * @return array array of success/failure and message
+     * @return mixed[] array of success/failure and message
      */
     public function removeRelation(string $t1, string $f1, string $t2, string $f2): array
     {

@@ -74,11 +74,11 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs the content of a table
      *
-     * @param string $db       database name
-     * @param string $table    table name
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery SQL query for obtaining data
-     * @param array  $aliases  Aliases of db/table/columns
+     * @param string  $db       database name
+     * @param string  $table    table name
+     * @param string  $errorUrl the url to go back in case of error
+     * @param string  $sqlQuery SQL query for obtaining data
+     * @param mixed[] $aliases  Aliases of db/table/columns
      */
     abstract public function exportData(
         string $db,
@@ -96,8 +96,8 @@ abstract class ExportPlugin implements Plugin
     /**
      * Exports routines (procedures and functions)
      *
-     * @param string $db      Database
-     * @param array  $aliases Aliases of db/table/columns
+     * @param string  $db      Database
+     * @param mixed[] $aliases Aliases of db/table/columns
      */
     public function exportRoutines(string $db, array $aliases = []): bool
     {
@@ -129,21 +129,21 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs table's structure
      *
-     * @param string $db         database name
-     * @param string $table      table name
-     * @param string $errorUrl   the url to go back in case of error
-     * @param string $exportMode 'create_table','triggers','create_view',
-     *                            'stand_in'
-     * @param string $exportType 'server', 'database', 'table'
-     * @param bool   $relation   whether to include relation comments
-     * @param bool   $comments   whether to include the pmadb-style column comments
-     *                           as comments in the structure; this is deprecated
-     *                           but the parameter is left here because /export
-     *                           calls exportStructure() also for other export
-     *                           types which use this parameter
-     * @param bool   $mime       whether to include mime comments
-     * @param bool   $dates      whether to include creation/update/check dates
-     * @param array  $aliases    Aliases of db/table/columns
+     * @param string  $db         database name
+     * @param string  $table      table name
+     * @param string  $errorUrl   the url to go back in case of error
+     * @param string  $exportMode 'create_table','triggers','create_view',
+     *                             'stand_in'
+     * @param string  $exportType 'server', 'database', 'table'
+     * @param bool    $relation   whether to include relation comments
+     * @param bool    $comments   whether to include the pmadb-style column comments
+     *                            as comments in the structure; this is deprecated
+     *                            but the parameter is left here because /export
+     *                            calls exportStructure() also for other export
+     *                            types which use this parameter
+     * @param bool    $mime       whether to include mime comments
+     * @param bool    $dates      whether to include creation/update/check dates
+     * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
@@ -178,9 +178,9 @@ abstract class ExportPlugin implements Plugin
     /**
      * Returns a stand-in CREATE definition to resolve view dependencies
      *
-     * @param string $db      the database name
-     * @param string $view    the view name
-     * @param array  $aliases Aliases of db/table/columns
+     * @param string  $db      the database name
+     * @param string  $view    the view name
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string resulting definition
      */
@@ -234,7 +234,7 @@ abstract class ExportPlugin implements Plugin
     /**
      * Initialize aliases
      *
-     * @param array       $aliases Alias information for db/table/column
+     * @param mixed[]     $aliases Alias information for db/table/column
      * @param string      $db      the database
      * @param string|null $table   the table
      */
@@ -254,12 +254,12 @@ abstract class ExportPlugin implements Plugin
     /**
      * Search for alias of a identifier.
      *
-     * @param array  $aliases Alias information for db/table/column
-     * @param string $id      the identifier to be searched
-     * @param string $type    db/tbl/col or any combination of them
-     *                        representing what to be searched
-     * @param string $db      the database in which search is to be done
-     * @param string $tbl     the table in which search is to be done
+     * @param mixed[] $aliases Alias information for db/table/column
+     * @param string  $id      the identifier to be searched
+     * @param string  $type    db/tbl/col or any combination of them
+     *                         representing what to be searched
+     * @param string  $db      the database in which search is to be done
+     * @param string  $tbl     the table in which search is to be done
      *
      * @return string alias of the identifier if found or ''
      */
@@ -319,10 +319,10 @@ abstract class ExportPlugin implements Plugin
      * in this format:
      * [Foreign Table] ([Foreign Field])
      *
-     * @param array  $foreigners the foreigners array
-     * @param string $fieldName  the field name
-     * @param string $db         the field name
-     * @param array  $aliases    Alias information for db/table/column
+     * @param mixed[] $foreigners the foreigners array
+     * @param string  $fieldName  the field name
+     * @param string  $db         the field name
+     * @param mixed[] $aliases    Alias information for db/table/column
      *
      * @return string the Relation string
      */

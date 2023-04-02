@@ -53,7 +53,7 @@ class Error extends Message
     /**
      * Error types
      *
-     * @var array
+     * @var mixed[]
      */
     public static array $errortype = [
         0 => 'Internal error',
@@ -77,7 +77,7 @@ class Error extends Message
     /**
      * Error levels
      *
-     * @var array
+     * @var mixed[]
      */
     public static array $errorlevel = [
         0 => 'error',
@@ -110,6 +110,8 @@ class Error extends Message
 
     /**
      * Holds the backtrace for this error
+     *
+     * @var mixed[]
      */
     protected array $backtrace = [];
 
@@ -149,9 +151,9 @@ class Error extends Message
     /**
      * Process backtrace to avoid path disclosures, objects and so on
      *
-     * @param array $backtrace backtrace
+     * @param mixed[] $backtrace backtrace
      *
-     * @return array
+     * @return mixed[]
      */
     public static function processBacktrace(array $backtrace): array
     {
@@ -205,7 +207,7 @@ class Error extends Message
      *
      * We don't store full arguments to avoid wakeup or memory problems.
      *
-     * @param array $backtrace backtrace
+     * @param mixed[] $backtrace backtrace
      */
     public function setBacktrace(array $backtrace): void
     {
@@ -265,7 +267,7 @@ class Error extends Message
      *
      * @param int $count Number of stack frames.
      *
-     * @return array PhpMyAdmin\Error::$_backtrace
+     * @return mixed[] PhpMyAdmin\Error::$_backtrace
      */
     public function getBacktrace(int $count = -1): array
     {
@@ -347,7 +349,7 @@ class Error extends Message
     /**
      * return formatted backtrace field
      *
-     * @param array $backtrace Backtrace data
+     * @param mixed[] $backtrace Backtrace data
      *
      * @return string formatted backtrace
      */
@@ -375,7 +377,7 @@ class Error extends Message
     /**
      * Formats function call in a backtrace
      *
-     * @param array $step backtrace step
+     * @param mixed[] $step backtrace step
      */
     public static function getFunctionCall(array $step): string
     {

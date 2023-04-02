@@ -143,9 +143,9 @@ class VersionInformation
      * Returns the version and date of the latest phpMyAdmin version compatible
      * with the available PHP and MySQL versions
      *
-     * @param array $releases array of information related to each version
+     * @param mixed[] $releases array of information related to each version
      *
-     * @return array|null containing the version and date of latest compatible version
+     * @return mixed[]|null containing the version and date of latest compatible version
      */
     public function getLatestCompatibleVersion(array $releases): array|null
     {

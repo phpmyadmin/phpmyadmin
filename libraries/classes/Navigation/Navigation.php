@@ -213,6 +213,7 @@ class Navigation
         ]);
     }
 
+    /** @return mixed[] */
     private function getHiddenItems(string $database): array
     {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;

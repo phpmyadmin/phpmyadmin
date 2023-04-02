@@ -46,7 +46,7 @@ class IndexColumn
      */
     private string|null $expression = null;
 
-    /** @param array $params an array containing the parameters of the index column */
+    /** @param mixed[] $params an array containing the parameters of the index column */
     public function __construct(array $params = [])
     {
         $this->set($params);
@@ -71,7 +71,7 @@ class IndexColumn
     /**
      * Sets parameters of the index column
      *
-     * @param array $params an array containing the parameters of the index column
+     * @param mixed[] $params an array containing the parameters of the index column
      */
     public function set(array $params): void
     {

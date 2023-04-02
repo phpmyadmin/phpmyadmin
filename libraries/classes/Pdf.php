@@ -20,10 +20,10 @@ use function strtr;
  */
 class Pdf extends TCPDF
 {
-    /** @var array */
+    /** @var mixed[] */
     public array $footerset = [];
 
-    /** @var array */
+    /** @var mixed[] */
     public array $alias = [];
 
     /**

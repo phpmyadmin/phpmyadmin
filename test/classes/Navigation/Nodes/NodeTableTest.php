@@ -67,7 +67,7 @@ class NodeTableTest extends AbstractTestCase
     /**
      * Data provider for testIcon().
      *
-     * @return array data for testIcon()
+     * @return mixed[] data for testIcon()
      */
     public static function providerForTestIcon(): array
     {

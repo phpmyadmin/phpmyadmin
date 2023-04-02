@@ -208,6 +208,8 @@ class HttpRequestTest extends AbstractTestCase
 
     /**
      * Data provider for HTTP tests
+     *
+     * @return mixed[][]
      */
     public static function httpRequests(): array
     {

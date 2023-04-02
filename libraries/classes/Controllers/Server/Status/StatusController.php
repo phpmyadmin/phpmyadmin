@@ -96,7 +96,7 @@ class StatusController extends AbstractController
         return (int) $this->dbi->fetchValue('SELECT UNIX_TIMESTAMP() - ' . $this->data->status['Uptime']);
     }
 
-    /** @return array */
+    /** @return mixed[] */
     private function getTrafficInfo(): array
     {
         $hourFactor = 3600 / $this->data->status['Uptime'];
@@ -141,7 +141,7 @@ class StatusController extends AbstractController
         ];
     }
 
-    /** @return array */
+    /** @return mixed[] */
     private function getConnectionsInfo(): array
     {
         $hourFactor = 3600 / $this->data->status['Uptime'];

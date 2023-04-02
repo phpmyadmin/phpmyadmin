@@ -134,9 +134,9 @@ final class FavoriteTableController extends AbstractController
      *
      * @param RecentFavoriteTable $favoriteInstance Instance of this class
      * @param string              $user             The user hash
-     * @param array               $favoriteTables   Existing favorites
+     * @param mixed[]             $favoriteTables   Existing favorites
      *
-     * @return array
+     * @return mixed[]
      */
     private function synchronizeFavoriteTables(
         RecentFavoriteTable $favoriteInstance,

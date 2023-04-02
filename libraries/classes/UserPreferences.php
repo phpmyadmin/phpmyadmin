@@ -109,7 +109,7 @@ class UserPreferences
     /**
      * Saves user preferences
      *
-     * @param array $configArray configuration array
+     * @param mixed[] $configArray configuration array
      *
      * @return true|Message
      */
@@ -202,9 +202,9 @@ class UserPreferences
      * Returns a user preferences array filtered by $cfg['UserprefsDisallow']
      * (exclude list) and keys from user preferences form (allow list)
      *
-     * @param array $configData path => value pairs
+     * @param mixed[] $configData path => value pairs
      *
-     * @return array
+     * @return mixed[]
      */
     public function apply(array $configData): array
     {
@@ -258,9 +258,9 @@ class UserPreferences
     /**
      * Redirects after saving new user preferences
      *
-     * @param string      $fileName Filename
-     * @param array|null  $params   URL parameters
-     * @param string|null $hash     Hash value
+     * @param string       $fileName Filename
+     * @param mixed[]|null $params   URL parameters
+     * @param string|null  $hash     Hash value
      */
     public function redirect(
         string $fileName,

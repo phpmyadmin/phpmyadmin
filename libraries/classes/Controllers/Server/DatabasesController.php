@@ -30,7 +30,7 @@ use function str_contains;
  */
 class DatabasesController extends AbstractController
 {
-    /** @var array array of database details */
+    /** @var mixed[] array of database details */
     private array $databases = [];
 
     /** @var int number of databases */
@@ -194,10 +194,10 @@ class DatabasesController extends AbstractController
     }
 
     /**
-     * @param array $primaryInfo
-     * @param array $replicaInfo
+     * @param mixed[] $primaryInfo
+     * @param mixed[] $replicaInfo
      *
-     * @return array
+     * @return mixed[]
      */
     private function getDatabases(array $primaryInfo, array $replicaInfo): array
     {
@@ -278,7 +278,7 @@ class DatabasesController extends AbstractController
     /**
      * Prepares the statistics columns
      *
-     * @return array
+     * @return mixed[]
      */
     private function getStatisticsColumns(): array
     {

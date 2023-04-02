@@ -78,8 +78,8 @@ class Footer
     /**
      * Remove recursions and iterator objects from an object
      *
-     * @param mixed $object Object to clean
-     * @param array $stack  Stack used to keep track of recursion, need not be passed for the first time
+     * @param mixed   $object Object to clean
+     * @param mixed[] $stack  Stack used to keep track of recursion, need not be passed for the first time
      *
      * @return mixed Reference passed object
      */

@@ -27,7 +27,7 @@ class UserPassword
     /**
      * Generate the message
      *
-     * @return array   error value and message
+     * @return mixed[]   error value and message
      */
     public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword): array
     {

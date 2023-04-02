@@ -102,6 +102,7 @@ class SelectTest extends AbstractTestCase
         $this->assertStringContainsString($server['user'], $html);
     }
 
+    /** @return mixed[][] */
     public static function renderDataProvider(): array
     {
         return [

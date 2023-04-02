@@ -47,7 +47,7 @@ abstract class BaseForm extends FormDisplay
      * End group blocks with:
      * ':group:end'
      *
-     * @return array
+     * @return mixed[]
      *
      * @todo This should be abstract, but that does not work in PHP 5
      */

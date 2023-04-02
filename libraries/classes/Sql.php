@@ -135,7 +135,7 @@ class Sql
     /**
      * Verify whether the result set has columns from just one table
      *
-     * @param array $fieldsMeta meta fields
+     * @param mixed[] $fieldsMeta meta fields
      */
     private function resultSetHasJustOneTable(array $fieldsMeta): bool
     {
@@ -160,9 +160,9 @@ class Sql
      * Verify whether the result set contains all the columns
      * of at least one unique key
      *
-     * @param string $db         database name
-     * @param string $table      table name
-     * @param array  $fieldsMeta meta fields
+     * @param string  $db         database name
+     * @param string  $table      table name
+     * @param mixed[] $fieldsMeta meta fields
      */
     private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta): bool
     {
@@ -243,7 +243,11 @@ class Sql
         return '<select>' . $dropdown . '</select>';
     }
 
-    /** @return array<string, int|array> */
+    /**
+     * @param mixed[] $profilingResults
+     *
+     * @return array<string, int|mixed[]>
+     */
     private function getDetailedProfilingStats(array $profilingResults): array
     {
         $profiling = ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []];
@@ -300,7 +304,7 @@ class Sql
      * @param string $table  current table
      * @param string $column current column
      *
-     * @return array|null array containing the value list for the column, null on failure
+     * @return mixed[]|null array containing the value list for the column, null on failure
      */
     public function getValuesForColumn(string $db, string $table, string $column): array|null
     {
@@ -702,13 +706,13 @@ class Sql
     /**
      * Function to handle all aspects relating to executing the query
      *
-     * @param string      $fullSqlQuery        full sql query
-     * @param bool        $isGotoFile          whether to go to a file
-     * @param string      $db                  current database
-     * @param string|null $table               current table
-     * @param bool|null   $findRealEnd         whether to find the real end
-     * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
-     * @param array|null  $extraData           extra data
+     * @param string       $fullSqlQuery        full sql query
+     * @param bool         $isGotoFile          whether to go to a file
+     * @param string       $db                  current database
+     * @param string|null  $table               current table
+     * @param bool|null    $findRealEnd         whether to find the real end
+     * @param string|null  $sqlQueryForBookmark sql query to be stored as bookmark
+     * @param mixed[]|null $extraData           extra data
      *
      * @psalm-return array{
      *  ResultInterface|false|null,
@@ -924,8 +928,8 @@ class Sql
      * @param string|null                $messageToShow        message to show
      * @param int|string                 $numRows              number of rows
      * @param DisplayResults             $displayResultsObject DisplayResult instance
-     * @param array|null                 $extraData            extra data
-     * @param array|null                 $profilingResults     profiling results
+     * @param mixed[]|null               $extraData            extra data
+     * @param mixed[]|null               $profilingResults     profiling results
      * @param ResultInterface|false|null $result               executed query results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
@@ -1090,7 +1094,7 @@ class Sql
      *                                                         editable or not
      * @param int|string                 $unlimNumRows         unlimited number of rows
      * @param int|string                 $numRows              number of rows
-     * @param array|null                 $showTable            table definitions
+     * @param mixed[]|null               $showTable            table definitions
      * @param ResultInterface|false|null $result               result of the executed query
      * @param bool                       $isLimitedDisplay     Show only limited operations or not
      * @psalm-param int|numeric-string $unlimNumRows
@@ -1214,7 +1218,7 @@ class Sql
      *
      * @param string|null    $displayQuery   display query
      * @param bool           $showSql        whether to show sql
-     * @param array          $sqlData        sql data
+     * @param mixed[]        $sqlData        sql data
      * @param Message|string $displayMessage display message
      */
     private function getHtmlForPreviousUpdateQuery(
@@ -1288,13 +1292,13 @@ class Sql
      * @param ResultInterface|false|null $result               executed query results
      * @param string                     $db                   current database
      * @param string|null                $table                current table
-     * @param array|null                 $sqlData              sql data
+     * @param mixed[]|null               $sqlData              sql data
      * @param DisplayResults             $displayResultsObject Instance of DisplayResults
      * @param int|string                 $unlimNumRows         unlimited number of rows
      * @param int|string                 $numRows              number of rows
      * @param string|null                $dispQuery            display query
      * @param Message|string|null        $dispMessage          display message
-     * @param array|null                 $profilingResults     profiling results
+     * @param mixed[]|null               $profilingResults     profiling results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
      * @psalm-param int|numeric-string $unlimNumRows
@@ -1487,9 +1491,9 @@ class Sql
      * @param string|null         $table               current table
      * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param array|null          $extraData           extra data
+     * @param mixed[]|null        $extraData           extra data
      * @param string|null         $messageToShow       message to show
-     * @param array|null          $sqlData             sql data
+     * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
      * @param string|null         $dispQuery           display query
      * @param Message|string|null $dispMessage         display message
@@ -1545,9 +1549,9 @@ class Sql
      * @param string|null         $table               current table
      * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param array|null          $extraData           extra data
+     * @param mixed[]|null        $extraData           extra data
      * @param string|null         $messageToShow       message to show
-     * @param array|null          $sqlData             sql data
+     * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
      * @param string|null         $dispQuery           display query
      * @param Message|string|null $dispMessage         display message

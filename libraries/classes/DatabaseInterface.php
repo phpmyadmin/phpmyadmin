@@ -340,17 +340,17 @@ class DatabaseInterface implements DbalInterface
      * $dbi->getTablesFull('my_database', 'my_tables_', true));
      * </code>
      *
-     * @param string       $database     database
-     * @param string|array $table        table name(s)
-     * @param bool         $tableIsGroup $table is a table group
-     * @param int          $limitOffset  zero-based offset for the count
-     * @param bool|int     $limitCount   number of tables to return
-     * @param string       $sortBy       table attribute to sort by
-     * @param string       $sortOrder    direction to sort (ASC or DESC)
-     * @param string|null  $tableType    whether table or view
+     * @param string         $database     database
+     * @param string|mixed[] $table        table name(s)
+     * @param bool           $tableIsGroup $table is a table group
+     * @param int            $limitOffset  zero-based offset for the count
+     * @param bool|int       $limitCount   number of tables to return
+     * @param string         $sortBy       table attribute to sort by
+     * @param string         $sortOrder    direction to sort (ASC or DESC)
+     * @param string|null    $tableType    whether table or view
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array           list of tables in given db(s)
+     * @return mixed[]           list of tables in given db(s)
      *
      * @todo    move into Table
      */
@@ -636,7 +636,7 @@ class DatabaseInterface implements DbalInterface
      * @param bool|int    $limitCount  row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array
+     * @return mixed[]
      *
      * @todo    move into ListDatabase?
      */
@@ -779,7 +779,7 @@ class DatabaseInterface implements DbalInterface
      * @param string|null $column   name of specific column
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array
+     * @return mixed[]
      */
     public function getColumnsFull(
         string|null $database = null,
@@ -842,7 +842,7 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array flat array description
+     * @return mixed[] flat array description
      */
     public function getColumn(
         string $database,
@@ -873,7 +873,7 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array[] array indexed by column names
+     * @return mixed[][] array indexed by column names
      */
     public function getColumns(
         string $database,
@@ -891,11 +891,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Attach index information to the column definition
      *
-     * @param string  $database name of database
-     * @param string  $table    name of table to retrieve columns from
-     * @param array[] $fields   column array indexed by their names
+     * @param string    $database name of database
+     * @param string    $table    name of table to retrieve columns from
+     * @param mixed[][] $fields   column array indexed by their names
      *
-     * @return array[] Column defintions with index information
+     * @return mixed[][] Column defintions with index information
      */
     private function attachIndexInfoToColumns(
         string $database,
@@ -1204,7 +1204,7 @@ class DatabaseInterface implements DbalInterface
     /**
      * Returns row or element of a row
      *
-     * @param array|string    $row   Row to process
+     * @param mixed[]|string  $row   Row to process
      * @param string|int|null $value Which column to return
      */
     private function fetchValueOrValueByIndex(array|string $row, string|int|null $value): mixed
@@ -1218,6 +1218,8 @@ class DatabaseInterface implements DbalInterface
      * @param ResultInterface $result result set identifier
      * @param string          $mode   either self::FETCH_NUM, self::FETCH_ASSOC or self::FETCH_BOTH
      * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $mode
+     *
+     * @return mixed[]
      */
     private function fetchByMode(ResultInterface $result, string $mode): array
     {
@@ -1266,14 +1268,14 @@ class DatabaseInterface implements DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string                $query query to execute
-     * @param string|int|array|null $key   field-name or offset
+     * @param string                  $query query to execute
+     * @param string|int|mixed[]|null $key   field-name or offset
      *                                     used as key for array
      *                                     or array of those
-     * @param string|int|null       $value value-name or offset used as value for array
+     * @param string|int|null         $value value-name or offset used as value for array
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array resultrows or values indexed by $key
+     * @return mixed[] resultrows or values indexed by $key
      */
     public function fetchResult(
         string $query,
@@ -1338,7 +1340,7 @@ class DatabaseInterface implements DbalInterface
     /**
      * Get supported SQL compatibility modes
      *
-     * @return array supported SQL compatibility modes
+     * @return mixed[] supported SQL compatibility modes
      */
     public function getCompatibilities(): array
     {
@@ -1553,9 +1555,9 @@ class DatabaseInterface implements DbalInterface
     /**
      * Connects to the database server.
      *
-     * @param int        $mode   Connection mode.
-     * @param array|null $server Server information like host/port/socket/persistent
-     * @param int|null   $target How to store connection link, defaults to $mode
+     * @param int          $mode   Connection mode.
+     * @param mixed[]|null $server Server information like host/port/socket/persistent
+     * @param int|null     $target How to store connection link, defaults to $mode
      * @psalm-param ConnectionType $mode
      * @psalm-param ConnectionType|null $target
      */

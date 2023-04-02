@@ -15,7 +15,7 @@ use function ob_start;
 class FormController extends AbstractController
 {
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return string HTML
      */

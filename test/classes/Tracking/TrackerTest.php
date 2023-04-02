@@ -122,7 +122,7 @@ class TrackerTest extends AbstractTestCase
     /**
      * Data Provider for testGetTableName
      *
-     * @return array Test data
+     * @return mixed[] Test data
      */
     public static function getTableNameData(): array
     {
@@ -437,8 +437,8 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for PMA_Tracker::getTrackedData()
      *
-     * @param array $fetchArrayReturn Value to be returned by mocked fetchArray
-     * @param array $expectedArray    Expected array
+     * @param mixed[] $fetchArrayReturn Value to be returned by mocked fetchArray
+     * @param mixed[] $expectedArray    Expected array
      *
      * @dataProvider getTrackedDataProvider
      */
@@ -479,7 +479,7 @@ class TrackerTest extends AbstractTestCase
     /**
      * Data provider for testGetTrackedData
      *
-     * @return array Test data
+     * @return mixed[] Test data
      */
     public static function getTrackedDataProvider(): array
     {
@@ -576,7 +576,7 @@ class TrackerTest extends AbstractTestCase
     /**
      * Data provider for testParseQuery
      *
-     * @return array Test data
+     * @return mixed[] Test data
      */
     public static function parseQueryData(): array
     {

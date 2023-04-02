@@ -294,7 +294,7 @@ class MessageTest extends AbstractTestCase
     /**
      * Data provider for testDecodeBB
      *
-     * @return array Test data
+     * @return mixed[] Test data
      */
     public static function decodeBBDataProvider(): array
     {
@@ -438,7 +438,7 @@ class MessageTest extends AbstractTestCase
     /**
      * Data provider for testAffectedRows
      *
-     * @return array Test-data
+     * @return mixed[] Test-data
      */
     public static function providerAffectedRows(): array
     {
@@ -483,7 +483,7 @@ class MessageTest extends AbstractTestCase
     /**
      * Data provider for testInsertedRows
      *
-     * @return array Test-data
+     * @return mixed[] Test-data
      */
     public static function providerInsertedRows(): array
     {
@@ -528,7 +528,7 @@ class MessageTest extends AbstractTestCase
     /**
      * Data provider for testDeletedRows
      *
-     * @return array Test-data
+     * @return mixed[] Test-data
      */
     public static function providerDeletedRows(): array
     {

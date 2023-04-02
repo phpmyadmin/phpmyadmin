@@ -24,7 +24,7 @@ class SubPartition
     /**
      * Constructs a partition
      *
-     * @param array $row fetched row from information_schema.PARTITIONS
+     * @param mixed[] $row fetched row from information_schema.PARTITIONS
      */
     public function __construct(array $row)
     {
@@ -39,7 +39,7 @@ class SubPartition
     /**
      * Loads some data that is common to both partitions and sub partitions
      *
-     * @param array $row fetched row
+     * @param mixed[] $row fetched row
      */
     protected function loadCommonData(array $row): void
     {

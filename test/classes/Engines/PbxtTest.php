@@ -160,8 +160,8 @@ class PbxtTest extends AbstractTestCase
     /**
      * Test for resolveTypeSize
      *
-     * @param string $formattedSize the size expression (for example 8MB)
-     * @param array  $output        Expected output
+     * @param string  $formattedSize the size expression (for example 8MB)
+     * @param mixed[] $output        Expected output
      *
      * @dataProvider providerFortTestResolveTypeSize
      */
@@ -176,7 +176,7 @@ class PbxtTest extends AbstractTestCase
     /**
      * Provider for testResolveTypeSize
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerFortTestResolveTypeSize(): array
     {

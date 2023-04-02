@@ -30,7 +30,7 @@ class FormatConverterTest extends AbstractTestCase
     /**
      * Data provider for binaryToIp
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerBinaryToIp(): array
     {
@@ -66,7 +66,7 @@ class FormatConverterTest extends AbstractTestCase
     /**
      * Data provider for ipToBinary
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerIpToBinary(): array
     {
@@ -90,7 +90,7 @@ class FormatConverterTest extends AbstractTestCase
     /**
      * Data provider for ipToLong
      *
-     * @return array
+     * @return mixed[]
      */
     public static function providerIpToLong(): array
     {

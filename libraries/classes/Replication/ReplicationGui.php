@@ -114,7 +114,7 @@ class ReplicationGui
      *
      * @param string|null $connection               Primary connection
      * @param bool        $serverReplicaStatus      Whether it is Primary or Replica
-     * @param array       $serverReplicaReplication Replica replication
+     * @param mixed[]     $serverReplicaReplication Replica replication
      * @param bool        $replicaConfigure         Replica configure
      *
      * @return string HTML code

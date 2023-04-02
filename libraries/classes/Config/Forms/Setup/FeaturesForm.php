@@ -11,7 +11,7 @@ use function array_diff;
 
 class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
 {
-    /** @return array */
+    /** @return mixed[] */
     public static function getForms(): array
     {
         // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified

@@ -452,7 +452,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Generates data dictionary pages.
      *
-     * @param array $alltables Tables to document.
+     * @param mixed[] $alltables Tables to document.
      */
     public function dataDictionaryDoc(array $alltables): void
     {

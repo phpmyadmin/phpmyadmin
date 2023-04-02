@@ -18,7 +18,7 @@ class CompatibilityTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return mixed[][]
      * @psalm-return array<string, array{bool, bool, int}>
      */
     public static function providerForTestHasAccountLocking(): array
@@ -45,7 +45,7 @@ class CompatibilityTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return mixed[][]
      * @psalm-return array<string, array{bool, bool, int}>
      */
     public static function providerForTestIsUUIDSupported(): array

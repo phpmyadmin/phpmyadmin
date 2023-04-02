@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Config\Forms\Setup;
 
 class MainForm extends \PhpMyAdmin\Config\Forms\User\MainForm
 {
-    /** @return array */
+    /** @return mixed[] */
     public static function getForms(): array
     {
         $result = parent::getForms();

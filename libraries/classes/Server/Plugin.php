@@ -44,7 +44,7 @@ final class Plugin
     ) {
     }
 
-    /** @param array $state array with the properties */
+    /** @param mixed[] $state array with the properties */
     public static function fromState(array $state): self
     {
         return new self(
@@ -64,7 +64,7 @@ final class Plugin
         );
     }
 
-    /** @return array */
+    /** @return mixed[] */
     public function toArray(): array
     {
         return [

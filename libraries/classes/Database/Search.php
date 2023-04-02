@@ -32,12 +32,14 @@ class Search
     /**
      * Table Names
      *
-     * @var array
+     * @var mixed[]
      */
     private array $tablesNamesOnly;
 
     /**
      * Type of search
+     *
+     * @var mixed[]
      */
     private array $searchTypes;
 

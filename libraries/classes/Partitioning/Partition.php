@@ -18,7 +18,7 @@ class Partition extends SubPartition
     /**
      * Loads data from the fetched row from information_schema.PARTITIONS
      *
-     * @param array $row fetched row
+     * @param mixed[] $row fetched row
      */
     public function __construct(array $row)
     {
@@ -175,7 +175,7 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return array   of partition names
+     * @return mixed[]   of partition names
      */
     public static function getPartitionNames(string $db, string $table): array
     {

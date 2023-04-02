@@ -162,7 +162,7 @@ class ImportSql extends ImportPlugin
      * Handle compatibility options
      *
      * @param DatabaseInterface $dbi     Database interface
-     * @param array             $request Request array
+     * @param mixed[]           $request Request array
      */
     private function setSQLMode(DatabaseInterface $dbi, array $request): void
     {

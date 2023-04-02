@@ -70,7 +70,7 @@ class CentralColumns
     /**
      * Defines the central_columns parameters for the current user
      *
-     * @return array|bool the central_columns parameters for the current user
+     * @return mixed[]|bool the central_columns parameters for the current user
      */
     public function getParams(): array|bool
     {
@@ -104,7 +104,7 @@ class CentralColumns
      * @param int    $from starting offset of first result
      * @param int    $num  maximum number of results to return
      *
-     * @return array list of $num columns present in central columns list
+     * @return mixed[] list of $num columns present in central columns list
      * starting at offset $from for the given database
      */
     public function getColumnsList(string $db, int $from = 0, int $num = 25): array
@@ -169,7 +169,7 @@ class CentralColumns
      * @param bool   $allFields set if need all the fields of existing columns,
      *                          otherwise only column_name is returned
      *
-     * @return array list of columns in central columns among given set of columns
+     * @return mixed[] list of columns in central columns among given set of columns
      */
     private function findExistingColNames(
         string $db,
@@ -203,10 +203,10 @@ class CentralColumns
      * build the insert query for central columns list given PMA storage
      * db, central_columns table, column name and corresponding definition to be added
      *
-     * @param string $column           column to add into central list
-     * @param array  $def              list of attributes of the column being added
-     * @param string $db               PMA configuration storage database name
-     * @param string $centralListTable central columns configuration storage table name
+     * @param string  $column           column to add into central list
+     * @param mixed[] $def              list of attributes of the column being added
+     * @param string  $db               PMA configuration storage database name
+     * @param string  $centralListTable central columns configuration storage table name
      *
      * @return string query string to insert the given column
      * with definition into central list
@@ -253,11 +253,11 @@ class CentralColumns
      * are added to central list otherwise the $field_select is considered as
      * list of columns and these columns are added to central list if not already added
      *
-     * @param array  $fieldSelect if $isTable is true selected tables list
-     *                             otherwise selected columns list
-     * @param bool   $isTable     if passed array is of tables or columns
-     * @param string $table       if $isTable is false, then table name to
-     *                            which columns belong
+     * @param mixed[] $fieldSelect if $isTable is true selected tables list
+     *                            otherwise selected columns list
+     * @param bool    $isTable     if passed array is of tables or columns
+     * @param string  $table       if $isTable is false, then table name to
+     *                             which columns belong
      *
      * @return true|Message
      */
@@ -359,10 +359,10 @@ class CentralColumns
      * central columns list otherwise $field_select is columns list and it removes
      * given columns if present in central list
      *
-     * @param string $database    Database name
-     * @param array  $fieldSelect if $isTable selected list of tables otherwise
-     *                             selected list of columns to remove from central list
-     * @param bool   $isTable     if passed array is of tables or columns
+     * @param string  $database    Database name
+     * @param mixed[] $fieldSelect if $isTable selected list of tables otherwise
+     *                            selected list of columns to remove from central list
+     * @param bool    $isTable     if passed array is of tables or columns
      *
      * @return true|Message
      */
@@ -527,7 +527,7 @@ class CentralColumns
      * @param bool   $allFields set if need all the fields of existing columns,
      *                          otherwise only column_name is returned
      *
-     * @return array columns present in central list from given table of given db.
+     * @return mixed[] columns present in central list from given table of given db.
      */
     public function getFromTable(
         string $db,
@@ -626,7 +626,7 @@ class CentralColumns
     /**
      * Update Multiple column in central columns list if a change is requested
      *
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return true|Message
      */
@@ -669,9 +669,9 @@ class CentralColumns
     /**
      * build html for editing a row in central columns table
      *
-     * @param array $row    array contains complete information of a
+     * @param mixed[] $row    array contains complete information of a
      *                      particular row of central list table
-     * @param int   $rowNum position the row in the table
+     * @param int     $rowNum position the row in the table
      *
      * @return string html of a particular row in the central columns table.
      */
@@ -726,7 +726,7 @@ class CentralColumns
      * @param string $db    selected database
      * @param string $table current table name
      *
-     * @return array encoded list of columns present in central list for the given
+     * @return mixed[] encoded list of columns present in central list for the given
      *               database
      */
     public function getListRaw(string $db, string $table): array
@@ -769,7 +769,7 @@ class CentralColumns
      * Column `col_extra` is used to store both extra and attributes for a column.
      * This method separates them.
      *
-     * @param array $columnsList columns list
+     * @param mixed[] $columnsList columns list
      */
     private function handleColumnExtra(array &$columnsList): void
     {
@@ -799,8 +799,8 @@ class CentralColumns
     /**
      * Get HTML for editing page central columns
      *
-     * @param array  $selectedFld Array containing the selected fields
-     * @param string $selectedDb  String containing the name of database
+     * @param mixed[] $selectedFld Array containing the selected fields
+     * @param string  $selectedDb  String containing the name of database
      *
      * @return string HTML for complete editing page for central columns
      */
@@ -878,7 +878,7 @@ class CentralColumns
      * @param int    $pos       offset of first result with complete result set
      * @param string $textDir   table footer arrow direction
      *
-     * @return array
+     * @return mixed[]
      */
     public function getTemplateVariablesForMain(
         string $db,

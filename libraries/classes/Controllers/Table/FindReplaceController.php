@@ -33,10 +33,10 @@ use function strncasecmp;
  */
 class FindReplaceController extends AbstractController
 {
-    /** @var array */
+    /** @var mixed[] */
     private array $columnNames = [];
 
-    /** @var array */
+    /** @var mixed[] */
     private array $columnTypes = [];
 
     private string $connectionCharSet;
@@ -234,7 +234,7 @@ class FindReplaceController extends AbstractController
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return array|bool Array containing original values, replaced values and count
+     * @return mixed[]|bool Array containing original values, replaced values and count
      */
     private function getRegexReplaceRows(
         int $columnIndex,

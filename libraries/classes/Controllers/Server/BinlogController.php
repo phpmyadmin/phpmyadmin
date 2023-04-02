@@ -23,6 +23,8 @@ class BinlogController extends AbstractController
 {
     /**
      * binary log files
+     *
+     * @var mixed[]
      */
     protected array $binaryLogs;
 

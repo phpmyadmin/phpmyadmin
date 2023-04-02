@@ -84,10 +84,10 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     Label for the GIS POLYGON object
-     * @param int[]  $color     Color for the GIS POLYGON object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POLYGON object
+     * @param string  $label     Label for the GIS POLYGON object
+     * @param int[]   $color     Color for the GIS POLYGON object
+     * @param mixed[] $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
@@ -123,10 +123,10 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS GEOMETRYCOLLECTION object
-     * @param string $label     label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]  $color     color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scaleData array containing data related to scaling
+     * @param string  $spatial   GIS GEOMETRYCOLLECTION object
+     * @param string  $label     label for the GIS GEOMETRYCOLLECTION object
+     * @param int[]   $color     color for the GIS GEOMETRYCOLLECTION object
+     * @param mixed[] $scaleData array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
@@ -159,10 +159,10 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial   GIS GEOMETRYCOLLECTION object
-     * @param string $label     label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]  $color     color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scaleData array containing data related to scaling
+     * @param string  $spatial   GIS GEOMETRYCOLLECTION object
+     * @param string  $label     label for the GIS GEOMETRYCOLLECTION object
+     * @param int[]   $color     color for the GIS GEOMETRYCOLLECTION object
+     * @param mixed[] $scaleData array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
@@ -266,7 +266,7 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gisData GIS data
+     * @param mixed[]     $gisData GIS data
      * @param int         $index   index into the parameter object
      * @param string|null $empty   value for empty points
      *
@@ -297,13 +297,10 @@ class GisGeometryCollection extends GisGeometry
         return $wkt . ')';
     }
 
-    /**
-     * GeometryCollection does not have coordinates of its own
-     *
-     * @param string $wkt Value of the GIS column
-     */
+    /** @inheritDoc */
     protected function getCoordinateParams(string $wkt): array
     {
+        // GeometryCollection does not have coordinates of its own
         throw new ErrorException('Has no own coordinates');
     }
 
@@ -312,7 +309,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $value of the GIS column
      *
-     * @return array parameters for the GIS editor from the value of the GIS column
+     * @return mixed[] parameters for the GIS editor from the value of the GIS column
      */
     public function generateParams(string $value): array
     {

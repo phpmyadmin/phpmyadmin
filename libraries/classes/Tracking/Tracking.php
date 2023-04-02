@@ -53,10 +53,10 @@ class Tracking
     /**
      * Filters tracking entries
      *
-     * @param array $data        the entries to filter
-     * @param array $filterUsers users
+     * @param mixed[] $data        the entries to filter
+     * @param mixed[] $filterUsers users
      *
-     * @return array filtered entries
+     * @return mixed[] filtered entries
      */
     public function filter(
         array $data,
@@ -112,7 +112,7 @@ class Tracking
     /**
      * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param array    $urlParams   url parameters
+     * @param mixed[]  $urlParams   url parameters
      * @param string   $textDir     text direction
      * @param int|null $lastVersion last tracking version
      */
@@ -160,9 +160,9 @@ class Tracking
     /**
      * Function to get html for tracking report and tracking report export
      *
-     * @param array $data        data
-     * @param array $urlParams   url params
-     * @param array $filterUsers filter users
+     * @param mixed[] $data        data
+     * @param mixed[] $urlParams   url params
+     * @param mixed[] $filterUsers filter users
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      */
     public function getHtmlForTrackingReport(
@@ -283,15 +283,15 @@ class Tracking
     /**
      * Generate HTML for export form
      *
-     * @param array  $data            data
-     * @param array  $urlParams       url params
-     * @param array  $filterUsers     filter users
-     * @param string $str1            HTML for log_type select
-     * @param string $str2            HTML for "from date"
-     * @param string $str3            HTML for "to date"
-     * @param string $str4            HTML for user
-     * @param string $str5            HTML for "list report"
-     * @param string $dropImageOrText HTML for image or text
+     * @param mixed[] $data            data
+     * @param mixed[] $urlParams       url params
+     * @param mixed[] $filterUsers     filter users
+     * @param string  $str1            HTML for log_type select
+     * @param string  $str2            HTML for "from date"
+     * @param string  $str3            HTML for "to date"
+     * @param string  $str4            HTML for user
+     * @param string  $str5            HTML for "list report"
+     * @param string  $dropImageOrText HTML for image or text
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
@@ -361,12 +361,12 @@ class Tracking
     /**
      * Generate HTML for export form
      *
-     * @param array  $urlParams Parameters
-     * @param string $str1      HTML for log_type select
-     * @param string $str2      HTML for "from date"
-     * @param string $str3      HTML for "to date"
-     * @param string $str4      HTML for user
-     * @param string $str5      HTML for "list report"
+     * @param mixed[] $urlParams Parameters
+     * @param string  $str1      HTML for log_type select
+     * @param string  $str2      HTML for "from date"
+     * @param string  $str3      HTML for "to date"
+     * @param string  $str4      HTML for user
+     * @param string  $str5      HTML for "list report"
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
@@ -430,11 +430,11 @@ class Tracking
     /**
      * Function to get html for data manipulation statements
      *
-     * @param array  $data            data
-     * @param array  $filterUsers     filter users
-     * @param array  $urlParams       url parameters
-     * @param int    $ddlogCount      data definition log count
-     * @param string $dropImageOrText drop image or text
+     * @param mixed[] $data            data
+     * @param mixed[] $filterUsers     filter users
+     * @param mixed[] $urlParams       url parameters
+     * @param int     $ddlogCount      data definition log count
+     * @param string  $dropImageOrText drop image or text
      */
     public function getHtmlForDataManipulationStatements(
         array $data,
@@ -467,12 +467,12 @@ class Tracking
     /**
      * Function to get html for data definition statements in schema snapshot
      *
-     * @param array  $data            data
-     * @param array  $filterUsers     filter users
-     * @param array  $urlParams       url parameters
-     * @param string $dropImageOrText drop image or text
+     * @param mixed[] $data            data
+     * @param mixed[] $filterUsers     filter users
+     * @param mixed[] $urlParams       url parameters
+     * @param string  $dropImageOrText drop image or text
      *
-     * @return array
+     * @return mixed[]
      */
     public function getHtmlForDataDefinitionStatements(
         array $data,
@@ -503,16 +503,16 @@ class Tracking
     /**
      * Function to get html for data statements in schema snapshot
      *
-     * @param array  $data            data
-     * @param array  $filterUsers     filter users
-     * @param array  $urlParams       url parameters
-     * @param string $dropImageOrText drop image or text
-     * @param string $whichLog        dmlog|ddlog
-     * @param string $headerMessage   message for this section
-     * @param int    $lineNumber      line number
-     * @param string $tableId         id for the table element
+     * @param mixed[] $data            data
+     * @param mixed[] $filterUsers     filter users
+     * @param mixed[] $urlParams       url parameters
+     * @param string  $dropImageOrText drop image or text
+     * @param string  $whichLog        dmlog|ddlog
+     * @param string  $headerMessage   message for this section
+     * @param int     $lineNumber      line number
+     * @param string  $tableId         id for the table element
      *
-     * @return array [$html, $lineNumber]
+     * @return mixed[] [$html, $lineNumber]
      */
     private function getHtmlForDataStatements(
         array $data,
@@ -564,7 +564,7 @@ class Tracking
     /**
      * Function to get html for schema snapshot
      *
-     * @param array $params url parameters
+     * @param mixed[] $params url parameters
      */
     public function getHtmlForSchemaSnapshot(string $db, string $table, string $version, array $params): string
     {
@@ -614,7 +614,7 @@ class Tracking
     /**
      * Function to get html for displaying columns in the schema snapshot
      *
-     * @param array $columns columns
+     * @param mixed[] $columns columns
      */
     public function getHtmlForColumns(array $columns): string
     {
@@ -624,7 +624,7 @@ class Tracking
     /**
      * Function to get html for the indexes in schema snapshot
      *
-     * @param array $indexes indexes
+     * @param mixed[] $indexes indexes
      */
     public function getHtmlForIndexes(array $indexes): string
     {
@@ -634,7 +634,7 @@ class Tracking
     /**
      * Function to handle the tracking report
      *
-     * @param array $data tracked data
+     * @param mixed[] $data tracked data
      *
      * @return string HTML for the message
      */
@@ -679,10 +679,10 @@ class Tracking
     /**
      * Function to delete from a tracking report log
      *
-     * @param array  $data     tracked data
-     * @param string $whichLog ddlog|dmlog
-     * @param string $type     DDL|DML
-     * @param string $message  success message
+     * @param mixed[] $data     tracked data
+     * @param string  $whichLog ddlog|dmlog
+     * @param string  $type     DDL|DML
+     * @param string  $message  success message
      *
      * @return string HTML for the message
      */
@@ -718,7 +718,7 @@ class Tracking
     /**
      * Function to export as sql dump
      *
-     * @param array $entries entries
+     * @param mixed[] $entries entries
      *
      * @return string HTML SQL query form
      */
@@ -754,7 +754,7 @@ class Tracking
     /**
      * Function to export as sql execution
      *
-     * @param array $entries entries
+     * @param mixed[] $entries entries
      */
     public function exportAsSqlExecution(array $entries): void
     {
@@ -940,7 +940,7 @@ class Tracking
     /**
      * Create tracking version for multiple tables
      *
-     * @param array $selected list of selected tables
+     * @param mixed[] $selected list of selected tables
      */
     public function createTrackingForMultipleTables(string $db, array $selected, string $version): void
     {
@@ -960,11 +960,11 @@ class Tracking
     /**
      * Function to get the entries
      *
-     * @param array $data        data
-     * @param array $filterUsers filter users
+     * @param mixed[] $data        data
+     * @param mixed[] $filterUsers filter users
      * @phpstan-param 'schema'|'data'|'schema_and_data' $logType
      *
-     * @return array
+     * @return mixed[]
      */
     public function getEntries(
         array $data,
@@ -1007,9 +1007,9 @@ class Tracking
     /**
      * Get HTML for tracked and untracked tables
      *
-     * @param string $db        current database
-     * @param array  $urlParams url parameters
-     * @param string $textDir   text direction
+     * @param string  $db        current database
+     * @param mixed[] $urlParams url parameters
+     * @param string  $textDir   text direction
      *
      * @return string HTML
      */

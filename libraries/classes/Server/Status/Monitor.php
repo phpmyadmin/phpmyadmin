@@ -39,7 +39,7 @@ class Monitor
      *
      * @param string $requiredData Required data
      *
-     * @return array JSON
+     * @return mixed[] JSON
      */
     public function getJsonForChartingData(string $requiredData): array
     {
@@ -91,11 +91,11 @@ class Monitor
     /**
      * Assign the variables for real-time charting data
      *
-     * @param array $ret             Real-time charting data
-     * @param array $statusVarValues Status variable values
-     * @param array $serverVarValues Server variable values
+     * @param mixed[] $ret             Real-time charting data
+     * @param mixed[] $statusVarValues Status variable values
+     * @param mixed[] $serverVarValues Server variable values
      *
-     * @return array
+     * @return mixed[]
      */
     private function getJsonForChartingDataSet(
         array $ret,
@@ -123,14 +123,14 @@ class Monitor
     /**
      * Get called to get JSON for charting data
      *
-     * @param array $ret        Real-time charting data
-     * @param array $serverVars Server variable values
-     * @param array $statusVars Status variable values
-     * @param mixed $sysinfo    System info
-     * @param mixed $cpuload    CPU load
-     * @param mixed $memory     Memory
+     * @param mixed[] $ret        Real-time charting data
+     * @param mixed[] $serverVars Server variable values
+     * @param mixed[] $statusVars Status variable values
+     * @param mixed   $sysinfo    System info
+     * @param mixed   $cpuload    CPU load
+     * @param mixed   $memory     Memory
      *
-     * @return array
+     * @return mixed[]
      */
     private function getJsonForChartingDataGet(
         array $ret,
@@ -166,16 +166,16 @@ class Monitor
     /**
      * Switch called to get JSON for charting data
      *
-     * @param string $type       Type
-     * @param string $pName      Name
-     * @param array  $serverVars Server variable values
-     * @param array  $statusVars Status variable values
-     * @param array  $ret        Real-time charting data
-     * @param mixed  $sysinfo    System info
-     * @param mixed  $cpuload    CPU load
-     * @param mixed  $memory     Memory
+     * @param string  $type       Type
+     * @param string  $pName      Name
+     * @param mixed[] $serverVars Server variable values
+     * @param mixed[] $statusVars Status variable values
+     * @param mixed[] $ret        Real-time charting data
+     * @param mixed   $sysinfo    System info
+     * @param mixed   $cpuload    CPU load
+     * @param mixed   $memory     Memory
      *
-     * @return array
+     * @return mixed[]
      */
     private function getJsonForChartingDataSwitch(
         string $type,
@@ -455,7 +455,7 @@ class Monitor
      * @param string|null $name  Variable name
      * @param string|null $value Variable value
      *
-     * @return array JSON
+     * @return mixed[] JSON
      */
     public function getJsonForLoggingVars(string|null $name, string|null $value): array
     {
@@ -479,7 +479,7 @@ class Monitor
      * @param string $database Database name
      * @param string $query    SQL query
      *
-     * @return array JSON
+     * @return mixed[] JSON
      */
     public function getJsonForQueryAnalyzer(
         string $database,

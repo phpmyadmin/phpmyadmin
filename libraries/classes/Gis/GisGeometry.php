@@ -32,10 +32,10 @@ abstract class GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial   GIS data object
-     * @param string $label     label for the GIS data object
-     * @param int[]  $color     color for the GIS data object
-     * @param array  $scaleData data related to scaling
+     * @param string  $spatial   GIS data object
+     * @param string  $label     label for the GIS data object
+     * @param int[]   $color     color for the GIS data object
+     * @param mixed[] $scaleData data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
@@ -44,10 +44,10 @@ abstract class GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     Label for the GIS POLYGON object
-     * @param int[]  $color     Color for the GIS POLYGON object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POLYGON object
+     * @param string  $label     Label for the GIS POLYGON object
+     * @param int[]   $color     Color for the GIS POLYGON object
+     * @param mixed[] $scaleData Array containing data related to scaling
      */
     abstract public function prepareRowAsPng(
         string $spatial,
@@ -60,10 +60,10 @@ abstract class GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS data object
-     * @param string $label     label for the GIS data object
-     * @param int[]  $color     color for the GIS data object
-     * @param array  $scaleData array containing data related to scaling
+     * @param string  $spatial   GIS data object
+     * @param string  $label     label for the GIS data object
+     * @param int[]   $color     color for the GIS data object
+     * @param mixed[] $scaleData array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
@@ -105,7 +105,7 @@ abstract class GisGeometry
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gisData GIS data
+     * @param mixed[]     $gisData GIS data
      * @param int         $index   index into the parameter object
      * @param string|null $empty   value for empty points
      *
@@ -169,7 +169,7 @@ abstract class GisGeometry
      *
      * @param string $wkt Value of the GIS column
      *
-     * @return array Coordinate params for the GIS data editor from the value of the GIS column
+     * @return mixed[] Coordinate params for the GIS data editor from the value of the GIS column
      */
     abstract protected function getCoordinateParams(string $wkt): array;
 
@@ -178,7 +178,7 @@ abstract class GisGeometry
      *
      * @param string $value Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return mixed[] params for the GIS data editor from the value of the GIS column
      */
     public function generateParams(string $value): array
     {
@@ -193,9 +193,9 @@ abstract class GisGeometry
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string     $pointSet  string of comma separated points
-     * @param array|null $scaleData data related to scaling
-     * @param bool       $linear    if true, as a 1D array, else as a 2D array
+     * @param string       $pointSet  string of comma separated points
+     * @param mixed[]|null $scaleData data related to scaling
+     * @param bool         $linear    if true, as a 1D array, else as a 2D array
      *
      * @return float[]|float[][] scaled points
      */
@@ -239,8 +239,8 @@ abstract class GisGeometry
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string     $wktCoords string of comma separated points
-     * @param array|null $scaleData data related to scaling
+     * @param string       $wktCoords string of comma separated points
+     * @param mixed[]|null $scaleData data related to scaling
      *
      * @return float[][] scaled points
      */
@@ -255,8 +255,8 @@ abstract class GisGeometry
     /**
      * Extracts points, scales and returns them as an linear array.
      *
-     * @param string     $wktCoords string of comma separated points
-     * @param array|null $scaleData data related to scaling
+     * @param string       $wktCoords string of comma separated points
+     * @param mixed[]|null $scaleData data related to scaling
      *
      * @return float[] scaled points
      */
@@ -269,8 +269,8 @@ abstract class GisGeometry
     }
 
     /**
-     * @param string     $wktCoords string of ),( separated points
-     * @param array|null $scaleData data related to scaling
+     * @param string       $wktCoords string of ),( separated points
+     * @param mixed[]|null $scaleData data related to scaling
      *
      * @return float[][][]  scaled points
      */
@@ -284,8 +284,8 @@ abstract class GisGeometry
     }
 
     /**
-     * @param string     $wktCoords string of )),(( separated points
-     * @param array|null $scaleData data related to scaling
+     * @param string       $wktCoords string of )),(( separated points
+     * @param mixed[]|null $scaleData data related to scaling
      *
      * @return float[][][][] scaled points
      */

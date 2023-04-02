@@ -9,7 +9,7 @@ use PhpMyAdmin\Index;
 /** @covers \PhpMyAdmin\Index */
 class IndexTest extends AbstractTestCase
 {
-    /** @var array */
+    /** @var mixed[] */
     private array $params = [];
 
     /**

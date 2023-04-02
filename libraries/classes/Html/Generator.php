@@ -259,9 +259,9 @@ class Generator
     /**
      * Returns default function for a particular column.
      *
-     * @param array $field      Data about the column for which
+     * @param mixed[] $field      Data about the column for which
      *                          to generate the dropdown
-     * @param bool  $insertMode Whether the operation is 'insert'
+     * @param bool    $insertMode Whether the operation is 'insert'
      *
      * @return string An HTML snippet of a dropdown list with function
      *                names appropriate for the requested column.
@@ -327,9 +327,9 @@ class Generator
     /**
      * Creates a dropdown box with MySQL functions for a particular column.
      *
-     * @param array $field       Data about the column for which to generate the dropdown
-     * @param bool  $insertMode  Whether the operation is 'insert'
-     * @param array $foreignData Foreign data
+     * @param mixed[] $field       Data about the column for which to generate the dropdown
+     * @param bool    $insertMode  Whether the operation is 'insert'
+     * @param mixed[] $foreignData Foreign data
      *
      * @return string An HTML snippet of a dropdown list with function names appropriate for the requested column.
      */
@@ -894,10 +894,10 @@ class Generator
      *
      * The image name should match CSS class defined in icons.css.php
      *
-     * @param string $image      The name of the file to get
-     * @param string $alternate  Used to set 'alt' and 'title' attributes
-     *                           of the image
-     * @param array  $attributes An associative array of other attributes
+     * @param string  $image      The name of the file to get
+     * @param string  $alternate  Used to set 'alt' and 'title' attributes
+     *                            of the image
+     * @param mixed[] $attributes An associative array of other attributes
      *
      * @return string an html IMG tag
      */
@@ -1035,7 +1035,7 @@ class Generator
      *
      * @param int      $count     number of elements in the list
      * @param int      $pos       current position in the list
-     * @param array    $urlParams url parameters
+     * @param mixed[]  $urlParams url parameters
      * @param string   $script    script name for form target
      * @param string   $frame     target frame
      * @param int      $maxCount  maximum number of elements to display from

@@ -149,6 +149,7 @@ class ImportOdsTest extends AbstractTestCase
         $this->assertTrue($GLOBALS['finished']);
     }
 
+    /** @return mixed[] */
     public static function dataProviderOdsEmptyRows(): array
     {
         return ['remove empty columns' => [true], 'keep empty columns' => [false]];

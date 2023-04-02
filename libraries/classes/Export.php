@@ -61,7 +61,7 @@ class Export
 
     public int $dumpBufferLength = 0;
 
-    /** @var array */
+    /** @var mixed[] */
     public array $dumpBufferObjects = [];
 
     public function __construct(private DatabaseInterface $dbi)
@@ -387,7 +387,7 @@ class Export
      * @param string $filename    the export filename
      * @param bool   $quickExport whether it's a quick export or not
      *
-     * @return array the full save filename, possible message and the file handle
+     * @return mixed[] the full save filename, possible message and the file handle
      */
     public function openFile(string $filename, bool $quickExport): array
     {
@@ -473,9 +473,9 @@ class Export
     /**
      * Compress the export buffer
      *
-     * @param array|string $dumpBuffer  the current dump buffer
-     * @param string       $compression the compression mode
-     * @param string       $filename    the filename
+     * @param mixed[]|string $dumpBuffer  the current dump buffer
+     * @param string         $compression the compression mode
+     * @param string         $filename    the filename
      */
     public function compress(array|string $dumpBuffer, string $compression, string $filename): array|string|bool
     {
@@ -543,17 +543,17 @@ class Export
     /**
      * Export at the server level
      *
-     * @param string|array $dbSelect        the selected databases to export
-     * @param string       $whatStrucOrData structure or data or both
-     * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $errorUrl        the URL in case of error
-     * @param string       $exportType      the export type
-     * @param bool         $doRelation      whether to export relation info
-     * @param bool         $doComments      whether to add comments
-     * @param bool         $doMime          whether to add MIME info
-     * @param bool         $doDates         whether to add dates
-     * @param array        $aliases         alias information for db/table/column
-     * @param string       $separateFiles   whether it is a separate-files export
+     * @param string|mixed[] $dbSelect        the selected databases to export
+     * @param string         $whatStrucOrData structure or data or both
+     * @param ExportPlugin   $exportPlugin    the selected export plugin
+     * @param string         $errorUrl        the URL in case of error
+     * @param string         $exportType      the export type
+     * @param bool           $doRelation      whether to export relation info
+     * @param bool           $doComments      whether to add comments
+     * @param bool           $doMime          whether to add MIME info
+     * @param bool           $doDates         whether to add dates
+     * @param mixed[]        $aliases         alias information for db/table/column
+     * @param string         $separateFiles   whether it is a separate-files export
      */
     public function exportServer(
         string|array $dbSelect,
@@ -608,10 +608,10 @@ class Export
      * Export at the database level
      *
      * @param DatabaseName $db              the database to export
-     * @param array        $tables          the tables to export
+     * @param mixed[]      $tables          the tables to export
      * @param string       $whatStrucOrData structure or data or both
-     * @param array        $tableStructure  whether to export structure for each table
-     * @param array        $tableData       whether to export data for each table
+     * @param mixed[]      $tableStructure  whether to export structure for each table
+     * @param mixed[]      $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
@@ -619,7 +619,7 @@ class Export
      * @param bool         $doComments      whether to add comments
      * @param bool         $doMime          whether to add MIME info
      * @param bool         $doDates         whether to add dates
-     * @param array        $aliases         Alias information for db/table/column
+     * @param mixed[]      $aliases         Alias information for db/table/column
      * @param string       $separateFiles   whether it is a separate-files export
      */
     public function exportDatabase(
@@ -924,7 +924,7 @@ class Export
      * @param string       $limitTo         upper limit
      * @param string       $limitFrom       starting limit
      * @param string       $sqlQuery        query for which exporting is requested
-     * @param array        $aliases         Alias information for db/table/column
+     * @param mixed[]      $aliases         Alias information for db/table/column
      */
     public function exportTable(
         string $db,
@@ -1102,10 +1102,10 @@ class Export
      * conflicting alias then array2 value is used if it
      * is non empty otherwise array1 value.
      *
-     * @param array $aliases1 first array of aliases
-     * @param array $aliases2 second array of aliases
+     * @param mixed[] $aliases1 first array of aliases
+     * @param mixed[] $aliases2 second array of aliases
      *
-     * @return array resultant merged aliases info
+     * @return mixed[] resultant merged aliases info
      */
     public function mergeAliases(array $aliases1, array $aliases2): array
     {
@@ -1159,7 +1159,7 @@ class Export
      * Locks tables
      *
      * @param DatabaseName $db       database name
-     * @param array        $tables   list of table names
+     * @param mixed[]      $tables   list of table names
      * @param string       $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
      *
      * @return mixed result of the query
@@ -1211,8 +1211,8 @@ class Export
     /**
      * Returns the checked clause, depending on the presence of key in array
      *
-     * @param string $key   the key to look for
-     * @param array  $array array to verify
+     * @param string  $key   the key to look for
+     * @param mixed[] $array array to verify
      *
      * @return string the checked clause
      */
@@ -1307,6 +1307,7 @@ class Export
         return $backButton;
     }
 
+    /** @return mixed[] */
     private function getPostParams(string $exportType): array
     {
         $postParams = $_POST;

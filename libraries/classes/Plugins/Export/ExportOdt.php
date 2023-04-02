@@ -209,11 +209,11 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db       database name
-     * @param string $table    table name
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery SQL query for obtaining data
-     * @param array  $aliases  Aliases of db/table/columns
+     * @param string  $db       database name
+     * @param string  $table    table name
+     * @param string  $errorUrl the url to go back in case of error
+     * @param string  $sqlQuery SQL query for obtaining data
+     * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
@@ -328,9 +328,9 @@ class ExportOdt extends ExportPlugin
     /**
      * Returns a stand-in CREATE definition to resolve view dependencies
      *
-     * @param string $db      the database name
-     * @param string $view    the view name
-     * @param array  $aliases Aliases of db/table/columns
+     * @param string  $db      the database name
+     * @param string  $view    the view name
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string resulting definition
      */
@@ -387,21 +387,21 @@ class ExportOdt extends ExportPlugin
     /**
      * Returns $table's CREATE definition
      *
-     * @param string $db           the database name
-     * @param string $table        the table name
-     * @param string $errorUrl     the url to go back in case of error
-     * @param bool   $doRelation   whether to include relation comments
-     * @param bool   $doComments   whether to include the pmadb-style column
-     *                              comments as comments in the structure;
-     *                              this is deprecated but the parameter is
-     *                              left here because /export calls
-     *                              PMA_exportStructure() also for other
-     * @param bool   $doMime       whether to include mime comments
-     * @param bool   $showDates    whether to include creation/update/check dates
-     * @param bool   $addSemicolon whether to add semicolon and end-of-line at
-     *                              the end
-     * @param bool   $view         whether we're handling a view
-     * @param array  $aliases      Aliases of db/table/columns
+     * @param string  $db           the database name
+     * @param string  $table        the table name
+     * @param string  $errorUrl     the url to go back in case of error
+     * @param bool    $doRelation   whether to include relation comments
+     * @param bool    $doComments   whether to include the pmadb-style column
+     *                               comments as comments in the structure;
+     *                               this is deprecated but the parameter is
+     *                               left here because /export calls
+     *                               PMA_exportStructure() also for other
+     * @param bool    $doMime       whether to include mime comments
+     * @param bool    $showDates    whether to include creation/update/check dates
+     * @param bool    $addSemicolon whether to add semicolon and end-of-line at
+     *                               the end
+     * @param bool    $view         whether we're handling a view
+     * @param mixed[] $aliases      Aliases of db/table/columns
      */
     public function getTableDef(
         string $db,
@@ -559,9 +559,9 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string $db      database name
-     * @param string $table   table name
-     * @param array  $aliases Aliases of db/table/columns
+     * @param string  $db      database name
+     * @param string  $table   table name
+     * @param mixed[] $aliases Aliases of db/table/columns
      */
     protected function getTriggers(string $db, string $table, array $aliases = []): string
     {
@@ -622,21 +622,21 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs table's structure
      *
-     * @param string $db         database name
-     * @param string $table      table name
-     * @param string $errorUrl   the url to go back in case of error
-     * @param string $exportMode 'create_table', 'triggers', 'create_view',
-     *                            'stand_in'
-     * @param string $exportType 'server', 'database', 'table'
-     * @param bool   $doRelation whether to include relation comments
-     * @param bool   $doComments whether to include the pmadb-style column
-     *                            comments as comments in the structure;
-     *                            this is deprecated but the parameter is
-     *                            left here because /export calls
-     *                            PMA_exportStructure() also for other
-     * @param bool   $doMime     whether to include mime comments
-     * @param bool   $dates      whether to include creation/update/check dates
-     * @param array  $aliases    Aliases of db/table/columns
+     * @param string  $db         database name
+     * @param string  $table      table name
+     * @param string  $errorUrl   the url to go back in case of error
+     * @param string  $exportMode 'create_table', 'triggers', 'create_view',
+     *                             'stand_in'
+     * @param string  $exportType 'server', 'database', 'table'
+     * @param bool    $doRelation whether to include relation comments
+     * @param bool    $doComments whether to include the pmadb-style column
+     *                             comments as comments in the structure;
+     *                             this is deprecated but the parameter is
+     *                             left here because /export calls
+     *                             PMA_exportStructure() also for other
+     * @param bool    $doMime     whether to include mime comments
+     * @param bool    $dates      whether to include creation/update/check dates
+     * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
@@ -720,8 +720,8 @@ class ExportOdt extends ExportPlugin
     /**
      * Formats the definition for one column
      *
-     * @param array  $column info about this column
-     * @param string $colAs  column alias
+     * @param mixed[] $column info about this column
+     * @param string  $colAs  column alias
      *
      * @return string Formatted column definition
      */

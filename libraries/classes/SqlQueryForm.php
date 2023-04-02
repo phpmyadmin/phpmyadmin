@@ -124,7 +124,7 @@ class SqlQueryForm
      *
      * @param string $query query to display in the textarea
      *
-     * @return array ($legend, $query, $columns_list)
+     * @return mixed[] ($legend, $query, $columns_list)
      */
     public function init(string $query): array
     {

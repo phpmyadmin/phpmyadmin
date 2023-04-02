@@ -29,7 +29,7 @@ class CreateAddField
     /**
      * Transforms the radio button field_key into 4 arrays
      *
-     * @return array An array of arrays which represents column keys for each index type
+     * @return mixed[] An array of arrays which represents column keys for each index type
      * @psalm-return array{int, array, array, array, array, array}
      */
     private function getIndexedColumns(): array
@@ -52,7 +52,7 @@ class CreateAddField
      * @param bool $isCreateTable true if requirement is to get the statement
      *                            for table creation
      *
-     * @return array An array of initial sql statements
+     * @return mixed[] An array of initial sql statements
      *                             according to the request
      */
     private function buildColumnCreationStatement(
@@ -132,11 +132,11 @@ class CreateAddField
     /**
      * Create relevant index statements
      *
-     * @param array  $index         an array of index columns
-     * @param string $indexChoice   index choice that which represents
-     *                              the index type of $indexed_fields
-     * @param bool   $isCreateTable true if requirement is to get the statement
-     *                              for table creation
+     * @param mixed[] $index         an array of index columns
+     * @param string  $indexChoice   index choice that which represents
+     *                               the index type of $indexed_fields
+     * @param bool    $isCreateTable true if requirement is to get the statement
+     *                               for table creation
      *
      * @return string sql statement for indexes
      */
@@ -304,8 +304,8 @@ class CreateAddField
     /**
      * Returns the definition of a partition/subpartition
      *
-     * @param array $partition      array of partition/subpartition details
-     * @param bool  $isSubPartition whether a subpartition
+     * @param mixed[] $partition      array of partition/subpartition details
+     * @param bool    $isSubPartition whether a subpartition
      *
      * @return string partition/subpartition definition
      */

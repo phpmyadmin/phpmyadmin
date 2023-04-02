@@ -102,8 +102,8 @@ class SavedSearches
     /**
      * Setter for criterias
      *
-     * @param array|string $criterias Criterias of saved searches
-     * @param bool         $json      Criterias are in JSON format
+     * @param mixed[]|string $criterias Criterias of saved searches
+     * @param bool           $json      Criterias are in JSON format
      *
      * @return static
      */
@@ -333,7 +333,7 @@ class SavedSearches
      *
      * @param string[] $wheres List of filters
      *
-     * @return array List of saved searches or empty array on failure
+     * @return mixed[] List of saved searches or empty array on failure
      */
     public function getList(
         SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature,

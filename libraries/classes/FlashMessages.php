@@ -12,7 +12,7 @@ final class FlashMessages
 {
     private const STORAGE_KEY = 'flashMessages';
 
-    /** @var array */
+    /** @var mixed[] */
     private array $storage;
 
     /** @var array<string, string[]> */

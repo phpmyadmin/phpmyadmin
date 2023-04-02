@@ -101,10 +101,10 @@ class Normalization
     /**
      * get the html of the form to add the new column to given table
      *
-     * @param int    $numFields  number of columns to add
-     * @param string $db         current database
-     * @param string $table      current table
-     * @param array  $columnMeta array containing default values for the fields
+     * @param int     $numFields  number of columns to add
+     * @param string  $db         current database
+     * @param string  $table      current table
+     * @param mixed[] $columnMeta array containing default values for the fields
      *
      * @return string HTML
      */
@@ -451,8 +451,8 @@ class Normalization
     /**
      * build the html for showing the tables to have in order to put current table in 2NF
      *
-     * @param array  $partialDependencies array containing all the dependencies
-     * @param string $table               current table
+     * @param mixed[] $partialDependencies array containing all the dependencies
+     * @param string  $table               current table
      *
      * @return string HTML
      */
@@ -484,10 +484,10 @@ class Normalization
     /**
      * create/alter the tables needed for 2NF
      *
-     * @param array  $partialDependencies array containing all the partial dependencies
-     * @param object $tablesName          name of new tables
-     * @param string $table               current table
-     * @param string $db                  current database
+     * @param mixed[] $partialDependencies array containing all the partial dependencies
+     * @param object  $tablesName          name of new tables
+     * @param string  $table               current table
+     * @param string  $db                  current database
      *
      * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
      */
@@ -576,11 +576,11 @@ class Normalization
      * build the html for showing the new tables to have in order
      * to put given tables in 3NF
      *
-     * @param object $dependencies containing all the dependencies
-     * @param array  $tables       tables formed after 2NF and need to convert to 3NF
-     * @param string $db           current database
+     * @param object  $dependencies containing all the dependencies
+     * @param mixed[] $tables       tables formed after 2NF and need to convert to 3NF
+     * @param string  $db           current database
      *
-     * @return array containing html and the list of new tables
+     * @return mixed[] containing html and the list of new tables
      */
     public function getHtmlForNewTables3NF(object $dependencies, array $tables, string $db): array
     {
@@ -640,8 +640,8 @@ class Normalization
     /**
      * create new tables or alter existing to get 3NF
      *
-     * @param array  $newTables list of new tables to be created
-     * @param string $db        current database
+     * @param mixed[] $newTables list of new tables to be created
+     * @param string  $db        current database
      *
      * @return array{legendText: string, headText: string, queryError: string|false, extra?: string}
      */
@@ -805,8 +805,8 @@ class Normalization
     /**
      * build html for 3NF step 1 to find the transitive dependencies
      *
-     * @param string $db     current database
-     * @param array  $tables tables formed after 2NF and need to process for 3NF
+     * @param string  $db     current database
+     * @param mixed[] $tables tables formed after 2NF and need to process for 3NF
      *
      * @return array{legendText: string, headText: string, subText: string, extra: string}
      */
@@ -1036,7 +1036,7 @@ class Normalization
     /**
      * find all the possible partial keys
      *
-     * @param array $primaryKey array containing all the column present in primary key
+     * @param mixed[] $primaryKey array containing all the column present in primary key
      *
      * @return string[] containing all the possible partial keys(subset of primary key)
      */

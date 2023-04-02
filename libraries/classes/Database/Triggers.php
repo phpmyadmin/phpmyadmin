@@ -269,7 +269,7 @@ class Triggers
     /**
      * This function will generate the values that are required to for the editor
      *
-     * @return array    Data necessary to create the editor.
+     * @return mixed[]    Data necessary to create the editor.
      */
     public function getDataFromRequest(): array
     {
@@ -296,7 +296,7 @@ class Triggers
      *
      * @param string $name The name of the trigger.
      *
-     * @return array|null Data necessary to create the editor.
+     * @return mixed[]|null Data necessary to create the editor.
      */
     public function getDataFromName(string $name): array|null
     {
@@ -330,8 +330,8 @@ class Triggers
     /**
      * Displays a form used to add/edit a trigger
      *
-     * @param string $mode If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
-     * @param array  $item Data for the trigger returned by getDataFromRequest() or getDataFromName()
+     * @param string  $mode If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
+     * @param mixed[] $item Data for the trigger returned by getDataFromRequest() or getDataFromName()
      */
     public function getEditorForm(string $db, string $table, string $mode, array $item): string
     {
@@ -409,10 +409,10 @@ class Triggers
     }
 
     /**
-     * @param string $createStatement Query
-     * @param array  $errors          Errors
+     * @param string  $createStatement Query
+     * @param mixed[] $errors          Errors
      *
-     * @return array
+     * @return mixed[]
      */
     private function checkResult(string $createStatement, array $errors): array
     {
@@ -432,11 +432,11 @@ class Triggers
     /**
      * Send editor via ajax or by echoing.
      *
-     * @param string     $mode  Editor mode 'add' or 'edit'
-     * @param array|null $item  Data necessary to create the editor
-     * @param string     $title Title of the editor
-     * @param string     $db    Database
-     * @param string     $table Table
+     * @param string       $mode  Editor mode 'add' or 'edit'
+     * @param mixed[]|null $item  Data necessary to create the editor
+     * @param string       $title Title of the editor
+     * @param string       $db    Database
+     * @param string       $table Table
      */
     private function sendEditor(string $mode, array|null $item, string $title, string $db, string $table): void
     {
@@ -528,7 +528,7 @@ class Triggers
      * @param string $table     table name
      * @param string $delimiter the delimiter to use (may be empty)
      *
-     * @return array information about triggers (may be empty)
+     * @return mixed[] information about triggers (may be empty)
      */
     public static function getDetails(
         DatabaseInterface $dbi,

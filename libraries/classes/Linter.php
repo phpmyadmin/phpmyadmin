@@ -69,10 +69,10 @@ class Linter
     /**
      * Computes the number of the line and column given an absolute position.
      *
-     * @param array $lines The starting position of each line.
-     * @param int   $pos   The absolute position
+     * @param mixed[] $lines The starting position of each line.
+     * @param int     $pos   The absolute position
      *
-     * @return array
+     * @return mixed[]
      */
     public static function findLineNumberAndColumn(array $lines, int $pos): array
     {
@@ -93,7 +93,7 @@ class Linter
      *
      * @param string $query The query to be checked.
      *
-     * @return array
+     * @return mixed[]
      */
     public static function lint(string $query): array
     {

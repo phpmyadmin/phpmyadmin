@@ -81,13 +81,13 @@ class Table implements Stringable
     /** @var string  type (view, base table, system view) */
     public string $type = '';
 
-    /** @var array UI preferences */
+    /** @var mixed[] UI preferences */
     public array $uiprefs = [];
 
-    /** @var array errors occurred */
+    /** @var mixed[] errors occurred */
     public array $errors = [];
 
-    /** @var array messages */
+    /** @var mixed[] messages */
     public array $messages = [];
 
     /** @var string  table name */
@@ -450,23 +450,23 @@ class Table implements Stringable
     /**
      * generates column specification for ALTER or CREATE TABLE syntax
      *
-     * @param string      $name             name
-     * @param string      $type             type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length           length ('2', '5,2', '', ...)
-     * @param string      $attribute        attribute
-     * @param string      $collation        collation
-     * @param bool|string $null             with 'NULL' or 'NOT NULL'
-     * @param string      $defaultType      whether default is CURRENT_TIMESTAMP,
-     *                                       NULL, NONE, USER_DEFINED, UUID
-     * @param string      $defaultValue     default value for USER_DEFINED
-     *                                       default type
-     * @param string      $extra            'AUTO_INCREMENT'
-     * @param string      $comment          field comment
-     * @param string      $virtuality       virtuality of the column
-     * @param string      $expression       expression for the virtual column
-     * @param string      $moveTo           new position for column
-     * @param array|null  $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
-     * @param string|null $oldColumnName    Old column name
+     * @param string       $name             name
+     * @param string       $type             type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string       $length           length ('2', '5,2', '', ...)
+     * @param string       $attribute        attribute
+     * @param string       $collation        collation
+     * @param bool|string  $null             with 'NULL' or 'NOT NULL'
+     * @param string       $defaultType      whether default is CURRENT_TIMESTAMP,
+     *                                        NULL, NONE, USER_DEFINED, UUID
+     * @param string       $defaultValue     default value for USER_DEFINED
+     *                                        default type
+     * @param string       $extra            'AUTO_INCREMENT'
+     * @param string       $comment          field comment
+     * @param string       $virtuality       virtuality of the column
+     * @param string       $expression       expression for the virtual column
+     * @param string       $moveTo           new position for column
+     * @param mixed[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
+     * @param string|null  $oldColumnName    Old column name
      *
      * @return string  field specification
      *
@@ -761,23 +761,23 @@ class Table implements Stringable
      *
      * @see Table::generateFieldSpec()
      *
-     * @param string      $oldcol           old column name
-     * @param string      $newcol           new column name
-     * @param string      $type             type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length           length ('2', '5,2', '', ...)
-     * @param string      $attribute        attribute
-     * @param string      $collation        collation
-     * @param bool|string $null             with 'NULL' or 'NOT NULL'
-     * @param string      $defaultType      whether default is CURRENT_TIMESTAMP,
-     *                                       NULL, NONE, USER_DEFINED
-     * @param string      $defaultValue     default value for USER_DEFINED default
-     *                                       type
-     * @param string      $extra            'AUTO_INCREMENT'
-     * @param string      $comment          field comment
-     * @param string      $virtuality       virtuality of the column
-     * @param string      $expression       expression for the virtual column
-     * @param string      $moveTo           new position for column
-     * @param array|null  $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
+     * @param string       $oldcol           old column name
+     * @param string       $newcol           new column name
+     * @param string       $type             type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string       $length           length ('2', '5,2', '', ...)
+     * @param string       $attribute        attribute
+     * @param string       $collation        collation
+     * @param bool|string  $null             with 'NULL' or 'NOT NULL'
+     * @param string       $defaultType      whether default is CURRENT_TIMESTAMP,
+     *                                        NULL, NONE, USER_DEFINED
+     * @param string       $defaultValue     default value for USER_DEFINED default
+     *                                        type
+     * @param string       $extra            'AUTO_INCREMENT'
+     * @param string       $comment          field comment
+     * @param string       $virtuality       virtuality of the column
+     * @param string       $expression       expression for the virtual column
+     * @param string       $moveTo           new position for column
+     * @param mixed[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
      *
      * @return string  field specification
      */
@@ -825,9 +825,9 @@ class Table implements Stringable
      * @param string   $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
      * @param string   $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
      * @param string[] $getFields   Which fields will be SELECT'ed from the old entry
-     * @param array    $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param array    $newFields   Which fields will be used as new VALUES. These are the important keys which differ
-     *                              from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
+     * @param mixed[]  $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
+     * @param mixed[]  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
+     *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
      */
     public static function duplicateInfo(
         string $work,
@@ -1523,9 +1523,9 @@ class Table implements Stringable
      *
      * e.g. index(col1, col2) would return col1, col2
      *
-     * @param array $indexed    column data
-     * @param bool  $backquoted whether to quote name with backticks ``
-     * @param bool  $fullName   whether to include full name of the table as a prefix
+     * @param mixed[] $indexed    column data
+     * @param bool    $backquoted whether to quote name with backticks ``
+     * @param bool    $fullName   whether to include full name of the table as a prefix
      *
      * @return string[]
      */
@@ -1550,7 +1550,7 @@ class Table implements Stringable
      * @param bool $backquoted whether to quote name with backticks ``
      * @param bool $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return mixed[]
      */
     public function getIndexedColumns(bool $backquoted = true, bool $fullName = true): array
     {
@@ -1571,7 +1571,7 @@ class Table implements Stringable
      * @param bool $backquoted whether to quote name with backticks ``
      * @param bool $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return mixed[]
      */
     public function getColumns(bool $backquoted = true, bool $fullName = true): array
     {
@@ -1641,7 +1641,7 @@ class Table implements Stringable
     /**
      * Return UI preferences for this table from phpMyAdmin database.
      *
-     * @return array
+     * @return mixed[]
      */
     protected function getUiPrefsFromDb(UiPreferencesFeature|null $uiPreferencesFeature): array
     {
@@ -2090,11 +2090,11 @@ class Table implements Stringable
     /**
      * Function to get update query for updating internal relations
      *
-     * @param array      $multiEditColumnsName multi edit column names
-     * @param array      $destinationDb        destination tables
-     * @param array      $destinationTable     destination tables
-     * @param array      $destinationColumn    destination columns
-     * @param array|null $existrel             db, table, column
+     * @param mixed[]      $multiEditColumnsName multi edit column names
+     * @param mixed[]      $destinationDb        destination tables
+     * @param mixed[]      $destinationTable     destination tables
+     * @param mixed[]      $destinationColumn    destination columns
+     * @param mixed[]|null $existrel             db, table, column
      */
     public function updateInternalRelations(
         array $multiEditColumnsName,
@@ -2172,15 +2172,15 @@ class Table implements Stringable
     /**
      * Function to handle foreign key updates
      *
-     * @param array  $destinationForeignDb     destination foreign database
-     * @param array  $multiEditColumnsName     multi edit column names
-     * @param array  $destinationForeignTable  destination foreign table
-     * @param array  $destinationForeignColumn destination foreign column
-     * @param array  $optionsArray             options array
-     * @param string $table                    current table
-     * @param array  $existrelForeign          db, table, column
+     * @param mixed[] $destinationForeignDb     destination foreign database
+     * @param mixed[] $multiEditColumnsName     multi edit column names
+     * @param mixed[] $destinationForeignTable  destination foreign table
+     * @param mixed[] $destinationForeignColumn destination foreign column
+     * @param mixed[] $optionsArray             options array
+     * @param string  $table                    current table
+     * @param mixed[] $existrelForeign          db, table, column
      *
-     * @return array
+     * @return mixed[]
      */
     public function updateForeignKeys(
         array $destinationForeignDb,
@@ -2359,10 +2359,10 @@ class Table implements Stringable
      * Returns the SQL query for foreign key constraint creation
      *
      * @param string      $table        table name
-     * @param array       $field        field names
+     * @param mixed[]     $field        field names
      * @param string      $foreignDb    foreign database name
      * @param string      $foreignTable foreign table name
-     * @param array       $foreignField foreign field names
+     * @param mixed[]     $foreignField foreign field names
      * @param string|null $name         name of the constraint
      * @param string|null $onDelete     on delete action
      * @param string|null $onUpdate     on update action
@@ -2417,7 +2417,7 @@ class Table implements Stringable
      *
      * @param string|null $column name of the column
      *
-     * @return array|bool associative array of column name and their expressions
+     * @return mixed[]|bool associative array of column name and their expressions
      * or false on failure
      */
     public function getColumnGenerationExpression(string|null $column = null): array|bool
@@ -2511,7 +2511,7 @@ class Table implements Stringable
      *
      * @param int $types types bitmask
      *
-     * @return array an array of columns
+     * @return mixed[] an array of columns
      */
     public function getColumnsWithIndex(int $types): array
     {

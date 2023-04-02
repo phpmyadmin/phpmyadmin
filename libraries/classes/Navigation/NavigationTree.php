@@ -79,13 +79,13 @@ class NavigationTree
     /** @var Node Reference to the root node of the tree */
     private Node $tree;
     /**
-     * @var array The actual paths to all expanded nodes in the tree
+     * @var mixed[] The actual paths to all expanded nodes in the tree
      *            This does not include nodes created after the grouping
      *            of nodes has been performed
      */
     private array $aPath = [];
     /**
-     * @var array The virtual paths to all expanded nodes in the tree
+     * @var mixed[] The virtual paths to all expanded nodes in the tree
      *            This includes nodes created after the grouping of
      *            nodes has been performed
      */
@@ -293,7 +293,7 @@ class NavigationTree
      *
      * @param string $string The path to parse
      *
-     * @return array
+     * @return mixed[]
      */
     private function parsePath(string $string): array
     {
@@ -344,16 +344,16 @@ class NavigationTree
     /**
      * Builds a branch of the tree
      *
-     * @param array  $path  A paths pointing to the branch
-     *                      of the tree that needs to be built
-     * @param string $type2 The type of item being paginated on
-     *                      the second level of the tree
-     * @param int    $pos2  The position for the pagination of
-     *                      the branch at the second level of the tree
-     * @param string $type3 The type of item being paginated on
-     *                      the third level of the tree
-     * @param int    $pos3  The position for the pagination of
-     *                      the branch at the third level of the tree
+     * @param mixed[] $path  A paths pointing to the branch
+     *                     of the tree that needs to be built
+     * @param string  $type2 The type of item being paginated on
+     *                       the second level of the tree
+     * @param int     $pos2  The position for the pagination of
+     *                       the branch at the second level of the tree
+     * @param string  $type3 The type of item being paginated on
+     *                       the third level of the tree
+     * @param int     $pos3  The position for the pagination of
+     *                       the branch at the third level of the tree
      *
      * @return Node|bool    The active node or false in case of failure, true if the path contains <= 1 items
      */
@@ -975,8 +975,8 @@ class NavigationTree
     /**
      * Finds whether given tree matches this tree.
      *
-     * @param array $tree  Tree to check
-     * @param array $paths Paths to check
+     * @param mixed[] $tree  Tree to check
+     * @param mixed[] $paths Paths to check
      */
     private function findTreeMatch(array $tree, array $paths): bool
     {

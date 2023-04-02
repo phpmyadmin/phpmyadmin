@@ -80,7 +80,7 @@ class PluginsTest extends AbstractTestCase
     }
 
     /**
-     * @return array[]
+     * @return mixed[][]
      * @psalm-return array{array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}}
      */
     public static function providerForTestGetDefault(): array

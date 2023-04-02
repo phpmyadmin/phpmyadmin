@@ -180,9 +180,9 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Test for Generator::linkOrButton
      *
-     * @param array  $params params
-     * @param int    $limit  limit
-     * @param string $match  match
+     * @param mixed[] $params params
+     * @param int     $limit  limit
+     * @param string  $match  match
      *
      * @dataProvider linksOrButtons
      */
@@ -204,7 +204,7 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Data provider for Generator::linkOrButton test
      *
-     * @return array
+     * @return mixed[]
      */
     public static function linksOrButtons(): array
     {
@@ -399,7 +399,7 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Data provider for Generator::getDefaultFunctionForField test
      *
-     * @return array
+     * @return mixed[]
      * @psalm-return array<int, array{array<string, string|bool|null>, bool, string}>
      */
     public static function providerForTestGetDefaultFunctionForField(): array

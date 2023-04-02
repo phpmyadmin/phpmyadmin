@@ -52,13 +52,13 @@ class Qbe
     /**
      * Table Names (selected/non-selected)
      *
-     * @var array
+     * @var mixed[]
      */
     private array $criteriaTables = [];
     /**
      * Column Names
      *
-     * @var array
+     * @var mixed[]
      */
     private array $columnNames = [];
     /**
@@ -80,37 +80,37 @@ class Qbe
     /**
      * Whether to insert a new row
      *
-     * @var array
+     * @var mixed[]
      */
     private array $criteriaRowInsert;
     /**
      * Whether to delete a row
      *
-     * @var array
+     * @var mixed[]
      */
     private array $criteriaRowDelete;
     /**
      * Already set criteria values
      *
-     * @var array
+     * @var mixed[]
      */
     private array $criteria;
     /**
      * Previously set criteria values
      *
-     * @var array
+     * @var mixed[]
      */
     private array $prevCriteria;
     /**
      * AND/OR relation b/w criteria columns
      *
-     * @var array
+     * @var mixed[]
      */
     private array $criteriaAndOrColumn;
     /**
      * AND/OR relation b/w criteria rows
      *
-     * @var array
+     * @var mixed[]
      */
     private array $criteriaAndOrRow;
     /**
@@ -124,49 +124,49 @@ class Qbe
     /**
      * Selected columns in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formColumns = [];
     /**
      * Entered aliases in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formAliases = [];
     /**
      * Chosen sort options in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formSorts = [];
     /**
      * Chosen sort orders in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formSortOrders = [];
     /**
      * Show checkboxes in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formShows = [];
     /**
      * Entered criteria values in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formCriterions = [];
     /**
      * AND/OR column radio buttons in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formAndOrCols;
     /**
      * AND/OR row radio buttons in the form
      *
-     * @var array
+     * @var mixed[]
      */
     private array $formAndOrRows;
     /**
@@ -180,7 +180,7 @@ class Qbe
     /**
      * List of saved searches
      *
-     * @var array
+     * @var mixed[]
      */
     private array $savedSearchList = [];
     /**
@@ -190,7 +190,7 @@ class Qbe
 
     /**
      * @param string             $dbname          Database name
-     * @param array              $savedSearchList List of saved searches
+     * @param mixed[]            $savedSearchList List of saved searches
      * @param SavedSearches|null $currentSearch   Current search id
      */
     public function __construct(
@@ -703,9 +703,9 @@ class Qbe
      * Provides And/Or modification cell along with Insert/Delete options
      * (For modifying search form's table columns)
      *
-     * @param int        $columnNumber Column Number (0,1,2) or more
-     * @param array|null $selected     Selected criteria column name
-     * @param bool       $lastColumn   Whether this is the last column
+     * @param int          $columnNumber Column Number (0,1,2) or more
+     * @param mixed[]|null $selected     Selected criteria column name
+     * @param bool         $lastColumn   Whether this is the last column
      *
      * @return string HTML for modification cell
      */
@@ -1071,11 +1071,11 @@ class Qbe
     /**
      * Provides UNIQUE columns and INDEX columns present in criteria tables
      *
-     * @param array $searchTables       Tables involved in the search
-     * @param array $searchColumns      Columns involved in the search
-     * @param array $whereClauseColumns Columns having criteria where clause
+     * @param mixed[] $searchTables       Tables involved in the search
+     * @param mixed[] $searchColumns      Columns involved in the search
+     * @param mixed[] $whereClauseColumns Columns having criteria where clause
      *
-     * @return array having UNIQUE and INDEX columns
+     * @return mixed[] having UNIQUE and INDEX columns
      */
     private function getIndexes(
         array $searchTables,
@@ -1115,11 +1115,11 @@ class Qbe
     /**
      * Provides UNIQUE columns and INDEX columns present in criteria tables
      *
-     * @param array $searchTables       Tables involved in the search
-     * @param array $searchColumns      Columns involved in the search
-     * @param array $whereClauseColumns Columns having criteria where clause
+     * @param mixed[] $searchTables       Tables involved in the search
+     * @param mixed[] $searchColumns      Columns involved in the search
+     * @param mixed[] $whereClauseColumns Columns having criteria where clause
      *
-     * @return array having UNIQUE and INDEX columns
+     * @return mixed[] having UNIQUE and INDEX columns
      */
     private function getLeftJoinColumnCandidates(
         array $searchTables,
@@ -1174,10 +1174,10 @@ class Qbe
     /**
      * Provides the main table to form the LEFT JOIN clause
      *
-     * @param array $searchTables       Tables involved in the search
-     * @param array $searchColumns      Columns involved in the search
-     * @param array $whereClauseColumns Columns having criteria where clause
-     * @param array $whereClauseTables  Tables having criteria where clause
+     * @param mixed[] $searchTables       Tables involved in the search
+     * @param mixed[] $searchColumns      Columns involved in the search
+     * @param mixed[] $whereClauseColumns Columns having criteria where clause
+     * @param mixed[] $whereClauseTables  Tables having criteria where clause
      *
      * @return string table name
      */
@@ -1265,7 +1265,7 @@ class Qbe
     /**
      * Provides columns and tables that have valid where clause criteria
      *
-     * @return array
+     * @return mixed[]
      */
     private function getWhereClauseTablesAndColumns(): array
     {
@@ -1305,7 +1305,7 @@ class Qbe
     /**
      * Provides FROM clause for building SQL query
      *
-     * @param array $formColumns List of selected columns in the form
+     * @param mixed[] $formColumns List of selected columns in the form
      *
      * @return string FROM clause
      */
@@ -1349,8 +1349,8 @@ class Qbe
     /**
      * Formulates the WHERE clause by JOINing tables
      *
-     * @param array $searchTables  Tables involved in the search
-     * @param array $searchColumns Columns involved in the search
+     * @param mixed[] $searchTables  Tables involved in the search
+     * @param mixed[] $searchColumns Columns involved in the search
      *
      * @return string table name
      */
@@ -1466,8 +1466,8 @@ class Qbe
     /**
      * Loads relations for a given table into the $relations array
      *
-     * @param array  $relations
-     * @param string $oneTable  the table
+     * @param mixed[] $relations
+     * @param string  $oneTable  the table
      */
     private function loadRelationsForTable(array &$relations, string $oneTable): void
     {
@@ -1502,9 +1502,9 @@ class Qbe
     /**
      * Fills the $finalized arrays with JOIN clauses for each of the tables
      *
-     * @param array $finalized    JOIN clauses for each table
-     * @param array $relations    Relations among tables
-     * @param array $searchTables Tables involved in the search
+     * @param mixed[] $finalized    JOIN clauses for each table
+     * @param mixed[] $relations    Relations among tables
+     * @param mixed[] $searchTables Tables involved in the search
      */
     private function fillJoinClauses(array &$finalized, array $relations, array $searchTables): void
     {
@@ -1546,7 +1546,7 @@ class Qbe
     /**
      * Provides the generated SQL query
      *
-     * @param array $formColumns List of selected columns in the form
+     * @param mixed[] $formColumns List of selected columns in the form
      *
      * @return string SQL query
      */
@@ -1688,12 +1688,12 @@ class Qbe
     /**
      * Get best
      *
-     * @param array      $searchTables       Tables involved in the search
-     * @param array|null $whereClauseColumns Columns with where clause
-     * @param array|null $uniqueColumns      Unique columns
-     * @param array|null $indexColumns       Indexed columns
+     * @param mixed[]      $searchTables       Tables involved in the search
+     * @param mixed[]|null $whereClauseColumns Columns with where clause
+     * @param mixed[]|null $uniqueColumns      Unique columns
+     * @param mixed[]|null $indexColumns       Indexed columns
      *
-     * @return array
+     * @return mixed[]
      */
     private function getLeftJoinColumnCandidatesBest(
         array $searchTables,

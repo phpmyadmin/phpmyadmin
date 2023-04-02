@@ -619,6 +619,7 @@ class ImportCsv extends AbstractImportCsv
         return $sqlStatements;
     }
 
+    /** @return mixed[] */
     private function buildErrorsForParams(
         string $csvTerminated,
         string $csvEnclosed,
@@ -727,6 +728,12 @@ class ImportCsv extends AbstractImportCsv
         return $importFileName;
     }
 
+    /**
+     * @param mixed[] $columnNames
+     * @param mixed[] $rows
+     *
+     * @return mixed[]
+     */
     private function getColumnNames(array $columnNames, int $maxCols, array $rows): array
     {
         if (isset($_REQUEST['csv_col_names'])) {
@@ -748,6 +755,7 @@ class ImportCsv extends AbstractImportCsv
         return $columnNames;
     }
 
+    /** @return mixed[] */
     private function getSqlTemplateAndRequiredFields(
         string|null $db,
         string|null $table,

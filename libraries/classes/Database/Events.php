@@ -256,7 +256,7 @@ class Events
     /**
      * This function will generate the values that are required to for the editor
      *
-     * @return array    Data necessary to create the editor.
+     * @return mixed[]    Data necessary to create the editor.
      */
     public function getDataFromRequest(): array
     {
@@ -295,7 +295,7 @@ class Events
      *
      * @param string $name The name of the event.
      *
-     * @return array|null Data necessary to create the editor.
+     * @return mixed[]|null Data necessary to create the editor.
      */
     public function getDataFromName(string $name): array|null
     {
@@ -340,13 +340,13 @@ class Events
     /**
      * Displays a form used to add/edit an event
      *
-     * @param string $mode      If the editor will be used to edit an event
-     *                          or add a new one: 'edit' or 'add'.
-     * @param string $operation If the editor was previously invoked with
-     *                          JS turned off, this will hold the name of
-     *                          the current operation
-     * @param array  $item      Data for the event returned by
-     *                          getDataFromRequest() or getDataFromName()
+     * @param string  $mode      If the editor will be used to edit an event
+     *                           or add a new one: 'edit' or 'add'.
+     * @param string  $operation If the editor was previously invoked with
+     *                           JS turned off, this will hold the name of
+     *                           the current operation
+     * @param mixed[] $item      Data for the event returned by
+     *                         getDataFromRequest() or getDataFromName()
      *
      * @return string   HTML code for the editor.
      */
@@ -470,9 +470,9 @@ class Events
 
     /**
      * @param string|null $createStatement Query
-     * @param array       $errors          Errors
+     * @param mixed[]     $errors          Errors
      *
-     * @return array
+     * @return mixed[]
      */
     private function checkResult(string|null $createStatement, array $errors): array
     {
@@ -492,11 +492,11 @@ class Events
     /**
      * Send editor via ajax or by echoing.
      *
-     * @param string     $mode      Editor mode 'add' or 'edit'
-     * @param array|null $item      Data necessary to create the editor
-     * @param string     $title     Title of the editor
-     * @param string     $db        Database
-     * @param string     $operation Operation 'change' or ''
+     * @param string       $mode      Editor mode 'add' or 'edit'
+     * @param mixed[]|null $item      Data necessary to create the editor
+     * @param string       $title     Title of the editor
+     * @param string       $db        Database
+     * @param string       $operation Operation 'change' or ''
      */
     private function sendEditor(string $mode, array|null $item, string $title, string $db, string $operation): void
     {
@@ -588,7 +588,7 @@ class Events
      * @param string $db   db name
      * @param string $name event name
      *
-     * @return array information about EVENTs
+     * @return mixed[] information about EVENTs
      */
     public function getDetails(string $db, string $name = ''): array
     {

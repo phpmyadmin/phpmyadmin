@@ -397,7 +397,7 @@ class Relation
      * @param string $column the name of the column to check for
      * @param string $source the source for foreign key information
      *
-     * @return array    db,table,column
+     * @return mixed[]    db,table,column
      */
     public function getForeigners(string $db, string $table, string $column = '', string $source = 'both'): array
     {
@@ -521,7 +521,7 @@ class Relation
      * @param string $db    the name of the db to check for
      * @param string $table the name of the table to check for
      *
-     * @return array    [column_name] = comment
+     * @return mixed[]    [column_name] = comment
      */
     public function getComments(string $db, string $table = ''): array
     {
@@ -575,7 +575,7 @@ class Relation
     /**
      * Gets the comment for a db
      *
-     * @return array comments
+     * @return mixed[] comments
      */
     public function getDbComments(): array
     {
@@ -693,7 +693,7 @@ class Relation
      *
      * @param string $username the username
      *
-     * @return array|bool list of history items
+     * @return mixed[]|bool list of history items
      */
     public function getHistory(string $username): array|bool
     {
@@ -769,9 +769,9 @@ class Relation
     /**
      * Prepares the dropdown for one mode
      *
-     * @param array  $foreign the keys and values for foreigns
-     * @param string $data    the current data of the dropdown
-     * @param string $mode    the needed mode
+     * @param mixed[] $foreign the keys and values for foreigns
+     * @param string  $data    the current data of the dropdown
+     * @param string  $mode    the needed mode
      *
      * @return string[] the <option value=""><option>s
      */
@@ -859,11 +859,11 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
-     * @param array[]  $dispRow        array of the displayed row
-     * @param string   $foreignField   the foreign field
-     * @param string   $foreignDisplay the foreign field to display
-     * @param string   $data           the current data of the dropdown (field in row)
-     * @param int|null $max            maximum number of items in the dropdown
+     * @param mixed[][] $dispRow        array of the displayed row
+     * @param string    $foreignField   the foreign field
+     * @param string    $foreignDisplay the foreign field to display
+     * @param string    $data           the current data of the dropdown (field in row)
+     * @param int|null  $max            maximum number of items in the dropdown
      *
      * @return string   the <option value=""><option>s
      */
@@ -955,14 +955,14 @@ class Relation
     /**
      * Gets foreign keys in preparation for a drop-down selector
      *
-     * @param array|bool $foreigners    array of the foreign keys
-     * @param string     $field         the foreign field name
-     * @param bool       $overrideTotal whether to override the total
-     * @param string     $foreignFilter a possible filter
-     * @param string     $foreignLimit  a possible LIMIT clause
-     * @param bool       $getTotal      optional, whether to get total num of rows
-     *                                   in $foreignData['the_total;]
-     *                                   (has an effect of performance)
+     * @param mixed[]|bool $foreigners    array of the foreign keys
+     * @param string       $field         the foreign field name
+     * @param bool         $overrideTotal whether to override the total
+     * @param string       $foreignFilter a possible filter
+     * @param string       $foreignLimit  a possible LIMIT clause
+     * @param bool         $getTotal      optional, whether to get total num of rows
+     *                                    in $foreignData['the_total;]
+     *                                    (has an effect of performance)
      *
      * @return array<string, mixed>    data about the foreign keys
      * @psalm-return array{
@@ -1328,6 +1328,8 @@ class Relation
      * @param string $db     name of master table db.
      * @param string $table  name of master table.
      * @param string $column name of master table column.
+     *
+     * @return mixed[]
      */
     public function getChildReferences(string $db, string $table, string $column = ''): array
     {
@@ -1356,11 +1358,11 @@ class Relation
     /**
      * Check child table references and foreign key for a table column.
      *
-     * @param string     $db                  name of master table db.
-     * @param string     $table               name of master table.
-     * @param string     $column              name of master table column.
-     * @param array|null $foreignersFull      foreigners array for the whole table.
-     * @param array|null $childReferencesFull child references for the whole table.
+     * @param string       $db                  name of master table db.
+     * @param string       $table               name of master table.
+     * @param string       $column              name of master table column.
+     * @param mixed[]|null $foreignersFull      foreigners array for the whole table.
+     * @param mixed[]|null $childReferencesFull child references for the whole table.
      *
      * @return array<string, mixed> telling about references if foreign key.
      * @psalm-return array{isEditable: bool, isForeignKey: bool, isReferenced: bool, references: string[]}
@@ -1419,8 +1421,8 @@ class Relation
     /**
      * Search a table column in foreign data.
      *
-     * @param array  $foreigners Table Foreign data
-     * @param string $column     Column name
+     * @param mixed[] $foreigners Table Foreign data
+     * @param string  $column     Column name
      */
     public function searchColumnInForeigners(array $foreigners, string $column): array|false
     {
@@ -1452,6 +1454,8 @@ class Relation
 
     /**
      * Returns default PMA table names and their create queries.
+     *
+     * @param mixed[] $tableNameReplacements
      *
      * @return array<string, string> table name, create query
      */
@@ -1649,7 +1653,7 @@ class Relation
      * @param string $db        database name
      * @param string $table     table name
      *
-     * @return array ($res_rel, $have_rel)
+     * @return mixed[] ($res_rel, $have_rel)
      * @psalm-return array{array, bool}
      */
     public function getRelationsAndStatus(bool $condition, string $db, string $table): array
@@ -1699,7 +1703,7 @@ class Relation
      * @param string $foreignDb        Database name
      * @param string $tblStorageEngine Table storage engine
      *
-     * @return array Table names
+     * @return mixed[] Table names
      */
     public function getTables(string $foreignDb, string $tblStorageEngine): array
     {

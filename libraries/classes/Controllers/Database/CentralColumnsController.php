@@ -148,7 +148,7 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['message'] = $tmpMsg;
     }
 
-    /** @param array $params Request parameters */
+    /** @param mixed[] $params Request parameters */
     public function main(array $params): void
     {
         $GLOBALS['text_dir'] ??= null;
@@ -175,9 +175,9 @@ class CentralColumnsController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
-     * @return array JSON
+     * @return mixed[] JSON
      */
     public function getColumnList(array $params): array
     {
@@ -185,7 +185,7 @@ class CentralColumnsController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return true|Message
      */
@@ -211,7 +211,7 @@ class CentralColumnsController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return true|Message
      */
@@ -237,7 +237,7 @@ class CentralColumnsController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return true|Message
      */
@@ -250,7 +250,7 @@ class CentralColumnsController extends AbstractController
         );
     }
 
-    /** @param array $params Request parameters */
+    /** @param mixed[] $params Request parameters */
     public function editPage(array $params): void
     {
         $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
@@ -259,7 +259,7 @@ class CentralColumnsController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return true|Message
      */
@@ -269,7 +269,7 @@ class CentralColumnsController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
+     * @param mixed[] $params Request parameters
      *
      * @return true|Message
      */

@@ -162,10 +162,10 @@ class Routines
     /**
      * Handle request to create or edit a routine
      *
-     * @param array  $errors Errors
-     * @param string $db     DB name
+     * @param mixed[] $errors Errors
+     * @param string  $db     DB name
      *
-     * @return array
+     * @return mixed[]
      */
     public function handleRequestCreateOrEdit(array $errors, string $db): array
     {
@@ -289,7 +289,7 @@ class Routines
     /**
      * Backup the privileges
      *
-     * @return array
+     * @return mixed[]
      */
     public function backupPrivileges(): array
     {
@@ -315,11 +315,11 @@ class Routines
     /**
      * Create the routine
      *
-     * @param string $routineQuery     Query to create routine
-     * @param string $createRoutine    Query to restore routine
-     * @param array  $privilegesBackup Privileges backup
+     * @param string  $routineQuery     Query to create routine
+     * @param string  $createRoutine    Query to restore routine
+     * @param mixed[] $privilegesBackup Privileges backup
      *
-     * @return array
+     * @return mixed[]
      */
     public function create(
         string $routineQuery,
@@ -409,7 +409,7 @@ class Routines
      * the 'Add another parameter', 'Remove last parameter' and
      * 'Change routine type' functionalities when JS is disabled.
      *
-     * @return array    Data necessary to create the routine editor.
+     * @return mixed[]    Data necessary to create the routine editor.
      */
     public function getDataFromRequest(): array
     {
@@ -527,7 +527,7 @@ class Routines
      * @param string $type Type of routine (ROUTINE|PROCEDURE)
      * @param bool   $all  Whether to return all data or just the info about parameters.
      *
-     * @return array|null    Data necessary to create the routine editor.
+     * @return mixed[]|null    Data necessary to create the routine editor.
      */
     public function getDataFromName(string $name, string $type, bool $all = true): array|null
     {
@@ -637,12 +637,12 @@ class Routines
     /**
      * Creates one row for the parameter table used in the routine editor.
      *
-     * @param array  $routine Data for the routine returned by
-     *                        getDataFromRequest() or getDataFromName()
-     * @param mixed  $index   Either a numeric index of the row being processed
-     *                        or NULL to create a template row for AJAX request
-     * @param string $class   Class used to hide the direction column, if the
-     *                        row is for a stored function.
+     * @param mixed[] $routine Data for the routine returned by
+     *                       getDataFromRequest() or getDataFromName()
+     * @param mixed   $index   Either a numeric index of the row being processed
+     *                         or NULL to create a template row for AJAX request
+     * @param string  $class   Class used to hide the direction column, if the
+     *                         row is for a stored function.
      *
      * @return string    HTML code of one row of parameter table for the editor.
      */
@@ -702,13 +702,13 @@ class Routines
     /**
      * Displays a form used to add/edit a routine
      *
-     * @param string $mode      If the editor will be used to edit a routine
-     *                          or add a new one: 'edit' or 'add'.
-     * @param string $operation If the editor was previously invoked with
-     *                          JS turned off, this will hold the name of
-     *                          the current operation
-     * @param array  $routine   Data for the routine returned by
-     *                          getDataFromRequest() or getDataFromName()
+     * @param string  $mode      If the editor will be used to edit a routine
+     *                           or add a new one: 'edit' or 'add'.
+     * @param string  $operation If the editor was previously invoked with
+     *                           JS turned off, this will hold the name of
+     *                           the current operation
+     * @param mixed[] $routine   Data for the routine returned by
+     *                         getDataFromRequest() or getDataFromName()
      *
      * @return string   HTML code for the editor.
      */
@@ -778,10 +778,10 @@ class Routines
      *
      * @param string[] $itemParamName     The parameter names
      * @param string[] $itemParamDir      The direction parameter (see $this->directions)
-     * @param array    $itemParamType     The parameter type
-     * @param array    $itemParamLength   A length or not for the parameter
-     * @param array    $itemParamOpsText  An optional charset for the parameter
-     * @param array    $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
+     * @param mixed[]  $itemParamType     The parameter type
+     * @param mixed[]  $itemParamLength   A length or not for the parameter
+     * @param mixed[]  $itemParamOpsText  An optional charset for the parameter
+     * @param mixed[]  $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
      * @param string   $itemType          The item type (PROCEDURE/FUNCTION)
      * @param bool     $warnedAboutLength A boolean that will be switched if a the length warning is given
      */
@@ -1051,7 +1051,7 @@ class Routines
     /**
      * @see handleExecuteRoutine
      *
-     * @param array $routine The routine params
+     * @param mixed[] $routine The routine params
      *
      * @return string[] The SQL queries / SQL query parts
      */
@@ -1303,7 +1303,7 @@ class Routines
     /**
      * Browse row array
      *
-     * @param array $row Columns
+     * @param mixed[] $row Columns
      */
     private function browseRow(array $row): string|null
     {
@@ -1324,7 +1324,7 @@ class Routines
     /**
      * Creates the HTML code that shows the routine execution dialog.
      *
-     * @param array $routine Data for the routine returned by
+     * @param mixed[] $routine Data for the routine returned by
      *                       getDataFromName()
      *
      * @return string HTML code for the routine execution dialog.
@@ -1408,8 +1408,8 @@ class Routines
     /**
      * Creates the contents for a row in the list of routines
      *
-     * @param array  $routine  An array of routine data
-     * @param string $rowClass Additional class
+     * @param mixed[] $routine  An array of routine data
+     * @param string  $rowClass Additional class
      *
      * @return string HTML code of a row for the list of routines
      */
@@ -1497,10 +1497,10 @@ class Routines
     }
 
     /**
-     * @param string $createStatement Query
-     * @param array  $errors          Errors
+     * @param string  $createStatement Query
+     * @param mixed[] $errors          Errors
      *
-     * @return array
+     * @return mixed[]
      */
     private function checkResult(string $createStatement, array $errors): array
     {
@@ -1588,7 +1588,7 @@ class Routines
      * @param string|null $which PROCEDURE | FUNCTION or null for both
      * @param string      $name  name of the routine (to fetch a specific routine)
      *
-     * @return array information about PROCEDUREs or FUNCTIONs
+     * @return mixed[] information about PROCEDUREs or FUNCTIONs
      */
     public static function getDetails(
         DatabaseInterface $dbi,

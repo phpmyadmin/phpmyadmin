@@ -41,8 +41,8 @@ class TransformationsTest extends AbstractTestCase
     /**
      * Test for parsing options.
      *
-     * @param string $input    String to parse
-     * @param array  $expected Expected result
+     * @param string  $input    String to parse
+     * @param mixed[] $expected Expected result
      *
      * @dataProvider getOptionsData
      */
@@ -56,6 +56,8 @@ class TransformationsTest extends AbstractTestCase
 
     /**
      * Data provided for parsing options
+     *
+     * @return mixed[][]
      */
     public static function getOptionsData(): array
     {
@@ -245,6 +247,7 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
+    /** @return mixed[][] */
     public static function fixupData(): array
     {
         return [
@@ -272,6 +275,7 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
+    /** @return mixed[][] */
     public static function providerGetDescription(): array
     {
         return [
@@ -297,6 +301,7 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
+    /** @return mixed[][] */
     public static function providerGetName(): array
     {
         return [['../../../../test', ''], ['Input/Text_Plain_SqlEditor', 'SQL'], ['Output/Text_Plain_Sql', 'SQL']];

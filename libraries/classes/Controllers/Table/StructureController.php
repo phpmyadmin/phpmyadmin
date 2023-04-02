@@ -128,9 +128,9 @@ class StructureController extends AbstractController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param array $columnsWithUniqueIndex Columns with unique index
-     * @param array $fields                 Fields
-     * @param array $columnsWithIndex       Columns with index
+     * @param mixed[] $columnsWithUniqueIndex Columns with unique index
+     * @param mixed[] $fields                 Fields
+     * @param mixed[] $columnsWithIndex       Columns with index
      * @psalm-param non-empty-string $route
      */
     protected function displayStructure(

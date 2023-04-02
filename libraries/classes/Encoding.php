@@ -62,7 +62,7 @@ class Encoding
      * - engine contant
      * - extension name to warn when missing
      *
-     * @var array
+     * @var mixed[]
      */
     private static array $enginemap = [
         'iconv' => ['iconv', self::ENGINE_ICONV, 'iconv'],
@@ -74,7 +74,7 @@ class Encoding
     /**
      * Order of automatic detection of engines
      *
-     * @var array
+     * @var mixed[]
      */
     private static array $engineorder = ['iconv', 'mb', 'recode'];
 
@@ -303,7 +303,7 @@ class Encoding
     /**
      * Lists available encodings.
      *
-     * @return array
+     * @return mixed[]
      */
     public static function listEncodings(): array
     {

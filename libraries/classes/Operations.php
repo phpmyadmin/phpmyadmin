@@ -110,7 +110,7 @@ class Operations
      * @param ExportSql $exportSqlPlugin export plugin instance
      * @param string    $db              database name
      *
-     * @return array
+     * @return mixed[]
      */
     public function getViewsAndCreateSqlViewStandIn(
         array $tables,
@@ -155,7 +155,7 @@ class Operations
      * @param bool     $move   whether database name is empty or not
      * @param string   $db     database name
      *
-     * @return array SQL queries for the constraints
+     * @return mixed[] SQL queries for the constraints
      */
     public function copyTables(array $tables, bool $move, string $db, DatabaseName $newDatabaseName): array
     {
@@ -257,9 +257,9 @@ class Operations
     /**
      * Handle the views, return the boolean value whether table rename/copy or not
      *
-     * @param array  $views views as an array
-     * @param bool   $move  whether database name is empty or not
-     * @param string $db    database name
+     * @param mixed[] $views views as an array
+     * @param bool    $move  whether database name is empty or not
+     * @param string  $db    database name
      */
     public function handleTheViews(array $views, bool $move, string $db, DatabaseName $newDatabaseName): void
     {
@@ -423,7 +423,7 @@ class Operations
     /**
      * Create all accumulated constraints
      *
-     * @param array $sqlConstraints array of sql constraints for the database
+     * @param mixed[] $sqlConstraints array of sql constraints for the database
      */
     public function createAllAccumulatedConstraints(array $sqlConstraints, DatabaseName $newDatabaseName): void
     {
@@ -456,7 +456,7 @@ class Operations
     /**
      * Get array of possible row formats
      *
-     * @return array
+     * @return mixed[]
      */
     public function getPossibleRowFormat(): array
     {
@@ -526,10 +526,10 @@ class Operations
     }
 
     /**
-     * @param array $urlParams          Array of url parameters.
-     * @param bool  $hasRelationFeature If relation feature is enabled.
+     * @param mixed[] $urlParams          Array of url parameters.
+     * @param bool    $hasRelationFeature If relation feature is enabled.
      *
-     * @return array
+     * @return mixed[]
      */
     public function getForeignersForReferentialIntegrityCheck(
         array $urlParams,
@@ -606,7 +606,7 @@ class Operations
      * @param string $transactional       value of transactional
      * @param string $tableCollation      collation of the table
      *
-     * @return array
+     * @return mixed[]
      */
     public function getTableAltersArray(
         Table $pmaTable,

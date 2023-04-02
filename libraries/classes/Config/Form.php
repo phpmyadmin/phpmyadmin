@@ -44,21 +44,21 @@ class Form
     /**
      * Form fields (paths), filled by {@link readFormPaths()}, indexed by field name
      *
-     * @var array
+     * @var mixed[]
      */
     public array $fields;
 
     /**
      * Stores default values for some fields (eg. pmadb tables)
      *
-     * @var array
+     * @var mixed[]
      */
     public array $default;
 
     /**
      * Caches field types, indexed by field names
      *
-     * @var array
+     * @var mixed[]
      */
     private array $fieldsTypes;
 
@@ -76,7 +76,7 @@ class Form
      * Reads default config values
      *
      * @param string     $formName Form name
-     * @param array      $form     Form data
+     * @param mixed[]    $form     Form data
      * @param ConfigFile $cf       Config file instance
      * @param int|null   $index    arbitrary index, stored in Form::$index
      */
@@ -116,7 +116,7 @@ class Form
      *
      * @param string $optionPath Option path
      *
-     * @return array
+     * @return mixed[]
      */
     public function getOptionValueList(string $optionPath): array
     {
@@ -210,7 +210,7 @@ class Form
     /**
      * Reads form paths to {@link $fields}
      *
-     * @param array $form Form
+     * @param mixed[] $form Form
      */
     protected function readFormPaths(array $form): void
     {
@@ -265,9 +265,9 @@ class Form
      *
      * @see issue #15836
      *
-     * @param array $form The form data
+     * @param mixed[] $form The form data
      *
-     * @return array
+     * @return mixed[]
      */
     protected function cleanGroupPaths(array $form): array
     {
@@ -290,8 +290,8 @@ class Form
      * Reads form settings and prepares class to work with given subset of
      * config file
      *
-     * @param string $formName Form name
-     * @param array  $form     Form
+     * @param string  $formName Form name
+     * @param mixed[] $form     Form
      */
     public function loadForm(string $formName, array $form): void
     {

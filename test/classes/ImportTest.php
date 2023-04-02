@@ -132,7 +132,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetColumnAlphaName
      *
-     * @return array
+     * @return mixed[]
      */
     public static function provGetColumnAlphaName(): array
     {
@@ -155,7 +155,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetColumnNumberFromName
      *
-     * @return array
+     * @return mixed[]
      */
     public static function provGetColumnNumberFromName(): array
     {
@@ -178,7 +178,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetDecimalPrecision
      *
-     * @return array
+     * @return mixed[]
      */
     public static function provGetDecimalPrecision(): array
     {
@@ -201,7 +201,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetDecimalScale
      *
-     * @return array
+     * @return mixed[]
      */
     public static function provGetDecimalScale(): array
     {
@@ -211,8 +211,8 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalSize
      *
-     * @param array  $expected Expected result of the function
-     * @param string $cell     Cell content
+     * @param mixed[] $expected Expected result of the function
+     * @param string  $cell     Cell content
      *
      * @dataProvider provGetDecimalSize
      */
@@ -224,7 +224,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetDecimalSize
      *
-     * @return array
+     * @return mixed[]
      */
     public static function provGetDecimalSize(): array
     {
@@ -250,7 +250,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testDetectType
      *
-     * @return array
+     * @return mixed[]
      */
     public static function provDetectType(): array
     {
@@ -296,7 +296,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testSkipByteOrderMarksFromContents
      *
-     * @return array[]
+     * @return mixed[][]
      */
     public static function providerContentWithByteOrderMarks(): array
     {

@@ -62,10 +62,10 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS POLYGON object
-     * @param string $label     Label for the GIS POLYGON object
-     * @param int[]  $color     Color for the GIS POLYGON object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POLYGON object
+     * @param string  $label     Label for the GIS POLYGON object
+     * @param int[]   $color     Color for the GIS POLYGON object
+     * @param mixed[] $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
@@ -111,10 +111,10 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial   GIS POINT object
-     * @param string $label     Label for the GIS POINT object
-     * @param int[]  $color     Color for the GIS POINT object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POINT object
+     * @param string  $label     Label for the GIS POINT object
+     * @param int[]   $color     Color for the GIS POINT object
+     * @param mixed[] $scaleData Array containing data related to scaling
      *
      * @return TCPDF the modified TCPDF instance
      */
@@ -148,10 +148,10 @@ class GisPoint extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial   GIS POINT object
-     * @param string $label     Label for the GIS POINT object
-     * @param int[]  $color     Color for the GIS POINT object
-     * @param array  $scaleData Array containing data related to scaling
+     * @param string  $spatial   GIS POINT object
+     * @param string  $label     Label for the GIS POINT object
+     * @param int[]   $color     Color for the GIS POINT object
+     * @param mixed[] $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
@@ -230,7 +230,7 @@ class GisPoint extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array       $gisData GIS data
+     * @param mixed[]     $gisData GIS data
      * @param int         $index   Index into the parameter object
      * @param string|null $empty   Point does not adhere to this parameter
      *
@@ -251,7 +251,7 @@ class GisPoint extends GisGeometry
     /**
      * Generate the WKT for the data from ESRI shape files.
      *
-     * @param array $rowData GIS data
+     * @param mixed[] $rowData GIS data
      *
      * @return string the WKT for the data from ESRI shape files
      */
@@ -266,7 +266,7 @@ class GisPoint extends GisGeometry
      *
      * @param string $wkt Value of the GIS column
      *
-     * @return array Coordinate params for the GIS data editor from the value of the GIS column
+     * @return mixed[] Coordinate params for the GIS data editor from the value of the GIS column
      */
     protected function getCoordinateParams(string $wkt): array
     {

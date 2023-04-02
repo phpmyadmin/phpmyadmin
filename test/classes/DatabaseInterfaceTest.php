@@ -41,10 +41,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getCurrentUser() method.
      *
-     * @param array|false $value           value
-     * @param string      $string          string
-     * @param array       $expected        expected result
-     * @param bool        $needsSecondCall The test will need to call another time the DB
+     * @param mixed[]|false $value           value
+     * @param string        $string          string
+     * @param mixed[]       $expected        expected result
+     * @param bool          $needsSecondCall The test will need to call another time the DB
      *
      * @dataProvider currentUserData
      */
@@ -70,7 +70,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Data provider for getCurrentUser() tests.
      *
-     * @return array
+     * @return mixed[]
      */
     public static function currentUserData(): array
     {
@@ -250,6 +250,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
     }
 
+    /** @return mixed[][] */
     public static function errorData(): array
     {
         return [
@@ -265,8 +266,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::isAmazonRds() method.
      *
-     * @param array $value    value
-     * @param bool  $expected expected result
+     * @param mixed[] $value    value
+     * @param bool    $expected expected result
      *
      * @dataProvider isAmazonRdsData
      */
@@ -290,7 +291,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Data provider for isAmazonRds() tests.
      *
-     * @return array
+     * @return mixed[]
      */
     public static function isAmazonRdsData(): array
     {
@@ -321,6 +322,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $this->assertEquals($upgrade, $verInt < $mysqlMinVersion);
     }
 
+    /** @return mixed[][] */
     public static function versionData(): array
     {
         return [
@@ -723,7 +725,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Data provider for setVersion() tests.
      *
-     * @return array
+     * @return mixed[]
      * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
      */
     public static function provideDatabaseVersionData(): array

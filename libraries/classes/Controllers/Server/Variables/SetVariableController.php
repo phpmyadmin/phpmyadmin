@@ -30,7 +30,7 @@ final class SetVariableController extends AbstractController
     /**
      * Handle the AJAX request for setting value for a single variable
      *
-     * @param array $vars Request parameters
+     * @param mixed[] $vars Request parameters
      */
     public function __invoke(ServerRequest $request, array $vars): void
     {
@@ -87,7 +87,7 @@ final class SetVariableController extends AbstractController
      * @param string     $name  variable name
      * @param int|string $value variable value
      *
-     * @return array formatted string and bool if string is HTML formatted
+     * @return mixed[] formatted string and bool if string is HTML formatted
      */
     private function formatVariable(string $name, int|string $value): array
     {

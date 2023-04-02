@@ -70,7 +70,7 @@ class RelationStatsDia
      * @param TableStatsDia $table  The current table name
      * @param string        $column The relation column name
      *
-     * @return array Table right,left connection points and key position
+     * @return mixed[] Table right,left connection points and key position
      */
     private function getXy(TableStatsDia $table, string $column): array
     {

@@ -102,7 +102,7 @@ class Menu
      *
      * @param string $level 'server', 'db' or 'table' level
      *
-     * @return array list of allowed tabs
+     * @return mixed[] list of allowed tabs
      */
     private function getAllowedTabs(string $level): array
     {
@@ -203,7 +203,7 @@ class Menu
     /**
      * Returns the table tabs as an array
      *
-     * @return array Data for generating table tabs
+     * @return mixed[] Data for generating table tabs
      */
     private function getTableTabs(): array
     {
@@ -315,7 +315,7 @@ class Menu
     /**
      * Returns the db tabs as an array
      *
-     * @return array Data for generating db tabs
+     * @return mixed[] Data for generating db tabs
      */
     private function getDbTabs(): array
     {
@@ -430,7 +430,7 @@ class Menu
     /**
      * Returns the server tabs as an array
      *
-     * @return array Data for generating server tabs
+     * @return mixed[] Data for generating server tabs
      */
     private function getServerTabs(): array
     {

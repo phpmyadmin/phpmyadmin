@@ -62,7 +62,7 @@ class StructureController extends AbstractController
     /** @var int Number of tables */
     protected int $totalNumTables = 0;
 
-    /** @var array Tables in the database */
+    /** @var mixed[] Tables in the database */
     protected array $tables = [];
 
     /** @var bool whether stats show or not */
@@ -191,7 +191,7 @@ class StructureController extends AbstractController
         ]);
     }
 
-    /** @param array $replicaInfo */
+    /** @param mixed[] $replicaInfo */
     protected function displayTableList(array $replicaInfo): string
     {
         $html = '';
@@ -509,10 +509,10 @@ class StructureController extends AbstractController
     /**
      * Returns whether the row count is approximated
      *
-     * @param array $currentTable array containing details about the table
-     * @param bool  $tableIsView  whether the table is a view
+     * @param mixed[] $currentTable array containing details about the table
+     * @param bool    $tableIsView  whether the table is a view
      *
-     * @return array
+     * @return mixed[]
      */
     protected function isRowCountApproximated(
         array $currentTable,
@@ -554,10 +554,10 @@ class StructureController extends AbstractController
     /**
      * Returns the replication status of the table.
      *
-     * @param array  $replicaInfo
-     * @param string $table       table name
+     * @param mixed[] $replicaInfo
+     * @param string  $table       table name
      *
-     * @return array
+     * @return mixed[]
      */
     protected function getReplicationStatus(array $replicaInfo, string $table): array
     {
@@ -605,8 +605,8 @@ class StructureController extends AbstractController
     /**
      * Find table with truename
      *
-     * @param array  $db       DB to look into
-     * @param string $truename Table name
+     * @param mixed[] $db       DB to look into
+     * @param string  $truename Table name
      */
     protected function hasTable(array $db, string $truename): bool
     {
@@ -631,11 +631,11 @@ class StructureController extends AbstractController
      *
      * @internal param bool $table_is_view whether table is view or not
      *
-     * @param array $currentTable current table
-     * @param int   $sumSize      total table size
-     * @param int   $overheadSize overhead size
+     * @param mixed[] $currentTable current table
+     * @param int     $sumSize      total table size
+     * @param int     $overheadSize overhead size
      *
-     * @return array
+     * @return mixed[]
      */
     protected function getStuffForEngineTypeTable(
         array $currentTable,
@@ -747,15 +747,15 @@ class StructureController extends AbstractController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param array  $currentTable      current table
-     * @param int    $sumSize           sum size
-     * @param int    $overheadSize      overhead size
-     * @param string $formattedSize     formatted size
-     * @param string $unit              unit
-     * @param string $formattedOverhead overhead formatted
-     * @param string $overheadUnit      overhead unit
+     * @param mixed[] $currentTable      current table
+     * @param int     $sumSize           sum size
+     * @param int     $overheadSize      overhead size
+     * @param string  $formattedSize     formatted size
+     * @param string  $unit              unit
+     * @param string  $formattedOverhead overhead formatted
+     * @param string  $overheadUnit      overhead unit
      *
-     * @return array
+     * @return mixed[]
      */
     protected function getValuesForAriaTable(
         array $currentTable,
@@ -790,10 +790,10 @@ class StructureController extends AbstractController
     /**
      * Get values for InnoDB table
      *
-     * @param array $currentTable current table
-     * @param int   $sumSize      sum size
+     * @param mixed[] $currentTable current table
+     * @param int     $sumSize      sum size
      *
-     * @return array
+     * @return mixed[]
      */
     protected function getValuesForInnodbTable(
         array $currentTable,
@@ -828,10 +828,10 @@ class StructureController extends AbstractController
     /**
      * Get values for Mroonga table
      *
-     * @param array $currentTable current table
-     * @param int   $sumSize      sum size
+     * @param mixed[] $currentTable current table
+     * @param int     $sumSize      sum size
      *
-     * @return array
+     * @return mixed[]
      */
     protected function getValuesForMroongaTable(
         array $currentTable,

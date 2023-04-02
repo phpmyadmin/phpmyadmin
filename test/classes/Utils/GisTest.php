@@ -22,10 +22,10 @@ class GisTest extends AbstractTestCase
     }
 
     /**
-     * @param string $expectedQuery The query to expect
-     * @param array  $returnData    The data to return for fetchRow
-     * @param bool   $SRIDOption    Use the SRID option or not
-     * @param int    $mysqlVersion  The mysql version to return for getVersion
+     * @param string  $expectedQuery The query to expect
+     * @param mixed[] $returnData    The data to return for fetchRow
+     * @param bool    $SRIDOption    Use the SRID option or not
+     * @param int     $mysqlVersion  The mysql version to return for getVersion
      *
      * @dataProvider providerConvertToWellKnownText
      */
@@ -70,6 +70,7 @@ class GisTest extends AbstractTestCase
         ));
     }
 
+    /** @return mixed[][] */
     public static function providerConvertToWellKnownText(): array
     {
         return [

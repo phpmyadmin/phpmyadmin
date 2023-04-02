@@ -90,7 +90,7 @@ class Sanitize
     /**
      * Callback function for replacing [a@link@target] links in bb code.
      *
-     * @param array $found Array of preg matches
+     * @param mixed[] $found Array of preg matches
      *
      * @return string Replaced string
      */
