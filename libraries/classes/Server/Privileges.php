@@ -3523,7 +3523,7 @@ class Privileges
 
             // MariaDB uses 'USING' whereas MySQL uses 'AS'
             // but MariaDB with validation plugin needs cleartext password
-            if (Compatibility::isMariaDb() && ! $isMariaDBPwdPluginActive) {
+            if (Compatibility::isMariaDb() && ! $isMariaDBPwdPluginActive && isset($_POST['authentication_plugin'])) {
                 $createUserStmt .= ' USING \'%s\'';
             } elseif (Compatibility::isMariaDb()) {
                 $createUserStmt .= ' IDENTIFIED BY \'%s\'';
