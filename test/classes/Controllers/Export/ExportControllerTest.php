@@ -57,10 +57,10 @@ class ExportControllerTest extends AbstractTestCase
             [['test_db']],
             ['SCHEMA_NAME'],
         );
-        $this->dummyDbi->addResult('SET SQL_MODE=""', [[]]);
-        $this->dummyDbi->addResult('SET time_zone = "+00:00"', [[]]);
+        $this->dummyDbi->addResult('SET SQL_MODE=""', true);
+        $this->dummyDbi->addResult('SET time_zone = "+00:00"', true);
         $this->dummyDbi->addResult('SELECT @@session.time_zone', [['SYSTEM']]);
-        $this->dummyDbi->addResult('SET time_zone = "SYSTEM"', [[]]);
+        $this->dummyDbi->addResult('SET time_zone = "SYSTEM"', true);
         $this->dummyDbi->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);
         $this->dummyDbi->addResult(
             'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'test_db\' LIMIT 1',

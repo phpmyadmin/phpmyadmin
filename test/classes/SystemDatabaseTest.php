@@ -126,7 +126,7 @@ class SystemDatabaseTest extends AbstractTestCase
 
         $dummyDbi->addResult(
             'PMA_sql_query',
-            [true],
+            true,
             [],
             [
                 FieldHelper::fromArray([

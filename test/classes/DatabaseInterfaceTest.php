@@ -41,10 +41,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getCurrentUser() method.
      *
-     * @param mixed[]|false $value           value
-     * @param string        $string          string
-     * @param mixed[]       $expected        expected result
-     * @param bool          $needsSecondCall The test will need to call another time the DB
+     * @param string[][]|false $value           value
+     * @param string           $string          string
+     * @param mixed[]          $expected        expected result
+     * @param bool             $needsSecondCall The test will need to call another time the DB
+     * @psalm-param list<non-empty-list<string>>|false $value
      *
      * @dataProvider currentUserData
      */
@@ -266,8 +267,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::isAmazonRds() method.
      *
-     * @param mixed[] $value    value
-     * @param bool    $expected expected result
+     * @param string[][] $value    value
+     * @param bool       $expected expected result
+     * @psalm-param list<non-empty-list<string>> $value
      *
      * @dataProvider isAmazonRdsData
      */
@@ -341,10 +343,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
-        $dummyDbi->addResult('SET collation_connection = \'utf8mb4_bin_ci\';', [true]);
-        $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
-        $dummyDbi->addResult('SET collation_connection = \'utf8_bin_ci\';', [true]);
+        $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', true);
+        $dummyDbi->addResult('SET collation_connection = \'utf8mb4_bin_ci\';', true);
+        $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', true);
+        $dummyDbi->addResult('SET collation_connection = \'utf8_bin_ci\';', true);
 
         $GLOBALS['charset_connection'] = 'utf8mb4';
         $dbi->setCollation('utf8_czech_ci');
@@ -479,8 +481,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $sql = 'insert into PMA_bookmark A,B values(1, 2)';
-        $dummyDbi->addResult($sql, [true]);
-        $dummyDbi->addResult($sql, [true]);
+        $dummyDbi->addResult($sql, true);
+        $dummyDbi->addResult($sql, true);
         $dummyDbi->addResult('Invalid query', false);
 
         $this->assertInstanceOf(

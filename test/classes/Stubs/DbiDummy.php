@@ -23,10 +23,8 @@ use PHPUnit\Framework\Assert;
 use stdClass;
 
 use function addslashes;
-use function count;
+use function array_map;
 use function is_array;
-use function is_bool;
-use function is_int;
 use function preg_replace;
 use function str_replace;
 use function trim;
@@ -48,20 +46,17 @@ use const MYSQLI_TYPE_STRING;
 class DbiDummy implements DbiExtension
 {
     /**
-     * First in, last out queries
+     * First in, first out queries.
+     * The results will be distributed in the fifo way
      *
-     * The results will be distributed in the filo way
-     *
-     * @phpstan-var array{
-     *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
-     *     'columns'?: string[],
-     *     'metadata'?: object[]|empty-array,
-     *     'used'?: bool,
-     *     'pos'?: int
-     * }[]
+     * @psalm-var array<int<0, max>, array{
+     *     query: string,
+     *     result: list<non-empty-list<string|float|int|null>>|bool,
+     *     columns?: list<non-empty-string>,
+     *     metadata?: list<FieldMetadata>,
+     * }>
      */
-    private array $filoQueries = [];
+    private array $fifoQueries = [];
 
     /**
      * First in, last out queries
@@ -73,13 +68,13 @@ class DbiDummy implements DbiExtension
     private array $fifoDatabasesToSelect = [];
 
     /**
-     * @phpstan-var array{
-     *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
-     *     'columns'?: string[],
-     *     'metadata'?: object[]|empty-array,
-     *     'pos'?: int
-     * }[]
+     * @var array<array<string,array<int,array<string,string|float|int|null>>|bool|string[]|FieldMetaData[]>>
+     * @phpstan-var list<array{
+     *     query: string,
+     *     result: list<non-empty-list<string|float|int|null>>|bool,
+     *     columns?: list<non-empty-string>,
+     *     metadata?: list<FieldMetadata>,
+     * }>
      */
     private array $dummyQueries = [];
 
@@ -88,8 +83,6 @@ class DbiDummy implements DbiExtension
      * @psalm-var non-empty-string[]
      */
     private array $fifoErrorCodes = [];
-
-    public const OFFSET_GLOBAL = 1000;
 
     public function __construct()
     {
@@ -125,56 +118,48 @@ class DbiDummy implements DbiExtension
         Assert::markTestIncomplete('Non expected select of database: ' . $databaseName);
     }
 
-    public function hasUnUsedErrors(): bool
-    {
-        return $this->fifoErrorCodes !== [];
-    }
-
-    /** @return string[] */
-    public function getUnUsedDatabaseSelects(): array
-    {
-        return $this->fifoDatabasesToSelect;
-    }
-
-    /** @return mixed[][] */
-    public function getUnUsedQueries(): array
-    {
-        $unUsed = [];
-        foreach ($this->filoQueries as $query) {
-            if (($query['used'] ?? false) === true) {
-                continue;
-            }
-
-            $unUsed[] = $query;
-        }
-
-        return $unUsed;
-    }
-
     public function assertAllQueriesConsumed(): void
     {
-        Assert::assertSame([], $this->getUnUsedQueries(), 'Some queries where not used!');
+        Assert::assertSame([], $this->fifoQueries, 'Some queries were not used!');
     }
 
-    private function findFiloQuery(string $query): false|int|null
+    /**
+     * @psalm-return array{
+     *     query: string,
+     *     result: list<non-empty-list<string|float|int|null>>|bool,
+     *     columns?: list<non-empty-string>,
+     *     metadata?: list<FieldMetadata>,
+     * }|null
+     */
+    private function findFifoQuery(string $query): array|null
     {
-        for ($i = 0, $nb = count($this->filoQueries); $i < $nb; $i++) {
-            if ($this->filoQueries[$i]['query'] !== $query) {
+        foreach ($this->fifoQueries as $idx => $fifoQuery) {
+            if ($fifoQuery['query'] !== $query) {
                 continue;
             }
 
-            if ($this->filoQueries[$i]['used'] ?? false) {
-                continue;// Is has already been used
+            unset($this->fifoQueries[$idx]);
+
+            return $fifoQuery;
+        }
+
+        return null;
+    }
+
+    /**
+     * @psalm-return array{
+     *     query: string,
+     *     result: list<non-empty-list<string|float|int|null>>|bool,
+     *     columns?: list<non-empty-string>,
+     *     metadata?: list<FieldMetadata>,
+     * }|null
+     */
+    private function findDummyQuery(string $query): array|null
+    {
+        foreach ($this->dummyQueries as $found) {
+            if ($found['query'] === $query) {
+                return $found;
             }
-
-            $this->filoQueries[$i]['pos'] = 0;
-            $this->filoQueries[$i]['used'] = true;
-
-            if (! is_array($this->filoQueries[$i]['result'])) {
-                return false;
-            }
-
-            return $i;
         }
 
         return null;
@@ -189,29 +174,27 @@ class DbiDummy implements DbiExtension
     public function realQuery(string $query, Connection $connection, int $options): DummyResult|false
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
-        $filoQuery = $this->findFiloQuery($query);
-        if ($filoQuery === false) {
+        $found = $this->findFifoQuery($query) ?? $this->findDummyQuery($query);
+        if (! $found) {
+            Assert::markTestIncomplete('Not supported query: ' . $query);
+        }
+
+        if ($found['result'] === false) {
             return false;
         }
 
-        if ($filoQuery !== null) {// Found a matching query
-            return new DummyResult($this, $filoQuery);
+        if (is_array($found['result'])) {
+            // PMA uses mostly textual mysqli protocol. In comparison to prepared statements (binary protocol),
+            // it returns all data types as strings. PMA is not ready to enable automatic cast to int/float, so
+            // in our dummy class we will require values to be string or null.
+            $found['result'] = array_map(static function (array $row): array {
+                return array_map(static function (string|float|int|null $value): string|null {
+                    return $value === null ? null : (string) $value;
+                }, $row);
+            }, $found['result']);
         }
 
-        for ($i = 0, $nb = count($this->dummyQueries); $i < $nb; $i++) {
-            if ($this->dummyQueries[$i]['query'] !== $query) {
-                continue;
-            }
-
-            $this->dummyQueries[$i]['pos'] = 0;
-            if (! is_array($this->dummyQueries[$i]['result'])) {
-                return false;
-            }
-
-            return new DummyResult($this, $i + self::OFFSET_GLOBAL);
-        }
-
-        Assert::markTestIncomplete('Not supported query: ' . $query);
+        return new DummyResult($found);
     }
 
     /**
@@ -222,73 +205,6 @@ class DbiDummy implements DbiExtension
     public function realMultiQuery(Connection $connection, string $query): bool
     {
         return false;
-    }
-
-    /**
-     * returns result data from $result
-     *
-     * @param int $result MySQL result
-     */
-    public function fetchAny(int $result): array|null
-    {
-        $queryData = &$this->getQueryData($result);
-        if ($queryData['pos'] >= count((array) $queryData['result'])) {
-            return null;
-        }
-
-        $ret = $queryData['result'][$queryData['pos']];
-        $queryData['pos'] += 1;
-
-        return $ret;
-    }
-
-    /**
-     * returns array of rows with associative keys from $result
-     *
-     * @param int $result MySQL result
-     */
-    public function fetchAssoc(int $result): array|null
-    {
-        $data = $this->fetchAny($result);
-        $queryData = $this->getQueryData($result);
-        if (! is_array($data) || ! isset($queryData['columns'])) {
-            return $data;
-        }
-
-        $ret = [];
-        foreach ($data as $key => $val) {
-            $ret[$queryData['columns'][$key]] = $val;
-        }
-
-        return $ret;
-    }
-
-    /**
-     * returns array of rows with numeric keys from $result
-     *
-     * @param int $result MySQL result
-     */
-    public function fetchRow(int $result): array|null
-    {
-        return $this->fetchAny($result);
-    }
-
-    /**
-     * Adjusts the result pointer to an arbitrary row in the result
-     *
-     * @param int $result database result
-     * @param int $offset offset to seek
-     */
-    public function dataSeek(int $result, int $offset): bool
-    {
-        $queryData = &$this->getQueryData($result);
-        if ($offset > count($queryData['result'])) {
-            return false;
-        }
-
-        $queryData['pos'] = $offset;
-
-        return true;
     }
 
     /**
@@ -362,24 +278,6 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * returns the number of rows returned by last query
-     *
-     * @param int|bool $result MySQL result
-     *
-     * @psalm-return int|numeric-string
-     */
-    public function numRows(int|bool $result): string|int
-    {
-        if (is_bool($result)) {
-            return 0;
-        }
-
-        $queryData = $this->getQueryData($result);
-
-        return count($queryData['result']);
-    }
-
-    /**
      * returns the number of rows affected by last query
      *
      * @psalm-return int|numeric-string
@@ -387,48 +285,6 @@ class DbiDummy implements DbiExtension
     public function affectedRows(Connection $connection): int|string
     {
         return $GLOBALS['cached_affected_rows'] ?? 0;
-    }
-
-    /**
-     * returns metainfo for fields in $result
-     *
-     * @param int $result result set identifier
-     *
-     * @return FieldMetadata[] meta info for fields in $result
-     */
-    public function getFieldsMeta(int $result): array
-    {
-        $queryData = $this->getQueryData($result);
-        /** @var FieldMetadata[] $metadata */
-        $metadata = $queryData['metadata'] ?? [];
-
-        if (isset($queryData['columns'])) {
-            /** @var string[] $columns */
-            $columns = $queryData['columns'];
-            foreach ($columns as $i => $column) {
-                if (isset($metadata[$i])) {
-                    $metadata[$i]->name = $column;
-                } else {
-                    $metadata[$i] = FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => $column]);
-                }
-            }
-        }
-
-        return $metadata;
-    }
-
-    /**
-     * return number of fields in given $result
-     *
-     * @param int $result MySQL result
-     *
-     * @return int  field count
-     */
-    public function numFields(int $result): int
-    {
-        $queryData = $this->getQueryData($result);
-
-        return count($queryData['columns'] ?? []);
     }
 
     /**
@@ -451,15 +307,17 @@ class DbiDummy implements DbiExtension
     /**
      * Adds query result for testing
      *
-     * @param string     $query    SQL
-     * @param array|bool $result   Expected result
-     * @param string[]   $columns  The result columns
-     * @param object[]   $metadata The result metadata
-     * @phpstan-param array<int, array<int, array{string: string}|bool|int|string|null>|bool>|bool $result
+     * @param string                                           $query    SQL
+     * @param array<int,array<int,string|float|int|null>>|bool $result   Expected result
+     * @param string[]                                         $columns  The result columns
+     * @param FieldMetadata[]                                  $metadata The result metadata
+     * @psalm-param list<non-empty-list<string|float|int|null>>|bool $result
+     * @psalm-param list<non-empty-string> $columns
+     * @psalm-param list<FieldMetadata> $metadata
      */
     public function addResult(string $query, array|bool $result, array $columns = [], array $metadata = []): void
     {
-        $this->filoQueries[] = [
+        $this->fifoQueries[] = [
             'query' => $query,
             'result' => $result,
             'columns' => $columns,
@@ -495,37 +353,14 @@ class DbiDummy implements DbiExtension
         return 0;
     }
 
-    /**
-     * Return query data for ID
-     *
-     * @param object|int $result result set identifier
-     *
-     * @return array<mixed>
-     */
-    private function &getQueryData(object|int $result): array
-    {
-        if (! is_int($result)) {
-            $return = [];
-
-            // This never happens
-            return $return;
-        }
-
-        if ($result >= self::OFFSET_GLOBAL) {
-            return $this->dummyQueries[$result - self::OFFSET_GLOBAL];
-        }
-
-        return $this->filoQueries[$result];
-    }
-
     public function assertAllSelectsConsumed(): void
     {
-        Assert::assertSame([], $this->getUnUsedDatabaseSelects(), 'Some database selects where not used!');
+        Assert::assertSame([], $this->fifoDatabasesToSelect, 'Some database selects were not used!');
     }
 
     public function assertAllErrorCodesConsumed(): void
     {
-        Assert::assertFalse($this->hasUnUsedErrors(), 'Some error codes where not used!');
+        Assert::assertSame([], $this->fifoErrorCodes, 'Some error codes were not used!');
     }
 
     private function init(): void
@@ -559,15 +394,17 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SHOW MASTER LOGS',
-                'result' => [['Log_name' => 'index1','File_size' => 100], ['Log_name' => 'index2','File_size' => 200]],
+                'columns' => ['Log_name', 'File_size'],
+                'result' => [['index1', 100], ['index2', 200]],
             ],
             [
                 'query' => 'SHOW STORAGE ENGINES',
+                'columns' => ['Engine', 'Support', 'Comment'],
                 'result' => [
-                    ['Engine' => 'dummy', 'Support' => 'YES', 'Comment' => 'dummy comment'],
-                    ['Engine' => 'dummy2', 'Support' => 'NO', 'Comment' => 'dummy2 comment'],
-                    ['Engine' => 'FEDERATED', 'Support' => 'NO', 'Comment' => 'Federated MySQL storage engine'],
-                    ['Engine' => 'Pbxt', 'Support' => 'NO', 'Comment' => 'Pbxt storage engine'],
+                    ['dummy', 'YES', 'dummy comment'],
+                    ['dummy2', 'NO', 'dummy2 comment'],
+                    ['FEDERATED', 'NO', 'Federated MySQL storage engine'],
+                    ['Pbxt', 'NO', 'Pbxt storage engine'],
                 ],
             ],
             [
@@ -692,7 +529,7 @@ class DbiDummy implements DbiExtension
                     'input_transformation',
                     'input_transformation_options',
                 ],
-                'result' => [['o','text/plain','sql','','regex','/pma/i'], ['col','t','o/p','','i/p','']],
+                'result' => [['o', 'text/plain', 'sql', '', 'regex', '/pma/i'], ['col', 't', 'o/p', '', 'i/p', '']],
             ],
             [
                 'query' => 'SELECT `column_name`, `mimetype`, `transformation`,'
@@ -844,8 +681,8 @@ class DbiDummy implements DbiExtension
                         '123456',
                         '42',
                         '21708991',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
+                        '281474976710655', // MyISAM
+                        '2048', // MyISAM
                         '2547',
                         '5',
                         '2014-06-24 17:30:00',
@@ -862,8 +699,8 @@ class DbiDummy implements DbiExtension
                         '123456',
                         '42',
                         '21708991',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
+                        '281474976710655', // MyISAM
+                        '2048', // MyISAM
                         '2547',
                         '5',
                         '2014-06-24 17:30:00',
@@ -1040,54 +877,83 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SHOW SLAVE STATUS',
+                'columns' => [
+                    'Slave_IO_State',
+                    'Master_Host',
+                    'Master_User',
+                    'Master_Port',
+                    'Connect_Retry',
+                    'Master_Log_File',
+                    'Read_Master_Log_Pos',
+                    'Relay_Log_File',
+                    'Relay_Log_Pos',
+                    'Relay_Master_Log_File',
+                    'Slave_IO_Running',
+                    'Slave_SQL_Running',
+                    'Replicate_Do_DB',
+                    'Replicate_Ignore_DB',
+                    'Replicate_Do_Table',
+                    'Replicate_Ignore_Table',
+                    'Replicate_Wild_Do_Table',
+                    'Replicate_Wild_Ignore_Table',
+                    'Last_Errno',
+                    'Last_Error',
+                    'Skip_Counter',
+                    'Exec_Master_Log_Pos',
+                    'Relay_Log_Space',
+                    'Until_Condition',
+                    'Until_Log_File',
+                    'Until_Log_Pos',
+                    'Master_SSL_Allowed',
+                    'Master_SSL_CA_File',
+                    'Master_SSL_CA_Path',
+                    'Master_SSL_Cert',
+                    'Master_SSL_Cipher',
+                    'Master_SSL_Key',
+                    'Seconds_Behind_Master',
+                ],
                 'result' => [
                     [
-                        'Slave_IO_State' => 'running',
-                        'Master_Host' => 'localhost',
-                        'Master_User' => 'Master_User',
-                        'Master_Port' => '1002',
-                        'Connect_Retry' => 'Connect_Retry',
-                        'Master_Log_File' => 'Master_Log_File',
-                        'Read_Master_Log_Pos' => 'Read_Master_Log_Pos',
-                        'Relay_Log_File' => 'Relay_Log_File',
-                        'Relay_Log_Pos' => 'Relay_Log_Pos',
-                        'Relay_Master_Log_File' => 'Relay_Master_Log_File',
-                        'Slave_IO_Running' => 'NO',
-                        'Slave_SQL_Running' => 'NO',
-                        'Replicate_Do_DB' => 'Replicate_Do_DB',
-                        'Replicate_Ignore_DB' => 'Replicate_Ignore_DB',
-                        'Replicate_Do_Table' => 'Replicate_Do_Table',
-                        'Replicate_Ignore_Table' => 'Replicate_Ignore_Table',
-                        'Replicate_Wild_Do_Table' => 'Replicate_Wild_Do_Table',
-                        'Replicate_Wild_Ignore_Table' => 'Replicate_Wild_Ignore_Table',
-                        'Last_Errno' => 'Last_Errno',
-                        'Last_Error' => 'Last_Error',
-                        'Skip_Counter' => 'Skip_Counter',
-                        'Exec_Master_Log_Pos' => 'Exec_Master_Log_Pos',
-                        'Relay_Log_Space' => 'Relay_Log_Space',
-                        'Until_Condition' => 'Until_Condition',
-                        'Until_Log_File' => 'Until_Log_File',
-                        'Until_Log_Pos' => 'Until_Log_Pos',
-                        'Master_SSL_Allowed' => 'Master_SSL_Allowed',
-                        'Master_SSL_CA_File' => 'Master_SSL_CA_File',
-                        'Master_SSL_CA_Path' => 'Master_SSL_CA_Path',
-                        'Master_SSL_Cert' => 'Master_SSL_Cert',
-                        'Master_SSL_Cipher' => 'Master_SSL_Cipher',
-                        'Master_SSL_Key' => 'Master_SSL_Key',
-                        'Seconds_Behind_Master' => 'Seconds_Behind_Master',
+                        'running',
+                        'localhost',
+                        'Master_User',
+                        '1002',
+                        'Connect_Retry',
+                        'Master_Log_File',
+                        'Read_Master_Log_Pos',
+                        'Relay_Log_File',
+                        'Relay_Log_Pos',
+                        'Relay_Master_Log_File',
+                        'NO',
+                        'NO',
+                        'Replicate_Do_DB',
+                        'Replicate_Ignore_DB',
+                        'Replicate_Do_Table',
+                        'Replicate_Ignore_Table',
+                        'Replicate_Wild_Do_Table',
+                        'Replicate_Wild_Ignore_Table',
+                        'Last_Errno',
+                        'Last_Error',
+                        'Skip_Counter',
+                        'Exec_Master_Log_Pos',
+                        'Relay_Log_Space',
+                        'Until_Condition',
+                        'Until_Log_File',
+                        'Until_Log_Pos',
+                        'Master_SSL_Allowed',
+                        'Master_SSL_CA_File',
+                        'Master_SSL_CA_Path',
+                        'Master_SSL_Cert',
+                        'Master_SSL_Cipher',
+                        'Master_SSL_Key',
+                        'Seconds_Behind_Master',
                     ],
                 ],
             ],
             [
                 'query' => 'SHOW MASTER STATUS',
-                'result' => [
-                    [
-                        'File' => 'primary-bin.000030',
-                        'Position' => '107',
-                        'Binlog_Do_DB' => 'Binlog_Do_DB',
-                        'Binlog_Ignore_DB' => 'Binlog_Ignore_DB',
-                    ],
-                ],
+                'columns' => ['File', 'Position', 'Binlog_Do_DB', 'Binlog_Ignore_DB'],
+                'result' => [['primary-bin.000030', '107', 'Binlog_Do_DB', 'Binlog_Ignore_DB']],
             ],
             ['query' => 'SHOW GRANTS', 'result' => []],
             [
@@ -1144,33 +1010,41 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SHOW PLUGINS',
-                'result' => [
-                    [
-                        'Name' => 'partition',
-                        'Status' => 'ACTIVE',
-                        'Type' => 'STORAGE ENGINE',
-                        'Library' => null,
-                        'License' => 'GPL',
-                    ],
-                ],
+                'columns' => ['Name', 'Status', 'Type', 'Library', 'License'],
+                'result' => [['partition', 'ACTIVE', 'STORAGE ENGINE', null, 'GPL']],
             ],
             [
                 'query' => 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME',
+                'columns' => [
+                    'PLUGIN_NAME',
+                    'PLUGIN_VERSION',
+                    'PLUGIN_STATUS',
+                    'PLUGIN_TYPE',
+                    'PLUGIN_TYPE_VERSION',
+                    'PLUGIN_LIBRARY',
+                    'PLUGIN_LIBRARY_VERSION',
+                    'PLUGIN_AUTHOR',
+                    'PLUGIN_DESCRIPTION',
+                    'PLUGIN_LICENSE',
+                    'LOAD_OPTION',
+                    'PLUGIN_MATURITY',
+                    'PLUGIN_AUTH_VERSION',
+                ],
                 'result' => [
                     [
-                        'PLUGIN_NAME' => 'BLACKHOLE',
-                        'PLUGIN_VERSION' => '1.0',
-                        'PLUGIN_STATUS' => 'ACTIVE',
-                        'PLUGIN_TYPE' => 'STORAGE ENGINE',
-                        'PLUGIN_TYPE_VERSION' => '100316.0',
-                        'PLUGIN_LIBRARY' => 'ha_blackhole.so',
-                        'PLUGIN_LIBRARY_VERSION' => '1.13',
-                        'PLUGIN_AUTHOR' => 'MySQL AB',
-                        'PLUGIN_DESCRIPTION' => '/dev/null storage engine (anything you write to it disappears)',
-                        'PLUGIN_LICENSE' => 'GPL',
-                        'LOAD_OPTION' => 'ON',
-                        'PLUGIN_MATURITY' => 'Stable',
-                        'PLUGIN_AUTH_VERSION' => '1.0',
+                        'BLACKHOLE',
+                        '1.0',
+                        'ACTIVE',
+                        'STORAGE ENGINE',
+                        '100316.0',
+                        'ha_blackhole.so',
+                        '1.13',
+                        'MySQL AB',
+                        '/dev/null storage engine (anything you write to it disappears)',
+                        'GPL',
+                        'ON',
+                        'Stable',
+                        '1.0',
                     ],
                 ],
             ],
@@ -1183,7 +1057,11 @@ class DbiDummy implements DbiExtension
                     . "WHERE `Table_type` NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
                 'result' => [],
             ],
-            ['query' => "SHOW FUNCTION STATUS WHERE `Db`='default'", 'result' => [['Name' => 'testFunction']]],
+            [
+                'query' => "SHOW FUNCTION STATUS WHERE `Db`='default'",
+                'columns' => ['Name'],
+                'result' => [['testFunction']],
+            ],
             ['query' => "SHOW PROCEDURE STATUS WHERE `Db`='default'", 'result' => []],
             ['query' => 'SHOW EVENTS FROM `default`', 'result' => []],
             ['query' => 'FLUSH PRIVILEGES', 'result' => []],
@@ -1214,7 +1092,8 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT @@default_authentication_plugin',
-                'result' => [['@@default_authentication_plugin' => 'mysql_native_password']],
+                'columns' => ['@@default_authentication_plugin'],
+                'result' => [['mysql_native_password']],
             ],
             [
                 'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS WHERE '
@@ -1275,8 +1154,8 @@ class DbiDummy implements DbiExtension
                         '123456',
                         '42',
                         '18',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
+                        '281474976710655', // MyISAM
+                        '2048', // MyISAM
                         '2547',
                         '5',
                         '2014-06-24 17:30:00',
@@ -1322,8 +1201,8 @@ class DbiDummy implements DbiExtension
                         '123456',
                         '42',
                         '21708991',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
+                        '281474976710655', // MyISAM
+                        '2048', // MyISAM
                         '2547',
                         '5',
                         '2014-06-24 17:30:00',
@@ -1342,13 +1221,8 @@ class DbiDummy implements DbiExtension
                     . " FROM `information_schema`.SCHEMATA s WHERE `SCHEMA_NAME` LIKE 'pma_test'"
                     . ' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY'
                     . ' BINARY `SCHEMA_NAME` ASC) a',
-                'result' => [
-                    [
-                        'BIN_NAME' => 'pma_test',
-                        'DEFAULT_COLLATION_NAME' => 'utf8mb4_general_ci',
-                        'SCHEMA_NAME' => 'pma_test',
-                    ],
-                ],
+                'columns' => ['BIN_NAME', 'DEFAULT_COLLATION_NAME', 'SCHEMA_NAME'],
+                'result' => [['pma_test', 'utf8mb4_general_ci', 'pma_test']],
             ],
             [
                 'query' => 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
@@ -1468,35 +1342,27 @@ class DbiDummy implements DbiExtension
                     . " WHERE referenced_table_name IS NOT NULL AND TABLE_SCHEMA = 'test'"
                     . " AND TABLE_NAME IN ('table1','table2') AND"
                     . " REFERENCED_TABLE_NAME IN ('table1','table2');",
-                'result' => [
-                    [
-                        'TABLE_NAME' => 'table2',
-                        'COLUMN_NAME' => 'idtable2',
-                        'REFERENCED_TABLE_NAME' => 'table1',
-                        'REFERENCED_COLUMN_NAME' => 'idtable1',
-                    ],
-                ],
+                'columns' => ['TABLE_NAME', 'COLUMN_NAME', 'REFERENCED_TABLE_NAME', 'REFERENCED_COLUMN_NAME'],
+                'result' => [['table2', 'idtable2', 'table1', 'idtable1']],
             ],
             [
                 'query' => 'SELECT `item_name`, `item_type` FROM `pmadb`.`navigationhiding`'
                     . " WHERE `username`='user' AND `db_name`='db' AND `table_name`=''",
-                'result' => [
-                    ['item_name' => 'tableName', 'item_type' => 'table'],
-                    ['item_name' => 'viewName', 'item_type' => 'view'],
-                ],
+                'columns' => ['item_name', 'item_type'],
+                'result' => [['tableName', 'table'], ['viewName', 'view']],
             ],
             [
                 'query' => 'SELECT `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` ='
                     . ' \'PMA_username\' AND `Host` = \'PMA_hostname\' AND `Db` ='
                     . ' \'PMA_db\' AND `Table_name` = \'PMA_table\';',
-                'result' => [['Table_priv' => 'Select,Insert,Update,References,Create View,Show view']],
+                'columns' => ['Table_priv'],
+                'result' => [['Select,Insert,Update,References,Create View,Show view']],
             ],
             ['query' => 'SHOW COLUMNS FROM `my_db`.`test_tbl`', 'result' => []],
             [
                 'query' => 'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-                'result' => [
-                    ['Type' => 'set(\'Select\',\'Insert\',\'Update\',\'References\',\'Create View\',\'Show view\')'],
-                ],
+                'columns' => ['Type'],
+                'result' => [['set(\'Select\',\'Insert\',\'Update\',\'References\',\'Create View\',\'Show view\')']],
             ],
             [
                 'query' => 'SHOW COLUMNS FROM `PMA_db`.`PMA_table`;',
@@ -1544,7 +1410,7 @@ class DbiDummy implements DbiExtension
                     . ' db, sql_text, COUNT(sql_text) AS \'#\' FROM `mysql`.`slow_log` WHERE'
                     . ' start_time > FROM_UNIXTIME(0) AND start_time < FROM_UNIXTIME(10) GROUP BY start_time, user_host, db, sql_text',
                 'columns' => ['sql_text', '#'],
-                'result' => [['insert sql_text',11], ['update sql_text',10]],
+                'result' => [['insert sql_text', 11], ['update sql_text', 10]],
             ],
             [
                 'query' => 'SELECT TIME(event_time) as event_time, user_host, thread_id,'
@@ -1563,7 +1429,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'EXPLAIN query',
                 'columns' => ['sql_text', '#', 'argument'],
-                'result' => [['insert sql_text',10,'argument argument2']],
+                'result' => [['insert sql_text', 10, 'argument argument2']],
             ],
             [
                 'query' => 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq',
@@ -1589,13 +1455,13 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT * FROM `db`.`table` WHERE `username` = \'user\''
                     . ' AND `export_type` = \'type\' ORDER BY `template_name`;',
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
-                'result' => [['1','user1','type1','name1','data1'], ['2','user2','type2','name2','data2']],
+                'result' => [['1', 'user1', 'type1', 'name1', 'data1'], ['2', 'user2', 'type2', 'name2', 'data2']],
             ],
             ['query' => 'DELETE FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';', 'result' => []],
             [
                 'query' => 'SELECT * FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
-                'result' => [['1','user1','type1','name1','data1']],
+                'result' => [['1', 'user1', 'type1', 'name1', 'data1']],
             ],
             [
                 'query' => 'UPDATE `db`.`table` SET `template_data` = \'data\''
@@ -1605,7 +1471,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SHOW SLAVE HOSTS',
                 'columns' => ['Server_id', 'Host'],
-                'result' => [['Server_id1','Host1'], ['Server_id2','Host2']],
+                'result' => [['Server_id1', 'Host1'], ['Server_id2', 'Host2']],
             ],
             ['query' => 'SHOW ALL SLAVES STATUS', 'result' => []],
             [
@@ -1679,7 +1545,7 @@ class DbiDummy implements DbiExtension
                 . ') filtered_tables '
                 . 'JOIN `pmadb`.`tracking` USING(table_name, version)',
                 'columns' => ['table_name', 'tracking_active'],
-                'result' => [['0', '1'],['actor', '0']],
+                'result' => [['0', '1'], ['actor', '0']],
             ],
             [
                 'query' => 'SHOW TABLES FROM `dummyDb`;',
@@ -1862,7 +1728,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SHOW PROCEDURE STATUS;',
                 'columns' => ['Db', 'Name', 'Type'],
-                'result' => [['test_db','test_proc1','PROCEDURE'], ['test_db','test_proc2','PROCEDURE']],
+                'result' => [['test_db', 'test_proc1', 'PROCEDURE'], ['test_db', 'test_proc2', 'PROCEDURE']],
             ],
             [
                 'query' => 'SHOW FUNCTION STATUS;',

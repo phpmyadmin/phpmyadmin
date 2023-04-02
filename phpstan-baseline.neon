@@ -81,12 +81,12 @@ parameters:
 			path: libraries/classes/BrowseForeigners.php
 
 		-
-			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array\\{Charset\\?\\: string, Description\\?\\: string, Default collation\\?\\: string, Maxlen\\?\\: string\\}, array\\<string, string\\|null\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array\\{Charset\\?\\: string, Description\\?\\: string, Default collation\\?\\: string, Maxlen\\?\\: string\\}, array\\<string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:fromServer\\(\\) expects array\\<string\\>, array\\<string, string\\|null\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:fromServer\\(\\) expects array\\<string\\>, array\\<string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
 
@@ -721,7 +721,7 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) should return array\\{foreign_link\\: bool, the_total\\: mixed, foreign_display\\: string, disp_row\\: array\\<int, non\\-empty\\-array\\>\\|null, foreign_field\\: mixed\\} but returns array\\{foreign_link\\: bool, the_total\\: int\\|string\\|null, foreign_display\\: string, disp_row\\: array\\<int, array\\<string, string\\|null\\>\\>\\|null, foreign_field\\: mixed\\}\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) should return array\\{foreign_link\\: bool, the_total\\: mixed, foreign_display\\: string, disp_row\\: array\\<int, non\\-empty\\-array\\>\\|null, foreign_field\\: mixed\\} but returns array\\{foreign_link\\: bool, the_total\\: int\\|string\\|null, foreign_display\\: string, disp_row\\: array\\<int, array\\<string\\|null\\>\\>\\|null, foreign_field\\: mixed\\}\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -3526,11 +3526,6 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/MysqliResult.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:numRows\\(\\) should return int\\|numeric\\-string but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/MysqliResult.php
@@ -5446,8 +5441,13 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportCsv.php
 
 		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportCsv.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 4
+			count: 2
 			path: libraries/classes/Plugins/Export/ExportCsv.php
 
 		-
@@ -5496,8 +5496,13 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportHtmlword.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 8
+			count: 6
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -5511,7 +5516,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:doExportForQuery\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#4 \\$aliases of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:doExportForQuery\\(\\) expects array\\<string, array\\{tables\\: array\\<string, array\\{columns\\: array\\<string, string\\>\\}\\>\\}\\>\\|null, array given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
 
@@ -5571,8 +5576,13 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportOds.php
 
 		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportOds.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 4
+			count: 2
 			path: libraries/classes/Plugins/Export/ExportOds.php
 
 		-
@@ -5626,8 +5636,13 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportOdt.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 8
+			count: 6
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
@@ -5711,8 +5726,13 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 12
+			count: 10
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -5861,8 +5881,13 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportTexytext.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 8
+			count: 6
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
@@ -9416,16 +9441,6 @@ parameters:
 			path: test/classes/DatabaseInterfaceTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$result of method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:addResult\\(\\) expects array\\<int, array\\<int, array\\{string\\: string\\}\\|bool\\|int\\|string\\|null\\>\\|bool\\>\\|bool, array given\\.$#"
-			count: 1
-			path: test/classes/DatabaseInterfaceTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$result of method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:addResult\\(\\) expects array\\<int, array\\<int, array\\{string\\: string\\}\\|bool\\|int\\|string\\|null\\>\\|bool\\>\\|bool, array\\|false given\\.$#"
-			count: 2
-			path: test/classes/DatabaseInterfaceTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestGetDataCellForNonNumericColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 3
 			path: test/classes/Display/ResultsTest.php
@@ -9856,59 +9871,9 @@ parameters:
 			path: test/classes/Server/SysInfo/SysInfoTest.php
 
 		-
-			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:connect\\(\\) never returns null so it can be removed from the return type\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAny\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAssoc\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$dummyQueries contains unresolvable type\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$filoQueries contains unresolvable type\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 3
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$dummyQueries type has no value type specified in iterable type array\\<string, mixed\\>\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$filoQueries type has no value type specified in iterable type array\\<string, mixed\\>\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: test/classes/Stubs/DummyResult.php
 
 		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"

@@ -1671,7 +1671,7 @@ class InsertEditTest extends AbstractTestCase
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue('2'));
+            ->will($this->returnValue(2));
 
         $resultStub->expects($this->once())
             ->method('fetchValue')
