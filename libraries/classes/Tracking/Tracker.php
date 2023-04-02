@@ -418,8 +418,7 @@ class Tracker
         $newDataProcessed = '';
         if (is_array($newData)) {
             foreach ($newData as $data) {
-                $newDataProcessed .= '# log ' . $date . ' ' . $data['username']
-                    . $GLOBALS['dbi']->escapeString($data['statement']) . "\n";
+                $newDataProcessed .= '# log ' . $date . ' ' . $data['username'] . $data['statement'] . "\n";
             }
         } else {
             $newDataProcessed = $newData;
@@ -431,11 +430,11 @@ class Tracker
         }
 
         $sqlQuery = sprintf(
-            'UPDATE %s.%s SET `%s` = \'%s\' WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
+            'UPDATE %s.%s SET `%s` = %s WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
             $saveTo,
-            $newDataProcessed,
+            $GLOBALS['dbi']->quoteString($newDataProcessed, Connection::TYPE_CONTROL),
             $GLOBALS['dbi']->quoteString($dbName, Connection::TYPE_CONTROL),
             $GLOBALS['dbi']->quoteString($tableName, Connection::TYPE_CONTROL),
             $GLOBALS['dbi']->quoteString($version, Connection::TYPE_CONTROL),
