@@ -747,6 +747,7 @@
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
     <InvalidReturnStatement>
+      <code>$tableNameReplacements</code>
       <code><![CDATA[[
             'foreign_link' => $foreignLink,
             'the_total' => $theTotal,
@@ -756,6 +757,7 @@
         ]]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
+      <code><![CDATA[array<string, string>]]></code>
       <code><![CDATA[array{
      *     foreign_link: bool,
      *     the_total: mixed,
@@ -780,7 +782,6 @@
       <code>$foreignTable</code>
       <code>$foreign[$field]</code>
       <code><![CDATA[$oneKey['index_list']]]></code>
-      <code>$tableNameReplacements[$tableName]</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($foreign, 'strnatcasecmp')]]></code>
