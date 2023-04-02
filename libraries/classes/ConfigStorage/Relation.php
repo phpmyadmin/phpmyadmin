@@ -1609,8 +1609,14 @@ class Relation
 
         // Build a map of replacements between default table names and name built by the user
         foreach ($tablesToFeatures as $table => $feature) {
+            // Unset, we can do nothing about it
+            if(!isset($GLOBALS['cfg']['Server'][$feature])){
+                continue;
+            }
+
             // Empty, we can not do anything about it
-            if (empty($GLOBALS['cfg']['Server'][$feature])) {
+            // Fix #18266: Strict check to false in case feature is disabled
+            if (empty($GLOBALS['cfg']['Server'][$feature]) && $GLOBALS['cfg']['Server'][$feature] !== false) {
                 continue;
             }
 
