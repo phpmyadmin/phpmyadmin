@@ -19,6 +19,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
 use function __;
+use function array_fill_keys;
 use function array_keys;
 use function array_reverse;
 use function array_search;
@@ -220,9 +221,6 @@ class Relation
      */
     private function checkRelationsParam(): array
     {
-        $relationParams = [];
-        $relationParams['version'] = Version::VERSION;
-
         $workToTable = [
             'relwork' => 'relation',
             'displaywork' => ['relation', 'table_info'],
@@ -244,10 +242,9 @@ class Relation
             'exporttemplateswork' => 'export_templates',
         ];
 
-        foreach (array_keys($workToTable) as $work) {
-            $relationParams[$work] = false;
-        }
+        $relationParams = array_fill_keys(array_keys($workToTable), false);
 
+        $relationParams['version'] = Version::VERSION;
         $relationParams['allworks'] = false;
         $relationParams['user'] = null;
         $relationParams['db'] = null;
