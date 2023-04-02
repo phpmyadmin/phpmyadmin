@@ -1556,7 +1556,16 @@ class Relation
 
         $tableNameReplacements = $this->getTableReplacementNames($tablesToFeatures);
 
-        $createQueries = null;
+        $createQueries = [];
+        if ($create) {
+            $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
+            if (! $this->dbi->selectDb($db, Connection::TYPE_CONTROL)) {
+                $GLOBALS['message'] = $this->dbi->getError(Connection::TYPE_CONTROL);
+
+                return;
+            }
+        }
+
         $foundOne = false;
         foreach ($tablesToFeatures as $table => $feature) {
             // Check if the table already exists
@@ -1564,15 +1573,6 @@ class Relation
             // if no replacement exists
             if (! in_array($tableNameReplacements[$table] ?? $table, $existingTables)) {
                 if ($create) {
-                    if ($createQueries === null) { // first create
-                        $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
-                        if (! $this->dbi->selectDb($db, Connection::TYPE_CONTROL)) {
-                            $GLOBALS['message'] = $this->dbi->getError(Connection::TYPE_CONTROL);
-
-                            return;
-                        }
-                    }
-
                     $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
 
                     $error = $this->dbi->getError(Connection::TYPE_CONTROL);
