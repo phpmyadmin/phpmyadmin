@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-03-22 03:43+0000\n"
+"PO-Revision-Date: 2023-04-04 08:40+0000\n"
 "Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "bg/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -54,8 +54,8 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Нека сървърът да работи по-дълго време, докато изпълни по-голямо количество "
-"заявки."
+"Оставете сървъра да работи по-дълго време, за да изпълни по-голямо "
+"количество заявки."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -69,7 +69,7 @@ msgstr "Процент на бавните заявки"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr "Има много бавни заявки в сравнение с общия брой заявки."
+msgstr "Има много на брой бавни заявки в сравнение с общото количество заявки."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
@@ -1727,7 +1727,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Enable bzip2 compression for import operations."
-msgstr "Включване на bzip2 компресия за импорт операции (операции за внасяне)."
+msgstr "Включване на компресия с bzip2 при внасяне."
 
 #: libraries/classes/Config/Descriptions.php:105
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
@@ -2117,16 +2117,12 @@ msgstr ""
 "резултати съдържа повече редове, ще бъдат показани „Назад“ и „Напред“."
 
 #: libraries/classes/Config/Descriptions.php:287
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Броят байтове, които скрипт може да заеме, напр. [kbd]32М[/kbd] ([kbd]0[/"
-"kbd] за без ограничение)"
+"Броят байтове, които скрипт може да заеме, напр. [kbd]32М[/kbd] "
+"([kbd]-1[/kbd] - без ограничение и [kbd]0[/kbd] - без промяна)."
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -7525,10 +7521,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:245
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Изберете две колони"
+msgstr "Изберете нещо…"
 
 #: libraries/classes/Controllers/NormalizationController.php:41
 #: libraries/classes/Normalization.php:246
@@ -7611,16 +7605,14 @@ msgstr[0] "%1$d БД беше изтрита успешно."
 msgstr[1] "%1$ds БД бяха изтрити успешно."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Колоните бяха преместени упешно."
+msgstr "Профилът %s@%s успешно е заключен."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Колоните бяха преместени упешно."
+msgstr "Профилът %s@%s успешно е отключен."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8779,9 +8771,8 @@ msgid "Missing connection parameters!"
 msgstr "Липсват свързващи параметри!"
 
 #: libraries/classes/DatabaseInterface.php:1884
-#, fuzzy
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr "Грешка при указване на свръзка за controluser в конфигурацията."
+msgstr "Грешка при указване на връзка за controluser в настройките."
 
 #: libraries/classes/DatabaseInterface.php:2305
 #, php-format
@@ -8860,7 +8851,7 @@ msgstr "Процедурата%1$s е променена."
 #: libraries/classes/Database/Routines.php:418
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Процедурата%1$s беше променена."
+msgstr "Процедурата %1$s е променена."
 
 #: libraries/classes/Database/Routines.php:825
 msgid "You must provide a name and a type for each routine parameter."
@@ -12285,7 +12276,7 @@ msgstr "Позволява изпълнение на съхранени проц
 #: libraries/classes/Server/Privileges.php:1076
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "Паролата на %s беше променена успешно."
+msgstr "Паролата на %s е променена успешно."
 
 #: libraries/classes/Server/Privileges.php:1124
 #, php-format
@@ -13120,10 +13111,8 @@ msgid "Spatial"
 msgstr "Пространствен"
 
 #: libraries/classes/UrlRedirector.php:55
-#, fuzzy
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Към следващата стъпка…"
+msgstr "Към целевата страница."
 
 #: libraries/classes/UserPassword.php:38
 msgid "The profile has been updated."
@@ -13603,10 +13592,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Зареждане…"
+msgstr "Зареждане"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -14984,13 +14971,10 @@ msgstr[0] "%1$s съвпадение в таблица <strong>%2$s</strong>"
 msgstr[1] "%1$s съвпадения в таблица <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Общо:</b> <i>%s</i> съвпадение"
-msgstr[1] "<b>Общо:</b> <i>%s</i> съвпадения"
+msgstr[0] "<strong>Общо:</strong> <em>%s</em> съвпадение"
+msgstr[1] "<strong>Общо:</strong> <em>%s</em> съвпадения"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15480,10 +15464,9 @@ msgid "Output:"
 msgstr "Изход:"
 
 #: templates/export.twig:175 templates/export.twig:370
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Записване на сървъра в директория <b>%s</b>"
+msgstr "Записване на сървъра в папка <strong>%s</strong>"
 
 #: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
@@ -15940,16 +15923,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Файлът може да е компресиран (%s) или некомпресиран."
 
 #: templates/import.twig:32
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Компресираният файл трябва да завършва на <b>.[format].[compression]</b>. "
-"Например: <b>.sql.zip</b>"
+"Компресираният файл трябва да завършва на <strong>.[format].[compression]</"
+"strong>. Например: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
 #, fuzzy
@@ -15971,10 +15950,10 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: templates/import.twig:62 templates/import.twig:88
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Избор от директорията за качване <b>%s</b>:"
+msgstr ""
+"Изберете от папката на сървъра, предназначена за качване [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
 #, fuzzy
@@ -16676,10 +16655,8 @@ msgid "phpMyAdmin configuration storage"
 msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
 
 #: templates/relation/check_relations.twig:9
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration of pmadb…"
-msgstr "Конфигурацията запазена."
+msgstr "Настройки на pmadb…"
 
 #: templates/relation/check_relations.twig:10
 #: templates/relation/check_relations.twig:56
@@ -17648,19 +17625,14 @@ msgstr ""
 "рестартирайте MySQL сървъра."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
-"След като сте рестартирали MySQL сървъра, щракнете върху бутона "
-"\"Изпълнение\". След това би трябвало да видите съобщение, информиращо ви, "
-"че този сървър <b>е</b> конфигуриран като главен."
+"След като сте рестартирали сървъра на MySQL, щракнете върху бутона "
+"„Изпълнение“. След това би трябвало да видите съобщение, което ви информира, "
+"че сървърът <strong>е</strong> настроен като главен."
 
 #: templates/server/replication/primary_replication.twig:5
 #, fuzzy
@@ -19210,10 +19182,9 @@ msgid "at beginning of table"
 msgstr "В началото на таблицата"
 
 #: templates/table/structure/display_structure.twig:569
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Създаване на индекс върху &nbsp;%s&nbsp;колони"
+msgstr "Създаване на индекс върху %s колони"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
