@@ -18,20 +18,17 @@ import isStorageSupported from './modules/functions/isStorageSupported.ts';
 
 /* global themeImagePath */ // templates/javascript/variables.twig
 
-var Sql = {};
-window.Sql = Sql;
-
 /**
  * decode a string URL_encoded
  *
  * @param {string} str
  * @return {string} the URL-decoded string
  */
-Sql.urlDecode = function (str) {
+function urlDecode (str) {
     if (typeof str !== 'undefined') {
         return decodeURIComponent(str.replace(/\+/g, '%20'));
     }
-};
+}
 
 /**
  * encode a string URL_decoded
@@ -39,18 +36,18 @@ Sql.urlDecode = function (str) {
  * @param {string} str
  * @return {string} the URL-encoded string
  */
-Sql.urlEncode = function (str) {
+function urlEncode (str) {
     if (typeof str !== 'undefined') {
         return encodeURIComponent(str).replace(/%20/g, '+');
     }
-};
+}
 
 /**
  * Saves SQL query in local storage or cookie
  *
  * @param {string} query SQL query
  */
-Sql.autoSave = function (query): void {
+function autoSave (query): void {
     if (query) {
         var key = Sql.getAutoSavedKey();
         if (isStorageSupported('localStorage')) {
@@ -59,7 +56,7 @@ Sql.autoSave = function (query): void {
             window.Cookies.set(key, query, { path: CommonParams.get('rootPath') });
         }
     }
-};
+}
 
 /**
  * Saves SQL query in local storage or cookie
@@ -68,7 +65,7 @@ Sql.autoSave = function (query): void {
  * @param {string} table table name
  * @param {string} query SQL query
  */
-Sql.showThisQuery = function (db, table, query): void {
+function showThisQuery (db, table, query): void {
     var showThisQueryObject = {
         'db': db,
         'table': table,
@@ -81,13 +78,13 @@ Sql.showThisQuery = function (db, table, query): void {
         window.Cookies.set('showThisQuery', 1, { path: CommonParams.get('rootPath') });
         window.Cookies.set('showThisQueryObject', JSON.stringify(showThisQueryObject), { path: CommonParams.get('rootPath') });
     }
-};
+}
 
 /**
  * Set query to codemirror if show this query is
  * checked and query for the db and table pair exists
  */
-Sql.setShowThisQuery = function () {
+function setShowThisQuery () {
     var db = $('input[name="db"]').val();
     var table = $('input[name="table"]').val();
     if (isStorageSupported('localStorage')) {
@@ -110,14 +107,14 @@ Sql.setShowThisQuery = function () {
             $('input[name="show_query"]').prop('checked', false);
         }
     }
-};
+}
 
 /**
  * Saves SQL query with sort in local storage or cookie
  *
  * @param {string} query SQL query
  */
-Sql.autoSaveWithSort = function (query): void {
+function autoSaveWithSort (query): void {
     if (query) {
         if (isStorageSupported('localStorage')) {
             window.localStorage.setItem('autoSavedSqlSort', query);
@@ -125,18 +122,18 @@ Sql.autoSaveWithSort = function (query): void {
             window.Cookies.set('autoSavedSqlSort', query, { path: CommonParams.get('rootPath') });
         }
     }
-};
+}
 
 /**
  * Clear saved SQL query with sort in local storage or cookie
  */
-Sql.clearAutoSavedSort = function (): void {
+function clearAutoSavedSort (): void {
     if (isStorageSupported('localStorage')) {
         window.localStorage.removeItem('autoSavedSqlSort');
     } else {
         window.Cookies.set('autoSavedSqlSort', '', { path: CommonParams.get('rootPath') });
     }
-};
+}
 
 /**
  * Get the field name for the current field.  Required to construct the query
@@ -147,7 +144,7 @@ Sql.clearAutoSavedSort = function (): void {
  *
  * @return {string}
  */
-Sql.getFieldName = function ($tableResults, $thisField) {
+function getFieldName ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
@@ -182,7 +179,7 @@ Sql.getFieldName = function ($tableResults, $thisField) {
     fieldName = fieldName.trim();
 
     return fieldName;
-};
+}
 
 /**
  * @type {boolean} lock for the sqlbox textarea in the querybox
@@ -1094,7 +1091,7 @@ AJAX.registerOnload('sql.js', function () {
  * @param {string} newClass
  * @param isAddClass
  */
-Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
+function changeClassForColumn ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
     var thIndex = $thisTh.index();
     var hasBigT = $thisTh.closest('tr').children().first().hasClass('column_action');
@@ -1112,14 +1109,14 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     } else {
         $tds.toggleClass(newClass, isAddClass);
     }
-};
+}
 
 /**
  * Handles browse foreign values modal dialog
  *
  * @param {object} $thisA reference to the browse foreign value link
  */
-Sql.browseForeignDialog = function ($thisA) {
+function browseForeignDialog ($thisA) {
     var formId = '#browse_foreign_form';
     var showAllId = '#foreign_showAll';
     var tableId = '#browse_foreign_table';
@@ -1192,13 +1189,13 @@ Sql.browseForeignDialog = function ($thisA) {
             showAll = false;
         });
     });
-};
+}
 
 /**
  * Get the auto saved query key
  * @return {String}
  */
-Sql.getAutoSavedKey = function () {
+function getAutoSavedKey () {
     var db = $('input[name="db"]').val();
     var table = $('input[name="table"]').val();
     var key = db;
@@ -1206,9 +1203,9 @@ Sql.getAutoSavedKey = function () {
         key += '.' + table;
     }
     return 'autoSavedSql_' + key;
-};
+}
 
-Sql.checkSavedQuery = function () {
+function checkSavedQuery () {
     var key = Sql.getAutoSavedKey();
 
     if (isStorageSupported('localStorage') &&
@@ -1217,7 +1214,7 @@ Sql.checkSavedQuery = function () {
     } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
         ajaxShowMessage(window.Messages.strPreviousSaveQuery);
     }
-};
+}
 
 AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'a.browse_foreign', function (e) {
@@ -1258,7 +1255,7 @@ AJAX.registerOnload('sql.js', function () {
 /**
  * Profiling Chart
  */
-Sql.makeProfilingChart = function () {
+function makeProfilingChart () {
     if ($('#profilingchart').length === 0 ||
         $('#profilingchart').html().length !== 0 ||
         ! $.jqplot || ! $.jqplot.Highlighter || ! $.jqplot.PieRenderer
@@ -1276,12 +1273,12 @@ Sql.makeProfilingChart = function () {
     $('#profilingChartData').html('');
 
     createProfilingChart('profilingchart', data);
-};
+}
 
 /**
  * initialize profiling data tables
  */
-Sql.initProfilingTables = function () {
+function initProfilingTables () {
     if (! $.tablesorter) {
         return;
     }
@@ -1317,9 +1314,28 @@ Sql.initProfilingTables = function () {
             }
         }
     });
-};
+}
 
 AJAX.registerOnload('sql.js', function () {
     Sql.makeProfilingChart();
     Sql.initProfilingTables();
 });
+
+const Sql = {
+    urlDecode: urlDecode,
+    urlEncode: urlEncode,
+    autoSave: autoSave,
+    showThisQuery: showThisQuery,
+    setShowThisQuery: setShowThisQuery,
+    autoSaveWithSort: autoSaveWithSort,
+    clearAutoSavedSort: clearAutoSavedSort,
+    getFieldName: getFieldName,
+    changeClassForColumn: changeClassForColumn,
+    browseForeignDialog: browseForeignDialog,
+    getAutoSavedKey: getAutoSavedKey,
+    checkSavedQuery: checkSavedQuery,
+    makeProfilingChart: makeProfilingChart,
+    initProfilingTables: initProfilingTables,
+};
+
+window.Sql = Sql;
