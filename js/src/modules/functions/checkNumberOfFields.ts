@@ -1,23 +1,21 @@
 import $ from 'jquery';
 import { ajaxShowMessage } from '../ajax-message.ts';
 
-/* global maxInputVars */ // templates/javascript/variables.twig
-
 /**
  * Check than forms have less fields than max allowed by PHP.
  * @return {boolean}
  */
 export default function checkNumberOfFields () {
-    if (typeof maxInputVars === 'undefined') {
+    if (typeof window.maxInputVars === 'undefined') {
         return false;
     }
-    if (false === maxInputVars) {
+    if (false === window.maxInputVars) {
         return false;
     }
     $('form').each(function () {
         var nbInputs = $(this).find(':input').length;
-        if (nbInputs > maxInputVars) {
-            var warning = window.sprintf(window.Messages.strTooManyInputs, maxInputVars);
+        if (nbInputs > window.maxInputVars) {
+            var warning = window.sprintf(window.Messages.strTooManyInputs, window.maxInputVars);
             ajaxShowMessage(warning);
             return false;
         }

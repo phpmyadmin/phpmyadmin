@@ -10,9 +10,6 @@ import { ajaxShowMessage } from '../modules/ajax-message.ts';
  * @fileoverview JavaScript functions used on /table/search
  **/
 
-/* global Sql */
-/* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
-
 /**
  *  Display Help/Info
  * @return {false}
@@ -142,8 +139,8 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         var tableRows = $('#inputSection select.column-operator');
         $.each(tableRows, function (index, item) {
             $(item).on('change', function () {
-                changeValueFieldType(this, index);
-                verifyAfterSearchFieldChange(index, '#zoom_search_form');
+                window.changeValueFieldType(this, index);
+                window.verifyAfterSearchFieldChange(index, '#zoom_search_form');
             });
         });
     };
@@ -392,7 +389,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             }
             // remove two extraneous characters ', '
             sqlQuery = sqlQuery.substring(0, sqlQuery.length - 2);
-            sqlQuery += ' WHERE ' + Sql.urlDecode(searchedData[searchedDataKey].where_clause);
+            sqlQuery += ' WHERE ' + window.Sql.urlDecode(searchedData[searchedDataKey].where_clause);
 
             $.post('index.php?route=/sql', {
                 'server': CommonParams.get('server'),

@@ -8,9 +8,6 @@ import { Functions } from '../modules/functions.ts';
  * @requires    jQueryUI
  */
 
-/* global extendingValidatorMessages */ // templates/javascript/variables.twig
-/* global openGISEditor, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
-
 /**
  * Modify form controls when the "NULL" checkbox is checked
  *
@@ -526,7 +523,7 @@ AJAX.registerOnload('table/change.js', function () {
      * message extending script must be run
      * after initiation of functions
      */
-    extendingValidatorMessages();
+    window.extendingValidatorMessages();
 
     $.datepicker.initialized = false;
 
@@ -543,11 +540,11 @@ AJAX.registerOnload('table/change.js', function () {
         // Names of input field and null checkbox
         var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
 
-        openGISEditor();
+        window.openGISEditor();
         if (! window.gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, inputName);
+            window.loadJSAndGISEditor(value, field, type, inputName);
         } else {
-            loadGISEditor(value, field, type, inputName);
+            window.loadGISEditor(value, field, type, inputName);
         }
     });
 

@@ -10,8 +10,6 @@ import { DesignerConfig } from './config.ts';
  * @requires    move.js
  */
 
-/* global themeImagePath */ // templates/javascript/variables.twig
-
 var DesignerHistory = {};
 
 /**
@@ -103,9 +101,9 @@ DesignerHistory.display = function (init, finit) {
             str += '<div class="block"> <table class="table table-sm w-auto mb-0">';
             str += '<thead><tr><td>';
             if (DesignerHistory.historyArray[i].getAndOr()) {
-                str += '<img src="' + themeImagePath + 'designer/or_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="OR"></td>';
+                str += '<img src="' + window.themeImagePath + 'designer/or_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="OR"></td>';
             } else {
-                str += '<img src="' + themeImagePath + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
+                str += '<img src="' + window.themeImagePath + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
             }
             str += '<td style="padding-left: 5px;" class="text-end">' + getImageTag('b_sbrowse', window.Messages.strColumnName) + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + $('<div/>').text(DesignerHistory.historyArray[i].getColumnName()).html() + '<td>';

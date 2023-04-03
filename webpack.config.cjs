@@ -10,7 +10,6 @@ const rootPath = path.resolve(__dirname, '');
 const publicPath = path.resolve(__dirname, 'public');
 
 const typeScriptErrorsToIgnore = [
-    2304, // TS2304: Cannot find name '%s'.
     2322, // TS2322: Type '%s' is not assignable to type '%s'.
     2339, // TS2339: Property '%s' does not exist on type '%s'.
     2345, // TS2345: Argument of type '%s' is not assignable to parameter of type '%s'.

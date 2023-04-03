@@ -15,9 +15,6 @@ import isStorageSupported from '../../modules/functions/isStorageSupported.ts';
  * @requires    jQueryUI
  */
 
-/* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
-/* global variableNames */ // templates/server/status/monitor/index.twig
-
 var runtime = {};
 var serverTimeDiff;
 var serverOs;
@@ -1041,7 +1038,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     });
 
     $('#variableInput').autocomplete({
-        source: variableNames
+        source: window.variableNames
     });
 
     /* Initializes the monitor, called only once */
@@ -1477,13 +1474,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             showMillisec: false,
             showMicrosec: false,
             timeFormat: 'HH:mm:ss',
-            firstDay: firstDayOfCalendar
+            firstDay: window.firstDayOfCalendar
         });
         Functions.addDatepicker($dateEnd, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
             timeFormat: 'HH:mm:ss',
-            firstDay: firstDayOfCalendar
+            firstDay: window.firstDayOfCalendar
         });
         $dateStart.datepicker('setDate', min);
         $dateEnd.datepicker('setDate', max);
@@ -1728,7 +1725,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             title: window.Messages.strAnalysingLogsTitle
         });
         $('#emptyDialog').html(window.Messages.strAnalysingLogs +
-            ' <img class="ajaxIcon" src="' + themeImagePath +
+            ' <img class="ajaxIcon" src="' + window.themeImagePath +
             'ajax_clock_small.gif" alt="">');
 
         var dlgBtns = {
@@ -2186,7 +2183,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         $('#queryAnalyzerDialog').find('div.placeHolder').html(
             window.Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
-            themeImagePath + 'ajax_clock_small.gif" alt="">');
+            window.themeImagePath + 'ajax_clock_small.gif" alt="">');
 
         $.post('index.php?route=/server/status/monitor/query', {
             'ajax_request': true,

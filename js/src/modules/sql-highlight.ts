@@ -1,7 +1,5 @@
 import $ from 'jquery';
 
-/* global mysqlDocTemplate */ // templates/javascript/variables.twig
-
 /**
  * Definition of links to MySQL documentation.
  */
@@ -375,12 +373,12 @@ const mysqlDocBuiltin = {
  * @param params
  */
 function documentationAdd ($elm, params) {
-    if (typeof mysqlDocTemplate === 'undefined') {
+    if (typeof window.mysqlDocTemplate === 'undefined') {
         return;
     }
 
     var url = window.sprintf(
-        decodeURIComponent(mysqlDocTemplate),
+        decodeURIComponent(window.mysqlDocTemplate),
         params[0]
     );
     if (params.length > 1) {

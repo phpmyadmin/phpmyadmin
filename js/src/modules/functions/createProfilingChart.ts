@@ -1,7 +1,5 @@
 import $ from 'jquery';
 
-/* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
-
 /**
  * Creates a Profiling Chart. Used in sql.js
  * and in server/status/monitor.js
@@ -13,13 +11,13 @@ import $ from 'jquery';
  */
 export default function createProfilingChart (target, data) {
     // create the chart
-    var factory = new JQPlotChartFactory();
-    var chart = factory.createChart(ChartType.PIE, target);
+    var factory = new window.JQPlotChartFactory();
+    var chart = factory.createChart(window.ChartType.PIE, target);
 
     // create the data table and add columns
-    var dataTable = new DataTable();
-    dataTable.addColumn(ColumnType.STRING, '');
-    dataTable.addColumn(ColumnType.NUMBER, '');
+    var dataTable = new window.DataTable();
+    dataTable.addColumn(window.ColumnType.STRING, '');
+    dataTable.addColumn(window.ColumnType.NUMBER, '');
     dataTable.setData(data);
 
     var windowWidth = $(window).width();

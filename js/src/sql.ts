@@ -16,8 +16,6 @@ import isStorageSupported from './modules/functions/isStorageSupported.ts';
  * @test-module Sql
  */
 
-/* global themeImagePath */ // templates/javascript/variables.twig
-
 /**
  * decode a string URL_encoded
  *
@@ -268,7 +266,7 @@ const insertQuery = function (queryType) {
         if (window.codeMirrorEditor) {
             $('#querymessage').html(window.Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
-                themeImagePath + 'ajax_clock_small.gif" alt="">');
+                window.themeImagePath + 'ajax_clock_small.gif" alt="">');
             var params = {
                 'ajax_request': true,
                 'sql': window.codeMirrorEditor.getValue(),

@@ -4,8 +4,6 @@ import { Functions } from '../modules/functions.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 
-/* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
-
 var chartData = {};
 var tempChartTitle;
 
@@ -70,24 +68,24 @@ function queryChart (data, columnNames, settings) {
     };
 
     // create the chart
-    var factory = new JQPlotChartFactory();
+    var factory = new window.JQPlotChartFactory();
     var chart = factory.createChart(settings.type, 'querychart');
 
     // create the data table and add columns
-    var dataTable = new DataTable();
+    var dataTable = new window.DataTable();
     if (settings.type === 'timeline') {
-        dataTable.addColumn(ColumnType.DATE, columnNames[settings.mainAxis]);
+        dataTable.addColumn(window.ColumnType.DATE, columnNames[settings.mainAxis]);
     } else if (settings.type === 'scatter') {
-        dataTable.addColumn(ColumnType.NUMBER, columnNames[settings.mainAxis]);
+        dataTable.addColumn(window.ColumnType.NUMBER, columnNames[settings.mainAxis]);
     } else {
-        dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
+        dataTable.addColumn(window.ColumnType.STRING, columnNames[settings.mainAxis]);
     }
 
     var i;
     var values = [];
     if (settings.seriesColumn === null) {
         $.each(settings.selectedSeries, function (index, element) {
-            dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
+            dataTable.addColumn(window.ColumnType.NUMBER, columnNames[element]);
         });
 
         // set data to the data table
@@ -130,7 +128,7 @@ function queryChart (data, columnNames, settings) {
         }
 
         $.each(seriesNames, function (seriesName) {
-            dataTable.addColumn(ColumnType.NUMBER, seriesName);
+            dataTable.addColumn(window.ColumnType.NUMBER, seriesName);
         });
 
         var valueMap = {};

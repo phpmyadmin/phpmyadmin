@@ -9,8 +9,6 @@ import createProfilingChart from '../../modules/functions/createProfilingChart.t
  * @requires    jQueryUI
  */
 
-/* global initTableSorter */ // js/server/status/sorter.js
-
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -40,5 +38,5 @@ AJAX.registerOnload('server/status/queries.js', function () {
         // Could not load chart, no big deal...
     }
 
-    initTableSorter('statustabs_queries');
+    window.initTableSorter('statustabs_queries');
 });

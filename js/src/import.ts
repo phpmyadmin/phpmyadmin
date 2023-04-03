@@ -5,8 +5,6 @@ import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 
-/* global themeImagePath */ // templates/javascript/variables.twig
-
 /**
  * Functions used in the import tab
  *
@@ -171,7 +169,7 @@ AJAX.registerOnload('import.js', function () {
 
         $('#upload_form_form').css('display', 'none');
 
-        const clockImage = '<img src="' + themeImagePath + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock">';
+        const clockImage = '<img src="' + window.themeImagePath + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock">';
 
         if (handler !== 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin') {
             var finished = false;

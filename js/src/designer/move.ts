@@ -9,8 +9,6 @@ import { DesignerHistory } from './history.ts';
 import { DesignerPage } from './page.ts';
 import { DesignerConfig } from './config.ts';
 
-/* global themeImagePath */ // templates/javascript/variables.twig
-
 var DesignerMove = {};
 
 var change = 0; // variable to track any change in designer layout.
@@ -566,7 +564,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         '            db="' + dbEncoded + '"' +
         '            table_name="' + tableEncoded + '"' +
         '            class="scroll_tab_struct"' +
-        '            src="' + themeImagePath + 'designer/exec.png"/>' +
+        '            src="' + window.themeImagePath + 'designer/exec.png"/>' +
         '    </td>' +
         '    <td width="1px">' +
         '        <input class="scroll_tab_checkbox"' +

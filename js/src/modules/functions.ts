@@ -14,9 +14,6 @@ import checkIndexName from './indexes/checkIndexName.ts';
 import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 
-/* global DatabaseStructure */ // js/database/structure.js
-/* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
-
 /**
  * Object containing CodeMirror editor of the query editor in SQL tab.
  * @type {(object|boolean|null)}
@@ -94,7 +91,7 @@ function addDatepicker ($thisElement, type, options) {
         minute: currentDateTime.getMinutes(),
         second: currentDateTime.getSeconds(),
         showOn: 'button',
-        buttonImage: themeImagePath + 'b_calendar.png',
+        buttonImage: window.themeImagePath + 'b_calendar.png',
         buttonImageOnly: true,
         stepMinutes: 1,
         stepHours: 1,
@@ -192,7 +189,7 @@ function addDateTimePicker () {
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat,
                 hourMax: hourMax,
-                firstDay: firstDayOfCalendar
+                firstDay: window.firstDayOfCalendar
             });
             // Add a tip regarding entering MySQL allowed-values
             // for TIME and DATE data-type
@@ -1838,7 +1835,7 @@ function onloadCreateTableEvents (): void {
                             $(tablesTable).sortTable('th');
 
                             // Adjust summary row
-                            DatabaseStructure.adjustTotals();
+                            window.DatabaseStructure.adjustTotals();
                         }
 
                         // Refresh navigation as a new table has been added

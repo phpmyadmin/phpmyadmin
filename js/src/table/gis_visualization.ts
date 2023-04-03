@@ -8,8 +8,6 @@ import { escapeHtml } from '../modules/functions/escape.ts';
  * @requires    jquery
  */
 
-/* global drawOpenLayers */ // templates/table/gis_visualization/gis_visualization.twig
-
 // Constants
 var zoomFactor = 1.5;
 var defaultX = 0;
@@ -134,7 +132,7 @@ function initGISVisualization () {
     // Resizes the GIS visualization to fit into the space available
     resizeGISVisualization();
 
-    if (typeof ol !== 'undefined') {
+    if (typeof window.ol !== 'undefined') {
         // Adds necessary styles to the div that contains the openStreetMap
         styleOSM();
     }
@@ -149,7 +147,7 @@ function drawOpenLayerMap () {
     // Function doesn't work properly if #openlayersmap is hidden
     if (typeof map !== 'object') {
         // Draws openStreetMap with openLayers
-        map = drawOpenLayers();
+        map = window.drawOpenLayers();
     }
 }
 
@@ -228,7 +226,7 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         drawOpenLayerMap();
     }
 
-    if (typeof ol === 'undefined') {
+    if (typeof window.ol === 'undefined') {
         $('#choice, #labelChoice').hide();
     }
 

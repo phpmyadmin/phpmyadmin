@@ -9,9 +9,6 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
  * @fileoverview JavaScript functions used on /table/search
  */
 
-/* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
-/* global openGISEditor, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
-
 var TableSelect = {};
 
 /**
@@ -84,8 +81,8 @@ AJAX.registerOnload('table/select.js', function () {
     var tableRows = $('#fieldset_table_qbe select.column-operator');
     $.each(tableRows, function (index, item) {
         $(item).on('change', function () {
-            changeValueFieldType(this, index);
-            verifyAfterSearchFieldChange(index, '#tbl_search_form');
+            window.changeValueFieldType(this, index);
+            window.verifyAfterSearchFieldChange(index, '#tbl_search_form');
         });
     });
 
@@ -267,11 +264,11 @@ AJAX.registerOnload('table/select.js', function () {
         var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
         // Token
 
-        openGISEditor();
+        window.openGISEditor();
         if (! window.gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, inputName);
+            window.loadJSAndGISEditor(value, field, type, inputName);
         } else {
-            loadGISEditor(value, field, type, inputName);
+            window.loadGISEditor(value, field, type, inputName);
         }
     });
 

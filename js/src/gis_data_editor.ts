@@ -10,9 +10,6 @@ import { ajaxShowMessage } from './modules/ajax-message.ts';
  *
  */
 
-/* global addZoomPanControllers, storeGisSvgRef, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
-/* global themeImagePath */ // templates/javascript/variables.twig
-
 window.gisEditorLoaded = false;
 
 /**
@@ -76,14 +73,14 @@ function addDataPoint (pointNumber, prefix) {
  * Initialize the visualization in the GIS data editor.
  */
 function initGISEditorVisualization () {
-    storeGisSvgRef();
+    window.storeGisSvgRef();
     // Loads either SVG or OSM visualization based on the choice
-    selectVisualization();
+    window.selectVisualization();
     // Adds necessary styles to the div that contains the openStreetMap
-    styleOSM();
+    window.styleOSM();
     // Adds controllers for zooming and panning
-    addZoomPanControllers();
-    zoomAndPan();
+    window.addZoomPanControllers();
+    window.zoomAndPan();
 }
 
 /**
@@ -181,7 +178,7 @@ function openGISEditor () {
     $gisEditor.append(
         '<div id="gis_data_editor">' +
         '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
-        themeImagePath + 'ajax_clock_small.gif" alt="">' +
+        window.themeImagePath + 'ajax_clock_small.gif" alt="">' +
         '</div>'
     );
 
