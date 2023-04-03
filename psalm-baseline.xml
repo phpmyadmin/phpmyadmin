@@ -13573,54 +13573,10 @@
     </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Tracking/Tracker.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$data['statement']]]></code>
       <code><![CDATA[$result['identifier']]]></code>
       <code><![CDATA[$result['tablename']]]></code>
       <code><![CDATA[$result['tablename']]]></code>
@@ -13648,6 +13604,7 @@
       <code>bool</code>
     </MixedInferredReturnType>
     <MixedOperand>
+      <code><![CDATA[$data['statement']]]></code>
       <code><![CDATA[$data['username']]]></code>
       <code><![CDATA[$result['identifier']]]></code>
     </MixedOperand>

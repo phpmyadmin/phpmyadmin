@@ -258,8 +258,8 @@ class TrackerTest extends AbstractTestCase
             ->method('queryAsControlUser')
             ->with($sqlQuery)
             ->will($this->returnValue($resultStub));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Tracker::deleteTracking('testdb', 'testtable'));
@@ -291,8 +291,8 @@ class TrackerTest extends AbstractTestCase
             ->with($this->matches($expectedMainQuery))
             ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
@@ -321,8 +321,7 @@ class TrackerTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $sqlQuery = 'UPDATE `pmadb`.`tracking` SET `tracking_active` = ' .
-        "'" . $newState . "'" .
+        $sqlQuery = 'UPDATE `pmadb`.`tracking` SET `tracking_active` = ' . $newState .
         " WHERE `db_name` = '" . $dbname . "'" .
         " AND `table_name` = '" . $tablename . "'" .
         " AND `version` = '" . $version . "'";
@@ -332,8 +331,8 @@ class TrackerTest extends AbstractTestCase
             ->with($sqlQuery)
             ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -392,8 +391,8 @@ class TrackerTest extends AbstractTestCase
                 ),
             );
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $GLOBALS['dbi'] = $dbi;
 
