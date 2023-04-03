@@ -38,7 +38,6 @@ use function preg_replace;
 use function rtrim;
 use function serialize;
 use function sprintf;
-use function str_replace;
 use function strtotime;
 use function substr;
 use function trim;
@@ -88,30 +87,6 @@ class Tracker
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
 
         return $relationParameters->trackingFeature !== null;
-    }
-
-    /**
-     * Parses the name of a table from a SQL statement substring.
-     *
-     * @param string $string part of SQL statement
-     *
-     * @return string the name of table
-     */
-    protected static function getTableName(string $string): string
-    {
-        if (mb_strstr($string, '.')) {
-            $temp = explode('.', $string);
-            $tableName = $temp[1];
-        } else {
-            $tableName = $string;
-        }
-
-        $str = explode("\n", $tableName);
-        $tableName = $str[0];
-
-        $tableName = str_replace([';', '`'], '', $tableName);
-
-        return trim($tableName);
     }
 
     /**

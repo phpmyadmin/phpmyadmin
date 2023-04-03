@@ -13652,9 +13652,6 @@
       <code><![CDATA[$tokens[0]->value]]></code>
       <code><![CDATA[$tokens[2]->value]]></code>
     </PossiblyNullPropertyFetch>
-    <PossiblyUnusedMethod>
-      <code>getTableName</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Tracking/Tracking.php">
     <MixedArgument>
@@ -15534,7 +15531,6 @@
   </file>
   <file src="test/classes/Tracking/TrackerTest.php">
     <MixedInferredReturnType>
-      <code>mixed[]</code>
       <code>mixed[]</code>
       <code>mixed[]</code>
     </MixedInferredReturnType>

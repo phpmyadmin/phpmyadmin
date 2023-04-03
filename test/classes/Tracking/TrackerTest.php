@@ -112,32 +112,6 @@ class TrackerTest extends AbstractTestCase
     }
 
     /**
-     * Test for Tracker::getTableName()
-     *
-     * @param string $string   String to test against
-     * @param string $expected Expected Table Name
-     *
-     * @dataProvider getTableNameData
-     */
-    public function testGetTableName(string $string, string $expected): void
-    {
-        $this->assertEquals(
-            $expected,
-            $this->callFunction(null, Tracker::class, 'getTableName', [$string]),
-        );
-    }
-
-    /**
-     * Data Provider for testGetTableName
-     *
-     * @return mixed[] Test data
-     */
-    public static function getTableNameData(): array
-    {
-        return [['`tbl`;', 'tbl'], [' `pma.table` ', 'table'], [" `pma.table\nfoobar` ", 'table']];
-    }
-
-    /**
      * Test for Tracker::isTracked()
      */
     public function testIsTracked(): void
