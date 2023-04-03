@@ -61,7 +61,7 @@ class TrackingController extends AbstractController
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
-            Tracker::deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
+            $this->tracking->deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
             echo Message::success(
                 __('Tracking data deleted successfully.'),
             )->getDisplay();
@@ -84,7 +84,7 @@ class TrackingController extends AbstractController
             if (! empty($selectedTable)) {
                 if ($request->getParsedBodyParam('submit_mult') === 'delete_tracking') {
                     foreach ($selectedTable as $table) {
-                        Tracker::deleteTracking($GLOBALS['db'], $table);
+                        $this->tracking->deleteTracking($GLOBALS['db'], $table);
                     }
 
                     echo Message::success(

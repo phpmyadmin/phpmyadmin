@@ -1476,7 +1476,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
-			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\Tracking\\\\Tracker\\:\\:deleteTracking\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:deleteTracking\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Database/TrackingController.php
 

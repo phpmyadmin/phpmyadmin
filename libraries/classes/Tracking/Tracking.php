@@ -52,6 +52,34 @@ class Tracking
     }
 
     /**
+     * Removes all tracking data for a table or a version of a table
+     *
+     * @param string $dbName    name of database
+     * @param string $tableName name of table
+     * @param string $version   version
+     */
+    public function deleteTracking(string $dbName, string $tableName, string $version = ''): bool
+    {
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
+
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/' . "\n" . 'DELETE FROM %s.%s WHERE `db_name` = %s AND `table_name` = %s',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
+        );
+        if ($version) {
+            $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, Connection::TYPE_CONTROL);
+        }
+
+        return (bool) $this->dbi->queryAsControlUser($sqlQuery);
+    }
+
+    /**
      * Filters tracking entries
      *
      * @param mixed[] $data        the entries to filter
@@ -892,7 +920,7 @@ class Tracking
     public function deleteTrackingVersion(string $db, string $table, string $version): string
     {
         $html = '';
-        $versionDeleted = Tracker::deleteTracking($db, $table, $version);
+        $versionDeleted = $this->deleteTracking($db, $table, $version);
         if ($versionDeleted) {
             $msg = Message::success(
                 sprintf(

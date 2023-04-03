@@ -243,35 +243,6 @@ class Tracker
     }
 
     /**
-     * Removes all tracking data for a table or a version of a table
-     *
-     * @param string $dbName    name of database
-     * @param string $tableName name of table
-     * @param string $version   version
-     */
-    public static function deleteTracking(string $dbName, string $tableName, string $version = ''): bool
-    {
-        $relation = new Relation($GLOBALS['dbi']);
-        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return false;
-        }
-
-        $sqlQuery = sprintf(
-            '/*NOTRACK*/' . "\n" . 'DELETE FROM %s.%s WHERE `db_name` = %s AND `table_name` = %s',
-            Util::backquote($trackingFeature->database),
-            Util::backquote($trackingFeature->tracking),
-            $GLOBALS['dbi']->quoteString($dbName, Connection::TYPE_CONTROL),
-            $GLOBALS['dbi']->quoteString($tableName, Connection::TYPE_CONTROL),
-        );
-        if ($version) {
-            $sqlQuery .= ' AND `version` = ' . $GLOBALS['dbi']->quoteString($version, Connection::TYPE_CONTROL);
-        }
-
-        return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
-    }
-
-    /**
      * Creates tracking version of a database
      * (in other words: create a job to track future changes on the database).
      *

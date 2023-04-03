@@ -225,33 +225,6 @@ class TrackerTest extends AbstractTestCase
     }
 
     /**
-     * Test for Tracker::deleteTracking()
-     */
-    public function testDeleteTracking(): void
-    {
-        $resultStub = $this->createMock(DummyResult::class);
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $sqlQuery = "/*NOTRACK*/\n"
-            . 'DELETE FROM `pmadb`.`tracking`'
-            . " WHERE `db_name` = 'testdb'"
-            . " AND `table_name` = 'testtable'";
-
-        $dbi->expects($this->exactly(1))
-            ->method('queryAsControlUser')
-            ->with($sqlQuery)
-            ->will($this->returnValue($resultStub));
-        $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
-
-        $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Tracker::deleteTracking('testdb', 'testtable'));
-    }
-
-    /**
      * Test for Tracker::createDatabaseVersion()
      */
     public function testCreateDatabaseVersion(): void

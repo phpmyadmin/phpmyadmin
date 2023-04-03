@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
@@ -544,5 +545,38 @@ class TrackingTest extends AbstractTestCase
         $this->assertSame($expectedDump, $actual['dump']);
         $this->assertSame('', ini_get('url_rewriter.tags'));
         ini_restore('url_rewriter.tags');
+    }
+
+    /**
+     * Test for deleteTracking()
+     */
+    public function testDeleteTracking(): void
+    {
+        $resultStub = $this->createMock(DummyResult::class);
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $sqlQuery = "/*NOTRACK*/\n"
+            . 'DELETE FROM `pmadb`.`tracking`'
+            . " WHERE `db_name` = 'testdb'"
+            . " AND `table_name` = 'testtable'";
+
+        $dbi->expects($this->exactly(1))
+            ->method('queryAsControlUser')
+            ->with($sqlQuery)
+            ->will($this->returnValue($resultStub));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+
+        $tracking = new Tracking(
+            $this->createStub(SqlQueryForm::class),
+            $this->createStub(Template::class),
+            new Relation($GLOBALS['dbi']),
+            $dbi,
+            $this->createStub(TrackingChecker::class),
+        );
+        $this->assertTrue($tracking->deleteTracking('testdb', 'testtable'));
     }
 }
