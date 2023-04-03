@@ -11,6 +11,7 @@ use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -99,11 +100,11 @@ class Tracking
         }
 
         $query = sprintf(
-            'SELECT * FROM %s.%s WHERE db_name = \'%s\' AND table_name = \'%s\' ORDER BY version DESC',
+            'SELECT * FROM %s.%s WHERE db_name = %s AND table_name = %s ORDER BY version DESC',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $this->dbi->escapeString($db),
-            $this->dbi->escapeString($table),
+            $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
         );
 
         return $this->dbi->queryAsControlUser($query);
@@ -1026,8 +1027,8 @@ class Tracking
         // Prepare statement to get HEAD version
         $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM '
             . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
-            . ' WHERE db_name = \'' . $this->dbi->escapeString($db)
-            . '\'  GROUP BY table_name ORDER BY table_name ASC';
+            . ' WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+            . '  GROUP BY table_name ORDER BY table_name ASC';
 
         $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
         $untrackedTables = $this->trackingChecker->getUntrackedTableNames($db);
@@ -1038,9 +1039,9 @@ class Tracking
             [$tableName, $versionNumber] = $oneResult;
             $tableQuery = ' SELECT * FROM '
                 . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
-                . ' WHERE `db_name` = \'' . $this->dbi->escapeString($db)
-                . '\' AND `table_name`  = \'' . $this->dbi->escapeString($tableName)
-                . '\' AND `version` = \'' . $versionNumber . '\'';
+                . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+                . ' AND `table_name`  = ' . $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL)
+                . ' AND `version` = ' . $this->dbi->quoteString($versionNumber, Connection::TYPE_CONTROL);
 
             $versions[] = $this->dbi->queryAsControlUser($tableQuery)->fetchAssoc();
         }
