@@ -1193,7 +1193,7 @@ function browseForeignDialog ($thisA) {
 
 /**
  * Get the auto saved query key
- * @return {String}
+ * @return {string}
  */
 function getAutoSavedKey () {
     var db = $('input[name="db"]').val();

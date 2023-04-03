@@ -37,7 +37,7 @@ import $ from 'jquery';
      *
      * @param index
      *
-     * @return {String}
+     * @return {string}
      */
     $.jqplot.byteFormatter = function (index) {
         var i = index || 0;

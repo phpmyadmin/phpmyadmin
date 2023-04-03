@@ -64,7 +64,7 @@ $(function () {
  * Calls server-side validation procedures
  *
  * @param {Element} parent  input field in <fieldset> or <fieldset>
- * @param {String}  id      validator id
+ * @param {string}  id      validator id
  * @param {object}  values  values hash {element1_id: value, ...}
  *
  * @return {boolean|void}

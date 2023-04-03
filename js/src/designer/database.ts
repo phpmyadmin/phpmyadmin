@@ -22,7 +22,7 @@ var DesignerOfflineDB = (function () {
     var datastore = null;
 
     /**
-     * @param {String} table
+     * @param {string} table
      * @return {IDBTransaction}
      */
     designerDB.getTransaction = function (table) {
@@ -30,7 +30,7 @@ var DesignerOfflineDB = (function () {
     };
 
     /**
-     * @param {String} table
+     * @param {string} table
      * @return {IDBObjectStore}
      */
     designerDB.getObjectStore = function (table) {
@@ -41,7 +41,7 @@ var DesignerOfflineDB = (function () {
 
     /**
      * @param {IDBTransaction} transaction
-     * @param {String} table
+     * @param {string} table
      * @return {IDBObjectStore}
      */
     designerDB.getCursorRequest = function (transaction, table) {
@@ -90,8 +90,8 @@ var DesignerOfflineDB = (function () {
     };
 
     /**
-     * @param {String} table
-     * @param {String} id
+     * @param {string} table
+     * @param {string} id
      * @param {Function} callback
      */
     designerDB.loadObject = function (table, id, callback): void {
@@ -111,7 +111,7 @@ var DesignerOfflineDB = (function () {
     };
 
     /**
-     * @param {String} table
+     * @param {string} table
      * @param {Function} callback
      */
     designerDB.loadAllObjects = function (table, callback): void {
@@ -141,7 +141,7 @@ var DesignerOfflineDB = (function () {
     };
 
     /**
-     * @param {String} table
+     * @param {string} table
      * @param {Function} callback
      */
     designerDB.loadFirstObject = function (table, callback): void {
@@ -170,7 +170,7 @@ var DesignerOfflineDB = (function () {
     };
 
     /**
-     * @param {String} table
+     * @param {string} table
      * @param {Object} obj
      * @param {Function} callback
      */
@@ -193,8 +193,8 @@ var DesignerOfflineDB = (function () {
     };
 
     /**
-     * @param {String} table
-     * @param {String} id
+     * @param {string} table
+     * @param {string} id
      * @param {Function} callback
      */
     designerDB.deleteObject = function (table, id, callback): void {

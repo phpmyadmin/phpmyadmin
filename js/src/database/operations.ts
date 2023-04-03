@@ -153,7 +153,7 @@ AJAX.registerOnload('database/operations.js', function () {
         event.preventDefault();
         var $link = $(this);
         /**
-         * @var {String} question String containing the question to be asked for confirmation
+         * @var {string} question String containing the question to be asked for confirmation
          */
         var question = window.Messages.strDropDatabaseStrongWarning + ' ';
         question += window.sprintf(

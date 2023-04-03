@@ -28,7 +28,7 @@ function displayHelp () {
 /**
  * Extend the array object for max function
  * @param {number[]} array
- * @return {int}
+ * @return {number}
  **/
 Array.max = function (array) {
     return Math.max.apply(Math, array);
@@ -37,7 +37,7 @@ Array.max = function (array) {
 /**
  * Extend the array object for min function
  * @param {number[]} array
- * @return {int}
+ * @return {number}
  **/
 Array.min = function (array) {
     return Math.min.apply(Math, array);

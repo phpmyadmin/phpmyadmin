@@ -310,7 +310,7 @@ function registerFieldValidator (id, type, onKeyUp, params) {
 /**
  * Returns validation functions associated with form field
  *
- * @param {String}  fieldId     form field id
+ * @param {string}  fieldId     form field id
  * @param {boolean} onKeyUpOnly see registerFieldValidator
  *
  * @return {any[]} of [function, parameters to be passed to function]

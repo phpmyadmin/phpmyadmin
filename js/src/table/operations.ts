@@ -32,7 +32,7 @@ AJAX.registerTeardown('table/operations.js', function () {
  */
 var confirmAndPost = function (linkObject, action): void {
     /**
-     * @var {String} question String containing the question to be asked for confirmation
+     * @var {string} question String containing the question to be asked for confirmation
      */
     var question = '';
     if (action === 'TRUNCATE') {
@@ -275,7 +275,7 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $link = $(this);
         /**
-         * @var {String} question String containing the question to be asked for confirmation
+         * @var {string} question String containing the question to be asked for confirmation
          */
         var question = window.Messages.strDropTableStrongWarning + ' ';
         question += window.sprintf(window.Messages.strDoYouReally, $link[0].getAttribute('data-query'));
@@ -307,7 +307,7 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $link = $(this);
         /**
-         * @var {String} question String containing the question to be asked for confirmation
+         * @var {string} question String containing the question to be asked for confirmation
          */
         var question = window.Messages.strDropTableStrongWarning + ' ';
         question += window.sprintf(
