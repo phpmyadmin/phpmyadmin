@@ -8671,11 +8671,6 @@ parameters:
 			path: libraries/classes/Tracking/Tracker.php
 
 		-
-			message: "#^Foreach overwrites \\$logEntry with its value variable\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracker\\:\\:isTracked\\(\\) should return bool but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracker.php
@@ -8687,11 +8682,6 @@ parameters:
 
 		-
 			message: "#^Offset 0 does not exist on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
-			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 2
 			path: libraries/classes/Tracking/Tracker.php
 
@@ -8761,6 +8751,11 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
+			message: "#^Foreach overwrites \\$logEntry with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Tracking/Tracking.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
@@ -8778,6 +8773,11 @@ parameters:
 		-
 			message: "#^Offset 1 does not exist on array\\<int, array\\{date\\: string, username\\: string, statement\\: string\\}\\>\\|string\\|null\\.$#"
 			count: 1
+			path: libraries/classes/Tracking/Tracking.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 2
 			path: libraries/classes/Tracking/Tracking.php
 
 		-

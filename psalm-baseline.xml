@@ -13604,10 +13604,6 @@
     <MixedReturnStatement>
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedReturnStatement>
-    <PossiblyFalseOperand>
-      <code><![CDATA[mb_strpos($logEntry, "\n")]]></code>
-      <code><![CDATA[mb_strpos($logEntry, "\n")]]></code>
-    </PossiblyFalseOperand>
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$statement->body[2]->value]]></code>
       <code><![CDATA[$statement->body[3]->value]]></code>
@@ -13728,6 +13724,10 @@
     <MixedReturnStatement>
       <code>$html</code>
     </MixedReturnStatement>
+    <PossiblyFalseOperand>
+      <code><![CDATA[mb_strpos($logEntry, "\n")]]></code>
+      <code><![CDATA[mb_strpos($logEntry, "\n")]]></code>
+    </PossiblyFalseOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$data['schema_snapshot']]]></code>
       <code>$tableName</code>
@@ -15530,12 +15530,7 @@
   <file src="test/classes/Tracking/TrackerTest.php">
     <MixedInferredReturnType>
       <code>mixed[]</code>
-      <code>mixed[]</code>
     </MixedInferredReturnType>
-    <PossiblyUndefinedArrayOffset>
-      <code>$data[0]</code>
-      <code>$fetchArrayReturn[0]</code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="test/classes/Tracking/TrackingTest.php">
     <MixedArgument>
@@ -15547,6 +15542,13 @@
       <code><![CDATA[$ret[0]['statement']]]></code>
       <code><![CDATA[$ret[0]['username']]]></code>
     </MixedArrayAccess>
+    <MixedInferredReturnType>
+      <code>mixed[]</code>
+    </MixedInferredReturnType>
+    <PossiblyUndefinedArrayOffset>
+      <code>$data[0]</code>
+      <code>$fetchArrayReturn[0]</code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="test/classes/TransformationsTest.php">
     <PossiblyInvalidArgument>

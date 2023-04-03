@@ -27,17 +27,12 @@ use PhpMyAdmin\Util;
 
 use function array_values;
 use function count;
-use function explode;
 use function intval;
-use function mb_strpos;
 use function mb_strstr;
-use function mb_substr;
 use function preg_quote;
 use function preg_replace;
-use function rtrim;
 use function serialize;
 use function sprintf;
-use function strtotime;
 use function substr;
 use function trim;
 
@@ -395,139 +390,6 @@ class Tracker
         $row = $result->fetchRow();
 
         return intval($row[0] ?? -1);
-    }
-
-    /**
-     * Gets the record of a tracking job.
-     *
-     * @param string $dbname    name of database
-     * @param string $tablename name of table
-     * @param string $version   version number
-     *
-     * @return array<string, array<int, array<string, string>>|string|null>
-     * @psalm-return array{
-     *   date_from: string,
-     *   date_to: string,
-     *   ddlog: list<array{date: string, username: string, statement: string}>,
-     *   dmlog: list<array{date: string, username: string, statement: string}>,
-     *   tracking: string|null,
-     *   schema_snapshot: string|null
-     * }|array<never, never>
-     */
-    public static function getTrackedData(string $dbname, string $tablename, string $version): array
-    {
-        $relation = new Relation($GLOBALS['dbi']);
-        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return [];
-        }
-
-        $sqlQuery = sprintf(
-            'SELECT * FROM %s.%s WHERE `db_name` = %s',
-            Util::backquote($trackingFeature->database),
-            Util::backquote($trackingFeature->tracking),
-            $GLOBALS['dbi']->quoteString($dbname, Connection::TYPE_CONTROL),
-        );
-        if ($tablename !== '') {
-            $sqlQuery .= ' AND `table_name` = '
-                . $GLOBALS['dbi']->quoteString($tablename, Connection::TYPE_CONTROL) . ' ';
-        }
-
-        $sqlQuery .= ' AND `version` = ' . $GLOBALS['dbi']->quoteString($version, Connection::TYPE_CONTROL)
-            . ' ORDER BY `version` DESC LIMIT 1';
-
-        $mixed = $GLOBALS['dbi']->queryAsControlUser($sqlQuery)->fetchAssoc();
-
-        // PHP 7.4 fix for accessing array offset on null
-        if ($mixed === []) {
-            $mixed = ['schema_sql' => null, 'data_sql' => null, 'tracking' => null, 'schema_snapshot' => null];
-        }
-
-        // Parse log
-        $logSchemaEntries = explode('# log ', (string) $mixed['schema_sql']);
-        $logDataEntries = explode('# log ', (string) $mixed['data_sql']);
-
-        $ddlDateFrom = $date = Util::date('Y-m-d H:i:s');
-
-        $ddlog = [];
-        $firstIteration = true;
-
-        // Iterate tracked data definition statements
-        // For each log entry we want to get date, username and statement
-        foreach ($logSchemaEntries as $logEntry) {
-            if (trim($logEntry) == '') {
-                continue;
-            }
-
-            $date = mb_substr($logEntry, 0, 19);
-            $username = mb_substr(
-                $logEntry,
-                20,
-                mb_strpos($logEntry, "\n") - 20,
-            );
-            if ($firstIteration) {
-                $ddlDateFrom = $date;
-                $firstIteration = false;
-            }
-
-            $statement = rtrim((string) mb_strstr($logEntry, "\n"));
-
-            $ddlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
-        }
-
-        $dateFrom = $ddlDateFrom;
-        $ddlDateTo = $date;
-
-        $dmlDateFrom = $dateFrom;
-
-        $dmlog = [];
-        $firstIteration = true;
-
-        // Iterate tracked data manipulation statements
-        // For each log entry we want to get date, username and statement
-        foreach ($logDataEntries as $logEntry) {
-            if (trim($logEntry) == '') {
-                continue;
-            }
-
-            $date = mb_substr($logEntry, 0, 19);
-            $username = mb_substr(
-                $logEntry,
-                20,
-                mb_strpos($logEntry, "\n") - 20,
-            );
-            if ($firstIteration) {
-                $dmlDateFrom = $date;
-                $firstIteration = false;
-            }
-
-            $statement = rtrim((string) mb_strstr($logEntry, "\n"));
-
-            $dmlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
-        }
-
-        $dmlDateTo = $date;
-
-        // Define begin and end of date range for both logs
-        $data = [];
-        if (strtotime($ddlDateFrom) <= strtotime($dmlDateFrom)) {
-            $data['date_from'] = $ddlDateFrom;
-        } else {
-            $data['date_from'] = $dmlDateFrom;
-        }
-
-        if (strtotime($ddlDateTo) >= strtotime($dmlDateTo)) {
-            $data['date_to'] = $ddlDateTo;
-        } else {
-            $data['date_to'] = $dmlDateTo;
-        }
-
-        $data['ddlog'] = $ddlog;
-        $data['dmlog'] = $dmlog;
-        $data['tracking'] = $mixed['tracking'];
-        $data['schema_snapshot'] = $mixed['schema_snapshot'];
-
-        return $data;
     }
 
     /**

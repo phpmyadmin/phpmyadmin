@@ -13,7 +13,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -111,7 +110,7 @@ class TrackingController extends AbstractController
         }
 
         // Get tracked data about the database
-        $trackedData = Tracker::getTrackedData($GLOBALS['db'], '', '1');
+        $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], '', '1');
 
         // No tables present and no log exist
         if ($numTables == 0 && count($trackedData['ddlog']) === 0) {
