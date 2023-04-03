@@ -13657,13 +13657,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Tracking/Tracking.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code>$columns</code>
       <code>$data[$whichLog]</code>
@@ -13743,10 +13736,8 @@
     <PossiblyNullArgument>
       <code><![CDATA[$data['schema_snapshot']]]></code>
       <code>$tableName</code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand>
       <code>$versionNumber</code>
-    </PossiblyNullOperand>
+    </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$data['ddlog']]]></code>
       <code><![CDATA[$data['schema_snapshot']]]></code>
