@@ -28,6 +28,7 @@ use function date;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
+use function is_array;
 use function json_encode;
 use function mb_strstr;
 use function preg_replace;
@@ -731,7 +732,7 @@ class Tracking
         if ($deleteId == (int) $deleteId) {
             unset($data[$whichLog][$deleteId]);
 
-            $successfullyDeleted = Tracker::changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
+            $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
             if ($successfullyDeleted) {
                 $msg = Message::success($message);
             } else {
@@ -742,6 +743,62 @@ class Tracking
         }
 
         return $html;
+    }
+
+    /**
+     * Changes tracking data of a table.
+     *
+     * @param string         $dbName    name of database
+     * @param string         $tableName name of table
+     * @param string         $version   version
+     * @param string         $type      type of data(DDL || DML)
+     * @param string|mixed[] $newData   the new tracking data
+     */
+    public function changeTrackingData(
+        string $dbName,
+        string $tableName,
+        string $version,
+        string $type,
+        string|array $newData,
+    ): bool {
+        if ($type === 'DDL') {
+            $saveTo = 'schema_sql';
+        } elseif ($type === 'DML') {
+            $saveTo = 'data_sql';
+        } else {
+            return false;
+        }
+
+        $date = Util::date('Y-m-d H:i:s');
+
+        $newDataProcessed = '';
+        if (is_array($newData)) {
+            foreach ($newData as $data) {
+                $newDataProcessed .= '# log ' . $date . ' ' . $data['username'] . $data['statement'] . "\n";
+            }
+        } else {
+            $newDataProcessed = $newData;
+        }
+
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
+
+        $sqlQuery = sprintf(
+            'UPDATE %s.%s SET `%s` = %s WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $saveTo,
+            $this->dbi->quoteString($newDataProcessed, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($version, Connection::TYPE_CONTROL),
+        );
+
+        $result = $this->dbi->queryAsControlUser($sqlQuery);
+
+        return (bool) $result;
     }
 
     /**

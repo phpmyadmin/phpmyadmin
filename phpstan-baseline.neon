@@ -8641,16 +8641,6 @@ parameters:
 			path: libraries/classes/Theme/ThemeManager.php
 
 		-
-			message: "#^Cannot access offset 'statement' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
-			message: "#^Cannot access offset 'username' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Tracking/Tracker.php
@@ -8747,7 +8737,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'statement' on mixed\\.$#"
-			count: 5
+			count: 6
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
@@ -8762,7 +8752,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'username' on mixed\\.$#"
-			count: 4
+			count: 5
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
@@ -8856,7 +8846,7 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Parameter \\#5 \\$newData of static method PhpMyAdmin\\\\Tracking\\\\Tracker\\:\\:changeTrackingData\\(\\) expects array\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$newData of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:changeTrackingData\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 

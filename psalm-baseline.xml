@@ -13585,17 +13585,12 @@
       <code><![CDATA[$result['tablename']]]></code>
       <code><![CDATA[$result['tablename_after_rename']]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$data['statement']]]></code>
-      <code><![CDATA[$data['username']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['db']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code>$data</code>
       <code><![CDATA[$result['tablename']]]></code>
       <code>$trackingEnabled</code>
       <code>$trackingEnabled</code>
@@ -13604,8 +13599,6 @@
       <code>bool</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code><![CDATA[$data['statement']]]></code>
-      <code><![CDATA[$data['username']]]></code>
       <code><![CDATA[$result['identifier']]]></code>
     </MixedOperand>
     <MixedReturnStatement>
@@ -13682,6 +13675,8 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$data[$whichLog][$deleteId]</code>
+      <code><![CDATA[$data['statement']]]></code>
+      <code><![CDATA[$data['username']]]></code>
       <code><![CDATA[$entry['date']]]></code>
       <code><![CDATA[$entry['date']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
@@ -13705,6 +13700,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code>$columns</code>
+      <code>$data</code>
       <code>$entries[]</code>
       <code>$entry</code>
       <code>$entry</code>
@@ -13723,6 +13719,8 @@
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
+      <code><![CDATA[$data['statement']]]></code>
+      <code><![CDATA[$data['username']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
       <code>$temp</code>

@@ -29,7 +29,6 @@ use function array_values;
 use function count;
 use function explode;
 use function intval;
-use function is_array;
 use function mb_strpos;
 use function mb_strstr;
 use function mb_substr;
@@ -331,64 +330,6 @@ class Tracker
         );
 
         return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
-    }
-
-    /**
-     * Changes tracking data of a table.
-     *
-     * @param string         $dbName    name of database
-     * @param string         $tableName name of table
-     * @param string         $version   version
-     * @param string         $type      type of data(DDL || DML)
-     * @param string|mixed[] $newData   the new tracking data
-     */
-    public static function changeTrackingData(
-        string $dbName,
-        string $tableName,
-        string $version,
-        string $type,
-        string|array $newData,
-    ): bool {
-        $relation = new Relation($GLOBALS['dbi']);
-
-        if ($type === 'DDL') {
-            $saveTo = 'schema_sql';
-        } elseif ($type === 'DML') {
-            $saveTo = 'data_sql';
-        } else {
-            return false;
-        }
-
-        $date = Util::date('Y-m-d H:i:s');
-
-        $newDataProcessed = '';
-        if (is_array($newData)) {
-            foreach ($newData as $data) {
-                $newDataProcessed .= '# log ' . $date . ' ' . $data['username'] . $data['statement'] . "\n";
-            }
-        } else {
-            $newDataProcessed = $newData;
-        }
-
-        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return false;
-        }
-
-        $sqlQuery = sprintf(
-            'UPDATE %s.%s SET `%s` = %s WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
-            Util::backquote($trackingFeature->database),
-            Util::backquote($trackingFeature->tracking),
-            $saveTo,
-            $GLOBALS['dbi']->quoteString($newDataProcessed, Connection::TYPE_CONTROL),
-            $GLOBALS['dbi']->quoteString($dbName, Connection::TYPE_CONTROL),
-            $GLOBALS['dbi']->quoteString($tableName, Connection::TYPE_CONTROL),
-            $GLOBALS['dbi']->quoteString($version, Connection::TYPE_CONTROL),
-        );
-
-        $result = $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
-
-        return (bool) $result;
     }
 
     /**

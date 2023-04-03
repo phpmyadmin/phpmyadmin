@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use ReflectionClass;
 
 use function __;
@@ -578,5 +579,80 @@ class TrackingTest extends AbstractTestCase
             $this->createStub(TrackingChecker::class),
         );
         $this->assertTrue($tracking->deleteTracking('testdb', 'testtable'));
+    }
+
+    /**
+     * Test for changeTrackingData()
+     */
+    public function testChangeTrackingData(): void
+    {
+        $this->assertFalse(
+            $this->tracking->changeTrackingData('', '', '', '', ''),
+        );
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $sqlQuery1 = 'UPDATE `pmadb`.`tracking`' .
+        " SET `schema_sql` = '# new_data_processed'" .
+        " WHERE `db_name` = 'pma_db'" .
+        " AND `table_name` = 'pma_table'" .
+        " AND `version` = '1.0'";
+
+        $date = Util::date('Y-m-d H:i:s');
+
+        $newData = [
+            ['username' => 'user1', 'statement' => 'test_statement1'],
+            ['username' => 'user2', 'statement' => 'test_statement2'],
+        ];
+
+        $sqlQuery2 = 'UPDATE `pmadb`.`tracking`' .
+        " SET `data_sql` = '# log " . $date . " user1test_statement1\n" .
+        '# log ' . $date . " user2test_statement2\n'" .
+        " WHERE `db_name` = 'pma_db'" .
+        " AND `table_name` = 'pma_table'" .
+        " AND `version` = '1.0'";
+
+        $resultStub1 = $this->createMock(DummyResult::class);
+        $resultStub2 = $this->createMock(DummyResult::class);
+
+        $dbi->method('queryAsControlUser')
+            ->will(
+                $this->returnValueMap(
+                    [[$sqlQuery1, $resultStub1], [$sqlQuery2, $resultStub2]],
+                ),
+            );
+
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+
+        $tracking = new Tracking(
+            $this->createStub(SqlQueryForm::class),
+            $this->createStub(Template::class),
+            new Relation($GLOBALS['dbi']),
+            $dbi,
+            $this->createStub(TrackingChecker::class),
+        );
+
+        $this->assertTrue(
+            $tracking->changeTrackingData(
+                'pma_db',
+                'pma_table',
+                '1.0',
+                'DDL',
+                '# new_data_processed',
+            ),
+        );
+
+        $this->assertTrue(
+            $tracking->changeTrackingData(
+                'pma_db',
+                'pma_table',
+                '1.0',
+                'DML',
+                $newData,
+            ),
+        );
     }
 }
