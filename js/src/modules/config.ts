@@ -27,6 +27,7 @@ function getFieldType (field) {
     } else if (tagName === 'TEXTAREA') {
         return 'text';
     }
+
     return '';
 }
 
@@ -87,8 +88,10 @@ function setFieldValue (field, fieldType, value) {
         for (i = 0; i < imax; i++) {
             options[i].selected = (value.indexOf(options[i].value) !== -1);
         }
+
         break;
     }
+
     markField($field);
 }
 
@@ -123,8 +126,10 @@ function getFieldValue (field, fieldType) {
                 items.push(options[i].value);
             }
         }
+
         return items;
     }
+
     return null;
 }
 
@@ -146,9 +151,11 @@ function getAllValues () {
             if (type === 'select') {
                 value = value[0];
             }
+
             values[$elements[i].name] = value;
         }
     }
+
     return values;
 }
 
@@ -166,6 +173,7 @@ function checkFieldDefault (field, type) {
     if (typeof window.defaultValues[fieldId] === 'undefined') {
         return true;
     }
+
     var isDefault = true;
     var currentValue = getFieldValue($field, type);
     if (type !== 'select') {
@@ -183,6 +191,7 @@ function checkFieldDefault (field, type) {
             }
         }
     }
+
     return isDefault;
 }
 
@@ -220,7 +229,9 @@ window.validators = {
         if (isKeyUp && this.value === '') {
             return true;
         }
+
         var result = this.value !== '0' && window.validators.regExpNumeric.test(this.value);
+
         return result ? true : window.Messages.configErrorInvalidPositiveNumber;
     },
     /**
@@ -234,7 +245,9 @@ window.validators = {
         if (isKeyUp && this.value === '') {
             return true;
         }
+
         var result = window.validators.regExpNumeric.test(this.value);
+
         return result ? true : window.Messages.configErrorInvalidNonNegativeNumber;
     },
     /**
@@ -246,7 +259,9 @@ window.validators = {
         if (this.value === '') {
             return true;
         }
+
         var result = window.validators.regExpNumeric.test(this.value) && this.value !== '0';
+
         return result && this.value <= 65535 ? true : window.Messages.configErrorInvalidPortNumber;
     },
     /**
@@ -261,9 +276,11 @@ window.validators = {
         if (isKeyUp && this.value === '') {
             return true;
         }
+
         // convert PCRE regexp
         var parts = regexp.match(window.validators.regExpPcreExtract);
         var valid = this.value.match(new RegExp(parts[2], parts[3])) !== null;
+
         return valid ? true : window.Messages.configErrorInvalidValue;
     },
     /**
@@ -279,6 +296,7 @@ window.validators = {
         if (isNaN(val)) {
             return true;
         }
+
         return val <= maxValue ? true : window.sprintf(window.Messages.configErrorInvalidUpperBound, maxValue);
     },
     // field validators
@@ -299,9 +317,11 @@ function registerFieldValidator (id, type, onKeyUp, params) {
     if (typeof window.validators[type] === 'undefined') {
         return;
     }
+
     if (typeof validate[id] === 'undefined') {
         validate[id] = [];
     }
+
     if (validate[id].length === 0) {
         validate[id].push([type, params, onKeyUp]);
     }
@@ -330,6 +350,7 @@ function getFieldValidators (fieldId, onKeyUpOnly) {
             if (onKeyUpOnly && ! validate[fieldId][i][2]) {
                 continue;
             }
+
             functions.push([window.validators[validate[fieldId][i][0]], validate[fieldId][i][1]]);
         }
     }
@@ -387,6 +408,7 @@ function displayErrors (errorList) {
             for (var i = 0, imax = errors.length; i < imax; i++) {
                 html += '<dd>' + errors[i] + '</dd>';
             }
+
             $errorCnt.html(html);
         } else if ($errorCnt !== null) {
             // remove useless error container
@@ -405,10 +427,12 @@ function setDisplayError () {
     for (var i = 0; i < elements.length; i++) {
         validateField(elements[i], false, errors);
     }
+
     // run all fieldset validators
     $('fieldset.optbox').each(function () {
         validateFieldset(this, false, errors);
     });
+
     Config.displayErrors(errors);
 }
 
@@ -427,9 +451,11 @@ function validateFieldset (fieldset, isKeyUp, errors) {
             if (typeof errors[fieldId] === 'undefined') {
                 errors[fieldId] = [];
             }
+
             if (typeof fieldsetErrors[fieldId] === 'string') {
                 fieldsetErrors[fieldId] = [fieldsetErrors[fieldId]];
             }
+
             $.merge(errors[fieldId], fieldsetErrors[fieldId]);
         }
     }
@@ -455,12 +481,14 @@ function validateField (field, isKeyUp, errors) {
         } else {
             args = [];
         }
+
         args.unshift(isKeyUp);
         result = functions[i][0].apply($field[0], args);
         if (result !== true) {
             if (typeof result === 'string') {
                 result = [result];
             }
+
             $.merge(errors[fieldId], result);
         }
     }
@@ -484,6 +512,7 @@ function loadInlineConfig () {
     if (! Array.isArray(window.configInlineParams)) {
         return;
     }
+
     for (var i = 0; i < window.configInlineParams.length; ++i) {
         if (typeof window.configInlineParams[i] === 'function') {
             window.configInlineParams[i]();
@@ -497,6 +526,7 @@ function setupValidation () {
     if (window.configScriptLoaded && typeof window.configInlineParams !== 'undefined') {
         Config.loadInlineConfig();
     }
+
     // register validators and mark custom values
     var $elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
     $elements.each(function () {
@@ -506,6 +536,7 @@ function setupValidation () {
             validateFieldAndFieldset(this, false);
             markField(this);
         });
+
         var tagName = $el.attr('tagName');
         // text fields can be validated after each change
         if (tagName === 'INPUT' && $el.attr('type') === 'text') {
@@ -514,6 +545,7 @@ function setupValidation () {
                 markField($el);
             });
         }
+
         // disable textarea spellcheck
         if (tagName === 'TEXTAREA') {
             $el.attr('spellcheck', false);
@@ -529,6 +561,7 @@ function setupValidation () {
         for (var i = 0; i < $elements.length; i++) {
             validateField($elements[i], false, errors);
         }
+
         // run all fieldset validators
         $('fieldset.optbox').each(function () {
             validateFieldset(this, false, errors);
@@ -568,6 +601,7 @@ function restoreField (fieldId): void {
     if ($field.length === 0 || window.defaultValues[fieldId] === undefined) {
         return;
     }
+
     setFieldValue($field, getFieldType($field), window.defaultValues[fieldId]);
 }
 
@@ -591,6 +625,7 @@ function setupRestoreField () {
                 var value = href.match(/=(.+)$/)[1];
                 setFieldValue($(fieldSel), 'text', value);
             }
+
             $(fieldSel).trigger('change');
         })
         .find('.restore-default, .set-value')
@@ -660,6 +695,7 @@ function offerPrefsAutoimport () {
     if (! $cnt.length || ! hasConfig) {
         return;
     }
+
     $cnt.find('a').on('click', function (e) {
         e.preventDefault();
         var $a = $(this);
@@ -669,6 +705,7 @@ function offerPrefsAutoimport () {
                 'server': CommonParams.get('server'),
                 'prefs_autoload': 'hide'
             }, null, 'html');
+
             return;
         } else if ($a.attr('href') === '#delete') {
             $cnt.remove();
@@ -677,11 +714,14 @@ function offerPrefsAutoimport () {
                 'server': CommonParams.get('server'),
                 'prefs_autoload': 'hide'
             }, null, 'html');
+
             return;
         }
+
         $cnt.find('input[name=json]').val(window.localStorage.config);
         $cnt.find('form').trigger('submit');
     });
+
     $cnt.show();
 }
 
@@ -717,6 +757,7 @@ function on () {
             for (var i = 0, imax = fields.length; i < imax; i++) {
                 setFieldValue(fields[i], getFieldType(fields[i]), window.defaultValues[fields[i].id]);
             }
+
             setDisplayError();
         });
 
@@ -740,6 +781,7 @@ function on () {
                 } else {
                     disableId = enableId.replace(/text_file$/, 'local_storage');
                 }
+
                 $('#opts_' + disableId).addClass('disabled').find('input').prop('disabled', true);
                 $('#opts_' + enableId).removeClass('disabled').find('input').prop('disabled', false);
             });
@@ -752,6 +794,7 @@ function on () {
         if (lsExists) {
             updatePrefsDate();
         }
+
         $('form.prefs-form').on('change', function () {
             var $form = $(this);
             var disabled = false;
@@ -762,6 +805,7 @@ function on () {
             ) {
                 disabled = true;
             }
+
             $form.find('input[type=submit]').prop('disabled', disabled);
         }).on('submit', function (e) {
             var $form = $(this);

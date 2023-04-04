@@ -15,12 +15,15 @@ const onKeyDownArrowsHandler = function (event) {
     if (! o) {
         return;
     }
+
     if (o.tagName !== 'TEXTAREA' && o.tagName !== 'INPUT' && o.tagName !== 'SELECT') {
         return;
     }
+
     if ((e.which !== 17) && (e.which !== 37) && (e.which !== 38) && (e.which !== 39) && (e.which !== 40)) {
         return;
     }
+
     if (! o.id) {
         return;
     }
@@ -29,6 +32,7 @@ const onKeyDownArrowsHandler = function (event) {
         if (e.which === 17) {
             ctrlKeyHistory = 0;
         }
+
         return;
     } else if (e.type === 'keydown') {
         if (e.which === 17) {
@@ -89,6 +93,7 @@ const onKeyDownArrowsHandler = function (event) {
     if (nO.tagName !== 'SELECT') {
         nO.select();
     }
+
     e.returnValue = false;
 };
 
@@ -110,6 +115,7 @@ const KeyHandlerEvents = {
             $(document).on('keydown keyup', '#table_columns', function (event) {
                 onKeyDownArrowsHandler(event.originalEvent);
             });
+
             $(document).on('keydown keyup', 'table.insertRowTable', function (event) {
                 onKeyDownArrowsHandler(event.originalEvent);
             });

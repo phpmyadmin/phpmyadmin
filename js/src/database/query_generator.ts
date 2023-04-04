@@ -41,6 +41,7 @@ function generateCondition (criteriaDiv, table) {
         query += ' `' + escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
         query += '`' + escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
     }
+
     return query;
 }
 
@@ -58,10 +59,12 @@ window.generateWhereBlock = function () {
                     }
                 });
             }
+
             query += generateCondition(criteriaDiv, $(this));
             count++;
         }
     });
+
     return query;
 };
 
@@ -74,19 +77,23 @@ function generateJoin (newTable, tableAliases, fk) {
     } else {
         query += ' ON `' + escapeBacktick(fk.TABLE_NAME) + '`';
     }
+
     query += '.`' + fk.COLUMN_NAME + '`';
     if (tableAliases[fk.REFERENCED_TABLE_NAME][0] !== '') {
         query += ' = `' + escapeBacktick(tableAliases[fk.REFERENCED_TABLE_NAME][0]) + '`';
     } else {
         query += ' = `' + escapeBacktick(fk.REFERENCED_TABLE_NAME) + '`';
     }
+
     query += '.`' + fk.REFERENCED_COLUMN_NAME + '`';
+
     return query;
 }
 
 function existReference (table, fk, usedTables) {
     var isReferredBy = fk.TABLE_NAME === table && usedTables.includes(fk.REFERENCED_TABLE_NAME);
     var isReferencedBy = fk.REFERENCED_TABLE_NAME === table && usedTables.includes(fk.TABLE_NAME);
+
     return isReferredBy || isReferencedBy;
 }
 
@@ -97,6 +104,7 @@ function tryJoinTable (table, tableAliases, usedTables, foreignKeys) {
             return generateJoin(table, tableAliases, fk);
         }
     }
+
     return '';
 }
 
@@ -106,12 +114,15 @@ function appendTable (table, tableAliases, usedTables, foreignKeys) {
         if (usedTables.length > 0) {
             query += '\n\t, ';
         }
+
         query += '`' + escapeBacktick(table) + '`';
         if (tableAliases[table][0] !== '') {
             query += ' AS `' + escapeBacktick(tableAliases[table][0]) + '`';
         }
     }
+
     usedTables.push(table);
+
     return query;
 }
 
@@ -123,5 +134,6 @@ window.generateFromBlock = (tableAliases, foreignKeys) => {
             query += appendTable(table, tableAliases, usedTables, foreignKeys);
         }
     }
+
     return query;
 };

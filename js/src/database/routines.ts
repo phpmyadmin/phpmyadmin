@@ -51,8 +51,10 @@ const DatabaseRoutines = {
         if ($elm.val() === '') {
             $elm.trigger('focus');
             alert(window.Messages.strFormEmpty);
+
             return false;
         }
+
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
         if ($elm.val() === '') {
             if (this.syntaxHiglighter !== null) {
@@ -60,9 +62,12 @@ const DatabaseRoutines = {
             } else {
                 $('textarea[name=item_definition]').last().trigger('focus');
             }
+
             alert(window.Messages.strFormEmpty);
+
             return false;
         }
+
         // The validation has so far passed, so now
         // we can validate item-specific fields.
         return this.validateCustom();
@@ -86,6 +91,7 @@ const DatabaseRoutines = {
             if (count === 0) {
                 ajaxShowMessage(window.Messages.NoExportable);
             }
+
             var p = $.when();
             exportAnchors.each(function () {
                 var h = $(this).attr('href');
@@ -111,13 +117,16 @@ const DatabaseRoutines = {
         } else {
             $.get($this.attr('href'), { 'ajax_request': true }, showExport);
         }
+
         ajaxRemoveMessage($msg);
 
         function showExport (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
+
                 return;
             }
+
             ajaxRemoveMessage($msg);
             /**
              * @var buttonOptions Object containing options
@@ -167,6 +176,7 @@ const DatabaseRoutines = {
             // row with info about the modified item.
             $editRow = $this.parents('tr');
         }
+
         /**
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
@@ -175,8 +185,10 @@ const DatabaseRoutines = {
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
+
                 return;
             }
+
             var buttonOptions = {
                 [window.Messages.strGo]: {
                     text: window.Messages.strGo,
@@ -197,10 +209,12 @@ const DatabaseRoutines = {
                 if (typeof window.CodeMirror !== 'undefined') {
                     that.syntaxHiglighter.save();
                 }
+
                 // Validate editor and submit request, if passed.
                 if (! that.validate()) {
                     return;
                 }
+
                 /**
                  * @var data Form data to be sent in the AJAX request
                  */
@@ -208,12 +222,15 @@ const DatabaseRoutines = {
                 $msg = ajaxShowMessage(
                     window.Messages.strProcessingRequest
                 );
+
                 var url = $('form.rte_form').last().attr('action');
                 $.post(url, data, function (data) {
                     if (data.success !== true) {
                         ajaxShowMessage(data.error, false);
+
                         return;
                     }
+
                     // Item created successfully
                     ajaxRemoveMessage($msg);
                     Functions.slidingMessage(data.message);
@@ -225,6 +242,7 @@ const DatabaseRoutines = {
                     if (mode === 'edit' && $editRow !== null) {
                         $editRow.remove();
                     }
+
                     // Sometimes, like when moving a trigger from
                     // a table to another one, the new row should
                     // not be inserted into the list. In this case
@@ -252,18 +270,22 @@ const DatabaseRoutines = {
                                 .text()
                                 .toUpperCase()
                                 .trim();
+
                             if (text !== '' && text > data.name) {
                                 $(this).before(data.new_row);
                                 inserted = true;
+
                                 return false;
                             }
                         });
+
                         if (! inserted) {
                             // If we didn't manage to insert the row yet,
                             // it must belong at the end of the list,
                             // so we insert it there.
                             $(tableId + '.data').append(data.new_row);
                         }
+
                         // Fade-in the new row
                         $('tr.ajaxInsert')
                             .show('slow')
@@ -279,6 +301,7 @@ const DatabaseRoutines = {
                             $('#nothing2display').show('slow');
                         });
                     }
+
                     // Now we have inserted the row at the correct
                     // position, but surely at least some row classes
                     // are wrong now. So we will iterate through
@@ -297,6 +320,7 @@ const DatabaseRoutines = {
                         $(this).removeClass('odd even').addClass(rowclass);
                         ct++;
                     });
+
                     // If this is the first item being added, remove
                     // the "No items" message and show the list.
                     if ($(tableId + '.data').find('tr').has('td').length > 0 &&
@@ -306,12 +330,15 @@ const DatabaseRoutines = {
                             $(tableId + '.data').show('slow');
                         });
                     }
+
                     Navigation.reload();
                 }); // end $.post()
             }; // end of function that handles the submission of the Editor
+
             buttonOptions[window.Messages.strClose].click = function () {
                 $(this).dialog('close');
             };
+
             /**
              * Display the dialog to the user
              */
@@ -332,19 +359,23 @@ const DatabaseRoutines = {
                     if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
                         $('#rteDialog').dialog('option', 'height', $(window).height());
                     }
+
                     $(this).find('input[name=item_name]').trigger('focus');
                     $(this).find('input.datefield').each(function () {
                         Functions.addDatepicker($(this).css('width', '95%'), 'date');
                     });
+
                     $(this).find('input.datetimefield').each(function () {
                         Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
                     });
+
                     $.datepicker.initialized = false;
                 },
                 close: function () {
                     $(this).remove();
                 }
             });
+
             /**
              * @var mode Used to remember whether the editor is in
              *           "Edit" or "Add" mode
@@ -353,6 +384,7 @@ const DatabaseRoutines = {
             if ($('input[name=editor_process_edit]').length > 0) {
                 mode = 'edit';
             }
+
             // Attach syntax highlighted editor to the definition
             /**
              * @var elm jQuery object containing the reference to
@@ -390,8 +422,10 @@ const DatabaseRoutines = {
             $.post(url, params, function (data) {
                 if (data.success !== true) {
                     ajaxShowMessage(data.error, false);
+
                     return;
                 }
+
                 /**
                  * @var $table Object containing reference
                  *             to the main list of elements
@@ -431,6 +465,7 @@ const DatabaseRoutines = {
                         });
                     });
                 }
+
                 // Get rid of the "Loading" message
                 ajaxRemoveMessage($msg);
                 // Show the query that we just executed
@@ -470,8 +505,10 @@ const DatabaseRoutines = {
                         if (returnCount === count) {
                             Navigation.reload();
                         }
+
                         return;
                     }
+
                     /**
                      * @var $table Object containing reference
                      *             to the main list of elements
@@ -508,14 +545,17 @@ const DatabaseRoutines = {
                                 ct++;
                             });
                         });
+
                         $currRow.remove();
                     }
+
                     if (returnCount === count) {
                         if (success) {
                             // Get rid of the "Loading" message
                             ajaxRemoveMessage($msg);
                             $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
                         }
+
                         Navigation.reload();
                     }
                 }); // end $.post()
@@ -544,6 +584,7 @@ const DatabaseRoutines = {
                 $(this).find('select[name^=item_param_opts_num]')
             );
         });
+
         // Enable/disable the 'options' dropdowns for
         // function return value as necessary
         this.setOptionsForParameter(
@@ -552,6 +593,7 @@ const DatabaseRoutines = {
             $('table.rte_table').last().find('select[name=item_returnopts_text]'),
             $('table.rte_table').last().find('select[name=item_returnopts_num]')
         );
+
         // Allow changing parameter order
         $('.routine_params_table tbody').sortable({
             containment: '.routine_params_table tbody',
@@ -592,6 +634,7 @@ const DatabaseRoutines = {
                     $(this).attr('name', inputname.substring(0, 19) + '[' + index + ']');
                 }
             });
+
             index++;
         });
     },
@@ -616,6 +659,7 @@ const DatabaseRoutines = {
             if (! isSuccess) {
                 return false;
             }
+
             $(this).find(':input').each(function () {
                 inputname = $(this).attr('name');
                 if (inputname.startsWith('item_param_dir') ||
@@ -624,15 +668,19 @@ const DatabaseRoutines = {
                     if ($(this).val() === '') {
                         $(this).trigger('focus');
                         isSuccess = false;
+
                         return false;
                     }
                 }
             });
         });
+
         if (! isSuccess) {
             alert(window.Messages.strFormEmpty);
+
             return false;
         }
+
         this.$ajaxDialog.find('table.routine_params_table').last().find('tr').each(function () {
             // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
             var $inputtyp = $(this).find('select[name^=item_param_type]');
@@ -643,14 +691,18 @@ const DatabaseRoutines = {
                 ) {
                     $inputlen.trigger('focus');
                     isSuccess = false;
+
                     return false;
                 }
             }
         });
+
         if (! isSuccess) {
             alert(window.Messages.strFormEmpty);
+
             return false;
         }
+
         if (this.$ajaxDialog.find('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
             // The length/values of return variable for functions must
             // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
@@ -661,17 +713,21 @@ const DatabaseRoutines = {
             ) {
                 $returnlen.trigger('focus');
                 alert(window.Messages.strFormEmpty);
+
                 return false;
             }
         }
+
         if ($('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
             // A function must contain a RETURN statement in its definition
             if (this.$ajaxDialog.find('table.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
                 this.syntaxHiglighter.focus();
                 alert(window.Messages.MissingReturn);
+
                 return false;
             }
         }
+
         return true;
     },
     /**
@@ -737,6 +793,7 @@ const DatabaseRoutines = {
             $noOpts.show();
             break;
         }
+
         // Process for parameter length
         switch ($type.val()) {
         case 'DATE':
@@ -758,6 +815,7 @@ const DatabaseRoutines = {
             } else {
                 $text.closest('tr').find('a').first().hide();
             }
+
             $len.parent().show();
             $noLen.hide();
             break;
@@ -773,8 +831,10 @@ const DatabaseRoutines = {
         $.post($this.attr('href'), params, function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
+
                 return;
             }
+
             ajaxRemoveMessage($msg);
             // If 'data.dialog' is true we show a dialog with a form
             // to get the input parameters for routine, otherwise
@@ -782,8 +842,10 @@ const DatabaseRoutines = {
             if (! data.dialog) {
                 // Routine executed successfully
                 Functions.slidingMessage(data.message);
+
                 return;
             }
+
             var buttonOptions = {
                 [window.Messages.strGo]: {
                     text: window.Messages.strGo,
@@ -804,6 +866,7 @@ const DatabaseRoutines = {
                 $msg = ajaxShowMessage(
                     window.Messages.strProcessingRequest
                 );
+
                 $.post('index.php?route=/database/routines', data, function (data) {
                     if (data.success === true) {
                         // Routine executed successfully
@@ -815,9 +878,11 @@ const DatabaseRoutines = {
                     }
                 });
             };
+
             buttonOptions[window.Messages.strClose].click = function () {
                 $(this).dialog('close');
             };
+
             /**
              * Display the dialog to the user
              */
@@ -840,6 +905,7 @@ const DatabaseRoutines = {
             $ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
                 Functions.addDatepicker($(this).css('width', '95%'));
             });
+
             /*
             * Define the function if the user presses enter
             */
@@ -848,6 +914,7 @@ const DatabaseRoutines = {
                 if (event.keyCode !== 13) {
                     return;
                 }
+
                 /**
                  * @var data Form data to be sent in the AJAX request
                  */
@@ -855,12 +922,15 @@ const DatabaseRoutines = {
                 $msg = ajaxShowMessage(
                     window.Messages.strProcessingRequest
                 );
+
                 var url = $(this).attr('action');
                 $.post(url, data, function (data) {
                     if (data.success !== true) {
                         ajaxShowMessage(data.error, false);
+
                         return;
                     }
+
                     // Routine executed successfully
                     ajaxRemoveMessage($msg);
                     Functions.slidingMessage(data.message);
@@ -878,10 +948,12 @@ AJAX.registerOnload('database/routines.js', function () {
         $.datepicker.initialized = false;
         DatabaseRoutines.editorDialog(true, $(this));
     });
+
     $(document).on('click', 'a.ajax.edit_anchor', function (event) {
         event.preventDefault();
         DatabaseRoutines.editorDialog(false, $(this));
     });
+
     $(document).on('click', 'a.ajax.exec_anchor', function (event) {
         event.preventDefault();
         DatabaseRoutines.executeDialog($(this));
@@ -891,6 +963,7 @@ AJAX.registerOnload('database/routines.js', function () {
         event.preventDefault();
         DatabaseRoutines.exportDialog($(this));
     });
+
     $(document).on('click', '#bulkActionExportButton', function (event) {
         event.preventDefault();
         DatabaseRoutines.exportDialog($(this));
@@ -900,6 +973,7 @@ AJAX.registerOnload('database/routines.js', function () {
         event.preventDefault();
         DatabaseRoutines.dropDialog($(this));
     });
+
     $(document).on('click', '#bulkActionDropButton', function (event) {
         event.preventDefault();
         DatabaseRoutines.dropMultipleDialog($(this));
@@ -948,6 +1022,7 @@ AJAX.registerOnload('database/routines.js', function () {
             $('tr.routine_return_row').show();
             $('td.routine_direction_cell').hide();
         }
+
         /**
          * @var newrow jQuery object containing the reference to the newly
          *             inserted row in the routine parameters table

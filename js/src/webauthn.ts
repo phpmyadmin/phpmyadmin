@@ -46,6 +46,7 @@ const handleCreation = ($input): void => {
             excludedCredential.id = base64ToUint8Array(value.id);
             excludedCredentials.push(excludedCredential);
         }
+
         publicKey.excludeCredentials = excludedCredentials;
     }
 
@@ -86,6 +87,7 @@ const handleRequest = ($input): void => {
             allowedCredential.id = base64ToUint8Array(value.id);
             allowedCredentials.push(allowedCredential);
         }
+
         publicKey.allowCredentials = allowedCredentials;
     }
 

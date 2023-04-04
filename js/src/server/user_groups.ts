@@ -28,6 +28,7 @@ AJAX.registerOnload('server/user_groups.js', function () {
             escapeHtml(userGroupName)
         );
     });
+
     deleteUserGroupModal.on('shown.bs.modal', function (event) {
         const userGroupName = $(event.relatedTarget).data('user-group');
         $('#deleteUserGroupConfirm').on('click', function () {

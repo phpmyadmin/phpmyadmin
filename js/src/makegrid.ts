@@ -100,6 +100,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 objLeft: $(obj).position().left,
                 objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth()
             };
+
             // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'col-resize').noSelect();
             if (g.isCellEditActive) {
@@ -123,6 +124,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 height: $(obj).height(),
                 width: $(obj).width()
             });
+
             $(g.cPointer).css({
                 top: objPos.top
             });
@@ -202,6 +204,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if (nw < g.minColWidth) {
                     nw = g.minColWidth;
                 }
+
                 var n = g.colRsz.n;
                 // do the resizing
                 g.resize(n, nw);
@@ -223,6 +226,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     if (g.tableCreateTime) {
                         g.sendColPrefs();
                     }
+
                     g.refreshRestoreButton();
                 }
 
@@ -233,10 +237,12 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         left: g.colReorder.objLeft
                     }, 'fast')
                     .fadeOut();
+
                 $(g.cPointer).css('visibility', 'hidden');
 
                 g.colReorder = false;
             }
+
             // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },
@@ -271,8 +277,10 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 } else {
                     colWidth = $col.outerWidth(true);
                 }
+
                 $($resizeHandles[n]).css('left', $col.position().left + colWidth)
                     .show();
+
                 if ($col.hasClass('condition')) {
                     $($resizeHandles[n]).addClass('condition');
                     if (n > 0) {
@@ -280,9 +288,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     }
                 }
             }
+
             if ($($resizeHandles[0]).hasClass('condition')) {
                 $(g.t).find('thead th').first().addClass('before-condition');
             }
+
             $(g.cRsz).css('height', $(g.t).height());
         },
 
@@ -306,6 +316,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             .add($(this).find('td').eq(g.actionSpan + oldn)));
                 }
             });
+
             // reposition the column resize bars
             g.reposRsz();
 
@@ -317,6 +328,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 $(g.cList).find('.lDiv div').eq(newn)
                     .after($(g.cList).find('.lDiv div').eq(oldn));
             }
+
             // adjust the colOrder
             var tmp = g.colOrder[oldn];
             g.colOrder.splice(oldn, 1);
@@ -345,6 +357,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     hoveredCol = this;
                 }
             });
+
             return hoveredCol;
         },
 
@@ -369,14 +382,17 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 while (j >= 0 && x < g.colOrder[j]) {
                     j--;
                 }
+
                 if (j !== i - 1) {
                     g.shiftCol(i, j + 1);
                 }
             }
+
             if (g.tableCreateTime) {
                 // send request to server to remember the column order
                 g.sendColPrefs();
             }
+
             g.refreshRestoreButton();
         },
 
@@ -390,6 +406,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     // Issue: https://github.com/phpmyadmin/phpmyadmin/issues/15658
                     return;
                 }
+
                 var postParams = {
                     'ajax_request': true,
                     'db': g.db,
@@ -401,9 +418,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if (g.colOrder.length > 0) {
                     $.extend(postParams, { 'col_order': g.colOrder.toString() });
                 }
+
                 if (g.colVisib.length > 0) {
                     $.extend(postParams, { 'col_visib': g.colVisib.toString() });
                 }
+
                 $.post('index.php?route=/sql/set-column-preferences', postParams, function (data) {
                     if (data.success !== true) {
                         var $tempDiv = $(document.createElement('div'));
@@ -428,6 +447,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     break;
                 }
             }
+
             // check if only one visible column left
             var isOneColumn = g.visibleHeadersCount === 1;
             // enable or disable restore button
@@ -450,17 +470,21 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if (g.visibleHeadersCount > 1) {
                     g.showReorderHint = true;
                 }
+
                 if ($(t).find('th.marker').length > 0) {
                     g.showMarkHint = true;
                 }
+
                 if (g.showSortHint && g.sortHint) {
                     text += text.length > 0 ? '<br>' : '';
                     text += '- ' + g.sortHint;
                 }
+
                 if (g.showMultiSortHint && g.strMultiSortHint) {
                     text += text.length > 0 ? '<br>' : '';
                     text += '- ' + g.strMultiSortHint;
                 }
+
                 if (g.showMarkHint &&
                     g.markHint &&
                     ! g.showSortHint && // we do not show mark hint, when sort hint is shown
@@ -475,6 +499,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     text += '- ' + g.copyHint;
                 }
             }
+
             return text;
         },
 
@@ -495,11 +520,13 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             .add($(this).find('td').eq(g.actionSpan + n))
                             .hide();
                     });
+
                     g.colVisib[n] = 0;
                     $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', false);
                 } else {
                     // cannot hide, force the checkbox to stay checked
                     $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', true);
+
                     return false;
                 }
             } else {    // column n is not visible
@@ -508,9 +535,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         .add($(this).find('td').eq(g.actionSpan + n))
                         .show();
                 });
+
                 g.colVisib[n] = 1;
                 $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', true);
             }
+
             return true;
         },
 
@@ -556,6 +585,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     top: pos.top + $(obj).outerHeight(true)
                 })
                     .show();
+
                 $(obj).addClass('coldrop-hover');
             }
         },
@@ -592,6 +622,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     g.toggleCol(i);
                 }
             }
+
             g.afterToggleCol();
         },
 
@@ -634,11 +665,13 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             width: $cell.outerWidth(),
                             height: $cell.outerHeight()
                         });
+
                     // fill the cell edit with text from <td>
                     var value = Functions.getCellValue(cell);
                     if ($cell.attr('data-type') === 'json' && $cell.is('.truncated') === false) {
                         value = Functions.stringifyJSON(value, null, 4);
                     }
+
                     $(g.cEdit).find('.edit_box').val(value);
 
                     g.currentEditCell = cell;
@@ -676,6 +709,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 } else {
                     g.saveOrPostEditedCell();
                 }
+
                 return;
             }
 
@@ -733,16 +767,19 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             $target.html(newHtml);
                         }
                     }
+
                     if ($thisField.is('.bit')) {
                         $thisField.find('span').text($thisField.data('value'));
                     }
                 }
+
                 if (data.transformations !== undefined) {
                     $.each(data.transformations, function (cellIndex, value) {
                         var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
                         $thisField.find('span').html(value);
                     });
                 }
+
                 if (data.relations !== undefined) {
                     $.each(data.relations, function (cellIndex, value) {
                         var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
@@ -846,6 +883,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         $editArea.on('change', 'select', function () {
                             $checkbox.prop('checked', false);
                         });
+
                         $editArea.on('click', '.browse_foreign', function () {
                             $checkbox.prop('checked', false);
                         });
@@ -853,16 +891,19 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         $(g.cEdit).on('keypress change paste', '.edit_box', function () {
                             $checkbox.prop('checked', false);
                         });
+
                         // Capture ctrl+v (on IE and Chrome)
                         $(g.cEdit).on('keydown', '.edit_box', function (e) {
                             if (e.ctrlKey && e.which === 86) {
                                 $checkbox.prop('checked', false);
                             }
                         });
+
                         $editArea.on('keydown', 'textarea', function () {
                             $checkbox.prop('checked', false);
                         });
                     }
+
                     // if some text is written in textbox automatically unmark the null checkbox and if it is emptied again mark the checkbox.
                     $(g.cEdit).find('.edit_box').on('input', function () {
                         if ($(g.cEdit).find('.edit_box').val() !== '') {
@@ -871,6 +912,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             $checkbox.prop('checked', true);
                         }
                     });
+
                     // if null checkbox is clicked empty the corresponding select/editor.
                     $checkbox.on('click', function () {
                         if ($td.is('.enum')) {
@@ -888,6 +930,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         } else {
                             $editArea.find('textarea').val('');
                         }
+
                         $(g.cEdit).find('.edit_box').val('');
                     });
                 }
@@ -943,6 +986,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     $editArea.on('change', 'select', function () {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
+
                     g.isEditCellTextEditable = true;
                 } else if ($td.is('.enum')) {
                     // handle enum fields
@@ -959,12 +1003,15 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         'column': fieldName,
                         'curr_value': currValue
                     };
+
                     g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
                         g.lastXHR = null;
                         if (typeof data === 'object' && data.success === false) {
                             ajaxShowMessage(data.error, undefined, 'error');
+
                             return;
                         }
+
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -1005,8 +1052,10 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         g.lastXHR = null;
                         if (typeof data === 'object' && data.success === false) {
                             ajaxShowMessage(data.error, undefined, 'error');
+
                             return;
                         }
+
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
                         $td.data('original_data', $(data.select).val().join());
@@ -1027,9 +1076,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             .on('keyup', 'textarea', function () {
                                 $(g.cEdit).find('.edit_box').val($(this).val());
                             });
+
                         $(g.cEdit).on('keyup', '.edit_box', function () {
                             $editArea.find('textarea').val($(this).val());
                         });
+
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     } else {
                         // handle truncated/transformed values values
@@ -1057,6 +1108,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                 if ($td.attr('data-type') === 'json') {
                                     data.value = Functions.stringifyJSON(data.value, null, 4);
                                 }
+
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
                             } else {
@@ -1064,6 +1116,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             }
                         }); // end $.post()
                     }
+
                     g.isEditCellTextEditable = true;
                 } else if ($td.is('.timefield, .datefield, .datetimefield, .timestampfield')) {
                     var $inputField = $(g.cEdit).find('.edit_box');
@@ -1079,6 +1132,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         if (datetimeValue && datetimeValue.indexOf('.') === false) {
                             datetimeValue += '.';
                         }
+
                         if ($td.attr('data-decimals') > 3) {
                             showMillisec = true;
                             showMicrosec = true;
@@ -1147,6 +1201,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }
                 }
+
                 if ($editArea.children().length > 0) {
                     $editArea.show();
                 }
@@ -1163,6 +1218,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             if (g.isSaving) {
                 return;
             }
+
             g.isSaving = true;
             /**
              * @var relationFields Array containing the name/value pairs of relational fields
@@ -1220,6 +1276,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if (typeof whereClause === 'undefined') {
                     whereClause = '';
                 }
+
                 fullWhereClause.push(whereClause);
                 var conditionArray = JSON.parse($tr.find('.condition_array').val());
 
@@ -1253,6 +1310,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     if ($thisField.is('.transformed')) {
                         transformationFields = true;
                     }
+
                     thisFieldParams[fieldName] = $thisField.data('value');
 
                     /**
@@ -1271,6 +1329,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         } else if ($thisField.hasClass('hex')) {
                             fieldsType.push('hex');
                         }
+
                         fieldsNull.push('');
 
                         if ($thisField.attr('data-type') !== 'json') {
@@ -1291,6 +1350,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             $.extend(relationFields[cellIndex], thisFieldParams);
                         }
                     }
+
                     // check if edited field appears in WHERE clause
                     if (whereClause.indexOf(window.Sql.urlEncode(fieldName)) > -1) {
                         var fieldStr = '`' + g.table + '`.' + '`' + fieldName + '`';
@@ -1308,6 +1368,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 for (var field in conditionArray) {
                     newClause += field + ' ' + conditionArray[field] + ' AND ';
                 }
+
                 newClause = newClause.substring(0, newClause.length - 5); // remove the last AND
                 $tr.data('new_clause', newClause);
                 // save condition_array
@@ -1368,6 +1429,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             $(g.o).find('div.save_edited').removeClass('saving_edited_data')
                                 .find('input').prop('disabled', false);  // enable the save button back
                         }
+
                         if (typeof data !== 'undefined' && data.success === true) {
                             if (typeof options === 'undefined' || ! options.move) {
                                 ajaxShowMessage(data.message);
@@ -1395,6 +1457,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                             });
                                     }
                                 });
+
                                 // update the multi edit checkboxes
                                 $(this).find('input[type=checkbox]').each(function () {
                                     var $checkbox = $(this);
@@ -1405,6 +1468,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                     $checkbox.val(checkboxValue.replace(decodedOldClause, decodedNewClause));
                                 });
                             });
+
                             // update the display of executed SQL query command
                             if (typeof data.sql_query !== 'undefined') {
                                 // extract query box
@@ -1423,9 +1487,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                     } else {
                                         $existingQuery.append(sqlOuter + tools);
                                     }
+
                                     highlightSql($existingQuery);
                                 }
                             }
+
                             // hide and/or update the successfully saved cells
                             g.hideEditCell(true, data);
 
@@ -1532,9 +1598,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             if (needToPost) {
                 $(g.currentEditCell).addClass('to_be_saved')
                     .data('value', thisFieldParams[fieldName]);
+
                 if (g.saveCellsAtOnce) {
                     $(g.o).find('div.save_edited').show();
                 }
+
                 g.isCellEdited = true;
             }
 
@@ -1613,8 +1681,10 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     .on('mousedown', function (e) {
                         g.dragStartRsz(e, this);
                     });
+
                 $(g.cRsz).append(cb);
             });
+
             g.reposRsz();
 
             // attach to global div
@@ -1687,10 +1757,12 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         ajaxShowMessage(window.Messages.strCopyColumnFailure, false, 'error');
                     }
                 });
+
             $(g.t).find('th.draggable a')
                 .on('dblclick', function (e) {
                     e.stopPropagation();
                 });
+
             // restore column order when the restore button is clicked
             $(g.o).find('div.restore_column').on('click', function () {
                 g.restoreColOrder();
@@ -1760,6 +1832,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                 g.hideColList();
                             }
                         });
+
                     $(g.cDrop).append(cd);
                 });
 
@@ -1778,18 +1851,22 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     var listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
                         .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '>');
+
                     $listDiv.append(listElmt);
                     // add event on click
                     $(listElmt).on('click', tempClick);
                 }
+
                 // add "show all column" button
                 var showAll = document.createElement('div');
                 $(showAll).addClass('showAllColBtn')
                     .text(g.showAllColText);
+
                 $(g.cList).append(showAll);
                 $(showAll).on('click', function () {
                     g.showAllColumns();
                 });
+
                 // prepend "show all column" button at top if the list is too long
                 if ($firstRowCols.length > 10) {
                     var clone = showAll.cloneNode(true);
@@ -1829,6 +1906,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
+
             var found = false;
             var $prevRow;
 
@@ -1836,6 +1914,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
                 }
+
                 if (! found) {
                     $prevRow = $(this);
                 }
@@ -1872,6 +1951,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
+
             var found = false;
             var $nextRow;
             var j = 0;
@@ -1880,6 +1960,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
                 }
+
                 if (found) {
                     if (j >= 1 && ! nextRowFound) {
                         $nextRow = $(this);
@@ -1920,6 +2001,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
+
             var found = false;
             var $foundRow;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
@@ -1936,6 +2018,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     if (window.Sql.getFieldName($(g.t), $(this)) === fieldName) {
                         cellFound = true;
                     }
+
                     if (! cellFound) {
                         leftCell = this;
                     }
@@ -1963,6 +2046,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
+
             var found = false;
             var $foundRow;
             var j = 0;
@@ -1981,6 +2065,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     if (window.Sql.getFieldName($(g.t), $(this)) === fieldName) {
                         cellFound = true;
                     }
+
                     if (cellFound) {
                         if (j >= 1 && ! nextCellFound) {
                             rightCell = this;
@@ -2007,6 +2092,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 } else {
                     g.showEditCell(cell);
                 }
+
                 e.stopPropagation();
             }
 
@@ -2105,6 +2191,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             $(g.cEditStd).find('.edit_box').on('focus', function () {
                 g.showEditArea();
             });
+
             $(g.cEditStd).on('keydown', '.edit_box, select', function (e) {
                 if (e.which === 13) {
                     // post on pressing "Enter"
@@ -2112,6 +2199,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     g.saveOrPostEditedCell();
                 }
             });
+
             $(g.cEditStd).on('keydown', function (e) {
                 if (! g.isEditCellTextEditable) {
                     // prevent text editing
@@ -2124,6 +2212,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             $(g.cEditTextarea).find('.edit_box').on('focus', function () {
                 g.showEditArea();
             });
+
             $(g.cEditTextarea).on('keydown', '.edit_box, select', function (e) {
                 if (e.which === 13 && ! e.shiftKey) {
                     // post on pressing "Enter"
@@ -2131,12 +2220,14 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     g.saveOrPostEditedCell();
                 }
             });
+
             $(g.cEditTextarea).on('keydown', function (e) {
                 if (! g.isEditCellTextEditable) {
                     // prevent text editing
                     e.preventDefault();
                 }
             });
+
             $('html').on('click', function (e) {
                 // hide edit cell if the click is not fromDat edit area
                 if ($(e.target).parents().index($(g.cEdit)) === -1 &&
@@ -2152,10 +2243,12 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     g.hideEditCell(true);
                 }
             });
+
             $(g.o).find('div.save_edited').on('click', function () {
                 g.hideEditCell();
                 g.postEditedCell();
             });
+
             $(window).on('beforeunload', function () {
                 if (g.isCellEdited) {
                     return g.saveCellWarning;
@@ -2245,14 +2338,17 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
     if (isResizeEnabled) {
         g.initColResize();
     }
+
     // disable reordering for result from EXPLAIN or SHOW syntax, which do not have a table navigation panel
     if (isReorderEnabled &&
         $(g.o).find('table.navigation').length > 0) {
         g.initColReorder();
     }
+
     if (isVisibEnabled) {
         g.initColVisib();
     }
+
     // make sure we have the ajax class
     if (isGridEditEnabled &&
         $(t).is('.ajax')) {
@@ -2284,6 +2380,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
         $(document).on('mousemove', function (e) {
             g.dragMove(e);
         });
+
         $(document).on('mouseup', function (e) {
             $(g.o).removeClass('turnOffSelect');
             g.dragEnd(e);

@@ -15,6 +15,7 @@ function ignorePhpErrors (clearPrevErrors) {
     ) {
         clearPrevious = false;
     }
+
     // send AJAX request to /error-report with send_error_report=0, exception_type=php & token.
     // It clears the prev_errors stored in session.
     if (clearPrevious) {

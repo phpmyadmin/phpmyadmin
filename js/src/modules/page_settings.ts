@@ -45,6 +45,7 @@ const PageSettings = {
             $('#page_settings_icon').css('display', 'inline');
             $('#page_settings_icon').on('click', showPageSettings);
         }
+
         $('#pma_navigation_settings_icon').on('click', showNaviSettings);
     },
 };

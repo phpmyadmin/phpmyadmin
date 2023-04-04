@@ -24,15 +24,19 @@ AJAX.registerOnload('designer/init.js', function () {
     $('#ok_edit_rename').on('click', function () {
         DesignerHistory.edit('Rename');
     });
+
     $('#ok_edit_having').on('click', function () {
         DesignerHistory.edit('Having');
     });
+
     $('#ok_edit_Aggr').on('click', function () {
         DesignerHistory.edit('Aggregate');
     });
+
     $('#ok_edit_where').on('click', function () {
         DesignerHistory.edit('Where');
     });
+
     $('#ab').accordion({ collapsible: true, active: 'none' });
 });
 
@@ -51,9 +55,11 @@ AJAX.registerOnload('designer/init.js', function () {
         if (! document.fullscreenElement) {
             $content.removeClass('content_fullscreen')
                 .css({ 'width': 'auto', 'height': 'auto' });
+
             $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
             $img.attr('src', $img.data('enter'))
                 .attr('title', $span.data('enter'));
+
             $span.text($span.data('enter'));
 
             // Saving the fullscreen state in config when
@@ -120,28 +126,40 @@ AJAX.registerTeardown('designer/init.js', function () {
 AJAX.registerOnload('designer/init.js', function () {
     $('#key_Show_left_menu').on('click', function () {
         DesignerMove.showLeftMenu(this);
+
         return false;
     });
+
     $('#toggleFullscreen').on('click', function () {
         DesignerMove.toggleFullscreen();
+
         return false;
     });
+
     $('#addOtherDbTables').on('click', function () {
         DesignerMove.addOtherDbTables();
+
         return false;
     });
+
     $('#newPage').on('click', function () {
         DesignerMove.new();
+
         return false;
     });
+
     $('#editPage').on('click', function () {
         DesignerMove.editPages();
+
         return false;
     });
+
     $('#savePos').on('click', function () {
         DesignerMove.save3();
+
         return false;
     });
+
     $('#SaveAs').on('click', function () {
         DesignerMove.saveAs();
         $(document).on('ajaxStop', function () {
@@ -149,79 +167,115 @@ AJAX.registerOnload('designer/init.js', function () {
                 $('#savePageNewRadio').prop('checked', true);
             });
         });
+
         return false;
     });
+
     $('#delPages').on('click', function () {
         DesignerMove.deletePages();
+
         return false;
     });
+
     $('#StartTableNew').on('click', function () {
         DesignerMove.startTableNew();
+
         return false;
     });
+
     $('#rel_button').on('click', function () {
         DesignerMove.startRelation();
+
         return false;
     });
+
     $('#display_field_button').on('click', function () {
         DesignerMove.startDisplayField();
+
         return false;
     });
+
     $('#reloadPage').on('click', function () {
         DesignerMove.loadPage(DesignerConfig.selectedPage);
     });
+
     $('#angular_direct_button').on('click', function () {
         DesignerMove.angularDirect();
+
         return false;
     });
+
     $('#grid_button').on('click', function () {
         DesignerMove.grid();
+
         return false;
     });
+
     $('#key_SB_all').on('click', function () {
         DesignerMove.smallTabAll(this);
+
         return false;
     });
+
     $('#SmallTabInvert').on('click', function () {
         DesignerMove.smallTabInvert();
+
         return false;
     });
+
     $('#relLineInvert').on('click', function () {
         DesignerMove.relationLinesInvert();
+
         return false;
     });
+
     $('#exportPages').on('click', function () {
         DesignerMove.exportPages();
+
         return false;
     });
+
     $('#query_builder').on('click', function () {
         DesignerHistory.buildQuery('SQL Query on Database', 0);
     });
+
     $('#key_Left_Right').on('click', function () {
         DesignerMove.sideMenuRight(this);
+
         return false;
     });
+
     $('#side_menu').on('mouseenter', function () {
         DesignerMove.showText();
+
         return false;
     });
+
     $('#side_menu').on('mouseleave', function () {
         DesignerMove.hideText();
+
         return false;
     });
+
     $('#pin_Text').on('click', function () {
         DesignerMove.pinText(this);
+
         return false;
     });
+
     $('#canvas').on('click', function (event) {
         DesignerMove.canvasClick(this, event);
     });
+
     $('#key_HS_all').on('click', function () {
         DesignerMove.hideTabAll(this);
+
         return false;
     });
+
     $('#key_HS').on('click', function () {
         DesignerMove.noHaveConstr(this);
+
         return false;
     });
 
@@ -231,10 +285,12 @@ AJAX.registerOnload('designer/init.js', function () {
     $('input#del_button').on('click', function () {
         DesignerMove.updRelation();
     });
+
     $('input#cancel_button').on('click', function () {
         document.getElementById('layer_upd_relation').style.display = 'none';
         DesignerMove.reload();
     });
+
     $('input#ok_add_object').on('click', function () {
         DesignerMove.addObject(
             $('#ok_add_object_db_name').val(),
@@ -243,15 +299,19 @@ AJAX.registerOnload('designer/init.js', function () {
             $('#ok_add_object_db_and_table_name_url').val()
         );
     });
+
     $('input#cancel_close_option').on('click', function () {
         DesignerMove.closeOption();
     });
+
     $('input#ok_new_rel_panel').on('click', function () {
         DesignerMove.newRelation();
     });
+
     $('input#cancel_new_rel_panel').on('click', function () {
         document.getElementById('layer_new_relation').style.display = 'none';
     });
+
     DesignerMove.enablePageContentEvents();
 });
 
@@ -264,6 +324,7 @@ AJAX.registerOnload('designer/init.js', function () {
         $('.panel').toggle('fast');
         $(this).toggleClass('active');
         $('#ab').accordion('refresh');
+
         return false;
     });
 

@@ -28,8 +28,10 @@ function exportPrivilegesModalHandler (data, msgbox) {
             // Attach syntax highlighted editor to export dialog
             Functions.getSqlEditor(modal.find('textarea'));
         });
+
         return;
     }
+
     ajaxShowMessage(data.error, false);
 }
 
@@ -111,6 +113,7 @@ const AccountLocking = {
         $.post(url, params, data => {
             if (data.success === false) {
                 ajaxShowMessage(data.error);
+
                 return;
             }
 
@@ -250,6 +253,7 @@ const RevokeUser = {
                     if ($('#dropUsersDbCheckbox:checked').length) {
                         Navigation.reload();
                     }
+
                     // Remove the revoked user from the users list
                     $form.find('input:checkbox:checked').parents('tr').slideUp('medium', function () {
                         var thisUserInitial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
@@ -273,6 +277,7 @@ const RevokeUser = {
                                     $(this).removeClass('even').addClass('odd');
                                 }
                             });
+
                         // update the checkall checkbox
                         $(Functions.checkboxesSel).trigger('change');
                     });
@@ -296,8 +301,10 @@ const ExportPrivileges = {
         // can't export if no users checked
         if ($(this.form).find('input:checked').length === 0) {
             ajaxShowMessage(window.Messages.strNoAccountSelected, 2000, 'success');
+
             return;
         }
+
         var msgbox = ajaxShowMessage();
         var argsep = CommonParams.get('arg_separator');
         var serverId = CommonParams.get('server');
@@ -398,6 +405,7 @@ function addOrUpdateSubmenu () {
         if ($(this).hasClass('active')) {
             return;
         }
+
         $subNav.find('a').removeClass('active');
         $(this).addClass('active');
 
@@ -452,12 +460,14 @@ const CheckAddUser = {
         if (theForm.elements.hostname && theForm.elements.hostname.value === '') {
             alert(window.Messages.strHostEmpty);
             theForm.elements.hostname.focus();
+
             return false;
         }
 
         if ((theForm.elements.pred_username && theForm.elements.pred_username.value === 'userdefined') && theForm.elements.username.value === '') {
             alert(window.Messages.strUserEmpty);
             theForm.elements.username.focus();
+
             return false;
         }
 

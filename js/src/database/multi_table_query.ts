@@ -24,6 +24,7 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('.tableNameSelect').each(function () {
         $(this).off('change');
     });
+
     $('#update_query_button').off('click');
     $('#add_column_button').off('click');
 });
@@ -62,8 +63,10 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 }
             }
         });
+
         if (Object.keys(tableAliases).length === 0) {
             ajaxShowMessage('Nothing selected', false, 'error');
+
             return;
         }
 
@@ -90,9 +93,11 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         } else {
             query += '`' + escapeBacktick(columns[0][1]) + '`';
         }
+
         if (columns[0][2] !== '') {
             query += ' AS `' + escapeBacktick(columns[0][2]) + '`';
         }
+
         for (var i = 1; i < columns.length; i++) {
             query += ', `' + escapeBacktick(columns[i][0]) + '`.';
             if (columns[i][1] === '*') {
@@ -100,10 +105,12 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             } else {
                 query += '`' + escapeBacktick(columns[i][1]) + '`';
             }
+
             if (columns[i][2] !== '') {
                 query += ' AS `' + escapeBacktick(columns[i][2]) + '`';
             }
         }
+
         query += '\nFROM ';
 
         query += window.generateFromBlock(tableAliases, foreignKeys);
@@ -123,8 +130,10 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         // Verifying that the query is not empty
         if (query === '') {
             ajaxShowMessage(window.Messages.strEmptyQuery, false, 'error');
+
             return;
         }
+
         var data = {
             'db': $('#db_name').val(),
             'sql_query': query,
@@ -143,11 +152,13 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                         event.preventDefault();
                     });
                 });
+
                 $resultsDom.find('.autosubmit, .pageselector, .showAllRows, .filter_rows').each(function () {
                     $(this).on('change click select focus', function (event) {
                         event.preventDefault();
                     });
                 });
+
                 $('#sql_results').html($resultsDom);
                 $('#slide-handle').trigger('click');// Collapse search criteria area
             }
@@ -171,6 +182,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 if ($sibs.length === 0) {
                     $sibs = $(this).parent().parent().find('.columnNameSelect');
                 }
+
                 $sibs.first().html($('#' + $(this).find(':selected').data('hash')).html());
             });
         });
@@ -187,6 +199,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                     var $checkbox = $(this).siblings('.criteria_col').first();
                     $checkbox.prop('checked', ! $checkbox.prop('checked'));
                 }
+
                 var $criteriaColCount = $('.criteria_col:checked').length;
                 if ($criteriaColCount > 1) {
                     $(this).siblings('.jsCriteriaOptions').first().find('.logical_operator').first().css('display', 'table-row');
@@ -202,6 +215,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                     // The user has it open and wants to tick the box
                     return;
                 }
+
                 $anchor.trigger('click', ['Trigger']);
             });
         });

@@ -46,6 +46,7 @@ AJAX.registerOnload('database/search.js', function () {
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
     });
+
     /**
      * Prepare a div containing a link for toggle the search results
      */
@@ -67,6 +68,7 @@ AJAX.registerOnload('database/search.js', function () {
             } else {
                 $link.text(window.Messages.strHideSearchResults);
             }
+
             /** avoid default click action */
             return false;
         });
@@ -92,6 +94,7 @@ AJAX.registerOnload('database/search.js', function () {
             } else {
                 $link.text(window.Messages.strHideQueryBox);
             }
+
             /** avoid default click action */
             return false;
         });
@@ -112,6 +115,7 @@ AJAX.registerOnload('database/search.js', function () {
             } else {
                 $link.text(window.Messages.strHideSearchCriteria);
             }
+
             /** avoid default click action */
             return false;
         });
@@ -144,6 +148,7 @@ AJAX.registerOnload('database/search.js', function () {
                 $('.table_results').each(function () {
                     window.makeGrid(this, true, true, true, true);
                 });
+
                 $('#browse-results').show();
                 highlightSql($('#browse-results'));
                 $('html, body')
@@ -184,6 +189,7 @@ AJAX.registerOnload('database/search.js', function () {
             $.post(url, params, function (data) {
                 if (typeof data === 'undefined' || ! data.success) {
                     ajaxShowMessage(data.error, false);
+
                     return;
                 }
 
@@ -199,6 +205,7 @@ AJAX.registerOnload('database/search.js', function () {
                     .animate({
                         scrollTop: $('#browse-results').offset().top
                     }, 1000);
+
                 ajaxRemoveMessage($msg);
             });
         }
@@ -211,8 +218,10 @@ AJAX.registerOnload('database/search.js', function () {
         event.preventDefault();
         if ($('#criteriaTables :selected').length === 0) {
             ajaxShowMessage(window.Messages.strNoTableSelected);
+
             return;
         }
+
         var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
         // jQuery object to reuse
         var $form = $(this);
@@ -228,9 +237,11 @@ AJAX.registerOnload('database/search.js', function () {
                 $('#togglesearchresultlink')
                     // always start with the Show message
                     .text(window.Messages.strHideSearchResults);
+
                 $('#togglesearchresultsdiv')
                     // now it's time to show the div containing the link
                     .show();
+
                 $('#searchresults').show();
 
 
@@ -238,9 +249,11 @@ AJAX.registerOnload('database/search.js', function () {
                     // workaround for Chrome problem (bug #3168569)
                     .slideToggle()
                     .hide();
+
                 $('#togglesearchformlink')
                     // always start with the Show message
                     .text(window.Messages.strShowSearchCriteria);
+
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
@@ -255,10 +268,13 @@ AJAX.registerOnload('database/search.js', function () {
 
     $('#select_all').on('click', function () {
         Functions.setSelectOptions('db_search', 'criteriaTables[]', true);
+
         return false;
     });
+
     $('#unselect_all').on('click', function () {
         Functions.setSelectOptions('db_search', 'criteriaTables[]', false);
+
         return false;
     });
 }); // end $()

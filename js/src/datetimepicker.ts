@@ -25,6 +25,7 @@ function registerDatePickerTranslations () {
         window.Messages.strMonthNameNov,
         window.Messages.strMonthNameDec,
     ];
+
     $.datepicker.regional[''].monthNamesShort = [
         window.Messages.strMonthNameJanShort,
         window.Messages.strMonthNameFebShort,
@@ -39,6 +40,7 @@ function registerDatePickerTranslations () {
         window.Messages.strMonthNameNovShort,
         window.Messages.strMonthNameDecShort,
     ];
+
     $.datepicker.regional[''].dayNames = [
         window.Messages.strDayNameSun,
         window.Messages.strDayNameMon,
@@ -48,6 +50,7 @@ function registerDatePickerTranslations () {
         window.Messages.strDayNameFri,
         window.Messages.strDayNameSat,
     ];
+
     $.datepicker.regional[''].dayNamesShort = [
         window.Messages.strDayNameSunShort,
         window.Messages.strDayNameMonShort,
@@ -57,6 +60,7 @@ function registerDatePickerTranslations () {
         window.Messages.strDayNameFriShort,
         window.Messages.strDayNameSatShort,
     ];
+
     $.datepicker.regional[''].dayNamesMin = [
         window.Messages.strDayNameSunMin,
         window.Messages.strDayNameMonMin,
@@ -66,6 +70,7 @@ function registerDatePickerTranslations () {
         window.Messages.strDayNameFriMin,
         window.Messages.strDayNameSatMin,
     ];
+
     $.datepicker.regional[''].weekHeader = window.Messages.strWeekHeader;
     $.datepicker.regional[''].showMonthAfterYear = window.Messages.strMonthAfterYear === 'calendar-year-month';
     $.datepicker.regional[''].yearSuffix = window.Messages.strYearSuffix !== 'none' ? window.Messages.strYearSuffix : '';

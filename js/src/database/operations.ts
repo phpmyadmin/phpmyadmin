@@ -44,6 +44,7 @@ AJAX.registerOnload('database/operations.js', function () {
 
         if (Functions.emptyCheckTheField(this, 'newname')) {
             ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
+
             return false;
         }
 
@@ -52,6 +53,7 @@ AJAX.registerOnload('database/operations.js', function () {
 
         if (newDbName === oldDbName) {
             ajaxShowMessage(window.Messages.strDatabaseRenameToSameName, false, 'error');
+
             return false;
         }
 
@@ -94,6 +96,7 @@ AJAX.registerOnload('database/operations.js', function () {
 
         if (Functions.emptyCheckTheField(this, 'newname')) {
             ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
+
             return false;
         }
 
@@ -114,6 +117,7 @@ AJAX.registerOnload('database/operations.js', function () {
                     Navigation.update(CommonParams.set('db', data.db));
                     ajaxShowMessage(data.message);
                 }
+
                 Navigation.reload();
             } else {
                 ajaxShowMessage(data.error, false);
@@ -160,6 +164,7 @@ AJAX.registerOnload('database/operations.js', function () {
             window.Messages.strDoYouReally,
             'DROP DATABASE `' + escapeHtml(CommonParams.get('db') + '`')
         );
+
         var params = getJsConfirmCommonParam(this, $link.getPostData());
 
         $(this).confirm(question, $(this).attr('href'), function (url) {

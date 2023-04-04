@@ -81,6 +81,7 @@ import $ from 'jquery';
                 if ($draggedEl.length === 0) {
                     return;
                 }
+
                 if (options.ignoreRect && insideRect({
                     x: e.pageX - $draggedEl.offset().left,
                     y: e.pageY - $draggedEl.offset().top
@@ -114,6 +115,7 @@ import $ from 'jquery';
                                     if (previewMove !== null) {
                                         moveTo(previewMove);
                                     }
+
                                     previewMove = $(this).children().first();
                                     if (previewMove.length > 0) {
                                         moveTo($(previewMove), {
@@ -140,6 +142,7 @@ import $ from 'jquery';
                     if (previewMove) {
                         moveTo(previewMove);
                     }
+
                     moveTo($draggedEl);
                     previewMove = null;
                 }
@@ -240,6 +243,7 @@ import $ from 'jquery';
 
             function inside ($el, x, y) {
                 var off = $el.offset();
+
                 return y >= off.top && x >= off.left && x < off.left + $el.width() && y < off.top + $el.height();
             }
 
@@ -251,6 +255,7 @@ import $ from 'jquery';
                 if (! down) {
                     return;
                 }
+
                 down = false;
 
                 var switched = false;
@@ -266,6 +271,7 @@ import $ from 'jquery';
                     if (previewMove) {
                         moveTo(previewMove);
                     }
+
                     moveTo($draggedEl);
                 }
 
@@ -276,6 +282,7 @@ import $ from 'jquery';
                 if (! opts.pos) {
                     opts.pos = { left: 0, top: 0 };
                 }
+
                 if (! opts.duration) {
                     opts.duration = 200;
                 }

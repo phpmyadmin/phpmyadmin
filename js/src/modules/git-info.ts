@@ -12,6 +12,7 @@ const GitInfo = {
         if (typeof (str) !== 'string') {
             return false;
         }
+
         let add = 0;
         // Parse possible alpha/beta/rc/
         const state = str.split('-');
@@ -27,6 +28,7 @@ const GitInfo = {
                 add = 0;
             }
         }
+
         // Parse version
         const x = str.split('.');
         // Use 0 for non existing parts
@@ -34,6 +36,7 @@ const GitInfo = {
         const min = parseInt(x[1], 10) || 0;
         const pat = parseInt(x[2], 10) || 0;
         const hotfix = parseInt(x[3], 10) || 0;
+
         return maj * 100000000 + min * 1000000 + pat * 10000 + hotfix * 100 + add;
     },
 
@@ -69,6 +72,7 @@ const GitInfo = {
                     /* Security update */
                     htmlClass = 'alert alert-danger';
                 }
+
                 $('#newer_version_notice').remove();
                 const mainContainerDiv = document.createElement('div');
                 mainContainerDiv.id = 'newer_version_notice';
@@ -83,14 +87,17 @@ const GitInfo = {
                 mainContainerDiv.appendChild(mainContainerDivLink);
                 $('#maincontainer').append($(mainContainerDiv));
             }
+
             if (latest === current) {
                 versionInformationMessage = document.createTextNode(' (' + window.Messages.strUpToDate + ')');
             }
+
             /* Remove extra whitespace */
             const versionInfo = $('#li_pma_version').contents().get(2);
             if (typeof versionInfo !== 'undefined') {
                 versionInfo.textContent = versionInfo.textContent.trim();
             }
+
             const $liPmaVersion = $('#li_pma_version');
             $liPmaVersion.find('span.latest').remove();
             $liPmaVersion.append($(versionInformationMessage));

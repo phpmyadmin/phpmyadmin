@@ -42,7 +42,9 @@ export default function getImageTag (image, alternate, attributes) {
             for (var i in this.data) {
                 retval += ' ' + i + '="' + this.data[i] + '"';
             }
+
             retval += ' /' + '>';
+
             return retval;
         }
     };
@@ -50,21 +52,25 @@ export default function getImageTag (image, alternate, attributes) {
     if (attr === undefined) {
         attr = {};
     }
+
     if (alt === undefined) {
         alt = '';
     }
+
     // set alt
     if (attr.alt !== undefined) {
         retval.attr('alt', escapeHtml(attr.alt));
     } else {
         retval.attr('alt', escapeHtml(alt));
     }
+
     // set title
     if (attr.title !== undefined) {
         retval.attr('title', escapeHtml(attr.title));
     } else {
         retval.attr('title', escapeHtml(alt));
     }
+
     // set css classes
     retval.attr('class', 'icon ic_' + image);
     // set all other attributes

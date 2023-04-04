@@ -24,6 +24,7 @@ export default function checkIndexName (formId) {
         if ($theIdxName.val() === 'PRIMARY') {
             $theIdxName.val('');
         }
+
         $theIdxName.prop('disabled', false);
     }
 

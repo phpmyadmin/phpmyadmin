@@ -12,6 +12,7 @@ function makeColumnsSortable () {
             1: { sorter: false }
         }
     });
+
     $tables.find('thead th')
         .append('<div class="sorticon"></div>');
 }

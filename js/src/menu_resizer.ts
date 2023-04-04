@@ -47,6 +47,7 @@ import getImageTag from './modules/functions/getImageTag.ts';
         if (img.length) {
             $(getImageTag('b_more').toString()).prependTo(link);
         }
+
         var $submenu = $('<li></li>', { 'class': 'nav-item dropdown d-none' })
             .append(link)
             .append($('<ul></ul>', {
@@ -81,6 +82,7 @@ import getImageTag from './modules/functions/getImageTag.ts';
         if (hasVScroll) {
             windowWidth += 15;
         }
+
         if (windowWidth < 768) {
             wmax = 2000;
         }
@@ -103,6 +105,7 @@ import getImageTag from './modules/functions/getImageTag.ts';
                 el.prependTo($submenuUl);
             }
         }
+
         // If we didn't hide any tabs, then there might be some space to show some
         if (! hidden) {
             // Show menu elements that do fit into the menubar
@@ -120,6 +123,7 @@ import getImageTag from './modules/functions/getImageTag.ts';
                 }
             }
         }
+
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
             $('.navbar-collapse').css({ 'width': windowWidth - 80 - $('#pma_navigation').width() });
@@ -135,6 +139,7 @@ import getImageTag from './modules/functions/getImageTag.ts';
             }
         }
     };
+
     MenuResizer.prototype.destroy = function () {
         var $submenu = this.$container.find('.nav-item.dropdown').removeData();
         $submenu.find('li').appendTo(this.$container);

@@ -111,9 +111,11 @@ function loadJSAndGISEditor (value, field, type, inputName) {
             loadGISEditor(value, field, type, inputName);
         }
     };
+
     script.onload = function () {
         loadGISEditor(value, field, type, inputName);
     };
+
     script.onerror = function () {
         loadGISEditor(value, field, type, inputName);
     };
@@ -205,6 +207,7 @@ function insertDataAndClose () {
             ajaxShowMessage(data.error, false);
         }
     }, 'json');
+
     closeGISEditor();
 }
 
@@ -329,10 +332,12 @@ AJAX.registerOnload('gis_data_editor.js', function () {
             html += window.Messages.strInnerRing + ' ' + noOfLines + ':';
             noOfPoints = 4;
         }
+
         html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '">';
         for (var i = 0; i < noOfPoints; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
+
         html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ ' +
             window.Messages.strAddPoint + '</a><br>';
 
@@ -357,9 +362,11 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1">' +
             '<br>' + window.Messages.strOuterRing + ':' +
             '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4">';
+
         for (var i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
+
         html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ ' +
             window.Messages.strAddPoint + '</a><br>' +
             '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ ' +

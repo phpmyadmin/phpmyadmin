@@ -5,6 +5,7 @@
 export function escapeHtml (value = '') {
     const element = document.createElement('span');
     element.appendChild(document.createTextNode(value));
+
     return element.innerHTML;
 }
 

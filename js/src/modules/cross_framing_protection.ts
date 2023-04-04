@@ -8,6 +8,7 @@ const crossFramingProtection = (): void => {
 
     if (window.self !== window.top) {
         window.top.location = window.self.location;
+
         return;
     }
 

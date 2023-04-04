@@ -12,6 +12,7 @@ const CommonParams = (function () {
      * @access private
      */
     var params = {};
+
     // The returned object is the public part of the module
     return {
         /**
@@ -30,6 +31,7 @@ const CommonParams = (function () {
                         updateNavigation = true;
                     }
                 }
+
                 params[i] = obj[i];
             }
 
@@ -61,6 +63,7 @@ const CommonParams = (function () {
             ) {
                 updateNavigation = true;
             }
+
             params[name] = value;
 
             return updateNavigation;

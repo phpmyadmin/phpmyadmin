@@ -13,11 +13,13 @@ export default function refreshMainContent (url): void {
         newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
         newUrl = newUrl.substring(0, newUrl.indexOf('?'));
     }
+
     if (newUrl.indexOf('?') !== -1) {
         newUrl += CommonParams.getUrlQuery(CommonParams.get('arg_separator'));
     } else {
         newUrl += CommonParams.getUrlQuery('?');
     }
+
     $('<a></a>', { href: newUrl })
         .appendTo('body')
         .trigger('click')

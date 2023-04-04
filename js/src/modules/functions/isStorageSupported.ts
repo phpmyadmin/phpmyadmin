@@ -15,6 +15,7 @@ export default function isStorageSupported (type, warn = false) {
         if (window[type].getItem('PMATest') === 'test') {
             // Supported, remove test variable from storage
             window[type].removeItem('PMATest');
+
             return true;
         }
     } catch (error) {
@@ -23,5 +24,6 @@ export default function isStorageSupported (type, warn = false) {
             ajaxShowMessage(window.Messages.strNoLocalStorage, false);
         }
     }
+
     return false;
 }

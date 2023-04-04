@@ -56,6 +56,7 @@ AJAX.registerOnload('server/variables.js', function () {
                     $valueCell
                         .html(data.variable)
                         .data('content', data.variable);
+
                     ajaxRemoveMessage($msgbox);
                 } else {
                     if (data.error === '') {
@@ -63,16 +64,20 @@ AJAX.registerOnload('server/variables.js', function () {
                     } else {
                         ajaxShowMessage(data.error, false);
                     }
+
                     $valueCell.html($valueCell.data('content'));
                 }
+
                 $cell.removeClass('edit').html($myEditLink);
             });
+
             return false;
         });
 
         $myCancelLink.on('click', function () {
             $valueCell.html($valueCell.data('content'));
             $cell.removeClass('edit').html($myEditLink);
+
             return false;
         });
 
@@ -96,6 +101,7 @@ AJAX.registerOnload('server/variables.js', function () {
                     .html($links)
                     .children()
                     .css('display', 'flex');
+
                 $valueCell
                     .data('content', $valueCell.html())
                     .html($editor)
@@ -108,6 +114,7 @@ AJAX.registerOnload('server/variables.js', function () {
                             $myCancelLink.trigger('click');
                         }
                     });
+
                 ajaxRemoveMessage($msgbox);
             } else {
                 $cell.removeClass('edit').html($myEditLink);

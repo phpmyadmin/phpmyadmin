@@ -18,8 +18,11 @@
     },
     "rules": {
         "array-bracket-spacing": "error",
+        "array-bracket-newline": ["error", { "multiline": true }],
+        "array-element-newline": ["error", "consistent"],
         "brace-style": "error",
         "camelcase": "error",
+        "comma-dangle": ["error", "only-multiline"],
         "comma-style": ["error", "last"],
         "curly": "error",
         "dot-notation": "error",
@@ -27,6 +30,7 @@
         "eqeqeq": "error",
         "indent": ["error", 4],
         "keyword-spacing": "error",
+        "lines-between-class-members": "error",
         "new-cap": "error",
         "no-array-constructor": "error",
         "no-eval": "error",
@@ -44,6 +48,12 @@
         "object-curly-spacing": ["error", "always"],
         "one-var": ["error", "never"],
         "padded-blocks": ["error", "never"],
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": "block-like", "next": "*" },
+            { "blankLine": "always", "prev": "multiline-expression", "next": "*" },
+            { "blankLine": "always", "prev": "*", "next": "return" }
+        ],
         "prefer-const": "off",
         "prefer-rest-params": "off",
         "prefer-spread": "off",

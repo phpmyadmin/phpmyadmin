@@ -25,11 +25,13 @@ function updateConfig () {
         $('#db_select option:selected').each(function () {
             databaseList += confIgnore + $(this).val() + '\n';
         });
+
         $('#rep').text(confPrefix + databaseList);
     } else {
         $('#db_select option:selected').each(function () {
             databaseList += confDo + $(this).val() + '\n';
         });
+
         $('#rep').text(confPrefix + databaseList);
     }
 }
@@ -59,29 +61,37 @@ AJAX.registerOnload('replication.js', function () {
     $('#primary_status_href').on('click', function () {
         $('#replication_primary_section').toggle();
     });
+
     $('#primary_replicas_href').on('click', function () {
         $('#replication_replicas_section').toggle();
     });
+
     $('#replica_status_href').on('click', function () {
         $('#replication_replica_section').toggle();
     });
+
     $('#replica_control_href').on('click', function () {
         $('#replica_control_gui').toggle();
     });
+
     $('#replica_errormanagement_href').on('click', function () {
         $('#replica_errormanagement_gui').toggle();
     });
+
     $('#replica_synchronization_href').on('click', function () {
         $('#replica_synchronization_gui').toggle();
     });
+
     $('#db_reset_href').on('click', function () {
         $('#db_select option:selected').prop('selected', false);
         $('#db_select').trigger('change');
     });
+
     $('#db_select_href').on('click', function () {
         $('#db_select option').prop('selected', true);
         $('#db_select').trigger('change');
     });
+
     $('#reset_replica').on('click', function (e) {
         e.preventDefault();
         var $anchor = $(this);
@@ -96,14 +106,17 @@ AJAX.registerOnload('replication.js', function () {
             $.post(url, params, AJAX.responseHandler);
         });
     });
+
     $('#button_generate_password').on('click', function () {
         Functions.suggestPassword(this.form);
     });
+
     $('#nopass_1').on('click', function () {
         this.form.pma_pw.value = '';
         this.form.pma_pw2.value = '';
         this.checked = true;
     });
+
     $('#nopass_0').on('click', function () {
         document.getElementById('text_pma_change_pw').focus();
     });

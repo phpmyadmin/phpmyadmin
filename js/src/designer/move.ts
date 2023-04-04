@@ -126,17 +126,20 @@ DesignerMove.mouseMove = function (e) {
         } else if (newY < 0) {
             newY = 0;
         }
+
         $curClick.css(mainDirection, newX + 'px');
         $curClick.css('top', newY + 'px');
     } else if (layerMenuCurClick) {
         if (menuMoved) {
             deltaX = -deltaX;
         }
+
         var $layerMenu = $('#layer_menu');
         var newWidth = $layerMenu.width() + directionEffect * deltaX;
         if (newWidth < 150) {
             newWidth = 150;
         }
+
         $layerMenu.width(newWidth);
     }
 
@@ -153,6 +156,7 @@ DesignerMove.mouseUp = function () {
         curClick.style.zIndex = 1;
         curClick = null;
     }
+
     layerMenuCurClick = 0;
 };
 
@@ -179,6 +183,7 @@ DesignerMove.setDefaultValuesFromSavedState = function () {
     } else {
         onAngularDirect = 1;
     }
+
     DesignerMove.angularDirect();
 
     if ($('#grid_button').attr('class') === 'M_butt') {
@@ -186,6 +191,7 @@ DesignerMove.setDefaultValuesFromSavedState = function () {
     } else {
         onGrid = 0;
     }
+
     DesignerMove.grid();
 
     var $relLineInvert = $('#relLineInvert');
@@ -196,6 +202,7 @@ DesignerMove.setDefaultValuesFromSavedState = function () {
         showRelationLines = true;
         $relLineInvert.attr('class', 'M_butt_Selected_down');
     }
+
     DesignerMove.relationLinesInvert();
 
     if ($('#pin_Text').attr('class') === 'M_butt_Selected_down') {
@@ -294,6 +301,7 @@ DesignerMove.reload = function () {
                         // if hide
                         continue;
                     }
+
                     var x1Left = document.getElementById(key2).offsetLeft + 1;
                     var x1Right = x1Left + document.getElementById(key2).offsetWidth;
                     var x2Left = document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetLeft;
@@ -308,6 +316,7 @@ DesignerMove.reload = function () {
                             n = i;
                         }
                     }
+
                     if (n === 1) {
                         x1 = x1Left - smS;
                         x2 = x2Right + smS;
@@ -315,6 +324,7 @@ DesignerMove.reload = function () {
                             n = 0;
                         }
                     }
+
                     if (n === 2) {
                         x1 = x1Right + smS;
                         x2 = x2Left - smS;
@@ -322,11 +332,13 @@ DesignerMove.reload = function () {
                             n = 0;
                         }
                     }
+
                     if (n === 3) {
                         x1 = x1Right + smS;
                         x2 = x2Right + smS;
                         sRight = 1;
                     }
+
                     if (n === 0) {
                         x1 = x1Left - smS;
                         x2 = x2Left - smS;
@@ -407,6 +419,7 @@ DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
     if (! showRelationLines) {
         return;
     }
+
     DesignerMove.circle(x1, y1, 3, 3, colorLine);
     DesignerMove.rect(x2 - 1, y2 - 2, 4, 4, colorLine);
 
@@ -472,8 +485,10 @@ DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
         DesignerMove.line(x1, y1, x1Local, y1, colorLine);
         DesignerMove.line(x2, y2, x2Local, y2, colorLine);
         DesignerMove.line(x1Local, y1, x2Local, y2, colorLine);
+
         return;
     }
+
     if (sLeft) {
         if (x1 < x2) {
             x2Local -= x2 - x1 + smAdd;
@@ -486,6 +501,7 @@ DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
         DesignerMove.line(x1, y1, x1Local, y1, colorLine);
         DesignerMove.line(x2, y2, x2Local, y2, colorLine);
         DesignerMove.line(x1Local, y1, x2Local, y2, colorLine);
+
         return;
     }
 
@@ -528,6 +544,7 @@ DesignerMove.toggleFullscreen = function () {
     if (! document.fullscreenElement) {
         $img.attr('src', $img.data('exit'))
             .attr('title', $span.data('exit'));
+
         $span.text($span.data('exit'));
         $content
             .addClass('content_fullscreen')
@@ -539,13 +556,16 @@ DesignerMove.toggleFullscreen = function () {
     } else {
         $img.attr('src', $img.data('enter'))
             .attr('title', $span.data('enter'));
+
         $span.text($span.data('enter'));
         $content.removeClass('content_fullscreen')
             .css({ 'width': 'auto', 'height': 'auto' });
+
         $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
         document.exitFullscreen();
         valueSent = 'off';
     }
+
     DesignerMove.saveValueInConfig('full_screen', valueSent);
 };
 
@@ -582,15 +602,19 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     $($newTableLine).find('.scroll_tab_struct').on('click', function () {
         DesignerMove.startTabUpd(db, table);
     });
+
     $($newTableLine).on('click', '.designer_Tabs2,.designer_Tabs', function () {
         DesignerMove.selectTab($(this).attr('designer_url_table_name'));
     });
+
     $($newTableLine).find('.scroll_tab_checkbox').on('click', function () {
         $(this).attr('title', function (i, currentvalue) {
             return currentvalue === window.Messages.strHide ? window.Messages.strShow : window.Messages.strHide;
         });
+
         DesignerMove.visibleTab(this, $(this).val());
     });
+
     var $tablesCounter = $('#tables_counter');
     $tablesCounter.text(parseInt($tablesCounter.text(), 10) + 1);
 };
@@ -608,6 +632,7 @@ DesignerMove.displayModal = function (form, heading, type) {
     modal.modal('show');
     modal.find('.modal-body').first().html(form);
     $(type + 'Label').first().html(heading);
+
     return modal;
 };
 
@@ -644,6 +669,7 @@ DesignerMove.addOtherDbTables = function () {
                 undefined,
                 'error'
             );
+
             return;
         }
 
@@ -672,6 +698,7 @@ DesignerMove.addOtherDbTables = function () {
         $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
         modal.modal('hide');
     });
+
     $('#add_table_from').on('change', function () {
         if ($(this).val()) {
             var dbName = $(this).val();
@@ -687,6 +714,7 @@ DesignerMove.addOtherDbTables = function () {
                 if (rows.length === 0) {
                     $selectTable.append('<option value="">' + window.Messages.strNone + '</option>');
                 }
+
                 rows.each(function () {
                     var val = $(this)[0].innerText;
                     $selectTable.append($('<option></option>').val(val).text(val));
@@ -712,6 +740,7 @@ DesignerMove.save = function (url) {
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
+
     document.getElementById('container-form').action = url;
     $('#container-form').trigger('submit');
 };
@@ -731,6 +760,7 @@ DesignerMove.getUrlPos = function (forceString) {
             poststr += argsep + 't_tbl[' + i + ']=' + $(document.getElementById(key)).attr('table_name_url');
             i++;
         }
+
         return poststr;
     } else {
         var coords = [];
@@ -745,6 +775,7 @@ DesignerMove.getUrlPos = function (forceString) {
                 coords.push(tbCoords);
             }
         }
+
         return coords;
     }
 };
@@ -785,8 +816,10 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
     var name = $form.find('input[name="selected_value"]').val().trim();
     if (name === '') {
         ajaxShowMessage(window.Messages.strEnterValidPageName, false);
+
         return;
     }
+
     modal.modal('hide');
 
     if (DesignerConfig.designerTablesEnabled) {
@@ -801,6 +834,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
                 if (data.id) {
                     DesignerConfig.selectedPage = data.id;
                 }
+
                 $('#page_name').text(name);
                 if (typeof callback !== 'undefined') {
                     callback();
@@ -813,6 +847,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
             if (page.pgNr) {
                 DesignerConfig.selectedPage = page.pgNr;
             }
+
             $('#page_name').text(page.pageDescr);
             if (typeof callback !== 'undefined') {
                 callback();
@@ -837,6 +872,7 @@ DesignerMove.save3 = function (callback) {
             e.preventDefault();
             DesignerMove.submitSaveDialogAndClose(callback, modal);
         });
+
         $('#designerModalGoButton').on('click', function () {
             var $form = $('#save_page');
             $form.trigger('submit');
@@ -867,12 +903,14 @@ DesignerMove.editPages = function () {
                         $('#selected_page').append(options);
                     });
                 }
+
                 var modal = DesignerMove.displayModal(data.message, window.Messages.strOpenPage, '#designerGoModal');
                 $('#designerModalGoButton').on('click', function () {
                     var $form = $('#edit_delete_pages');
                     var selected = $form.find('select[name="selected_page"]').val();
                     if (selected === '0') {
                         ajaxShowMessage(window.Messages.strSelectPage, 2000);
+
                         return;
                     }
 
@@ -911,6 +949,7 @@ DesignerMove.deletePages = function () {
                 var selected = $form.find('select[name="selected_page"]').val();
                 if (selected === '0') {
                     ajaxShowMessage(window.Messages.strSelectPage, 2000);
+
                     return;
                 }
 
@@ -984,14 +1023,18 @@ DesignerMove.saveAs = function () {
                 if (choice === 'same') {
                     if ($selectedPage.val() === '0') {
                         ajaxShowMessage(window.Messages.strSelectPage, 2000);
+
                         return;
                     }
+
                     name = $selectedPage.find('option:selected').text();
                 } else if (choice === 'new') {
                     if (selectedValue === '') {
                         ajaxShowMessage(window.Messages.strEnterValidPageName, 2000);
+
                         return;
                     }
+
                     name = selectedValue;
                 }
 
@@ -1007,6 +1050,7 @@ DesignerMove.saveAs = function () {
                             if (data.id) {
                                 DesignerConfig.selectedPage = data.id;
                             }
+
                             DesignerMove.loadPage(DesignerConfig.selectedPage);
                         }
                     }); // end $.post()
@@ -1019,6 +1063,7 @@ DesignerMove.saveAs = function () {
                             if (page.pgNr) {
                                 DesignerConfig.selectedPage = page.pgNr;
                             }
+
                             DesignerMove.loadPage(DesignerConfig.selectedPage);
                         });
                     } else if (choice === 'new') {
@@ -1028,6 +1073,7 @@ DesignerMove.saveAs = function () {
                             if (page.pgNr) {
                                 DesignerConfig.selectedPage = page.pgNr;
                             }
+
                             DesignerMove.loadPage(DesignerConfig.selectedPage);
                         });
                     }
@@ -1036,6 +1082,7 @@ DesignerMove.saveAs = function () {
                 $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
+
             // select current page by default
             if (DesignerConfig.selectedPage !== -1) {
                 $('select[name="selected_page"]').val(DesignerConfig.selectedPage);
@@ -1052,6 +1099,7 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
             modal.modal('hide');
             DesignerMove.save3(callback);
         });
+
         $('#designerModalNoButton').on('click', function () {
             modal.modal('hide');
             callback();
@@ -1082,6 +1130,7 @@ DesignerMove.exportPages = function () {
             if (! DesignerConfig.designerTablesEnabled) {
                 $form.append('<input type="hidden" name="offline_export" value="true">');
             }
+
             $.each(DesignerMove.getUrlPos(true).substring(1).split(argsep), function () {
                 var pair = this.split('=');
                 var input = $('<input type="hidden">');
@@ -1089,6 +1138,7 @@ DesignerMove.exportPages = function () {
                 input.attr('value', pair[1]);
                 $form.append(input);
             });
+
             var $formatDropDown = $form.find('#plugins');
             $formatDropDown.on('change', function () {
                 var format = $formatDropDown.val();
@@ -1113,6 +1163,7 @@ DesignerMove.loadPage = function (page) {
         if (page !== null) {
             paramPage = argsep + 'page=' + page;
         }
+
         $('<a href="index.php?route=/database/designer&server=' + DesignerConfig.server + argsep + 'db=' + encodeURIComponent(DesignerConfig.db) + paramPage + '"></a>')
             .appendTo($('#page_content'))
             .trigger('click');
@@ -1125,6 +1176,7 @@ DesignerMove.loadPage = function (page) {
             DesignerPage.showNewPageTables(true);
         }
     }
+
     DesignerMove.markSaved();
 };
 
@@ -1139,6 +1191,7 @@ DesignerMove.grid = function () {
         onGrid = 0;
         valueSent = 'off';
     }
+
     DesignerMove.saveValueInConfig('snap_to_grid', valueSent);
 };
 
@@ -1153,6 +1206,7 @@ DesignerMove.angularDirect = function () {
         valueSent = 'direct';
         document.getElementById('angular_direct_button').className = 'M_butt';
     }
+
     DesignerMove.saveValueInConfig('angular_direct', valueSent);
     DesignerMove.reload();
 };
@@ -1203,11 +1257,14 @@ DesignerMove.clickField = function (db, T, f, pk) {
             // .style.display=='none'        .style.display = 'none'
             if (! pkLocal) {
                 alert(window.Messages.strPleaseSelectPrimaryOrUniqueKey);
+
                 return;// 0;
             }// PK
+
             if (DesignerConfig.jTabs[db + '.' + T] !== 1) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
+
             clickField = 1;
             linkRelation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
             document.getElementById('designer_hint').innerHTML = window.Messages.strSelectForeignKey;
@@ -1216,6 +1273,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
             if (DesignerConfig.jTabs[db + '.' + T] !== 1 || ! pkLocal) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
+
             var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
             document.getElementById('layer_new_relation').style.left = left + 'px';
             var top = globY - document.getElementById('layer_new_relation').offsetHeight;
@@ -1237,6 +1295,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
                 // Set display field class on old item
                 oldTabField.className = 'tab_field';
             }
+
             fieldNameToSend = '';
         } else {
             newDisplayFieldClass = 'tab_field_3';
@@ -1245,8 +1304,10 @@ DesignerMove.clickField = function (db, T, f, pk) {
                     // Set display field class on old item
                     oldTabField.className = 'tab_field';
                 }
+
                 delete DesignerConfig.displayField[T];
             }
+
             DesignerConfig.displayField[T] = f;
 
             var tabField = document.getElementById('id_tr_' + T + '.' + DesignerConfig.displayField[T]);
@@ -1255,6 +1316,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
                 tabField.className = newDisplayFieldClass;
             }
         }
+
         onDisplayField = 0;
         document.getElementById('designer_hint').innerHTML = '';
         document.getElementById('designer_hint').style.display = 'none';
@@ -1324,6 +1386,7 @@ DesignerMove.smallTabAll = function (idThis) {
                 DesignerMove.smallTab($(element).attr('table_name'), 0);
             }
         });
+
         icon.alt = '>';
         icon.src = icon.dataset.right;
         valueSent = 'v';
@@ -1333,10 +1396,12 @@ DesignerMove.smallTabAll = function (idThis) {
                 DesignerMove.smallTab($(element).attr('table_name'), 0);
             }
         });
+
         icon.alt = 'v';
         icon.src = icon.dataset.down;
         valueSent = '>';
     }
+
     DesignerMove.saveValueInConfig('small_big_all', valueSent);
     $('#key_SB_all').toggleClass('M_butt_Selected_down');
     $('#key_SB_all').toggleClass('M_butt');
@@ -1348,6 +1413,7 @@ DesignerMove.smallTabInvert = function () {
     for (var key in DesignerConfig.jTabs) {
         DesignerMove.smallTab(key, 0);
     }
+
     DesignerMove.reload();
 };
 
@@ -1378,6 +1444,7 @@ DesignerMove.smallTab = function (t, reload) {
         id.style.display = '';
         idThis.innerHTML = 'v';
     }
+
     if (reload) {
         DesignerMove.reload();
     }
@@ -1390,6 +1457,7 @@ DesignerMove.selectTab = function (t) {
     } else {
         document.getElementById('id_zag_' + t).className = 'tab_zag';
     }
+
     // ----------
     var idT = document.getElementById(t);
     window.scrollTo(parseInt(idT.style.left, 10) - 300, parseInt(idT.style.top, 10) - 300);
@@ -1432,6 +1500,7 @@ DesignerMove.canvasClick = function (id, event) {
                         ! document.getElementById('check_vis_' + DesignerConfig.contr[K][key][key2][key3][0]).checked) {
                         continue; // if hide
                     }
+
                     var x1Left = document.getElementById(key2).offsetLeft + 1;// document.getElementById(key2+"."+key3).offsetLeft;
                     var x1Right = x1Left + document.getElementById(key2).offsetWidth;
                     var x2Left = document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetLeft;// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
@@ -1446,6 +1515,7 @@ DesignerMove.canvasClick = function (id, event) {
                             n = i;
                         }
                     }
+
                     if (n === 1) {
                         x1 = x1Left - smS;
                         x2 = x2Right + smS;
@@ -1453,6 +1523,7 @@ DesignerMove.canvasClick = function (id, event) {
                             n = 0;
                         }
                     }
+
                     if (n === 2) {
                         x1 = x1Right + smS;
                         x2 = x2Left - smS;
@@ -1460,11 +1531,13 @@ DesignerMove.canvasClick = function (id, event) {
                             n = 0;
                         }
                     }
+
                     if (n === 3) {
                         x1 = x1Right + smS;
                         x2 = x2Right + smS;
                         sRight = 1;
                     }
+
                     if (n === 0) {
                         x1 = x1Left - smS;
                         x2 = x2Left - smS;
@@ -1496,6 +1569,7 @@ DesignerMove.canvasClick = function (id, event) {
             }
         }
     }
+
     if (selected) {
         // select relations
         var left = globX - (document.getElementById('layer_upd_relation').offsetWidth >> 1);
@@ -1532,6 +1606,7 @@ DesignerMove.visibleTab = function (id, tN) {
     } else {
         document.getElementById(tN).style.display = 'none';
     }
+
     DesignerMove.reload();
     DesignerMove.markUnsaved();
 };
@@ -1545,6 +1620,7 @@ DesignerMove.hideTabAll = function (idThis) {
         idThis.alt = 'v';
         idThis.src = idThis.dataset.down;
     }
+
     var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
@@ -1558,6 +1634,7 @@ DesignerMove.hideTabAll = function (idThis) {
             }
         }
     }
+
     DesignerMove.reload();
 };
 
@@ -1569,6 +1646,7 @@ DesignerMove.inArrayK = function (x, m) {
             break;
         }
     }
+
     return b;
 };
 
@@ -1598,6 +1676,7 @@ DesignerMove.noHaveConstr = function (idThis) {
         idThis.alt = 'v';
         idThis.src = idThis.dataset.down;
     }
+
     var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
@@ -1692,6 +1771,7 @@ DesignerMove.startDisplayField = function () {
     if (onRelation) {
         return;
     }
+
     if (! onDisplayField) {
         onDisplayField = 1;
         document.getElementById('designer_hint').innerHTML = window.Messages.strChangeDisplay;
@@ -1789,9 +1869,11 @@ DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
             // trigger unchecked event
             this.click();
         }
+
         this.checked = parentIsChecked;
         this.disabled = parentIsChecked;
     });
+
     if (parentIsChecked) {
         DesignerHistory.selectField.push('`' + tableName + '`.*');
         window.fromArray.push(tableName);
@@ -1802,6 +1884,7 @@ DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
                 DesignerHistory.selectField.splice(i, 1);
             }
         }
+
         var k;
         for (k = 0; k < window.fromArray.length; k++) {
             if (window.fromArray[k] === tableName) {
@@ -1810,6 +1893,7 @@ DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
             }
         }
     }
+
     DesignerMove.reload();
 };
 
@@ -1850,6 +1934,7 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
                 break;
             }
         }
+
         for (k = 0; k < window.fromArray.length; k++) {
             if (window.fromArray[k] === tableName) {
                 window.fromArray.splice(k, 1);
@@ -1878,48 +1963,58 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
             ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
+
             return;
         }
+
         p = document.getElementById('Query');
         whereObj = new DesignerHistory.Where(rel.value, p.value);// make where object
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Where'));
         sum = sum + 1;
     }
+
     if (document.getElementById('new_name').value !== '') {
         var renameObj = new DesignerHistory.Rename(document.getElementById('new_name').value);// make Rename object
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Rename'));
         sum = sum + 1;
     }
+
     if (document.getElementById('operator').value !== '---') {
         var aggregateObj = new DesignerHistory.Aggregate(document.getElementById('operator').value);
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
+
     if (document.getElementById('groupby').checked === true) {
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tableName, DesignerConfig.hTabs[dbTableNameUrl], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
+
     if (document.getElementById('h_rel_opt').value !== '--') {
         if (document.getElementById('having').value === '') {
             return;
         }
+
         whereObj = new DesignerHistory.Having(
             document.getElementById('h_rel_opt').value,
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
+
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Having'));
         sum = sum + 1;
         // make having
     }
+
     if (document.getElementById('orderby').value !== '---') {
         var orderByObj = new DesignerHistory.OrderBy(document.getElementById('orderby').value);
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
+
     ajaxShowMessage(window.sprintf(window.Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
@@ -1935,9 +2030,11 @@ DesignerMove.enablePageContentEvents = function () {
     $(document).on('mousedown', function (e) {
         DesignerMove.mouseDown(e);
     });
+
     $(document).on('mouseup', function () {
         DesignerMove.mouseUp();
     });
+
     $(document).on('mousemove', function (e) {
         DesignerMove.mouseMove(e);
     });
@@ -1953,15 +2050,19 @@ DesignerMove.enableTableEvents = function (index, element) {
     $(element).on('click', '.select_all_1', function () {
         DesignerMove.selectAll($(this).attr('table_name'), $(this).attr('db_name'), $(this).attr('id'));
     });
+
     $(element).on('click', '.small_tab,.small_tab2', function () {
         DesignerMove.smallTab($(this).attr('table_name'), 1);
     });
+
     $(element).on('click', '.small_tab_pref_1', function () {
         DesignerMove.startTabUpd($(this).attr('db_url'), $(this).attr('table_name_url'));
     });
+
     $(element).on('click', '.select_all_store_col', function () {
         DesignerMove.storeColumn($(this).attr('table_name'), $(this).attr('col_name'), $(this).attr('id'));
     });
+
     $(element).on('click', '.small_tab_pref_click_opt', function () {
         DesignerMove.clickOption(
             $(this).attr('db_name'),
@@ -1971,6 +2072,7 @@ DesignerMove.enableTableEvents = function (index, element) {
             $(this).attr('option_col_name_modal')
         );
     });
+
     $(element).on('click', '.tab_field_2,.tab_field_3,.tab_field', function () {
         var params = ($(this).attr('click_field_param')).split(',');
         DesignerMove.clickField(params[3], params[0], params[1], params[2]);
@@ -1979,12 +2081,15 @@ DesignerMove.enableTableEvents = function (index, element) {
     $(element).find('.tab_zag_noquery').on('mouseover', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'), 0, $(this).attr('query_set'));
     });
+
     $(element).find('.tab_zag_noquery').on('mouseout', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'), 1, $(this).attr('query_set'));
     });
+
     $(element).find('.tab_zag_query').on('mouseover', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'), 0, 1);
     });
+
     $(element).find('.tab_zag_query').on('mouseout', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'), 1, 1);
     });

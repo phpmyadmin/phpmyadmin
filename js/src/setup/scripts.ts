@@ -21,6 +21,7 @@ $(function () {
         $('#no_https a').on('click', function () {
             var oldLocation = window.location;
             window.location.href = 'https:' + oldLocation.href.substring(oldLocation.protocol.length);
+
             return false;
         });
     }
@@ -35,6 +36,7 @@ $(function () {
             hiddenMessages.show();
             $(this).remove();
         });
+
         link.html(link.html().replace('#MSG_COUNT', hiddenMessages.length));
         link.show();
     }
@@ -46,6 +48,7 @@ $(function () {
     $('ul.tabs li').each(function () {
         width += $(this).width() + 10;
     });
+
     var contentWidth = width;
     width += 250;
     $('body').css('min-width', width);
@@ -108,6 +111,7 @@ function ajaxValidate (parent, id, values) {
                     error[key] = Array.isArray(value) ? value : [value];
                 }
             }
+
             Config.displayErrors(error);
         },
         complete: function () {
@@ -141,6 +145,7 @@ $.extend(true, window.validators, {
                 data[this.id] = this.value;
                 ajaxValidate(this, 'Servers/1/hide_db', data);
             }
+
             return true;
         },
         /**
@@ -156,6 +161,7 @@ $.extend(true, window.validators, {
                 data[this.id] = this.value;
                 ajaxValidate(this, 'TrustedProxies', data);
             }
+
             return true;
         }
     },
@@ -172,6 +178,7 @@ $.extend(true, window.validators, {
             if (! isKeyUp) {
                 ajaxValidate(this, 'Server', Config.getAllValues());
             }
+
             return true;
         },
         /**
@@ -219,10 +226,12 @@ $(function () {
         if (this !== e.target) {
             return;
         }
+
         var el = $(this).find('input');
         if (el.prop('disabled')) {
             return;
         }
+
         el.prop('checked', ! el.prop('checked'));
     });
 });

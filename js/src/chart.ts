@@ -31,6 +31,7 @@ window.ColumnType = ColumnType;
  */
 var ChartFactory = function () {
 };
+
 ChartFactory.prototype = {
     createChart: function () {
         throw new Error('createChart must be implemented by a subclass');
@@ -46,6 +47,7 @@ ChartFactory.prototype = {
 var Chart = function (elementId) {
     this.elementId = elementId;
 };
+
 Chart.prototype = {
     draw: function () {
         throw new Error('draw must be implemented by a subclass');
@@ -76,6 +78,7 @@ Chart.prototype = {
 var BaseChart = function (elementId) {
     Chart.call(this, elementId);
 };
+
 BaseChart.prototype = new Chart();
 BaseChart.prototype.constructor = BaseChart;
 BaseChart.prototype.validateColumns = function (dataTable) {
@@ -83,11 +86,13 @@ BaseChart.prototype.validateColumns = function (dataTable) {
     if (columns.length < 2) {
         throw new Error('Minimum of two columns are required for this chart');
     }
+
     for (var i = 1; i < columns.length; i++) {
         if (columns[i].type !== ColumnType.NUMBER) {
             throw new Error('Column ' + (i + 1) + ' should be of type \'Number\'');
         }
     }
+
     return true;
 };
 
@@ -100,6 +105,7 @@ BaseChart.prototype.validateColumns = function (dataTable) {
 var PieChart = function (elementId) {
     BaseChart.call(this, elementId);
 };
+
 PieChart.prototype = new BaseChart();
 PieChart.prototype.constructor = PieChart;
 PieChart.prototype.validateColumns = function (dataTable) {
@@ -107,6 +113,7 @@ PieChart.prototype.validateColumns = function (dataTable) {
     if (columns.length > 2) {
         throw new Error('Pie charts can draw only one series');
     }
+
     return BaseChart.prototype.validateColumns.call(this, dataTable);
 };
 
@@ -119,6 +126,7 @@ PieChart.prototype.validateColumns = function (dataTable) {
 var TimelineChart = function (elementId) {
     BaseChart.call(this, elementId);
 };
+
 TimelineChart.prototype = new BaseChart();
 TimelineChart.prototype.constructor = TimelineChart;
 TimelineChart.prototype.validateColumns = function (dataTable) {
@@ -129,6 +137,7 @@ TimelineChart.prototype.validateColumns = function (dataTable) {
             throw new Error('First column of timeline chart need to be a date column');
         }
     }
+
     return result;
 };
 
@@ -141,6 +150,7 @@ TimelineChart.prototype.validateColumns = function (dataTable) {
 var ScatterChart = function (elementId) {
     BaseChart.call(this, elementId);
 };
+
 ScatterChart.prototype = new BaseChart();
 ScatterChart.prototype.constructor = ScatterChart;
 ScatterChart.prototype.validateColumns = function (dataTable) {
@@ -151,6 +161,7 @@ ScatterChart.prototype.validateColumns = function (dataTable) {
             throw new Error('First column of scatter chart need to be a numeric column');
         }
     }
+
     return result;
 };
 
@@ -185,6 +196,7 @@ var DataTable = function () {
         if (columns.length === 0) {
             throw new Error('Set columns first');
         }
+
         var row;
         for (var i = 0; i < data.length; i++) {
             row = data[i];
@@ -198,6 +210,7 @@ var DataTable = function () {
         }
     };
 };
+
 window.DataTable = DataTable;
 
 /** *****************************************************************************
@@ -215,6 +228,7 @@ var JQPlotChart = function (elementId) {
     this.plot = null;
     this.validator = null;
 };
+
 JQPlotChart.prototype = new Chart();
 JQPlotChart.prototype.constructor = JQPlotChart;
 JQPlotChart.prototype.draw = function (data, options) {
@@ -223,24 +237,29 @@ JQPlotChart.prototype.draw = function (data, options) {
             .populateOptions(data, options));
     }
 };
+
 JQPlotChart.prototype.destroy = function () {
     if (this.plot !== null) {
         this.plot.destroy();
     }
 };
+
 JQPlotChart.prototype.redraw = function (options) {
     if (this.plot !== null) {
         this.plot.replot(options);
     }
 };
+
 JQPlotChart.prototype.toImageString = function () {
     if (this.plot !== null) {
         return $('#' + this.elementId).jqplotToImageStr({});
     }
 };
+
 JQPlotChart.prototype.populateOptions = function () {
     throw new Error('populateOptions must be implemented by a subclass');
 };
+
 JQPlotChart.prototype.prepareData = function () {
     throw new Error('prepareData must be implemented by a subclass');
 };
@@ -255,6 +274,7 @@ var JQPlotLineChart = function (elementId) {
     JQPlotChart.call(this, elementId);
     this.validator = BaseChart.prototype;
 };
+
 JQPlotLineChart.prototype = new JQPlotChart();
 JQPlotLineChart.prototype.constructor = JQPlotLineChart;
 
@@ -288,12 +308,14 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
             });
         }
     }
+
     if (optional.axes.xaxis.ticks.length === 0) {
         var data = dataTable.getData();
         for (var j = 0; j < data.length; j++) {
             optional.axes.xaxis.ticks.push(data[j][0].toString());
         }
     }
+
     return optional;
 };
 
@@ -310,9 +332,11 @@ JQPlotLineChart.prototype.prepareData = function (dataTable) {
                 retRow = [];
                 retData[j - 1] = retRow;
             }
+
             retRow.push(row[j]);
         }
     }
+
     return retData;
 };
 
@@ -325,6 +349,7 @@ JQPlotLineChart.prototype.prepareData = function (dataTable) {
 var JQPlotSplineChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
+
 JQPlotSplineChart.prototype = new JQPlotLineChart();
 JQPlotSplineChart.prototype.constructor = JQPlotSplineChart;
 
@@ -340,6 +365,7 @@ JQPlotSplineChart.prototype.populateOptions = function (dataTable, options) {
         }
     };
     $.extend(true, optional, opt, compulsory);
+
     return optional;
 };
 
@@ -353,6 +379,7 @@ var JQPlotScatterChart = function (elementId) {
     JQPlotChart.call(this, elementId);
     this.validator = ScatterChart.prototype;
 };
+
 JQPlotScatterChart.prototype = new JQPlotChart();
 JQPlotScatterChart.prototype.constructor = JQPlotScatterChart;
 
@@ -392,6 +419,7 @@ JQPlotScatterChart.prototype.populateOptions = function (dataTable, options) {
     };
 
     $.extend(true, optional, options, compulsory);
+
     return optional;
 };
 
@@ -409,10 +437,12 @@ JQPlotScatterChart.prototype.prepareData = function (dataTable) {
                     retRow = [];
                     retData[j - 1] = retRow;
                 }
+
                 retRow.push([row[0], row[j]]);
             }
         }
     }
+
     return retData;
 };
 
@@ -426,6 +456,7 @@ var JQPlotTimelineChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
     this.validator = TimelineChart.prototype;
 };
+
 JQPlotTimelineChart.prototype = new JQPlotLineChart();
 JQPlotTimelineChart.prototype.constructor = JQPlotTimelineChart;
 
@@ -448,6 +479,7 @@ JQPlotTimelineChart.prototype.populateOptions = function (dataTable, options) {
         }
     };
     $.extend(true, optional, opt, compulsory);
+
     return optional;
 };
 
@@ -466,6 +498,7 @@ JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
                 retRow = [];
                 retData[j - 1] = retRow;
             }
+
             // See https://github.com/phpmyadmin/phpmyadmin/issues/14395 for the block
             if (d !== null && typeof d === 'object') {
                 retRow.push([d.getTime(), row[j]]);
@@ -475,6 +508,7 @@ JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
             }
         }
     }
+
     return retData;
 };
 
@@ -487,6 +521,7 @@ JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
 var JQPlotAreaChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
+
 JQPlotAreaChart.prototype = new JQPlotLineChart();
 JQPlotAreaChart.prototype.constructor = JQPlotAreaChart;
 
@@ -504,6 +539,7 @@ JQPlotAreaChart.prototype.populateOptions = function (dataTable, options) {
         }
     };
     $.extend(true, optional, opt, compulsory);
+
     return optional;
 };
 
@@ -516,6 +552,7 @@ JQPlotAreaChart.prototype.populateOptions = function (dataTable, options) {
 var JQPlotColumnChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
+
 JQPlotColumnChart.prototype = new JQPlotLineChart();
 JQPlotColumnChart.prototype.constructor = JQPlotColumnChart;
 
@@ -533,6 +570,7 @@ JQPlotColumnChart.prototype.populateOptions = function (dataTable, options) {
         }
     };
     $.extend(true, optional, opt, compulsory);
+
     return optional;
 };
 
@@ -545,6 +583,7 @@ JQPlotColumnChart.prototype.populateOptions = function (dataTable, options) {
 var JQPlotBarChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
+
 JQPlotBarChart.prototype = new JQPlotLineChart();
 JQPlotBarChart.prototype.constructor = JQPlotBarChart;
 
@@ -589,6 +628,7 @@ JQPlotBarChart.prototype.populateOptions = function (dataTable, options) {
             optional.axes.yaxis.ticks.push(data[i][0].toString());
         }
     }
+
     if (optional.series.length === 0) {
         for (var j = 1; j < columns.length; j++) {
             optional.series.push({
@@ -596,6 +636,7 @@ JQPlotBarChart.prototype.populateOptions = function (dataTable, options) {
             });
         }
     }
+
     return optional;
 };
 
@@ -609,6 +650,7 @@ var JQPlotPieChart = function (elementId) {
     JQPlotChart.call(this, elementId);
     this.validator = PieChart.prototype;
 };
+
 JQPlotPieChart.prototype = new JQPlotChart();
 JQPlotPieChart.prototype.constructor = JQPlotPieChart;
 
@@ -632,6 +674,7 @@ JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
         }
     };
     $.extend(true, optional, options, compulsory);
+
     return optional;
 };
 
@@ -643,6 +686,7 @@ JQPlotPieChart.prototype.prepareData = function (dataTable) {
         row = data[i];
         retData.push([row[0], row[1]]);
     }
+
     return [retData];
 };
 
@@ -651,6 +695,7 @@ JQPlotPieChart.prototype.prepareData = function (dataTable) {
  */
 var JQPlotChartFactory = function () {
 };
+
 JQPlotChartFactory.prototype = new ChartFactory();
 JQPlotChartFactory.prototype.createChart = function (type, elementId) {
     var chart = null;
@@ -683,4 +728,5 @@ JQPlotChartFactory.prototype.createChart = function (type, elementId) {
 
     return chart;
 };
+
 window.JQPlotChartFactory = JQPlotChartFactory;

@@ -20,6 +20,7 @@ export default function handleCreateViewModal ($this): void {
                 if (typeof window.CodeMirror !== 'undefined') {
                     window.codeMirrorEditor.save();
                 }
+
                 $msg = ajaxShowMessage();
                 $.post('index.php?route=/view/create', $('#createViewModal').find('form').serialize(), function (data) {
                     ajaxRemoveMessage($msg);
@@ -32,6 +33,7 @@ export default function handleCreateViewModal ($this): void {
                     }
                 });
             });
+
             $('#createViewModal').find('.modal-body').first().html(data.message);
             // Attach syntax highlighted editor
             $('#createViewModal').on('shown.bs.modal', function () {
@@ -39,6 +41,7 @@ export default function handleCreateViewModal ($this): void {
                 $('input:visible[type=text]', $('#createViewModal')).first().trigger('focus');
                 $('#createViewModal').off('shown.bs.modal');
             });
+
             $('#createViewModal').modal('show');
         } else {
             ajaxShowMessage(data.error);

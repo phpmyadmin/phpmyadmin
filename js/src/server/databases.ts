@@ -29,6 +29,7 @@ const DropDatabases = {
             $(this).closest('tr').addClass('removeMe');
             selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });
+
         if (! selectedDbs.length) {
             ajaxShowMessage(
                 $('<div class="alert alert-warning" role="alert"></div>').text(
@@ -36,8 +37,10 @@ const DropDatabases = {
                 ),
                 2000
             );
+
             return;
         }
+
         /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -71,6 +74,7 @@ const DropDatabases = {
                         // user just dropped the last db on this page
                         refreshMainContent();
                     }
+
                     Navigation.reload();
                 } else {
                     $form.find('tr.removeMe').removeClass('removeMe');
@@ -101,6 +105,7 @@ const CreateDatabase = {
         if (newDbNameInput.val() === '') {
             newDbNameInput.trigger('focus');
             alert(window.Messages.strFormEmpty);
+
             return;
         }
         // end remove

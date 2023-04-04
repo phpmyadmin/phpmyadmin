@@ -77,6 +77,7 @@ function getIndexArray (indexChoice) {
     default:
         return null;
     }
+
     return sourceArray;
 }
 
@@ -143,6 +144,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
         // Remove column from other indexes (if any).
         Indexes.removeColumnFromIndex(colIndex);
     }
+
     var indexName = $('input[name="index[Key_name]"]').val();
     var indexComment = $('input[name="index[Index_comment]"]').val();
     var keyBlockSize = $('input[name="index[Key_block_size]"]').val();
@@ -177,8 +179,10 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
         $.each(columns, function () {
             columnNames.push($('input[name="field_name[' + this.col_index + ']"]').val());
         });
+
         displayName = '[' + columnNames.join(', ') + ']';
     }
+
     $.each(columns, function () {
         var id = 'index_name_' + this.col_index + '_8';
         var $name = $('#' + id);
@@ -186,6 +190,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
             $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
             $name.insertAfter($('select[name="field_key[' + this.col_index + ']"]'));
         }
+
         var $text = $('<small>').text(displayName);
         $name.html($text);
     });
@@ -195,6 +200,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
         $('select[name="field_key[' + colIndex + ']"]')
             .attr('data-index', indexChoice + ',' + arrayIndex);
     }
+
     Indexes.setIndexFormParameters(sourceArray, indexChoice.toLowerCase());
 }
 
@@ -307,11 +313,13 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
         var columnType = $('select[name="field_type[' + targetColumns[i] + ']"]').val().toLowerCase();
         columns[columnName] = [columnType, targetColumns[i]];
     }
+
     postData.columns = JSON.stringify(columns);
 
     $('#addIndexModalGoButton').on('click', function () {
         addIndexGo(sourceArray, arrayIndex, index, colIndex);
     });
+
     $('#addIndexModalCancelButton').on('click', function () {
         if (colIndex >= 0) {
             // Handle state on 'Cancel'.
@@ -324,11 +332,14 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                     .attr('selected', 'selected');
             }
         }
+
         $('#addIndexModal').modal('hide');
     });
+
     $('#addIndexModalCloseButton').on('click', function () {
         $('#addIndexModal').modal('hide');
     });
+
     var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/table/indexes', postData, function (data) {
         if (data.success === false) {
@@ -342,6 +353,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                 if ($('#addIndex').length > 0) {
                     $('#addIndex').remove();
                 }
+
                 $('#addIndexModal').on('keypress', function (e) {
                     if (e.which === 13 || e.keyCode === 13 || window.event.keyCode === 13) {
                         e.preventDefault();
@@ -350,6 +362,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                         $('#addIndexModal').modal('hide');
                     }
                 });
+
                 $('#addIndexModal').modal('show');
                 $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
                 $('#addIndexModal').find('.modal-body').first().html(data.message);
@@ -358,6 +371,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                 $('#index_columns').find('td').each(function () {
                     $(this).css('width', $(this).width() + 'px');
                 });
+
                 $('#index_columns').find('tbody').sortable({
                     axis: 'y',
                     containment: $('#index_columns').find('tbody'),
@@ -366,6 +380,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
             } else {
                 $div
                     .append(data.message);
+
                 $div.css({ 'display': 'none' });
                 $div.appendTo($('body'));
                 $div.attr({ 'id': 'addIndex' });
@@ -445,6 +460,7 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
                     ' </div>',
                     false
                 );
+
                 return false;
             }
 
@@ -454,13 +470,16 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
             for (var i = 0; i < sourceLength; i++) {
                 targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
             }
+
             targetColumns.push(colIndex);
 
             Indexes.showAddIndexDialog(sourceArray, arrayIndex, targetColumns, colIndex,
                 sourceArray[arrayIndex]);
         }
+
         $('#addIndexModal').modal('hide');
     });
+
     $('#addIndexModalCancelButton').on('click', function () {
         // Handle state on 'Cancel'.
         var $selectList = $('select[name="field_key[' + colIndex + ']"]');
@@ -471,11 +490,14 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
             $selectList.find('option[value*="' + previousIndex[0].toLowerCase() + '"]')
                 .attr('selected', 'selected');
         }
+
         removeIndexOnChangeEvent();
     });
+
     $('#addIndexModalCloseButton').on('click', function () {
         removeIndexOnChangeEvent();
     });
+
     $('#addIndexModal').modal('show');
     $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
     $('#addIndexModal').find('.modal-body').first().html($dialogContent);
@@ -484,6 +506,7 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
             $dialogContent.append(Indexes.getCompositeIndexList(sourceArray, colIndex));
         }
     });
+
     $('#single_column').on('change', function () {
         if ($(this).is(':checked')) {
             if ($('#composite_index_list').length) {
@@ -584,6 +607,7 @@ function on () {
                                 $('div.no_indexes_defined').show('medium');
                                 $rowsToHide.remove();
                             });
+
                             $tableRef.siblings('.alert-primary').hide('medium');
                         } else {
                             // We are removing some of the rows only
@@ -591,15 +615,19 @@ function on () {
                                 $(this).remove();
                             });
                         }
+
                         if ($('.result_query').length) {
                             $('.result_query').remove();
                         }
+
                         if (data.sql_query) {
                             $('<div class="result_query"></div>')
                                 .html(data.sql_query)
                                 .prependTo('#structure_content');
+
                             highlightSql($('#page_content'));
                         }
+
                         Navigation.reload();
                         refreshMainContent('index.php?route=/table/structure');
                     } else {
@@ -626,6 +654,7 @@ function on () {
                 if (! valid) {
                     return;
                 }
+
                 url = $(this).closest('form').serialize();
                 title = window.Messages.strAddIndex;
             } else {
@@ -633,6 +662,7 @@ function on () {
                 url = $(this).find('a').getPostData();
                 title = window.Messages.strEditIndex;
             }
+
             url += CommonParams.get('arg_separator') + 'ajax_request=true';
             Functions.indexEditorDialog(url, title, function (data) {
                 Navigation.update(CommonParams.set('db', data.params.db));
@@ -679,7 +709,9 @@ function on () {
                     $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
                     $name.insertAfter($('select[name="field_key[' + '0' + ']"]'));
                 }
+
                 $name.html('');
+
                 return false;
             }
 
@@ -703,6 +735,7 @@ function on () {
                     for (var i = 0; i < sourceLength; i++) {
                         targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
                     }
+
                     targetColumns.push(colIndex);
                     Indexes.showAddIndexDialog(sourceArray, arrayIndex, targetColumns, colIndex,
                         sourceArray[arrayIndex], showDialogLocal);

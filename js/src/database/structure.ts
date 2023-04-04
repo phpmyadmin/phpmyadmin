@@ -78,11 +78,13 @@ DatabaseStructure.adjustTotals = function () {
             // The approximated value contains a preceding ~ (Eg 100 --> ~100)
             strRows = strRows.substring(1, strRows.length);
         }
+
         strRows = strRows.replace(/[,.\s]/g, '');
         var intRow = parseInt(strRows, 10);
         if (! isNaN(intRow)) {
             rowsSum += intRow;
         }
+
         // Extract the size and overhead
         var valSize = 0;
         var valOverhead = 0;
@@ -99,6 +101,7 @@ DatabaseStructure.adjustTotals = function () {
                 break;
             }
         }
+
         for (i = 0; i < byteUnits.length; i++) {
             if (strOverheadUnit === byteUnits[i]) {
                 tmpVal = parseFloat(strOverhead);
@@ -106,9 +109,11 @@ DatabaseStructure.adjustTotals = function () {
                 break;
             }
         }
+
         sizeSum += valSize;
         overheadSum += valOverhead;
     });
+
     // Add some commas for readability:
     // 1000000 becomes 1,000,000
     var strRowSum = rowsSum + '';
@@ -116,10 +121,12 @@ DatabaseStructure.adjustTotals = function () {
     while (regex.test(strRowSum)) {
         strRowSum = strRowSum.replace(regex, '$1' + ',' + '$2');
     }
+
     // If approximated total value add ~ in front
     if (rowSumApproximated) {
         strRowSum = '~' + strRowSum;
     }
+
     // Calculate the magnitude for the size and overhead values
     var sizeMagnitude = 0;
     var overheadMagnitude = 0;
@@ -127,6 +134,7 @@ DatabaseStructure.adjustTotals = function () {
         sizeSum /= 1024;
         sizeMagnitude++;
     }
+
     while (overheadSum >= 1024) {
         overheadSum /= 1024;
         overheadMagnitude++;
@@ -143,6 +151,7 @@ DatabaseStructure.adjustTotals = function () {
     } else {
         $summary.find('.tbl_rows').text(strRowSum);
     }
+
     $summary.find('.tbl_size').text(sizeSum + ' ' + byteUnits[sizeMagnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + ' ' + byteUnits[overheadMagnitude]);
 };
@@ -175,11 +184,13 @@ DatabaseStructure.fetchRealRowCount = function ($target) {
                         }
                     );
                 }
+
                 // If to update a particular table's row count.
                 if (response.real_row_count) {
                     // Append the parent cell with real row count.
                     $target.parent().text(response.real_row_count);
                 }
+
                 // Adjust the 'Sum' displayed at the bottom.
                 DatabaseStructure.adjustTotals();
             } else {
@@ -236,6 +247,7 @@ AJAX.registerOnload('database/structure.js', function () {
             if ($('input[name="selected_tbl[]"]:checked').length === 0) {
                 return false;
             }
+
             var formData = $('#tablesForm').serialize();
             var modalTitle = '';
             if (action === 'copy_tbl') {
@@ -251,6 +263,7 @@ AJAX.registerOnload('database/structure.js', function () {
                 url = 'index.php?route=/database/structure/change-prefix-form';
                 modalTitle = window.Messages.strCopyPrefix;
             }
+
             $.ajax({
                 type: 'POST',
                 url: url,
@@ -262,6 +275,7 @@ AJAX.registerOnload('database/structure.js', function () {
                     this.querySelector('.modal-title').innerText = modalTitle;
                     this.querySelector('.modal-body').innerHTML = modalBody;
                 });
+
                 bulkActionModal.modal('show').on('shown.bs.modal', function () {
                     $('#bulkActionContinue').on('click', function () {
                         $('#ajax_form').trigger('submit');
@@ -386,6 +400,7 @@ AJAX.registerOnload('database/structure.js', function () {
             question =
                 window.sprintf(window.Messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(currTableName) + '`');
         }
+
         question += Functions.getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
@@ -423,6 +438,7 @@ AJAX.registerOnload('database/structure.js', function () {
         $(this).confirm(question, '', function () {
             return true;
         });
+
         return false;
     }); // end Calculate Real End for InnoDB
 
@@ -436,6 +452,7 @@ AJAX.registerOnload('database/structure.js', function () {
         event.preventDefault();
         DatabaseStructure.fetchRealRowCount($(this));
     });
+
     // Get all real row count.
     $('a.row_count_sum').on('click', function (event) {
         event.preventDefault();

@@ -22,14 +22,17 @@ function extractDate (dateString) {
     matches = dateTimeRegExp.exec(dateString);
     if (matches !== null && matches.length > 0) {
         match = matches[0];
+
         return new Date(match.substring(0, 4), parseInt(match.substring(5, 7), 10) - 1, match.substring(8, 10), match.substring(11, 13), match.substring(14, 16), match.substring(17, 19));
     } else {
         matches = dateRegExp.exec(dateString);
         if (matches !== null && matches.length > 0) {
             match = matches[0];
+
             return new Date(match.substring(0, 4), parseInt(match.substring(5, 7), 10) - 1, match.substring(8, 10));
         }
     }
+
     return null;
 }
 
@@ -93,6 +96,7 @@ function queryChart (data, columnNames, settings) {
         $.each(settings.selectedSeries, function (index, element) {
             columnsToExtract.push(element);
         });
+
         var newRow;
         var row;
         var col;
@@ -113,8 +117,10 @@ function queryChart (data, columnNames, settings) {
                     newRow.push(parseFloat(row[col]));
                 }
             }
+
             values.push(newRow);
         }
+
         dataTable.setData(values);
     } else {
         var seriesNames = {};
@@ -143,6 +149,7 @@ function queryChart (data, columnNames, settings) {
                 value = [xValue];
                 valueMap[xValue] = value;
             }
+
             seriesNumber = seriesNames[data[i][seriesColumnName]];
             value[seriesNumber] = parseFloat(data[i][valueColumnName]);
         }
@@ -150,11 +157,13 @@ function queryChart (data, columnNames, settings) {
         $.each(valueMap, function (index, value) {
             values.push(value);
         });
+
         dataTable.setData(values);
     }
 
     // draw the chart and return the chart object
     chart.draw(dataTable, plotSettings);
+
     return chart;
 }
 
@@ -171,6 +180,7 @@ function drawChart () {
     $('#chartXAxisSelect option').each(function () {
         columnNames.push(escapeHtml($(this).text()));
     });
+
     try {
         currentChart = queryChart(chartData, columnNames, currentSettings);
         if (currentChart !== null) {
@@ -187,6 +197,7 @@ function getSelectedSeries () {
     $.each(val, function (i, v) {
         ret.push(parseInt(v, 10));
     });
+
     return ret;
 }
 
@@ -202,6 +213,7 @@ function onXAxisChange () {
             currentSettings.type = 'line';
         }
     }
+
     if (numericCols.indexOf(currentSettings.mainAxis) !== -1) {
         document.getElementById('scatterChartType').classList.remove('d-none');
     } else {
@@ -211,6 +223,7 @@ function onXAxisChange () {
             currentSettings.type = 'line';
         }
     }
+
     var xAxisTitle = $xAxisSelect.children('option:selected').text();
     $('#xAxisLabelInput').val(xAxisTitle);
     currentSettings.xaxisLabel = xAxisTitle;
@@ -229,8 +242,10 @@ function onDataSeriesChange () {
             $('#lineChartTypeRadio').prop('checked', true);
             currentSettings.type = 'line';
         }
+
         yAxisTitle = window.Messages.strYValues;
     }
+
     $('#yAxisLabelInput').val(yAxisTitle);
     currentSettings.yaxisLabel = yAxisTitle;
 }
@@ -276,6 +291,7 @@ AJAX.registerOnload('table/chart.js', function () {
             $.extend(true, currentSettings, { stackSeries: false });
             document.getElementById('barStacked').classList.add('d-none');
         }
+
         drawChart();
     });
 
@@ -297,6 +313,7 @@ AJAX.registerOnload('table/chart.js', function () {
             currentSettings.seriesColumn = null;
             currentSettings.valueColumn = null;
         }
+
         drawChart();
     });
 
@@ -307,6 +324,7 @@ AJAX.registerOnload('table/chart.js', function () {
         } else {
             $.extend(true, currentSettings, { stackSeries: false });
         }
+
         drawChart();
     });
 
@@ -367,6 +385,7 @@ AJAX.registerOnload('table/chart.js', function () {
         if (window.codeMirrorEditor) {
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
+
         if (! Functions.checkSqlQuery($form[0])) {
             return false;
         }

@@ -56,6 +56,7 @@ DesignerHistory.detail = function (index) {
             str = 'Having ' + DesignerHistory.historyArray[index].getColumnName() + DesignerHistory.historyArray[index].getObj().getRelationOperator() + DesignerHistory.historyArray[index].getObj().getQuery();
         }
     }
+
     return str;
 };
 
@@ -85,11 +86,13 @@ DesignerHistory.display = function (init, finit) {
                 for (k = i; k > j; k--) {
                     DesignerHistory.historyArray[k] = DesignerHistory.historyArray[k - 1];
                 }
+
                 DesignerHistory.historyArray[j] = sto;
                 break;
             }
         }
     }
+
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
     var historyArrayLength = DesignerHistory.historyArray.length;
@@ -105,8 +108,10 @@ DesignerHistory.display = function (init, finit) {
             } else {
                 str += '<img src="' + window.themeImagePath + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
             }
+
             str += '<td style="padding-left: 5px;" class="text-end">' + getImageTag('b_sbrowse', window.Messages.strColumnName) + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + $('<div/>').text(DesignerHistory.historyArray[i].getColumnName()).html() + '<td>';
+
             if (DesignerHistory.historyArray[i].getType() === 'GroupBy' || DesignerHistory.historyArray[i].getType() === 'OrderBy') {
                 var detailDescGroupBy = $('<div/>').text(DesignerHistory.detail(i)).html();
                 str += '<td class="text-center">' + getImageTag('s_info', DesignerHistory.detail(i)) + '</td>' +
@@ -119,16 +124,20 @@ DesignerHistory.display = function (init, finit) {
                     '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + getImageTag('b_edit', window.Messages.strEdit) + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + getImageTag('b_drop', window.Messages.strDelete) + '</td>';
             }
+
             str += '</tr></thead>';
             i++;
             if (i >= historyArrayLength) {
                 break;
             }
+
             str += '</table></div>';
         }
+
         i--;
         str += '</div>';
     }
+
     return str;
 };
 
@@ -144,6 +153,7 @@ DesignerHistory.andOr = function (index): void {
     } else {
         DesignerHistory.historyArray[index].setAndOr(1);
     }
+
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(0, 0);
     $('#ab').accordion('refresh');
@@ -162,6 +172,7 @@ DesignerHistory.historyDelete = function (index): void {
             break;
         }
     }
+
     DesignerHistory.historyArray.splice(index, 1);
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(0, 0);
@@ -219,18 +230,21 @@ DesignerHistory.edit = function (type): void {
             DesignerHistory.historyArray[gIndex].getObj().setRenameTo(document.getElementById('e_rename').value);
             document.getElementById('e_rename').value = '';
         }
+
         document.getElementById('query_rename_to').style.visibility = 'hidden';
     } else if (type === 'Aggregate') {
         if (document.getElementById('e_operator').value !== '---') {
             DesignerHistory.historyArray[gIndex].getObj().setOperator(document.getElementById('e_operator').value);
             document.getElementById('e_operator').value = '---';
         }
+
         document.getElementById('query_Aggregate').style.visibility = 'hidden';
     } else if (type === 'Where') {
         if (document.getElementById('erel_opt').value !== '--' && document.getElementById('eQuery').value !== '') {
             DesignerHistory.historyArray[gIndex].getObj().setQuery(document.getElementById('eQuery').value);
             DesignerHistory.historyArray[gIndex].getObj().setRelationOperator(document.getElementById('erel_opt').value);
         }
+
         document.getElementById('query_where').style.visibility = 'hidden';
     } else if (type === 'Having') {
         if (document.getElementById('hrel_opt').value !== '--' && document.getElementById('hQuery').value !== '') {
@@ -238,8 +252,10 @@ DesignerHistory.edit = function (type): void {
             DesignerHistory.historyArray[gIndex].getObj().setRelationOperator(document.getElementById('hrel_opt').value);
             DesignerHistory.historyArray[gIndex].getObj().setOperator(document.getElementById('hoperator').value);
         }
+
         document.getElementById('query_having').style.visibility = 'hidden';
     }
+
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(0, 0);
     $('#ab').accordion('refresh');
@@ -265,42 +281,55 @@ DesignerHistory.HistoryObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
     this.setColumnName = function (nColumnName) {
         columnName = nColumnName;
     };
+
     this.getColumnName = function () {
         return columnName;
     };
+
     this.setAndOr = function (nAndOr) {
         andOr = nAndOr;
     };
+
     this.getAndOr = function () {
         return andOr;
     };
+
     this.getRelation = function () {
         return andOr;
     };
+
     this.setObj = function (nObj) {
         obj = nObj;
     };
+
     this.getObj = function () {
         return obj;
     };
+
     this.setTab = function (nTab) {
         tab = nTab;
     };
+
     this.getTab = function () {
         return tab;
     };
+
     this.setObjNo = function (nObjNo) {
         objNo = nObjNo;
     };
+
     this.getObjNo = function () {
         return objNo;
     };
+
     this.setType = function (nType) {
         type = nType;
     };
+
     this.getType = function () {
         return type;
     };
+
     this.setObjNo(nObjNo);
     this.setTab(nTab);
     this.setAndOr(0);
@@ -323,15 +352,19 @@ DesignerHistory.Where = function (nRelationOperator, nQuery) {
     this.setRelationOperator = function (nRelationOperator) {
         relationOperator = nRelationOperator;
     };
+
     this.setQuery = function (nQuery) {
         query = nQuery;
     };
+
     this.getQuery = function () {
         return query;
     };
+
     this.getRelationOperator = function () {
         return relationOperator;
     };
+
     this.setQuery(nQuery);
     this.setRelationOperator(nRelationOperator);
 };
@@ -346,9 +379,11 @@ DesignerHistory.OrderBy = function (nOrder) {
     this.setOrder = function (nOrder) {
         order = nOrder;
     };
+
     this.getOrder = function () {
         return order;
     };
+
     this.setOrder(nOrder);
 };
 
@@ -366,21 +401,27 @@ DesignerHistory.Having = function (nRelationOperator, nQuery, nOperator) {
     this.setOperator = function (nOperator) {
         operator = nOperator;
     };
+
     this.setRelationOperator = function (nRelationOperator) {
         relationOperator = nRelationOperator;
     };
+
     this.setQuery = function (nQuery) {
         query = nQuery;
     };
+
     this.getQuery = function () {
         return query;
     };
+
     this.getRelationOperator = function () {
         return relationOperator;
     };
+
     this.getOperator = function () {
         return operator;
     };
+
     this.setQuery(nQuery);
     this.setRelationOperator(nRelationOperator);
     this.setOperator(nOperator);
@@ -397,9 +438,11 @@ DesignerHistory.Rename = function (nRenameTo) {
     this.setRenameTo = function (nRenameTo) {
         renameTo = nRenameTo;
     };
+
     this.getRenameTo = function () {
         return renameTo;
     };
+
     this.setRenameTo(nRenameTo);
 };
 
@@ -414,9 +457,11 @@ DesignerHistory.Aggregate = function (nOperator) {
     this.setOperator = function (nOperator) {
         operator = nOperator;
     };
+
     this.getOperator = function () {
         return operator;
     };
+
     this.setOperator(nOperator);
 };
 
@@ -437,8 +482,10 @@ DesignerHistory.unique = function (arrayName) {
                 continue uniquetop;
             }
         }
+
         newArray[newArrayLength] = arrayName[i];
     }
+
     return newArray;
 };
 
@@ -457,6 +504,7 @@ DesignerHistory.found = function (arrayName, value) {
             return 1;
         }
     }
+
     return -1;
 };
 
@@ -473,6 +521,7 @@ DesignerHistory.addArray = function (add, arr) {
     for (var i = 0; i < addLength; i++) {
         arr.push(add[i]);
     }
+
     return arr;
 };
 
@@ -495,6 +544,7 @@ DesignerHistory.removeArray = function (rem, arr) {
             }
         }
     }
+
     return arr;
 };
 
@@ -511,7 +561,9 @@ DesignerHistory.queryGroupBy = function () {
             str += '`' + DesignerHistory.historyArray[i].getColumnName() + '`, ';
         }
     }
+
     str = str.substring(0, str.length - 2);
+
     return str;
 };
 
@@ -533,11 +585,13 @@ DesignerHistory.queryHaving = function () {
             }
         }
     }
+
     if (and === '(') {
         and = '';
     } else {
         and = and.substring(0, and.length - 2) + ')';
     }
+
     return and;
 };
 
@@ -556,7 +610,9 @@ DesignerHistory.queryOrderBy = function () {
                 DesignerHistory.historyArray[i].getObj().getOrder() + ', ';
         }
     }
+
     str = str.substring(0, str.length - 2);
+
     return str;
 };
 
@@ -581,19 +637,23 @@ DesignerHistory.queryWhere = function () {
             }
         }
     }
+
     if (or !== '(') {
         or = or.substring(0, (or.length - 4)) + ')';
     } else {
         or = '';
     }
+
     if (and !== '(') {
         and = and.substring(0, (and.length - 5)) + ')';
     } else {
         and = '';
     }
+
     if (or !== '') {
         and = and + ' OR ' + or + ' )';
     }
+
     return and;
 };
 
@@ -606,6 +666,7 @@ DesignerHistory.checkAggregate = function (idThis) {
             return DesignerHistory.historyArray[i].getObj().getOperator() + '(' + idThis + ')';
         }
     }
+
     return '';
 };
 
@@ -618,6 +679,7 @@ DesignerHistory.checkRename = function (idThis) {
             return ' AS `' + DesignerHistory.historyArray[i].getObj().getRenameTo() + '`';
         }
     }
+
     return '';
 };
 
@@ -652,6 +714,7 @@ DesignerHistory.queryFrom = function () {
     for (i = 0; i < historyArrayLength; i++) {
         window.fromArray.push(DesignerHistory.historyArray[i].getTab());
     }
+
     window.fromArray = DesignerHistory.unique(window.fromArray);
     tabLeft = window.fromArray;
     temp = tabLeft.shift();
@@ -680,6 +743,7 @@ DesignerHistory.queryFrom = function () {
 
                                     constraintsAdded.push(key);
                                 }
+
                                 tTabLeft.push(parts[1]);
                             }
                         }
@@ -687,6 +751,7 @@ DesignerHistory.queryFrom = function () {
                 }
             }
         }
+
         K = 0;
         tTabLeft = DesignerHistory.unique(tTabLeft);
         tabUsed = DesignerHistory.addArray(tTabLeft, tabUsed);
@@ -711,6 +776,7 @@ DesignerHistory.queryFrom = function () {
 
                                     constraintsAdded.push(key);
                                 }
+
                                 tTabLeft.push(parts[1]);
                             }
                         }
@@ -718,16 +784,20 @@ DesignerHistory.queryFrom = function () {
                 }
             }
         }
+
         tTabLeft = DesignerHistory.unique(tTabLeft);
         tabUsed = DesignerHistory.addArray(tTabLeft, tabUsed);
         tabLeft = DesignerHistory.removeArray(tTabLeft, tabLeft);
         tTabLeft = [];
     }
+
     for (k in tabLeft) {
         quer += ' , `' + tabLeft[k] + '`';
     }
+
     query = quer + query;
     window.fromArray = tArray;
+
     return query;
 };
 
@@ -756,6 +826,7 @@ DesignerHistory.buildQuery = function () {
                 qSelect += DesignerHistory.selectField[i] + temp + ', ';
             }
         }
+
         qSelect = qSelect.substring(0, qSelect.length - 2);
     } else {
         qSelect += '* ';
@@ -782,12 +853,14 @@ DesignerHistory.buildQuery = function () {
     if (qOrderBy !== '') {
         qSelect += '\nORDER BY ' + qOrderBy;
     }
+
     $('#buildQuerySubmitButton').on('click', function () {
         if (DesignerHistory.vqbEditor) {
             var $elm = $('#buildQueryModal').find('textarea');
             DesignerHistory.vqbEditor.save();
             $elm.val(DesignerHistory.vqbEditor.getValue());
         }
+
         $('#vqb_form').trigger('submit');
     });
 
@@ -803,6 +876,7 @@ DesignerHistory.buildQuery = function () {
         if (! DesignerHistory.vqbEditor) {
             DesignerHistory.vqbEditor = Functions.getSqlEditor($elm);
         }
+
         if (DesignerHistory.vqbEditor) {
             DesignerHistory.vqbEditor.setValue(qSelect);
             DesignerHistory.vqbEditor.focus();

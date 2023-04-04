@@ -41,8 +41,10 @@ const DatabaseEvents = {
         if ($elm.val() === '') {
             $elm.trigger('focus');
             alert(window.Messages.strFormEmpty);
+
             return false;
         }
+
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
         if ($elm.val() === '') {
             if (this.syntaxHiglighter !== null) {
@@ -50,9 +52,12 @@ const DatabaseEvents = {
             } else {
                 $('textarea[name=item_definition]').last().trigger('focus');
             }
+
             alert(window.Messages.strFormEmpty);
+
             return false;
         }
+
         // The validation has so far passed, so now
         // we can validate item-specific fields.
         return this.validateCustom();
@@ -96,13 +101,16 @@ const DatabaseEvents = {
         } else {
             $.get($this.attr('href'), { 'ajax_request': true }, showExport);
         }
+
         ajaxRemoveMessage($msg);
 
         function showExport (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
+
                 return;
             }
+
             ajaxRemoveMessage($msg);
             /**
              * @var buttonOptions Object containing options
@@ -152,6 +160,7 @@ const DatabaseEvents = {
             // row with info about the modified item.
             $editRow = $this.parents('tr');
         }
+
         /**
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
@@ -160,8 +169,10 @@ const DatabaseEvents = {
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
+
                 return;
             }
+
             // We have successfully fetched the editor form
             ajaxRemoveMessage($msg);
             /**
@@ -186,6 +197,7 @@ const DatabaseEvents = {
                 if (typeof window.CodeMirror !== 'undefined') {
                     that.syntaxHiglighter.save();
                 }
+
                 // Validate editor and submit request, if passed.
                 if (that.validate()) {
                     /**
@@ -195,12 +207,15 @@ const DatabaseEvents = {
                     $msg = ajaxShowMessage(
                         window.Messages.strProcessingRequest
                     );
+
                     var url = $('form.rte_form').last().attr('action');
                     $.post(url, data, function (data) {
                         if (data.success !== true) {
                             ajaxShowMessage(data.error, false);
+
                             return;
                         }
+
                         // Item created successfully
                         ajaxRemoveMessage($msg);
                         Functions.slidingMessage(data.message);
@@ -210,6 +225,7 @@ const DatabaseEvents = {
                         if (mode === 'edit' && $editRow !== null) {
                             $editRow.remove();
                         }
+
                         // Sometimes, like when moving a trigger from
                         // a table to another one, the new row should
                         // not be inserted into the list. In this case
@@ -237,18 +253,22 @@ const DatabaseEvents = {
                                     .text()
                                     .toUpperCase()
                                     .trim();
+
                                 if (text !== '' && text > data.name) {
                                     $(this).before(data.new_row);
                                     inserted = true;
+
                                     return false;
                                 }
                             });
+
                             if (! inserted) {
                                 // If we didn't manage to insert the row yet,
                                 // it must belong at the end of the list,
                                 // so we insert it there.
                                 $('table.data').append(data.new_row);
                             }
+
                             // Fade-in the new row
                             $('tr.ajaxInsert')
                                 .show('slow')
@@ -264,6 +284,7 @@ const DatabaseEvents = {
                                 $('#nothing2display').show('slow');
                             });
                         }
+
                         // Now we have inserted the row at the correct
                         // position, but surely at least some row classes
                         // are wrong now. So we will iterate through
@@ -282,6 +303,7 @@ const DatabaseEvents = {
                             $(this).removeClass().addClass(rowclass);
                             ct++;
                         });
+
                         // If this is the first item being added, remove
                         // the "No items" message and show the list.
                         if ($('table.data').find('tr').has('td').length > 0 &&
@@ -291,13 +313,16 @@ const DatabaseEvents = {
                                 $('table.data').show('slow');
                             });
                         }
+
                         Navigation.reload();
                     }); // end $.post()
                 } // end "if (that.validate())"
             }; // end of function that handles the submission of the Editor
+
             buttonOptions[window.Messages.strClose].click = function () {
                 $(this).dialog('close');
             };
+
             /**
              * Display the dialog to the user
              */
@@ -317,19 +342,23 @@ const DatabaseEvents = {
                     if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
                         $('#rteDialog').dialog('option', 'height', $(window).height());
                     }
+
                     $(this).find('input[name=item_name]').trigger('focus');
                     $(this).find('input.datefield').each(function () {
                         Functions.addDatepicker($(this).css('width', '95%'), 'date');
                     });
+
                     $(this).find('input.datetimefield').each(function () {
                         Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
                     });
+
                     $.datepicker.initialized = false;
                 },
                 close: function () {
                     $(this).remove();
                 }
             });
+
             /**
              * @var mode Used to remember whether the editor is in
              *           "Edit" or "Add" mode
@@ -338,6 +367,7 @@ const DatabaseEvents = {
             if ($('input[name=editor_process_edit]').length > 0) {
                 mode = 'edit';
             }
+
             // Attach syntax highlighted editor to the definition
             /**
              * @var elm jQuery object containing the reference to
@@ -372,8 +402,10 @@ const DatabaseEvents = {
             $.post(url, params, function (data) {
                 if (data.success !== true) {
                     ajaxShowMessage(data.error, false);
+
                     return;
                 }
+
                 /**
                  * @var $table Object containing reference
                  *             to the main list of elements
@@ -413,6 +445,7 @@ const DatabaseEvents = {
                         });
                     });
                 }
+
                 // Get rid of the "Loading" message
                 ajaxRemoveMessage($msg);
                 // Show the query that we just executed
@@ -452,8 +485,10 @@ const DatabaseEvents = {
                         if (returnCount === count) {
                             Navigation.reload();
                         }
+
                         return;
                     }
+
                     /**
                      * @var $table Object containing reference
                      *             to the main list of elements
@@ -490,14 +525,17 @@ const DatabaseEvents = {
                                 ct++;
                             });
                         });
+
                         $currRow.remove();
                     }
+
                     if (returnCount === count) {
                         if (success) {
                             // Get rid of the "Loading" message
                             ajaxRemoveMessage($msg);
                             $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
                         }
+
                         Navigation.reload();
                     }
                 }); // end $.post()
@@ -521,6 +559,7 @@ const DatabaseEvents = {
             if ($elm.val() === '') {
                 $elm.trigger('focus');
                 alert(window.Messages.strFormEmpty);
+
                 return false;
             }
         } else {
@@ -529,9 +568,11 @@ const DatabaseEvents = {
             if ($elm.val() === '') {
                 $elm.trigger('focus');
                 alert(window.Messages.strFormEmpty);
+
                 return false;
             }
         }
+
         return true;
     }
 };

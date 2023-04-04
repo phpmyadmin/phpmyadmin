@@ -68,6 +68,7 @@ Navigation.filterStateRestore = function (): void {
         if (Object.keys(searchClauses).length < 1) {
             return;
         }
+
         // restore database filter if present and not empty
         if (searchClauses.hasOwnProperty('dbFilter')
             && searchClauses.dbFilter.length
@@ -79,10 +80,12 @@ Navigation.filterStateRestore = function (): void {
                     new Navigation.FastFilter.Filter($obj, '')
                 );
             }
+
             $obj.find('li.fast_filter.db_fast_filter input.searchClause')
                 .val(searchClauses.dbFilter)
                 .trigger('keyup');
         }
+
         // find all table filters present in the tree
         var $tableFilters = $('#pma_navigation_tree li.database')
             .children('div.list_container')
@@ -101,14 +104,17 @@ Navigation.filterStateRestore = function (): void {
                 // as db filter has already been applied
                 if (! $obj.is(':visible')) {
                     Navigation.filterStateUpdate(filterName, '');
+
                     return true;
                 }
+
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
                         'fastFilter',
                         new Navigation.FastFilter.Filter($obj, '')
                     );
                 }
+
                 $(this).val(searchClauses[filterName])
                     .trigger('keyup');
             }
@@ -131,6 +137,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback): void {
         if (! $expandElem.hasClass('expander')) {
             return;
         }
+
         $destination = $expandElem.closest('li');
         var pos2Name = $expandElem.find('span.pos2_nav');
         var pathsNav = $expandElem.find('span.paths_nav');
@@ -144,6 +151,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback): void {
             'searchClause': '',
             'searchClause2': ''
         };
+
         if ($expandElem.closest('ul').hasClass('search_results')) {
             params.searchClause = Navigation.FastFilter.getSearchClause();
             params.searchClause2 = Navigation.FastFilter.getSearchClause2($expandElem);
@@ -179,12 +187,14 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback): void {
                     })
                     .slideDown('slow');
             }
+
             if (data.errors) {
                 var $errors = $(data.errors);
                 if ($errors.children().length > 0) {
                     $('#pma_errors').replaceWith(data.errors);
                 }
             }
+
             if (callback && typeof callback === 'function') {
                 callback(data);
             }
@@ -194,6 +204,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback): void {
             } else {
                 window.location.href += CommonParams.get('arg_separator') + 'session_expired=1';
             }
+
             window.location.reload();
         } else {
             var $throbber = $expandElem.find('img.throbber');
@@ -219,6 +230,7 @@ Navigation.collapseTreeNode = function ($expandElem): void {
             $children.slideUp('fast');
         }
     }
+
     $expandElem.trigger('blur');
     $children.promise().done(Navigation.treeStateUpdate);
 };
@@ -237,6 +249,7 @@ Navigation.traverseForPaths = function () {
     if ($('#navi_db_select').length) {
         return params;
     }
+
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
         if ($(this).find('img').is('.ic_b_minus') &&
@@ -265,6 +278,7 @@ Navigation.traverseForPaths = function () {
             count++;
         }
     });
+
     return params;
 };
 
@@ -282,9 +296,11 @@ Navigation.expandTreeNode = function ($expandElem, callback): void {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
             $children.slideDown('fast');
         }
+
         if (callback && typeof callback === 'function') {
             callback.call();
         }
+
         $children.promise().done(Navigation.treeStateUpdate);
     } else {
         var $throbber = $('#pma_navigation').find('.throbber')
@@ -306,18 +322,22 @@ Navigation.expandTreeNode = function ($expandElem, callback): void {
                         .find('a.expander.container')
                         .trigger('click');
                 }
+
                 if (callback && typeof callback === 'function') {
                     callback.call();
                 }
+
                 Navigation.showFullName($destination);
             } else {
                 ajaxShowMessage(data.error, false);
             }
+
             $icon.show();
             $throbber.remove();
             $children.promise().done(Navigation.treeStateUpdate);
         });
     }
+
     $expandElem.trigger('blur');
 };
 
@@ -357,17 +377,20 @@ Navigation.showCurrent = function (): void {
     $('#pma_navigation_tree')
         .find('li.selected')
         .removeClass('selected');
+
     var $dbItem;
     if (db) {
         $dbItem = findLoadedItem(
             $('#pma_navigation_tree').find('> div'), db, 'database', ! table
         );
+
         if ($('#navi_db_select').length &&
             $('option:selected', $('#navi_db_select')).length
         ) {
             if (! Navigation.selectCurrentDatabase()) {
                 return;
             }
+
             // If loaded database in navigation is not same as current one
             if ($('#pma_navigation_tree_content').find('span.loaded_db').first().text()
                 !== $('#navi_db_select').val()
@@ -404,6 +427,7 @@ Navigation.showCurrent = function (): void {
 
         fullExpand(table, $dbItem);
     }
+
     Navigation.showFullName($('#pma_navigation_tree'));
 
     function fullExpand (table, $dbItem) {
@@ -450,6 +474,7 @@ Navigation.showCurrent = function (): void {
                 );
                 if ($childRet) {
                     ret = $childRet;
+
                     return false;
                 }
             } else { // this is a real navigation item
@@ -459,6 +484,7 @@ Navigation.showCurrent = function (): void {
                     if (doSelect) {
                         $li.addClass('selected');
                     }
+
                     // traverse up and expand and parent navigation groups
                     $li.parents('.navGroup').each(function () {
                         var $cont = $(this).children('div.list_container');
@@ -469,11 +495,14 @@ Navigation.showCurrent = function (): void {
                                 .trigger('click');
                         }
                     });
+
                     ret = $li;
+
                     return false;
                 }
             }
         });
+
         return ret;
     }
 
@@ -491,6 +520,7 @@ Navigation.showCurrent = function (): void {
                 $relatedContainer.children('div.list_container'),
                 itemName, null, true
             );
+
             // Show directly
             showTableOrView($whichItem, $relatedContainer.children('div').first().children('a.expander'));
             // else if item not there, try loading once
@@ -504,6 +534,7 @@ Navigation.showCurrent = function (): void {
                     $expander = $containers[index]
                         .children('div').first()
                         .children('a.expander');
+
                     if (! $expander.hasClass('loaded')) {
                         loadAndShowTableOrView($expander, $containers[index], itemName);
                     }
@@ -513,6 +544,7 @@ Navigation.showCurrent = function (): void {
                 $expander = $dbItem
                     .children('div').first()
                     .children('a.expander');
+
                 if (! $expander.hasClass('loaded')) {
                     loadAndShowTableOrView($expander, $dbItem, itemName);
                 }
@@ -546,9 +578,11 @@ Navigation.showCurrent = function (): void {
         $items.each(function () {
             if ($(this).children('a').text() === name) {
                 $whichItem = $(this);
+
                 return false;
             }
         });
+
         return $whichItem;
     }
 };
@@ -607,8 +641,10 @@ Navigation.reload = function (callback = null, paths = null): void {
     if ($('#navi_db_select').length) {
         params.db = CommonParams.get('db');
         requestNaviReload(params);
+
         return;
     }
+
     requestNaviReload(params);
 
     function requestNaviReload (params) {
@@ -619,10 +655,12 @@ Navigation.reload = function (callback = null, paths = null): void {
                     Navigation.selectCurrentDatabase();
                     Navigation.showCurrent();
                 }
+
                 // Fire the callback, if any
                 if (typeof callback === 'function') {
                     callback.call();
                 }
+
                 Navigation.treeStateUpdate();
             } else {
                 ajaxShowMessage(data.error);
@@ -643,6 +681,7 @@ Navigation.selectCurrentDatabase = function () {
     }
 
     $naviDbSelect.val(CommonParams.get('db'));
+
     return $naviDbSelect.val() === CommonParams.get('db');
 };
 
@@ -664,10 +703,12 @@ Navigation.treePagination = function ($this): void {
     } else { // tagName === 'SELECT'
         params += CommonParams.get('arg_separator') + $this.closest('form').serialize();
     }
+
     var searchClause = Navigation.FastFilter.getSearchClause();
     if (searchClause) {
         params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
     }
+
     if (isDbSelector) {
         params += CommonParams.get('arg_separator') + 'full=true';
     } else {
@@ -676,6 +717,7 @@ Navigation.treePagination = function ($this): void {
             params += CommonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
         }
     }
+
     $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success) {
             ajaxRemoveMessage($msgbox);
@@ -686,6 +728,7 @@ Navigation.treePagination = function ($this): void {
                     .html(data.message)
                     .children('div')
                     .show();
+
                 if (val) {
                     $('#pma_navigation_tree')
                         .find('li.fast_filter input.searchClause')
@@ -697,12 +740,15 @@ Navigation.treePagination = function ($this): void {
                 $this.closest('div.list_container').html(
                     $(data.message).children().show()
                 );
+
                 if (val) {
                     $parent.find('li.fast_filter input.searchClause').val(val);
                 }
+
                 $parent.find('span.pos2_value').first().text(
                     $parent.find('span.pos2_value').last().text()
                 );
+
                 $parent.find('span.pos3_value').first().text(
                     $parent.find('span.pos3_value').last().text()
                 );
@@ -711,6 +757,7 @@ Navigation.treePagination = function ($this): void {
             ajaxShowMessage(data.error);
             handleRedirectAndReload(data);
         }
+
         Navigation.treeStateUpdate();
     });
 };
@@ -741,6 +788,7 @@ Navigation.ResizeHandler = function () {
         if (typeof pos !== 'number') {
             pos = 240;
         }
+
         var $resizer = $('#pma_navigation_resizer');
         var resizerWidth = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
@@ -760,6 +808,7 @@ Navigation.ResizeHandler = function () {
             })
             .append($('#server-breadcrumb'))
             .append($('#topmenucontainer'));
+
         // Allow the DOM to render, then adjust the padding on the body
         setTimeout(function () {
             $('body').css(
@@ -767,8 +816,10 @@ Navigation.ResizeHandler = function () {
                 $('#floating_menubar').outerHeight(true)
             );
         }, 2);
+
         $('#pma_console')
             .css('margin-' + this.left, (pos + resizerWidth) + 'px');
+
         $resizer.css(this.left, pos + 'px');
         if (pos === 0) {
             $collapser
@@ -780,20 +831,24 @@ Navigation.ResizeHandler = function () {
                 .css(this.left, pos)
                 .html(this.getSymbol(pos))
                 .prop('title', window.Messages.strHidePanel);
+
             $('#pma_navigation_resizer').css({ 'width': '3px' });
         } else {
             $collapser
                 .css(this.left, windowWidth - 22)
                 .html(this.getSymbol(100))
                 .prop('title', window.Messages.strHidePanel);
+
             $('#pma_navigation').width(windowWidth);
             $('body').css('margin-' + this.left, '0px');
             $('#pma_navigation_resizer').css({ 'width': '0px' });
         }
+
         setTimeout(function () {
             $(window).trigger('resize');
         }, 4);
     };
+
     /**
      * Returns the horizontal position of the mouse,
      * relative to the outer side of the navigation panel
@@ -810,6 +865,7 @@ Navigation.ResizeHandler = function () {
         if (this.left !== 'left') {
             pos = windowWidth - event.pageX;
         }
+
         if (pos < 0) {
             pos = 0;
         } else if (pos + 100 >= windowWidth) {
@@ -817,8 +873,10 @@ Navigation.ResizeHandler = function () {
         } else {
             this.panelWidth = 0;
         }
+
         return pos;
     };
+
     /**
      * Returns the HTML code for the arrow symbol used in the collapser
      *
@@ -841,6 +899,7 @@ Navigation.ResizeHandler = function () {
             }
         }
     };
+
     /**
      * Event handler for initiating a resize of the panel
      *
@@ -851,8 +910,10 @@ Navigation.ResizeHandler = function () {
         $(document)
             .on('mousemove', { 'resize_handler': event.data.resize_handler }, event.data.resize_handler.mousemove)
             .on('mouseup', { 'resize_handler': event.data.resize_handler }, event.data.resize_handler.mouseup);
+
         $('body').css('cursor', 'col-resize');
     };
+
     /**
      * Event handler for terminating a resize of the panel
      *
@@ -866,6 +927,7 @@ Navigation.ResizeHandler = function () {
             .off('mousemove')
             .off('mouseup');
     };
+
     /**
      * Event handler for updating the panel during a resize operation
      *
@@ -878,6 +940,7 @@ Navigation.ResizeHandler = function () {
             event.data.resize_handler.setWidth(pos);
         }
     };
+
     /**
      * Event handler for collapsing the panel
      *
@@ -890,10 +953,12 @@ Navigation.ResizeHandler = function () {
         if (width === 0 && panelWidth === 0) {
             panelWidth = 240;
         }
+
         setConfigValue('NavigationWidth', panelWidth);
         event.data.resize_handler.setWidth(panelWidth);
         event.data.resize_handler.panelWidth = width;
     };
+
     /**
      * Event handler for resizing the navigation tree height on window resize
      */
@@ -914,9 +979,11 @@ Navigation.ResizeHandler = function () {
                 'overflow-y': 'auto'
             });
         }
+
         // Set content bottom space because of console
         $('body').css('margin-bottom', $('#pma_console').height() + 'px');
     };
+
     /**
      * Init handlers for the tree resizers
      */
@@ -926,6 +993,7 @@ Navigation.ResizeHandler = function () {
         if (isLoadedOnMobile) {
             this.setWidth(0);
         }
+
         // Register the events for the resizer and the collapser
         $(document).on('mousedown', '#pma_navigation_resizer', { 'resize_handler': this }, this.mousedown);
         $(document).on('click', '#pma_navigation_collapser', { 'resize_handler': this }, this.collapse);
@@ -942,14 +1010,17 @@ Navigation.ResizeHandler = function () {
             this.setWidth(data);
             $('#topmenu').menuResizer('resize');
         };
+
         // Skip mobile
         if (isLoadedOnMobile === false) {
             // Make an init using the default found value
             const initialResizeValue = $('#pma_navigation').data('config-navigation-width');
             callbackSuccessGetConfigValue(initialResizeValue);
         }
+
         getConfigValue('NavigationWidth', false, callbackSuccessGetConfigValue);
     };
+
     this.treeInit();
 };
 
@@ -1011,6 +1082,7 @@ Navigation.FastFilter = {
         if ($input.length && $input.val() !== $input[0].defaultValue) {
             retval = $input.val();
         }
+
         return retval;
     },
     /**
@@ -1030,12 +1102,14 @@ Navigation.FastFilter = {
             $filterInput = $filterContainer
                 .find('li.fast_filter:not(.db_fast_filter) input.searchClause');
         }
+
         var searchClause2 = '';
         if ($filterInput.length !== 0 &&
             $filterInput.first().val() !== $filterInput[0].defaultValue
         ) {
             searchClause2 = $filterInput.val();
         }
+
         return searchClause2;
     },
     /**
@@ -1051,6 +1125,7 @@ Navigation.FastFilter = {
                     new Navigation.FastFilter.Filter($obj, $(this).val())
                 );
             }
+
             if ($(this).val() === this.defaultValue) {
                 $(this).val('');
             } else {
@@ -1061,6 +1136,7 @@ Navigation.FastFilter = {
             if ($(this).val() === '') {
                 $(this).val(this.defaultValue);
             }
+
             var $obj = $(this).closest('div.list_container');
             if ($(this).val() === this.defaultValue && $obj.data('fastFilter')) {
                 $obj.data('fastFilter').restore();
@@ -1104,6 +1180,7 @@ Navigation.FastFilter = {
                         itemFilter($(this)); // recursive
                     });
                 });
+
                 $curr.children('ul').children('li').children('a').not('.container').each(function () {
                     if (regex.test($(this).text())) {
                         $(this).parent().show().removeClass('hidden');
@@ -1112,6 +1189,7 @@ Navigation.FastFilter = {
                     }
                 });
             };
+
             itemFilter(outerContainer);
 
             // hides containers that does not have any visible children
@@ -1121,6 +1199,7 @@ Navigation.FastFilter = {
                     $group.children('div.list_container').each(function () {
                         containerFilter($(this)); // recursive
                     });
+
                     $group.show().removeClass('hidden');
                     if ($group.children('div.list_container').children('ul')
                         .children('li').not('.hidden').length === 0) {
@@ -1128,6 +1207,7 @@ Navigation.FastFilter = {
                     }
                 });
             };
+
             containerFilter(outerContainer);
 
             if ($(this).val() !== this.defaultValue && $(this).val() !== '') {
@@ -1144,6 +1224,7 @@ Navigation.FastFilter = {
             } else if ($obj.data('fastFilter')) {
                 $obj.data('fastFilter').restore(true);
             }
+
             // update filter state
             var filterName;
             if ($(this).attr('name') === 'searchClause2') {
@@ -1151,6 +1232,7 @@ Navigation.FastFilter = {
             } else {
                 filterName = 'dbFilter';
             }
+
             Navigation.filterStateUpdate(filterName, $(this).val());
         },
         clear: function (event) {
@@ -1160,11 +1242,13 @@ Navigation.FastFilter = {
             if (filter) {
                 filter.restore();
             }
+
             var value = $(this).prev()[0].defaultValue;
             $(this).prev().val(value).trigger('keyup');
         }
     }
 };
+
 /**
  * Handles a change in the search clause
  *
@@ -1176,6 +1260,7 @@ Navigation.FastFilter.Filter.prototype.update = function (searchClause): void {
         this.request();
     }
 };
+
 /**
  * After a delay of 250mS, initiates a request to retrieve search results
  * Multiple calls to this function will always abort the previous request
@@ -1192,9 +1277,11 @@ Navigation.FastFilter.Filter.prototype.request = function (): void {
             )
         );
     }
+
     if (self.xhr) {
         self.xhr.abort();
     }
+
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
 
     if (self.$this.find('> ul > li > form.fast_filter').first().find('input[name=searchClause]').length === 0) {
@@ -1203,6 +1290,7 @@ Navigation.FastFilter.Filter.prototype.request = function (): void {
             params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
         }
     }
+
     self.xhr = $.ajax({
         url: 'index.php?route=/navigation&ajax_request=1&server=' + CommonParams.get('server'),
         type: 'post',
@@ -1219,6 +1307,7 @@ Navigation.FastFilter.Filter.prototype.request = function (): void {
         }
     });
 };
+
 /**
  * Replaces the contents of the navigation branch with the search results
  *
@@ -1232,8 +1321,10 @@ Navigation.FastFilter.Filter.prototype.swap = function (list): void {
         .end()
         .find('li.fast_filter input.searchClause')
         .val(this.searchClause);
+
     this.$this.data('fastFilter', this);
 };
+
 /**
  * Restores the navigation to the original state after the fast filter is cleared
  *
@@ -1247,6 +1338,7 @@ Navigation.FastFilter.Filter.prototype.restore = function (focus): void {
             this.$this.find('li.fast_filter input.searchClause').trigger('focus');
         }
     }
+
     this.searchClause = '';
     this.$this.find('div.pageselector').show();
     this.$this.find('div.throbber').remove();
@@ -1265,6 +1357,7 @@ Navigation.showFullName = function ($containerELem): void {
         if ($this.text() === '') {
             return;
         }
+
         var $parent = $this.parent();
         if (($parent.offset().left + $parent.outerWidth())
             < (thisOffset.left + $this.outerWidth())) {
@@ -1279,8 +1372,10 @@ Navigation.showFullName = function ($containerELem): void {
                     /** mouseenter */
                     $(this).addClass('hovering');
                 });
+
                 $fullNameLayer = $('#full_name_layer');
             }
+
             $fullNameLayer.removeClass('hide');
             $fullNameLayer.css({ left: thisOffset.left, top: thisOffset.top });
             $fullNameLayer.html($this.clone());

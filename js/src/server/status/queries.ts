@@ -29,6 +29,7 @@ AJAX.registerOnload('server/status/queries.js', function () {
             $.each($('#serverstatusquerieschart').data('chart'), function (key, value) {
                 cdata.push([key, parseInt(value, 10)]);
             });
+
             $('#serverstatusquerieschart').data(
                 'queryPieChart',
                 createProfilingChart('serverstatusquerieschart', cdata)

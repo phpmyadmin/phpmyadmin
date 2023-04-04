@@ -13,6 +13,7 @@ export default function handleRedirectAndReload (data) {
         } else {
             window.location.href += CommonParams.get('arg_separator') + 'session_expired=1';
         }
+
         window.location.reload();
     } else if (parseInt(data.reload_flag) === 1) {
         window.location.reload();

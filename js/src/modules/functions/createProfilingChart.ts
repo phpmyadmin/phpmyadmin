@@ -67,5 +67,6 @@ export default function createProfilingChart (target, data) {
             '#2e3436'
         ]
     });
+
     return chart;
 }

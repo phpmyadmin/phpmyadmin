@@ -36,6 +36,7 @@ var DesignerOfflineDB = (function () {
     designerDB.getObjectStore = function (table) {
         var transaction = designerDB.getTransaction(table);
         var objStore = transaction.objectStore(table);
+
         return objStore;
     };
 
@@ -48,6 +49,7 @@ var DesignerOfflineDB = (function () {
         var objStore = transaction.objectStore(table);
         var keyRange = IDBKeyRange.lowerBound(0);
         var cursorRequest = objStore.openCursor(keyRange);
+
         return cursorRequest;
     };
 
@@ -97,6 +99,7 @@ var DesignerOfflineDB = (function () {
     designerDB.loadObject = function (table, id, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
+
             return;
         }
 
@@ -117,6 +120,7 @@ var DesignerOfflineDB = (function () {
     designerDB.loadAllObjects = function (table, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
+
             return;
         }
 
@@ -133,6 +137,7 @@ var DesignerOfflineDB = (function () {
             if (Boolean(result) === false) {
                 return;
             }
+
             results.push(result.value);
             result.continue();
         };
@@ -147,6 +152,7 @@ var DesignerOfflineDB = (function () {
     designerDB.loadFirstObject = function (table, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
+
             return;
         }
 
@@ -163,6 +169,7 @@ var DesignerOfflineDB = (function () {
             if (Boolean(result) === false) {
                 return;
             }
+
             firstResult = result.value;
         };
 
@@ -177,6 +184,7 @@ var DesignerOfflineDB = (function () {
     designerDB.addObject = function (table, obj, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
+
             return;
         }
 
@@ -200,6 +208,7 @@ var DesignerOfflineDB = (function () {
     designerDB.deleteObject = function (table, id, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
+
             return;
         }
 

@@ -40,6 +40,7 @@ var confirmAndPost = function (linkObject, action): void {
     } else if (action === 'DELETE') {
         question += window.Messages.strDeleteTableStrongWarning + ' ';
     }
+
     question += window.sprintf(window.Messages.strDoYouReally, linkObject.data('query'));
     question += Functions.getForeignKeyCheckboxLoader();
     linkObject.confirm(question, linkObject.attr('href'), function (url) {
@@ -51,9 +52,11 @@ var confirmAndPost = function (linkObject, action): void {
             if ($('.sqlqueryresults').length !== 0) {
                 $('.sqlqueryresults').remove();
             }
+
             if ($('.result_query').length !== 0) {
                 $('.result_query').remove();
             }
+
             if (typeof data !== 'undefined' && data.success === true) {
                 ajaxShowMessage(data.message);
                 $('<div class="sqlqueryresults ajax"></div>').prependTo('#page_content');
@@ -86,10 +89,12 @@ AJAX.registerOnload('table/operations.js', function () {
                         'db',
                         $form.find('select[name=\'target_db\'],input[name=\'target_db\']').val()
                     ));
+
                     Navigation.update(CommonParams.set(
                         'table',
                         $form.find('input[name=\'new_name\']').val()
                     ));
+
                     refreshMainContent(false);
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
@@ -97,6 +102,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 } else {
                     ajaxShowMessage(data.message);
                 }
+
                 // Refresh navigation when the table is copied
                 Navigation.reload();
             } else {
@@ -121,6 +127,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 AJAX.callback = () => {
                     ajaxShowMessage(data.message);
                 };
+
                 // Refresh navigation when the table is copied
                 Navigation.reload();
             } else {
@@ -172,6 +179,7 @@ AJAX.registerOnload('table/operations.js', function () {
                         $('#page_content').html(data.message);
                         highlightSql($('#page_content'));
                     };
+
                     // Refresh navigation when the table is renamed
                     Navigation.reload();
                 } else {
@@ -191,9 +199,11 @@ AJAX.registerOnload('table/operations.js', function () {
         if ($('.sqlqueryresults').length !== 0) {
             $('.sqlqueryresults').remove();
         }
+
         if ($('.result_query').length !== 0) {
             $('.result_query').remove();
         }
+
         // variables which stores the common attributes
         var params = $.param({
             'ajax_request': 1,

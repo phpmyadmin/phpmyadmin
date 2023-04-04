@@ -87,6 +87,7 @@ function addZoomPanControllers () {
     if (! gisSvg) {
         return;
     }
+
     var themeImagePath = $('#themeImagePath').val();
     $('#placeholder').append(
         // pan arrows
@@ -136,6 +137,7 @@ function initGISVisualization () {
         // Adds necessary styles to the div that contains the openStreetMap
         styleOSM();
     }
+
     // Adds controllers for zooming and panning
     addZoomPanControllers();
     zoomAndPan();
@@ -153,6 +155,7 @@ function drawOpenLayerMap () {
 
 function getRelativeCoords (e) {
     var position = $('#placeholder').offset();
+
     return {
         x: e.pageX - position.left,
         y: e.pageY - position.top
@@ -166,6 +169,7 @@ function onGisMouseWheel (event) {
     if (event.deltaY === 0) {
         return;
     }
+
     event.preventDefault();
 
     var relCoords = getRelativeCoords(event);
@@ -248,6 +252,7 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
             return $('<div>');// Give a fake element to be used for dragging display
         }
     });
+
     $(document).on('dragstart', 'svg', function (event, dd) {
         $('#placeholder').addClass('placeholderDrag');
         dragX = Math.round(dd.offset.left);
@@ -272,6 +277,7 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         if (event.target.classList.contains('button')) {
             return;
         }
+
         scale *= zoomFactor;
         // zooming in keeping the position under mouse pointer unmoved.
         var relCoords = getRelativeCoords(event);

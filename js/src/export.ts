@@ -39,8 +39,17 @@ Export.enableDumpSomeRowsSubOptions = function () {
  */
 Export.getTemplateData = function () {
     var $form = $('form[name="dump"]');
-    var excludeList = ['token', 'server', 'db', 'table', 'single_table',
-        'export_type', 'export_method', 'sql_query', 'template_id'];
+    var excludeList = [
+        'token',
+        'server',
+        'db',
+        'table',
+        'single_table',
+        'export_type',
+        'export_method',
+        'sql_query',
+        'template_id'
+    ];
     var obj = {};
     var arr = $form.serializeArray();
     $.each(arr, function () {
@@ -49,12 +58,14 @@ Export.getTemplateData = function () {
                 if (! obj[this.name].push) {
                     obj[this.name] = [obj[this.name]];
                 }
+
                 obj[this.name].push(this.value || '');
             } else {
                 obj[this.name] = this.value || '';
             }
         }
     });
+
     // include unchecked checkboxes (which are ignored by serializeArray()) with null
     // to uncheck them when loading the template
     $form.find('input[type="checkbox"]:not(:checked)').each(function () {
@@ -62,12 +73,14 @@ Export.getTemplateData = function () {
             obj[this.name] = null;
         }
     });
+
     // include empty multiselects
     $form.find('select').each(function () {
         if ($(this).find('option:selected').length === 0) {
             obj[this.name] = [];
         }
     });
+
     return obj;
 };
 
@@ -99,6 +112,7 @@ Export.createTemplate = function (name) {
                     $(this).prop('selected', true);
                 }
             });
+
             ajaxShowMessage(window.Messages.strTemplateCreated);
         } else {
             ajaxShowMessage(response.error, false);
@@ -140,11 +154,14 @@ Export.loadTemplate = function (id) {
                                 localValue = [localValue];
                             }
                         }
+
                         $element.val(localValue);
                     }
+
                     $element.trigger('change');
                 }
             });
+
             $('input[name="template_id"]').val(id);
             ajaxShowMessage(window.Messages.strTemplateLoaded);
         } else {
@@ -305,6 +322,7 @@ AJAX.registerOnload('export.js', function () {
             if (commentsArePresent) {
                 $('#checkbox_sql_dates').prop('disabled', true).parent().fadeTo('fast', 0.4);
             }
+
             $('#checkbox_sql_relation').prop('disabled', true).parent().fadeTo('fast', 0.4);
             $('#checkbox_sql_mime').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
@@ -312,6 +330,7 @@ AJAX.registerOnload('export.js', function () {
             if (commentsArePresent) {
                 $('#checkbox_sql_dates').prop('disabled', false).parent().fadeTo('fast', 1);
             }
+
             $('#checkbox_sql_relation').prop('disabled', false).parent().fadeTo('fast', 1);
             $('#checkbox_sql_mime').prop('disabled', false).parent().fadeTo('fast', 1);
         }
@@ -351,6 +370,7 @@ Export.setupTableStructureOrData = function () {
     if ($('input[name=\'export_type\']').val() !== 'database') {
         return;
     }
+
     var pluginName = $('#plugins').find('option:selected').val();
     var formElemName = pluginName + '_structure_or_data';
     var forceStructureOrData = ! ($('input[name=\'' + formElemName + '_default\']').length);
@@ -359,11 +379,13 @@ Export.setupTableStructureOrData = function () {
         $('input[name="structure_or_data_forced"]').val(1);
         $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
             .prop('disabled', true);
+
         $('.export_structure, .export_data').fadeTo('fast', 0.4);
     } else {
         $('input[name="structure_or_data_forced"]').val(0);
         $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
             .prop('disabled', false);
+
         $('.export_structure, .export_data').fadeTo('fast', 1);
 
         var structureOrData = $('input[name="' + formElemName + '_default"]').val();
@@ -375,6 +397,7 @@ Export.setupTableStructureOrData = function () {
             $('.export_structure input[type="checkbox"]')
                 .prop('checked', false);
         }
+
         if (structureOrData === 'structure' || structureOrData === 'structure_and_data') {
             if (! $('.export_structure input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
@@ -383,6 +406,7 @@ Export.setupTableStructureOrData = function () {
                     .prop('checked', true);
             }
         }
+
         if (structureOrData === 'data' || structureOrData === 'structure_and_data') {
             if (! $('.export_data input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
@@ -594,6 +618,7 @@ AJAX.registerOnload('export.js', function () {
     $create.on('change', function () {
         $createOptions.prop('checked', $(this).prop('checked'));
     });
+
     $createOptions.on('change', function () {
         if ($createOptions.is(':checked')) {
             $create.prop('checked', true);
@@ -611,6 +636,7 @@ AJAX.registerOnload('export.js', function () {
                 $('#radio_dump_asfile').prop('checked', true);
                 Export.toggleSaveToFile();
             }
+
             $('#radio_view_as_text').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
             $('#radio_view_as_text').prop('disabled', false).parent().fadeTo('fast', 1);
@@ -671,11 +697,13 @@ AJAX.registerOnload('export.js', function () {
                     .after(
                         $('<input type="hidden" name="' + name + '" value="structure_and_data">')
                     );
+
                 $this.parent().find('label').remove();
             } else {
                 $this.parent().remove();
             }
         });
+
         $('input[type=\'radio\'][name$=\'_structure_or_data\']').remove();
 
         // Disable CREATE table checkbox for sql
@@ -760,6 +788,7 @@ Export.checkTimeOut = function (timeLimit) {
     if (typeof limit === 'undefined' || limit === 0) {
         return true;
     }
+
     // margin of one second to avoid race condition to set/access session variable
     limit = limit + 1;
     clearTimeout(timeOut);
@@ -819,6 +848,7 @@ Export.createAliasModal = function (event): void {
             });
         }
     });
+
     modal.on('hidden.bs.modal', function () {
         var isEmpty = true;
         $(this).find('input[type="text"]').each(function () {
@@ -829,9 +859,11 @@ Export.createAliasModal = function (event): void {
                 $(this).parents('tr').remove();
             }
         });
+
         // Toggle checkbox based on aliases
         $('input#btn_alias_config').prop('checked', ! isEmpty);
     });
+
     $('#saveAndCloseBtn').on('click', function () {
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     });
@@ -856,6 +888,7 @@ Export.addAlias = function (type, name, field, value) {
     if (Export.aliasRow === null) {
         Export.aliasRow = $('#alias_data tfoot tr');
     }
+
     var row = Export.aliasRow.clone();
     row.find('th').text(type);
     row.find('td').first().text(name);
@@ -879,6 +912,7 @@ AJAX.registerOnload('export.js', function () {
         .addClass('d-none')
         .find('h3')
         .remove();
+
     toggleQuickOrCustom();
 
     Export.toggleStructureDataOpts();
@@ -907,6 +941,7 @@ AJAX.registerOnload('export.js', function () {
     $('.alias_remove').on('click', function () {
         $(this).parents('tr').remove();
     });
+
     $('#db_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
         var table = CommonParams.get('table');
@@ -937,6 +972,7 @@ AJAX.registerOnload('export.js', function () {
             });
         }
     });
+
     $('#table_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
         var database = $('#db_alias_select').val();
@@ -961,9 +997,11 @@ AJAX.registerOnload('export.js', function () {
             }
         });
     });
+
     $('#column_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
     });
+
     $('#db_alias_button').on('click', function (e) {
         e.preventDefault();
         var db = $('#db_alias_select').val();
@@ -973,8 +1011,10 @@ AJAX.registerOnload('export.js', function () {
             'aliases[' + db + '][alias]',
             $('#db_alias_name').val()
         );
+
         $('#db_alias_name').val('');
     });
+
     $('#table_alias_button').on('click', function (e) {
         e.preventDefault();
         var db = $('#db_alias_select').val();
@@ -985,8 +1025,10 @@ AJAX.registerOnload('export.js', function () {
             'aliases[' + db + '][tables][' + table + '][alias]',
             $('#table_alias_name').val()
         );
+
         $('#table_alias_name').val('');
     });
+
     $('#column_alias_button').on('click', function (e) {
         e.preventDefault();
         var db = $('#db_alias_select').val();
@@ -998,6 +1040,7 @@ AJAX.registerOnload('export.js', function () {
             'aliases[' + db + '][tables][' + table + '][colums][' + column + ']',
             $('#column_alias_name').val()
         );
+
         $('#column_alias_name').val('');
     });
 

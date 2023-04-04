@@ -74,6 +74,7 @@ AJAX.registerOnload('table/select.js', function () {
             } else {
                 $link.text(window.Messages.strHideSearchCriteria);
             }
+
             // avoid default click action
             return false;
         });
@@ -125,6 +126,7 @@ AJAX.registerOnload('table/select.js', function () {
                 values[this.name] = $input.val();
             }
         });
+
         var columnCount = $('select[name="columnsToDisplay[]"] option').length;
         // Submit values only for the columns that have unary column operator or a search criteria
         for (var a = 0; a < columnCount; a++) {
@@ -145,6 +147,7 @@ AJAX.registerOnload('table/select.js', function () {
                 delete values['criteriaColumnCollations[' + a + ']'];
             }
         }
+
         // If all columns are selected, use a single parameter to indicate that
         if (values['columnsToDisplay[]'] !== null) {
             if (values['columnsToDisplay[]'].length === columnCount) {
@@ -164,20 +167,25 @@ AJAX.registerOnload('table/select.js', function () {
                     $('#sqlqueryresultsouter').html(data.message);
                     $('.sqlqueryresults').trigger('makegrid');
                 }
+
                 $('#tbl_search_form')
                     // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
                     .slideToggle()
                     .hide();
+
                 $('#togglesearchformlink')
                     // always start with the Show message
                     .text(window.Messages.strShowSearchCriteria);
+
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
+
                 $('html, body').animate({ scrollTop: 0 }, 'fast');
             } else {
                 $('#sqlqueryresultsouter').html(data.error);
             }
+
             highlightSql($('#sqlqueryresultsouter'));
         }); // end $.post()
     });
@@ -260,6 +268,7 @@ AJAX.registerOnload('table/select.js', function () {
         } else {
             type = 'point';
         }
+
         // Names of input field and null checkbox
         var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
         // Token
@@ -338,6 +347,7 @@ AJAX.registerOnload('table/select.js', function () {
                                 finalValue = minValue + ', ' +
                                     maxValue;
                             }
+
                             var $targetField = $sourceSelect.closest('tr')
                                 .find('[name*="criteriaValues"]');
 
@@ -369,6 +379,7 @@ AJAX.registerOnload('table/select.js', function () {
                             } else {
                                 $targetField.val(finalValue);
                             }
+
                             $('#rangeSearchModal').modal('hide');
                         });
                     } else {
@@ -381,6 +392,7 @@ AJAX.registerOnload('table/select.js', function () {
             });
         }
     });
+
     var windowWidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowWidth - 69) + 'px');
 });

@@ -13,6 +13,7 @@ export default function formatDateTime (date, seconds = false) {
     if (seconds) {
         timefmt = 'HH:mm:ss';
     }
+
     return result + ' ' + $.datepicker.formatTime(
         timefmt, {
             hour: date.getHours(),

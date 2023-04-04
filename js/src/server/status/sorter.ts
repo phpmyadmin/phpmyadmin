@@ -15,8 +15,10 @@ function initTableSorter (tabid) {
                 2: { sorter: 'fancyNumber' }
             }
         };
+
         break;
     }
+
     $table.tablesorter(opts);
     $table.find('tr').first().find('th')
         .append('<div class="sorticon"></div>');
@@ -68,6 +70,7 @@ $(function () {
         },
         format: function (s, table, html) {
             var res = html.innerHTML.match(/<span(\s*style="display:none;"\s*)?\s*class="original">(.*)?<\/span>/);
+
             return (res && res.length >= 3) ? res[2] : 0;
         },
         type: 'numeric'

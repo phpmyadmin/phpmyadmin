@@ -66,6 +66,7 @@ export default function onloadNavigation () {
                 Navigation.update(CommonParams.set('db', ''));
                 Navigation.reload();
             }
+
             $(this).closest('form').trigger('submit');
         });
 
@@ -127,6 +128,7 @@ export default function onloadNavigation () {
                     .addClass('ic_s_link')
                     .attr('alt', window.Messages.linkWithMain)
                     .attr('title', window.Messages.linkWithMain);
+
                 $('#pma_navigation_tree')
                     .removeClass('synced')
                     .find('li.selected')
@@ -137,6 +139,7 @@ export default function onloadNavigation () {
                     .addClass('ic_s_unlink')
                     .attr('alt', window.Messages.unlinkWithMain)
                     .attr('title', window.Messages.unlinkWithMain);
+
                 $('#pma_navigation_tree').addClass('synced');
                 Navigation.showCurrent();
             }
@@ -170,6 +173,7 @@ export default function onloadNavigation () {
                 }
             }
         );
+
         $('#pma_navigation_tree.highlight').on(
             'mouseout',
             'li:not(.fast_filter)',
@@ -243,6 +247,7 @@ export default function onloadNavigation () {
                         if ($hiddenTableCount === 1) {
                             $hideDialogBox.remove();
                         }
+
                         Navigation.reload();
                     } else {
                         ajaxShowMessage(data.error);
@@ -260,6 +265,7 @@ export default function onloadNavigation () {
                 var $dataFavTargets = $('a[data-favtargets="' + $self.data('favtargetn') + '"]');
                 if ($dataFavTargets.length > 0) {
                     $dataFavTargets.trigger('click');
+
                     return;
                 }
             }
@@ -289,6 +295,7 @@ export default function onloadNavigation () {
                 }
             });
         });
+
         // Check if session storage is supported
         if (isStorageSupported('sessionStorage')) {
             var storage = window.sessionStorage;
@@ -296,6 +303,7 @@ export default function onloadNavigation () {
             $(document).on('submit', 'form.config-form', function () {
                 storage.removeItem('navTreePaths');
             });
+
             // Initialize if no previous state is defined
             if ($('#pma_navigation_tree_content').length &&
                 typeof storage.navTreePaths === 'undefined'

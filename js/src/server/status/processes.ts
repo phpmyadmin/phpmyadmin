@@ -35,6 +35,7 @@ var processList = {
         if (processList.refreshUrl === null) {
             processList.refreshUrl = 'index.php?route=/server/status/processes/refresh';
         }
+
         if (processList.refreshInterval === null) {
             processList.refreshInterval = $('#id_refreshRate').val();
         } else {
@@ -69,6 +70,7 @@ var processList = {
                         $(this).removeClass('even').addClass('odd');
                     }
                 });
+
                 // Show process killed message
                 ajaxShowMessage(data.message, false);
             } else {
@@ -101,6 +103,7 @@ var processList = {
                         $('#tableprocesslist').html($newTable.html());
                         highlightSql($('#tableprocesslist'));
                     }
+
                     processList.refreshTimeout = setTimeout(
                         processList.refresh,
                         interval
@@ -117,6 +120,7 @@ var processList = {
             processList.refreshRequest.abort();
             processList.refreshRequest = null;
         }
+
         clearTimeout(processList.refreshTimeout);
     },
 
@@ -132,6 +136,7 @@ var processList = {
             label = window.Messages.strStopRefresh;
             processList.refresh();
         }
+
         $('a#toggleRefresh').html(getImageTag(img) + escapeHtml(label));
     },
 
@@ -154,8 +159,10 @@ var processList = {
         };
         if ($('#showExecuting').is(':checked')) {
             urlParams.showExecuting = true;
+
             return urlParams;
         }
+
         return urlParams;
     }
 };
@@ -168,17 +175,20 @@ AJAX.registerOnload('server/status/processes.js', function () {
         'a.kill_process',
         processList.killProcessHandler
     );
+
     // Bind event handler for toggling refresh of process list
     $('a#toggleRefresh').on('click', function (event) {
         event.preventDefault();
         processList.autoRefresh = ! processList.autoRefresh;
         processList.setRefreshLabel();
     });
+
     // Bind event handler for change in refresh rate
     $('#id_refreshRate').on('change', function () {
         processList.refreshInterval = $(this).val();
         processList.refresh();
     });
+
     // Bind event handler for table header links
     $('#tableprocesslist').on('click', 'thead a', function () {
         processList.refreshUrl = $(this).attr('href');

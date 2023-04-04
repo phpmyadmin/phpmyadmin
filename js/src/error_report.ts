@@ -30,8 +30,10 @@ var ErrorReport = {
     errorDataHandler: function (data, exception): void {
         if (data.success !== true) {
             ajaxShowMessage(data.error, false);
+
             return;
         }
+
         if (data.report_setting === 'ask') {
             ErrorReport.showErrorNotification();
         } else if (data.report_setting === 'always') {
@@ -55,9 +57,11 @@ var ErrorReport = {
         if (JSON.stringify(ErrorReport.lastException) === JSON.stringify(exception)) {
             return;
         }
+
         if (exception.name === null || typeof (exception.name) === 'undefined') {
             exception.name = ErrorReport.extractExceptionName(exception);
         }
+
         ErrorReport.lastException = exception;
         if (ErrorReport.errorReportData === null) {
             $.post('index.php?route=/error-report', {
@@ -94,6 +98,7 @@ var ErrorReport = {
                     ajaxShowMessage(data.message, 3000);
                 }
             });
+
             $('#errorReportModal').modal('hide');
         };
 
@@ -111,6 +116,7 @@ var ErrorReport = {
                 $('#errorReportModalConfirm').on('click', sendErrorReport);
                 $('#errorReportModal .modal-body').html(data.message);
             });
+
             $errorReportModal.modal('show');
         });
     },
@@ -122,6 +128,7 @@ var ErrorReport = {
         while (key in ErrorReport.keyDict) {
             key = Math.random().toString(36).substring(2, 12);
         }
+
         ErrorReport.keyDict[key] = 1;
 
         var $div = $(
@@ -162,6 +169,7 @@ var ErrorReport = {
             // don't remove the hash fragment by navigating to #
             e.preventDefault();
         }
+
         $('#error_notification_' + $(this).data('notification-id')).fadeOut(function () {
             $(this).remove();
         });
@@ -212,6 +220,7 @@ var ErrorReport = {
                 }
             }
         }
+
         var reportData = {
             'server': CommonParams.get('server'),
             'ajax_request': true,
@@ -226,6 +235,7 @@ var ErrorReport = {
                 }
             );
         }
+
         return reportData;
     },
     /**
@@ -244,10 +254,12 @@ var ErrorReport = {
                     window.TraceKit.report(x);
                 }
             };
+
             newFunc.wrapped = true;
             // Set guid of wrapped function same as original function, so it can be removed
             // See bug#4146 (problem with jquery draggable and sortable)
             newFunc.guid = func.guid = func.guid || newFunc.guid || $.guid++;
+
             return newFunc;
         } else {
             return func;
@@ -275,6 +287,7 @@ var ErrorReport = {
                     break;
                 }
             }
+
             return oldOn.apply(this, arguments);
         };
     },

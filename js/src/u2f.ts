@@ -30,6 +30,7 @@ AJAX.registerOnload('u2f.js', function () {
                         ajaxShowMessage(window.Messages.strU2FUnknown, false, 'error');
                         break;
                     }
+
                     return;
                 }
 
@@ -39,6 +40,7 @@ AJAX.registerOnload('u2f.js', function () {
             });
         }, 1000);
     }
+
     var $inputAuth = $('#u2f_authentication_response');
     if ($inputAuth.length > 0) {
         var $formAuth = $inputAuth.parents('form');
@@ -67,6 +69,7 @@ AJAX.registerOnload('u2f.js', function () {
                         ajaxShowMessage(window.Messages.strU2FUnknown, false, 'error');
                         break;
                     }
+
                     return;
                 }
 

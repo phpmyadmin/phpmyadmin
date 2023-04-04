@@ -72,23 +72,27 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
         dismissable = false;
         selfClosing = false;
     }
+
     // Figure out whether (or after how long) to remove the notification
     if (newTimeOut === undefined || newTimeOut === null) {
         newTimeOut = 5000;
     } else if (newTimeOut === false) {
         selfClosing = false;
     }
+
     // Determine type of message, add styling as required
     if (type === 'error') {
         msg = '<div class="alert alert-danger" role="alert">' + msg + '</div>';
     } else if (type === 'success') {
         msg = '<div class="alert alert-success" role="alert">' + msg + '</div>';
     }
+
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length === 0) {
         $('<div id="loading_parent"></div>')
             .prependTo('#page_content');
     }
+
     // Update message count to create distinct message elements every time
     ajaxMessageCount++;
     // Remove all old messages, if any
@@ -114,10 +118,12 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
                 if ($(this).is(':data(tooltip)')) {
                     $(this).uiTooltip('destroy');
                 }
+
                 // Remove the notification
                 $(this).remove();
             });
     }
+
     // If the notification is dismissable we need to add the relevant class to it
     // and add a tooltip so that the users know that it can be removed
     if (dismissable) {
@@ -128,10 +134,12 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
          */
         tooltip($retval, 'span', window.Messages.strDismiss);
     }
+
     // Hide spinner if this is not a loading message
     if (msg !== window.Messages.strLoading) {
         $retval.css('background-image', 'none');
     }
+
     highlightSql($retval);
 
     return $retval;
@@ -147,6 +155,7 @@ const ajaxRemoveMessage = function ($thisMessageBox): void {
         $thisMessageBox
             .stop(true, true)
             .fadeOut('medium');
+
         if ($thisMessageBox.is(':data(tooltip)')) {
             $thisMessageBox.uiTooltip('destroy');
         } else {

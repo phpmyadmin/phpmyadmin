@@ -70,6 +70,7 @@ function daysInFebruary (year) {
 // function to convert single digit to double digit
 function fractionReplace (number) {
     var num = parseInt(number, 10);
+
     return num >= 1 && num <= 9 ? '0' + num : '00';
 }
 
@@ -88,12 +89,14 @@ function isDate (val, tmstmp) {
             arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
+
     value = arrayVal.join('-');
     var pos = 2;
     var dtexp = new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30))|((00)-(00)))$/);
     if (value.length === 8) {
         pos = 0;
     }
+
     if (dtexp.test(value)) {
         var month = parseInt(value.substring(pos + 3, pos + 5), 10);
         var day = parseInt(value.substring(pos + 6, pos + 8), 10);
@@ -101,13 +104,16 @@ function isDate (val, tmstmp) {
         if (month === 2 && day > daysInFebruary(year)) {
             return false;
         }
+
         if (value.substring(0, pos + 2).length === 2) {
             year = parseInt('20' + value.substring(0, pos + 2), 10);
         }
+
         if (tmstmp === true) {
             if (year < 1978) {
                 return false;
             }
+
             if (year > 2038 || (year > 2037 && day > 19 && month >= 1) || (year > 2037 && month > 1)) {
                 return false;
             }
@@ -115,6 +121,7 @@ function isDate (val, tmstmp) {
     } else {
         return false;
     }
+
     return true;
 }
 
@@ -131,8 +138,10 @@ function isTime (val) {
             arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
+
     var newVal = arrayVal.join(':');
     var tmexp = new RegExp(/^(-)?(([0-7]?[0-9][0-9])|(8[0-2][0-9])|(83[0-8])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$/);
+
     return tmexp.test(newVal);
 }
 
@@ -145,6 +154,7 @@ function checkForCheckbox (multiEdit) {
     if ($('#insert_ignore_' + multiEdit).length) {
         return $('#insert_ignore_' + multiEdit).is(':unchecked');
     }
+
     return true;
 }
 
@@ -155,8 +165,10 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
     // Add  data-skip-validators attribute to skip validation in changeValueFieldType function
     if ($('#fieldID_' + index).data('data-skip-validators')) {
         $(searchFormId).validate().destroy();
+
         return;
     }
+
     // validation for integer type
     if ($thisInput.data('type') === 'INT' ||
         $thisInput.data('type') === 'TINYINT') {
@@ -172,6 +184,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
                     $(element).valid();
                 }
             });
+
             // validator method for IN(...), NOT IN(...)
             // BETWEEN and NOT BETWEEN
             $.validator.addMethod('validationFunctionForMultipleInt', function (value) {
@@ -179,6 +192,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
             },
             window.Messages.strEnterValidNumber
             );
+
             validateMultipleIntField($thisInput, true);
         } else {
             $(searchFormId).validate({
@@ -187,8 +201,10 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
                     $(element).valid();
                 }
             });
+
             validateIntField($thisInput, true);
         }
+
         // Update error on dropdown change
         $thisInput.valid();
     } else if ($thisInput.data('type') === 'FLOAT') {
@@ -201,6 +217,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
                 $(element).valid();
             }
         });
+
         validateFloatField($thisInput, true);
         // Update error on dropdown change
         $thisInput.valid();
@@ -360,8 +377,10 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         $('#note' + target.id)
             .prev('br')
             .remove();
+
         $('#note' + target.id).remove();
     }
+
     // Unchecks the corresponding "NULL" control
     $('input[name=\'fields_null[multi_edit][' + multiEdit + '][' + urlField + ']\']').prop('checked', false);
 
@@ -374,6 +393,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     } else if (theType.startsWith('varchar')) {
         charExceptionHandling = theType.substring(8, 9);
     }
+
     if (functionSelected) {
         $thisInput.removeAttr('min');
         $thisInput.removeAttr('max');
@@ -394,6 +414,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
                 }
             });
         }
+
         // validation for integer type
         if ($thisInput.data('type') === 'INT') {
             validateIntField($thisInput, checkForCheckbox(multiEdit));
@@ -404,6 +425,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
                 if (maxlen <= 4) {
                     maxlen = charExceptionHandling;
                 }
+
                 $thisInput.rules('add', {
                     maxlength: {
                         param: maxlen,
@@ -424,6 +446,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
                 }
             });
         }
+
         $thisInput.data('rulesadded', true);
     } else if ($thisInput.data('rulesadded') === true && functionSelected) {
         // remove any rules added
@@ -434,6 +457,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
             .removeAttr('aria-invalid')
             .siblings('.error')
             .remove();
+
         $thisInput.data('rulesadded', null);
     }
 }
@@ -502,12 +526,15 @@ AJAX.registerOnload('table/change.js', function () {
                 if (dtValue === 'CURRENT_TIMESTAMP' || dtValue === 'current_timestamp()') {
                     return true;
                 }
+
                 if (theType === 'timestamp') {
                     tmstmp = true;
                 }
+
                 if (dtValue === '0000-00-00 00:00:00') {
                     return true;
                 }
+
                 var dv = dtValue.indexOf(' ');
                 if (dv === -1) { // Only the date component, which is valid
                     return isDate(dtValue, tmstmp);
@@ -705,6 +732,7 @@ function addNewContinueInsertionFields (event) {
                 if ($thisElement.closest('tr').find('span.column_type').html() !== 'enum') {
                     $thisElement.val($thisElement.closest('tr').find('span.default_value').html());
                 }
+
                 $thisElement
                     .off('change')
                     // Remove onchange attribute that was placed
@@ -837,8 +865,10 @@ function addNewContinueInsertionFields (event) {
                 $('<br>')
                     .insertBefore($('table.insertRowTable').last());
             }
+
             currRows++;
         }
+
         // recompute tabindex for text fields and other controls at footer;
         // IMO it's not really important to handle the tabindex for
         // function and Null
@@ -850,6 +880,7 @@ function addNewContinueInsertionFields (event) {
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', 'field_' + tabIndex + '_3');
             });
+
         $('.control_at_footer')
             .each(function () {
                 tabIndex++;
@@ -867,12 +898,14 @@ function addNewContinueInsertionFields (event) {
                     .nextUntil('fieldset')
                     .addBack()
                     .remove();
+
                 currRows--;
             }
         } else {
             document.getElementById('insert_rows').value = currRows;
         }
     }
+
     // Add all the required datepickers back
     Functions.addDateTimePicker();
 }
@@ -882,6 +915,7 @@ function changeValueFieldType (elem, searchIndex) {
     if (0 === fieldsValue.size()) {
         return;
     }
+
     var type = $(elem).val();
 
     if ('LIKE' === type ||
@@ -890,6 +924,7 @@ function changeValueFieldType (elem, searchIndex) {
         'NOT LIKE %...%' === type
     ) {
         $('#fieldID_' + searchIndex).data('data-skip-validators', true);
+
         return;
     } else {
         $('#fieldID_' + searchIndex).data('data-skip-validators', false);

@@ -52,6 +52,7 @@ var DragDropImport = {
             DragDropImport.allowedExtensions) !== -1) {
             return ext;
         }
+
         return '';
     },
     /**
@@ -82,10 +83,12 @@ var DragDropImport = {
                         if (event.lengthComputable) {
                             percent = Math.ceil(position / total * 100);
                         }
+
                         // Set progress
                         DragDropImport.setProgress(hash, percent);
                     }, false);
                 }
+
                 return xhrobj;
             },
             url: 'index.php?route=/import',
@@ -131,6 +134,7 @@ var DragDropImport = {
                                 $('body').append('<div class="pma_drop_result"><h2>' +
                                     window.Messages.dropImportImportResultHeader + ' - ' +
                                     escapeHtml(filename) + '<span class="close">x</span></h2>' + value.message + '</div>');
+
                                 $('.pma_drop_result').draggable();  // to make this dialog draggable
                             }
                         });
@@ -154,11 +158,13 @@ var DragDropImport = {
         if (! DragDropImport.hasFiles(event)) {
             return;
         }
+
         if (CommonParams.get('db') === '') {
             $('.pma_drop_handler').html(window.Messages.dropImportSelectDB);
         } else {
             $('.pma_drop_handler').html(window.Messages.dropImportDropFiles);
         }
+
         $('.pma_drop_handler').fadeIn();
     },
     /**
@@ -193,6 +199,7 @@ var DragDropImport = {
         if (! DragDropImport.hasFiles(event)) {
             return;
         }
+
         $('.pma_drop_handler').fadeIn();
     },
     /**
@@ -206,6 +213,7 @@ var DragDropImport = {
         if ($('.noDragDrop').length !== 0) {
             return;
         }
+
         event.stopPropagation();
         event.preventDefault();
         var $dropHandler = $('.pma_drop_handler');
@@ -223,6 +231,7 @@ var DragDropImport = {
     importFinished: function (hash, aborted, status): void {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .children('progress').hide();
+
         var icon = 'icon ic_s_success';
         // -- provide link to view upload status
         if (! aborted) {
@@ -235,11 +244,13 @@ var DragDropImport = {
                     '"] span.filesize span.pma_drop_file_status')
                     .html('<span class="underline">' + window.Messages.dropImportMessageFailed +
                         '</a>');
+
                 icon = 'icon ic_s_error';
             }
         } else {
             icon = 'icon ic_s_notice';
         }
+
         $('.pma_sql_import_status div li[data-hash="' + hash +
             '"] span.filesize span.pma_drop_file_status')
             .attr('task', 'info');
@@ -279,8 +290,10 @@ var DragDropImport = {
                 $('.pma_drop_handler').fadeOut();
                 event.stopPropagation();
                 event.preventDefault();
+
                 return;
             }
+
             $('.pma_sql_import_status').slideDown();
             for (var i = 0; i < files.length; i++) {
                 var ext = (DragDropImport.getExtension(files[i].name));
@@ -334,6 +347,7 @@ var DragDropImport = {
                 }
             }
         }
+
         $('.pma_drop_handler').fadeOut();
         event.stopPropagation();
         event.preventDefault();

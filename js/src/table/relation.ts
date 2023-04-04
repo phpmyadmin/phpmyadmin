@@ -36,6 +36,7 @@ TableRelation.setDropdownValues = function ($dropdown, values, selectedValue): v
     $.each(values, function () {
         optionsAsString += '<option value=\'' + escapeHtml(this) + '\'' + (selectedValue === escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + escapeHtml(this) + '</option>';
     });
+
     $dropdown.append($(optionsAsString));
 };
 
@@ -70,6 +71,7 @@ TableRelation.getDropdownValues = function ($dropdown): void {
         if (foreignDb === '') {
             TableRelation.setDropdownValues($tableDd, []);
             TableRelation.setDropdownValues($columnDd, []);
+
             return;
         }
     } else { // if a table selector
@@ -78,9 +80,11 @@ TableRelation.getDropdownValues = function ($dropdown): void {
         // if no table is selected empty the column dropdown
         if (foreignTable === '') {
             TableRelation.setDropdownValues($columnDd, []);
+
             return;
         }
     }
+
     var $msgbox = ajaxShowMessage();
     var $form = $dropdown.parents('form');
     var $db = $form.find('input[name="db"]').val();
@@ -98,6 +102,7 @@ TableRelation.getDropdownValues = function ($dropdown): void {
     if ($server.length > 0) {
         params += argsep + 'server=' + $form.find('input[name="server"]').val();
     }
+
     $.ajax({
         type: 'POST',
         url: 'index.php?route=/table/relation',
@@ -119,6 +124,7 @@ TableRelation.getDropdownValues = function ($dropdown): void {
                     ) {
                         primary = data.primary[0];
                     }
+
                     TableRelation.setDropdownValues($columnDd.first(), data.columns, primary);
                     TableRelation.setDropdownValues($columnDd.slice(1), data.columns);
                 }
@@ -139,6 +145,7 @@ AJAX.registerTeardown('table/relation.js', function () {
         'select[name^="destination_foreign_db"], ' +
         'select[name^="destination_foreign_table"]'
     );
+
     $('body').off('click', 'a.add_foreign_key_field');
     $('body').off('click', 'a.add_foreign_key');
     $('a.drop_foreign_key_anchor.ajax').off('click');
@@ -210,14 +217,17 @@ AJAX.registerOnload('table/relation.js', function () {
             ).each(function () {
                 $(this).parent().remove();
             });
+
         $newRow.find('input, select').each(function () {
             $(this).attr('name',
                 $(this).attr('name').replace(/\d/, newIndex)
             );
         });
+
         $newRow.find('input[type="text"]').each(function () {
             $(this).val('');
         });
+
         // Finally add the row.
         $newRow.insertAfter($prevRow);
     });

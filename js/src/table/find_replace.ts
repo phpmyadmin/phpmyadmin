@@ -29,6 +29,7 @@ AJAX.registerOnload('table/find_replace.js', function () {
             } else {
                 $link.text(window.Messages.strHideFindNReplaceCriteria);
             }
+
             return false;
         });
 

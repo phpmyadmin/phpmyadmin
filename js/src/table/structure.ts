@@ -37,6 +37,7 @@ function reloadFieldForm () {
         $('#addColumns').replaceWith($tempDiv.find('#addColumns'));
         $('#move_columns_dialog').find('ul').replaceWith($tempDiv.find('#move_columns_dialog ul'));
     });
+
     $('#page_content').show();
 }
 
@@ -85,17 +86,20 @@ AJAX.registerOnload('table/structure.js', function () {
                 } else if ($('.error:not(.tab)').length !== 0) {
                     $('.error:not(.tab)').remove();
                 }
+
                 if (typeof data.success !== 'undefined' && data.success === true) {
                     $('#page_content')
                         .empty()
                         .append(data.message)
                         .show();
+
                     highlightSql($('#page_content'));
                     $('.result_query .alert-primary').remove();
                     if (typeof data.structure_refresh_route !== 'string') {
                         // Do not reload the form when the code below freshly filled it
                         reloadFieldForm();
                     }
+
                     $form.remove();
                     ajaxRemoveMessage($msg);
                     Navigation.reload();
@@ -138,6 +142,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     break;
                 }
             }
+
             return checkRequired;
         }
 
@@ -207,17 +212,21 @@ AJAX.registerOnload('table/structure.js', function () {
                     if ($('.result_query').length) {
                         $('.result_query').remove();
                     }
+
                     if (data.sql_query) {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#structure_content');
+
                         highlightSql($('#page_content'));
                     }
+
                     // Adjust the row numbers
                     for (var $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
                         var newVal = parseInt($row.find('td').eq(1).text(), 10) - 1;
                         $row.find('td').eq(1).text(newVal);
                     }
+
                     $afterFieldItem.remove();
                     $currRow.hide('medium').remove();
 
@@ -234,6 +243,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     if (data.tableStat) {
                         $('#tablestatistics').html(data.tableStat);
                     }
+
                     // refresh the list of indexes (comes from /sql)
                     $('.index_info').replaceWith(data.indexes_list);
                     Navigation.reload();
@@ -266,6 +276,7 @@ AJAX.registerOnload('table/structure.js', function () {
         } else if ($this.is('.add_fulltext_anchor')) {
             addClause = 'ADD FULLTEXT';
         }
+
         var question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
             escapeHtml(currTableName) + '` ' + addClause + '(`' + escapeHtml(currColumnName) + '`);');
 
@@ -313,11 +324,13 @@ AJAX.registerOnload('table/structure.js', function () {
         for (var i in columns) {
             colList.append(columns[i]);
         }
+
         colList.sortable({
             axis: 'y',
             containment: $('#move_columns_dialog').find('div'),
             tolerance: 'pointer'
         }).disableSelection();
+
         var $form = $('#move_columns_dialog').find('form');
         $form.data('serialized-unmoved', $form.serialize());
 
@@ -336,6 +349,7 @@ AJAX.registerOnload('table/structure.js', function () {
                 success: response => {
                     if (! response.success) {
                         modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
+
                         return;
                     }
 
@@ -347,6 +361,7 @@ AJAX.registerOnload('table/structure.js', function () {
                 }
             });
         });
+
         designerModalPreviewModal.addEventListener('hidden.bs.modal', () => {
             designerModalPreviewModal.querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
                 '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
@@ -364,8 +379,10 @@ AJAX.registerOnload('table/structure.js', function () {
             $('#moveColumnsModal').modal('hide');
             if (serialized === $form.data('serialized-unmoved')) {
                 ajaxRemoveMessage($msgbox);
+
                 return;
             }
+
             $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
                     ajaxRemoveMessage($msgbox);
@@ -386,6 +403,7 @@ AJAX.registerOnload('table/structure.js', function () {
                         // append the row for this column to the table
                         $fieldsTable.append($theRow);
                     }
+
                     var $firstrow = $fieldsTable.find('tr').eq(0);
                     // Adjust the row numbers and colors
                     for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
@@ -396,6 +414,7 @@ AJAX.registerOnload('table/structure.js', function () {
                             .removeClass('odd even')
                             .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
                     }
+
                     ajaxShowMessage(data.message);
                 }
             });

@@ -44,6 +44,7 @@ $(function () {
             }, 2000);
         }
     });
+
     $(document).on('keydown', function (e) {
         // is a string but is also a boolean according to https://api.jquery.com/prop/
         if ($(e.target).prop('contenteditable') === 'true' || $(e.target).prop('contenteditable') === true) {
@@ -54,6 +55,7 @@ $(function () {
         if ($('#modalOverlay').length > 0) {
             return;
         }
+
         if (e.ctrlKey && e.altKey && e.keyCode === keyC) {
             window.Console.toggle();
         }

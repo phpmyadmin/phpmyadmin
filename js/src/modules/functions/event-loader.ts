@@ -32,6 +32,7 @@ export function teardownFunctions () {
         document.querySelectorAll('.jsPrintButton').forEach(item => {
             item.removeEventListener('click', PrintPage);
         });
+
         $(document).off('click', 'a.create_view.ajax');
         Functions.teardownCreateView();
         $(document).off('keydown', 'form input, form textarea, form select');
@@ -72,10 +73,12 @@ export function onloadFunctions () {
         document.querySelectorAll('.jsPrintButton').forEach(item => {
             item.addEventListener('click', PrintPage);
         });
+
         $(document).on('click', 'a.create_view.ajax', function (e) {
             e.preventDefault();
             handleCreateViewModal($(this));
         });
+
         Functions.onloadCreateView();
         $(document).on('change', Functions.checkboxesSel, Functions.checkboxesChanged);
         $(document).on('change', 'input.checkall_box', Functions.getCheckAllBoxEventHandler());

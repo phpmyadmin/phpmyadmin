@@ -91,6 +91,7 @@ function setShowThisQuery () {
             var storedTable = JSON.parse(window.localStorage.showThisQueryObject).table;
             var storedQuery = JSON.parse(window.localStorage.showThisQueryObject).query;
         }
+
         if (window.localStorage.showThisQuery !== undefined
             && window.localStorage.showThisQuery === '1') {
             $('input[name="show_query"]').prop('checked', true);
@@ -261,12 +262,14 @@ const insertQuery = function (queryType) {
     var table;
     if (queryType === 'clear') {
         setQuery('');
+
         return;
     } else if (queryType === 'format') {
         if (window.codeMirrorEditor) {
             $('#querymessage').html(window.Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
                 window.themeImagePath + 'ajax_clock_small.gif" alt="">');
+
             var params = {
                 'ajax_request': true,
                 'sql': window.codeMirrorEditor.getValue(),
@@ -280,6 +283,7 @@ const insertQuery = function (queryType) {
                     if (data.success) {
                         window.codeMirrorEditor.setValue(data.sql);
                     }
+
                     $('#querymessage').html('');
                 },
                 error: function () {
@@ -287,6 +291,7 @@ const insertQuery = function (queryType) {
                 }
             });
         }
+
         return;
     } else if (queryType === 'saved') {
         var db = $('input[name="db"]').val();
@@ -295,6 +300,7 @@ const insertQuery = function (queryType) {
         if (table !== undefined) {
             key += '.' + table;
         }
+
         key = 'autoSavedSql_' + key;
         if (isStorageSupported('localStorage') &&
             typeof window.localStorage.getItem(key) === 'string') {
@@ -304,6 +310,7 @@ const insertQuery = function (queryType) {
         } else {
             ajaxShowMessage(window.Messages.strNoAutoSavedQuery);
         }
+
         return;
     }
 
@@ -324,10 +331,12 @@ const insertQuery = function (queryType) {
                 valDis += ',';
                 editDis += ',';
             }
+
             columnsList += myListBox.options[i].value;
             valDis += '\'[value-' + NbSelect + ']\'';
             editDis += myListBox.options[i].value + '=\'[value-' + NbSelect + ']\'';
         }
+
         if (queryType === 'selectall') {
             query = 'SELECT * FROM `' + table + '` WHERE 1';
         } else if (queryType === 'select') {
@@ -339,6 +348,7 @@ const insertQuery = function (queryType) {
         } else if (queryType === 'delete') {
             query = 'DELETE FROM `' + table + '` WHERE 0';
         }
+
         setQuery(query);
         sqlBoxLocked = false;
     }
@@ -362,6 +372,7 @@ const insertValueQuery = function () {
                 if (NbSelect > 1) {
                     columnsList += ', ';
                 }
+
                 columnsList += myListBox.options[i].value;
             }
         }
@@ -417,6 +428,7 @@ AJAX.registerTeardown('sql.js', function () {
     } else {
         $('#sqlquery').off('input propertychange');
     }
+
     $('body').off('click', '.navigation .showAllRows');
     $('body').off('click', 'a.browse_foreign');
     $('body').off('click', '#simulate_dml');
@@ -449,6 +461,7 @@ AJAX.registerOnload('sql.js', function () {
     if (window.codeMirrorEditor || document.sqlform) {
         Sql.setShowThisQuery();
     }
+
     $(function () {
         if (window.codeMirrorEditor) {
             window.codeMirrorEditor.on('change', function () {
@@ -458,18 +471,21 @@ AJAX.registerOnload('sql.js', function () {
             $('#sqlquery').on('input propertychange', function () {
                 Sql.autoSave($('#sqlquery').val());
             });
+
             var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined';
             // Save sql query with sort
             if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
                 $('select[name="sql_query"]').on('change', function () {
                     Sql.autoSaveWithSort($(this).val());
                 });
+
                 $('.sortlink').on('click', function () {
                     Sql.clearAutoSavedSort();
                 });
             } else {
                 Sql.clearAutoSavedSort();
             }
+
             // If sql query with sort for current table is stored, change sort by key select value
             var sortStoredQuery = useLocalStorageValue ? window.localStorage.autoSavedSqlSort : window.Cookies.get('autoSavedSqlSort', { path: CommonParams.get('rootPath') });
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
@@ -491,6 +507,7 @@ AJAX.registerOnload('sql.js', function () {
             if (postData) {
                 params += argsep + postData;
             }
+
             $.post(url, params, function (data) {
                 if (data.success) {
                     ajaxShowMessage(data.message);
@@ -572,6 +589,7 @@ AJAX.registerOnload('sql.js', function () {
         $('#server-breadcrumb a').each(function () {
             textArea.value += $(this).data('raw-text') + '/';
         });
+
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
         $('.alert-success').each(function () {
@@ -594,6 +612,7 @@ AJAX.registerOnload('sql.js', function () {
                 var data = $(this).find('em').length !== 0 ? $(this).find('em')[0] : this;
                 textArea.value += $(data).text() + '\t';
             });
+
             textArea.value += '\n';
         });
 
@@ -651,6 +670,7 @@ AJAX.registerOnload('sql.js', function () {
             } else {
                 $link.text(window.Messages.strHideQueryBox);
             }
+
             // avoid default click action
             return false;
         });
@@ -682,6 +702,7 @@ AJAX.registerOnload('sql.js', function () {
             } else {
                 query = $('#sqlquery').val();
             }
+
             Sql.showThisQuery(db, table, query);
         } else {
             window.localStorage.showThisQuery = '0';
@@ -733,6 +754,7 @@ AJAX.registerOnload('sql.js', function () {
             // section and hit enter, you expect it to do the
             // same action as the Go button in that section.
             $('#button_submit_bookmark').trigger('click');
+
             return false;
         } else {
             return true;
@@ -753,6 +775,7 @@ AJAX.registerOnload('sql.js', function () {
         if (window.codeMirrorEditor) {
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
+
         if (! Functions.checkSqlQuery($form[0])) {
             return false;
         }
@@ -778,6 +801,7 @@ AJAX.registerOnload('sql.js', function () {
                         // send to codemirror if possible
                         setQuery(data.sql_query);
                     }
+
                     // delete
                     if ('2' === data.action_bookmark) {
                         $('#id_bookmark option[value=\'' + data.id_bookmark + '\']').remove();
@@ -789,9 +813,11 @@ AJAX.registerOnload('sql.js', function () {
                         }
                     }
                 }
+
                 $sqlqueryresultsouter
                     .show()
                     .html(data.message);
+
                 highlightSql($sqlqueryresultsouter);
 
                 if (data.menu) {
@@ -800,6 +826,7 @@ AJAX.registerOnload('sql.js', function () {
                     },
                     null
                     );
+
                     AJAX.handleMenu.replace(data.menu);
                 }
 
@@ -832,11 +859,13 @@ AJAX.registerOnload('sql.js', function () {
                     } else {
                         url = 'index.php?route=/server/sql';
                     }
+
                     refreshMainContent(url);
                     AJAX.callback = () => {
                         $('#sqlqueryresultsouter')
                             .show()
                             .html(data.message);
+
                         highlightSql($('#sqlqueryresultsouter'));
                     };
                 }
@@ -856,8 +885,10 @@ AJAX.registerOnload('sql.js', function () {
                 $sqlqueryresultsouter
                     .show()
                     .html(data.error);
+
                 $('html, body').animate({ scrollTop: $(document).height() }, 200);
             }
+
             ajaxRemoveMessage($msgbox);
         }); // end $.post()
     }); // end SQL Query submit
@@ -880,6 +911,7 @@ AJAX.registerOnload('sql.js', function () {
             $sqlqueryresults
                 .html(data.message)
                 .trigger('makegrid');
+
             highlightSql($sqlqueryresults);
         }); // end $.post()
     }); // end displayOptionsForm handler
@@ -954,6 +986,7 @@ AJAX.registerOnload('sql.js', function () {
         if (query.length === 0) {
             alert(window.Messages.strFormEmpty);
             $('#sqlquery').trigger('focus');
+
             return false;
         }
 
@@ -980,6 +1013,7 @@ AJAX.registerOnload('sql.js', function () {
                                 window.Messages.strMatchedRows +
                                 ' <a href="' + response.sql_data[i].matched_rows_url +
                                 '">' + response.sql_data[i].matched_rows + '</a><br>';
+
                             if (i < len - 1) {
                                 dialogContent += '<hr>';
                             }
@@ -987,6 +1021,7 @@ AJAX.registerOnload('sql.js', function () {
                     } else {
                         dialogContent += response.message;
                     }
+
                     dialogContent += '</div>';
                     var $dialogContent = $(dialogContent);
                     var modal = $('#simulateDmlModal');
@@ -1073,6 +1108,7 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('click', 'input.sqlbutton', function (evt) {
         insertQuery(evt.target.id);
         handleSimulateQueryButton();
+
         return false;
     });
 
@@ -1097,10 +1133,12 @@ function changeClassForColumn ($thisTh, newClass, isAddClass) {
     if (hasBigT) {
         thIndex--;
     }
+
     var $table = $thisTh.parents('.table_results');
     if (! $table.length) {
         $table = $thisTh.parents('table').siblings('.table_results');
     }
+
     var $tds = $table.find('tbody tr').find('td.data').eq(thIndex);
     if (isAddClass === undefined) {
         $tds.toggleClass(newClass);
@@ -1152,6 +1190,7 @@ function browseForeignDialog ($thisA) {
             if ($input.length === 0) {
                 $input = $thisA.closest('.edit_area').prev('.edit_box');
             }
+
             // Set selected value as input value
             $input.val($(this).data('key'));
             // Unchecks the Ignore checkbox for the current row
@@ -1159,9 +1198,11 @@ function browseForeignDialog ($thisA) {
 
             $dialog.dialog('close');
         });
+
         $(formId).on('click', showAllId, function () {
             showAll = true;
         });
+
         $(formId).on('submit', function (e) {
             e.preventDefault();
             // if filter value is not equal to old value
@@ -1169,6 +1210,7 @@ function browseForeignDialog ($thisA) {
             if ($(filterId).val() !== $(filterId).data('old')) {
                 $(formId).find('select[name=pos]').val('0');
             }
+
             var postParams = $(this).serializeArray();
             // if showAll button was clicked to submit form then
             // add showAll button parameter to form
@@ -1178,12 +1220,14 @@ function browseForeignDialog ($thisA) {
                     value: $(showAllId).val()
                 });
             }
+
             // updates values in dialog
             $.post($(this).attr('action') + '&ajax_request=1', postParams, function (data) {
                 var $obj = $('<div>').html(data.message);
                 $(formId).html($obj.find(formId).html());
                 $(tableId).html($obj.find(tableId).html());
             });
+
             showAll = false;
         });
     });
@@ -1200,6 +1244,7 @@ function getAutoSavedKey () {
     if (table !== undefined) {
         key += '.' + table;
     }
+
     return 'autoSavedSql_' + key;
 }
 
@@ -1226,6 +1271,7 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('mouseenter', 'th.column_heading.pointer', function () {
         Sql.changeClassForColumn($(this), 'hover', true);
     });
+
     $(document).on('mouseleave', 'th.column_heading.pointer', function () {
         Sql.changeClassForColumn($(this), 'hover', false);
     });
@@ -1280,6 +1326,7 @@ function initProfilingTables () {
     if (! $.tablesorter) {
         return;
     }
+
     // Added to allow two direction sorting
     $('#profiletable')
         .find('thead th')
@@ -1296,6 +1343,7 @@ function initProfilingTables () {
             }
         }
     });
+
     // Added to allow two direction sorting
     $('#profilesummarytable')
         .find('thead th')

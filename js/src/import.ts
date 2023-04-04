@@ -19,6 +19,7 @@ function changePluginOpts () {
     $('#format_specific_opts').find('div.format_specific_options').each(function () {
         $(this).hide();
     });
+
     var selectedPluginName = $('#plugins').find('option:selected').val();
     $('#' + selectedPluginName + '_options').fadeIn('slow');
 
@@ -45,6 +46,7 @@ function matchFile (fname) {
         if (extension === 'gz' || extension === 'bz2' || extension === 'zip') {
             len--;
         }
+
         // Only toggle if the format of the file can be imported
         if ($('select[name=\'format\'] option').filterByValue(fnameArray[len - 1]).length === 1) {
             $('select[name=\'format\'] option').filterByValue(fnameArray[len - 1]).prop('selected', true);
@@ -81,18 +83,21 @@ AJAX.registerOnload('import.js', function () {
             if (radioImport.hasClass('active') && $('#input_import_file').val() === '') {
                 $('#input_import_file').trigger('focus');
                 ajaxShowMessage(fileMsg, false);
+
                 return false;
             }
 
             if (radioLocalImport.hasClass('active')) {
                 if ($('#select_local_import_file').length === 0) {
                     ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strNoImportFile + ' </div>', false);
+
                     return false;
                 }
 
                 if ($('#select_local_import_file').val() === '') {
                     $('#select_local_import_file').trigger('focus');
                     ajaxShowMessage(fileMsg, false);
+
                     return false;
                 }
             }
@@ -101,19 +106,24 @@ AJAX.registerOnload('import.js', function () {
             if ($('#input_import_file').val() === '') {
                 $('#input_import_file').trigger('focus');
                 ajaxShowMessage(fileMsg, false);
+
                 return false;
             }
+
             if ($('#text_csv_new_tbl_name').length > 0) {
                 var newTblName = $('#text_csv_new_tbl_name').val();
                 if (newTblName.length > 0 && newTblName.trim().length === 0) {
                     ajaxShowMessage(wrongTblNameMsg, false);
+
                     return false;
                 }
             }
+
             if ($('#text_csv_new_db_name').length > 0) {
                 var newDBName = $('#text_csv_new_db_name').val();
                 if (newDBName.length > 0 && newDBName.trim().length === 0) {
                     ajaxShowMessage(wrongDBNameMsg, false);
+
                     return false;
                 }
             }
@@ -157,8 +167,10 @@ AJAX.registerOnload('import.js', function () {
     $('#text_csv_enclosed').add('#text_csv_escaped').on('keyup', function () {
         if ($(this).val().length === 2 && $(this).val().charAt(0) !== '\\') {
             $(this).val($(this).val().substring(0, 1));
+
             return false;
         }
+
         return true;
     });
 
@@ -202,6 +214,7 @@ AJAX.registerOnload('import.js', function () {
                                 now.getMinutes(),
                                 now.getSeconds()
                             ) + now.getMilliseconds() - 1000;
+
                             var statusText = window.sprintf(
                                 window.Messages.uploadProgressStatusText,
                                 Functions.formatBytes(
@@ -260,6 +273,7 @@ AJAX.registerOnload('import.js', function () {
                                 document.title
                                     = percentString + ' - ' + originalTitle;
                             }
+
                             $('#statustext').html(statusText);
                         }
 
@@ -269,20 +283,24 @@ AJAX.registerOnload('import.js', function () {
                             } else {
                                 document.title = originalTitle;
                             }
+
                             $('#importmain').hide();
                             // Loads the message, either success or mysql error
                             $('#import_form_status')
                                 .html(clockImage + ' ' + window.Messages.uploadProgressBeingProcessed)
                                 .show();
+
                             $('#import_form_status').load(
                                 'index.php?route=/import-status&message=1&import_status=1&server=' + CommonParams.get('server')
                             );
+
                             Navigation.reload();
                         } else {
                             setTimeout(performUpload, 1000);
                         }
                     });
             };
+
             setTimeout(performUpload, 1000);
         } else {
             // No plugin available

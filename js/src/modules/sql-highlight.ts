@@ -385,6 +385,7 @@ function documentationAdd ($elm, params) {
         // The # needs to be escaped to be part of the destination URL
         url += encodeURIComponent('#') + params[1];
     }
+
     var content = $elm.text();
     $elm.text('');
     $elm.append('<a target="mysql_doc" class="cm-sql-doc" href="' + url + '">' + content + '</a>');
@@ -402,6 +403,7 @@ function documentationKeyword (idx, elm) {
     if ($elm.find('a').length > 0) {
         return;
     }
+
     var keyword = $elm.text().toUpperCase();
     var $next = $elm.next('.cm-keyword');
     if ($next) {
@@ -416,15 +418,19 @@ function documentationKeyword (idx, elm) {
                 documentationAdd($elm, mysqlDocKeyword[full2]);
                 documentationAdd($next, mysqlDocKeyword[full2]);
                 documentationAdd($next2, mysqlDocKeyword[full2]);
+
                 return;
             }
         }
+
         if (full in mysqlDocKeyword) {
             documentationAdd($elm, mysqlDocKeyword[full]);
             documentationAdd($next, mysqlDocKeyword[full]);
+
             return;
         }
     }
+
     if (keyword in mysqlDocKeyword) {
         documentationAdd($elm, mysqlDocKeyword[keyword]);
     }

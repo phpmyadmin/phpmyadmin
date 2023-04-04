@@ -39,10 +39,12 @@ function serverResponseError () {
         },
         title: window.Messages.strRefreshFailed
     });
+
     $('#emptyDialog').html(
         getImageTag('s_attention') +
         window.Messages.strInvalidResponseExplanation
     );
+
     $('#emptyDialog').dialog({
         classes: {
             'ui-dialog-titlebar-close': 'btn-close'
@@ -70,11 +72,13 @@ function destroyGrid () {
     } catch (err) {
         // continue regardless of error
     }
+
     try {
         clearTimeout(runtime.refreshTimeout);
     } catch (err) {
         // continue regardless of error
     }
+
     $('#chartGrid').html('');
     runtime.charts = null;
     runtime.chartAI = 0;
@@ -97,6 +101,7 @@ AJAX.registerTeardown('server/status/monitor.js', function () {
     $('a.popupLink').off('click');
     $('body').off('click');
 });
+
 /**
  * Popup behaviour
  */
@@ -114,6 +119,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         return false;
     });
+
     $('body').on('click', function (event) {
         $('div.openedPopup').each(function () {
             var $cnt = $(this);
@@ -172,6 +178,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             );
         }
     }
+
     // Timepicker is loaded on demand so we need to initialize
     // datetime fields from the 'load log' dialog
     $('#logAnalyseDialog').find('.datetimefield').each(function () {
@@ -212,6 +219,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         xmin: -1,
         xmax: -1
     };
+
     monitorSettings = null;
 
     var defaultMonitorSettings = {
@@ -232,28 +240,38 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         // Query cache efficiency
         'qce': {
             title: window.Messages.strQueryCacheEfficiency,
-            series: [{
-                label: window.Messages.strQueryCacheEfficiency
-            }],
-            nodes: [{
-                dataPoints: [{ type: 'statusvar', name: 'Qcache_hits' }, { type: 'statusvar', name: 'Com_select' }],
-                transformFn: 'qce'
-            }],
+            series: [
+                {
+                    label: window.Messages.strQueryCacheEfficiency
+                }
+            ],
+            nodes: [
+                {
+                    dataPoints: [{ type: 'statusvar', name: 'Qcache_hits' }, { type: 'statusvar', name: 'Com_select' }],
+                    transformFn: 'qce'
+                }
+            ],
             maxYLabel: 0
         },
         // Query cache usage
         'qcu': {
             title: window.Messages.strQueryCacheUsage,
-            series: [{
-                label: window.Messages.strQueryCacheUsed
-            }],
-            nodes: [{
-                dataPoints: [{ type: 'statusvar', name: 'Qcache_free_memory' }, {
-                    type: 'servervar',
-                    name: 'query_cache_size'
-                }],
-                transformFn: 'qcu'
-            }],
+            series: [
+                {
+                    label: window.Messages.strQueryCacheUsed
+                }
+            ],
+            nodes: [
+                {
+                    dataPoints: [
+                        { type: 'statusvar', name: 'Qcache_free_memory' }, {
+                            type: 'servervar',
+                            name: 'query_cache_size'
+                        }
+                    ],
+                    transformFn: 'qcu'
+                }
+            ],
             maxYLabel: 0
         }
     };
@@ -270,26 +288,33 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $.extend(presetCharts, {
             'cpu': {
                 title: window.Messages.strSystemCPUUsage,
-                series: [{
-                    label: window.Messages.strAverageLoad
-                }],
-                nodes: [{
-                    dataPoints: [{ type: 'cpu', name: 'loadavg' }]
-                }],
+                series: [
+                    {
+                        label: window.Messages.strAverageLoad
+                    }
+                ],
+                nodes: [
+                    {
+                        dataPoints: [{ type: 'cpu', name: 'loadavg' }]
+                    }
+                ],
                 maxYLabel: 100
             },
 
             'memory': {
                 title: window.Messages.strSystemMemory,
-                series: [{
-                    dataType: 'memory',
-                    label: window.Messages.strUsedMemory,
-                    fill: true
-                }, {
-                    label: window.Messages.strFreeMemory,
-                    fill: true
-                }],
-                nodes: [{ dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
+                series: [
+                    {
+                        dataType: 'memory',
+                        label: window.Messages.strUsedMemory,
+                        fill: true
+                    }, {
+                        label: window.Messages.strFreeMemory,
+                        fill: true
+                    }
+                ],
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
                 ],
                 maxYLabel: 0
@@ -297,28 +322,34 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             'swap': {
                 title: window.Messages.strSystemSwap,
-                series: [{
-                    label: window.Messages.strUsedSwap,
-                    fill: true
-                }, {
-                    label: window.Messages.strFreeSwap,
-                    fill: true
-                }],
-                nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
+                series: [
+                    {
+                        label: window.Messages.strUsedSwap,
+                        fill: true
+                    }, {
+                        label: window.Messages.strFreeSwap,
+                        fill: true
+                    }
+                ],
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
                 ],
                 maxYLabel: 0
             }
         });
+
         break;
 
     case 'Linux':
         $.extend(presetCharts, {
             'cpu': {
                 title: window.Messages.strSystemCPUUsage,
-                series: [{
-                    label: window.Messages.strAverageLoad
-                }],
+                series: [
+                    {
+                        label: window.Messages.strAverageLoad
+                    }
+                ],
                 nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux' }],
                 maxYLabel: 0
             },
@@ -353,18 +384,23 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 maxYLabel: 0
             }
         });
+
         break;
 
     case 'SunOS':
         $.extend(presetCharts, {
             'cpu': {
                 title: window.Messages.strSystemCPUUsage,
-                series: [{
-                    label: window.Messages.strAverageLoad
-                }],
-                nodes: [{
-                    dataPoints: [{ type: 'cpu', name: 'loadavg' }]
-                }],
+                series: [
+                    {
+                        label: window.Messages.strAverageLoad
+                    }
+                ],
+                nodes: [
+                    {
+                        dataPoints: [{ type: 'cpu', name: 'loadavg' }]
+                    }
+                ],
                 maxYLabel: 0
             },
             'memory': {
@@ -392,6 +428,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 maxYLabel: 0
             }
         });
+
         break;
     }
 
@@ -399,12 +436,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     var defaultChartGrid = {
         'c0': {
             title: window.Messages.strQuestions,
-            series: [
-                { label: window.Messages.strQuestions }
-            ],
-            nodes: [
-                { dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }
-            ],
+            series: [{ label: window.Messages.strQuestions }],
+            nodes: [{ dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }],
             maxYLabel: 0
         },
         'c1': {
@@ -472,7 +505,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         } else {
             $('#chartGrid').sortableTable('destroy');
         }
+
         saveMonitor(); // Save settings
+
         return false;
     });
 
@@ -497,8 +532,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if ($tr.next().length === 0) {
                     $tr.after('<tr></tr>');
                 }
+
                 $tr.next().prepend($(this));
             }
+
             numColumns++;
         };
 
@@ -571,6 +608,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 // So here we only warn if they didn't add a series yet
                 if (! newChart || ! newChart.nodes || newChart.nodes.length === 0) {
                     alert(window.Messages.strAddOneSeriesWarning);
+
                     return;
                 }
             }
@@ -598,22 +636,27 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $.each(presetCharts, function (key, value) {
                 $presetList.append('<option value="' + key + '">' + value.title + '</option>');
             });
+
             $presetList.on('change', function () {
                 $('input[name="chartTitle"]').val(
                     $presetList.find(':selected').text()
                 );
+
                 $('#chartPreset').prop('checked', true);
             });
+
             $('#chartPreset').on('click', function () {
                 $('input[name="chartTitle"]').val(
                     $presetList.find(':selected').text()
                 );
             });
+
             $('#chartStatusVar').on('click', function () {
                 $('input[name="chartTitle"]').val(
                     $('#chartSeries').find(':selected').text().replace(/_/g, ' ')
                 );
             });
+
             $('#chartSeries').on('change', function () {
                 $('input[name="chartTitle"]').val(
                     $('#chartSeries').find(':selected').text().replace(/_/g, ' ')
@@ -639,6 +682,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             gridCopy[key].title = elem.title;
             gridCopy[key].maxYLabel = elem.maxYLabel;
         });
+
         var exportData = {
             monitorCharts: gridCopy,
             monitorSettings: monitorSettings
@@ -653,11 +697,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             url = URL.createObjectURL(blob);
             window.location.href = url;
         }
+
         setTimeout(function () {
             // For some browsers it is necessary to delay revoking the ObjectURL
             if (url !== null) {
                 window.URL.revokeObjectURL(url);
             }
+
             url = undefined;
             blob = undefined;
         }, 100);
@@ -671,6 +717,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             title: window.Messages.strImportDialogTitle
         });
+
         $('#emptyDialog').html(window.Messages.strImportDialogMessage + '<br><form>' +
             '<input type="file" name="file" id="import_file"> </form>');
 
@@ -692,6 +739,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             reader.onerror = function (event) {
                 alert(window.Messages.strFailedParsingConfig + '\n' + event.target.error.code);
             };
+
             reader.onload = function (e) {
                 var data = e.target.result;
                 var json = null;
@@ -701,6 +749,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 } catch (err) {
                     alert(window.Messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
+
                     return;
                 }
 
@@ -708,6 +757,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (! json || ! json.monitorCharts || ! json.monitorCharts) {
                     alert(window.Messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
+
                     return;
                 }
 
@@ -717,6 +767,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
                         window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
                     }
+
                     rebuildGrid();
                 } catch (err) {
                     alert(window.Messages.strFailedBuildingGrid);
@@ -725,11 +776,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         window.localStorage.removeItem('monitorCharts');
                         window.localStorage.removeItem('monitorSettings');
                     }
+
                     rebuildGrid();
                 }
 
                 $('#emptyDialog').dialog('close');
             };
+
             if (input.files[0]) {
                 reader.readAsText(input.files[0]);
             }
@@ -756,6 +809,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             window.localStorage.removeItem('monitorSettings');
             window.localStorage.removeItem('monitorVersion');
         }
+
         $(this).hide();
         rebuildGrid();
     });
@@ -772,6 +826,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 $('a[href="#settingsPopup"]').show();
             }
         }
+
         return false;
     });
 
@@ -814,6 +869,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     } else {
                         return serverResponseError();
                     }
+
                     var icon = getImageTag('s_success');
                     var msg = '';
                     var str = '';
@@ -961,6 +1017,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $('input[name="valueUnit"]').val(window.Messages.strKiB);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
+
         return false;
     });
 
@@ -970,6 +1027,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $('input[name="valueUnit"]').val(window.Messages.strMiB);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
+
         return false;
     });
 
@@ -1050,6 +1108,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (typeof window.localStorage.monitorCharts !== 'undefined') {
                 runtime.charts = JSON.parse(window.localStorage.monitorCharts);
             }
+
             if (typeof window.localStorage.monitorSettings !== 'undefined') {
                 monitorSettings = JSON.parse(window.localStorage.monitorSettings);
             }
@@ -1066,6 +1125,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     },
                     title: window.Messages.strIncompatibleMonitorConfig
                 });
+
                 $('#emptyDialog').html(window.Messages.strIncompatibleMonitorConfigDescription);
 
                 var dlgBtns = {
@@ -1091,6 +1151,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         if (runtime.charts === null) {
             runtime.charts = defaultChartGrid;
         }
+
         if (monitorSettings === null) {
             monitorSettings = defaultMonitorSettings;
         }
@@ -1115,6 +1176,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             height: $('#chartGrid').find('tr').eq(1).find('td').eq(1).offset().top -
                 $('#chartGrid').find('tr').eq(0).find('td').eq(0).offset().top
         };
+
         $('#chartGrid').html('');
 
         /* Add all charts - in correct order */
@@ -1122,6 +1184,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $.each(runtime.charts, function (key) {
             keys.push(key);
         });
+
         keys.sort();
         for (i = 0; i < keys.length; i++) {
             addChart(runtime.charts[keys[i]], true);
@@ -1270,6 +1333,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (! chartSize) {
                 calculateChartSize();
             }
+
             $('#chartGrid').find('tr').last().append(
                 '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
                 '<div class="ui-state-default monitorChart"' +
@@ -1303,6 +1367,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 } else {
                     return;
                 }
+
                 var seriesLabel = plot.series[j].label;
                 var seriesColor = plot.series[j].color;
                 // format y value
@@ -1315,10 +1380,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     // eslint-disable-next-line no-underscore-dangle
                     seriesValue = window.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
                 }
+
                 tooltipHtml += '<br><span style="color:' + seriesColor + '">' +
                     seriesLabel + ': ' + seriesValue + '</span>';
             }
+
             tooltipHtml += '</span></div>';
+
             return tooltipHtml;
         };
 
@@ -1354,6 +1422,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 ).addClass('float-start')
             );
         }
+
         $('#gridchart' + runtime.chartAI)
             .parent()
             .append($legend);
@@ -1370,6 +1439,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if ($('#selection_box').length) {
                 $('#selection_box').remove();
             }
+
             var selectionBox = $('<div id="selection_box" >');
             // eslint-disable-next-line compat/compat
             $(document.body).append(selectionBox);
@@ -1393,8 +1463,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             if (selectionTimeDiff[1] <= selectionTimeDiff[0]) {
                 selectionTimeDiff = [];
+
                 return;
             }
+
             // get date from timestamp
             var min = new Date(Math.ceil(selectionTimeDiff[0]));
             var max = new Date(Math.ceil(selectionTimeDiff[1]));
@@ -1407,6 +1479,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (! drawTimeSpan || editMode) {
                 return;
             }
+
             if (selectionStartX !== undefined) {
                 $('#selection_box')
                     .css({
@@ -1476,12 +1549,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             timeFormat: 'HH:mm:ss',
             firstDay: window.firstDayOfCalendar
         });
+
         Functions.addDatepicker($dateEnd, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
             timeFormat: 'HH:mm:ss',
             firstDay: window.firstDayOfCalendar
         });
+
         $dateStart.datepicker('setDate', min);
         $dateEnd.datepicker('setDate', max);
     }
@@ -1513,6 +1588,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             } else {
                 return serverResponseError();
             }
+
             var value;
             var i = 0;
             var diff;
@@ -1525,6 +1601,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (! chartData[key]) {
                     return;
                 }
+
                 // Draw all series
                 total = 0;
                 for (var j = 0; j < elem.nodes.length; j++) {
@@ -1568,6 +1645,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                             ) {
                                 continue;
                             }
+
                             value -= oldChartData[key][j][0].value;
                         }
 
@@ -1584,6 +1662,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         } else if (elem.maxYLabel === 0) {
                             elem.maxYLabel = 0.5;
                         }
+
                         // free old data point values and update maxYLabel
                         if (elem.chart.series[j].data.length > runtime.gridMaxPoints &&
                             elem.chart.series[j].data[0][0] < runtime.xmin
@@ -1596,6 +1675,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                                 elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                             }
                         }
+
                         if (elem.title === window.Messages.strSystemMemory ||
                             elem.title === window.Messages.strSystemSwap
                         ) {
@@ -1607,9 +1687,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 // update chart options
                 // keep ticks number/positioning consistent while refreshrate changes
                 var tickInterval = (runtime.xmax - runtime.xmin) / 5;
-                elem.chart.axes.xaxis.ticks = [(runtime.xmax - tickInterval * 4),
-                    (runtime.xmax - tickInterval * 3), (runtime.xmax - tickInterval * 2),
-                    (runtime.xmax - tickInterval), runtime.xmax];
+                elem.chart.axes.xaxis.ticks = [
+                    (runtime.xmax - tickInterval * 4),
+                    (runtime.xmax - tickInterval * 3),
+                    (runtime.xmax - tickInterval * 2),
+                    (runtime.xmax - tickInterval),
+                    runtime.xmax
+                ];
 
                 if (elem.title !== window.Messages.strSystemCPUUsage &&
                     elem.title !== window.Messages.strQueryCacheEfficiency &&
@@ -1624,6 +1708,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     elem.chart.axes.yaxis.max = Math.ceil(total * 1.1 / 100) * 100;
                     elem.chart.axes.yaxis.tickInterval = Math.ceil(total * 1.1 / 5);
                 }
+
                 i++;
 
                 if (runtime.redrawCharts) {
@@ -1645,6 +1730,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $.each(dataValues, function (k, v) {
             maxY = (v[1] > maxY) ? v[1] : maxY;
         });
+
         return maxY;
     }
 
@@ -1655,6 +1741,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (prev === null) {
                 return undefined;
             }
+
             // cur and prev are datapoint arrays, but containing
             // only 1 element for cpu-linux
             var newCur = cur[0];
@@ -1662,6 +1749,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             var diffTotal = newCur.busy + newCur.idle - (newPrev.busy + newPrev.idle);
             var diffIdle = newCur.idle - newPrev.idle;
+
             return 100 * (diffTotal - diffIdle) / diffTotal;
 
             // Query cache efficiency (%)
@@ -1669,6 +1757,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (prev === null) {
                 return undefined;
             }
+
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
             var diffQHits = cur[0].value - prev[0].value;
             // No NaN please :-)
@@ -1683,9 +1772,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (cur[1].value === 0) {
                 return 0;
             }
+
             // cur[0].value is Qcache_free_memory, cur[1].value is query_cache_size
             return 100 - cur[0].value / cur[1].value * 100;
         }
+
         return undefined;
     }
 
@@ -1702,6 +1793,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             for (var i = 0, l = chart.nodes.length; i < l; i++) {
                 runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
             }
+
             runtime.charts[key].chartID = chartID;
             chartID++;
         });
@@ -1714,6 +1806,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         if (! opts.removeVariables) {
             opts.removeVariables = false;
         }
+
         if (! opts.limitTypes) {
             opts.limitTypes = false;
         }
@@ -1724,6 +1817,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             title: window.Messages.strAnalysingLogsTitle
         });
+
         $('#emptyDialog').html(window.Messages.strAnalysingLogs +
             ' <img class="ajaxIcon" src="' + window.themeImagePath +
             'ajax_clock_small.gif" alt="">');
@@ -1756,6 +1850,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         if (opts.src === 'general') {
             url = 'index.php?route=/server/status/monitor/general-log';
         }
+
         logRequest = $.post(
             url,
             {
@@ -1787,6 +1882,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         },
                         title: window.Messages.strNoDataFoundTitle,
                     });
+
                     $('#emptyDialog').html('<p>' + window.Messages.strNoDataFound + '</p>');
 
                     dlgBtns[window.Messages.strClose].click = function () {
@@ -1794,6 +1890,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     };
 
                     $('#emptyDialog').dialog('option', 'buttons', dlgBtns);
+
                     return;
                 }
 
@@ -1806,12 +1903,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     },
                     title: window.Messages.strLoadingLogs
                 });
+
                 $('#emptyDialog').html('<p>' + window.Messages.strLogDataLoaded + '</p>');
                 $.each(logData.sum, function (key, value) {
                     var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                     if (newKey === 'Total') {
                         newKey = '<b>' + newKey + '</b>';
                     }
+
                     $('#emptyDialog').append(newKey + ': ' + value + '<br>');
                 });
 
@@ -1937,6 +2036,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                             filteredQueriesLines[q] = i;
                             $t.text(q);
                         }
+
                         if (isSlowLog) {
                             countRow(q, $t.parent().html());
                         }
@@ -2018,6 +2118,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     /* Turns a timespan (12:12:12) into a number */
     function timeToSec (timeStr) {
         var time = timeStr.split(':');
+
         return (parseInt(time[0], 10) * 3600) + (parseInt(time[1], 10) * 60) + parseInt(time[2], 10);
     }
 
@@ -2032,9 +2133,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         if (hours < 10) {
             hours = '0' + hours;
         }
+
         if (minutes < 10) {
             minutes = '0' + minutes;
         }
+
         if (time < 10) {
             time = '0' + time;
         }
@@ -2061,6 +2164,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (name === 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
             }
+
             return escapeHtml(value);
         };
 
@@ -2150,6 +2254,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         dlgBtns[window.Messages.strAnalyzeQuery].click = function () {
             profilingChart = loadQueryAnalysis(rowData);
         };
+
         dlgBtns[window.Messages.strClose].click = function () {
             $(this).dialog('close');
         };
@@ -2166,6 +2271,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (profilingChart !== null) {
                     profilingChart.destroy();
                 }
+
                 $('#queryAnalyzerDialog').find('div.placeHolder').html('');
                 if (window.codeMirrorEditor) {
                     window.codeMirrorEditor.setValue('');
@@ -2197,13 +2303,17 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 data = data.message;
             }
+
             if (data.error) {
                 if (data.error.indexOf('1146') !== -1 || data.error.indexOf('1046') !== -1) {
                     data.error = window.Messages.strServerLogError;
                 }
+
                 $('#queryAnalyzerDialog').find('div.placeHolder').html('<div class="alert alert-danger" role="alert">' + data.error + '</div>');
+
                 return;
             }
+
             var totalTime = 0;
             // Float sux, I'll use table :(
             $('#queryAnalyzerDialog').find('div.placeHolder')
@@ -2216,10 +2326,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     if (i > 0) {
                         explain += ', ';
                     }
+
                     explain += '<a href="#showExplain-' + i + '">' + i + '</a>';
                 }
+
                 explain += ')';
             }
+
             explain += '<p></p>';
 
             var tempExplain = function (key, value) {
@@ -2228,9 +2341,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (key === 'type' && newValue.toLowerCase() === 'all') {
                     newValue = '<span class="text-danger">' + newValue + '</span>';
                 }
+
                 if (key === 'Extra') {
                     newValue = newValue.replace(/(using (temporary|filesort))/gi, '<span class="text-danger">$1</span>');
                 }
+
                 explain += key + ': ' + newValue + '<br>';
             };
 
@@ -2290,18 +2405,21 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showNums"]').on('click', function () {
                     $('#queryAnalyzerDialog').find('#queryProfiling').hide();
                     $('#queryAnalyzerDialog').find('table.queryNums').show();
+
                     return false;
                 });
 
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showChart"]').on('click', function () {
                     $('#queryAnalyzerDialog').find('#queryProfiling').show();
                     $('#queryAnalyzerDialog').find('table.queryNums').hide();
+
                     return false;
                 });
 
                 profilingChart = createProfilingChart('queryProfiling', chartData);
             }
         });
+
         return profilingChart;
     }
 

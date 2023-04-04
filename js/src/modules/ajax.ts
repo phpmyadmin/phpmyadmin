@@ -68,9 +68,11 @@ const AJAX = {
             hash += (hash << 10);
             hash ^= (hash >> 6);
         }
+
         hash += (hash << 3);
         hash ^= (hash >> 11);
         hash += (hash << 15);
+
         return Math.abs(hash);
     },
     /**
@@ -91,6 +93,7 @@ const AJAX = {
                 'Registered event ' + eventName + ' for file ' + file
             );
         }
+
         return this;
     },
     /**
@@ -113,6 +116,7 @@ const AJAX = {
                 'Registered event ' + eventName + ' for file ' + file
             );
         }
+
         return this;
     },
     /**
@@ -180,6 +184,7 @@ const AJAX = {
             if (typeof lockId === 'undefined') {
                 return;
             }
+
             /*
              * @todo Fix Code mirror does not give correct full value (query)
              * in textarea, it returns only the change in content.
@@ -189,8 +194,10 @@ const AJAX = {
             } else {
                 newHash = AJAX.hash($(this).is(':checked'));
             }
+
             oldHash = $(this).data('val-hash');
         }
+
         // Set lock if old value !== new value
         // otherwise release lock
         if (oldHash !== newHash) {
@@ -198,6 +205,7 @@ const AJAX = {
         } else {
             delete AJAX.lockedTargets[lockId];
         }
+
         // Show lock icon if locked targets is not empty.
         // otherwise remove lock icon
         if (! $.isEmptyObject(AJAX.lockedTargets)) {
@@ -219,6 +227,7 @@ const AJAX = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
+
             $('#topmenu').menuResizer(mainMenuResizerCallback);
         }
     },
@@ -241,6 +250,7 @@ const AJAX = {
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
             // reset the lockedTargets object, as specified AJAX operation has finished
             AJAX.resetLock();
+
             return true;
         } else if (href && href.match(/^#/)) {
             return true;
@@ -268,6 +278,7 @@ const AJAX = {
         ) {
             return false;
         }
+
         AJAX.resetLock();
         var isLink = !! href || false;
         var previousLinkAborted = false;
@@ -362,6 +373,7 @@ const AJAX = {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
+
         ajaxRemoveMessage(AJAX.$msgbox);
 
         Navigation.update(CommonParams.set('token', data.new_token));
@@ -379,19 +391,23 @@ const AJAX = {
         if (data.errSubmitMsg) {
             msg = data.errSubmitMsg;
         }
+
         if (data.errors) {
             $('<div></div>', { id: 'pma_errors', class: 'clearfloat d-print-none' })
                 .insertAfter('#selflink')
                 .append(data.errors);
+
             // bind for php error reporting forms (bottom)
             $('#pma_ignore_errors_bottom').on('click', function (e) {
                 e.preventDefault();
                 ignorePhpErrors();
             });
+
             $('#pma_ignore_all_errors_bottom').on('click', function (e) {
                 e.preventDefault();
                 ignorePhpErrors(false);
             });
+
             // In case of 'sendErrorReport'='always'
             // submit the hidden error reporting form.
             if (data.sendErrorAlways === '1' &&
@@ -413,6 +429,7 @@ const AJAX = {
         $('#pma_ignore_errors_popup').on('click', function () {
             ignorePhpErrors();
         });
+
         $('#pma_ignore_all_errors_popup').on('click', function () {
             ignorePhpErrors(false);
         });
@@ -424,17 +441,21 @@ const AJAX = {
                 ajaxShowMessage(window.Messages.strLoading, false);
                 AJAX.active = false;
                 AJAX.xhr = null;
+
                 return;
             }
+
             // remove the login modal if the login is successful otherwise show error.
             if (typeof data.logged_in !== 'undefined' && data.logged_in === 1) {
                 if ($('#modalOverlay').length) {
                     $('#modalOverlay').remove();
                 }
+
                 $('fieldset.disabled_for_expiration').removeAttr('disabled').removeClass('disabled_for_expiration');
                 AJAX.fireTeardown('main.js');
                 AJAX.fireOnload('main.js');
             }
+
             if (typeof data.new_token !== 'undefined') {
                 $('input[name=token]').val(data.new_token);
             }
@@ -466,14 +487,17 @@ const AJAX = {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
+
         // Can be a string when an error occurred and only HTML was returned.
         if (typeof data === 'string') {
             ajaxRemoveMessage(AJAX.$msgbox);
             ajaxShowMessage($(data).text(), false, 'error');
             AJAX.active = false;
             AJAX.xhr = null;
+
             return;
         }
+
         if (typeof data.success !== 'undefined' && data.success) {
             $('html, body').animate({ scrollTop: 0 }, 'fast');
             ajaxRemoveMessage(AJAX.$msgbox);
@@ -482,6 +506,7 @@ const AJAX = {
                 ajaxShowMessage(data.redirect, false);
                 AJAX.active = false;
                 AJAX.xhr = null;
+
                 return;
             }
 
@@ -489,9 +514,11 @@ const AJAX = {
                 if (data.reloadNavigation) {
                     Navigation.reload();
                 }
+
                 if (data.title) {
                     $('title').replaceWith(data.title);
                 }
+
                 if (data.menu) {
                     var state = {
                         url: data.selflink,
@@ -500,6 +527,7 @@ const AJAX = {
                     history.replaceState(state, null);
                     AJAX.handleMenu.replace(data.menu);
                 }
+
                 if (data.disableNaviSettings) {
                     Navigation.disableSettings();
                 } else {
@@ -521,11 +549,13 @@ const AJAX = {
                     .not('#pma_console_container')
                     .not('#prefs_autoload')
                     .remove();
+
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
                     $('#page_content').replaceWith(
                         '<div id=\'page_content\'>' + data.message + '</div>'
                     );
+
                     highlightSql($('#page_content'));
                     checkNumberOfFields();
                 }
@@ -542,14 +572,18 @@ const AJAX = {
                         var replacement = $selflinkReplace[source];
                         data.selflink = data.selflink.replace(source, replacement);
                     }
+
                     $('#selflink').find('> a').attr('href', data.selflink);
                 }
+
                 if (data.params) {
                     Navigation.update(CommonParams.setAll(data.params));
                 }
+
                 if (data.scripts) {
                     AJAX.scriptHandler.load(data.scripts);
                 }
+
                 if (data.displayMessage) {
                     $('#page_content').prepend(data.displayMessage);
                     highlightSql($('#page_content'));
@@ -561,19 +595,23 @@ const AJAX = {
                 if (data.errSubmitMsg) {
                     msg = data.errSubmitMsg;
                 }
+
                 if (data.errors) {
                     $('<div></div>', { id: 'pma_errors', class: 'clearfloat d-print-none' })
                         .insertAfter('#selflink')
                         .append(data.errors);
+
                     // bind for php error reporting forms (bottom)
                     $('#pma_ignore_errors_bottom').on('click', function (e) {
                         e.preventDefault();
                         ignorePhpErrors();
                     });
+
                     $('#pma_ignore_all_errors_bottom').on('click', function (e) {
                         e.preventDefault();
                         ignorePhpErrors(false);
                     });
+
                     // In case of 'sendErrorReport'='always'
                     // submit the hidden error reporting form.
                     if (data.sendErrorAlways === '1' &&
@@ -589,11 +627,13 @@ const AJAX = {
                         $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
                     }
                 }
+
                 ajaxShowMessage(msg, false);
                 // bind for php error reporting forms (popup)
                 $('#pma_ignore_errors_popup').on('click', function () {
                     ignorePhpErrors();
                 });
+
                 $('#pma_ignore_all_errors_popup').on('click', function () {
                     ignorePhpErrors(false);
                 });
@@ -601,6 +641,7 @@ const AJAX = {
                 if (typeof AJAX.callback === 'function') {
                     AJAX.callback.call();
                 }
+
                 AJAX.callback = function () {
                 };
             });
@@ -678,6 +719,7 @@ const AJAX = {
                 self.scripts = [];
                 self.scriptsVersion = CommonParams.get('version');
             }
+
             self.scriptsCompleted = false;
             self.scriptsToBeFired = [];
             // We need to first complete list of files to load
@@ -690,6 +732,7 @@ const AJAX = {
                     self.scriptsToBeFired.push(files[i].name);
                 }
             }
+
             for (i in files) {
                 var script = files[i].name;
                 // Only for scripts that we don't already have
@@ -700,6 +743,7 @@ const AJAX = {
                     self.done(script, callback);
                 }
             }
+
             // Trigger callback if there is nothing else to load
             self.done(null, callback);
         },
@@ -713,12 +757,15 @@ const AJAX = {
             if ($.inArray(script, this.scriptsToBeFired)) {
                 AJAX.fireOnload(script);
             }
+
             if ($.inArray(script, this.scriptsToBeLoaded)) {
                 this.scriptsToBeLoaded.splice($.inArray(script, this.scriptsToBeLoaded), 1);
             }
+
             if (script === null) {
                 this.scriptsCompleted = true;
             }
+
             /* We need to wait for last signal (with null) or last script load */
             AJAX.active = (this.scriptsToBeLoaded.length > 0) || ! this.scriptsCompleted;
             /* Run callback on last script */
@@ -744,6 +791,7 @@ const AJAX = {
             script.onload = function () {
                 self.done(name, callback);
             };
+
             head.appendChild(script);
         },
         /**
@@ -756,6 +804,7 @@ const AJAX = {
             for (var i in this.scriptsToBeFired) {
                 AJAX.fireTeardown(this.scriptsToBeFired[i]);
             }
+
             this.scriptsToBeFired = [];
             /**
              * Re-attach a generic event handler to clicks
@@ -794,6 +843,7 @@ const AJAX = {
             if (typeof buttonName === 'undefined') {
                 return;
             }
+
             $(this).closest('form').append($('<input>', {
                 'type': 'hidden',
                 'name': buttonName,
@@ -814,6 +864,7 @@ const AJAX = {
             { value: 1 },
             AJAX.lockPageHandler
         );
+
         $pageContent.on(
             'change',
             'form.lock-page input[type="checkbox"], ' +
@@ -821,6 +872,7 @@ const AJAX = {
             { value: 2 },
             AJAX.lockPageHandler
         );
+
         /**
          * Reset lock when lock-page form reset event is fired
          * Note: reset does not bubble in all browser so attach to
@@ -858,6 +910,7 @@ const AJAX = {
                 if (initPop) {
                     return;
                 }
+
                 var state = event.originalEvent.state;
                 if (state && state.menu) {
                     AJAX.$msgbox = ajaxShowMessage();
@@ -884,6 +937,7 @@ const AJAX = {
                 // eslint-disable-next-line no-console
                 console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
             }
+
             // Don't handle aborted requests
             if (request.status !== 0 || request.statusText !== 'abort') {
                 var details = '';
@@ -900,6 +954,7 @@ const AJAX = {
                         '</div>',
                         false
                     );
+
                     AJAX.active = false;
                     AJAX.xhr = null;
 
@@ -909,10 +964,12 @@ const AJAX = {
                 if (request.status !== 0) {
                     details += '<div>' + escapeHtml(window.sprintf(window.Messages.strErrorCode, request.status)) + '</div>';
                 }
+
                 details += '<div>' + escapeHtml(window.sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
                 if (state === 'rejected' || state === 'timeout') {
                     details += '<div>' + escapeHtml(window.Messages.strErrorConnection) + '</div>';
                 }
+
                 ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert">' +
                     window.Messages.strErrorProcessingRequest +
@@ -920,6 +977,7 @@ const AJAX = {
                     '</div>',
                     false
                 );
+
                 AJAX.active = false;
                 AJAX.xhr = null;
             }

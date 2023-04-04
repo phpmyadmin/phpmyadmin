@@ -59,6 +59,7 @@ AJAX.registerOnload('server/status/variables.js', function () {
                 }
             }
         }
+
         text = word;
         filterVariables();
     }).trigger('keyup');

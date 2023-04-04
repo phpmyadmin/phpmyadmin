@@ -19,6 +19,7 @@ function displayHelp () {
     modal.modal('show');
     modal.find('.modal-body').first().html(window.Messages.strDisplayHelp);
     $('#helpModalLabel').first().html(window.Messages.strHelpTitle);
+
     return false;
 }
 
@@ -59,6 +60,7 @@ function isEmpty (obj) {
     for (name in obj) {
         return false;
     }
+
     return true;
 }
 
@@ -273,6 +275,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             } else {
                 $link.text(window.Messages.strHideSearchCriteria);
             }
+
             // avoid default click action
             return false;
         });
@@ -291,12 +294,14 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         var tempGetVal = function () {
             return $(this).val();
         };
+
         for (key in selectedRow) {
             var oldVal = selectedRow[key];
             var newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
                 newVal = $('#edit_fieldID_' + it).map(tempGetVal).get().join(',');
             }
+
             if (oldVal !== newVal) {
                 selectedRow[key] = newVal;
                 newValues[key] = newVal;
@@ -308,12 +313,14 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     searchedData[searchedDataKey][yLabel] = newVal;
                 }
             }
+
             var $input = $('#edit_fieldID_' + it);
             if ($input.hasClass('bit')) {
                 sqlTypes[key] = 'bit';
             } else {
                 sqlTypes[key] = null;
             }
+
             it++;
         } // End data update
 
@@ -333,10 +340,12 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     series[0][searchedDataKey][0] = '';
                     // TODO: text values
                 }
+
                 currentChart.series[0].data = series[0];
                 // TODO: axis changing
                 currentChart.replot();
             }
+
             if (yChange) {
                 yCord[searchedDataKey] = selectedRow[yLabel];
                 // [searchedDataKey][1] contains the y value
@@ -349,6 +358,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     series[0][searchedDataKey][1] = '';
                     // TODO: text values
                 }
+
                 currentChart.series[0].data = series[0];
                 // TODO: axis changing
                 currentChart.replot();
@@ -387,6 +397,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     }
                 }
             }
+
             // remove two extraneous characters ', '
             sqlQuery = sqlQuery.substring(0, sqlQuery.length - 2);
             sqlQuery += ' WHERE ' + window.Sql.urlDecode(searchedData[searchedDataKey].where_clause);
@@ -437,8 +448,10 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         $('#zoom_search_form')
             .slideToggle()
             .hide();
+
         $('#togglesearchformlink')
             .text(window.Messages.strShowSearchCriteria);
+
         $('#togglesearchformdiv').show();
         var selectedRow;
         var series = [];
@@ -499,6 +512,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             if (originalXType === 'date') {
                 format = '%Y-%m-%d';
             }
+
             // TODO: does not seem to work
             // else if (originalXType === 'time') {
             //  format = '%H:%M';
@@ -512,11 +526,13 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                 }
             });
         }
+
         if (yType === 'time') {
             var originalYType = $('#types_1').val();
             if (originalYType === 'date') {
                 format = '%Y-%m-%d';
             }
+
             $.extend(options.axes.yaxis, {
                 renderer: $.jqplot.DateAxisRenderer,
                 tickOptions: {
@@ -529,15 +545,19 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             if (xType === 'numeric') {
                 xVal = parseFloat(value[xLabel]);
             }
+
             if (xType === 'time') {
                 xVal = getTimeStamp(value[xLabel], originalXType);
             }
+
             if (yType === 'numeric') {
                 yVal = parseFloat(value[yLabel]);
             }
+
             if (yType === 'time') {
                 yVal = getTimeStamp(value[yLabel], originalYType);
             }
+
             series[0].push([
                 xVal,
                 yVal,
@@ -601,8 +621,10 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                                 $field.val(data.row_info[key]);
                             }
                         }
+
                         fieldId++;
                     }
+
                     selectedRow = data.row_info;
                 });
 

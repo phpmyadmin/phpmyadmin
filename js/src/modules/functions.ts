@@ -119,6 +119,7 @@ function addDatepicker ($thisElement, type, options) {
                     });
                 }, 0);
             }
+
             setTimeout(function () {
                 // Fix wrong timepicker z-index, doesn't work without timeout
                 $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
@@ -141,6 +142,7 @@ function addDatepicker ($thisElement, type, options) {
             if (typeof $thisElement.data('datepicker') !== 'undefined') {
                 $thisElement.data('datepicker').inline = false;
             }
+
             var tooltip = $thisElement.uiTooltip('instance');
             if (typeof tooltip !== 'undefined') {
                 tooltip.enable();
@@ -164,6 +166,7 @@ function addDateTimePicker () {
     if ($.timepicker === undefined) {
         return;
     }
+
     $('input.timefield, input.datefield, input.datetimefield').each(function () {
         var decimals = $(this).parent().attr('data-decimals');
         var type = $(this).parent().attr('data-type');
@@ -183,9 +186,11 @@ function addDateTimePicker () {
                 timeFormat = 'HH:mm:ss.l';
             }
         }
+
         if (type === 'time') {
             hourMax = 99;
         }
+
         Functions.addDatepicker($(this), type, {
             showMillisec: showMillisec,
             showMicrosec: showMicrosec,
@@ -193,6 +198,7 @@ function addDateTimePicker () {
             hourMax: hourMax,
             firstDay: window.firstDayOfCalendar
         });
+
         // Add a tip regarding entering MySQL allowed-values
         // for TIME and DATE data-type
         if ($(this).hasClass('timefield')) {
@@ -217,6 +223,7 @@ function getSqlEditor ($textarea, options, resize, lintOptions) {
     if ($textarea.length === 0 || typeof window.CodeMirror === 'undefined') {
         return null;
     }
+
     var resizeType = resize;
     // merge options for CodeMirror
     var defaults = {
@@ -248,16 +255,20 @@ function getSqlEditor ($textarea, options, resize, lintOptions) {
     if (! resizeType) {
         resizeType = 'vertical';
     }
+
     var handles = '';
     if (resizeType === 'vertical') {
         handles = 's';
     }
+
     if (resizeType === 'both') {
         handles = 'all';
     }
+
     if (resizeType === 'horizontal') {
         handles = 'e, w';
     }
+
     $(codemirrorEditor.getWrapperElement())
         .css('resize', resizeType)
         .resizable({
@@ -266,6 +277,7 @@ function getSqlEditor ($textarea, options, resize, lintOptions) {
                 codemirrorEditor.setSize($(this).width(), $(this).height());
             }
         });
+
     // enable autocomplete
     codemirrorEditor.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
 
@@ -275,6 +287,7 @@ function getSqlEditor ($textarea, options, resize, lintOptions) {
             value: 3,
             content: codemirrorEditor.isClean(),
         };
+
         AJAX.lockPageHandler(e);
     });
 
@@ -292,6 +305,7 @@ function clearSelection () {
         if (sel.empty) {
             sel.empty();
         }
+
         if (sel.removeAllRanges) {
             sel.removeAllRanges();
         }
@@ -339,9 +353,11 @@ function verifyColumnsProperties () {
         Functions.showNoticeForEnum($(this));
         Functions.showWarningForIntTypes();
     });
+
     $('select.default_type').each(function () {
         Functions.hideShowDefaultValue($(this));
     });
+
     $('select.virtuality').each(function () {
         Functions.hideShowExpression($(this));
     });
@@ -446,7 +462,9 @@ function suggestPassword (passwordForm) {
     if (passwordForm.elements.username) {
         username = passwordForm.elements.username.value;
     }
+
     Functions.checkPasswordStrength(passwd.value, meterObj, meterObjLabel, username);
+
     return true;
 }
 
@@ -481,6 +499,7 @@ function displayPasswordGenerateButton () {
     $('<label></label>').attr({ for: 'button_generate_password' })
         .html(window.Messages.strGeneratePassword + ':')
         .appendTo(generatePwdDiv);
+
     var optionsSpan = $('<span></span>').addClass('options')
         .appendTo(generatePwdDiv);
     pwdButton.clone(true).appendTo(optionsSpan);
@@ -561,16 +580,19 @@ function confirmQuery (theForm1, sqlQuery1) {
         } else {
             message = sqlQuery1;
         }
+
         var isConfirmed = confirm(window.sprintf(window.Messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
         if (isConfirmed) {
             theForm1.elements.is_js_confirmed.value = 1;
+
             return true;
         } else {
             // statement is rejected -> do not submit the form
             window.focus();
+
             return false;
         } // end if (handle confirm box result)
     } // end if (display confirm box)
@@ -597,16 +619,19 @@ function checkSqlQuery (theForm) {
     } else {
         sqlQuery = theForm.elements.sql_query.value;
     }
+
     var spaceRegExp = new RegExp('\\s+');
     if (typeof (theForm.elements.sql_file) !== 'undefined' &&
         theForm.elements.sql_file.value.replace(spaceRegExp, '') !== '') {
         return true;
     }
+
     if (typeof (theForm.elements.id_bookmark) !== 'undefined' &&
         (theForm.elements.id_bookmark.value !== null || theForm.elements.id_bookmark.value !== '') &&
         theForm.elements.id_bookmark.selectedIndex !== 0) {
         return true;
     }
+
     var result = false;
     // Checks for "DROP/DELETE/ALTER" statements
     if (sqlQuery.replace(spaceRegExp, '') !== '') {
@@ -620,6 +645,7 @@ function checkSqlQuery (theForm) {
     } else if (codeMirrorInlineEditor) {
         codeMirrorInlineEditor.focus();
     }
+
     return result;
 }
 
@@ -635,6 +661,7 @@ function checkSqlQuery (theForm) {
 function emptyCheckTheField (theForm, theFieldName) {
     var theField = theForm.elements[theFieldName];
     var spaceRegExp = new RegExp('\\s+');
+
     return theField.value.replace(spaceRegExp, '') === '';
 }
 
@@ -658,6 +685,7 @@ function checkFormElementInRange (theForm, theFieldName, message, minimum, maxim
     if (typeof (minimum) !== 'undefined') {
         min = minimum;
     }
+
     if (typeof (maximum) !== 'undefined' && maximum !== null) {
         max = maximum;
     }
@@ -666,15 +694,18 @@ function checkFormElementInRange (theForm, theFieldName, message, minimum, maxim
         theField.select();
         alert(window.Messages.strEnterValidNumber);
         theField.focus();
+
         return false;
     } else if (val < min || val > max) {
         theField.select();
         alert(window.sprintf(message, val));
         theField.focus();
+
         return false;
     } else {
         theField.value = val;
     }
+
     return true;
 }
 
@@ -702,6 +733,7 @@ function checkTableEditForm (theForm, fieldsCnt) {
                 elm2.select();
                 alert(window.Messages.strEnterValidLength);
                 elm2.focus();
+
                 return false;
             }
         }
@@ -713,10 +745,12 @@ function checkTableEditForm (theForm, fieldsCnt) {
             }
         }
     }
+
     if (atLeastOneField === 0) {
         var theField = theForm.elements.field_0_1;
         alert(window.Messages.strFormEmpty);
         theField.focus();
+
         return false;
     }
 
@@ -725,6 +759,7 @@ function checkTableEditForm (theForm, fieldsCnt) {
     if ($input.val() === '') {
         alert(window.Messages.strFormEmpty);
         $input.trigger('focus');
+
         return false;
     }
 
@@ -766,9 +801,11 @@ function onloadIdleEvent () {
     document.onclick = function () {
         idleSecondsCounter = 0;
     };
+
     $(document).on('mousemove', function () {
         idleSecondsCounter = 0;
     });
+
     document.onkeypress = function () {
         idleSecondsCounter = 0;
     };
@@ -794,6 +831,7 @@ function onloadIdleEvent () {
         if (isStorageSupported('sessionStorage')) {
             guid = window.sessionStorage.guid;
         }
+
         var params = {
             'ajax_request': true,
             'server': CommonParams.get('server'),
@@ -812,6 +850,7 @@ function onloadIdleEvent () {
                         /* There is other active window, let's reset counter */
                         idleSecondsCounter = 0;
                     }
+
                     var remaining = Math.min(
                         /* Remaining login validity */
                         CommonParams.get('LoginCookieValidity') - idleSecondsCounter,
@@ -823,12 +862,14 @@ function onloadIdleEvent () {
                         // max value for setInterval() function
                         interval = Math.min((remaining - 1) * 1000, Math.pow(2, 31) - 1);
                     }
+
                     updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                 } else { // timeout occurred
                     clearInterval(incInterval);
                     if (isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
+
                     // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
                     if (! $('#modalOverlay').length) {
                         $('fieldset').not(':disabled').attr('disabled', 'disabled').addClass('disabled_for_expiration');
@@ -836,11 +877,13 @@ function onloadIdleEvent () {
                         $('.ui-dialog').each(function () {
                             $('#' + $(this).attr('aria-describedby')).dialog('close');
                         });
+
                         $('#input_username').trigger('focus');
                     } else {
                         Navigation.update(CommonParams.set('token', data.new_token));
                         $('input[name=token]').val(data.new_token);
                     }
+
                     idleSecondsCounter = 0;
                     handleRedirectAndReload(data);
                 }
@@ -857,10 +900,12 @@ function onloadIdleEvent () {
         if (isStorageSupported('sessionStorage')) {
             window.sessionStorage.setItem('guid', guid());
         }
+
         var interval = (sessionTimeout - 5) * 1000;
         if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
             interval = Math.pow(2, 31) - 1;
         }
+
         updateTimeout = window.setTimeout(UpdateIdleTime, interval);
     }
 }
@@ -885,6 +930,7 @@ function getCheckAllCheckboxEventHandler () {
             } else {
                 $tr.removeClass('marked table-active');
             }
+
             lastClickChecked = checked;
 
             // remember the last clicked row
@@ -905,6 +951,7 @@ function getCheckAllCheckboxEventHandler () {
                     start = lastShiftClickedRow;
                     end = lastClickedRow;
                 }
+
                 $tr.parent().find('tr:not(.noclick)')
                     .slice(start, end + 1)
                     .removeClass('marked table-active')
@@ -922,6 +969,7 @@ function getCheckAllCheckboxEventHandler () {
                 start = currRow;
                 end = lastClickedRow;
             }
+
             $tr.parent().find('tr:not(.noclick)')
                 .slice(start, end + 1)
                 .addClass('marked table-active')
@@ -946,6 +994,7 @@ function getCheckAllCheckboxEventHandler () {
  */
 function setSelectOptions (theForm, theSelect, doCheck) {
     $('form[name=\'' + theForm + '\'] select[name=\'' + theSelect + '\']').find('option').prop('selected', doCheck);
+
     return true;
 }
 
@@ -956,8 +1005,10 @@ function setSelectOptions (theForm, theSelect, doCheck) {
 function updateQueryParameters () {
     if (! $('#parameterized').is(':checked')) {
         $('#parametersDiv').empty();
+
         return;
     }
+
     var query = window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val();
 
     var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
@@ -971,6 +1022,7 @@ function updateQueryParameters () {
         });
     } else {
         $('#parametersDiv').text(window.Messages.strNoParam);
+
         return;
     }
 
@@ -986,6 +1038,7 @@ function updateQueryParameters () {
             $('<label for="param_' + paramName + '"></label>').text(parameter).appendTo($param);
             $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '">').appendTo($param);
         }
+
         $('#parametersDiv').append($param);
     });
 }
@@ -1002,6 +1055,7 @@ function getForeignKeyCheckboxLoader () {
     html += getImageTag('ajax_clock_small');
     html += '</div>';
     html += '</div>';
+
     return html;
 }
 
@@ -1029,6 +1083,7 @@ function teardownSqlQueryEditEvents () {
     } else {
         $(document).off('blur', '#sqlquery');
     }
+
     $(document).off('change', '#parameterized');
     $('#sqlquery').off('keydown');
     $('#sql_query_edit').off('keydown');
@@ -1040,6 +1095,7 @@ function teardownSqlQueryEditEvents () {
         codeMirrorInlineEditor.toTextArea();
         codeMirrorInlineEditor = false;
     }
+
     if (window.codeMirrorEditor) {
         $(window.codeMirrorEditor.getWrapperElement()).off('keydown');
     }
@@ -1069,11 +1125,13 @@ function onloadSqlQueryEditEvents () {
             $editorArea = $('<div id="inline_editor_outer"></div>');
             $editorArea.insertBefore($innerSql);
         }
+
         $editorArea.html(newContent);
         Functions.loadForeignKeyCheckbox();
         $innerSql.hide();
 
         Functions.bindCodeMirrorToInlineEditor();
+
         return false;
     });
 
@@ -1086,6 +1144,7 @@ function onloadSqlQueryEditEvents () {
         } else {
             sqlQuery = $(this).parent().find('#sql_query_edit').val();
         }
+
         var fkCheck = $(this).parent().find('#fk_checks').is(':checked');
 
         var $form = $('a.inline_edit_sql').prev('form');
@@ -1098,6 +1157,7 @@ function onloadSqlQueryEditEvents () {
         if (! Functions.checkSqlQuery($fakeForm[0])) {
             return false;
         }
+
         $('.alert-success').hide();
         $fakeForm.appendTo($('body')).trigger('submit');
     });
@@ -1145,6 +1205,7 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
                 $('<div class="autocomplete-column-name">')
                     .text(data.columnName)
                     .appendTo(elem);
+
                 $('<div class="autocomplete-column-hint">')
                     .text(data.columnHint)
                     .appendTo(elem);
@@ -1166,6 +1227,7 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
                                     text: table,
                                     columns: []
                                 };
+
                                 for (var column in columns) {
                                     if (columns.hasOwnProperty(column)) {
                                         var displayText = columns[column].Type;
@@ -1174,6 +1236,7 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
                                         } else if (columns[column].Key === 'UNI') {
                                             displayText += ' | Unique';
                                         }
+
                                         table.columns.push({
                                             text: column,
                                             displayText: column + ' | ' + displayText,
@@ -1184,8 +1247,10 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
                                     }
                                 }
                             }
+
                             sqlAutoComplete.push(table);
                         }
+
                         instance.options.hintOptions.tables = sqlAutoComplete;
                         instance.options.hintOptions.defaultTable = sqlAutoCompleteDefaultTable;
                     }
@@ -1199,15 +1264,18 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
             instance.options.hintOptions.defaultTable = sqlAutoCompleteDefaultTable;
         }
     }
+
     if (instance.state.completionActive) {
         return;
     }
+
     var cur = instance.getCursor();
     var token = instance.getTokenAt(cur);
     var string = '';
     if (token.string.match(/^[.`\w@]\w*$/)) {
         string = token.string;
     }
+
     if (string.length > 0) {
         window.CodeMirror.commands.autocomplete(instance);
     }
@@ -1226,6 +1294,7 @@ function bindCodeMirrorToInlineEditor () {
     if ($inlineEditor.length === 0) {
         return;
     }
+
     if (typeof window.CodeMirror !== 'undefined') {
         var height = $inlineEditor.css('height');
         codeMirrorInlineEditor = Functions.getSqlEditor($inlineEditor);
@@ -1355,6 +1424,7 @@ function confirmPreviewSql (sqlData, url, callback): void {
     $('#previewSqlConfirmModal').on('shown.bs.modal', function () {
         highlightSql($('#previewSqlConfirmModal'));
     });
+
     $('#previewSQLConfirmOkButton').on('click', function () {
         callback(url);
         $('#previewSqlConfirmModal').modal('hide');
@@ -1381,6 +1451,7 @@ function checkReservedWordColumns ($form) {
         },
         async: false
     });
+
     return isConfirmed;
 }
 
@@ -1402,14 +1473,17 @@ function copyToClipboard (text) {
         'padding': 0,
         'background': 'transparent'
     });
+
     $('body').append($temp);
     $temp.val(text).trigger('select');
     try {
         var res = document.execCommand('copy');
         $temp.remove();
+
         return res;
     } catch (e) {
         $temp.remove();
+
         return false;
     }
 }
@@ -1436,6 +1510,7 @@ function dismissNotifications () {
                 ajaxRemoveMessage($(this));
             }
         });
+
         /**
          * The below two functions hide the "Dismiss notification" tooltip when a user
          * is hovering a link or button that is inside an ajax message
@@ -1445,6 +1520,7 @@ function dismissNotifications () {
                 $(this).parents('span.ajax_notification').uiTooltip('disable');
             }
         });
+
         $(document).on('mouseout', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
             if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
                 $(this).parents('span.ajax_notification').uiTooltip('enable');
@@ -1459,6 +1535,7 @@ function dismissNotifications () {
             } else {
                 $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
             }
+
             setTimeout(function () {
                 $('#copyStatus').remove();
             }, 2000);
@@ -1489,6 +1566,7 @@ function showWarningForIntTypes () {
     if (! $('div#length_not_allowed').length) {
         return;
     }
+
     var lengthRestrictions = $('select.column_type option').map(function () {
         return $(this).filter(':selected').attr('data-length-restricted');
     }).get();
@@ -1516,6 +1594,7 @@ function prettyProfilingNum (number, accuracy) {
     if (! acc) {
         acc = 2;
     }
+
     acc = Math.pow(10, acc);
     if (num * 1000 < 0.1) {
         num = Math.round(acc * (num * 1000 * 1000)) / acc + 'µ';
@@ -1550,6 +1629,7 @@ function sqlPrettyPrint (string) {
         for (var i = 0; i < 4 * cnt; i++) {
             ret += ' ';
         }
+
         return ret;
     };
 
@@ -1578,6 +1658,7 @@ function sqlPrettyPrint (string) {
     if (! statements[currentStatement]) {
         return string;
     }
+
     // Holds all currently opened code blocks (statement, function or generic)
     var blockStack = [];
     // If a new code block is found, newBlock contains its type for one iteration and vice versa for endBlock
@@ -1635,6 +1716,7 @@ function sqlPrettyPrint (string) {
             if (i > 0) {
                 output += '\n';
             }
+
             output += tabs(indentLevel) + tokens[i][1].toUpperCase();
             output += '\n' + tabs(indentLevel + 1);
             lastStatementPart = tokens[i][1];
@@ -1645,6 +1727,7 @@ function sqlPrettyPrint (string) {
                 output.charAt(output.length - 1) !== ' ') {
                 output += ' ';
             }
+
             if (tokens[i][0] === 'keyword') {
                 output += tokens[i][1].toUpperCase();
             } else {
@@ -1669,6 +1752,7 @@ function sqlPrettyPrint (string) {
             //   output += ...
         }
     }
+
     return output;
 }
 
@@ -1690,9 +1774,11 @@ function confirm (question, url, callbackFn, openCallback) {
         // user does not want to confirm
         if (typeof callbackFn === 'function') {
             callbackFn.call(this, url);
+
             return true;
         }
     }
+
     if (window.Messages.strDoYouReally === '') {
         return true;
     }
@@ -1705,6 +1791,7 @@ function confirm (question, url, callbackFn, openCallback) {
             callbackFn.call(this, url);
         }
     });
+
     if (typeof openCallback === 'function') {
         openCallback();
     }
@@ -1738,9 +1825,11 @@ function sortTable (textSelector) {
             if (a.sortKey < b.sortKey) {
                 return -1;
             }
+
             if (a.sortKey > b.sortKey) {
                 return 1;
             }
+
             return 0;
         });
 
@@ -1787,6 +1876,7 @@ function onloadCreateTableEvents (): void {
             if (! Functions.checkReservedWordColumns($form)) {
                 return;
             }
+
             ajaxShowMessage(window.Messages.strProcessingRequest);
             // User wants to submit the form
             $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
@@ -1795,17 +1885,21 @@ function onloadCreateTableEvents (): void {
                         '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
                         false
                     );
+
                     return;
                 }
+
                 $('#properties_message')
                     .removeClass('alert-danger')
                     .html('');
+
                 ajaxShowMessage(data.message);
                 // Only if the create table dialog (distinct panel) exists
                 var $createTableDialog = $('#create_table_dialog');
                 if ($createTableDialog.length > 0) {
                     $createTableDialog.dialog('close').remove();
                 }
+
                 $('#tableslistcontainer').before(data.formatted_sql);
 
                 /**
@@ -1881,8 +1975,10 @@ function onloadCreateTableEvents (): void {
         $.post($form.attr('action'), $form.serialize() + '&' + actionParam, function (data) {
             if (typeof data === 'undefined' || ! data.success) {
                 ajaxShowMessage(data.error);
+
                 return;
             }
+
             var $pageContent = $('#page_content');
             $pageContent.html(data.message);
             highlightSql($pageContent);
@@ -1904,6 +2000,7 @@ function onloadCreateTableEvents (): void {
         if (event.keyCode !== 13) {
             return;
         }
+
         event.preventDefault();
         event.stopImmediatePropagation();
         $(this)
@@ -1929,6 +2026,7 @@ function onloadCreateTableEvents (): void {
         if (! this.checked) {
             return;
         }
+
         var col = /\d/.exec($(this).attr('name'));
         col = col[0];
         var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
@@ -1936,6 +2034,7 @@ function onloadCreateTableEvents (): void {
             $selectFieldKey.val('primary_' + col).trigger('change', [false]);
         }
     });
+
     $('body')
         .off('click', 'input.preview_sql')
         .on('click', 'input.preview_sql', function () {
@@ -1978,8 +2077,10 @@ function checkPassword ($theForm) {
         $password.val('');
         $passwordRepeat.val('');
         $password.trigger('focus');
+
         return false;
     }
+
     return true;
 }
 
@@ -2082,6 +2183,7 @@ function onloadChangePasswordEvents (): void {
             $.post($theForm.attr('action'), $theForm.serialize() + CommonParams.get('arg_separator') + 'change_pw=' + thisValue, function (data) {
                 if (typeof data === 'undefined' || data.success !== true) {
                     ajaxShowMessage(data.error, false);
+
                     return;
                 }
 
@@ -2092,12 +2194,14 @@ function onloadChangePasswordEvents (): void {
                 $('#edit_user_dialog').dialog('close').remove();
                 ajaxRemoveMessage($msgbox);
             }); // end $.post()
+
             $('#changePasswordModal').modal('hide');
         });
 
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
             if (typeof data === 'undefined' || ! data.success) {
                 ajaxShowMessage(data.error, false);
+
                 return;
             }
 
@@ -2112,6 +2216,7 @@ function onloadChangePasswordEvents (): void {
                 .find('legend').remove().end()
                 .find('table.table').unwrap().addClass('m-3')
                 .find('input#text_pma_pw').trigger('focus');
+
             $('#fieldset_change_password_footer').hide();
             ajaxRemoveMessage($msgbox);
             Functions.displayPasswordGenerateButton();
@@ -2149,15 +2254,19 @@ function onloadEnumSetEditorMessage (): void {
         Functions.showNoticeForEnum($(this));
         Functions.showWarningForIntTypes();
     });
+
     $(document).on('change', 'select.default_type', function () {
         Functions.hideShowDefaultValue($(this));
     });
+
     $(document).on('change', 'select.virtuality', function () {
         Functions.hideShowExpression($(this));
     });
+
     $(document).on('change', 'input.allow_null', function () {
         Functions.validateDefaultValue($(this));
     });
+
     $(document).on('change', '.create_table_form select[name=tbl_storage_engine]', function () {
         Functions.hideShowConnection($(this));
     });
@@ -2175,11 +2284,13 @@ function hideShowConnection ($engineSelector) {
         $connection
             .prop('disabled', true)
             .parent('td').hide();
+
         $labelTh.hide();
     } else {
         $connection
             .prop('disabled', false)
             .parent('td').show();
+
         $labelTh.show();
     }
 }
@@ -2218,15 +2329,18 @@ function autoPopulate (inputId, offset) {
     } else {
         $input3.next().hide();
     }
+
     var colDefault = window.centralColumnList[db + '_' + table][offset].col_default.toUpperCase();
     var $input4 = $('#' + newInputId + '4');
     if (colDefault === 'NULL' || colDefault === 'CURRENT_TIMESTAMP' || colDefault === 'CURRENT_TIMESTAMP()') {
         if (colDefault === 'CURRENT_TIMESTAMP()') {
             colDefault = 'CURRENT_TIMESTAMP';
         }
+
         $input4.val(colDefault);
         $input4.siblings('.default_value').hide();
     }
+
     if (colDefault === '') {
         $input4.val('NONE');
         $input4.siblings('.default_value').hide();
@@ -2235,17 +2349,20 @@ function autoPopulate (inputId, offset) {
         $input4.siblings('.default_value').show();
         $input4.siblings('.default_value').val(window.centralColumnList[db + '_' + table][offset].col_default);
     }
+
     $('#' + newInputId + '5').val(window.centralColumnList[db + '_' + table][offset].col_collation);
     var $input6 = $('#' + newInputId + '6');
     $input6.val(window.centralColumnList[db + '_' + table][offset].col_attribute);
     if (window.centralColumnList[db + '_' + table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
         $input6.val(window.centralColumnList[db + '_' + table][offset].col_extra);
     }
+
     if (window.centralColumnList[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
         $('#' + newInputId + '9').prop('checked', true).trigger('change');
     } else {
         $('#' + newInputId + '9').prop('checked', false);
     }
+
     if (window.centralColumnList[db + '_' + table][offset].col_isNull !== '0') {
         $('#' + newInputId + '7').prop('checked', true);
     } else {
@@ -2278,6 +2395,7 @@ function onloadEnumSetEditor (): void {
                 '"' + escapeHtml(decodeURIComponent(colname)) + '"'
             );
         }
+
         // Get the values as a string
         var inputstring = $(this)
             .closest('td')
@@ -2287,6 +2405,7 @@ function onloadEnumSetEditor (): void {
         inputstring = $('<div></div>')
             .text(inputstring)
             .html();
+
         // Parse the values, escaping quotes and
         // slashes on the fly, into an array
         var values = [];
@@ -2313,16 +2432,19 @@ function onloadEnumSetEditor (): void {
                 buffer += curr;
             }
         }
+
         if (buffer.length > 0) {
             // The leftovers in the buffer are the last value (if any)
             values.push(buffer);
         }
+
         var fields = '';
         // If there are no values, maybe the user is about to make a
         // new list so we add a few for them to get started with.
         if (values.length === 0) {
             values.push('', '', '', '');
         }
+
         // Add the parsed values to the editor
         var dropIcon = getImageTag('b_drop');
         for (i = 0; i < values.length; i++) {
@@ -2332,6 +2454,7 @@ function onloadEnumSetEditor (): void {
                 dropIcon +
                 '</td></tr>';
         }
+
         /**
          * @var dialog HTML code for the ENUM/SET dialog
          */
@@ -2362,10 +2485,12 @@ function onloadEnumSetEditor (): void {
                 var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
                 valueArray.push('\'' + val + '\'');
             });
+
             // get the Length/Values text field where this value belongs
             var valuesId = $('#enumEditorModal').find('input[type=\'hidden\']').val();
             $('input#' + valuesId).val(valueArray.join(','));
         });
+
         // Show the dialog
         var width = parseInt(
             (parseInt($('html').css('font-size'), 10) / 13) * 340,
@@ -2374,6 +2499,7 @@ function onloadEnumSetEditor (): void {
         if (! width) {
             width = 340;
         }
+
         $('#enumEditorModal').modal('show');
         $('#enumEditorModal').find('.modal-body').first().html(dialog);
         // slider for choosing how many fields to add
@@ -2389,8 +2515,10 @@ function onloadEnumSetEditor (): void {
                 );
             }
         });
+
         // Focus the slider, otherwise it looks nearly transparent
         $('a.ui-slider-handle').addClass('ui-state-focus');
+
         return false;
     });
 
@@ -2403,6 +2531,7 @@ function onloadEnumSetEditor (): void {
         if (pick !== false) {
             pick = true;
         }
+
         var params = {
             'ajax_request': true,
             'server': CommonParams.get('server'),
@@ -2424,6 +2553,7 @@ function onloadEnumSetEditor (): void {
                 async: false
             });
         }
+
         var i = 0;
         var listSize = window.centralColumnList[db + '_' + table].length;
         var min = (listSize <= maxRows) ? listSize : maxRows;
@@ -2435,28 +2565,35 @@ function onloadEnumSetEditor (): void {
             if (window.centralColumnList[db + '_' + table][i].col_attribute !== '') {
                 fields += '(' + escapeHtml(window.centralColumnList[db + '_' + table][i].col_attribute) + ') ';
             }
+
             if (window.centralColumnList[db + '_' + table][i].col_length !== '') {
                 fields += '(' + escapeHtml(window.centralColumnList[db + '_' + table][i].col_length) + ') ';
             }
+
             fields += escapeHtml(window.centralColumnList[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
+
             if (pick) {
                 fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
                     window.Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
             }
+
             fields += '</tr>';
         }
+
         var resultPointer = i;
         var searchIn = '<input type="text" class="filter_rows" placeholder="' + window.Messages.searchList + '">';
         if (fields === '') {
             fields = window.sprintf(window.Messages.strEmptyCentralList, '\'' + escapeHtml(db) + '\'');
             searchIn = '';
         }
+
         var seeMore = '';
         if (listSize > maxRows) {
             seeMore = '<fieldset class="pma-fieldset tblFooters text-center fw-bold">' +
                 '<a href=\'#\' id=\'seeMore\'>' + window.Messages.seeMore + '</a></fieldset>';
         }
+
         var centralColumnsDialog = '<div class=\'max_height_400\'>' +
             '<fieldset class="pma-fieldset">' +
             searchIn +
@@ -2472,6 +2609,7 @@ function onloadEnumSetEditor (): void {
         if (! width) {
             width = 500;
         }
+
         var buttonOptions = {};
         var $centralColumnsDialog = $(centralColumnsDialog).dialog({
             classes: {
@@ -2486,9 +2624,11 @@ function onloadEnumSetEditor (): void {
                 $('#col_list').on('click', '.pick', function () {
                     $centralColumnsDialog.remove();
                 });
+
                 $('.filter_rows').on('keyup', function () {
                     $.uiTableFilter($('#col_list'), $(this).val());
                 });
+
                 $('#seeMore').on('click', function () {
                     fields = '';
                     min = (listSize <= maxRows + resultPointer) ? listSize : maxRows + resultPointer;
@@ -2501,24 +2641,31 @@ function onloadEnumSetEditor (): void {
                         if (window.centralColumnList[db + '_' + table][i].col_attribute !== '') {
                             fields += '(' + window.centralColumnList[db + '_' + table][i].col_attribute + ') ';
                         }
+
                         if (window.centralColumnList[db + '_' + table][i].col_length !== '') {
                             fields += '(' + window.centralColumnList[db + '_' + table][i].col_length + ') ';
                         }
+
                         fields += window.centralColumnList[db + '_' + table][i].col_extra + '</span>' +
                             '</div></td>';
+
                         if (pick) {
                             fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
                                 window.Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
                         }
+
                         fields += '</tr>';
                     }
+
                     $('#col_list').append(fields);
                     resultPointer = i;
                     if (resultPointer === listSize) {
                         $('#seeMore').hide();
                     }
+
                     return false;
                 });
+
                 $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button').first().trigger('focus');
             },
             close: function () {
@@ -2527,6 +2674,7 @@ function onloadEnumSetEditor (): void {
                 $(this).remove();
             }
         });
+
         return false;
     });
 
@@ -2578,6 +2726,7 @@ function getAddIndexEventHandler () {
                 if ($(this).find('option:selected').val() === '') {
                     return true;
                 }
+
                 $(this).closest('tr').find('input').trigger('focus');
             };
 
@@ -2617,6 +2766,7 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
             success: response => {
                 if (! response.success) {
                     modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
+
                     return;
                 }
 
@@ -2628,6 +2778,7 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
             }
         });
     });
+
     indexDialogPreviewModal.addEventListener('hidden.bs.modal', () => {
         indexDialogPreviewModal.querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
             '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
@@ -2648,6 +2799,7 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
             if ($sqlqueryresults.length !== 0) {
                 $sqlqueryresults.remove();
             }
+
             if (typeof data !== 'undefined' && data.success === true) {
                 ajaxShowMessage(data.message);
                 highlightSql($('.result_query'));
@@ -2658,14 +2810,17 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
                     .append(data.index_table)
                     .find('#table_index')
                     .insertAfter('#index_header');
+
                 var $editIndexDialog = $('#indexDialogModal');
                 if ($editIndexDialog.length > 0) {
                     $editIndexDialog.modal('hide');
                 }
+
                 $('div.no_indexes_defined').hide();
                 if (callbackSuccess) {
                     callbackSuccess(data);
                 }
+
                 Navigation.reload();
             } else {
                 var $tempDiv = $('<div id=\'temp_div\'><div>').append(data.error);
@@ -2675,9 +2830,11 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
                 } else {
                     $error = $tempDiv;
                 }
+
                 if (callbackFailure) {
                     callbackFailure();
                 }
+
                 ajaxShowMessage($error, false);
             }
         }); // end $.post()
@@ -2688,8 +2845,10 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
         if (typeof data !== 'undefined' && data.success === false) {
             // in the case of an error, show the error message returned.
             ajaxShowMessage(data.error, false);
+
             return;
         }
+
         ajaxRemoveMessage($msgbox);
         // Show dialog if the request was successful
         modal.modal('show');
@@ -2717,11 +2876,13 @@ function showIndexEditDialog ($outer) {
     $indexColumns.find('td').each(function () {
         $(this).css('width', $(this).width() + 'px');
     });
+
     $indexColumns.find('tbody').sortable({
         axis: 'y',
         containment: $indexColumns.find('tbody'),
         tolerance: 'pointer'
     });
+
     Functions.showHints($outer);
     // Add a slider for selecting how many columns to add to the index
     $outer.find('.slider').slider({
@@ -2735,14 +2896,17 @@ function showIndexEditDialog ($outer) {
             );
         }
     });
+
     $('div.add_fields').removeClass('hide');
     // focus index size input on column picked
     $outer.find('table#index_columns select').on('change', function () {
         if ($(this).find('option:selected').val() === '') {
             return true;
         }
+
         $(this).closest('tr').find('input').trigger('focus');
     });
+
     // Focus the slider, otherwise it looks nearly transparent
     $('a.ui-slider-handle').addClass('ui-state-focus');
     // set focus on index name input, if empty
@@ -2766,6 +2930,7 @@ function showHints ($div) {
     if ($newDiv === undefined || ! ($newDiv instanceof $) || $newDiv.length === 0) {
         $newDiv = $('body');
     }
+
     $newDiv.find('.pma_hint').each(function () {
         tooltip($(this).children('img'), 'img', $(this).children('span').html());
     });
@@ -2801,6 +2966,7 @@ function toggleButton ($obj) {
     } else {
         right = 'left';
     }
+
     /**
      * @var  h  Height of the button, used to scale the
      *          background image and position the layers
@@ -2859,6 +3025,7 @@ function toggleButton ($obj) {
             $('div.toggle-container', $obj).animate({ 'left': '+=' + move + 'px' }, 0);
         }
     }
+
     // Attach an 'onclick' event to the switch
     $('div.toggle-container', $obj).on('click', function () {
         if ($(this).hasClass('isActive')) {
@@ -2866,6 +3033,7 @@ function toggleButton ($obj) {
         } else {
             $(this).addClass('isActive');
         }
+
         var $msg = ajaxShowMessage();
         var $container = $(this);
         var callback = $('span.callback', this).text();
@@ -2880,6 +3048,7 @@ function toggleButton ($obj) {
             } else {
                 operator = '+=';
             }
+
             url = $(this).find('td.toggleOff > span').text();
             removeClass = 'on';
             addClass = 'off';
@@ -2889,6 +3058,7 @@ function toggleButton ($obj) {
             } else {
                 operator = '-=';
             }
+
             url = $(this).find('td.toggleOn > span').text();
             removeClass = 'off';
             addClass = 'on';
@@ -2904,6 +3074,7 @@ function toggleButton ($obj) {
                     .animate({ 'left': operator + move + 'px' }, function () {
                         $container.removeClass('isActive');
                     });
+
                 // eslint-disable-next-line no-eval
                 eval(callback);
             } else {
@@ -2970,6 +3141,7 @@ function onloadRecentFavoriteTables (): void {
     if (! $('#sync_favorite_tables').length) {
         return;
     }
+
     $.ajax({
         url: $('#sync_favorite_tables').attr('href'),
         cache: false,
@@ -2986,6 +3158,7 @@ function onloadRecentFavoriteTables (): void {
             if (isStorageSupported('localStorage')) {
                 window.localStorage.favoriteTables = data.favoriteTables;
             }
+
             $('#pma_favorite_list').html(data.list);
         }
     });
@@ -3009,6 +3182,7 @@ function slidingMessage (msg, $object) {
         // Don't show an empty message
         return false;
     }
+
     if ($obj === undefined || ! ($obj instanceof $) || $obj.length === 0) {
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
@@ -3018,8 +3192,10 @@ function slidingMessage (msg, $object) {
                 'class="d-inline-block"></span>'
             );
         }
+
         $obj = $('#PMA_slidingMessage');
     }
+
     if ($obj.has('div').length > 0) {
         // If there already is a message inside the
         // target object, we must get rid of it
@@ -3030,13 +3206,16 @@ function slidingMessage (msg, $object) {
                 $obj
                     .children()
                     .remove();
+
                 $obj
                     .append('<div>' + msg + '</div>');
+
                 // highlight any sql before taking height;
                 highlightSql($obj);
                 $obj.find('div')
                     .first()
                     .hide();
+
                 $obj
                     .animate({
                         height: $obj.find('div').first().height()
@@ -3050,6 +3229,7 @@ function slidingMessage (msg, $object) {
         // inside it, so we simply slide it down
         $obj.width('100%')
             .html('<div>' + msg + '</div>');
+
         // highlight any sql before taking height;
         highlightSql($obj);
         var h = $obj
@@ -3076,6 +3256,7 @@ function slidingMessage (msg, $object) {
                     );
             });
     }
+
     return true;
 }
 
@@ -3087,6 +3268,7 @@ function onloadCodeMirrorEditor (): void {
     if ($elm.siblings().filter('.CodeMirror').length > 0) {
         return;
     }
+
     if ($elm.length > 0) {
         if (typeof window.CodeMirror !== 'undefined') {
             window.codeMirrorEditor = Functions.getSqlEditor($elm);
@@ -3097,6 +3279,7 @@ function onloadCodeMirrorEditor (): void {
             $elm.trigger('focus').on('blur', Functions.updateQueryParameters);
         }
     }
+
     highlightSql($('body'));
 }
 
@@ -3104,6 +3287,7 @@ function teardownCodeMirrorEditor (): void {
     if (! window.codeMirrorEditor) {
         return;
     }
+
     $('#sqlquery').text(window.codeMirrorEditor.getValue());
     window.codeMirrorEditor.toTextArea();
     window.codeMirrorEditor = false;
@@ -3205,8 +3389,10 @@ function onloadCreateView () {
         $('body').append(form);
         form.submit();
         sessionStorage.clear();
+
         return false;
     });
+
     /**
      * Attach Ajax event handlers for input fields in the editor
      * and used to submit the Ajax request when the ENTER key is pressed.
@@ -3239,6 +3425,7 @@ function floatingMenuBar () {
         if (! $('#floating_menubar').length || $('#PMA_disable_floating_menubar').length !== 0) {
             return;
         }
+
         var left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
         $('#floating_menubar')
             .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
@@ -3251,12 +3438,14 @@ function floatingMenuBar () {
             })
             .append($('#server-breadcrumb'))
             .append($('#topmenucontainer'));
+
         // Allow the DOM to render, then adjust the padding on the body
         setTimeout(function () {
             $('body').css(
                 'padding-top',
                 $('#floating_menubar').outerHeight(true)
             );
+
             $('#topmenu').menuResizer('resize');
         }, 4);
     };
@@ -3317,6 +3506,7 @@ function getCheckAllFilterEventHandler () {
         $('input.checkall_box').prop('checked', false);
         $this.parents('form').find(checkboxesSel).filter(selector).prop('checked', true).trigger('change')
             .parents('tr').toggleClass('marked', true);
+
         return false;
     };
 }
@@ -3379,9 +3569,11 @@ function getFilterTextEventHandler () {
                 $row.removeClass('marked');
             }
         });
+
         setTimeout(function () {
             $(checkboxesSel).trigger('change');
         }, 300);
+
         $('#filter-rows-count').html(count);
     };
 }
@@ -3410,16 +3602,20 @@ function formatBytes (bytesToFormat, subDecimals, pointChar) {
     if (! decimals) {
         decimals = 0;
     }
+
     if (! point) {
         point = '.';
     }
+
     var units = ['B', 'KiB', 'MiB', 'GiB'];
     for (var i = 0; bytes > 1024 && i < units.length; i++) {
         bytes /= 1024;
     }
+
     var factor = Math.pow(10, decimals);
     bytes = Math.round(bytes * factor) / factor;
     bytes = bytes.toString().split('.').join(point);
+
     return bytes + ' ' + units[i];
 }
 
@@ -3437,6 +3633,7 @@ function onloadLoginForm () {
             $('#input_username').trigger('focus');
         }
     }
+
     var $httpsWarning = $('#js-https-mismatch');
     if ($httpsWarning.length) {
         if ((window.location.protocol === 'https:') !== CommonParams.get('is_https')) {
@@ -3455,12 +3652,16 @@ function onloadLoginForm () {
  */
 function toggleDatepickerIfInvalid ($td, $inputField) {
     // Regex allowed by the Datetimepicker UI
-    var dtexpDate = new RegExp(['^([0-9]{4})',
+    var dtexpDate = new RegExp([
+        '^([0-9]{4})',
         '-(((01|03|05|07|08|10|12)-((0[1-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)',
-        '-((0[1-9])|([1-2][0-9])|30)))$'].join(''));
-    var dtexpTime = new RegExp(['^(([0-1][0-9])|(2[0-3]))',
+        '-((0[1-9])|([1-2][0-9])|30)))$'
+    ].join(''));
+    var dtexpTime = new RegExp([
+        '^(([0-1][0-9])|(2[0-3]))',
         ':((0[0-9])|([1-5][0-9]))',
-        ':((0[0-9])|([1-5][0-9]))(.[0-9]{1,6}){0,1}$'].join(''));
+        ':((0[0-9])|([1-5][0-9]))(.[0-9]{1,6}){0,1}$'
+    ].join(''));
 
     // If key-ed in Time or Date values are unsupported by the UI, close it
     if ($td.attr('data-type') === 'date' && ! dtexpDate.test($inputField.val())) {
@@ -3489,6 +3690,7 @@ function getKeyboardFormSubmitEventHandler () {
         if (e.which !== 13 || ! (e.ctrlKey || e.altKey)) {
             return;
         }
+
         var $form = $(this).closest('form');
 
         // There could be multiple submit buttons on the same form,
@@ -3526,6 +3728,7 @@ function onloadSortLinkMouseEvent () {
     $(document).on('mouseover', '.sortlink', function () {
         $(this).find('.soimg').toggle();
     });
+
     $(document).on('mouseout', '.sortlink', function () {
         $(this).find('.soimg').toggle();
     });
@@ -3542,6 +3745,7 @@ function getPostData () {
     if (dataPost !== undefined && dataPost.startsWith('?')) {
         dataPost = dataPost.substring(1);
     }
+
     return dataPost;
 }
 
