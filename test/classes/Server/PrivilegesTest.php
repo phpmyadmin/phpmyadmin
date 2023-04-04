@@ -21,6 +21,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use ReflectionClass;
 use ReflectionMethod;
 
 use function __;
@@ -1137,13 +1138,15 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetUserGroupForUser(): void
     {
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
             'menuswork' => true,
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult(
@@ -1163,15 +1166,17 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
             'menuswork' => true,
             'trackingwork' => true,
             'tracking' => 'tracking',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT * FROM `pmadb`.`users`', []);
@@ -1265,8 +1270,10 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['change_copy'] = 'change_copy';
         $_POST['old_hostname'] = 'old_hostname';
         $_POST['old_username'] = 'old_username';
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
+        $relationParameters = RelationParameters::fromArray([]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $queries = [];
 

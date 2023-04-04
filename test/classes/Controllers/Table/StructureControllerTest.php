@@ -16,6 +16,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use ReflectionClass;
 
 /** @covers \PhpMyAdmin\Controllers\Table\StructureController */
 class StructureControllerTest extends AbstractTestCase
@@ -44,7 +45,7 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['ShowStats'] = false;
         $GLOBALS['cfg']['ShowPropertyComments'] = false;
-        $_SESSION['relation'] = [];
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');

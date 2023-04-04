@@ -18,6 +18,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use ReflectionClass;
 use ReflectionMethod;
 
 use function __;
@@ -588,15 +589,17 @@ class ExportLatexTest extends AbstractTestCase
             unset($GLOBALS['latex_caption']);
         }
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         ob_start();
         $this->assertTrue(
@@ -677,15 +680,17 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         ob_start();
         $this->assertTrue(
@@ -738,12 +743,14 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['verbose'] = 'verb';
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         ob_start();
         $this->assertTrue(

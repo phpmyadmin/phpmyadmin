@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tracking\TrackedTable;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\TrackingChecker;
+use ReflectionClass;
 
 /** @covers \PhpMyAdmin\Tracking\TrackingChecker */
 class TrackingCheckerTest extends AbstractTestCase
@@ -27,12 +28,14 @@ class TrackingCheckerTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'tracking' => 'tracking',
             'trackingwork' => true,
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $this->trackingChecker = new TrackingChecker(
             $GLOBALS['dbi'],

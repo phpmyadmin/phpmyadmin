@@ -22,6 +22,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use ReflectionClass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /** @covers \PhpMyAdmin\Controllers\Table\ReplaceController */
@@ -46,8 +47,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'table_coords' => 'table_name',
             'displaywork' => true,
             'db' => 'information_schema',
@@ -62,7 +62,10 @@ class ReplaceControllerTest extends AbstractTestCase
             'bookmark' => 'bookmark',
             'uiprefswork' => true,
             'table_uiprefs' => 'table_uiprefs',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
     }
 
     public function testReplace(): void

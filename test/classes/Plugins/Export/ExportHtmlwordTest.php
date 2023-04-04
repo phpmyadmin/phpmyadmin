@@ -19,6 +19,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -421,15 +422,17 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with($columns, ['name1'])
             ->will($this->returnValue('1'));
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
@@ -490,15 +493,17 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
@@ -532,12 +537,14 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $result = $this->object->getTableDef('database', '', false, false, false);
 

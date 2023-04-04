@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
@@ -11,6 +12,7 @@ use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Types;
+use ReflectionClass;
 
 use function array_slice;
 
@@ -108,14 +110,16 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['table'] = 'PMA_table';
 
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'centralcolumnswork' => true,
             'relwork' => true,
             'db' => 'phpmyadmin',
             'relation' => 'relation',
             'central_columns' => 'pma_central_columns',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         // mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

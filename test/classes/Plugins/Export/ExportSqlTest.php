@@ -25,6 +25,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use ReflectionClass;
 use ReflectionMethod;
 use stdClass;
 
@@ -877,15 +878,17 @@ SQL;
 
     public function testGetTableComments(): void
     {
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
         $GLOBALS['sql_include_comments'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

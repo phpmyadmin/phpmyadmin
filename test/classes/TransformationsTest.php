@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use ReflectionClass;
 
 /** @covers \PhpMyAdmin\Transformations */
 class TransformationsTest extends AbstractTestCase
@@ -165,13 +167,13 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetMime(): void
     {
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relation = RelationParameters::fromArray([
             'db' => 'pmadb',
             'mimework' => true,
             'trackingwork' => true,
             'column_info' => 'column_info',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
         $this->assertEquals(
             [
                 'o' => [
@@ -209,16 +211,18 @@ class TransformationsTest extends AbstractTestCase
             ->will($this->returnValue($this->createStub(DummyResult::class)));
         $GLOBALS['dbi'] = $dbi;
 
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
         $this->assertFalse($actual);
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relation = RelationParameters::fromArray([
             'db' => 'pmadb',
             'mimework' => true,
             'column_info' => 'column_info',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
