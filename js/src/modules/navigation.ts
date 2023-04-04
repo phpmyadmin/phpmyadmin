@@ -7,16 +7,9 @@ import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 
 /**
- * function used in or for navigation panel
- *
- * @package phpMyAdmin-Navigation
- */
-const Navigation = {};
-
-/**
  * updates the tree state in sessionStorage
  */
-Navigation.treeStateUpdate = function (): void {
+function treeStateUpdate (): void {
     // update if session storage is supported
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
@@ -34,7 +27,7 @@ Navigation.treeStateUpdate = function (): void {
             storage.removeItem('token');
         }
     }
-};
+}
 
 /**
  * updates the filter state in sessionStorage
@@ -42,7 +35,7 @@ Navigation.treeStateUpdate = function (): void {
  * @param {string} filterName
  * @param {string} filterValue
  */
-Navigation.filterStateUpdate = function (filterName, filterValue): void {
+function filterStateUpdate (filterName, filterValue): void {
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         try {
@@ -55,12 +48,12 @@ Navigation.filterStateUpdate = function (filterName, filterValue): void {
             storage.removeItem('navTreeSearchFilters');
         }
     }
-};
+}
 
 /**
  * restores the filter state on navigation reload
  */
-Navigation.filterStateRestore = function (): void {
+function filterStateRestore (): void {
     if (isStorageSupported('sessionStorage')
         && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
     ) {
@@ -120,7 +113,7 @@ Navigation.filterStateRestore = function (): void {
             }
         });
     }
-};
+}
 
 /**
  * Loads child items of a node and executes a given callback
@@ -129,7 +122,7 @@ Navigation.filterStateRestore = function (): void {
  * @param $expandElem expander
  * @param callback    callback function
  */
-Navigation.loadChildNodes = function (isNode, $expandElem, callback): void {
+function loadChildNodes (isNode, $expandElem, callback): void {
     var $destination = null;
     var params = null;
 
@@ -214,14 +207,14 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback): void {
             ajaxShowMessage(data.error, false);
         }
     });
-};
+}
 
 /**
  * Collapses a node in navigation tree.
  *
  * @param $expandElem expander
  */
-Navigation.collapseTreeNode = function ($expandElem): void {
+function collapseTreeNode ($expandElem): void {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -233,7 +226,7 @@ Navigation.collapseTreeNode = function ($expandElem): void {
 
     $expandElem.trigger('blur');
     $children.promise().done(Navigation.treeStateUpdate);
-};
+}
 
 /**
  * Traverse the navigation tree backwards to generate all the actual
@@ -242,7 +235,7 @@ Navigation.collapseTreeNode = function ($expandElem): void {
  *
  * @return {object}
  */
-Navigation.traverseForPaths = function () {
+function traverseForPaths () {
     var params = {
         pos: $('#pma_navigation_tree').find('div.dbselector select').val()
     };
@@ -280,7 +273,7 @@ Navigation.traverseForPaths = function () {
     });
 
     return params;
-};
+}
 
 /**
  * Expands a node in navigation tree.
@@ -288,7 +281,7 @@ Navigation.traverseForPaths = function () {
  * @param $expandElem expander
  * @param callback    callback function
  */
-Navigation.expandTreeNode = function ($expandElem, callback): void {
+function expandTreeNode ($expandElem, callback = undefined): void {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -339,7 +332,7 @@ Navigation.expandTreeNode = function ($expandElem, callback): void {
     }
 
     $expandElem.trigger('blur');
-};
+}
 
 /**
  * Auto-scrolls the newly chosen database
@@ -348,7 +341,7 @@ Navigation.expandTreeNode = function ($expandElem, callback): void {
  * @param {boolean}   $forceToTop Whether to force scroll to top
  *
  */
-Navigation.scrollToView = function ($element, $forceToTop) {
+function scrollToView ($element, $forceToTop) {
     Navigation.filterStateRestore();
     var $container = $('#pma_navigation_tree_content');
     var elemTop = $element.offset().top - $container.offset().top;
@@ -363,12 +356,12 @@ Navigation.scrollToView = function ($element, $forceToTop) {
             scrollTop: elemTop + textHeight - $container.height() + $container.scrollTop() + scrollPadding
         });
     }
-};
+}
 
 /**
  * Expand the navigation and highlight the current database or table/view
  */
-Navigation.showCurrent = function (): void {
+function showCurrent (): void {
     var db = CommonParams.get('db');
     var table = CommonParams.get('table');
 
@@ -585,15 +578,15 @@ Navigation.showCurrent = function (): void {
 
         return $whichItem;
     }
-};
+}
 
 /**
  * Disable navigation panel settings
  */
-Navigation.disableSettings = function (): void {
+function disableSettings (): void {
     $('#pma_navigation_settings_icon').addClass('hide');
     $('#pma_navigation_settings').remove();
-};
+}
 
 /**
  * Ensure that navigation panel settings is properly setup.
@@ -601,7 +594,7 @@ Navigation.disableSettings = function (): void {
  *
  * @param {string} selflink
  */
-Navigation.ensureSettings = function (selflink): void {
+function ensureSettings (selflink): void {
     $('#pma_navigation_settings_icon').removeClass('hide');
 
     if (! $('#pma_navigation_settings').length) {
@@ -622,7 +615,7 @@ Navigation.ensureSettings = function (selflink): void {
     } else {
         $('#pma_navigation_settings').find('form').attr('action', selflink);
     }
-};
+}
 
 /**
  * Reloads the whole navigation tree while preserving its state
@@ -630,7 +623,7 @@ Navigation.ensureSettings = function (selflink): void {
  * @param {Function} callback the callback function
  * @param {object} paths stored navigation paths
  */
-Navigation.reload = function (callback = null, paths = null): void {
+function reload (callback = null, paths = null): void {
     var params = {
         'reload': true,
         'no_debug': true,
@@ -667,9 +660,9 @@ Navigation.reload = function (callback = null, paths = null): void {
             }
         });
     }
-};
+}
 
-Navigation.selectCurrentDatabase = function () {
+function selectCurrentDatabase () {
     var $naviDbSelect = $('#navi_db_select');
 
     if (! $naviDbSelect.length) {
@@ -683,7 +676,7 @@ Navigation.selectCurrentDatabase = function () {
     $naviDbSelect.val(CommonParams.get('db'));
 
     return $naviDbSelect.val() === CommonParams.get('db');
-};
+}
 
 /**
  * Handles any requests to change the page in a branch of a tree
@@ -693,7 +686,7 @@ Navigation.selectCurrentDatabase = function () {
  * @param {object} $this A jQuery object that points to the element that
  * initiated the action of changing the page
  */
-Navigation.treePagination = function ($this): void {
+function treePagination ($this): void {
     var $msgbox = ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url = 'index.php?route=/navigation';
@@ -760,7 +753,7 @@ Navigation.treePagination = function ($this): void {
 
         Navigation.treeStateUpdate();
     });
-};
+}
 
 /**
  * ResizeHandler Custom object that manages the resizing of the navigation
@@ -768,7 +761,7 @@ Navigation.treePagination = function ($this): void {
  * XXX: Must only be ever instanciated once
  * XXX: Inside event handlers the 'this' object is accessed as 'event.data.resize_handler'
  */
-Navigation.ResizeHandler = function () {
+const ResizeHandler = function () {
     /**
      * @var {number} panelWidth Used by the collapser to know where to go
      *                      back to when uncollapsing the panel
@@ -1028,7 +1021,7 @@ Navigation.ResizeHandler = function () {
  * @var {object} FastFilter Handles the functionality that allows filtering
  *                          of the items in a branch of the navigation tree
  */
-Navigation.FastFilter = {
+const FastFilter = {
     /**
      * Construct for the asynchronous fast filter functionality
      *
@@ -1254,7 +1247,7 @@ Navigation.FastFilter = {
  *
  * @param {string} searchClause The query string for the filter
  */
-Navigation.FastFilter.Filter.prototype.update = function (searchClause): void {
+FastFilter.Filter.prototype.update = function (searchClause): void {
     if (this.searchClause !== searchClause) {
         this.searchClause = searchClause;
         this.request();
@@ -1265,7 +1258,7 @@ Navigation.FastFilter.Filter.prototype.update = function (searchClause): void {
  * After a delay of 250mS, initiates a request to retrieve search results
  * Multiple calls to this function will always abort the previous request
  */
-Navigation.FastFilter.Filter.prototype.request = function (): void {
+FastFilter.Filter.prototype.request = function (): void {
     var self = this;
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
         self.$this.find('li.fast_filter').append(
@@ -1313,7 +1306,7 @@ Navigation.FastFilter.Filter.prototype.request = function (): void {
  *
  * @param {string} list The search results
  */
-Navigation.FastFilter.Filter.prototype.swap = function (list): void {
+FastFilter.Filter.prototype.swap = function (list): void {
     this.$this
         .html($(list).html())
         .children()
@@ -1330,7 +1323,7 @@ Navigation.FastFilter.Filter.prototype.swap = function (list): void {
  *
  * @param {boolean} focus Whether to also focus the input box of the fast filter
  */
-Navigation.FastFilter.Filter.prototype.restore = function (focus): void {
+FastFilter.Filter.prototype.restore = function (focus): void {
     if (this.$this.children('ul').first().hasClass('search_results')) {
         this.$this.html(this.$clone.html()).children().show();
         this.$this.data('fastFilter', this);
@@ -1349,7 +1342,7 @@ Navigation.FastFilter.Filter.prototype.restore = function (focus): void {
  *
  * @param {object} $containerELem Container element
  */
-Navigation.showFullName = function ($containerELem): void {
+function showFullName ($containerELem): void {
     $containerELem.find('.hover_show_full').on('mouseenter', function () {
         /** mouseenter */
         var $this = $(this);
@@ -1386,15 +1379,39 @@ Navigation.showFullName = function ($containerELem): void {
             }, 200);
         }
     });
-};
+}
 
 /**
  * @param {boolean} update
  */
-Navigation.update = (update): void => {
+function update (update): void {
     if (update && $('#pma_navigation_tree').hasClass('synced')) {
         Navigation.showCurrent();
     }
+}
+
+/**
+ * Used in or for navigation panel.
+ */
+const Navigation = {
+    treeStateUpdate: treeStateUpdate,
+    filterStateUpdate: filterStateUpdate,
+    filterStateRestore: filterStateRestore,
+    loadChildNodes: loadChildNodes,
+    collapseTreeNode: collapseTreeNode,
+    traverseForPaths: traverseForPaths,
+    expandTreeNode: expandTreeNode,
+    scrollToView: scrollToView,
+    showCurrent: showCurrent,
+    disableSettings: disableSettings,
+    ensureSettings: ensureSettings,
+    reload: reload,
+    selectCurrentDatabase: selectCurrentDatabase,
+    treePagination: treePagination,
+    ResizeHandler: ResizeHandler,
+    FastFilter: FastFilter,
+    showFullName: showFullName,
+    update: update,
 };
 
 window.Navigation = Navigation;
