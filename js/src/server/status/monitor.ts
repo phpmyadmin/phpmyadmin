@@ -852,7 +852,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             buttons: dlgBtns
         }).find('img.ajaxIcon').show();
 
-        var loadLogVars = function (getvars) {
+        var loadLogVars = function (getvars = undefined) {
             var vars = {
                 'ajax_request': true,
                 'server': CommonParams.get('server')
@@ -1248,7 +1248,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     }
 
     /* Adds a chart to the chart grid */
-    function addChart (chartObj, initialize) {
+    function addChart (chartObj, initialize = undefined) {
         var i;
         var settings = {
             title: escapeHtml(chartObj.title),

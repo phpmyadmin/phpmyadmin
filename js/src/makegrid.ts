@@ -701,7 +701,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
          *                and a <td> to which the grid_edit should move
          */
-        hideEditCell: function (force, data, field, options) {
+        hideEditCell: function (force = undefined, data = undefined, field = undefined, options = undefined) {
             if (g.isCellEditActive && ! force) {
                 // cell is being edited, save or post the edited data
                 if (options !== undefined) {
@@ -1214,7 +1214,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
          *                and a <td> to which the grid_edit should move
          */
-        postEditedCell: function (options) {
+        postEditedCell: function (options = undefined) {
             if (g.isSaving) {
                 return;
             }
@@ -1615,7 +1615,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
          *                and a <td> to which the grid_edit should move
          */
-        saveOrPostEditedCell: function (options) {
+        saveOrPostEditedCell: function (options = undefined) {
             var saved = g.saveEditedCell();
             // Check if $cfg['SaveCellsAtOnce'] is false
             if (! g.saveCellsAtOnce) {
@@ -2396,7 +2396,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
  * jQuery plugin to cancel selection in HTML code.
  */
 (function ($) {
-    $.fn.noSelect = function (p) { // no select plugin by Paulo P.Marinas
+    $.fn.noSelect = function (p = null) { // no select plugin by Paulo P.Marinas
         var prevent = (p === null) ? true : p;
         /* eslint-disable compat/compat */
         var isMsie = navigator.userAgent.indexOf('MSIE') > -1 || !! window.navigator.userAgent.match(/Trident.*rv:11\./);

@@ -7,7 +7,7 @@ import { CommonParams } from '../common.ts';
  * @param {any} url Undefined to refresh to the same page
  *                  String to go to a different page, e.g: 'index.php'
  */
-export default function refreshMainContent (url): void {
+export default function refreshMainContent (url = undefined): void {
     var newUrl = url;
     if (! newUrl) {
         newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;

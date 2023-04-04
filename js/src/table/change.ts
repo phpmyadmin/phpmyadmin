@@ -81,7 +81,7 @@ function fractionReplace (number) {
 * 3) 02-12-23
 * 4) And instead of using '-' the following punctuations can be used (+,.,*,^,@,/) All these are accepted by mysql as well. Therefore no issues
 */
-function isDate (val, tmstmp) {
+function isDate (val, tmstmp = undefined) {
     var value = val.replace(/[.|*|^|+|//|@]/g, '-');
     var arrayVal = value.split('-');
     for (var a = 0; a < arrayVal.length; a++) {

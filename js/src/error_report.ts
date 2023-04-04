@@ -164,7 +164,7 @@ var ErrorReport = {
      *
      * @param {Event} e
      */
-    removeErrorNotification: function (e): void {
+    removeErrorNotification: function (e = undefined): void {
         if (e) {
             // don't remove the hash fragment by navigating to #
             e.preventDefault();

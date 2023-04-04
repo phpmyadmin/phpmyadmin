@@ -72,7 +72,7 @@ function addNoCacheToAjaxRequests (options: JQuery.AjaxSettings, originalOptions
  * @param {string} type
  * @param {object} options
  */
-function addDatepicker ($thisElement, type, options) {
+function addDatepicker ($thisElement, type = undefined, options = undefined) {
     if (type !== 'date' && type !== 'time' && type !== 'datetime' && type !== 'timestamp') {
         return;
     }
@@ -219,7 +219,7 @@ function addDateTimePicker () {
  *
  * @return {object|null}
  */
-function getSqlEditor ($textarea, options, resize, lintOptions) {
+function getSqlEditor ($textarea, options = undefined, resize = undefined, lintOptions = undefined) {
     if ($textarea.length === 0 || typeof window.CodeMirror === 'undefined') {
         return null;
     }
@@ -676,7 +676,7 @@ function emptyCheckTheField (theForm, theFieldName) {
  *
  * @return {boolean}  whether a valid number has been submitted or not
  */
-function checkFormElementInRange (theForm, theFieldName, message, minimum, maximum) {
+function checkFormElementInRange (theForm, theFieldName, message, minimum = undefined, maximum = undefined) {
     var theField = theForm.elements[theFieldName];
     var val = parseInt(theField.value, 10);
     var min = 0;
@@ -1768,7 +1768,7 @@ function sqlPrettyPrint (string) {
  *
  * @return {boolean}
  */
-function confirm (question, url, callbackFn, openCallback) {
+function confirm (question, url = undefined, callbackFn = undefined, openCallback = undefined) {
     var confirmState = CommonParams.get('confirm');
     if (! confirmState) {
         // user does not want to confirm
@@ -2746,7 +2746,7 @@ function getAddIndexEventHandler () {
     };
 }
 
-function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailure) {
+function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailure = undefined) {
     /* Remove the hidden dialogs if there are*/
     var modal = $('#indexDialogModal');
 
@@ -2861,11 +2861,11 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
     }); // end $.get()
 }
 
-function indexEditorDialog (url, title, callbackSuccess, callbackFailure) {
+function indexEditorDialog (url, title, callbackSuccess, callbackFailure = undefined) {
     Functions.indexDialogModal('index.php?route=/table/indexes', url, title, callbackSuccess, callbackFailure);
 }
 
-function indexRenameDialog (url, title, callbackSuccess, callbackFailure) {
+function indexRenameDialog (url, title, callbackSuccess, callbackFailure = undefined) {
     Functions.indexDialogModal('index.php?route=/table/indexes/rename', url, title, callbackSuccess, callbackFailure);
 }
 
@@ -2925,7 +2925,7 @@ function showIndexEditDialog ($outer) {
  *                    omit this parameter the function searches
  *                    in the whole body
  **/
-function showHints ($div) {
+function showHints ($div = undefined) {
     var $newDiv = $div;
     if ($newDiv === undefined || ! ($newDiv instanceof $) || $newDiv.length === 0) {
         $newDiv = $('body');
@@ -3176,7 +3176,7 @@ function onloadRecentFavoriteTables (): void {
  *
  * @return {boolean} True on success, false on failure
  */
-function slidingMessage (msg, $object) {
+function slidingMessage (msg, $object = undefined) {
     var $obj = $object;
     if (msg === undefined || msg.length === 0) {
         // Don't show an empty message

@@ -14,7 +14,7 @@ interface JQuery {
 
     sortableTable: (method: any) => any;
 
-    noSelect: (p: any) => any;
+    noSelect: (p?: any) => any;
 
     menuResizer: (method: string|Function) => any;
 

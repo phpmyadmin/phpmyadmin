@@ -44,7 +44,7 @@ ChartFactory.prototype = {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var Chart = function (elementId) {
+var Chart = function (elementId = undefined) {
     this.elementId = elementId;
 };
 
@@ -75,7 +75,7 @@ Chart.prototype = {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var BaseChart = function (elementId) {
+var BaseChart = function (elementId = undefined) {
     Chart.call(this, elementId);
 };
 
@@ -223,7 +223,7 @@ window.DataTable = DataTable;
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotChart = function (elementId) {
+var JQPlotChart = function (elementId = undefined) {
     Chart.call(this, elementId);
     this.plot = null;
     this.validator = null;
@@ -270,7 +270,7 @@ JQPlotChart.prototype.prepareData = function () {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotLineChart = function (elementId) {
+var JQPlotLineChart = function (elementId = undefined) {
     JQPlotChart.call(this, elementId);
     this.validator = BaseChart.prototype;
 };

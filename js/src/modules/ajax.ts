@@ -639,7 +639,7 @@ const AJAX = {
                 });
 
                 if (typeof AJAX.callback === 'function') {
-                    AJAX.callback.call();
+                    AJAX.callback.call(window);
                 }
 
                 AJAX.callback = function () {
@@ -708,7 +708,7 @@ const AJAX = {
          * @param {string[]} files An array of filenames and flags
          * @param {Function} callback
          */
-        load: function (files, callback): void {
+        load: function (files, callback = undefined): void {
             var self = this;
             var i;
             // Clear loaded scripts if they are from another version of phpMyAdmin.

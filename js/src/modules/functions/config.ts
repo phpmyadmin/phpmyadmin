@@ -53,7 +53,7 @@ export function setConfigValue (key, value): void {
  * @param {Function} successCallback The callback to call after the value is successfully received
  * @param {Function} failureCallback The callback to call when the value can not be received
  */
-export function getConfigValue (key, cached, successCallback, failureCallback): void {
+export function getConfigValue (key, cached, successCallback, failureCallback = undefined): void {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
     if (isCached && value !== undefined && value !== null) {

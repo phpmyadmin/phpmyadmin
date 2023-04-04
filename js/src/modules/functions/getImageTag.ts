@@ -15,7 +15,7 @@ import { escapeHtml } from './escape.ts';
  *                  .attr(name, value) - Sets a particular attribute of the IMG
  *                                       tag to the given value
  */
-export default function getImageTag (image, alternate, attributes) {
+export default function getImageTag (image, alternate = undefined, attributes = undefined) {
     var alt = alternate;
     var attr = attributes;
     // custom image object, it will eventually be returned by this functions

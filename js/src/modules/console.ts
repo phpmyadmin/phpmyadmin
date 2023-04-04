@@ -238,7 +238,7 @@ var Console = {
      * @param {string} queryString
      * @param {object} options
      */
-    execute: function (queryString, options): void {
+    execute: function (queryString, options = undefined): void {
         if (typeof (queryString) !== 'string' || ! /[a-z]|[A-Z]/.test(queryString)) {
             return;
         }
@@ -302,7 +302,7 @@ var Console = {
      *
      * @param {boolean} inputFocus If true, focus the input line after show()
      */
-    show: function (inputFocus): void {
+    show: function (inputFocus = undefined): void {
         Config.set('Mode', 'show');
 
         var pmaConsoleHeight = Math.max(92, Config.Height);
@@ -379,7 +379,7 @@ var Console = {
      *
      * @param {object} $targetCard Target card JQuery object, if it's empty, function will hide all cards
      */
-    hideCard: function ($targetCard): void {
+    hideCard: function ($targetCard = undefined): void {
         if (! $targetCard) {
             $('#pma_console').find('.mid_layer').fadeOut(140);
             $('#pma_console').find('.card').removeClass('show');
@@ -669,7 +669,7 @@ var ConsoleInput = {
      *
      * @param {string} target, default target is console input
      */
-    clear: function (target): void {
+    clear: function (target = undefined): void {
         ConsoleInput.setText('', target);
     },
     /**
@@ -694,7 +694,7 @@ var ConsoleInput = {
      * @param {string} text
      * @param {string} target
      */
-    setText: function (text, target): void {
+    setText: function (text, target = undefined): void {
         if (ConsoleInput.codeMirror) {
             switch (target) {
             case 'bookmark':
@@ -719,7 +719,7 @@ var ConsoleInput = {
      * @param {'bookmark'|'console'} target
      * @return {string}
      */
-    getText: function (target) {
+    getText: function (target = undefined) {
         if (ConsoleInput.codeMirror) {
             switch (target) {
             case 'bookmark':
@@ -843,7 +843,7 @@ var ConsoleMessages = {
      * @param {string} state Message state
      * @return {object}, {message_id: string message id, $message: JQuery object}
      */
-    appendQuery: function (queryData, state) {
+    appendQuery: function (queryData, state = undefined) {
         var targetMessage = ConsoleMessages.append(queryData.sql_query, 'query');
         if (! targetMessage) {
             return false;
@@ -1057,7 +1057,7 @@ var ConsoleMessages = {
  */
 var ConsoleBookmarks = {
     bookmarks: [],
-    addBookmark: function (queryString, targetDb, label, isShared) {
+    addBookmark: function (queryString, targetDb, label = undefined, isShared = undefined) {
         $('#pma_bookmarks').find('.add [name=shared]').prop('checked', false);
         $('#pma_bookmarks').find('.add [name=label]').val('');
         $('#pma_bookmarks').find('.add [name=targetdb]').val('');
@@ -1411,7 +1411,7 @@ var ConsoleDebug = {
             this.appendQueryExtraInfo(queryInfo, $query);
         }
     },
-    showLog: function (debugInfo, url) {
+    showLog: function (debugInfo, url = undefined) {
         this.lastDebugInfo.debugInfo = debugInfo;
         this.lastDebugInfo.url = url;
 

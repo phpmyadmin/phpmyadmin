@@ -293,7 +293,7 @@ var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
  * @param {object} index         Index detail object
  * @param {boolean} showDialog   Whether to show index creation dialog or not
  */
-function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog): void {
+function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog = undefined): void {
     var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
     // Prepare post-data.
     var $table = $('input[name="table"]');

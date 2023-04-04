@@ -305,7 +305,9 @@ const insertQuery = function (queryType) {
         if (isStorageSupported('localStorage') &&
             typeof window.localStorage.getItem(key) === 'string') {
             setQuery(window.localStorage.getItem(key));
+            // @ts-ignore
         } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
+            // @ts-ignore
             setQuery(window.Cookies.get(key, { path: CommonParams.get('rootPath') }));
         } else {
             ajaxShowMessage(window.Messages.strNoAutoSavedQuery);
@@ -487,7 +489,11 @@ AJAX.registerOnload('sql.js', function () {
             }
 
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = useLocalStorageValue ? window.localStorage.autoSavedSqlSort : window.Cookies.get('autoSavedSqlSort', { path: CommonParams.get('rootPath') });
+            var sortStoredQuery = useLocalStorageValue
+                ? window.localStorage.autoSavedSqlSort
+                // @ts-ignore
+                : window.Cookies.get('autoSavedSqlSort', { path: CommonParams.get('rootPath') });
+
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
                 $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
@@ -1125,7 +1131,7 @@ AJAX.registerOnload('sql.js', function () {
  * @param {string} newClass
  * @param isAddClass
  */
-function changeClassForColumn ($thisTh, newClass, isAddClass) {
+function changeClassForColumn ($thisTh, newClass, isAddClass = undefined) {
     // index 0 is the th containing the big T
     var thIndex = $thisTh.index();
     var hasBigT = $thisTh.closest('tr').children().first().hasClass('column_action');
@@ -1254,6 +1260,7 @@ function checkSavedQuery () {
     if (isStorageSupported('localStorage') &&
         typeof window.localStorage.getItem(key) === 'string') {
         ajaxShowMessage(window.Messages.strPreviousSaveQuery);
+        // @ts-ignore
     } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
         ajaxShowMessage(window.Messages.strPreviousSaveQuery);
     }

@@ -8,7 +8,7 @@ import $ from 'jquery';
  *             in $_SESSION['prev_errors'] at server
  *
  */
-function ignorePhpErrors (clearPrevErrors) {
+function ignorePhpErrors (clearPrevErrors = undefined) {
     var clearPrevious = clearPrevErrors;
     if (typeof (clearPrevious) === 'undefined' ||
         clearPrevious === null

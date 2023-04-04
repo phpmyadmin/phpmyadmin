@@ -185,7 +185,7 @@ function goToStep3 () {
     );
 }
 
-function goToStep2 (extra) {
+function goToStep2 (extra = undefined) {
     $.post(
         'index.php?route=/normalization/1nf/step2',
         {
@@ -414,7 +414,7 @@ function goTo3NFStep2 (pd, tablesTds) {
     });
 }
 
-function processDependencies (primaryKey, isTransitive) {
+function processDependencies (primaryKey, isTransitive = undefined) {
     var pk = primaryKey;
     var pd = {};
     var tablesTds = {};
