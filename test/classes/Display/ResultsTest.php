@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\DeleteLinkEnum;
@@ -22,6 +23,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
+use ReflectionClass;
 use stdClass;
 
 use function count;
@@ -654,12 +656,14 @@ class ResultsTest extends AbstractTestCase
     {
         // Fake relation settings
         $_SESSION['tmpval']['relational_display'] = 'K';
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'db',
             'mimework' => true,
             'column_info' => 'column_info',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
         $GLOBALS['cfg']['BrowseMIME'] = true;
 
         // Basic data

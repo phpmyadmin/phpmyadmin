@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
@@ -12,6 +13,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
+use ReflectionClass;
 
 use function __;
 use function htmlspecialchars;
@@ -70,15 +72,15 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['cfg']['CodemirrorEnable'] = true;
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][0] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'table_coords' => 'table_name',
             'displaywork' => true,
             'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => true,
             'relation' => 'relation',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$relationParameters]);
 
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';

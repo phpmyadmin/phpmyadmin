@@ -75,7 +75,6 @@ SQL;
         $GLOBALS['col_priv'] = true;
         $GLOBALS['is_reload_priv'] = true;
         $GLOBALS['mime_map'] = null;
-        $_SESSION['relation'] = [];
 
         $actual = $columnsDefinition->displayForm('/table/structure/save', 1, null, ['actor_id'], [$columnMeta]);
 

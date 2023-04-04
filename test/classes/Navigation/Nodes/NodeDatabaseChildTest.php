@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\MockObject\MockObject;
+use ReflectionClass;
 
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
@@ -39,12 +41,14 @@ class NodeDatabaseChildTest extends AbstractTestCase
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'navwork' => true,
             'navigationhiding' => 'navigationhiding',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
         $this->object = $this->getMockForAbstractClass(
             NodeDatabaseChild::class,
             ['child'],

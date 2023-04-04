@@ -57,6 +57,9 @@ use const SQL_DIR;
  */
 class Relation
 {
+    /** @var RelationParameters[] $cache */
+    private static array $cache = [];
+
     public function __construct(public DatabaseInterface $dbi)
     {
     }
@@ -64,6 +67,10 @@ class Relation
     public function getRelationParameters(): RelationParameters
     {
         $server = $GLOBALS['server'];
+
+        if (isset(self::$cache[$server])) {
+            return self::$cache[$server];
+        }
 
         if (! isset($_SESSION['relation']) || ! is_array($_SESSION['relation'])) {
             $_SESSION['relation'] = [];
@@ -74,13 +81,15 @@ class Relation
             && isset($_SESSION['relation'][$server]['version'])
             && $_SESSION['relation'][$server]['version'] === Version::VERSION
         ) {
-            return RelationParameters::fromArray($_SESSION['relation'][$server]);
+            self::$cache[$server] = RelationParameters::fromArray($_SESSION['relation'][$server]);
+
+            return self::$cache[$server];
         }
 
-        $relationParameters = RelationParameters::fromArray($this->checkRelationsParam());
-        $_SESSION['relation'][$server] = $relationParameters->toArray();
+        self::$cache[$server] = RelationParameters::fromArray($this->checkRelationsParam());
+        $_SESSION['relation'][$server] = self::$cache[$server]->toArray();
 
-        return $relationParameters;
+        return self::$cache[$server];
     }
 
     /**
@@ -1501,6 +1510,7 @@ class Relation
             // This is the case when the DB could be created but no tables just after
             // So just purge the cache and show the new configuration storage state
             unset($_SESSION['relation'][$GLOBALS['server']]);
+            unset(self::$cache[$GLOBALS['server']]);
             $this->getRelationParameters();
 
             return true;
@@ -1620,6 +1630,7 @@ class Relation
 
         $GLOBALS['cfg']['Server']['pmadb'] = $db;
         unset($_SESSION['relation'][$GLOBALS['server']]);
+        unset(self::$cache[$GLOBALS['server']]);
 
         $relationParameters = $this->getRelationParameters();
         if (

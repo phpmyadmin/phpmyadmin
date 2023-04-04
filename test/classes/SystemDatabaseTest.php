@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemColumn;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use ReflectionClass;
 
 /** @covers \PhpMyAdmin\SystemDatabase */
 class SystemDatabaseTest extends AbstractTestCase
@@ -47,8 +49,7 @@ class SystemDatabaseTest extends AbstractTestCase
                 return "'" . $string . "'";
             }));
 
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'table_coords' => 'table_name',
             'displaywork' => true,
             'db' => 'information_schema',
@@ -59,7 +60,10 @@ class SystemDatabaseTest extends AbstractTestCase
             'mimework' => true,
             'column_info' => 'column_info',
             'relation' => 'relation',
-        ])->toArray();
+        ]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            [$GLOBALS['server'] => $relationParameters],
+        );
 
         $this->sysDb = new SystemDatabase($dbi);
     }

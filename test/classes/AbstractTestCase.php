@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
@@ -82,6 +83,8 @@ abstract class AbstractTestCase extends TestCase
         // Config before DBI
         $this->setGlobalConfig();
         Cache::purge();
+
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
     }
 
     protected function loadContainerBuilder(): void
