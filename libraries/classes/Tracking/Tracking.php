@@ -146,24 +146,20 @@ class Tracking
     /**
      * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param mixed[]  $urlParams   url parameters
-     * @param string   $textDir     text direction
-     * @param int|null $lastVersion last tracking version
+     * @param mixed[] $urlParams url parameters
+     * @param string  $textDir   text direction
      */
     public function getHtmlForMainPage(
         string $db,
         string $table,
         array $urlParams,
         string $textDir,
-        int|null $lastVersion = null,
     ): string {
         $versionSqlResult = $this->getListOfVersionsOfTable($db, $table);
-        if ($lastVersion === null && $versionSqlResult !== false) {
-            $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
-        }
-
+        $lastVersion = null;
         $versions = [];
         if ($versionSqlResult !== false) {
+            $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
             $versions = $versionSqlResult->fetchAllAssoc();
         }
 
