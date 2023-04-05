@@ -88,8 +88,9 @@ const GitInfo = {
                 $('#maincontainer').append($(mainContainerDiv));
             }
 
+            let upToDateMessage: Text | null = null;
             if (latest === current) {
-                versionInformationMessage = document.createTextNode(' (' + window.Messages.strUpToDate + ')');
+                upToDateMessage = document.createTextNode(' (' + window.Messages.strUpToDate + ')');
             }
 
             /* Remove extra whitespace */
@@ -100,7 +101,11 @@ const GitInfo = {
 
             const $liPmaVersion = $('#li_pma_version');
             $liPmaVersion.find('span.latest').remove();
-            $liPmaVersion.append($(versionInformationMessage));
+            if (upToDateMessage !== null) {
+                $liPmaVersion.append($(upToDateMessage));
+            } else {
+                $liPmaVersion.append($(versionInformationMessage));
+            }
         }
     },
 

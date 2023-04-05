@@ -21,7 +21,6 @@ const typeScriptErrorsToIgnore = [
     2469, // TS2469: The '+' operator cannot be applied to type 'symbol'.
     2538, // TS2538: Type '%s' cannot be used as an index type.
     2551, // TS2551: Property '%s' does not exist on type '%s'. Did you mean '%s'?
-    2740, // TS2740: Type 'Text' is missing the following properties from type 'HTMLSpanElement': accessKey, accessKeyLabel, autocapitalize, dir, and 226 more.
     2769, // TS2769: No overload matches this call.
     5096, // TS5096: Option 'allowImportingTsExtensions' can only be used when either 'noEmit' or 'emitDeclarationOnly' is set.
 ];
