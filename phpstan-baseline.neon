@@ -1446,11 +1446,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
 			message: "#^Parameter \\#2 \\$selected of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/TrackingController.php
