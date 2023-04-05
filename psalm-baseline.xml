@@ -4421,7 +4421,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['entries']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['filter_users']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -4433,7 +4432,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['entries']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['filter_users']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code>$reportExport</code>
       <code>$selectedVersions</code>

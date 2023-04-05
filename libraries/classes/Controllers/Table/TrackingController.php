@@ -50,7 +50,6 @@ final class TrackingController extends AbstractController
         $GLOBALS['msg'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['entries'] ??= null;
-        $GLOBALS['filter_users'] ??= null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -90,7 +89,7 @@ final class TrackingController extends AbstractController
 
         $trackedData = [];
         $GLOBALS['entries'] = [];
-        $GLOBALS['filter_users'] = [];
+        $filterUsers = [];
 
         $report = $request->hasBodyParam('report');
         /** @var string $versionParam */
@@ -116,7 +115,7 @@ final class TrackingController extends AbstractController
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
 
-            $GLOBALS['filter_users'] = array_map(trim(...), explode(',', $users));
+            $filterUsers = array_map(trim(...), explode(',', $users));
         }
 
         $dateFrom ??= new DateTimeImmutable();
@@ -126,7 +125,7 @@ final class TrackingController extends AbstractController
         if ($reportExport !== null) {
             $GLOBALS['entries'] = $this->tracking->getEntries(
                 $trackedData,
-                $GLOBALS['filter_users'],
+                $filterUsers,
                 $logType,
                 $dateFrom,
                 $dateTo,
@@ -247,7 +246,7 @@ final class TrackingController extends AbstractController
                 $trackedData,
                 $GLOBALS['urlParams'],
                 $logType,
-                $GLOBALS['filter_users'],
+                $filterUsers,
                 $versionParam,
                 $dateFrom,
                 $dateTo,
