@@ -19,6 +19,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
 use function __;
+use function array_fill_keys;
 use function array_keys;
 use function array_reverse;
 use function array_search;
@@ -229,9 +230,6 @@ class Relation
      */
     private function checkRelationsParam(): array
     {
-        $relationParams = [];
-        $relationParams['version'] = Version::VERSION;
-
         $workToTable = [
             'relwork' => 'relation',
             'displaywork' => ['relation', 'table_info'],
@@ -253,10 +251,9 @@ class Relation
             'exporttemplateswork' => 'export_templates',
         ];
 
-        foreach (array_keys($workToTable) as $work) {
-            $relationParams[$work] = false;
-        }
+        $relationParams = array_fill_keys(array_keys($workToTable), false);
 
+        $relationParams['version'] = Version::VERSION;
         $relationParams['allworks'] = false;
         $relationParams['user'] = null;
         $relationParams['db'] = null;
@@ -1464,11 +1461,11 @@ class Relation
     /**
      * Returns default PMA table names and their create queries.
      *
-     * @param mixed[] $tableNameReplacements
+     * @param array<string, string> $tableNameReplacements
      *
      * @return array<string, string> table name, create query
      */
-    public function getDefaultPmaTableNames(array $tableNameReplacements): array
+    public function getCreateTableSqlQueries(array $tableNameReplacements): array
     {
         $pmaTables = [];
         $createTablesFile = (string) file_get_contents(SQL_DIR . 'create_tables.sql');
@@ -1564,26 +1561,18 @@ class Relation
 
         $existingTables = $this->dbi->getTables($db, Connection::TYPE_CONTROL);
 
-        /** @var array<string, string> $tableNameReplacements */
-        $tableNameReplacements = [];
+        $tableNameReplacements = $this->getTableReplacementNames($tablesToFeatures);
 
-        // Build a map of replacements between default table names and name built by the user
-        foreach ($tablesToFeatures as $table => $feature) {
-            // Empty, we can not do anything about it
-            if (empty($GLOBALS['cfg']['Server'][$feature])) {
-                continue;
+        $createQueries = [];
+        if ($create) {
+            $createQueries = $this->getCreateTableSqlQueries($tableNameReplacements);
+            if (! $this->dbi->selectDb($db, Connection::TYPE_CONTROL)) {
+                $GLOBALS['message'] = $this->dbi->getError(Connection::TYPE_CONTROL);
+
+                return;
             }
-
-            // Default table name, nothing to do
-            if ($GLOBALS['cfg']['Server'][$feature] === $table) {
-                continue;
-            }
-
-            // Set the replacement to transform the default table name into a custom name
-            $tableNameReplacements[$table] = $GLOBALS['cfg']['Server'][$feature];
         }
 
-        $createQueries = null;
         $foundOne = false;
         foreach ($tablesToFeatures as $table => $feature) {
             if (($GLOBALS['cfg']['Server'][$feature] ?? null) === false) {
@@ -1595,38 +1584,29 @@ class Relation
             // use the possible replaced name first and fallback on the table name
             // if no replacement exists
             if (! in_array($tableNameReplacements[$table] ?? $table, $existingTables)) {
-                if ($create) {
-                    if ($createQueries == null) { // first create
-                        $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
-                        if (! $this->dbi->selectDb($db, Connection::TYPE_CONTROL)) {
-                            $GLOBALS['message'] = $this->dbi->getError(Connection::TYPE_CONTROL);
-
-                            return;
-                        }
-                    }
-
-                    $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
-
-                    $error = $this->dbi->getError(Connection::TYPE_CONTROL);
-                    if ($error) {
-                        $GLOBALS['message'] = $error;
-
-                        return;
-                    }
-
-                    $foundOne = true;
-                    if (empty($GLOBALS['cfg']['Server'][$feature])) {
-                        // Do not override a user defined value, only fill if empty
-                        $GLOBALS['cfg']['Server'][$feature] = $table;
-                    }
+                if (! $create) {
+                    continue;
                 }
-            } else {
-                $foundOne = true;
-                if (empty($GLOBALS['cfg']['Server'][$feature])) {
-                    // Do not override a user defined value, only fill if empty
-                    $GLOBALS['cfg']['Server'][$feature] = $table;
+
+                $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
+
+                $error = $this->dbi->getError(Connection::TYPE_CONTROL);
+                if ($error) {
+                    $GLOBALS['message'] = $error;
+
+                    return;
                 }
             }
+
+            $foundOne = true;
+
+            // Do not override a user defined value, only fill if empty
+            if (isset($GLOBALS['cfg']['Server'][$feature]) && $GLOBALS['cfg']['Server'][$feature] !== '') {
+                continue;
+            }
+
+            // Fill it with the default table name
+            $GLOBALS['cfg']['Server'][$feature] = $table;
         }
 
         if (! $foundOne) {
@@ -1771,5 +1751,26 @@ class Relation
         }
 
         $this->fixPmaTables($GLOBALS['db'], false);
+    }
+
+    /**
+     * @param non-empty-array<string, string> $tablesToFeatures
+     *
+     * @return array<string, string>
+     */
+    private function getTableReplacementNames(array $tablesToFeatures): array
+    {
+        $tableNameReplacements = [];
+
+        foreach ($tablesToFeatures as $table => $feature) {
+            if (empty($GLOBALS['cfg']['Server'][$feature]) || $GLOBALS['cfg']['Server'][$feature] === $table) {
+                continue;
+            }
+
+            // Set the replacement to transform the default table name into a custom name
+            $tableNameReplacements[$table] = $GLOBALS['cfg']['Server'][$feature];
+        }
+
+        return $tableNameReplacements;
     }
 }

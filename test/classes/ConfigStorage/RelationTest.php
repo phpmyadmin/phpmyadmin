@@ -1381,7 +1381,7 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame(
             $data,
-            $relation->getDefaultPmaTableNames([]),
+            $relation->getCreateTableSqlQueries([]),
         );
 
         $data['pma__export_templates'] = implode("\n", [
@@ -1408,7 +1408,7 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame(
             $data,
-            $relation->getDefaultPmaTableNames(['pma__export_templates' => 'db_exporttemplates_pma']),
+            $relation->getCreateTableSqlQueries(['pma__export_templates' => 'db_exporttemplates_pma']),
         );
     }
 
