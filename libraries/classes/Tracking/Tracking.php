@@ -806,26 +806,20 @@ class Tracking
         string $version,
         array &$data,
         LogTypeEnum $logType,
+        int $deleteId,
     ): string {
-        $html = '';
         $whichLog = $logType->getLogName();
-        $deleteId = $_POST['delete_' . $whichLog];
 
-        // Only in case of valid id
-        if ($deleteId == (int) $deleteId) {
-            unset($data[$whichLog][$deleteId]);
+        unset($data[$whichLog][$deleteId]);
 
-            $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $logType, $data[$whichLog]);
-            if ($successfullyDeleted) {
-                $msg = Message::success($logType->getSuccessMessage());
-            } else {
-                $msg = Message::rawError(__('Query error'));
-            }
-
-            $html .= $msg->getDisplay();
+        $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $logType, $data[$whichLog]);
+        if ($successfullyDeleted) {
+            $msg = Message::success($logType->getSuccessMessage());
+        } else {
+            $msg = Message::rawError(__('Query error'));
         }
 
-        return $html;
+        return $msg->getDisplay();
     }
 
     /**

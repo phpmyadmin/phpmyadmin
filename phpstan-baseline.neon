@@ -2496,6 +2496,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/TrackingController.php
+
+		-
 			message: "#^Parameter \\#2 \\$entries of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getDownloadInfoForExport\\(\\) expects array\\<int, array\\<string, int\\|string\\>\\>, array given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/TrackingController.php
@@ -8721,7 +8726,7 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
+			message: "#^Cannot access offset int on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 

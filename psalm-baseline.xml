@@ -13738,9 +13738,6 @@
       <code><![CDATA[$data['ddlog']]]></code>
       <code><![CDATA[$data['schema_snapshot']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <RiskyCast>
-      <code>$deleteId</code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Tracking/TrackingChecker.php">
     <MixedAssignment>
