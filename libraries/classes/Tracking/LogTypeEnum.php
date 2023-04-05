@@ -36,4 +36,21 @@ enum LogTypeEnum
             LogTypeEnum::DML => __('Tracking data manipulation successfully deleted'),
         };
     }
+
+    public function getHeaderMessage(): string
+    {
+        return match ($this) {
+            LogTypeEnum::DDL => __('Data definition statement'),
+            LogTypeEnum::DML => __('Data manipulation statement'),
+        };
+    }
+
+    /** @psalm-return literal-string */
+    public function getTableId(): string
+    {
+        return match ($this) {
+            LogTypeEnum::DDL => 'ddl_versions',
+            LogTypeEnum::DML => 'dml_versions',
+        };
+    }
 }

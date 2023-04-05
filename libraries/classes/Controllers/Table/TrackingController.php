@@ -84,7 +84,7 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
-        $trackedData = [];
+        $trackedData = null;
         $entries = [];
         $filterUsers = [];
 
@@ -104,9 +104,9 @@ final class TrackingController extends AbstractController
             $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
-                $request->getParsedBodyParam('date_from', $trackedData['date_from']),
+                $request->getParsedBodyParam('date_from', $trackedData->dateFrom),
             );
-            $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData['date_to']));
+            $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData->dateTo));
 
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
@@ -210,7 +210,7 @@ final class TrackingController extends AbstractController
                     $GLOBALS['db'],
                     $GLOBALS['table'],
                     $versionParam,
-                    $trackedData,
+                    $trackedData->ddlog,
                     LogTypeEnum::DDL,
                     (int) $request->getParsedBodyParam('delete_ddlog'),
                 );
@@ -221,7 +221,7 @@ final class TrackingController extends AbstractController
                     $GLOBALS['db'],
                     $GLOBALS['table'],
                     $versionParam,
-                    $trackedData,
+                    $trackedData->dmlog,
                     LogTypeEnum::DML,
                     (int) $request->getParsedBodyParam('delete_dmlog'),
                 );

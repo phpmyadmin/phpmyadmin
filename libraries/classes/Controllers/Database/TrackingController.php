@@ -112,7 +112,7 @@ class TrackingController extends AbstractController
         $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], '', '1');
 
         // No tables present and no log exist
-        if ($numTables === 0 && $trackedData['ddlog'] === []) {
+        if ($numTables === 0 && $trackedData->ddlog === []) {
             echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
             if (! $isSystemSchema) {
@@ -128,12 +128,12 @@ class TrackingController extends AbstractController
         echo $this->tracking->getHtmlForDbTrackingTables($GLOBALS['db'], $GLOBALS['urlParams'], $GLOBALS['text_dir']);
 
         // If available print out database log
-        if ($trackedData['ddlog'] === []) {
+        if ($trackedData->ddlog === []) {
             return;
         }
 
         $log = '';
-        foreach ($trackedData['ddlog'] as $entry) {
+        foreach ($trackedData->ddlog as $entry) {
             $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
                 . $entry['statement'] . "\n";
         }
