@@ -25,15 +25,20 @@ use function array_merge;
 use function array_multisort;
 use function count;
 use function date;
+use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
+use function is_array;
 use function json_encode;
+use function mb_strpos;
 use function mb_strstr;
+use function mb_substr;
 use function preg_replace;
 use function rtrim;
 use function sprintf;
 use function strtotime;
+use function trim;
 
 use const SORT_ASC;
 
@@ -49,6 +54,34 @@ class Tracking
         private DatabaseInterface $dbi,
         private TrackingChecker $trackingChecker,
     ) {
+    }
+
+    /**
+     * Removes all tracking data for a table or a version of a table
+     *
+     * @param string $dbName    name of database
+     * @param string $tableName name of table
+     * @param string $version   version
+     */
+    public function deleteTracking(string $dbName, string $tableName, string $version = ''): bool
+    {
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
+
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/' . "\n" . 'DELETE FROM %s.%s WHERE `db_name` = %s AND `table_name` = %s',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
+        );
+        if ($version) {
+            $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, Connection::TYPE_CONTROL);
+        }
+
+        return (bool) $this->dbi->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -572,7 +605,7 @@ class Tracking
         $html = '<h3>' . __('Structure snapshot')
             . '  [<a href="' . Url::getFromRoute('/table/tracking', $params) . '">' . __('Close')
             . '</a>]</h3>';
-        $data = Tracker::getTrackedData($db, $table, $version);
+        $data = $this->getTrackedData($db, $table, $version);
 
         // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
         $dropCreateStatements = $data['ddlog'][0]['statement'];
@@ -610,6 +643,137 @@ class Tracking
         $html .= '<br><hr><br>';
 
         return $html;
+    }
+
+    /**
+     * Gets the record of a tracking job.
+     *
+     * @param string $dbname    name of database
+     * @param string $tablename name of table
+     * @param string $version   version number
+     *
+     * @return array<string, array<int, array<string, string>>|string|null>
+     * @psalm-return array{
+     *   date_from: string,
+     *   date_to: string,
+     *   ddlog: list<array{date: string, username: string, statement: string}>,
+     *   dmlog: list<array{date: string, username: string, statement: string}>,
+     *   tracking: string|null,
+     *   schema_snapshot: string|null
+     * }|array<never, never>
+     */
+    public function getTrackedData(string $dbname, string $tablename, string $version): array
+    {
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return [];
+        }
+
+        $sqlQuery = sprintf(
+            'SELECT * FROM %s.%s WHERE `db_name` = %s',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $this->dbi->quoteString($dbname, Connection::TYPE_CONTROL),
+        );
+        if ($tablename !== '') {
+            $sqlQuery .= ' AND `table_name` = ' . $this->dbi->quoteString($tablename, Connection::TYPE_CONTROL) . ' ';
+        }
+
+        $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, Connection::TYPE_CONTROL)
+            . ' ORDER BY `version` DESC LIMIT 1';
+
+        $mixed = $this->dbi->queryAsControlUser($sqlQuery)->fetchAssoc();
+
+        // PHP 7.4 fix for accessing array offset on null
+        if ($mixed === []) {
+            $mixed = ['schema_sql' => null, 'data_sql' => null, 'tracking' => null, 'schema_snapshot' => null];
+        }
+
+        // Parse log
+        $logSchemaEntries = explode('# log ', (string) $mixed['schema_sql']);
+        $logDataEntries = explode('# log ', (string) $mixed['data_sql']);
+
+        $ddlDateFrom = $date = Util::date('Y-m-d H:i:s');
+
+        $ddlog = [];
+        $firstIteration = true;
+
+        // Iterate tracked data definition statements
+        // For each log entry we want to get date, username and statement
+        foreach ($logSchemaEntries as $logEntry) {
+            if (trim($logEntry) == '') {
+                continue;
+            }
+
+            $date = mb_substr($logEntry, 0, 19);
+            $username = mb_substr(
+                $logEntry,
+                20,
+                mb_strpos($logEntry, "\n") - 20,
+            );
+            if ($firstIteration) {
+                $ddlDateFrom = $date;
+                $firstIteration = false;
+            }
+
+            $statement = rtrim((string) mb_strstr($logEntry, "\n"));
+
+            $ddlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
+        }
+
+        $dateFrom = $ddlDateFrom;
+        $ddlDateTo = $date;
+
+        $dmlDateFrom = $dateFrom;
+
+        $dmlog = [];
+        $firstIteration = true;
+
+        // Iterate tracked data manipulation statements
+        // For each log entry we want to get date, username and statement
+        foreach ($logDataEntries as $logEntry) {
+            if (trim($logEntry) == '') {
+                continue;
+            }
+
+            $date = mb_substr($logEntry, 0, 19);
+            $username = mb_substr(
+                $logEntry,
+                20,
+                mb_strpos($logEntry, "\n") - 20,
+            );
+            if ($firstIteration) {
+                $dmlDateFrom = $date;
+                $firstIteration = false;
+            }
+
+            $statement = rtrim((string) mb_strstr($logEntry, "\n"));
+
+            $dmlog[] = ['date' => $date, 'username' => $username, 'statement' => $statement];
+        }
+
+        $dmlDateTo = $date;
+
+        // Define begin and end of date range for both logs
+        $data = [];
+        if (strtotime($ddlDateFrom) <= strtotime($dmlDateFrom)) {
+            $data['date_from'] = $ddlDateFrom;
+        } else {
+            $data['date_from'] = $dmlDateFrom;
+        }
+
+        if (strtotime($ddlDateTo) >= strtotime($dmlDateTo)) {
+            $data['date_to'] = $ddlDateTo;
+        } else {
+            $data['date_to'] = $dmlDateTo;
+        }
+
+        $data['ddlog'] = $ddlog;
+        $data['dmlog'] = $dmlog;
+        $data['tracking'] = $mixed['tracking'];
+        $data['schema_snapshot'] = $mixed['schema_snapshot'];
+
+        return $data;
     }
 
     /**
@@ -703,7 +867,7 @@ class Tracking
         if ($deleteId == (int) $deleteId) {
             unset($data[$whichLog][$deleteId]);
 
-            $successfullyDeleted = Tracker::changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
+            $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
             if ($successfullyDeleted) {
                 $msg = Message::success($message);
             } else {
@@ -714,6 +878,62 @@ class Tracking
         }
 
         return $html;
+    }
+
+    /**
+     * Changes tracking data of a table.
+     *
+     * @param string         $dbName    name of database
+     * @param string         $tableName name of table
+     * @param string         $version   version
+     * @param string         $type      type of data(DDL || DML)
+     * @param string|mixed[] $newData   the new tracking data
+     */
+    public function changeTrackingData(
+        string $dbName,
+        string $tableName,
+        string $version,
+        string $type,
+        string|array $newData,
+    ): bool {
+        if ($type === 'DDL') {
+            $saveTo = 'schema_sql';
+        } elseif ($type === 'DML') {
+            $saveTo = 'data_sql';
+        } else {
+            return false;
+        }
+
+        $date = Util::date('Y-m-d H:i:s');
+
+        $newDataProcessed = '';
+        if (is_array($newData)) {
+            foreach ($newData as $data) {
+                $newDataProcessed .= '# log ' . $date . ' ' . $data['username'] . $data['statement'] . "\n";
+            }
+        } else {
+            $newDataProcessed = $newData;
+        }
+
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
+
+        $sqlQuery = sprintf(
+            'UPDATE %s.%s SET `%s` = %s WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $saveTo,
+            $this->dbi->quoteString($newDataProcessed, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($version, Connection::TYPE_CONTROL),
+        );
+
+        $result = $this->dbi->queryAsControlUser($sqlQuery);
+
+        return (bool) $result;
     }
 
     /**
@@ -892,7 +1112,7 @@ class Tracking
     public function deleteTrackingVersion(string $db, string $table, string $version): string
     {
         $html = '';
-        $versionDeleted = Tracker::deleteTracking($db, $table, $version);
+        $versionDeleted = $this->deleteTracking($db, $table, $version);
         if ($versionDeleted) {
             $msg = Message::success(
                 sprintf(

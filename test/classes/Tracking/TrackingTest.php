@@ -11,9 +11,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use ReflectionClass;
 
 use function __;
@@ -544,5 +546,208 @@ class TrackingTest extends AbstractTestCase
         $this->assertSame($expectedDump, $actual['dump']);
         $this->assertSame('', ini_get('url_rewriter.tags'));
         ini_restore('url_rewriter.tags');
+    }
+
+    /**
+     * Test for deleteTracking()
+     */
+    public function testDeleteTracking(): void
+    {
+        $resultStub = $this->createMock(DummyResult::class);
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $sqlQuery = "/*NOTRACK*/\n"
+            . 'DELETE FROM `pmadb`.`tracking`'
+            . " WHERE `db_name` = 'testdb'"
+            . " AND `table_name` = 'testtable'";
+
+        $dbi->expects($this->exactly(1))
+            ->method('queryAsControlUser')
+            ->with($sqlQuery)
+            ->will($this->returnValue($resultStub));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+
+        $tracking = new Tracking(
+            $this->createStub(SqlQueryForm::class),
+            $this->createStub(Template::class),
+            new Relation($GLOBALS['dbi']),
+            $dbi,
+            $this->createStub(TrackingChecker::class),
+        );
+        $this->assertTrue($tracking->deleteTracking('testdb', 'testtable'));
+    }
+
+    /**
+     * Test for changeTrackingData()
+     */
+    public function testChangeTrackingData(): void
+    {
+        $this->assertFalse(
+            $this->tracking->changeTrackingData('', '', '', '', ''),
+        );
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $sqlQuery1 = 'UPDATE `pmadb`.`tracking`' .
+        " SET `schema_sql` = '# new_data_processed'" .
+        " WHERE `db_name` = 'pma_db'" .
+        " AND `table_name` = 'pma_table'" .
+        " AND `version` = '1.0'";
+
+        $date = Util::date('Y-m-d H:i:s');
+
+        $newData = [
+            ['username' => 'user1', 'statement' => 'test_statement1'],
+            ['username' => 'user2', 'statement' => 'test_statement2'],
+        ];
+
+        $sqlQuery2 = 'UPDATE `pmadb`.`tracking`' .
+        " SET `data_sql` = '# log " . $date . " user1test_statement1\n" .
+        '# log ' . $date . " user2test_statement2\n'" .
+        " WHERE `db_name` = 'pma_db'" .
+        " AND `table_name` = 'pma_table'" .
+        " AND `version` = '1.0'";
+
+        $resultStub1 = $this->createMock(DummyResult::class);
+        $resultStub2 = $this->createMock(DummyResult::class);
+
+        $dbi->method('queryAsControlUser')
+            ->will(
+                $this->returnValueMap(
+                    [[$sqlQuery1, $resultStub1], [$sqlQuery2, $resultStub2]],
+                ),
+            );
+
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+
+        $tracking = new Tracking(
+            $this->createStub(SqlQueryForm::class),
+            $this->createStub(Template::class),
+            new Relation($GLOBALS['dbi']),
+            $dbi,
+            $this->createStub(TrackingChecker::class),
+        );
+
+        $this->assertTrue(
+            $tracking->changeTrackingData(
+                'pma_db',
+                'pma_table',
+                '1.0',
+                'DDL',
+                '# new_data_processed',
+            ),
+        );
+
+        $this->assertTrue(
+            $tracking->changeTrackingData(
+                'pma_db',
+                'pma_table',
+                '1.0',
+                'DML',
+                $newData,
+            ),
+        );
+    }
+
+    /**
+     * Test for getTrackedData()
+     *
+     * @param mixed[] $fetchArrayReturn Value to be returned by mocked fetchArray
+     * @param mixed[] $expectedArray    Expected array
+     *
+     * @dataProvider getTrackedDataProvider
+     */
+    public function testGetTrackedData(array $fetchArrayReturn, array $expectedArray): void
+    {
+        $resultStub = $this->createMock(DummyResult::class);
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('queryAsControlUser')
+            ->will($this->returnValue($resultStub));
+
+        $resultStub->expects($this->once())
+            ->method('fetchAssoc')
+            ->will($this->returnValue($fetchArrayReturn));
+
+        $tracking = new Tracking(
+            $this->createStub(SqlQueryForm::class),
+            $this->createStub(Template::class),
+            new Relation($GLOBALS['dbi']),
+            $dbi,
+            $this->createStub(TrackingChecker::class),
+        );
+
+        $result = $tracking->getTrackedData("pma'db", "pma'table", '1.0');
+
+        $this->assertEquals($expectedArray, $result);
+    }
+
+    /**
+     * Data provider for testGetTrackedData
+     *
+     * @return mixed[] Test data
+     */
+    public static function getTrackedDataProvider(): array
+    {
+        $fetchArrayReturn = [
+            [
+                'schema_sql' => "# log 20-03-2013 23:33:58 user1\nstat1" .
+                "# log 20-03-2013 23:39:58 user2\n",
+                'data_sql' => '# log ',
+                'schema_snapshot' => 'dataschema',
+                'tracking' => 'SELECT, DELETE',
+            ],
+        ];
+
+        $data = [
+            [
+                'date_from' => '20-03-2013 23:33:58',
+                'date_to' => '20-03-2013 23:39:58',
+                'ddlog' => [
+                    ['date' => '20-03-2013 23:33:58', 'username' => 'user1', 'statement' => "\nstat1"],
+                    ['date' => '20-03-2013 23:39:58', 'username' => 'user2', 'statement' => ''],
+                ],
+                'dmlog' => [],
+                'schema_snapshot' => 'dataschema',
+                'tracking' => 'SELECT, DELETE',
+            ],
+        ];
+
+        $fetchArrayReturn[1] = [
+            'schema_sql' => "# log 20-03-2012 23:33:58 user1\n" .
+            "# log 20-03-2012 23:39:58 user2\n",
+            'data_sql' => "# log 20-03-2013 23:33:58 user3\n" .
+            "# log 20-03-2013 23:39:58 user4\n",
+            'schema_snapshot' => 'dataschema',
+            'tracking' => 'SELECT, DELETE',
+        ];
+
+        $data[1] = [
+            'date_from' => '20-03-2012 23:33:58',
+            'date_to' => '20-03-2013 23:39:58',
+            'ddlog' => [
+                ['date' => '20-03-2012 23:33:58', 'username' => 'user1', 'statement' => ''],
+                ['date' => '20-03-2012 23:39:58', 'username' => 'user2', 'statement' => ''],
+            ],
+            'dmlog' => [
+                ['date' => '20-03-2013 23:33:58', 'username' => 'user3', 'statement' => ''],
+                ['date' => '20-03-2013 23:39:58', 'username' => 'user4', 'statement' => ''],
+            ],
+            'schema_snapshot' => 'dataschema',
+            'tracking' => 'SELECT, DELETE',
+        ];
+
+        return [[$fetchArrayReturn[0], $data[0]], [$fetchArrayReturn[1], $data[1]]];
     }
 }

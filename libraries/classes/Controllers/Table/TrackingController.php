@@ -105,7 +105,7 @@ final class TrackingController extends AbstractController
 
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
-            $trackedData = Tracker::getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+            $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
                 $request->getParsedBodyParam('date_from', $trackedData['date_from']),

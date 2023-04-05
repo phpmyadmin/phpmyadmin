@@ -13,7 +13,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -61,7 +60,7 @@ class TrackingController extends AbstractController
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
-            Tracker::deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
+            $this->tracking->deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
             echo Message::success(
                 __('Tracking data deleted successfully.'),
             )->getDisplay();
@@ -84,7 +83,7 @@ class TrackingController extends AbstractController
             if (! empty($selectedTable)) {
                 if ($request->getParsedBodyParam('submit_mult') === 'delete_tracking') {
                     foreach ($selectedTable as $table) {
-                        Tracker::deleteTracking($GLOBALS['db'], $table);
+                        $this->tracking->deleteTracking($GLOBALS['db'], $table);
                     }
 
                     echo Message::success(
@@ -111,7 +110,7 @@ class TrackingController extends AbstractController
         }
 
         // Get tracked data about the database
-        $trackedData = Tracker::getTrackedData($GLOBALS['db'], '', '1');
+        $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], '', '1');
 
         // No tables present and no log exist
         if ($numTables == 0 && count($trackedData['ddlog']) === 0) {
