@@ -99,9 +99,8 @@ final class TrackingController extends AbstractController
 
         $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
 
-        $dateFrom = null;
-        $dateTo = null;
         $users = '';
+        $dateFrom = $dateTo = new DateTimeImmutable();
 
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
@@ -117,9 +116,6 @@ final class TrackingController extends AbstractController
 
             $filterUsers = array_map(trim(...), explode(',', $users));
         }
-
-        $dateFrom ??= new DateTimeImmutable();
-        $dateTo ??= new DateTimeImmutable();
 
         // Prepare export
         if ($reportExport !== null) {
