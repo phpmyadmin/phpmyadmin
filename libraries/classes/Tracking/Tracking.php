@@ -810,28 +810,12 @@ class Tracking
         $html = '';
         if ($deleteDdlog) {
             // Delete ddlog row data
-            $html .= $this->deleteFromTrackingReportLog(
-                $db,
-                $table,
-                $version,
-                $data,
-                'ddlog',
-                'DDL',
-                __('Tracking data definition successfully deleted'),
-            );
+            $html .= $this->deleteFromTrackingReportLog($db, $table, $version, $data, LogTypeEnum::DDL);
         }
 
         if ($deleteDmlog) {
             // Delete dmlog row data
-            $html .= $this->deleteFromTrackingReportLog(
-                $db,
-                $table,
-                $version,
-                $data,
-                'dmlog',
-                'DML',
-                __('Tracking data manipulation successfully deleted'),
-            );
+            $html .= $this->deleteFromTrackingReportLog($db, $table, $version, $data, LogTypeEnum::DML);
         }
 
         return $html;
@@ -840,10 +824,8 @@ class Tracking
     /**
      * Function to delete from a tracking report log
      *
-     * @param mixed[] $data     tracked data
-     * @param string  $whichLog ddlog|dmlog
-     * @param string  $type     DDL|DML
-     * @param string  $message  success message
+     * @param mixed[]     $data    tracked data
+     * @param LogTypeEnum $logType DDL|DML
      *
      * @return string HTML for the message
      */
@@ -852,20 +834,19 @@ class Tracking
         string $table,
         string $version,
         array &$data,
-        string $whichLog,
-        string $type,
-        string $message,
+        LogTypeEnum $logType,
     ): string {
         $html = '';
+        $whichLog = $logType->getLogName();
         $deleteId = $_POST['delete_' . $whichLog];
 
         // Only in case of valid id
         if ($deleteId == (int) $deleteId) {
             unset($data[$whichLog][$deleteId]);
 
-            $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
+            $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $logType, $data[$whichLog]);
             if ($successfullyDeleted) {
-                $msg = Message::success($message);
+                $msg = Message::success($logType->getSuccessMessage());
             } else {
                 $msg = Message::rawError(__('Query error'));
             }
@@ -882,24 +863,16 @@ class Tracking
      * @param string         $dbName    name of database
      * @param string         $tableName name of table
      * @param string         $version   version
-     * @param string         $type      type of data(DDL || DML)
+     * @param LogTypeEnum    $logType   type of data(DDL || DML)
      * @param string|mixed[] $newData   the new tracking data
      */
     public function changeTrackingData(
         string $dbName,
         string $tableName,
         string $version,
-        string $type,
+        LogTypeEnum $logType,
         string|array $newData,
     ): bool {
-        if ($type === 'DDL') {
-            $saveTo = 'schema_sql';
-        } elseif ($type === 'DML') {
-            $saveTo = 'data_sql';
-        } else {
-            return false;
-        }
-
         $date = Util::date('Y-m-d H:i:s');
 
         $newDataProcessed = '';
@@ -920,7 +893,7 @@ class Tracking
             'UPDATE %s.%s SET `%s` = %s WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $saveTo,
+            $logType->getColumnName(),
             $this->dbi->quoteString($newDataProcessed, Connection::TYPE_CONTROL),
             $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
             $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),

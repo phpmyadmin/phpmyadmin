@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Tracking\LogTypeEnum;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
@@ -586,10 +587,6 @@ class TrackingTest extends AbstractTestCase
      */
     public function testChangeTrackingData(): void
     {
-        $this->assertFalse(
-            $this->tracking->changeTrackingData('', '', '', '', ''),
-        );
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -640,7 +637,7 @@ class TrackingTest extends AbstractTestCase
                 'pma_db',
                 'pma_table',
                 '1.0',
-                'DDL',
+                LogTypeEnum::DDL,
                 '# new_data_processed',
             ),
         );
@@ -650,7 +647,7 @@ class TrackingTest extends AbstractTestCase
                 'pma_db',
                 'pma_table',
                 '1.0',
-                'DML',
+                LogTypeEnum::DML,
                 $newData,
             ),
         );
