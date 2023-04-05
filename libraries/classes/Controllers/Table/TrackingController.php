@@ -47,7 +47,6 @@ final class TrackingController extends AbstractController
     {
         $GLOBALS['text_dir'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['msg'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
@@ -74,13 +73,12 @@ final class TrackingController extends AbstractController
             && $toggleActivation !== 'deactivate_now'
             && $reportExport !== 'sqldumpfile'
         ) {
-            $GLOBALS['msg'] = Message::notice(
+            $activeMessage = Message::notice(
                 sprintf(
                     __('Tracking of %s is activated.'),
                     htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
                 ),
-            );
-            $activeMessage = $GLOBALS['msg']->getDisplay();
+            )->getDisplay();
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
@@ -187,8 +185,7 @@ final class TrackingController extends AbstractController
 
         if ($reportExport === 'execution') {
             $this->tracking->exportAsSqlExecution($entries);
-            $GLOBALS['msg'] = Message::success(__('SQL statements executed.'));
-            $message = $GLOBALS['msg']->getDisplay();
+            $message = Message::success(__('SQL statements executed.'))->getDisplay();
         } elseif ($reportExport === 'sqldump') {
             $this->addScriptFiles(['sql.js']);
             $sqlDump = $this->tracking->exportAsSqlDump($entries);
