@@ -49,7 +49,6 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['msg'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['entries'] ??= null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -88,7 +87,7 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
         $trackedData = [];
-        $GLOBALS['entries'] = [];
+        $entries = [];
         $filterUsers = [];
 
         $report = $request->hasBodyParam('report');
@@ -119,18 +118,12 @@ final class TrackingController extends AbstractController
 
         // Prepare export
         if ($reportExport !== null) {
-            $GLOBALS['entries'] = $this->tracking->getEntries(
-                $trackedData,
-                $filterUsers,
-                $logType,
-                $dateFrom,
-                $dateTo,
-            );
+            $entries = $this->tracking->getEntries($trackedData, $filterUsers, $logType, $dateFrom, $dateTo);
         }
 
         // Export as file download
         if ($reportExport !== null && $request->getParsedBodyParam('export_type') === 'sqldumpfile') {
-            $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $GLOBALS['entries']);
+            $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
             $this->response->disable();
             Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
             echo $downloadInfo['dump'];
@@ -193,12 +186,12 @@ final class TrackingController extends AbstractController
         $sqlDump = '';
 
         if ($reportExport === 'execution') {
-            $this->tracking->exportAsSqlExecution($GLOBALS['entries']);
+            $this->tracking->exportAsSqlExecution($entries);
             $GLOBALS['msg'] = Message::success(__('SQL statements executed.'));
             $message = $GLOBALS['msg']->getDisplay();
         } elseif ($reportExport === 'sqldump') {
             $this->addScriptFiles(['sql.js']);
-            $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['entries']);
+            $sqlDump = $this->tracking->exportAsSqlDump($entries);
         }
 
         $schemaSnapshot = '';

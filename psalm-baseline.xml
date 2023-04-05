@@ -4419,7 +4419,6 @@
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['entries']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
     </InvalidArrayOffset>
@@ -4427,10 +4426,9 @@
       <code>$version</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['entries']]]></code>
+      <code>$entries</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['entries']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code>$reportExport</code>
