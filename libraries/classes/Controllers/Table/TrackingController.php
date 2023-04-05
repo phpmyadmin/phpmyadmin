@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tracking\LogTypeEnum;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
@@ -218,15 +219,24 @@ final class TrackingController extends AbstractController
         }
 
         $trackingReportRows = '';
-        if ($report && ($request->hasBodyParam('delete_ddlog') || $request->hasBodyParam('delete_dmlog'))) {
-            $trackingReportRows = $this->tracking->deleteTrackingReportRows(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-                $trackedData,
-                $request->hasBodyParam('delete_ddlog'),
-                $request->hasBodyParam('delete_dmlog'),
-            );
+        if ($report) {
+            if ($request->hasBodyParam('delete_ddlog')) {
+                $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
+                    $versionParam,
+                    $trackedData,
+                    LogTypeEnum::DDL,
+                );
+            } elseif ($request->hasBodyParam('delete_dmlog')) {
+                $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
+                    $versionParam,
+                    $trackedData,
+                    LogTypeEnum::DML,
+                );
+            }
         }
 
         $trackingReport = '';

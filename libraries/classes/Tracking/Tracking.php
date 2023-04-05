@@ -793,35 +793,6 @@ class Tracking
     }
 
     /**
-     * Function to handle the tracking report
-     *
-     * @param mixed[] $data tracked data
-     *
-     * @return string HTML for the message
-     */
-    public function deleteTrackingReportRows(
-        string $db,
-        string $table,
-        string $version,
-        array &$data,
-        bool $deleteDdlog,
-        bool $deleteDmlog,
-    ): string {
-        $html = '';
-        if ($deleteDdlog) {
-            // Delete ddlog row data
-            $html .= $this->deleteFromTrackingReportLog($db, $table, $version, $data, LogTypeEnum::DDL);
-        }
-
-        if ($deleteDmlog) {
-            // Delete dmlog row data
-            $html .= $this->deleteFromTrackingReportLog($db, $table, $version, $data, LogTypeEnum::DML);
-        }
-
-        return $html;
-    }
-
-    /**
      * Function to delete from a tracking report log
      *
      * @param mixed[]     $data    tracked data
