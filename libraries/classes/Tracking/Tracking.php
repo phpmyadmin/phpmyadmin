@@ -804,7 +804,7 @@ class Tracking
         string $db,
         string $table,
         string $version,
-        array &$data,
+        array $data,
         LogTypeEnum $logType,
         int $deleteId,
     ): string {

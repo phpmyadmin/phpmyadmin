@@ -214,6 +214,8 @@ final class TrackingController extends AbstractController
                     LogTypeEnum::DDL,
                     (int) $request->getParsedBodyParam('delete_ddlog'),
                 );
+                // After deletion reload data from the database
+                $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
             } elseif ($request->hasBodyParam('delete_dmlog')) {
                 $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
                     $GLOBALS['db'],
@@ -223,6 +225,8 @@ final class TrackingController extends AbstractController
                     LogTypeEnum::DML,
                     (int) $request->getParsedBodyParam('delete_dmlog'),
                 );
+                // After deletion reload data from the database
+                $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
             }
         }
 
