@@ -4538,8 +4538,7 @@
   </file>
   <file src="libraries/classes/CreateAddField.php">
     <LessSpecificReturnStatement occurrences="1"/>
-    <MixedArgument occurrences="13">
-      <code>$_POST['comment']</code>
+    <MixedArgument occurrences="12">
       <code>$_POST['field_name'][$column['col_index']]</code>
       <code>$fieldPrimary[0]</code>
       <code>$index</code>
@@ -14965,7 +14964,9 @@
     <DocblockTypeContradiction occurrences="1">
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <InvalidScalarArgument occurrences="1">
+    <InvalidScalarArgument occurrences="3">
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
     <RedundantCondition occurrences="3">
