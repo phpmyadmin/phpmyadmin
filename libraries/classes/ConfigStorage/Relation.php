@@ -1586,6 +1586,11 @@ class Relation
         $createQueries = null;
         $foundOne = false;
         foreach ($tablesToFeatures as $table => $feature) {
+            if (($GLOBALS['cfg']['Server'][$feature] ?? null) === false) {
+                // The feature is disabled by the user in config
+                continue;
+            }
+
             // Check if the table already exists
             // use the possible replaced name first and fallback on the table name
             // if no replacement exists
