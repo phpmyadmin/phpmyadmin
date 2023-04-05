@@ -1391,4 +1391,10 @@ const Sql = {
     initProfilingTables: initProfilingTables,
 };
 
+declare global {
+    interface Window {
+        Sql: typeof Sql;
+    }
+}
+
 window.Sql = Sql;

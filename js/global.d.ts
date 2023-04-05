@@ -9,6 +9,12 @@ declare var maxInputVars: number;
 
 declare function sprintf(format: string, ...values: (string|number)[]): string;
 
+interface Window {
+    ol: any;
+
+    drawOpenLayers: () => any;
+}
+
 interface JQuery {
     getPostData: () => string;
 
@@ -27,4 +33,6 @@ interface JQuery {
 
 interface JQueryStatic {
     timepicker: JQueryUI.Datepicker;
+
+    jqplot: any;
 }

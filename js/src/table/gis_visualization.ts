@@ -40,8 +40,6 @@ function zoomAndPan () {
     $('path.vector', gisSvg).attr('stroke-width', 0.5 / scale);
 }
 
-window.zoomAndPan = zoomAndPan;
-
 /**
  * Initially loads either SVG or OSM visualization based on the choice.
  */
@@ -52,8 +50,6 @@ function selectVisualization () {
         $('#placeholder').hide();
     }
 }
-
-window.selectVisualization = selectVisualization;
 
 /**
  * Adds necessary styles to the div that contains the openStreetMap.
@@ -69,16 +65,12 @@ function styleOSM () {
     $('#openlayersmap').css(cssObj);
 }
 
-window.styleOSM = styleOSM;
-
 /**
  * Store a reference to the gis svg element.
  */
 function storeGisSvgRef () {
     gisSvg = $('#placeholder').find('svg').get(0);
 }
-
-window.storeGisSvgRef = storeGisSvgRef;
 
 /**
  * Adds controls for zooming and panning.
@@ -101,8 +93,6 @@ function addZoomPanControllers () {
         '<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">'
     );
 }
-
-window.addZoomPanControllers = addZoomPanControllers;
 
 /**
  * Resizes the GIS visualization to fit into the space available.
@@ -370,3 +360,19 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         $('#tooltip').remove();
     });
 });
+
+declare global {
+    interface Window {
+        zoomAndPan: typeof zoomAndPan;
+        selectVisualization: typeof selectVisualization;
+        styleOSM: typeof styleOSM;
+        storeGisSvgRef: typeof storeGisSvgRef;
+        addZoomPanControllers: typeof addZoomPanControllers;
+    }
+}
+
+window.zoomAndPan = zoomAndPan;
+window.selectVisualization = selectVisualization;
+window.styleOSM = styleOSM;
+window.storeGisSvgRef = storeGisSvgRef;
+window.addZoomPanControllers = addZoomPanControllers;

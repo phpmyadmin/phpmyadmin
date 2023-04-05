@@ -1565,4 +1565,10 @@ var ConsoleDebug = {
     }
 };
 
+declare global {
+    interface Window {
+        Console: typeof Console;
+    }
+}
+
 export { Console };

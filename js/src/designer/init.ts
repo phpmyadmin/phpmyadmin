@@ -319,6 +319,20 @@ AJAX.registerTeardown('designer/init.js', function () {
     $('.trigger').off('click');
 });
 
+declare global {
+    interface Window {
+        designerConfig: {
+            db: string;
+            scriptTables: { j_tabs: any[], h_tabs: any[] };
+            scriptContr: any[];
+            server: number;
+            scriptDisplayField: any[];
+            displayPage: number;
+            tablesEnabled: boolean;
+        };
+    }
+}
+
 AJAX.registerOnload('designer/init.js', function () {
     $('.trigger').on('click', function () {
         $('.panel').toggle('fast');
@@ -328,7 +342,6 @@ AJAX.registerOnload('designer/init.js', function () {
         return false;
     });
 
-    // @ts-ignore
     const configValues = window.designerConfig;
 
     DesignerConfig.jTabs = configValues.scriptTables.j_tabs;

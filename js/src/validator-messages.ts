@@ -25,4 +25,10 @@ function extendingValidatorMessages () {
     });
 }
 
+declare global {
+    interface Window {
+        extendingValidatorMessages: typeof extendingValidatorMessages;
+    }
+}
+
 window.extendingValidatorMessages = extendingValidatorMessages;

@@ -3,6 +3,13 @@ import { AJAX } from './modules/ajax.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 import getImageTag from './modules/functions/getImageTag.ts';
+import type * as TraceKit from 'tracekit/tracekit.d.ts';
+
+declare global {
+    interface Window {
+        TraceKit: typeof TraceKit;
+    }
+}
 
 /**
  * general function, usually for data manipulation pages

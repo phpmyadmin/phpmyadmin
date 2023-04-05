@@ -887,7 +887,12 @@ DesignerHistory.buildQuery = function () {
     });
 };
 
-// @ts-ignore
+declare global {
+    interface Window {
+        DesignerHistory: typeof DesignerHistory;
+    }
+}
+
 window.DesignerHistory = DesignerHistory;
 
 export { DesignerHistory };

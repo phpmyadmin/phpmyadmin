@@ -224,8 +224,6 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
     }
 }
 
-window.verifyAfterSearchFieldChange = verifyAfterSearchFieldChange;
-
 /**
  * Validate the an input contains multiple int values
  * @param {jQuery} jqueryInput the Jquery object
@@ -462,7 +460,6 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     }
 }
 
-window.verificationsAfterFieldChange = verificationsAfterFieldChange;
 /* End of fields validation*/
 
 /**
@@ -941,4 +938,14 @@ function changeValueFieldType (elem, searchIndex) {
     }
 }
 
+declare global {
+    interface Window {
+        verifyAfterSearchFieldChange: typeof verifyAfterSearchFieldChange;
+        verificationsAfterFieldChange: typeof verificationsAfterFieldChange;
+        changeValueFieldType: typeof changeValueFieldType;
+    }
+}
+
+window.verifyAfterSearchFieldChange = verifyAfterSearchFieldChange;
+window.verificationsAfterFieldChange = verificationsAfterFieldChange;
 window.changeValueFieldType = changeValueFieldType;

@@ -3853,6 +3853,13 @@ $.fn.confirm = Functions.confirm;
 $.fn.sortTable = Functions.sortTable;
 $.fn.getPostData = Functions.getPostData;
 
+declare global {
+    interface Window {
+        codeMirrorEditor: CodeMirror.EditorFromTextArea | boolean | null;
+        Functions: typeof Functions;
+    }
+}
+
 window.Functions = Functions;
 
 export { Functions };

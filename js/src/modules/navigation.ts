@@ -1414,6 +1414,12 @@ const Navigation = {
     update: update,
 };
 
+declare global {
+    interface Window {
+        Navigation: typeof Navigation;
+    }
+}
+
 window.Navigation = Navigation;
 
 export { Navigation };

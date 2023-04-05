@@ -213,7 +213,7 @@ function getIdPrefix (element) {
 let validate = {};
 
 // form validator list
-window.validators = {
+const validators = {
     // regexp: numeric value
     regExpNumeric: /^[0-9]+$/,
     // regexp: extract parts from PCRE expression
@@ -842,6 +842,14 @@ const Config = {
     on: on,
 };
 
+declare global {
+    interface Window {
+        validators: typeof validators;
+        Config: typeof Config;
+    }
+}
+
+window.validators = validators;
 window.Config = Config;
 
 export { Config };

@@ -126,8 +126,6 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     window.gisEditorLoaded = true;
 }
 
-window.loadJSAndGISEditor = loadJSAndGISEditor;
-
 /**
  * Loads the GIS editor via AJAX
  *
@@ -156,8 +154,6 @@ function loadGISEditor (value, field, type, inputName) {
         }
     }, 'json');
 }
-
-window.loadGISEditor = loadGISEditor;
 
 /**
  * Opens up the dialog for the GIS data editor.
@@ -188,8 +184,6 @@ function openGISEditor () {
     $background.fadeIn('fast');
     $gisEditor.fadeIn('fast');
 }
-
-window.openGISEditor = openGISEditor;
 
 /**
  * Prepare and insert the GIS data in Well Known Text format
@@ -402,3 +396,16 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         $noOfGeomsInput.val(noOfGeoms + 1);
     });
 });
+
+declare global {
+    interface Window {
+        gisEditorLoaded: boolean;
+        loadJSAndGISEditor: typeof loadJSAndGISEditor;
+        loadGISEditor: typeof loadGISEditor;
+        openGISEditor: typeof openGISEditor;
+    }
+}
+
+window.loadJSAndGISEditor = loadJSAndGISEditor;
+window.loadGISEditor = loadGISEditor;
+window.openGISEditor = openGISEditor;
