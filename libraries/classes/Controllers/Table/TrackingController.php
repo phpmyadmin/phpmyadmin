@@ -64,6 +64,7 @@ final class TrackingController extends AbstractController
         $activeMessage = '';
         $toggleActivation = $request->getParsedBodyParam('toggle_activation');
         $reportExport = $request->getParsedBodyParam('report_export');
+        $reportExportType = $request->getParsedBodyParam('export_type');
 
         $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
         if (
@@ -71,7 +72,7 @@ final class TrackingController extends AbstractController
             && isset($trackedTables[$GLOBALS['table']])
             && $trackedTables[$GLOBALS['table']]->active
             && $toggleActivation !== 'deactivate_now'
-            && $reportExport !== 'sqldumpfile'
+            && $reportExportType !== 'sqldumpfile'
         ) {
             $activeMessage = Message::notice(
                 sprintf(
@@ -119,7 +120,7 @@ final class TrackingController extends AbstractController
             $entries = $this->tracking->getEntries($trackedData, $filterUsers, $logType, $dateFrom, $dateTo);
 
             // Export as file download
-            if ($request->getParsedBodyParam('export_type') === 'sqldumpfile') {
+            if ($reportExportType === 'sqldumpfile') {
                 $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
                 $this->response->disable();
                 Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
@@ -183,10 +184,10 @@ final class TrackingController extends AbstractController
         $message = '';
         $sqlDump = '';
 
-        if ($reportExport === 'execution') {
+        if ($reportExportType === 'execution') {
             $this->tracking->exportAsSqlExecution($entries);
             $message = Message::success(__('SQL statements executed.'))->getDisplay();
-        } elseif ($reportExport === 'sqldump') {
+        } elseif ($reportExportType === 'sqldump') {
             $this->addScriptFiles(['sql.js']);
             $sqlDump = $this->tracking->exportAsSqlDump($entries);
         }
