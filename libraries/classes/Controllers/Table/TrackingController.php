@@ -117,16 +117,16 @@ final class TrackingController extends AbstractController
         // Prepare export
         if ($reportExport !== null) {
             $entries = $this->tracking->getEntries($trackedData, $filterUsers, $logType, $dateFrom, $dateTo);
-        }
 
-        // Export as file download
-        if ($reportExport !== null && $request->getParsedBodyParam('export_type') === 'sqldumpfile') {
-            $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
-            $this->response->disable();
-            Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
-            echo $downloadInfo['dump'];
+            // Export as file download
+            if ($request->getParsedBodyParam('export_type') === 'sqldumpfile') {
+                $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
+                $this->response->disable();
+                Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
+                echo $downloadInfo['dump'];
 
-            return;
+                return;
+            }
         }
 
         $actionMessage = '';
