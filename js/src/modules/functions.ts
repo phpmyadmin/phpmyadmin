@@ -16,15 +16,13 @@ import isStorageSupported from './functions/isStorageSupported.ts';
 
 /**
  * Object containing CodeMirror editor of the query editor in SQL tab.
- * @type {(object|boolean|null)}
  */
-window.codeMirrorEditor = false;
+window.codeMirrorEditor = null;
 
 /**
  * Object containing CodeMirror editor of the inline query editor.
- * @type {(object|boolean|null)}
  */
-let codeMirrorInlineEditor = false;
+let codeMirrorInlineEditor: CodeMirror.EditorFromTextArea | null = null;
 
 /**
  * Shows if Table/Column name autocomplete AJAX is in progress.
@@ -216,10 +214,8 @@ function addDateTimePicker () {
  * @param options     optional options for CodeMirror
  * @param {'vertical'|'horizontal'|'both'} resize optional resizing ('vertical', 'horizontal', 'both')
  * @param lintOptions additional options for lint
- *
- * @return {object|null}
  */
-function getSqlEditor ($textarea, options = undefined, resize = undefined, lintOptions = undefined) {
+function getSqlEditor ($textarea, options = undefined, resize = undefined, lintOptions = undefined): CodeMirror.EditorFromTextArea | null {
     if ($textarea.length === 0 || typeof window.CodeMirror === 'undefined') {
         return null;
     }
@@ -1079,6 +1075,7 @@ function teardownSqlQueryEditEvents () {
     $(document).off('click', 'input#sql_query_edit_save');
     $(document).off('click', 'input#sql_query_edit_discard');
     if (window.codeMirrorEditor) {
+        // @ts-ignore
         window.codeMirrorEditor.off('blur');
     } else {
         $(document).off('blur', '#sqlquery');
@@ -1093,7 +1090,7 @@ function teardownSqlQueryEditEvents () {
         $('#sql_query_edit').text(codeMirrorInlineEditor.getValue());
         $(codeMirrorInlineEditor.getWrapperElement()).off('keydown');
         codeMirrorInlineEditor.toTextArea();
-        codeMirrorInlineEditor = false;
+        codeMirrorInlineEditor = null;
     }
 
     if (window.codeMirrorEditor) {
@@ -3290,7 +3287,7 @@ function teardownCodeMirrorEditor (): void {
 
     $('#sqlquery').text(window.codeMirrorEditor.getValue());
     window.codeMirrorEditor.toTextArea();
-    window.codeMirrorEditor = false;
+    window.codeMirrorEditor = null;
 }
 
 function onloadLockPage (): void {
@@ -3855,7 +3852,7 @@ $.fn.getPostData = Functions.getPostData;
 
 declare global {
     interface Window {
-        codeMirrorEditor: CodeMirror.EditorFromTextArea | boolean | null;
+        codeMirrorEditor: CodeMirror.EditorFromTextArea | null;
         Functions: typeof Functions;
     }
 }

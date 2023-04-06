@@ -426,6 +426,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('scroll', window);
     $(document).off('keyup', '.filter_rows');
     if (window.codeMirrorEditor) {
+        // @ts-ignore
         window.codeMirrorEditor.off('change');
     } else {
         $('#sqlquery').off('input propertychange');
