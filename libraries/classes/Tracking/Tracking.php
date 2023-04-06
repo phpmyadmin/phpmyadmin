@@ -799,11 +799,9 @@ class Tracking
         LogTypeEnum $logType,
         array $newData,
     ): bool {
-        $date = Util::date('Y-m-d H:i:s');
-
         $newDataProcessed = '';
         foreach ($newData as $data) {
-            $newDataProcessed .= '# log ' . $date . ' ' . $data['username'] . $data['statement'] . "\n";
+            $newDataProcessed .= '# log ' . $data['date'] . ' ' . $data['username'] . $data['statement'] . "\n";
         }
 
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;

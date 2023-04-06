@@ -613,8 +613,8 @@ class TrackingTest extends AbstractTestCase
         $date = Util::date('Y-m-d H:i:s');
 
         $newData = [
-            ['date' => '', 'username' => 'user1', 'statement' => 'test_statement1'],
-            ['date' => '', 'username' => 'user2', 'statement' => 'test_statement2'],
+            ['date' => $date, 'username' => 'user1', 'statement' => 'test_statement1'],
+            ['date' => $date, 'username' => 'user2', 'statement' => 'test_statement2'],
         ];
 
         $sqlQuery2 = 'UPDATE `pmadb`.`tracking`' .
