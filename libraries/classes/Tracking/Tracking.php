@@ -100,16 +100,14 @@ class Tracking
         $tmpEntries = [];
         $id = 0;
         foreach ($data as $entry) {
-            $timestamp = strtotime($entry['date']);
             $filteredUser = in_array($entry['username'], $filterUsers);
             if (
-                $timestamp >= $dateFrom->getTimestamp()
-                && $timestamp <= $dateTo->getTimestamp()
+                $this->isDateBetweenInclusive(new DateTimeImmutable($entry['date']), $dateFrom, $dateTo)
                 && (in_array('*', $filterUsers) || $filteredUser)
             ) {
                 $tmpEntries[] = [
                     'id' => $id,
-                    'timestamp' => $timestamp,
+                    'timestamp' => strtotime($entry['date']),
                     'username' => $entry['username'],
                     'statement' => $entry['statement'],
                 ];
@@ -551,10 +549,8 @@ class Tracking
         $offset = $lineNumber;
         $entries = [];
         foreach ($logData as $entry) {
-            $timestamp = strtotime($entry['date']);
             if (
-                $timestamp >= $dateFrom->getTimestamp()
-                && $timestamp <= $dateTo->getTimestamp()
+                $this->isDateBetweenInclusive(new DateTimeImmutable($entry['date']), $dateFrom, $dateTo)
                 && (in_array('*', $filterUsers)
                 || in_array($entry['username'], $filterUsers))
             ) {
@@ -1169,5 +1165,13 @@ class Tracking
             'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
         ]);
+    }
+
+    private function isDateBetweenInclusive(
+        DateTimeImmutable $date,
+        DateTimeImmutable $start,
+        DateTimeImmutable $end,
+    ): bool {
+        return $date >= $start && $date <= $end;
     }
 }
