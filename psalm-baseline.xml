@@ -4424,7 +4424,7 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$reportExport</code>
+      <code>$reportExportType</code>
       <code>$selectedVersions</code>
       <code>$submitMult</code>
       <code>$toggleActivation</code>

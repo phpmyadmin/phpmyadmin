@@ -63,7 +63,6 @@ final class TrackingController extends AbstractController
 
         $activeMessage = '';
         $toggleActivation = $request->getParsedBodyParam('toggle_activation');
-        $reportExport = $request->getParsedBodyParam('report_export');
         $reportExportType = $request->getParsedBodyParam('export_type');
 
         $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
@@ -101,7 +100,7 @@ final class TrackingController extends AbstractController
         $dateFrom = $dateTo = new DateTimeImmutable();
 
         // Init vars for tracking report
-        if ($report || $reportExport !== null) {
+        if ($report || $reportExportType !== null) {
             $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
@@ -116,7 +115,7 @@ final class TrackingController extends AbstractController
         }
 
         // Prepare export
-        if ($reportExport !== null) {
+        if ($reportExportType !== null) {
             $entries = $this->tracking->getEntries($trackedData, $filterUsers, $logType, $dateFrom, $dateTo);
 
             // Export as file download
@@ -232,7 +231,7 @@ final class TrackingController extends AbstractController
         }
 
         $trackingReport = '';
-        if ($report || $reportExport !== null) {
+        if ($report || $reportExportType !== null) {
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $trackedData,
                 $GLOBALS['urlParams'],

@@ -432,7 +432,6 @@ class Tracking
             'date_from' => $dateFrom->format('Y-m-d H:i:s'),
             'date_to' => $dateTo->format('Y-m-d H:i:s'),
             'users' => $users,
-            'report_export' => 'true',
         ]);
 
         $strExport1 = '<select name="export_type">'
