@@ -48,7 +48,6 @@ class VariablesController extends AbstractController
         $this->addScriptFiles([
             'server/status/variables.js',
             'vendor/jquery/jquery.tablesorter.js',
-            'server/status/sorter.js',
         ]);
 
         $flush = $request->getParsedBodyParam('flush');

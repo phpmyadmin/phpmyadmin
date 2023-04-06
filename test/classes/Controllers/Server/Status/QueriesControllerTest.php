@@ -74,65 +74,28 @@ class QueriesControllerTest extends AbstractTestCase
         $usedQueries = $this->data->usedQueries;
         $totalQueries = array_sum($usedQueries);
 
-        $questionsFromStart = __('Questions since startup:')
-            . '    ' . Util::formatNumber($totalQueries, 0);
+        $questionsFromStart = __('Questions since startup:') . ' ' . Util::formatNumber($totalQueries, 0);
 
-        $this->assertStringContainsString('<h3 id="serverstatusqueries">', $html);
+        $this->assertStringContainsString('<h3>', $html);
         $this->assertStringContainsString($questionsFromStart, $html);
 
-        $this->assertStringContainsString(
-            __('per hour:'),
-            $html,
-        );
-        $this->assertStringContainsString(
-            Util::formatNumber($totalQueries * $hourFactor, 0),
-            $html,
-        );
+        $this->assertStringContainsString('per hour:', $html);
+        $this->assertStringContainsString(Util::formatNumber($totalQueries * $hourFactor, 0), $html);
 
         $valuePerMinute = Util::formatNumber($totalQueries * 60 / $this->data->status['Uptime'], 0);
-        $this->assertStringContainsString(
-            __('per minute:'),
-            $html,
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($valuePerMinute),
-            $html,
-        );
+        $this->assertStringContainsString('per minute:', $html);
+        $this->assertStringContainsString(htmlspecialchars($valuePerMinute), $html);
 
-        $this->assertStringContainsString(
-            __('Statements'),
-            $html,
-        );
+        $this->assertStringContainsString('Statements', $html);
 
-        $this->assertStringContainsString(
-            htmlspecialchars('change db'),
-            $html,
-        );
+        $this->assertStringContainsString('Change Db', $html);
         $this->assertStringContainsString('54', $html);
-        $this->assertStringContainsString(
-            htmlspecialchars('select'),
-            $html,
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars('set option'),
-            $html,
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars('show databases'),
-            $html,
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars('show status'),
-            $html,
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars('show tables'),
-            $html,
-        );
+        $this->assertStringContainsString('Select', $html);
+        $this->assertStringContainsString('Set Option', $html);
+        $this->assertStringContainsString('Show Databases', $html);
+        $this->assertStringContainsString('Show Status', $html);
+        $this->assertStringContainsString('Show Tables', $html);
 
-        $this->assertStringContainsString(
-            '<div id="serverstatusquerieschart" class="w-100 col-12 col-md-6" data-chart="',
-            $html,
-        );
+        $this->assertStringContainsString('<canvas id="query-statistics-chart" data-chart-data="', $html);
     }
 }

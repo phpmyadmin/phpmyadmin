@@ -68,7 +68,6 @@ module.exports = [
             'server/status/monitor': rootPath + '/js/src/server/status/monitor.ts',
             'server/status/processes': rootPath + '/js/src/server/status/processes.ts',
             'server/status/queries': rootPath + '/js/src/server/status/queries.ts',
-            'server/status/sorter': rootPath + '/js/src/server/status/sorter.ts',
             'server/status/variables': rootPath + '/js/src/server/status/variables.ts',
             'server/user_groups': rootPath + '/js/src/server/user_groups.ts',
             'server/variables': rootPath + '/js/src/server/variables.ts',
@@ -173,6 +172,7 @@ module.exports = [
                     { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.canvasAxisLabelRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js' },
                     { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.cursor.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.cursor.js' },
                     { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.highlighter.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.highlighter.js' },
+                    { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js', to: publicPath + '/js/vendor/chart.umd.js' },
                 ],
             }),
             new WebpackConcatPlugin({

@@ -1951,6 +1951,11 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/QueriesController.php
+
+		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/QueriesController.php
