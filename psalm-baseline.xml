@@ -4432,15 +4432,7 @@
     </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
-      <code>$trackedData</code>
-      <code>$trackedData</code>
-      <code><![CDATA[$trackedData->ddlog]]></code>
-      <code><![CDATA[$trackedData->dmlog]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$trackedData->ddlog]]></code>
-      <code><![CDATA[$trackedData->dmlog]]></code>
-    </PossiblyNullPropertyFetch>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
     <InvalidArrayOffset>

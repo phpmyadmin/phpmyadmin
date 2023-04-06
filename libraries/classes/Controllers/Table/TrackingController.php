@@ -84,11 +84,6 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
-        $trackedData = null;
-        $entries = [];
-        $filterUsers = [];
-
-        $report = $request->hasBodyParam('report');
         /** @var string $versionParam */
         $versionParam = $request->getParsedBodyParam('version');
         /** @var string $tableParam */
@@ -96,11 +91,18 @@ final class TrackingController extends AbstractController
 
         $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
 
-        $users = '';
-        $dateFrom = $dateTo = new DateTimeImmutable();
+        $message = '';
+        $sqlDump = '';
+        $deleteVersion = '';
+        $createVersion = '';
+        $deactivateTracking = '';
+        $activateTracking = '';
+        $schemaSnapshot = '';
+        $trackingReportRows = '';
+        $trackingReport = '';
 
         // Init vars for tracking report
-        if ($report || $reportExportType !== null) {
+        if ($request->hasBodyParam('report')) {
             $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
@@ -112,99 +114,31 @@ final class TrackingController extends AbstractController
             $users = $request->getParsedBodyParam('users', '*');
 
             $filterUsers = array_map(trim(...), explode(',', $users));
-        }
 
-        // Prepare export
-        if ($reportExportType !== null) {
-            $entries = $this->tracking->getEntries($trackedData, $filterUsers, $logType, $dateFrom, $dateTo);
+            // Prepare export
+            if ($reportExportType !== null) {
+                $entries = $this->tracking->getEntries($trackedData, $filterUsers, $logType, $dateFrom, $dateTo);
 
-            // Export as file download
-            if ($reportExportType === 'sqldumpfile') {
-                $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
-                $this->response->disable();
-                Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
-                echo $downloadInfo['dump'];
+                // Export as file download
+                if ($reportExportType === 'sqldumpfile') {
+                    $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
+                    $this->response->disable();
+                    Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
+                    echo $downloadInfo['dump'];
 
-                return;
-            }
-        }
-
-        $actionMessage = '';
-        $submitMult = $request->getParsedBodyParam('submit_mult');
-        $selectedVersions = $request->getParsedBodyParam('selected_versions');
-        if ($submitMult !== null) {
-            if (is_array($selectedVersions) && $selectedVersions !== []) {
-                if ($submitMult === 'delete_version') {
-                    foreach ($selectedVersions as $version) {
-                        $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $version);
-                    }
-
-                    $actionMessage = Message::success(
-                        __('Tracking versions deleted successfully.'),
-                    )->getDisplay();
+                    return;
                 }
-            } else {
-                $actionMessage = Message::notice(
-                    __('No versions selected.'),
-                )->getDisplay();
+
+                // Export as SQL execution
+                if ($reportExportType === 'execution') {
+                    $this->tracking->exportAsSqlExecution($entries);
+                    $message = Message::success(__('SQL statements executed.'))->getDisplay();
+                } elseif ($reportExportType === 'sqldump') {
+                    $this->addScriptFiles(['sql.js']);
+                    $sqlDump = $this->tracking->exportAsSqlDump($entries);
+                }
             }
-        }
 
-        $deleteVersion = '';
-        if ($request->hasBodyParam('submit_delete_version')) {
-            $deleteVersion = $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
-        }
-
-        $createVersion = '';
-        if ($request->hasBodyParam('submit_create_version')) {
-            $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
-        }
-
-        $deactivateTracking = '';
-        $activateTracking = '';
-
-        if ($toggleActivation === 'deactivate_now') {
-            $deactivateTracking = $this->tracking->changeTracking(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-                'deactivate',
-            );
-        } elseif ($toggleActivation === 'activate_now') {
-            $activateTracking = $this->tracking->changeTracking(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-                'activate',
-            );
-        }
-
-        // Export as SQL execution
-        $message = '';
-        $sqlDump = '';
-
-        if ($reportExportType === 'execution') {
-            $this->tracking->exportAsSqlExecution($entries);
-            $message = Message::success(__('SQL statements executed.'))->getDisplay();
-        } elseif ($reportExportType === 'sqldump') {
-            $this->addScriptFiles(['sql.js']);
-            $sqlDump = $this->tracking->exportAsSqlDump($entries);
-        }
-
-        $schemaSnapshot = '';
-        if ($request->hasBodyParam('snapshot')) {
-            /** @var string $db */
-            $db = $request->getParsedBodyParam('db');
-            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
-                $db,
-                $tableParam,
-                $versionParam,
-                $GLOBALS['urlParams'],
-            );
-        }
-
-        $trackingReportRows = '';
-        if ($report) {
             if ($request->hasBodyParam('delete_ddlog')) {
                 $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
                     $GLOBALS['db'],
@@ -228,10 +162,7 @@ final class TrackingController extends AbstractController
                 // After deletion reload data from the database
                 $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
             }
-        }
 
-        $trackingReport = '';
-        if ($report || $reportExportType !== null) {
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $trackedData,
                 $GLOBALS['urlParams'],
@@ -241,6 +172,62 @@ final class TrackingController extends AbstractController
                 $dateFrom,
                 $dateTo,
                 $users,
+            );
+        }
+
+        $actionMessage = '';
+        $submitMult = $request->getParsedBodyParam('submit_mult');
+        $selectedVersions = $request->getParsedBodyParam('selected_versions');
+        if ($submitMult !== null) {
+            if (is_array($selectedVersions) && $selectedVersions !== []) {
+                if ($submitMult === 'delete_version') {
+                    foreach ($selectedVersions as $version) {
+                        $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $version);
+                    }
+
+                    $actionMessage = Message::success(
+                        __('Tracking versions deleted successfully.'),
+                    )->getDisplay();
+                }
+            } else {
+                $actionMessage = Message::notice(
+                    __('No versions selected.'),
+                )->getDisplay();
+            }
+        }
+
+        if ($request->hasBodyParam('submit_delete_version')) {
+            $deleteVersion = $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+        }
+
+        if ($request->hasBodyParam('submit_create_version')) {
+            $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+        }
+
+        if ($toggleActivation === 'deactivate_now') {
+            $deactivateTracking = $this->tracking->changeTracking(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $versionParam,
+                'deactivate',
+            );
+        } elseif ($toggleActivation === 'activate_now') {
+            $activateTracking = $this->tracking->changeTracking(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $versionParam,
+                'activate',
+            );
+        }
+
+        if ($request->hasBodyParam('snapshot')) {
+            /** @var string $db */
+            $db = $request->getParsedBodyParam('db');
+            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
+                $db,
+                $tableParam,
+                $versionParam,
+                $GLOBALS['urlParams'],
             );
         }
 
