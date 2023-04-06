@@ -885,7 +885,7 @@ class Tracking
 
         // Replace all multiple whitespaces by a single space
         $table = htmlspecialchars((string) preg_replace('/\s+/', ' ', $table));
-        $dump = '# ' . sprintf(__('Tracking report for table `%s`'), $table) . "\n" . '# ' . date('Y-m-d H:i:s') . "\n";
+        $dump = '# ' . sprintf(__('Tracking report for table `%s`'), $table) . "\n" . '# ' . date('Y-m-d H:i:sP') . "\n";
         foreach ($entries as $entry) {
             $dump .= $entry['statement'];
         }

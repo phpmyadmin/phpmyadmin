@@ -553,7 +553,7 @@ class TrackingTest extends AbstractTestCase
         ini_set('url_rewriter.tags', 'a=href,area=href,frame=src,form=,fieldset=');
         $entries = [['statement' => 'first statement'], ['statement' => 'second statement']];
         $expectedDump = '# Tracking report for table `test&gt; table`' . "\n"
-            . '# ' . date('Y-m-d H:i:s') . "\n"
+            . '# ' . date('Y-m-d H:i:sP') . "\n"
             . 'first statementsecond statement';
         $actual = $tracking->getDownloadInfoForExport('test>  table', $entries);
         $this->assertSame('log_test&gt; table.sql', $actual['filename']);
