@@ -300,7 +300,7 @@ const DatabaseTriggers = {
                     classes: {
                         'ui-dialog-titlebar-close': 'btn-close'
                     },
-                    width: 700,
+                    width: '70%',
                     minWidth: 500,
                     buttons: buttonOptions,
                     // Issue #15810 - use button titles for modals (eg: new procedure)
