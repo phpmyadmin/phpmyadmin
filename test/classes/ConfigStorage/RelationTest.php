@@ -1973,12 +1973,8 @@ class RelationTest extends AbstractTestCase
             []
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT `tables` FROM `PMA-storage`.`pma__favorite_custom` WHERE `username` = \'\'',
-            []
-        );
-
         $_SESSION['relation'] = [];
+        $_SESSION['tmpval'] = [];
 
         $relation = new Relation($this->dbi);
         $relation->initRelationParamsCache();
