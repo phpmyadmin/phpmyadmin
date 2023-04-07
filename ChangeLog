@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #16199 Fix dragging of tables in designer
 - issue #17702 Fix performance issue when handling large number of tables in a single database
 - issue        Fix UI defect on tracking versions table first column
+- issue #18266 Fix disabling features (like `$cfg['Servers'][$i]['tracking'] = false;`) did not work
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
