@@ -23,6 +23,9 @@ phpMyAdmin - ChangeLog
 - issue #17702 Fix performance issue when handling large number of tables in a single database
 - issue        Fix UI defect on tracking versions table first column
 - issue #18266 Fix disabling features (like `$cfg['Servers'][$i]['tracking'] = false;`) did not work
+- issue        Fixed query time measurement - measure time only for user queries
+- issue #18235 Fix columns are misaligned for the "sys" database
+- issue #18249 Speed improvements when browsing a database with multiple tables
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
