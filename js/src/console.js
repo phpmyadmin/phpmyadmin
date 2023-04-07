@@ -487,7 +487,7 @@ var ConsoleResizer = {
      * @return {void}
      */
     mouseUp: function () {
-        Console.setConfig('Height', ConsoleResizer.resultHeight);
+        Console.setConfig('Height', Math.round(ConsoleResizer.resultHeight));
         Console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
