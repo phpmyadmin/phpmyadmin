@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #18235 Fix columns are misaligned for the "sys" database
 - issue #18249 Speed improvements when browsing a database with multiple tables
 - issue #18060 Fix Console height "Not a non-negative number" error
+- issue        Fix width/height of create routines modal and width of routines/triggers/events modals
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
