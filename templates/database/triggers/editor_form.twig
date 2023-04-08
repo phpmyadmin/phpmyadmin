@@ -19,12 +19,17 @@
 
     <div class="card-body">
       <table class="rte_table table table-borderless table-sm">
+        <colgroup>
+          <col>
+          <col width="100%">
+        </colgroup>
+
         <tr>
-          <td>{% trans 'Trigger name' %}</td>
+          <td class="text-nowrap">{% trans 'Trigger name' %}</td>
           <td><input type="text" name="item_name" maxlength="64" value="{{ item.item_name }}"></td>
         </tr>
         <tr>
-          <td>{% trans 'Table' %}</td>
+          <td class="text-nowrap">{% trans 'Table' %}</td>
           <td>
             <select name="item_table">
               {% for item_table in tables %}
@@ -34,7 +39,7 @@
           </td>
         </tr>
         <tr>
-          <td>{% trans %}Time{% context %}Trigger action time{% endtrans %}</td>
+          <td class="text-nowrap">{% trans %}Time{% context %}Trigger action time{% endtrans %}</td>
           <td>
             <select name="item_timing">
               {% for item_time in time %}
@@ -44,7 +49,7 @@
           </td>
         </tr>
         <tr>
-          <td>{% trans 'Event' %}</td>
+          <td class="text-nowrap">{% trans 'Event' %}</td>
           <td>
             <select name="item_event">
               {% for event in events %}
@@ -54,11 +59,11 @@
           </td>
         </tr>
         <tr>
-          <td>{% trans 'Definition' %}</td>
+          <td class="text-nowrap">{% trans 'Definition' %}</td>
           <td><textarea name="item_definition" rows="15" cols="40">{{ item.item_definition }}</textarea></td>
         </tr>
         <tr>
-          <td>{% trans 'Definer' %}</td>
+          <td class="text-nowrap">{% trans 'Definer' %}</td>
           <td><input type="text" name="item_definer" value="{{ item.item_definer }}"></td>
         </tr>
       </table>
