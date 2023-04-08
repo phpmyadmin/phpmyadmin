@@ -3591,11 +3591,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
-    <InvalidScalarArgument>
-      <code><![CDATA[$_POST['columnIndex']]]></code>
-      <code><![CDATA[$_POST['columnIndex']]]></code>
-      <code><![CDATA[$_POST['useRegex']]]></code>
-    </InvalidScalarArgument>
     <MixedArgument>
       <code>$column</code>
       <code>$column</code>
@@ -3641,6 +3636,10 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
+    <RiskyCast>
+      <code><![CDATA[$_POST['columnIndex']]]></code>
+      <code><![CDATA[$_POST['columnIndex']]]></code>
+    </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Table/GetFieldController.php">
     <PossiblyInvalidArgument>
