@@ -1684,10 +1684,12 @@ class InsertEdit
             return;
         }
 
-        if ($meta->isTimeType()) {
-            $newValue = Util::addMicroseconds($newValue);
-        } elseif ($meta->isBinary()) {
-            $newValue = '0x' . bin2hex($newValue);
+        if ($newValue !== null) {
+            if ($meta->isTimeType()) {
+                $newValue = Util::addMicroseconds($newValue);
+            } elseif ($meta->isBinary()) {
+                $newValue = '0x' . bin2hex($newValue);
+            }
         }
 
         $extraData['isNeedToRecheck'] = true;

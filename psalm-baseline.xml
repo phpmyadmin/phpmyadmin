@@ -8204,10 +8204,6 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code>$newValue</code>
-      <code>$newValue</code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$column['is_blob']]]></code>
       <code><![CDATA[$column['select_size']]]></code>
