@@ -8,7 +8,7 @@ import { ajaxShowMessage } from '../ajax-message.ts';
  *
  * @return {boolean}
  */
-export default function isStorageSupported (type, warn = false) {
+export default function isStorageSupported (type: 'localStorage' | 'sessionStorage', warn = false): boolean {
     try {
         window[type].setItem('PMATest', 'test');
         // Check whether key-value pair was set successfully

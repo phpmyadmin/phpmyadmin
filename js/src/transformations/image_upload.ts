@@ -11,14 +11,15 @@ AJAX.registerOnload('transformations/image_upload.js', function () {
     // Change thumbnail when image file is selected
     // through file upload dialog
     $('input.image-upload').on('change', function () {
-        if (this.files && this.files[0]) {
+        const fileInput = this as HTMLInputElement;
+        if (fileInput.files && fileInput.files[0]) {
             var reader = new FileReader();
             var $input = $(this);
             reader.onload = function (e) {
                 $input.prevAll('img').attr('src', e.target.result);
             };
 
-            reader.readAsDataURL(this.files[0]);
+            reader.readAsDataURL(fileInput.files[0]);
         }
     });
 });

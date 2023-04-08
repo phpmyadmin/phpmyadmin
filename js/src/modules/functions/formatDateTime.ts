@@ -14,6 +14,7 @@ export default function formatDateTime (date, seconds = false) {
         timefmt = 'HH:mm:ss';
     }
 
+    // @ts-ignore
     return result + ' ' + $.datepicker.formatTime(
         timefmt, {
             hour: date.getHours(),

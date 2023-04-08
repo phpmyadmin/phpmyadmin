@@ -249,6 +249,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
      * Input form validation
      **/
     $('#inputFormSubmitId').on('click', function () {
+        // @ts-ignore
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
             ajaxShowMessage(window.Messages.strInputNull);
         } else if (xLabel === yLabel) {

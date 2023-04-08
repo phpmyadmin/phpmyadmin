@@ -30,6 +30,12 @@ function ignorePhpErrors (clearPrevErrors = undefined) {
     $pmaErrors.remove();
 }
 
+declare global {
+    interface Window {
+        ignorePhpErrors: typeof ignorePhpErrors;
+    }
+}
+
 window.ignorePhpErrors = ignorePhpErrors;
 
 export { ignorePhpErrors };

@@ -74,11 +74,11 @@ export const Config = {
      * Used for update console config
      */
     update: function (): void {
-        this.set('AlwaysExpand', !! document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked);
-        this.set('StartHistory', !! document.getElementById('consoleOptionsStartHistoryCheckbox').checked);
-        this.set('CurrentQuery', !! document.getElementById('consoleOptionsCurrentQueryCheckbox').checked);
-        this.set('EnterExecutes', !! document.getElementById('consoleOptionsEnterExecutesCheckbox').checked);
-        this.set('DarkTheme', !! document.getElementById('consoleOptionsDarkThemeCheckbox').checked);
+        this.set('AlwaysExpand', !! (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked);
+        this.set('StartHistory', !! (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked);
+        this.set('CurrentQuery', !! (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked);
+        this.set('EnterExecutes', !! (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked);
+        this.set('DarkTheme', !! (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked);
         /* Setting the dark theme of the console*/
         const consoleContent = document.getElementById('pma_console').querySelector('.content');
         if (this.DarkTheme) {

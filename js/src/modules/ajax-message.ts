@@ -150,7 +150,7 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
  *
  * @param {JQuery} $thisMessageBox Element that holds the notification
  */
-const ajaxRemoveMessage = function ($thisMessageBox): void {
+const ajaxRemoveMessage = function ($thisMessageBox: JQuery): void {
     if ($thisMessageBox !== undefined && $thisMessageBox instanceof $) {
         $thisMessageBox
             .stop(true, true)
@@ -164,9 +164,13 @@ const ajaxRemoveMessage = function ($thisMessageBox): void {
     }
 };
 
-/**
- * @return {number}
- */
+declare global {
+    interface Window {
+        getAjaxMessageCount: () => number;
+        ajaxShowMessage: typeof ajaxShowMessage;
+    }
+}
+
 window.getAjaxMessageCount = () => ajaxMessageCount;
 window.ajaxShowMessage = ajaxShowMessage;
 

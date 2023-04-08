@@ -465,6 +465,7 @@ export default function highlightSql ($base) {
             var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
             $sql.append($highlight);
             if (typeof window.CodeMirror !== 'undefined') {
+                // @ts-ignore
                 window.CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
                 $pre.hide();
                 $highlight.find('.cm-keyword').each(documentationKeyword);

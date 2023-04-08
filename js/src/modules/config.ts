@@ -139,7 +139,7 @@ function getFieldValue (field, fieldType) {
  * @return {object}
  */
 function getAllValues () {
-    var $elements = $('fieldset input, fieldset select, fieldset textarea');
+    var $elements = $('fieldset input, fieldset select, fieldset textarea') as JQuery<HTMLInputElement>;
     var values = {};
     var type;
     var value;
@@ -809,11 +809,11 @@ function on () {
             $form.find('input[type=submit]').prop('disabled', disabled);
         }).on('submit', function (e) {
             var $form = $(this);
-            if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
+            if ($form.attr('name') === 'prefs_export' && ($('#export_local_storage') as JQuery<HTMLInputElement>)[0].checked) {
                 e.preventDefault();
                 // use AJAX to read JSON settings and save them
                 savePrefsToLocalStorage($form);
-            } else if ($form.attr('name') === 'prefs_import' && $('#import_local_storage')[0].checked) {
+            } else if ($form.attr('name') === 'prefs_import' && ($('#import_local_storage') as JQuery<HTMLInputElement>)[0].checked) {
                 // set 'json' input and submit form
                 $form.find('input[name=json]').val(window.localStorage.config);
             }
@@ -844,6 +844,9 @@ const Config = {
 
 declare global {
     interface Window {
+        configInlineParams: any[] | undefined;
+        configScriptLoaded: boolean | undefined;
+        defaultValues: object;
         validators: typeof validators;
         Config: typeof Config;
     }

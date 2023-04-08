@@ -1,3 +1,9 @@
+declare global {
+    interface Window {
+        allowThirdPartyFraming: boolean | string;
+    }
+}
+
 /**
  * Conditionally included if framing is not allowed.
  */

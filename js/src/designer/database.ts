@@ -14,7 +14,7 @@ var designerTables = [
 ];
 
 var DesignerOfflineDB = (function () {
-    var designerDB = {};
+    var designerDB: {[k: string]: any} = {};
 
     /**
      * @type {IDBDatabase|null}
@@ -61,8 +61,8 @@ var DesignerOfflineDB = (function () {
         var request = window.indexedDB.open('pma_designer', version);
 
         request.onupgradeneeded = function (e) {
-            var db = e.target.result;
-            e.target.transaction.onerror = designerDB.onerror;
+            var db = (e.target as IDBRequest).result;
+            (e.target as IDBRequest).transaction.onerror = designerDB.onerror;
 
             var t;
             for (t in designerTables) {
@@ -80,7 +80,7 @@ var DesignerOfflineDB = (function () {
         };
 
         request.onsuccess = function (e) {
-            datastore = e.target.result;
+            datastore = (e.target as IDBRequest).result;
             if (typeof callback === 'function') {
                 callback(true);
             }

@@ -97,6 +97,12 @@ const CommonParams = (function () {
     };
 }());
 
+declare global {
+    interface Window {
+        CommonParams: typeof CommonParams;
+    }
+}
+
 window.CommonParams = CommonParams;
 
 export { CommonParams };

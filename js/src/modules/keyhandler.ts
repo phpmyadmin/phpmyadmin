@@ -91,7 +91,7 @@ const onKeyDownArrowsHandler = function (event) {
     nO.focus();
 
     if (nO.tagName !== 'SELECT') {
-        nO.select();
+        (nO as HTMLInputElement).select();
     }
 
     e.returnValue = false;
