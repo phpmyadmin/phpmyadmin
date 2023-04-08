@@ -16777,6 +16777,9 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/VersionInformationTest.php">
+    <MixedArrayAccess occurrences="1">
+      <code>$_SESSION['cache']['version_check']</code>
+    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$returnValues[]</code>
     </MixedAssignment>
