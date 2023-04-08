@@ -1361,7 +1361,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
-            [$column],
+            [$column['Default'] ?? null, $column['True_Type']],
         );
 
         $this->assertEquals($expected, $result);
