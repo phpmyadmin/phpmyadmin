@@ -113,7 +113,7 @@ class PageSettings
     private function storeError(FormDisplay $formDisplay, Message|null $error): void
     {
         $retval = '';
-        if ($error) {
+        if ($error !== null) {
             $retval .= $error->getDisplay();
         }
 

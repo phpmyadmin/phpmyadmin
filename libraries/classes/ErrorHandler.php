@@ -373,7 +373,7 @@ class ErrorHandler
     {
         ResponseRenderer::getInstance()->disable();
         echo '<html><head><title>';
-        if ($error) {
+        if ($error !== null) {
             echo $error->getTitle();
         } else {
             echo 'phpMyAdmin error reporting page';

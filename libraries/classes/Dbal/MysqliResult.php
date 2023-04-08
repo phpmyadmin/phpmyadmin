@@ -43,7 +43,7 @@ final class MysqliResult implements ResultInterface
      */
     public function getIterator(): Generator
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return;
         }
 
@@ -62,7 +62,7 @@ final class MysqliResult implements ResultInterface
      */
     public function fetchAssoc(): array
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return [];
         }
 
@@ -79,7 +79,7 @@ final class MysqliResult implements ResultInterface
      */
     public function fetchRow(): array
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return [];
         }
 
@@ -114,7 +114,7 @@ final class MysqliResult implements ResultInterface
      */
     public function fetchAllAssoc(): array
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return [];
         }
 
@@ -132,7 +132,7 @@ final class MysqliResult implements ResultInterface
      */
     public function fetchAllColumn(): array
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return [];
         }
 
@@ -153,7 +153,7 @@ final class MysqliResult implements ResultInterface
      */
     public function fetchAllKeyPair(): array
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return [];
         }
 
@@ -170,7 +170,7 @@ final class MysqliResult implements ResultInterface
      */
     public function numFields(): int
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return 0;
         }
 
@@ -184,7 +184,7 @@ final class MysqliResult implements ResultInterface
      */
     public function numRows(): string|int
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return 0;
         }
 
@@ -200,7 +200,7 @@ final class MysqliResult implements ResultInterface
      */
     public function seek(int $offset): bool
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return false;
         }
 
@@ -215,7 +215,7 @@ final class MysqliResult implements ResultInterface
      */
     public function getFieldsMeta(): array
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return [];
         }
 
@@ -235,7 +235,7 @@ final class MysqliResult implements ResultInterface
      */
     public function getFieldNames(): array
     {
-        if (! $this->result) {
+        if ($this->result === null) {
             return [];
         }
 
