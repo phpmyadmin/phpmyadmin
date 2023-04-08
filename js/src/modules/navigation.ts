@@ -1420,6 +1420,7 @@ declare global {
     }
 }
 
+// eslint-disable-next-line compat/compat
 window.Navigation = Navigation;
 
 export { Navigation };
