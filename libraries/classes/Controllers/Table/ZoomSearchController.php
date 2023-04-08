@@ -193,7 +193,7 @@ class ZoomSearchController extends AbstractController
             }
 
             $this->columnTypes[] = $type;
-            $this->columnNullFlags[] = $row['Null'];
+            $this->columnNullFlags[] = $row['Null'] === 'YES';
             $this->columnCollations[] = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
