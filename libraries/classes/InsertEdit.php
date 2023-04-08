@@ -948,7 +948,7 @@ class InsertEdit
             $realNullValue = true;
             $currentRow[$column['Field']] = '';
             $specialChars = '';
-            $data = $currentRow[$column['Field']];
+            $data = '';
         } elseif ($column['True_Type'] === 'bit') {
             $specialChars = $asIs
                 ? $currentRow[$column['Field']]
@@ -1014,9 +1014,8 @@ class InsertEdit
     /**
      * display default values
      *
-     * @return mixed[] $real_null_value, $data, $special_chars,
-     *               $backup_field, $special_chars_encoded
-     * @psalm-return array{bool, string, string, string, string}
+     * @return mixed[] $real_null_value, $data, $special_chars, $special_chars_encoded
+     * @psalm-return array{bool, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForInsertingMode(
         string|null $defaultValue,
@@ -1043,7 +1042,7 @@ class InsertEdit
 
         $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
 
-        return [$realNullValue, $defaultValue, $specialChars, '', $specialCharsEncoded];
+        return [$realNullValue, $defaultValue, $specialChars, $specialCharsEncoded];
     }
 
     /**
@@ -1972,9 +1971,9 @@ class InsertEdit
                 $realNullValue,
                 $data,
                 $specialChars,
-                $backupField,
                 $specialCharsEncoded,
             ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp['Default'] ?? null, $tmp['True_Type']);
+            $backupField = '';
             unset($tmp);
         }
 

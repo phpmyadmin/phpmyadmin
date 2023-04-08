@@ -8124,7 +8124,6 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
       <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
     </MixedArrayOffset>
@@ -8136,7 +8135,6 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code>$currentValue</code>
-      <code>$data</code>
       <code>$data</code>
       <code>$enumSelectedValue</code>
       <code>$enumValue</code>
