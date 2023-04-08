@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-02 00:19+0000\n"
-"PO-Revision-Date: 2023-03-27 05:30+0000\n"
+"PO-Revision-Date: 2023-04-09 00:19+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -202,7 +202,7 @@ msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
-msgstr ""
+msgstr "slow_query_log е подесено на 'OFF'"
 
 #: libraries/classes/Advisory/Rules.php:133
 msgid "Release Series"
