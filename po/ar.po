@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-05-21 00:27+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-04-10 19:48+0000\n"
+"Last-Translator: Deleted User <noreply+60134@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -769,7 +769,7 @@ msgid ""
 msgstr ""
 "لم يتم العثور على إضافة PHP mbstring ويبدو أنك تستعمل طقم محارف متعدد "
 "البايتات. دون إضافة mbstring لا يستطيع phpMyAdmin إدارة النصوص بشكل فعَّال، "
-"مما قد يُظهِـر نتائج غير متوقعة."
+"مما قد يُظهِر نتائج غير متوقعة."
 
 #: index.php:528
 msgid ""
@@ -816,7 +816,7 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "الملف [code]config[/code] المستعمل من قبل نص الإعدادات مازال موجودا في مجلد "
-"phpMyAdmin. يُـوصى بفسخه عندما يتم إعداد phpMyAdmin. إذا لم يتم ذلك فحماية "
+"phpMyAdmin. يُوصى بفسخه عندما يتم إعداد phpMyAdmin. إذا لم يتم ذلك فحماية "
 "الخادم قد يتعرض للخطر من أشخاص غير مرخصين قد يحَمِّلون إعداداتك."
 
 #: index.php:616
@@ -1386,8 +1386,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "تم تمكين سجل الاستعلام البطيء, ولكن يسجل الخادم طلبات البحث التي تستغرق وقتا "
-"أطول من%d من الثواني . فقط. من المستحسن تعيين هذه المدة الزمنية الطويلة 0-2 "
-"ثانية، اعتمادا على النظام الخاص بك."
+"أطول من%d ثانية. من المستحسن تعيين هذه المدة الزمنية الطويلة 0-2 ثانية، "
+"اعتمادا على النظام الخاص بك."
 
 #: js/messages.php:237
 #, php-format
@@ -2565,8 +2565,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
-"تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d من الحقول. عند "
-"الإرسال، قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
+"تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d حقل. عند الإرسال، "
+"قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
 
 #: js/messages.php:699 js/messages.php:712
 msgid "Some errors have been detected on the server!"
@@ -3010,7 +3010,7 @@ msgstr "الرجاء إدخال تاريخ أو وقت صالح"
 
 #: js/messages.php:984
 msgid "Please enter a valid HEX input"
-msgstr "الرجاء إدخال إدخال  HEX  صالح"
+msgstr "الرجاء إدخال HEX صالح"
 
 #: js/messages.php:989 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1496
@@ -3047,15 +3047,14 @@ msgstr "فشل تنسيق النص لـ '%s'."
 #: libraries/classes/Advisor.php:523
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr "خطأ في قراءة الملف: الملف '%s' غير موجود أو غير قابل للقراءة!"
+msgstr "خطأ في قراءة ملف: الملف '%s' غير موجود أو غير قابل للقراءة!"
 
 #: libraries/classes/Advisor.php:548
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"إعلان قاعدة غير صالح على السطر %1$s، السطر المتوقع هو %2$s من القاعدة "
-"السابقة."
+"إعلان قاعدة غير صالح على سطر %1$s، السطر المتوقع هو %2$s من القاعدة السابقة."
 
 #: libraries/classes/Advisor.php:567
 #, php-format
@@ -4639,14 +4638,12 @@ msgid "Delete all cookies on logout"
 msgstr "حذف كل الكوكيز عند الخروج"
 
 #: libraries/classes/Config/Descriptions.php:703
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr "تعريف ما إذا كان سوف يتذكر تسجيل الدخول الأخير من تحقق الكوكيز أم لا"
+msgstr ""
+"تعريف ما إذا كان سوف يتذكر تسجيل الدخول الأخير من تحقق [kbd]cookie[/kbd] أم "
+"لا."
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
@@ -6442,7 +6439,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الــ "
+"لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الـ "
 "%sdocumentation%s."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:1013
@@ -7611,7 +7608,7 @@ msgid ""
 "the HTML form."
 msgstr ""
 "إنّ الملف المرفوع يتجاوز التوجيهة MAX_FILE_SIZE اللتي تم تحديدها في إستمارة "
-"الــHTML."
+"الـHTML."
 
 #: libraries/classes/File.php:312
 msgid "The uploaded file was only partially uploaded."
@@ -7844,10 +7841,8 @@ msgid "Binary"
 msgstr "ثنائي"
 
 #: libraries/classes/InsertEdit.php:729
-#, fuzzy
-#| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير "
+msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير."
 
 #: libraries/classes/InsertEdit.php:1337
 msgid "Binary - do not edit"
@@ -8188,10 +8183,8 @@ msgid "Add prefix"
 msgstr "إضافة حقل جديد"
 
 #: libraries/classes/MultSubmits.php:500
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "هل تريد حقا"
+msgstr "هل تريد حقا تنفيذ الاستعلام التالي؟"
 
 #: libraries/classes/Navigation/Navigation.php:69
 msgid "An error has occurred while loading the navigation display"
@@ -8430,10 +8423,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "إختر عمودين"
+msgstr "اختر واحدا…"
 
 #: libraries/classes/Normalization.php:207 normalization.php:20
 #, fuzzy
@@ -10176,10 +10167,8 @@ msgid "Enabled"
 msgstr "مفعل"
 
 #: libraries/classes/Relation.php:116
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
-msgstr "تمت التعديلات"
+msgstr "تمت التعديلات…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
@@ -15557,10 +15546,8 @@ msgid "The file is being processed, please be patient."
 msgstr "الملف قيد المعالجة, يرجى الانتظار."
 
 #: templates/display/import/javascript.twig:36
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "هيئة الملفات المستوردة"
+msgstr "هيئة الملفات المستوردة…"
 
 #: templates/display/import/javascript.twig:161
 msgid ""
@@ -15723,9 +15710,8 @@ msgid ""
 "files, however it can break transactions.)</em>"
 msgstr ""
 "تسمح بقطع عمليّة استراد معيّنة في حالة كَشفَ الرّمز أنّها قريبة من المهلة "
-"الزّمنيّة لـ PHP.\n"
-"<iem>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, في كلّ الأحوال "
-"يمكنها كسر العمليّات.)</iem>"
+"الزّمنيّة لـ PHP. <iem>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, "
+"في كلّ الأحوال يمكنها كسر العمليّات.)</iem>"
 
 #: templates/display/import/import.twig:144
 #, fuzzy
