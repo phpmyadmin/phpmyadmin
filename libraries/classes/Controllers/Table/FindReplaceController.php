@@ -146,7 +146,7 @@ class FindReplaceController extends AbstractController
             && $_POST['useRegex'] === 'on';
 
         $preview = $this->getReplacePreview(
-            $_POST['columnIndex'],
+            (int) $_POST['columnIndex'],
             $_POST['find'],
             $_POST['replaceWith'],
             $useRegex,
@@ -158,10 +158,10 @@ class FindReplaceController extends AbstractController
     public function replaceAction(): void
     {
         $this->replace(
-            $_POST['columnIndex'],
+            (int) $_POST['columnIndex'],
             $_POST['findString'],
             $_POST['replaceWith'],
-            $_POST['useRegex'],
+            (bool) $_POST['useRegex'],
             $this->connectionCharSet,
         );
         $this->response->addHTML(
