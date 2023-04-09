@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-04-02 00:19+0000\n"
+"POT-Creation-Date: 2023-04-09 00:18+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1399,18 +1399,18 @@ msgstr "Izdeý:"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:339
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
 #: libraries/classes/Normalization.php:226
-#: libraries/classes/Tracking/Tracking.php:278
-#: libraries/classes/Tracking/Tracking.php:421
+#: libraries/classes/Tracking/Tracking.php:312
+#: libraries/classes/Tracking/Tracking.php:455
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
-#: templates/database/events/editor_form.twig:115
+#: templates/database/events/editor_form.twig:120
 #: templates/database/operations/index.twig:19
 #: templates/database/operations/index.twig:75
 #: templates/database/operations/index.twig:185
 #: templates/database/operations/index.twig:225
-#: templates/database/routines/editor_form.twig:180
+#: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/database/triggers/editor_form.twig:69
+#: templates/database/triggers/editor_form.twig:74
 #: templates/display/results/table.twig:271
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
@@ -1825,10 +1825,10 @@ msgstr "GLOBALS qaıta jazý áreketi"
 msgid "possible exploit"
 msgstr "osaldyq yqtımal"
 
-#: libraries/classes/Config/ConfigFile.php:515
-#: libraries/classes/Config/ConfigFile.php:529
-#: libraries/classes/Config/ConfigFile.php:583
-#: libraries/classes/Config/ConfigFile.php:593
+#: libraries/classes/Config/ConfigFile.php:523
+#: libraries/classes/Config/ConfigFile.php:537
+#: libraries/classes/Config/ConfigFile.php:591
+#: libraries/classes/Config/ConfigFile.php:601
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
@@ -1849,10 +1849,10 @@ msgstr "osaldyq yqtımal"
 msgid "Structure"
 msgstr "Qurylym"
 
-#: libraries/classes/Config/ConfigFile.php:517
-#: libraries/classes/Config/ConfigFile.php:531
-#: libraries/classes/Config/ConfigFile.php:585
-#: libraries/classes/Config/ConfigFile.php:595
+#: libraries/classes/Config/ConfigFile.php:525
+#: libraries/classes/Config/ConfigFile.php:539
+#: libraries/classes/Config/ConfigFile.php:593
+#: libraries/classes/Config/ConfigFile.php:603
 #: libraries/classes/Config/Descriptions.php:761 libraries/classes/Menu.php:239
 #: libraries/classes/Menu.php:339 libraries/classes/Menu.php:457
 #: libraries/classes/Navigation/Nodes/NodeTable.php:293
@@ -1861,10 +1861,10 @@ msgstr "Qurylym"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/ConfigFile.php:519
-#: libraries/classes/Config/ConfigFile.php:533
-#: libraries/classes/Config/ConfigFile.php:587
-#: libraries/classes/Config/ConfigFile.php:597 libraries/classes/Menu.php:243
+#: libraries/classes/Config/ConfigFile.php:527
+#: libraries/classes/Config/ConfigFile.php:541
+#: libraries/classes/Config/ConfigFile.php:595
+#: libraries/classes/Config/ConfigFile.php:605 libraries/classes/Menu.php:243
 #: libraries/classes/Menu.php:343
 #: libraries/classes/Navigation/Nodes/NodeTable.php:291
 #: libraries/classes/Util.php:1253 libraries/classes/Util.php:1712
@@ -1877,9 +1877,9 @@ msgstr "SQL"
 msgid "Search"
 msgstr "Izdeý"
 
-#: libraries/classes/Config/ConfigFile.php:521
-#: libraries/classes/Config/ConfigFile.php:535
-#: libraries/classes/Config/ConfigFile.php:599 libraries/classes/Menu.php:250
+#: libraries/classes/Config/ConfigFile.php:529
+#: libraries/classes/Config/ConfigFile.php:543
+#: libraries/classes/Config/ConfigFile.php:607 libraries/classes/Menu.php:250
 #: libraries/classes/Navigation/Nodes/NodeTable.php:292
 #: libraries/classes/Util.php:1254 libraries/classes/Util.php:1730
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -1888,9 +1888,9 @@ msgstr "Izdeý"
 msgid "Insert"
 msgstr "Kiristirý"
 
-#: libraries/classes/Config/ConfigFile.php:523
-#: libraries/classes/Config/ConfigFile.php:537
-#: libraries/classes/Config/ConfigFile.php:601 libraries/classes/Menu.php:227
+#: libraries/classes/Config/ConfigFile.php:531
+#: libraries/classes/Config/ConfigFile.php:545
+#: libraries/classes/Config/ConfigFile.php:609 libraries/classes/Menu.php:227
 #: libraries/classes/Navigation/Nodes/NodeTable.php:294
 #: libraries/classes/Util.php:1255 libraries/classes/Util.php:1726
 #: templates/database/search/results.twig:32
@@ -1899,39 +1899,39 @@ msgstr "Kiristirý"
 msgid "Browse"
 msgstr "Sharlaý"
 
-#: libraries/classes/Config/ConfigFile.php:542
-#: libraries/classes/Config/ConfigFile.php:554
+#: libraries/classes/Config/ConfigFile.php:550
 #: libraries/classes/Config/ConfigFile.php:562
+#: libraries/classes/Config/ConfigFile.php:570
 msgid "Icons"
 msgstr "Belgisheler"
 
-#: libraries/classes/Config/ConfigFile.php:542
-#: libraries/classes/Config/ConfigFile.php:554
+#: libraries/classes/Config/ConfigFile.php:550
 #: libraries/classes/Config/ConfigFile.php:562
+#: libraries/classes/Config/ConfigFile.php:570
 #: templates/database/multi_table_query/form.twig:118
 msgid "Text"
 msgstr "Mátin"
 
-#: libraries/classes/Config/ConfigFile.php:542
-#: libraries/classes/Config/ConfigFile.php:549
-#: libraries/classes/Config/ConfigFile.php:554
+#: libraries/classes/Config/ConfigFile.php:550
+#: libraries/classes/Config/ConfigFile.php:557
 #: libraries/classes/Config/ConfigFile.php:562
+#: libraries/classes/Config/ConfigFile.php:570
 msgid "Both"
 msgstr "Ekeýi de"
 
-#: libraries/classes/Config/ConfigFile.php:546
+#: libraries/classes/Config/ConfigFile.php:554
 msgid "Nowhere"
 msgstr "Eshqaıda"
 
-#: libraries/classes/Config/ConfigFile.php:547
+#: libraries/classes/Config/ConfigFile.php:555
 msgid "Left"
 msgstr "Sol"
 
-#: libraries/classes/Config/ConfigFile.php:548
+#: libraries/classes/Config/ConfigFile.php:556
 msgid "Right"
 msgstr "Oń"
 
-#: libraries/classes/Config/ConfigFile.php:551
+#: libraries/classes/Config/ConfigFile.php:559
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 #: libraries/classes/Display/Results.php:1046
 #: libraries/classes/Plugins/Export/ExportSql.php:2044
@@ -1948,7 +1948,7 @@ msgstr "Oń"
 msgid "None"
 msgstr "Eshbir"
 
-#: libraries/classes/Config/ConfigFile.php:551
+#: libraries/classes/Config/ConfigFile.php:559
 #: libraries/classes/Display/Results.php:1593
 #: libraries/classes/Display/Results.php:1600 libraries/classes/Util.php:2246
 #: libraries/classes/Util.php:2263
@@ -1963,7 +1963,7 @@ msgstr "Eshbir"
 msgid "Ascending"
 msgstr "Ósý boıynsha"
 
-#: libraries/classes/Config/ConfigFile.php:551
+#: libraries/classes/Config/ConfigFile.php:559
 #: libraries/classes/Display/Results.php:1588
 #: libraries/classes/Display/Results.php:1605 libraries/classes/Util.php:2251
 #: libraries/classes/Util.php:2268
@@ -1978,16 +1978,16 @@ msgstr "Ósý boıynsha"
 msgid "Descending"
 msgstr "Kemý boıynsha"
 
-#: libraries/classes/Config/ConfigFile.php:564
+#: libraries/classes/Config/ConfigFile.php:572
 msgid "Click"
 msgstr "Basý"
 
-#: libraries/classes/Config/ConfigFile.php:565
+#: libraries/classes/Config/ConfigFile.php:573
 msgid "Double click"
 msgstr "Eki ret basý"
 
-#: libraries/classes/Config/ConfigFile.php:566
-#: libraries/classes/Config/ConfigFile.php:603
+#: libraries/classes/Config/ConfigFile.php:574
+#: libraries/classes/Config/ConfigFile.php:611
 #: templates/config/form_display/input.twig:16
 #: templates/relation/check_relations.twig:15
 #: templates/relation/check_relations.twig:66
@@ -2011,19 +2011,19 @@ msgstr "Eki ret basý"
 msgid "Disabled"
 msgstr "Óshirilgen"
 
-#: libraries/classes/Config/ConfigFile.php:568
+#: libraries/classes/Config/ConfigFile.php:576
 msgid "key"
 msgstr "kilt"
 
-#: libraries/classes/Config/ConfigFile.php:568
+#: libraries/classes/Config/ConfigFile.php:576
 msgid "display column"
 msgstr "baǵandy beıneleý"
 
-#: libraries/classes/Config/ConfigFile.php:571
+#: libraries/classes/Config/ConfigFile.php:579
 msgid "Welcome"
 msgstr "Qosh keldińiz"
 
-#: libraries/classes/Config/ConfigFile.php:573
+#: libraries/classes/Config/ConfigFile.php:581
 #: libraries/classes/Config/Descriptions.php:734
 #: libraries/classes/Config/Descriptions.php:745 libraries/classes/Menu.php:452
 #: libraries/classes/Util.php:1695
@@ -2034,26 +2034,26 @@ msgstr "Qosh keldińiz"
 msgid "Databases"
 msgstr "Derekqorlar"
 
-#: libraries/classes/Config/ConfigFile.php:575
+#: libraries/classes/Config/ConfigFile.php:583
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 #: libraries/classes/Menu.php:462
-#: libraries/classes/Server/Status/Processes.php:105
+#: libraries/classes/Server/Status/Processes.php:106
 #: libraries/classes/Util.php:1697
-#: templates/database/events/editor_form.twig:25
+#: templates/database/events/editor_form.twig:30
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Mártebesi"
 
-#: libraries/classes/Config/ConfigFile.php:577 libraries/classes/Menu.php:519
+#: libraries/classes/Config/ConfigFile.php:585 libraries/classes/Menu.php:519
 #: libraries/classes/Server/Status/Data.php:211 libraries/classes/Util.php:1704
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Aınymalylar"
 
-#: libraries/classes/Config/ConfigFile.php:579
+#: libraries/classes/Config/ConfigFile.php:587
 #: libraries/classes/Controllers/Server/PrivilegesController.php:412
 #: libraries/classes/Menu.php:273 libraries/classes/Menu.php:381
 #: libraries/classes/Util.php:1717 libraries/classes/Util.php:1733
@@ -2064,22 +2064,22 @@ msgstr "Aınymalylar"
 msgid "Privileges"
 msgstr "Artyqshylyqtar"
 
-#: libraries/classes/Config/ConfigFile.php:589 libraries/classes/Menu.php:284
+#: libraries/classes/Config/ConfigFile.php:597 libraries/classes/Menu.php:284
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:374
 #: libraries/classes/Util.php:1256 libraries/classes/Util.php:1716
 #: libraries/classes/Util.php:1734 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Áreketter"
 
-#: libraries/classes/Config/ConfigFile.php:603
+#: libraries/classes/Config/ConfigFile.php:611
 msgid "Open"
 msgstr "Ashyq"
 
-#: libraries/classes/Config/ConfigFile.php:603
+#: libraries/classes/Config/ConfigFile.php:611
 msgid "Closed"
 msgstr "Jabyq"
 
-#: libraries/classes/Config/ConfigFile.php:605
+#: libraries/classes/Config/ConfigFile.php:613
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Monday"
@@ -2087,7 +2087,7 @@ msgctxt "Week day name"
 msgid "Monday"
 msgstr "Dúısenbi"
 
-#: libraries/classes/Config/ConfigFile.php:606
+#: libraries/classes/Config/ConfigFile.php:614
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Tuesday"
@@ -2095,7 +2095,7 @@ msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Seısenbi"
 
-#: libraries/classes/Config/ConfigFile.php:607
+#: libraries/classes/Config/ConfigFile.php:615
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Wednesday"
@@ -2103,7 +2103,7 @@ msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Sársenbi"
 
-#: libraries/classes/Config/ConfigFile.php:608
+#: libraries/classes/Config/ConfigFile.php:616
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Thursday"
@@ -2111,7 +2111,7 @@ msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Beısenbi"
 
-#: libraries/classes/Config/ConfigFile.php:609
+#: libraries/classes/Config/ConfigFile.php:617
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Friday"
@@ -2119,7 +2119,7 @@ msgctxt "Week day name"
 msgid "Friday"
 msgstr "Juma"
 
-#: libraries/classes/Config/ConfigFile.php:610
+#: libraries/classes/Config/ConfigFile.php:618
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Saturday"
@@ -2127,7 +2127,7 @@ msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Senbi"
 
-#: libraries/classes/Config/ConfigFile.php:611
+#: libraries/classes/Config/ConfigFile.php:619
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Sunday"
@@ -2135,35 +2135,35 @@ msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Jeksenbi"
 
-#: libraries/classes/Config/ConfigFile.php:614
+#: libraries/classes/Config/ConfigFile.php:622
 msgid "Ask before sending error reports"
 msgstr "Qate týraly esepterdi jibermes buryn suraý"
 
-#: libraries/classes/Config/ConfigFile.php:615
+#: libraries/classes/Config/ConfigFile.php:623
 msgid "Always send error reports"
 msgstr "Árqashan qate týraly esepter jiberý"
 
-#: libraries/classes/Config/ConfigFile.php:616
+#: libraries/classes/Config/ConfigFile.php:624
 msgid "Never send error reports"
 msgstr "Qate týraly esepterdi eshqashan jibermeý"
 
-#: libraries/classes/Config/ConfigFile.php:619
+#: libraries/classes/Config/ConfigFile.php:627
 msgid "Server default"
 msgstr "Ádepki server"
 
-#: libraries/classes/Config/ConfigFile.php:620
+#: libraries/classes/Config/ConfigFile.php:628
 msgid "Enable"
 msgstr "Qosý"
 
-#: libraries/classes/Config/ConfigFile.php:621
+#: libraries/classes/Config/ConfigFile.php:629
 msgid "Disable"
 msgstr "Óshirý"
 
-#: libraries/classes/Config/ConfigFile.php:661
-#: libraries/classes/Config/ConfigFile.php:714
-#: libraries/classes/Config/ConfigFile.php:726
+#: libraries/classes/Config/ConfigFile.php:669
+#: libraries/classes/Config/ConfigFile.php:722
 #: libraries/classes/Config/ConfigFile.php:734
-#: libraries/classes/Config/ConfigFile.php:739
+#: libraries/classes/Config/ConfigFile.php:742
+#: libraries/classes/Config/ConfigFile.php:747
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:61
 #: libraries/classes/Plugins/Export/ExportLatex.php:93
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:64
@@ -2174,11 +2174,11 @@ msgstr "Óshirý"
 msgid "structure"
 msgstr "qurylym"
 
-#: libraries/classes/Config/ConfigFile.php:662
-#: libraries/classes/Config/ConfigFile.php:715
-#: libraries/classes/Config/ConfigFile.php:727
+#: libraries/classes/Config/ConfigFile.php:670
+#: libraries/classes/Config/ConfigFile.php:723
 #: libraries/classes/Config/ConfigFile.php:735
-#: libraries/classes/Config/ConfigFile.php:740
+#: libraries/classes/Config/ConfigFile.php:743
+#: libraries/classes/Config/ConfigFile.php:748
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:61
 #: libraries/classes/Plugins/Export/ExportLatex.php:93
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:64
@@ -2189,11 +2189,11 @@ msgstr "qurylym"
 msgid "data"
 msgstr "derekter"
 
-#: libraries/classes/Config/ConfigFile.php:663
-#: libraries/classes/Config/ConfigFile.php:716
-#: libraries/classes/Config/ConfigFile.php:728
+#: libraries/classes/Config/ConfigFile.php:671
+#: libraries/classes/Config/ConfigFile.php:724
 #: libraries/classes/Config/ConfigFile.php:736
-#: libraries/classes/Config/ConfigFile.php:741
+#: libraries/classes/Config/ConfigFile.php:744
+#: libraries/classes/Config/ConfigFile.php:749
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:61
 #: libraries/classes/Plugins/Export/ExportLatex.php:93
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:64
@@ -2204,31 +2204,31 @@ msgstr "derekter"
 msgid "structure and data"
 msgstr "qurylym men derekter"
 
-#: libraries/classes/Config/ConfigFile.php:666
+#: libraries/classes/Config/ConfigFile.php:674
 msgid "Quick - display only the minimal options to configure"
 msgstr "Jyldam - teńsheý úshin eń az opsıalardy ǵana beıneleý"
 
-#: libraries/classes/Config/ConfigFile.php:667
+#: libraries/classes/Config/ConfigFile.php:675
 msgid "Custom - display all possible options to configure"
 msgstr "Teńsheletin - teńsheý úshin barlyq yqtımal opsıalardy beıneleý"
 
-#: libraries/classes/Config/ConfigFile.php:668
+#: libraries/classes/Config/ConfigFile.php:676
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Teńsheletin - joǵarydaǵydaı, biraq jyldam/teńsheletin tańdaýysyz"
 
-#: libraries/classes/Config/ConfigFile.php:720
+#: libraries/classes/Config/ConfigFile.php:728
 msgid "complete inserts"
 msgstr "tolyq kiristirýler"
 
-#: libraries/classes/Config/ConfigFile.php:721
+#: libraries/classes/Config/ConfigFile.php:729
 msgid "extended inserts"
 msgstr "keńeıtilgen kiristirýler"
 
-#: libraries/classes/Config/ConfigFile.php:722
+#: libraries/classes/Config/ConfigFile.php:730
 msgid "both of the above"
 msgstr "joǵarydaǵy ekeýi de"
 
-#: libraries/classes/Config/ConfigFile.php:723
+#: libraries/classes/Config/ConfigFile.php:731
 msgid "neither of the above"
 msgstr "joǵarydaǵy bireýi de joq"
 
@@ -3744,14 +3744,14 @@ msgstr "Baǵandardyń ataýlaryn birinshi jolǵa qoıý"
 #: libraries/classes/Config/Descriptions.php:647
 #: libraries/classes/Config/Descriptions.php:780
 #: libraries/classes/Config/Descriptions.php:786
-#: libraries/classes/Plugins/Import/ImportCsv.php:652
+#: libraries/classes/Plugins/Import/ImportCsv.php:653
 msgid "Columns enclosed with"
 msgstr "Baǵandar mynaýmen qorshalǵan"
 
 #: libraries/classes/Config/Descriptions.php:648
 #: libraries/classes/Config/Descriptions.php:781
 #: libraries/classes/Config/Descriptions.php:787
-#: libraries/classes/Plugins/Import/ImportCsv.php:663
+#: libraries/classes/Plugins/Import/ImportCsv.php:664
 msgid "Columns escaped with"
 msgstr "Baǵandar mynaýmen ekrandalǵan"
 
@@ -3773,13 +3773,13 @@ msgstr "Baǵandar ishinen CRLF tańbalaryn alastaý"
 #: libraries/classes/Config/Descriptions.php:651
 #: libraries/classes/Config/Descriptions.php:784
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Import/ImportCsv.php:637
+#: libraries/classes/Plugins/Import/ImportCsv.php:638
 msgid "Columns terminated with"
 msgstr "Baǵandar mynaýmen aıaqtalǵan"
 
 #: libraries/classes/Config/Descriptions.php:652
 #: libraries/classes/Config/Descriptions.php:779
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#: libraries/classes/Plugins/Import/ImportCsv.php:671
 msgid "Lines terminated with"
 msgstr "Syzyqtar mynaýmen aıaqtalǵan"
 
@@ -4766,7 +4766,7 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: libraries/classes/Config/Descriptions.php:932
 #: libraries/classes/ConfigStorage/UserGroups.php:113
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:403
-#: libraries/classes/Display/Results.php:2700
+#: libraries/classes/Display/Results.php:2701
 #: libraries/classes/Html/Generator.php:571
 #: libraries/classes/Html/Generator.php:819
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4830,7 +4830,7 @@ msgstr "Mátinaýmaq joldary"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:121
 #: libraries/classes/Server/Privileges.php:1567
 #: libraries/classes/Server/Privileges.php:1569
-#: libraries/classes/Server/Status/Processes.php:102
+#: libraries/classes/Server/Status/Processes.php:103
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4864,7 +4864,7 @@ msgstr "Server"
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:153
-#: templates/database/triggers/editor_form.twig:27
+#: templates/database/triggers/editor_form.twig:32
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:260
@@ -5335,11 +5335,11 @@ msgstr ""
 "%1$sGZip qysý men qysýdan shyǵarý%2$s osy júıede qoljetimdi emes "
 "fýnksıalardy qajet etedi (%3$s)."
 
-#: libraries/classes/ConfigStorage/Relation.php:1318
+#: libraries/classes/ConfigStorage/Relation.php:1324
 msgid "no description"
 msgstr "sipattamasy joq"
 
-#: libraries/classes/ConfigStorage/Relation.php:1510
+#: libraries/classes/ConfigStorage/Relation.php:1521
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5497,7 +5497,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:64
-#: libraries/classes/Controllers/Database/TrackingController.php:118
+#: libraries/classes/Controllers/Database/TrackingController.php:117
 #: libraries/classes/Controllers/Export/ExportController.php:310
 #: libraries/classes/Database/Qbe.php:285
 #: templates/database/structure/index.twig:25
@@ -5614,7 +5614,7 @@ msgid "Table %s has been emptied."
 msgstr "%s kestesi bosatyldy."
 
 #: libraries/classes/Controllers/Database/StructureController.php:541
-#: libraries/classes/Display/Results.php:3684
+#: libraries/classes/Display/Results.php:3685
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5679,12 +5679,12 @@ msgstr "Ózgerister joq"
 msgid "Favorite List is full!"
 msgstr "Tańdaýly tizimi toldy!"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:66
-#: libraries/classes/Controllers/Database/TrackingController.php:91
+#: libraries/classes/Controllers/Database/TrackingController.php:65
+#: libraries/classes/Controllers/Database/TrackingController.php:90
 msgid "Tracking data deleted successfully."
 msgstr "Qadaǵalaý derekteri sátti joıyldy."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:77
+#: libraries/classes/Controllers/Database/TrackingController.php:76
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -5692,11 +5692,11 @@ msgstr ""
 "%1$s nusqasy bólektelgen kesteler úshin jasaldy, olar úshin qadaǵalaý "
 "belsendi."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:108
+#: libraries/classes/Controllers/Database/TrackingController.php:107
 msgid "No tables selected."
 msgstr "Kesteler bólektenbedi."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:143
+#: libraries/classes/Controllers/Database/TrackingController.php:142
 msgid "Database Log"
 msgstr "Derekqor jurnaly"
 
@@ -6232,8 +6232,8 @@ msgid "Removing Selected Users"
 msgstr "Bólektelgen paıdalanushylardy alastaý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Tracking/Tracking.php:179
-#: libraries/classes/Tracking/Tracking.php:572
+#: libraries/classes/Tracking/Tracking.php:213
+#: libraries/classes/Tracking/Tracking.php:606
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
@@ -6722,7 +6722,7 @@ msgstr "Explain shyǵarýy"
 #: libraries/classes/Plugins/Export/ExportOdt.php:580
 #: libraries/classes/Plugins/Export/ExportTexytext.php:447
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:330
-#: libraries/classes/Server/Status/Processes.php:104
+#: libraries/classes/Server/Status/Processes.php:105
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -7102,8 +7102,8 @@ msgid "Show query box"
 msgstr "Saýal uıasyn kórsetý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
-#: libraries/classes/Display/Results.php:2761
-#: libraries/classes/Tracking/Tracking.php:203
+#: libraries/classes/Display/Results.php:2762
+#: libraries/classes/Tracking/Tracking.php:237
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:274
 #: templates/database/central_columns/main.twig:386
@@ -7373,7 +7373,7 @@ msgid "Ignore"
 msgstr "Elemeý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:491
-#: libraries/classes/Display/Results.php:2704
+#: libraries/classes/Display/Results.php:2705
 #: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:312
 #: templates/display/results/table.twig:313
@@ -8581,7 +8581,7 @@ msgstr ""
 "«Paróldi ózgertý» qoıyndysyn paıdalanýyńyz qajet."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:415
-#: libraries/classes/Server/Status/Processes.php:100
+#: libraries/classes/Server/Status/Processes.php:101
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Paıdalanushy"
@@ -9356,7 +9356,7 @@ msgid "Wrong data or no validation for %s"
 msgstr "Qate derekter nemese %s úshin jaramdylyq tekserýi joq"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:236
-#: libraries/classes/Sql.php:1076
+#: libraries/classes/Sql.php:1080
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Betbelgi %s jasaldy."
@@ -9424,7 +9424,7 @@ msgstr "%s kestesi áldeqashan bar!"
 #: libraries/classes/Controllers/Table/RelationController.php:282
 #: libraries/classes/Controllers/View/OperationsController.php:83
 #: libraries/classes/Database/Routines.php:1202
-#: libraries/classes/Display/Results.php:3396 libraries/classes/Message.php:151
+#: libraries/classes/Display/Results.php:3397 libraries/classes/Message.php:151
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-saýalyńyz sátti oryndaldy."
@@ -9464,7 +9464,7 @@ msgstr "Munda tym kóp ındekssiz jalǵasýlar bar."
 #: libraries/classes/Controllers/Table/GetFieldController.php:78
 #: libraries/classes/Database/Routines.php:1221
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
-#: libraries/classes/Sql.php:891
+#: libraries/classes/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bos nátıje jıynyn qaıtardy (ıaǵnı nóldik joldar)."
 
@@ -9561,7 +9561,7 @@ msgstr "Baǵandar sátti jyljytyldy."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:255
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:251
-#: libraries/classes/Tracking/Tracking.php:709
+#: libraries/classes/Tracking/Tracking.php:874
 msgid "Query error"
 msgstr "Saýal qatesi"
 
@@ -9843,11 +9843,11 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "Teńshelgen kolasıa qosylymyn ornatý sátsiz aıaqtaldy!"
 
-#: libraries/classes/DatabaseInterface.php:1572
+#: libraries/classes/DatabaseInterface.php:1574
 msgid "Missing connection parameters!"
 msgstr "Qosylym parametrleri jetispeıdi!"
 
-#: libraries/classes/DatabaseInterface.php:1599
+#: libraries/classes/DatabaseInterface.php:1601
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Basqarýshy paıdalanýshy úshin konfıgýrasıańyzda anyqtalǵan qosylym sátsiz "
@@ -10004,27 +10004,27 @@ msgstr ""
 "%2$s derekqorynda %1$s atymen rásim tabylmady. Bul rásimdi qaraý/eksporttaý "
 "úshin qajetti artyqshylyqtar bolmaýy múmkin."
 
-#: libraries/classes/Database/Search.php:76
+#: libraries/classes/Database/Search.php:78
 #: templates/database/search/main.twig:18
 msgid "at least one of the words"
 msgstr "eń keminde sózderdiń biri"
 
-#: libraries/classes/Database/Search.php:77
+#: libraries/classes/Database/Search.php:79
 #: templates/database/search/main.twig:22
 msgid "all of the words"
 msgstr "sózderdiń barlyǵy"
 
-#: libraries/classes/Database/Search.php:78
+#: libraries/classes/Database/Search.php:80
 #: templates/database/search/main.twig:26
 msgid "the exact phrase as substring"
 msgstr "ishki jol retinde dál sóılem"
 
-#: libraries/classes/Database/Search.php:79
+#: libraries/classes/Database/Search.php:81
 #: templates/database/search/main.twig:30
 msgid "the exact phrase as whole field"
 msgstr "tutas óris retinde dál sóılem"
 
-#: libraries/classes/Database/Search.php:80
+#: libraries/classes/Database/Search.php:82
 #: templates/database/search/main.twig:34
 msgid "as regular expression"
 msgstr "qalypty órnek retinde"
@@ -10147,41 +10147,41 @@ msgstr "Ishinara mátinder"
 msgid "Full texts"
 msgstr "Tolyq mátinder"
 
-#: libraries/classes/Display/Results.php:2737
-#: libraries/classes/Display/Results.php:2752
+#: libraries/classes/Display/Results.php:2738
+#: libraries/classes/Display/Results.php:2753
 msgid "The row has been deleted."
 msgstr "Jol joıyldy."
 
-#: libraries/classes/Display/Results.php:2780
+#: libraries/classes/Display/Results.php:2781
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Doǵarý"
 
-#: libraries/classes/Display/Results.php:3332
+#: libraries/classes/Display/Results.php:3333
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Shamamen bolýy múmkin. [doc@faq3-11]FAQ 3.11[/doc] qarańyz."
 
-#: libraries/classes/Display/Results.php:3693
+#: libraries/classes/Display/Results.php:3694
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s joldardy kórsetýde"
 
-#: libraries/classes/Display/Results.php:3707
+#: libraries/classes/Display/Results.php:3708
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d qorytyndy, %2$d saýalda"
 
-#: libraries/classes/Display/Results.php:3712
+#: libraries/classes/Display/Results.php:3713
 #, php-format
 msgid "%d total"
 msgstr "%d qorytyndy"
 
-#: libraries/classes/Display/Results.php:3725 libraries/classes/Sql.php:897
+#: libraries/classes/Display/Results.php:3726 libraries/classes/Sql.php:901
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Saýal %01.4f sekýnt jumsady."
 
-#: libraries/classes/Display/Results.php:4045
+#: libraries/classes/Display/Results.php:4046
 msgid "Link not found!"
 msgstr "Silteme tabylmady!"
 
@@ -10719,7 +10719,7 @@ msgstr "Statıkalyq taldaý:"
 msgid "%d errors were found during analysis."
 msgstr "Taldaý kezinde %d qate tabyldy."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:905
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:909
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK oryn aldy.]"
 
@@ -10767,7 +10767,7 @@ msgstr "Qurylymdy kelesi «Qurylym» siltemesi boıynsha óńdeý."
 #: libraries/classes/Plugins/Import/ImportXml.php:47
 #: templates/console/display.twig:15 templates/console/display.twig:163
 #: templates/database/designer/database_tables.twig:114
-#: templates/database/routines/editor_form.twig:53
+#: templates/database/routines/editor_form.twig:58
 #: templates/table/structure/display_table_stats.twig:97
 msgid "Options"
 msgstr "Opsıalar"
@@ -10841,8 +10841,8 @@ msgstr "Funksıa"
 #: templates/database/data_dictionary/index.twig:74
 #: templates/database/events/index.twig:45
 #: templates/database/privileges/index.twig:19
-#: templates/database/routines/editor_form.twig:26
-#: templates/database/routines/editor_form.twig:51
+#: templates/database/routines/editor_form.twig:31
+#: templates/database/routines/editor_form.twig:56
 #: templates/database/routines/execute_form.twig:16
 #: templates/database/routines/index.twig:50
 #: templates/database/structure/table_header.twig:30 templates/indexes.twig:17
@@ -10875,11 +10875,11 @@ msgstr "Nemese"
 msgid "web server upload directory:"
 msgstr "ýeb-serverdiń júktep salý katalogy:"
 
-#: libraries/classes/InsertEdit.php:1234 libraries/classes/Sql.php:888
+#: libraries/classes/InsertEdit.php:1234 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr "SQL-saýal kórsetý"
 
-#: libraries/classes/InsertEdit.php:1258 libraries/classes/Sql.php:868
+#: libraries/classes/InsertEdit.php:1258 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiristirilgen jol uqsatqyshy: %1$d"
@@ -11116,7 +11116,7 @@ msgstr "Jańa"
 #: libraries/classes/Plugins/Export/ExportOdt.php:583
 #: libraries/classes/Plugins/Export/ExportTexytext.php:448
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:332
-#: templates/database/triggers/editor_form.twig:47
+#: templates/database/triggers/editor_form.twig:52
 #: templates/database/triggers/list.twig:48
 msgid "Event"
 msgstr "Oqıǵa"
@@ -11797,7 +11797,7 @@ msgstr "Kelesige siltemeler"
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:226
 #: templates/database/events/index.twig:43
-#: templates/database/routines/editor_form.twig:50
+#: templates/database/routines/editor_form.twig:55
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
 #: templates/database/triggers/list.twig:43 templates/setup/home/index.twig:49
@@ -11809,9 +11809,9 @@ msgstr "Aty"
 #: libraries/classes/Plugins/Export/ExportOdt.php:586
 #: libraries/classes/Plugins/Export/ExportTexytext.php:449
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:334
-#: templates/database/events/editor_form.twig:82
-#: templates/database/routines/editor_form.twig:113
-#: templates/database/triggers/editor_form.twig:57
+#: templates/database/events/editor_form.twig:87
+#: templates/database/routines/editor_form.twig:118
+#: templates/database/triggers/editor_form.twig:62
 msgid "Definition"
 msgstr "Anyqtamasy"
 
@@ -12308,15 +12308,15 @@ msgstr "%d jolynda CSV kirisiniń jaramsyz pishimi."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV kirisindegi %d jolynda baǵan sany jaramsyz."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:635
-#: libraries/classes/Plugins/Import/ImportCsv.php:650
-#: libraries/classes/Plugins/Import/ImportCsv.php:661
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
+#: libraries/classes/Plugins/Import/ImportCsv.php:636
+#: libraries/classes/Plugins/Import/ImportCsv.php:651
+#: libraries/classes/Plugins/Import/ImportCsv.php:662
+#: libraries/classes/Plugins/Import/ImportCsv.php:669
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV ımporttaý úshin parametr jaramsyz: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:799
+#: libraries/classes/Plugins/Import/ImportCsv.php:807
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -13390,7 +13390,7 @@ msgstr ""
 "salady."
 
 #: libraries/classes/Server/Status/Data.php:138
-#: libraries/classes/Server/Status/Processes.php:112
+#: libraries/classes/Server/Status/Processes.php:113
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL-saýal"
@@ -13467,22 +13467,22 @@ msgstr "Jetektegi mártebeni kórsetý"
 msgid "Flush query cache"
 msgstr "Saýal keshin tazartý"
 
-#: libraries/classes/Server/Status/Processes.php:99
+#: libraries/classes/Server/Status/Processes.php:100
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:101
+#: libraries/classes/Server/Status/Processes.php:102
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Túın"
 
-#: libraries/classes/Server/Status/Processes.php:103
+#: libraries/classes/Server/Status/Processes.php:104
 msgid "Command"
 msgstr "Pármen"
 
-#: libraries/classes/Server/Status/Processes.php:109
+#: libraries/classes/Server/Status/Processes.php:110
 msgid "Progress"
 msgstr "Barysy"
 
@@ -13515,16 +13515,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Jańaraq turaqty nusqasy qoljetimdi emes"
 
-#: libraries/classes/Sql.php:439
+#: libraries/classes/Sql.php:443
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Ádepki sharlaý saýaly retinde «%s» betbelgisi paıdalanylady."
 
-#: libraries/classes/Sql.php:885
+#: libraries/classes/Sql.php:889
 msgid "Showing as PHP code"
 msgstr "PHP-kod retinde kórsetilýde"
 
-#: libraries/classes/Sql.php:1256
+#: libraries/classes/Sql.php:1260
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13533,7 +13533,7 @@ msgstr ""
 "Aǵymdyq bólekteýde biregeı baǵan joq. Tor óńdeý, qusbelgi, Óńdeý, Kóshiriý "
 "jáne Joıý múmkindikter qoljetimdi emes. %s"
 
-#: libraries/classes/Sql.php:1270
+#: libraries/classes/Sql.php:1274
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13682,102 +13682,102 @@ msgstr "%s taqyryby tabylmady!"
 msgid "No valid image path for theme %s found!"
 msgstr "%s taqyryby úshin jaramdy sýret joly tabylmady!"
 
-#: libraries/classes/Tracking/Tracking.php:178
+#: libraries/classes/Tracking/Tracking.php:212
 #: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "Qadaǵalaý esebi"
 
-#: libraries/classes/Tracking/Tracking.php:182
+#: libraries/classes/Tracking/Tracking.php:216
 msgid "Tracking statements"
 msgstr "Qadaǵalaý nusqaýlary"
 
-#: libraries/classes/Tracking/Tracking.php:198
+#: libraries/classes/Tracking/Tracking.php:232
 msgid "Delete tracking data row from report"
 msgstr "Esepten derekter jolyn qadaǵalaýdy joıý"
 
-#: libraries/classes/Tracking/Tracking.php:208
+#: libraries/classes/Tracking/Tracking.php:242
 msgid "No data"
 msgstr "Derekter joq"
 
-#: libraries/classes/Tracking/Tracking.php:263
+#: libraries/classes/Tracking/Tracking.php:297
 #: templates/database/operations/index.twig:131
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Qurylym ǵana"
 
-#: libraries/classes/Tracking/Tracking.php:266
+#: libraries/classes/Tracking/Tracking.php:300
 #: templates/database/operations/index.twig:143
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Derekter ǵana"
 
-#: libraries/classes/Tracking/Tracking.php:269
+#: libraries/classes/Tracking/Tracking.php:303
 #: templates/database/operations/index.twig:137
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
 msgstr "Qurylym jáne derekter"
 
-#: libraries/classes/Tracking/Tracking.php:320
-#: libraries/classes/Tracking/Tracking.php:391
+#: libraries/classes/Tracking/Tracking.php:354
+#: libraries/classes/Tracking/Tracking.php:425
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 "%4$s %5$s paıdalanýshysy arqyly, %2$s bastap %3$s deıin kúnderimen, %1$s "
 "kórsetińiz"
 
-#: libraries/classes/Tracking/Tracking.php:412
+#: libraries/classes/Tracking/Tracking.php:446
 msgid "SQL dump (file download)"
 msgstr "SQL-damp (faıldy júktep alý)"
 
-#: libraries/classes/Tracking/Tracking.php:414
+#: libraries/classes/Tracking/Tracking.php:448
 msgid "SQL dump"
 msgstr "SQL-damp"
 
-#: libraries/classes/Tracking/Tracking.php:417
+#: libraries/classes/Tracking/Tracking.php:451
 msgid "This option will replace your table and contained data."
 msgstr "Bul opsıa kesteńizdi jáne qamtyǵan derekterdi aýystyrady."
 
-#: libraries/classes/Tracking/Tracking.php:419
+#: libraries/classes/Tracking/Tracking.php:453
 msgid "SQL execution"
 msgstr "SQL oryndalýy"
 
-#: libraries/classes/Tracking/Tracking.php:423
+#: libraries/classes/Tracking/Tracking.php:457
 #, php-format
 msgid "Export as %s"
 msgstr "%s retinde eksporttaý"
 
-#: libraries/classes/Tracking/Tracking.php:456
+#: libraries/classes/Tracking/Tracking.php:490
 msgid "Data manipulation statement"
 msgstr "Derekterdi basqarý nusqaýy"
 
-#: libraries/classes/Tracking/Tracking.php:492
+#: libraries/classes/Tracking/Tracking.php:526
 msgid "Data definition statement"
 msgstr "Derekterdi anyqtaý nusqaýy"
 
-#: libraries/classes/Tracking/Tracking.php:571
+#: libraries/classes/Tracking/Tracking.php:605
 #: templates/database/tracking/tables.twig:126
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "Qurylymnyń sýreti"
 
-#: libraries/classes/Tracking/Tracking.php:589
+#: libraries/classes/Tracking/Tracking.php:623
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "%s nusqasynyń sýreti (SQL-kod)"
 
-#: libraries/classes/Tracking/Tracking.php:659
+#: libraries/classes/Tracking/Tracking.php:824
 msgid "Tracking data definition successfully deleted"
 msgstr "Derekter anyqtaýynyń qadaǵalaýy sátti joıyldy"
 
-#: libraries/classes/Tracking/Tracking.php:672
+#: libraries/classes/Tracking/Tracking.php:837
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Derekter basqarýynyń qadaǵalaýy sátti joıyldy"
 
-#: libraries/classes/Tracking/Tracking.php:730
+#: libraries/classes/Tracking/Tracking.php:951
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -13785,37 +13785,37 @@ msgstr ""
 "Ýaqytsha derekqordy jasap paıdalaný arqyly dampty oryndaýǵa bolady. Muny "
 "isteý úshin artyqshylyqtaryńyz baryna kóz jetkizińiz."
 
-#: libraries/classes/Tracking/Tracking.php:734
+#: libraries/classes/Tracking/Tracking.php:955
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 "Eger sizge osy eki jol qajet emes bolsa, olardy túsinikteme tańbalarymen "
 "qorshańyz."
 
-#: libraries/classes/Tracking/Tracking.php:745
+#: libraries/classes/Tracking/Tracking.php:966
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL-nusqaýlar eksporttalady. Dampty kóshirińiz nemese ony oryndańyz."
 
-#: libraries/classes/Tracking/Tracking.php:778
+#: libraries/classes/Tracking/Tracking.php:999
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "«%s» kestesi úshin qadaǵalaý esebi"
 
-#: libraries/classes/Tracking/Tracking.php:800
+#: libraries/classes/Tracking/Tracking.php:1021
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "%1$s úshin qadaǵalaý %2$s nusqasynda belsendirildi."
 
-#: libraries/classes/Tracking/Tracking.php:803
+#: libraries/classes/Tracking/Tracking.php:1024
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "%1$s úshin qadaǵalaý %2$s nusqasynda óshirildi."
 
-#: libraries/classes/Tracking/Tracking.php:898
+#: libraries/classes/Tracking/Tracking.php:1119
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%2$s ishindegi %1$s nusqasy joıyldy."
 
-#: libraries/classes/Tracking/Tracking.php:929
+#: libraries/classes/Tracking/Tracking.php:1150
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "%1$s nusqasy jasaldy, %2$s úshin qadaǵalaý belsendi."
@@ -14378,8 +14378,8 @@ msgstr "Mehanızm"
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
 #: templates/database/data_dictionary/index.twig:81
-#: templates/database/events/editor_form.twig:102
-#: templates/database/routines/editor_form.twig:167
+#: templates/database/events/editor_form.twig:107
+#: templates/database/routines/editor_form.twig:172
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:32
 #: templates/table/structure/display_structure.twig:483
@@ -14414,7 +14414,7 @@ msgstr "Túıin toby"
 
 #: templates/columns_definitions/table_fields_definitions.twig:16
 #: templates/database/central_columns/edit.twig:10
-#: templates/database/routines/editor_form.twig:52
+#: templates/database/routines/editor_form.twig:57
 msgid "Length/Values"
 msgstr "Uzyndyǵy/Mánderi"
 
@@ -14464,7 +14464,7 @@ msgstr "Kolasıa"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
 #: templates/database/operations/index.twig:173
-#: templates/database/routines/editor_form.twig:128
+#: templates/database/routines/editor_form.twig:133
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
@@ -15063,46 +15063,46 @@ msgstr "Exporttyń qatynastyq túrin bólekteý"
 msgid "Details"
 msgstr "Egjeıler"
 
-#: templates/database/events/editor_form.twig:19
+#: templates/database/events/editor_form.twig:24
 msgid "Event name"
 msgstr "Oqıǵa aty"
 
-#: templates/database/events/editor_form.twig:35
+#: templates/database/events/editor_form.twig:40
 #: templates/server/binlog/index.twig:86
 msgid "Event type"
 msgstr "Oqıǵa túri"
 
-#: templates/database/events/editor_form.twig:48
-#: templates/database/routines/editor_form.twig:38
+#: templates/database/events/editor_form.twig:53
+#: templates/database/routines/editor_form.twig:43
 #, php-format
 msgid "Change to %s"
 msgstr "%s úshin ózgertý"
 
-#: templates/database/events/editor_form.twig:53
+#: templates/database/events/editor_form.twig:58
 msgid "Execute at"
 msgstr "Oryndaý mezgili"
 
-#: templates/database/events/editor_form.twig:59
+#: templates/database/events/editor_form.twig:64
 msgid "Execute every"
 msgstr "Oryndaý kezi"
 
-#: templates/database/events/editor_form.twig:70
+#: templates/database/events/editor_form.twig:75
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Bastaýy"
 
-#: templates/database/events/editor_form.twig:76
+#: templates/database/events/editor_form.twig:81
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Sońy"
 
-#: templates/database/events/editor_form.twig:90
+#: templates/database/events/editor_form.twig:95
 msgid "On completion preserve"
 msgstr "Aıaqtalǵannan keıin saqtap otyrý"
 
-#: templates/database/events/editor_form.twig:96
-#: templates/database/routines/editor_form.twig:142
-#: templates/database/triggers/editor_form.twig:61
+#: templates/database/events/editor_form.twig:101
+#: templates/database/routines/editor_form.twig:147
+#: templates/database/triggers/editor_form.twig:66
 #: templates/view_create.twig:45
 msgid "Definer"
 msgstr "Anyqtaýshy"
@@ -15497,50 +15497,50 @@ msgstr "Kestelerdi paıdalaný"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>%s</b> derekqoryndaǵy SQL-saýal:"
 
-#: templates/database/routines/editor_form.twig:20
+#: templates/database/routines/editor_form.twig:25
 msgid "Routine name"
 msgstr "Rásim aty"
 
-#: templates/database/routines/editor_form.twig:43
+#: templates/database/routines/editor_form.twig:48
 msgid "Parameters"
 msgstr "Parametrler"
 
-#: templates/database/routines/editor_form.twig:49
+#: templates/database/routines/editor_form.twig:54
 msgid "Direction"
 msgstr "Baǵyt"
 
-#: templates/database/routines/editor_form.twig:67
-#: templates/database/routines/editor_form.twig:69
+#: templates/database/routines/editor_form.twig:72
+#: templates/database/routines/editor_form.twig:74
 msgid "Add parameter"
 msgstr "Parrametr ústeý"
 
-#: templates/database/routines/editor_form.twig:70
+#: templates/database/routines/editor_form.twig:75
 msgid "Remove last parameter"
 msgstr "Sońǵy parametrdi alastaý"
 
-#: templates/database/routines/editor_form.twig:75
+#: templates/database/routines/editor_form.twig:80
 msgid "Return type"
 msgstr "Qaıtarym túri"
 
-#: templates/database/routines/editor_form.twig:83
+#: templates/database/routines/editor_form.twig:88
 msgid "Return length/values"
 msgstr "Qaıtarym uzyndyǵy/mánderi"
 
-#: templates/database/routines/editor_form.twig:90
+#: templates/database/routines/editor_form.twig:95
 msgid "Return options"
 msgstr "Qaıtarym opsıalary"
 
-#: templates/database/routines/editor_form.twig:94
+#: templates/database/routines/editor_form.twig:99
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "Tańbalar jıyny"
 
-#: templates/database/routines/editor_form.twig:119
+#: templates/database/routines/editor_form.twig:124
 msgid "Is deterministic"
 msgstr "Sheshýshi"
 
-#: templates/database/routines/editor_form.twig:135
+#: templates/database/routines/editor_form.twig:140
 #, fuzzy
 #| msgid ""
 #| "You do not have sufficient privileges to perform this operation; Please "
@@ -15552,11 +15552,11 @@ msgstr ""
 "Bul áreketti oryndaý úshin jetkilikti artyqshylyqtaryńyz joq. Kóbirek "
 "egjeler úshin qujattamany qarańyz"
 
-#: templates/database/routines/editor_form.twig:148
+#: templates/database/routines/editor_form.twig:153
 msgid "Security type"
 msgstr "Qaýipsizdik túri"
 
-#: templates/database/routines/editor_form.twig:157
+#: templates/database/routines/editor_form.twig:162
 msgid "SQL data access"
 msgstr "SQL-derekterge qatynaý"
 
@@ -15896,11 +15896,11 @@ msgstr "Qdaǵalanbaǵan kesteler"
 msgid "Track table"
 msgstr "Kesteni qadaǵalaý"
 
-#: templates/database/triggers/editor_form.twig:23
+#: templates/database/triggers/editor_form.twig:28
 msgid "Trigger name"
 msgstr "Trıger aty"
 
-#: templates/database/triggers/editor_form.twig:37
+#: templates/database/triggers/editor_form.twig:42
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Ýaqyt"
