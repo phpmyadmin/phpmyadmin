@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2023-04-10 19:48+0000\n"
-"Last-Translator: Deleted User <noreply+60134@weblate.org>\n"
+"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
 "Language: ar\n"
@@ -38,7 +38,7 @@ msgstr "اضغط للترتيب."
 #: db_central_columns.php:177
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "اعرض الصفوف  %1$s - %2$s."
+msgstr "اعرض الصفوف %1$s - %2$s."
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
@@ -14766,10 +14766,9 @@ msgstr "إضافة خيار للعمود‘%s‘ ."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "إحفظ على الخادم في الدليل <b>%s</b>"
+msgstr "إحفظ على الخادم في الدليل <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
