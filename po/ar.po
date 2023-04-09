@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-09 00:18+0000\n"
-"PO-Revision-Date: 2022-12-02 14:48+0000\n"
-"Last-Translator: devOMAR <omar.alfarraj@yahoo.com>\n"
+"PO-Revision-Date: 2023-04-10 19:51+0000\n"
+"Last-Translator: Deleted User <noreply+60134@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -2412,14 +2412,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:251
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr "تعريف ما إذا كان سوف يتذكر تسجيل الدخول الأخير من تحقق الكوكيز أم لا"
+msgstr ""
+"تعريف ما إذا كان سوف يتذكر تسجيل الدخول الأخير من تحقق [kbd]cookie[/kbd] أم "
+"لا."
 
 #: libraries/classes/Config/Descriptions.php:255
 msgid ""
@@ -5293,7 +5291,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to "
 "%sdocumentation%s."
 msgstr ""
-"لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الــ "
+"لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الـ "
 "%sdocumentation%s."
 
 #: libraries/classes/Controllers/Database/StructureController.php:723
@@ -5481,7 +5479,7 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "الملف [code]config[/code] المستعمل من قبل نص الإعدادات مازال موجودا في مجلد "
-"phpMyAdmin. يُـوصى بفسخه عندما يتم إعداد phpMyAdmin. إذا لم يتم ذلك فحماية "
+"phpMyAdmin. يُوصى بفسخه عندما يتم إعداد phpMyAdmin. إذا لم يتم ذلك فحماية "
 "الخادم قد يتعرض للخطر من أشخاص غير مرخصين قد يحَمِّلون إعداداتك."
 
 #: libraries/classes/Controllers/HomeController.php:369
@@ -5510,7 +5508,7 @@ msgid ""
 msgstr ""
 "لم يتم العثور على إضافة PHP mbstring ويبدو أنك تستعمل طقم محارف متعدد "
 "البايتات. دون إضافة mbstring لا يستطيع phpMyAdmin إدارة النصوص بشكل فعَّال، "
-"مما قد يُظهِـر نتائج غير متوقعة."
+"مما قد يُظهِر نتائج غير متوقعة."
 
 #: libraries/classes/Controllers/HomeController.php:457
 msgid ""
@@ -6231,8 +6229,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "تم تمكين سجل الاستعلام البطيء, ولكن يسجل الخادم طلبات البحث التي تستغرق وقتا "
-"أطول من%d من الثواني . فقط. من المستحسن تعيين هذه المدة الزمنية الطويلة 0-2 "
-"ثانية، اعتمادا على النظام الخاص بك."
+"أطول من%d ثانية. من المستحسن تعيين هذه المدة الزمنية الطويلة 0-2 ثانية، "
+"اعتمادا على النظام الخاص بك."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 #, php-format
@@ -7401,8 +7399,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
-"تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d من الحقول. عند "
-"الإرسال، قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
+"تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d حقل. عند الإرسال، "
+"قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:646
@@ -7892,10 +7890,9 @@ msgstr "الأسبوع"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "نتيجة-شهر-سنة"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
@@ -8044,7 +8041,7 @@ msgstr "الرجاء إدخال تاريخ أو وقت صالح"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a valid HEX input"
-msgstr "الرجاء إدخال إدخال  HEX  صالح"
+msgstr "الرجاء إدخال HEX صالح"
 
 #. l10n: To validate the usage of a MD5 function on the column
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:802
@@ -8092,10 +8089,8 @@ msgid "The file is being processed, please be patient."
 msgstr "الملف قيد المعالجة, يرجى الانتظار."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:817
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "هيئة الملفات المستوردة"
+msgstr "هيئة الملفات المستوردة…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:819
 msgid ""
@@ -8109,10 +8104,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:25
 #: libraries/classes/Normalization.php:216
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "إختر عمودين"
+msgstr "اختر واحدا…"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:26
 #: libraries/classes/Normalization.php:217
@@ -10115,7 +10108,7 @@ msgid ""
 "the HTML form."
 msgstr ""
 "إنّ الملف المرفوع يتجاوز التوجيهة MAX_FILE_SIZE اللتي تم تحديدها في إستمارة "
-"الــHTML."
+"الـHTML."
 
 #: libraries/classes/File.php:270
 msgid "The uploaded file was only partially uploaded."
@@ -13815,10 +13808,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:183
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:96
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "جار التحميل…"
+msgstr "جار التحميل"
 
 #: templates/columns_definitions/column_name.twig:4
 #, fuzzy, php-format
@@ -15495,10 +15486,8 @@ msgstr "أضف قيمة AUTO_INCREMENT"
 #: templates/table/delete/confirm.twig:12
 #: templates/table/structure/drop_confirm.twig:7
 #: templates/table/structure/primary.twig:3
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "هل تريد حقا"
+msgstr "هل تريد حقا تنفيذ الاستعلام التالي؟"
 
 #: templates/database/structure/favorite_anchor.twig:4
 #: templates/recent_favorite_table_favorite.twig:6
@@ -16392,19 +16381,12 @@ msgstr ""
 "انتهت مُهلة عمليّة الإستراد السابقة, بعد إعادة الإرسال سنستمرُّ من الموقف %d."
 
 #: templates/import.twig:135
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
-"تسمح بقطع عمليّة استراد معيّنة في حالة كَشفَ الرّمز أنّها قريبة من المهلة الزّمنيّة "
-"لـ PHP.\n"
-"<i>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, في كلّ الأحوال يمكنها "
-"كسر العمليّات.)</i>"
+"تسمح بقطع عمليّة استراد معيّنة في حالة كَشفَ الرّمز أنّها قريبة من المهلة "
+"الزّمنيّة لـ PHP."
 
 #: templates/import.twig:137
 msgid ""
@@ -16860,10 +16842,8 @@ msgid "phpMyAdmin configuration storage"
 msgstr "مستندات وثائقية لـ phpMyAdmin (بالإنجليزية)"
 
 #: templates/relation/check_relations.twig:9
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
-msgstr "تمت التعديلات"
+msgstr "تمت التعديلات…"
 
 #: templates/relation/check_relations.twig:10
 #: templates/relation/check_relations.twig:56
@@ -18990,10 +18970,8 @@ msgid "Use the NULL value for this column."
 msgstr "قيمة العمود \"%s\""
 
 #: templates/table/insert/column_row.twig:65
-#, fuzzy
-#| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير "
+msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير."
 
 #: templates/table/insert/column_row.twig:93
 msgid "Binary - do not edit"
