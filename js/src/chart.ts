@@ -42,11 +42,11 @@ ChartFactory.prototype = {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var Chart = function (elementId = undefined) {
+var AbstractChart = function (elementId = undefined) {
     this.elementId = elementId;
 };
 
-Chart.prototype = {
+AbstractChart.prototype = {
     draw: function () {
         throw new Error('draw must be implemented by a subclass');
     },
@@ -74,10 +74,10 @@ Chart.prototype = {
  *            id of the div element the chart is drawn in
  */
 var BaseChart = function (elementId = undefined) {
-    Chart.call(this, elementId);
+    AbstractChart.call(this, elementId);
 };
 
-BaseChart.prototype = new Chart();
+BaseChart.prototype = new AbstractChart();
 BaseChart.prototype.constructor = BaseChart;
 BaseChart.prototype.validateColumns = function (dataTable) {
     var columns = dataTable.getColumns();
@@ -220,12 +220,12 @@ var DataTable = function () {
  *            id of the div element the chart is drawn in
  */
 var JQPlotChart = function (elementId = undefined) {
-    Chart.call(this, elementId);
+    AbstractChart.call(this, elementId);
     this.plot = null;
     this.validator = null;
 };
 
-JQPlotChart.prototype = new Chart();
+JQPlotChart.prototype = new AbstractChart();
 JQPlotChart.prototype.constructor = JQPlotChart;
 JQPlotChart.prototype.draw = function (data, options) {
     if (this.validator.validateColumns(data)) {

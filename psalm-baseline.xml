@@ -2987,8 +2987,7 @@
       <code>$key</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code>$chart[$name]</code>
-      <code><![CDATA[$chart[__('Other')]]]></code>
+      <code><![CDATA[$chart[__('Other statements')]]]></code>
       <code>$hourFactor</code>
       <code>$otherSum</code>
       <code>$value</code>

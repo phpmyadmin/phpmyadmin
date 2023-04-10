@@ -170,6 +170,8 @@ final class JavaScriptMessagesController
 
             'strChartConnectionsTitle' => __('Connections / Processes'),
 
+            'numberOfStatements' => __('Number of statements'),
+
             /* server status monitor */
             'strIncompatibleMonitorConfig' => __('Local monitor configuration incompatible!'),
             'strIncompatibleMonitorConfigDescription' => __(
