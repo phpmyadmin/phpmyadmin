@@ -330,6 +330,7 @@ const DatabaseEvents = {
                 classes: {
                     'ui-dialog-titlebar-close': 'btn-close'
                 },
+                height: 500,
                 width: '70%',
                 minWidth: 500,
                 buttons: buttonOptions,
