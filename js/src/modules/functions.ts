@@ -503,7 +503,7 @@ function confirmLink (theLink, theSqlQuery) {
         return true;
     }
 
-    var isConfirmed = confirm(window.sprintf(window.Messages.strDoYouReally, theSqlQuery));
+    var isConfirmed = window.confirm(window.sprintf(window.Messages.strDoYouReally, theSqlQuery));
     if (isConfirmed) {
         if (typeof (theLink.href) !== 'undefined') {
             theLink.href += CommonParams.get('arg_separator') + 'is_js_confirmed=1';
@@ -558,7 +558,7 @@ function confirmQuery (theForm1, sqlQuery1) {
             message = sqlQuery1;
         }
 
-        var isConfirmed = confirm(window.sprintf(window.Messages.strDoYouReally, message));
+        var isConfirmed = window.confirm(window.sprintf(window.Messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
@@ -1424,7 +1424,7 @@ function checkReservedWordColumns ($form) {
         data: $form.serialize(),
         success: function (data) {
             if (typeof data.success !== 'undefined' && data.success === true) {
-                isConfirmed = confirm(data.message);
+                isConfirmed = window.confirm(data.message);
             }
         },
         async: false
@@ -1746,7 +1746,7 @@ function sqlPrettyPrint (string) {
  *
  * @return {boolean}
  */
-function confirm (question, url = undefined, callbackFn = undefined, openCallback = undefined) {
+function confirmDialog (question, url = undefined, callbackFn = undefined, openCallback = undefined) {
     var confirmState = CommonParams.get('confirm');
     if (! confirmState) {
         // user does not want to confirm
@@ -1761,10 +1761,14 @@ function confirm (question, url = undefined, callbackFn = undefined, openCallbac
         return true;
     }
 
-    $('#functionConfirmModal').modal('show');
-    $('#functionConfirmModal').find('.modal-body').first().html(question);
-    $('#functionConfirmOkButton').off('click');// Un-register previous modals
-    $('#functionConfirmOkButton').on('click', function () {
+    const functionConfirmModal = $('#functionConfirmModal') as JQuery<HTMLDivElement>;
+    functionConfirmModal.modal('show');
+    functionConfirmModal.find('.modal-body').first().html(question);
+
+    const functionConfirmOkButton = $('#functionConfirmOkButton') as JQuery<HTMLButtonElement>;
+    functionConfirmOkButton.off('click');// Un-register previous modals
+    functionConfirmOkButton.on('click', function () {
+        functionConfirmModal.modal('hide');
         if (typeof callbackFn === 'function') {
             callbackFn.call(this, url);
         }
@@ -3773,7 +3777,7 @@ const Functions = {
     showWarningForIntTypes: showWarningForIntTypes,
     prettyProfilingNum: prettyProfilingNum,
     sqlPrettyPrint: sqlPrettyPrint,
-    confirm: confirm,
+    confirm: confirmDialog,
     sortTable: sortTable,
     teardownCreateTableEvents: teardownCreateTableEvents,
     onloadCreateTableEvents: onloadCreateTableEvents,
