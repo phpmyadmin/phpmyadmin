@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-09 00:18+0000\n"
-"PO-Revision-Date: 2023-04-11 08:17+0000\n"
+"PO-Revision-Date: 2023-04-12 08:55+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -16,10 +16,9 @@ msgstr ""
 "X-Generator: Weblate 4.17-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Allows reading data."
+msgstr "შეცდომა შეფასებისას: %s"
 
 #: libraries/classes/Advisory/Advisor.php:201
 #, php-format
@@ -94,10 +93,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:57
-#, fuzzy, php-format
-#| msgid "Insecure connection"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "დაუცველი კავშირი"
+msgstr "კითხვების მიმდინარე რაოდენობა: %s"
 
 #: libraries/classes/Advisory/Rules.php:62
 #, fuzzy
@@ -216,9 +214,9 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:140
 #: libraries/classes/Advisory/Rules.php:154
 #: libraries/classes/Advisory/Rules.php:165
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Create relation"
+msgstr "მიმდინარე ვერსია: %s"
 
 #: libraries/classes/Advisory/Rules.php:145
 #: libraries/classes/Advisory/Rules.php:159
@@ -363,11 +361,12 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "Allows creating temporary tables."
 
 #: libraries/classes/Advisory/Rules.php:255
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Sort buffer size"
+msgstr ""
+"დროებითი ცხრილების საშუალო: %s. ეს მნიშვნელობა საათში ერთზე ნაკლები არ უნდა "
+"იყოს."
 
 #: libraries/classes/Advisory/Rules.php:260
 #, fuzzy
@@ -411,10 +410,11 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:283
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Sort buffer size"
+msgstr ""
+"ცხრილების შეერთება საშუალოდ: %s. ეს მნიშვნელობა საათში ერთზე ნაკლები არ უნდა "
+"იყოს"
 
 #: libraries/classes/Advisory/Rules.php:288
 #, fuzzy
@@ -2310,19 +2310,11 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:189
-#, fuzzy
-#| msgid ""
-#| "figure phpMyAdmin database to gain access to additional features, see ../"
-#| "Documentation.html#linked-tables]linked-tables infrastructure[/a] "
-#| "documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Configure phpMyAdmin database to gain access to additional features, see "
-"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
-"documentation"
 
 #: libraries/classes/Config/Descriptions.php:194
 msgid ""
@@ -2695,15 +2687,10 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:336
-#, fuzzy
-#| msgid ""
-#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:339
 #, fuzzy
@@ -2793,17 +2780,11 @@ msgstr ""
 "kbd]"
 
 #: libraries/classes/Config/Descriptions.php:374
-#, fuzzy
-#| msgid ""
-#| " can use MySQL wildcard characters (% and _), escape them if you want use "
-#| "their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"You can use MySQL wildcard characters (% and _), escape them if you want to "
-"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 
 #: libraries/classes/Config/Descriptions.php:379
 #, fuzzy
@@ -2845,15 +2826,10 @@ msgstr ""
 "kbd]"
 
 #: libraries/classes/Config/Descriptions.php:395
-#, fuzzy
-#| msgid ""
-#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:400
 msgid ""
@@ -5285,14 +5261,7 @@ msgstr ""
 "of users, including you, are connected to."
 
 #: libraries/classes/Config/ServerConfigChecks.php:179
-#, fuzzy, php-format
-#| msgid ""
-#| " set the [kbd]config[/kbd] authentication type and included username  "
-#| "password for auto-login, which is not a desirable option for live ts. "
-#| "Anyone who knows or guesses your phpMyAdmin URL can directly ess your "
-#| "phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;"
-#| "id=d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
-#| "[kbd]httpbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -5300,12 +5269,6 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"You set the [kbd]config[/kbd] authentication type and included username and "
-"password for auto-login, which is not a desirable option for live hosts. "
-"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;"
-"id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:208
 msgid "You allow for connecting to the server without a password."
@@ -5446,24 +5409,18 @@ msgid "Invalid authentication type!"
 msgstr "ავთენტიფიკაციის ტიპი"
 
 #: libraries/classes/Config/Validator.php:281
-#, fuzzy
-#| msgid "Enter login options for signon authentication"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Enter login options for signon authentication"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:287
-#, fuzzy
-#| msgid "Enter login options for signon authentication"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Enter login options for signon authentication"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:294
-#, fuzzy
-#| msgid "Enter login options for signon authentication"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Enter login options for signon authentication"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:348
 msgid ""
@@ -7366,10 +7323,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid "Change"
 msgid "Taking you to next step…"
-msgstr "შეცვლა"
+msgstr "შემდეგ ნაბიჯზე გადასვლა…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 #, php-format
@@ -8706,10 +8661,8 @@ msgid "The file is being processed, please be patient."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:817
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "შემოტანილი ფაილების ფორმატი"
+msgstr "თქვენი შემოსატანი ფაილის ატვირთვა…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:819
 msgid ""
@@ -8723,10 +8676,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:25
 #: libraries/classes/Normalization.php:216
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select one…"
-msgstr "ველის სვეტების დამატება/წაშლა"
+msgstr "აირჩიეთ…"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:26
 #: libraries/classes/Normalization.php:217
@@ -14301,13 +14252,11 @@ msgid "Max: %s%s"
 msgstr "მაქს: %s%s"
 
 #: libraries/classes/Util.php:546
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PM"
 
 #: libraries/classes/Util.php:548
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
@@ -14591,12 +14540,6 @@ msgid "Length/Values"
 msgstr "სიგრძე/მნიშვნელობები"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
@@ -14604,8 +14547,8 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "თუ სვეტის ტიპი არის \"enum\" ან \"set\", გთხოვთ, შეიყვანოთ მნიშვნელობები ამ "
-"ფორმატის გამოყენებით: 'a', 'b', 'c'… <br> თუ ოდესმე დაგჭირდებათ უკუკავშირის "
-"(\"\\\") ან ერთი მნიშვნელობის ციტირება (\"'\") ამ მნიშვნელობებს შორის, წინ "
+"ფორმატის გამოყენებით: 'a', 'b', 'c'… <br> თუ ოდესმე დაგჭირდებათ უკუკავშირის ("
+"\"\\\") ან ერთი მნიშვნელობის ციტირება (\"'\") ამ მნიშვნელობებს შორის, წინ "
 "უსწრებს უკუქცევით (მაგალითად' '\\\\ xyz' ან 'a \\' b ')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
@@ -14914,7 +14857,6 @@ msgid "Create version"
 msgstr "Create relation"
 
 #: templates/database/central_columns/edit.twig:15
-#, fuzzy
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
@@ -15950,20 +15892,15 @@ msgid "Inside column:"
 msgstr "სვეტში:"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s match(es) inside table <i>%s</i>"
-msgstr[1] "%s match(es) inside table <i>%s</i>"
+msgstr[0] "%1$s დამთხვევა ცხრილში <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:50
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> match(es)"
-msgstr[1] "<b>Total:</b> <i>%s</i> match(es)"
+msgstr[0] "<strong>სულ:</strong><em>%count%</em> დამთხვევა"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -16537,10 +16474,9 @@ msgid "Output:"
 msgstr "გამოტანა:"
 
 #: templates/export.twig:171 templates/export.twig:366
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "სერვერის %s დირექტორიაში შენახვა"
+msgstr "შეინახება სერვერზე საქაღალდეში <strong>%s</strong>"
 
 #: templates/export.twig:189 templates/export.twig:333
 msgid "Rename exported databases/tables/columns"
@@ -17046,10 +16982,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: templates/import.twig:59 templates/import.twig:85
-#, fuzzy, php-format
-#| msgid "web server upload directory"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "web server upload directory"
+msgstr ""
 
 #: templates/import.twig:66 templates/import.twig:93
 #, fuzzy
@@ -17545,10 +17480,8 @@ msgid "phpMyAdmin configuration storage"
 msgstr "phpMyAdmin-ის დოკუმენტაცია"
 
 #: templates/relation/check_relations.twig:9
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configuration of pmadb…"
-msgstr "კონფიგურაციის ფაილი"
+msgstr "მიმდინარეობს pmbadb-ის მორგება…"
 
 #: templates/relation/check_relations.twig:10
 #: templates/relation/check_relations.twig:56
@@ -20092,10 +20025,9 @@ msgid "at beginning of table"
 msgstr "ცხრილის დასაწყისში"
 
 #: templates/table/structure/display_structure.twig:569
-#, fuzzy, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Create an index on&nbsp;%s&nbsp;columns"
+msgstr ""
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
