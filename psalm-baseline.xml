@@ -2063,14 +2063,6 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/GisDataEditorController.php">
-    <MixedArgument>
-      <code>$geomType</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$geomType</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Controllers/GitInfoController.php">
     <MixedArgument>
       <code><![CDATA[$commit['author']['date']]]></code>
@@ -7983,6 +7975,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/InsertEdit.php">
+    <DeprecatedMethod>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code>$urlParams</code>
     </InvalidArgument>
@@ -14356,6 +14351,8 @@
     </DocblockTypeContradiction>
     <InvalidScalarArgument>
       <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
     </InvalidScalarArgument>
     <RedundantCondition>
       <code>assertSame</code>
@@ -15783,6 +15780,9 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/VersionInformationTest.php">
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION['cache']['version_check']]]></code>
+    </MixedArrayAccess>
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>

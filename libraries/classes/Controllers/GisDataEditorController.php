@@ -15,10 +15,8 @@ use function array_merge;
 use function in_array;
 use function intval;
 use function is_array;
-use function mb_strpos;
 use function mb_strtoupper;
-use function mb_substr;
-use function substr;
+use function preg_match;
 use function trim;
 
 /**
@@ -56,30 +54,7 @@ class GisDataEditorController extends AbstractController
         // Get data if any posted
         $gisData = is_array($gisDataParam) ? $gisDataParam : [];
 
-        // Extract type from the initial call and make sure that it's a valid one.
-        // Extract from field's values if available, if not use the column type passed.
-        if (! isset($gisData['gis_type'])) {
-            if ($type !== '') {
-                $gisData['gis_type'] = mb_strtoupper($type);
-            }
-
-            if (isset($value) && trim($value) !== '') {
-                $start = substr($value, 0, 1) == "'" ? 1 : 0;
-                $gisData['gis_type'] = mb_substr(
-                    $value,
-                    $start,
-                    (int) mb_strpos($value, '(') - $start,
-                );
-            }
-
-            if (
-                ! isset($gisData['gis_type'])
-                || (! in_array($gisData['gis_type'], self::GIS_TYPES))
-            ) {
-                $gisData['gis_type'] = self::GIS_TYPES[0];
-            }
-        }
-
+        $gisData = $this->validateGisData($gisData, $type, $value);
         $geomType = $gisData['gis_type'];
 
         // Generate parameters from value passed.
@@ -138,5 +113,33 @@ class GisDataEditorController extends AbstractController
         ]);
 
         $this->response->addJSON(['gis_editor' => $templateOutput]);
+    }
+
+    /**
+     * Extract type from the initial call and make sure that it's a valid one.
+     * Extract from field's values if available, if not use the column type passed.
+     *
+     * @param mixed[] $gisData
+     *
+     * @return mixed[]
+     * @psalm-return array{gis_type:value-of<self::GIS_TYPES>}&mixed[]
+     */
+    private function validateGisData(array $gisData, string $type, string|null $value): array
+    {
+        if (! isset($gisData['gis_type']) || ! in_array($gisData['gis_type'], self::GIS_TYPES, true)) {
+            if ($type !== '') {
+                $gisData['gis_type'] = mb_strtoupper($type);
+            }
+
+            if (isset($value) && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches)) {
+                $gisData['gis_type'] = $matches[1];
+            }
+
+            if (! isset($gisData['gis_type']) || (! in_array($gisData['gis_type'], self::GIS_TYPES, true))) {
+                $gisData['gis_type'] = self::GIS_TYPES[0];
+            }
+        }
+
+        return $gisData;
     }
 }

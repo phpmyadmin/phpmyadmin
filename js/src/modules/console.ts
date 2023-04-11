@@ -454,7 +454,7 @@ var ConsoleResizer = {
      * Mouseup event handler for bind to resizer
      */
     mouseUp: function (): void {
-        Config.set('Height', ConsoleResizer.resultHeight);
+        Config.set('Height', Math.round(ConsoleResizer.resultHeight));
         Console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');

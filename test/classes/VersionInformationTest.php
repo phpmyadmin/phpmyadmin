@@ -59,6 +59,7 @@ class VersionInformationTest extends AbstractTestCase
     {
         $this->setProxySettings();
         $GLOBALS['cfg']['VersionCheck'] = true;
+        unset($_SESSION['cache']['version_check']);
         $versionInformation = new VersionInformation();
         $version = $versionInformation->getLatestVersion();
         $this->assertIsObject($version);

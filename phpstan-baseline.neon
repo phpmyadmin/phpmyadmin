@@ -1566,6 +1566,11 @@ parameters:
 			path: libraries/classes/Controllers/Export/Template/UpdateController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/GisDataEditorController.php
+
+		-
 			message: "#^PHPDoc tag @var for variable \\$gisDataParam has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/GisDataEditorController.php

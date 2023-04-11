@@ -1903,6 +1903,38 @@ class InsertEditTest extends AbstractTestCase
         );
         $this->assertTrue(password_verify("a'c", mb_substr($result, 1, -1)));
 
+        // case 7
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('', "'POINT(3 4)',4326", '', true, false, false, 'ST_GeomFromText', null, null, false),
+            false,
+            '',
+        );
+        $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
+
+        // case 8
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('', 'POINT(3 4),4326', '', true, false, false, 'ST_GeomFromText', null, null, false),
+            false,
+            '',
+        );
+        $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
+
+        // case 9
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('', "'POINT(3 4)'", '', true, false, false, 'ST_GeomFromText', null, null, false),
+            false,
+            '',
+        );
+        $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\')', $result);
+
+        // case 10
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('', 'POINT(3 4)', '', true, false, false, 'ST_GeomFromText', null, null, false),
+            false,
+            '',
+        );
+        $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\')', $result);
+
         // Test different data types
 
         // Datatype: protected copied from the databse

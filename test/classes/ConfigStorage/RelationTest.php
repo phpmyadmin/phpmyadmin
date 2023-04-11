@@ -1714,7 +1714,7 @@ class RelationTest extends AbstractTestCase
             'relation',
             $_SESSION,
             'The cache is expected to be filled because the custom override'
-            . 'was undertood (pma__userconfig vs pma__userconfig_custom)',
+            . 'was understood (pma__userconfig vs pma__userconfig_custom)',
         );
 
         $dummyDbi->assertAllQueriesConsumed();
@@ -1771,6 +1771,384 @@ class RelationTest extends AbstractTestCase
         ], $GLOBALS['cfg']['Server']);
 
         $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    public function testInitRelationParamsDisabledTracking(): void
+    {
+        $GLOBALS['db'] = '';
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server'] = [];
+        $GLOBALS['cfg']['Server']['user'] = '';
+        $GLOBALS['cfg']['Server']['pmadb'] = 'PMA-storage';
+        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
+        $GLOBALS['cfg']['Server']['relation'] = '';
+        $GLOBALS['cfg']['Server']['table_info'] = '';
+        $GLOBALS['cfg']['Server']['table_coords'] = '';
+        $GLOBALS['cfg']['Server']['column_info'] = '';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = '';
+        $GLOBALS['cfg']['Server']['history'] = '';
+        $GLOBALS['cfg']['Server']['recent'] = '';
+        $GLOBALS['cfg']['Server']['favorite'] = '';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = '';
+        $GLOBALS['cfg']['Server']['tracking'] = false;
+        $GLOBALS['cfg']['Server']['userconfig'] = '';
+        $GLOBALS['cfg']['Server']['users'] = '';
+        $GLOBALS['cfg']['Server']['usergroups'] = '';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = '';
+        $GLOBALS['cfg']['Server']['savedsearches'] = '';
+        $GLOBALS['cfg']['Server']['central_columns'] = '';
+        $GLOBALS['cfg']['Server']['designer_settings'] = '';
+        $GLOBALS['cfg']['Server']['export_templates'] = '';
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `PMA-storage`;',
+            [
+                ['pma__tracking'],
+            ],
+            ['Tables_in_PMA-storage'],
+        );
+
+        $_SESSION['relation'] = [];
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+
+        $relation = new Relation($dbi);
+        $relation->initRelationParamsCache();
+
+        $this->assertArrayHasKey(
+            'relation',
+            $_SESSION,
+            'The cache is expected to be filled because the custom override'
+            . 'was understood',
+        );
+
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
+
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `PMA-storage`',
+            [
+                [
+                    'pma__userconfig_custom',
+                    'pma__usergroups',
+                ],
+            ],
+            ['Tables_in_PMA-storage'],
+        );
+
+        $dummyDbi->addSelectDb('PMA-storage');
+        /** @psalm-suppress EmptyArrayAccess */
+        unset($_SESSION['relation'][$GLOBALS['server']]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        $relationData = $relation->getRelationParameters();
+        $dummyDbi->assertAllSelectsConsumed();
+
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'PMA-storage',
+            'trackingwork' => false,
+            'tracking' => false,
+        ]);
+        $this->assertSame($relationParameters->toArray(), $relationData->toArray());
+        $this->assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
+
+        $this->assertSame([
+            'user' => '',
+            'pmadb' => 'PMA-storage',
+            'bookmarktable' => '',
+            'relation' => '',
+            'table_info' => '',
+            'table_coords' => '',
+            'column_info' => '',
+            'pdf_pages' => '',
+            'history' => '',
+            'recent' => '',
+            'favorite' => '',
+            'table_uiprefs' => '',
+            'tracking' => false,
+            'userconfig' => '',
+            'users' => '',
+            'usergroups' => '',
+            'navigationhiding' => '',
+            'savedsearches' => '',
+            'central_columns' => '',
+            'designer_settings' => '',
+            'export_templates' => '',
+        ], $GLOBALS['cfg']['Server']);
+
+        $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    public function testInitRelationParamsDisabledTrackingOthersExist(): void
+    {
+        $GLOBALS['db'] = '';
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server'] = [];
+        $GLOBALS['cfg']['Server']['user'] = '';
+        $GLOBALS['cfg']['Server']['pmadb'] = 'PMA-storage';
+        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
+        $GLOBALS['cfg']['Server']['relation'] = '';
+        $GLOBALS['cfg']['Server']['table_info'] = '';
+        $GLOBALS['cfg']['Server']['table_coords'] = '';
+        $GLOBALS['cfg']['Server']['column_info'] = '';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = '';
+        $GLOBALS['cfg']['Server']['history'] = '';
+        $GLOBALS['cfg']['Server']['recent'] = '';
+        $GLOBALS['cfg']['Server']['favorite'] = 'pma__favorite_custom';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = '';
+        $GLOBALS['cfg']['Server']['tracking'] = false;
+        $GLOBALS['cfg']['Server']['userconfig'] = '';
+        $GLOBALS['cfg']['Server']['users'] = '';
+        $GLOBALS['cfg']['Server']['usergroups'] = '';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = '';
+        $GLOBALS['cfg']['Server']['savedsearches'] = '';
+        $GLOBALS['cfg']['Server']['central_columns'] = '';
+        $GLOBALS['cfg']['Server']['designer_settings'] = '';
+        $GLOBALS['cfg']['Server']['export_templates'] = '';
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addSelectDb('PMA-storage');
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `PMA-storage`;',
+            [
+                ['pma__favorite_custom'],
+            ],
+            ['Tables_in_PMA-storage'],
+        );
+
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `PMA-storage`',
+            [
+                ['pma__favorite_custom'],
+            ],
+            ['Tables_in_PMA-storage'],
+        );
+
+        $dummyDbi->addResult(
+            'SELECT NULL FROM `pma__favorite_custom` LIMIT 0',
+            [
+                ['NULL'],
+            ],
+            ['NULL'],
+        );
+
+        $dummyDbi->addResult(
+            'SELECT `tables` FROM `PMA-storage`.`pma__favorite_custom` WHERE `username` = \'\'',
+            [],
+        );
+
+        $_SESSION['relation'] = [];
+        $_SESSION['tmpval'] = [];
+
+        $relation = new Relation($dbi);
+        $relation->initRelationParamsCache();
+
+        $this->assertArrayHasKey(
+            'relation',
+            $_SESSION,
+            'The cache is expected to be filled because the custom override'
+            . 'was understood',
+        );
+
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
+
+        /** @psalm-suppress EmptyArrayAccess */
+        unset($_SESSION['relation'][$GLOBALS['server']]);
+        $relationData = $relation->getRelationParameters();
+        $dummyDbi->assertAllSelectsConsumed();
+
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'PMA-storage',
+            'trackingwork' => false,
+            'tracking' => false,
+            'favorite' => 'pma__favorite_custom',
+            'favoritework' => true,
+        ]);
+        $this->assertSame($relationParameters->toArray(), $relationData->toArray());
+        $this->assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
+
+        $this->assertSame([
+            'user' => '',
+            'pmadb' => 'PMA-storage',
+            'bookmarktable' => '',
+            'relation' => '',
+            'table_info' => '',
+            'table_coords' => '',
+            'column_info' => '',
+            'pdf_pages' => '',
+            'history' => '',
+            'recent' => '',
+            'favorite' => 'pma__favorite_custom',
+            'table_uiprefs' => '',
+            'tracking' => false,
+            'userconfig' => '',
+            'users' => '',
+            'usergroups' => '',
+            'navigationhiding' => '',
+            'savedsearches' => '',
+            'central_columns' => '',
+            'designer_settings' => '',
+            'export_templates' => '',
+        ], $GLOBALS['cfg']['Server']);
+
+        $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    public function testArePmadbTablesDefinedAndArePmadbTablesAllDisabled(): void
+    {
+        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
+        $GLOBALS['cfg']['Server']['relation'] = '';
+        $GLOBALS['cfg']['Server']['table_info'] = '';
+        $GLOBALS['cfg']['Server']['table_coords'] = '';
+        $GLOBALS['cfg']['Server']['column_info'] = '';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = '';
+        $GLOBALS['cfg']['Server']['history'] = '';
+        $GLOBALS['cfg']['Server']['recent'] = '';
+        $GLOBALS['cfg']['Server']['favorite'] = '';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = '';
+        $GLOBALS['cfg']['Server']['tracking'] = '';
+        $GLOBALS['cfg']['Server']['userconfig'] = '';
+        $GLOBALS['cfg']['Server']['users'] = '';
+        $GLOBALS['cfg']['Server']['usergroups'] = '';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = '';
+        $GLOBALS['cfg']['Server']['savedsearches'] = '';
+        $GLOBALS['cfg']['Server']['central_columns'] = '';
+        $GLOBALS['cfg']['Server']['designer_settings'] = '';
+        $GLOBALS['cfg']['Server']['export_templates'] = '';
+
+        $dbi = $this->createDatabaseInterface();
+        $GLOBALS['dbi'] = $dbi;
+
+        $_SESSION['relation'] = [];
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+
+        $relation = new Relation($dbi);
+
+        $this->assertFalse($relation->arePmadbTablesDefined());
+        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+
+        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
+        $GLOBALS['cfg']['Server']['relation'] = '';
+        $GLOBALS['cfg']['Server']['table_info'] = '';
+        $GLOBALS['cfg']['Server']['table_coords'] = '';
+        $GLOBALS['cfg']['Server']['column_info'] = '';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = '';
+        $GLOBALS['cfg']['Server']['history'] = '';
+        $GLOBALS['cfg']['Server']['recent'] = '';
+        $GLOBALS['cfg']['Server']['favorite'] = 'pma__favorite_custom';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = '';
+        $GLOBALS['cfg']['Server']['tracking'] = false;
+        $GLOBALS['cfg']['Server']['userconfig'] = '';
+        $GLOBALS['cfg']['Server']['users'] = '';
+        $GLOBALS['cfg']['Server']['usergroups'] = '';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = '';
+        $GLOBALS['cfg']['Server']['savedsearches'] = '';
+        $GLOBALS['cfg']['Server']['central_columns'] = '';
+        $GLOBALS['cfg']['Server']['designer_settings'] = '';
+        $GLOBALS['cfg']['Server']['export_templates'] = '';
+
+        $this->assertFalse($relation->arePmadbTablesDefined());
+        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+
+        $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma__bookmark';
+        $GLOBALS['cfg']['Server']['relation'] = 'pma__relation';
+        $GLOBALS['cfg']['Server']['table_info'] = 'pma__table_info';
+        $GLOBALS['cfg']['Server']['table_coords'] = 'pma__table_coords';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = 'pma__pdf_pages';
+        $GLOBALS['cfg']['Server']['column_info'] = 'pma__column_info';
+        $GLOBALS['cfg']['Server']['history'] = 'pma__history';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
+        $GLOBALS['cfg']['Server']['tracking'] = 'pma__tracking';
+        $GLOBALS['cfg']['Server']['userconfig'] = 'pma__userconfig';
+        $GLOBALS['cfg']['Server']['recent'] = 'pma__recent';
+        $GLOBALS['cfg']['Server']['favorite'] = 'pma__favorite';
+        $GLOBALS['cfg']['Server']['users'] = 'pma__users';
+        $GLOBALS['cfg']['Server']['usergroups'] = 'pma__usergroups';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = 'pma__navigationhiding';
+        $GLOBALS['cfg']['Server']['savedsearches'] = 'pma__savedsearches';
+        $GLOBALS['cfg']['Server']['central_columns'] = 'pma__central_columns';
+        $GLOBALS['cfg']['Server']['designer_settings'] = 'pma__designer_settings';
+        $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
+
+        $this->assertTrue($relation->arePmadbTablesDefined());
+        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+
+        $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma__bookmark';
+        $GLOBALS['cfg']['Server']['relation'] = 'pma__relation';
+        $GLOBALS['cfg']['Server']['table_info'] = 'pma__table_info';
+        $GLOBALS['cfg']['Server']['table_coords'] = 'pma__table_coords';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = 'pma__pdf_pages';
+        $GLOBALS['cfg']['Server']['column_info'] = 'pma__column_info';
+        $GLOBALS['cfg']['Server']['history'] = 'custom_name';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
+        $GLOBALS['cfg']['Server']['tracking'] = 'pma__tracking';
+        $GLOBALS['cfg']['Server']['userconfig'] = 'pma__userconfig';
+        $GLOBALS['cfg']['Server']['recent'] = 'pma__recent';
+        $GLOBALS['cfg']['Server']['favorite'] = 'pma__favorite';
+        $GLOBALS['cfg']['Server']['users'] = 'pma__users';
+        $GLOBALS['cfg']['Server']['usergroups'] = 'pma__usergroups';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = 'pma__navigationhiding';
+        $GLOBALS['cfg']['Server']['savedsearches'] = 'pma__savedsearches';
+        $GLOBALS['cfg']['Server']['central_columns'] = 'pma__central_columns';
+        $GLOBALS['cfg']['Server']['designer_settings'] = 'pma__designer_settings';
+        $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
+
+        $this->assertTrue($relation->arePmadbTablesDefined());
+        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+
+        $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma__bookmark';
+        $GLOBALS['cfg']['Server']['relation'] = 'pma__relation';
+        $GLOBALS['cfg']['Server']['table_info'] = 'pma__table_info';
+        $GLOBALS['cfg']['Server']['table_coords'] = 'pma__table_coords';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = 'pma__pdf_pages';
+        $GLOBALS['cfg']['Server']['column_info'] = 'pma__column_info';
+        $GLOBALS['cfg']['Server']['history'] = 'pma__history';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
+        $GLOBALS['cfg']['Server']['tracking'] = 'pma__tracking';
+        $GLOBALS['cfg']['Server']['userconfig'] = '';
+        $GLOBALS['cfg']['Server']['recent'] = 'pma__recent';
+        $GLOBALS['cfg']['Server']['favorite'] = 'pma__favorite';
+        $GLOBALS['cfg']['Server']['users'] = 'pma__users';
+        $GLOBALS['cfg']['Server']['usergroups'] = 'pma__usergroups';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = 'pma__navigationhiding';
+        $GLOBALS['cfg']['Server']['savedsearches'] = 'pma__savedsearches';
+        $GLOBALS['cfg']['Server']['central_columns'] = 'pma__central_columns';
+        $GLOBALS['cfg']['Server']['designer_settings'] = 'pma__designer_settings';
+        $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
+
+        $this->assertFalse($relation->arePmadbTablesDefined());
+        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+
+        $GLOBALS['cfg']['Server']['bookmarktable'] = false; //'pma__bookmark';
+        $GLOBALS['cfg']['Server']['relation'] = false; //'pma__relation';
+        $GLOBALS['cfg']['Server']['table_info'] = false; //'pma__table_info';
+        $GLOBALS['cfg']['Server']['table_coords'] = false; //'pma__table_coords';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = false; //'pma__pdf_pages';
+        $GLOBALS['cfg']['Server']['column_info'] = false; //'pma__column_info';
+        $GLOBALS['cfg']['Server']['history'] = false; //'pma__history';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = false; //'pma__table_uiprefs';
+        $GLOBALS['cfg']['Server']['tracking'] = false; //'pma__tracking';
+        $GLOBALS['cfg']['Server']['userconfig'] = false; //'pma__userconfig';
+        $GLOBALS['cfg']['Server']['recent'] = false; //'pma__recent';
+        $GLOBALS['cfg']['Server']['favorite'] = false; //'pma__favorite';
+        $GLOBALS['cfg']['Server']['users'] = false; //'pma__users';
+        $GLOBALS['cfg']['Server']['usergroups'] = false; //'pma__usergroups';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = false; //'pma__navigationhiding';
+        $GLOBALS['cfg']['Server']['savedsearches'] = false; //'pma__savedsearches';
+        $GLOBALS['cfg']['Server']['central_columns'] = false; //'pma__central_columns';
+        $GLOBALS['cfg']['Server']['designer_settings'] = false; //'pma__designer_settings';
+        $GLOBALS['cfg']['Server']['export_templates'] = false; //'pma__export_templates';
+
+        $this->assertFalse($relation->arePmadbTablesDefined());
+        $this->assertTrue($relation->arePmadbTablesAllDisabled());
     }
 
     /**

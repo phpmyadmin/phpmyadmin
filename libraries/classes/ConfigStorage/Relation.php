@@ -169,6 +169,10 @@ class Relation
      */
     private function fillRelationParamsWithTableNames(array $relationParams): array|null
     {
+        if ($this->arePmadbTablesAllDisabled()) {
+            return null;
+        }
+
         $tabQuery = 'SHOW TABLES FROM '
         . Util::backquote($GLOBALS['cfg']['Server']['pmadb']);
         $tableRes = $this->dbi->tryQueryAsControlUser($tabQuery);
@@ -1537,6 +1541,10 @@ class Relation
      */
     public function fixPmaTables(string $db, bool $create = true): void
     {
+        if ($this->arePmadbTablesAllDisabled()) {
+            return;
+        }
+
         $tablesToFeatures = [
             'pma__bookmark' => 'bookmarktable',
             'pma__relation' => 'relation',
@@ -1665,6 +1673,32 @@ class Relation
         }
 
         return [$resRel, $haveRel];
+    }
+
+    /**
+     * Verifies that all pmadb features are disabled
+     */
+    public function arePmadbTablesAllDisabled(): bool
+    {
+        return ($GLOBALS['cfg']['Server']['bookmarktable'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['relation'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['table_info'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['table_coords'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['column_info'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['pdf_pages'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['history'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['recent'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['favorite'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['table_uiprefs'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['tracking'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['userconfig'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['users'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['usergroups'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['navigationhiding'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['savedsearches'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['central_columns'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['designer_settings'] ?? null) === false
+            && ($GLOBALS['cfg']['Server']['export_templates'] ?? null) === false;
     }
 
     /**

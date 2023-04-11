@@ -181,7 +181,7 @@ class HomeController extends AbstractController
         }
 
         $relation = new Relation($this->dbi);
-        if ($GLOBALS['server'] > 0) {
+        if ($GLOBALS['server'] > 0 && $relation->arePmadbTablesAllDisabled() === false) {
             $relationParameters = $relation->getRelationParameters();
             if (! $relationParameters->hasAllFeatures() && $GLOBALS['cfg']['PmaNoRelation_DisableWarning'] == false) {
                 $messageText = __(
