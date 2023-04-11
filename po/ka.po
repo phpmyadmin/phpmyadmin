@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-11 08:17+0000\n"
+"PO-Revision-Date: 2023-04-12 08:55+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -2178,10 +2178,8 @@ msgid "Primary key added."
 msgstr ""
 
 #: js/messages.php:448 libraries/classes/Normalization.php:242
-#, fuzzy
-#| msgid "Change"
 msgid "Taking you to next step…"
-msgstr "შეცვლა"
+msgstr "შემდეგ ნაბიჯზე გადასვლა…"
 
 #: js/messages.php:450
 #, php-format
@@ -3307,10 +3305,9 @@ msgid "Error"
 msgstr "შეცდომა"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Allows reading data."
+msgstr "შეცდომა შეფასებისას: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
@@ -4749,19 +4746,11 @@ msgid "Configuration storage"
 msgstr "კონფიგურაციის ფაილი"
 
 #: libraries/classes/Config/Descriptions.php:541
-#, fuzzy
-#| msgid ""
-#| "figure phpMyAdmin database to gain access to additional features, see ../"
-#| "Documentation.html#linked-tables]linked-tables infrastructure[/a] "
-#| "documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Configure phpMyAdmin database to gain access to additional features, see "
-"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
-"documentation"
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -5633,15 +5622,10 @@ msgid "Authentication type"
 msgstr "ავთენტიფიკაციის ტიპი"
 
 #: libraries/classes/Config/Descriptions.php:997
-#, fuzzy
-#| msgid ""
-#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1001
 msgid "Bookmark table"
@@ -5819,17 +5803,11 @@ msgstr ""
 "kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1091
-#, fuzzy
-#| msgid ""
-#| " can use MySQL wildcard characters (% and _), escape them if you want use "
-#| "their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"You can use MySQL wildcard characters (% and _), escape them if you want to "
-"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 
 #: libraries/classes/Config/Descriptions.php:1096
 msgid "Show only listed databases"
@@ -5915,15 +5893,10 @@ msgid "Favorites table"
 msgstr "ცვლადები"
 
 #: libraries/classes/Config/Descriptions.php:1133
-#, fuzzy
-#| msgid ""
-#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1138
 msgid "Relation table"
@@ -6842,14 +6815,7 @@ msgstr ""
 "of users, including you, are connected to."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| " set the [kbd]config[/kbd] authentication type and included username  "
-#| "password for auto-login, which is not a desirable option for live ts. "
-#| "Anyone who knows or guesses your phpMyAdmin URL can directly ess your "
-#| "phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;"
-#| "id=d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
-#| "[kbd]httpbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6857,12 +6823,6 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"You set the [kbd]config[/kbd] authentication type and included username and "
-"password for auto-login, which is not a desirable option for live hosts. "
-"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-"kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6980,24 +6940,18 @@ msgid "Invalid authentication type!"
 msgstr "ავთენტიფიკაციის ტიპი"
 
 #: libraries/classes/Config/Validator.php:260
-#, fuzzy
-#| msgid "Enter login options for signon authentication"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Enter login options for signon authentication"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:268
-#, fuzzy
-#| msgid "Enter login options for signon authentication"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Enter login options for signon authentication"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:277
-#, fuzzy
-#| msgid "Enter login options for signon authentication"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Enter login options for signon authentication"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:330
 msgid ""
@@ -9108,10 +9062,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select one…"
-msgstr "ველის სვეტების დამატება/წაშლა"
+msgstr "აირჩიეთ…"
 
 #: libraries/classes/Normalization.php:207 normalization.php:20
 #, fuzzy
@@ -10892,10 +10844,8 @@ msgid "Enabled"
 msgstr "ჩართულია"
 
 #: libraries/classes/Relation.php:116
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configuration of pmadb…"
-msgstr "კონფიგურაციის ფაილი"
+msgstr "მიმდინარეობს pmbadb-ის მორგება…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
@@ -14367,13 +14317,11 @@ msgid "Sun"
 msgstr "კვი"
 
 #: libraries/classes/Util.php:1543
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PM"
 
 #: libraries/classes/Util.php:1545
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
@@ -15467,10 +15415,9 @@ msgstr "ველების რაოდენობა სვეტები�
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "სერვერის %s დირექტორიაში შენახვა"
+msgstr "შეინახება სერვერზე საქაღალდეში <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -16248,10 +16195,8 @@ msgid "The file is being processed, please be patient."
 msgstr ""
 
 #: templates/display/import/javascript.twig:36
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "შემოტანილი ფაილების ფორმატი"
+msgstr "თქვენი შემოსატანი ფაილის ატვირთვა…"
 
 #: templates/display/import/javascript.twig:161
 msgid ""
@@ -16537,20 +16482,15 @@ msgid "Username"
 msgstr "მომხმარებელი"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s match(es) inside table <i>%s</i>"
-msgstr[1] "%s match(es) inside table <i>%s</i>"
+msgstr[0] "%1$s დამთხვევა ცხრილში <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> match(es)"
-msgstr[1] "<b>Total:</b> <i>%s</i> match(es)"
+msgstr[0] "<strong>სულ:</strong><em>%count%</em> დამთხვევა"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -17374,10 +17314,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:61
-#, fuzzy, php-format
-#| msgid "Insecure connection"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "დაუცველი კავშირი"
+msgstr "კითხვების მიმდინარე რაოდენობა: %s"
 
 #: libraries/advisory_rules_generic.txt:63
 #, fuzzy
@@ -17496,9 +17435,9 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
 #: libraries/advisory_rules_generic.txt:119
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Create relation"
+msgstr "მიმდინარე ვერსია: %s"
 
 #: libraries/advisory_rules_generic.txt:107
 #: libraries/advisory_rules_generic.txt:114
@@ -17643,11 +17582,12 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "Allows creating temporary tables."
 
 #: libraries/advisory_rules_generic.txt:166
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Sort buffer size"
+msgstr ""
+"დროებითი ცხრილების საშუალო: %s. ეს მნიშვნელობა საათში ერთზე ნაკლები არ უნდა "
+"იყოს."
 
 #: libraries/advisory_rules_generic.txt:168
 #, fuzzy
@@ -17691,10 +17631,11 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:181
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Sort buffer size"
+msgstr ""
+"ცხრილების შეერთება საშუალოდ: %s. ეს მნიშვნელობა საათში ერთზე ნაკლები არ უნდა "
+"იყოს"
 
 #: libraries/advisory_rules_generic.txt:183
 #, fuzzy
