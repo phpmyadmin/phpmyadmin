@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionClass;
@@ -1949,7 +1950,9 @@ class RelationTest extends AbstractTestCase
         );
 
         $_SESSION['relation'] = [];
+        $_SESSION['tmpval'] = [];
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionClass(RecentFavoriteTable::class))->getProperty('instances')->setValue([]);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
