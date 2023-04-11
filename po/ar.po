@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-09 00:18+0000\n"
-"PO-Revision-Date: 2023-04-10 19:51+0000\n"
+"PO-Revision-Date: 2023-04-11 08:17+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
@@ -11269,7 +11269,7 @@ msgstr "إرجاع أو استيراد بيانات الجدول"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
 msgid "Null"
-msgstr "خالي"
+msgstr "لا شيء"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:273
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:366
