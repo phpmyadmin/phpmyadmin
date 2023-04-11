@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-09 00:18+0000\n"
-"PO-Revision-Date: 2022-04-02 14:07+0000\n"
-"Last-Translator: Malkhazi Dartsmelidze <malkhazidartsmelidze@gmail.com>\n"
+"PO-Revision-Date: 2023-04-11 08:17+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
 "Language: ka\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, fuzzy, php-format
@@ -2682,19 +2682,11 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:328
-#, fuzzy
-#| msgid ""
-#| "ble if you want DB-based query history (requires phpMyAdmin configuration "
-#| "storage). If disabled, s utilizes JS-routines to display query history "
-#| "(lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Enable if you want DB-based query history (requires phpMyAdmin configuration "
-"storage). If disabled, this utilizes JS-routines to display query history "
-"(lost by window close)."
 
 #: libraries/classes/Config/Descriptions.php:333
 msgid ""
@@ -3680,10 +3672,8 @@ msgid "Lines terminated with"
 msgstr "Lines terminated by"
 
 #: libraries/classes/Config/Descriptions.php:654
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Excel edition"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:657
 msgid "Database name template"
@@ -5841,16 +5831,11 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:188
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
 
 #: libraries/classes/Controllers/HomeController.php:194
 msgid ""
@@ -6015,10 +6000,9 @@ msgid "Could not load the progress of the import."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:55
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "ნამდვილად გსურთ "
+msgstr "ნამდვილად გსურთ გაუშვათ \"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 msgid "You are about to DESTROY a complete database!"
@@ -6095,16 +6079,14 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:72
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "ნამდვილად გსურთ "
+msgstr "ნამდვილად გსურთ წაშალოთ მომხმარებლების ჯგუფი \"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "ნამდვილად გსურთ "
+msgstr "ნამდვილად გსურთ წაშალოთ ძებნა\"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:74
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -8502,7 +8484,6 @@ msgstr "კვ"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
@@ -14524,7 +14505,7 @@ msgstr "ველების რაოდენობა სვეტები�
 
 #: templates/columns_definitions/partitions.twig:37
 msgid "Partitions:"
-msgstr "დანაყოფები"
+msgstr "დანაყოფები:"
 
 #: templates/columns_definitions/partitions.twig:45
 #, fuzzy
@@ -14997,7 +14978,7 @@ msgstr "ველის სვეტების დამატება/წა
 
 #: templates/database/central_columns/main.twig:219
 msgid "Click to sort."
-msgstr ""
+msgstr "დასალაგებლად დააწკაპუნეთ."
 
 #: templates/database/central_columns/main.twig:224
 #: templates/database/privileges/index.twig:22
@@ -15513,10 +15494,8 @@ msgid "Query by example"
 msgstr "Query cache"
 
 #: templates/database/multi_table_query/form.twig:17
-#, fuzzy
-#| msgid "Query window"
 msgid "Query window"
-msgstr "Query window"
+msgstr "მოთხოვნის ფანჯარა"
 
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/multi_table_query/form.twig:128
@@ -15631,10 +15610,8 @@ msgid "Drop the database (DROP)"
 msgstr "მონაცემთა ბაზები არაა"
 
 #: templates/database/operations/index.twig:118
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
-msgstr "Copy database to"
+msgstr "ბაზის კოპირება"
 
 #: templates/database/operations/index.twig:150
 msgid "CREATE DATABASE before copying"
