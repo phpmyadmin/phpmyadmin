@@ -7932,11 +7932,6 @@
       <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
       <code>$backupField</code>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
-      <code><![CDATA[$column['Default']]]></code>
-      <code><![CDATA[$column['Default']]]></code>
-      <code><![CDATA[$column['Default']]]></code>
-      <code><![CDATA[$column['Default']]]></code>
-      <code><![CDATA[$column['Default']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['Field']]]></code>
@@ -7991,10 +7986,10 @@
       <code>$specialChars</code>
       <code>$specialChars</code>
       <code>$specialCharsEncoded</code>
-      <code><![CDATA[$textDefault !== '' ? $textDefault : $column['Default']]]></code>
+      <code><![CDATA[$tmp['Default'] ?? null]]></code>
+      <code><![CDATA[$tmp['True_Type']]]></code>
       <code><![CDATA[$transformationPlugin->getScripts()]]></code>
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
-      <code>$trueType</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -8045,7 +8040,6 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
       <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
     </MixedArrayOffset>
@@ -8058,9 +8052,6 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code>$currentValue</code>
       <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
       <code>$enumSelectedValue</code>
       <code>$enumValue</code>
       <code>$fieldsize</code>
@@ -8072,7 +8063,6 @@
       <code>$specialChars</code>
       <code><![CDATA[$tmp['Default']]]></code>
       <code>$transformedHtml</code>
-      <code>$trueType</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -8128,10 +8118,6 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code>$newValue</code>
-      <code>$newValue</code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$column['is_blob']]]></code>
       <code><![CDATA[$column['select_size']]]></code>

@@ -948,7 +948,7 @@ class InsertEdit
             $realNullValue = true;
             $currentRow[$column['Field']] = '';
             $specialChars = '';
-            $data = $currentRow[$column['Field']];
+            $data = '';
         } elseif ($column['True_Type'] === 'bit') {
             $specialChars = $asIs
                 ? $currentRow[$column['Field']]
@@ -1014,42 +1014,35 @@ class InsertEdit
     /**
      * display default values
      *
-     * @param mixed[] $column description of column in given table
-     *
-     * @return mixed[] $real_null_value, $data, $special_chars,
-     *               $backup_field, $special_chars_encoded
-     * @psalm-return array{bool, mixed, string, string, string}
+     * @return mixed[] $real_null_value, $data, $special_chars, $special_chars_encoded
+     * @psalm-return array{bool, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForInsertingMode(
-        array $column,
+        string|null $defaultValue,
+        string $trueType,
     ): array {
-        if (! isset($column['Default'])) {
-            $column['Default'] = '';
+        $realNullValue = false;
+        if ($defaultValue === null) {
             $realNullValue = true;
-            $data = '';
-        } else {
-            $realNullValue = false;
-            $data = $column['Default'];
+            $defaultValue = '';
         }
 
-        $trueType = $column['True_Type'];
-
         if ($trueType === 'bit') {
-            $specialChars = Util::convertBitDefaultValue($column['Default']);
+            $specialChars = Util::convertBitDefaultValue($defaultValue);
         } elseif (substr($trueType, 0, 9) === 'timestamp' || $trueType === 'datetime' || $trueType === 'time') {
-            $specialChars = Util::addMicroseconds($column['Default']);
+            $specialChars = Util::addMicroseconds($defaultValue);
         } elseif ($trueType === 'binary' || $trueType === 'varbinary') {
-            $specialChars = bin2hex($column['Default']);
+            $specialChars = bin2hex($defaultValue);
         } elseif (substr($trueType, -4) === 'text') {
-            $textDefault = substr($column['Default'], 1, -1);
-            $specialChars = stripcslashes($textDefault !== '' ? $textDefault : $column['Default']);
+            $textDefault = substr($defaultValue, 1, -1);
+            $specialChars = stripcslashes($textDefault !== '' ? $textDefault : $defaultValue);
         } else {
-            $specialChars = htmlspecialchars($column['Default']);
+            $specialChars = htmlspecialchars($defaultValue);
         }
 
         $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
 
-        return [$realNullValue, (string) $data, $specialChars, '', $specialCharsEncoded];
+        return [$realNullValue, $defaultValue, $specialChars, $specialCharsEncoded];
     }
 
     /**
@@ -1694,10 +1687,12 @@ class InsertEdit
             return;
         }
 
-        if ($meta->isTimeType()) {
-            $newValue = Util::addMicroseconds($newValue);
-        } elseif ($meta->isBinary()) {
-            $newValue = '0x' . bin2hex($newValue);
+        if ($newValue !== null) {
+            if ($meta->isTimeType()) {
+                $newValue = Util::addMicroseconds($newValue);
+            } elseif ($meta->isBinary()) {
+                $newValue = '0x' . bin2hex($newValue);
+            }
         }
 
         $extraData['isNeedToRecheck'] = true;
@@ -1980,9 +1975,9 @@ class InsertEdit
                 $realNullValue,
                 $data,
                 $specialChars,
-                $backupField,
                 $specialCharsEncoded,
-            ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp);
+            ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp['Default'] ?? null, $tmp['True_Type']);
+            $backupField = '';
             unset($tmp);
         }
 
