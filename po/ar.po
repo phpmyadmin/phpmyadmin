@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-11 08:17+0000\n"
+"PO-Revision-Date: 2023-04-12 08:55+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -6505,16 +6505,15 @@ msgid "Database %1$s has been created."
 msgstr "تم إنشاء قاعدة البيانات %1$s."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:208
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[1] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[2] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[3] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[4] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[5] "تم إسقاط قواعد البيانات %s بنجاح."
+msgstr[0] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[1] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[2] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[3] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[4] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[5] "تم إسقاط قواعد البيانات %1$d بنجاح."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
@@ -7204,9 +7203,9 @@ msgstr ""
 "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]."
 
 #: libraries/classes/Display/Results.php:4558
-#, fuzzy, php-format
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "اظهر الصفوف %1s - %2s"
+msgstr "أظهر الصفوف %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4573
 #, php-format
@@ -15669,16 +15668,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "يمكن للملف أن يكون مضغوط (%s) أو غير مضغوط."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"يجب على اسم الملف المضغوط أن ينتهي بـ <b>.[format].[compression]</b>. مثال: "
-"<b>.sql.zip</b>"
+"يجب على اسم الملف المضغوط أن ينتهي بـ <strong>.[format].[compression]</"
+"strong>. مثال: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -15828,17 +15823,14 @@ msgstr[4] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[1] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[2] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[3] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[4] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[5] "<b>المجموع:</b> <i>%s</i>تطابق"
+msgstr[0] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[1] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[2] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[3] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[4] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[5] "<strong>المجموع:</strong> <em>%count</em>تطابق"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
