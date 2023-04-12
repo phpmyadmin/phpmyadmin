@@ -7,8 +7,10 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use ReflectionClass;
 
 use function implode;
 
@@ -1972,9 +1974,16 @@ class RelationTest extends AbstractTestCase
             'SELECT `tables` FROM `PMA-storage`.`pma__favorite_custom` WHERE `username` = \'\'',
             []
         );
+        $this->dummyDbi->addResult(
+            'SELECT `tables` FROM `PMA-storage`.`pma__favorite_custom` WHERE `username` = \'\'',
+            []
+        );
 
         $_SESSION['relation'] = [];
         $_SESSION['tmpval'] = [];
+        $recentFavoriteTableInstances = (new ReflectionClass(RecentFavoriteTable::class))->getProperty('instances');
+        $recentFavoriteTableInstances->setAccessible(true);
+        $recentFavoriteTableInstances->setValue([]);
 
         $relation = new Relation($this->dbi);
         $relation->initRelationParamsCache();

@@ -13,6 +13,7 @@ use PhpMyAdmin\TwoFactor;
 
 use function __;
 use function count;
+use function define;
 
 class TwoFactorController extends AbstractController
 {
