@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-12 08:55+0000\n"
+"PO-Revision-Date: 2023-04-14 03:32+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -1821,10 +1821,8 @@ msgid "Recommendation"
 msgstr "დოკუმენტაცია"
 
 #: js/messages.php:344
-#, fuzzy
-#| msgid "Details…"
 msgid "Rule details"
-msgstr "დეტალები…"
+msgstr "წესის დეტალები"
 
 #: js/messages.php:345
 #, fuzzy
@@ -3171,7 +3169,6 @@ msgstr "კვ"
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -14785,21 +14782,11 @@ msgid "Configuration not saved!"
 msgstr "კონფიგურაციის ფაილი"
 
 #: setup/frames/index.inc.php:100
-#, fuzzy
-#| msgid ""
-#| "ase create web server writable folder [em]config[/em] in phpMyAdmin  "
-#| "level directory as described in [a@../Documentation."
-#| "html#setup_script]umentation[/a]. Otherwise you will be only able to "
-#| "download or display "
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@../Documentation."
-"html#setup_script]documentation[/a]. Otherwise you will be only able to "
-"download or display it."
 
 #: setup/frames/index.inc.php:112 setup/frames/menu.inc.php:20
 msgid "Overview"
