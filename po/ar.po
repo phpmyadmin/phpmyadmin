@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-04-11 08:17+0000\n"
+"PO-Revision-Date: 2023-04-12 08:55+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
@@ -7336,27 +7336,25 @@ msgid "Database %1$s has been created."
 msgstr "تم إنشاء قاعدة البيانات %1$s."
 
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:93
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[1] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[2] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[3] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[4] "تم إسقاط قواعد البيانات %s بنجاح."
-msgstr[5] "تم إسقاط قواعد البيانات %s بنجاح."
+msgstr[0] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[1] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[2] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[3] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[4] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[5] "تم إسقاط قواعد البيانات %1$d بنجاح."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "تم حذف الاعمده بنجاح."
+msgstr "تم حذف الاعمده %s@%s بنجاح."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "تم حذف الاعمده بنجاح."
+msgstr "تم حذف الاعمده %s@%s بنجاح."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8877,9 +8875,9 @@ msgstr ""
 "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]."
 
 #: libraries/classes/Display/Results.php:3991
-#, fuzzy, php-format
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "اظهر الصفوف %1s - %2s"
+msgstr "أظهر الصفوف %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4005
 #, php-format
@@ -14876,17 +14874,14 @@ msgstr[4] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[1] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[2] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[3] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[4] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[5] "<b>المجموع:</b> <i>%s</i>تطابق"
+msgstr[0] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[1] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[2] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[3] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[4] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[5] "<strong>المجموع:</strong> <em>%count</em>تطابق"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15849,16 +15844,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "يمكن للملف أن يكون مضغوط (%s) أو غير مضغوط."
 
 #: templates/import.twig:32
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"يجب على اسم الملف المضغوط أن ينتهي بـ <b>.[format].[compression]</b>. مثال: "
-"<b>.sql.zip</b>"
+"يجب على اسم الملف المضغوط أن ينتهي بـ <strong>.[format].[compression]</"
+"strong>. مثال: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
 #, fuzzy
