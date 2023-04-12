@@ -1431,11 +1431,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Argument of an invalid type array\\<int, array\\<string, string\\>\\>\\|string\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/TrackingController.php
@@ -1443,11 +1438,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
@@ -2509,6 +2499,11 @@ parameters:
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/TrackingController.php
 
 		-
 			message: "#^Parameter \\#2 \\$entries of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getDownloadInfoForExport\\(\\) expects array\\<int, array\\<string, int\\|string\\>\\>, array given\\.$#"
@@ -8681,11 +8676,6 @@ parameters:
 			path: libraries/classes/Tracking/Tracker.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Cannot access offset 'COLUMNS' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
@@ -8696,28 +8686,13 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Cannot access offset 'date' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Cannot access offset 'formated_statement' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Cannot access offset 'id' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Cannot access offset 'line_number' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Cannot access offset 'statement' on mixed\\.$#"
-			count: 6
+			count: 3
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
@@ -8726,17 +8701,7 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Cannot access offset 'url_params' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Cannot access offset 'username' on mixed\\.$#"
-			count: 5
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -8751,21 +8716,6 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Offset 'statement' does not exist on array\\{date\\: string, username\\: string, statement\\: string\\}\\|string\\.$#"
-			count: 4
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Offset 0 does not exist on array\\<int, array\\{date\\: string, username\\: string, statement\\: string\\}\\>\\|string\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Offset 1 does not exist on array\\<int, array\\{date\\: string, username\\: string, statement\\: string\\}\\>\\|string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 2
 			path: libraries/classes/Tracking/Tracking.php
@@ -8773,21 +8723,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$columns of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForColumns\\(\\) expects array, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:filter\\(\\) expects array, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of static method PhpMyAdmin\\\\Core\\:\\:safeUnserialize\\(\\) expects string, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
@@ -8801,23 +8736,8 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:formatSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 5
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
@@ -8832,11 +8752,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$ddlogCount of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Parameter \\#5 \\$newData of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:changeTrackingData\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 

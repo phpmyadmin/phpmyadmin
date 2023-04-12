@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tracking\LogTypeEnum;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
@@ -46,10 +47,7 @@ final class TrackingController extends AbstractController
     {
         $GLOBALS['text_dir'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['msg'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['entries'] ??= null;
-        $GLOBALS['filter_users'] ??= null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -65,7 +63,7 @@ final class TrackingController extends AbstractController
 
         $activeMessage = '';
         $toggleActivation = $request->getParsedBodyParam('toggle_activation');
-        $reportExport = $request->getParsedBodyParam('report_export');
+        $reportExportType = $request->getParsedBodyParam('export_type');
 
         $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
         if (
@@ -73,25 +71,19 @@ final class TrackingController extends AbstractController
             && isset($trackedTables[$GLOBALS['table']])
             && $trackedTables[$GLOBALS['table']]->active
             && $toggleActivation !== 'deactivate_now'
-            && $reportExport !== 'sqldumpfile'
+            && $reportExportType !== 'sqldumpfile'
         ) {
-            $GLOBALS['msg'] = Message::notice(
+            $activeMessage = Message::notice(
                 sprintf(
                     __('Tracking of %s is activated.'),
                     htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
                 ),
-            );
-            $activeMessage = $GLOBALS['msg']->getDisplay();
+            )->getDisplay();
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
-        $trackedData = [];
-        $GLOBALS['entries'] = [];
-        $GLOBALS['filter_users'] = [];
-
-        $report = $request->hasBodyParam('report');
         /** @var string $versionParam */
         $versionParam = $request->getParsedBodyParam('version');
         /** @var string $tableParam */
@@ -99,47 +91,88 @@ final class TrackingController extends AbstractController
 
         $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
 
-        $dateFrom = null;
-        $dateTo = null;
-        $users = '';
+        $message = '';
+        $sqlDump = '';
+        $deleteVersion = '';
+        $createVersion = '';
+        $deactivateTracking = '';
+        $activateTracking = '';
+        $schemaSnapshot = '';
+        $trackingReportRows = '';
+        $trackingReport = '';
 
         // Init vars for tracking report
-        if ($report || $reportExport !== null) {
+        if ($request->hasBodyParam('report')) {
             $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
-                $request->getParsedBodyParam('date_from', $trackedData['date_from']),
+                $request->getParsedBodyParam('date_from', $trackedData->dateFrom),
             );
-            $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData['date_to']));
+            $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData->dateTo));
 
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
 
-            $GLOBALS['filter_users'] = array_map(trim(...), explode(',', $users));
-        }
+            $filterUsers = array_map(trim(...), explode(',', $users));
 
-        $dateFrom ??= new DateTimeImmutable();
-        $dateTo ??= new DateTimeImmutable();
+            // Prepare export
+            if ($reportExportType !== null) {
+                $entries = $this->tracking->getEntries($trackedData, $filterUsers, $logType, $dateFrom, $dateTo);
 
-        // Prepare export
-        if ($reportExport !== null) {
-            $GLOBALS['entries'] = $this->tracking->getEntries(
+                // Export as file download
+                if ($reportExportType === 'sqldumpfile') {
+                    $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
+                    $this->response->disable();
+                    Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
+                    echo $downloadInfo['dump'];
+
+                    return;
+                }
+
+                // Export as SQL execution
+                if ($reportExportType === 'execution') {
+                    $this->tracking->exportAsSqlExecution($entries);
+                    $message = Message::success(__('SQL statements executed.'))->getDisplay();
+                } elseif ($reportExportType === 'sqldump') {
+                    $this->addScriptFiles(['sql.js']);
+                    $sqlDump = $this->tracking->exportAsSqlDump($entries);
+                }
+            }
+
+            if ($request->hasBodyParam('delete_ddlog')) {
+                $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
+                    $versionParam,
+                    $trackedData->ddlog,
+                    LogTypeEnum::DDL,
+                    (int) $request->getParsedBodyParam('delete_ddlog'),
+                );
+                // After deletion reload data from the database
+                $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+            } elseif ($request->hasBodyParam('delete_dmlog')) {
+                $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
+                    $versionParam,
+                    $trackedData->dmlog,
+                    LogTypeEnum::DML,
+                    (int) $request->getParsedBodyParam('delete_dmlog'),
+                );
+                // After deletion reload data from the database
+                $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+            }
+
+            $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $trackedData,
-                $GLOBALS['filter_users'],
+                $GLOBALS['urlParams'],
                 $logType,
+                $filterUsers,
+                $versionParam,
                 $dateFrom,
                 $dateTo,
+                $users,
             );
-        }
-
-        // Export as file download
-        if ($reportExport !== null && $request->getParsedBodyParam('export_type') === 'sqldumpfile') {
-            $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $GLOBALS['entries']);
-            $this->response->disable();
-            Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
-            echo $downloadInfo['dump'];
-
-            return;
         }
 
         $actionMessage = '';
@@ -163,18 +196,13 @@ final class TrackingController extends AbstractController
             }
         }
 
-        $deleteVersion = '';
         if ($request->hasBodyParam('submit_delete_version')) {
             $deleteVersion = $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
         }
 
-        $createVersion = '';
         if ($request->hasBodyParam('submit_create_version')) {
             $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
         }
-
-        $deactivateTracking = '';
-        $activateTracking = '';
 
         if ($toggleActivation === 'deactivate_now') {
             $deactivateTracking = $this->tracking->changeTracking(
@@ -192,20 +220,6 @@ final class TrackingController extends AbstractController
             );
         }
 
-        // Export as SQL execution
-        $message = '';
-        $sqlDump = '';
-
-        if ($reportExport === 'execution') {
-            $this->tracking->exportAsSqlExecution($GLOBALS['entries']);
-            $GLOBALS['msg'] = Message::success(__('SQL statements executed.'));
-            $message = $GLOBALS['msg']->getDisplay();
-        } elseif ($reportExport === 'sqldump') {
-            $this->addScriptFiles(['sql.js']);
-            $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['entries']);
-        }
-
-        $schemaSnapshot = '';
         if ($request->hasBodyParam('snapshot')) {
             /** @var string $db */
             $db = $request->getParsedBodyParam('db');
@@ -214,32 +228,6 @@ final class TrackingController extends AbstractController
                 $tableParam,
                 $versionParam,
                 $GLOBALS['urlParams'],
-            );
-        }
-
-        $trackingReportRows = '';
-        if ($report && ($request->hasBodyParam('delete_ddlog') || $request->hasBodyParam('delete_dmlog'))) {
-            $trackingReportRows = $this->tracking->deleteTrackingReportRows(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $versionParam,
-                $trackedData,
-                $request->hasBodyParam('delete_ddlog'),
-                $request->hasBodyParam('delete_dmlog'),
-            );
-        }
-
-        $trackingReport = '';
-        if ($report || $reportExport !== null) {
-            $trackingReport = $this->tracking->getHtmlForTrackingReport(
-                $trackedData,
-                $GLOBALS['urlParams'],
-                $logType,
-                $GLOBALS['filter_users'],
-                $versionParam,
-                $dateFrom,
-                $dateTo,
-                $users,
             );
         }
 

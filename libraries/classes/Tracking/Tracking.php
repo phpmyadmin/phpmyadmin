@@ -19,17 +19,16 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_merge;
 use function array_multisort;
-use function count;
 use function date;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
-use function is_array;
 use function json_encode;
 use function mb_strpos;
 use function mb_strstr;
@@ -87,8 +86,8 @@ class Tracking
     /**
      * Filters tracking entries
      *
-     * @param mixed[] $data        the entries to filter
-     * @param mixed[] $filterUsers users
+     * @param list<array{date: string, username: string, statement: string}> $data        the entries to filter
+     * @param mixed[]                                                        $filterUsers users
      *
      * @return mixed[] filtered entries
      */
@@ -101,16 +100,14 @@ class Tracking
         $tmpEntries = [];
         $id = 0;
         foreach ($data as $entry) {
-            $timestamp = strtotime($entry['date']);
             $filteredUser = in_array($entry['username'], $filterUsers);
             if (
-                $timestamp >= $dateFrom->getTimestamp()
-                && $timestamp <= $dateTo->getTimestamp()
+                $this->isDateBetweenInclusive(new DateTimeImmutable($entry['date']), $dateFrom, $dateTo)
                 && (in_array('*', $filterUsers) || $filteredUser)
             ) {
                 $tmpEntries[] = [
                     'id' => $id,
-                    'timestamp' => $timestamp,
+                    'timestamp' => strtotime($entry['date']),
                     'username' => $entry['username'],
                     'statement' => $entry['statement'],
                 ];
@@ -146,24 +143,20 @@ class Tracking
     /**
      * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param mixed[]  $urlParams   url parameters
-     * @param string   $textDir     text direction
-     * @param int|null $lastVersion last tracking version
+     * @param mixed[] $urlParams url parameters
+     * @param string  $textDir   text direction
      */
     public function getHtmlForMainPage(
         string $db,
         string $table,
         array $urlParams,
         string $textDir,
-        int|null $lastVersion = null,
     ): string {
         $versionSqlResult = $this->getListOfVersionsOfTable($db, $table);
-        if ($lastVersion === null && $versionSqlResult !== false) {
-            $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
-        }
-
+        $lastVersion = null;
         $versions = [];
         if ($versionSqlResult !== false) {
+            $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
             $versions = $versionSqlResult->fetchAllAssoc();
         }
 
@@ -194,13 +187,13 @@ class Tracking
     /**
      * Function to get html for tracking report and tracking report export
      *
-     * @param mixed[] $data        data
-     * @param mixed[] $urlParams   url params
-     * @param mixed[] $filterUsers filter users
+     * @param TrackedData $trackedData data
+     * @param mixed[]     $urlParams   url params
+     * @param mixed[]     $filterUsers filter users
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      */
     public function getHtmlForTrackingReport(
-        array $data,
+        TrackedData $trackedData,
         array $urlParams,
         string $logType,
         array $filterUsers,
@@ -214,7 +207,7 @@ class Tracking
             . '</a>]</h3>';
 
         $html .= '<small>' . __('Tracking statements') . ' '
-            . htmlspecialchars($data['tracking']) . '</small><br>';
+            . htmlspecialchars($trackedData->tracking) . '</small><br>';
         $html .= '<br>';
 
         [$str1, $str2, $str3, $str4, $str5] = $this->getHtmlForElementsOfTrackingReport(
@@ -238,13 +231,13 @@ class Tracking
         }
 
         // First, list tracked data definition statements
-        if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
+        if ($trackedData->ddlog === [] && $trackedData->dmlog === []) {
             $msg = Message::notice(__('No data'));
             echo $msg->getDisplay();
         }
 
         $html .= $this->getHtmlForTrackingReportExportForm1(
-            $data,
+            $trackedData,
             $urlParams,
             $logType,
             $filterUsers,
@@ -317,21 +310,21 @@ class Tracking
     /**
      * Generate HTML for export form
      *
-     * @param mixed[] $data            data
-     * @param mixed[] $urlParams       url params
-     * @param mixed[] $filterUsers     filter users
-     * @param string  $str1            HTML for log_type select
-     * @param string  $str2            HTML for "from date"
-     * @param string  $str3            HTML for "to date"
-     * @param string  $str4            HTML for user
-     * @param string  $str5            HTML for "list report"
-     * @param string  $dropImageOrText HTML for image or text
+     * @param TrackedData $trackedData     data
+     * @param mixed[]     $urlParams       url params
+     * @param mixed[]     $filterUsers     filter users
+     * @param string      $str1            HTML for log_type select
+     * @param string      $str2            HTML for "from date"
+     * @param string      $str3            HTML for "to date"
+     * @param string      $str4            HTML for user
+     * @param string      $str5            HTML for "list report"
+     * @param string      $dropImageOrText HTML for image or text
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
      */
     public function getHtmlForTrackingReportExportForm1(
-        array $data,
+        TrackedData $trackedData,
         array $urlParams,
         string $logType,
         array $filterUsers,
@@ -359,9 +352,9 @@ class Tracking
             $str5,
         );
 
-        if ($logType === 'schema' || $logType === 'schema_and_data' && count($data['ddlog']) > 0) {
+        if ($logType === 'schema' || $logType === 'schema_and_data' && $trackedData->ddlog !== []) {
             [$temp, $ddlogCount] = $this->getHtmlForDataDefinitionStatements(
-                $data,
+                $trackedData,
                 $filterUsers,
                 $urlParams,
                 $dropImageOrText,
@@ -374,9 +367,9 @@ class Tracking
         }
 
         // Secondly, list tracked data manipulation statements
-        if (($logType === 'data' || $logType === 'schema_and_data') && count($data['dmlog']) > 0) {
+        if (($logType === 'data' || $logType === 'schema_and_data') && $trackedData->dmlog !== []) {
             $html .= $this->getHtmlForDataManipulationStatements(
-                $data,
+                $trackedData,
                 $filterUsers,
                 $urlParams,
                 $ddlogCount,
@@ -439,7 +432,6 @@ class Tracking
             'date_from' => $dateFrom->format('Y-m-d H:i:s'),
             'date_to' => $dateTo->format('Y-m-d H:i:s'),
             'users' => $users,
-            'report_export' => 'true',
         ]);
 
         $strExport1 = '<select name="export_type">'
@@ -464,14 +456,14 @@ class Tracking
     /**
      * Function to get html for data manipulation statements
      *
-     * @param mixed[] $data            data
-     * @param mixed[] $filterUsers     filter users
-     * @param mixed[] $urlParams       url parameters
-     * @param int     $ddlogCount      data definition log count
-     * @param string  $dropImageOrText drop image or text
+     * @param TrackedData $trackedData     data
+     * @param mixed[]     $filterUsers     filter users
+     * @param mixed[]     $urlParams       url parameters
+     * @param int         $ddlogCount      data definition log count
+     * @param string      $dropImageOrText drop image or text
      */
     public function getHtmlForDataManipulationStatements(
-        array $data,
+        TrackedData $trackedData,
         array $filterUsers,
         array $urlParams,
         int $ddlogCount,
@@ -482,14 +474,12 @@ class Tracking
     ): string {
         // no need for the second returned parameter
         [$html] = $this->getHtmlForDataStatements(
-            $data,
+            $trackedData->dmlog,
             $filterUsers,
             $urlParams,
             $dropImageOrText,
-            'dmlog',
-            __('Data manipulation statement'),
+            LogTypeEnum::DML,
             $ddlogCount,
-            'dml_versions',
             $version,
             $dateFrom,
             $dateTo,
@@ -501,15 +491,15 @@ class Tracking
     /**
      * Function to get html for data definition statements in schema snapshot
      *
-     * @param mixed[] $data            data
-     * @param mixed[] $filterUsers     filter users
-     * @param mixed[] $urlParams       url parameters
-     * @param string  $dropImageOrText drop image or text
+     * @param TrackedData $trackedData     data
+     * @param mixed[]     $filterUsers     filter users
+     * @param mixed[]     $urlParams       url parameters
+     * @param string      $dropImageOrText drop image or text
      *
      * @return mixed[]
      */
     public function getHtmlForDataDefinitionStatements(
-        array $data,
+        TrackedData $trackedData,
         array $filterUsers,
         array $urlParams,
         string $dropImageOrText,
@@ -518,14 +508,12 @@ class Tracking
         DateTimeImmutable $dateTo,
     ): array {
         [$html, $lineNumber] = $this->getHtmlForDataStatements(
-            $data,
+            $trackedData->ddlog,
             $filterUsers,
             $urlParams,
             $dropImageOrText,
-            'ddlog',
-            __('Data definition statement'),
+            LogTypeEnum::DDL,
             1,
-            'ddl_versions',
             $version,
             $dateFrom,
             $dateTo,
@@ -537,42 +525,36 @@ class Tracking
     /**
      * Function to get html for data statements in schema snapshot
      *
-     * @param mixed[] $data            data
-     * @param mixed[] $filterUsers     filter users
-     * @param mixed[] $urlParams       url parameters
-     * @param string  $dropImageOrText drop image or text
-     * @param string  $whichLog        dmlog|ddlog
-     * @param string  $headerMessage   message for this section
-     * @param int     $lineNumber      line number
-     * @param string  $tableId         id for the table element
+     * @param list<array{date: string, username: string, statement: string}> $logData         tracked data
+     * @param mixed[]                                                        $filterUsers     filter users
+     * @param mixed[]                                                        $urlParams       url parameters
+     * @param string                                                         $dropImageOrText drop image or text
+     * @param LogTypeEnum                                                    $logType         DDL|DML
+     * @param int                                                            $lineNumber      line number
      *
      * @return mixed[] [$html, $lineNumber]
      */
     private function getHtmlForDataStatements(
-        array $data,
+        array $logData,
         array $filterUsers,
         array $urlParams,
         string $dropImageOrText,
-        string $whichLog,
-        string $headerMessage,
+        LogTypeEnum $logType,
         int $lineNumber,
-        string $tableId,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
     ): array {
         $offset = $lineNumber;
         $entries = [];
-        foreach ($data[$whichLog] as $entry) {
-            $timestamp = strtotime($entry['date']);
+        foreach ($logData as $entry) {
             if (
-                $timestamp >= $dateFrom->getTimestamp()
-                && $timestamp <= $dateTo->getTimestamp()
+                $this->isDateBetweenInclusive(new DateTimeImmutable($entry['date']), $dateFrom, $dateTo)
                 && (in_array('*', $filterUsers)
                 || in_array($entry['username'], $filterUsers))
             ) {
                 $entry['formated_statement'] = Generator::formatSql($entry['statement'], true);
-                $deleteParam = 'delete_' . $whichLog;
+                $deleteParam = 'delete_' . $logType->getLogName();
                 $entry['url_params'] = Url::getCommon($urlParams + [
                     'report' => 'true',
                     'version' => $version,
@@ -586,8 +568,8 @@ class Tracking
         }
 
         $html = $this->template->render('table/tracking/report_table', [
-            'table_id' => $tableId,
-            'header_message' => $headerMessage,
+            'table_id' => $logType->getTableId(),
+            'header_message' => $logType->getHeaderMessage(),
             'entries' => $entries,
             'drop_image_or_text' => $dropImageOrText,
         ]);
@@ -605,16 +587,16 @@ class Tracking
         $html = '<h3>' . __('Structure snapshot')
             . '  [<a href="' . Url::getFromRoute('/table/tracking', $params) . '">' . __('Close')
             . '</a>]</h3>';
-        $data = $this->getTrackedData($db, $table, $version);
+        $trackedData = $this->getTrackedData($db, $table, $version);
 
         // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
-        $dropCreateStatements = $data['ddlog'][0]['statement'];
+        $dropCreateStatements = $trackedData->ddlog[0]['statement'];
 
         if (
-            mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
-            || mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
+            mb_strstr($trackedData->ddlog[0]['statement'], 'DROP TABLE')
+            || mb_strstr($trackedData->ddlog[0]['statement'], 'DROP VIEW')
         ) {
-            $dropCreateStatements .= $data['ddlog'][1]['statement'];
+            $dropCreateStatements .= $trackedData->ddlog[1]['statement'];
         }
 
         // Print SQL code
@@ -627,7 +609,7 @@ class Tracking
         );
 
         // Unserialize snapshot
-        $temp = Core::safeUnserialize($data['schema_snapshot']);
+        $temp = Core::safeUnserialize($trackedData->schemaSnapshot);
         if ($temp === null) {
             $temp = ['COLUMNS' => [], 'INDEXES' => []];
         }
@@ -636,7 +618,7 @@ class Tracking
         $indexes = $temp['INDEXES'];
         $html .= $this->getHtmlForColumns($columns);
 
-        if (count($indexes) > 0) {
+        if ($indexes !== []) {
             $html .= $this->getHtmlForIndexes($indexes);
         }
 
@@ -651,23 +633,11 @@ class Tracking
      * @param string $dbname    name of database
      * @param string $tablename name of table
      * @param string $version   version number
-     *
-     * @return array<string, array<int, array<string, string>>|string|null>
-     * @psalm-return array{
-     *   date_from: string,
-     *   date_to: string,
-     *   ddlog: list<array{date: string, username: string, statement: string}>,
-     *   dmlog: list<array{date: string, username: string, statement: string}>,
-     *   tracking: string|null,
-     *   schema_snapshot: string|null
-     * }|array<never, never>
      */
-    public function getTrackedData(string $dbname, string $tablename, string $version): array
+    public function getTrackedData(string $dbname, string $tablename, string $version): TrackedData
     {
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
-        if ($trackingFeature === null) {
-            return [];
-        }
+        Assert::notNull($trackingFeature);
 
         $sqlQuery = sprintf(
             'SELECT * FROM %s.%s WHERE `db_name` = %s',
@@ -754,26 +724,14 @@ class Tracking
 
         $dmlDateTo = $date;
 
-        // Define begin and end of date range for both logs
-        $data = [];
-        if (strtotime($ddlDateFrom) <= strtotime($dmlDateFrom)) {
-            $data['date_from'] = $ddlDateFrom;
-        } else {
-            $data['date_from'] = $dmlDateFrom;
-        }
-
-        if (strtotime($ddlDateTo) >= strtotime($dmlDateTo)) {
-            $data['date_to'] = $ddlDateTo;
-        } else {
-            $data['date_to'] = $dmlDateTo;
-        }
-
-        $data['ddlog'] = $ddlog;
-        $data['dmlog'] = $dmlog;
-        $data['tracking'] = $mixed['tracking'];
-        $data['schema_snapshot'] = $mixed['schema_snapshot'];
-
-        return $data;
+        return new TrackedData(
+            strtotime($ddlDateFrom) <= strtotime($dmlDateFrom) ? $ddlDateFrom : $dmlDateFrom,
+            strtotime($ddlDateTo) >= strtotime($dmlDateTo) ? $ddlDateTo : $dmlDateTo,
+            $ddlog,
+            $dmlog,
+            $mixed['tracking'] ?? '',
+            $mixed['schema_snapshot'] ?? '',
+        );
     }
 
     /**
@@ -797,57 +755,10 @@ class Tracking
     }
 
     /**
-     * Function to handle the tracking report
-     *
-     * @param mixed[] $data tracked data
-     *
-     * @return string HTML for the message
-     */
-    public function deleteTrackingReportRows(
-        string $db,
-        string $table,
-        string $version,
-        array &$data,
-        bool $deleteDdlog,
-        bool $deleteDmlog,
-    ): string {
-        $html = '';
-        if ($deleteDdlog) {
-            // Delete ddlog row data
-            $html .= $this->deleteFromTrackingReportLog(
-                $db,
-                $table,
-                $version,
-                $data,
-                'ddlog',
-                'DDL',
-                __('Tracking data definition successfully deleted'),
-            );
-        }
-
-        if ($deleteDmlog) {
-            // Delete dmlog row data
-            $html .= $this->deleteFromTrackingReportLog(
-                $db,
-                $table,
-                $version,
-                $data,
-                'dmlog',
-                'DML',
-                __('Tracking data manipulation successfully deleted'),
-            );
-        }
-
-        return $html;
-    }
-
-    /**
      * Function to delete from a tracking report log
      *
-     * @param mixed[] $data     tracked data
-     * @param string  $whichLog ddlog|dmlog
-     * @param string  $type     DDL|DML
-     * @param string  $message  success message
+     * @param list<array{date: string, username: string, statement: string}> $logData tracked data
+     * @param LogTypeEnum                                                    $logType DDL|DML
      *
      * @return string HTML for the message
      */
@@ -855,64 +766,41 @@ class Tracking
         string $db,
         string $table,
         string $version,
-        array &$data,
-        string $whichLog,
-        string $type,
-        string $message,
+        array $logData,
+        LogTypeEnum $logType,
+        int $deleteId,
     ): string {
-        $html = '';
-        $deleteId = $_POST['delete_' . $whichLog];
+        unset($logData[$deleteId]);
 
-        // Only in case of valid id
-        if ($deleteId == (int) $deleteId) {
-            unset($data[$whichLog][$deleteId]);
-
-            $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $type, $data[$whichLog]);
-            if ($successfullyDeleted) {
-                $msg = Message::success($message);
-            } else {
-                $msg = Message::rawError(__('Query error'));
-            }
-
-            $html .= $msg->getDisplay();
+        $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $logType, $logData);
+        if ($successfullyDeleted) {
+            $msg = Message::success($logType->getSuccessMessage());
+        } else {
+            $msg = Message::rawError(__('Query error'));
         }
 
-        return $html;
+        return $msg->getDisplay();
     }
 
     /**
      * Changes tracking data of a table.
      *
-     * @param string         $dbName    name of database
-     * @param string         $tableName name of table
-     * @param string         $version   version
-     * @param string         $type      type of data(DDL || DML)
-     * @param string|mixed[] $newData   the new tracking data
+     * @param string                                                          $dbName    name of database
+     * @param string                                                          $tableName name of table
+     * @param string                                                          $version   version
+     * @param LogTypeEnum                                                     $logType   type of data(DDL || DML)
+     * @param array<array{date: string, username: string, statement: string}> $newData   the new tracking data
      */
     public function changeTrackingData(
         string $dbName,
         string $tableName,
         string $version,
-        string $type,
-        string|array $newData,
+        LogTypeEnum $logType,
+        array $newData,
     ): bool {
-        if ($type === 'DDL') {
-            $saveTo = 'schema_sql';
-        } elseif ($type === 'DML') {
-            $saveTo = 'data_sql';
-        } else {
-            return false;
-        }
-
-        $date = Util::date('Y-m-d H:i:s');
-
         $newDataProcessed = '';
-        if (is_array($newData)) {
-            foreach ($newData as $data) {
-                $newDataProcessed .= '# log ' . $date . ' ' . $data['username'] . $data['statement'] . "\n";
-            }
-        } else {
-            $newDataProcessed = $newData;
+        foreach ($newData as $data) {
+            $newDataProcessed .= '# log ' . $data['date'] . ' ' . $data['username'] . $data['statement'] . "\n";
         }
 
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
@@ -924,7 +812,7 @@ class Tracking
             'UPDATE %s.%s SET `%s` = %s WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $saveTo,
+            $logType->getColumnName(),
             $this->dbi->quoteString($newDataProcessed, Connection::TYPE_CONTROL),
             $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
             $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
@@ -996,7 +884,8 @@ class Tracking
 
         // Replace all multiple whitespaces by a single space
         $table = htmlspecialchars((string) preg_replace('/\s+/', ' ', $table));
-        $dump = '# ' . sprintf(__('Tracking report for table `%s`'), $table) . "\n" . '# ' . date('Y-m-d H:i:s') . "\n";
+        $dump = '# ' . sprintf(__('Tracking report for table `%s`'), $table) . "\n"
+            . '# ' . date('Y-m-d H:i:sP') . "\n";
         foreach ($entries as $entry) {
             $dump .= $entry['statement'];
         }
@@ -1181,14 +1070,13 @@ class Tracking
     /**
      * Function to get the entries
      *
-     * @param mixed[] $data        data
      * @param mixed[] $filterUsers filter users
      * @phpstan-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return mixed[]
      */
     public function getEntries(
-        array $data,
+        TrackedData $trackedData,
         array $filterUsers,
         string $logType,
         DateTimeImmutable $dateFrom,
@@ -1199,7 +1087,7 @@ class Tracking
         if ($logType === 'schema' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter($data['ddlog'], $filterUsers, $dateFrom, $dateTo),
+                $this->filter($trackedData->ddlog, $filterUsers, $dateFrom, $dateTo),
             );
         }
 
@@ -1207,7 +1095,7 @@ class Tracking
         if ($logType === 'data' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter($data['dmlog'], $filterUsers, $dateFrom, $dateTo),
+                $this->filter($trackedData->dmlog, $filterUsers, $dateFrom, $dateTo),
             );
         }
 
@@ -1275,5 +1163,13 @@ class Tracking
             'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
         ]);
+    }
+
+    private function isDateBetweenInclusive(
+        DateTimeImmutable $date,
+        DateTimeImmutable $start,
+        DateTimeImmutable $end,
+    ): bool {
+        return $date >= $start && $date <= $end;
     }
 }

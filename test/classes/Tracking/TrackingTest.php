@@ -12,6 +12,8 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Tracking\LogTypeEnum;
+use PhpMyAdmin\Tracking\TrackedData;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
@@ -241,11 +243,14 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetHtmlForTrackingReportr(): void
     {
-        $data = [
-            'tracking' => 'tracking',
-            'ddlog' => [['date' => '2022-11-02 22:15:24']],
-            'dmlog' => [['date' => '2022-11-02 22:15:24']],
-        ];
+        $data = new TrackedData(
+            '',
+            '',
+            [['statement' => 'statement', 'date' => '2022-11-02 22:15:24', 'username' => 'username']],
+            [['statement' => 'statement', 'date' => '2022-11-02 22:15:24', 'username' => 'username']],
+            'tracking',
+            '',
+        );
         $urlParams = [];
         $filterUsers = [];
 
@@ -270,7 +275,7 @@ class TrackingTest extends AbstractTestCase
             $html,
         );
 
-        $this->assertStringContainsString($data['tracking'], $html);
+        $this->assertStringContainsString($data->tracking, $html);
 
         $version = Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => '10']);
 
@@ -303,11 +308,14 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetHtmlForDataManipulationStatements(): void
     {
-        $data = [
-            'tracking' => 'tracking',
-            'dmlog' => [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
-            'ddlog' => ['ddlog'],
-        ];
+        $data = new TrackedData(
+            '',
+            '',
+            [],
+            [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
+            'tracking',
+            '',
+        );
         $urlParams = [];
         $ddlogCount = 10;
         $dropImageOrText = 'text';
@@ -339,9 +347,9 @@ class TrackingTest extends AbstractTestCase
             $html,
         );
 
-        $this->assertStringContainsString($data['dmlog'][0]['date'], $html);
+        $this->assertStringContainsString($data->dmlog[0]['date'], $html);
 
-        $this->assertStringContainsString($data['dmlog'][0]['username'], $html);
+        $this->assertStringContainsString($data->dmlog[0]['username'], $html);
     }
 
     /**
@@ -349,11 +357,14 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetHtmlForDataDefinitionStatements(): void
     {
-        $data = [
-            'tracking' => 'tracking',
-            'ddlog' => [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
-            'dmlog' => ['dmlog'],
-        ];
+        $data = new TrackedData(
+            '',
+            '',
+            [['statement' => 'statement', 'date' => '2013-01-01 12:34:56', 'username' => 'username']],
+            [],
+            'tracking',
+            '',
+        );
         $filterUsers = ['*'];
         $urlParams = [];
         $dropImageOrText = 'text';
@@ -390,7 +401,7 @@ class TrackingTest extends AbstractTestCase
 
         //PMA_getHtmlForDataDefinitionStatement
         $this->assertStringContainsString(
-            htmlspecialchars($data['ddlog'][0]['username']),
+            htmlspecialchars($data->ddlog[0]['username']),
             $html,
         );
 
@@ -509,11 +520,14 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetEntries(): void
     {
-        $data = [
-            'tracking' => 'tracking',
-            'ddlog' => [['statement' => 'statement1', 'date' => '2012-01-01 12:34:56', 'username' => 'username3']],
-            'dmlog' => [['statement' => 'statement1', 'date' => '2013-01-01 12:34:56', 'username' => 'username3']],
-        ];
+        $data = new TrackedData(
+            '',
+            '',
+            [['statement' => 'statement1', 'date' => '2012-01-01 12:34:56', 'username' => 'username3']],
+            [['statement' => 'statement1', 'date' => '2013-01-01 12:34:56', 'username' => 'username3']],
+            'tracking',
+            '',
+        );
         $filterUsers = ['*'];
 
         $entries = $this->tracking->getEntries(
@@ -539,7 +553,7 @@ class TrackingTest extends AbstractTestCase
         ini_set('url_rewriter.tags', 'a=href,area=href,frame=src,form=,fieldset=');
         $entries = [['statement' => 'first statement'], ['statement' => 'second statement']];
         $expectedDump = '# Tracking report for table `test&gt; table`' . "\n"
-            . '# ' . date('Y-m-d H:i:s') . "\n"
+            . '# ' . date('Y-m-d H:i:sP') . "\n"
             . 'first statementsecond statement';
         $actual = $tracking->getDownloadInfoForExport('test>  table', $entries);
         $this->assertSame('log_test&gt; table.sql', $actual['filename']);
@@ -586,10 +600,6 @@ class TrackingTest extends AbstractTestCase
      */
     public function testChangeTrackingData(): void
     {
-        $this->assertFalse(
-            $this->tracking->changeTrackingData('', '', '', '', ''),
-        );
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -603,8 +613,8 @@ class TrackingTest extends AbstractTestCase
         $date = Util::date('Y-m-d H:i:s');
 
         $newData = [
-            ['username' => 'user1', 'statement' => 'test_statement1'],
-            ['username' => 'user2', 'statement' => 'test_statement2'],
+            ['date' => $date, 'username' => 'user1', 'statement' => 'test_statement1'],
+            ['date' => $date, 'username' => 'user2', 'statement' => 'test_statement2'],
         ];
 
         $sqlQuery2 = 'UPDATE `pmadb`.`tracking`' .
@@ -640,17 +650,7 @@ class TrackingTest extends AbstractTestCase
                 'pma_db',
                 'pma_table',
                 '1.0',
-                'DDL',
-                '# new_data_processed',
-            ),
-        );
-
-        $this->assertTrue(
-            $tracking->changeTrackingData(
-                'pma_db',
-                'pma_table',
-                '1.0',
-                'DML',
+                LogTypeEnum::DML,
                 $newData,
             ),
         );
@@ -659,12 +659,12 @@ class TrackingTest extends AbstractTestCase
     /**
      * Test for getTrackedData()
      *
-     * @param mixed[] $fetchArrayReturn Value to be returned by mocked fetchArray
-     * @param mixed[] $expectedArray    Expected array
+     * @param mixed[]     $fetchArrayReturn Value to be returned by mocked fetchArray
+     * @param TrackedData $expected         Expected value
      *
      * @dataProvider getTrackedDataProvider
      */
-    public function testGetTrackedData(array $fetchArrayReturn, array $expectedArray): void
+    public function testGetTrackedData(array $fetchArrayReturn, TrackedData $expected): void
     {
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -690,7 +690,7 @@ class TrackingTest extends AbstractTestCase
 
         $result = $tracking->getTrackedData("pma'db", "pma'table", '1.0');
 
-        $this->assertEquals($expectedArray, $result);
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -711,17 +711,17 @@ class TrackingTest extends AbstractTestCase
         ];
 
         $data = [
-            [
-                'date_from' => '20-03-2013 23:33:58',
-                'date_to' => '20-03-2013 23:39:58',
-                'ddlog' => [
+            new TrackedData(
+                '20-03-2013 23:33:58',
+                '20-03-2013 23:39:58',
+                [
                     ['date' => '20-03-2013 23:33:58', 'username' => 'user1', 'statement' => "\nstat1"],
                     ['date' => '20-03-2013 23:39:58', 'username' => 'user2', 'statement' => ''],
                 ],
-                'dmlog' => [],
-                'schema_snapshot' => 'dataschema',
-                'tracking' => 'SELECT, DELETE',
-            ],
+                [],
+                'SELECT, DELETE',
+                'dataschema',
+            ),
         ];
 
         $fetchArrayReturn[1] = [
@@ -733,20 +733,20 @@ class TrackingTest extends AbstractTestCase
             'tracking' => 'SELECT, DELETE',
         ];
 
-        $data[1] = [
-            'date_from' => '20-03-2012 23:33:58',
-            'date_to' => '20-03-2013 23:39:58',
-            'ddlog' => [
+        $data[1] = new TrackedData(
+            '20-03-2012 23:33:58',
+            '20-03-2013 23:39:58',
+            [
                 ['date' => '20-03-2012 23:33:58', 'username' => 'user1', 'statement' => ''],
                 ['date' => '20-03-2012 23:39:58', 'username' => 'user2', 'statement' => ''],
             ],
-            'dmlog' => [
+            [
                 ['date' => '20-03-2013 23:33:58', 'username' => 'user3', 'statement' => ''],
                 ['date' => '20-03-2013 23:39:58', 'username' => 'user4', 'statement' => ''],
             ],
-            'schema_snapshot' => 'dataschema',
-            'tracking' => 'SELECT, DELETE',
-        ];
+            'SELECT, DELETE',
+            'dataschema',
+        );
 
         return [[$fetchArrayReturn[0], $data[0]], [$fetchArrayReturn[1], $data[1]]];
     }

@@ -1768,11 +1768,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$trackedData['ddlog']]]></code>
-      <code><![CDATA[$trackedData['ddlog']]]></code>
-      <code><![CDATA[$trackedData['ddlog']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -4409,23 +4404,17 @@
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['entries']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['filter_users']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$version</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['entries']]]></code>
+      <code>$entries</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['entries']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['filter_users']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code>$reportExport</code>
+      <code>$reportExportType</code>
       <code>$selectedVersions</code>
       <code>$submitMult</code>
       <code>$toggleActivation</code>
@@ -4434,10 +4423,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$trackedData['date_from']]]></code>
-      <code><![CDATA[$trackedData['date_to']]]></code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
     <InvalidArrayOffset>
@@ -13639,19 +13624,7 @@
   <file src="libraries/classes/Tracking/Tracking.php">
     <MixedArgument>
       <code>$columns</code>
-      <code>$data[$whichLog]</code>
-      <code><![CDATA[$data['ddlog']]]></code>
-      <code><![CDATA[$data['ddlog']]]></code>
-      <code><![CDATA[$data['ddlog']]]></code>
-      <code><![CDATA[$data['dmlog']]]></code>
-      <code><![CDATA[$data['dmlog']]]></code>
-      <code><![CDATA[$data['dmlog']]]></code>
-      <code><![CDATA[$data['tracking']]]></code>
       <code>$ddlogCount</code>
-      <code><![CDATA[$entry['date']]]></code>
-      <code><![CDATA[$entry['date']]]></code>
-      <code><![CDATA[$entry['statement']]]></code>
-      <code>$indexes</code>
       <code>$indexes</code>
       <code>$selectedTable</code>
       <code>$selectedTable</code>
@@ -13664,18 +13637,8 @@
                 ]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code>$data[$whichLog][$deleteId]</code>
-      <code><![CDATA[$data['statement']]]></code>
-      <code><![CDATA[$data['username']]]></code>
-      <code><![CDATA[$entry['date']]]></code>
-      <code><![CDATA[$entry['date']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
-      <code><![CDATA[$entry['statement']]]></code>
-      <code><![CDATA[$entry['statement']]]></code>
-      <code><![CDATA[$entry['username']]]></code>
-      <code><![CDATA[$entry['username']]]></code>
-      <code><![CDATA[$entry['username']]]></code>
       <code><![CDATA[$row['id']]]></code>
       <code><![CDATA[$row['statement']]]></code>
       <code><![CDATA[$row['timestamp']]]></code>
@@ -13683,17 +13646,8 @@
       <code><![CDATA[$temp['COLUMNS']]]></code>
       <code><![CDATA[$temp['INDEXES']]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$entry['formated_statement']]]></code>
-      <code><![CDATA[$entry['line_number']]]></code>
-      <code><![CDATA[$entry['url_params']]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code>$columns</code>
-      <code>$data</code>
-      <code>$entries[]</code>
-      <code>$entry</code>
-      <code>$entry</code>
       <code>$entry</code>
       <code>$entry</code>
       <code>$ids[$key]</code>
@@ -13709,8 +13663,6 @@
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code><![CDATA[$data['statement']]]></code>
-      <code><![CDATA[$data['username']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
       <code>$temp</code>
@@ -13723,17 +13675,9 @@
       <code><![CDATA[mb_strpos($logEntry, "\n")]]></code>
     </PossiblyFalseOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$data['schema_snapshot']]]></code>
       <code>$tableName</code>
       <code>$versionNumber</code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$data['ddlog']]]></code>
-      <code><![CDATA[$data['schema_snapshot']]]></code>
-    </PossiblyUndefinedArrayOffset>
-    <RiskyCast>
-      <code>$deleteId</code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Tracking/TrackingChecker.php">
     <MixedAssignment>
