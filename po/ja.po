@@ -15759,7 +15759,7 @@ msgstr "別ウィンドウで開く"
 #: templates/footer.twig:29 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin デモ サーバ"
+msgstr "phpMyAdmin デモサーバ"
 
 #: templates/footer.twig:37
 #, php-format
