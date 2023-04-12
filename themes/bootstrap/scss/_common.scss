@@ -884,7 +884,7 @@ textarea#partitiondefinition {
 
 // for elements that should be revealed only via js
 .hide {
-  display: none;
+  display: none !important;
 }
 
 #list_server {
