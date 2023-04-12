@@ -160,7 +160,7 @@ class InsertEdit
      * @param string   $db               name of the database
      *
      * @return array<int, string[]|ResultInterface[]|array<string, string|null>[]|bool>
-     * @phpstan-return array{string[], ResultInterface[], array<string, string|null>[], bool}
+     * @phpstan-return array{string[], ResultInterface[], array<string|null>[], bool}
      */
     private function analyzeWhereClauses(
         array $whereClauseArray,

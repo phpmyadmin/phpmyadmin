@@ -80,73 +80,81 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $meta = [
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field1',
                 'table' => 'table',
                 'orgtable' => 'table',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field2',
                 'table' => 'table',
                 'orgtable' => 'table',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_SHORT, MYSQLI_NUM_FLAG, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_SHORT,
+                'flags' => MYSQLI_NUM_FLAG,
                 'name' => 'field3',
                 'table' => 'table',
                 'orgtable' => 'table',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'flags' => MYSQLI_NUM_FLAG,
                 'name' => 'field4',
                 'table' => 'table',
                 'orgtable' => 'table',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field5',
                 'table' => 'table',
                 'orgtable' => 'table',
                 'charsetnr' => 63, // binary
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field6',
                 'table' => 'table',
                 'orgtable' => 'table',
                 'charsetnr' => 63, // binary
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field7',
                 'table' => 'table',
                 'orgtable' => 'table',
-                'numeric' => false,
-                'type' => 'blob',
                 'charsetnr' => 32, // armscii8_general_ci
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field8',
                 'table' => 'table',
                 'orgtable' => 'table',
-                'numeric' => false,
-                'type' => 'blob',
                 'charsetnr' => 48, // latin1_general_ci
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field9',
                 'table' => 'table',
                 'orgtable' => 'table',
-                'numeric' => false,
-                'type' => 'blob',
                 'charsetnr' => 63, // binary
             ]),
-            new FieldMetadata(MYSQLI_TYPE_GEOMETRY, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_GEOMETRY,
                 'name' => 'field10',
                 'table' => 'table',
                 'orgtable' => 'table',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field11',
                 'table' => 'table2',
                 'orgtable' => 'table2',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_BIT, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_BIT,
                 'name' => 'field12',
                 'table' => 'table',
                 'orgtable' => 'table',
@@ -197,7 +205,8 @@ class UtilTest extends AbstractTestCase
     public function testGetUniqueConditionWithSingleBigBinaryField(): void
     {
         $meta = [
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field',
                 'table' => 'table',
                 'orgtable' => 'table',
@@ -217,12 +226,15 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $meta = [
-            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'flags' => MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG,
                 'name' => 'id',
                 'table' => 'table',
                 'orgtable' => 'table',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field',
                 'table' => 'table',
                 'orgtable' => 'table',
@@ -238,12 +250,15 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $meta = [
-            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_UNIQUE_KEY_FLAG, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
+                'flags' => MYSQLI_UNIQUE_KEY_FLAG,
                 'name' => 'id',
                 'table' => 'table',
                 'orgtable' => 'table',
             ]),
-            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
                 'name' => 'field',
                 'table' => 'table',
                 'orgtable' => 'table',
@@ -286,7 +301,9 @@ class UtilTest extends AbstractTestCase
         return [
             'field type is integer, value is number - not escape string' => [
                 [
-                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                    FieldHelper::fromArray([
+                        'type' => FIELD_TYPE_INTEGER,
+                        'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
                         'orgtable' => 'table',
@@ -297,7 +314,9 @@ class UtilTest extends AbstractTestCase
             ],
             'field type is unknown, value is string - escape string' => [
                 [
-                    new FieldMetadata(FIELD_TYPE_UNKNOWN, MYSQLI_NUM_FLAG, (object) [
+                    FieldHelper::fromArray([
+                        'type' => FIELD_TYPE_UNKNOWN,
+                        'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
                         'orgtable' => 'table',
@@ -308,7 +327,9 @@ class UtilTest extends AbstractTestCase
             ],
             'field type is varchar, value is string - escape string' => [
                 [
-                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                    FieldHelper::fromArray([
+                        'type' => FIELD_TYPE_VARCHAR,
+                        'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
                         'orgtable' => 'table',
@@ -319,7 +340,9 @@ class UtilTest extends AbstractTestCase
             ],
             'field type is varchar, value is string with double quote - escape string' => [
                 [
-                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                    FieldHelper::fromArray([
+                        'type' => FIELD_TYPE_VARCHAR,
+                        'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
                         'orgtable' => 'table',
@@ -330,7 +353,9 @@ class UtilTest extends AbstractTestCase
             ],
             'field type is varchar, value is string with single quote - escape string' => [
                 [
-                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                    FieldHelper::fromArray([
+                        'type' => FIELD_TYPE_VARCHAR,
+                        'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
                         'orgtable' => 'table',
@@ -341,12 +366,16 @@ class UtilTest extends AbstractTestCase
             ],
             'group by multiple columns and field type is mixed' => [
                 [
-                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                    FieldHelper::fromArray([
+                        'type' => FIELD_TYPE_VARCHAR,
+                        'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
                         'orgtable' => 'table',
                     ]),
-                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                    FieldHelper::fromArray([
+                        'type' => FIELD_TYPE_INTEGER,
+                        'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'status_id',
                         'table' => 'table',
                         'orgtable' => 'table',

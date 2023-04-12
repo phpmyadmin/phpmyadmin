@@ -6230,16 +6230,20 @@
       <code>is_array($row) ? $row : []</code>
     </InvalidReturnStatement>
     <InvalidReturnType>
-      <code><![CDATA[array<int, array<string,string|null>>]]></code>
-      <code><![CDATA[array<int,string|null>]]></code>
-      <code><![CDATA[array<string,string|null>]]></code>
+      <code><![CDATA[array<array-key, string|null>]]></code>
+      <code><![CDATA[list<array<array-key, string|null>>]]></code>
+      <code><![CDATA[list<string|null>]]></code>
     </InvalidReturnType>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[array<int, string|null>]]></code>
-      <code><![CDATA[array<string, string|null>]]></code>
+    <LessSpecificReturnStatement>
       <code><![CDATA[array_column($this->result->fetch_all(), 0)]]></code>
+    </LessSpecificReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[array<array-key, string|null>]]></code>
       <code><![CDATA[array_column($this->result->fetch_all(), 1, 0)]]></code>
     </MixedReturnTypeCoercion>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list<string|null>]]></code>
+    </MoreSpecificReturnType>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <DeprecatedMethod>
@@ -6906,18 +6910,6 @@
       <code><![CDATA[$state['name'] ?? '']]></code>
       <code><![CDATA[$state['username']]]></code>
     </MixedArgument>
-  </file>
-  <file src="libraries/classes/FieldMetadata.php">
-    <MixedAssignment>
-      <code><![CDATA[$this->charsetnr]]></code>
-      <code><![CDATA[$this->decimals]]></code>
-      <code><![CDATA[$this->length]]></code>
-      <code><![CDATA[$this->mappedType]]></code>
-      <code><![CDATA[$this->name]]></code>
-      <code><![CDATA[$this->orgname]]></code>
-      <code><![CDATA[$this->orgtable]]></code>
-      <code><![CDATA[$this->table]]></code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/File.php">
     <FalsableReturnStatement>
@@ -9445,13 +9437,9 @@
       <code><![CDATA[$GLOBALS['json_pretty_print']]]></code>
       <code><![CDATA[$GLOBALS['json_unicode']]]></code>
     </InvalidArrayOffset>
-    <MixedArrayOffset>
-      <code>$data[$columns[$i]]</code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code>$colAs</code>
-      <code>$columns[$i]</code>
-    </MixedAssignment>
+    <MixedArgumentTypeCoercion>
+      <code>$aliases</code>
+    </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportLatex.php">
     <InvalidArrayOffset>
@@ -12523,6 +12511,9 @@
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
     </PossiblyNullOperand>
+    <PossiblyUndefinedArrayOffset>
+      <code>$row1[0]</code>
+    </PossiblyUndefinedArrayOffset>
     <RedundantCondition>
       <code><![CDATA[is_string($_REQUEST['dbname'])]]></code>
     </RedundantCondition>
@@ -12955,6 +12946,9 @@
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code>$table</code>
     </PossiblyNullArgument>
+    <PossiblyUndefinedArrayOffset>
+      <code>$row[0]</code>
+    </PossiblyUndefinedArrayOffset>
     <RedundantCast>
       <code><![CDATA[(bool) $GLOBALS['cfg']['ShowSQL']]]></code>
     </RedundantCast>
@@ -14663,11 +14657,6 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/DatabaseInterfaceTest.php">
-    <MixedArgumentTypeCoercion>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$value</code>
-    </MixedArgumentTypeCoercion>
     <MixedInferredReturnType>
       <code>mixed[]</code>
       <code>mixed[]</code>
@@ -15330,78 +15319,16 @@
       <code>mixed[]</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/Stubs/DbiDummy.php">
-    <InvalidDocblock>
-      <code>private array $dummyQueries = [];</code>
-      <code>private array $filoQueries = [];</code>
-    </InvalidDocblock>
-    <MixedArgument>
-      <code><![CDATA[$queryData['columns'] ?? []]]></code>
-      <code><![CDATA[$queryData['result']]]></code>
-      <code><![CDATA[$queryData['result']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$queryData['columns'][$key]]]></code>
-      <code><![CDATA[$queryData['result'][$queryData['pos']]]]></code>
-      <code><![CDATA[$query['used']]]></code>
-      <code><![CDATA[$this->dummyQueries[$i]['query']]]></code>
-      <code><![CDATA[$this->dummyQueries[$i]['result']]]></code>
-      <code><![CDATA[$this->filoQueries[$i]['query']]]></code>
-      <code><![CDATA[$this->filoQueries[$i]['result']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$this->dummyQueries[$i]['pos']]]></code>
-      <code><![CDATA[$this->filoQueries[$i]['pos']]]></code>
-      <code><![CDATA[$this->filoQueries[$i]['used']]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$queryData['result'][$queryData['pos']]]]></code>
-      <code><![CDATA[$ret[$queryData['columns'][$key]]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code>$query</code>
-      <code><![CDATA[$queryData['pos']]]></code>
-      <code>$ret</code>
-      <code><![CDATA[$ret[$queryData['columns'][$key]]]]></code>
-      <code>$unUsed[]</code>
-      <code>$val</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array<mixed>]]></code>
-      <code>array|null</code>
-    </MixedInferredReturnType>
-    <MixedOperand>
-      <code><![CDATA[$queryData['pos']]]></code>
-    </MixedOperand>
-    <MixedReturnStatement>
-      <code>$ret</code>
-      <code><![CDATA[$this->dummyQueries[$result - self::OFFSET_GLOBAL]]]></code>
-      <code><![CDATA[$this->filoQueries[$result]]]></code>
-    </MixedReturnStatement>
-    <MixedReturnTypeCoercion>
-      <code>$unUsed</code>
-      <code>mixed[][]</code>
-    </MixedReturnTypeCoercion>
-    <UnsupportedReferenceUsage>
-      <code><![CDATA[$queryData = &$this->getQueryData($result)]]></code>
-      <code><![CDATA[$queryData = &$this->getQueryData($result)]]></code>
-    </UnsupportedReferenceUsage>
-  </file>
   <file src="test/classes/Stubs/DummyResult.php">
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->link->fetchAssoc($this->result) ?? []]]></code>
-      <code><![CDATA[$this->link->fetchRow($this->result) ?? []]]></code>
-      <code><![CDATA[$this->link->getFieldsMeta($this->result)]]></code>
-      <code><![CDATA[array<int, FieldMetadata>]]></code>
-      <code><![CDATA[array<int,string|null>]]></code>
-      <code><![CDATA[array<string,string|null>]]></code>
-    </MixedReturnTypeCoercion>
+    <InvalidReturnStatement>
+      <code><![CDATA[array_column($this->result, 1, 0)]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[array<array-key, string|null>]]></code>
+    </InvalidReturnType>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $row[$field]</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/Stubs/ResponseRenderer.php">
     <MixedAssignment>

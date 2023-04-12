@@ -65,10 +65,6 @@ final class GisVisualizationController extends AbstractController
         $labelCandidates = [];
         $spatialCandidates = [];
         foreach ($meta as $columnMeta) {
-            if ($columnMeta->name === '') {
-                continue;
-            }
-
             if ($columnMeta->isMappedTypeGeometry) {
                 $spatialCandidates[] = $columnMeta->name;
             } else {

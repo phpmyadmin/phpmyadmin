@@ -25,6 +25,7 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use ReflectionMethod;
 
 use function date_default_timezone_set;
@@ -442,27 +443,27 @@ class TransformationPluginsTest extends AbstractTestCase
             ],
             [
                 new Text_Plain_Dateformat(),
-                ['12345', [0], new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) [])],
+                ['12345', [0], FieldHelper::fromArray(['type' => MYSQLI_TYPE_TINY])],
                 '<dfn onclick="alert(&quot;12345&quot;);" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
-                ['12345678', [0], new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])],
+                ['12345678', [0], FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING])],
                 '<dfn onclick="alert(&quot;12345678&quot;);" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
-                ['123456789', [0], new FieldMetadata(-1, 0, (object) [])],
+                ['123456789', [0], FieldHelper::fromArray(['type' => -1])],
                 '<dfn onclick="alert(&quot;123456789&quot;);" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
-                ['20100201', [0], new FieldMetadata(-1, 0, (object) [])],
+                ['20100201', [0], FieldHelper::fromArray(['type' => -1])],
                 '<dfn onclick="alert(&quot;20100201&quot;);" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
-                ['1617153941', ['0', '%B %d, %Y at %I:%M %p', 'local'], new FieldMetadata(-1, 0, (object) [])],
+                ['1617153941', ['0', '%B %d, %Y at %I:%M %p', 'local'], FieldHelper::fromArray(['type' => -1])],
                 '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
@@ -474,7 +475,7 @@ class TransformationPluginsTest extends AbstractTestCase
                         '',// Empty uses the "Y-m-d  H:i:s" format
                         'utc',
                     ],
-                    new FieldMetadata(-1, 0, (object) []),
+                    FieldHelper::fromArray(['type' => -1]),
                 ],
                 '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">2021-03-31  01:25:41</dfn>',
             ],
@@ -487,13 +488,13 @@ class TransformationPluginsTest extends AbstractTestCase
                         '',// Empty uses the "%B %d, %Y at %I:%M %p" format
                         'local',
                     ],
-                    new FieldMetadata(-1, 0, (object) []),
+                    FieldHelper::fromArray(['type' => -1]),
                 ],
                 '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
-                ['1617153941', ['0', 'H:i:s Y-d-m', 'utc'], new FieldMetadata(-1, 0, (object) [])],
+                ['1617153941', ['0', 'H:i:s Y-d-m', 'utc'], FieldHelper::fromArray(['type' => -1])],
                 '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">01:25:41 2021-31-03</dfn>',
             ],
             [

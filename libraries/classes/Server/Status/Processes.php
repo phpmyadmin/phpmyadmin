@@ -9,11 +9,11 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 
 use function __;
-use function array_keys;
+use function array_change_key_case;
 use function count;
-use function mb_strtolower;
 use function strlen;
-use function ucfirst;
+
+use const CASE_LOWER;
 
 final class Processes
 {
@@ -54,26 +54,17 @@ final class Processes
         while ($process = $result->fetchAssoc()) {
             // Array keys need to modify due to the way it has used
             // to display column values
-            foreach (array_keys($process) as $key) {
-                $newKey = ucfirst(mb_strtolower($key));
-                if ($newKey === $key) {
-                    continue;
-                }
-
-                $process[$newKey] = $process[$key];
-                unset($process[$key]);
-            }
-
+            $process = array_change_key_case($process, CASE_LOWER);
             $rows[] = [
-                'id' => $process['Id'],
-                'user' => $process['User'],
-                'host' => $process['Host'],
-                'db' => ! isset($process['Db']) || strlen($process['Db']) === 0 ? '' : $process['Db'],
-                'command' => $process['Command'],
-                'time' => $process['Time'],
-                'state' => ! empty($process['State']) ? $process['State'] : '---',
-                'progress' => ! empty($process['Progress']) ? $process['Progress'] : '---',
-                'info' => ! empty($process['Info']) ? Generator::formatSql($process['Info'], ! $showFullSql) : '---',
+                'id' => $process['id'],
+                'user' => $process['user'],
+                'host' => $process['host'],
+                'db' => ! isset($process['db']) || strlen($process['db']) === 0 ? '' : $process['db'],
+                'command' => $process['command'],
+                'time' => $process['time'],
+                'state' => ! empty($process['state']) ? $process['state'] : '---',
+                'progress' => ! empty($process['progress']) ? $process['progress'] : '---',
+                'info' => ! empty($process['info']) ? Generator::formatSql($process['info'], ! $showFullSql) : '---',
             ];
         }
 

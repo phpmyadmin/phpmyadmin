@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ChartController;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use const MYSQLI_NOT_NULL_FLAG;
@@ -37,21 +37,24 @@ class ChartControllerTest extends AbstractTestCase
         $_REQUEST['pos'] = '0';
 
         $fieldsMeta = [
-            new FieldMetadata(
-                MYSQLI_TYPE_LONG,
-                MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'id', 'table' => 'table_for_chart'],
-            ),
-            new FieldMetadata(
-                MYSQLI_TYPE_LONG,
-                MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'amount', 'table' => 'table_for_chart'],
-            ),
-            new FieldMetadata(
-                MYSQLI_TYPE_DATE,
-                MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'date', 'table' => 'table_for_chart'],
-            ),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'flags' => MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                'name' => 'id',
+                'table' => 'table_for_chart',
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'flags' => MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                'name' => 'amount',
+                'table' => 'table_for_chart',
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_DATE,
+                'flags' => MYSQLI_NOT_NULL_FLAG,
+                'name' => 'date',
+                'table' => 'table_for_chart',
+            ]),
         ];
 
         $dummyDbi = $this->createDbiDummy();

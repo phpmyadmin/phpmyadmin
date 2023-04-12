@@ -14,7 +14,7 @@ use PhpMyAdmin\FieldMetadata;
 /**
  * Extension independent database result interface
  *
- * @extends IteratorAggregate<array<string, (string|null)>>
+ * @extends IteratorAggregate<array<array-key, (string|null)>>
  */
 interface ResultInterface extends IteratorAggregate
 {
@@ -22,14 +22,15 @@ interface ResultInterface extends IteratorAggregate
      * Returns a generator that traverses through the whole result set
      * and returns each row as an associative array
      *
-     * @psalm-return Generator<int, array<string, string|null>, mixed, void>
+     * @psalm-return Generator<int, array<array-key, string|null>, mixed, void>
      */
     public function getIterator(): Generator;
 
     /**
      * Returns the next row of the result with associative keys
      *
-     * @return array<string,string|null>
+     * @return array<string|null>
+     * @psalm-return array<array-key, string|null>
      */
     public function fetchAssoc(): array;
 
@@ -37,6 +38,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns the next row of the result with numeric keys
      *
      * @return array<int,string|null>
+     * @psalm-return list<string|null>
      */
     public function fetchRow(): array;
 
@@ -48,7 +50,8 @@ interface ResultInterface extends IteratorAggregate
     /**
      * Returns all rows of the result
      *
-     * @return array<int, array<string,string|null>>
+     * @return array<int, array<string|null>>
+     * @psalm-return list<array<array-key, string|null>>
      */
     public function fetchAllAssoc(): array;
 
@@ -56,6 +59,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns values from the first column of each row
      *
      * @return array<int, string|null>
+     * @psalm-return list<string|null>
      */
     public function fetchAllColumn(): array;
 
@@ -65,7 +69,8 @@ interface ResultInterface extends IteratorAggregate
      * e.g. "SELECT id, name FROM users"
      * produces: ['123' => 'John', '124' => 'Jane']
      *
-     * @return array<string, string|null>
+     * @return array<string|null>
+     * @psalm-return array<array-key, string|null>
      */
     public function fetchAllKeyPair(): array;
 
@@ -94,6 +99,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns meta info for fields in $result
      *
      * @return array<int, FieldMetadata> meta info for fields in $result
+     * @psalm-return list<FieldMetadata>
      */
     public function getFieldsMeta(): array;
 
@@ -101,6 +107,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns the names of the fields in the result
      *
      * @return array<int, string> Fields names
+     * @psalm-return list<non-empty-string>
      */
     public function getFieldNames(): array;
 }

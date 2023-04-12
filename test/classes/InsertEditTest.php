@@ -9,7 +9,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\EditField;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\ResponseRenderer;
@@ -20,7 +19,6 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use ReflectionProperty;
-use stdClass;
 
 use function hash;
 use function is_object;
@@ -278,10 +276,12 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testShowEmptyResultMessageOrSetUniqueCondition(): void
     {
-        $temp = new stdClass();
-        $temp->orgname = 'orgname';
-        $temp->table = 'table';
-        $metaArr = [new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_PRI_KEY_FLAG, $temp)];
+        $meta = FieldHelper::fromArray([
+            'type' => MYSQLI_TYPE_DECIMAL,
+            'flags' => MYSQLI_PRI_KEY_FLAG,
+            'table' => 'table',
+            'orgname' => 'orgname',
+        ]);
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -292,7 +292,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($metaArr));
+            ->will($this->returnValue([$meta]));
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -1444,11 +1444,13 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testSetSessionForEditNext(): void
     {
-        $temp = new stdClass();
-        $temp->orgname = 'orgname';
-        $temp->table = 'table';
-        $temp->orgtable = 'table';
-        $metaArr = [new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_PRI_KEY_FLAG, $temp)];
+        $meta = FieldHelper::fromArray([
+            'type' => MYSQLI_TYPE_DECIMAL,
+            'flags' => MYSQLI_PRI_KEY_FLAG,
+            'orgname' => 'orgname',
+            'table' => 'table',
+            'orgtable' => 'table',
+        ]);
 
         $row = ['1' => 1];
 
@@ -1470,7 +1472,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($metaArr));
+            ->will($this->returnValue([$meta]));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['db'] = 'db';
@@ -1669,7 +1671,7 @@ class InsertEditTest extends AbstractTestCase
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue('2'));
+            ->will($this->returnValue(2));
 
         $resultStub->expects($this->once())
             ->method('fetchValue')
@@ -2405,9 +2407,9 @@ class InsertEditTest extends AbstractTestCase
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
             ->willReturn($resultStub);
 
-        $meta1 = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
-        $meta2 = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
-        $meta3 = new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) []);
+        $meta1 = FieldHelper::fromArray(['type' => MYSQLI_TYPE_TINY]);
+        $meta2 = FieldHelper::fromArray(['type' => MYSQLI_TYPE_TINY]);
+        $meta3 = FieldHelper::fromArray(['type' => MYSQLI_TYPE_TIMESTAMP]);
         $dbi->expects($this->exactly(3))
             ->method('getFieldsMeta')
             ->will($this->onConsecutiveCalls([$meta1], [$meta2], [$meta3]));
@@ -2634,7 +2636,7 @@ class InsertEditTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
         $resultStub->expects($this->any())
             ->method('getFieldsMeta')
-            ->will($this->returnValue([new FieldMetadata(0, 0, (object) ['length' => -1])]));
+            ->will($this->returnValue([FieldHelper::fromArray(['type' => 0, 'length' => -1])]));
 
         // Test w/ input transformation
         $actual = $this->callFunction(
@@ -2807,7 +2809,7 @@ class InsertEditTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
         $resultStub->expects($this->any())
             ->method('getFieldsMeta')
-            ->will($this->returnValue([new FieldMetadata(0, 0, (object) ['length' => -1])]));
+            ->will($this->returnValue([FieldHelper::fromArray(['type' => 0, 'length' => -1])]));
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
@@ -2883,9 +2885,9 @@ class InsertEditTest extends AbstractTestCase
         $resultStub->expects($this->any())
             ->method('getFieldsMeta')
             ->will($this->returnValue([
-                new FieldMetadata(0, 0, (object) ['length' => -1]),
-                new FieldMetadata(0, 0, (object) ['length' => -1]),
-                new FieldMetadata(0, 0, (object) ['length' => -1]),
+                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
             ]));
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(

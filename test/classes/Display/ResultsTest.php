@@ -21,6 +21,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\StatementInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
@@ -112,7 +113,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) [])],
+                [FieldHelper::fromArray(['type' => MYSQLI_TYPE_TIMESTAMP])],
             ),
         );
     }
@@ -125,7 +126,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_DATE, 0, (object) [])],
+                [FieldHelper::fromArray(['type' => MYSQLI_TYPE_DATE])],
             ),
         );
     }
@@ -138,7 +139,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])],
+                [FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING])],
             ),
         );
     }
@@ -396,7 +397,7 @@ class ResultsTest extends AbstractTestCase
     public static function dataProviderForTestHandleNonPrintableContents(): array
     {
         $transformationPlugin = new Text_Plain_Link();
-        $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
+        $meta = FieldHelper::fromArray(['type' => MYSQLI_TYPE_BLOB, 'orgtable' => 'bar']);
         $urlParams = ['db' => 'foo', 'table' => 'bar', 'where_clause' => 'where_clause'];
 
         return [
@@ -478,30 +479,28 @@ class ResultsTest extends AbstractTestCase
         $transformationPlugin = new Text_Plain_Link();
         $transformationPluginExternal = new Text_Plain_External();
 
-        $meta = new stdClass();
-        $meta->db = 'foo';
-        $meta->table = 'tbl';
-        $meta->orgtable = 'tbl';
-        $meta->name = 'tblob';
-        $meta->orgname = 'tblob';
-        $meta->charsetnr = 63;
-        $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, $meta);
-
-        $meta2 = new stdClass();
-        $meta2->db = 'foo';
-        $meta2->table = 'tbl';
-        $meta2->orgtable = 'tbl';
-        $meta2->name = 'varchar';
-        $meta2->orgname = 'varchar';
-        $meta2 = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $meta2);
-
-        $meta3 = new stdClass();
-        $meta3->db = 'foo';
-        $meta3->table = 'tbl';
-        $meta3->orgtable = 'tbl';
-        $meta3->name = 'datetime';
-        $meta3->orgname = 'datetime';
-        $meta3 = new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, $meta3);
+        $meta = FieldHelper::fromArray([
+            'type' => MYSQLI_TYPE_BLOB,
+            'table' => 'tbl',
+            'orgtable' => 'tbl',
+            'name' => 'tblob',
+            'orgname' => 'tblob',
+            'charsetnr' => 63,
+        ]);
+        $meta2 = FieldHelper::fromArray([
+            'type' => MYSQLI_TYPE_STRING,
+            'table' => 'tbl',
+            'orgtable' => 'tbl',
+            'name' => 'varchar',
+            'orgname' => 'varchar',
+        ]);
+        $meta3 = FieldHelper::fromArray([
+            'type' => MYSQLI_TYPE_DATETIME,
+            'table' => 'tbl',
+            'orgtable' => 'tbl',
+            'name' => 'datetime',
+            'orgname' => 'datetime',
+        ]);
 
         $urlParams = ['db' => 'foo', 'table' => 'tbl', 'where_clause' => 'where_clause'];
 
@@ -672,25 +671,24 @@ class ResultsTest extends AbstractTestCase
         $this->object->properties['fields_cnt'] = 2;
 
         // Field meta information
-        $meta = new stdClass();
-        $meta->db = 'db';
-        $meta->table = 'table';
-        $meta->orgtable = 'table';
-        $meta->name = '1';
-        $meta->orgname = '1';
-        $meta->blob = false;
-        $meta2 = new stdClass();
-        $meta2->db = 'db';
-        $meta2->table = 'table';
-        $meta2->orgtable = 'table';
-        $meta2->name = '2';
-        $meta2->orgname = '2';
-        $meta2->blob = false;
-        $fieldsMeta = [
-            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta),
-            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta2),
+        $this->object->properties['fields_meta'] = [
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'flags' => MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                'table' => 'table',
+                'orgtable' => 'table',
+                'name' => '1',
+                'orgname' => '1',
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'flags' => MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                'table' => 'table',
+                'orgtable' => 'table',
+                'name' => '2',
+                'orgname' => '2',
+            ]),
         ];
-        $this->object->properties['fields_meta'] = $fieldsMeta;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1146,13 +1144,21 @@ class ResultsTest extends AbstractTestCase
 
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
         $fieldsMeta = [
-            new FieldMetadata(
-                MYSQLI_TYPE_DECIMAL,
-                MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'id'],
-            ),
-            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'name']),
-            new FieldMetadata(MYSQLI_TYPE_DATETIME, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'datetimefield']),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_DECIMAL,
+                'flags' => MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                'name' => 'id',
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
+                'flags' => MYSQLI_NOT_NULL_FLAG,
+                'name' => 'name',
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_DATETIME,
+                'flags' => MYSQLI_NOT_NULL_FLAG,
+                'name' => 'datetimefield',
+            ]),
         ];
 
         $object->setProperties(
@@ -1426,12 +1432,16 @@ class ResultsTest extends AbstractTestCase
 
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
         $fieldsMeta = [
-            new FieldMetadata(
-                MYSQLI_TYPE_LONG,
-                MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'Rows'],
-            ),
-            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'name']),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_LONG,
+                'flags' => MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                'name' => 'Rows',
+            ]),
+            FieldHelper::fromArray([
+                'type' => MYSQLI_TYPE_STRING,
+                'flags' => MYSQLI_NOT_NULL_FLAG,
+                'name' => 'name',
+            ]),
         ];
 
         $dummyDbi->addResult($query, [['2', 'abcd'], ['1', 'foo']], ['Rows', 'name'], $fieldsMeta);
@@ -1733,7 +1743,7 @@ class ResultsTest extends AbstractTestCase
                 '`Country`.',
                 'FoundedIn',
                 ['ASC'], // sortDirection,
-                new FieldMetadata($metaType, 0, (object) []),
+                FieldHelper::fromArray(['type' => $metaType]),
             ],
         );
 
@@ -1753,7 +1763,7 @@ class ResultsTest extends AbstractTestCase
                 '`Country`.',
                 'Code2',
                 ['ASC'], // sortDirection,
-                new FieldMetadata($metaType, 0, (object) []),
+                FieldHelper::fromArray(['type' => $metaType]),
             ],
         );
 
@@ -1780,7 +1790,7 @@ class ResultsTest extends AbstractTestCase
                 '`Country`.',
                 'Code2',
                 ['DESC', 'ASC', 'ASC'], // sortDirection,
-                new FieldMetadata($metaType, 0, (object) []),
+                FieldHelper::fromArray(['type' => $metaType]),
             ],
         );
 

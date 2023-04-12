@@ -8,10 +8,10 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
@@ -146,8 +146,8 @@ class SearchControllerTest extends AbstractTestCase
             [[1, 2]],
             ['col1', 'col2'],
             [
-                new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
-                new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_LONG, 'length' => 11]),
+                FieldHelper::fromArray(['type' => MYSQLI_TYPE_LONG, 'length' => 11]),
             ],
         );
 
