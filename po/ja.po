@@ -5862,7 +5862,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:79
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "選択されたユーザー「%s」を本当に無効にしますか？"
+msgstr "選択されたユーザ「%s」を本当に無効にしますか？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:80
 msgid "Do you really want to delete this central column?"
@@ -9751,7 +9751,7 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"エラー1045：ユーザーのアクセスが拒否されました。追加のエラー情報が利用できる"
+"エラー1045：ユーザのアクセスが拒否されました。追加のエラー情報が利用できる"
 "場合がありますが、%s 構成ディレクティブによって隠されています。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
@@ -15759,7 +15759,7 @@ msgstr "別ウィンドウで開く"
 #: templates/footer.twig:29 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin デモ サーバ"
+msgstr "phpMyAdmin デモサーバ"
 
 #: templates/footer.twig:37
 #, php-format
@@ -15856,7 +15856,7 @@ msgstr "バーをクリックしてページ上部にスクロール"
 
 #: templates/home/git_info.twig:2
 msgid "Git revision:"
-msgstr "Git のリビジョン："
+msgstr "Gitのリビジョン："
 
 #: templates/home/git_info.twig:13
 msgid "no branch"
@@ -15972,11 +15972,11 @@ msgstr "データベースクライアントのバージョン："
 
 #: templates/home/index.twig:233
 msgid "PHP extension:"
-msgstr "PHP 拡張:"
+msgstr "PHP拡張:"
 
 #: templates/home/index.twig:240
 msgid "PHP version:"
-msgstr "PHP のバージョン:"
+msgstr "PHPのバージョン:"
 
 #: templates/home/index.twig:247
 msgid "Show PHP information"
@@ -16016,7 +16016,7 @@ msgstr "お知らせ"
 
 #: templates/home/index.twig:317
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin のテーマ"
+msgstr "phpMyAdminのテーマ"
 
 #: templates/home/index.twig:328
 msgid "Get more themes!"
@@ -16298,7 +16298,7 @@ msgstr "メインページ"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Empty session data"
-msgstr "空のセッション データ"
+msgstr "空のセッションデータ"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Log out"
@@ -16306,15 +16306,15 @@ msgstr "ログアウト"
 
 #: templates/navigation/main.twig:35 templates/navigation/main.twig:36
 msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin のドキュメント"
+msgstr "phpMyAdminのドキュメント"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MariaDB Documentation"
-msgstr "MariaDB ドキュメント"
+msgstr "MariaDBドキュメント"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MySQL Documentation"
-msgstr "MySQL ドキュメント"
+msgstr "MySQLドキュメント"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
@@ -16946,7 +16946,7 @@ msgstr ""
 
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group:"
-msgstr "ユーザ グループ："
+msgstr "ユーザグループ："
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
