@@ -47,7 +47,7 @@ class FooterTest extends AbstractTestCase
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
         $GLOBALS['errorHandler'] = new ErrorHandler();
-        unset($_POST);
+        $_POST = [];
     }
 
     /**
