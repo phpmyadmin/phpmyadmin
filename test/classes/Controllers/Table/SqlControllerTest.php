@@ -78,10 +78,14 @@ class SqlControllerTest extends AbstractTestCase
             'is_foreign_key_check' => true,
         ]);
 
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([['delimiter', ';', ';']]);
+        $request->method('getQueryParam')->willReturnMap([['sql_query', true, true]]);
+
         $response = new ResponseRenderer();
         (
             new SqlController($response, $template, new SqlQueryForm($template, $this->dbi))
-        )($this->createStub(ServerRequest::class));
+        )($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

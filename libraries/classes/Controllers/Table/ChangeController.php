@@ -75,9 +75,10 @@ class ChangeController extends AbstractController
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
-        if (isset($_GET['where_clause'], $_GET['where_clause_signature'])) {
-            if (Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_signature'])) {
-                $GLOBALS['where_clause'] = $_GET['where_clause'];
+        if ($request->hasQueryParam('where_clause') && $request->hasQueryParam('where_clause_signature')) {
+            $whereClause = $request->getQueryParam('where_clause');
+            if (Core::checkSqlQuerySignature($whereClause, $request->getQueryParam('where_clause_signature'))) {
+                $GLOBALS['where_clause'] = $whereClause;
             }
         }
 

@@ -1191,15 +1191,9 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['format']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php">
     <MixedArgument>
@@ -2802,15 +2796,9 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['format']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/PluginsController.php">
     <PossiblyUnusedParam>
@@ -3085,22 +3073,12 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsFormController.php">
-    <PossiblyInvalidArgument>
-      <code>$username</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['username']]]></code>
-      <code>$username</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArrayOffset>
       <code>$allUserGroups</code>
     </PossiblyNullArrayOffset>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/GetVariableController.php">
     <MixedArgument>
@@ -3235,6 +3213,8 @@
       <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
+      <code>$sqlQuery</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
@@ -3255,22 +3235,11 @@
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code>$bkmAllUsers</code>
       <code>$sqlQuery</code>
+      <code>$sqlQuery</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$_GET['sql_query']]]></code>
-      <code><![CDATA[$_GET['sql_signature']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$_GET['sql_query']]]></code>
-      <code><![CDATA[$_GET['sql_signature']]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Table/AddFieldController.php">
     <InvalidArrayOffset>
@@ -3346,6 +3315,8 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause'] ?? null]]></code>
       <code>$isUpload</code>
+      <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
+      <code>$whereClause</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$rowId</code>
@@ -3379,17 +3350,11 @@
       <code><![CDATA[$GLOBALS['where_clause_array']]]></code>
       <code><![CDATA[$GLOBALS['where_clauses']]]></code>
       <code>$isUpload</code>
+      <code>$whereClause</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause'] ?? null]]></code>
-      <code><![CDATA[$_GET['where_clause']]]></code>
-      <code><![CDATA[$_GET['where_clause_signature']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['where_clause']]]></code>
-      <code><![CDATA[$_GET['where_clause_signature']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
       <code>$isUpload</code>
@@ -3557,9 +3522,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/ExportRowsController.php">
     <InvalidArrayOffset>
@@ -3691,12 +3653,6 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['format']]]></code>
-    </PossiblyInvalidCast>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexRenameController.php">
     <InvalidArrayOffset>
@@ -4048,17 +4004,15 @@
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code>$delimiter</code>
+      <code><![CDATA[$request->getQueryParam('sql_query', true)]]></code>
+    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code>$delimiter</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['sql_query'] ?? true]]></code>
-      <code><![CDATA[$_POST['delimiter']]]></code>
-    </PossiblyInvalidArgument>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AbstractIndexController.php">
     <MixedArgumentTypeCoercion>
@@ -4588,6 +4542,8 @@
       <code><![CDATA[$viewData['as']]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
+      <code>$db</code>
+      <code>$table</code>
       <code><![CDATA[$view['as']]]></code>
       <code><![CDATA[$view['column_names']]]></code>
       <code><![CDATA[$view['definer']]]></code>
@@ -4598,6 +4554,8 @@
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code>$db</code>
+      <code>$table</code>
       <code><![CDATA[$viewData['as']]]></code>
       <code><![CDATA[$viewData['as']]]></code>
       <code><![CDATA[$viewData['definer']]]></code>
@@ -4611,18 +4569,6 @@
       <code><![CDATA[$view['sql_security']]]></code>
       <code><![CDATA[$view['with']]]></code>
     </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['db']]]></code>
-      <code><![CDATA[$_GET['db']]]></code>
-      <code><![CDATA[$_GET['table']]]></code>
-      <code><![CDATA[$_GET['table']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['db']]]></code>
-      <code><![CDATA[$_GET['db']]]></code>
-      <code><![CDATA[$_GET['table']]]></code>
-      <code><![CDATA[$_GET['table']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
