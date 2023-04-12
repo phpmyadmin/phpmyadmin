@@ -16016,7 +16016,7 @@ msgstr "お知らせ"
 
 #: templates/home/index.twig:317
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdminのテーマ"
+msgstr "phpMyAdmin のテーマ"
 
 #: templates/home/index.twig:328
 msgid "Get more themes!"
