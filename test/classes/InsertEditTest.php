@@ -2481,7 +2481,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
 
         // case 8
-        $gisParams[3] = "POINT(3 4),4326";
+        $gisParams[3] = 'POINT(3 4),4326';
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(...$gisParams);
         $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
 
@@ -2491,7 +2491,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\')', $result);
 
         // case 10
-        $gisParams[3] = "POINT(3 4)";
+        $gisParams[3] = 'POINT(3 4)';
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(...$gisParams);
         $this->assertEquals('ST_GeomFromText(\'POINT(3 4)\')', $result);
     }

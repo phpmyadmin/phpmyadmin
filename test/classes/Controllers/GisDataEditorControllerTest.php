@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Test\Controllers;
+namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Template;
