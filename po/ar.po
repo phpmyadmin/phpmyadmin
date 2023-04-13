@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-04-12 08:55+0000\n"
+"PO-Revision-Date: 2023-04-14 03:32+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
@@ -2036,14 +2036,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:287
-#, fuzzy
-#| msgid ""
-#| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-#| "limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
-msgstr "ضع الوقت المحدد لعمل البرنامج ([kbd]0[/kbd]: لانهائي)"
+msgstr ""
+"ضع الوقت المحدد لعمل البرنامج [kbd]32M[/kbd] ([kbd]-1[/kbd] لانهائي و "
+"[kbd]0[/kbd] للا تغيير)."
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -2222,7 +2220,7 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"اتركه فارغاً إذا كانت مِيزة محفوظات الاستعلام غير مدعمة، يوصى بـ: [kbd] "
+"اتركه فارغاً إذا كانت ميزة محفوظات الاستعلام غير مدعمة، يوصى بـ: [kbd] "
 "pma__history[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:373
@@ -2596,7 +2594,7 @@ msgstr "عدد الصفوف للنصوص CHAR / VARCHAR."
 #: libraries/classes/Config/Descriptions.php:555
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "تسجيل استعلامات SQL ووقت تنفيذها، ليتم عرضها في المِعراض"
+msgstr "تسجيل استعلامات SQL ووقت تنفيذها، ليتم عرضها في وحدة التحكم"
 
 #: libraries/classes/Config/Descriptions.php:556
 msgid "Tab that is displayed when entering a database."
@@ -4684,18 +4682,14 @@ msgstr ""
 "اجعل اسم المستخدم الفارغ أثناء استخدام طريقة المصادقة[kbd]config[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:290
-#, fuzzy
-#| msgid "Can not find signon authentication script:"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "لايمكن إيجاد برنامج مصادقة التوقيع:"
+msgstr "لايمكن إيجاد برنامج مصادقة التوقيع [kbd]signon[/kbd] !"
 
 #: libraries/classes/Config/Validator.php:297
-#, fuzzy
-#| msgid "Can not find signon authentication script:"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "لايمكن إيجاد برنامج مصادقة التوقيع:"
+msgstr "لايمكن إيجاد برنامج مصادقة التوقيع [kbd]signon[/kbd] !"
 
 #: libraries/classes/Config/Validator.php:351
 msgid ""
@@ -15873,10 +15867,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr "يمكنك أيضًا سحب ملف وإفلاته على أي صفحة."
 
 #: templates/import.twig:62 templates/import.twig:88
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
+msgstr "إختر مجلد الرفع من الخادم [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
 #, fuzzy
