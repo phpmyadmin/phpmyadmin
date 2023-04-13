@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-12 08:55+0000\n"
+"PO-Revision-Date: 2023-04-14 03:32+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -3746,7 +3746,7 @@ msgstr "تأكيد إستعلامات DROP"
 #: libraries/classes/Config/Descriptions.php:167
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "تسجيل استعلامات SQL ووقت تنفيذها ، ليتم عرضها في وحدة التحكم"
+msgstr "تسجيل استعلامات SQL ووقت تنفيذها، ليتم عرضها في وحدة التحكم"
 
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -5295,6 +5295,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
+"اتركه فارغاً إذا كانت ميزة محفوظات الاستعلام غير مدعمة، يوصى بـ: [kbd] "
+"pma__history[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1054
 msgid "SQL query history table"
@@ -6356,18 +6358,14 @@ msgstr ""
 "اجعل اسم المستخدم الفارغ أثناء استخدام طريقة المصادقة[kbd]config[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:268
-#, fuzzy
-#| msgid "Can not find signon authentication script:"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "لايمكن إيجاد برنامج مصادقة التوقيع:"
+msgstr "لايمكن إيجاد برنامج مصادقة التوقيع [kbd]signon[/kbd] !"
 
 #: libraries/classes/Config/Validator.php:277
-#, fuzzy
-#| msgid "Can not find signon authentication script:"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "لايمكن إيجاد برنامج مصادقة التوقيع:"
+msgstr "لايمكن إيجاد برنامج مصادقة التوقيع [kbd]signon[/kbd] !"
 
 #: libraries/classes/Config/Validator.php:330
 msgid ""
