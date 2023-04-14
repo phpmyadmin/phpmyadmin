@@ -45,6 +45,7 @@
                       <a href="{{ url('/user-password') }}" id="change_password_anchor" class="ajax">
                         {{ get_icon('s_passwd', 'Change password'|trans, true) }}
                       </a>
+                      {{ include('modals/change_password.twig') }}
                     </li>
                   {% endif %}
 
