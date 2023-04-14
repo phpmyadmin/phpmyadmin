@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-09 00:18+0000\n"
-"PO-Revision-Date: 2023-03-18 01:40+0000\n"
-"Last-Translator: n0tr00t <hosted.weblate.org@n0tr00t.eu.org>\n"
+"PO-Revision-Date: 2023-04-14 15:54+0000\n"
+"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -8707,10 +8707,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:82
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "在此版本的 MySQL 中未使用。"
+msgstr "找不到此 SQL 查询的字段。"
 
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:66
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:66
@@ -15317,19 +15315,17 @@ msgstr "查看全部"
 
 #: templates/home/index.twig:151
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "主题的颜色模式"
 
 #: templates/home/index.twig:155
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "右侧"
+msgstr "亮色"
 
 #: templates/home/index.twig:157
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "暗色"
 
 #: templates/home/index.twig:179
 msgid "Database server"
