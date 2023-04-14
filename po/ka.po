@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-04-14 15:54+0000\n"
+"PO-Revision-Date: 2023-04-14 23:02+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ka/>\n"
@@ -1913,10 +1913,8 @@ msgid "Customize edit mode."
 msgstr "ჩასწორების რეჟიმის მორგება."
 
 #: libraries/classes/Config/Descriptions.php:214
-#, fuzzy
-#| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Customize default export options"
+msgstr "გატანის ნაგულისხმები პარამეტრების მორგება."
 
 #: libraries/classes/Config/Descriptions.php:215
 msgid "Set some commonly used options."
@@ -1942,9 +1940,8 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Customize navigation frame"
 
 #: libraries/classes/Config/Descriptions.php:221
-#, fuzzy
 msgid "Customize the navigation tree."
-msgstr "Customize navigation frame"
+msgstr "ნავიგაციის ხის მორგება."
 
 #: libraries/classes/Config/Descriptions.php:222
 msgid "Servers display options."
@@ -1963,10 +1960,8 @@ msgid "Authentication settings."
 msgstr "ავთენტიფიკაციის პარამეტრები."
 
 #: libraries/classes/Config/Descriptions.php:228
-#, fuzzy
-#| msgid "MySQL connection collation"
 msgid "Enter server connection parameters."
-msgstr "MySQL კავშირის კოლაცია"
+msgstr "შეიყვანეთ სერვერთან მიერთების პარამეტრები."
 
 #: libraries/classes/Config/Descriptions.php:229
 msgid "Customize links shown in SQL Query boxes."
@@ -1994,10 +1989,8 @@ msgid "Choose how you want tabs to work."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:236
-#, fuzzy
-#| msgid "Customize export options"
 msgid "Customize text input fields."
-msgstr "Customize export options"
+msgstr "ტექსტის შეყვანის ველების მორგება."
 
 #: libraries/classes/Config/Descriptions.php:237
 #, fuzzy
@@ -2515,10 +2508,8 @@ msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:469
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Authentication method to use."
-msgstr "ავთენტიფიკაციის ტიპი"
+msgstr "ავთენტიკაციის მეთოდის გამოყენება."
 
 #: libraries/classes/Config/Descriptions.php:470
 #, fuzzy
@@ -5188,10 +5179,8 @@ msgstr "მიუწვდომელია!"
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:54
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:54
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:54
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "No table selected."
-msgstr "Remove selected users"
+msgstr "ცხრილი არჩეული არაა."
 
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
@@ -5290,9 +5279,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/TrackingController.php:83
 #: libraries/classes/Controllers/Database/TrackingController.php:103
-#, fuzzy
 msgid "Tracking data deleted successfully."
-msgstr "რეპლიკაცია"
+msgstr "ტრეკინგის მონაცემები წარმატებით წაიშალა."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:90
 #, php-format
@@ -5896,17 +5884,13 @@ msgstr "განბლოკვა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Lock this account."
-msgstr "Rename database to"
+msgstr "ამ ანგარიშის დაბლოკვა."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User"
 msgid "Unlock this account."
-msgstr "მომხმარებელი"
+msgstr "ამ ანგარიშის განბლოკვა."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 #, fuzzy
@@ -7655,10 +7639,9 @@ msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
-#, fuzzy
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Export type"
+msgstr "არასწორი უსაფრთხოების გასაღები."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 msgid ""
@@ -8760,10 +8743,8 @@ msgstr ""
 "deactivated. To find out why click %shere%s."
 
 #: libraries/classes/Database/Designer/Common.php:573
-#, fuzzy
-#| msgid "Table %s already exists!"
 msgid "Error: relationship already exists."
-msgstr "ცხრილი %s უკვე არსებობს!"
+msgstr "შეცდომა: ურთიერთობა უკვე არსებობს."
 
 #: libraries/classes/Database/Designer/Common.php:625
 #, fuzzy
@@ -9357,10 +9338,9 @@ msgid "%d total"
 msgstr "%d სულ"
 
 #: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:974
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Query took %01.4f seconds."
-msgstr "მოთხოვნას დასჭირდა %01.4f წმ"
+msgstr "მოთხოვნას %01.4f წმ დასჭირდა."
 
 #: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
@@ -9779,10 +9759,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "SOAP გაფართოება არ იქნა ნაპოვნი"
+msgstr "სესია ვერ ვიპოვე."
 
 #: libraries/classes/Html/Generator.php:146
 #, fuzzy, php-format
@@ -10441,10 +10419,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/classes/Normalization.php:281
-#, fuzzy
-#| msgid "Table %s already exists!"
 msgid "Primary key already exists."
-msgstr "ცხრილი %s უკვე არსებობს!"
+msgstr "ძირითადი გასაღები უკვე არსებობს."
 
 #: libraries/classes/Normalization.php:286
 msgid ""
@@ -10770,10 +10746,8 @@ msgid "The table name is empty!"
 msgstr "ცხრილის სახელი ცარიელია!"
 
 #: libraries/classes/Pdf.php:136
-#, fuzzy
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Allows reading data."
+msgstr "შეცდომა PDF-ის შექმნისას:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:81
 msgid "Cannot connect: invalid settings."
@@ -12051,10 +12025,8 @@ msgid "Two-factor authentication failed: %s"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:78
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "Two-factor authentication failed."
-msgstr "Host authentication order"
+msgstr "2FA-ის შეცდომა."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:128
 #, fuzzy
@@ -16634,10 +16606,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "რეპლიცირებულია"
+msgstr "მოძველებულია!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -16801,10 +16771,8 @@ msgstr "Host authentication order"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "ცვლილებები შენახულია"
+msgstr "კონფიგურაცია შენახულია."
 
 #: templates/preferences/header.twig:60
 #, php-format
@@ -17137,9 +17105,8 @@ msgid "Persistent tables' UI preferences:"
 msgstr "კონფიგურაციის შენახვა ან ჩატვირთვა ვერ მოხერხდა"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
 msgid "Tracking:"
-msgstr "ცხრილის შემოწმება"
+msgstr "ტრეკინგი:"
 
 #: templates/relation/check_relations.twig:345
 msgid "User preferences:"
@@ -17322,10 +17289,8 @@ msgid "Storage Engine"
 msgstr ""
 
 #: templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage Engine"
 msgid "Unknown storage engine."
-msgstr "Storage Engine"
+msgstr "უცნობი საცავის ძრავა."
 
 #: templates/server/export/index.twig:26
 msgid "@SERVER@ will become the server name."
@@ -18059,16 +18024,12 @@ msgid "Issue:"
 msgstr "პრობლემა:"
 
 #: templates/server/status/advisor/index.twig:79
-#, fuzzy
-#| msgid "Documentation"
 msgid "Recommendation:"
-msgstr "დოკუმენტაცია"
+msgstr "რეკომენდაციები:"
 
 #: templates/server/status/advisor/index.twig:82
-#, fuzzy
-#| msgid "Customization"
 msgid "Justification:"
-msgstr "Customization"
+msgstr "დამტკიცება:"
 
 #: templates/server/status/advisor/index.twig:85
 msgid "Used variable / formula:"
@@ -18438,10 +18399,8 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: templates/server/user_groups/edit_user_groups.twig:9
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "პრივილეგიები არაა."
+msgstr "მომხმარებლის ჯგუფის მენიუს მინიჭებები"
 
 #: templates/server/user_groups/edit_user_groups.twig:14
 msgid "Group name:"
@@ -18678,10 +18637,8 @@ msgid "Bookmarked SQL query"
 msgstr ""
 
 #: templates/sql/query.twig:160
-#, fuzzy
-#| msgid "Bookmark table"
 msgid "Bookmark:"
-msgstr "ცხრილის ჩანიშვნა"
+msgstr "სანიშნი:"
 
 #: templates/sql/query.twig:169
 msgid "shared"
