@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-14 15:54+0000\n"
+"PO-Revision-Date: 2023-04-14 23:02+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -367,9 +367,8 @@ msgid "Access denied!"
 msgstr "მიუწვდომელია!"
 
 #: db_tracking.php:55 db_tracking.php:80
-#, fuzzy
 msgid "Tracking data deleted successfully."
-msgstr "რეპლიკაცია"
+msgstr "ტრეკინგის მონაცემები წარმატებით წაიშალა."
 
 #: db_tracking.php:64
 #, php-format
@@ -4487,10 +4486,8 @@ msgid "Export defaults"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:456
-#, fuzzy
-#| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Customize default export options"
+msgstr "გატანის ნაგულისხმები პარამეტრების მორგება."
 
 #: libraries/classes/Config/Descriptions.php:458
 msgid "General"
@@ -4553,9 +4550,8 @@ msgid "Navigation tree"
 msgstr "ნავიგაციის ჩარჩო"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
 msgid "Customize the navigation tree."
-msgstr "Customize navigation frame"
+msgstr "ნავიგაციის ხის მორგება."
 
 #: libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Server/Select.php:56 setup/frames/index.inc.php:123
@@ -4634,10 +4630,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:536
-#, fuzzy
-#| msgid "MySQL connection collation"
 msgid "Enter server connection parameters."
-msgstr "MySQL კავშირის კოლაცია"
+msgstr "შეიყვანეთ სერვერთან მიერთების პარამეტრები."
 
 #: libraries/classes/Config/Descriptions.php:538
 #, fuzzy
@@ -4748,10 +4742,8 @@ msgid "Text fields"
 msgstr "გამოიყენე ტექსტური ველი"
 
 #: libraries/classes/Config/Descriptions.php:593
-#, fuzzy
-#| msgid "Customize export options"
 msgid "Customize text input fields."
-msgstr "Customize export options"
+msgstr "ტექსტის შეყვანის ველების მორგება."
 
 #: libraries/classes/Config/Descriptions.php:595
 msgid "Texy! text"
@@ -5508,10 +5500,8 @@ msgid "HTTP Realm"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:992
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Authentication method to use."
-msgstr "ავთენტიფიკაციის ტიპი"
+msgstr "ავთენტიკაციის მეთოდის გამოყენება."
 
 #: libraries/classes/Config/Descriptions.php:994 setup/frames/index.inc.php:142
 msgid "Authentication type"
@@ -7254,10 +7244,8 @@ msgstr ""
 "deactivated. To find out why click %shere%s."
 
 #: libraries/classes/Database/Designer/Common.php:565
-#, fuzzy
-#| msgid "Table %s already exists!"
 msgid "Error: relationship already exists."
-msgstr "ცხრილი %s უკვე არსებობს!"
+msgstr "შეცდომა: ურთიერთობა უკვე არსებობს."
 
 #: libraries/classes/Database/Designer/Common.php:611
 #, fuzzy
@@ -7734,10 +7722,9 @@ msgid "%d total"
 msgstr "%d სულ"
 
 #: libraries/classes/Display/Results.php:4590 libraries/classes/Sql.php:1435
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Query took %01.4f seconds."
-msgstr "მოთხოვნას დასჭირდა %01.4f წმ"
+msgstr "მოთხოვნას %01.4f წმ დასჭირდა."
 
 #: libraries/classes/Display/Results.php:4689
 #: libraries/classes/Display/Results.php:4696 libraries/mult_submits.inc.php:57
@@ -8958,10 +8945,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/classes/Normalization.php:241
-#, fuzzy
-#| msgid "Table %s already exists!"
 msgid "Primary key already exists."
-msgstr "ცხრილი %s უკვე არსებობს!"
+msgstr "ძირითადი გასაღები უკვე არსებობს."
 
 #: libraries/classes/Normalization.php:246
 msgid ""
@@ -9433,10 +9418,8 @@ msgid "The table name is empty!"
 msgstr "ცხრილის სახელი ცარიელია!"
 
 #: libraries/classes/Pdf.php:131
-#, fuzzy
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Allows reading data."
+msgstr "შეცდომა PDF-ის შექმნისას:"
 
 #: libraries/classes/Plugins.php:578
 #, fuzzy
@@ -10604,10 +10587,8 @@ msgid "Two-factor authentication failed: %s"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "Two-factor authentication failed."
-msgstr "Host authentication order"
+msgstr "2FA-ის შეცდომა."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -13356,10 +13337,8 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: libraries/classes/Server/UserGroups.php:244
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "პრივილეგიები არაა."
+msgstr "მომხმარებლის ჯგუფის მენიუს მინიჭებები"
 
 #: libraries/classes/Server/UserGroups.php:252
 msgid "Group name:"
@@ -14341,10 +14320,8 @@ msgid "Two-factor authentication"
 msgstr "Host authentication order"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "ცვლილებები შენახულია"
+msgstr "კონფიგურაცია შენახულია."
 
 #: libraries/user_preferences.inc.php:71
 #, php-format
