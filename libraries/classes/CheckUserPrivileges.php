@@ -154,7 +154,6 @@ class CheckUserPrivileges
             $GLOBALS['is_create_db_priv'] = SessionCache::get('is_create_db_priv');
             $GLOBALS['is_reload_priv'] = SessionCache::get('is_reload_priv');
             $GLOBALS['db_to_create'] = SessionCache::get('db_to_create');
-            $GLOBALS['dbs_where_create_table_allowed'] = SessionCache::get('dbs_where_create_table_allowed');
             $GLOBALS['dbs_to_test'] = SessionCache::get('dbs_to_test');
 
             $GLOBALS['db_priv'] = SessionCache::get('db_priv');
@@ -169,7 +168,6 @@ class CheckUserPrivileges
         $GLOBALS['is_create_db_priv'] = false;
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['db_to_create'] = '';
-        $GLOBALS['dbs_where_create_table_allowed'] = [];
         $GLOBALS['dbs_to_test'] = Utilities::getSystemSchemas();
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['db_priv'] = false;
@@ -221,14 +219,10 @@ class CheckUserPrivileges
                 $GLOBALS['is_create_db_priv'] = true;
                 $GLOBALS['is_reload_priv'] = true;
                 $GLOBALS['db_to_create'] = '';
-                $GLOBALS['dbs_where_create_table_allowed'][] = '*';
                 // @todo we should not break here, cause GRANT ALL *.*
                 // could be revoked by a later rule like GRANT SELECT ON db.*
                 break;
             }
-
-            // this array may contain wildcards
-            $GLOBALS['dbs_where_create_table_allowed'][] = $showGrantsDbName;
 
             $dbNameToTest = Util::backquote($showGrantsDbName);
 
@@ -274,7 +268,6 @@ class CheckUserPrivileges
         SessionCache::set('is_create_db_priv', $GLOBALS['is_create_db_priv']);
         SessionCache::set('is_reload_priv', $GLOBALS['is_reload_priv']);
         SessionCache::set('db_to_create', $GLOBALS['db_to_create']);
-        SessionCache::set('dbs_where_create_table_allowed', $GLOBALS['dbs_where_create_table_allowed']);
         SessionCache::set('dbs_to_test', $GLOBALS['dbs_to_test']);
 
         SessionCache::set('proc_priv', $GLOBALS['proc_priv']);
@@ -300,7 +293,6 @@ class CheckUserPrivileges
             $GLOBALS['is_create_db_priv'] = true;
             $GLOBALS['is_reload_priv'] = true;
             $GLOBALS['db_to_create'] = '';
-            $GLOBALS['dbs_where_create_table_allowed'] = ['*'];
             $GLOBALS['dbs_to_test'] = false;
             $GLOBALS['db_priv'] = true;
             $GLOBALS['col_priv'] = true;

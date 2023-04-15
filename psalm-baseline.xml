@@ -132,7 +132,6 @@
       <code><![CDATA[$GLOBALS['db_priv']]]></code>
       <code><![CDATA[$GLOBALS['db_to_create']]]></code>
       <code><![CDATA[$GLOBALS['dbs_to_test']]]></code>
-      <code><![CDATA[$GLOBALS['dbs_where_create_table_allowed']]]></code>
       <code><![CDATA[$GLOBALS['is_create_db_priv']]]></code>
       <code><![CDATA[$GLOBALS['is_reload_priv']]]></code>
       <code><![CDATA[$GLOBALS['proc_priv']]]></code>
