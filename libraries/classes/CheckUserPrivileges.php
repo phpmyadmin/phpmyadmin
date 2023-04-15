@@ -291,7 +291,7 @@ class CheckUserPrivileges
         $username = '';
 
         $current = $this->dbi->getCurrentUserAndHost();
-        if (! empty($current)) {
+        if ($current !== []) {
             [$username] = $current;
         }
 
