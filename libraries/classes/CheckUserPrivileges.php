@@ -183,8 +183,8 @@ class CheckUserPrivileges
         $re0 = '(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
         $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
-        while ($row = $showGrantsResult->fetchRow()) {
-            [$showGrantsString, $showGrantsDbName, $showGrantsTableName] = $this->getItemsFromShowGrantsRow($row[0]);
+        while ($showGrants = $showGrantsResult->fetchValue()) {
+            [$showGrantsString, $showGrantsDbName, $showGrantsTableName] = $this->getItemsFromShowGrantsRow($showGrants);
 
             if ($showGrantsDbName === '*') {
                 if ($showGrantsString !== 'USAGE') {
