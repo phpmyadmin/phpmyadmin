@@ -91,26 +91,6 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
-			count: 2
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
-			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
-			count: 3
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
-			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the right side\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/CheckUserPrivileges.php
