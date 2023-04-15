@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-09 00:47+0000\n"
+"PO-Revision-Date: 2023-04-16 06:54+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -15765,10 +15765,8 @@ msgid "Deactivate now"
 msgstr ""
 
 #: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export type"
 msgid "Export method:"
-msgstr "Тип на извоз"
+msgstr "Метод на извоз:"
 
 #: templates/display/export/method.twig:9
 msgid "Quick - display only the minimal options"
@@ -16112,16 +16110,12 @@ msgid "Create"
 msgstr "Креирај"
 
 #: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
 msgid "Existing templates:"
-msgstr "Шаблон на име на податотека"
+msgstr "Постојни шаблони:"
 
 #: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Template:"
-msgstr "%s табела"
+msgstr "Шаблон:"
 
 #: templates/display/export/template_loading.twig:21
 #, fuzzy
@@ -16756,10 +16750,8 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database:"
-msgstr "Избери табели"
+msgstr "Изберете датабаза:"
 
 #: templates/export/alias_add.twig:15
 #, fuzzy
@@ -16768,10 +16760,8 @@ msgid "New database name"
 msgstr "База на податоци"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select table:"
-msgstr "Избери табели"
+msgstr "Изберете табела:"
 
 #: templates/export/alias_add.twig:29
 #, fuzzy
