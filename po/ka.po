@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-16 00:18+0000\n"
-"PO-Revision-Date: 2023-04-14 23:02+0000\n"
+"PO-Revision-Date: 2023-04-16 02:16+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -387,9 +387,8 @@ msgid "Rate of reading first index entry"
 msgstr "ინდექსის პირველი ჩანაწერის წაკითხვის სიხშირე"
 
 #: libraries/classes/Advisory/Rules.php:291
-#, fuzzy
 msgid "The rate of reading the first index entry is high."
-msgstr "The number of pending log file fsyncs."
+msgstr "პირველი ინდექსის ჩანაწერის წაკითხვის სიხშირე მაღალია."
 
 #: libraries/classes/Advisory/Rules.php:293
 msgid ""
@@ -5963,9 +5962,8 @@ msgid "Connections / Processes"
 msgstr "კავშირები"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:173
-#, fuzzy
 msgid "Number of statements"
-msgstr "ცხრილების რიცხვი:"
+msgstr "გამოსახულებების რაოდენობა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:174
 msgid "Local monitor configuration incompatible!"
@@ -8541,9 +8539,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:90
-#, fuzzy
 msgid "Other statements"
-msgstr "გამოსახულებების დამატება:"
+msgstr "სხვა გამოსახულებები"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:127
 msgid "Received"
@@ -11037,9 +11034,8 @@ msgid "New"
 msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:29
-#, fuzzy
 msgid "Trigger"
-msgstr "ტრიგერები"
+msgstr "ტრიგერი"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:27
@@ -15145,7 +15141,6 @@ msgid "Ins:"
 msgstr "ჩასმ:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
 msgid "And"
 msgstr "და"
 
@@ -16369,9 +16364,8 @@ msgstr "პარამეტრები"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:506
-#, fuzzy
 msgid "Rename"
-msgstr "Rename table to"
+msgstr "გადარქმევა"
 
 #: templates/indexes.twig:45
 #: templates/table/structure/display_structure.twig:512
@@ -17005,10 +16999,9 @@ msgid "Character sets and collations"
 msgstr "სიმბოლოთა ნაკრებები და კოლაციები"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "სტანდარტული"
+msgstr "ნაგულისხმები"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -18682,9 +18675,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Restart insertion with %s rows"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
 msgid "Checksum"
-msgstr "შემოწმება"
+msgstr "საკონტროლო ჯამი"
 
 #: templates/table/normalization/normalization.twig:5
 msgid "Improve table structure (Normalization):"
