@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-16 00:18+0000\n"
 "PO-Revision-Date: 2023-04-16 06:40+0000\n"
-"Last-Translator: MadxCoder <mohamedahmedmoh13@gmail.com>\n"
+"Last-Translator: \"كَوَنٍنز [FM]\" <aymenadem406@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
 "Language: ar\n"
@@ -12684,7 +12684,7 @@ msgstr "خطأ 404! لم يتم العثور على  قاعدة  بيانات  �
 
 #: libraries/classes/Routing.php:156
 msgid "Error 405! Request method not allowed."
-msgstr "خطأ 405! الطلب بهذه الطريقة غير مسموح."
+msgstr "خطأ 405! طريقة الطلب غير مسموح بها."
 
 #: libraries/classes/SavedSearches.php:220
 msgid "Please provide a name for this bookmarked search."
