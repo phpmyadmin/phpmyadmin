@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-04-16 06:46+0000\n"
+"PO-Revision-Date: 2023-04-16 06:56+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
@@ -503,11 +503,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:337
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s  جدول (جداول)"
+msgstr "%s جدول (جداول)"
 
 #: libraries/advisory_rules_generic.php:343
 msgid ""
@@ -1683,7 +1680,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Enable bzip2 compression for import operations."
-msgstr "تفعيل ضغط  bzip2 لعمليات والإستيراد."
+msgstr "تفعيل ضغط bzip2 لعمليات والإستيراد."
 
 #: libraries/classes/Config/Descriptions.php:105
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
@@ -1716,17 +1713,12 @@ msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:113
-#, fuzzy
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"يعرف أي أدوات التعديل تستخدم مع الأعمدة CHAR و  VARCHAR ,,[kbd]input[/kbd] - "
+"يعرف أي أدوات التعديل تستخدم مع الأعمدة CHAR و VARCHAR ,,[kbd]input[/kbd] - "
 "تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في العمود."
 
 #: libraries/classes/Config/Descriptions.php:118
@@ -1965,8 +1957,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"إذا كان مفعل , فإن phpMyAdmin  سوف تستمر في تنفيذ الإستعلامات المتعددة حتى "
-"لو فشل بعضها."
+"إذا كان مفعل , فإن phpMyAdmin سوف تستمر في تنفيذ الإستعلامات المتعددة حتى لو "
+"فشل بعضها."
 
 #: libraries/classes/Config/Descriptions.php:246
 msgid ""
@@ -2499,27 +2491,19 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:509
-#, fuzzy
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
 msgstr ""
-"عبارة المرور السرية تستخدم لتشفير كعكة الإنترنت في[kbd]cookie[/kbd]  المصادقة"
+"عبارة المرور السرية تستخدم لتشفير كعكة الإنترنت في[kbd]cookie[/kbd] المصادقة"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"عبارة المرور السرية تستخدم لتشفير كعكة الإنترنت في[kbd]cookie[/kbd]  المصادقة"
+"عبارة المرور السرية تستخدم لتشفير كعكة الإنترنت في[kbd]cookie[/kbd] المصادقة"
 
 #: libraries/classes/Config/Descriptions.php:517
 msgid ""
@@ -2705,10 +2689,8 @@ msgid "Use persistent connections to MySQL databases."
 msgstr "استخدام الاتصالات المستمرة لقواعد بيانات MySQL."
 
 #: libraries/classes/Config/Descriptions.php:582
-#, fuzzy
-#| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "منع تعديل الأعمدة من نوع BLOB  و BINARY"
+msgstr "منع تعديل الأعمدة من نوع BLOB و BINARY"
 
 #: libraries/classes/Config/Descriptions.php:583
 msgid "How many queries are kept in history."
@@ -2782,7 +2764,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "Enable ZIP compression for import and export operations."
-msgstr "تفعيل ضغط  ZIP لعمليات التصدير والإستيراد ."
+msgstr "تفعيل ضغط ZIP لعمليات التصدير والإستيراد ."
 
 #: libraries/classes/Config/Descriptions.php:600
 msgid "Choose the default action when sending error reports."
@@ -4826,7 +4808,7 @@ msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى %2$
 #: libraries/classes/Controllers/Database/OperationsController.php:187
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "تم نسخ قاعدة البيانات  %1$s  إلى %2$s."
+msgstr "تم نسخ قاعدة البيانات %1$s إلى %2$s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:296
 #, php-format
@@ -5361,11 +5343,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"من خلال هذه العملية ، يحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
-"كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقد للبيانات وقد تكون هذه "
-"البيانات المفقودة <b> غيرا </b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
-"العمود مرة أخرى. <b> لتحويل البيانات الحالية ، يُقترح استخدام ميزة تعديل "
-"الأعمدة (الرابط \"تغيير\") في صفحة بنية الجدول. </b>"
+"من خلال هذه العملية، يحاول MySQL تعيين قيم البيانات بين المجموعات . إذا كانت "
+"مجموعات الأحرف غير متوافقة، فقد يكون هناك فقدان للبيانات وقد لا تكون هذه "
+"البيانات المفقودة قابلة للاسترداد ببساطة عن طريق تغيير ترتيب الأعمدة. لتحويل "
+"البيانات الموجودة، يقترح استخدام ميزة تحرير الأعمدة (\"تغيير\" الرابط) في "
+"صفحة بنية الجدول"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:94
 msgid ""
@@ -5626,7 +5608,7 @@ msgid ""
 msgstr ""
 "اعدادات ترتيب المخطط في المتصفحات المحلية غير متوافق بعد الآن إلى الإصدار "
 "الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان ."
-"الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة <i>  اعدادات </"
+"الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة <i> اعدادات </"
 "i> ."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:167
@@ -6866,10 +6848,8 @@ msgid "Submit"
 msgstr "إرسال"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:546
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "إضغط escape  لإلغاء التعديل ."
+msgstr "إضغط escape لإلغاء التعديل ."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid ""
@@ -7083,7 +7063,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
-msgstr "تم  النقل بنجاح !"
+msgstr "تم النقل بنجاح !"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Copying failed!"
@@ -7104,7 +7084,7 @@ msgstr "حدث خطأ ما أثناء الحصول على معلومات تصح�
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "نفذت %s من طلبات البحث%s  من المرات في %s من الثواني."
+msgstr "نفذت %s من طلبات البحث%s من المرات في %s من الثواني."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 #, php-format
@@ -7508,7 +7488,7 @@ msgid ""
 "if you are doing an index scan."
 msgstr ""
 "عدد الطلبات لقراءة الصف التالي بالترتيب حسب المفتاح. يتم زيادة هذا إذا كنت "
-"تستعلم عن عمود الفهارس مع القيود أو إذا كنت تقوم  بفحص للفهارس."
+"تستعلم عن عمود الفهارس مع القيود أو إذا كنت تقوم بفحص للفهارس."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:297
 msgid ""
@@ -8132,7 +8112,7 @@ msgstr ""
 #: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
 #: libraries/classes/Sql.php:968
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "قام MySQL  بإرجاع نتيجة فارغة."
+msgstr "قام MySQL بإرجاع نتيجة فارغة."
 
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:75
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:75
@@ -8642,10 +8622,9 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1145
 #: libraries/classes/Database/Routines.php:1314
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "لا يوجد جدول بالإسم %1$s  في قاعدة البيانات %2$s"
+msgstr "لا يوجد جدول بالإسم %1$s في قاعدة البيانات %2$s"
 
 #: libraries/classes/Database/Routines.php:1184
 #, php-format
@@ -8767,10 +8746,9 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "معذرة، فشل في استعاده الزناد الذي تم إسقاطه."
 
 #: libraries/classes/Database/Triggers.php:468
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "لا يوجد جدول بالإسم %1$s  في قاعدة البيانات %2$s"
+msgstr "لا يوجد جدول بالإسم %1$s في قاعدة البيانات %2$s"
 
 #: libraries/classes/Database/Triggers.php:502
 #: templates/database/triggers/export.twig:2
@@ -8779,12 +8757,11 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:520
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "لا يوجد جدول بالإسم %1$s  في قاعدة البيانات %2$s"
+msgstr "لا يوجد جدول بالإسم %1$s في قاعدة البيانات %2$s"
 
 #: libraries/classes/Dbal/DbiMysqli.php:152
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -11460,7 +11437,7 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"يظهر صورة مصغرة للضغط عليها، الخيارات:  العرض، الارتفاع بالبكسل )ويبقي "
+"يظهر صورة مصغرة للضغط عليها، الخيارات: العرض، الارتفاع بالبكسل )ويبقي "
 "التناسب الأصلي للحجم(."
 
 #: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:30
@@ -11759,7 +11736,7 @@ msgstr ""
 #: libraries/classes/Routing.php:162
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "خطأ 404! لم يتم العثور على  قاعدة  بيانات  المصدر  `%s`"
+msgstr "خطأ 404! لم يتم العثور على قاعدة بيانات المصدر `%s`"
 
 #: libraries/classes/Routing.php:173
 msgid "Error 405! Request method not allowed."
@@ -12626,10 +12603,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "التتبع نشط."
 
 #: libraries/classes/Tracking.php:979
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "انشئ إصدار %s  لـ %s.s%s"
+msgstr "انشئ إصدار %s لـ %s.s%s"
 
 #: libraries/classes/Tracking.php:1010
 #, fuzzy, php-format
@@ -13818,10 +13794,9 @@ msgid ""
 msgstr ""
 
 #: templates/create_tracking_version.twig:10
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "انشئ إصدار %s  لـ %s.s%s"
+msgstr "انشئ إصدار %s لـ %s.s%s"
 
 #: templates/create_tracking_version.twig:15
 #, fuzzy, php-format
@@ -14898,7 +14873,7 @@ msgstr[0] "%s جدول"
 msgstr[1] "%s جدول"
 msgstr[2] "%s جدول"
 msgstr[3] "%s جداول"
-msgstr[4] "%s  جداول"
+msgstr[4] "%s جداول"
 msgstr[5] "%s جدول"
 
 #: templates/database/structure/body_for_table_summary.twig:17
@@ -15632,16 +15607,14 @@ msgid "from %s branch"
 msgstr ""
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "انشئ إصدار %s  لـ %s.s%s"
+msgstr "انشئ إصدار %s لـ %s.s%s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "انشئ إصدار %s  لـ %s.s%s"
+msgstr "انشئ إصدار %s لـ %s.s%s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:8
 #, php-format
@@ -18764,7 +18737,7 @@ msgstr "إلغاء تجزئة الجدول"
 #: templates/table/operations/index.twig:372
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "لقد تم إعادة تحميل الجدول %s  بنجاح."
+msgstr "لقد تم إعادة تحميل الجدول %s بنجاح."
 
 #: templates/table/operations/index.twig:376
 msgid "Flush the table (FLUSH)"
