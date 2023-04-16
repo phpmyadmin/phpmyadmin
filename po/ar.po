@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-04-16 06:56+0000\n"
-"Last-Translator: MadxCoder <mohamedahmedmoh13@gmail.com>\n"
+"PO-Revision-Date: 2023-04-16 17:22+0000\n"
+"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
 "Language: ar\n"
@@ -79,7 +79,8 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:45
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "يجب أن يكون مُعدّل الاستعلام البطيء أقل من 5 %%، قيمتك هي %s%%."
+msgstr ""
+"يجب أن يكون معدل الاستعلام البطيء أقل من 5 %% ، القيمة الخاصة بك هي %s %%."
 
 #: libraries/advisory_rules_generic.php:50
 msgid "Slow query rate"
@@ -4784,7 +4785,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ImportController.php:58
 #: libraries/classes/Controllers/Table/ImportController.php:69
 msgid "Could not load import plugins, please check your installation!"
-msgstr "لم يمكن  تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
+msgstr "لم يمكن تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:258
@@ -5152,12 +5153,12 @@ msgstr ""
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه ."
+msgstr[0] "تم الانتهاء من الاستيراد بنجاح، وتم تنفيذ استعلامات %d."
 msgstr[1] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
-msgstr[2] "انتهى الإستيراد بنجاح، %d الاستعلامان تم تنفيذهم ."
-msgstr[3] "انتهى الإستيراد بنجاح، %d الاستعلامات تم تنفيذها ."
-msgstr[4] "انتهى الإستيراد بنجاح، %d تم تنفيذ الاستعلامات."
-msgstr[5] "انتهى الإستيراد بنجاح، %d تم تنفيذ الاستعلامات ."
+msgstr[2] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[3] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[4] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[5] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
 
 #: libraries/classes/Controllers/Import/ImportController.php:655
 #, php-format
@@ -5343,11 +5344,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"من خلال هذه العملية، يحاول MySQL تعيين قيم البيانات بين المجموعات . إذا كانت "
-"مجموعات الأحرف غير متوافقة، فقد يكون هناك فقدان للبيانات وقد لا تكون هذه "
-"البيانات المفقودة قابلة للاسترداد ببساطة عن طريق تغيير ترتيب الأعمدة. لتحويل "
-"البيانات الموجودة، يقترح استخدام ميزة تحرير الأعمدة (\"تغيير\" الرابط) في "
-"صفحة بنية الجدول"
+"من خلال هذه العملية ، تحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
+"كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقدان للبيانات وقد تكون هذه "
+"البيانات المفقودة <b> NOT </b> قابلة للاسترداد ببساطة عن طريق تغيير ترتيب "
+"(ترتيبات) الأعمدة. <b> لتحويل البيانات الموجودة ، يقترح استخدام ميزة تحرير "
+"العمود (الأعمدة) (رابط \"التغيير\") في صفحة بنية الجدول. </b>"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:94
 msgid ""
@@ -7320,7 +7321,7 @@ msgstr "تم إنشاء قاعدة البيانات %1$s."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[0] "تم إسقاط قواعد بيانات %1$d بنجاح."
 msgstr[1] "تم إسقاط قواعد البيانات %1$d بنجاح."
 msgstr[2] "تم إسقاط قواعد البيانات %1$d بنجاح."
 msgstr[3] "تم إسقاط قواعد البيانات %1$d بنجاح."
@@ -8632,12 +8633,10 @@ msgid "Execution results of routine %s"
 msgstr "نتائج تنفيذ الإجراء %s"
 
 #: libraries/classes/Database/Routines.php:1232
-#, fuzzy, php-format
-#| msgid "%d row affected by the last statement inside the procedure"
-#| msgid_plural "%d rows affected by the last statement inside the procedure"
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d تأثر بالإجراء الأخير"
+msgstr[0] "%d الصفوف المتأثرة بالعبارة الأخيرة داخل الإجراء."
 msgstr[1] "%d تأثر بالإجراء الأخير"
 msgstr[2] "%d تأثر بالإجراء الأخير"
 msgstr[3] "%d تأثر بالإجراء الأخير"
@@ -14853,7 +14852,7 @@ msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[0] "<strong> المجموع: </strong> <em>٪ العد٪ </em> المباريات"
 msgstr[1] "<strong>المجموع:</strong> <em>%count</em>تطابق"
 msgstr[2] "<strong>المجموع:</strong> <em>%count</em>تطابق"
 msgstr[3] "<strong>المجموع:</strong> <em>%count</em>تطابق"
