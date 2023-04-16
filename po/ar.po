@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-16 00:18+0000\n"
 "PO-Revision-Date: 2023-04-16 06:40+0000\n"
-"Last-Translator: Waleed Abdeen <waleed.totti@gmail.com>\n"
+"Last-Translator: MadxCoder <mohamedahmedmoh13@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
 "Language: ar\n"
@@ -2107,14 +2107,14 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"استخدم محرر سهل الاستخدام لتحرير استعلامات SQL (CodeMirror) مع تمييز بناء "
-"الجملة وأرقام الأسطر."
+"إستخدام محرر صديق للمستخدم (سهل) لكتابة أوامر SQL وهو (CodeMirror) حيث يقوم "
+"بتلوين الأوامر وإضافة أرقام الأسطر."
 
 #: libraries/classes/Config/Descriptions.php:111
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr "ابحث عن أي أخطاء في الاستعلام قبل تنفيذه. يتطلب تمكين CodeMirror."
+msgstr "إيجاد أي مشاكل في الأمر قبل تشغيله يتطلب تفعيل CodeMirror."
 
 #: libraries/classes/Config/Descriptions.php:114
 msgid ""
@@ -2142,7 +2142,7 @@ msgstr "التحذير (\" هل أنت متأكد \" ) يظهر عندما تك�
 
 #: libraries/classes/Config/Descriptions.php:127
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "اكمال تلقائي للجدول و اسماء اللاعمدة في استعلامات SQL ."
+msgstr "الإكمال التلقائي لأسماء الجداول و الأعمدة في أوامر الSQL."
 
 #: libraries/classes/Config/Descriptions.php:130
 #: libraries/classes/Config/Descriptions.php:134
@@ -2939,11 +2939,11 @@ msgstr "توضيح الصفوف المشار إليها بمؤشر الفأرة.
 
 #: libraries/classes/Config/Descriptions.php:541
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "عدد أعمدة مربع النص    CHAR/VARCHAR    مناطق النص"
+msgstr "عدد الأعمدة لمربعات النصوص الخاصة بـCHAR/VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:542
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "عدد الصفوف للنصوص CHAR / VARCHAR."
+msgstr "عدد الصفوف لمربعات النصوص الخاصة بـCHAR/VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:543
 msgid ""
@@ -2955,13 +2955,12 @@ msgid "Tab that is displayed when entering a database."
 msgstr "علامة التبويب التي يتم عرضها عند إدخال قاعدة بيانات."
 
 #: libraries/classes/Config/Descriptions.php:545
-#, fuzzy
 msgid "Tab that is displayed when entering a server."
-msgstr "التبويب الذي يعرض عند الدخول إلى الخادم"
+msgstr "التبويب الذي يعرض عند الدخول إلى الخادم."
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Tab that is displayed when entering a table."
-msgstr "التبويب الذي يعرض عند الدخول إلى الجدول  ."
+msgstr "التبويب الذي يعرض عند الدخول إلى الجدول."
 
 #: libraries/classes/Config/Descriptions.php:547
 msgid "Whether the table structure actions should be hidden."
@@ -3178,7 +3177,7 @@ msgstr "تمكين CodeMirror"
 
 #: libraries/classes/Config/Descriptions.php:613
 msgid "Enable linter"
-msgstr "تفعيل   linter"
+msgstr "تفعيل مكتشف الأخطاء"
 
 #: libraries/classes/Config/Descriptions.php:614
 msgid "Minimum size for input field"
@@ -6500,12 +6499,12 @@ msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:330
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 msgid "Please enter a valid table name."
-msgstr "الرجاء إدخال اسم جدول صالح ."
+msgstr "الرجاء إدخال اسم جدول صالح للإستخدام"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 msgid "Please enter a valid database name."
-msgstr "الرجاء إدخال اسم  قاعدة بيانات صالح ."
+msgstr "الرجاء إدخال اسم قاعدة بيانات صالح للإستخدم"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:330
@@ -6624,7 +6623,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 msgid "No accounts selected."
-msgstr "لم يتم اختيار حسابات."
+msgstr "لا توجد حسابات مختارة"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:361
@@ -6837,7 +6836,7 @@ msgstr "استعرض القيم الغريبة"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr "لا يوجد استعلام تم حفظه مسبقًا تلقائيًا. تحميل الاستعلام الافتراضي."
+msgstr "ليس هناك أوامر محفوظة تلقائياً متاحة. تحميل الأمر الإفتراضي."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:409
@@ -6845,8 +6844,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
-"لديك استعلام محفوظ مسبقًا. انقر فوق الحصول على استعلام محفوظ تلقائيًا لتحميل "
-"الاستعلام."
+"لديك أمر محفوظ مسبقاً. اضغط على \"الحصول على الأمر المحفوظ تلقائياً\" لتحميل "
+"الأمر."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
@@ -7286,7 +7285,7 @@ msgstr "القيمة / استعلام فرعي فارغ"
 #: templates/database/designer/main.twig:43
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Add tables from other databases"
-msgstr "اضافة جداول من قواعد بيانات اخري"
+msgstr "إضافة جداول من قواعد بياتات أخرى"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:540
@@ -9505,7 +9504,7 @@ msgstr ""
 #: libraries/classes/Database/CentralColumns.php:331
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "تعذرت إضافة%1$s لأنها موجودة بالفعل في القائمة المركزية!"
+msgstr "لا تضف %1$s لأنها موجودة بالفعل في القائمة المركزية!"
 
 #: libraries/classes/Database/CentralColumns.php:346
 msgid "Could not add columns!"
@@ -9515,7 +9514,8 @@ msgstr "تعذرت إضافة أعمدة!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "تعذرت إزالة الأعمدة%1$s لأنها غير موجودة في قائمة الأعمدة المركزية!"
+msgstr ""
+"لايمكن حذف العمود/الأعمدة %1$s لأنها غير موجودة في قائمة الأعمدة المركزية."
 
 #: libraries/classes/Database/CentralColumns.php:442
 msgid "Could not remove columns!"
@@ -14150,7 +14150,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/zoom_search/index.twig:38 templates/home/index.twig:64
 msgid "Collation"
-msgstr "التجميع"
+msgstr "الترتيب"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
