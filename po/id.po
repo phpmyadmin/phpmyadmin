@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-04-09 00:18+0000\n"
+"POT-Creation-Date: 2023-04-16 00:18+0000\n"
 "PO-Revision-Date: 2022-12-30 07:50+0000\n"
 "Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1460,11 +1460,11 @@ msgid "Search:"
 msgstr "Cari:"
 
 #: libraries/classes/BrowseForeigners.php:182
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
 #: libraries/classes/Normalization.php:226
-#: libraries/classes/Tracking/Tracking.php:312
-#: libraries/classes/Tracking/Tracking.php:455
+#: libraries/classes/Tracking/Tracking.php:305
+#: libraries/classes/Tracking/Tracking.php:447
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:120
@@ -1541,7 +1541,7 @@ msgid "Page number:"
 msgstr "Nomor halaman:"
 
 #: libraries/classes/BrowseForeigners.php:302
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 #: templates/display/results/table.twig:99
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -1896,7 +1896,7 @@ msgstr "memungkinkan mengeksploitasi"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 #: libraries/classes/Import.php:1240 libraries/classes/Menu.php:234
 #: libraries/classes/Menu.php:334
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
@@ -1996,7 +1996,7 @@ msgid "Right"
 msgstr "Kanan"
 
 #: libraries/classes/Config/ConfigFile.php:559
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 #: libraries/classes/Display/Results.php:1046
 #: libraries/classes/Plugins/Export/ExportSql.php:2044
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
@@ -2099,9 +2099,9 @@ msgid "Databases"
 msgstr "Basis data"
 
 #: libraries/classes/Config/ConfigFile.php:583
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #: libraries/classes/Menu.php:462
-#: libraries/classes/Server/Status/Processes.php:106
+#: libraries/classes/Server/Status/Processes.php:97
 #: libraries/classes/Util.php:1697
 #: templates/database/events/editor_form.twig:30
 #: templates/database/events/index.twig:44
@@ -2144,7 +2144,7 @@ msgid "Closed"
 msgstr "Tutup"
 
 #: libraries/classes/Config/ConfigFile.php:613
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -2152,7 +2152,7 @@ msgid "Monday"
 msgstr "Senin"
 
 #: libraries/classes/Config/ConfigFile.php:614
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -2160,7 +2160,7 @@ msgid "Tuesday"
 msgstr "Selasa"
 
 #: libraries/classes/Config/ConfigFile.php:615
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -2168,7 +2168,7 @@ msgid "Wednesday"
 msgstr "Rabu"
 
 #: libraries/classes/Config/ConfigFile.php:616
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -2176,7 +2176,7 @@ msgid "Thursday"
 msgstr "Kamis"
 
 #: libraries/classes/Config/ConfigFile.php:617
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -2184,7 +2184,7 @@ msgid "Friday"
 msgstr "Jumat"
 
 #: libraries/classes/Config/ConfigFile.php:618
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -2192,7 +2192,7 @@ msgid "Saturday"
 msgstr "Sabtu"
 
 #: libraries/classes/Config/ConfigFile.php:619
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -4463,7 +4463,7 @@ msgid "Navigation panel width"
 msgstr "Lebar panel navigasi"
 
 #: libraries/classes/Config/Descriptions.php:817
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 #: libraries/classes/Navigation/NavigationTree.php:1312
 msgid "Link with main panel"
 msgstr "Link ke panel utama"
@@ -4924,7 +4924,7 @@ msgstr "Lewati tabel terkunci"
 
 #: libraries/classes/Config/Descriptions.php:932
 #: libraries/classes/ConfigStorage/UserGroups.php:113
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 #: libraries/classes/Display/Results.php:2701
 #: libraries/classes/Html/Generator.php:571
 #: libraries/classes/Html/Generator.php:819
@@ -4991,7 +4991,7 @@ msgstr "Baris textarea"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:121
 #: libraries/classes/Server/Privileges.php:1567
 #: libraries/classes/Server/Privileges.php:1569
-#: libraries/classes/Server/Status/Processes.php:103
+#: libraries/classes/Server/Status/Processes.php:94
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -5211,7 +5211,7 @@ msgstr "Data hilang untuk %s"
 
 #: libraries/classes/Config/FormDisplay.php:626
 #: libraries/classes/Config/Validator.php:585
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
 msgid "Incorrect value!"
 msgstr "Nilai yang salah!"
 
@@ -5290,7 +5290,7 @@ msgid "OpenDocument Text"
 msgstr "Teks OpenDocument"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:148
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:359
 #: libraries/classes/Menu.php:481 libraries/classes/Server/Privileges.php:1282
 #: libraries/classes/Util.php:1699 libraries/classes/Util.php:1714
@@ -5335,7 +5335,7 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV menggunakan LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:58
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
 #: libraries/classes/Menu.php:486 libraries/classes/Util.php:1700
 #: libraries/classes/Util.php:1715 libraries/classes/Util.php:1732
@@ -5530,11 +5530,11 @@ msgstr ""
 "%1$sGZip compression and decompression%2$s membutuhkan fungsi (%3$s) yang "
 "tidak tersedia pada sistem ini."
 
-#: libraries/classes/ConfigStorage/Relation.php:1324
+#: libraries/classes/ConfigStorage/Relation.php:1328
 msgid "no description"
 msgstr "tidak ada deskripsi"
 
-#: libraries/classes/ConfigStorage/Relation.php:1521
+#: libraries/classes/ConfigStorage/Relation.php:1525
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5620,22 +5620,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Alamat IP tidak tepat: %s"
 
 #: libraries/classes/Config/Validator.php:520
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a valid port number!"
 msgstr "Bukan angka port yang sah!"
 
 #: libraries/classes/Config/Validator.php:542
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 msgid "Not a positive number!"
 msgstr "Bukan angka positif!"
 
 #: libraries/classes/Config/Validator.php:564
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a non-negative number!"
 msgstr "Bukan angka non-negatif!"
 
 #: libraries/classes/Config/Validator.php:603
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Nilai harus sama dengan atau lebih kecil dari %s!"
@@ -5651,7 +5651,7 @@ msgid "No bookmarks"
 msgstr "Tidak ada penanda"
 
 #: libraries/classes/Controllers/AbstractController.php:66
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:59
 #: libraries/classes/DbTableExists.php:46
 msgid "No databases selected."
@@ -5659,7 +5659,7 @@ msgstr "Basis data belum dipilih."
 
 #: libraries/classes/Controllers/AbstractController.php:121
 #: libraries/classes/Controllers/SchemaExportController.php:35
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:40
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:42
 msgid "Missing parameter:"
 msgstr "Parameter yang hilang:"
 
@@ -5678,7 +5678,7 @@ msgid "Incomplete params"
 msgstr "Parameter kurang lengkap"
 
 #: libraries/classes/Controllers/Console/Bookmark/AddController.php:45
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Failed"
 msgstr "Gagal"
 
@@ -5699,7 +5699,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:64
-#: libraries/classes/Controllers/Database/TrackingController.php:117
+#: libraries/classes/Controllers/Database/TrackingController.php:116
 #: libraries/classes/Controllers/Export/ExportController.php:310
 #: libraries/classes/Database/Qbe.php:285
 #: templates/database/structure/index.twig:25
@@ -5780,7 +5780,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:23
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:29
 #: libraries/classes/Controllers/Export/TablesController.php:29
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:45
@@ -5833,7 +5833,7 @@ msgstr "tidak diketahui"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:42
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:46
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:54
 #: libraries/classes/Controllers/Table/DropColumnController.php:45
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
@@ -5885,12 +5885,12 @@ msgstr "Tidak ada perubahan"
 msgid "Favorite List is full!"
 msgstr "Daftar favorit sudah penuh!"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:65
-#: libraries/classes/Controllers/Database/TrackingController.php:90
+#: libraries/classes/Controllers/Database/TrackingController.php:64
+#: libraries/classes/Controllers/Database/TrackingController.php:89
 msgid "Tracking data deleted successfully."
 msgstr "Melacak data berhasil dihapus."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:76
+#: libraries/classes/Controllers/Database/TrackingController.php:75
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -5898,11 +5898,11 @@ msgstr ""
 "Versi %1$s telah dibuat untuk tabel terpilih, pelacakan telah aktif untuk "
 "mereka."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:107
+#: libraries/classes/Controllers/Database/TrackingController.php:106
 msgid "No tables selected."
 msgstr "Tidak ada tabel yang dipilih."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:142
+#: libraries/classes/Controllers/Database/TrackingController.php:141
 msgid "Database Log"
 msgstr "Log Basis Data"
 
@@ -6125,7 +6125,7 @@ msgstr ""
 "waktu eksekusi php."
 
 #: libraries/classes/Controllers/Import/ImportController.php:724
-#: libraries/classes/Controllers/Sql/SqlController.php:164
+#: libraries/classes/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 
@@ -6440,14 +6440,14 @@ msgid "Removing Selected Users"
 msgstr "Hapus pengguna yang dipilih"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Tracking/Tracking.php:213
-#: libraries/classes/Tracking/Tracking.php:606
+#: libraries/classes/Tracking/Tracking.php:206
+#: libraries/classes/Tracking/Tracking.php:588
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:190
-#: templates/home/index.twig:318 templates/home/index.twig:326
+#: templates/home/index.twig:319 templates/home/index.twig:327
 #: templates/modals/add_index.twig:6 templates/modals/build_query.twig:6
 #: templates/modals/build_query.twig:16 templates/modals/change_password.twig:6
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -6533,7 +6533,6 @@ msgstr "Template telah dihapus."
 
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:165
-#: libraries/classes/Controllers/Server/Status/QueriesController.php:94
 #: libraries/classes/Server/Status/Data.php:155
 msgid "Other"
 msgstr "Lainnya"
@@ -6554,11 +6553,17 @@ msgstr "."
 msgid "Connections / Processes"
 msgstr "Koneksi / Proses"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
+#, fuzzy
+#| msgid "Number of tables"
+msgid "Number of statements"
+msgstr "Jumlah tabel"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Local monitor configuration incompatible!"
 msgstr "Konfigurasi monitor lokal tidak kompatibel!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6570,212 +6575,212 @@ msgstr ""
 "Anda saat ini tidak lagi bekerja. Harap reset konfigurasi menjadi bawaan "
 "pada menu <i>Pengaturan</i>."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 msgid "Query cache efficiency"
 msgstr "Efisiensi singgahan kueri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
 msgid "Query cache usage"
 msgstr "Pemakaian singgahan kueri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 msgid "Query cache used"
 msgstr "Singgahan kueri terpakai"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 msgid "System CPU usage"
 msgstr "Penggunaan CPU sistem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 msgid "System memory"
 msgstr "Memori sistem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 msgid "System swap"
 msgstr "Menukar sistem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 msgid "Average load"
 msgstr "Beban rata-rata"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 msgid "Total memory"
 msgstr "Memori total"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 msgid "Cached memory"
 msgstr "Memori singgahan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 msgid "Buffered memory"
 msgstr "Memori tersangga"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 msgid "Free memory"
 msgstr "Memori bebas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 msgid "Used memory"
 msgstr "Memori terpakai"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 msgid "Total swap"
 msgstr "Total swap"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Cached swap"
 msgstr "Singgahan swap"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 msgid "Used swap"
 msgstr "Swap terpakai"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 msgid "Free swap"
 msgstr "Swap bebas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 msgid "Bytes sent"
 msgstr "Bita dikirim"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 msgid "Bytes received"
 msgstr "Bita diterima"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "Koneksi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Proses Aktif"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Util.php:300
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 #: libraries/classes/Util.php:302
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Util.php:304
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 #: libraries/classes/Util.php:306
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 #: libraries/classes/Util.php:308
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
 #: libraries/classes/Util.php:310
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 #: libraries/classes/Util.php:312
 msgid "EiB"
 msgstr "EB"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tabel"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "Questions"
 msgstr "Perintah"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "Lalu Lintas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
 #: libraries/classes/Menu.php:491 libraries/classes/Util.php:1701
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 #: templates/server/status/monitor/index.twig:217
 msgid "Add chart to grid"
 msgstr "Tambahkan bagan pada grid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
 msgid "Please add at least one variable to the series!"
 msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri!"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Queri SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
 msgid "Resume monitor"
 msgstr "Lanjutkan pemantauan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
 msgid "Pause monitor"
 msgstr "Jeda pemantauan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr "Mulai penyegaran otomatis"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 msgid "Stop auto refresh"
 msgstr "Hentikan Penyegaran Otomatis"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log dan slow_query_log diaktifkan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
 msgid "general_log is enabled."
 msgstr "general_log diaktifkan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log diaktifkan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log dan general_log dinonaktifkan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 msgid "log_output is not set to TABLE."
 msgstr "log_output tidak disetel menjadi TABLE."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
 msgid "log_output is set to TABLE."
 msgstr "log_output disetel menjadi TABLE."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6786,12 +6791,12 @@ msgstr ""
 "lama dari %d detil. Disarankan untuk menyetel long_query_time 0-2 detik, "
 "tergantung sistem Anda."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time disetel menjadi %d detik."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -6800,30 +6805,30 @@ msgstr ""
 "sewaktu server dijalankan ulang:"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Tetapkan log_output ke %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 #, php-format
 msgid "Enable %s"
 msgstr "Aktifkan %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 #, php-format
 msgid "Disable %s"
 msgstr "Nonaktifkan %s"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Setel long_query_time menjadi %d detik."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6831,57 +6836,57 @@ msgstr ""
 "Anda tidak dapat mengubah variabel tersebut. Harap masuk sebagai root atau "
 "hubungi administrator basis data Anda."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:259
 msgid "Change settings"
 msgstr "Ubah pengaturan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 msgid "Current settings"
 msgstr "Pengaturan saat ini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid "Chart title"
 msgstr "Judul bagan"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
 msgid "Differential"
 msgstr "Diferensial"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:263
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
 #, php-format
 msgid "Divided by %s"
 msgstr "Dibagi oleh %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
 msgid "Unit"
 msgstr "Unit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 msgid "From slow log"
 msgstr "Dari log lambat"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
 msgid "From general log"
 msgstr "Dari log umum"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
 msgid "The database name is not known for this query in the server's logs."
 msgstr "Nama database tidak diketahui untuk query ini dalam log server."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 msgid "Analysing logs"
 msgstr "Menganalisis log"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Menganalisis & memuat log. Mungkin perlu waktu."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Cancel request"
 msgstr "Permintaan pembatalan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -6891,7 +6896,7 @@ msgstr ""
 "Namun, hanya kueri SQL yang digunakan sebagai kriteria pengelompokan. "
 "Atribut kueri lain, seperti waktu mulai, dapat berbeda."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -6900,114 +6905,114 @@ msgstr ""
 "Sejak pengelompokan query INSERT telah dipilih, INSERT query ke dalam tabel "
 "yang sama juga sedang dikelompokkan bersama, mengabaikan data dimasukkan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Data log dimuat. Query dieksekusi dalam rentang waktu ini:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Jump to Log table"
 msgstr "Langsung ke tabel Log"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "No data found"
 msgstr "Data tidak ditemukan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 "Log dianalisis, tetapi tidak ada data ditemukan dalam rentang waktu ini."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 msgid "Analyzing…"
 msgstr "Menganalisis…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 msgid "Explain output"
 msgstr "Jelaskan hasil"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:462
 #: libraries/classes/Plugins/Export/ExportOdt.php:580
 #: libraries/classes/Plugins/Export/ExportTexytext.php:447
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:330
-#: libraries/classes/Server/Status/Processes.php:105
+#: libraries/classes/Server/Status/Processes.php:96
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
 msgid "Time"
 msgstr "Waktu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
 msgid "Total time:"
 msgstr "Total waktu:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Profiling results"
 msgstr "Profil Hasil"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 msgid "Chart"
 msgstr "Bagan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
 #: templates/export.twig:206
 msgctxt "Alias"
 msgid "Database"
 msgstr "Basis data"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
 #: templates/export.twig:220
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:301
 #: templates/export.twig:233
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolom"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
 msgid "Log table filter options"
 msgstr "Opsi filter tabel log"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
 msgid "Filter"
 msgstr "Filter"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
 msgid "Filter queries by word/regexp:"
 msgstr "Saring query berdasarkan kata/regexp:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Pengelompokan queri, abakan variabel data dalan klausa WHERE"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 msgid "Sum of grouped rows:"
 msgstr "Jumlah baris kelompok:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 #: libraries/classes/Engines/Innodb.php:132
 #: templates/server/databases/index.twig:250
 msgid "Total:"
 msgstr "Total:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Loading logs"
 msgstr "Memuat log"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Monitor refresh failed"
 msgstr "Penyegaran layar gagal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -7017,62 +7022,62 @@ msgstr ""
 "kemungkinan besar karena sesi Anda berakhir. Muat ulang halaman dan masukkan "
 "ulang kredensial Anda akan membantu."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Reload page"
 msgstr "Muat ulang halaman"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
 msgid "Affected rows:"
 msgstr "Baris yang terpengaruh:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "Gagal mengurai berkas config.Ini mungkin kesalahan kode JSON."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Gagal membangun Grafik kisi dengan mengimport config. Mengembalikan ke "
 "Setelan baku…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:326
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 msgid "Import monitor configuration"
 msgstr "Impor konfigurasi monitor"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 msgid "Please select the file you want to import:"
 msgstr "Silahkan pilih berkas yang ingin anda impor:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Masukan halaman yang benar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Masukan halaman yang benar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "No files available on server for import!"
 msgstr "Tidak ada berkas tersedia untuk diimport!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
 msgid "Analyse query"
 msgstr "Analisis Kueri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 msgid "Formatting SQL…"
 msgstr "Memformat SQL…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
 msgid "No parameters found!"
 msgstr "Tidak ada parameter ditemukan!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #: templates/database/central_columns/main.twig:275
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -7099,19 +7104,19 @@ msgstr "Tidak ada parameter ditemukan!"
 msgid "Cancel"
 msgstr "Batal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 #: templates/header.twig:45 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "Pengaturan Terkait dengan Halaman"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 #: templates/config/form_display/display.twig:46
 #: templates/modals/page_settings.twig:10
 msgid "Apply"
 msgstr "Terapkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
-#: templates/home/index.twig:322 templates/modals/index_dialog_modal.twig:26
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
@@ -7119,35 +7124,35 @@ msgstr "Terapkan"
 msgid "Loading…"
 msgstr "Memproses…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
 msgid "Request aborted!!"
 msgstr "Permintaan Dibatalkan!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 msgid "Processing request"
 msgstr "Memproses Permintaan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 msgid "Request failed!!"
 msgstr "Permintaan gagal!!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:43
 #: libraries/classes/Controllers/Sql/SetValuesController.php:44
 msgid "Error in processing request"
 msgstr "Kesalahan dalam memproses permintaan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
 #, php-format
 msgid "Error code: %s"
 msgstr "Code Kesalahan: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:355
 #, php-format
 msgid "Error text: %s"
 msgstr "Pesan Kesalahan: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:355
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -7155,19 +7160,19 @@ msgstr ""
 "Tampaknya koneksi ke server telah terputus. Harap periksa koneksi jaringan "
 "dan status server Anda."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 msgid "No accounts selected."
 msgstr "Tidak ada akun yang dipilih."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 msgid "Dropping column"
 msgstr "Membuang Kolom"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
 msgid "Adding primary key"
 msgstr "Menambahkan kunci primer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 #: templates/console/display.twig:150 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -7179,23 +7184,23 @@ msgstr "Menambahkan kunci primer"
 msgid "OK"
 msgstr "Oke"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 msgid "Click to dismiss this notification"
 msgstr "Klik untuk menyingkirkan pemberitahuan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 msgid "Renaming databases"
 msgstr "Mengubah nama database"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
 msgid "Copying database"
 msgstr "Menyalin database"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 msgid "Changing charset"
 msgstr "Mengganti Set Karakter"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #: libraries/classes/IndexColumn.php:151 libraries/classes/Index.php:450
 #: libraries/classes/Index.php:476
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:615
@@ -7232,88 +7237,88 @@ msgstr "Mengganti Set Karakter"
 msgid "No"
 msgstr "Tidak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:156
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Perbolehkan cek forign key"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
 msgid "Failed to get real row count."
 msgstr "Gagal mengambil jumlah baris sebenarnya."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 msgid "Searching"
 msgstr "Pencarian"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 msgid "Hide search results"
 msgstr "Sembunyikan hasil pencarian"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
 msgid "Show search results"
 msgstr "Tampilkan hasil pencarian"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
 msgid "Browsing"
 msgstr "Menjelajahi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 msgid "Deleting"
 msgstr "Menghapus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Hapus yang cocok untuk %s tabel?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definisi fungsi disimpan harus mengandung pernyataan RETURN!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Tidak ada rutin yang dapat diekspor. Hak akses yang diperlukan mungkin "
 "kurang."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 #, php-format
 msgid "Values for column %s"
 msgstr "Nilai untuk kolom %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 msgid "Values for a new column"
 msgstr "Nilai untuk kolom baru"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 msgid "Enter each value in a separate field."
 msgstr "Masukkan setiap nilai dalam kolom terpisah."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:397
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Tambahkan nilai %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabungkan "
 "menjadi satu."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 msgid "Hide query box"
 msgstr "Sembunyikan kotak kueri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 msgid "Show query box"
 msgstr "Tampilkan kotak kueri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
 #: libraries/classes/Display/Results.php:2762
-#: libraries/classes/Tracking/Tracking.php:237
+#: libraries/classes/Tracking/Tracking.php:230
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:274
 #: templates/database/central_columns/main.twig:386
@@ -7329,23 +7334,23 @@ msgstr "Tampilkan kotak kueri"
 msgid "Delete"
 msgstr "Hapus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d bukanlah nomor baris yang berlaku."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr "Auto-save kueri sebelumnya tidak ditemukan. Memuat kueri bawaan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -7353,25 +7358,25 @@ msgstr ""
 "Anda memiliki kueri yang tersimpan sebelumnya. Klik \"Dapatkan kueri "
 "tersimpan otomatis\" untuk memuat kueri."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 #, php-format
 msgid "Variable %d:"
 msgstr "Variabel %d:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 #: libraries/classes/Normalization.php:947
 msgid "Pick"
 msgstr "Pilih"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 msgid "Column selector"
 msgstr "Pilih Kolom"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
 msgid "Search this list"
 msgstr "Cari daftar ini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -7380,29 +7385,29 @@ msgstr ""
 "Tidak ditemukan kolom pada daftar. Pastikan daftar kolom untuk database %s "
 "memiliki beberapa kolom yang tidak tertampilkan pada tabel saat ini."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid "See more"
 msgstr "Lebih banyak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 msgid "Add primary key"
 msgstr "Tambahkan kunci primer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid "Primary key added."
 msgstr "Kunci primer telah ditambahkan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
 #: libraries/classes/Normalization.php:253
 msgid "Taking you to next step…"
 msgstr "Tunggu sebentar yach…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Langkah pertama normalisasi selesai untuk tabel '%s'."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #: libraries/classes/Normalization.php:509
 #: libraries/classes/Normalization.php:568
 #: libraries/classes/Normalization.php:655
@@ -7410,26 +7415,26 @@ msgstr "Langkah pertama normalisasi selesai untuk tabel '%s'."
 msgid "End of step"
 msgstr "Langkah terakhir"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 msgid "Second step of normalization (2NF)"
 msgstr "Langkah kedua normalisasi (2NF)"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
 #: libraries/classes/Normalization.php:341
 msgid "Done"
 msgstr "Selesai"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
 msgid "Confirm partial dependencies"
 msgstr "Konfirmasi dependensi parsial"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
 msgid "Selected partial dependencies are as follows:"
 msgstr "Dependensi yang dipilih adalah:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -7437,26 +7442,26 @@ msgstr ""
 "Catatan: a, b -> d, f menyiratkan bahwa nilai gabungan antara kolom a dan b "
 "dapat menentukan nilai dari kolom d dan kolom f."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
 msgid "No partial dependencies selected!"
 msgstr "Tidak ada dependensi parsial yang dipilih!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 #: libraries/classes/Export.php:1305 libraries/classes/Html/Generator.php:885
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:269
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Kembali"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Tunjukkan dependensi parsial yang ada pada data di dalam tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 msgid "Hide partial dependencies list"
 msgstr "Sembunykan daftar dependensi parsial"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -7464,40 +7469,40 @@ msgstr ""
 "Santai! Mungkin diperlukan beberapa detik tergantung pada ukuran data dan "
 "jumlah kolom tabel."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
 msgid "Step"
 msgstr "Langkah"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
 msgid "The following actions will be performed:"
 msgstr "Tindakan berikut akan dilakukan:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "DROP kolom %s dari tabel %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 msgid "Create the following table"
 msgstr "Buat tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
 msgid "Third step of normalization (3NF)"
 msgstr "Tahap ketiga normalisasi (3NF)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
 msgid "Confirm transitive dependencies"
 msgstr "Konfirmasi dependensi transitif"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 msgid "Selected dependencies are as follows:"
 msgstr "Dependensi yang dipilih adalah sebagai berikut:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
 msgid "No dependencies selected!"
 msgstr "Dependensi belum dipilih!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 #: templates/columns_definitions/column_definitions_form.twig:159
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -7511,76 +7516,76 @@ msgstr "Dependensi belum dipilih!"
 msgid "Save"
 msgstr "Simpan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
 msgstr "Sembunyikan kriteria pencarian"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
 msgid "Show search criteria"
 msgstr "Tampilkan kriteria pencarian"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
 msgid "Column maximum:"
 msgstr "Jumlah kolom maksimal:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
 msgid "Column minimum:"
 msgstr "Jumlah kolom minimal:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
 msgid "Hide find and replace criteria"
 msgstr "Sembunyikan kriteria pencarian dan penggantian"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 msgid "Show find and replace criteria"
 msgstr "Tampilkan kriteria pencarian dan penggantian"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Each point represents a data row."
 msgstr "Setiap titik mewakili sebaris data."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Hovering over a point will show its label."
 msgstr "Melayang di atas titik akan menunjukkan labelnya."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Untuk memperbesar, pilih bagian dari plot dengan mouse."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 msgid "Click reset zoom button to come back to original state."
 msgstr "Klik link reset Zoom untuk kembali ke keadaan semula."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Klik titik data untuk melihat dan mungkin mengedit baris data."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Plot dapat diubah ukurannya dengan menyeretnya di sepanjang sudut kanan "
 "bawah."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Select two columns"
 msgstr "Pilih dua kolom"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 msgid "Select two different columns"
 msgstr "Pilih dua kolom yang berbeda"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 msgid "Data point content"
 msgstr "Isi titk data"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
-#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1837
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
+#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1836
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Abaikan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 #: libraries/classes/Display/Results.php:2705
 #: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:312
@@ -7588,7 +7593,7 @@ msgstr "Abaikan"
 msgid "Copy"
 msgstr "Salin"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -7596,7 +7601,7 @@ msgstr "Salin"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -7604,58 +7609,58 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 msgid "Point"
 msgstr "Titik"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 #, php-format
 msgid "Point %d"
 msgstr "Poin %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 msgid "Linestring"
 msgstr "Segmen garis"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 msgid "Polygon"
 msgstr "Poligon"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
 #: templates/display/results/table.twig:255
 msgid "Geometry"
 msgstr "Geometri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 msgid "Inner ring"
 msgstr "Lingkar dalam"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 msgid "Outer ring"
 msgstr "Lingkar luar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "Tambahkan poin"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "Tambahkan lingkar dalam"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:506
 msgid "Do you want to copy encryption key?"
 msgstr "Apakah anda yakin untuk menyalin kunci enskripsi?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:507
 msgid "Encryption key"
 msgstr "Kunci Enskripsi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:508
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:510
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -7663,7 +7668,7 @@ msgstr ""
 "Fungsi HEX akan memperlakukan integer sebagai string saat menghitung nilai "
 "heksadesimal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:513
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -7671,7 +7676,7 @@ msgstr ""
 "MySQL menerima nilai tambahan yang tidak dapat terpilih oleh slider; "
 "masukkan nilai-nilai tersebut secara langsung jika diinginkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -7679,7 +7684,7 @@ msgstr ""
 "MySQL menerima nilai tambahan yang tidak dapat terpilih oleh pemilih "
 "tanggal; masukkan nilai-nilai ini secara langsung jika diinginkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7687,25 +7692,25 @@ msgstr ""
 "Sebagai indikasi telah ada perubaha di halaman ini; konfirmasi akan "
 "ditampilkan untuk mengabaikan perubahan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 msgid "Select referenced key"
 msgstr "Pilih kunci rujukan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 msgid "Select Foreign Key"
 msgstr "Pilih Foreign Key"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 msgid "Please select the primary key or a unique key!"
 msgstr "Harap pilih kunci primer(primary key) atau kunci unik(unique key)!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Pilih kolom untuk ditampilkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7713,99 +7718,99 @@ msgstr ""
 "Anda belum menyimpan perubahan pada susunan. Mereka akan hilang jika Anda "
 "tidak menyimpannya. Apakah Anda ingin melanjutkan?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 msgid "value/subQuery is empty"
 msgstr "nilai/subKueri kosong"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Tambahkan tabel dari database lainya"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Page name"
 msgstr "Nama halaman"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Simpan halaman"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Simpan halaman sebagai"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Buka halaman"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Delete page"
 msgstr "Hapus halaman"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Belum ada nama"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 msgid "Please select a page to continue"
 msgstr "Pilih halaman untuk lanjut"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 msgid "Please enter a valid page name"
 msgstr "Masukan halaman yang benar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 msgid "Do you want to save the changes to the current page?"
 msgstr "Apakah Anda ingin menyimpan perubahan ke halaman ini?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 msgid "Successfully deleted the page"
 msgstr "Halaman berhasil dihapus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
 msgid "Export relational schema"
 msgstr "Ekspor skema relasi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid "Modifications have been saved"
 msgstr "Modifikasi telah disimpan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objek dibuat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Nama kolom"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
 msgstr "Kirim"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
 #, fuzzy
 #| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Tekan escape untuk membatalkan perubahan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7813,15 +7818,15 @@ msgstr ""
 "Anda telah mengedit beberapa data dan belum di simpan. Apakah anda yakin "
 "akan meninggalkan halaman ini sebelum menyimpan data?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid "Drag to reorder."
 msgstr "Seret untuk menyusun ulang."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Click to sort results by this column."
 msgstr "KIik untuk menyortir hasil dari kolom ini."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 #, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
@@ -7836,19 +7841,19 @@ msgstr ""
 "DESC.<br />- Kontrol+Klik atau Alt+Click (Mac: Shift+Option+Click) untuk "
 "menghapus kolom dari ORDER BY clause"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 msgid "Click to mark/unmark."
 msgstr "Klik untuk menambahkan/menghapus tanda."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Double-click to copy column name."
 msgstr "Klik dua kali untuk menyalin nama kolom."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Klik tanda panah ke bawah<br>untuk beralih visibilitas kolom."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7857,11 +7862,11 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Masukkan string yang benar. Karakter yang benar adalah 0-9, A-F."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7869,68 +7874,68 @@ msgstr ""
 "Apakah anda ingin melihat semua baris? Tabel ukuran besar bisa membuat "
 "peramban lambat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 msgid "Original length"
 msgstr "Panjang asli"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "cancel"
 msgstr "Batal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #: libraries/classes/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "Batalkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 msgid "Success"
 msgstr "Sukses"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 msgid "Import status"
 msgstr "Impor status"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Letakkan berkas disini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Select database first"
 msgstr "Pilih database dulu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
 msgstr "Pergi ke tautan:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 msgid "Generate password"
 msgstr "Buatkan kata sandi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Buatkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "Lainnya"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
 msgid "Show panel"
 msgstr "Tampilkan panel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
 msgid "Hide panel"
 msgstr "Sembunyikan panel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 #: libraries/classes/Navigation/NavigationTree.php:1315
 msgid "Unlink from main panel"
 msgstr "Unlink dari panel utama"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 #: libraries/classes/Setup/Index.php:173
 #, php-format
 msgid ""
@@ -7941,15 +7946,15 @@ msgstr ""
 "untuk meng-upgrade. Versi terbaru adalah %s, dirilis pada %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid ", latest stable version:"
 msgstr ", versi stabil terakhir:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "up to date"
 msgstr "Mutakhir"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -7957,22 +7962,22 @@ msgstr ""
 "Kesalhaan fatal JavaScript telah terdeteksi. Anda ingin mengirimkan laporan "
 "kesalahan?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 msgid "Change report settings"
 msgstr "Ubah pengaturan pelaporan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
 msgid "Show report details"
 msgstr "Tampilkan detail laporan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Ekspor anda tidak lengkap, karena batas waktu yang rendah di tingkat PHP!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7982,82 +7987,82 @@ msgstr ""
 "beberapa bidang mungkin dibatalkan, karena konfigurasi max_input_vars dari "
 "PHP."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Some errors have been detected on the server!"
 msgstr "Kesalahan terdeteksi di server!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 msgid "Please look at the bottom of this window."
 msgstr "Silahkan lihat di bagian bawah jendela ini."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 #: libraries/classes/ErrorHandler.php:448
 msgid "Ignore All"
 msgstr "Abaikan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Sesuai pengaturan Anda, mereka sedang diajukan saat ini, harap bersabar."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Halaman berhasil dihapus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Menyalin database"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Execute this query again?"
 msgstr "Jalankan kueri ini lagi?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 msgid "Do you really want to delete this bookmark?"
 msgstr "Anda yakin akan menghapus penanda ini?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Terjadi beberapa kesalahan saat mendapatkan info debug SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s kueri tereksekusi %s kali dalam waktu %s detik."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s argumen diberikan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
 msgid "Show arguments"
 msgstr "Perlihatkan argumen"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 msgid "Hide arguments"
 msgstr "Sembunyikan argumen"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Waktu yang dipakai:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -8072,58 +8077,58 @@ msgstr ""
 "Offline\" Anda mungkin bisa membantu. Dalam Safari, masalah tersebut umumnya "
 "disebabkan oleh \"Mode Browsing Privat\"."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 msgid "Copy tables to"
 msgstr "Salin tabel ke"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Add table prefix"
 msgstr "Tambahkan prefiks tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Replace table with prefix"
 msgstr "Ganti tabel dengan prefiks"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Salin tabel dengan prefiks"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Extremely weak"
 msgstr "Sangat sangat lemah"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Very weak"
 msgstr "Sangat lemah"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgid "Weak"
 msgstr "Lemah"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgid "Good"
 msgstr "Bagus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgid "Strong"
 msgstr "Kuat"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 #, fuzzy
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Waktu tunggu untuk aktivasi kunci keamanan."
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -8131,13 +8136,13 @@ msgid "Unknown security key error."
 msgstr "Galat tidak dikenal"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #, fuzzy
 #| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
@@ -8145,25 +8150,25 @@ msgid "Failed security key activation."
 msgstr "Gagal mengaktivasi kunci keamanan (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Kunci keamanan invalid."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -8171,105 +8176,105 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabel %s sudah ada!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
 #: libraries/classes/InsertEdit.php:325
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Sembunyikan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
-#: libraries/classes/Controllers/Table/ChangeController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/Table/ChangeController.php:212
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Tampilkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Januari"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Februari"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Maret"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "April"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Juni"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Juli"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Agustus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Oktober"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Desember"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #: libraries/classes/Util.php:498
 #, fuzzy
 #| msgid "Jan"
@@ -8277,7 +8282,7 @@ msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:499
 #, fuzzy
 #| msgid "Feb"
@@ -8285,7 +8290,7 @@ msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #: libraries/classes/Util.php:500
 #, fuzzy
 #| msgid "Mar"
@@ -8293,7 +8298,7 @@ msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:501
 #, fuzzy
 #| msgid "Apr"
@@ -8301,7 +8306,7 @@ msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/Util.php:502
 #, fuzzy
 #| msgid "May"
@@ -8309,7 +8314,7 @@ msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 #: libraries/classes/Util.php:503
 #, fuzzy
 #| msgid "Jun"
@@ -8317,7 +8322,7 @@ msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/Util.php:504
 #, fuzzy
 #| msgid "Jul"
@@ -8325,7 +8330,7 @@ msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jul"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:505
 #, fuzzy
 #| msgid "Aug"
@@ -8333,7 +8338,7 @@ msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Agu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
 #: libraries/classes/Util.php:506
 #, fuzzy
 #| msgid "Sep"
@@ -8341,7 +8346,7 @@ msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #: libraries/classes/Util.php:507
 #, fuzzy
 #| msgid "Oct"
@@ -8349,7 +8354,7 @@ msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
 #: libraries/classes/Util.php:508
 #, fuzzy
 #| msgid "Nov"
@@ -8357,7 +8362,7 @@ msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #: libraries/classes/Util.php:509
 #, fuzzy
 #| msgid "Dec"
@@ -8365,7 +8370,7 @@ msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Des"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:512
 #, fuzzy
 #| msgid "Sun"
@@ -8373,7 +8378,7 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Min"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
 #: libraries/classes/Util.php:513
 #, fuzzy
 #| msgid "Mon"
@@ -8381,7 +8386,7 @@ msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Sen"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/classes/Util.php:514
 #, fuzzy
 #| msgid "Tue"
@@ -8389,7 +8394,7 @@ msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Sel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
 #: libraries/classes/Util.php:515
 #, fuzzy
 #| msgid "Wed"
@@ -8397,7 +8402,7 @@ msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Rab"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #: libraries/classes/Util.php:516
 #, fuzzy
 #| msgid "Thu"
@@ -8405,7 +8410,7 @@ msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Kam"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
 #: libraries/classes/Util.php:517
 #, fuzzy
 #| msgid "Fri"
@@ -8413,7 +8418,7 @@ msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Jum"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
 #: libraries/classes/Util.php:518
 #, fuzzy
 #| msgid "Sat"
@@ -8421,56 +8426,56 @@ msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sab"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Min"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Sn"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Sl"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Rb"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Km"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Jm"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:761
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sb"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -8478,13 +8483,13 @@ msgid "Wk"
 msgstr "Mingguan"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:765
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -8492,49 +8497,49 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "Kosong"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Waktu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Jam"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Menit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Detik"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Detik"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:771
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "per detik"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -8543,7 +8548,7 @@ msgid "Time zone"
 msgstr "Garis waktu"
 
 #. l10n: Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -8552,100 +8557,100 @@ msgid "Prev"
 msgstr "Sebelum"
 
 #. l10n: Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
 msgctxt "Next month"
 msgid "Next"
 msgstr "Berikutnya"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
 msgid "Today"
 msgstr "Hari ini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:783
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
 msgid "This field is required"
 msgstr "Wajib diisi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
 msgid "Please fix this field"
 msgstr "Silakan perbaiki kolom ini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
 msgid "Please enter a valid email address"
 msgstr "Silakan masukkan alamat email yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid URL"
 msgstr "Silakan masukkan URL yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter a valid date"
 msgstr "Silakan masukkan tanggal yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter a valid date ( ISO )"
 msgstr "Silakan masukkan tanggal yang valid (ISO)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter a valid number"
 msgstr "Silakan masukkan angka yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter a valid credit card number"
 msgstr "Silakan masukkan nomor kartu kredit yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter only digits"
 msgstr "Silakan masukkan angka saja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter the same value again"
 msgstr "Silakan masukkan lagi nilai yang sama"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter no more than {0} characters"
 msgstr "Silakan masukkan tidak lebih dari {0} karakter"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter at least {0} characters"
 msgstr "Silakan masukkan setidaknya {0} karakter"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Silakan masukkan nilai panjang karakter antara {0} dan {1}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:796
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a value between {0} and {1}"
 msgstr "Silakan masukkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Silakan masukkan nilai kurang dari atau sama dengan {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:798
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Silakan masukkan nilai lebih dari atau sama dengan {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter a valid date or time"
 msgstr "Silakan masukkan tanggal dan jam yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:800
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter a valid HEX input"
 msgstr "Silakan masukkan input HEX yang valid"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:802
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:804
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:810
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:812
 #, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
@@ -8654,33 +8659,33 @@ msgstr ""
 "atau ini adalah bug yang dikenal dalam webkit berbasis (Safari, Google "
 "Chrome, Arora dll) browser."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:812
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
 #, php-format
 msgid "%s of %s"
 msgstr "%s dari %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
 #, php-format
 msgid "%s/sec."
 msgstr "%s/detik."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Sekitar %MIN menit. %SEC detik. lagi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
 msgid "About %SEC sec. remaining."
 msgstr "Sekitar %SEC detik. lagi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
 msgid "The file is being processed, please be patient."
 msgstr "Berkas sedang diproses, harap bersabar."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
 msgid "Uploading your import file…"
 msgstr "Sedang memuat file impor anda…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -8722,13 +8727,13 @@ msgstr "Pastel di config.inc.php anda"
 msgid "Could not import configuration"
 msgstr "Tidak dapat mengimpor konfigurasi"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:45
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:46
 #, fuzzy
 #| msgid "Internal relation has been removed."
 msgid "Two-factor authentication has been removed."
 msgstr "Relasi internal telah dihapus."
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:56
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:57
 #, fuzzy
 #| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
@@ -8798,7 +8803,7 @@ msgstr ""
 "password, tab 'Ganti password' harus digunakan."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:415
-#: libraries/classes/Server/Status/Processes.php:101
+#: libraries/classes/Server/Status/Processes.php:92
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Pengguna"
@@ -8816,6 +8821,12 @@ msgstr ""
 "phpMyAdmin gagal menutup Thread %s. Kemungkinan Thread tersebut sudah "
 "ditutup terlebih dahulu."
 
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:90
+#, fuzzy
+#| msgid "Add statements:"
+msgid "Other statements"
+msgstr "Tambahkan statement:"
+
 #: libraries/classes/Controllers/Server/Status/StatusController.php:127
 msgid "Received"
 msgstr "Penerimaan"
@@ -8832,7 +8843,7 @@ msgstr "Koneksi bersamaan maksimum"
 msgid "Failed attempts"
 msgstr "Gagal"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:221
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:220
 #, fuzzy
 msgid ""
 "The number of connections that were aborted because the client died without "
@@ -8841,11 +8852,11 @@ msgstr ""
 "Jumlah koneksi yang dibatalkan karena klien terputus tanpa menutup koneksi "
 "dengan baik."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:224
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:223
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Jumlah upaya koneksi ke server MySQL yang gagal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:226
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:225
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -8855,16 +8866,16 @@ msgstr ""
 "melebihi nilai binlog_cache_size dan menggunakan berkas temporer untuk "
 "menyimpan perintah dari transaksi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:230
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:229
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Jumlah transaksi yang menggunakan singgahan log biner temporer."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:231
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:230
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Jumlah upaya koneksi ke server MySQL (baik berhasil maupun tidak)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:233
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:232
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -8876,11 +8887,11 @@ msgstr ""
 "mungkin perlu meningkatkan nilai tmp_table_size agar tabel temporer disimpan "
 "di yang berbasis memori daripada yang berbasis diska."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:239
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:238
 msgid "How many temporary files mysqld has created."
 msgstr "Jumlah berkas temporer yang telah dibuat mysqld."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:240
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -8888,7 +8899,7 @@ msgstr ""
 "Jumlah tabel temporer dalam-memori yang dibuat otomatis oleh server sewaktu "
 "mengeksekusi perintah."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:245
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:244
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -8896,7 +8907,7 @@ msgstr ""
 "Jumlah baris yang ditulis oleh INSERT DELAYED yang menyebabkan beberapa "
 "galat (kemungkinan karena kunci duplikat)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -8904,23 +8915,23 @@ msgstr ""
 "Jumlah thread handler INSERT DELAYED yang dipakai. Setiap tabel berbeda yang "
 "menggunakan INSERT DELAYED mendapat satu thread sendiri."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Jumlah baris INSERT DELAYED yang ditulis."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:254
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of executed FLUSH statements."
 msgstr "Jumlah perintah FLUSH yang dieksekusi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:255
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:254
 msgid "The number of internal COMMIT statements."
 msgstr "Jumlah perintah COMMIT internal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:256
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:255
 msgid "The number of times a row was deleted from a table."
 msgstr "Berapa kali suatu baris dihapus dari suatu tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:257
 #, fuzzy
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
@@ -8931,7 +8942,7 @@ msgstr ""
 "tentang meja dengan nama yang diberikan. Ini disebut penemuan. "
 "Handler_discover menunjukkan jumlah waktu tabel telah ditemukan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:264
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:263
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -8941,7 +8952,7 @@ msgstr ""
 "bahwa server melakukan banyak pemindaian indeks lengkap; sebagai contoh, "
 "SELECT col1 FROM foo, dengan asumsi bahwa col1 diindeks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:269
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -8950,7 +8961,7 @@ msgstr ""
 "tinggi merupakan indikasi bagus bahwa kueri dan tabel Anda diindeks dengan "
 "baik."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8960,7 +8971,7 @@ msgstr ""
 "bertambah jika Anda melakukan kueri terhadap kolom indeks dengan suatu "
 "rentang batasan atau jika Anda melakukan pemindaian indeks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:280
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:279
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -8968,7 +8979,7 @@ msgstr ""
 "Jumlah permintaan membaca baris sebelumnya dalam urutan kunci. Metode baca "
 "ini terutama digunakan untuk mengoptimalkan ORDER BY … DESC."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:284
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:283
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8980,7 +8991,7 @@ msgstr ""
 "Anda mungkin memiliki banyak kueri yang mengharuskan MySQL memindai seluruh "
 "tabel atau Anda memiliki join yang tidak menggunakan kunci dengan baik."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:290
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8992,36 +9003,36 @@ msgstr ""
 "bahwa tabel Anda tidak diindeks dengan baik atau bahwa kueri Anda tidak "
 "ditulis dengan memanfaatkan indeks yang Anda miliki."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:297
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:296
 msgid "The number of internal ROLLBACK statements."
 msgstr "Jumlah perintah ROLLBACK internal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:297
 msgid "The number of requests to update a row in a table."
 msgstr "Jumlah permintaan untuk memperbarui baris dalam tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:299
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of requests to insert a row in a table."
 msgstr "Jumlah permintaan untuk menambah baris dalam tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:300
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:299
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Jumlah halaman yang mengandung data (kotor atau bersih)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:300
 msgid "The number of pages currently dirty."
 msgstr "Jumlah halaman kotor saat ini."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:303
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:302
 #, fuzzy
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Jumlah halaman kolam penyangga yang telah diminta untuk memerah."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:305
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:304
 msgid "The number of free pages."
 msgstr "Jumlah halaman bebas."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:306
 #, fuzzy
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
@@ -9032,7 +9043,7 @@ msgstr ""
 "sedang dibaca atau ditulis atau yang tidak dapat memerah atau dihapus karena "
 "beberapa alasan lainnya."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:312
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:311
 #, fuzzy
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
@@ -9045,12 +9056,12 @@ msgstr ""
 "dapat dihitung sebagai Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:318
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 #, fuzzy
 msgid "Total size of buffer pool, in pages."
 msgstr "Total ukuran buffer pool, di halaman."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:320
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:319
 #, fuzzy
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
@@ -9059,7 +9070,7 @@ msgstr ""
 "Jumlah \"random\" read-aheads InnoDB dimulai. Hal ini terjadi ketika "
 "permintaan adalah untuk memindai sebagian besar meja tapi secara acak."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:325
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:324
 #, fuzzy
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
@@ -9068,12 +9079,12 @@ msgstr ""
 "Jumlah sequential read-aheads InnoDB dimulai. Hal ini terjadi ketika InnoDB "
 "melakukan sekuensial penuh scan meja."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:328
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:327
 #, fuzzy
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Jumlah permintaan membaca logis InnoDB telah dilakukan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:330
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:329
 #, fuzzy
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
@@ -9082,7 +9093,7 @@ msgstr ""
 "Jumlah logis membaca bahwa InnoDB tidak bisa memuaskan dari kolam buffer dan "
 "harus melakukan satu halaman dibaca."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:334
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:333
 #, fuzzy
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
@@ -9097,56 +9108,56 @@ msgstr ""
 "pertama. Counter ini menghitung contoh menunggu ini. Jika ukuran kolam "
 "penyangga ditetapkan dengan benar, nilai ini harus kecil."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:341
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:340
 #, fuzzy
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Jumlah menulis dilakukan untuk buffer pool InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:342
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:341
 #, fuzzy
 msgid "The number of fsync() operations so far."
 msgstr "Jumlah fsync() operasi sejauh ini."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:342
 msgid "The current number of pending fsync() operations."
 msgstr "Jumlah operasi fsync() tunda saat ini."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
 msgid "The current number of pending reads."
 msgstr "Jumlah baca tunda saat ini."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:345
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The current number of pending writes."
 msgstr "Jumlah tulis tunda saat ini."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:345
 msgid "The amount of data read so far, in bytes."
 msgstr "Jumlah data yang dibaca sampai saat ini, dalam bita."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
 msgid "The total number of data reads."
 msgstr "Jumlah total baca data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:348
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
 msgid "The total number of data writes."
 msgstr "Jumlah total tulis data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:349
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:348
 #, fuzzy
 msgid "The amount of data written so far, in bytes."
 msgstr "Jumlah data yang ditulis sejauh ini, dalam byte."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:351
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:350
 #, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Jumlah halaman yang telah ditulis untuk operasi Doublewrite."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:353
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
 #, fuzzy
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Jumlah operasi Doublewrite yang telah dilakukan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:355
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:354
 #, fuzzy
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
@@ -9155,42 +9166,42 @@ msgstr ""
 "Jumlah menunggu kami punya karena log buffer terlalu kecil dan kami harus "
 "menunggu untuk itu harus memerah sebelum melanjutkan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:358
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 #, fuzzy
 msgid "The number of log write requests."
 msgstr "Jumlah permintaan log menulis."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:358
 #, fuzzy
 msgid "The number of physical writes to the log file."
 msgstr "Jumlah fisik menulis ke file log."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 #, fuzzy
 msgid "The number of fsync() writes done to the log file."
 msgstr "Jumlah fsync() menulis dilakukan ke file log."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 #, fuzzy
 msgid "The number of pending log file fsyncs."
 msgstr "Jumlah tertunda fsyncs file log."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
 #, fuzzy
 msgid "Pending log file writes."
 msgstr "Tertunda file log menulis."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 #, fuzzy
 msgid "The number of bytes written to the log file."
 msgstr "Jumlah byte yang ditulis ke file log."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:364
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
 #, fuzzy
 msgid "The number of pages created."
 msgstr "Jumlah halaman yang dibuat."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:366
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 #, fuzzy
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
@@ -9200,57 +9211,57 @@ msgstr ""
 "dihitung dalam halaman; ukuran halaman memungkinkan mereka untuk dapat "
 "dengan mudah dikonversi ke byte."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:370
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
 msgid "The number of pages read."
 msgstr "Jumlah halaman yang dibaca."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:370
 msgid "The number of pages written."
 msgstr "Jumlah halaman yang ditulis."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
 #, fuzzy
 msgid "The number of row locks currently being waited for."
 msgstr "Jumlah baris kunci saat ini sedang menunggu."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:373
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 #, fuzzy
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Rata-rata waktu untuk mendapatkan kunci baris, dalam milidetik."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:373
 #, fuzzy
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "Total waktu yang dihabiskan untuk memperoleh baris kunci, dalam milidetik."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:375
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
 #, fuzzy
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Waktu maksimum untuk mendapatkan kunci baris, dalam milidetik."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:375
 #, fuzzy
 msgid "The number of times a row lock had to be waited for."
 msgstr "Frekuensi kunci berturut-turut harus menunggu."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Jumlah baris yang dihapus dari tabel InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Jumlah baris yang ditambahkan pada tabel InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
 msgid "The number of rows read from InnoDB tables."
 msgstr "Jumlah baris yang dibaca dari tabel InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Jumlah baris yang diperbarui pada tabel InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
 #, fuzzy
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
@@ -9259,7 +9270,7 @@ msgstr ""
 "Jumlah blok kunci dalam cache kunci yang telah berubah tetapi belum memerah "
 "ke disk. Dulu dikenal sebagai Not_flushed_key_blocks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:387
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
 #, fuzzy
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
@@ -9268,7 +9279,7 @@ msgstr ""
 "Jumlah blok yang tidak digunakan dalam cache kunci. Anda dapat menggunakan "
 "nilai ini untuk menentukan berapa banyak dari cache kunci sedang digunakan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
 #, fuzzy
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
@@ -9279,18 +9290,18 @@ msgstr ""
 "air yang menunjukkan jumlah maksimum blok yang pernah digunakan pada satu "
 "waktu."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
 #, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Persentase limit berkas terbuka yang dipakai"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
 #, fuzzy
 msgid "The number of requests to read a key block from the cache."
 msgstr "Jumlah permintaan untuk membaca blok kunci dari cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:398
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 #, fuzzy
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
@@ -9301,7 +9312,7 @@ msgstr ""
 "nilai key_buffer_size Anda mungkin terlalu kecil. Tingkat cache miss dapat "
 "dihitung sebagai Key_reads / Key_read_requests."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:404
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:403
 #, fuzzy
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
@@ -9310,17 +9321,17 @@ msgstr ""
 "Key Cache rindu dihitung sebagai tingkat fisik berbunyi dibandingkan dengan "
 "membaca permintaan (nilai yang dihitung)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:406
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 #, fuzzy
 msgid "The number of requests to write a key block to the cache."
 msgstr "Jumlah permintaan untuk menulis blok kunci untuk cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:407
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:406
 #, fuzzy
 msgid "The number of physical writes of a key block to disk."
 msgstr "Jumlah menulis fisik blok kunci disk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:408
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:407
 #, fuzzy
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
@@ -9328,7 +9339,7 @@ msgstr ""
 "Persentase menulis fisik dibandingkan dengan menulis permintaan (nilai yang "
 "dihitung)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:410
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
 #, fuzzy
 msgid ""
 "The total cost of the last compiled query as computed by the query "
@@ -9340,7 +9351,7 @@ msgstr ""
 "untuk pertanyaan yang sama. Nilai default 0 berarti bahwa tidak ada "
 "permintaan telah disusun belum."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:416
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:415
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -9348,12 +9359,12 @@ msgstr ""
 "Jumlah maksimum koneksi yang telah digunakan secara bersamaan sejak server "
 "dimulai."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:418
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:417
 #, fuzzy
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Jumlah baris yang menunggu untuk ditulis dalam INSERT DELAYED antrian."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:420
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:419
 #, fuzzy
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
@@ -9362,20 +9373,20 @@ msgstr ""
 "Jumlah meja yang sudah dibuka. Jika tabel dibuka besar, nilai tembolok meja "
 "Anda mungkin terlalu kecil."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
 msgid "The number of files that are open."
 msgstr "Jumlah file yang terbuka."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 #, fuzzy
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Jumlah aliran yang terbuka (digunakan terutama untuk logging)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
 msgid "The number of tables that are open."
 msgstr "Jumlah tabel yang terbuka."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:427
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 #, fuzzy
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
@@ -9386,21 +9397,21 @@ msgstr ""
 "masalah fragmentasi, yang dapat dipecahkan dengan mengeluarkan pernyataan "
 "FLUSH QUERY CACHE."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:431
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:430
 msgid "The amount of free memory for query cache."
 msgstr "Jumlah memori kosong untuk cache query."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:431
 #, fuzzy
 msgid "The number of cache hits."
 msgstr "Jumlah cache hits."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:433
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
 #, fuzzy
 msgid "The number of queries added to the cache."
 msgstr "Jumlah query ditambahkan ke cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
 #, fuzzy
 msgid ""
 "The number of queries that have been removed from the cache to free up "
@@ -9413,7 +9424,7 @@ msgstr ""
 "cache query. The cache query menggunakan setidaknya baru-baru digunakan "
 "(LRU) strategi untuk memutuskan mana query untuk menghapus dari cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
 #, fuzzy
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
@@ -9422,22 +9433,22 @@ msgstr ""
 "Jumlah permintaan non-cache (tidak cachable, atau tidak di-cache karena "
 "pengaturan query_cache_type)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 #, fuzzy
 msgid "The number of queries registered in the cache."
 msgstr "Jumlah query terdaftar dalam cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
 #, fuzzy
 msgid "The total number of blocks in the query cache."
 msgstr "Total jumlah blok dalam cache query."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:446
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
 #, fuzzy
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Status replikasi failsafe (belum diimplementasikan)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:448
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:447
 #, fuzzy
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
@@ -9446,12 +9457,12 @@ msgstr ""
 "Jumlah bergabung yang tidak menggunakan indeks. Jika nilai ini tidak 0, Anda "
 "harus hati-hati memeriksa indeks dari tabel Anda."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
 #, fuzzy
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Jumlah bergabung yang digunakan pencarian range di tabel referensi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:452
 #, fuzzy
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
@@ -9461,7 +9472,7 @@ msgstr ""
 "baris. (Jika hal ini tidak 0, Anda harus hati-hati memeriksa indeks dari "
 "tabel Anda.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:458
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:457
 #, fuzzy
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
@@ -9470,18 +9481,18 @@ msgstr ""
 "Jumlah bergabung yang digunakan berkisar pada tabel pertama. (Ini biasanya "
 "tidak kritis bahkan jika ini adalah besar.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
 #, fuzzy
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Jumlah bergabung yang melakukan scan penuh meja pertama."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:462
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
 #, fuzzy
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr "Jumlah tabel sementara yang sedang terbuka oleh thread budak SQL."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:464
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 #, fuzzy
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
@@ -9490,12 +9501,12 @@ msgstr ""
 "Jumlah (sejak startup) beberapa kali replikasi budak SQL benang telah dicoba "
 "transaksi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
 #, fuzzy
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr "Ini adalah ON jika server ini adalah budak yang terhubung ke master."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:468
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:467
 #, fuzzy
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
@@ -9504,14 +9515,14 @@ msgstr ""
 "Jumlah thread yang telah mengambil lebih dari slow_launch_time detik untuk "
 "membuat."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:470
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 #, fuzzy
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Jumlah pertanyaan yang telah mengambil lebih dari long_query_time detik."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:472
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:471
 #, fuzzy
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
@@ -9522,26 +9533,26 @@ msgstr ""
 "ini besar, Anda harus mempertimbangkan untuk meningkatkan nilai variabel "
 "sistem sort_buffer_size."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 #, fuzzy
 msgid "The number of sorts that were done with ranges."
 msgstr "Jumlah macam yang dilakukan dengan rentang."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:477
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
 msgid "The number of sorted rows."
 msgstr "Jumlah baris diurutkan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:477
 #, fuzzy
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Jumlah macam yang dilakukan dengan memindai meja."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:479
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 #, fuzzy
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Frekuensi yang kunci meja diakuisisi segera."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:481
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
 #, fuzzy
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
@@ -9554,7 +9565,7 @@ msgstr ""
 "terlebih dahulu mengoptimalkan pertanyaan Anda, dan kemudian membagi meja "
 "Anda atau meja atau penggunaan replikasi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:487
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
 #, fuzzy
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
@@ -9565,11 +9576,11 @@ msgstr ""
 "threads_created / Koneksi. Jika nilai ini merah Anda harus meningkatkan "
 "thread_cache_size Anda."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:491
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
 msgid "The number of currently open connections."
 msgstr "Jumlah koneksi yang sedang terbuka."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
 #, fuzzy
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
@@ -9582,13 +9593,13 @@ msgstr ""
 "ini tidak memberikan peningkatan kinerja penting jika Anda memiliki "
 "implementasi benang yang baik.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:499
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
 #, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Tingkat penggunaan singgahan thread %%"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:500
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:499
 #, fuzzy
 msgid "The number of threads that are not sleeping."
 msgstr "Jumlah thread yang tidak tidur."
@@ -9643,13 +9654,13 @@ msgstr "Data salah"
 msgid "Wrong data or no validation for %s"
 msgstr "Salah data atau tidak ada validasi untuk %s"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:236
+#: libraries/classes/Controllers/Sql/SqlController.php:237
 #: libraries/classes/Sql.php:1080
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Markah %s telah dibuat."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:243
+#: libraries/classes/Controllers/Sql/SqlController.php:244
 msgid "Bookmark not created!"
 msgstr "Bookmark tidak dibuat!"
 
@@ -9757,7 +9768,7 @@ msgstr "Terlalu banyak join tanpa indeks."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:82
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:78
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -9851,7 +9862,7 @@ msgstr "Kolom sukses dipindah."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:255
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:251
-#: libraries/classes/Tracking/Tracking.php:874
+#: libraries/classes/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "Galat kueri"
 
@@ -9867,27 +9878,27 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabel %1$s berhasil diubah. Hak telah disesuaikan."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:80
+#: libraries/classes/Controllers/Table/TrackingController.php:78
 #, fuzzy, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
 msgstr "Pelacakan %s diaktifkan."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:156
+#: libraries/classes/Controllers/Table/TrackingController.php:135
+msgid "SQL statements executed."
+msgstr "Perintah SQL dieksekusi."
+
+#: libraries/classes/Controllers/Table/TrackingController.php:189
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "Sukses menghapus pengguna yang dipilih."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:161
+#: libraries/classes/Controllers/Table/TrackingController.php:194
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "Tidak ada baris yang dipilih"
-
-#: libraries/classes/Controllers/Table/TrackingController.php:201
-msgid "SQL statements executed."
-msgstr "Perintah SQL dieksekusi."
 
 #: libraries/classes/Controllers/UserPasswordController.php:50
 msgid "You don't have sufficient privileges to be here right now!"
@@ -10859,7 +10870,7 @@ msgstr ""
 #: libraries/classes/Html/Generator.php:704
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
-#: templates/config/form_display/input.twig:10 templates/home/index.twig:266
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:267
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
@@ -11216,11 +11227,11 @@ msgstr "Atau"
 msgid "web server upload directory:"
 msgstr "direktori unggahan server web:"
 
-#: libraries/classes/InsertEdit.php:1234 libraries/classes/Sql.php:892
+#: libraries/classes/InsertEdit.php:1227 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: libraries/classes/InsertEdit.php:1258 libraries/classes/Sql.php:872
+#: libraries/classes/InsertEdit.php:1251 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -12301,7 +12312,7 @@ msgstr "Waktu pembuatan:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:212
 #: libraries/classes/Plugins/Export/ExportSql.php:712
 #: libraries/classes/Plugins/Export/ExportXml.php:223
-#: templates/home/index.twig:195
+#: templates/home/index.twig:196
 msgid "Server version:"
 msgstr "Versi server:"
 
@@ -13831,7 +13842,7 @@ msgstr ""
 "host."
 
 #: libraries/classes/Server/Status/Data.php:138
-#: libraries/classes/Server/Status/Processes.php:113
+#: libraries/classes/Server/Status/Processes.php:104
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "Queri SQL"
@@ -13908,22 +13919,22 @@ msgstr "Tampilka status slave"
 msgid "Flush query cache"
 msgstr "Bersihkan singgahan kueri"
 
-#: libraries/classes/Server/Status/Processes.php:100
+#: libraries/classes/Server/Status/Processes.php:91
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:102
+#: libraries/classes/Server/Status/Processes.php:93
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Inang"
 
-#: libraries/classes/Server/Status/Processes.php:104
+#: libraries/classes/Server/Status/Processes.php:95
 msgid "Command"
 msgstr "Perintah"
 
-#: libraries/classes/Server/Status/Processes.php:110
+#: libraries/classes/Server/Status/Processes.php:101
 msgid "Progress"
 msgstr "Proses"
 
@@ -14135,102 +14146,102 @@ msgstr "Tema %s tidak ditemukan!"
 msgid "No valid image path for theme %s found!"
 msgstr "Lokasi citra yang benar untuk tema %s tidak ditemukan!"
 
-#: libraries/classes/Tracking/Tracking.php:212
+#: libraries/classes/Tracking/LogTypeEnum.php:35
+msgid "Tracking data definition successfully deleted"
+msgstr "Pelacakan definisi data berhasil dihapus"
+
+#: libraries/classes/Tracking/LogTypeEnum.php:36
+msgid "Tracking data manipulation successfully deleted"
+msgstr "Pelacakan manipulasi data berhasil dihapus"
+
+#: libraries/classes/Tracking/LogTypeEnum.php:43
+msgid "Data definition statement"
+msgstr "Pernyataan definisi data"
+
+#: libraries/classes/Tracking/LogTypeEnum.php:44
+msgid "Data manipulation statement"
+msgstr "Penyataan manipulasi data"
+
+#: libraries/classes/Tracking/Tracking.php:205
 #: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "Laporan pelacakan"
 
-#: libraries/classes/Tracking/Tracking.php:216
+#: libraries/classes/Tracking/Tracking.php:209
 msgid "Tracking statements"
 msgstr "Laporan pelacakan"
 
-#: libraries/classes/Tracking/Tracking.php:232
+#: libraries/classes/Tracking/Tracking.php:225
 msgid "Delete tracking data row from report"
 msgstr "Hapus baris pelacakan data dari laporan"
 
-#: libraries/classes/Tracking/Tracking.php:242
+#: libraries/classes/Tracking/Tracking.php:235
 msgid "No data"
 msgstr "Tidak ada data"
 
-#: libraries/classes/Tracking/Tracking.php:297
+#: libraries/classes/Tracking/Tracking.php:290
 #: templates/database/operations/index.twig:131
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Struktur saja"
 
-#: libraries/classes/Tracking/Tracking.php:300
+#: libraries/classes/Tracking/Tracking.php:293
 #: templates/database/operations/index.twig:143
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Data saja"
 
-#: libraries/classes/Tracking/Tracking.php:303
+#: libraries/classes/Tracking/Tracking.php:296
 #: templates/database/operations/index.twig:137
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
 msgstr "Struktur dan data"
 
-#: libraries/classes/Tracking/Tracking.php:354
-#: libraries/classes/Tracking/Tracking.php:425
+#: libraries/classes/Tracking/Tracking.php:347
+#: libraries/classes/Tracking/Tracking.php:418
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 "Tampilkan %1$s berdasarkan tanggal dari %2$s sampai %3$s oleh pengguna %4$s "
 "%5$s"
 
-#: libraries/classes/Tracking/Tracking.php:446
+#: libraries/classes/Tracking/Tracking.php:438
 msgid "SQL dump (file download)"
 msgstr "Dump SQL (unduhan berkas)"
 
-#: libraries/classes/Tracking/Tracking.php:448
+#: libraries/classes/Tracking/Tracking.php:440
 msgid "SQL dump"
 msgstr "Dump SQL"
 
-#: libraries/classes/Tracking/Tracking.php:451
+#: libraries/classes/Tracking/Tracking.php:443
 msgid "This option will replace your table and contained data."
 msgstr "Pilihan ini akan mengganti table dan data isi table."
 
-#: libraries/classes/Tracking/Tracking.php:453
+#: libraries/classes/Tracking/Tracking.php:445
 msgid "SQL execution"
 msgstr "Eksekusi SQL"
 
-#: libraries/classes/Tracking/Tracking.php:457
+#: libraries/classes/Tracking/Tracking.php:449
 #, php-format
 msgid "Export as %s"
 msgstr "Ekspor sebagai %s"
 
-#: libraries/classes/Tracking/Tracking.php:490
-msgid "Data manipulation statement"
-msgstr "Penyataan manipulasi data"
-
-#: libraries/classes/Tracking/Tracking.php:526
-msgid "Data definition statement"
-msgstr "Pernyataan definisi data"
-
-#: libraries/classes/Tracking/Tracking.php:605
+#: libraries/classes/Tracking/Tracking.php:587
 #: templates/database/tracking/tables.twig:126
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "Snapshot struktur"
 
-#: libraries/classes/Tracking/Tracking.php:623
+#: libraries/classes/Tracking/Tracking.php:605
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Versi snapshot %s (kode SQL)"
 
-#: libraries/classes/Tracking/Tracking.php:824
-msgid "Tracking data definition successfully deleted"
-msgstr "Pelacakan definisi data berhasil dihapus"
-
-#: libraries/classes/Tracking/Tracking.php:837
-msgid "Tracking data manipulation successfully deleted"
-msgstr "Pelacakan manipulasi data berhasil dihapus"
-
-#: libraries/classes/Tracking/Tracking.php:951
+#: libraries/classes/Tracking/Tracking.php:839
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -14238,40 +14249,40 @@ msgstr ""
 "Anda dapat mengeksekusi dump dengan membuat dan menggunakan basis data "
 "sementara. Harap pastikan Anda mempunyai hak untuk melakukannya."
 
-#: libraries/classes/Tracking/Tracking.php:955
+#: libraries/classes/Tracking/Tracking.php:843
 #, fuzzy
 msgid "Comment out these two lines if you do not need them."
 msgstr "Komentar dari dua baris ini jika Anda tidak membutuhkan mereka."
 
-#: libraries/classes/Tracking/Tracking.php:966
+#: libraries/classes/Tracking/Tracking.php:854
 #, fuzzy
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "Pernyataan SQL diekspor. Silahkan salin dump atau melaksanakannya."
 
-#: libraries/classes/Tracking/Tracking.php:999
+#: libraries/classes/Tracking/Tracking.php:887
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Laporan pelacakan untuk table '%s'"
 
-#: libraries/classes/Tracking/Tracking.php:1021
+#: libraries/classes/Tracking/Tracking.php:910
 #, fuzzy, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Pelacakan %s.%s diaktifkan."
 
-#: libraries/classes/Tracking/Tracking.php:1024
+#: libraries/classes/Tracking/Tracking.php:913
 #, fuzzy, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Pelacakan %s.%s diaktifkan."
 
-#: libraries/classes/Tracking/Tracking.php:1119
+#: libraries/classes/Tracking/Tracking.php:1008
 #, fuzzy, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Buat versi %s dari %s.%s"
 
-#: libraries/classes/Tracking/Tracking.php:1150
+#: libraries/classes/Tracking/Tracking.php:1039
 #, fuzzy, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
@@ -14947,7 +14958,7 @@ msgstr ""
 #: templates/database/operations/index.twig:194
 #: templates/database/operations/index.twig:198
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:64 templates/indexes.twig:22
+#: templates/home/index.twig:65 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
@@ -17070,141 +17081,141 @@ msgstr ""
 msgid "General settings"
 msgstr "Pengaturan umum"
 
-#: templates/home/index.twig:57
+#: templates/home/index.twig:58
 #, fuzzy
 #| msgid "Server connection collation"
 msgid "Server connection collation:"
 msgstr "Penyortiran koneksi server"
 
-#: templates/home/index.twig:83 templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:84 templates/preferences/manage/main.twig:56
 msgid "More settings"
 msgstr "Pengaturan lain"
 
-#: templates/home/index.twig:94
+#: templates/home/index.twig:95
 msgid "Appearance settings"
 msgstr "Pengaturan tampilan"
 
-#: templates/home/index.twig:104 templates/home/index.twig:105
+#: templates/home/index.twig:105 templates/home/index.twig:106
 #: templates/login/form.twig:23 templates/login/form.twig:24
 #: templates/setup/home/index.twig:8 templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "Bahasa"
 
-#: templates/home/index.twig:132
+#: templates/home/index.twig:133
 msgid "Theme"
 msgstr "Tema"
 
-#: templates/home/index.twig:143
+#: templates/home/index.twig:144
 #, fuzzy
 #| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
 msgstr "Hanya melihat"
 
-#: templates/home/index.twig:151
+#: templates/home/index.twig:152
 msgid "Color mode for the theme"
 msgstr ""
 
-#: templates/home/index.twig:155
+#: templates/home/index.twig:156
 #, fuzzy
 #| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Kanan"
 
-#: templates/home/index.twig:157
+#: templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr ""
 
-#: templates/home/index.twig:179
+#: templates/home/index.twig:180
 msgid "Database server"
 msgstr "Server basis data"
 
-#: templates/home/index.twig:183 templates/login/form.twig:65
+#: templates/home/index.twig:184 templates/login/form.twig:65
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
 msgstr "Server:"
 
-#: templates/home/index.twig:187
+#: templates/home/index.twig:188
 msgid "Server type:"
 msgstr "Jenis server:"
 
-#: templates/home/index.twig:191
+#: templates/home/index.twig:192
 msgid "Server connection:"
 msgstr "Koneksi server:"
 
-#: templates/home/index.twig:199
+#: templates/home/index.twig:200
 msgid "Protocol version:"
 msgstr "Versi protokol:"
 
-#: templates/home/index.twig:203
+#: templates/home/index.twig:204
 msgid "User:"
 msgstr "Pengguna:"
 
-#: templates/home/index.twig:207
+#: templates/home/index.twig:208
 msgid "Server charset:"
 msgstr "Kumpulan karakter server:"
 
-#: templates/home/index.twig:219
+#: templates/home/index.twig:220
 msgid "Web server"
 msgstr "Server web"
 
-#: templates/home/index.twig:229
+#: templates/home/index.twig:230
 msgid "Database client version:"
 msgstr "Versi klien basis data:"
 
-#: templates/home/index.twig:233
+#: templates/home/index.twig:234
 msgid "PHP extension:"
 msgstr "Ekstensi PHP:"
 
-#: templates/home/index.twig:240
+#: templates/home/index.twig:241
 msgid "PHP version:"
 msgstr "Versi PHP:"
 
-#: templates/home/index.twig:247
+#: templates/home/index.twig:248
 msgid "Show PHP information"
 msgstr "Tampilkan informasi PHP"
 
-#: templates/home/index.twig:261
+#: templates/home/index.twig:262
 msgid "Version information:"
 msgstr "Informasi versi:"
 
-#: templates/home/index.twig:271
+#: templates/home/index.twig:272
 msgid "Official Homepage"
 msgstr "Situs Resmi"
 
-#: templates/home/index.twig:276
+#: templates/home/index.twig:277
 msgid "Contribute"
 msgstr "Berkontribusi"
 
-#: templates/home/index.twig:281
+#: templates/home/index.twig:282
 msgid "Get support"
 msgstr "Dapatkan dukungan"
 
-#: templates/home/index.twig:286
+#: templates/home/index.twig:287
 msgid "List of changes"
 msgstr "Daftar perubahan"
 
-#: templates/home/index.twig:291 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:292 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Lisensi"
 
-#: templates/home/index.twig:302 templates/setup/error.twig:2
+#: templates/home/index.twig:303 templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Peringatan"
 
-#: templates/home/index.twig:304
+#: templates/home/index.twig:305
 msgid "Notice"
 msgstr ""
 
-#: templates/home/index.twig:317
+#: templates/home/index.twig:318
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "Situs phpMyAdmin"
 
-#: templates/home/index.twig:328
+#: templates/home/index.twig:329
 msgid "Get more themes!"
 msgstr "Dapatkan tema lainnya!"
 
@@ -19307,41 +19318,45 @@ msgstr ""
 "Perhatian: Pengaktifan statistik basis data dapat mengakibatkan lalu lintas "
 "besar antara webserver dan server MySQL."
 
+#: templates/server/status/queries/index.twig:6
+msgid "Not enough privilege to view query statistics."
+msgstr "Hak akses tidak cukup untuk melihat statistik kueri."
+
 #. l10n: Questions is the name of a MySQL Status variable
-#: templates/server/status/queries/index.twig:8
+#: templates/server/status/queries/index.twig:9
 #, fuzzy
 #| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
 msgstr "Perintah sejak awal: %s"
 
-#: templates/server/status/queries/index.twig:20
+#: templates/server/status/queries/index.twig:15
 #, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
 msgstr "dalam sejam"
 
-#: templates/server/status/queries/index.twig:21
+#: templates/server/status/queries/index.twig:16
 #, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
 msgstr "per menit"
 
-#: templates/server/status/queries/index.twig:23
+#: templates/server/status/queries/index.twig:18
 #, fuzzy
 #| msgid "per second"
 msgid "per second:"
 msgstr "per detik"
 
-#: templates/server/status/queries/index.twig:37
+#: templates/server/status/queries/index.twig:32
 msgid "Statements"
 msgstr "Keterangan"
 
 #. l10n: # = Amount of queries
-#: templates/server/status/queries/index.twig:38
+#: templates/server/status/queries/index.twig:33
 msgid "#"
 msgstr "#"
 
-#: templates/server/status/queries/index.twig:39
+#: templates/server/status/queries/index.twig:34
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 #, fuzzy
@@ -19349,9 +19364,9 @@ msgstr "#"
 msgid "ø per hour"
 msgstr "dalam sejam"
 
-#: templates/server/status/queries/index.twig:59
-msgid "Not enough privilege to view query statistics."
-msgstr "Hak akses tidak cukup untuk melihat statistik kueri."
+#: templates/server/status/queries/index.twig:52
+msgid "Pie chart with the most frequent statements."
+msgstr ""
 
 #: templates/server/status/status/index.twig:6
 #, php-format
