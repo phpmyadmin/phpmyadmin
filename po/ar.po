@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-04-14 03:32+0000\n"
+"PO-Revision-Date: 2023-04-16 06:46+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
@@ -221,6 +221,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"إذا لم تقم بالتجميع من المصدر ، فقد تستخدم حزمة تم تعديلها من خلال توزيع. "
+"دليل MySQL فقط دقيق لثنائيات MySQL الرسمية ، وليس أي توزيعات للحزم (مثل "
+"RedHat ، Debian / Ubuntu ، إلخ)."
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
@@ -2040,8 +2043,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"ضع الوقت المحدد لعمل البرنامج [kbd]32M[/kbd] ([kbd]-1[/kbd] لانهائي و "
-"[kbd]0[/kbd] للا تغيير)."
+"عدد البايتات المسموح للبرنامج النصي بتخصيصها ، على سبيل المثال [kbd] 32 ميجا "
+"[/kbd] ([kbd] -1 [/kbd] بلا حدود و [kbd] 0 [/kbd] بدون تغيير)."
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -2220,8 +2223,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"اتركه فارغاً إذا كانت ميزة محفوظات الاستعلام غير مدعمة، يوصى بـ: [kbd] "
-"pma__history[/kbd]."
+"اتركه فارغًا لعدم دعم محفوظات استعلام SQL ، المقترح: [kbd] pma__history "
+"[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:373
 msgid ""
@@ -2594,21 +2597,19 @@ msgstr "عدد الصفوف للنصوص CHAR / VARCHAR."
 #: libraries/classes/Config/Descriptions.php:555
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "تسجيل استعلامات SQL ووقت تنفيذها، ليتم عرضها في وحدة التحكم"
+msgstr "تسجيل استعلامات SQL ووقت تنفيذها ، ليتم عرضها في وحدة التحكم"
 
 #: libraries/classes/Config/Descriptions.php:556
 msgid "Tab that is displayed when entering a database."
 msgstr "علامة التبويب التي يتم عرضها عند إدخال قاعدة بيانات."
 
 #: libraries/classes/Config/Descriptions.php:557
-#, fuzzy
-#| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "التبويب الذي يعرض عند الدخول إلى الخادم"
+msgstr "التبويب الذي يعرض عند الدخول إلى الخادم."
 
 #: libraries/classes/Config/Descriptions.php:558
 msgid "Tab that is displayed when entering a table."
-msgstr "التبويب الذي يعرض عند الدخول إلى الجدول  ."
+msgstr "التبويب الذي يعرض عند الدخول إلى الجدول."
 
 #: libraries/classes/Config/Descriptions.php:559
 msgid "Whether the table structure actions should be hidden."
@@ -2829,7 +2830,7 @@ msgstr "تمكين CodeMirror"
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Enable linter"
-msgstr "تفعيل   linter"
+msgstr "تفعيل مكتشف الأخطاء"
 
 #: libraries/classes/Config/Descriptions.php:628
 msgid "Minimum size for input field"
@@ -4685,7 +4686,8 @@ msgstr ""
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "لايمكن إيجاد برنامج مصادقة التوقيع [kbd]signon[/kbd] !"
+msgstr ""
+"اسم جلسة تسجيل الدخول فارغ أثناء استخدام أسلوب مصادقة [kbd]signon[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
@@ -4771,7 +4773,7 @@ msgstr "الملف %s غير متوفر في هذا النظام، المرجو 
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:140
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "اعرض الصفوف %1$s - %2$s."
+msgstr "%1$s - %2$s اضهار الصفوف"
 
 #. l10n: The user tries to save a page with an existing name in Designer
 #: libraries/classes/Controllers/Database/DesignerController.php:92
@@ -4800,7 +4802,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ImportController.php:58
 #: libraries/classes/Controllers/Table/ImportController.php:69
 msgid "Could not load import plugins, please check your installation!"
-msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
+msgstr "لم يمكن  تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:258
@@ -4954,7 +4956,7 @@ msgstr "لا تغييرات"
 
 #: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:105
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "قائمة المفضلة ممتلئة!"
 
 #: libraries/classes/Controllers/Database/TrackingController.php:83
 #: libraries/classes/Controllers/Database/TrackingController.php:103
@@ -5292,8 +5294,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"أنت تحاول تقليل عدد الصفوف ، ولكنك أدخلت بالفعل البيانات في تلك الصفوف التي "
-"سيتم فقدها. هل ترغب في الاستمرار؟"
+"أنت تحاول تقليل عدد الصفوف، ولكنك قمت بإدخال بيانات إلى تلك الصفوف، سيتم حذف "
+"هذه البيانات. هل ترغب في الإستمرار ؟"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:64
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -6128,11 +6130,11 @@ msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid table name."
-msgstr "الرجاء إدخال اسم جدول صالح ."
+msgstr "الرجاء إدخال اسم جدول صالح للإستخدام"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "Please enter a valid database name."
-msgstr "الرجاء إدخال اسم  قاعدة بيانات صالح ."
+msgstr "الرجاء إدخال اسم قاعدة بيانات صالح للإستخدم"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "No files available on server for import!"
@@ -6231,7 +6233,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 msgid "No accounts selected."
-msgstr "لم يتم اختيار حسابات."
+msgstr "لا توجد حسابات مختارة"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 msgid "Dropping column"
@@ -6413,15 +6415,15 @@ msgstr "استعرض القيم الغريبة"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr "لا يوجد استعلام تم حفظه مسبقًا تلقائيًا. تحميل الاستعلام الافتراضي."
+msgstr "ليس هناك أوامر محفوظة تلقائياً متاحة. تحميل الأمر الإفتراضي."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
-"لديك استعلام محفوظ مسبقًا. انقر فوق الحصول على استعلام محفوظ تلقائيًا لتحميل "
-"الاستعلام."
+"لديك أمر محفوظ مسبقاً. اضغط على \"الحصول على الأمر المحفوظ تلقائياً\" لتحميل "
+"الأمر."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, php-format
@@ -6787,7 +6789,7 @@ msgstr "القيمة / استعلام فرعي فارغ"
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
-msgstr "اضافة جداول من قواعد بيانات اخري"
+msgstr "إضافة جداول من قواعد بياتات أخرى"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 msgid "Page name"
@@ -7131,6 +7133,11 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"حدثت مشكلة أثناء الوصول إلى مساحة تخزين المتصفح ، وقد لا تعمل بعض الميزات "
+"بشكل صحيح بالنسبة لك. من المحتمل أن المتصفح لا يدعم التخزين أو تم الوصول إلى "
+"حد الحصة النسبية. في Firefox ، يمكن أن يتسبب التخزين التالف أيضًا في حدوث "
+"مثل هذه المشكلة ، وقد يساعدك مسح \"بيانات موقع الويب غير المتصل\". في Safari "
+"، تحدث هذه المشكلة بشكل شائع بسبب \"تصفح الوضع الخاص\"."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Copy tables to"
@@ -7151,7 +7158,7 @@ msgstr "نسخ الجدول مع البادئة"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Extremely weak"
-msgstr "ضعيف جدا"
+msgstr "ضعيف لأبعد الحدود"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 msgid "Very weak"
@@ -8273,7 +8280,7 @@ msgstr ""
 #: libraries/classes/Database/CentralColumns.php:351
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "تعذرت إضافة%1$s لأنها موجودة بالفعل في القائمة المركزية!"
+msgstr "لا تضف %1$s لأنها موجودة بالفعل في القائمة المركزية!"
 
 #: libraries/classes/Database/CentralColumns.php:367
 msgid "Could not add columns!"
@@ -8283,7 +8290,8 @@ msgstr "تعذرت إضافة أعمدة!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "تعذرت إزالة الأعمدة%1$s لأنها غير موجودة في قائمة الأعمدة المركزية!"
+msgstr ""
+"لايمكن حذف العمود/الأعمدة %1$s لأنها غير موجودة في قائمة الأعمدة المركزية."
 
 #: libraries/classes/Database/CentralColumns.php:464
 msgid "Could not remove columns!"
@@ -8871,7 +8879,7 @@ msgstr ""
 #: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "أظهر الصفوف %1s - %2s"
+msgstr "عرض الصفوف من %1s إلى %2s"
 
 #: libraries/classes/Display/Results.php:4005
 #, php-format
@@ -9510,7 +9518,7 @@ msgstr "دالة"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:37
 msgid "Type"
-msgstr "النوع"
+msgstr "نوع"
 
 #: libraries/classes/InsertEdit.php:725 templates/import.twig:60
 #: templates/import.twig:85
@@ -11751,11 +11759,11 @@ msgstr ""
 #: libraries/classes/Routing.php:162
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "خطأ 404! الصفحة %s غير موجودة ."
+msgstr "خطأ 404! لم يتم العثور على  قاعدة  بيانات  المصدر  `%s`"
 
 #: libraries/classes/Routing.php:173
 msgid "Error 405! Request method not allowed."
-msgstr "خطأ 405! الطلب بهذه الطريقة غير مسموح."
+msgstr "خطأ 405! طريقة الطلب غير مسموح بها."
 
 #: libraries/classes/SavedSearches.php:239
 msgid "Please provide a name for this bookmarked search."
@@ -13548,7 +13556,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/zoom_search/index.twig:38
 msgid "Collation"
-msgstr "التجميع"
+msgstr "الترتيب"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
@@ -13955,7 +13963,7 @@ msgstr "محزم"
 #: templates/table/structure/display_structure.twig:480
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
-msgstr "الأصلية (عدد العناصر في المجموعة)"
+msgstr "عدد العناصر في المجموعة"
 
 #: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:92
 #: templates/table/structure/display_structure.twig:559
@@ -13971,7 +13979,7 @@ msgstr "لم يتم تعريف الفهرس!"
 #: templates/server/privileges/privileges_table.twig:109
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
-msgstr "تحديد الكل"
+msgstr "نسخ"
 
 #: templates/database/designer/database_tables.twig:37
 #, fuzzy
@@ -14399,12 +14407,12 @@ msgstr "الاستيراد إلى قاعدة البيانات \"%s\""
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
-msgstr "استعلام جداول متعددة"
+msgstr "محاكاة استعلام الجداول"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 msgid "Query by example"
-msgstr "مثال للاستعلام"
+msgstr "نوع الاستعلام حسب المثال"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -14482,7 +14490,7 @@ msgstr "تجديد الإستعلام"
 #: templates/database/operations/index.twig:9
 #: templates/database/operations/index.twig:13
 msgid "Database comment"
-msgstr "ملاحظة قاعدة البيانات"
+msgstr "تعليق قاعدة البيانات"
 
 #: templates/database/operations/index.twig:54
 #, fuzzy
@@ -14651,7 +14659,7 @@ msgstr "إضافة مستخدم"
 #: templates/database/qbe/index.twig:16
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "التحويل إلى %s الباني المرئي %s"
+msgstr "التحويل إلى %s بناء مرئي %s"
 
 #: templates/database/qbe/index.twig:20
 msgid "You have to choose at least one column to display!"
@@ -15422,10 +15430,9 @@ msgid "New column name"
 msgstr "أنسخ اسم العمود"
 
 #: templates/export.twig:347
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "أوامر"
+msgstr "استخدم عبارة %s"
 
 #: templates/export.twig:356
 msgid "View output as text"
@@ -15589,7 +15596,7 @@ msgstr "إضافة مضلع"
 
 #: templates/gis_data_editor_form.twig:205
 msgid "Add geometry"
-msgstr "أضف هندسة"
+msgstr "أضف شكلا هندسيا"
 
 #: templates/gis_data_editor_form.twig:214
 msgid "Output"
@@ -15940,9 +15947,8 @@ msgstr "تم حذف إسقاط %s."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "تقويم-شهر-سنة"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
