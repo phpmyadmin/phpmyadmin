@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-04-16 06:56+0000\n"
-"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
+"Last-Translator: MadxCoder <mohamedahmedmoh13@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
 "Language: ar\n"
@@ -1726,14 +1726,14 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"استخدم محرر سهل الاستخدام لتحرير استعلامات SQL (CodeMirror) مع تمييز بناء "
-"الجملة وأرقام الأسطر."
+"إستخدام محرر صديق للمستخدم (سهل) لكتابة أوامر SQL وهو (CodeMirror) حيث يقوم "
+"بتلوين الأوامر وإضافة أرقام الأسطر."
 
 #: libraries/classes/Config/Descriptions.php:123
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr "ابحث عن أي أخطاء في الاستعلام قبل تنفيذه. يتطلب تمكين CodeMirror."
+msgstr "إيجاد أي مشاكل في الأمر قبل تشغيله يتطلب تفعيل CodeMirror."
 
 #: libraries/classes/Config/Descriptions.php:126
 msgid ""
@@ -1761,7 +1761,7 @@ msgstr "التحذير (\" هل أنت متأكد \" ) يظهر عندما تك�
 
 #: libraries/classes/Config/Descriptions.php:139
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "اكمال تلقائي للجدول و اسماء اللاعمدة في استعلامات SQL ."
+msgstr "الإكمال التلقائي لأسماء الجداول و الأعمدة في أوامر الSQL."
 
 #: libraries/classes/Config/Descriptions.php:142
 #: libraries/classes/Config/Descriptions.php:146
@@ -2572,11 +2572,11 @@ msgstr "توضيح الصفوف المشار إليها بمؤشر الفأرة.
 
 #: libraries/classes/Config/Descriptions.php:553
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "عدد أعمدة مربع النص    CHAR/VARCHAR    مناطق النص"
+msgstr "عدد الأعمدة لمربعات النصوص الخاصة بـCHAR/VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:554
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "عدد الصفوف للنصوص CHAR / VARCHAR."
+msgstr "عدد الصفوف لمربعات النصوص الخاصة بـCHAR/VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:555
 msgid ""
