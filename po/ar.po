@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2023-04-16 06:53+0000\n"
-"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
+"Last-Translator: MadxCoder <mohamedahmedmoh13@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
 "Language: ar\n"
@@ -2673,12 +2673,12 @@ msgstr "قوي"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr "انتهت مهلة انتظار تنشيط مفتاح الأمان."
+msgstr "أخذ التحقق من تفعيل رمز الأمان وقتاً أطول من اللازم."
 
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr "فشل تنشيط مفتاح الأمان (%s)."
+msgstr "فشل تفعيل رمز الأمان (%s)"
 
 #: js/messages.php:755
 #, php-format
