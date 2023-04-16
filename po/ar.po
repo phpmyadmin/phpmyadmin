@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-16 06:53+0000\n"
-"Last-Translator: MadxCoder <mohamedahmedmoh13@gmail.com>\n"
+"PO-Revision-Date: 2023-04-16 17:22+0000\n"
+"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
 "Language: ar\n"
@@ -577,7 +577,7 @@ msgstr ""
 
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
-msgstr "لم يمكن  تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
+msgstr "لم يمكن تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1631
 #, php-format
@@ -588,7 +588,7 @@ msgstr "تم إنشاء العلامة المرجعية %s."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[0] "تم الانتهاء من الاستيراد بنجاح، وتم تنفيذ استعلامات %d."
 msgstr[1] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
 msgstr[2] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
 msgstr[3] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
@@ -998,11 +998,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"من خلال هذه العملية، يحاول MySQL تعيين قيم البيانات بين المجموعات . إذا كانت "
-"مجموعات الأحرف غير متوافقة، فقد يكون هناك فقدان للبيانات وقد لا تكون هذه "
-"البيانات المفقودة قابلة للاسترداد ببساطة عن طريق تغيير ترتيب الأعمدة. لتحويل "
-"البيانات الموجودة، يقترح استخدام ميزة تحرير الأعمدة (\"تغيير\" الرابط) في "
-"صفحة بنية الجدول"
+"من خلال هذه العملية ، تحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
+"كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقدان للبيانات وقد تكون هذه "
+"البيانات المفقودة <b> NOT </b> قابلة للاسترداد ببساطة عن طريق تغيير ترتيب "
+"(ترتيبات) الأعمدة. <b> لتحويل البيانات الموجودة ، يقترح استخدام ميزة تحرير "
+"العمود (الأعمدة) (رابط \"التغيير\") في صفحة بنية الجدول. </b>"
 
 #: js/messages.php:108
 msgid ""
@@ -2365,15 +2365,14 @@ msgid "Click to sort results by this column."
 msgstr "انقر لترتيب النتائج حسب هذا العمود."
 
 #: js/messages.php:594
-#, fuzzy
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift+انقر للإضافة هذا العمود الى بند ORDER BY أو للتبديل بين ASC/DESC. <br /"
-"> - Ctrl+Click أو Alt+انقر (Mac: Shift+Option+Click) لإزالة عمود من بند "
-"ORDER BY"
+"Shift + انقر لإضافة هذا العمود إلى عبارة ORDER BY أو لتبديل ASC / DESC. <br /"
+"> - Ctrl + انقر أو Alt + انقر (Mac: Shift + Option + Click) لإزالة العمود من "
+"جملة ORDER BY"
 
 #: js/messages.php:598
 msgid "Click to mark/unmark."
@@ -4731,14 +4730,12 @@ msgid "Maximum tables"
 msgstr "جداول أكبر"
 
 #: libraries/classes/Config/Descriptions.php:762
-#, fuzzy
-#| msgid ""
-#| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-#| "limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
-msgstr "ضع الوقت المحدد لعمل البرنامج ([kbd]0[/kbd]: لانهائي)"
+msgstr ""
+"عدد البايتات المسموح للبرنامج النصي بتخصيصه ، على سبيل المثال. [kbd]32M[/kbd]"
+" ([kbd]-1[/kbd] بدون حدود و[kbd]0[/kbd] بدون تغيير)."
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
@@ -6485,7 +6482,7 @@ msgstr "تم إنشاء قاعدة البيانات %1$s."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "تم إسقاط قواعد البيانات %1$d بنجاح."
+msgstr[0] "تم إسقاط قواعد بيانات %1$d بنجاح."
 msgstr[1] "تم إسقاط قواعد البيانات %1$d بنجاح."
 msgstr[2] "تم إسقاط قواعد البيانات %1$d بنجاح."
 msgstr[3] "تم إسقاط قواعد البيانات %1$d بنجاح."
@@ -10809,20 +10806,15 @@ msgid "The backed up query was:"
 msgstr "الإستعلام الإحتياطي:"
 
 #: libraries/classes/Rte/Routines.php:92
-#, fuzzy
-#| msgid ""
-#| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
-#| "handling multi queries. <b>The execution of some stored routines may fail!"
-#| "</b> Please use the improved 'mysqli' extension to avoid any problems."
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. [strong]The execution of some stored routines may "
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"انت تستخدم ملحق PHP مهمل 'mysql'، وهو ليس قادر على التعامل مع الإستعلامات "
-"المتعددة. <B> فتنفيذ بعض الإجراءات المخزنة قد تفشل! </ B> الرجاء استخدام "
-"ملحق 'mysqli' لتجنب أي مشاكل."
+"أنت تستخدم امتداد \"mysql\" المهمل ل PHP ، وهو غير قادر على التعامل مع "
+"استعلامات متعددة. [strong] قد يفشل تنفيذ بعض الإجراءات المخزنة! [/strong] "
+"يرجى استخدام امتداد \"mysqli\" المحسن لتجنب أي مشاكل."
 
 #: libraries/classes/Rte/Routines.php:143
 msgid "Edit routine"
@@ -10954,12 +10946,10 @@ msgid "Execution results of routine %s"
 msgstr "نتائج تنفيذ الإجراء %s"
 
 #: libraries/classes/Rte/Routines.php:1473
-#, fuzzy, php-format
-#| msgid "%d row affected by the last statement inside the procedure"
-#| msgid_plural "%d rows affected by the last statement inside the procedure"
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d تأثر بالإجراء الأخير"
+msgstr[0] "%d الصفوف المتأثرة بالعبارة الأخيرة داخل الإجراء."
 msgstr[1] "%d تأثر بالإجراء الأخير"
 msgstr[2] "%d تأثر بالإجراء الأخير"
 msgstr[3] "%d تأثر بالإجراء الأخير"
@@ -12391,6 +12381,8 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"عدد الطلبات لقراءة الصف التالي بالترتيب حسب المفتاح. يتم زيادة هذا إذا كنت "
+"تستعلم عن عمود الفهارس مع القيود أو إذا كنت تقوم بفحص للفهارس."
 
 #: libraries/classes/Server/Status/Variables.php:417
 msgid ""
@@ -14860,12 +14852,12 @@ msgstr "حفظ كملف"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s جدول (جداول)"
-msgstr[1] "%s جدول (جداول)"
-msgstr[2] "%s جدول (جداول)"
-msgstr[3] "%s جدول (جداول)"
-msgstr[4] "%s جدول (جداول)"
-msgstr[5] "%s جدول (جداول)"
+msgstr[0] "%s جدول"
+msgstr[1] "%s جدول"
+msgstr[2] "%s جدول"
+msgstr[3] "%s جداول"
+msgstr[4] "%s جداول"
+msgstr[5] "%s جدول"
 
 #: templates/database/structure/body_for_table_summary.twig:17
 msgid "Sum"
@@ -15674,9 +15666,9 @@ msgid ""
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"تسمح بقطع عمليّة استراد معيّنة في حالة كَشفَ الرّمز أنّها قريبة من المهلة "
-"الزّمنيّة لـ PHP. <iem>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, "
-"في كلّ الأحوال يمكنها كسر العمليّات.)</iem>"
+"السماح بمقاطعة الاستيراد في حالة اكتشاف البرنامج النصي أنه قريب من حد مهلة "
+"PHP. <em> (قد تكون هذه طريقة جيدة لاستيراد الملفات الكبيرة ، ولكن يمكنها كسر "
+"المعاملات.) </em>"
 
 #: templates/display/import/import.twig:144
 #, fuzzy
@@ -15796,7 +15788,7 @@ msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>المجموع:</strong> <em>%count</em>تطابق"
+msgstr[0] "<strong> المجموع: </strong> <em>٪ العد٪ </em> المباريات"
 msgstr[1] "<strong>المجموع:</strong> <em>%count</em>تطابق"
 msgstr[2] "<strong>المجموع:</strong> <em>%count</em>تطابق"
 msgstr[3] "<strong>المجموع:</strong> <em>%count</em>تطابق"
@@ -16654,9 +16646,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:68
-#, fuzzy, php-format
+#, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "يجب أن يكون مُعدّل الاستعلام البطيء أقل من 5 %%، قيمتك هي %%"
+msgstr ""
+"يجب أن يكون معدل الاستعلام البطيء أقل من 5 %% ، القيمة الخاصة بك هي %s %%."
 
 #: libraries/advisory_rules_generic.txt:70
 #, fuzzy
