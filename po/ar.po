@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-16 00:18+0000\n"
-"PO-Revision-Date: 2023-04-16 06:40+0000\n"
-"Last-Translator: hassan mokhtari <persiste1@gmail.com>\n"
+"PO-Revision-Date: 2023-04-16 06:46+0000\n"
+"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
 "Language: ar\n"
@@ -5093,7 +5093,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ImportController.php:56
 #: libraries/classes/Controllers/Table/ImportController.php:67
 msgid "Could not load import plugins, please check your installation!"
-msgstr "لم يمكن  تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
+msgstr "لا يمكن  تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:41
 #: libraries/classes/Controllers/Table/OperationsController.php:273
@@ -5650,11 +5650,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"من خلال هذه العملية، يحاول MySQL تعيين قيم البيانات بين المجموعات . إذا كانت "
-"مجموعات الأحرف غير متوافقة، فقد يكون هناك فقدان للبيانات وقد لا تكون هذه "
-"البيانات المفقودة قابلة للاسترداد ببساطة عن طريق تغيير ترتيب الأعمدة. لتحويل "
-"البيانات الموجودة، يقترح استخدام ميزة تحرير الأعمدة (\"تغيير\" الرابط) في "
-"صفحة بنية الجدول"
+"من خلال هذه العملية ، يحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
+"كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقد للبيانات وقد تكون هذه "
+"البيانات المفقودة <b> غيرا </b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
+"العمود مرة أخرى. <b> لتحويل البيانات الحالية ، يُقترح استخدام ميزة تعديل "
+"الأعمدة (الرابط \"تغيير\") في صفحة بنية الجدول. </b>"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 msgid ""
@@ -7680,6 +7680,11 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"حدثت مشكلة أثناء الوصول إلى مساحة تخزين المتصفح ، وقد لا تعمل بعض الميزات "
+"بشكل صحيح بالنسبة لك. من المحتمل أن المتصفح لا يدعم التخزين أو تم الوصول إلى "
+"حد الحصة النسبية. في Firefox ، يمكن أن يتسبب التخزين التالف أيضًا في حدوث "
+"مثل هذه المشكلة ، وقد يساعدك مسح \"بيانات موقع الويب غير المتصل\". في Safari "
+"، تحدث هذه المشكلة بشكل شائع بسبب \"تصفح الوضع الخاص\"."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:674
@@ -15955,9 +15960,9 @@ msgid "New column name"
 msgstr "أنسخ اسم العمود"
 
 #: templates/export.twig:343
-#, fuzzy, php-format
+#, php-format
 msgid "Use %s statement"
-msgstr "أوامر"
+msgstr "استخدم عبارة %s"
 
 #: templates/export.twig:352
 msgid "View output as text"
