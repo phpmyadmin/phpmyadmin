@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-16 00:18+0000\n"
-"PO-Revision-Date: 2023-04-14 03:32+0000\n"
+"PO-Revision-Date: 2023-04-16 06:40+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
@@ -262,6 +262,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"إذا لم تقم بالتجميع من المصدر ، فقد تستخدم حزمة تم تعديلها من خلال توزيع. "
+"دليل MySQL فقط دقيق لثنائيات MySQL الرسمية ، وليس أي توزيعات للحزم (مثل "
+"RedHat ، Debian / Ubuntu ، إلخ)."
 
 #: libraries/classes/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
@@ -5061,7 +5064,7 @@ msgstr "نجحت"
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:142
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "اعرض الصفوف %1$s - %2$s."
+msgstr "%1$s - %2$s اضهار الصفوف"
 
 #. l10n: The user tries to save a page with an existing name in Designer
 #: libraries/classes/Controllers/Database/DesignerController.php:91
@@ -5091,7 +5094,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ImportController.php:56
 #: libraries/classes/Controllers/Table/ImportController.php:67
 msgid "Could not load import plugins, please check your installation!"
-msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
+msgstr "لم يمكن  تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:41
 #: libraries/classes/Controllers/Table/OperationsController.php:273
@@ -5252,7 +5255,7 @@ msgstr "لا تغييرات"
 
 #: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:104
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "قائمة المفضلة ممتلئة!"
 
 #: libraries/classes/Controllers/Database/TrackingController.php:64
 #: libraries/classes/Controllers/Database/TrackingController.php:89
@@ -5582,8 +5585,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"أنت تحاول تقليل عدد الصفوف ، ولكنك أدخلت بالفعل البيانات في تلك الصفوف التي "
-"سيتم فقدها. هل ترغب في الاستمرار؟"
+"أنت تحاول تقليل عدد الصفوف ، لكنك قمت بالفعل بإدخال بيانات في تلك الصفوف "
+"التي سيتم فقدانها. هل ترغب في الاستمرار؟"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:79
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -5648,11 +5651,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"من خلال هذه العملية ، يحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
-"كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقد للبيانات وقد تكون هذه "
-"البيانات المفقودة <b> غيرا </b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
-"العمود مرة أخرى. <b> لتحويل البيانات الحالية ، يُقترح استخدام ميزة تعديل "
-"الأعمدة (الرابط \"تغيير\") في صفحة بنية الجدول. </b>"
+"من خلال هذه العملية، يحاول MySQL تعيين قيم البيانات بين المجموعات . إذا كانت "
+"مجموعات الأحرف غير متوافقة، فقد يكون هناك فقدان للبيانات وقد لا تكون هذه "
+"البيانات المفقودة قابلة للاسترداد ببساطة عن طريق تغيير ترتيب الأعمدة. لتحويل "
+"البيانات الموجودة، يقترح استخدام ميزة تحرير الأعمدة (\"تغيير\" الرابط) في "
+"صفحة بنية الجدول"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 msgid ""
@@ -10668,7 +10671,7 @@ msgstr "دالة"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:37
 msgid "Type"
-msgstr "النوع"
+msgstr "نوع"
 
 #: libraries/classes/InsertEdit.php:666 templates/import.twig:57
 #: templates/import.twig:82
@@ -12677,7 +12680,7 @@ msgstr ""
 #: libraries/classes/Routing.php:145 libraries/classes/Routing.php:210
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "خطأ 404! الصفحة %s غير موجودة ."
+msgstr "خطأ 404! لم يتم العثور على  قاعدة  بيانات  المصدر  `%s`"
 
 #: libraries/classes/Routing.php:156
 msgid "Error 405! Request method not allowed."
@@ -14540,7 +14543,7 @@ msgstr "لم يتم تعريف الفهرس!"
 #: templates/server/privileges/privileges_table.twig:110
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
-msgstr "تحديد الكل"
+msgstr "نسخ"
 
 #: templates/database/designer/database_tables.twig:37
 #, fuzzy
@@ -14931,12 +14934,12 @@ msgstr "الاستيراد إلى قاعدة البيانات \"%s\""
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
-msgstr "استعلام جداول متعددة"
+msgstr "محاكاة استعلام الجداول"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 msgid "Query by example"
-msgstr "مثال للاستعلام"
+msgstr "نوع الاستعلام حسب المثال"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -15006,7 +15009,7 @@ msgstr "تجديد الإستعلام"
 #: templates/database/operations/index.twig:9
 #: templates/database/operations/index.twig:13
 msgid "Database comment"
-msgstr "ملاحظة قاعدة البيانات"
+msgstr "تعليق قاعدة البيانات"
 
 #: templates/database/operations/index.twig:54
 #, fuzzy
@@ -16113,7 +16116,7 @@ msgstr "إضافة مضلع"
 
 #: templates/gis_data_editor_form.twig:205
 msgid "Add geometry"
-msgstr "أضف هندسة"
+msgstr "أضف شكلا هندسيا"
 
 #: templates/gis_data_editor_form.twig:214
 msgid "Output"
