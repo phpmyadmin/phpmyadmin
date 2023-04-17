@@ -10,34 +10,32 @@ import { ajaxShowMessage } from './modules/ajax-message.ts';
  *
  */
 
-var Export = {};
-
 /**
  * Disables the "Dump some row(s)" sub-options
  */
-Export.disableDumpSomeRowsSubOptions = function () {
+function disableDumpSomeRowsSubOptions () {
     $('label[for=\'limit_to\']').fadeTo('fast', 0.4);
     $('label[for=\'limit_from\']').fadeTo('fast', 0.4);
     $('input[type=\'text\'][name=\'limit_to\']').prop('disabled', 'disabled');
     $('input[type=\'text\'][name=\'limit_from\']').prop('disabled', 'disabled');
-};
+}
 
 /**
  * Enables the "Dump some row(s)" sub-options
  */
-Export.enableDumpSomeRowsSubOptions = function () {
+function enableDumpSomeRowsSubOptions () {
     $('label[for=\'limit_to\']').fadeTo('fast', 1);
     $('label[for=\'limit_from\']').fadeTo('fast', 1);
     $('input[type=\'text\'][name=\'limit_to\']').prop('disabled', '');
     $('input[type=\'text\'][name=\'limit_from\']').prop('disabled', '');
-};
+}
 
 /**
  * Return template data as a json object
  *
  * @return {object} template data
  */
-Export.getTemplateData = function () {
+function getTemplateData () {
     var $form = $('form[name="dump"]');
     var excludeList = [
         'token',
@@ -82,14 +80,14 @@ Export.getTemplateData = function () {
     });
 
     return obj;
-};
+}
 
 /**
  * Create a template with selected options
  *
  * @param name name of the template
  */
-Export.createTemplate = function (name) {
+function createTemplate (name) {
     var templateData = Export.getTemplateData();
 
     var params = {
@@ -118,14 +116,14 @@ Export.createTemplate = function (name) {
             ajaxShowMessage(response.error, false);
         }
     });
-};
+}
 
 /**
  * Loads a template
  *
  * @param id ID of the template to load
  */
-Export.loadTemplate = function (id) {
+function loadTemplate (id) {
     var params = {
         'ajax_request': true,
         'server': CommonParams.get('server'),
@@ -168,14 +166,14 @@ Export.loadTemplate = function (id) {
             ajaxShowMessage(response.error, false);
         }
     });
-};
+}
 
 /**
  * Updates an existing template with current options
  *
  * @param id ID of the template to update
  */
-Export.updateTemplate = function (id) {
+function updateTemplate (id) {
     var templateData = Export.getTemplateData();
 
     var params = {
@@ -196,14 +194,14 @@ Export.updateTemplate = function (id) {
             ajaxShowMessage(response.error, false);
         }
     });
-};
+}
 
 /**
  * Delete a template
  *
  * @param id ID of the template to delete
  */
-Export.deleteTemplate = function (id) {
+function deleteTemplate (id) {
     var params = {
         'ajax_request': true,
         'server': CommonParams.get('server'),
@@ -222,7 +220,7 @@ Export.deleteTemplate = function (id) {
             ajaxShowMessage(response.error, false);
         }
     });
-};
+}
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -366,7 +364,7 @@ AJAX.registerOnload('export.js', function () {
     });
 });
 
-Export.setupTableStructureOrData = function () {
+function setupTableStructureOrData () {
     if ($('input[name=\'export_type\']').val() !== 'database') {
         return;
     }
@@ -420,13 +418,13 @@ Export.setupTableStructureOrData = function () {
         Export.checkTableSelectAll();
         Export.checkTableSelectStructureOrData();
     }
-};
+}
 
 /**
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-Export.toggleStructureDataOpts = function () {
+function toggleStructureDataOpts () {
     var pluginName = $('select#plugins').val();
     var radioFormName = pluginName + '_structure_or_data';
     var dataDiv = '#' + pluginName + '_data';
@@ -445,12 +443,12 @@ Export.toggleStructureDataOpts = function () {
             $(dataDiv).slideDown('slow');
         }
     }
-};
+}
 
 /**
  * Toggles the disabling of the "save to file" options
  */
-Export.toggleSaveToFile = function () {
+function toggleSaveToFile () {
     var $ulSaveAsfile = $('#ul_save_asfile');
     if (! $('#radio_dump_asfile').prop('checked')) {
         $ulSaveAsfile.find('> li').fadeTo('fast', 0.4);
@@ -461,7 +459,7 @@ Export.toggleSaveToFile = function () {
         $ulSaveAsfile.find('> li > input').prop('disabled', false);
         $ulSaveAsfile.find('> li > select').prop('disabled', false);
     }
-};
+}
 
 AJAX.registerOnload('export.js', function () {
     Export.toggleSaveToFile();
@@ -471,7 +469,7 @@ AJAX.registerOnload('export.js', function () {
 /**
  * For SQL plugin, toggles the disabling of the "display comments" options
  */
-Export.toggleSqlIncludeComments = function () {
+function toggleSqlIncludeComments () {
     $('#checkbox_sql_include_comments').on('change', function () {
         var $ulIncludeComments = $('#ul_include_comments');
         if (! $('#checkbox_sql_include_comments').prop('checked')) {
@@ -487,9 +485,9 @@ Export.toggleSqlIncludeComments = function () {
             }
         }
     });
-};
+}
 
-Export.checkTableSelectAll = function () {
+function checkTableSelectAll () {
     var total = $('input[name="table_select[]"]').length;
     var strChecked = $('input[name="table_structure[]"]:checked').length;
     var dataChecked = $('input[name="table_data[]"]:checked').length;
@@ -523,9 +521,9 @@ Export.checkTableSelectAll = function () {
             .prop('indeterminate', true)
             .prop('checked', false);
     }
-};
+}
 
-Export.checkTableSelectStructureOrData = function () {
+function checkTableSelectStructureOrData () {
     var dataChecked = $('input[name="table_data[]"]:checked').length;
     var autoIncrement = $('#checkbox_sql_auto_increment');
 
@@ -539,33 +537,33 @@ Export.checkTableSelectStructureOrData = function () {
         $(dataDiv).slideDown('slow');
         autoIncrement.prop('disabled', false).parent().fadeTo('fast', 1);
     }
-};
+}
 
-Export.toggleTableSelectAllStr = function () {
+function toggleTableSelectAllStr () {
     var strAll = $('#table_structure_all').is(':checked');
     if (strAll) {
         $('input[name="table_structure[]"]').prop('checked', true);
     } else {
         $('input[name="table_structure[]"]').prop('checked', false);
     }
-};
+}
 
-Export.toggleTableSelectAllData = function () {
+function toggleTableSelectAllData () {
     var dataAll = $('#table_data_all').is(':checked');
     if (dataAll) {
         $('input[name="table_data[]"]').prop('checked', true);
     } else {
         $('input[name="table_data[]"]').prop('checked', false);
     }
-};
+}
 
-Export.checkSelectedTables = function () {
+function checkSelectedTables () {
     $('.export_table_select tbody tr').each(function () {
         Export.checkTableSelected(this);
     });
-};
+}
 
-Export.checkTableSelected = function (row) {
+function checkTableSelected (row) {
     var $row = $(row);
     var tableSelect = $row.find('input[name="table_select[]"]');
     var strCheck = $row.find('input[name="table_structure[]"]');
@@ -584,9 +582,9 @@ Export.checkTableSelected = function (row) {
         tableSelect.prop({ checked: false, indeterminate: false });
         $row.removeClass('marked');
     }
-};
+}
 
-Export.toggleTableSelect = function (row) {
+function toggleTableSelect (row) {
     var $row = $(row);
     var tableSelected = $row.find('input[name="table_select[]"]').is(':checked');
 
@@ -597,9 +595,9 @@ Export.toggleTableSelect = function (row) {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', false);
         $row.removeClass('marked');
     }
-};
+}
 
-Export.handleAddProcCheckbox = function () {
+function handleAddProcCheckbox () {
     if ($('#table_structure_all').is(':checked') === true
         && $('#table_data_all').is(':checked') === true
     ) {
@@ -607,7 +605,7 @@ Export.handleAddProcCheckbox = function () {
     } else {
         $('#checkbox_sql_procedure_function').prop('checked', false);
     }
-};
+}
 
 AJAX.registerOnload('export.js', function () {
     /**
@@ -783,7 +781,7 @@ function toggleQuickOrCustom () {
 
 var timeOut;
 
-Export.checkTimeOut = function (timeLimit) {
+function checkTimeOut (timeLimit) {
     var limit = timeLimit;
     if (typeof limit === 'undefined' || limit === 0) {
         return true;
@@ -810,14 +808,14 @@ Export.checkTimeOut = function (timeLimit) {
             }
         );
     }, limit * 1000);
-};
+}
 
 /**
  * Handler for Alias dialog box
  *
  * @param event object the event object
  */
-Export.createAliasModal = function (event): void {
+function createAliasModal (event): void {
     event.preventDefault();
     var modal = $('#renameExportModal');
     modal.modal('show');
@@ -867,20 +865,18 @@ Export.createAliasModal = function (event): void {
     $('#saveAndCloseBtn').on('click', function () {
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     });
-};
+}
 
-Export.aliasToggleRow = function (elm) {
+function aliasToggleRow (elm) {
     var inputs = elm.parents('tr').find('input,button');
     if (elm.val()) {
         inputs.attr('disabled', false);
     } else {
         inputs.attr('disabled', true);
     }
-};
+}
 
-Export.aliasRow = null;
-
-Export.addAlias = function (type, name, field, value) {
+function addAlias (type, name, field, value) {
     if (value === '') {
         return;
     }
@@ -904,6 +900,33 @@ Export.addAlias = function (type, name, field, value) {
     }
 
     $('#alias_data tbody').append(row);
+}
+
+const Export = {
+    disableDumpSomeRowsSubOptions: disableDumpSomeRowsSubOptions,
+    enableDumpSomeRowsSubOptions: enableDumpSomeRowsSubOptions,
+    getTemplateData: getTemplateData,
+    createTemplate: createTemplate,
+    loadTemplate: loadTemplate,
+    updateTemplate: updateTemplate,
+    deleteTemplate: deleteTemplate,
+    setupTableStructureOrData: setupTableStructureOrData,
+    toggleStructureDataOpts: toggleStructureDataOpts,
+    toggleSaveToFile: toggleSaveToFile,
+    toggleSqlIncludeComments: toggleSqlIncludeComments,
+    checkTableSelectAll: checkTableSelectAll,
+    checkTableSelectStructureOrData: checkTableSelectStructureOrData,
+    toggleTableSelectAllStr: toggleTableSelectAllStr,
+    toggleTableSelectAllData: toggleTableSelectAllData,
+    checkSelectedTables: checkSelectedTables,
+    checkTableSelected: checkTableSelected,
+    toggleTableSelect: toggleTableSelect,
+    handleAddProcCheckbox: handleAddProcCheckbox,
+    checkTimeOut: checkTimeOut,
+    createAliasModal: createAliasModal,
+    aliasToggleRow: aliasToggleRow,
+    aliasRow: null,
+    addAlias: addAlias,
 };
 
 AJAX.registerOnload('export.js', function () {
