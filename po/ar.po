@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-04-17 17:32+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-04-18 10:06+0000\n"
+"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
 "Language: ar\n"
@@ -8029,11 +8029,11 @@ msgstr "لايوجد صفوف مختارة."
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "تم إسقاط %1$d من الأعمدة بنجاح."
-msgstr[1] "تم إسقاط عمود واحد بنجاح"
-msgstr[2] "تم اسقاط عمودان بنجاح"
-msgstr[3] "تم إسقاط %1$d أعمدة بنجاح"
-msgstr[4] "تم إسقاط %1$d عمود بنجاح"
-msgstr[5] "تم إسقاط %1$d عمود بنجاح"
+msgstr[1] "تم إسقاط عمود واحد بنجاح."
+msgstr[2] "تم اسقاط عمودان بنجاح."
+msgstr[3] "تم إسقاط %1$d أعمدة بنجاح."
+msgstr[4] "تم إسقاط %1$d عمود بنجاح."
+msgstr[5] "‍تم إسقاط %1$d عمود بنجاح."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -12422,7 +12422,7 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "تم إلغاء تنشيط تتبع %1$s في الإصدار %2$s."
 
 #: libraries/classes/Tracking.php:979
-#, fuzzy, php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "تم حذف الإصدار %1$s من %2$s."
 
