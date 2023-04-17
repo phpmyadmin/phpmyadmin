@@ -2613,7 +2613,7 @@ body .ui-dialog {
   overflow-y: scroll;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (width <= 768px) {
   .responsivetable {
     overflow-x: auto;
   }

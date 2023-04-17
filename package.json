@@ -27,7 +27,7 @@
     "@zxcvbn-ts/core": "^2.2.1",
     "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
-    "bootstrap": "5.3.0-alpha2",
+    "bootstrap": "5.3.0-alpha3",
     "chart.js": "^4.2.1",
     "codemirror": "5.65.12",
     "copy-webpack-plugin": "^11.0.0",
@@ -69,9 +69,9 @@
     "eslint-plugin-no-jquery": "^2.7.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
-    "stylelint": "^15.3.0",
-    "stylelint-config-recommended-scss": "^9.0.1",
-    "stylelint-config-standard": "^31.0.0",
+    "stylelint": "^15.5.0",
+    "stylelint-config-recommended-scss": "^10.0.0",
+    "stylelint-config-standard": "^33.0.0",
     "stylelint-scss": "^4.6.0"
   },
   "scripts": {
