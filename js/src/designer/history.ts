@@ -10,22 +10,6 @@ import { DesignerConfig } from './config.ts';
  * @requires    move.js
  */
 
-var DesignerHistory = {};
-
-/**
- * Global array to store history objects.
- * @type {any[]}
- */
-DesignerHistory.historyArray = [];
-
-/**
- * Global array to store information for columns which are used in select clause.
- * @type {any[]}
- */
-DesignerHistory.selectField = [];
-
-DesignerHistory.vqbEditor = null;
-
 var gIndex;
 
 /**
@@ -34,7 +18,7 @@ var gIndex;
  * @param {number} index index of DesignerHistory.historyArray where change is to be made
  * @return {string}
  */
-DesignerHistory.detail = function (index) {
+const detail = function (index) {
     var type = DesignerHistory.historyArray[index].getType();
     var str;
     if (type === 'Where') {
@@ -70,7 +54,7 @@ DesignerHistory.detail = function (index) {
  * @param {number} finit last index of unsorted array
  * @return {string}
  */
-DesignerHistory.display = function (init, finit) {
+const display = function (init, finit) {
     var str;
     var i;
     var j;
@@ -147,7 +131,7 @@ DesignerHistory.display = function (init, finit) {
  *
  * @param {number} index index of DesignerHistory.historyArray where change is to be made
  */
-DesignerHistory.andOr = function (index): void {
+const andOr = function (index): void {
     if (DesignerHistory.historyArray[index].getAndOr()) {
         DesignerHistory.historyArray[index].setAndOr(0);
     } else {
@@ -164,7 +148,7 @@ DesignerHistory.andOr = function (index): void {
  *
  * @param {number} index of DesignerHistory.historyArray[] which is to be deleted
  */
-DesignerHistory.historyDelete = function (index): void {
+const historyDelete = function (index): void {
     var fromArrayLength = window.fromArray.length;
     for (var k = 0; k < fromArrayLength; k++) {
         if (window.fromArray[k] === DesignerHistory.historyArray[index].getTab()) {
@@ -182,7 +166,7 @@ DesignerHistory.historyDelete = function (index): void {
 /**
  * @param {string} elementId
  */
-DesignerHistory.changeStyle = function (elementId): void {
+const changeStyle = function (elementId): void {
     var element = document.getElementById(elementId);
     element.style.left = '530px';
     element.style.top = '130px';
@@ -197,7 +181,7 @@ DesignerHistory.changeStyle = function (elementId): void {
  *
  * @param {number} index index of DesignerHistory.historyArray where change is to be made
  */
-DesignerHistory.historyEdit = function (index): void {
+const historyEdit = function (index): void {
     gIndex = index;
     var type = DesignerHistory.historyArray[index].getType();
     if (type === 'Where') {
@@ -224,7 +208,7 @@ DesignerHistory.historyEdit = function (index): void {
  *
  * @param {string} type of DesignerHistory.historyArray where change is to be made
  */
-DesignerHistory.edit = function (type): void {
+const edit = function (type): void {
     if (type === 'Rename') {
         if (document.getElementById('e_rename').value !== '') {
             DesignerHistory.historyArray[gIndex].getObj().setRenameTo(document.getElementById('e_rename').value);
@@ -271,7 +255,7 @@ DesignerHistory.edit = function (type): void {
  * @param nType         type of object
  *
  */
-DesignerHistory.HistoryObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
+const HistoryObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
     var andOr;
     var obj;
     var tab;
@@ -346,7 +330,7 @@ DesignerHistory.HistoryObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
  *
  */
 
-DesignerHistory.Where = function (nRelationOperator, nQuery) {
+const Where = function (nRelationOperator, nQuery) {
     var relationOperator;
     var query;
     this.setRelationOperator = function (nRelationOperator) {
@@ -374,7 +358,7 @@ DesignerHistory.Where = function (nRelationOperator, nQuery) {
  *
  * @param nOrder order, ASC or DESC
  */
-DesignerHistory.OrderBy = function (nOrder) {
+const OrderBy = function (nOrder) {
     var order;
     this.setOrder = function (nOrder) {
         order = nOrder;
@@ -394,7 +378,7 @@ DesignerHistory.OrderBy = function (nOrder) {
  * @param nQuery             stores value of value/sub-query
  * @param nOperator          operator
  */
-DesignerHistory.Having = function (nRelationOperator, nQuery, nOperator) {
+const Having = function (nRelationOperator, nQuery, nOperator) {
     var relationOperator;
     var query;
     var operator;
@@ -433,7 +417,7 @@ DesignerHistory.Having = function (nRelationOperator, nQuery, nOperator) {
  * @param nRenameTo new name information
  *
  */
-DesignerHistory.Rename = function (nRenameTo) {
+const Rename = function (nRenameTo) {
     var renameTo;
     this.setRenameTo = function (nRenameTo) {
         renameTo = nRenameTo;
@@ -452,7 +436,7 @@ DesignerHistory.Rename = function (nRenameTo) {
  * @param nOperator aggregate operator
  *
  */
-DesignerHistory.Aggregate = function (nOperator) {
+const Aggregate = function (nOperator) {
     var operator;
     this.setOperator = function (nOperator) {
         operator = nOperator;
@@ -472,7 +456,7 @@ DesignerHistory.Aggregate = function (nOperator) {
  * @return unique array
  */
 
-DesignerHistory.unique = function (arrayName) {
+const unique = function (arrayName) {
     var newArray = [];
     uniquetop:
     for (var i = 0; i < arrayName.length; i++) {
@@ -497,7 +481,7 @@ DesignerHistory.unique = function (arrayName) {
  * @param value  value which is to be searched in the array
  */
 
-DesignerHistory.found = function (arrayName, value) {
+const found = function (arrayName, value) {
     var arrayNameLength = arrayName.length;
     for (var i = 0; i < arrayNameLength; i++) {
         if (arrayName[i] === value) {
@@ -516,7 +500,7 @@ DesignerHistory.found = function (arrayName, value) {
  *
  * @return {obj[]}
  */
-DesignerHistory.addArray = function (add, arr) {
+const addArray = function (add, arr) {
     var addLength = add.length;
     for (var i = 0; i < addLength; i++) {
         arr.push(add[i]);
@@ -534,7 +518,7 @@ DesignerHistory.addArray = function (add, arr) {
  * @return {obj[]}
  *
  */
-DesignerHistory.removeArray = function (rem, arr) {
+const removeArray = function (rem, arr) {
     var remLength = rem.length;
     for (var i = 0; i < remLength; i++) {
         var arrLength = arr.length;
@@ -552,7 +536,7 @@ DesignerHistory.removeArray = function (rem, arr) {
  * This function builds the groupby clause from history object
  * @return {string}
  */
-DesignerHistory.queryGroupBy = function () {
+const queryGroupBy = function () {
     var i;
     var str = '';
     var historyArrayLength = DesignerHistory.historyArray.length;
@@ -571,7 +555,7 @@ DesignerHistory.queryGroupBy = function () {
  * This function builds the Having clause from the history object.
  * @return {string}
  */
-DesignerHistory.queryHaving = function () {
+const queryHaving = function () {
     var i;
     var and = '(';
     var historyArrayLength = DesignerHistory.historyArray.length;
@@ -595,12 +579,11 @@ DesignerHistory.queryHaving = function () {
     return and;
 };
 
-
 /**
  * This function builds the orderby clause from the history object.
  * @return {string}
  */
-DesignerHistory.queryOrderBy = function () {
+const queryOrderBy = function () {
     var i;
     var str = '';
     var historyArrayLength = DesignerHistory.historyArray.length;
@@ -616,12 +599,11 @@ DesignerHistory.queryOrderBy = function () {
     return str;
 };
 
-
 /**
  * This function builds the Where clause from the history object.
  * @return {string}
  */
-DesignerHistory.queryWhere = function () {
+const queryWhere = function () {
     var i;
     var and = '(';
     var or = '(';
@@ -657,7 +639,7 @@ DesignerHistory.queryWhere = function () {
     return and;
 };
 
-DesignerHistory.checkAggregate = function (idThis) {
+const checkAggregate = function (idThis) {
     var i;
     var historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
@@ -670,7 +652,7 @@ DesignerHistory.checkAggregate = function (idThis) {
     return '';
 };
 
-DesignerHistory.checkRename = function (idThis) {
+const checkRename = function (idThis) {
     var i;
     var historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
@@ -689,7 +671,7 @@ DesignerHistory.checkRename = function (idThis) {
  *
  * @return {string}
  */
-DesignerHistory.queryFrom = function () {
+const queryFrom = function () {
     var i;
     var tabLeft = [];
     var tabUsed = [];
@@ -810,7 +792,7 @@ DesignerHistory.queryFrom = function () {
  * @uses DesignerHistory.queryHaving()
  * @uses DesignerHistory.queryOrderBy()
  */
-DesignerHistory.buildQuery = function () {
+const buildQuery = function () {
     var qSelect = 'SELECT ';
     var temp;
     var selectFieldLength = DesignerHistory.selectField.length;
@@ -885,6 +867,45 @@ DesignerHistory.buildQuery = function () {
             $elm.trigger('focus');
         }
     });
+};
+
+const DesignerHistory = {
+    /**
+     * Global array to store history objects.
+     */
+    historyArray: [],
+
+    /**
+     * Global array to store information for columns which are used in select clause.
+     */
+    selectField: [],
+
+    vqbEditor: null,
+    detail: detail,
+    display: display,
+    andOr: andOr,
+    historyDelete: historyDelete,
+    changeStyle: changeStyle,
+    historyEdit: historyEdit,
+    edit: edit,
+    HistoryObj: HistoryObj,
+    Where: Where,
+    OrderBy: OrderBy,
+    Having: Having,
+    Rename: Rename,
+    Aggregate: Aggregate,
+    unique: unique,
+    found: found,
+    addArray: addArray,
+    removeArray: removeArray,
+    queryGroupBy: queryGroupBy,
+    queryHaving: queryHaving,
+    queryOrderBy: queryOrderBy,
+    queryWhere: queryWhere,
+    checkAggregate: checkAggregate,
+    checkRename: checkRename,
+    queryFrom: queryFrom,
+    buildQuery: buildQuery,
 };
 
 declare global {

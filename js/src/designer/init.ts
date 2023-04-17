@@ -236,7 +236,7 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#query_builder').on('click', function () {
-        DesignerHistory.buildQuery('SQL Query on Database', 0);
+        DesignerHistory.buildQuery();
     });
 
     $('#key_Left_Right').on('click', function () {
@@ -376,7 +376,7 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#build_query_button').on('click', function () {
-        DesignerHistory.buildQuery('SQL Query on Database', 0);
+        DesignerHistory.buildQuery();
     });
 
     $('#query_where_button').on('click', function () {
