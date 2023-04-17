@@ -278,7 +278,7 @@ import $ from 'jquery';
                 previewMove = null;
             }
 
-            function moveTo (elem, opts = {}) {
+            function moveTo (elem, opts: {pos?: any, duration?: any} = {}) {
                 if (! opts.pos) {
                     opts.pos = { left: 0, top: 0 };
                 }

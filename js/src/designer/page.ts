@@ -6,9 +6,7 @@ import { DesignerOfflineDB } from './database.ts';
 import { DesignerMove } from './move.ts';
 import { DesignerObjects } from './objects.ts';
 
-var DesignerPage = {};
-
-DesignerPage.showTablesInLandingPage = function (db) {
+function showTablesInLandingPage (db) {
     DesignerPage.loadFirstPage(db, function (page) {
         if (page) {
             DesignerPage.loadHtmlForPage(page.pgNr);
@@ -17,9 +15,9 @@ DesignerPage.showTablesInLandingPage = function (db) {
             DesignerPage.showNewPageTables(true);
         }
     });
-};
+}
 
-DesignerPage.saveToNewPage = function (db, pageName, tablePositions, callback) {
+function saveToNewPage (db, pageName, tablePositions, callback) {
     DesignerPage.createNewPage(db, pageName, function (page) {
         if (page) {
             var tblCords = [];
@@ -41,9 +39,9 @@ DesignerPage.saveToNewPage = function (db, pageName, tablePositions, callback) {
             }
         }
     });
-};
+}
 
-DesignerPage.saveToSelectedPage = function (db, pageId, pageName, tablePositions, callback) {
+function saveToSelectedPage (db, pageId, pageName, tablePositions, callback) {
     DesignerPage.deletePage(pageId);
     DesignerPage.saveToNewPage(db, pageName, tablePositions, function (page) {
         if (typeof callback !== 'undefined') {
@@ -52,9 +50,9 @@ DesignerPage.saveToSelectedPage = function (db, pageId, pageName, tablePositions
 
         DesignerConfig.selectedPage = page.pgNr;
     });
-};
+}
 
-DesignerPage.createNewPage = function (db, pageName, callback) {
+function createNewPage (db, pageName, callback) {
     var newPage = new DesignerObjects.PdfPage(db, pageName, []);
     DesignerOfflineDB.addObject('pdf_pages', newPage, function (pgNr) {
         newPage.pgNr = pgNr;
@@ -62,13 +60,13 @@ DesignerPage.createNewPage = function (db, pageName, callback) {
             callback(newPage);
         }
     });
-};
+}
 
-DesignerPage.saveTablePositions = function (positions, callback) {
+function saveTablePositions (positions, callback) {
     DesignerOfflineDB.addObject('table_coords', positions, callback);
-};
+}
 
-DesignerPage.createPageList = function (db, callback) {
+function createPageList (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var html = '';
         for (var p = 0; p < pages.length; p++) {
@@ -83,9 +81,9 @@ DesignerPage.createPageList = function (db, callback) {
             callback(html);
         }
     });
-};
+}
 
-DesignerPage.deletePage = function (pageId, callback) {
+function deletePage (pageId, callback = undefined) {
     DesignerOfflineDB.loadObject('pdf_pages', pageId, function (page) {
         if (page) {
             for (var i = 0; i < page.tblCords.length; i++) {
@@ -95,9 +93,9 @@ DesignerPage.deletePage = function (pageId, callback) {
             DesignerOfflineDB.deleteObject('pdf_pages', pageId, callback);
         }
     });
-};
+}
 
-DesignerPage.loadFirstPage = function (db, callback) {
+function loadFirstPage (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var firstPage = null;
         for (var i = 0; i < pages.length; i++) {
@@ -118,10 +116,10 @@ DesignerPage.loadFirstPage = function (db, callback) {
 
         callback(firstPage);
     });
-};
+}
 
-DesignerPage.showNewPageTables = function (check) {
-    var allTables = $('#id_scroll_tab').find('td input:checkbox');
+function showNewPageTables (check) {
+    var allTables = ($('#id_scroll_tab').find('td input:checkbox') as JQuery<HTMLInputElement>);
     allTables.prop('checked', check);
     for (var tab = 0; tab < allTables.length; tab++) {
         var input = allTables[tab];
@@ -136,9 +134,9 @@ DesignerPage.showNewPageTables = function (check) {
     DesignerConfig.selectedPage = -1;
     $('#page_name').text(window.Messages.strUntitled);
     DesignerMove.markUnsaved();
-};
+}
 
-DesignerPage.loadHtmlForPage = function (pageId) {
+function loadHtmlForPage (pageId) {
     DesignerPage.showNewPageTables(true);
     DesignerPage.loadPageObjects(pageId, function (page, tblCords) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
@@ -154,7 +152,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
             table.style.top = tblCords[t].y + 'px';
             table.style.left = tblCords[t].x + 'px';
 
-            var checkbox = document.getElementById('check_vis_' + tbId);
+            var checkbox = (document.getElementById('check_vis_' + tbId) as HTMLInputElement);
             checkbox.checked = true;
             DesignerMove.visibleTab(checkbox, checkbox.value);
         }
@@ -167,9 +165,9 @@ DesignerPage.loadHtmlForPage = function (pageId) {
 
         DesignerConfig.selectedPage = page.pgNr;
     });
-};
+}
 
-DesignerPage.loadPageObjects = function (pageId, callback) {
+function loadPageObjects (pageId, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', pageId, function (page) {
         var tblCords = [];
         var count = page.tblCords.length;
@@ -184,12 +182,27 @@ DesignerPage.loadPageObjects = function (pageId, callback) {
             });
         }
     });
-};
+}
 
-DesignerPage.getRandom = function (max, min) {
+function getRandom (max, min) {
     var val = Math.random() * (max - min) + min;
 
     return Math.floor(val);
+}
+
+const DesignerPage = {
+    showTablesInLandingPage: showTablesInLandingPage,
+    saveToNewPage: saveToNewPage,
+    saveToSelectedPage: saveToSelectedPage,
+    createNewPage: createNewPage,
+    saveTablePositions: saveTablePositions,
+    createPageList: createPageList,
+    deletePage: deletePage,
+    loadFirstPage: loadFirstPage,
+    showNewPageTables: showNewPageTables,
+    loadHtmlForPage: loadHtmlForPage,
+    loadPageObjects: loadPageObjects,
+    getRandom: getRandom,
 };
 
 export { DesignerPage };

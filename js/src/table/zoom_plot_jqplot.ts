@@ -28,6 +28,7 @@ function displayHelp () {
  * @param {number[]} array
  * @return {number}
  **/
+// @ts-ignore
 Array.max = function (array) {
     return Math.max.apply(Math, array);
 };
@@ -37,6 +38,7 @@ Array.max = function (array) {
  * @param {number[]} array
  * @return {number}
  **/
+// @ts-ignore
 Array.min = function (array) {
     return Math.min.apply(Math, array);
 };

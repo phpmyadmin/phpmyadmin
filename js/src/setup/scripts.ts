@@ -102,8 +102,10 @@ function ajaxValidate (parent, id, values) {
 
             var error = {};
             if (typeof response !== 'object') {
+                // @ts-ignore
                 error[$parent.id] = [response];
             } else if (typeof response.error !== 'undefined') {
+                // @ts-ignore
                 error[$parent.id] = [response.error];
             } else {
                 for (var key in response) {
@@ -189,6 +191,7 @@ $.extend(true, window.validators, {
          * @return {true}
          */
         Server_login_options: function (isKeyUp) { // eslint-disable-line camelcase
+            // @ts-ignore
             return window.validators.fieldset.Server.apply(this, [isKeyUp]);
         },
         /**

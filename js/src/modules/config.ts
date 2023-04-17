@@ -801,7 +801,7 @@ function on () {
             if (! lsSupported) {
                 disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
             } else if (! lsExists && $form.attr('name') === 'prefs_import' &&
-                $('#import_local_storage')[0].checked
+                ($('#import_local_storage') as JQuery<HTMLInputElement>)[0].checked
             ) {
                 disabled = true;
             }

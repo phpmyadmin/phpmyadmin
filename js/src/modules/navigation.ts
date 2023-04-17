@@ -624,7 +624,7 @@ function ensureSettings (selflink): void {
  * @param {object} paths stored navigation paths
  */
 function reload (callback = null, paths = null): void {
-    var params = {
+    var params: { server: any; reload: boolean; no_debug: boolean, db?: string } = {
         'reload': true,
         'no_debug': true,
         'server': CommonParams.get('server'),
@@ -1070,8 +1070,7 @@ const FastFilter = {
      */
     getSearchClause: function () {
         var retval = '';
-        var $input = $('#pma_navigation_tree')
-            .find('li.fast_filter.db_fast_filter input.searchClause');
+        var $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
         if ($input.length && $input.val() !== $input[0].defaultValue) {
             retval = $input.val();
         }
@@ -1278,7 +1277,7 @@ FastFilter.Filter.prototype.request = function (): void {
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
 
     if (self.$this.find('> ul > li > form.fast_filter').first().find('input[name=searchClause]').length === 0) {
-        var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
+        var $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
         if ($input.length && $input.val() !== $input[0].defaultValue) {
             params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
         }

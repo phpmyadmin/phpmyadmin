@@ -45,7 +45,7 @@ function generateCondition (criteriaDiv, table) {
     return query;
 }
 
-window.generateWhereBlock = function () {
+function generateWhereBlock () {
     var count = 0;
     var query = '';
     $('.tableNameSelect').each(function () {
@@ -66,7 +66,7 @@ window.generateWhereBlock = function () {
     });
 
     return query;
-};
+}
 
 function generateJoin (newTable, tableAliases, fk) {
     var query = '';
@@ -126,7 +126,7 @@ function appendTable (table, tableAliases, usedTables, foreignKeys) {
     return query;
 }
 
-window.generateFromBlock = (tableAliases, foreignKeys) => {
+function generateFromBlock (tableAliases, foreignKeys) {
     var usedTables = [];
     var query = '';
     for (var table in tableAliases) {
@@ -136,4 +136,14 @@ window.generateFromBlock = (tableAliases, foreignKeys) => {
     }
 
     return query;
-};
+}
+
+declare global {
+    interface Window {
+        generateWhereBlock: typeof generateWhereBlock;
+        generateFromBlock: typeof generateFromBlock;
+    }
+}
+
+window.generateWhereBlock = generateWhereBlock;
+window.generateFromBlock = generateFromBlock;

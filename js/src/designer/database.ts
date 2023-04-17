@@ -14,8 +14,6 @@ var designerTables = [
 ];
 
 var DesignerOfflineDB = (function () {
-    var designerDB: {[k: string]: any} = {};
-
     /**
      * @type {IDBDatabase|null}
      */
@@ -25,7 +23,7 @@ var DesignerOfflineDB = (function () {
      * @param {string} table
      * @return {IDBTransaction}
      */
-    designerDB.getTransaction = function (table) {
+    const getTransaction = function (table) {
         return datastore.transaction([table], 'readwrite');
     };
 
@@ -33,7 +31,7 @@ var DesignerOfflineDB = (function () {
      * @param {string} table
      * @return {IDBObjectStore}
      */
-    designerDB.getObjectStore = function (table) {
+    const getObjectStore = function (table) {
         var transaction = designerDB.getTransaction(table);
         var objStore = transaction.objectStore(table);
 
@@ -45,7 +43,7 @@ var DesignerOfflineDB = (function () {
      * @param {string} table
      * @return {IDBObjectStore}
      */
-    designerDB.getCursorRequest = function (transaction, table) {
+    const getCursorRequest = function (transaction, table) {
         var objStore = transaction.objectStore(table);
         var keyRange = IDBKeyRange.lowerBound(0);
         var cursorRequest = objStore.openCursor(keyRange);
@@ -56,7 +54,7 @@ var DesignerOfflineDB = (function () {
     /**
      * @param {Function} callback
      */
-    designerDB.open = function (callback): void {
+    const open = function (callback): void {
         var version = 1;
         var request = window.indexedDB.open('pma_designer', version);
 
@@ -96,7 +94,7 @@ var DesignerOfflineDB = (function () {
      * @param {string} id
      * @param {Function} callback
      */
-    designerDB.loadObject = function (table, id, callback): void {
+    const loadObject = function (table, id, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
 
@@ -117,7 +115,7 @@ var DesignerOfflineDB = (function () {
      * @param {string} table
      * @param {Function} callback
      */
-    designerDB.loadAllObjects = function (table, callback): void {
+    const loadAllObjects = function (table, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
 
@@ -149,7 +147,7 @@ var DesignerOfflineDB = (function () {
      * @param {string} table
      * @param {Function} callback
      */
-    designerDB.loadFirstObject = function (table, callback): void {
+    const loadFirstObject = function (table, callback): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
 
@@ -181,7 +179,7 @@ var DesignerOfflineDB = (function () {
      * @param {Object} obj
      * @param {Function} callback
      */
-    designerDB.addObject = function (table, obj, callback): void {
+    const addObject = function (table, obj, callback = undefined): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
 
@@ -205,7 +203,7 @@ var DesignerOfflineDB = (function () {
      * @param {string} id
      * @param {Function} callback
      */
-    designerDB.deleteObject = function (table, id, callback): void {
+    const deleteObject = function (table, id, callback = undefined): void {
         if (datastore === null) {
             ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
 
@@ -227,9 +225,22 @@ var DesignerOfflineDB = (function () {
     /**
      * @param {Error} e
      */
-    designerDB.onerror = function (e): void {
+    const onerror = function (e): void {
         // eslint-disable-next-line no-console
         console.log(e);
+    };
+
+    var designerDB = {
+        getTransaction: getTransaction,
+        getObjectStore: getObjectStore,
+        getCursorRequest: getCursorRequest,
+        open: open,
+        loadObject: loadObject,
+        loadAllObjects: loadAllObjects,
+        loadFirstObject: loadFirstObject,
+        addObject: addObject,
+        deleteObject: deleteObject,
+        onerror: onerror,
     };
 
     // Export the designerDB object.
