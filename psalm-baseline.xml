@@ -14748,6 +14748,9 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
     <MixedAssignment>
       <code>$points</code>
     </MixedAssignment>
@@ -14949,6 +14952,11 @@
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeTableTest.php">
     <MixedInferredReturnType>
@@ -15166,6 +15174,31 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
+  <file src="test/classes/Properties/Options/OptionsPropertyGroupTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Properties/Options/OptionsPropertyItemTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Properties/Options/OptionsPropertyOneItemTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Properties/Plugins/PluginPropertyItemTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Properties/PropertyItemTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType>
       <code>mixed[]</code>
@@ -15247,6 +15280,9 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/StorageEngineTest.php">
+    <DeprecatedMethod>
+      <code>getMockForAbstractClass</code>
+    </DeprecatedMethod>
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
