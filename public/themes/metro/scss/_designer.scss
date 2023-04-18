@@ -257,9 +257,7 @@ canvas.designer {
 }
 
 a {
-  &.M_butt_Selected_down_IE,
   &.M_butt_Selected_down,
-  &.M_butt_Selected_down_IE:hover,
   &.M_butt_Selected_down:hover,
   &.M_butt:hover {
     background-color: #eee;

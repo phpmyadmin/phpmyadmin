@@ -47,7 +47,6 @@ var osnTabHeight = 0;
 var heightField = 7;
 var globX;
 var globY;
-var timeoutId;
 var layerMenuCurClick = 0;
 window.fromArray = [];
 var menuMoved = false;
@@ -55,20 +54,9 @@ var gridSize = 10;
 
 // ------------------------------------------------------------------------------
 
-var isIe = document.all && ! window.opera;
-
-if (isIe) {
-    window.onscroll = DesignerMove.generalScroll;
-    document.onselectstart = function () {
-        return false;
-    };
-}
-
 DesignerMove.mouseDown = function (e) {
-    // eslint-disable-next-line compat/compat
-    globX = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
-    // eslint-disable-next-line compat/compat
-    globY = isIe ? e.clientY + document.body.scrollTop : e.pageY;
+    globX = e.pageX;
+    globY = e.pageY;
 
     if (e.target.tagName === 'SPAN') {
         curClick = e.target.parentNode.parentNode.parentNode.parentNode;
@@ -91,10 +79,8 @@ DesignerMove.mouseMove = function (e) {
         e.preventDefault();
     }
 
-    // eslint-disable-next-line compat/compat
-    var newDx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
-    // eslint-disable-next-line compat/compat
-    var newDy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
+    var newDx = e.pageX;
+    var newDy = e.pageY;
 
     var deltaX = globX - newDx;
     var deltaY = globY - newDy;
@@ -165,11 +151,6 @@ DesignerMove.mouseUp = function () {
 DesignerMove.canvasPos = function () {
     canvasWidth = document.getElementById('canvas').width = osnTabWidth - 3;
     canvasHeight = document.getElementById('canvas').height = osnTabHeight - 3;
-
-    if (isIe) {
-        document.getElementById('canvas').style.width = ((osnTabWidth - 3) ? (osnTabWidth - 3) : 0) + 'px';
-        document.getElementById('canvas').style.height = ((osnTabHeight - 3) ? (osnTabHeight - 3) : 0) + 'px';
-    }
 };
 
 DesignerMove.osnTabPos = function () {
@@ -234,9 +215,6 @@ DesignerMove.main = function () {
     DesignerMove.smallTabRefresh();
     DesignerMove.reload();
     DesignerMove.setDefaultValuesFromSavedState();
-    if (isIe) {
-        DesignerMove.generalScroll();
-    }
 };
 
 DesignerMove.resizeOsnTab = function () {
@@ -1484,10 +1462,8 @@ DesignerMove.canvasClick = function (id, event) {
     var key;
     var key2;
     var key3;
-    // eslint-disable-next-line compat/compat
-    var localX = isIe ? event.clientX + document.body.scrollLeft : event.pageX;
-    // eslint-disable-next-line compat/compat
-    var localY = isIe ? event.clientY + document.body.scrollTop : event.pageY;
+    var localX = event.pageX;
+    var localY = event.pageY;
     localX -= $('#osn_tab').offset().left;
     localY -= $('#osn_tab').offset().top;
     DesignerMove.clear();
@@ -1694,20 +1670,6 @@ DesignerMove.noHaveConstr = function (idThis) {
     }
 };
 
-DesignerMove.generalScroll = function () {
-    // if (timeoutId)
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(
-        function () {
-            // eslint-disable-next-line compat/compat
-            document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
-            // eslint-disable-next-line compat/compat
-            document.getElementById('top_menu').style.top = document.body.scrollTop + 'px';
-        },
-        200
-    );
-};
-
 // max/min all tables
 DesignerMove.showLeftMenu = function (idThis) {
     var icon = idThis.children[0];
@@ -1717,9 +1679,6 @@ DesignerMove.showLeftMenu = function (idThis) {
         document.getElementById('layer_menu').style.display = 'block';
         icon.alt = '>';
         icon.src = icon.dataset.up;
-        if (isIe) {
-            DesignerMove.generalScroll();
-        }
     } else {
         document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
         document.getElementById('layer_menu').style.display = 'none';
@@ -1776,11 +1735,7 @@ DesignerMove.startDisplayField = function () {
         onDisplayField = 1;
         document.getElementById('designer_hint').innerHTML = window.Messages.strChangeDisplay;
         document.getElementById('designer_hint').style.display = 'block';
-        document.getElementById('display_field_button').className = 'M_butt_Selected_down';// '#FFEE99';gray #AAAAAA
-
-        if (isIe) { // correct for IE
-            document.getElementById('display_field_button').className = 'M_butt_Selected_down_IE';
-        }
+        document.getElementById('display_field_button').className = 'M_butt_Selected_down';
     } else {
         document.getElementById('designer_hint').innerHTML = '';
         document.getElementById('designer_hint').style.display = 'none';
