@@ -160,6 +160,12 @@ function goToStep4 () {
     );
 }
 
+declare global {
+    interface Window {
+        goToStep4: typeof goToStep4;
+    }
+}
+
 window.goToStep4 = goToStep4;
 
 function goToStep3 () {

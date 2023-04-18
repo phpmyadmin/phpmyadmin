@@ -107,11 +107,11 @@ AJAX.registerOnload('replication.js', function () {
         });
     });
 
-    $('#button_generate_password').on('click', function () {
+    ($('#button_generate_password') as JQuery<HTMLInputElement>).on('click', function () {
         Functions.suggestPassword(this.form);
     });
 
-    $('#nopass_1').on('click', function () {
+    ($('#nopass_1') as JQuery<HTMLInputElement>).on('click', function () {
         this.form.pma_pw.value = '';
         this.form.pma_pw2.value = '';
         this.checked = true;

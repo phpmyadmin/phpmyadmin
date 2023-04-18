@@ -143,7 +143,7 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         event.stopPropagation();
         var $form = $(this);
-        var $tblNameField = $form.find('input[name=new_name]');
+        var $tblNameField = ($form.find('input[name=new_name]') as JQuery<HTMLInputElement>);
         var $tblCollationField = $form.find('select[name=tbl_collation]');
         var collationOrigValue = $('select[name="tbl_collation"] option[selected]').val();
         var $changeAllColumnCollationsCheckBox = $('#checkbox_change_all_collations');

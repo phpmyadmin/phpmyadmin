@@ -15,9 +15,6 @@ import { escapeHtml } from '../modules/functions/escape.ts';
  * @requires    jQueryUI
  */
 
-var DatabaseStructure = {};
-window.DatabaseStructure = DatabaseStructure;
-
 /**
  * AJAX scripts for /database/structure
  *
@@ -45,7 +42,7 @@ AJAX.registerTeardown('database/structure.js', function () {
  * Adjust number of rows and total size in the summary
  * when truncating, creating, dropping or inserting into a table
  */
-DatabaseStructure.adjustTotals = function () {
+const adjustTotals = function () {
     var byteUnits = [
         window.Messages.strB,
         window.Messages.strKiB,
@@ -160,7 +157,7 @@ DatabaseStructure.adjustTotals = function () {
  * Gets the real row count for a table or DB.
  * @param {object} $target Target for appending the real count value.
  */
-DatabaseStructure.fetchRealRowCount = function ($target) {
+const fetchRealRowCount = function ($target) {
     var $throbber = $('#pma_navigation').find('.throbber')
         .first()
         .clone()
@@ -272,7 +269,7 @@ AJAX.registerOnload('database/structure.js', function () {
             }).done(function (modalBody) {
                 const bulkActionModal = $('#bulkActionModal');
                 bulkActionModal.on('show.bs.modal', function () {
-                    this.querySelector('.modal-title').innerText = modalTitle;
+                    (this.querySelector('.modal-title') as HTMLHeadingElement).innerText = modalTitle;
                     this.querySelector('.modal-body').innerHTML = modalBody;
                 });
 
@@ -460,8 +457,15 @@ AJAX.registerOnload('database/structure.js', function () {
     });
 });
 
+const DatabaseStructure = {
+    adjustTotals: adjustTotals,
+    fetchRealRowCount: fetchRealRowCount,
+};
+
 declare global {
     interface Window {
         DatabaseStructure: typeof DatabaseStructure;
     }
 }
+
+window.DatabaseStructure = DatabaseStructure;

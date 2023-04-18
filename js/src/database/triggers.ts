@@ -131,6 +131,7 @@ const DatabaseTriggers = {
                     class: 'btn btn-primary',
                 },
             };
+            // @ts-ignore
             buttonOptions[window.Messages.strClose].click = function () {
                 $(this).dialog('close').remove();
             };
@@ -197,6 +198,7 @@ const DatabaseTriggers = {
             ajaxRemoveMessage($msg);
             // Now define the function that is called when
             // the user presses the "Go" button
+            // @ts-ignore
             buttonOptions[window.Messages.strGo].click = function () {
                 // Move the data from the codemirror editor back to the
                 // textarea, where it can be used in the form submission.
@@ -327,6 +329,7 @@ const DatabaseTriggers = {
                 }); // end $.post()
             }; // end of function that handles the submission of the Editor
 
+            // @ts-ignore
             buttonOptions[window.Messages.strClose].click = function () {
                 $(this).dialog('close');
             };
@@ -360,6 +363,7 @@ const DatabaseTriggers = {
                         Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
                     });
 
+                    // @ts-ignore
                     $.datepicker.initialized = false;
                 },
                 close: function () {
@@ -561,6 +565,7 @@ AJAX.registerOnload('database/triggers.js', function () {
         event.preventDefault();
 
         if ($(this).hasClass('add_anchor')) {
+            // @ts-ignore
             $.datepicker.initialized = false;
         }
 

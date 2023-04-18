@@ -22,13 +22,13 @@ import { escapeHtml } from './modules/functions/escape.ts';
  * @param enableVisib Optional, if false, show/hide column feature will be disabled
  * @param enableGridEdit Optional, if false, grid editing feature will be disabled
  */
-window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGridEdit) {
+const makeGrid = function (t, enableResize = undefined, enableReorder = undefined, enableVisib = undefined, enableGridEdit = undefined) {
     var isResizeEnabled = enableResize === undefined ? true : enableResize;
     var isReorderEnabled = enableReorder === undefined ? true : enableReorder;
     var isVisibEnabled = enableVisib === undefined ? true : enableVisib;
     var isGridEditEnabled = enableGridEdit === undefined ? true : enableGridEdit;
 
-    var g = {
+    var g: { [p: string]: any } = {
         /** *********
          * Constant
          ***********/
@@ -800,8 +800,8 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             // destroy datepicker in edit area, if exist
             var $dp = $(g.cEdit).find('.hasDatepicker');
             if ($dp.length > 0) {
-                // eslint-disable-next-line no-underscore-dangle
-                $(document).on('mousedown', $.datepicker._checkExternalClick);
+                // @ts-ignore
+                $(document).on('mousedown', $.datepicker._checkExternalClick); // eslint-disable-line no-underscore-dangle
                 $dp.datepicker('refresh');
 
                 // change the cursor in edit box back to normal
@@ -1058,7 +1058,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
 
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
-                        $td.data('original_data', $(data.select).val().join());
+                        $td.data('original_data', ($(data.select).val() as string[]).join());
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }); // end $.post()
 
@@ -1122,7 +1122,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     var $inputField = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
-                    var datetimeValue = ! isNull ? $inputField.val() : '';
+                    var datetimeValue = ! isNull ? ($inputField.val() as string) : '';
 
                     var showMillisec = false;
                     var showMicrosec = false;
@@ -1180,8 +1180,8 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     // unbind the mousedown event to prevent the problem of
                     // datepicker getting closed, needs to be checked for any
                     // change in names when updating
-                    // eslint-disable-next-line no-underscore-dangle
-                    $(document).off('mousedown', $.datepicker._checkExternalClick);
+                    // @ts-ignore
+                    $(document).off('mousedown', $.datepicker._checkExternalClick); // eslint-disable-line no-underscore-dangle
 
                     // move ui-datepicker-div inside cEdit div
                     var datepickerDiv = $('#ui-datepicker-div');
@@ -1272,7 +1272,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             // loop each edited row
             $(g.t).find('td.to_be_saved').parents('tr').each(function () {
                 var $tr = $(this);
-                var whereClause = $tr.find('.where_clause').val();
+                var whereClause = ($tr.find('.where_clause').val() as string);
                 if (typeof whereClause === 'undefined') {
                     whereClause = '';
                 }
@@ -1462,7 +1462,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                 $(this).find('input[type=checkbox]').each(function () {
                                     var $checkbox = $(this);
                                     var checkboxName = $checkbox.attr('name');
-                                    var checkboxValue = $checkbox.val();
+                                    var checkboxValue = ($checkbox.val() as string);
 
                                     $checkbox.attr('name', checkboxName.replace(oldClause, newClause));
                                     $checkbox.val(checkboxValue.replace(decodedOldClause, decodedNewClause));
@@ -1529,7 +1529,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
              * @var $thisField    Object referring to the td that is being edited
              */
             var $thisField = $(g.currentEditCell);
-            var $testElement = ''; // to test the presence of a element
+            var $testElement = null; // to test the presence of a element
 
             var needToPost = false;
 
@@ -1561,7 +1561,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if ($thisField.is('.bit')) {
                     thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                 } else if ($thisField.is('.set')) {
-                    $testElement = $(g.cEdit).find('select');
+                    $testElement = ($(g.cEdit).find('select') as JQuery<HTMLSelectElement>);
                     thisFieldParams[fieldName] = $testElement.map(function () {
                         return $(this).val();
                     }).get().join(',');
@@ -1571,7 +1571,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     // selection list will always be updated to the edit box
                     thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                 } else if ($thisField.hasClass('hex')) {
-                    if ($(g.cEdit).find('.edit_box').val().match(/^(0x)?[a-f0-9]*$/i) !== null) {
+                    if (($(g.cEdit).find('.edit_box').val() as string).match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                     } else {
                         var hexError = '<div class="alert alert-danger" role="alert">' + window.Messages.strEnterValidHex + '</div>';
@@ -1716,7 +1716,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             var $colOrder = $(g.o).find('.col_order');   // check if column order is passed from PHP
             var i;
             if ($colOrder.length > 0) {
-                g.colOrder = $colOrder.val().split(',');
+                g.colOrder = ($colOrder.val() as string).split(',');
                 for (i = 0; i < g.colOrder.length; i++) {
                     g.colOrder[i] = parseInt(g.colOrder[i], 10);
                 }
@@ -1805,7 +1805,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             // initialize column visibility
             var $colVisib = $(g.o).find('.col_visib');   // check if column visibility is passed from PHP
             if ($colVisib.length > 0) {
-                g.colVisib = $colVisib.val().split(',');
+                g.colVisib = ($colVisib.val() as string).split(',');
                 for (i = 0; i < g.colVisib.length; i++) {
                     g.colVisib[i] = parseInt(g.colVisib[i], 10);
                 }
@@ -2391,6 +2391,14 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
 };
+
+declare global {
+    interface Window {
+        makeGrid: typeof makeGrid;
+    }
+}
+
+window.makeGrid = makeGrid;
 
 /**
  * jQuery plugin to cancel selection in HTML code.

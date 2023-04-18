@@ -148,7 +148,7 @@ var processList = {
      * @return {object} urlParams - url parameters with autoRefresh request
      */
     getUrlParams: function () {
-        var urlParams = {
+        var urlParams: { [k: string]: any } = {
             'server': CommonParams.get('server'),
             'ajax_request': true,
             'refresh': true,

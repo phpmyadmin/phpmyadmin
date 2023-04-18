@@ -98,7 +98,9 @@ function setShowThisQuery () {
             if (db === storedDb && table === storedTable) {
                 if (window.codeMirrorEditor) {
                     window.codeMirrorEditor.setValue(storedQuery);
+                    // @ts-ignore
                 } else if (document.sqlform) {
+                    // @ts-ignore
                     document.sqlform.sql_query.value = storedQuery;
                 }
             }
@@ -246,8 +248,11 @@ const setQuery = function (query): void {
     if (window.codeMirrorEditor) {
         window.codeMirrorEditor.setValue(query);
         window.codeMirrorEditor.focus();
+        // @ts-ignore
     } else if (document.sqlform) {
+        // @ts-ignore
         document.sqlform.sql_query.value = query;
+        // @ts-ignore
         document.sqlform.sql_query.focus();
     }
 };
@@ -317,7 +322,9 @@ const insertQuery = function (queryType) {
     }
 
     var query = '';
+    // @ts-ignore
     var myListBox = document.sqlform.dummy;
+    // @ts-ignore
     table = document.sqlform.table.value;
 
     if (myListBox.options.length > 0) {
@@ -361,7 +368,9 @@ const insertQuery = function (queryType) {
  *
  */
 const insertValueQuery = function () {
+    // @ts-ignore
     var myQuery = document.sqlform.sql_query;
+    // @ts-ignore
     var myListBox = document.sqlform.dummy;
 
     if (myListBox.options.length > 0) {
@@ -384,14 +393,20 @@ const insertValueQuery = function () {
             window.codeMirrorEditor.replaceSelection(columnsList);
             window.codeMirrorEditor.focus();
             // IE support
+            // @ts-ignore
         } else if (document.selection) {
             myQuery.focus();
+            // @ts-ignore
             var sel = document.selection.createRange();
             sel.text = columnsList;
             // MOZILLA/NETSCAPE support
+            // @ts-ignore
         } else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart === '0') {
+            // @ts-ignore
             var startPos = document.sqlform.sql_query.selectionStart;
+            // @ts-ignore
             var endPos = document.sqlform.sql_query.selectionEnd;
+            // @ts-ignore
             var SqlString = document.sqlform.sql_query.value;
 
             myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
@@ -461,6 +476,7 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
+    // @ts-ignore
     if (window.codeMirrorEditor || document.sqlform) {
         Sql.setShowThisQuery();
     }
@@ -544,7 +560,7 @@ AJAX.registerOnload('sql.js', function () {
     $('input#bkm_label').on('input', function () {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
-            .toggle($(this).val().length > 0);
+            .toggle(($(this).val() as string).length > 0);
     }).trigger('input');
 
     /**
@@ -954,7 +970,7 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var $form = $(this).parents('form');
 
-        Sql.submitShowAllForm = function () {
+        const submitShowAllForm = function () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             ajaxShowMessage();
@@ -963,10 +979,10 @@ AJAX.registerOnload('sql.js', function () {
         };
 
         if (! $(this).is(':checked')) { // already showing all rows
-            Sql.submitShowAllForm();
+            submitShowAllForm();
         } else {
             $form.confirm(window.Messages.strShowAllRowsWarning, $form.attr('action'), function () {
-                Sql.submitShowAllForm();
+                submitShowAllForm();
             });
         }
     });
@@ -1299,6 +1315,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * Check if there is any saved query
      */
+    // @ts-ignore
     if (window.codeMirrorEditor || document.sqlform) {
         Sql.checkSavedQuery();
     }

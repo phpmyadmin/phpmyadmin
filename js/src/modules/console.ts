@@ -103,23 +103,23 @@ var Console = {
         if (Console.isInitialized === false) {
             // Load config first
             if (Config.AlwaysExpand) {
-                document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked = true;
+                (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked = true;
             }
 
             if (Config.StartHistory) {
-                document.getElementById('consoleOptionsStartHistoryCheckbox').checked = true;
+                (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked = true;
             }
 
             if (Config.CurrentQuery) {
-                document.getElementById('consoleOptionsCurrentQueryCheckbox').checked = true;
+                (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked = true;
             }
 
             if (Config.EnterExecutes) {
-                document.getElementById('consoleOptionsEnterExecutesCheckbox').checked = true;
+                (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked = true;
             }
 
             if (Config.DarkTheme) {
-                document.getElementById('consoleOptionsDarkThemeCheckbox').checked = true;
+                (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked = true;
                 $('#pma_console').find('>.content').addClass('console_dark_theme');
             }
 
@@ -179,11 +179,11 @@ var Console = {
             });
 
             $('#pma_console_options').find('.button.default').on('click', function () {
-                document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked = false;
-                document.getElementById('consoleOptionsStartHistoryCheckbox').checked = false;
-                document.getElementById('consoleOptionsCurrentQueryCheckbox').checked = true;
-                document.getElementById('consoleOptionsEnterExecutesCheckbox').checked = false;
-                document.getElementById('consoleOptionsDarkThemeCheckbox').checked = false;
+                (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked = false;
+                (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked = false;
+                (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked = true;
+                (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked = false;
+                (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked = false;
                 Config.update();
             });
 
@@ -267,6 +267,7 @@ var Console = {
         }
 
         Console.$requestForm.children('[name=console_message_id]')
+            // @ts-ignore
             .val(ConsoleMessages.appendQuery({ 'sql_query': queryString }).message_id);
 
         Console.$requestForm.trigger('submit');
@@ -280,6 +281,7 @@ var Console = {
         } else if (data && data.reloadQuerywindow) {
             if (data.reloadQuerywindow.sql_query.length > 0) {
                 ConsoleMessages.appendQuery(data.reloadQuerywindow, 'successed')
+                    // @ts-ignore
                     .$message.addClass(Config.CurrentQuery ? '' : 'hide');
             }
         }
@@ -518,6 +520,7 @@ var ConsoleInput = {
                 hintOptions: { 'completeSingle': false, 'completeOnSingleClick': true },
                 gutters: ['CodeMirror-lint-markers'],
                 lint: {
+                    // @ts-ignore
                     'getAnnotations': CodeMirror.sqlLint,
                     'async': true,
                 }
@@ -539,6 +542,7 @@ var ConsoleInput = {
                     hintOptions: { 'completeSingle': false, 'completeOnSingleClick': true },
                     gutters: ['CodeMirror-lint-markers'],
                     lint: {
+                        // @ts-ignore
                         'getAnnotations': CodeMirror.sqlLint,
                         'async': true,
                     }
@@ -810,6 +814,7 @@ var ConsoleMessages = {
         case 'query':
             $newMessage.append('<div class="query highlighted"></div>');
             if (ConsoleInput.codeMirror) {
+                // @ts-ignore
                 CodeMirror.runMode(msgString,
                     'text/x-sql', $newMessage.children('.query')[0]);
             } else {
@@ -994,6 +999,7 @@ var ConsoleMessages = {
 
         if (ConsoleInput.codeMirror) {
             $targetMessage.find('.query:not(.highlighted)').each(function (index, elem) {
+                // @ts-ignore
                 CodeMirror.runMode($(elem).text(),
                     'text/x-sql', elem);
 
@@ -1026,6 +1032,7 @@ var ConsoleMessages = {
                 }
 
                 if (ConsoleInput.codeMirror) {
+                    // @ts-ignore
                     CodeMirror.runMode(queryData.sql_query, 'text/x-sql', $targetMessage.children('.query')[0]);
                 } else {
                     $targetMessage.children('.query').text(queryData.sql_query);
@@ -1111,7 +1118,7 @@ var ConsoleBookmarks = {
         });
 
         $('#pma_bookmarks').find('.card.add [name=submit]').on('click', function () {
-            if ($('#pma_bookmarks').find('.card.add [name=label]').val().length === 0
+            if (($('#pma_bookmarks').find('.card.add [name=label]').val() as string).length === 0
                 || ConsoleInput.getText('bookmark').length === 0) {
                 alert(window.Messages.strFormEmpty);
 
@@ -1418,7 +1425,7 @@ var ConsoleDebug = {
         $('#debug_console').find('.debugLog').empty();
         $('#debug_console').find('.debug>.welcome').empty();
 
-        var debugJson = false;
+        var debugJson: any = false;
         var i;
         if (typeof debugInfo === 'object' && 'queries' in debugInfo) {
             // Copy it to debugJson, so that it doesn't get changed
@@ -1451,7 +1458,7 @@ var ConsoleDebug = {
         }
 
         var allQueries = debugJson.queries;
-        var uniqueQueries = {};
+        var uniqueQueries = [];
 
         var totalExec = allQueries.length;
 

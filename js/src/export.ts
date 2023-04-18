@@ -66,7 +66,7 @@ function getTemplateData () {
 
     // include unchecked checkboxes (which are ignored by serializeArray()) with null
     // to uncheck them when loading the template
-    $form.find('input[type="checkbox"]:not(:checked)').each(function () {
+    ($form.find('input[type="checkbox"]:not(:checked)') as JQuery<HTMLInputElement>).each(function () {
         if (obj[this.name] === undefined) {
             obj[this.name] = null;
         }
@@ -266,7 +266,7 @@ AJAX.registerOnload('export.js', function () {
     // create a new template
     $('input[name="createTemplate"]').on('click', function (e) {
         e.preventDefault();
-        var name = $('input[name="templateName"]').val();
+        var name = ($('input[name="templateName"]').val() as string);
         if (name.length) {
             Export.createTemplate(name);
         }
@@ -275,7 +275,7 @@ AJAX.registerOnload('export.js', function () {
     // load an existing template
     $('select[name="template"]').on('change', function (e) {
         e.preventDefault();
-        var id = $(this).val();
+        var id = ($(this).val() as string);
         if (id.length) {
             Export.loadTemplate(id);
         }
@@ -284,7 +284,7 @@ AJAX.registerOnload('export.js', function () {
     // update an existing template with new criteria
     $('input[name="updateTemplate"]').on('click', function (e) {
         e.preventDefault();
-        var id = $('select[name="template"]').val();
+        var id = ($('select[name="template"]').val() as string);
         if (id.length) {
             Export.updateTemplate(id);
         }
@@ -293,7 +293,7 @@ AJAX.registerOnload('export.js', function () {
     // delete an existing template
     $('input[name="deleteTemplate"]').on('click', function (e) {
         e.preventDefault();
-        var id = $('select[name="template"]').val();
+        var id = ($('select[name="template"]').val() as string);
         if (id.length) {
             Export.deleteTemplate(id);
         }

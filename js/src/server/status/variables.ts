@@ -21,21 +21,21 @@ AJAX.registerOnload('server/status/variables.js', function () {
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');
-    var categoryFilter = $('#filterCategory').find(':selected').val();
+    var categoryFilter = ($('#filterCategory').find(':selected').val() as string);
     var text = ''; // Holds filter text
 
     /* 3 Filtering functions */
-    $('#filterAlert').on('change', function () {
+    ($('#filterAlert') as JQuery<HTMLInputElement>).on('change', function () {
         alertFilter = this.checked;
         filterVariables();
     });
 
     $('#filterCategory').on('change', function () {
-        categoryFilter = $(this).val();
+        categoryFilter = ($(this).val() as string);
         filterVariables();
     });
 
-    $('#dontFormat').on('change', function () {
+    ($('#dontFormat') as JQuery<HTMLInputElement>).on('change', function () {
         // Hiding the table while changing values speeds up the process a lot
         const serverStatusVariables = $('#serverStatusVariables');
         serverStatusVariables.hide();
@@ -45,7 +45,7 @@ AJAX.registerOnload('server/status/variables.js', function () {
     }).trigger('change');
 
     $('#filterText').on('keyup', function () {
-        var word = $(this).val().replace(/_/g, ' ');
+        var word = ($(this).val() as string).replace(/_/g, ' ');
         if (word.length === 0 || word.length >= 32768) {
             textFilter = null;
         } else {

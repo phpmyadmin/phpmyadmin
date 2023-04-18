@@ -380,9 +380,10 @@ AJAX.registerOnload('table/chart.js', function () {
     });
 
     // handler for ajax form submission
-    $('#tblchartform').on('submit', function () {
-        var $form = $(this);
+    ($('#tblchartform') as JQuery<HTMLFormElement>).on('submit', function () {
+        var $form = ($(this) as JQuery<HTMLFormElement>);
         if (window.codeMirrorEditor) {
+            // @ts-ignore
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
 
@@ -428,12 +429,12 @@ AJAX.registerOnload('table/chart.js', function () {
         seriesColumn: null
     };
 
-    var vals = $('input[name="dateTimeCols"]').val().split(' ');
+    var vals = ($('input[name="dateTimeCols"]').val() as string).split(' ');
     $.each(vals, function (i, v) {
         dateTimeCols.push(parseInt(v, 10));
     });
 
-    vals = $('input[name="numericCols"]').val().split(' ');
+    vals = ($('input[name="numericCols"]').val() as string).split(' ');
     $.each(vals, function (i, v) {
         numericCols.push(parseInt(v, 10));
     });

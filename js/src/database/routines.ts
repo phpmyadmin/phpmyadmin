@@ -203,6 +203,7 @@ const DatabaseRoutines = {
             ajaxRemoveMessage($msg);
             // Now define the function that is called when
             // the user presses the "Go" button
+            // @ts-ignore
             buttonOptions[window.Messages.strGo].click = function () {
                 // Move the data from the codemirror editor back to the
                 // textarea, where it can be used in the form submission.
@@ -335,6 +336,7 @@ const DatabaseRoutines = {
                 }); // end $.post()
             }; // end of function that handles the submission of the Editor
 
+            // @ts-ignore
             buttonOptions[window.Messages.strClose].click = function () {
                 $(this).dialog('close');
             };
@@ -368,6 +370,7 @@ const DatabaseRoutines = {
                         Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
                     });
 
+                    // @ts-ignore
                     $.datepicker.initialized = false;
                 },
                 close: function () {
@@ -686,7 +689,7 @@ const DatabaseRoutines = {
             var $inputtyp = $(this).find('select[name^=item_param_type]');
             var $inputlen = $(this).find('input[name^=item_param_length]');
             if ($inputtyp.length && $inputlen.length) {
-                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().startsWith('VAR')) &&
+                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || ($inputtyp.val() as string).startsWith('VAR')) &&
                     $inputlen.val() === ''
                 ) {
                     $inputlen.trigger('focus');
@@ -858,6 +861,7 @@ const DatabaseRoutines = {
             };
             // Define the function that is called when
             // the user presses the "Go" button
+            // @ts-ignore
             buttonOptions[window.Messages.strGo].click = function () {
                 /**
                  * @var data Form data to be sent in the AJAX request
@@ -879,6 +883,7 @@ const DatabaseRoutines = {
                 });
             };
 
+            // @ts-ignore
             buttonOptions[window.Messages.strClose].click = function () {
                 $(this).dialog('close');
             };
@@ -945,6 +950,7 @@ const DatabaseRoutines = {
 AJAX.registerOnload('database/routines.js', function () {
     $(document).on('click', 'a.ajax.add_anchor', function (event) {
         event.preventDefault();
+        // @ts-ignore
         $.datepicker.initialized = false;
         DatabaseRoutines.editorDialog(true, $(this));
     });

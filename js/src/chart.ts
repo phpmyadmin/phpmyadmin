@@ -248,6 +248,7 @@ JQPlotChart.prototype.redraw = function (options) {
 
 JQPlotChart.prototype.toImageString = function () {
     if (this.plot !== null) {
+        // @ts-ignore
         return $('#' + this.elementId).jqplotToImageStr({});
     }
 };

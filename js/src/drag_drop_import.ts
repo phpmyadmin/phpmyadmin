@@ -78,6 +78,7 @@ var DragDropImport = {
                 if (xhrobj.upload) {
                     xhrobj.upload.addEventListener('progress', function (event) {
                         var percent = 0;
+                        // @ts-ignore
                         var position = event.loaded || event.position;
                         var total = event.total;
                         if (event.lengthComputable) {

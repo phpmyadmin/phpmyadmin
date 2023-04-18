@@ -76,8 +76,10 @@ function getTimeStamp (val, type) {
     if (type.toString().search(/datetime/i) !== -1 ||
         type.toString().search(/timestamp/i) !== -1
     ) {
+        // @ts-ignore
         return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', val);
     } else if (type.toString().search(/time/i) !== -1) {
+        // @ts-ignore
         return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', '1970-01-01 ' + val);
     } else if (type.toString().search(/date/i) !== -1) {
         return $.datepicker.parseDate('yy-mm-dd', val);

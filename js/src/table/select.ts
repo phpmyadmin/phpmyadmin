@@ -9,8 +9,6 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
  * @fileoverview JavaScript functions used on /table/search
  */
 
-var TableSelect = {};
-
 /**
  * Checks if given data-type is numeric or date.
  *
@@ -18,7 +16,7 @@ var TableSelect = {};
  *
  * @return {boolean | string}
  */
-TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
+const checkIfDataTypeNumericOrDate = function (dataType) {
     // To test for numeric data-types.
     var numericRegExp = new RegExp(
         'TINYINT|SMALLINT|MEDIUMINT|INT|BIGINT|DECIMAL|FLOAT|DOUBLE|REAL',
@@ -41,6 +39,10 @@ TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
     }
 
     return false;
+};
+
+const TableSelect = {
+    checkIfDataTypeNumericOrDate: checkIfDataTypeNumericOrDate,
 };
 
 /**
@@ -115,8 +117,8 @@ AJAX.registerOnload('table/select.js', function () {
 
         Functions.prepareForAjaxRequest($searchForm);
 
-        var values = {};
-        $searchForm.find(':input').each(function () {
+        var values: { [k: string]: any } = {};
+        ($searchForm.find(':input') as JQuery<HTMLInputElement>).each(function () {
             var $input = $(this);
             if ($input.attr('type') === 'checkbox' || $input.attr('type') === 'radio') {
                 if ($input.is(':checked')) {
@@ -340,8 +342,8 @@ AJAX.registerOnload('table/select.js', function () {
                         Functions.addDatepicker($('#min_value'), dataType);
                         Functions.addDatepicker($('#max_value'), dataType);
                         $('#rangeSearchModalGo').on('click', function () {
-                            var minValue = $('#min_value').val();
-                            var maxValue = $('#max_value').val();
+                            var minValue = ($('#min_value').val() as string);
+                            var maxValue = ($('#max_value').val() as string);
                             var finalValue = '';
                             if (minValue.length && maxValue.length) {
                                 finalValue = minValue + ', ' +

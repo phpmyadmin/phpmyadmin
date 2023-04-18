@@ -15,7 +15,7 @@ import isStorageSupported from '../../modules/functions/isStorageSupported.ts';
  * @requires    jQueryUI
  */
 
-var runtime = {};
+var runtime: { [k: string]: any } = {};
 var serverTimeDiff;
 var serverOs;
 var isSuperUser;
@@ -236,7 +236,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     var editMode = false;
 
     /* List of preconfigured charts that the user may select */
-    var presetCharts = {
+    var presetCharts: { [p: string]: any } = {
         // Query cache efficiency
         'qce': {
             title: window.Messages.strQueryCacheEfficiency,
@@ -433,7 +433,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     }
 
     // Default setting for the chart grid
-    var defaultChartGrid = {
+    var defaultChartGrid: { [p: string]: any } = {
         'c0': {
             title: window.Messages.strQuestions,
             series: [{ label: window.Messages.strQuestions }],
@@ -512,7 +512,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     });
 
     // global settings
-    $('div.popupContent select[name="chartColumns"]').on('change', function () {
+    ($('div.popupContent select[name="chartColumns"]') as JQuery<HTMLSelectElement>).on('change', function () {
         monitorSettings.columns = parseInt(this.value, 10);
 
         calculateChartSize();
@@ -578,7 +578,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         saveMonitor(); // Save settings
     });
 
-    $('div.popupContent select[name="gridChartRefresh"]').on('change', function () {
+    ($('div.popupContent select[name="gridChartRefresh"]') as JQuery<HTMLSelectElement>).on('change', function () {
         monitorSettings.gridRefresh = parseInt(this.value, 10) * 1000;
         clearTimeout(runtime.refreshTimeout);
 
@@ -691,7 +691,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var blob = new Blob([JSON.stringify(exportData)], { type: 'application/octet-stream' });
         var url = null;
         var fileName = 'monitor-config.json';
+        // @ts-ignore
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            // @ts-ignore
             window.navigator.msSaveOrOpenBlob(blob, fileName);
         } else {
             url = URL.createObjectURL(blob);
@@ -732,8 +734,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
         };
 
+        // @ts-ignore
         dlgBtns[window.Messages.strImport].click = function () {
-            var input = $('#emptyDialog').find('#import_file')[0];
+            var input = ($('#emptyDialog').find('#import_file') as JQuery<HTMLInputElement>)[0];
             var reader = new FileReader();
 
             reader.onerror = function (event) {
@@ -788,6 +791,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             }
         };
 
+        // @ts-ignore
         dlgBtns[window.Messages.strCancel].click = function () {
             $(this).dialog('close');
         };
@@ -985,7 +989,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         return false;
     });
 
-    $('input[name="chartType"]').on('change', function () {
+    ($('input[name="chartType"]') as JQuery<HTMLInputElement>).on('change', function () {
         $('#chartVariableSettings').toggle(this.checked && this.value === 'variable');
         var title = $('input[name="chartTitle"]').val();
         if (title === window.Messages.strChartTitle ||
@@ -997,15 +1001,15 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }
     });
 
-    $('input[name="useDivisor"]').on('change', function () {
+    ($('input[name="useDivisor"]') as JQuery<HTMLInputElement>).on('change', function () {
         $('span.divisorInput').toggle(this.checked);
     });
 
-    $('input[name="useUnit"]').on('change', function () {
+    ($('input[name="useUnit"]') as JQuery<HTMLInputElement>).on('change', function () {
         $('span.unitInput').toggle(this.checked);
     });
 
-    $('select[name="varChartList"]').on('change', function () {
+    ($('select[name="varChartList"]') as JQuery<HTMLSelectElement>).on('change', function () {
         if (this.selectedIndex !== 0) {
             $('#variableInput').val(this.value);
         }
@@ -1055,7 +1059,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
         }
 
-        var serie = {
+        var serie: { [p: string]: any } = {
             dataPoints: [{ type: 'statusvar', name: $('#variableInput').val() }],
             display: $('input[name="differentialValue"]').prop('checked') ? 'differential' : ''
         };
@@ -1077,7 +1081,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         str += serie.unit ? (', ' + window.Messages.strUnit + ': ' + serie.unit) : '';
 
         var newSeries = {
-            label: $('#variableInput').val().replace(/_/g, ' ')
+            label: ($('#variableInput').val() as string).replace(/_/g, ' ')
         };
         newChart.series.push(newSeries);
         $('#seriesPreview').append('- ' + escapeHtml(newSeries.label + str) + '<br>');
@@ -1088,7 +1092,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $('input[name="useUnit"]').prop('checked', false);
         $('input[name="useDivisor"]').trigger('change');
         $('input[name="useUnit"]').trigger('change');
-        $('select[name="varChartList"]').get(0).selectedIndex = 0;
+        ($('select[name="varChartList"]') as JQuery<HTMLSelectElement>).get(0).selectedIndex = 0;
 
         $('#clearSeriesLink').show();
 
@@ -1250,7 +1254,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     /* Adds a chart to the chart grid */
     function addChart (chartObj, initialize = undefined) {
         var i;
-        var settings = {
+        var settings: { [p: string]: any } = {
             title: escapeHtml(chartObj.title),
             grid: {
                 drawBorder: false,
@@ -1524,11 +1528,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
         };
 
+        // @ts-ignore
         dlgBtns[window.Messages.strFromSlowLog].click = function () {
             loadLog('slow', min, max);
             $(this).dialog('close');
         };
 
+        // @ts-ignore
         dlgBtns[window.Messages.strFromGeneralLog].click = function () {
             loadLog('general', min, max);
             $(this).dialog('close');
@@ -1829,6 +1835,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
         };
 
+        // @ts-ignore
         dlgBtns[window.Messages.strCancelRequest].click = function () {
             if (logRequest !== null) {
                 logRequest.abort();
@@ -1885,6 +1892,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                     $('#emptyDialog').html('<p>' + window.Messages.strNoDataFound + '</p>');
 
+                    // @ts-ignore
                     dlgBtns[window.Messages.strClose].click = function () {
                         $(this).dialog('close');
                     };
@@ -1905,7 +1913,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 });
 
                 $('#emptyDialog').html('<p>' + window.Messages.strLogDataLoaded + '</p>');
-                $.each(logData.sum, function (key, value) {
+                $.each(logData.sum, function (key: string, value) {
                     var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                     if (newKey === 'Total') {
                         newKey = '<b>' + newKey + '</b>';
@@ -1965,7 +1973,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
          */
         function filterQueries (varFilterChange) {
             var textFilter;
-            var val = $('#filterQueryText').val();
+            var val = ($('#filterQueryText').val() as string);
 
             if (val.length === 0) {
                 textFilter = null;
@@ -2251,10 +2259,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
         };
 
+        // @ts-ignore
         dlgBtns[window.Messages.strAnalyzeQuery].click = function () {
             profilingChart = loadQueryAnalysis(rowData);
         };
 
+        // @ts-ignore
         dlgBtns[window.Messages.strClose].click = function () {
             $(this).dialog('close');
         };

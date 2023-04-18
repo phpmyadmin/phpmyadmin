@@ -96,7 +96,7 @@ var ErrorReport = {
             const postData = $.extend(reportData, {
                 'send_error_report': true,
                 'description': $('#errorReportDescription').val(),
-                'always_send': $('#errorReportAlwaysSendCheckbox')[0].checked
+                'always_send': ($('#errorReportAlwaysSendCheckbox') as JQuery<HTMLInputElement>)[0].checked
             });
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
@@ -228,7 +228,7 @@ var ErrorReport = {
             }
         }
 
-        var reportData = {
+        var reportData: { exception: any; server: any; ajax_request: boolean; exception_type: string; url: string, scripts?: any[] } = {
             'server': CommonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
@@ -262,9 +262,11 @@ var ErrorReport = {
                 }
             };
 
+            // @ts-ignore
             newFunc.wrapped = true;
             // Set guid of wrapped function same as original function, so it can be removed
             // See bug#4146 (problem with jquery draggable and sortable)
+            // @ts-ignore
             newFunc.guid = func.guid = func.guid || newFunc.guid || $.guid++;
 
             return newFunc;

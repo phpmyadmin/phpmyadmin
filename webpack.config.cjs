@@ -11,7 +11,6 @@ const publicPath = path.resolve(__dirname, 'public');
 
 const typeScriptErrorsToIgnore = [
     2322, // TS2322: Type '%s' is not assignable to type '%s'.
-    2339, // TS2339: Property '%s' does not exist on type '%s'.
     2345, // TS2345: Argument of type '%s' is not assignable to parameter of type '%s'.
     2362, // TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
     2363, // TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
@@ -20,7 +19,6 @@ const typeScriptErrorsToIgnore = [
     2405, // TS2405: The left-hand side of a 'for...in' statement must be of type 'string' or 'any'.
     2469, // TS2469: The '+' operator cannot be applied to type 'symbol'.
     2538, // TS2538: Type '%s' cannot be used as an index type.
-    2551, // TS2551: Property '%s' does not exist on type '%s'. Did you mean '%s'?
     2769, // TS2769: No overload matches this call.
     5096, // TS5096: Option 'allowImportingTsExtensions' can only be used when either 'noEmit' or 'emitDeclarationOnly' is set.
 ];

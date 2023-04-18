@@ -34,7 +34,7 @@ let sqlAutoCompleteInProgress = false;
  * Object containing list of columns in each table.
  * @type {(any[]|boolean)}
  */
-let sqlAutoComplete = false;
+let sqlAutoComplete: boolean | any[] = false;
 
 /**
  * String containing default table to autocomplete columns.
@@ -232,10 +232,12 @@ function getSqlEditor ($textarea, options = undefined, resize = undefined, lintO
         lineWrapping: true
     };
 
+    // @ts-ignore
     if (window.CodeMirror.sqlLint) {
         $.extend(defaults, {
             gutters: ['CodeMirror-lint-markers'],
             lint: {
+                // @ts-ignore
                 'getAnnotations': window.CodeMirror.sqlLint,
                 'async': true,
                 'lintOptions': lintOptions
@@ -276,7 +278,9 @@ function getSqlEditor ($textarea, options = undefined, resize = undefined, lintO
  * Clear text selection
  */
 function clearSelection () {
+    // @ts-ignore
     if (document.selection && document.selection.empty) {
+        // @ts-ignore
         document.selection.empty();
     } else if (window.getSelection) {
         var sel = window.getSelection();
@@ -456,7 +460,7 @@ function displayPasswordGenerateButton () {
 
     pwdCell.append('<div class="d-flex align-items-center col-4"></div>');
 
-    var pwdButton = $('<input>')
+    var pwdButton = ($('<input>') as JQuery<HTMLInputElement>)
         .attr({ type: 'button', id: 'button_generate_password', value: window.Messages.strGenerate })
         .addClass('btn btn-secondary button')
         .on('click', function () {
@@ -1092,7 +1096,7 @@ function onloadSqlQueryEditEvents () {
         }
 
         var $form = $(this).prev('form');
-        var sqlQuery = $form.find('input[name=\'sql_query\']').val().trim();
+        var sqlQuery = ($form.find('input[name=\'sql_query\']').val() as string).trim();
         var $innerSql = $(this).parent().prev().find('code.sql');
 
         var newContent = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sqlQuery) + '</textarea>\n';
@@ -1216,6 +1220,7 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
                                             displayText += ' | Unique';
                                         }
 
+                                        // @ts-ignore
                                         table.columns.push({
                                             text: column,
                                             displayText: column + ' | ' + displayText,
@@ -1256,6 +1261,7 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
     }
 
     if (string.length > 0) {
+        // @ts-ignore
         window.CodeMirror.commands.autocomplete(instance);
     }
 }
@@ -1337,6 +1343,7 @@ function updateCode ($base, htmlValue, rawValue) {
     // Tries to highlight code using CodeMirror.
     if (typeof window.CodeMirror !== 'undefined') {
         var $highlighted = $('<div class="' + type + '-highlight cm-s-default"></div>');
+        // @ts-ignore
         window.CodeMirror.runMode(rawValue, mode, $highlighted[0]);
         $notHighlighted.hide();
         $code.html('').append($notHighlighted, $highlighted[0]);
@@ -1800,15 +1807,18 @@ function sortTable (textSelector) {
 
         // get the text of the field that we will sort by
         $.each(rows, function (index, row) {
+            // @ts-ignore
             row.sortKey = $(row).find(textSelector).text().toLowerCase().trim();
         });
 
         // get the sorted order
         rows.sort(function (a, b) {
+            // @ts-ignore
             if (a.sortKey < b.sortKey) {
                 return -1;
             }
 
+            // @ts-ignore
             if (a.sortKey > b.sortKey) {
                 return 1;
             }
@@ -1819,6 +1829,7 @@ function sortTable (textSelector) {
         // pull out each row from the table and then append it according to it's order
         $.each(rows, function (index, row) {
             $(tableBody).append(row);
+            // @ts-ignore
             row.sortKey = null;
         });
     });
@@ -2908,7 +2919,7 @@ function showIndexEditDialog ($outer) {
  *                    omit this parameter the function searches
  *                    in the whole body
  **/
-function showHints ($div = undefined) {
+function showHints ($div: JQuery<HTMLElement> | undefined = undefined) {
     var $newDiv = $div;
     if ($newDiv === undefined || ! ($newDiv instanceof $) || $newDiv.length === 0) {
         $newDiv = $('body');

@@ -111,7 +111,7 @@ AJAX.registerOnload('import.js', function () {
             }
 
             if ($('#text_csv_new_tbl_name').length > 0) {
-                var newTblName = $('#text_csv_new_tbl_name').val();
+                var newTblName = ($('#text_csv_new_tbl_name').val() as string);
                 if (newTblName.length > 0 && newTblName.trim().length === 0) {
                     ajaxShowMessage(wrongTblNameMsg, false);
 
@@ -120,7 +120,7 @@ AJAX.registerOnload('import.js', function () {
             }
 
             if ($('#text_csv_new_db_name').length > 0) {
-                var newDBName = $('#text_csv_new_db_name').val();
+                var newDBName = ($('#text_csv_new_db_name').val() as string);
                 if (newDBName.length > 0 && newDBName.trim().length === 0) {
                     ajaxShowMessage(wrongDBNameMsg, false);
 
@@ -165,8 +165,8 @@ AJAX.registerOnload('import.js', function () {
      * if first character is escape then allow two including escape character.
      */
     $('#text_csv_enclosed').add('#text_csv_escaped').on('keyup', function () {
-        if ($(this).val().length === 2 && $(this).val().charAt(0) !== '\\') {
-            $(this).val($(this).val().substring(0, 1));
+        if (($(this).val() as string).length === 2 && ($(this).val() as string).charAt(0) !== '\\') {
+            $(this).val(($(this).val() as string).substring(0, 1));
 
             return false;
         }

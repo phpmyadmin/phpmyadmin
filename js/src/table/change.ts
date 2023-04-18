@@ -19,6 +19,7 @@ import { Functions } from '../modules/functions.ts';
  * @return {boolean} always true
  */
 function nullify (theType, urlField, md5Field, multiEdit) {
+    // @ts-ignore
     var rowForm = document.forms.insertForm;
 
     if (typeof (rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']']) !== 'undefined') {
@@ -173,7 +174,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
     if ($thisInput.data('type') === 'INT' ||
         $thisInput.data('type') === 'TINYINT') {
         // Trim spaces if it's an integer
-        $thisInput.val($thisInput.val().trim());
+        $thisInput.val(($thisInput.val() as string).trim());
 
         var hasMultiple = $thisInput.prop('multiple');
 
@@ -209,7 +210,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
         $thisInput.valid();
     } else if ($thisInput.data('type') === 'FLOAT') {
         // Trim spaces
-        $thisInput.val($thisInput.val().trim());
+        $thisInput.val(($thisInput.val() as string).trim());
 
         $(searchFormId).validate({
             // update errors as we write
@@ -306,15 +307,15 @@ function validateFloatField (jqueryInput, returnValueIfIsNumber): void {
 function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
-    var $thisInput = $(':input[name^=\'fields[multi_edit][' + multiEdit + '][' +
-        urlField + ']\']');
+    var $thisInput = ($(':input[name^=\'fields[multi_edit][' + multiEdit + '][' +
+        urlField + ']\']') as JQuery<HTMLInputElement>);
     // the function drop-down that corresponds to this input field
-    var $thisFunction = $('select[name=\'funcs[multi_edit][' + multiEdit + '][' +
-        urlField + ']\']');
+    var $thisFunction = ($('select[name=\'funcs[multi_edit][' + multiEdit + '][' +
+        urlField + ']\']') as JQuery<HTMLSelectElement>);
     var functionSelected = false;
     if (typeof $thisFunction.val() !== 'undefined' &&
         $thisFunction.val() !== null &&
-        $thisFunction.val().length > 0
+        ($thisFunction.val() as string).length > 0
     ) {
         functionSelected = true;
     }
@@ -549,6 +550,7 @@ AJAX.registerOnload('table/change.js', function () {
      */
     window.extendingValidatorMessages();
 
+    // @ts-ignore
     $.datepicker.initialized = false;
 
     $(document).on('click', 'span.open_gis_editor', function (event) {
@@ -899,7 +901,7 @@ function addNewContinueInsertionFields (event) {
                 currRows--;
             }
         } else {
-            document.getElementById('insert_rows').value = currRows;
+            (document.getElementById('insert_rows') as HTMLInputElement).value = currRows;
         }
     }
 
@@ -909,6 +911,7 @@ function addNewContinueInsertionFields (event) {
 
 function changeValueFieldType (elem, searchIndex) {
     var fieldsValue = $('input#fieldID_' + searchIndex);
+    // @ts-ignore
     if (0 === fieldsValue.size()) {
         return;
     }

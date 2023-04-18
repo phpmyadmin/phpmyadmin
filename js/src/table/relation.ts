@@ -10,9 +10,7 @@ import refreshMainContent from '../modules/functions/refreshMainContent.ts';
  * for table relation
  */
 
-var TableRelation = {};
-
-TableRelation.showHideClauses = function ($thisDropdown) {
+const showHideClauses = function ($thisDropdown) {
     if ($thisDropdown.val() === '') {
         $thisDropdown.parent().nextAll('span').hide();
     } else {
@@ -28,7 +26,7 @@ TableRelation.showHideClauses = function ($thisDropdown) {
  * @param values
  * @param selectedValue
  */
-TableRelation.setDropdownValues = function ($dropdown, values, selectedValue): void {
+const setDropdownValues = function ($dropdown, values, selectedValue = undefined): void {
     $dropdown.empty();
     var optionsAsString = '';
     // add an empty string to the beginning for empty selection
@@ -45,7 +43,7 @@ TableRelation.setDropdownValues = function ($dropdown, values, selectedValue): v
  *
  * @param $dropdown the dropdown whose value got changed
  */
-TableRelation.getDropdownValues = function ($dropdown): void {
+const getDropdownValues = function ($dropdown): void {
     var foreignDb = null;
     var foreignTable = null;
     var $databaseDd;
@@ -133,6 +131,12 @@ TableRelation.getDropdownValues = function ($dropdown): void {
             }
         }
     });
+};
+
+const TableRelation = {
+    showHideClauses: showHideClauses,
+    setDropdownValues: setDropdownValues,
+    getDropdownValues: getDropdownValues,
 };
 
 /**

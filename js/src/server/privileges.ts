@@ -256,7 +256,7 @@ const RevokeUser = {
 
                     // Remove the revoked user from the users list
                     $form.find('input:checkbox:checked').parents('tr').slideUp('medium', function () {
-                        var thisUserInitial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
+                        var thisUserInitial = ($(this).find('input:checkbox').val() as string).charAt(0).toUpperCase();
                         $(this).remove();
 
                         // If this is the last user with thisUserInitial, remove the link from #userAccountsPagination
@@ -437,7 +437,7 @@ const SelectAllPrivileges = {
     handleEvent: function (event) {
         const method = event.target.getAttribute('data-select-target');
         var options = $(method).first().children();
-        options.each(function (_, obj) {
+        options.each(function (_, obj: HTMLOptionElement) {
             obj.selected = true;
         });
     }

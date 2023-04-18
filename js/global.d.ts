@@ -14,7 +14,9 @@ interface Window {
     opera: any;
     zxcvbnts: any;
     msCrypto: any;
+    u2f: any;
     drawOpenLayers: () => any;
+    variableNames: string[];
 }
 
 interface JQuery {

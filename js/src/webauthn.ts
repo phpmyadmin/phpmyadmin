@@ -52,14 +52,14 @@ const handleCreation = ($input): void => {
 
     // eslint-disable-next-line compat/compat
     navigator.credentials.create({ publicKey: publicKey })
-        .then((credential) => {
+        .then((credential: PublicKeyCredential) => {
             const credentialJson = JSON.stringify({
                 id: credential.id,
                 rawId: arrayBufferToBase64(credential.rawId),
                 type: credential.type,
                 response: {
                     clientDataJSON: arrayBufferToBase64(credential.response.clientDataJSON),
-                    attestationObject: arrayBufferToBase64(credential.response.attestationObject),
+                    attestationObject: arrayBufferToBase64((credential.response as AuthenticatorAttestationResponse).attestationObject),
                 }
             });
             $input.val(credentialJson);
@@ -93,16 +93,16 @@ const handleRequest = ($input): void => {
 
     // eslint-disable-next-line compat/compat
     navigator.credentials.get({ publicKey: publicKey })
-        .then((credential) => {
+        .then((credential: PublicKeyCredential) => {
             const credentialJson = JSON.stringify({
                 id: credential.id,
                 rawId: arrayBufferToBase64(credential.rawId),
                 type: credential.type,
                 response: {
-                    authenticatorData: arrayBufferToBase64(credential.response.authenticatorData),
+                    authenticatorData: arrayBufferToBase64((credential.response as AuthenticatorAssertionResponse).authenticatorData),
                     clientDataJSON: arrayBufferToBase64(credential.response.clientDataJSON),
-                    signature: arrayBufferToBase64(credential.response.signature),
-                    userHandle: arrayBufferToBase64(credential.response.userHandle),
+                    signature: arrayBufferToBase64((credential.response as AuthenticatorAssertionResponse).signature),
+                    userHandle: arrayBufferToBase64((credential.response as AuthenticatorAssertionResponse).userHandle),
                 }
             });
             $input.val(credentialJson);
