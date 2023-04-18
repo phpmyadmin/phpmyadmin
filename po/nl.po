@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-16 00:18+0000\n"
-"PO-Revision-Date: 2023-03-20 19:01+0000\n"
+"PO-Revision-Date: 2023-04-19 06:38+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -6294,10 +6294,8 @@ msgid "Connections / Processes"
 msgstr "Verbindingen / Processen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:173
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "Aantal tabellen:"
+msgstr "Aantal verklaringen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Local monitor configuration incompatible!"
@@ -8455,10 +8453,8 @@ msgstr ""
 "al gesloten."
 
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:90
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "Statements toevoegen:"
+msgstr "Andere verklaringen"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:127
 msgid "Received"
@@ -18220,7 +18216,7 @@ msgstr "ø per uur"
 
 #: templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Taartdiagram met de meest frequente verklaringen."
 
 #: templates/server/status/status/index.twig:6
 #, php-format
