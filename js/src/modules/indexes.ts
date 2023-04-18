@@ -310,8 +310,8 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
 
     var columns = {};
     for (var i = 0; i < targetColumns.length; i++) {
-        var columnName = $('input[name="field_name[' + targetColumns[i] + ']"]').val();
-        var columnType = $('select[name="field_type[' + targetColumns[i] + ']"]').val().toLowerCase();
+        var columnName = ($('input[name="field_name[' + targetColumns[i] + ']"]').val() as string);
+        var columnType = ($('select[name="field_type[' + targetColumns[i] + ']"]').val() as string).toLowerCase();
         columns[columnName] = [columnType, targetColumns[i]];
     }
 

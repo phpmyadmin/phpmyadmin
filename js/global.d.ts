@@ -11,7 +11,9 @@ declare function sprintf(format: string, ...values: (string|number)[]): string;
 
 interface Window {
     ol: any;
-
+    opera: any;
+    zxcvbnts: any;
+    msCrypto: any;
     drawOpenLayers: () => any;
 }
 
@@ -42,12 +44,13 @@ interface JQuery {
     uiTooltip(optionLiteral: string, optionName: string): any;
     uiTooltip(optionLiteral: string, options: JQueryUI.TooltipOptions): any;
     uiTooltip(optionLiteral: string, optionName: string, optionValue: any): JQuery;
+
+    tablesorter: any;
 }
 
 interface JQueryStatic {
     timepicker: any;
-
     tablesorter: any;
-
     jqplot: any;
+    uiTableFilter: any;
 }

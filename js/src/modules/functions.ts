@@ -260,6 +260,7 @@ function getSqlEditor ($textarea, options = undefined, resize = undefined, lintO
 
     // page locking
     codemirrorEditor.on('change', function (e) {
+        // @ts-ignore
         e.data = {
             value: 3,
             content: codemirrorEditor.isClean(),
@@ -986,7 +987,7 @@ function updateQueryParameters () {
         return;
     }
 
-    var query = window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val();
+    var query = window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : ($('#sqlquery').val() as string);
 
     var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
     var parameters = [];
@@ -2365,7 +2366,7 @@ function teardownEnumSetEditor (): void {
 function onloadEnumSetEditor (): void {
     $(document).on('click', 'a.open_enum_editor', function () {
         // Get the name of the column that is being edited
-        var colname = $(this).closest('tr').find('input').first().val();
+        var colname = ($(this).closest('tr').find('input').first().val() as string);
         var title;
         var i;
         // And use it to make up a title for the page
@@ -2379,10 +2380,10 @@ function onloadEnumSetEditor (): void {
         }
 
         // Get the values as a string
-        var inputstring = $(this)
+        var inputstring = ($(this)
             .closest('td')
             .find('input')
-            .val();
+            .val() as string);
         // Escape html entities
         inputstring = $('<div></div>')
             .text(inputstring)
@@ -2463,7 +2464,7 @@ function onloadEnumSetEditor (): void {
             // When the submit button is clicked,
             // put the data back into the original form
             var valueArray = [];
-            $('#enumEditorModal').find('.values input').each(function (index, elm) {
+            ($('#enumEditorModal').find('.values input') as JQuery<HTMLInputElement>).each(function (index, elm) {
                 var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
                 valueArray.push('\'' + val + '\'');
             });
@@ -3165,6 +3166,7 @@ function slidingMessage (msg, $object = undefined) {
         return false;
     }
 
+    // @ts-ignore
     if ($obj === undefined || ! ($obj instanceof $) || $obj.length === 0) {
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
@@ -3536,7 +3538,7 @@ function getSubCheckAllBoxEventHandler () {
  */
 function getFilterTextEventHandler () {
     return function () {
-        var filterInput = $(this).val().toUpperCase().replace(/ /g, '_');
+        var filterInput = ($(this).val() as string).toUpperCase().replace(/ /g, '_');
         var count = 0;
         $('[data-filter-row]').each(function () {
             var $row = $(this);
@@ -3839,6 +3841,7 @@ declare global {
     interface Window {
         codeMirrorEditor: CodeMirror.EditorFromTextArea | null;
         recaptchaCallback: () => void;
+        centralColumnList: any[];
         Functions: typeof Functions;
     }
 }

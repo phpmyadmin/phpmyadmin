@@ -731,7 +731,7 @@ const getUrlPos = function (forceString = undefined) {
             poststr += argsep + 't_x[' + i + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + i + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += argsep + 't_v[' + i + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
-            poststr += argsep + 't_h[' + i + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+            poststr += argsep + 't_h[' + i + ']=' + ((document.getElementById('check_vis_' + key) as HTMLInputElement).checked ? 1 : 0);
             poststr += argsep + 't_db[' + i + ']=' + $(document.getElementById(key)).attr('db_url');
             poststr += argsep + 't_tbl[' + i + ']=' + $(document.getElementById(key)).attr('table_name_url');
             i++;
@@ -741,7 +741,7 @@ const getUrlPos = function (forceString = undefined) {
     } else {
         var coords = [];
         for (key in DesignerConfig.jTabs) {
-            if (document.getElementById('check_vis_' + key).checked) {
+            if ((document.getElementById('check_vis_' + key) as HTMLInputElement).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
                 var tbCoords = new DesignerObjects.TableCoordinate(
@@ -788,8 +788,8 @@ const save2 = function (callback) {
 };
 
 const submitSaveDialogAndClose = function (callback, modal) {
-    var $form = $('#save_page');
-    var name = $form.find('input[name="selected_value"]').val().trim();
+    var $form = ($('#save_page') as JQuery<HTMLFormElement>);
+    var name = ($form.find('input[name="selected_value"]').val() as string).trim();
     if (name === '') {
         ajaxShowMessage(window.Messages.strEnterValidPageName, false);
 
@@ -991,7 +991,7 @@ const saveAs = function () {
             var modal = DesignerMove.displayModal(data.message, window.Messages.strSavePageAs, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 var $form = $('#save_as_pages');
-                var selectedValue = $form.find('input[name="selected_value"]').val().trim();
+                var selectedValue = ($form.find('input[name="selected_value"]').val() as string).trim();
                 var $selectedPage = $form.find('select[name="selected_page"]');
                 var choice = $form.find('input[name="save_page"]:checked').val();
                 var name = '';
@@ -1107,7 +1107,7 @@ const exportPages = function () {
                 $form.append('<input type="hidden" name="offline_export" value="true">');
             }
 
-            $.each(DesignerMove.getUrlPos(true).substring(1).split(argsep), function () {
+            $.each((DesignerMove.getUrlPos(true) as string).substring(1).split(argsep), function () {
                 var pair = this.split('=');
                 var input = $('<input type="hidden">');
                 input.attr('name', pair[0]);
@@ -1323,7 +1323,7 @@ const newRelation = function () {
     document.getElementById('layer_new_relation').style.display = 'none';
     var argsep = CommonParams.get('arg_separator');
     linkRelation += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + DesignerConfig.db + argsep + 'db2=p';
-    linkRelation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
+    linkRelation += argsep + 'on_delete=' + (document.getElementById('on_delete') as HTMLSelectElement).value + argsep + 'on_update=' + (document.getElementById('on_update') as HTMLSelectElement).value;
     linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
@@ -1470,8 +1470,8 @@ const canvasClick = function (id, event) {
         for (key in DesignerConfig.contr[K]) {
             for (key2 in DesignerConfig.contr[K][key]) {
                 for (key3 in DesignerConfig.contr[K][key][key2]) {
-                    if (! document.getElementById('check_vis_' + key2).checked ||
-                        ! document.getElementById('check_vis_' + DesignerConfig.contr[K][key][key2][key3][0]).checked) {
+                    if (! (document.getElementById('check_vis_' + key2) as HTMLInputElement).checked ||
+                        ! (document.getElementById('check_vis_' + DesignerConfig.contr[K][key][key2][key3][0]) as HTMLInputElement).checked) {
                         continue; // if hide
                     }
 
@@ -1595,16 +1595,16 @@ const hideTabAll = function (idThis) {
         idThis.src = idThis.dataset.down;
     }
 
-    var E = document.getElementById('container-form');
+    var E = (document.getElementById('container-form') as HTMLFormElement);
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
+        if ((E.elements[i] as HTMLInputElement).type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
             if (idThis.alt === 'v') {
-                E.elements[i].checked = true;
-                document.getElementById(E.elements[i].value).style.display = '';
+                (E.elements[i] as HTMLInputElement).checked = true;
+                document.getElementById((E.elements[i] as HTMLInputElement).value).style.display = '';
             } else {
-                E.elements[i].checked = false;
-                document.getElementById(E.elements[i].value).style.display = 'none';
+                (E.elements[i] as HTMLInputElement).checked = false;
+                document.getElementById((E.elements[i] as HTMLInputElement).value).style.display = 'none';
             }
         }
     }
@@ -1651,17 +1651,17 @@ const noHaveConstr = function (idThis) {
         idThis.src = idThis.dataset.down;
     }
 
-    var E = document.getElementById('container-form');
+    var E = (document.getElementById('container-form') as HTMLFormElement);
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
-            if (! DesignerMove.inArrayK(E.elements[i].value, a)) {
+        if ((E.elements[i] as HTMLInputElement).type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
+            if (! DesignerMove.inArrayK((E.elements[i] as HTMLInputElement).value, a)) {
                 if (idThis.alt === 'v') {
-                    E.elements[i].checked = true;
-                    document.getElementById(E.elements[i].value).style.display = '';
+                    (E.elements[i] as HTMLInputElement).checked = true;
+                    document.getElementById((E.elements[i] as HTMLInputElement).value).style.display = '';
                 } else {
-                    E.elements[i].checked = false;
-                    document.getElementById(E.elements[i].value).style.display = 'none';
+                    (E.elements[i] as HTMLInputElement).checked = false;
+                    document.getElementById((E.elements[i] as HTMLInputElement).value).style.display = 'none';
                 }
             }
         }
@@ -1791,10 +1791,10 @@ const clickOption = function (dbName, tableName, columnName, tableDbNameUrl, opt
     // var top = Glob_Y - designerOptions.offsetHeight - 10;
     designerOptions.style.top = (screen.height / 4) + 'px';
     designerOptions.style.display = 'block';
-    document.getElementById('ok_add_object_db_and_table_name_url').value = tableDbNameUrl;
-    document.getElementById('ok_add_object_db_name').value = dbName;
-    document.getElementById('ok_add_object_table_name').value = tableName;
-    document.getElementById('ok_add_object_col_name').value = columnName;
+    (document.getElementById('ok_add_object_db_and_table_name_url') as HTMLInputElement).value = tableDbNameUrl;
+    (document.getElementById('ok_add_object_db_name') as HTMLInputElement).value = dbName;
+    (document.getElementById('ok_add_object_table_name') as HTMLInputElement).value = tableName;
+    (document.getElementById('ok_add_object_col_name') as HTMLInputElement).value = columnName;
     document.getElementById('option_col_name').innerHTML = optionColNameString;
 };
 
@@ -1813,7 +1813,7 @@ const closeOption = function () {
 
 const selectAll = function (tableName, dbName, idSelectAll) {
     var parentIsChecked = $('#' + idSelectAll).is(':checked');
-    var checkboxAll = $('#container-form input[id_check_all=\'' + idSelectAll + '\']:checkbox');
+    var checkboxAll = ($('#container-form input[id_check_all=\'' + idSelectAll + '\']:checkbox') as JQuery<HTMLInputElement>);
 
     checkboxAll.each(function () {
         // already checked and then check parent

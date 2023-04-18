@@ -459,3 +459,9 @@ AJAX.registerOnload('database/structure.js', function () {
         DatabaseStructure.fetchRealRowCount($(this));
     });
 });
+
+declare global {
+    interface Window {
+        DatabaseStructure: typeof DatabaseStructure;
+    }
+}
