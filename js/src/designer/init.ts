@@ -258,7 +258,7 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#pin_Text').on('click', function () {
-        DesignerMove.pinText(this);
+        DesignerMove.pinText();
 
         return false;
     });

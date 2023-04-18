@@ -9,18 +9,16 @@ import { DesignerHistory } from './history.ts';
 import { DesignerPage } from './page.ts';
 import { DesignerConfig } from './config.ts';
 
-var DesignerMove = {};
-
 var change = 0; // variable to track any change in designer layout.
 var showRelationLines = true;
 var alwaysShowText = false;
 
-DesignerMove.markSaved = function () {
+const markSaved = function () {
     change = 0;
     $('#saved_state').text('');
 };
 
-DesignerMove.markUnsaved = function () {
+const markUnsaved = function () {
     change = 1;
     $('#saved_state').text('*');
 };
@@ -54,7 +52,7 @@ var gridSize = 10;
 
 // ------------------------------------------------------------------------------
 
-DesignerMove.mouseDown = function (e) {
+const mouseDown = function (e) {
     globX = e.pageX;
     globY = e.pageY;
 
@@ -74,7 +72,7 @@ DesignerMove.mouseDown = function (e) {
     }
 };
 
-DesignerMove.mouseMove = function (e) {
+const mouseMove = function (e) {
     if (e.preventDefault) {
         e.preventDefault();
     }
@@ -135,7 +133,7 @@ DesignerMove.mouseMove = function (e) {
     }
 };
 
-DesignerMove.mouseUp = function () {
+const mouseUp = function () {
     if (curClick !== null) {
         document.getElementById('canvas').style.display = 'inline-block';
         DesignerMove.reload();
@@ -148,17 +146,17 @@ DesignerMove.mouseUp = function () {
 
 // ------------------------------------------------------------------------------
 
-DesignerMove.canvasPos = function () {
+const canvasPos = function () {
     canvasWidth = document.getElementById('canvas').width = osnTabWidth - 3;
     canvasHeight = document.getElementById('canvas').height = osnTabHeight - 3;
 };
 
-DesignerMove.osnTabPos = function () {
+const osnTabPos = function () {
     osnTabWidth = parseInt(document.getElementById('osn_tab').style.width, 10);
     osnTabHeight = parseInt(document.getElementById('osn_tab').style.height, 10);
 };
 
-DesignerMove.setDefaultValuesFromSavedState = function () {
+const setDefaultValuesFromSavedState = function () {
     if ($('#angular_direct_button').attr('class') === 'M_butt') {
         onAngularDirect = 0;
     } else {
@@ -206,7 +204,7 @@ DesignerMove.setDefaultValuesFromSavedState = function () {
     }
 };
 
-DesignerMove.main = function () {
+const main = function () {
     // ---CROSS
 
     document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
@@ -217,7 +215,7 @@ DesignerMove.main = function () {
     DesignerMove.setDefaultValuesFromSavedState();
 };
 
-DesignerMove.resizeOsnTab = function () {
+const resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
     for (var key in DesignerConfig.jTabs) {
@@ -242,7 +240,7 @@ DesignerMove.resizeOsnTab = function () {
  * @param {HTMLElement} osnTab
  * @param {string} colorTarget
  */
-DesignerMove.drawLine0 = function (x1, x2, y1, y2, osnTab, colorTarget): void {
+const drawLine0 = function (x1, x2, y1, y2, osnTab, colorTarget): void {
     DesignerMove.line0(
         x1 + directionEffect * osnTab.offsetLeft,
         y1 - osnTab.offsetTop,
@@ -255,7 +253,7 @@ DesignerMove.drawLine0 = function (x1, x2, y1, y2, osnTab, colorTarget): void {
 /**
  * refreshes display, must be called after state changes
  */
-DesignerMove.reload = function () {
+const reload = function () {
     DesignerMove.resizeOsnTab();
     var n;
     var x1;
@@ -374,7 +372,7 @@ DesignerMove.reload = function () {
  * @param y2
  * @param colorLine
  */
-DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
+const line = function (x1, y1, x2, y2, colorLine) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     ctx.strokeStyle = colorLine;
@@ -393,7 +391,7 @@ DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
  * @param y2
  * @param colorLine
  */
-DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
+const line0 = function (x1, y1, x2, y2, colorLine) {
     if (! showRelationLines) {
         return;
     }
@@ -416,7 +414,7 @@ DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
  * @param y2
  * @param colorLine
  */
-DesignerMove.line2 = function (x1, y1, x2, y2, colorLine) {
+const line2 = function (x1, y1, x2, y2, colorLine) {
     var x1Local = x1;
     var x2Local = x2;
 
@@ -447,7 +445,7 @@ DesignerMove.line2 = function (x1, y1, x2, y2, colorLine) {
  * @param y2
  * @param colorLine
  */
-DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
+const line3 = function (x1, y1, x2, y2, colorLine) {
     var x1Local = x1;
     var x2Local = x2;
 
@@ -489,7 +487,7 @@ DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
     DesignerMove.line(xS, y1, xS, y2, colorLine);
 };
 
-DesignerMove.circle = function (x, y, r, w, color) {
+const circle = function (x, y, r, w, color) {
     var ctx = document.getElementById('canvas').getContext('2d');
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -499,20 +497,20 @@ DesignerMove.circle = function (x, y, r, w, color) {
     ctx.stroke();
 };
 
-DesignerMove.clear = function () {
+const clear = function () {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 };
 
-DesignerMove.rect = function (x1, y1, w, h, color) {
+const rect = function (x1, y1, w, h, color) {
     var ctx = document.getElementById('canvas').getContext('2d');
     ctx.fillStyle = color;
     ctx.fillRect(x1, y1, w, h);
 };
 
 // --------------------------- FULLSCREEN -------------------------------------
-DesignerMove.toggleFullscreen = function () {
+const toggleFullscreen = function () {
     var valueSent = '';
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
@@ -547,7 +545,7 @@ DesignerMove.toggleFullscreen = function () {
     DesignerMove.saveValueInConfig('full_screen', valueSent);
 };
 
-DesignerMove.addTableToTablesList = function (index, tableDom) {
+const addTableToTablesList = function (index, tableDom) {
     var db = $(tableDom).find('.small_tab_pref').attr('db');
     var table = $(tableDom).find('.small_tab_pref').attr('table_name');
     var dbEncoded = $(tableDom).find('.small_tab_pref').attr('db_url');
@@ -605,7 +603,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
  *
  * @return {object} modal;
  */
-DesignerMove.displayModal = function (form, heading, type) {
+const displayModal = function (form, heading, type) {
     var modal = $(type);
     modal.modal('show');
     modal.find('.modal-body').first().html(form);
@@ -614,7 +612,7 @@ DesignerMove.displayModal = function (form, heading, type) {
     return modal;
 };
 
-DesignerMove.addOtherDbTables = function () {
+const addOtherDbTables = function () {
     var $selectDb = $('<select id="add_table_from"></select>');
     $selectDb.append('<option value="">' + window.Messages.strNone + '</option>');
 
@@ -703,7 +701,7 @@ DesignerMove.addOtherDbTables = function () {
 };
 
 // ------------------------------ NEW ------------------------------------------
-DesignerMove.new = function () {
+const newPage = function () {
     DesignerMove.promptToSaveCurrentPage(function () {
         DesignerMove.loadPage(-1);
     });
@@ -711,7 +709,7 @@ DesignerMove.new = function () {
 
 // ------------------------------ SAVE ------------------------------------------
 // (del?) no for pdf
-DesignerMove.save = function (url) {
+const save = function (url) {
     for (var key in DesignerConfig.jTabs) {
         document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
         document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
@@ -723,7 +721,7 @@ DesignerMove.save = function (url) {
     $('#container-form').trigger('submit');
 };
 
-DesignerMove.getUrlPos = function (forceString) {
+const getUrlPos = function (forceString = undefined) {
     var key;
     if (DesignerConfig.designerTablesEnabled || forceString) {
         var poststr = '';
@@ -758,7 +756,7 @@ DesignerMove.getUrlPos = function (forceString) {
     }
 };
 
-DesignerMove.save2 = function (callback) {
+const save2 = function (callback) {
     if (DesignerConfig.designerTablesEnabled) {
         var argsep = CommonParams.get('arg_separator');
         var poststr = 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
@@ -789,7 +787,7 @@ DesignerMove.save2 = function (callback) {
     }
 };
 
-DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
+const submitSaveDialogAndClose = function (callback, modal) {
     var $form = $('#save_page');
     var name = $form.find('input[name="selected_value"]').val().trim();
     if (name === '') {
@@ -834,7 +832,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
     }
 };
 
-DesignerMove.save3 = function (callback) {
+const save3 = function (callback = undefined) {
     if (DesignerConfig.selectedPage !== -1) {
         DesignerMove.save2(callback);
     } else {
@@ -862,7 +860,7 @@ DesignerMove.save3 = function (callback) {
 };
 
 // ------------------------------ EDIT PAGES ------------------------------------------
-DesignerMove.editPages = function () {
+const editPages = function () {
     DesignerMove.promptToSaveCurrentPage(function () {
         var $msgbox = ajaxShowMessage();
         $.post('index.php?route=/database/designer', {
@@ -902,7 +900,7 @@ DesignerMove.editPages = function () {
 };
 
 // -----------------------------  DELETE PAGES ---------------------------------------
-DesignerMove.deletePages = function () {
+const deletePages = function () {
     var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
@@ -971,7 +969,7 @@ DesignerMove.deletePages = function () {
 };
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
-DesignerMove.saveAs = function () {
+const saveAs = function () {
     var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
@@ -1069,7 +1067,7 @@ DesignerMove.saveAs = function () {
     }); // end $.post()
 };
 
-DesignerMove.promptToSaveCurrentPage = function (callback) {
+const promptToSaveCurrentPage = function (callback) {
     if (change === 1 || DesignerConfig.selectedPage === -1) {
         var modal = DesignerMove.displayModal('<div>' + window.Messages.strLeavingPage + '</div>',
             window.Messages.strSavePage, '#designerPromptModal');
@@ -1088,7 +1086,7 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
 };
 
 // ------------------------------ EXPORT PAGES ---------------------------------------
-DesignerMove.exportPages = function () {
+const exportPages = function () {
     var $msgbox = ajaxShowMessage();
     var argsep = CommonParams.get('arg_separator');
 
@@ -1134,7 +1132,7 @@ DesignerMove.exportPages = function () {
     }); // end $.post()
 };
 
-DesignerMove.loadPage = function (page) {
+const loadPage = function (page) {
     if (DesignerConfig.designerTablesEnabled) {
         var paramPage = '';
         var argsep = CommonParams.get('arg_separator');
@@ -1158,7 +1156,7 @@ DesignerMove.loadPage = function (page) {
     DesignerMove.markSaved();
 };
 
-DesignerMove.grid = function () {
+const grid = function () {
     var valueSent = '';
     if (! onGrid) {
         onGrid = 1;
@@ -1173,7 +1171,7 @@ DesignerMove.grid = function () {
     DesignerMove.saveValueInConfig('snap_to_grid', valueSent);
 };
 
-DesignerMove.angularDirect = function () {
+const angularDirect = function () {
     var valueSent = '';
     if (onAngularDirect) {
         onAngularDirect = 0;
@@ -1189,7 +1187,7 @@ DesignerMove.angularDirect = function () {
     DesignerMove.reload();
 };
 
-DesignerMove.saveValueInConfig = function (indexSent, valueSent) {
+const saveValueInConfig = function (indexSent, valueSent) {
     $.post('index.php?route=/database/designer',
         {
             'operation': 'save_setting_value',
@@ -1206,7 +1204,7 @@ DesignerMove.saveValueInConfig = function (indexSent, valueSent) {
 };
 
 // ++++++++++++++++++++++++++++++ RELATION ++++++++++++++++++++++++++++++++++++++
-DesignerMove.startRelation = function () {
+const startRelation = function () {
     if (onDisplayField) {
         return;
     }
@@ -1227,7 +1225,7 @@ DesignerMove.startRelation = function () {
 };
 
 // table field
-DesignerMove.clickField = function (db, T, f, pk) {
+const clickTableField = function (db, T, f, pk) {
     var pkLocal = parseInt(pk);
     var argsep = CommonParams.get('arg_separator');
     if (onRelation) {
@@ -1321,7 +1319,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
     }
 };
 
-DesignerMove.newRelation = function () {
+const newRelation = function () {
     document.getElementById('layer_new_relation').style.display = 'none';
     var argsep = CommonParams.get('arg_separator');
     linkRelation += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + DesignerConfig.db + argsep + 'db2=p';
@@ -1341,12 +1339,12 @@ DesignerMove.newRelation = function () {
 };
 
 // -------------------------- create tables -------------------------------------
-DesignerMove.startTableNew = function () {
+const startTableNew = function () {
     Navigation.update(CommonParams.set('table', ''));
     refreshMainContent('index.php?route=/table/create');
 };
 
-DesignerMove.startTabUpd = function (db, table) {
+const startTabUpd = function (db, table) {
     Navigation.update(CommonParams.set('db', db));
     Navigation.update(CommonParams.set('table', table));
     refreshMainContent('index.php?route=/table/structure');
@@ -1354,7 +1352,7 @@ DesignerMove.startTabUpd = function (db, table) {
 
 // --------------------------- hide tables --------------------------------------
 // max/min all tables
-DesignerMove.smallTabAll = function (idThis) {
+const smallTabAll = function (idThis) {
     var icon = idThis.children[0];
     var valueSent = '';
 
@@ -1387,7 +1385,7 @@ DesignerMove.smallTabAll = function (idThis) {
 };
 
 // invert max/min all tables
-DesignerMove.smallTabInvert = function () {
+const smallTabInvert = function () {
     for (var key in DesignerConfig.jTabs) {
         DesignerMove.smallTab(key, 0);
     }
@@ -1395,7 +1393,7 @@ DesignerMove.smallTabInvert = function () {
     DesignerMove.reload();
 };
 
-DesignerMove.relationLinesInvert = function () {
+const relationLinesInvert = function () {
     showRelationLines = ! showRelationLines;
     DesignerMove.saveValueInConfig('relation_lines', showRelationLines);
     $('#relLineInvert').toggleClass('M_butt_Selected_down');
@@ -1403,7 +1401,7 @@ DesignerMove.relationLinesInvert = function () {
     DesignerMove.reload();
 };
 
-DesignerMove.smallTabRefresh = function () {
+const smallTabRefresh = function () {
     for (var key in DesignerConfig.jTabs) {
         if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
             DesignerMove.smallTab(key, 0);
@@ -1411,7 +1409,7 @@ DesignerMove.smallTabRefresh = function () {
     }
 };
 
-DesignerMove.smallTab = function (t, reload) {
+const smallTab = function (t, reload) {
     var id = document.getElementById('id_tbody_' + t);
     var idThis = document.getElementById('id_hide_tbody_' + t);
     if (idThis.innerHTML === 'v') {
@@ -1428,7 +1426,7 @@ DesignerMove.smallTab = function (t, reload) {
     }
 };
 
-DesignerMove.selectTab = function (t) {
+const selectTab = function (t) {
     var idZag = document.getElementById('id_zag_' + t);
     if (idZag.className !== 'tab_zag_3') {
         document.getElementById('id_zag_' + t).className = 'tab_zag_2';
@@ -1447,7 +1445,7 @@ DesignerMove.selectTab = function (t) {
     );
 };
 
-DesignerMove.canvasClick = function (id, event) {
+const canvasClick = function (id, event) {
     var n = 0;
     var selected = 0;
     var a = [];
@@ -1558,7 +1556,7 @@ DesignerMove.canvasClick = function (id, event) {
     }
 };
 
-DesignerMove.updRelation = function () {
+const updRelation = function () {
     document.getElementById('layer_upd_relation').style.display = 'none';
     var argsep = CommonParams.get('arg_separator');
     linkRelation += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + DesignerConfig.db;
@@ -1576,7 +1574,7 @@ DesignerMove.updRelation = function () {
     }); // end $.post()
 };
 
-DesignerMove.visibleTab = function (id, tN) {
+const visibleTab = function (id, tN) {
     if (id.checked) {
         document.getElementById(tN).style.display = 'block';
     } else {
@@ -1588,7 +1586,7 @@ DesignerMove.visibleTab = function (id, tN) {
 };
 
 // max/min all tables
-DesignerMove.hideTabAll = function (idThis) {
+const hideTabAll = function (idThis) {
     if (idThis.alt === 'v') {
         idThis.alt = '>';
         idThis.src = idThis.dataset.right;
@@ -1614,7 +1612,7 @@ DesignerMove.hideTabAll = function (idThis) {
     DesignerMove.reload();
 };
 
-DesignerMove.inArrayK = function (x, m) {
+const inArrayK = function (x, m) {
     var b = 0;
     for (var u in m) {
         if (x === u) {
@@ -1626,7 +1624,7 @@ DesignerMove.inArrayK = function (x, m) {
     return b;
 };
 
-DesignerMove.noHaveConstr = function (idThis) {
+const noHaveConstr = function (idThis) {
     var a = [];
     var K;
     var key;
@@ -1671,7 +1669,7 @@ DesignerMove.noHaveConstr = function (idThis) {
 };
 
 // max/min all tables
-DesignerMove.showLeftMenu = function (idThis) {
+const showLeftMenu = function (idThis) {
     var icon = idThis.children[0];
     $('#key_Show_left_menu').toggleClass('M_butt_Selected_down');
     if (icon.alt === 'v') {
@@ -1687,7 +1685,7 @@ DesignerMove.showLeftMenu = function (idThis) {
     }
 };
 
-DesignerMove.sideMenuRight = function (idThis) {
+const sideMenuRight = function (idThis) {
     $('#side_menu').toggleClass('right');
     $('#layer_menu').toggleClass('float-start');
     var moveMenuIcon = $(idThis.getElementsByTagName('img')[0]);
@@ -1709,24 +1707,24 @@ DesignerMove.sideMenuRight = function (idThis) {
     $('#key_Left_Right').toggleClass('M_butt');
 };
 
-DesignerMove.showText = function () {
+const showText = function () {
     $('#side_menu').find('.hidable').show();
 };
 
-DesignerMove.hideText = function () {
+const hideText = function () {
     if (! alwaysShowText) {
         $('#side_menu').find('.hidable').hide();
     }
 };
 
-DesignerMove.pinText = function () {
+const pinText = function () {
     alwaysShowText = ! alwaysShowText;
     $('#pin_Text').toggleClass('M_butt_Selected_down');
     $('#pin_Text').toggleClass('M_butt');
     DesignerMove.saveValueInConfig('pin_text', alwaysShowText);
 };
 
-DesignerMove.startDisplayField = function () {
+const startDisplayField = function () {
     if (onRelation) {
         return;
     }
@@ -1746,7 +1744,7 @@ DesignerMove.startDisplayField = function () {
 
 var TargetColors = [];
 
-DesignerMove.getColorByTarget = function (target) {
+const getColorByTarget = function (target) {
     var color = '';  // "rgba(0,100,150,1)";
 
     for (var targetColor in TargetColors) {
@@ -1786,7 +1784,7 @@ DesignerMove.getColorByTarget = function (target) {
     return color;
 };
 
-DesignerMove.clickOption = function (dbName, tableName, columnName, tableDbNameUrl, optionColNameString) {
+const clickOption = function (dbName, tableName, columnName, tableDbNameUrl, optionColNameString) {
     var designerOptions = document.getElementById('designer_optionse');
     var left = globX - (designerOptions.offsetWidth >> 1);
     designerOptions.style.left = left + 'px';
@@ -1800,7 +1798,7 @@ DesignerMove.clickOption = function (dbName, tableName, columnName, tableDbNameU
     document.getElementById('option_col_name').innerHTML = optionColNameString;
 };
 
-DesignerMove.closeOption = function () {
+const closeOption = function () {
     document.getElementById('designer_optionse').style.display = 'none';
     document.getElementById('rel_opt').value = '--';
     document.getElementById('Query').value = '';
@@ -1813,7 +1811,7 @@ DesignerMove.closeOption = function () {
     document.getElementById('orderby').value = '---';
 };
 
-DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
+const selectAll = function (tableName, dbName, idSelectAll) {
     var parentIsChecked = $('#' + idSelectAll).is(':checked');
     var checkboxAll = $('#container-form input[id_check_all=\'' + idSelectAll + '\']:checkbox');
 
@@ -1852,7 +1850,7 @@ DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
     DesignerMove.reload();
 };
 
-DesignerMove.tableOnOver = function (idThis, val, buil) {
+const tableOnOver = function (idThis, val, buil) {
     var builLocal = parseInt(buil);
     if (! val) {
         document.getElementById('id_zag_' + idThis).className = 'tab_zag_2';
@@ -1875,7 +1873,7 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
  * @param {string} colName
  * @param {string} checkboxId
  */
-DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
+const storeColumn = function (tableName, colName, checkboxId) {
     var i;
     var k;
     var selectKeyField = '`' + tableName + '`.`' + colName + '`';
@@ -1909,7 +1907,7 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
  * @param {string} colName
  * @param {string} dbTableNameUrl
  */
-DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
+const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var p;
     var whereObj;
     var rel = document.getElementById('rel_opt');
@@ -1978,7 +1976,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     $('#ab').accordion('refresh');
 };
 
-DesignerMove.enablePageContentEvents = function () {
+const enablePageContentEvents = function () {
     $(document).off('mousedown');
     $(document).off('mouseup');
     $(document).off('mousemove');
@@ -2001,7 +1999,7 @@ DesignerMove.enablePageContentEvents = function () {
  * @param {number} index
  * @param {object} element
  */
-DesignerMove.enableTableEvents = function (index, element) {
+const enableTableEvents = function (index, element) {
     $(element).on('click', '.select_all_1', function () {
         DesignerMove.selectAll($(this).attr('table_name'), $(this).attr('db_name'), $(this).attr('id'));
     });
@@ -2051,5 +2049,84 @@ DesignerMove.enableTableEvents = function (index, element) {
 
     DesignerMove.enablePageContentEvents();
 };
+
+const DesignerMove = {
+    markSaved: markSaved,
+    markUnsaved: markUnsaved,
+    mouseDown: mouseDown,
+    mouseMove: mouseMove,
+    mouseUp: mouseUp,
+    canvasPos: canvasPos,
+    osnTabPos: osnTabPos,
+    setDefaultValuesFromSavedState: setDefaultValuesFromSavedState,
+    main: main,
+    resizeOsnTab: resizeOsnTab,
+    drawLine0: drawLine0,
+    reload: reload,
+    line: line,
+    line0: line0,
+    line2: line2,
+    line3: line3,
+    circle: circle,
+    clear: clear,
+    rect: rect,
+    toggleFullscreen: toggleFullscreen,
+    addTableToTablesList: addTableToTablesList,
+    displayModal: displayModal,
+    addOtherDbTables: addOtherDbTables,
+    new: newPage,
+    save: save,
+    getUrlPos: getUrlPos,
+    save2: save2,
+    submitSaveDialogAndClose: submitSaveDialogAndClose,
+    save3: save3,
+    editPages: editPages,
+    deletePages: deletePages,
+    saveAs: saveAs,
+    promptToSaveCurrentPage: promptToSaveCurrentPage,
+    exportPages: exportPages,
+    loadPage: loadPage,
+    grid: grid,
+    angularDirect: angularDirect,
+    saveValueInConfig: saveValueInConfig,
+    startRelation: startRelation,
+    clickField: clickTableField,
+    newRelation: newRelation,
+    startTableNew: startTableNew,
+    startTabUpd: startTabUpd,
+    smallTabAll: smallTabAll,
+    smallTabInvert: smallTabInvert,
+    relationLinesInvert: relationLinesInvert,
+    smallTabRefresh: smallTabRefresh,
+    smallTab: smallTab,
+    selectTab: selectTab,
+    canvasClick: canvasClick,
+    updRelation: updRelation,
+    visibleTab: visibleTab,
+    hideTabAll: hideTabAll,
+    inArrayK: inArrayK,
+    noHaveConstr: noHaveConstr,
+    showLeftMenu: showLeftMenu,
+    sideMenuRight: sideMenuRight,
+    showText: showText,
+    hideText: hideText,
+    pinText: pinText,
+    startDisplayField: startDisplayField,
+    getColorByTarget: getColorByTarget,
+    clickOption: clickOption,
+    closeOption: closeOption,
+    selectAll: selectAll,
+    tableOnOver: tableOnOver,
+    storeColumn: storeColumn,
+    addObject: addObject,
+    enablePageContentEvents: enablePageContentEvents,
+    enableTableEvents: enableTableEvents,
+};
+
+declare global {
+    interface Window {
+        fromArray: any[];
+    }
+}
 
 export { DesignerMove };
