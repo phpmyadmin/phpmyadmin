@@ -185,19 +185,19 @@ const historyEdit = function (index): void {
     gIndex = index;
     var type = DesignerHistory.historyArray[index].getType();
     if (type === 'Where') {
-        document.getElementById('eQuery').value = DesignerHistory.historyArray[index].getObj().getQuery();
-        document.getElementById('erel_opt').value = DesignerHistory.historyArray[index].getObj().getRelationOperator();
+        (document.getElementById('eQuery') as HTMLTextAreaElement).value = DesignerHistory.historyArray[index].getObj().getQuery();
+        (document.getElementById('erel_opt') as HTMLSelectElement).value = DesignerHistory.historyArray[index].getObj().getRelationOperator();
         DesignerHistory.changeStyle('query_where');
     } else if (type === 'Having') {
-        document.getElementById('hQuery').value = DesignerHistory.historyArray[index].getObj().getQuery();
-        document.getElementById('hrel_opt').value = DesignerHistory.historyArray[index].getObj().getRelationOperator();
-        document.getElementById('hoperator').value = DesignerHistory.historyArray[index].getObj().getOperator();
+        (document.getElementById('hQuery') as HTMLTextAreaElement).value = DesignerHistory.historyArray[index].getObj().getQuery();
+        (document.getElementById('hrel_opt') as HTMLSelectElement).value = DesignerHistory.historyArray[index].getObj().getRelationOperator();
+        (document.getElementById('hoperator') as HTMLSelectElement).value = DesignerHistory.historyArray[index].getObj().getOperator();
         DesignerHistory.changeStyle('query_having');
     } else if (type === 'Rename') {
-        document.getElementById('e_rename').value = DesignerHistory.historyArray[index].getObj().getRenameTo();
+        (document.getElementById('e_rename') as HTMLInputElement).value = DesignerHistory.historyArray[index].getObj().getRenameTo();
         DesignerHistory.changeStyle('query_rename_to');
     } else if (type === 'Aggregate') {
-        document.getElementById('e_operator').value = DesignerHistory.historyArray[index].getObj().getOperator();
+        (document.getElementById('e_operator') as HTMLSelectElement).value = DesignerHistory.historyArray[index].getObj().getOperator();
         DesignerHistory.changeStyle('query_Aggregate');
     }
 };
@@ -210,31 +210,31 @@ const historyEdit = function (index): void {
  */
 const edit = function (type): void {
     if (type === 'Rename') {
-        if (document.getElementById('e_rename').value !== '') {
-            DesignerHistory.historyArray[gIndex].getObj().setRenameTo(document.getElementById('e_rename').value);
-            document.getElementById('e_rename').value = '';
+        if ((document.getElementById('e_rename') as HTMLInputElement).value !== '') {
+            DesignerHistory.historyArray[gIndex].getObj().setRenameTo((document.getElementById('e_rename') as HTMLInputElement).value);
+            (document.getElementById('e_rename') as HTMLInputElement).value = '';
         }
 
         document.getElementById('query_rename_to').style.visibility = 'hidden';
     } else if (type === 'Aggregate') {
-        if (document.getElementById('e_operator').value !== '---') {
-            DesignerHistory.historyArray[gIndex].getObj().setOperator(document.getElementById('e_operator').value);
-            document.getElementById('e_operator').value = '---';
+        if ((document.getElementById('e_operator') as HTMLSelectElement).value !== '---') {
+            DesignerHistory.historyArray[gIndex].getObj().setOperator((document.getElementById('e_operator') as HTMLSelectElement).value);
+            (document.getElementById('e_operator') as HTMLSelectElement).value = '---';
         }
 
         document.getElementById('query_Aggregate').style.visibility = 'hidden';
     } else if (type === 'Where') {
-        if (document.getElementById('erel_opt').value !== '--' && document.getElementById('eQuery').value !== '') {
-            DesignerHistory.historyArray[gIndex].getObj().setQuery(document.getElementById('eQuery').value);
-            DesignerHistory.historyArray[gIndex].getObj().setRelationOperator(document.getElementById('erel_opt').value);
+        if ((document.getElementById('erel_opt') as HTMLSelectElement).value !== '--' && (document.getElementById('eQuery') as HTMLTextAreaElement).value !== '') {
+            DesignerHistory.historyArray[gIndex].getObj().setQuery((document.getElementById('eQuery') as HTMLTextAreaElement).value);
+            DesignerHistory.historyArray[gIndex].getObj().setRelationOperator((document.getElementById('erel_opt') as HTMLSelectElement).value);
         }
 
         document.getElementById('query_where').style.visibility = 'hidden';
     } else if (type === 'Having') {
-        if (document.getElementById('hrel_opt').value !== '--' && document.getElementById('hQuery').value !== '') {
-            DesignerHistory.historyArray[gIndex].getObj().setQuery(document.getElementById('hQuery').value);
-            DesignerHistory.historyArray[gIndex].getObj().setRelationOperator(document.getElementById('hrel_opt').value);
-            DesignerHistory.historyArray[gIndex].getObj().setOperator(document.getElementById('hoperator').value);
+        if ((document.getElementById('hrel_opt') as HTMLSelectElement).value !== '--' && (document.getElementById('hQuery') as HTMLTextAreaElement).value !== '') {
+            DesignerHistory.historyArray[gIndex].getObj().setQuery((document.getElementById('hQuery') as HTMLTextAreaElement).value);
+            DesignerHistory.historyArray[gIndex].getObj().setRelationOperator((document.getElementById('hrel_opt') as HTMLSelectElement).value);
+            DesignerHistory.historyArray[gIndex].getObj().setOperator((document.getElementById('hoperator') as HTMLSelectElement).value);
         }
 
         document.getElementById('query_having').style.visibility = 'hidden';

@@ -64,7 +64,7 @@ import $ from 'jquery';
             $.error('Method ' + method + ' does not exist on jQuery.sortableTable');
         }
 
-        function SortableTableInstance (table, options = {}) {
+        function SortableTableInstance (table, options: {ignoreRect?: any, events?: any} = {}) {
             var down = false;
             var $draggedEl;
             var oldCell;

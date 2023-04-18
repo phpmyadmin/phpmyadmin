@@ -911,6 +911,7 @@ const AJAX = {
                     return;
                 }
 
+                // @ts-ignore
                 var state = event.originalEvent.state;
                 if (state && state.menu) {
                     AJAX.$msgbox = ajaxShowMessage();
@@ -984,6 +985,12 @@ const AJAX = {
         };
     }
 };
+
+declare global {
+    interface Window {
+        AJAX: typeof AJAX;
+    }
+}
 
 window.AJAX = AJAX;
 

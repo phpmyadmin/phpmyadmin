@@ -304,7 +304,8 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
         'table': table,
         'ajax_request': 1,
         'create_edit_table': 1,
-        'index': index
+        'index': index,
+        'columns': '',
     };
 
     var columns = {};
@@ -355,7 +356,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                 }
 
                 $('#addIndexModal').on('keypress', function (e) {
-                    if (e.which === 13 || e.keyCode === 13 || window.event.keyCode === 13) {
+                    if (e.which === 13 || e.keyCode === 13 || (window.event as KeyboardEvent).keyCode === 13) {
                         e.preventDefault();
                         console.log('BOOM');
                         addIndexGo(sourceArray, arrayIndex, index, colIndex);
@@ -693,11 +694,11 @@ function on () {
         $('body').on('change', 'select[name*="field_key"]', function (e, showDialog) {
             var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
             // Index of column on Table edit and create page.
-            var colIndex = /\d+/.exec($(this).attr('name'));
-            colIndex = colIndex[0];
+            var colIndexRegEx = /\d+/.exec($(this).attr('name'));
+            const colIndex = colIndexRegEx[0];
             // Choice of selected index.
-            var indexChoice = /[a-z]+/.exec($(this).val());
-            indexChoice = indexChoice[0];
+            var indexChoiceRegEx = /[a-z]+/.exec($(this).val());
+            const indexChoice = indexChoiceRegEx[0];
             // Array containing corresponding indexes.
             var sourceArray = null;
 
@@ -770,7 +771,7 @@ function on () {
             }
         });
 
-        $('#index_frm').on('submit', function () {
+        ($('#index_frm') as JQuery<HTMLFormElement>).on('submit', function () {
             if (typeof (this.elements['index[Key_name]'].disabled) !== 'undefined') {
                 this.elements['index[Key_name]'].disabled = false;
             }

@@ -3838,6 +3838,7 @@ $.fn.getPostData = Functions.getPostData;
 declare global {
     interface Window {
         codeMirrorEditor: CodeMirror.EditorFromTextArea | null;
+        recaptchaCallback: () => void;
         Functions: typeof Functions;
     }
 }

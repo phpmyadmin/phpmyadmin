@@ -75,8 +75,8 @@ function registerDatePickerTranslations () {
     $.datepicker.regional[''].showMonthAfterYear = window.Messages.strMonthAfterYear === 'calendar-year-month';
     $.datepicker.regional[''].yearSuffix = window.Messages.strYearSuffix !== 'none' ? window.Messages.strYearSuffix : '';
 
-    // eslint-disable-next-line no-underscore-dangle
-    $.extend($.datepicker._defaults, $.datepicker.regional['']);
+    // @ts-ignore
+    $.extend($.datepicker._defaults, $.datepicker.regional['']); // eslint-disable-line no-underscore-dangle
 }
 
 function registerTimePickerTranslations () {

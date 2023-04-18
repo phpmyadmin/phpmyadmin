@@ -147,8 +147,8 @@ const mouseUp = function () {
 // ------------------------------------------------------------------------------
 
 const canvasPos = function () {
-    canvasWidth = document.getElementById('canvas').width = osnTabWidth - 3;
-    canvasHeight = document.getElementById('canvas').height = osnTabHeight - 3;
+    canvasWidth = (document.getElementById('canvas') as HTMLCanvasElement).width = osnTabWidth - 3;
+    canvasHeight = (document.getElementById('canvas') as HTMLCanvasElement).height = osnTabHeight - 3;
 };
 
 const osnTabPos = function () {
@@ -272,8 +272,8 @@ const reload = function () {
                 // table name
                 for (key3 in DesignerConfig.contr[K][key][key2]) {
                     // field name
-                    if (! document.getElementById('check_vis_' + key2).checked ||
-                        ! document.getElementById('check_vis_' + DesignerConfig.contr[K][key][key2][key3][0]).checked) {
+                    if (! (document.getElementById('check_vis_' + key2) as HTMLInputElement).checked ||
+                        ! (document.getElementById('check_vis_' + DesignerConfig.contr[K][key][key2][key3][0]) as HTMLInputElement).checked) {
                         // if hide
                         continue;
                     }
@@ -373,7 +373,7 @@ const reload = function () {
  * @param colorLine
  */
 const line = function (x1, y1, x2, y2, colorLine) {
-    var canvas = document.getElementById('canvas');
+    var canvas = (document.getElementById('canvas') as HTMLCanvasElement);
     var ctx = canvas.getContext('2d');
     ctx.strokeStyle = colorLine;
     ctx.lineWidth = 1;
@@ -488,7 +488,7 @@ const line3 = function (x1, y1, x2, y2, colorLine) {
 };
 
 const circle = function (x, y, r, w, color) {
-    var ctx = document.getElementById('canvas').getContext('2d');
+    var ctx = (document.getElementById('canvas') as HTMLCanvasElement).getContext('2d');
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineWidth = w;
@@ -498,13 +498,13 @@ const circle = function (x, y, r, w, color) {
 };
 
 const clear = function () {
-    var canvas = document.getElementById('canvas');
+    var canvas = (document.getElementById('canvas') as HTMLCanvasElement);
     var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 };
 
 const rect = function (x1, y1, w, h, color) {
-    var ctx = document.getElementById('canvas').getContext('2d');
+    var ctx = (document.getElementById('canvas') as HTMLCanvasElement).getContext('2d');
     ctx.fillStyle = color;
     ctx.fillRect(x1, y1, w, h);
 };
@@ -711,13 +711,13 @@ const newPage = function () {
 // (del?) no for pdf
 const save = function (url) {
     for (var key in DesignerConfig.jTabs) {
-        document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
-        document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
-        document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
-        document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
+        (document.getElementById('t_x_' + key + '_') as HTMLInputElement).value = parseInt(document.getElementById(key).style.left, 10);
+        (document.getElementById('t_y_' + key + '_') as HTMLInputElement).value = parseInt(document.getElementById(key).style.top, 10);
+        (document.getElementById('t_v_' + key + '_') as HTMLInputElement).value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
+        (document.getElementById('t_h_' + key + '_') as HTMLInputElement).value = (document.getElementById('check_vis_' + key) as HTMLInputElement).checked ? 1 : 0;
     }
 
-    document.getElementById('container-form').action = url;
+    (document.getElementById('container-form') as HTMLFormElement).action = url;
     $('#container-form').trigger('submit');
 };
 
@@ -1800,15 +1800,15 @@ const clickOption = function (dbName, tableName, columnName, tableDbNameUrl, opt
 
 const closeOption = function () {
     document.getElementById('designer_optionse').style.display = 'none';
-    document.getElementById('rel_opt').value = '--';
-    document.getElementById('Query').value = '';
-    document.getElementById('new_name').value = '';
-    document.getElementById('operator').value = '---';
-    document.getElementById('groupby').checked = false;
-    document.getElementById('h_rel_opt').value = '--';
-    document.getElementById('h_operator').value = '---';
-    document.getElementById('having').value = '';
-    document.getElementById('orderby').value = '---';
+    (document.getElementById('rel_opt') as HTMLSelectElement).value = '--';
+    (document.getElementById('Query') as HTMLTextAreaElement).value = '';
+    (document.getElementById('new_name') as HTMLInputElement).value = '';
+    (document.getElementById('operator') as HTMLSelectElement).value = '---';
+    (document.getElementById('groupby') as HTMLInputElement).checked = false;
+    (document.getElementById('h_rel_opt') as HTMLSelectElement).value = '--';
+    (document.getElementById('h_operator') as HTMLSelectElement).value = '---';
+    (document.getElementById('having') as HTMLTextAreaElement).value = '';
+    (document.getElementById('orderby') as HTMLSelectElement).value = '---';
 };
 
 const selectAll = function (tableName, dbName, idSelectAll) {
@@ -1877,7 +1877,7 @@ const storeColumn = function (tableName, colName, checkboxId) {
     var i;
     var k;
     var selectKeyField = '`' + tableName + '`.`' + colName + '`';
-    if (document.getElementById(checkboxId).checked === true) {
+    if ((document.getElementById(checkboxId) as HTMLInputElement).checked === true) {
         DesignerHistory.selectField.push(selectKeyField);
         window.fromArray.push(tableName);
     } else {
@@ -1910,50 +1910,50 @@ const storeColumn = function (tableName, colName, checkboxId) {
 const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var p;
     var whereObj;
-    var rel = document.getElementById('rel_opt');
+    var rel = (document.getElementById('rel_opt') as HTMLSelectElement);
     var sum = 0;
     var init = DesignerHistory.historyArray.length;
     if (rel.value !== '--') {
-        if (document.getElementById('Query').value === '') {
+        if ((document.getElementById('Query') as HTMLTextAreaElement).value === '') {
             ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
 
             return;
         }
 
-        p = document.getElementById('Query');
+        p = (document.getElementById('Query') as HTMLTextAreaElement);
         whereObj = new DesignerHistory.Where(rel.value, p.value);// make where object
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Where'));
         sum = sum + 1;
     }
 
-    if (document.getElementById('new_name').value !== '') {
-        var renameObj = new DesignerHistory.Rename(document.getElementById('new_name').value);// make Rename object
+    if ((document.getElementById('new_name') as HTMLInputElement).value !== '') {
+        var renameObj = new DesignerHistory.Rename((document.getElementById('new_name') as HTMLInputElement).value);// make Rename object
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Rename'));
         sum = sum + 1;
     }
 
-    if (document.getElementById('operator').value !== '---') {
-        var aggregateObj = new DesignerHistory.Aggregate(document.getElementById('operator').value);
+    if ((document.getElementById('operator') as HTMLSelectElement).value !== '---') {
+        var aggregateObj = new DesignerHistory.Aggregate((document.getElementById('operator') as HTMLSelectElement).value);
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
 
-    if (document.getElementById('groupby').checked === true) {
+    if ((document.getElementById('groupby') as HTMLInputElement).checked === true) {
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tableName, DesignerConfig.hTabs[dbTableNameUrl], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
 
-    if (document.getElementById('h_rel_opt').value !== '--') {
-        if (document.getElementById('having').value === '') {
+    if ((document.getElementById('h_rel_opt') as HTMLSelectElement).value !== '--') {
+        if ((document.getElementById('having') as HTMLTextAreaElement).value === '') {
             return;
         }
 
         whereObj = new DesignerHistory.Having(
-            document.getElementById('h_rel_opt').value,
-            document.getElementById('having').value,
-            document.getElementById('h_operator').value
+            (document.getElementById('h_rel_opt') as HTMLSelectElement).value,
+            (document.getElementById('having') as HTMLTextAreaElement).value,
+            (document.getElementById('h_operator') as HTMLSelectElement).value
         );// make where object
 
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Having'));
@@ -1961,8 +1961,8 @@ const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
         // make having
     }
 
-    if (document.getElementById('orderby').value !== '---') {
-        var orderByObj = new DesignerHistory.OrderBy(document.getElementById('orderby').value);
+    if ((document.getElementById('orderby') as HTMLSelectElement).value !== '---') {
+        var orderByObj = new DesignerHistory.OrderBy((document.getElementById('orderby') as HTMLSelectElement).value);
         DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'OrderBy'));
         sum = sum + 1;
         // make orderby
