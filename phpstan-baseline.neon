@@ -4836,6 +4836,11 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:addMicroseconds\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -4852,11 +4857,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#2 \\$enumSetValues of method PhpMyAdmin\\\\InsertEdit\\:\\:getColumnSetValueAndSelectSize\\(\\) expects array\\<string\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 

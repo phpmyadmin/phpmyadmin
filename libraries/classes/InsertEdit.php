@@ -481,30 +481,6 @@ class InsertEdit
     }
 
     /**
-     * Retrieve column 'set' value and select size
-     *
-     * @param mixed[]  $column        description of column in given table
-     * @param string[] $enumSetValues
-     *
-     * @return mixed[] $column['values'], $column['select_size']
-     */
-    private function getColumnSetValueAndSelectSize(
-        array $column,
-        array $enumSetValues,
-    ): array {
-        if (! isset($column['values'])) {
-            $column['values'] = [];
-            foreach ($enumSetValues as $val) {
-                $column['values'][] = ['plain' => $val, 'html' => htmlspecialchars($val)];
-            }
-
-            $column['select_size'] = min(4, count($column['values']));
-        }
-
-        return [$column['values'], $column['select_size']];
-    }
-
-    /**
      * Get HTML input type
      *
      * @param mixed[] $column             description of column in given table
@@ -2032,10 +2008,10 @@ class InsertEdit
                     }
                 }
             } elseif ($column['pma_type'] === 'set') {
-                [$columnSetValues, $setSelectSize] = $this->getColumnSetValueAndSelectSize(
-                    $column,
-                    $extractedColumnspec['enum_set_values'],
-                );
+                $columnSetValues = $column['values'] ?? $extractedColumnspec['enum_set_values'];
+                $setSelectSize = ! isset($column['values'])
+                    ? min(4, count($extractedColumnspec['enum_set_values']))
+                    : $column['select_size'];
             } elseif ($column['is_binary'] || $column['is_blob']) {
                 $isColumnProtectedBlob = ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'all')

@@ -85,7 +85,7 @@
         <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" value="set">
         <select name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}][]" class="textfield" size="{{ set_select_size }}" id="field_{{ id_index }}_3" onchange="return verificationsAfterFieldChange('{{ column.Field_md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.pma_type }}')" multiple>
           {% for set_value in set_values %}
-            <option value="{{ set_value.plain }}"{{ set_value.plain in data|split(',') ? ' selected' }}>{{ set_value.plain }}</option>
+            <option value="{{ set_value }}"{{ set_value in data|split(',') ? ' selected' }}>{{ set_value }}</option>
           {% endfor %}
         </select>
       {% elseif column.is_binary or column.is_blob %}

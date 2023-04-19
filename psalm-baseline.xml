@@ -8029,6 +8029,7 @@
       <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
+      <code>$columnSetValues</code>
       <code><![CDATA[$column['pma_type']]]></code>
       <code><![CDATA[$column['values']]]></code>
       <code>$currCellEditedValues</code>
@@ -8045,6 +8046,7 @@
       <code>$isUnsigned</code>
       <code>$maxlength</code>
       <code>$maxlength</code>
+      <code>$setSelectSize</code>
       <code>$singleQuery</code>
       <code>$specialChars</code>
       <code><![CDATA[$tmp['Default']]]></code>
@@ -8104,7 +8106,6 @@
     </PossiblyInvalidOperand>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$column['is_blob']]]></code>
-      <code><![CDATA[$column['select_size']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['InsertRows']]]></code>
@@ -14866,8 +14867,6 @@
     <MixedAssignment>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
