@@ -329,11 +329,18 @@ class InsertEdit
             ['char', 'varchar'],
         );
 
-        [
-            $column['pma_type'],
-            $column['wrap'],
-            $column['first_timestamp'],
-        ] = $this->getEnumSetAndTimestampColumns($column, $timestampSeen);
+        $column['pma_type'] = match ($column['True_Type']) {
+            'set', 'enum' => $column['True_Type'],
+            default => $column['Type']
+        };
+
+        $column['wrap'] = match ($column['True_Type']) {
+            'set', 'enum' => '',
+            default => ' text-nowrap'
+        };
+
+        // can only occur once per table
+        $column['first_timestamp'] = $column['True_Type'] === 'timestamp' ? ! $timestampSeen : false;
 
         return $column;
     }
@@ -374,29 +381,6 @@ class InsertEdit
         }
 
         return false;
-    }
-
-    /**
-     * Retrieve set, enum, timestamp table columns
-     *
-     * @param mixed[] $column        description of column in given table
-     * @param bool    $timestampSeen whether a timestamp has been seen
-     *
-     * @return mixed[] $column['pma_type'], $column['wrap'], $column['first_timestamp']
-     * @psalm-return array{0: mixed, 1: string, 2: bool}
-     */
-    private function getEnumSetAndTimestampColumns(array $column, bool $timestampSeen): array
-    {
-        return match ($column['True_Type']) {
-            'set' => ['set', '', false],
-            'enum' => ['enum', '', false],
-            'timestamp' => [
-                $column['Type'],
-                ' text-nowrap',
-                ! $timestampSeen, // can only occur once per table
-            ],
-            default => [$column['Type'], ' text-nowrap', false],
-        };
     }
 
     /**
