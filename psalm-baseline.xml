@@ -3305,6 +3305,7 @@
       <code>$isUpload</code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
       <code>$whereClause</code>
+      <code>$whereClause</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$rowId</code>
@@ -3338,6 +3339,7 @@
       <code><![CDATA[$GLOBALS['where_clause_array']]]></code>
       <code><![CDATA[$GLOBALS['where_clauses']]]></code>
       <code>$isUpload</code>
+      <code>$whereClause</code>
       <code>$whereClause</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
@@ -7980,7 +7982,6 @@
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
       <code>$whereClause</code>
       <code>$whereClause</code>
-      <code>$whereClause</code>
       <code><![CDATA[min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -8051,7 +8052,6 @@
       <code>$specialChars</code>
       <code><![CDATA[$tmp['Default']]]></code>
       <code>$transformedHtml</code>
-      <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>

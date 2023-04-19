@@ -360,22 +360,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for urlParamsInEditMode
-     */
-    public function testUrlParamsInEditMode(): void
-    {
-        $whereClauseArray = ['foo=1', 'bar=2'];
-        $_POST['sql_query'] = 'SELECT 1';
-
-        $result = $this->insertEdit->urlParamsInEditMode([1], $whereClauseArray);
-
-        $this->assertEquals(
-            ['0' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
-            $result,
-        );
-    }
-
-    /**
      * Test for showTypeOrFunction
      */
     public function testShowTypeOrFunction(): void

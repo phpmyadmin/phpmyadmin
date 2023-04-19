@@ -241,29 +241,6 @@ class InsertEdit
     }
 
     /**
-     * Add some url parameters
-     *
-     * @param mixed[] $urlParams        containing $db and $table as url parameters
-     * @param mixed[] $whereClauseArray where clauses array
-     *
-     * @return mixed[] Add some url parameters to $url_params array and return it
-     */
-    public function urlParamsInEditMode(
-        array $urlParams,
-        array $whereClauseArray,
-    ): array {
-        foreach ($whereClauseArray as $whereClause) {
-            $urlParams['where_clause'] = trim($whereClause);
-        }
-
-        if (! empty($_POST['sql_query'])) {
-            $urlParams['sql_query'] = $_POST['sql_query'];
-        }
-
-        return $urlParams;
-    }
-
-    /**
      * Show type information or function selectors in Insert/Edit
      *
      * @param string  $which     function|type
