@@ -1495,7 +1495,8 @@ SQL;
             $result,
         );
 
-        $sqlQuery = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
+        $sqlQuery = 'DELIMITER $$' . "\n"
+            . 'CREATE TRIGGER `BEFORE_bar_INSERT` '
             . 'BEFORE INSERT ON `bar` '
             . 'FOR EACH ROW BEGIN '
             . 'SET @cnt=(SELECT count(*) FROM bar WHERE '
