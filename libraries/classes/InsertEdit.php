@@ -244,23 +244,20 @@ class InsertEdit
 
     /**
      * No primary key given, just load first row
-     *
-     * @param string $table name of the table
-     * @param string $db    name of the database
-     *
-     * @return array<int, ResultInterface|false[]>
-     * @phpstan-return array{ResultInterface, false[]}
      */
-    private function loadFirstRow(string $table, string $db): array
+    private function loadFirstRow(string $table, string $db): ResultInterface
     {
-        $result = $this->dbi->query(
+        return $this->dbi->query(
             'SELECT * FROM ' . Util::backquote($db)
             . '.' . Util::backquote($table) . ' LIMIT 1;',
         );
-        // Can be a string on some old configuration storage settings
-        $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
+    }
 
-        return [$result, $rows];
+    /** @return false[] */
+    private function getInsertRows(): array
+    {
+        // Can be a string on some old configuration storage settings
+        return array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
     }
 
     /**
@@ -1770,7 +1767,8 @@ class InsertEdit
             // we are inserting
             $insertMode = true;
             $whereClause = null;
-            [$result, $rows] = $this->loadFirstRow($table, $db);
+            $result = $this->loadFirstRow($table, $db);
+            $rows = $this->getInsertRows();
             $whereClauses = null;
             $whereClauseArray = [];
             $foundUniqueKey = false;

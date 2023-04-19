@@ -336,23 +336,8 @@ class InsertEditTest extends AbstractTestCase
         $this->assertFalse($result);
     }
 
-    /** @return list<array{int|string, array<bool>}> */
-    public static function dataProviderConfigValueInsertRows(): array
+    public function testLoadFirstRow(): void
     {
-        return [[2, [false, false]], ['2', [false, false]], [3, [false, false, false]], ['3', [false, false, false]]];
-    }
-
-    /**
-     * Test for loadFirstRow
-     *
-     * @param array<bool> $rowsValue
-     *
-     * @dataProvider dataProviderConfigValueInsertRows
-     */
-    public function testLoadFirstRow(string|int $configValue, array $rowsValue): void
-    {
-        $GLOBALS['cfg']['InsertRows'] = $configValue;
-
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -380,10 +365,34 @@ class InsertEditTest extends AbstractTestCase
             ['table', 'db'],
         );
 
-        $this->assertEquals(
-            [$resultStub, $rowsValue],
-            $result,
+        $this->assertEquals($resultStub, $result);
+    }
+
+    /** @return list<array{int|string, array<false>}> */
+    public static function dataProviderConfigValueInsertRows(): array
+    {
+        return [[2, [false, false]], ['2', [false, false]], [3, [false, false, false]], ['3', [false, false, false]]];
+    }
+
+    /**
+     * Test for loadFirstRow
+     *
+     * @param array<false> $rowsValue
+     *
+     * @dataProvider dataProviderConfigValueInsertRows
+     */
+    public function testGetInsertRows(string|int $configValue, array $rowsValue): void
+    {
+        $GLOBALS['cfg']['InsertRows'] = $configValue;
+
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getInsertRows',
+            [],
         );
+
+        $this->assertEquals($rowsValue, $result);
     }
 
     /**
