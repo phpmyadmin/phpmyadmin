@@ -133,26 +133,6 @@ class InsertEdit
     }
 
     /**
-     * Creates array of where clauses
-     *
-     * @param string[]|string|null $whereClause where clause
-     *
-     * @return string[] whereClauseArray array of where clauses
-     */
-    private function getWhereClauseArray(array|string|null $whereClause): array
-    {
-        if ($whereClause === null) {
-            return [];
-        }
-
-        if (is_array($whereClause)) {
-            return $whereClause;
-        }
-
-        return [$whereClause];
-    }
-
-    /**
      * Analysing where clauses array
      *
      * @param string[] $whereClauseArray array of where clauses
@@ -1757,7 +1737,7 @@ class InsertEdit
         if (isset($whereClause)) {
             // we are editing
             $insertMode = false;
-            $whereClauseArray = $this->getWhereClauseArray($whereClause);
+            $whereClauseArray = (array) $whereClause;
             [$whereClauses, $result, $rows, $foundUniqueKey] = $this->analyzeWhereClauses(
                 $whereClauseArray,
                 $table,

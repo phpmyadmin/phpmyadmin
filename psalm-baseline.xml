@@ -7981,7 +7981,6 @@
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
-      <code>$whereClause</code>
       <code><![CDATA[min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -7991,6 +7990,7 @@
       <code>$thisUrlParams</code>
       <code>$urlParams</code>
       <code>$valueSets</code>
+      <code>$whereClauseArray</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -8092,7 +8092,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['sql_query']]]></code>
       <code><![CDATA[$_GET['sql_signature']]]></code>
-      <code>$whereClause</code>
       <code>$whereClause</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>

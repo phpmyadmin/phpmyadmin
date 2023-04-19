@@ -182,42 +182,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getWhereClauseArray
-     */
-    public function testGetWhereClauseArray(): void
-    {
-        $this->assertEquals(
-            [],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getWhereClauseArray',
-                [null],
-            ),
-        );
-
-        $this->assertEquals(
-            [1, 2, 3],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getWhereClauseArray',
-                [[1, 2, 3]],
-            ),
-        );
-
-        $this->assertEquals(
-            ['clause'],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getWhereClauseArray',
-                ['clause'],
-            ),
-        );
-    }
-
-    /**
      * Test for analyzeWhereClauses
      */
     public function testAnalyzeWhereClause(): void
