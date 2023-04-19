@@ -381,7 +381,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             SessionCache::remove('is_create_db_priv');
             SessionCache::remove('is_reload_priv');
             SessionCache::remove('db_to_create');
-            SessionCache::remove('dbs_where_create_table_allowed');
             SessionCache::remove('dbs_to_test');
             SessionCache::remove('db_priv');
             SessionCache::remove('col_priv');

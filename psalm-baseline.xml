@@ -132,23 +132,11 @@
       <code><![CDATA[$GLOBALS['db_priv']]]></code>
       <code><![CDATA[$GLOBALS['db_to_create']]]></code>
       <code><![CDATA[$GLOBALS['dbs_to_test']]]></code>
-      <code><![CDATA[$GLOBALS['dbs_where_create_table_allowed']]]></code>
       <code><![CDATA[$GLOBALS['is_create_db_priv']]]></code>
       <code><![CDATA[$GLOBALS['is_reload_priv']]]></code>
       <code><![CDATA[$GLOBALS['proc_priv']]]></code>
       <code><![CDATA[$GLOBALS['table_priv']]]></code>
     </MixedAssignment>
-    <PossiblyFalseOperand>
-      <code>$tableNameEndOffset</code>
-      <code>$tableNameStartOffset</code>
-      <code>$tableNameStartOffset</code>
-      <code>$tableNameStartOffset</code>
-      <code><![CDATA[mb_strpos($row, ' ON ')]]></code>
-      <code><![CDATA[mb_strpos($row, ' ON ')]]></code>
-    </PossiblyFalseOperand>
-    <PossiblyNullArgument>
-      <code>$row[0]</code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Command/CacheWarmupCommand.php">
     <UnusedClass>
@@ -14090,12 +14078,6 @@
       <code>assertTrue</code>
       <code>assertTrue</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedVariable>
-      <code>$showGrantsStr</code>
-      <code>$showGrantsStr</code>
-      <code>$showGrantsTblname</code>
-      <code>$showGrantsTblname</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Command/SetVersionCommandTest.php">
     <PossiblyInvalidArgument>

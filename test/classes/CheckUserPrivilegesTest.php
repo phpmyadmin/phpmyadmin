@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ShowGrants;
 
 /** @covers \PhpMyAdmin\CheckUserPrivileges */
 class CheckUserPrivilegesTest extends AbstractTestCase
@@ -31,102 +32,15 @@ class CheckUserPrivilegesTest extends AbstractTestCase
     }
 
     /**
-     * Test for getItemsFromShowGrantsRow
-     */
-    public function testGetItemsFromShowGrantsRow(): void
-    {
-        // TEST CASE 1
-
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'localhost\' WITH GRANT OPTION',
-        );
-
-        $this->assertEquals('ALL PRIVILEGES', $showGrantsStr);
-
-        $this->assertEquals('*', $showGrantsDbname);
-
-        $this->assertEquals('*', $showGrantsTblname);
-
-        // TEST CASE 2
-
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT ALL PRIVILEGES ON `mysql`.* TO \'root\'@\'localhost\' WITH GRANT OPTION',
-        );
-
-        $this->assertEquals('ALL PRIVILEGES', $showGrantsStr);
-
-        $this->assertEquals('mysql', $showGrantsDbname);
-
-        $this->assertEquals('*', $showGrantsTblname);
-
-        // TEST CASE 3
-
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.`columns_priv` TO \'root\'@\'localhost\'',
-        );
-
-        $this->assertEquals('SELECT, INSERT, UPDATE, DELETE', $showGrantsStr);
-
-        $this->assertEquals('mysql', $showGrantsDbname);
-
-        $this->assertEquals('columns_priv', $showGrantsTblname);
-
-        // TEST CASE 4
-
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT ALL PRIVILEGES ON `cptest\_.`.* TO \'cptest\'@\'localhost\'',
-        );
-
-        $this->assertEquals('cptest\_.', $showGrantsDbname);
-
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT ALL PRIVILEGES ON `cptest\_.a.b.c.d.e.f.g.h.i.j.k.'
-                . 'l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO \'cptest\'@\'localhost\'',
-        );
-
-        $this->assertEquals('cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z', $showGrantsDbname);
-    }
-
-    /**
      * Test for checkRequiredPrivilegesForAdjust
      */
     public function testCheckRequiredPrivilegesForAdjust(): void
     {
         // TEST CASE 1
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'localhost\' WITH GRANT OPTION',
-        );
+        $showGrants = new ShowGrants('GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'localhost\' WITH GRANT OPTION');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        );
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
         $this->assertTrue($GLOBALS['col_priv']);
 
@@ -140,20 +54,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $this->setUp();
 
         // TEST CASE 2
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT ALL PRIVILEGES ON `mysql`.* TO \'root\'@\'localhost\' WITH GRANT OPTION',
-        );
+        $showGrants = new ShowGrants('GRANT ALL PRIVILEGES ON `mysql`.* TO \'root\'@\'localhost\' WITH GRANT OPTION');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        );
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
         $this->assertTrue($GLOBALS['col_priv']);
 
@@ -167,20 +71,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $this->setUp();
 
         // TEST CASE 3
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.* TO \'root\'@\'localhost\'',
-        );
+        $showGrants = new ShowGrants('GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.* TO \'root\'@\'localhost\'');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        );
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
         $this->assertTrue($GLOBALS['col_priv']);
 
@@ -194,20 +88,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $this->setUp();
 
         // TEST CASE 4
-        [
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
-            'GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.`db` TO \'root\'@\'localhost\'',
-        );
+        $showGrants = new ShowGrants('GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.`db` TO \'root\'@\'localhost\'');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
-            $showGrantsStr,
-            $showGrantsDbname,
-            $showGrantsTblname,
-        );
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
         $this->assertFalse($GLOBALS['col_priv']);
 
