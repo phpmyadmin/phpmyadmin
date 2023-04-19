@@ -1611,7 +1611,8 @@ class ExportSqlTest extends AbstractTestCase
         );
 
         $table = 'bar';
-        $sql_query = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
+        $sql_query = 'DELIMITER $$' . "\n"
+            . 'CREATE TRIGGER `BEFORE_bar_INSERT` '
             . 'BEFORE INSERT ON `bar` '
             . 'FOR EACH ROW BEGIN '
             . 'SET @cnt=(SELECT count(*) FROM bar WHERE '
