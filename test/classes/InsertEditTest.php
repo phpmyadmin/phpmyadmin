@@ -620,25 +620,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getColumnEnumValues
-     */
-    public function testGetColumnEnumValues(): void
-    {
-        $enumSetValues = ['<abc>', '"foo"'];
-
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getColumnEnumValues',
-            [$enumSetValues],
-        );
-        $this->assertEquals(
-            [['plain' => '<abc>', 'html' => '&lt;abc&gt;'], ['plain' => '"foo"', 'html' => '&quot;foo&quot;']],
-            $result,
-        );
-    }
-
-    /**
      * Test for getColumnSetValueAndSelectSize
      */
     public function testGetColumnSetValueAndSelectSize(): void

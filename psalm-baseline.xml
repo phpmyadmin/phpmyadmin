@@ -7959,7 +7959,6 @@
       <code>$data</code>
       <code>$data</code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
-      <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
@@ -7996,9 +7995,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code>$currCellEditedValues[$columnName]</code>
-      <code><![CDATA[$enumValue['plain']]]></code>
-      <code><![CDATA[$enumValue['plain']]]></code>
-      <code><![CDATA[$enumValue['plain']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code>$editedValues[$cellIndex][$columnName]</code>
@@ -8034,6 +8030,7 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$column['pma_type']]]></code>
+      <code><![CDATA[$column['values']]]></code>
       <code>$currCellEditedValues</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -14869,7 +14866,6 @@
     <MixedAssignment>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>

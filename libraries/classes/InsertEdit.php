@@ -481,24 +481,6 @@ class InsertEdit
     }
 
     /**
-     * Get column values
-     *
-     * @param string[] $enumSetValues
-     *
-     * @return mixed[] column values as an associative array
-     * @psalm-return list<array{html: string, plain: string}>
-     */
-    private function getColumnEnumValues(array $enumSetValues): array
-    {
-        $values = [];
-        foreach ($enumSetValues as $val) {
-            $values[] = ['plain' => $val, 'html' => htmlspecialchars($val)];
-        }
-
-        return $values;
-    }
-
-    /**
      * Retrieve column 'set' value and select size
      *
      * @param mixed[]  $column        description of column in given table
@@ -2037,17 +2019,15 @@ class InsertEdit
             }
 
             if ($column['pma_type'] === 'enum') {
-                if (! isset($column['values'])) {
-                    $column['values'] = $this->getColumnEnumValues($extractedColumnspec['enum_set_values']);
-                }
+                $column['values'] ??= $extractedColumnspec['enum_set_values'];
 
                 foreach ($column['values'] as $enumValue) {
                     if (
-                        $data == $enumValue['plain'] || ($data == ''
+                        $data == $enumValue || ($data == ''
                             && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
-                            && isset($column['Default']) && $enumValue['plain'] == $column['Default'])
+                            && isset($column['Default']) && $enumValue == $column['Default'])
                     ) {
-                        $enumSelectedValue = $enumValue['plain'];
+                        $enumSelectedValue = $enumValue;
                         break;
                     }
                 }
