@@ -1031,20 +1031,12 @@ class InsertEdit
     /**
      * Executes the sql query and get the result, then move back to the calling page
      *
-     * @param mixed[] $urlParams url parameters array
-     * @param mixed[] $query     built query from buildSqlQuery()
+     * @param mixed[] $query built query from buildSqlQuery()
      *
-     * @return mixed[] $url_params, $total_affected_rows, $last_messages
-     *               $warning_messages, $error_messages, $return_to_sql_query
+     * @return mixed[] $total_affected_rows, $last_messages, $warning_messages, $error_messages
      */
-    public function executeSqlQuery(array $urlParams, array $query): array
+    public function executeSqlQuery(array $query): array
     {
-        $returnToSqlQuery = '';
-        if (! empty($GLOBALS['sql_query'])) {
-            $urlParams['sql_query'] = $GLOBALS['sql_query'];
-            $returnToSqlQuery = $GLOBALS['sql_query'];
-        }
-
         $GLOBALS['sql_query'] = implode('; ', $query) . ';';
         // to ensure that the query is displayed in case of
         // "insert as new row" and then "insert another new row"
@@ -1090,7 +1082,7 @@ class InsertEdit
             $warningMessages = $this->getWarningMessages();
         }
 
-        return [$urlParams, $totalAffectedRows, $lastMessages, $warningMessages, $errorMessages, $returnToSqlQuery];
+        return [$totalAffectedRows, $lastMessages, $warningMessages, $errorMessages];
     }
 
     /**

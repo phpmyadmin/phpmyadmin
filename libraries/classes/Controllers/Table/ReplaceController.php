@@ -314,18 +314,22 @@ final class ReplaceController extends AbstractController
             return;
         }
 
+        $returnToSqlQuery = '';
+        if (! empty($GLOBALS['sql_query'])) {
+            $GLOBALS['urlParams']['sql_query'] = $GLOBALS['sql_query'];
+            $returnToSqlQuery = $GLOBALS['sql_query'];
+        }
+
         /**
          * Executes the sql query and get the result, then move back to the calling
          * page
          */
         [
-            $GLOBALS['urlParams'],
             $totalAffectedRows,
             $lastMessages,
             $warningMessages,
             $errorMessages,
-            $returnToSqlQuery,
-        ] = $this->insertEdit->executeSqlQuery($GLOBALS['urlParams'], $GLOBALS['query']);
+        ] = $this->insertEdit->executeSqlQuery($GLOBALS['query']);
 
         if ($isInsert && ($valueSets !== [] || $rowSkipped)) {
             $GLOBALS['message'] = Message::getMessageForInsertedRows($totalAffectedRows);

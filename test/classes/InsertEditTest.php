@@ -1356,7 +1356,6 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQuery(): void
     {
         $query = ['SELECT * FROM `test_db`.`test_table`;', 'SELECT * FROM `test_db`.`test_table_yaml`;'];
-        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`;';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
         $_POST['submit_type'] = '';
 
@@ -1367,11 +1366,9 @@ class InsertEditTest extends AbstractTestCase
             new FileListing(),
             new Template(),
         );
-        $result = $this->insertEdit->executeSqlQuery([], $query);
+        $result = $this->insertEdit->executeSqlQuery($query);
 
-        $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
         $this->assertEquals([], $result[3]);
-        $this->assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**
@@ -1380,7 +1377,6 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQueryWithTryQuery(): void
     {
         $query = ['SELECT * FROM `test_db`.`test_table`;', 'SELECT * FROM `test_db`.`test_table_yaml`;'];
-        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`;';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
         $_POST['submit_type'] = '';
 
@@ -1391,11 +1387,9 @@ class InsertEditTest extends AbstractTestCase
             new FileListing(),
             new Template(),
         );
-        $result = $this->insertEdit->executeSqlQuery([], $query);
+        $result = $this->insertEdit->executeSqlQuery($query);
 
-        $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
         $this->assertEquals([], $result[3]);
-        $this->assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**

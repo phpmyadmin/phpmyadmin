@@ -3881,7 +3881,6 @@
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
       <code><![CDATA[$GLOBALS['urlParams']['where_clause'][]]]></code>
@@ -3940,7 +3939,6 @@
       <code>$multiEditColumnsName</code>
     </PossiblyInvalidIterator>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['urlParams']]]></code>
       <code><![CDATA[$GLOBALS['urlParams']]]></code>
     </PossiblyNullArgument>
     <PossiblyUndefinedVariable>
