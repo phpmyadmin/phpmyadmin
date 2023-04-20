@@ -578,40 +578,24 @@ class InsertEdit
 
     /**
      * Retrieve the maximum upload file size
-     *
-     * @param string $pmaType            column type
-     * @param int    $biggestMaxFileSize biggest max file size for uploading
-     *
-     * @return mixed[] an html snippet and $biggest_max_file_size
-     * @psalm-return array{non-empty-string, int}
      */
-    private function getMaxUploadSize(string $pmaType, int $biggestMaxFileSize): array
+    private function getMaxUploadSize(string $pmaType): string
     {
         // find maximum upload size, based on field type
         /**
          * @todo with functions this is not so easy, as you can basically
          * process any data with function like MD5
          */
-        $maxFieldSizes = [
+        $maxFieldSize = match ($pmaType) {
             'tinyblob' => 256,
             'blob' => 65536,
             'mediumblob' => 16777216,
             'longblob' => 4294967296,// yeah, really
-        ];
+        };
 
         $thisFieldMaxSize = (int) $GLOBALS['config']->get('max_upload_size'); // from PHP max
-        if ($thisFieldMaxSize > $maxFieldSizes[$pmaType]) {
-            $thisFieldMaxSize = $maxFieldSizes[$pmaType];
-        }
 
-        $htmlOutput = Util::getFormattedMaximumUploadSize($thisFieldMaxSize) . "\n";
-        // do not generate here the MAX_FILE_SIZE, because we should
-        // put only one in the form to accommodate the biggest field
-        if ($thisFieldMaxSize > $biggestMaxFileSize) {
-            $biggestMaxFileSize = $thisFieldMaxSize;
-        }
-
-        return [$htmlOutput, $biggestMaxFileSize];
+        return Util::getFormattedMaximumUploadSize(min($thisFieldMaxSize, $maxFieldSize)) . "\n";
     }
 
     /**
@@ -2024,7 +2008,7 @@ class InsertEdit
                 }
 
                 if ($isUpload && $column['is_blob']) {
-                    [$maxUploadSize] = $this->getMaxUploadSize($column['pma_type'], $biggestMaxFileSize);
+                    $maxUploadSize = $this->getMaxUploadSize($column['pma_type']);
                 }
 
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {

@@ -699,13 +699,10 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType, 256],
+            [$pmaType],
         );
 
-        $this->assertEquals(
-            ["(Max: 256B)\n", 256],
-            $result,
-        );
+        $this->assertEquals("(Max: 256B)\n", $result);
 
         // case 2
         $GLOBALS['config']->set('max_upload_size', 250);
@@ -714,13 +711,10 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType, 20],
+            [$pmaType],
         );
 
-        $this->assertEquals(
-            ["(Max: 250B)\n", 250],
-            $result,
-        );
+        $this->assertEquals("(Max: 250B)\n", $result);
     }
 
     /**

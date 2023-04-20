@@ -4746,6 +4746,11 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Match expression does not handle remaining value\\: string$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getFormParametersForInsertForm\\(\\) has parameter \\$whereClauses with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
