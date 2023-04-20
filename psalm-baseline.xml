@@ -7927,6 +7927,7 @@
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
+      <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
@@ -7948,6 +7949,7 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
+      <code>$defaultValue</code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
@@ -7962,8 +7964,6 @@
       <code>$rows[$keyId]</code>
       <code>$singleQuery</code>
       <code>$singleQuery</code>
-      <code><![CDATA[$tmp['Default'] ?? null]]></code>
-      <code><![CDATA[$tmp['True_Type']]]></code>
       <code><![CDATA[$transformationPlugin->getScripts()]]></code>
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
       <code>$whereClause</code>
@@ -8026,6 +8026,8 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code>$currentValue</code>
       <code>$data</code>
+      <code>$defaultValue</code>
+      <code>$defaultValue</code>
       <code>$enumSelectedValue</code>
       <code>$enumValue</code>
       <code>$fieldsize</code>
@@ -8036,7 +8038,6 @@
       <code>$setSelectSize</code>
       <code>$singleQuery</code>
       <code>$specialChars</code>
-      <code><![CDATA[$tmp['Default']]]></code>
       <code>$transformedHtml</code>
       <code>$whereClause</code>
       <code>$whereClause</code>

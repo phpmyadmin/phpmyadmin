@@ -894,17 +894,12 @@ class InsertEdit
 
     /**
      * display default values
-     *
-     * @return mixed[] $real_null_value, $data, $special_chars
-     * @psalm-return array{bool, string, string}
      */
-    private function getSpecialCharsAndBackupFieldForInsertingMode(
+    private function getSpecialCharsForInsertingMode(
         string|null $defaultValue,
         string $trueType,
-    ): array {
-        $realNullValue = false;
+    ): string {
         if ($defaultValue === null) {
-            $realNullValue = true;
             $defaultValue = '';
         }
 
@@ -921,7 +916,7 @@ class InsertEdit
             $specialChars = htmlspecialchars($defaultValue);
         }
 
-        return [$realNullValue, $defaultValue, $specialChars];
+        return $specialChars;
     }
 
     /**
@@ -1844,19 +1839,16 @@ class InsertEdit
         } else {
             // (we are inserting)
             // display default values
-            $tmp = $column;
+            $defaultValue = $column['Default'] ?? null;
             if (isset($repopulate[$fieldHashMd5])) {
-                $tmp['Default'] = $repopulate[$fieldHashMd5];
+                $defaultValue = $repopulate[$fieldHashMd5];
             }
 
-            [
-                $realNullValue,
-                $data,
-                $specialChars,
-            ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp['Default'] ?? null, $tmp['True_Type']);
+            $realNullValue = $defaultValue === null;
+            $data = (string) $defaultValue;
+            $specialChars = $this->getSpecialCharsForInsertingMode($defaultValue, $column['True_Type']);
             $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
             $backupField = '';
-            unset($tmp);
         }
 
         $idindex = ($oRows * $columnsCnt) + $columnNumber + 1;

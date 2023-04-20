@@ -1162,26 +1162,26 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getSpecialCharsAndBackupFieldForInsertingMode
+     * Test for getSpecialCharsForInsertingMode
      *
-     * @param array $column   Column parameters
-     * @param array $expected Expected result
+     * @param array  $column   Column parameters
+     * @param string $expected Expected result
      * @psalm-param array<string, string|bool|null> $column
-     * @psalm-param array<bool|string> $expected
      *
-     * @dataProvider providerForTestGetSpecialCharsAndBackupFieldForInsertingMode
+     * @dataProvider providerForTestGetSpecialCharsForInsertingMode
      */
-    public function testGetSpecialCharsAndBackupFieldForInsertingMode(
+    public function testGetSpecialCharsForInsertingMode(
         array $column,
-        array $expected,
+        string $expected,
     ): void {
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $result = (array) $this->callFunction(
+        /** @var string $result */
+        $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForInsertingMode',
+            'getSpecialCharsForInsertingMode',
             [$column['Default'] ?? null, $column['True_Type']],
         );
 
@@ -1189,46 +1189,41 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Data provider for test getSpecialCharsAndBackupFieldForInsertingMode()
+     * Data provider for test getSpecialCharsForInsertingMode()
      *
-     * @return array<string, array{array<string, string|bool|null>, array<bool|string>}>
+     * @return array<string, array{array<string, string|bool|null>, string}>
      */
-    public static function providerForTestGetSpecialCharsAndBackupFieldForInsertingMode(): array
+    public static function providerForTestGetSpecialCharsForInsertingMode(): array
     {
         return [
             'bit' => [
                 ['True_Type' => 'bit', 'Default' => 'b\'101\'', 'is_binary' => true],
-                [false, 'b\'101\'', '101', '101'],
+                '101',
             ],
-            'char' => [['True_Type' => 'char', 'is_binary' => true], [true, '', '', '']],
+            'char' => [['True_Type' => 'char', 'is_binary' => true], ''],
             'time with CURRENT_TIMESTAMP value' => [
                 ['True_Type' => 'time', 'Default' => 'CURRENT_TIMESTAMP'],
-                [false, 'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP'],
+                'CURRENT_TIMESTAMP',
             ],
             'time with current_timestamp() value' => [
                 ['True_Type' => 'time', 'Default' => 'current_timestamp()'],
-                [false, 'current_timestamp()', 'current_timestamp()', 'current_timestamp()'],
+                'current_timestamp()',
             ],
             'time with no dot value' => [
                 ['True_Type' => 'time', 'Default' => '10'],
-                [false, '10', '10.000000', '10.000000'],
+                '10.000000',
             ],
             'time with dot value' => [
                 ['True_Type' => 'time', 'Default' => '10.08'],
-                [false, '10.08', '10.080000', '10.080000'],
+                '10.080000',
             ],
             'any text with escape text default' => [
                 ['True_Type' => 'text', 'Default' => '"lorem\"ipsem"'],
-                [false, '"lorem\"ipsem"', 'lorem"ipsem', 'lorem"ipsem'],
+                'lorem"ipsem',
             ],
             'varchar with html special chars' => [
                 ['True_Type' => 'varchar', 'Default' => 'hello world<br><b>lorem</b> ipsem'],
-                [
-                    false,
-                    'hello world<br><b>lorem</b> ipsem',
-                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
-                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
-                ],
+                'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
             ],
         ];
     }
