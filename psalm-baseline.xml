@@ -2174,7 +2174,6 @@
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['MAX_FILE_SIZE']]]></code>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['charset_conversion']]]></code>

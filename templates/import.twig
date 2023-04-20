@@ -42,7 +42,6 @@
             </ul>
             <div class="tab-content mb-3" id="importFileTabContent">
               <div class="tab-pane fade{{ not use_local_file_import ? ' show active' }}" id="uploadFile" role="tabpanel" aria-labelledby="uploadFileTab">
-                <input type="hidden" name="MAX_FILE_SIZE" value="{{ max_upload_size }}">
                 <div class="mb-3">
                   <label class="form-label" for="input_import_file">{% trans 'Browse your computer:' %} <small>{{ formatted_maximum_upload_size }}</small></label>
                   <input class="form-control" type="file" name="import_file" id="input_import_file">
@@ -69,7 +68,6 @@
               </div>
             </div>
           {% elseif is_upload %}
-            <input type="hidden" name="MAX_FILE_SIZE" value="{{ max_upload_size }}">
             <div class="mb-3">
               <label class="form-label" for="input_import_file">{% trans 'Browse your computer:' %} <small>{{ formatted_maximum_upload_size }}</small></label>
               <input class="form-control" type="file" name="import_file" id="input_import_file">
