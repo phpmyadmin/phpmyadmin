@@ -7914,7 +7914,6 @@
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
-      <code>$backupField</code>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
@@ -7949,9 +7948,6 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
@@ -7966,9 +7962,6 @@
       <code>$rows[$keyId]</code>
       <code>$singleQuery</code>
       <code>$singleQuery</code>
-      <code>$specialChars</code>
-      <code>$specialChars</code>
-      <code>$specialCharsEncoded</code>
       <code><![CDATA[$tmp['Default'] ?? null]]></code>
       <code><![CDATA[$tmp['True_Type']]]></code>
       <code><![CDATA[$transformationPlugin->getScripts()]]></code>

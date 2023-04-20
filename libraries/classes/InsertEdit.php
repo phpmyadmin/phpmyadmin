@@ -811,6 +811,7 @@ class InsertEdit
      *
      * @return mixed[] $real_null_value, $data, $special_chars, $backup_field,
      *               $special_chars_encoded
+     * @psalm-return array{bool, string, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForExistingRow(
         array $currentRow,
@@ -1998,7 +1999,7 @@ class InsertEdit
                 $isColumnProtectedBlob = ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob']);
-                if ($isColumnProtectedBlob && isset($data)) {
+                if ($isColumnProtectedBlob) {
                     $blobSize = Util::formatByteDown(mb_strlen(stripslashes($data)), 3, 1);
                     if ($blobSize !== null) {
                         [$blobValue, $blobValueUnit] = $blobSize;
