@@ -1239,7 +1239,7 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getParamsForUpdateOrInsert();
 
         $this->assertEquals(
-            [['LIMIT 1'], true, true, false],
+            [['LIMIT 1'], true, true],
             $result,
         );
 
@@ -1249,7 +1249,7 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getParamsForUpdateOrInsert();
 
         $this->assertEquals(
-            [['a', 'c'], false, true, false],
+            [['a', 'c'], false, true],
             $result,
         );
     }

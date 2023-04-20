@@ -922,8 +922,8 @@ class InsertEdit
     /**
      * Prepares the update/insert of a row
      *
-     * @return mixed[] $loop_array, $using_key, $is_insert, $is_insertignore
-     * @psalm-return array{array, bool, bool, bool}
+     * @return mixed[] $loop_array, $using_key, $is_insert
+     * @psalm-return array{array, bool, bool}
      */
     public function getParamsForUpdateOrInsert(): array
     {
@@ -948,10 +948,7 @@ class InsertEdit
             $isInsert = true;
         }
 
-        $isInsertIgnore = isset($_POST['submit_type'])
-            && $_POST['submit_type'] === 'insertignore';
-
-        return [$loopArray, $usingKey, $isInsert, $isInsertIgnore];
+        return [$loopArray, $usingKey, $isInsert];
     }
 
     /**

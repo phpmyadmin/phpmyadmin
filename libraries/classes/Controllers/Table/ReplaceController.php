@@ -104,7 +104,9 @@ final class ReplaceController extends AbstractController
         /**
          * Prepares the update/insert of a row
          */
-        [$loopArray, $usingKey, $isInsert, $isInsertignore] = $this->insertEdit->getParamsForUpdateOrInsert();
+        [$loopArray, $usingKey, $isInsert] = $this->insertEdit->getParamsForUpdateOrInsert();
+
+        $isInsertignore = isset($_POST['submit_type']) && $_POST['submit_type'] === 'insertignore';
 
         $GLOBALS['query'] = [];
         $valueSets = [];
