@@ -1008,29 +1008,24 @@ class InsertEdit
     }
 
     /**
-     * Builds the sql query
+     * Builds the SQL insert query
      *
-     * @param bool    $isInsertIgnore $_POST['submit_type'] === 'insertignore'
-     * @param mixed[] $queryFields    column names array
-     * @param mixed[] $valueSets      array of query values
+     * @param bool     $isInsertIgnore $_POST['submit_type'] === 'insertignore'
+     * @param string[] $queryFields    column names array
+     * @param string[] $valueSets      array of query values
      *
-     * @return mixed[] of query
-     * @psalm-return array{string}
+     * @todo move this to Query generator class
      */
-    public function buildSqlQuery(bool $isInsertIgnore, array $queryFields, array $valueSets): array
-    {
-        if ($isInsertIgnore) {
-            $insertCommand = 'INSERT IGNORE ';
-        } else {
-            $insertCommand = 'INSERT ';
-        }
-
-        return [
-            $insertCommand . 'INTO '
-            . Util::backquote($GLOBALS['table'])
+    public function buildInsertSqlQuery(
+        string $table,
+        bool $isInsertIgnore,
+        array $queryFields,
+        array $valueSets,
+    ): string {
+        return ($isInsertIgnore ? 'INSERT IGNORE ' : 'INSERT ') . 'INTO '
+            . Util::backquote($table)
             . ' (' . implode(', ', $queryFields) . ') VALUES ('
-            . implode('), (', $valueSets) . ')',
-        ];
+            . implode('), (', $valueSets) . ')';
     }
 
     /**

@@ -7973,11 +7973,9 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$query</code>
-      <code>$queryFields</code>
       <code>$thisUrlParams</code>
       <code>$thisUrlParams</code>
       <code>$urlParams</code>
-      <code>$valueSets</code>
       <code>$whereClauseArray</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>

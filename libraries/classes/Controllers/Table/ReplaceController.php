@@ -286,7 +286,12 @@ final class ReplaceController extends AbstractController
 
         // Builds the sql query
         if ($isInsert && $valueSets !== []) {
-            $GLOBALS['query'] = $this->insertEdit->buildSqlQuery($isInsertignore, $queryFields, $valueSets);
+            $GLOBALS['query'] = (array) $this->insertEdit->buildInsertSqlQuery(
+                $GLOBALS['table'],
+                $isInsertignore,
+                $queryFields,
+                $valueSets,
+            );
         } elseif (empty($GLOBALS['query']) && ! isset($_POST['preview_sql']) && ! $rowSkipped) {
             // No change -> move back to the calling script
             //
