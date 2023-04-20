@@ -895,8 +895,8 @@ class InsertEdit
     /**
      * display default values
      *
-     * @return mixed[] $real_null_value, $data, $special_chars, $special_chars_encoded
-     * @psalm-return array{bool, string, string, string}
+     * @return mixed[] $real_null_value, $data, $special_chars
+     * @psalm-return array{bool, string, string}
      */
     private function getSpecialCharsAndBackupFieldForInsertingMode(
         string|null $defaultValue,
@@ -921,9 +921,7 @@ class InsertEdit
             $specialChars = htmlspecialchars($defaultValue);
         }
 
-        $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
-
-        return [$realNullValue, $defaultValue, $specialChars, $specialCharsEncoded];
+        return [$realNullValue, $defaultValue, $specialChars];
     }
 
     /**
@@ -1855,8 +1853,8 @@ class InsertEdit
                 $realNullValue,
                 $data,
                 $specialChars,
-                $specialCharsEncoded,
             ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp['Default'] ?? null, $tmp['True_Type']);
+            $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
             $backupField = '';
             unset($tmp);
         }
