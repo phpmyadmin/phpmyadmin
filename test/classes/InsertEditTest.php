@@ -1229,32 +1229,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getParamsForUpdateOrInsert
-     */
-    public function testGetParamsForUpdateOrInsert(): void
-    {
-        $_POST['where_clause'] = 'LIMIT 1';
-        $_POST['submit_type'] = 'showinsert';
-
-        $result = $this->insertEdit->getParamsForUpdateOrInsert();
-
-        $this->assertEquals(
-            [['LIMIT 1'], true, true],
-            $result,
-        );
-
-        // case 2 (else)
-        unset($_POST['where_clause']);
-        $_POST['fields']['multi_edit'] = ['a' => 'b', 'c' => 'd'];
-        $result = $this->insertEdit->getParamsForUpdateOrInsert();
-
-        $this->assertEquals(
-            [['a', 'c'], false, true],
-            $result,
-        );
-    }
-
-    /**
      * Test for setSessionForEditNext
      */
     public function testSetSessionForEditNext(): void

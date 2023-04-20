@@ -187,4 +187,52 @@ class ReplaceControllerTest extends AbstractTestCase
             $output,
         );
     }
+
+    /**
+     * Test for getParamsForUpdateOrInsert
+     */
+    public function testGetParamsForUpdateOrInsert(): void
+    {
+        $_POST['where_clause'] = 'LIMIT 1';
+        $_POST['submit_type'] = 'showinsert';
+
+        $replaceController = new ReplaceController(
+            $this->createStub(ResponseRenderer::class),
+            $this->createStub(Template::class),
+            $this->createStub(InsertEdit::class),
+            $this->createStub(Transformations::class),
+            $this->createStub(Relation::class),
+            $this->createStub(DatabaseInterface::class),
+        );
+
+        /** @var array $result */
+        $result = $this->callFunction(
+            $replaceController,
+            ReplaceController::class,
+            'getParamsForUpdateOrInsert',
+            [],
+        );
+
+        $this->assertEquals(
+            [['LIMIT 1'], true, true],
+            $result,
+        );
+
+        // case 2 (else)
+        unset($_POST['where_clause']);
+        $_POST['fields']['multi_edit'] = ['a' => 'b', 'c' => 'd'];
+
+        /** @var array $result */
+        $result = $this->callFunction(
+            $replaceController,
+            ReplaceController::class,
+            'getParamsForUpdateOrInsert',
+            [],
+        );
+
+        $this->assertEquals(
+            [['a', 'c'], false, true],
+            $result,
+        );
+    }
 }

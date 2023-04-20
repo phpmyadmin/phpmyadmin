@@ -13,7 +13,6 @@ use PhpMyAdmin\Utils\Gis;
 use function __;
 use function array_fill;
 use function array_key_exists;
-use function array_keys;
 use function array_merge;
 use function array_values;
 use function bin2hex;
@@ -917,38 +916,6 @@ class InsertEdit
         }
 
         return $specialChars;
-    }
-
-    /**
-     * Prepares the update/insert of a row
-     *
-     * @return mixed[] $loop_array, $using_key, $is_insert
-     * @psalm-return array{array, bool, bool}
-     */
-    public function getParamsForUpdateOrInsert(): array
-    {
-        if (isset($_POST['where_clause'])) {
-            // we were editing something => use the WHERE clause
-            $loopArray = is_array($_POST['where_clause'])
-                ? $_POST['where_clause']
-                : [$_POST['where_clause']];
-            $usingKey = true;
-            $isInsert = isset($_POST['submit_type'])
-                && ($_POST['submit_type'] === 'insert'
-                    || $_POST['submit_type'] === 'showinsert'
-                    || $_POST['submit_type'] === 'insertignore');
-        } else {
-            // new row => use indexes
-            $loopArray = [];
-            if (! empty($_POST['fields'])) {
-                $loopArray = array_keys($_POST['fields']['multi_edit']);
-            }
-
-            $usingKey = false;
-            $isInsert = true;
-        }
-
-        return [$loopArray, $usingKey, $isInsert];
     }
 
     /**

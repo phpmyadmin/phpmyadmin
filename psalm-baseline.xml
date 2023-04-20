@@ -3837,6 +3837,7 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
       <code>$columnName</code>
       <code>$columnName</code>
       <code>$columnName</code>
@@ -3918,6 +3919,7 @@
       <code><![CDATA[$_POST['transform_fields_list']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
       <code><![CDATA[$_POST['fields_name']['multi_edit']]]></code>
       <code>$multiEditColumnsPrev[$key]</code>
       <code>$multiEditColumnsType[$key]</code>
@@ -7913,7 +7915,6 @@
         ]</code>
     </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
@@ -8081,9 +8082,6 @@
       <code><![CDATA[$_GET['sql_signature']]]></code>
       <code>$whereClause</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['sql_query']]]></code>
       <code><![CDATA[$_GET['sql_signature']]]></code>

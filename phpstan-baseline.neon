@@ -2221,6 +2221,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\ReplaceController\\:\\:getParamsForUpdateOrInsert\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^PHPDoc tag @var for variable \\$relationFields has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
@@ -4752,11 +4757,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getFormParametersForInsertForm\\(\\) has parameter \\$whereClauses with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getParamsForUpdateOrInsert\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -9304,6 +9304,11 @@ parameters:
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 7
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$result has no value type specified in iterable type array\\.$#"
+			count: 2
+			path: test/classes/Controllers/Table/ReplaceControllerTest.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
