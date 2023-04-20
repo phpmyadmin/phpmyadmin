@@ -62,7 +62,6 @@ class ChangeController extends AbstractController
         $GLOBALS['tabindex'] ??= null;
         $GLOBALS['tabindex_for_value'] ??= null;
         $GLOBALS['o_rows'] ??= null;
-        $GLOBALS['biggest_max_file_size'] ??= null;
         $GLOBALS['has_blob_field'] ??= null;
         $GLOBALS['jsvkey'] ??= null;
         $GLOBALS['vkey'] ??= null;
@@ -183,7 +182,6 @@ class ChangeController extends AbstractController
         $GLOBALS['tabindex'] = 0;
         $GLOBALS['tabindex_for_value'] = 0;
         $GLOBALS['o_rows'] = 0;
-        $GLOBALS['biggest_max_file_size'] = 0;
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
@@ -261,7 +259,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['table'],
                 $GLOBALS['db'],
                 $rowId,
-                $GLOBALS['biggest_max_file_size'],
                 $GLOBALS['text_dir'],
                 $GLOBALS['repopulate'],
                 $GLOBALS['where_clause_array'],
@@ -283,11 +280,6 @@ class ChangeController extends AbstractController
             'found_unique_key' => $GLOBALS['found_unique_key'],
             'is_numeric' => $isNumeric,
         ]);
-
-        if ($GLOBALS['biggest_max_file_size'] > 0) {
-            $htmlOutput .= '<input type="hidden" name="MAX_FILE_SIZE" value="'
-                . $GLOBALS['biggest_max_file_size'] . '">' . "\n";
-        }
 
         $htmlOutput .= '</form>';
 

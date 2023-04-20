@@ -1755,7 +1755,6 @@ class InsertEdit
      * @param string          $table              table
      * @param string          $db                 database
      * @param int             $rowId              row id
-     * @param int             $biggestMaxFileSize biggest max file size
      * @param string          $defaultCharEditing default char editing mode which is stored in the config.inc.php script
      * @param string          $textDir            text direction
      * @param mixed[]         $repopulate         the data to be repopulated
@@ -1781,7 +1780,6 @@ class InsertEdit
         string $table,
         string $db,
         int $rowId,
-        int $biggestMaxFileSize,
         string $defaultCharEditing,
         string $textDir,
         array $repopulate,
@@ -2107,28 +2105,27 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param mixed[]         $urlParams          url parameters
-     * @param mixed[][]       $tableColumns       table columns
-     * @param mixed[]         $commentsMap        comments map
-     * @param bool            $timestampSeen      whether timestamp seen
-     * @param ResultInterface $currentResult      current result
-     * @param string          $jsvkey             javascript validation key
-     * @param string          $vkey               validation key
-     * @param bool            $insertMode         whether insert mode
-     * @param mixed[]         $currentRow         current row
-     * @param int             $oRows              row offset
-     * @param int             $tabindex           tab index
-     * @param int             $columnsCnt         columns count
-     * @param bool            $isUpload           whether upload
-     * @param mixed[]         $foreigners         foreigners
-     * @param int             $tabindexForValue   tab index offset for value
-     * @param string          $table              table
-     * @param string          $db                 database
-     * @param int             $rowId              row id
-     * @param int             $biggestMaxFileSize biggest max file size
-     * @param string          $textDir            text direction
-     * @param mixed[]         $repopulate         the data to be repopulated
-     * @param mixed[]         $whereClauseArray   the array of where clauses
+     * @param mixed[]         $urlParams        url parameters
+     * @param mixed[][]       $tableColumns     table columns
+     * @param mixed[]         $commentsMap      comments map
+     * @param bool            $timestampSeen    whether timestamp seen
+     * @param ResultInterface $currentResult    current result
+     * @param string          $jsvkey           javascript validation key
+     * @param string          $vkey             validation key
+     * @param bool            $insertMode       whether insert mode
+     * @param mixed[]         $currentRow       current row
+     * @param int             $oRows            row offset
+     * @param int             $tabindex         tab index
+     * @param int             $columnsCnt       columns count
+     * @param bool            $isUpload         whether upload
+     * @param mixed[]         $foreigners       foreigners
+     * @param int             $tabindexForValue tab index offset for value
+     * @param string          $table            table
+     * @param string          $db               database
+     * @param int             $rowId            row id
+     * @param string          $textDir          text direction
+     * @param mixed[]         $repopulate       the data to be repopulated
+     * @param mixed[]         $whereClauseArray the array of where clauses
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,
@@ -2149,7 +2146,6 @@ class InsertEdit
         string $table,
         string $db,
         int $rowId,
-        int $biggestMaxFileSize,
         string $textDir,
         array $repopulate,
         array $whereClauseArray,
@@ -2196,7 +2192,6 @@ class InsertEdit
                 $table,
                 $db,
                 $rowId,
-                $biggestMaxFileSize,
                 $defaultCharEditing,
                 $textDir,
                 $repopulate,

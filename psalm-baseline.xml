@@ -3271,7 +3271,6 @@
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['after_insert']]]></code>
-      <code><![CDATA[$GLOBALS['biggest_max_file_size']]]></code>
       <code><![CDATA[$GLOBALS['checked']]]></code>
       <code><![CDATA[$GLOBALS['columns_cnt']]]></code>
       <code><![CDATA[$GLOBALS['comments_map']]]></code>
@@ -3313,7 +3312,6 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['after_insert']]]></code>
-      <code><![CDATA[$GLOBALS['biggest_max_file_size']]]></code>
       <code><![CDATA[$GLOBALS['checked']]]></code>
       <code><![CDATA[$GLOBALS['columns_cnt']]]></code>
       <code><![CDATA[$GLOBALS['comments_map']]]></code>
@@ -3349,9 +3347,6 @@
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
       <code>$isUpload</code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$GLOBALS['biggest_max_file_size'] > 0]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeRowsController.php">
     <InvalidArrayOffset>
