@@ -99,7 +99,7 @@ jobs:
         with:
           coverage: "none"
           php-version: ${{ env.php-version }}
-          extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          extensions: :opcache, mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
