@@ -17,7 +17,6 @@ const typeScriptErrorsToIgnore = [
     2365, // TS2365: Operator '%s' cannot be applied to types '%s' and '%s'.
     2367, // TS2367: This comparison appears to be unintentional because the types '%s' and '%s' have no overlap.
     2405, // TS2405: The left-hand side of a 'for...in' statement must be of type 'string' or 'any'.
-    2469, // TS2469: The '+' operator cannot be applied to type 'symbol'.
     2538, // TS2538: Type '%s' cannot be used as an index type.
     2769, // TS2769: No overload matches this call.
     5096, // TS5096: Option 'allowImportingTsExtensions' can only be used when either 'noEmit' or 'emitDeclarationOnly' is set.

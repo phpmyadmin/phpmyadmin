@@ -139,6 +139,11 @@ function loadTemplate (id) {
             var $form = $('form[name="dump"]');
             var options = JSON.parse(response.data);
             $.each(options, function (key, value) {
+                if (typeof key === 'symbol') {
+                    // Continue to next iteration.
+                    return true;
+                }
+
                 var localValue = value;
                 var $element = $form.find('[name="' + key + '"]');
                 if ($element.length) {
