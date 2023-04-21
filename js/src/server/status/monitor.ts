@@ -87,7 +87,7 @@ function destroyGrid () {
 
 AJAX.registerOnload('server/status/monitor.js', function () {
     var $jsDataForm = $('#js_data');
-    serverTimeDiff = new Date().getTime() - $jsDataForm.find('input[name=server_time]').val();
+    serverTimeDiff = new Date().getTime() - Number($jsDataForm.find('input[name=server_time]').val());
     serverOs = $jsDataForm.find('input[name=server_os]').val();
     isSuperUser = $jsDataForm.find('input[name=is_superuser]').val();
     serverDbIsLocal = $jsDataForm.find('input[name=server_db_isLocal]').val();

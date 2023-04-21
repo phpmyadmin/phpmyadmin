@@ -357,20 +357,20 @@ AJAX.registerOnload('table/select.js', function () {
                             if ($targetField.is('select')) {
                                 $targetField.val(finalValue);
                                 var $options = $targetField.find('option');
-                                var $closestMin = null;
-                                var $closestMax = null;
+                                var $closestMin: JQuery<HTMLOptionElement> | null = null;
+                                var $closestMax: JQuery<HTMLOptionElement> | null = null;
                                 // Find closest min and max value.
                                 $options.each(function () {
                                     if (
                                         $closestMin === null
-                                        || Math.abs($(this).val() - minValue) < Math.abs($closestMin.val() - minValue)
+                                        || Math.abs(Number($(this).val()) - Number(minValue)) < Math.abs(Number($closestMin.val()) - Number(minValue))
                                     ) {
                                         $closestMin = $(this);
                                     }
 
                                     if (
                                         $closestMax === null
-                                        || Math.abs($(this).val() - maxValue) < Math.abs($closestMax.val() - maxValue)
+                                        || Math.abs(Number($(this).val()) - Number(maxValue)) < Math.abs(Number($closestMax.val()) - Number(maxValue))
                                     ) {
                                         $closestMax = $(this);
                                     }

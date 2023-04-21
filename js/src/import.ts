@@ -205,15 +205,15 @@ AJAX.registerOnload('import.js', function () {
                             $('#upload_form_status_info').html(clockImage + ' ' + window.Messages.uploadProgressMaximumAllowedSize);
                             $('#upload_form_status').css('display', 'none');
                         } else {
-                            var now = new Date();
-                            now = Date.UTC(
-                                now.getFullYear(),
-                                now.getMonth(),
-                                now.getDate(),
-                                now.getHours(),
-                                now.getMinutes(),
-                                now.getSeconds()
-                            ) + now.getMilliseconds() - 1000;
+                            var nowDate = new Date();
+                            const now = Date.UTC(
+                                nowDate.getFullYear(),
+                                nowDate.getMonth(),
+                                nowDate.getDate(),
+                                nowDate.getHours(),
+                                nowDate.getMinutes(),
+                                nowDate.getSeconds()
+                            ) + nowDate.getMilliseconds() - 1000;
 
                             var statusText = window.sprintf(
                                 window.Messages.uploadProgressStatusText,

@@ -1095,7 +1095,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     $(document).on('submit', '.maxRowsForm', function () {
-        var unlimNumRows = $(this).find('input[name="unlim_num_rows"]').val();
+        var unlimNumRows = Number($(this).find('input[name="unlim_num_rows"]').val());
 
         var maxRowsCheck = Functions.checkFormElementInRange(
             this,

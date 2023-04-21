@@ -281,8 +281,8 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         // zoom in
         scale *= zoomFactor;
 
-        var width = $(gisSvg).attr('width');
-        var height = $(gisSvg).attr('height');
+        var width = Number($(gisSvg).attr('width'));
+        var height = Number($(gisSvg).attr('height'));
         // zooming in keeping the center unmoved.
         x = width / 2 - (width / 2 - x) * zoomFactor;
         y = height / 2 - (height / 2 - y) * zoomFactor;
@@ -302,8 +302,8 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         // zoom out
         scale /= zoomFactor;
 
-        var width = $(gisSvg).attr('width');
-        var height = $(gisSvg).attr('height');
+        var width = Number($(gisSvg).attr('width'));
+        var height = Number($(gisSvg).attr('height'));
         // zooming out keeping the center unmoved.
         x = width / 2 - (width / 2 - x) / zoomFactor;
         y = height / 2 - (height / 2 - y) / zoomFactor;
