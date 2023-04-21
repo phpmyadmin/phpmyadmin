@@ -4786,6 +4786,11 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#1 \\$optionString of method PhpMyAdmin\\\\Transformations\\:\\:getOptions\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -4812,11 +4817,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function md5 expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 

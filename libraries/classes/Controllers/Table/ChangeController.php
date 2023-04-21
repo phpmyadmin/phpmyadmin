@@ -22,8 +22,8 @@ use function count;
 use function is_array;
 use function is_string;
 use function str_contains;
+use function str_starts_with;
 use function strlen;
-use function strpos;
 use function trim;
 
 /**
@@ -118,7 +118,7 @@ class ChangeController extends AbstractController
         $sqlQuery = $request->getParsedBodyParam('sql_query');
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
 
-        if (strpos($GLOBALS['goto'] ?? '', 'index.php?route=/table') === 0) {
+        if (str_starts_with($GLOBALS['goto'] ?? '', 'index.php?route=/table')) {
             $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         }
 

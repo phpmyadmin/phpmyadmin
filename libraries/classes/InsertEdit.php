@@ -39,7 +39,9 @@ use function password_hash;
 use function preg_match;
 use function preg_replace;
 use function str_contains;
+use function str_ends_with;
 use function str_replace;
+use function str_starts_with;
 use function stripcslashes;
 use function stripslashes;
 use function strlen;
@@ -816,7 +818,7 @@ class InsertEdit
                     (int) $extractedColumnspec['spec_in_brackets'],
                 );
         } elseif (
-            (substr($column['True_Type'], 0, 9) === 'timestamp'
+            (str_starts_with($column['True_Type'], 'timestamp')
                 || $column['True_Type'] === 'datetime'
                 || $column['True_Type'] === 'time')
             && (str_contains($currentRow[$column['Field']], '.'))
@@ -883,11 +885,11 @@ class InsertEdit
 
         if ($trueType === 'bit') {
             $specialChars = Util::convertBitDefaultValue($defaultValue);
-        } elseif (substr($trueType, 0, 9) === 'timestamp' || $trueType === 'datetime' || $trueType === 'time') {
+        } elseif (str_starts_with($trueType, 'timestamp') || $trueType === 'datetime' || $trueType === 'time') {
             $specialChars = Util::addMicroseconds($defaultValue);
         } elseif ($trueType === 'binary' || $trueType === 'varbinary') {
             $specialChars = bin2hex($defaultValue);
-        } elseif (substr($trueType, -4) === 'text') {
+        } elseif (str_ends_with($trueType, 'text')) {
             $textDefault = substr($defaultValue, 1, -1);
             $specialChars = stripcslashes($textDefault !== '' ? $textDefault : $defaultValue);
         } else {
@@ -1419,7 +1421,7 @@ class InsertEdit
         }
 
         if ($editField->type === 'hex') {
-            if (substr($editField->value, 0, 2) != '0x') {
+            if (! str_starts_with($editField->value, '0x')) {
                 return '0x' . $editField->value;
             }
 
