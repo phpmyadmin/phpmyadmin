@@ -342,7 +342,7 @@ class InsertEdit
         };
 
         // can only occur once per table
-        $column['first_timestamp'] = $column['True_Type'] === 'timestamp' ? ! $timestampSeen : false;
+        $column['first_timestamp'] = $column['True_Type'] === 'timestamp' && ! $timestampSeen;
 
         return $column;
     }
