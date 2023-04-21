@@ -1128,12 +1128,12 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     var showMicrosec = false;
                     var timeFormat = 'HH:mm:ss';
                     // check for decimal places of seconds
-                    if (($td.attr('data-decimals') > 0) && ($td.attr('data-type').indexOf('time') !== -1)) {
+                    if ((Number($td.attr('data-decimals')) > 0) && ($td.attr('data-type').indexOf('time') !== -1)) {
                         if (datetimeValue && datetimeValue.indexOf('.') === false) {
                             datetimeValue += '.';
                         }
 
-                        if ($td.attr('data-decimals') > 3) {
+                        if (Number($td.attr('data-decimals')) > 3) {
                             showMillisec = true;
                             showMicrosec = true;
                             timeFormat = 'HH:mm:ss.lc';

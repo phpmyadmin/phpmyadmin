@@ -75,8 +75,7 @@ AJAX.registerOnload('table/structure.js', function () {
          * @var form object referring to the export form
          */
         var $form = $(this);
-        var fieldCnt = $form.find('input[name=orig_num_fields]').val();
-
+        var fieldCnt = Number($form.find('input[name=orig_num_fields]').val());
 
         function submitForm () {
             var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);

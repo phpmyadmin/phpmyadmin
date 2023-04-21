@@ -166,7 +166,7 @@ function addDateTimePicker () {
     }
 
     $('input.timefield, input.datefield, input.datetimefield').each(function () {
-        var decimals = $(this).parent().attr('data-decimals');
+        var decimals = Number($(this).parent().attr('data-decimals'));
         var type = $(this).parent().attr('data-type');
 
         var showMillisec = false;

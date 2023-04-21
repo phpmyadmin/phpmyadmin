@@ -670,7 +670,7 @@ function addNewContinueInsertionFields (event) {
     /**
      * @var target_rows Number of rows the user wants
      */
-    var targetRows = $('#insert_rows').val();
+    var targetRows = Number($('#insert_rows').val());
 
     // remove all datepickers
     $('input.datefield, input.datetimefield').each(function () {

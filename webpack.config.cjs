@@ -12,7 +12,6 @@ const publicPath = path.resolve(__dirname, 'public');
 const typeScriptErrorsToIgnore = [
     2322, // TS2322: Type '%s' is not assignable to type '%s'.
     2345, // TS2345: Argument of type '%s' is not assignable to parameter of type '%s'.
-    2365, // TS2365: Operator '%s' cannot be applied to types '%s' and '%s'.
     2367, // TS2367: This comparison appears to be unintentional because the types '%s' and '%s' have no overlap.
     2405, // TS2405: The left-hand side of a 'for...in' statement must be of type 'string' or 'any'.
     2538, // TS2538: Type '%s' cannot be used as an index type.

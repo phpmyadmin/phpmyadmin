@@ -584,7 +584,7 @@ function on () {
              */
             var $currRow = $anchor.parents('tr');
             /** @var {number} rows Number of columns in the key */
-            var rows = $anchor.parents('td').attr('rowspan') || 1;
+            var rows = Number($anchor.parents('td').attr('rowspan')) || 1;
             /** @var {number} $rowsToHide Rows that should be hidden */
             var $rowsToHide = $currRow;
             for (var i = 1, $lastRow = $currRow.next(); i < rows; i++, $lastRow = $lastRow.next()) {
