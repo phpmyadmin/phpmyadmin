@@ -10,7 +10,6 @@ const rootPath = path.resolve(__dirname, '');
 const publicPath = path.resolve(__dirname, 'public');
 
 const typeScriptErrorsToIgnore = [
-    2345, // TS2345: Argument of type '%s' is not assignable to parameter of type '%s'.
     5096, // TS5096: Option 'allowImportingTsExtensions' can only be used when either 'noEmit' or 'emitDeclarationOnly' is set.
 ];
 

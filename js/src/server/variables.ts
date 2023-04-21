@@ -68,7 +68,9 @@ AJAX.registerOnload('server/variables.js', function () {
                     $valueCell.html($valueCell.data('content'));
                 }
 
-                $cell.removeClass('edit').html($myEditLink);
+                $cell.removeClass('edit')
+                    // @ts-ignore
+                    .html($myEditLink);
             });
 
             return false;
@@ -76,7 +78,9 @@ AJAX.registerOnload('server/variables.js', function () {
 
         $myCancelLink.on('click', function () {
             $valueCell.html($valueCell.data('content'));
-            $cell.removeClass('edit').html($myEditLink);
+            $cell.removeClass('edit')
+                // @ts-ignore
+                .html($myEditLink);
 
             return false;
         });
@@ -98,12 +102,14 @@ AJAX.registerOnload('server/variables.js', function () {
                     );
                 // Save and replace content
                 $cell
+                    // @ts-ignore
                     .html($links)
                     .children()
                     .css('display', 'flex');
 
                 $valueCell
                     .data('content', $valueCell.html())
+                    // @ts-ignore
                     .html($editor)
                     .find('input')
                     .trigger('focus')
@@ -117,7 +123,10 @@ AJAX.registerOnload('server/variables.js', function () {
 
                 ajaxRemoveMessage($msgbox);
             } else {
-                $cell.removeClass('edit').html($myEditLink);
+                $cell.removeClass('edit')
+                    // @ts-ignore
+                    .html($myEditLink);
+
                 ajaxShowMessage(data.error);
             }
         });

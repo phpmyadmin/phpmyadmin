@@ -21,6 +21,7 @@ function showSettings (selector) {
     });
 
     $('#pageSettingsModal').modal('show');
+    // @ts-ignore
     $('#pageSettingsModal').find('.modal-body').first().html($(selector));
     $(selector).css('display', 'block');
 }

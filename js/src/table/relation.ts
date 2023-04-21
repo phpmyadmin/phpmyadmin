@@ -247,9 +247,9 @@ AJAX.registerOnload('table/relation.js', function () {
         var $currRow = $anchor.parents('tr');
 
         var dropQuery = escapeHtml(
-            $currRow.children('td')
+            ($currRow.children('td')
                 .children('.drop_foreign_key_msg')
-                .val()
+                .val() as string)
         );
 
         var question = window.sprintf(window.Messages.strDoYouReally, dropQuery);

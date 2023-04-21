@@ -8,7 +8,7 @@ import { Functions } from '../modules/functions.ts';
  * @package PhpMyAdmin
  */
 AJAX.registerOnload('transformations/sql_editor.js', function () {
-    $('textarea.transform_sql_editor').each(function () {
+    ($('textarea.transform_sql_editor') as JQuery<HTMLTextAreaElement>).each(function () {
         Functions.getSqlEditor($(this), {}, 'both');
     });
 });

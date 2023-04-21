@@ -150,8 +150,8 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
  *
  * @param {JQuery} $thisMessageBox Element that holds the notification
  */
-const ajaxRemoveMessage = function ($thisMessageBox: JQuery): void {
-    if ($thisMessageBox !== undefined && $thisMessageBox instanceof $) {
+const ajaxRemoveMessage = function ($thisMessageBox: JQuery | boolean): void {
+    if ($thisMessageBox !== undefined && typeof $thisMessageBox !== 'boolean' && $thisMessageBox instanceof $) {
         $thisMessageBox
             .stop(true, true)
             .fadeOut('medium');

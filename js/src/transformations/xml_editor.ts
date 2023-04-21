@@ -7,7 +7,7 @@ import { AJAX } from '../modules/ajax.ts';
  * @package PhpMyAdmin
  */
 AJAX.registerOnload('transformations/xml_editor.js', function () {
-    $('textarea.transform_xml_editor').each(function () {
+    ($('textarea.transform_xml_editor') as JQuery<HTMLTextAreaElement>).each(function () {
         window.CodeMirror.fromTextArea(this, {
             lineNumbers: true,
             indentUnit: 4,

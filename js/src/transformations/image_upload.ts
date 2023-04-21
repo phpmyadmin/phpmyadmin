@@ -16,7 +16,7 @@ AJAX.registerOnload('transformations/image_upload.js', function () {
             var reader = new FileReader();
             var $input = $(this);
             reader.onload = function (e) {
-                $input.prevAll('img').attr('src', e.target.result);
+                $input.prevAll('img').attr('src', (e.target.result as string));
             };
 
             reader.readAsDataURL(fileInput.files[0]);

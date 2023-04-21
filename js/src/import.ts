@@ -240,13 +240,13 @@ AJAX.registerOnload('import.js', function () {
                             } else if (percent > 9 || complete > 2000000) {
                                 // Calculate estimated time
                                 var usedTime = now - importStart;
-                                var seconds = parseInt(((total - complete) / complete) * usedTime / 1000);
+                                var seconds = parseInt((((total - complete) / complete) * usedTime / 1000).toString());
                                 var speed = window.sprintf(
                                     window.Messages.uploadProgressPerSecond,
                                     Functions.formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator)
                                 );
 
-                                var minutes = parseInt(seconds / 60);
+                                var minutes = parseInt((seconds / 60).toString());
                                 seconds %= 60;
                                 var estimatedTime;
                                 if (minutes > 0) {

@@ -775,14 +775,14 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 if (data.transformations !== undefined) {
                     $.each(data.transformations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
+                        var $thisField = $(g.t).find('.to_be_saved').eq(Number(cellIndex));
                         $thisField.find('span').html(value);
                     });
                 }
 
                 if (data.relations !== undefined) {
                     $.each(data.relations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
+                        var $thisField = $(g.t).find('.to_be_saved').eq(Number(cellIndex));
                         $thisField.find('span').html(value);
                     });
                 }
@@ -1278,7 +1278,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
 
                 fullWhereClause.push(whereClause);
-                var conditionArray = JSON.parse($tr.find('.condition_array').val());
+                var conditionArray = JSON.parse(($tr.find('.condition_array').val() as string));
 
                 /**
                  * multi edit variables, for current row

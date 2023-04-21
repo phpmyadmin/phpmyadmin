@@ -517,6 +517,7 @@ var ConsoleInput = {
                 mode: 'text/x-sql',
                 lineWrapping: true,
                 extraKeys: { 'Ctrl-Space': 'autocomplete' },
+                // @ts-ignore
                 hintOptions: { 'completeSingle': false, 'completeOnSingleClick': true },
                 gutters: ['CodeMirror-lint-markers'],
                 lint: {
@@ -539,6 +540,7 @@ var ConsoleInput = {
                     mode: 'text/x-sql',
                     lineWrapping: true,
                     extraKeys: { 'Ctrl-Space': 'autocomplete' },
+                    // @ts-ignore
                     hintOptions: { 'completeSingle': false, 'completeOnSingleClick': true },
                     gutters: ['CodeMirror-lint-markers'],
                     lint: {
@@ -833,7 +835,7 @@ var ConsoleMessages = {
         ConsoleMessages.messageEventBinds($newMessage);
         $newMessage.find('span.text.query_time span')
             .text(now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds())
-            .parent().attr('title', now);
+            .parent().attr('title', now.toString());
 
         return {
             'message_id': msgId,

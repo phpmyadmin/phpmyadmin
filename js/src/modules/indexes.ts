@@ -145,7 +145,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
         Indexes.removeColumnFromIndex(colIndex);
     }
 
-    var indexName = $('input[name="index[Key_name]"]').val();
+    var indexName = ($('input[name="index[Key_name]"]').val() as string);
     var indexComment = $('input[name="index[Index_comment]"]').val();
     var keyBlockSize = $('input[name="index[Key_block_size]"]').val();
     var parser = $('input[name="index[Parser]"]').val();
@@ -192,6 +192,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
         }
 
         var $text = $('<small>').text(displayName);
+        // @ts-ignore
         $name.html($text);
     });
 
@@ -501,7 +502,10 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
 
     $('#addIndexModal').modal('show');
     $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
-    $('#addIndexModal').find('.modal-body').first().html($dialogContent);
+    $('#addIndexModal').find('.modal-body').first()
+        // @ts-ignore
+        .html($dialogContent);
+
     $('#composite_index').on('change', function () {
         if ($(this).is(':checked')) {
             $dialogContent.append(Indexes.getCompositeIndexList(sourceArray, colIndex));
@@ -697,7 +701,7 @@ function on () {
             var colIndexRegEx = /\d+/.exec($(this).attr('name'));
             const colIndex = colIndexRegEx[0];
             // Choice of selected index.
-            var indexChoiceRegEx = /[a-z]+/.exec($(this).val());
+            var indexChoiceRegEx = /[a-z]+/.exec(($(this).val() as string));
             const indexChoice = indexChoiceRegEx[0];
             // Array containing corresponding indexes.
             var sourceArray = null;

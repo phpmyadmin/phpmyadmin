@@ -27,7 +27,7 @@ const DropDatabases = {
         // loop over all checked checkboxes, except the .checkall_box checkbox
         $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
-            selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
+            selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + escapeHtml(($(this).val() as string)) + '`;';
         });
 
         if (! selectedDbs.length) {

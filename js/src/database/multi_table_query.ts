@@ -159,6 +159,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                     });
                 });
 
+                // @ts-ignore
                 $('#sql_results').html($resultsDom);
                 $('#slide-handle').trigger('click');// Collapse search criteria area
             }

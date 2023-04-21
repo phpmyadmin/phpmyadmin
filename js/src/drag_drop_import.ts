@@ -262,7 +262,7 @@ var DragDropImport = {
                 icon + '"> ');
 
         // Decrease liveUploadCount by one
-        $('.pma_import_count').html(--DragDropImport.liveUploadCount);
+        $('.pma_import_count').html((--DragDropImport.liveUploadCount).toString());
         if (! DragDropImport.liveUploadCount) {
             $('.pma_sql_import_status h2 .close').fadeIn();
         }
@@ -314,7 +314,7 @@ var DragDropImport = {
 
                 if (ext !== '') {
                     // Increment liveUploadCount by one
-                    $('.pma_import_count').html(++DragDropImport.liveUploadCount);
+                    $('.pma_import_count').html((++DragDropImport.liveUploadCount).toString());
                     $('.pma_sql_import_status h2 .close').fadeOut();
 
                     $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
@@ -339,7 +339,7 @@ var DragDropImport = {
                     fd.append('sql_compatibility', 'NONE');
                     fd.append('sql_no_auto_value_on_zero', 'something');
                     fd.append('ajax_request', 'true');
-                    fd.append('hash', hash);
+                    fd.append('hash', hash.toString());
 
                     // init uploading
                     DragDropImport.sendFileToServer(fd, hash);

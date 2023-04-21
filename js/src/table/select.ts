@@ -303,7 +303,7 @@ AJAX.registerOnload('table/select.js', function () {
         dataType = TableSelect.checkIfDataTypeNumericOrDate(dataType);
 
         // Get the operator.
-        var operator = $(this).val();
+        var operator = ($(this).val() as string);
 
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
             var $msgbox = ajaxShowMessage();

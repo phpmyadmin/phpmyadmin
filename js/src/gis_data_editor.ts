@@ -294,7 +294,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var prefix = name.substring(0, name.length - 11);
         // Find the number of points
         var $noOfPointsInput = $('input[name=\'' + prefix + '[no_of_points]' + '\']');
-        var noOfPoints = parseInt($noOfPointsInput.val(), 10);
+        var noOfPoints = parseInt(($noOfPointsInput.val() as string), 10);
         // Add the new data point
         var html = addDataPoint(noOfPoints, prefix);
         $a.before(html);
@@ -314,7 +314,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
 
         // Find the number of lines
         var $noOfLinesInput = $('input[name=\'' + prefix + '[no_of_lines]' + '\']');
-        var noOfLines = parseInt($noOfLinesInput.val(), 10);
+        var noOfLines = parseInt(($noOfLinesInput.val() as string), 10);
 
         // Add the new linesting of inner ring based on the type
         var html = '<br>';
@@ -349,7 +349,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var prefix = name.substring(0, name.length - 13);
         // Find the number of polygons
         var $noOfPolygonsInput = $('input[name=\'' + prefix + '[no_of_polygons]' + '\']');
-        var noOfPolygons = parseInt($noOfPolygonsInput.val(), 10);
+        var noOfPolygons = parseInt(($noOfPolygonsInput.val() as string), 10);
 
         // Add the new polygon
         var html = window.Messages.strPolygon + ' ' + (noOfPolygons + 1) + ':<br>';
@@ -378,7 +378,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var prefix = 'gis_data[GEOMETRYCOLLECTION]';
         // Find the number of geoms
         var $noOfGeomsInput = $('input[name=\'' + prefix + '[geom_count]' + '\']');
-        var noOfGeoms = parseInt($noOfGeomsInput.val(), 10);
+        var noOfGeoms = parseInt(($noOfGeomsInput.val() as string), 10);
 
         var html1 = window.Messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br>';
         var $geomType = $('select[name=\'gis_data[' + (noOfGeoms - 1) + '][gis_type]\']').clone();

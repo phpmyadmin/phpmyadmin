@@ -184,14 +184,14 @@ AJAX.registerOnload('database/central_columns.js', function () {
                     );
                 } else {
                     $('#f_' + rownum + ' td input[id=checkbox_row_' + rownum + ']').val($('#f_' + rownum + ' input[name=col_name]').val()).html();
-                    $('#f_' + rownum + ' td[name=col_name] span').text($('#f_' + rownum + ' input[name=col_name]').val()).html();
-                    $('#f_' + rownum + ' td[name=col_type] span').text($('#f_' + rownum + ' select[name=col_type]').val()).html();
-                    $('#f_' + rownum + ' td[name=col_length] span').text($('#f_' + rownum + ' input[name=col_length]').val()).html();
-                    $('#f_' + rownum + ' td[name=collation] span').text($('#f_' + rownum + ' select[name=collation]').val()).html();
-                    $('#f_' + rownum + ' td[name=col_attribute] span').text($('#f_' + rownum + ' select[name=col_attribute]').val()).html();
+                    $('#f_' + rownum + ' td[name=col_name] span').text(($('#f_' + rownum + ' input[name=col_name]').val() as string)).html();
+                    $('#f_' + rownum + ' td[name=col_type] span').text(($('#f_' + rownum + ' select[name=col_type]').val() as string)).html();
+                    $('#f_' + rownum + ' td[name=col_length] span').text(($('#f_' + rownum + ' input[name=col_length]').val() as string)).html();
+                    $('#f_' + rownum + ' td[name=collation] span').text(($('#f_' + rownum + ' select[name=collation]').val() as string)).html();
+                    $('#f_' + rownum + ' td[name=col_attribute] span').text(($('#f_' + rownum + ' select[name=col_attribute]').val() as string)).html();
                     $('#f_' + rownum + ' td[name=col_isNull] span').text($('#f_' + rownum + ' input[name=col_isNull]').is(':checked') ? 'Yes' : 'No').html();
                     $('#f_' + rownum + ' td[name=col_extra] span').text($('#f_' + rownum + ' input[name=col_extra]').is(':checked') ? 'auto_increment' : '').html();
-                    $('#f_' + rownum + ' td[name=col_default] span').text($('#f_' + rownum + ' :input[name=col_default]').val()).html();
+                    $('#f_' + rownum + ' td[name=col_default] span').text(($('#f_' + rownum + ' :input[name=col_default]').val() as string)).html();
                 }
 
                 $('#save_' + rownum).hide();

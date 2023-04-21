@@ -260,7 +260,7 @@ AJAX.registerOnload('table/structure.js', function () {
         event.preventDefault();
 
         var $this = $(this);
-        var currTableName = $this.closest('form').find('input[name=table]').val();
+        var currTableName = ($this.closest('form').find('input[name=table]').val() as string);
         var currColumnName = $this.parents('tr').children('th').children('label').text().trim();
 
         var addClause = '';
@@ -305,7 +305,7 @@ AJAX.registerOnload('table/structure.js', function () {
         var columns = [];
 
         $('#tablestructure').find('tbody tr').each(function () {
-            var colName = $(this).find('input:checkbox').eq(0).val();
+            var colName = ($(this).find('input:checkbox').eq(0).val() as string);
             var hiddenInput = $('<input>')
                 .prop({
                     name: 'move_columns[]',

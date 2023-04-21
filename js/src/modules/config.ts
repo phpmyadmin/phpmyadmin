@@ -548,7 +548,7 @@ function setupValidation () {
 
         // disable textarea spellcheck
         if (tagName === 'TEXTAREA') {
-            $el.attr('spellcheck', false);
+            $el.attr('spellcheck', 'false');
         }
     });
 

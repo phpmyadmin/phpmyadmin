@@ -84,6 +84,7 @@ function filterStateRestore (): void {
             .children('div.list_container')
             .find('li.fast_filter input.searchClause');
         // restore table filters
+
         $tableFilters.each(function () {
             $obj = $(this).closest('div.list_container');
             // aPath associated with this filter
@@ -98,7 +99,7 @@ function filterStateRestore (): void {
                 if (! $obj.is(':visible')) {
                     Navigation.filterStateUpdate(filterName, '');
 
-                    return true;
+                    return;
                 }
 
                 if (! $obj.data('fastFilter')) {
@@ -1279,7 +1280,7 @@ FastFilter.Filter.prototype.request = function (): void {
     if (self.$this.find('> ul > li > form.fast_filter').first().find('input[name=searchClause]').length === 0) {
         var $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
         if ($input.length && $input.val() !== $input[0].defaultValue) {
-            params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
+            params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(($input.val() as string));
         }
     }
 
@@ -1370,6 +1371,7 @@ function showFullName ($containerELem): void {
 
             $fullNameLayer.removeClass('hide');
             $fullNameLayer.css({ left: thisOffset.left, top: thisOffset.top });
+            // @ts-ignore
             $fullNameLayer.html($this.clone());
             setTimeout(function () {
                 if (! $fullNameLayer.hasClass('hovering')) {

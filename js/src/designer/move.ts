@@ -101,8 +101,8 @@ const mouseMove = function (e) {
         $curClick.attr('data-top', newY);
 
         if (onGrid) {
-            newX = parseInt(newX / gridSize) * gridSize;
-            newY = parseInt(newY / gridSize) * gridSize;
+            newX = parseInt((newX / gridSize).toString()) * gridSize;
+            newY = parseInt((newY / gridSize).toString()) * gridSize;
         }
 
         if (newX < 0) {
@@ -634,8 +634,8 @@ const addOtherDbTables = function () {
         .append($selectDb).append($selectTable);
     var modal = DesignerMove.displayModal($form, window.Messages.strAddTables, '#designerGoModal');
     $('#designerModalGoButton').on('click', function () {
-        var db = $('#add_table_from').val();
-        var table = $('#add_table').val();
+        var db = ($('#add_table_from').val() as string);
+        var table = ($('#add_table').val() as string);
 
         // Check if table already imported or not.
         var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
@@ -922,7 +922,7 @@ const deletePages = function () {
             var modal = DesignerMove.displayModal(data.message, window.Messages.strDeletePage, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 var $form = $('#edit_delete_pages');
-                var selected = $form.find('select[name="selected_page"]').val();
+                var selected = ($form.find('select[name="selected_page"]').val() as string);
                 if (selected === '0') {
                     ajaxShowMessage(window.Messages.strSelectPage, 2000);
 

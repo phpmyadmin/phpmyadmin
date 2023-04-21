@@ -73,7 +73,7 @@ function showThisQuery (db, table, query): void {
         window.localStorage.showThisQuery = 1;
         window.localStorage.showThisQueryObject = JSON.stringify(showThisQueryObject);
     } else {
-        window.Cookies.set('showThisQuery', 1, { path: CommonParams.get('rootPath') });
+        window.Cookies.set('showThisQuery', '1', { path: CommonParams.get('rootPath') });
         window.Cookies.set('showThisQueryObject', JSON.stringify(showThisQueryObject), { path: CommonParams.get('rootPath') });
     }
 }
@@ -1048,7 +1048,10 @@ AJAX.registerOnload('sql.js', function () {
                     var $dialogContent = $(dialogContent);
                     var modal = $('#simulateDmlModal');
                     modal.modal('show');
-                    modal.find('.modal-body').first().html($dialogContent);
+                    modal.find('.modal-body').first()
+                        // @ts-ignore
+                        .html($dialogContent);
+
                     modal.on('shown.bs.modal', function () {
                         highlightSql(modal);
                     });

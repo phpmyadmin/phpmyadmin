@@ -48,7 +48,7 @@ import $ from 'jquery';
         return function (format, value) {
             var val = value;
             if (typeof val === 'number') {
-                val = parseFloat(val) || 0;
+                val = parseFloat(val.toString()) || 0;
 
                 return formatByte(val, i);
             } else {

@@ -2488,7 +2488,7 @@ function onloadEnumSetEditor (): void {
 
         // Show the dialog
         var width = parseInt(
-            (parseInt($('html').css('font-size'), 10) / 13) * 340,
+            ((parseInt($('html').css('font-size'), 10) / 13) * 340).toString(),
             10
         );
         if (! width) {
@@ -2598,7 +2598,7 @@ function onloadEnumSetEditor (): void {
             '</div>';
 
         var width = parseInt(
-            (parseInt($('html').css('font-size'), 10) / 13) * 500,
+            ((parseInt($('html').css('font-size'), 10) / 13) * 500).toString(),
             10
         );
         if (! width) {
@@ -2982,7 +2982,7 @@ function toggleButton ($obj) {
     /**
      *  @var  w  Width of the central part of the switch
      */
-    var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
+    var w = parseInt((($('img', $obj).height() / 16) * 22).toString(), 10);
     // Resize the central part of the switch on the top
     // layer to match the background
     $($obj).find('table td').eq(1).children('div').width(w);
@@ -2994,7 +2994,7 @@ function toggleButton ($obj) {
      */
     var imgw = $('img', $obj).width();
     var tblw = $('table', $obj).width();
-    var offset = parseInt(((imgw - tblw) / 2), 10);
+    var offset = parseInt((((imgw - tblw) / 2).toString()), 10);
     // Move the background to match the layout of the top layer
     $obj.find('img').css(right, offset);
     /**
@@ -3570,7 +3570,7 @@ function getFilterTextEventHandler () {
             $(checkboxesSel).trigger('change');
         }, 300);
 
-        $('#filter-rows-count').html(count);
+        $('#filter-rows-count').html(count.toString());
     };
 }
 

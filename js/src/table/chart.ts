@@ -192,7 +192,7 @@ function drawChart () {
 }
 
 function getSelectedSeries () {
-    var val = $('#chartSeriesSelect').val() || [];
+    var val = ($('#chartSeriesSelect').val() as string[]) || [];
     var ret = [];
     $.each(val, function (i, v) {
         ret.push(parseInt(v, 10));
@@ -203,7 +203,7 @@ function getSelectedSeries () {
 
 function onXAxisChange () {
     var $xAxisSelect = $('#chartXAxisSelect');
-    currentSettings.mainAxis = parseInt($xAxisSelect.val(), 10);
+    currentSettings.mainAxis = parseInt(($xAxisSelect.val() as string), 10);
     if (dateTimeCols.indexOf(currentSettings.mainAxis) !== -1) {
         document.getElementById('timelineChartType').classList.remove('d-none');
     } else {
@@ -304,8 +304,8 @@ AJAX.registerOnload('table/chart.js', function () {
             $seriesColumn.prop('disabled', false);
             $valueColumn.prop('disabled', false);
             $chartSeries.prop('disabled', true);
-            currentSettings.seriesColumn = parseInt($seriesColumn.val(), 10);
-            currentSettings.valueColumn = parseInt($valueColumn.val(), 10);
+            currentSettings.seriesColumn = parseInt(($seriesColumn.val() as string), 10);
+            currentSettings.valueColumn = parseInt(($valueColumn.val() as string), 10);
         } else {
             $seriesColumn.prop('disabled', true);
             $valueColumn.prop('disabled', true);
@@ -357,13 +357,13 @@ AJAX.registerOnload('table/chart.js', function () {
 
     // handle changing the series column
     $('#chartSeriesColumnSelect').on('change', function () {
-        currentSettings.seriesColumn = parseInt($(this).val(), 10);
+        currentSettings.seriesColumn = parseInt(($(this).val() as string), 10);
         drawChart();
     });
 
     // handle changing the value column
     $('#chartValueColumnSelect').on('change', function () {
-        currentSettings.valueColumn = parseInt($(this).val(), 10);
+        currentSettings.valueColumn = parseInt(($(this).val() as string), 10);
         drawChart();
     });
 
@@ -424,7 +424,7 @@ AJAX.registerOnload('table/chart.js', function () {
         yaxisLabel: $('#yAxisLabelInput').val(),
         title: $('#chartTitleInput').val(),
         stackSeries: false,
-        mainAxis: parseInt($('#chartXAxisSelect').val(), 10),
+        mainAxis: parseInt(($('#chartXAxisSelect').val() as string), 10),
         selectedSeries: getSelectedSeries(),
         seriesColumn: null
     };

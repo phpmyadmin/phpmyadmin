@@ -165,12 +165,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
     if (! window.codeMirrorEditor) {
-        var $elm = $('#sqlquery');
+        var $elm = ($('#sqlquery') as JQuery<HTMLTextAreaElement>);
         if ($elm.length > 0 && typeof window.CodeMirror !== 'undefined') {
             window.codeMirrorEditor = window.CodeMirror.fromTextArea(
                 $elm[0],
                 {
                     lineNumbers: true,
+                    // @ts-ignore
                     matchBrackets: true,
                     indentUnit: 4,
                     mode: 'text/x-mysql',
@@ -745,7 +746,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
 
             reader.onload = function (e) {
-                var data = e.target.result;
+                var data = (e.target.result as string);
                 var json = null;
                 // Try loading config
                 try {
@@ -1072,7 +1073,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }
 
         if ($('input[name="useDivisor"]').prop('checked')) {
-            serie.valueDivisor = parseInt($('input[name="valueDivisor"]').val(), 10);
+            serie.valueDivisor = parseInt(($('input[name="valueDivisor"]').val() as string), 10);
         }
 
         if ($('input[name="useUnit"]').prop('checked')) {
@@ -1573,8 +1574,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     }
 
     function loadLog (type, min, max) {
-        var dateStart = Date.parse($('#logAnalyseDialog').find('input[name="dateStart"]').datepicker('getDate')) || min;
-        var dateEnd = Date.parse($('#logAnalyseDialog').find('input[name="dateEnd"]').datepicker('getDate')) || max;
+        var dateStart = Date.parse($('#logAnalyseDialog').find('input[name="dateStart"]').datepicker('getDate').toString()) || min;
+        var dateEnd = Date.parse($('#logAnalyseDialog').find('input[name="dateEnd"]').datepicker('getDate').toString()) || max;
 
         loadLogStatistics({
             src: type,
@@ -1621,7 +1622,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         if (oldChartData === null) {
                             diff = chartData.x - runtime.xmax;
                         } else {
-                            diff = parseInt(chartData.x - oldChartData.x, 10);
+                            diff = parseInt((chartData.x - oldChartData.x).toString(), 10);
                         }
 
                         runtime.xmin += diff;
@@ -2169,6 +2170,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var $tRow;
         var $tCell;
 
+        // @ts-ignore
         $('#logTable').html($table);
 
         var tempPushKey = function (key) {

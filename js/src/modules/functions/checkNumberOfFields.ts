@@ -23,8 +23,6 @@ export default function checkNumberOfFields () {
 
             return false;
         }
-
-        return true;
     });
 
     return true;
