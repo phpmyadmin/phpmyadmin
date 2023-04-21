@@ -3284,7 +3284,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['rows']]]></code>
       <code><![CDATA[$GLOBALS['tabindex']]]></code>
-      <code><![CDATA[$GLOBALS['tabindex_for_value']]]></code>
       <code><![CDATA[$GLOBALS['table_columns']]]></code>
       <code><![CDATA[$GLOBALS['timestamp_seen']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
@@ -3325,7 +3324,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['rows']]]></code>
       <code><![CDATA[$GLOBALS['tabindex']]]></code>
-      <code><![CDATA[$GLOBALS['tabindex_for_value']]]></code>
       <code><![CDATA[$GLOBALS['table_columns']]]></code>
       <code><![CDATA[$GLOBALS['timestamp_seen']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>

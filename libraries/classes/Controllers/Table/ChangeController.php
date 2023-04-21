@@ -60,7 +60,6 @@ class ChangeController extends AbstractController
         $GLOBALS['timestamp_seen'] ??= null;
         $GLOBALS['columns_cnt'] ??= null;
         $GLOBALS['tabindex'] ??= null;
-        $GLOBALS['tabindex_for_value'] ??= null;
         $GLOBALS['has_blob_field'] ??= null;
         $GLOBALS['jsvkey'] ??= null;
         $GLOBALS['vkey'] ??= null;
@@ -179,7 +178,6 @@ class ChangeController extends AbstractController
         $GLOBALS['columns_cnt'] = count($GLOBALS['table_columns']);
 
         $GLOBALS['tabindex'] = 0;
-        $GLOBALS['tabindex_for_value'] = 0;
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
@@ -252,7 +250,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['columns_cnt'],
                 $isUpload,
                 $foreigners,
-                $GLOBALS['tabindex_for_value'],
                 $GLOBALS['table'],
                 $GLOBALS['db'],
                 $rowId,

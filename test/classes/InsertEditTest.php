@@ -606,7 +606,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getTextarea',
-            [$column, 'a', 'b', '', 2, 0, 1, 'abc/', 'foobar', 'CHAR', false],
+            [$column, 'a', 'b', '', 2, 1, 'abc/', 'foobar', 'CHAR'],
         );
 
         $result = $this->parseString($result);
@@ -632,12 +632,12 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false],
+            [$column, 'a', 'b', 30, 'c', 23, 0, 'DATE'],
         );
 
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datefield" onchange="c" tabindex="25" id="field_0_3">',
+            . ' class="textfield datefield" onchange="c" tabindex="23" id="field_0_3">',
             $result,
         );
 
@@ -648,11 +648,11 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false],
+            [$column, 'a', 'b', 30, 'c', 23, 0, 'DATE'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="23" id="field_0_3">',
             $result,
         );
 
@@ -663,11 +663,11 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false],
+            [$column, 'a', 'b', 30, 'c', 23, 0, 'DATE'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="23" id="field_0_3">',
             $result,
         );
 
@@ -679,11 +679,11 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 11, 'c', 23, 2, 0, 'INT', false],
+            [$column, 'a', 'b', 11, 'c', 23, 0, 'INT'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="11" min="-2147483648" max="2147483647" data-type="INT"'
-            . ' class="textfield" onchange="c" tabindex="25" inputmode="numeric" id="field_0_3">',
+            . ' class="textfield" onchange="c" tabindex="23" inputmode="numeric" id="field_0_3">',
             $result,
         );
     }
@@ -751,13 +751,11 @@ class InsertEditTest extends AbstractTestCase
                 'c',
                 22,
                 '&lt;',
-                12,
                 1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -765,7 +763,7 @@ class InsertEditTest extends AbstractTestCase
             "a\na\n"
             . '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="25" rows="7" cols="1" dir="/" '
-            . 'id="field_1_3" onchange="c" tabindex="34" data-type="CHAR">'
+            . 'id="field_1_3" onchange="c" tabindex="22" data-type="CHAR">'
             . '&lt;</textarea>',
             $result,
         );
@@ -787,20 +785,18 @@ class InsertEditTest extends AbstractTestCase
                 'c',
                 22,
                 '&lt;',
-                12,
                 1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
         $this->assertEquals(
             "a\n"
             . '<input type="text" name="fieldsb" value="&lt;" size="20" data-type="'
-            . 'DATE" class="textfield datetimefield" onchange="c" tabindex="34" id="field_1_3"'
+            . 'DATE" class="textfield datetimefield" onchange="c" tabindex="22" id="field_1_3"'
             . '><input type="hidden" name="auto_incrementb" value="1">'
             . '<input type="hidden" name="fields_typeb" value="timestamp">',
             $result,
@@ -820,13 +816,11 @@ class InsertEditTest extends AbstractTestCase
                 'c',
                 22,
                 '&lt;',
-                12,
                 1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -848,13 +842,11 @@ class InsertEditTest extends AbstractTestCase
                 'c',
                 22,
                 '&lt;',
-                12,
                 1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -876,13 +868,11 @@ class InsertEditTest extends AbstractTestCase
                 'c',
                 22,
                 '&lt;',
-                12,
                 1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -904,13 +894,11 @@ class InsertEditTest extends AbstractTestCase
                 'c',
                 22,
                 '&lt;',
-                12,
                 1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -2437,7 +2425,6 @@ class InsertEditTest extends AbstractTestCase
                 0,
                 false,
                 $foreigners,
-                0,
                 'table',
                 'db',
                 0,
@@ -2495,7 +2482,6 @@ class InsertEditTest extends AbstractTestCase
                 0,
                 false,
                 $foreigners,
-                0,
                 'table',
                 'db',
                 0,
@@ -2600,7 +2586,6 @@ class InsertEditTest extends AbstractTestCase
             1,
             false,
             $foreigners,
-            0,
             'table',
             'db',
             0,
@@ -2676,7 +2661,6 @@ class InsertEditTest extends AbstractTestCase
             1,
             false,
             $foreigners,
-            0,
             'table',
             'db',
             0,
@@ -2734,7 +2718,6 @@ class InsertEditTest extends AbstractTestCase
             3,
             false,
             $foreigners,
-            0,
             'table',
             'db',
             0,

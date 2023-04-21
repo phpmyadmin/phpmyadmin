@@ -55,7 +55,6 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      * @param string  $value              Current field value
      * @param string  $textDir            text direction
      * @param int     $tabIndex           tab index
-     * @param int     $tabIndexForValue   offset for the values tabindex
      * @param int     $idIndex            id index
      *
      * @return string the html for input field
@@ -68,7 +67,6 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         string $value,
         string $textDir,
         int $tabIndex,
-        int $tabIndexForValue,
         int $idIndex,
     ): string {
         $html = '';

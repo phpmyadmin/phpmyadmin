@@ -426,7 +426,6 @@ class InsertEdit
      * @param string  $columnNameAppendix  the name attribute
      * @param string  $onChangeClause      onchange clause for fields
      * @param int     $tabindex            tab index
-     * @param int     $tabindexForValue    offset for the values tabindex
      * @param int     $idindex             id index
      * @param string  $textDir             text direction
      * @param string  $specialCharsEncoded replaced char if the string starts
@@ -441,7 +440,6 @@ class InsertEdit
         string $columnNameAppendix,
         string $onChangeClause,
         int $tabindex,
-        int $tabindexForValue,
         int $idindex,
         string $textDir,
         string $specialCharsEncoded,
@@ -475,7 +473,7 @@ class InsertEdit
             . ' dir="' . $textDir . '"'
             . ' id="field_' . $idindex . '_3"'
             . ($onChangeClause ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
-            . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
+            . ' tabindex="' . $tabindex . '"'
             . ' data-type="' . $dataType . '">'
             . $specialCharsEncoded
             . '</textarea>';
@@ -490,7 +488,6 @@ class InsertEdit
      * @param int     $fieldsize          html field size
      * @param string  $onChangeClause     onchange clause for fields
      * @param int     $tabindex           tab index
-     * @param int     $tabindexForValue   offset for the values tabindex
      * @param int     $idindex            id index
      * @param string  $dataType           the html5 data-* attribute type
      *
@@ -503,7 +500,6 @@ class InsertEdit
         int $fieldsize,
         string $onChangeClause,
         int $tabindex,
-        int $tabindexForValue,
         int $idindex,
         string $dataType,
     ): string {
@@ -539,7 +535,7 @@ class InsertEdit
             . ($inputMinMax ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
-            . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
+            . ' tabindex="' . $tabindex . '"'
             . ($isInteger ? ' inputmode="numeric"' : '')
             . ' id="field_' . $idindex . '_3">';
     }
@@ -611,7 +607,6 @@ class InsertEdit
      * @param string  $onChangeClause      onchange clause for fields
      * @param int     $tabindex            tab index
      * @param string  $specialChars        special characters
-     * @param int     $tabindexForValue    offset for the values tabindex
      * @param int     $idindex             id index
      * @param string  $textDir             text direction
      * @param string  $specialCharsEncoded replaced char if the string starts
@@ -631,7 +626,6 @@ class InsertEdit
         string $onChangeClause,
         int $tabindex,
         string $specialChars,
-        int $tabindexForValue,
         int $idindex,
         string $textDir,
         string $specialCharsEncoded,
@@ -652,7 +646,6 @@ class InsertEdit
                 $columnNameAppendix,
                 $onChangeClause,
                 $tabindex,
-                $tabindexForValue,
                 $idindex,
                 $textDir,
                 $specialCharsEncoded,
@@ -666,7 +659,6 @@ class InsertEdit
                 $fieldsize,
                 $onChangeClause,
                 $tabindex,
-                $tabindexForValue,
                 $idindex,
                 $dataType,
             );
@@ -1697,7 +1689,6 @@ class InsertEdit
      * @param int             $columnsCnt         columns count
      * @param bool            $isUpload           whether upload
      * @param mixed[]         $foreigners         foreigners
-     * @param int             $tabindexForValue   tab index offset for value
      * @param string          $table              table
      * @param string          $db                 database
      * @param int             $rowId              row id
@@ -1721,7 +1712,6 @@ class InsertEdit
         int $columnsCnt,
         bool $isUpload,
         array $foreigners,
-        int $tabindexForValue,
         string $table,
         string $db,
         int $rowId,
@@ -1866,7 +1856,6 @@ class InsertEdit
                             $currentValue,
                             $textDir,
                             $tabindex,
-                            $tabindexForValue,
                             $idindex,
                         );
                     }
@@ -1966,7 +1955,6 @@ class InsertEdit
                         min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']),
                         $onChangeClause,
                         $tabindex,
-                        $tabindexForValue,
                         $idindex,
                         'HEX',
                     );
@@ -1980,7 +1968,6 @@ class InsertEdit
                     $onChangeClause,
                     $tabindex,
                     $specialChars,
-                    $tabindexForValue,
                     $idindex,
                     $textDir,
                     $specialCharsEncoded,
@@ -2060,7 +2047,6 @@ class InsertEdit
      * @param int             $columnsCnt       columns count
      * @param bool            $isUpload         whether upload
      * @param mixed[]         $foreigners       foreigners
-     * @param int             $tabindexForValue tab index offset for value
      * @param string          $table            table
      * @param string          $db               database
      * @param int             $rowId            row id
@@ -2082,7 +2068,6 @@ class InsertEdit
         int $columnsCnt,
         bool $isUpload,
         array $foreigners,
-        int $tabindexForValue,
         string $table,
         string $db,
         int $rowId,
@@ -2127,7 +2112,6 @@ class InsertEdit
                 $columnsCnt,
                 $isUpload,
                 $foreigners,
-                $tabindexForValue,
                 $table,
                 $db,
                 $rowId,
