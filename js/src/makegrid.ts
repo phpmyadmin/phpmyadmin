@@ -1129,7 +1129,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     var timeFormat = 'HH:mm:ss';
                     // check for decimal places of seconds
                     if ((Number($td.attr('data-decimals')) > 0) && ($td.attr('data-type').indexOf('time') !== -1)) {
-                        if (datetimeValue && datetimeValue.indexOf('.') === false) {
+                        if (datetimeValue && datetimeValue.indexOf('.') === -1) {
                             datetimeValue += '.';
                         }
 

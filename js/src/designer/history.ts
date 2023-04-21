@@ -682,7 +682,7 @@ const queryFrom = function () {
     var parts = [];
     var tArray = [];
     tArray = window.fromArray;
-    var K = 0;
+    var K: any = 0;
     var k;
     var key;
     var key2;

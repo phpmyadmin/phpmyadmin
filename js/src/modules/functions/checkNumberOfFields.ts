@@ -10,6 +10,7 @@ export default function checkNumberOfFields () {
         return false;
     }
 
+    // @ts-ignore
     if (false === window.maxInputVars) {
         return false;
     }

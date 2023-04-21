@@ -1,15 +1,9 @@
-// libraries/classes/Controllers/JavaScriptMessagesController.php
-declare var Messages: { [p: string]: string };
-
-// templates/javascript/variables.twig
-declare var firstDayOfCalendar: string;
-declare var themeImagePath: string;
-declare var mysqlDocTemplate: string;
-declare var maxInputVars: number;
-
-declare function sprintf(format: string, ...values: (string|number)[]): string;
-
 interface Window {
+    Messages: { [p: string]: string };
+    maxInputVars: number;
+    mysqlDocTemplate: string;
+    themeImagePath: string;
+    firstDayOfCalendar: string;
     ol: any;
     opera: any;
     zxcvbnts: any;
@@ -17,6 +11,8 @@ interface Window {
     u2f: any;
     drawOpenLayers: () => any;
     variableNames: string[];
+
+    sprintf(format: string, ...values: (string|number)[]): string;
 }
 
 interface JQuery {
