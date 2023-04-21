@@ -78,7 +78,7 @@ class InsertEdit
     ];
 
     private int $rowOffset = 0;
-    private int $tabindex = 0;
+    private int $fieldIndex = 0;
 
     public function __construct(
         private DatabaseInterface $dbi,
@@ -426,7 +426,6 @@ class InsertEdit
      * @param string  $backupField         hidden input field
      * @param string  $columnNameAppendix  the name attribute
      * @param string  $onChangeClause      onchange clause for fields
-     * @param int     $idindex             id index
      * @param string  $textDir             text direction
      * @param string  $specialCharsEncoded replaced char if the string starts
      *                                       with a \r\n pair (0x0d0a) add an extra \n
@@ -439,7 +438,6 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        int $idindex,
         string $textDir,
         string $specialCharsEncoded,
         string $dataType,
@@ -470,9 +468,9 @@ class InsertEdit
             . ' rows="' . $textAreaRows . '"'
             . ' cols="' . $textareaCols . '"'
             . ' dir="' . $textDir . '"'
-            . ' id="field_' . $idindex . '_3"'
+            . ' id="field_' . $this->fieldIndex . '_3"'
             . ($onChangeClause ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
-            . ' tabindex="' . $this->tabindex . '"'
+            . ' tabindex="' . $this->fieldIndex . '"'
             . ' data-type="' . $dataType . '">'
             . $specialCharsEncoded
             . '</textarea>';
@@ -486,7 +484,6 @@ class InsertEdit
      * @param string  $specialChars       special characters
      * @param int     $fieldsize          html field size
      * @param string  $onChangeClause     onchange clause for fields
-     * @param int     $idindex            id index
      * @param string  $dataType           the html5 data-* attribute type
      *
      * @return string                       an html snippet
@@ -497,7 +494,6 @@ class InsertEdit
         string $specialChars,
         int $fieldsize,
         string $onChangeClause,
-        int $idindex,
         string $dataType,
     ): string {
         $theClass = 'textfield';
@@ -532,9 +528,9 @@ class InsertEdit
             . ($inputMinMax ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
-            . ' tabindex="' . $this->tabindex . '"'
+            . ' tabindex="' . $this->fieldIndex . '"'
             . ($isInteger ? ' inputmode="numeric"' : '')
-            . ' id="field_' . $idindex . '_3">';
+            . ' id="field_' . $this->fieldIndex . '_3">';
     }
 
     /**
@@ -603,7 +599,6 @@ class InsertEdit
      * @param string  $columnNameAppendix  the name attribute
      * @param string  $onChangeClause      onchange clause for fields
      * @param string  $specialChars        special characters
-     * @param int     $idindex             id index
      * @param string  $textDir             text direction
      * @param string  $specialCharsEncoded replaced char if the string starts
      *                                       with a \r\n pair (0x0d0a) add an extra \n
@@ -621,7 +616,6 @@ class InsertEdit
         string $columnNameAppendix,
         string $onChangeClause,
         string $specialChars,
-        int $idindex,
         string $textDir,
         string $specialCharsEncoded,
         string $data,
@@ -640,7 +634,6 @@ class InsertEdit
                 $backupField,
                 $columnNameAppendix,
                 $onChangeClause,
-                $idindex,
                 $textDir,
                 $specialCharsEncoded,
                 $dataType,
@@ -652,7 +645,6 @@ class InsertEdit
                 $specialChars,
                 $fieldsize,
                 $onChangeClause,
-                $idindex,
                 $dataType,
             );
         }
@@ -1783,8 +1775,7 @@ class InsertEdit
             $backupField = '';
         }
 
-        $idindex = ($this->rowOffset * $columnsCnt) + $columnNumber + 1;
-        $this->tabindex = $idindex;
+        $this->fieldIndex = ($this->rowOffset * $columnsCnt) + $columnNumber + 1;
 
         // The function column
         // -------------------
@@ -1846,8 +1837,7 @@ class InsertEdit
                             $transformationOptions,
                             $currentValue,
                             $textDir,
-                            $this->tabindex,
-                            $idindex,
+                            $this->fieldIndex,
                         );
 
                         $GLOBALS['plugin_scripts'] = array_merge(
@@ -1943,7 +1933,6 @@ class InsertEdit
                         $specialChars,
                         min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']),
                         $onChangeClause,
-                        $idindex,
                         'HEX',
                     );
                 }
@@ -1955,7 +1944,6 @@ class InsertEdit
                     $columnNameAppendix,
                     $onChangeClause,
                     $specialChars,
-                    $idindex,
                     $textDir,
                     $specialCharsEncoded,
                     $data,
@@ -1975,7 +1963,7 @@ class InsertEdit
             'function_options' => $functionOptions,
             'nullify_code' => $nullifyCode,
             'real_null_value' => $realNullValue,
-            'id_index' => $idindex,
+            'id_index' => $this->fieldIndex,
             'type' => $type,
             'decimals' => $noDecimals,
             'special_chars' => $specialChars,
