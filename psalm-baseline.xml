@@ -3280,7 +3280,6 @@
       <code><![CDATA[$GLOBALS['has_blob_field']]]></code>
       <code><![CDATA[$GLOBALS['insert_mode']]]></code>
       <code><![CDATA[$GLOBALS['jsvkey']]]></code>
-      <code><![CDATA[$GLOBALS['o_rows']]]></code>
       <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['rows']]]></code>
@@ -3321,7 +3320,6 @@
       <code><![CDATA[$GLOBALS['has_blob_field']]]></code>
       <code><![CDATA[$GLOBALS['insert_mode']]]></code>
       <code><![CDATA[$GLOBALS['jsvkey']]]></code>
-      <code><![CDATA[$GLOBALS['o_rows']]]></code>
       <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>

@@ -77,6 +77,8 @@ class InsertEdit
         'VERSION',
     ];
 
+    private int $rowOffset = 0;
+
     public function __construct(
         private DatabaseInterface $dbi,
         private Relation $relation,
@@ -1691,7 +1693,6 @@ class InsertEdit
      * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
      * @param mixed[]         $currentRow         current row
-     * @param int             $oRows              row offset
      * @param int             $tabindex           tab index
      * @param int             $columnsCnt         columns count
      * @param bool            $isUpload           whether upload
@@ -1716,7 +1717,6 @@ class InsertEdit
         string $vkey,
         bool $insertMode,
         array $currentRow,
-        int $oRows,
         int &$tabindex,
         int $columnsCnt,
         bool $isUpload,
@@ -1802,7 +1802,7 @@ class InsertEdit
             $backupField = '';
         }
 
-        $idindex = ($oRows * $columnsCnt) + $columnNumber + 1;
+        $idindex = ($this->rowOffset * $columnsCnt) + $columnNumber + 1;
         $tabindex = $idindex;
 
         // The function column
@@ -2056,7 +2056,6 @@ class InsertEdit
      * @param string          $vkey             validation key
      * @param bool            $insertMode       whether insert mode
      * @param mixed[]         $currentRow       current row
-     * @param int             $oRows            row offset
      * @param int             $tabindex         tab index
      * @param int             $columnsCnt       columns count
      * @param bool            $isUpload         whether upload
@@ -2079,7 +2078,6 @@ class InsertEdit
         string $vkey,
         bool $insertMode,
         array $currentRow,
-        int &$oRows,
         int &$tabindex,
         int $columnsCnt,
         bool $isUpload,
@@ -2125,7 +2123,6 @@ class InsertEdit
                 $vkey,
                 $insertMode,
                 $currentRow,
-                $oRows,
                 $tabindex,
                 $columnsCnt,
                 $isUpload,
@@ -2142,7 +2139,7 @@ class InsertEdit
             );
         }
 
-        $oRows++;
+        $this->rowOffset++;
 
         return $htmlOutput . '  </tbody>'
             . '</table></div><br>'

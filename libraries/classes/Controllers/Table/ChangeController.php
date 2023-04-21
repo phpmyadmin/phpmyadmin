@@ -61,7 +61,6 @@ class ChangeController extends AbstractController
         $GLOBALS['columns_cnt'] ??= null;
         $GLOBALS['tabindex'] ??= null;
         $GLOBALS['tabindex_for_value'] ??= null;
-        $GLOBALS['o_rows'] ??= null;
         $GLOBALS['has_blob_field'] ??= null;
         $GLOBALS['jsvkey'] ??= null;
         $GLOBALS['vkey'] ??= null;
@@ -181,7 +180,6 @@ class ChangeController extends AbstractController
 
         $GLOBALS['tabindex'] = 0;
         $GLOBALS['tabindex_for_value'] = 0;
-        $GLOBALS['o_rows'] = 0;
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
@@ -250,7 +248,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['vkey'],
                 $GLOBALS['insert_mode'],
                 $currentRow,
-                $GLOBALS['o_rows'],
                 $GLOBALS['tabindex'],
                 $GLOBALS['columns_cnt'],
                 $isUpload,

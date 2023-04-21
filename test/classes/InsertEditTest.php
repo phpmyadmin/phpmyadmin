@@ -2398,7 +2398,6 @@ class InsertEditTest extends AbstractTestCase
     public function testGetHtmlForInsertEditFormColumn(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
-        $oRows = 0;
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $foreigners = ['foreign_keys_data' => []];
@@ -2434,7 +2433,6 @@ class InsertEditTest extends AbstractTestCase
                 '',
                 false,
                 [],
-                &$oRows,
                 &$tabindex,
                 0,
                 false,
@@ -2493,7 +2491,6 @@ class InsertEditTest extends AbstractTestCase
                 '[a][0]',
                 true,
                 [],
-                &$oRows,
                 &$tabindex,
                 0,
                 false,
@@ -2565,7 +2562,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRow(): void
     {
-        $oRows = 0;
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
@@ -2600,7 +2596,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             false,
             [],
-            $oRows,
             $tabindex,
             1,
             false,
@@ -2630,7 +2625,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRowBasedOnColumnPrivileges(): void
     {
-        $oRows = 0;
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
@@ -2678,7 +2672,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             false,
             [],
-            $oRows,
             $tabindex,
             1,
             false,
@@ -2737,7 +2730,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             true,
             [],
-            $oRows,
             $tabindex,
             3,
             false,
