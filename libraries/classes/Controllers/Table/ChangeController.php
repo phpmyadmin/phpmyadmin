@@ -148,7 +148,7 @@ class ChangeController extends AbstractController
          * $disp_message come from /table/replace
          */
         if (! empty($GLOBALS['disp_message'])) {
-            $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message'], null));
+            $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message']));
         }
 
         $GLOBALS['table_columns'] = $this->insertEdit->getTableColumns($GLOBALS['db'], $GLOBALS['table']);
