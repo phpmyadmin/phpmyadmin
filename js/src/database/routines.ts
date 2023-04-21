@@ -150,6 +150,7 @@ const DatabaseRoutines = {
                     'ui-dialog-titlebar-close': 'btn-close'
                 },
                 width: 500,
+                // @ts-ignore
                 buttons: buttonOptions,
                 title: data.title
             });
@@ -350,6 +351,7 @@ const DatabaseRoutines = {
                 },
                 width: '70%',
                 minWidth: 500,
+                // @ts-ignore
                 buttons: buttonOptions,
                 // Issue #15810 - use button titles for modals (eg: new procedure)
                 // Respect the order: title on href tag, href content, title sent in response
@@ -896,6 +898,7 @@ const DatabaseRoutines = {
                     'ui-dialog-titlebar-close': 'btn-close'
                 },
                 width: 650,
+                // @ts-ignore
                 buttons: buttonOptions,
                 title: data.title,
                 modal: true,
@@ -1020,7 +1023,7 @@ AJAX.registerOnload('database/routines.js', function () {
          * @var new_param_row A string containing the HTML code for the
          *                    new row for the routine parameters table
          */
-        const newParamRow = DatabaseRoutines.paramTemplate.replace(/%s/g, $routineParamsTable.find('tr').length - 1);
+        const newParamRow = DatabaseRoutines.paramTemplate.replace(/%s/g, ($routineParamsTable.find('tr').length - 1).toString());
         // Append the new row to the parameters table
         $routineParamsTable.append(newParamRow);
         // Make sure that the row is correctly shown according to the type of routine

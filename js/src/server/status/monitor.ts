@@ -49,6 +49,7 @@ function serverResponseError () {
         classes: {
             'ui-dialog-titlebar-close': 'btn-close'
         },
+        // @ts-ignore
         buttons: btns
     });
 }
@@ -802,6 +803,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             width: 'auto',
             height: 'auto',
+            // @ts-ignore
             buttons: dlgBtns
         });
     });
@@ -853,6 +855,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             width: '60%',
             height: 'auto',
+            // @ts-ignore
             buttons: dlgBtns
         }).find('img.ajaxIcon').show();
 
@@ -1147,6 +1150,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         'ui-dialog-titlebar-close': 'btn-close'
                     },
                     width: 400,
+                    // @ts-ignore
                     buttons: dlgBtns
                 });
             }
@@ -1546,6 +1550,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             width: 'auto',
             height: 'auto',
+            // @ts-ignore
             buttons: dlgBtns
         });
 
@@ -1850,6 +1855,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             width: 'auto',
             height: 'auto',
+            // @ts-ignore
             buttons: dlgBtns
         });
 
@@ -2276,6 +2282,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             width: 'auto',
             height: 'auto',
             resizable: false,
+            // @ts-ignore
             buttons: dlgBtns,
             close: function () {
                 if (profilingChart !== null) {

@@ -845,7 +845,7 @@ function addNewContinueInsertionFields (event) {
                 /** index of {@link $lastCheckbox} */
                 var lastCheckboxIndex = parseInt(lastCheckboxName.match(/\d+/), 10);
                 /** name of new {@link $lastCheckbox} */
-                var newName = lastCheckboxName.replace(/\d+/, lastCheckboxIndex + 1);
+                var newName = lastCheckboxName.replace(/\d+/, (lastCheckboxIndex + 1).toString());
 
                 $('<br><div class="clearfloat"></div>')
                     .insertBefore($('table.insertRowTable').last());

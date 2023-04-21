@@ -251,11 +251,11 @@ AJAX.registerOnload('import.js', function () {
                                 var estimatedTime;
                                 if (minutes > 0) {
                                     estimatedTime = window.Messages.uploadProgressRemainingMin
-                                        .replace('%MIN', minutes)
-                                        .replace('%SEC', seconds);
+                                        .replace('%MIN', minutes.toString())
+                                        .replace('%SEC', seconds.toString());
                                 } else {
                                     estimatedTime = window.Messages.uploadProgressRemainingSec
-                                        .replace('%SEC', seconds);
+                                        .replace('%SEC', seconds.toString());
                                 }
 
                                 statusText += '<br>' + speed + '<br><br>' + estimatedTime;

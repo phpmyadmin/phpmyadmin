@@ -202,7 +202,7 @@ AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#up_arrow');
     $(document).off('click', '#down_arrow');
     $('.vector').off('mousemove').off('mouseout');
-    $('#placeholder').get(0).removeEventListener('wheel', onGisMouseWheel, { passive: false });
+    $('#placeholder').get(0).removeEventListener('wheel', onGisMouseWheel);
     if (map) {
         // Removes ol.Map's resize listener from window
         map.setTarget(null);

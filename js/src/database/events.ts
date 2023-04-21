@@ -134,6 +134,7 @@ const DatabaseEvents = {
                     'ui-dialog-titlebar-close': 'btn-close'
                 },
                 width: 500,
+                // @ts-ignore
                 buttons: buttonOptions,
                 title: data.title
             });
@@ -335,6 +336,7 @@ const DatabaseEvents = {
                 height: 500,
                 width: '70%',
                 minWidth: 500,
+                // @ts-ignore
                 buttons: buttonOptions,
                 // Issue #15810 - use button titles for modals (eg: new procedure)
                 // Respect the order: title on href tag, href content, title sent in response

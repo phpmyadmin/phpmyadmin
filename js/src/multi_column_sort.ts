@@ -13,8 +13,8 @@ import { ajaxShowMessage } from './modules/ajax-message.ts';
 
 AJAX.registerOnload('multi_column_sort.js', function () {
     $('th.draggable.column_heading.pointer.marker a').on('click', function (event) {
-        var orderUrlRemove = $(this).parent().find('input[name="url-remove-order"]').val();
-        var orderUrlAdd = $(this).parent().find('input[name="url-add-order"]').val();
+        var orderUrlRemove = ($(this).parent().find('input[name="url-remove-order"]').val() as string);
+        var orderUrlAdd = ($(this).parent().find('input[name="url-add-order"]').val() as string);
         var argsep = CommonParams.get('arg_separator');
         if (event.ctrlKey || event.altKey) {
             event.preventDefault();

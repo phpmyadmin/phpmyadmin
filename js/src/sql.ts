@@ -438,7 +438,6 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('mouseenter', 'th.column_heading.pointer');
     $(document).off('mouseleave', 'th.column_heading.pointer');
     $(document).off('click', 'th.column_heading.marker');
-    $(document).off('scroll', window);
     $(document).off('keyup', '.filter_rows');
     if (window.codeMirrorEditor) {
         // @ts-ignore

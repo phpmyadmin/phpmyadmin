@@ -224,7 +224,7 @@ AJAX.registerOnload('table/relation.js', function () {
 
         $newRow.find('input, select').each(function () {
             $(this).attr('name',
-                $(this).attr('name').replace(/\d/, newIndex)
+                $(this).attr('name').replace(/\d/, newIndex.toString())
             );
         });
 

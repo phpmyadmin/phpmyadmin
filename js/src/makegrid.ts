@@ -1439,7 +1439,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             $(g.t).find('td.to_be_saved').parents('tr').each(function () {
                                 var newClause = $(this).data('new_clause');
                                 var $whereClause = $(this).find('.where_clause');
-                                var oldClause = $whereClause.val();
+                                var oldClause = ($whereClause.val() as string);
                                 var decodedOldClause = oldClause;
                                 var decodedNewClause = newClause;
 
@@ -1870,6 +1870,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 // prepend "show all column" button at top if the list is too long
                 if ($firstRowCols.length > 10) {
                     var clone = showAll.cloneNode(true);
+                    // @ts-ignore
                     $(g.cList).prepend(clone);
                     $(clone).on('click', function () {
                         g.showAllColumns();
