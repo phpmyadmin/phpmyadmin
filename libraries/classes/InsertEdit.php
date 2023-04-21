@@ -1272,8 +1272,7 @@ class InsertEdit
             || in_array($editField->function, $this->getGisFromWKBFunctions())
         ) {
             preg_match('/^(\'?)(.*?)\1(?:,(\d+))?$/', $editField->value, $matches);
-            $escapedParams = "'" . $this->dbi->escapeString($matches[2])
-                . (isset($matches[3]) ? "'," . $matches[3] : "'");
+            $escapedParams = $this->dbi->quoteString($matches[2]) . (isset($matches[3]) ? ',' . $matches[3] : '');
 
             return $editField->function . '(' . $escapedParams . ')';
         }

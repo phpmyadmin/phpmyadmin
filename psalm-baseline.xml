@@ -7876,9 +7876,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code>$urlParams</code>
     </InvalidArgument>
