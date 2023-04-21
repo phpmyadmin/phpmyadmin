@@ -1250,11 +1250,6 @@ class InsertEdit
         EditField $editField,
     ): string {
         if ($editField->function === 'PHP_PASSWORD_HASH') {
-            /**
-             * @see https://github.com/vimeo/psalm/issues/3350
-             *
-             * @psalm-suppress InvalidArgument
-             */
             $hash = password_hash($editField->value, PASSWORD_DEFAULT);
 
             return $this->dbi->quoteString($hash);
