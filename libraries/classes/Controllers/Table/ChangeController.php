@@ -59,7 +59,6 @@ class ChangeController extends AbstractController
         $GLOBALS['table_columns'] ??= null;
         $GLOBALS['timestamp_seen'] ??= null;
         $GLOBALS['columns_cnt'] ??= null;
-        $GLOBALS['tabindex'] ??= null;
         $GLOBALS['has_blob_field'] ??= null;
         $GLOBALS['jsvkey'] ??= null;
         $GLOBALS['vkey'] ??= null;
@@ -177,8 +176,6 @@ class ChangeController extends AbstractController
         $GLOBALS['timestamp_seen'] = false;
         $GLOBALS['columns_cnt'] = count($GLOBALS['table_columns']);
 
-        $GLOBALS['tabindex'] = 0;
-
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $GLOBALS['where_clause_array']);
@@ -246,7 +243,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['vkey'],
                 $GLOBALS['insert_mode'],
                 $currentRow,
-                $GLOBALS['tabindex'],
                 $GLOBALS['columns_cnt'],
                 $isUpload,
                 $foreigners,

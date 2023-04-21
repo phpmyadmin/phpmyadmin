@@ -602,11 +602,12 @@ class InsertEditTest extends AbstractTestCase
         $column['is_char'] = true;
         $column['Type'] = 'char(10)';
         $column['True_Type'] = 'char';
+        (new ReflectionProperty(InsertEdit::class, 'tabindex'))->setValue($this->insertEdit, 2);
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getTextarea',
-            [$column, 'a', 'b', '', 2, 1, 'abc/', 'foobar', 'CHAR'],
+            [$column, 'a', 'b', '', 1, 'abc/', 'foobar', 'CHAR'],
         );
 
         $result = $this->parseString($result);
@@ -628,11 +629,12 @@ class InsertEditTest extends AbstractTestCase
         $column = [];
         $column['pma_type'] = 'date';
         $column['True_Type'] = 'date';
+        (new ReflectionProperty(InsertEdit::class, 'tabindex'))->setValue($this->insertEdit, 23);
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 0, 'DATE'],
+            [$column, 'a', 'b', 30, 'c', 0, 'DATE'],
         );
 
         $this->assertEquals(
@@ -648,7 +650,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 0, 'DATE'],
+            [$column, 'a', 'b', 30, 'c', 0, 'DATE'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
@@ -663,7 +665,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 0, 'DATE'],
+            [$column, 'a', 'b', 30, 'c', 0, 'DATE'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
@@ -679,7 +681,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 11, 'c', 23, 0, 'INT'],
+            [$column, 'a', 'b', 11, 'c', 0, 'INT'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="11" min="-2147483648" max="2147483647" data-type="INT"'
@@ -739,6 +741,7 @@ class InsertEditTest extends AbstractTestCase
 
         $extractedColumnSpec = [];
         $extractedColumnSpec['spec_in_brackets'] = '25';
+        (new ReflectionProperty(InsertEdit::class, 'tabindex'))->setValue($this->insertEdit, 22);
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
@@ -749,7 +752,6 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
                 1,
                 '/',
@@ -783,7 +785,6 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
                 1,
                 '/',
@@ -814,7 +815,6 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
                 1,
                 '/',
@@ -840,7 +840,6 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
                 1,
                 '/',
@@ -866,7 +865,6 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
                 1,
                 '/',
@@ -892,7 +890,6 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
                 1,
                 '/',
@@ -2386,7 +2383,6 @@ class InsertEditTest extends AbstractTestCase
     public function testGetHtmlForInsertEditFormColumn(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
-        $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $foreigners = ['foreign_keys_data' => []];
         $tableColumn = [
@@ -2421,7 +2417,6 @@ class InsertEditTest extends AbstractTestCase
                 '',
                 false,
                 [],
-                &$tabindex,
                 0,
                 false,
                 $foreigners,
@@ -2478,7 +2473,6 @@ class InsertEditTest extends AbstractTestCase
                 '[a][0]',
                 true,
                 [],
-                &$tabindex,
                 0,
                 false,
                 $foreigners,
@@ -2548,7 +2542,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRow(): void
     {
-        $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
         $GLOBALS['cfg']['CharEditing'] = 'input';
@@ -2582,7 +2575,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             false,
             [],
-            $tabindex,
             1,
             false,
             $foreigners,
@@ -2610,7 +2602,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRowBasedOnColumnPrivileges(): void
     {
-        $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
         $GLOBALS['cfg']['CharEditing'] = 'input';
@@ -2657,7 +2648,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             false,
             [],
-            $tabindex,
             1,
             false,
             $foreigners,
@@ -2714,7 +2704,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             true,
             [],
-            $tabindex,
             3,
             false,
             $foreigners,

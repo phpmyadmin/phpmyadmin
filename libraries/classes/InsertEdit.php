@@ -78,6 +78,7 @@ class InsertEdit
     ];
 
     private int $rowOffset = 0;
+    private int $tabindex = 0;
 
     public function __construct(
         private DatabaseInterface $dbi,
@@ -425,7 +426,6 @@ class InsertEdit
      * @param string  $backupField         hidden input field
      * @param string  $columnNameAppendix  the name attribute
      * @param string  $onChangeClause      onchange clause for fields
-     * @param int     $tabindex            tab index
      * @param int     $idindex             id index
      * @param string  $textDir             text direction
      * @param string  $specialCharsEncoded replaced char if the string starts
@@ -439,7 +439,6 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        int $tabindex,
         int $idindex,
         string $textDir,
         string $specialCharsEncoded,
@@ -473,7 +472,7 @@ class InsertEdit
             . ' dir="' . $textDir . '"'
             . ' id="field_' . $idindex . '_3"'
             . ($onChangeClause ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
-            . ' tabindex="' . $tabindex . '"'
+            . ' tabindex="' . $this->tabindex . '"'
             . ' data-type="' . $dataType . '">'
             . $specialCharsEncoded
             . '</textarea>';
@@ -487,7 +486,6 @@ class InsertEdit
      * @param string  $specialChars       special characters
      * @param int     $fieldsize          html field size
      * @param string  $onChangeClause     onchange clause for fields
-     * @param int     $tabindex           tab index
      * @param int     $idindex            id index
      * @param string  $dataType           the html5 data-* attribute type
      *
@@ -499,7 +497,6 @@ class InsertEdit
         string $specialChars,
         int $fieldsize,
         string $onChangeClause,
-        int $tabindex,
         int $idindex,
         string $dataType,
     ): string {
@@ -535,7 +532,7 @@ class InsertEdit
             . ($inputMinMax ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
-            . ' tabindex="' . $tabindex . '"'
+            . ' tabindex="' . $this->tabindex . '"'
             . ($isInteger ? ' inputmode="numeric"' : '')
             . ' id="field_' . $idindex . '_3">';
     }
@@ -605,7 +602,6 @@ class InsertEdit
      * @param string  $backupField         hidden input field
      * @param string  $columnNameAppendix  the name attribute
      * @param string  $onChangeClause      onchange clause for fields
-     * @param int     $tabindex            tab index
      * @param string  $specialChars        special characters
      * @param int     $idindex             id index
      * @param string  $textDir             text direction
@@ -624,7 +620,6 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        int $tabindex,
         string $specialChars,
         int $idindex,
         string $textDir,
@@ -645,7 +640,6 @@ class InsertEdit
                 $backupField,
                 $columnNameAppendix,
                 $onChangeClause,
-                $tabindex,
                 $idindex,
                 $textDir,
                 $specialCharsEncoded,
@@ -658,7 +652,6 @@ class InsertEdit
                 $specialChars,
                 $fieldsize,
                 $onChangeClause,
-                $tabindex,
                 $idindex,
                 $dataType,
             );
@@ -1685,7 +1678,6 @@ class InsertEdit
      * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
      * @param mixed[]         $currentRow         current row
-     * @param int             $tabindex           tab index
      * @param int             $columnsCnt         columns count
      * @param bool            $isUpload           whether upload
      * @param mixed[]         $foreigners         foreigners
@@ -1708,7 +1700,6 @@ class InsertEdit
         string $vkey,
         bool $insertMode,
         array $currentRow,
-        int &$tabindex,
         int $columnsCnt,
         bool $isUpload,
         array $foreigners,
@@ -1793,7 +1784,7 @@ class InsertEdit
         }
 
         $idindex = ($this->rowOffset * $columnsCnt) + $columnNumber + 1;
-        $tabindex = $idindex;
+        $this->tabindex = $idindex;
 
         // The function column
         // -------------------
@@ -1855,7 +1846,7 @@ class InsertEdit
                             $transformationOptions,
                             $currentValue,
                             $textDir,
-                            $tabindex,
+                            $this->tabindex,
                             $idindex,
                         );
 
@@ -1952,7 +1943,6 @@ class InsertEdit
                         $specialChars,
                         min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']),
                         $onChangeClause,
-                        $tabindex,
                         $idindex,
                         'HEX',
                     );
@@ -1964,7 +1954,6 @@ class InsertEdit
                     $backupField,
                     $columnNameAppendix,
                     $onChangeClause,
-                    $tabindex,
                     $specialChars,
                     $idindex,
                     $textDir,
@@ -2041,7 +2030,6 @@ class InsertEdit
      * @param string          $vkey             validation key
      * @param bool            $insertMode       whether insert mode
      * @param mixed[]         $currentRow       current row
-     * @param int             $tabindex         tab index
      * @param int             $columnsCnt       columns count
      * @param bool            $isUpload         whether upload
      * @param mixed[]         $foreigners       foreigners
@@ -2062,7 +2050,6 @@ class InsertEdit
         string $vkey,
         bool $insertMode,
         array $currentRow,
-        int &$tabindex,
         int $columnsCnt,
         bool $isUpload,
         array $foreigners,
@@ -2106,7 +2093,6 @@ class InsertEdit
                 $vkey,
                 $insertMode,
                 $currentRow,
-                $tabindex,
                 $columnsCnt,
                 $isUpload,
                 $foreigners,
