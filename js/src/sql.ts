@@ -203,7 +203,7 @@ const handleSimulateQueryButton = function (): void {
     if (window.codeMirrorEditor) {
         query = window.codeMirrorEditor.getValue();
     } else {
-        query = $('#sqlquery').val();
+        query = ($('#sqlquery').val() as string);
     }
 
     const $simulateDml = $('#simulate_dml');
@@ -587,8 +587,8 @@ AJAX.registerOnload('sql.js', function () {
 
         // Place in top-left corner of screen regardless of scroll position.
         textArea.style.position = 'fixed';
-        textArea.style.top = 0;
-        textArea.style.left = 0;
+        textArea.style.top = '0';
+        textArea.style.left = '0';
 
         // Ensure it has a small width and height. Setting to 1px / 1em
         // doesn't work as this gives a negative w/h on some browsers.
@@ -596,7 +596,7 @@ AJAX.registerOnload('sql.js', function () {
         textArea.style.height = '2em';
 
         // We don't need padding, reducing the size if it does flash render.
-        textArea.style.padding = 0;
+        textArea.style.padding = '0';
 
         // Clean up any borders.
         textArea.style.border = 'none';
@@ -1002,7 +1002,7 @@ AJAX.registerOnload('sql.js', function () {
         if (window.codeMirrorEditor) {
             query = window.codeMirrorEditor.getValue();
         } else {
-            query = $('#sqlquery').val();
+            query = ($('#sqlquery').val() as string);
         }
 
         if (query.length === 0) {
@@ -1239,7 +1239,7 @@ function browseForeignDialog ($thisA) {
             if (showAll) {
                 postParams.push({
                     name: $(showAllId).attr('name'),
-                    value: $(showAllId).val()
+                    value: ($(showAllId).val() as string)
                 });
             }
 

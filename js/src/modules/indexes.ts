@@ -105,29 +105,29 @@ function removeColumnFromIndex (colIndex): void {
     var previousIndex = $('select[name="field_key[' + colIndex + ']"]')
         .attr('data-index');
     if (previousIndex.length) {
-        previousIndex = previousIndex.split(',');
-        var sourceArray = Indexes.getIndexArray(previousIndex[0]);
+        const previousIndexes = previousIndex.split(',');
+        var sourceArray = Indexes.getIndexArray(previousIndexes[0]);
         if (sourceArray === null) {
             return;
         }
 
         // Remove column from index array.
-        var sourceLength = sourceArray[previousIndex[1]].columns.length;
+        var sourceLength = sourceArray[previousIndexes[1]].columns.length;
         for (var i = 0; i < sourceLength; i++) {
-            if (sourceArray[previousIndex[1]].columns[i].col_index === colIndex) {
-                sourceArray[previousIndex[1]].columns.splice(i, 1);
+            if (sourceArray[previousIndexes[1]].columns[i].col_index === colIndex) {
+                sourceArray[previousIndexes[1]].columns.splice(i, 1);
             }
         }
 
         // Remove index completely if no columns left.
-        if (sourceArray[previousIndex[1]].columns.length === 0) {
-            sourceArray.splice(previousIndex[1], 1);
+        if (sourceArray[previousIndexes[1]].columns.length === 0) {
+            sourceArray.splice(previousIndexes[1], 1);
         }
 
         // Update current index details.
         $('select[name="field_key[' + colIndex + ']"]').attr('data-index', '');
         // Update form index parameters.
-        Indexes.setIndexFormParameters(sourceArray, previousIndex[0].toLowerCase());
+        Indexes.setIndexFormParameters(sourceArray, previousIndexes[0].toLowerCase());
     }
 }
 

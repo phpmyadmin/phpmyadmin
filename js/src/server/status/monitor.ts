@@ -928,7 +928,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         str += '<div class="smallIndent">';
                         str += window.Messages.strSettingsAppliedGlobal + '<br>';
 
-                        var varValue = 'TABLE';
+                        var varValue: string | number = 'TABLE';
                         if (logVars.log_output === 'TABLE') {
                             varValue = 'FILE';
                         }
@@ -1959,6 +1959,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 dlgBtns[window.Messages.strJumpToTable] = {
                     text: window.Messages.strJumpToTable,
                     class: 'btn btn-secondary',
+                    // @ts-ignore
                     click: function () {
                         $(this).dialog('close');
                         $(document).scrollTop($('#logTable').offset().top);
@@ -2139,9 +2140,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     /* Turns a number into a timespan (100 into 00:01:40) */
     function secToTime (timeInt) {
         var time = timeInt;
-        var hours = Math.floor(time / 3600);
+        var hours: number | string = Math.floor(time / 3600);
         time -= hours * 3600;
-        var minutes = Math.floor(time / 60);
+        var minutes: number | string = Math.floor(time / 60);
         time -= minutes * 60;
 
         if (hours < 10) {

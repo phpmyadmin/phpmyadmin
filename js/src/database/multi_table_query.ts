@@ -54,7 +54,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
                 columns[columns.length - 1].push(columnAlias);
 
-                if ($(this).val() in tableAliases) {
+                if (($(this).val() as string) in tableAliases) {
                     if (! (tableAliases[($(this).val() as string)].includes(tableAlias))) {
                         tableAliases[($(this).val() as string)].push(tableAlias);
                     }

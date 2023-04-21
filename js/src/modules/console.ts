@@ -593,7 +593,7 @@ var ConsoleInput = {
             }
 
             var nextCount;
-            var queryString = false;
+            var queryString: string | boolean = false;
             if (upPermitted && event.keyCode === 38) {
                 // Navigate up in history
                 if (ConsoleInput.historyCount === 0) {

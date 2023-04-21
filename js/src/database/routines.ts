@@ -92,7 +92,7 @@ const DatabaseRoutines = {
                 ajaxShowMessage(window.Messages.NoExportable);
             }
 
-            var p = $.when();
+            var p: any = $.when();
             exportAnchors.each(function () {
                 var h = $(this).attr('href');
                 p = p.then(function () {

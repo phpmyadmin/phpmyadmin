@@ -711,10 +711,10 @@ const newPage = function () {
 // (del?) no for pdf
 const save = function (url) {
     for (var key in DesignerConfig.jTabs) {
-        (document.getElementById('t_x_' + key + '_') as HTMLInputElement).value = parseInt(document.getElementById(key).style.left, 10);
-        (document.getElementById('t_y_' + key + '_') as HTMLInputElement).value = parseInt(document.getElementById(key).style.top, 10);
-        (document.getElementById('t_v_' + key + '_') as HTMLInputElement).value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
-        (document.getElementById('t_h_' + key + '_') as HTMLInputElement).value = (document.getElementById('check_vis_' + key) as HTMLInputElement).checked ? 1 : 0;
+        (document.getElementById('t_x_' + key + '_') as HTMLInputElement).value = parseInt(document.getElementById(key).style.left, 10).toString();
+        (document.getElementById('t_y_' + key + '_') as HTMLInputElement).value = parseInt(document.getElementById(key).style.top, 10).toString();
+        (document.getElementById('t_v_' + key + '_') as HTMLInputElement).value = document.getElementById('id_tbody_' + key).style.display === 'none' ? '0' : '1';
+        (document.getElementById('t_h_' + key + '_') as HTMLInputElement).value = (document.getElementById('check_vis_' + key) as HTMLInputElement).checked ? '1' : '0';
     }
 
     (document.getElementById('container-form') as HTMLFormElement).action = url;

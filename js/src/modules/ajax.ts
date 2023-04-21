@@ -437,6 +437,7 @@ const AJAX = {
         if (typeof data.success !== 'undefined' && data.success) {
             // reload page if user trying to login has changed
             if (CommonParams.get('user') !== data.params.user) {
+                // @ts-ignore
                 window.location = 'index.php';
                 ajaxShowMessage(window.Messages.strLoading, false);
                 AJAX.active = false;

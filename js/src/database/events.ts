@@ -76,7 +76,7 @@ const DatabaseEvents = {
             var exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
             var count = exportAnchors.length;
             var returnCount = 0;
-            var p = $.when();
+            var p: any = $.when();
             exportAnchors.each(function () {
                 var h = $(this).attr('href');
                 p = p.then(function () {

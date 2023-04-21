@@ -296,7 +296,7 @@ AJAX.registerOnload('table/select.js', function () {
             .text();
 
         // Get the data-type of column excluding size.
-        var dataType = $(this)
+        var dataType: string | false = $(this)
             .closest('tr')
             .find('td[data-type]')
             .attr('data-type');

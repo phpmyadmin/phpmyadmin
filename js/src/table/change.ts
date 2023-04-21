@@ -843,6 +843,7 @@ function addNewContinueInsertionFields (event) {
                 /** name of {@link $lastCheckbox} */
                 var lastCheckboxName = $lastCheckbox.attr('name');
                 /** index of {@link $lastCheckbox} */
+                // @ts-ignore
                 var lastCheckboxIndex = parseInt(lastCheckboxName.match(/\d+/), 10);
                 /** name of new {@link $lastCheckbox} */
                 var newName = lastCheckboxName.replace(/\d+/, (lastCheckboxIndex + 1).toString());
@@ -901,7 +902,7 @@ function addNewContinueInsertionFields (event) {
                 currRows--;
             }
         } else {
-            (document.getElementById('insert_rows') as HTMLInputElement).value = currRows;
+            (document.getElementById('insert_rows') as HTMLInputElement).value = currRows.toString();
         }
     }
 

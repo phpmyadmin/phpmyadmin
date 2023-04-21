@@ -1206,6 +1206,7 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
                         for (var table in tables) {
                             if (tables.hasOwnProperty(table)) {
                                 var columns = tables[table];
+                                // @ts-ignore
                                 table = {
                                     text: table,
                                     columns: []
@@ -2021,8 +2022,8 @@ function onloadCreateTableEvents (): void {
             return;
         }
 
-        var col = /\d/.exec($(this).attr('name'));
-        col = col[0];
+        var colRegEx = /\d/.exec($(this).attr('name'));
+        const col = colRegEx[0];
         var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
         if ($selectFieldKey.val() === 'none_' + col) {
             $selectFieldKey.val('primary_' + col).trigger('change', [false]);
@@ -2058,7 +2059,7 @@ function checkPassword ($theForm) {
 
     var $password = $theForm.find('input[name=pma_pw]');
     var $passwordRepeat = $theForm.find('input[name=pma_pw2]');
-    var alertMessage = false;
+    var alertMessage: string | boolean = false;
 
     if ($password.val() === '') {
         alertMessage = window.Messages.strPasswordEmpty;

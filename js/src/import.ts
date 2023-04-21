@@ -279,8 +279,10 @@ AJAX.registerOnload('import.js', function () {
 
                         if (finished) {
                             if (originalTitle !== false) {
+                                // @ts-ignore
                                 parent.document.title = originalTitle;
                             } else {
+                                // @ts-ignore
                                 document.title = originalTitle;
                             }
 

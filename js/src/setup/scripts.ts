@@ -7,6 +7,7 @@ import { Config } from '../modules/config.ts';
 
 // show this window in top frame
 if (top !== self) {
+    // @ts-ignore
     window.top.location.href = location;
 }
 

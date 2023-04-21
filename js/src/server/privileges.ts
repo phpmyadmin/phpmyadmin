@@ -174,8 +174,7 @@ const PasswordStrength = {
         var meterObj = $('#password_strength_meter');
         var meterObjLabel = $('#password_strength');
         var username = $('input[name="username"]');
-        username = username.val();
-        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username);
+        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username.val());
     }
 };
 

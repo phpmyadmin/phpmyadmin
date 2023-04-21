@@ -456,7 +456,7 @@ function showCurrent (): void {
     }
 
     function findLoadedItem ($container, name, clazz, doSelect) {
-        var ret = false;
+        var ret: any = false;
         $container.children('ul').children('li').each(function () {
             var $li = $(this);
             // this is a navigation group, recurse
@@ -1072,7 +1072,7 @@ const FastFilter = {
         var retval = '';
         var $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
         if ($input.length && $input.val() !== $input[0].defaultValue) {
-            retval = $input.val();
+            retval = ($input.val() as string);
         }
 
         return retval;
@@ -1099,7 +1099,7 @@ const FastFilter = {
         if ($filterInput.length !== 0 &&
             $filterInput.first().val() !== $filterInput[0].defaultValue
         ) {
-            searchClause2 = $filterInput.val();
+            searchClause2 = ($filterInput.val() as string);
         }
 
         return searchClause2;
@@ -1139,7 +1139,7 @@ const FastFilter = {
             var str = '';
             if ($(this).val() !== this.defaultValue && $(this).val() !== '') {
                 $obj.find('div.pageselector').hide();
-                str = $(this).val();
+                str = ($(this).val() as string);
             }
 
             /**
