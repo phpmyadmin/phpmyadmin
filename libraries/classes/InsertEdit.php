@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\Gis;
 
@@ -33,7 +34,6 @@ use function mb_stripos;
 use function mb_strlen;
 use function mb_strstr;
 use function md5;
-use function method_exists;
 use function min;
 use function password_hash;
 use function preg_match;
@@ -1847,7 +1847,7 @@ class InsertEdit
                         $currentValue = $currentRow[$column['Field']];
                     }
 
-                    if (method_exists($transformationPlugin, 'getInputHtml')) {
+                    if ($transformationPlugin instanceof IOTransformationsPlugin) {
                         $transformedHtml = $transformationPlugin->getInputHtml(
                             $column,
                             $rowId,
@@ -1858,9 +1858,7 @@ class InsertEdit
                             $tabindex,
                             $idindex,
                         );
-                    }
 
-                    if (method_exists($transformationPlugin, 'getScripts')) {
                         $GLOBALS['plugin_scripts'] = array_merge(
                             $GLOBALS['plugin_scripts'],
                             $transformationPlugin->getScripts(),

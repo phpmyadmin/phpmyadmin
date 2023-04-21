@@ -7944,6 +7944,7 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
+      <code>$currentValue</code>
       <code>$defaultValue</code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
@@ -7959,7 +7960,6 @@
       <code>$rows[$keyId]</code>
       <code>$singleQuery</code>
       <code>$singleQuery</code>
-      <code><![CDATA[$transformationPlugin->getScripts()]]></code>
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -8031,7 +8031,6 @@
       <code>$setSelectSize</code>
       <code>$singleQuery</code>
       <code>$specialChars</code>
-      <code>$transformedHtml</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -10267,12 +10266,6 @@
       <code>bool</code>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-  </file>
-  <file src="libraries/classes/Plugins/IOTransformationsPlugin.php">
-    <PossiblyUnusedMethod>
-      <code>getInputHtml</code>
-      <code>getScripts</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
     <DocblockTypeContradiction>
