@@ -275,7 +275,7 @@ function goTo2NFFinish (pd) {
 function goTo3NFFinish (newTables) {
     for (var table in newTables) {
         for (var newtbl in newTables[table]) {
-            var updatedname = $('#extra input[name="' + newtbl + '"]').val();
+            var updatedname = ($('#extra input[name="' + newtbl + '"]').val() as string);
             newTables[table][updatedname] = newTables[table][newtbl];
             if (updatedname !== newtbl) {
                 delete newTables[table][newtbl];

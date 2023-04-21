@@ -185,7 +185,7 @@ import getImageTag from './modules/functions/getImageTag.ts';
      * @return {any}
      */
     $.fn.menuResizer = function (method) {
-        if (methods[method]) {
+        if (typeof method === 'string' && methods[method]) {
             return methods[method].call(this);
         } else if (typeof method === 'function') {
             return methods.init.apply(this, [method]);

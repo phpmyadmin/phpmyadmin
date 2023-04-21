@@ -465,7 +465,7 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
                 return false;
             }
 
-            var arrayIndex = $('input[name="composite_with"]:checked').val();
+            var arrayIndex = Number($('input[name="composite_with"]:checked').val());
             var sourceLength = sourceArray[arrayIndex].columns.length;
             var targetColumns = [];
             for (var i = 0; i < sourceLength; i++) {

@@ -87,7 +87,7 @@ function filterStateRestore (): void {
         $tableFilters.each(function () {
             $obj = $(this).closest('div.list_container');
             // aPath associated with this filter
-            var filterName = $(this).siblings('input[name=aPath]').val();
+            var filterName = ($(this).siblings('input[name=aPath]').val() as string);
             // if this table's filter has a state stored in storage
             if (searchClauses.hasOwnProperty(filterName)
                 && searchClauses[filterName].length

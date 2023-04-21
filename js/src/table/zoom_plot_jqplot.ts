@@ -125,12 +125,12 @@ AJAX.registerTeardown('table/zoom_plot_jqplot.js', function () {
 AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     var currentChart = null;
     var searchedDataKey = null;
-    var xLabel = $('#tableid_0').val();
-    var yLabel = $('#tableid_1').val();
+    var xLabel = ($('#tableid_0').val() as string);
+    var yLabel = ($('#tableid_1').val() as string);
     // will be updated via Ajax
     var xType = $('#types_0').val();
     var yType = $('#types_1').val();
-    var dataLabel = $('#dataLabel').val();
+    var dataLabel = ($('#dataLabel').val() as string);
 
     // Get query result
     var searchedData;
@@ -171,7 +171,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr').eq(1).find('td').eq(1).html(data.field_collation);
             $('#tableFieldsId').find('tr').eq(1).find('td').eq(2).html(data.field_operators);
             $('#tableFieldsId').find('tr').eq(1).find('td').eq(3).html(data.field_value);
-            xLabel = $('#tableid_0').val();
+            xLabel = ($('#tableid_0').val() as string);
             $('#types_0').val(data.field_type);
             xType = data.field_type;
             $('#collations_0').val(data.field_collations);
@@ -196,7 +196,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr').eq(2).find('td').eq(1).html(data.field_collation);
             $('#tableFieldsId').find('tr').eq(2).find('td').eq(2).html(data.field_operators);
             $('#tableFieldsId').find('tr').eq(2).find('td').eq(3).html(data.field_value);
-            yLabel = $('#tableid_1').val();
+            yLabel = ($('#tableid_1').val() as string);
             $('#types_1').val(data.field_type);
             yType = data.field_type;
             $('#collations_1').val(data.field_collations);
