@@ -56,6 +56,6 @@ class LintController extends AbstractController
             }
         }
 
-        echo json_encode(Linter::lint($sqlQuery));
+        echo json_encode(Linter::lint("DELIMITER $$\n" . $sqlQuery . "$$\nDELIMITER ;\n"));
     }
 }
