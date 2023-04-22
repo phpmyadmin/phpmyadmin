@@ -195,10 +195,6 @@ class ChangeController extends AbstractController
 
         $GLOBALS['plugin_scripts'] = [];
         foreach ($rows as $rowId => $currentRow) {
-            if (empty($currentRow)) {
-                $currentRow = [];
-            }
-
             $GLOBALS['current_result'] = (isset($GLOBALS['result'])
                 && is_array($GLOBALS['result']) && isset($GLOBALS['result'][$rowId])
                 ? $GLOBALS['result'][$rowId]
@@ -221,7 +217,7 @@ class ChangeController extends AbstractController
                 $timestampSeen,
                 $GLOBALS['current_result'],
                 $insertMode,
-                $currentRow,
+                $currentRow ?: [],
                 $isUpload,
                 $foreigners,
                 $GLOBALS['table'],
