@@ -2014,7 +2014,6 @@ class InsertEdit
      * @param string          $vkey             validation key
      * @param bool            $insertMode       whether insert mode
      * @param mixed[]         $currentRow       current row
-     * @param int             $columnsCnt       columns count
      * @param bool            $isUpload         whether upload
      * @param mixed[]         $foreigners       foreigners
      * @param string          $table            table
@@ -2034,7 +2033,6 @@ class InsertEdit
         string $vkey,
         bool $insertMode,
         array $currentRow,
-        int $columnsCnt,
         bool $isUpload,
         array $foreigners,
         string $table,
@@ -2055,7 +2053,8 @@ class InsertEdit
             $whereClause = $whereClauseArray[$rowId];
         }
 
-        for ($columnNumber = 0; $columnNumber < $columnsCnt; $columnNumber++) {
+        $columnCount = count($tableColumns);
+        for ($columnNumber = 0; $columnNumber < $columnCount; $columnNumber++) {
             $tableColumn = $tableColumns[$columnNumber];
             $columnMime = [];
             if (isset($mimeMap[$tableColumn['Field']])) {
@@ -2077,7 +2076,7 @@ class InsertEdit
                 $vkey,
                 $insertMode,
                 $currentRow,
-                $columnsCnt,
+                $columnCount,
                 $isUpload,
                 $foreigners,
                 $table,

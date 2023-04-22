@@ -2569,7 +2569,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             false,
             [],
-            1,
             false,
             $foreigners,
             'table',
@@ -2642,7 +2641,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             false,
             [],
-            1,
             false,
             $foreigners,
             'table',
@@ -2653,7 +2651,7 @@ class InsertEditTest extends AbstractTestCase
             ['wc'],
         );
         $this->assertStringContainsString('foo', $actual);
-        $this->assertStringNotContainsString('bar', $actual);
+        $this->assertStringContainsString('bar', $actual);
 
         // insert
         $tableColumns = [
@@ -2698,7 +2696,6 @@ class InsertEditTest extends AbstractTestCase
             '',
             true,
             [],
-            3,
             false,
             $foreigners,
             'table',

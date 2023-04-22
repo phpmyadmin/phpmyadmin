@@ -56,9 +56,7 @@ class ChangeController extends AbstractController
         $GLOBALS['found_unique_key'] ??= null;
         $GLOBALS['after_insert'] ??= null;
         $GLOBALS['comments_map'] ??= null;
-        $GLOBALS['table_columns'] ??= null;
         $GLOBALS['timestamp_seen'] ??= null;
-        $GLOBALS['columns_cnt'] ??= null;
         $GLOBALS['has_blob_field'] ??= null;
         $GLOBALS['jsvkey'] ??= null;
         $GLOBALS['vkey'] ??= null;
@@ -151,7 +149,7 @@ class ChangeController extends AbstractController
             $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message']));
         }
 
-        $GLOBALS['table_columns'] = $this->insertEdit->getTableColumns($GLOBALS['db'], $GLOBALS['table']);
+        $tableColumns = $this->insertEdit->getTableColumns($GLOBALS['db'], $GLOBALS['table']);
 
         // retrieve keys into foreign fields, if any
         $foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
@@ -174,14 +172,13 @@ class ChangeController extends AbstractController
         $htmlOutput = '';
         // Set if we passed the first timestamp field
         $GLOBALS['timestamp_seen'] = false;
-        $GLOBALS['columns_cnt'] = count($GLOBALS['table_columns']);
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $GLOBALS['where_clause_array']);
 
         $GLOBALS['has_blob_field'] = false;
-        foreach ($GLOBALS['table_columns'] as $column) {
+        foreach ($tableColumns as $column) {
             if ($this->insertEdit->isColumn($column, ['blob', 'tinyblob', 'mediumblob', 'longblob'])) {
                 $GLOBALS['has_blob_field'] = true;
                 break;
@@ -235,7 +232,7 @@ class ChangeController extends AbstractController
 
             $htmlOutput .= $this->insertEdit->getHtmlForInsertEditRow(
                 $GLOBALS['urlParams'],
-                $GLOBALS['table_columns'],
+                $tableColumns,
                 $GLOBALS['comments_map'],
                 $GLOBALS['timestamp_seen'],
                 $GLOBALS['current_result'],
@@ -243,7 +240,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['vkey'],
                 $GLOBALS['insert_mode'],
                 $currentRow,
-                $GLOBALS['columns_cnt'],
                 $isUpload,
                 $foreigners,
                 $GLOBALS['table'],

@@ -3271,7 +3271,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['after_insert']]]></code>
       <code><![CDATA[$GLOBALS['checked']]]></code>
-      <code><![CDATA[$GLOBALS['columns_cnt']]]></code>
       <code><![CDATA[$GLOBALS['comments_map']]]></code>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
@@ -3283,7 +3282,6 @@
       <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['rows']]]></code>
-      <code><![CDATA[$GLOBALS['table_columns']]]></code>
       <code><![CDATA[$GLOBALS['timestamp_seen']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['vkey']]]></code>
@@ -3309,7 +3307,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['after_insert']]]></code>
       <code><![CDATA[$GLOBALS['checked']]]></code>
-      <code><![CDATA[$GLOBALS['columns_cnt']]]></code>
       <code><![CDATA[$GLOBALS['comments_map']]]></code>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
@@ -3322,7 +3319,6 @@
       <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['rows']]]></code>
-      <code><![CDATA[$GLOBALS['table_columns']]]></code>
       <code><![CDATA[$GLOBALS['timestamp_seen']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['vkey']]]></code>
