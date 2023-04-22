@@ -1104,7 +1104,7 @@ class InsertEdit
 
         $displayField = $this->relation->getDisplayField($foreigner['foreign_db'], $foreigner['foreign_table']);
         // Field to display from the foreign table?
-        if (is_string($displayField) && strlen($displayField) > 0) {
+        if (is_string($displayField) && $displayField !== '') {
             $dispsql = 'SELECT ' . Util::backquote($displayField)
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
