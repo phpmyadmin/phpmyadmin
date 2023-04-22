@@ -199,9 +199,6 @@ class ChangeController extends AbstractController
                 $currentRow = [];
             }
 
-            $jsvkey = (string) $rowId;
-            $vkey = '[multi_edit][' . $jsvkey . ']';
-
             $GLOBALS['current_result'] = (isset($GLOBALS['result'])
                 && is_array($GLOBALS['result']) && isset($GLOBALS['result'][$rowId])
                 ? $GLOBALS['result'][$rowId]
@@ -223,8 +220,6 @@ class ChangeController extends AbstractController
                 $commentsMap,
                 $timestampSeen,
                 $GLOBALS['current_result'],
-                $jsvkey,
-                $vkey,
                 $insertMode,
                 $currentRow,
                 $isUpload,

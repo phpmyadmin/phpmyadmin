@@ -1662,8 +1662,6 @@ class InsertEdit
      * @param mixed[]         $commentsMap        comments map
      * @param bool            $timestampSeen      whether timestamp seen
      * @param ResultInterface $currentResult      current result
-     * @param string          $jsvkey             javascript validation key
-     * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
      * @param mixed[]         $currentRow         current row
      * @param int             $columnsCnt         columns count
@@ -1684,8 +1682,6 @@ class InsertEdit
         array $commentsMap,
         bool $timestampSeen,
         ResultInterface $currentResult,
-        string $jsvkey,
-        string $vkey,
         bool $insertMode,
         array $currentRow,
         int $columnsCnt,
@@ -1726,8 +1722,9 @@ class InsertEdit
         //Call validation when the form submitted...
         $onChangeClause = 'return verificationsAfterFieldChange('
             . json_encode($fieldHashMd5) . ', '
-            . json_encode($jsvkey) . ',' . json_encode($column['pma_type']) . ')';
+            . json_encode((string) $rowId) . ',' . json_encode($column['pma_type']) . ')';
 
+        $vkey = '[multi_edit][' . $rowId . ']';
         // Use an MD5 as an array index to avoid having special characters
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $fieldHashMd5 . ']';
@@ -2010,8 +2007,6 @@ class InsertEdit
      * @param mixed[]         $commentsMap      comments map
      * @param bool            $timestampSeen    whether timestamp seen
      * @param ResultInterface $currentResult    current result
-     * @param string          $jsvkey           javascript validation key
-     * @param string          $vkey             validation key
      * @param bool            $insertMode       whether insert mode
      * @param mixed[]         $currentRow       current row
      * @param bool            $isUpload         whether upload
@@ -2029,8 +2024,6 @@ class InsertEdit
         array $commentsMap,
         bool $timestampSeen,
         ResultInterface $currentResult,
-        string $jsvkey,
-        string $vkey,
         bool $insertMode,
         array $currentRow,
         bool $isUpload,
@@ -2072,8 +2065,6 @@ class InsertEdit
                 $commentsMap,
                 $timestampSeen,
                 $currentResult,
-                $jsvkey,
-                $vkey,
                 $insertMode,
                 $currentRow,
                 $columnCount,

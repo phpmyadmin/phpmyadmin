@@ -2407,8 +2407,6 @@ class InsertEditTest extends AbstractTestCase
                 [],
                 false,
                 $resultStub,
-                '',
-                '',
                 false,
                 [],
                 0,
@@ -2435,7 +2433,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertStringContainsString('<img src="" width="150" height="100" alt="Image preview here">', $actual);
         $this->assertStringContainsString(
             '<input type="file" '
-            . 'name="fields_upload[d89e2ddb530bb8953b290ab0793aecb0]" '
+            . 'name="fields_upload[multi_edit][0][d89e2ddb530bb8953b290ab0793aecb0]" '
             . 'accept="image/*" '
             . 'class="image-upload"'
             . '>',
@@ -2463,8 +2461,6 @@ class InsertEditTest extends AbstractTestCase
                 [],
                 false,
                 $resultStub,
-                '',
-                '[a][0]',
                 true,
                 [],
                 0,
@@ -2487,7 +2483,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
         $this->assertStringContainsString(
-            '<input type="text" name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',
+            '<input type="text" name="fields[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',
             $actual,
         );
 
@@ -2565,8 +2561,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             false,
             $resultStub,
-            '',
-            '',
             false,
             [],
             false,
@@ -2637,8 +2631,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             false,
             $resultStub,
-            '',
-            '',
             false,
             [],
             false,
@@ -2692,8 +2684,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             false,
             $resultStub,
-            '',
-            '',
             true,
             [],
             false,
