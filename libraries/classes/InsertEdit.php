@@ -304,16 +304,14 @@ class InsertEdit
     /**
      * Analyze the table column array
      *
-     * @param mixed[] $column        description of column in given table
-     * @param mixed[] $commentsMap   comments for every column that has a comment
-     * @param bool    $timestampSeen whether a timestamp has been seen
+     * @param mixed[] $column      description of column in given table
+     * @param mixed[] $commentsMap comments for every column that has a comment
      *
      * @return mixed[]                   description of column in given table
      */
     private function analyzeTableColumnsArray(
         array $column,
         array $commentsMap,
-        bool $timestampSeen,
     ): array {
         $column['Field_md5'] = md5($column['Field']);
         // True_Type contains only the type (stops at first bracket)
@@ -344,7 +342,7 @@ class InsertEdit
         };
 
         // can only occur once per table
-        $column['first_timestamp'] = $column['True_Type'] === 'timestamp' && ! $timestampSeen;
+        $column['first_timestamp'] = $column['True_Type'] === 'timestamp';
 
         return $column;
     }
@@ -1660,7 +1658,6 @@ class InsertEdit
      * @param mixed[]         $column             column
      * @param int             $columnNumber       column index in table_columns
      * @param mixed[]         $commentsMap        comments map
-     * @param bool            $timestampSeen      whether timestamp seen
      * @param ResultInterface $currentResult      current result
      * @param bool            $insertMode         whether insert mode
      * @param mixed[]         $currentRow         current row
@@ -1680,7 +1677,6 @@ class InsertEdit
         array $column,
         int $columnNumber,
         array $commentsMap,
-        bool $timestampSeen,
         ResultInterface $currentResult,
         bool $insertMode,
         array $currentRow,
@@ -1697,7 +1693,7 @@ class InsertEdit
         string $whereClause,
     ): string {
         if (! isset($column['processed'])) {
-            $column = $this->analyzeTableColumnsArray($column, $commentsMap, $timestampSeen);
+            $column = $this->analyzeTableColumnsArray($column, $commentsMap);
         }
 
         $asIs = false;
@@ -2005,7 +2001,6 @@ class InsertEdit
      * @param mixed[]         $urlParams        url parameters
      * @param mixed[][]       $tableColumns     table columns
      * @param mixed[]         $commentsMap      comments map
-     * @param bool            $timestampSeen    whether timestamp seen
      * @param ResultInterface $currentResult    current result
      * @param bool            $insertMode       whether insert mode
      * @param mixed[]         $currentRow       current row
@@ -2022,7 +2017,6 @@ class InsertEdit
         array $urlParams,
         array $tableColumns,
         array $commentsMap,
-        bool $timestampSeen,
         ResultInterface $currentResult,
         bool $insertMode,
         array $currentRow,
@@ -2063,7 +2057,6 @@ class InsertEdit
                 $tableColumn,
                 $columnNumber,
                 $commentsMap,
-                $timestampSeen,
                 $currentResult,
                 $insertMode,
                 $currentRow,

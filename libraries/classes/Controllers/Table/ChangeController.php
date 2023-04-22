@@ -157,8 +157,6 @@ class ChangeController extends AbstractController
         // some browsers send wrongly this form to the http server.
 
         $htmlOutput = '';
-        // Set if we passed the first timestamp field
-        $timestampSeen = false;
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
@@ -214,7 +212,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['urlParams'],
                 $tableColumns,
                 $commentsMap,
-                $timestampSeen,
                 $GLOBALS['current_result'],
                 $insertMode,
                 $currentRow ?: [],

@@ -419,7 +419,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'analyzeTableColumnsArray',
-            [$column, [], false],
+            [$column, []],
         );
 
         $this->assertEquals($result['Field_md5'], '4342210df36bf2ff2c4e2a997a6d4089');
@@ -2405,7 +2405,6 @@ class InsertEditTest extends AbstractTestCase
                 $tableColumn,
                 0,
                 [],
-                false,
                 $resultStub,
                 false,
                 [],
@@ -2459,7 +2458,6 @@ class InsertEditTest extends AbstractTestCase
                 $tableColumn,
                 0,
                 [],
-                false,
                 $resultStub,
                 true,
                 [],
@@ -2559,7 +2557,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            false,
             $resultStub,
             false,
             [],
@@ -2629,7 +2626,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            false,
             $resultStub,
             false,
             [],
@@ -2682,7 +2678,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            false,
             $resultStub,
             true,
             [],
