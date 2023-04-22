@@ -680,3 +680,675 @@
 .ic_s_fulltext {
   background-image: url('../img/s_fulltext.png');
 }
+
+@include color-mode(dark) {
+  .ic_asc_order {
+    background-image: url('../img/asc_order.png');
+  }
+
+  .ic_b_bookmark {
+    background-image: url('../img/dark/bookmark-plus.svg');
+  }
+
+  .ic_b_browse,
+  .ic_b_sbrowse {
+    background-image: url('../img/dark/table-browse.svg');
+  }
+
+  .ic_b_calendar {
+    background-image: url('../img/b_calendar.png');
+  }
+
+  .ic_b_chart {
+    background-image: url('../img/dark/chart.svg');
+  }
+
+  .ic_b_close {
+    background-image: url('../img/dark/close.svg');
+  }
+
+  .ic_b_column_add {
+    background-image: url('../img/dark/col-plus.svg');
+  }
+
+  .ic_b_comment {
+    background-image: url('../img/dark/comment.svg');
+  }
+
+  .ic_b_dbstatistics {
+    background-image: url('../img/b_dbstatistics.png');
+  }
+
+  .ic_b_deltbl {
+    background-image: url('../img/dark/table-minus.svg');
+  }
+
+  .ic_b_docs {
+    background-image: url('../img/dark/help.svg');
+  }
+
+  .ic_b_docsql {
+    background-image: url('../img/b_docsql.png');
+  }
+
+  .ic_b_drop {
+    background-image: url('../img/dark/minus.svg');
+  }
+
+  .ic_b_edit {
+    background-image: url('../img/dark/edit.svg');
+  }
+
+  .ic_b_empty {
+    background-image: url('../img/dark/shredder.svg');
+  }
+
+  .ic_b_engine {
+    background-image: url('../img/dark/database-engine.svg');
+  }
+
+  .ic_b_event_add {
+    background-image: url('../img/dark/event-plus.svg');
+  }
+
+  .ic_b_events {
+    background-image: url('../img/dark/event.svg');
+  }
+
+  .ic_b_export,
+  .ic_b_tblexport {
+    background-image: url('../img/dark/export.svg');
+  }
+
+  .ic_b_favorite {
+    background-image: url('../img/dark/favorite.svg');
+  }
+
+  .ic_b_find_replace {
+    background-image: url('../img/dark/search-replace.svg');
+  }
+
+  .ic_b_firstpage {
+    background-image: url('../img/b_firstpage.png');
+  }
+
+  .ic_b_ftext {
+    background-image: url('../img/dark/field-index-text.svg');
+  }
+
+  .ic_b_globe {
+    background-image: url('../img/dark/globe-alt.svg');
+  }
+
+  .ic_b_group {
+    background-image: url('../img/dark/databases.svg');
+  }
+
+  .ic_b_help {
+    background-image: url('../img/dark/help-alt.svg');
+  }
+
+  .ic_b_home {
+    background-image: url('../img/dark/home.svg');
+  }
+
+  .ic_b_import,
+  .ic_b_tblimport {
+    background-image: url('../img/dark/import.svg');
+  }
+
+  .ic_b_index {
+    background-image: url('../img/dark/field-index.svg');
+  }
+
+  .ic_b_index_add {
+    background-image: url('../img/dark/index-plus.svg');
+  }
+
+  .ic_b_inline_edit {
+    background-image: url('../img/b_inline_edit.png');
+  }
+
+  .ic_b_insrow {
+    background-image: url('../img/dark/row-plus.svg');
+  }
+
+  .ic_b_lastpage {
+    background-image: url('../img/b_lastpage.png');
+  }
+
+  .ic_b_minus {
+    background-image: url('../img/dark/tree-collapse.svg');
+  }
+
+  .ic_b_more {
+    background-image: url('../img/dark/triangle-down-1.svg');
+  }
+
+  .ic_b_move {
+    background-image: url('../img/dark/col-move.svg');
+  }
+
+  .ic_b_newdb {
+    background-image: url('../img/dark/database-plus.svg');
+  }
+
+  .ic_db_drop {
+    background-image: url('../img/dark/database-minus.svg');
+  }
+
+  .ic_b_newtbl {
+    background-image: url('../img/b_newtbl.png');
+  }
+
+  .ic_b_nextpage {
+    background-image: url('../img/b_nextpage.png');
+  }
+
+  .ic_b_no_favorite {
+    background-image: url('../img/dark/favorite-alt.svg');
+  }
+
+  .ic_b_pdfdoc {
+    background-image: url('../img/b_pdfdoc.png');
+  }
+
+  .ic_b_plugin {
+    background-image: url('../img/dark/plugin.svg');
+  }
+
+  .ic_b_plus {
+    background-image: url('../img/dark/tree-expand.svg');
+  }
+
+  .ic_b_prevpage {
+    background-image: url('../img/b_prevpage.png');
+  }
+
+  .ic_b_primary {
+    background-image: url('../img/dark/key-primary.svg');
+  }
+
+  .ic_b_print {
+    background-image: url('../img/dark/print.svg');
+  }
+
+  .ic_b_props {
+    background-image: url('../img/dark/table-engine.svg');
+  }
+
+  .ic_b_relations {
+    background-image: url('../img/dark/designer.svg');
+  }
+
+  .ic_b_report {
+    background-image: url('../img/dark/report.svg');
+  }
+
+  .ic_b_rename {
+    background-image: url('../img/dark/b_rename.svg');
+  }
+
+  .ic_b_routine_add {
+    background-image: url('../img/dark/routine-plus.svg');
+  }
+
+  .ic_b_routines {
+    background-image: url('../img/dark/routine.svg');
+  }
+
+  .ic_b_save,
+  .ic_b_saveimage {
+    background-image: url('../img/dark/save.svg');
+  }
+
+  .ic_b_sdb {
+    background-image: url('../img/b_sdb.png');
+    width: 10px;
+    height: 10px;
+  }
+
+  .ic_b_search {
+    background-image: url('../img/dark/search.svg');
+  }
+
+  .ic_b_select {
+    background-image: url('../img/dark/search-across.svg');
+  }
+
+  .ic_b_snewtbl {
+    background-image: url('../img/b_snewtbl.png');
+  }
+
+  .ic_b_spatial {
+    background-image: url('../img/dark/field-spatial.svg');
+  }
+
+  .ic_b_sql {
+    background-image: url('../img/dark/sql.svg');
+  }
+
+  .ic_b_sqldoc {
+    background-image: url('../img/b_sqldoc.png');
+  }
+
+  .ic_b_sqlhelp {
+    background-image: url('../img/dark/manual.svg');
+  }
+
+  .ic_b_table_add {
+    background-image: url('../img/dark/table-plus.svg');
+  }
+
+  .ic_b_tblanalyse {
+    background-image: url('../img/dark/table-analyse.svg');
+  }
+
+  .ic_b_tblops {
+    background-image: url('../img/dark/preferences.svg');
+  }
+
+  .ic_b_tbloptimize {
+    background-image: url('../img/dark/optimize.svg');
+  }
+
+  .ic_b_tipp {
+    background-image: url('../img/b_tipp.png');
+  }
+
+  .ic_b_trigger_add {
+    background-image: url('../img/dark/flag-plus.svg');
+  }
+
+  .ic_b_triggers {
+    background-image: url('../img/dark/flag.svg');
+  }
+
+  .ic_b_undo {
+    background-image: url('../img/b_undo.png');
+  }
+
+  .ic_b_unique {
+    background-image: url('../img/dark/field-index-uinique.svg');
+  }
+
+  .ic_b_usradd {
+    background-image: url('../img/dark/user-plus.svg');
+  }
+
+  .ic_b_usrdrop {
+    background-image: url('../img/dark/user-minus.svg');
+  }
+
+  .ic_b_usredit,
+  .ic_b_usrcheck {
+    background-image: url('../img/dark/user.svg');
+  }
+
+  .ic_b_usrlist {
+    background-image: url('../img/dark/users.svg');
+  }
+
+  .ic_b_versions {
+    background-image: url('../img/dark/version.svg');
+  }
+
+  .ic_b_view {
+    background-image: url('../img/b_view.png');
+  }
+
+  .ic_b_view_add {
+    background-image: url('../img/dark/table-view-plus.svg');
+  }
+
+  .ic_b_views {
+    background-image: url('../img/dark/table-view.svg');
+  }
+
+  .ic_b_left {
+    background-image: url('../img/b_left.png');
+  }
+
+  .ic_b_right {
+    background-image: url('../img/b_right.png');
+  }
+
+  .ic_bd_browse {
+    background-image: url('../img/bd_browse.png');
+  }
+
+  .ic_bd_deltbl {
+    background-image: url('../img/bd_deltbl.png');
+  }
+
+  .ic_bd_drop {
+    background-image: url('../img/bd_drop.png');
+  }
+
+  .ic_bd_edit {
+    background-image: url('../img/bd_edit.png');
+  }
+
+  .ic_bd_empty {
+    background-image: url('../img/bd_empty.png');
+  }
+
+  .ic_bd_export {
+    background-image: url('../img/bd_export.png');
+  }
+
+  .ic_bd_firstpage {
+    background-image: url('../img/bd_firstpage.png');
+  }
+
+  .ic_bd_ftext {
+    background-image: url('../img/bd_ftext.png');
+  }
+
+  .ic_bd_index {
+    background-image: url('../img/bd_index.png');
+  }
+
+  .ic_bd_insrow {
+    background-image: url('../img/bd_insrow.png');
+  }
+
+  .ic_bd_lastpage {
+    background-image: url('../img/bd_lastpage.png');
+  }
+
+  .ic_bd_nextpage {
+    background-image: url('../img/bd_nextpage.png');
+  }
+
+  .ic_bd_prevpage {
+    background-image: url('../img/bd_prevpage.png');
+  }
+
+  .ic_bd_primary {
+    background-image: url('../img/dark/key.svg');
+  }
+
+  .ic_bd_routine_add {
+    background-image: url('../img/bd_routine_add.png');
+  }
+
+  .ic_bd_sbrowse {
+    background-image: url('../img/bd_sbrowse.png');
+  }
+
+  .ic_bd_select {
+    background-image: url('../img/bd_select.png');
+  }
+
+  .ic_bd_spatial {
+    background-image: url('../img/bd_spatial.png');
+  }
+
+  .ic_bd_unique {
+    background-image: url('../img/bd_unique.png');
+  }
+
+  .ic_centralColumns {
+    background-image: url('../img/dark/col.svg');
+  }
+
+  .ic_centralColumns_add {
+    background-image: url('../img/dark/col-plus.svg');
+  }
+
+  .ic_centralColumns_delete {
+    background-image: url('../img/dark/col-minus.svg');
+  }
+
+  .ic_col_drop {
+    background-image: url('../img/col_drop.png');
+  }
+
+  .ic_console {
+    background-image: url('../img/dark/console.svg');
+  }
+
+  .ic_database,
+  .ic_s_db {
+    background-image: url('../img/dark/database.svg');
+  }
+
+  .ic_eye {
+    background-image: url('../img/dark/glasses.svg');
+  }
+
+  .ic_eye_grey {
+    background-image: url('../img/eye_grey.png');
+  }
+
+  .ic_hide {
+    background-image: url('../img/dark/visibility-hidden.svg');
+  }
+
+  .ic_item {
+    background-image: url('../img/item.png');
+    width: 9px;
+    height: 9px;
+  }
+
+  .ic_lightbulb {
+    background-image: url('../img/lightbulb.png');
+  }
+
+  .ic_lightbulb_off {
+    background-image: url('../img/lightbulb_off.png');
+  }
+
+  .ic_more {
+    background-image: url('../img/more.png');
+    width: 13px;
+  }
+
+  .ic_new_data {
+    background-image: url('../img/new_data.png');
+  }
+
+  .ic_new_data_hovered {
+    background-image: url('../img/new_data_hovered.png');
+  }
+
+  .ic_new_data_selected {
+    background-image: url('../img/new_data_selected.png');
+  }
+
+  .ic_new_data_selected_hovered {
+    background-image: url('../img/new_data_selected_hovered.png');
+  }
+
+  .ic_new_struct {
+    background-image: url('../img/new_struct.png');
+  }
+
+  .ic_new_struct_hovered {
+    background-image: url('../img/new_struct_hovered.png');
+  }
+
+  .ic_new_struct_selected {
+    background-image: url('../img/new_struct_selected.png');
+  }
+
+  .ic_new_struct_selected_hovered {
+    background-image: url('../img/new_struct_selected_hovered.png');
+  }
+
+  .ic_normalize {
+    background-image: url('../img/dark/wizard.svg');
+  }
+
+  .ic_pause {
+    background-image: url('../img/dark/pause.svg');
+  }
+
+  .ic_php_sym {
+    background-image: url('../img/php_sym.png');
+  }
+
+  .ic_play {
+    background-image: url('../img/dark/triangle-right-1.svg');
+  }
+
+  .ic_s_asc {
+    background-image: url('../img/dark/sort-asc.svg');
+  }
+
+  .ic_s_asci {
+    background-image: url('../img/dark/charset.svg');
+  }
+
+  .ic_s_attention {
+    background-image: url('../img/s_attention.png');
+  }
+
+  .ic_s_cancel {
+    background-image: url('../img/s_cancel.png');
+  }
+
+  .ic_s_cancel2 {
+    background-image: url('../img/s_cancel2.png');
+  }
+
+  .ic_s_cog {
+    background-image: url('../img/dark/gear.svg');
+  }
+
+  .ic_s_collapseall {
+    background-image: url('../img/s_collapseall.png');
+    background-position: center;
+  }
+
+  .ic_s_desc {
+    background-image: url('../img/dark/sort-desc.svg');
+  }
+
+  .ic_s_error {
+    background-image: url('../img/dark/error.svg');
+  }
+
+  .ic_s_host {
+    background-image: url('../img/dark/host.svg');
+  }
+
+  .ic_s_info {
+    background-image: url('../img/s_info.png');
+  }
+
+  .ic_s_lang {
+    background-image: url('../img/dark/language.svg');
+  }
+
+  .ic_s_link {
+    background-image: url('../img/dark/link.svg');
+  }
+
+  .ic_s_lock {
+    background-image: url('../img/dark/lock.svg');
+  }
+
+  .ic_s_unlock {
+    background-image: url('../img/dark/lock-open.svg');
+  }
+
+  .ic_s_loggoff {
+    background-image: url('../img/dark/sign-out.svg');
+  }
+
+  .ic_s_notice {
+    background-image: url('../img/dark/notice.svg');
+  }
+
+  .ic_s_okay {
+    background-image: url('../img/dark/check.svg');
+  }
+
+  .ic_s_passwd {
+    background-image: url('../img/dark/password.svg');
+  }
+
+  .ic_s_process {
+    background-image: url('../img/s_process.png');
+  }
+
+  .ic_s_really {
+    background-image: url('../img/s_really.png');
+    width: 11px;
+    height: 11px;
+  }
+
+  .ic_s_reload {
+    background-image: url('../img/dark/reload.svg');
+  }
+
+  .ic_s_replication {
+    background-image: url('../img/dark/replication.svg');
+  }
+
+  .ic_s_rights {
+    background-image: url('../img/dark/user-props.svg');
+  }
+
+  .ic_s_sortable {
+    background-image: url('../img/s_sortable.png');
+  }
+
+  .ic_s_status {
+    background-image: url('../img/dark/server.svg');
+  }
+
+  .ic_s_success {
+    background-image: url('../img/dark/success.svg');
+  }
+
+  .ic_s_sync {
+    background-image: url('../img/s_sync.png');
+  }
+
+  .ic_s_tbl {
+    background-image: url('../img/dark/table.svg');
+  }
+
+  .ic_s_theme {
+    background-image: url('../img/dark/theme.svg');
+  }
+
+  .ic_s_top {
+    background-image: url('../img/dark/caret-up-stop.svg');
+  }
+
+  .ic_s_unlink {
+    background-image: url('../img/dark/link-broken.svg');
+  }
+
+  .ic_s_vars {
+    background-image: url('../img/dark/database-vars.svg');
+  }
+
+  .ic_s_views {
+    background-image: url('../img/s_views.png');
+  }
+
+  .ic_show {
+    background-image: url('../img/dark/visibility.svg');
+  }
+
+  .ic_window-new {
+    background-image: url('../img/dark/windows.svg');
+  }
+
+  .ic_ajax_clock_small {
+    background-image: url('../img/ajax_clock_small.gif');
+  }
+
+  .ic_s_partialtext {
+    background-image: url('../img/s_partialtext.png');
+  }
+
+  .ic_s_fulltext {
+    background-image: url('../img/s_fulltext.png');
+  }
+}

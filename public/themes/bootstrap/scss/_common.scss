@@ -802,6 +802,12 @@ textarea {
   background: $white;
 }
 
+@include color-mode(dark) {
+  #full_name_layer {
+    background: $black;
+  }
+}
+
 #body_browse_foreigners {
   background: #f3f3f3;
   margin: 0.5em 0.5em 0 0.5em;

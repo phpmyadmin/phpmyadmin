@@ -147,12 +147,12 @@
   margin: 0;
   margin-left: 5px;
   overflow: hidden;
-  color: #444;
+  color: var(--#{$prefix}body-color);
   height: 74%;
   position: relative;
 
   a {
-    color: $black;
+    color: var(--#{$prefix}black);
     padding-left: 0;
 
     &:hover {
@@ -416,10 +416,6 @@ li.fast_filter {
     padding: 2px 0;
 
     &:hover {
-      .drop_button {
-        background: $white;
-      }
-
       ul {
         display: block;
       }
@@ -470,12 +466,32 @@ li.fast_filter {
       }
     }
   }
+}
 
-  .drop_button {
-    padding: 0.3em;
-    border: 1px solid #ddd;
-    border-radius: 0.3em;
-    background: #f2f2f2;
-    cursor: pointer;
+@include color-mode(dark) {
+  #pma_navigation_tree {
+    a {
+      color: var(--#{$prefix}white);
+    }
+
+    li {
+      &.activePointer,
+      &.selected {
+        color: var(--#{$prefix}body-color);
+        background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
+      }
+    }
+  }
+
+  .pma_quick_warp {
+    ul {
+      background-color: var(--#{$prefix}body-bg);
+    }
+
+    li {
+      &:hover {
+        background: $gray-800;
+      }
+    }
   }
 }
