@@ -3269,33 +3269,20 @@
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['after_insert']]]></code>
-      <code><![CDATA[$GLOBALS['checked']]]></code>
-      <code><![CDATA[$GLOBALS['comments_map']]]></code>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['found_unique_key']]]></code>
-      <code><![CDATA[$GLOBALS['has_blob_field']]]></code>
-      <code><![CDATA[$GLOBALS['insert_mode']]]></code>
-      <code><![CDATA[$GLOBALS['jsvkey']]]></code>
-      <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['rows']]]></code>
-      <code><![CDATA[$GLOBALS['timestamp_seen']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['vkey']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause_array']]]></code>
-      <code><![CDATA[$GLOBALS['where_clauses']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
-      <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause'] ?? null]]></code>
       <code>$isUpload</code>
+      <code>$repopulate</code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -3305,27 +3292,14 @@
       <code>$rowId</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['after_insert']]]></code>
-      <code><![CDATA[$GLOBALS['checked']]]></code>
-      <code><![CDATA[$GLOBALS['comments_map']]]></code>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['found_unique_key']]]></code>
-      <code><![CDATA[$GLOBALS['has_blob_field']]]></code>
-      <code><![CDATA[$GLOBALS['insert_mode']]]></code>
-      <code><![CDATA[$GLOBALS['jsvkey']]]></code>
-      <code><![CDATA[$GLOBALS['repopulate']]]></code>
-      <code><![CDATA[$GLOBALS['repopulate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['rows']]]></code>
-      <code><![CDATA[$GLOBALS['timestamp_seen']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['vkey']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause_array']]]></code>
-      <code><![CDATA[$GLOBALS['where_clauses']]]></code>
       <code>$isUpload</code>
+      <code>$repopulate</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
     </MixedAssignment>

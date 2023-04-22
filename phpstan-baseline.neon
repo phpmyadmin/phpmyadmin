@@ -2081,12 +2081,22 @@ parameters:
 			path: libraries/classes/Controllers/Table/AddFieldController.php
 
 		-
+			message: "#^Parameter \\#1 \\$rowId of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForIgnoreOption\\(\\) expects int, \\(int\\<1, max\\>\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ChangeController.php
+
+		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ChangeController.php
+
+		-
+			message: "#^Parameter \\#11 \\$rowId of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects int, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
@@ -4846,6 +4856,11 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Parameter \\#17 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditFormColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#2 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -4857,11 +4872,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$specInBrackets of method PhpMyAdmin\\\\InsertEdit\\:\\:getColumnSize\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#20 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditFormColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
