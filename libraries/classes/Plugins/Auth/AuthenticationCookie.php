@@ -248,7 +248,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if (empty($_POST[$GLOBALS['cfg']['CaptchaResponseParam']])) {
                     $GLOBALS['conn_error'] = __(
-                        'Missing reCAPTCHA verification, maybe it has been blocked by adblock?',
+                        'Missing Captcha verification, maybe it has been blocked by adblock?',
                     );
 
                     return false;
