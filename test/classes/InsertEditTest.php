@@ -182,42 +182,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getWhereClauseArray
-     */
-    public function testGetWhereClauseArray(): void
-    {
-        $this->assertEquals(
-            [],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getWhereClauseArray',
-                [null],
-            ),
-        );
-
-        $this->assertEquals(
-            [1, 2, 3],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getWhereClauseArray',
-                [[1, 2, 3]],
-            ),
-        );
-
-        $this->assertEquals(
-            ['clause'],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getWhereClauseArray',
-                ['clause'],
-            ),
-        );
-    }
-
-    /**
      * Test for analyzeWhereClauses
      */
     public function testAnalyzeWhereClause(): void
@@ -336,23 +300,8 @@ class InsertEditTest extends AbstractTestCase
         $this->assertFalse($result);
     }
 
-    /** @return list<array{int|string, array<bool>}> */
-    public static function dataProviderConfigValueInsertRows(): array
+    public function testLoadFirstRow(): void
     {
-        return [[2, [false, false]], ['2', [false, false]], [3, [false, false, false]], ['3', [false, false, false]]];
-    }
-
-    /**
-     * Test for loadFirstRow
-     *
-     * @param array<bool> $rowsValue
-     *
-     * @dataProvider dataProviderConfigValueInsertRows
-     */
-    public function testLoadFirstRow(string|int $configValue, array $rowsValue): void
-    {
-        $GLOBALS['cfg']['InsertRows'] = $configValue;
-
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -380,26 +329,34 @@ class InsertEditTest extends AbstractTestCase
             ['table', 'db'],
         );
 
-        $this->assertEquals(
-            [$resultStub, $rowsValue],
-            $result,
-        );
+        $this->assertEquals($resultStub, $result);
+    }
+
+    /** @return list<array{int|string, array<false>}> */
+    public static function dataProviderConfigValueInsertRows(): array
+    {
+        return [[2, [false, false]], ['2', [false, false]], [3, [false, false, false]], ['3', [false, false, false]]];
     }
 
     /**
-     * Test for urlParamsInEditMode
+     * Test for loadFirstRow
+     *
+     * @param array<false> $rowsValue
+     *
+     * @dataProvider dataProviderConfigValueInsertRows
      */
-    public function testUrlParamsInEditMode(): void
+    public function testGetInsertRows(string|int $configValue, array $rowsValue): void
     {
-        $whereClauseArray = ['foo=1', 'bar=2'];
-        $_POST['sql_query'] = 'SELECT 1';
+        $GLOBALS['cfg']['InsertRows'] = $configValue;
 
-        $result = $this->insertEdit->urlParamsInEditMode([1], $whereClauseArray);
-
-        $this->assertEquals(
-            ['0' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
-            $result,
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getInsertRows',
+            [],
         );
+
+        $this->assertEquals($rowsValue, $result);
     }
 
     /**
@@ -574,83 +531,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getEnumSetAndTimestampColumns
-     */
-    public function testGetEnumAndTimestampColumns(): void
-    {
-        $column = [];
-        $column['True_Type'] = 'set';
-        $this->assertEquals(
-            ['set', '', false],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getEnumSetAndTimestampColumns',
-                [$column, false],
-            ),
-        );
-
-        $column['True_Type'] = 'enum';
-        $this->assertEquals(
-            ['enum', '', false],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getEnumSetAndTimestampColumns',
-                [$column, false],
-            ),
-        );
-
-        $column['True_Type'] = 'timestamp';
-        $column['Type'] = 'date';
-        $this->assertEquals(
-            ['date', ' text-nowrap', true],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getEnumSetAndTimestampColumns',
-                [$column, false],
-            ),
-        );
-
-        $column['True_Type'] = 'timestamp';
-        $column['Type'] = 'date';
-        $this->assertEquals(
-            ['date', ' text-nowrap', false],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getEnumSetAndTimestampColumns',
-                [$column, true],
-            ),
-        );
-
-        $column['True_Type'] = 'SET';
-        $column['Type'] = 'num';
-        $this->assertEquals(
-            ['num', ' text-nowrap', false],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getEnumSetAndTimestampColumns',
-                [$column, false],
-            ),
-        );
-
-        $column['True_Type'] = '';
-        $column['Type'] = 'num';
-        $this->assertEquals(
-            ['num', ' text-nowrap', false],
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getEnumSetAndTimestampColumns',
-                [$column, false],
-            ),
-        );
-    }
-
-    /**
      * Test for getNullifyCodeForNullColumn
      */
     public function testGetNullifyCodeForNullColumn(): void
@@ -740,59 +620,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getColumnEnumValues
-     */
-    public function testGetColumnEnumValues(): void
-    {
-        $enumSetValues = ['<abc>', '"foo"'];
-
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getColumnEnumValues',
-            [$enumSetValues],
-        );
-        $this->assertEquals(
-            [['plain' => '<abc>', 'html' => '&lt;abc&gt;'], ['plain' => '"foo"', 'html' => '&quot;foo&quot;']],
-            $result,
-        );
-    }
-
-    /**
-     * Test for getColumnSetValueAndSelectSize
-     */
-    public function testGetColumnSetValueAndSelectSize(): void
-    {
-        $column = [];
-        $enumSetValues = ['a', '<'];
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getColumnSetValueAndSelectSize',
-            [[], $enumSetValues],
-        );
-
-        $this->assertEquals(
-            [[['plain' => 'a', 'html' => 'a'], ['plain' => '<', 'html' => '&lt;']], 2],
-            $result,
-        );
-
-        $column['values'] = [1, 2];
-        $column['select_size'] = 3;
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getColumnSetValueAndSelectSize',
-            [$column, $enumSetValues],
-        );
-
-        $this->assertEquals(
-            [[1, 2], 3],
-            $result,
-        );
-    }
-
-    /**
      * Test for getHtmlInput
      */
     public function testGetHTMLinput(): void
@@ -872,13 +699,10 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType, 256],
+            [$pmaType],
         );
 
-        $this->assertEquals(
-            ["(Max: 256B)\n", 256],
-            $result,
-        );
+        $this->assertEquals("(Max: 256B)\n", $result);
 
         // case 2
         $GLOBALS['config']->set('max_upload_size', 250);
@@ -887,13 +711,10 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType, 20],
+            [$pmaType],
         );
 
-        $this->assertEquals(
-            ["(Max: 250B)\n", 250],
-            $result,
-        );
+        $this->assertEquals("(Max: 250B)\n", $result);
     }
 
     /**
@@ -1341,26 +1162,26 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getSpecialCharsAndBackupFieldForInsertingMode
+     * Test for getSpecialCharsForInsertingMode
      *
-     * @param array $column   Column parameters
-     * @param array $expected Expected result
+     * @param array  $column   Column parameters
+     * @param string $expected Expected result
      * @psalm-param array<string, string|bool|null> $column
-     * @psalm-param array<bool|string> $expected
      *
-     * @dataProvider providerForTestGetSpecialCharsAndBackupFieldForInsertingMode
+     * @dataProvider providerForTestGetSpecialCharsForInsertingMode
      */
-    public function testGetSpecialCharsAndBackupFieldForInsertingMode(
+    public function testGetSpecialCharsForInsertingMode(
         array $column,
-        array $expected,
+        string $expected,
     ): void {
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $result = (array) $this->callFunction(
+        /** @var string $result */
+        $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForInsertingMode',
+            'getSpecialCharsForInsertingMode',
             [$column['Default'] ?? null, $column['True_Type']],
         );
 
@@ -1368,74 +1189,43 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Data provider for test getSpecialCharsAndBackupFieldForInsertingMode()
+     * Data provider for test getSpecialCharsForInsertingMode()
      *
-     * @return array<string, array{array<string, string|bool|null>, array<bool|string>}>
+     * @return array<string, array{array<string, string|bool|null>, string}>
      */
-    public static function providerForTestGetSpecialCharsAndBackupFieldForInsertingMode(): array
+    public static function providerForTestGetSpecialCharsForInsertingMode(): array
     {
         return [
             'bit' => [
                 ['True_Type' => 'bit', 'Default' => 'b\'101\'', 'is_binary' => true],
-                [false, 'b\'101\'', '101', '101'],
+                '101',
             ],
-            'char' => [['True_Type' => 'char', 'is_binary' => true], [true, '', '', '']],
+            'char' => [['True_Type' => 'char', 'is_binary' => true], ''],
             'time with CURRENT_TIMESTAMP value' => [
                 ['True_Type' => 'time', 'Default' => 'CURRENT_TIMESTAMP'],
-                [false, 'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP'],
+                'CURRENT_TIMESTAMP',
             ],
             'time with current_timestamp() value' => [
                 ['True_Type' => 'time', 'Default' => 'current_timestamp()'],
-                [false, 'current_timestamp()', 'current_timestamp()', 'current_timestamp()'],
+                'current_timestamp()',
             ],
             'time with no dot value' => [
                 ['True_Type' => 'time', 'Default' => '10'],
-                [false, '10', '10.000000', '10.000000'],
+                '10.000000',
             ],
             'time with dot value' => [
                 ['True_Type' => 'time', 'Default' => '10.08'],
-                [false, '10.08', '10.080000', '10.080000'],
+                '10.080000',
             ],
             'any text with escape text default' => [
                 ['True_Type' => 'text', 'Default' => '"lorem\"ipsem"'],
-                [false, '"lorem\"ipsem"', 'lorem"ipsem', 'lorem"ipsem'],
+                'lorem"ipsem',
             ],
             'varchar with html special chars' => [
                 ['True_Type' => 'varchar', 'Default' => 'hello world<br><b>lorem</b> ipsem'],
-                [
-                    false,
-                    'hello world<br><b>lorem</b> ipsem',
-                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
-                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
-                ],
+                'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
             ],
         ];
-    }
-
-    /**
-     * Test for getParamsForUpdateOrInsert
-     */
-    public function testGetParamsForUpdateOrInsert(): void
-    {
-        $_POST['where_clause'] = 'LIMIT 1';
-        $_POST['submit_type'] = 'showinsert';
-
-        $result = $this->insertEdit->getParamsForUpdateOrInsert();
-
-        $this->assertEquals(
-            [['LIMIT 1'], true, true, false],
-            $result,
-        );
-
-        // case 2 (else)
-        unset($_POST['where_clause']);
-        $_POST['fields']['multi_edit'] = ['a' => 'b', 'c' => 'd'];
-        $result = $this->insertEdit->getParamsForUpdateOrInsert();
-
-        $this->assertEquals(
-            [['a', 'c'], false, true, false],
-            $result,
-        );
     }
 
     /**
@@ -1546,19 +1336,17 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testBuildSqlQuery(): void
     {
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
         $queryFields = ['a', 'b'];
-        $valueSets = [1, 2];
+        $valueSets = ['1', '2'];
 
         $this->assertEquals(
-            ['INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)'],
-            $this->insertEdit->buildSqlQuery(true, $queryFields, $valueSets),
+            'INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)',
+            $this->insertEdit->buildInsertSqlQuery('table', true, $queryFields, $valueSets),
         );
 
         $this->assertEquals(
-            ['INSERT INTO `table` (a, b) VALUES (1), (2)'],
-            $this->insertEdit->buildSqlQuery(false, $queryFields, $valueSets),
+            'INSERT INTO `table` (a, b) VALUES (1), (2)',
+            $this->insertEdit->buildInsertSqlQuery('table', false, $queryFields, $valueSets),
         );
     }
 
@@ -2661,7 +2449,6 @@ class InsertEditTest extends AbstractTestCase
                 'table',
                 'db',
                 0,
-                0,
                 '',
                 '',
                 $repopulate,
@@ -2720,7 +2507,6 @@ class InsertEditTest extends AbstractTestCase
                 0,
                 'table',
                 'db',
-                0,
                 0,
                 '',
                 '',
@@ -2829,7 +2615,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            0,
             'ltr',
             [],
             ['wc'],
@@ -2908,7 +2693,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            0,
             '',
             [],
             ['wc'],
@@ -2967,7 +2751,6 @@ class InsertEditTest extends AbstractTestCase
             0,
             'table',
             'db',
-            0,
             0,
             '',
             [],

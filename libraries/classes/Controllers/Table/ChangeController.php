@@ -24,6 +24,7 @@ use function is_string;
 use function str_contains;
 use function strlen;
 use function strpos;
+use function trim;
 
 /**
  * Displays form for editing and inserting new table rows.
@@ -61,7 +62,6 @@ class ChangeController extends AbstractController
         $GLOBALS['tabindex'] ??= null;
         $GLOBALS['tabindex_for_value'] ??= null;
         $GLOBALS['o_rows'] ??= null;
-        $GLOBALS['biggest_max_file_size'] ??= null;
         $GLOBALS['has_blob_field'] ??= null;
         $GLOBALS['jsvkey'] ??= null;
         $GLOBALS['vkey'] ??= null;
@@ -182,14 +182,10 @@ class ChangeController extends AbstractController
         $GLOBALS['tabindex'] = 0;
         $GLOBALS['tabindex_for_value'] = 0;
         $GLOBALS['o_rows'] = 0;
-        $GLOBALS['biggest_max_file_size'] = 0;
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
-        $GLOBALS['urlParams'] = $this->insertEdit->urlParamsInEditMode(
-            $GLOBALS['urlParams'],
-            $GLOBALS['where_clause_array'],
-        );
+        $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $GLOBALS['where_clause_array']);
 
         $GLOBALS['has_blob_field'] = false;
         foreach ($GLOBALS['table_columns'] as $column) {
@@ -263,7 +259,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['table'],
                 $GLOBALS['db'],
                 $rowId,
-                $GLOBALS['biggest_max_file_size'],
                 $GLOBALS['text_dir'],
                 $GLOBALS['repopulate'],
                 $GLOBALS['where_clause_array'],
@@ -286,11 +281,6 @@ class ChangeController extends AbstractController
             'is_numeric' => $isNumeric,
         ]);
 
-        if ($GLOBALS['biggest_max_file_size'] > 0) {
-            $htmlOutput .= '<input type="hidden" name="MAX_FILE_SIZE" value="'
-                . $GLOBALS['biggest_max_file_size'] . '">' . "\n";
-        }
-
         $htmlOutput .= '</form>';
 
         $htmlOutput .= $this->insertEdit->getHtmlForGisEditor();
@@ -307,5 +297,28 @@ class ChangeController extends AbstractController
         }
 
         $this->response->addHTML($htmlOutput);
+    }
+
+    /**
+     * Add some url parameters
+     *
+     * @param mixed[] $urlParams        containing $db and $table as url parameters
+     * @param mixed[] $whereClauseArray where clauses array
+     *
+     * @return mixed[] Add some url parameters to $url_params array and return it
+     */
+    public function urlParamsInEditMode(
+        array $urlParams,
+        array $whereClauseArray,
+    ): array {
+        foreach ($whereClauseArray as $whereClause) {
+            $urlParams['where_clause'] = trim($whereClause);
+        }
+
+        if (! empty($_POST['sql_query'])) {
+            $urlParams['sql_query'] = $_POST['sql_query'];
+        }
+
+        return $urlParams;
     }
 }

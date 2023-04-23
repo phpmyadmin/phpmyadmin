@@ -2174,7 +2174,6 @@
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['MAX_FILE_SIZE']]]></code>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
@@ -3271,7 +3270,6 @@
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['after_insert']]]></code>
-      <code><![CDATA[$GLOBALS['biggest_max_file_size']]]></code>
       <code><![CDATA[$GLOBALS['checked']]]></code>
       <code><![CDATA[$GLOBALS['columns_cnt']]]></code>
       <code><![CDATA[$GLOBALS['comments_map']]]></code>
@@ -3305,6 +3303,7 @@
       <code>$isUpload</code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
       <code>$whereClause</code>
+      <code>$whereClause</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$rowId</code>
@@ -3312,7 +3311,6 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['after_insert']]]></code>
-      <code><![CDATA[$GLOBALS['biggest_max_file_size']]]></code>
       <code><![CDATA[$GLOBALS['checked']]]></code>
       <code><![CDATA[$GLOBALS['columns_cnt']]]></code>
       <code><![CDATA[$GLOBALS['comments_map']]]></code>
@@ -3339,6 +3337,7 @@
       <code><![CDATA[$GLOBALS['where_clauses']]]></code>
       <code>$isUpload</code>
       <code>$whereClause</code>
+      <code>$whereClause</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
@@ -3347,9 +3346,6 @@
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
       <code>$isUpload</code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$GLOBALS['biggest_max_file_size'] > 0]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeRowsController.php">
     <InvalidArrayOffset>
@@ -3841,6 +3837,7 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
       <code>$columnName</code>
       <code>$columnName</code>
       <code>$columnName</code>
@@ -3922,6 +3919,7 @@
       <code><![CDATA[$_POST['transform_fields_list']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
       <code><![CDATA[$_POST['fields_name']['multi_edit']]]></code>
       <code>$multiEditColumnsPrev[$key]</code>
       <code>$multiEditColumnsType[$key]</code>
@@ -7917,8 +7915,6 @@
         ]</code>
     </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
-      <code>$backupField</code>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
@@ -7926,6 +7922,7 @@
       <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['Field']]]></code>
+      <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
@@ -7953,10 +7950,7 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
+      <code>$defaultValue</code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
@@ -7971,33 +7965,22 @@
       <code>$rows[$keyId]</code>
       <code>$singleQuery</code>
       <code>$singleQuery</code>
-      <code>$specialChars</code>
-      <code>$specialChars</code>
-      <code>$specialCharsEncoded</code>
-      <code><![CDATA[$tmp['Default'] ?? null]]></code>
-      <code><![CDATA[$tmp['True_Type']]]></code>
       <code><![CDATA[$transformationPlugin->getScripts()]]></code>
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
-      <code>$whereClause</code>
-      <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code><![CDATA[min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$query</code>
-      <code>$queryFields</code>
       <code>$thisUrlParams</code>
       <code>$thisUrlParams</code>
       <code>$urlParams</code>
-      <code>$valueSets</code>
+      <code>$whereClauseArray</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code>$currCellEditedValues[$columnName]</code>
-      <code><![CDATA[$enumValue['plain']]]></code>
-      <code><![CDATA[$enumValue['plain']]]></code>
-      <code><![CDATA[$enumValue['plain']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code>$editedValues[$cellIndex][$columnName]</code>
@@ -8032,7 +8015,9 @@
       <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
+      <code>$columnSetValues</code>
       <code><![CDATA[$column['pma_type']]]></code>
+      <code><![CDATA[$column['values']]]></code>
       <code>$currCellEditedValues</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -8040,6 +8025,8 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code>$currentValue</code>
       <code>$data</code>
+      <code>$defaultValue</code>
+      <code>$defaultValue</code>
       <code>$enumSelectedValue</code>
       <code>$enumValue</code>
       <code>$fieldsize</code>
@@ -8047,11 +8034,10 @@
       <code>$isUnsigned</code>
       <code>$maxlength</code>
       <code>$maxlength</code>
+      <code>$setSelectSize</code>
       <code>$singleQuery</code>
       <code>$specialChars</code>
-      <code><![CDATA[$tmp['Default']]]></code>
       <code>$transformedHtml</code>
-      <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -8093,11 +8079,7 @@
       <code><![CDATA[$_GET['sql_query']]]></code>
       <code><![CDATA[$_GET['sql_signature']]]></code>
       <code>$whereClause</code>
-      <code>$whereClause</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['sql_query']]]></code>
       <code><![CDATA[$_GET['sql_signature']]]></code>
@@ -8108,7 +8090,6 @@
     </PossiblyInvalidOperand>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$column['is_blob']]]></code>
-      <code><![CDATA[$column['select_size']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['InsertRows']]]></code>
@@ -14870,8 +14851,6 @@
     <MixedAssignment>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>

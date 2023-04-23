@@ -13,7 +13,6 @@ use PhpMyAdmin\Utils\Gis;
 use function __;
 use function array_fill;
 use function array_key_exists;
-use function array_keys;
 use function array_merge;
 use function array_values;
 use function bin2hex;
@@ -133,26 +132,6 @@ class InsertEdit
     }
 
     /**
-     * Creates array of where clauses
-     *
-     * @param string[]|string|null $whereClause where clause
-     *
-     * @return string[] whereClauseArray array of where clauses
-     */
-    private function getWhereClauseArray(array|string|null $whereClause): array
-    {
-        if ($whereClause === null) {
-            return [];
-        }
-
-        if (is_array($whereClause)) {
-            return $whereClause;
-        }
-
-        return [$whereClause];
-    }
-
-    /**
      * Analysing where clauses array
      *
      * @param string[] $whereClauseArray array of where clauses
@@ -244,46 +223,20 @@ class InsertEdit
 
     /**
      * No primary key given, just load first row
-     *
-     * @param string $table name of the table
-     * @param string $db    name of the database
-     *
-     * @return array<int, ResultInterface|false[]>
-     * @phpstan-return array{ResultInterface, false[]}
      */
-    private function loadFirstRow(string $table, string $db): array
+    private function loadFirstRow(string $table, string $db): ResultInterface
     {
-        $result = $this->dbi->query(
+        return $this->dbi->query(
             'SELECT * FROM ' . Util::backquote($db)
             . '.' . Util::backquote($table) . ' LIMIT 1;',
         );
-        // Can be a string on some old configuration storage settings
-        $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
-
-        return [$result, $rows];
     }
 
-    /**
-     * Add some url parameters
-     *
-     * @param mixed[] $urlParams        containing $db and $table as url parameters
-     * @param mixed[] $whereClauseArray where clauses array
-     *
-     * @return mixed[] Add some url parameters to $url_params array and return it
-     */
-    public function urlParamsInEditMode(
-        array $urlParams,
-        array $whereClauseArray,
-    ): array {
-        foreach ($whereClauseArray as $whereClause) {
-            $urlParams['where_clause'] = trim($whereClause);
-        }
-
-        if (! empty($_POST['sql_query'])) {
-            $urlParams['sql_query'] = $_POST['sql_query'];
-        }
-
-        return $urlParams;
+    /** @return false[] */
+    private function getInsertRows(): array
+    {
+        // Can be a string on some old configuration storage settings
+        return array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
     }
 
     /**
@@ -375,11 +328,18 @@ class InsertEdit
             ['char', 'varchar'],
         );
 
-        [
-            $column['pma_type'],
-            $column['wrap'],
-            $column['first_timestamp'],
-        ] = $this->getEnumSetAndTimestampColumns($column, $timestampSeen);
+        $column['pma_type'] = match ($column['True_Type']) {
+            'set', 'enum' => $column['True_Type'],
+            default => $column['Type']
+        };
+
+        $column['wrap'] = match ($column['True_Type']) {
+            'set', 'enum' => '',
+            default => ' text-nowrap'
+        };
+
+        // can only occur once per table
+        $column['first_timestamp'] = $column['True_Type'] === 'timestamp' ? ! $timestampSeen : false;
 
         return $column;
     }
@@ -420,29 +380,6 @@ class InsertEdit
         }
 
         return false;
-    }
-
-    /**
-     * Retrieve set, enum, timestamp table columns
-     *
-     * @param mixed[] $column        description of column in given table
-     * @param bool    $timestampSeen whether a timestamp has been seen
-     *
-     * @return mixed[] $column['pma_type'], $column['wrap'], $column['first_timestamp']
-     * @psalm-return array{0: mixed, 1: string, 2: bool}
-     */
-    private function getEnumSetAndTimestampColumns(array $column, bool $timestampSeen): array
-    {
-        return match ($column['True_Type']) {
-            'set' => ['set', '', false],
-            'enum' => ['enum', '', false],
-            'timestamp' => [
-                $column['Type'],
-                ' text-nowrap',
-                ! $timestampSeen, // can only occur once per table
-            ],
-            default => [$column['Type'], ' text-nowrap', false],
-        };
     }
 
     /**
@@ -543,48 +480,6 @@ class InsertEdit
     }
 
     /**
-     * Get column values
-     *
-     * @param string[] $enumSetValues
-     *
-     * @return mixed[] column values as an associative array
-     * @psalm-return list<array{html: string, plain: string}>
-     */
-    private function getColumnEnumValues(array $enumSetValues): array
-    {
-        $values = [];
-        foreach ($enumSetValues as $val) {
-            $values[] = ['plain' => $val, 'html' => htmlspecialchars($val)];
-        }
-
-        return $values;
-    }
-
-    /**
-     * Retrieve column 'set' value and select size
-     *
-     * @param mixed[]  $column        description of column in given table
-     * @param string[] $enumSetValues
-     *
-     * @return mixed[] $column['values'], $column['select_size']
-     */
-    private function getColumnSetValueAndSelectSize(
-        array $column,
-        array $enumSetValues,
-    ): array {
-        if (! isset($column['values'])) {
-            $column['values'] = [];
-            foreach ($enumSetValues as $val) {
-                $column['values'][] = ['plain' => $val, 'html' => htmlspecialchars($val)];
-            }
-
-            $column['select_size'] = min(4, count($column['values']));
-        }
-
-        return [$column['values'], $column['select_size']];
-    }
-
-    /**
      * Get HTML input type
      *
      * @param mixed[] $column             description of column in given table
@@ -682,40 +577,24 @@ class InsertEdit
 
     /**
      * Retrieve the maximum upload file size
-     *
-     * @param string $pmaType            column type
-     * @param int    $biggestMaxFileSize biggest max file size for uploading
-     *
-     * @return mixed[] an html snippet and $biggest_max_file_size
-     * @psalm-return array{non-empty-string, int}
      */
-    private function getMaxUploadSize(string $pmaType, int $biggestMaxFileSize): array
+    private function getMaxUploadSize(string $pmaType): string
     {
         // find maximum upload size, based on field type
         /**
          * @todo with functions this is not so easy, as you can basically
          * process any data with function like MD5
          */
-        $maxFieldSizes = [
+        $maxFieldSize = match ($pmaType) {
             'tinyblob' => 256,
             'blob' => 65536,
             'mediumblob' => 16777216,
             'longblob' => 4294967296,// yeah, really
-        ];
+        };
 
         $thisFieldMaxSize = (int) $GLOBALS['config']->get('max_upload_size'); // from PHP max
-        if ($thisFieldMaxSize > $maxFieldSizes[$pmaType]) {
-            $thisFieldMaxSize = $maxFieldSizes[$pmaType];
-        }
 
-        $htmlOutput = Util::getFormattedMaximumUploadSize($thisFieldMaxSize) . "\n";
-        // do not generate here the MAX_FILE_SIZE, because we should
-        // put only one in the form to accommodate the biggest field
-        if ($thisFieldMaxSize > $biggestMaxFileSize) {
-            $biggestMaxFileSize = $thisFieldMaxSize;
-        }
-
-        return [$htmlOutput, $biggestMaxFileSize];
+        return Util::getFormattedMaximumUploadSize(min($thisFieldMaxSize, $maxFieldSize)) . "\n";
     }
 
     /**
@@ -931,6 +810,7 @@ class InsertEdit
      *
      * @return mixed[] $real_null_value, $data, $special_chars, $backup_field,
      *               $special_chars_encoded
+     * @psalm-return array{bool, string, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForExistingRow(
         array $currentRow,
@@ -1013,17 +893,12 @@ class InsertEdit
 
     /**
      * display default values
-     *
-     * @return mixed[] $real_null_value, $data, $special_chars, $special_chars_encoded
-     * @psalm-return array{bool, string, string, string}
      */
-    private function getSpecialCharsAndBackupFieldForInsertingMode(
+    private function getSpecialCharsForInsertingMode(
         string|null $defaultValue,
         string $trueType,
-    ): array {
-        $realNullValue = false;
+    ): string {
         if ($defaultValue === null) {
-            $realNullValue = true;
             $defaultValue = '';
         }
 
@@ -1040,44 +915,7 @@ class InsertEdit
             $specialChars = htmlspecialchars($defaultValue);
         }
 
-        $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
-
-        return [$realNullValue, $defaultValue, $specialChars, $specialCharsEncoded];
-    }
-
-    /**
-     * Prepares the update/insert of a row
-     *
-     * @return mixed[] $loop_array, $using_key, $is_insert, $is_insertignore
-     * @psalm-return array{array, bool, bool, bool}
-     */
-    public function getParamsForUpdateOrInsert(): array
-    {
-        if (isset($_POST['where_clause'])) {
-            // we were editing something => use the WHERE clause
-            $loopArray = is_array($_POST['where_clause'])
-                ? $_POST['where_clause']
-                : [$_POST['where_clause']];
-            $usingKey = true;
-            $isInsert = isset($_POST['submit_type'])
-                && ($_POST['submit_type'] === 'insert'
-                    || $_POST['submit_type'] === 'showinsert'
-                    || $_POST['submit_type'] === 'insertignore');
-        } else {
-            // new row => use indexes
-            $loopArray = [];
-            if (! empty($_POST['fields'])) {
-                $loopArray = array_keys($_POST['fields']['multi_edit']);
-            }
-
-            $usingKey = false;
-            $isInsert = true;
-        }
-
-        $isInsertIgnore = isset($_POST['submit_type'])
-            && $_POST['submit_type'] === 'insertignore';
-
-        return [$loopArray, $usingKey, $isInsert, $isInsertIgnore];
+        return $specialChars;
     }
 
     /**
@@ -1170,29 +1008,24 @@ class InsertEdit
     }
 
     /**
-     * Builds the sql query
+     * Builds the SQL insert query
      *
-     * @param bool    $isInsertIgnore $_POST['submit_type'] === 'insertignore'
-     * @param mixed[] $queryFields    column names array
-     * @param mixed[] $valueSets      array of query values
+     * @param bool     $isInsertIgnore $_POST['submit_type'] === 'insertignore'
+     * @param string[] $queryFields    column names array
+     * @param string[] $valueSets      array of query values
      *
-     * @return mixed[] of query
-     * @psalm-return array{string}
+     * @todo move this to Query generator class
      */
-    public function buildSqlQuery(bool $isInsertIgnore, array $queryFields, array $valueSets): array
-    {
-        if ($isInsertIgnore) {
-            $insertCommand = 'INSERT IGNORE ';
-        } else {
-            $insertCommand = 'INSERT ';
-        }
-
-        return [
-            $insertCommand . 'INTO '
-            . Util::backquote($GLOBALS['table'])
+    public function buildInsertSqlQuery(
+        string $table,
+        bool $isInsertIgnore,
+        array $queryFields,
+        array $valueSets,
+    ): string {
+        return ($isInsertIgnore ? 'INSERT IGNORE ' : 'INSERT ') . 'INTO '
+            . Util::backquote($table)
             . ' (' . implode(', ', $queryFields) . ') VALUES ('
-            . implode('), (', $valueSets) . ')',
-        ];
+            . implode('), (', $valueSets) . ')';
     }
 
     /**
@@ -1760,7 +1593,7 @@ class InsertEdit
         if (isset($whereClause)) {
             // we are editing
             $insertMode = false;
-            $whereClauseArray = $this->getWhereClauseArray($whereClause);
+            $whereClauseArray = (array) $whereClause;
             [$whereClauses, $result, $rows, $foundUniqueKey] = $this->analyzeWhereClauses(
                 $whereClauseArray,
                 $table,
@@ -1770,7 +1603,8 @@ class InsertEdit
             // we are inserting
             $insertMode = true;
             $whereClause = null;
-            [$result, $rows] = $this->loadFirstRow($table, $db);
+            $result = $this->loadFirstRow($table, $db);
+            $rows = $this->getInsertRows();
             $whereClauses = null;
             $whereClauseArray = [];
             $foundUniqueKey = false;
@@ -1874,7 +1708,6 @@ class InsertEdit
      * @param string          $table              table
      * @param string          $db                 database
      * @param int             $rowId              row id
-     * @param int             $biggestMaxFileSize biggest max file size
      * @param string          $defaultCharEditing default char editing mode which is stored in the config.inc.php script
      * @param string          $textDir            text direction
      * @param mixed[]         $repopulate         the data to be repopulated
@@ -1900,7 +1733,6 @@ class InsertEdit
         string $table,
         string $db,
         int $rowId,
-        int $biggestMaxFileSize,
         string $defaultCharEditing,
         string $textDir,
         array $repopulate,
@@ -1966,19 +1798,16 @@ class InsertEdit
         } else {
             // (we are inserting)
             // display default values
-            $tmp = $column;
+            $defaultValue = $column['Default'] ?? null;
             if (isset($repopulate[$fieldHashMd5])) {
-                $tmp['Default'] = $repopulate[$fieldHashMd5];
+                $defaultValue = $repopulate[$fieldHashMd5];
             }
 
-            [
-                $realNullValue,
-                $data,
-                $specialChars,
-                $specialCharsEncoded,
-            ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp['Default'] ?? null, $tmp['True_Type']);
+            $realNullValue = $defaultValue === null;
+            $data = (string) $defaultValue;
+            $specialChars = $this->getSpecialCharsForInsertingMode($defaultValue, $column['True_Type']);
+            $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
             $backupField = '';
-            unset($tmp);
         }
 
         $idindex = ($oRows * $columnsCnt) + $columnNumber + 1;
@@ -2098,30 +1927,28 @@ class InsertEdit
             }
 
             if ($column['pma_type'] === 'enum') {
-                if (! isset($column['values'])) {
-                    $column['values'] = $this->getColumnEnumValues($extractedColumnspec['enum_set_values']);
-                }
+                $column['values'] ??= $extractedColumnspec['enum_set_values'];
 
                 foreach ($column['values'] as $enumValue) {
                     if (
-                        $data == $enumValue['plain'] || ($data == ''
+                        $data == $enumValue || ($data == ''
                             && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
-                            && isset($column['Default']) && $enumValue['plain'] == $column['Default'])
+                            && isset($column['Default']) && $enumValue == $column['Default'])
                     ) {
-                        $enumSelectedValue = $enumValue['plain'];
+                        $enumSelectedValue = $enumValue;
                         break;
                     }
                 }
             } elseif ($column['pma_type'] === 'set') {
-                [$columnSetValues, $setSelectSize] = $this->getColumnSetValueAndSelectSize(
-                    $column,
-                    $extractedColumnspec['enum_set_values'],
-                );
+                $columnSetValues = $column['values'] ?? $extractedColumnspec['enum_set_values'];
+                $setSelectSize = ! isset($column['values'])
+                    ? min(4, count($extractedColumnspec['enum_set_values']))
+                    : $column['select_size'];
             } elseif ($column['is_binary'] || $column['is_blob']) {
                 $isColumnProtectedBlob = ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob']);
-                if ($isColumnProtectedBlob && isset($data)) {
+                if ($isColumnProtectedBlob) {
                     $blobSize = Util::formatByteDown(mb_strlen(stripslashes($data)), 3, 1);
                     if ($blobSize !== null) {
                         [$blobValue, $blobValueUnit] = $blobSize;
@@ -2129,7 +1956,7 @@ class InsertEdit
                 }
 
                 if ($isUpload && $column['is_blob']) {
-                    [$maxUploadSize] = $this->getMaxUploadSize($column['pma_type'], $biggestMaxFileSize);
+                    $maxUploadSize = $this->getMaxUploadSize($column['pma_type']);
                 }
 
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {
@@ -2228,28 +2055,27 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param mixed[]         $urlParams          url parameters
-     * @param mixed[][]       $tableColumns       table columns
-     * @param mixed[]         $commentsMap        comments map
-     * @param bool            $timestampSeen      whether timestamp seen
-     * @param ResultInterface $currentResult      current result
-     * @param string          $jsvkey             javascript validation key
-     * @param string          $vkey               validation key
-     * @param bool            $insertMode         whether insert mode
-     * @param mixed[]         $currentRow         current row
-     * @param int             $oRows              row offset
-     * @param int             $tabindex           tab index
-     * @param int             $columnsCnt         columns count
-     * @param bool            $isUpload           whether upload
-     * @param mixed[]         $foreigners         foreigners
-     * @param int             $tabindexForValue   tab index offset for value
-     * @param string          $table              table
-     * @param string          $db                 database
-     * @param int             $rowId              row id
-     * @param int             $biggestMaxFileSize biggest max file size
-     * @param string          $textDir            text direction
-     * @param mixed[]         $repopulate         the data to be repopulated
-     * @param mixed[]         $whereClauseArray   the array of where clauses
+     * @param mixed[]         $urlParams        url parameters
+     * @param mixed[][]       $tableColumns     table columns
+     * @param mixed[]         $commentsMap      comments map
+     * @param bool            $timestampSeen    whether timestamp seen
+     * @param ResultInterface $currentResult    current result
+     * @param string          $jsvkey           javascript validation key
+     * @param string          $vkey             validation key
+     * @param bool            $insertMode       whether insert mode
+     * @param mixed[]         $currentRow       current row
+     * @param int             $oRows            row offset
+     * @param int             $tabindex         tab index
+     * @param int             $columnsCnt       columns count
+     * @param bool            $isUpload         whether upload
+     * @param mixed[]         $foreigners       foreigners
+     * @param int             $tabindexForValue tab index offset for value
+     * @param string          $table            table
+     * @param string          $db               database
+     * @param int             $rowId            row id
+     * @param string          $textDir          text direction
+     * @param mixed[]         $repopulate       the data to be repopulated
+     * @param mixed[]         $whereClauseArray the array of where clauses
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,
@@ -2270,7 +2096,6 @@ class InsertEdit
         string $table,
         string $db,
         int $rowId,
-        int $biggestMaxFileSize,
         string $textDir,
         array $repopulate,
         array $whereClauseArray,
@@ -2317,7 +2142,6 @@ class InsertEdit
                 $table,
                 $db,
                 $rowId,
-                $biggestMaxFileSize,
                 $defaultCharEditing,
                 $textDir,
                 $repopulate,

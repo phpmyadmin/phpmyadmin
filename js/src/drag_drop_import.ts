@@ -329,8 +329,6 @@ var DragDropImport = {
                     fd.append('token', CommonParams.get('token'));
                     fd.append('import_type', 'database');
                     // todo: method to find the value below
-                    fd.append('MAX_FILE_SIZE', '4194304');
-                    // todo: method to find the value below
                     fd.append('charset_of_file', 'utf-8');
                     // todo: method to find the value below
                     fd.append('allow_interrupt', 'yes');

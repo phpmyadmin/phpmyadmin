@@ -25,6 +25,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_keys;
 use function array_values;
 use function class_exists;
 use function implode;
@@ -104,7 +105,9 @@ final class ReplaceController extends AbstractController
         /**
          * Prepares the update/insert of a row
          */
-        [$loopArray, $usingKey, $isInsert, $isInsertignore] = $this->insertEdit->getParamsForUpdateOrInsert();
+        [$loopArray, $usingKey, $isInsert] = $this->getParamsForUpdateOrInsert();
+
+        $isInsertignore = isset($_POST['submit_type']) && $_POST['submit_type'] === 'insertignore';
 
         $GLOBALS['query'] = [];
         $valueSets = [];
@@ -283,7 +286,12 @@ final class ReplaceController extends AbstractController
 
         // Builds the sql query
         if ($isInsert && $valueSets !== []) {
-            $GLOBALS['query'] = $this->insertEdit->buildSqlQuery($isInsertignore, $queryFields, $valueSets);
+            $GLOBALS['query'] = (array) $this->insertEdit->buildInsertSqlQuery(
+                $GLOBALS['table'],
+                $isInsertignore,
+                $queryFields,
+                $valueSets,
+            );
         } elseif (empty($GLOBALS['query']) && ! isset($_POST['preview_sql']) && ! $rowSkipped) {
             // No change -> move back to the calling script
             //
@@ -503,5 +511,37 @@ final class ReplaceController extends AbstractController
          */
         /** @psalm-suppress UnresolvableInclude */
         require ROOT_PATH . Core::securePath($gotoInclude);
+    }
+
+    /**
+     * Prepares the update/insert of a row
+     *
+     * @return mixed[] $loop_array, $using_key, $is_insert
+     * @psalm-return array{array, bool, bool}
+     */
+    private function getParamsForUpdateOrInsert(): array
+    {
+        if (isset($_POST['where_clause'])) {
+            // we were editing something => use the WHERE clause
+            $loopArray = is_array($_POST['where_clause'])
+                ? $_POST['where_clause']
+                : [$_POST['where_clause']];
+            $usingKey = true;
+            $isInsert = isset($_POST['submit_type'])
+                && ($_POST['submit_type'] === 'insert'
+                    || $_POST['submit_type'] === 'showinsert'
+                    || $_POST['submit_type'] === 'insertignore');
+        } else {
+            // new row => use indexes
+            $loopArray = [];
+            if (! empty($_POST['fields'])) {
+                $loopArray = array_keys($_POST['fields']['multi_edit']);
+            }
+
+            $usingKey = false;
+            $isInsert = true;
+        }
+
+        return [$loopArray, $usingKey, $isInsert];
     }
 }

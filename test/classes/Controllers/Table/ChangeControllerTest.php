@@ -79,4 +79,27 @@ class ChangeControllerTest extends AbstractTestCase
             $actual,
         );
     }
+
+    /**
+     * Test for urlParamsInEditMode
+     */
+    public function testUrlParamsInEditMode(): void
+    {
+        $changeController = new ChangeController(
+            $this->createStub(ResponseRenderer::class),
+            $this->createStub(Template::class),
+            $this->createStub(InsertEdit::class),
+            $this->createStub(Relation::class),
+        );
+
+        $whereClauseArray = ['foo=1', 'bar=2'];
+        $_POST['sql_query'] = 'SELECT 1';
+
+        $result = $changeController->urlParamsInEditMode([1], $whereClauseArray);
+
+        $this->assertEquals(
+            ['0' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
+            $result,
+        );
+    }
 }
