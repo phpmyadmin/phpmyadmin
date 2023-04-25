@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-18 10:06+0000\n"
+"PO-Revision-Date: 2023-04-26 11:47+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2278,7 +2278,7 @@ msgstr "القيمة / استعلام فرعي فارغ"
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
 msgid "Add tables from other databases"
-msgstr "إضافة جداول من قواعد بياتات أخرى"
+msgstr "اضافة جداول من قواعد بيانات اخري"
 
 #: js/messages.php:566
 msgid "Page name"
@@ -6625,7 +6625,7 @@ msgstr "تغيير"
 #: templates/server/databases/databases_footer.twig:57
 #: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
-msgstr "إسقاط"
+msgstr "سقّط"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: libraries/classes/Controllers/Table/TableStructureController.php:1237
@@ -11079,7 +11079,7 @@ msgstr "ليس له أي تأثير في نسخة MySQL الحالية."
 #: libraries/classes/Server/Privileges.php:359
 #: libraries/classes/Server/Privileges.php:1258 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
-msgstr "يسمح بإنشاء وإسقاط الفهارس."
+msgstr "يسمح بإنشاء وحذف الفهارس."
 
 #: libraries/classes/Server/Privileges.php:364
 #: libraries/classes/Server/Privileges.php:1256 server_privileges.php:65
