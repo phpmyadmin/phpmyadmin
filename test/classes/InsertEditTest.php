@@ -419,7 +419,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'analyzeTableColumnsArray',
-            [$column, [], false],
+            [$column, []],
         );
 
         $this->assertEquals($result['Field_md5'], '4342210df36bf2ff2c4e2a997a6d4089');
@@ -602,11 +602,12 @@ class InsertEditTest extends AbstractTestCase
         $column['is_char'] = true;
         $column['Type'] = 'char(10)';
         $column['True_Type'] = 'char';
+        (new ReflectionProperty(InsertEdit::class, 'fieldIndex'))->setValue($this->insertEdit, 2);
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getTextarea',
-            [$column, 'a', 'b', '', 2, 0, 1, 'abc/', 'foobar', 'CHAR', false],
+            [$column, 'a', 'b', '', 'abc/', 'foobar', 'CHAR'],
         );
 
         $result = $this->parseString($result);
@@ -614,7 +615,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="10" rows="7" cols="1" dir="abc/" '
-            . 'id="field_1_3" tabindex="2" data-type="CHAR">',
+            . 'id="field_2_3" tabindex="2" data-type="CHAR">',
             $result,
         );
     }
@@ -628,16 +629,17 @@ class InsertEditTest extends AbstractTestCase
         $column = [];
         $column['pma_type'] = 'date';
         $column['True_Type'] = 'date';
+        (new ReflectionProperty(InsertEdit::class, 'fieldIndex'))->setValue($this->insertEdit, 23);
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false],
+            [$column, 'a', 'b', 30, 'c', 'DATE'],
         );
 
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datefield" onchange="c" tabindex="25" id="field_0_3">',
+            . ' class="textfield datefield" onchange="c" tabindex="23" id="field_23_3">',
             $result,
         );
 
@@ -648,11 +650,11 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false],
+            [$column, 'a', 'b', 30, 'c', 'DATE'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="23" id="field_23_3">',
             $result,
         );
 
@@ -663,11 +665,11 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false],
+            [$column, 'a', 'b', 30, 'c', 'DATE'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="23" id="field_23_3">',
             $result,
         );
 
@@ -679,11 +681,11 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHtmlInput',
-            [$column, 'a', 'b', 11, 'c', 23, 2, 0, 'INT', false],
+            [$column, 'a', 'b', 11, 'c', 'INT'],
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="11" min="-2147483648" max="2147483647" data-type="INT"'
-            . ' class="textfield" onchange="c" tabindex="25" inputmode="numeric" id="field_0_3">',
+            . ' class="textfield" onchange="c" tabindex="23" inputmode="numeric" id="field_23_3">',
             $result,
         );
     }
@@ -739,6 +741,7 @@ class InsertEditTest extends AbstractTestCase
 
         $extractedColumnSpec = [];
         $extractedColumnSpec['spec_in_brackets'] = '25';
+        (new ReflectionProperty(InsertEdit::class, 'fieldIndex'))->setValue($this->insertEdit, 22);
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
@@ -749,15 +752,11 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
-                12,
-                1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -765,7 +764,7 @@ class InsertEditTest extends AbstractTestCase
             "a\na\n"
             . '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="25" rows="7" cols="1" dir="/" '
-            . 'id="field_1_3" onchange="c" tabindex="34" data-type="CHAR">'
+            . 'id="field_22_3" onchange="c" tabindex="22" data-type="CHAR">'
             . '&lt;</textarea>',
             $result,
         );
@@ -785,22 +784,18 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
-                12,
-                1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
         $this->assertEquals(
             "a\n"
             . '<input type="text" name="fieldsb" value="&lt;" size="20" data-type="'
-            . 'DATE" class="textfield datetimefield" onchange="c" tabindex="34" id="field_1_3"'
+            . 'DATE" class="textfield datetimefield" onchange="c" tabindex="22" id="field_22_3"'
             . '><input type="hidden" name="auto_incrementb" value="1">'
             . '<input type="hidden" name="fields_typeb" value="timestamp">',
             $result,
@@ -818,15 +813,11 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
-                12,
-                1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -846,15 +837,11 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
-                12,
-                1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -874,15 +861,11 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
-                12,
-                1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -902,15 +885,11 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                22,
                 '&lt;',
-                12,
-                1,
                 '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
-                false,
             ],
         );
 
@@ -1356,7 +1335,6 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQuery(): void
     {
         $query = ['SELECT * FROM `test_db`.`test_table`;', 'SELECT * FROM `test_db`.`test_table_yaml`;'];
-        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`;';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
         $_POST['submit_type'] = '';
 
@@ -1367,11 +1345,9 @@ class InsertEditTest extends AbstractTestCase
             new FileListing(),
             new Template(),
         );
-        $result = $this->insertEdit->executeSqlQuery([], $query);
+        $result = $this->insertEdit->executeSqlQuery($query);
 
-        $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
         $this->assertEquals([], $result[3]);
-        $this->assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**
@@ -1380,7 +1356,6 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQueryWithTryQuery(): void
     {
         $query = ['SELECT * FROM `test_db`.`test_table`;', 'SELECT * FROM `test_db`.`test_table_yaml`;'];
-        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`;';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
         $_POST['submit_type'] = '';
 
@@ -1391,11 +1366,9 @@ class InsertEditTest extends AbstractTestCase
             new FileListing(),
             new Template(),
         );
-        $result = $this->insertEdit->executeSqlQuery([], $query);
+        $result = $this->insertEdit->executeSqlQuery($query);
 
-        $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
         $this->assertEquals([], $result[3]);
-        $this->assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**
@@ -2404,8 +2377,6 @@ class InsertEditTest extends AbstractTestCase
     public function testGetHtmlForInsertEditFormColumn(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
-        $oRows = 0;
-        $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $foreigners = ['foreign_keys_data' => []];
         $tableColumn = [
@@ -2434,18 +2405,12 @@ class InsertEditTest extends AbstractTestCase
                 $tableColumn,
                 0,
                 [],
-                false,
                 $resultStub,
-                '',
-                '',
                 false,
                 [],
-                &$oRows,
-                &$tabindex,
                 0,
                 false,
                 $foreigners,
-                0,
                 'table',
                 'db',
                 0,
@@ -2467,7 +2432,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertStringContainsString('<img src="" width="150" height="100" alt="Image preview here">', $actual);
         $this->assertStringContainsString(
             '<input type="file" '
-            . 'name="fields_upload[d89e2ddb530bb8953b290ab0793aecb0]" '
+            . 'name="fields_upload[multi_edit][0][d89e2ddb530bb8953b290ab0793aecb0]" '
             . 'accept="image/*" '
             . 'class="image-upload"'
             . '>',
@@ -2493,18 +2458,12 @@ class InsertEditTest extends AbstractTestCase
                 $tableColumn,
                 0,
                 [],
-                false,
                 $resultStub,
-                '',
-                '[a][0]',
                 true,
                 [],
-                &$oRows,
-                &$tabindex,
                 0,
                 false,
                 $foreigners,
-                0,
                 'table',
                 'db',
                 0,
@@ -2522,7 +2481,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
         $this->assertStringContainsString(
-            '<input type="text" name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',
+            '<input type="text" name="fields[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',
             $actual,
         );
 
@@ -2571,8 +2530,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRow(): void
     {
-        $oRows = 0;
-        $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
         $GLOBALS['cfg']['CharEditing'] = 'input';
@@ -2600,18 +2557,11 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            false,
             $resultStub,
-            '',
-            '',
             false,
             [],
-            $oRows,
-            $tabindex,
-            1,
             false,
             $foreigners,
-            0,
             'table',
             'db',
             0,
@@ -2636,8 +2586,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRowBasedOnColumnPrivileges(): void
     {
-        $oRows = 0;
-        $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
         $GLOBALS['cfg']['CharEditing'] = 'input';
@@ -2678,18 +2626,11 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            false,
             $resultStub,
-            '',
-            '',
             false,
             [],
-            $oRows,
-            $tabindex,
-            1,
             false,
             $foreigners,
-            0,
             'table',
             'db',
             0,
@@ -2698,7 +2639,7 @@ class InsertEditTest extends AbstractTestCase
             ['wc'],
         );
         $this->assertStringContainsString('foo', $actual);
-        $this->assertStringNotContainsString('bar', $actual);
+        $this->assertStringContainsString('bar', $actual);
 
         // insert
         $tableColumns = [
@@ -2737,18 +2678,11 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            false,
             $resultStub,
-            '',
-            '',
             true,
             [],
-            $oRows,
-            $tabindex,
-            3,
             false,
             $foreigners,
-            0,
             'table',
             'db',
             0,

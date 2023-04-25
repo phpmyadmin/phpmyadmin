@@ -54,9 +54,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      * @param mixed[] $options            transformation options
      * @param string  $value              Current field value
      * @param string  $textDir            text direction
-     * @param int     $tabIndex           tab index
-     * @param int     $tabIndexForValue   offset for the values tabindex
-     * @param int     $idIndex            id index
+     * @param int     $fieldIndex         field index
      *
      * @return string the html for input field
      */
@@ -67,9 +65,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         array $options,
         string $value,
         string $textDir,
-        int $tabIndex,
-        int $tabIndexForValue,
-        int $idIndex,
+        int $fieldIndex,
     ): string {
         $html = '';
         $src = '';

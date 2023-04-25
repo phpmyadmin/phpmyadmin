@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\Gis;
 
@@ -33,13 +34,14 @@ use function mb_stripos;
 use function mb_strlen;
 use function mb_strstr;
 use function md5;
-use function method_exists;
 use function min;
 use function password_hash;
 use function preg_match;
 use function preg_replace;
 use function str_contains;
+use function str_ends_with;
 use function str_replace;
+use function str_starts_with;
 use function stripcslashes;
 use function stripslashes;
 use function strlen;
@@ -76,6 +78,9 @@ class InsertEdit
         'UUID_SHORT',
         'VERSION',
     ];
+
+    private int $rowOffset = 0;
+    private int $fieldIndex = 0;
 
     public function __construct(
         private DatabaseInterface $dbi,
@@ -299,16 +304,14 @@ class InsertEdit
     /**
      * Analyze the table column array
      *
-     * @param mixed[] $column        description of column in given table
-     * @param mixed[] $commentsMap   comments for every column that has a comment
-     * @param bool    $timestampSeen whether a timestamp has been seen
+     * @param mixed[] $column      description of column in given table
+     * @param mixed[] $commentsMap comments for every column that has a comment
      *
      * @return mixed[]                   description of column in given table
      */
     private function analyzeTableColumnsArray(
         array $column,
         array $commentsMap,
-        bool $timestampSeen,
     ): array {
         $column['Field_md5'] = md5($column['Field']);
         // True_Type contains only the type (stops at first bracket)
@@ -339,7 +342,7 @@ class InsertEdit
         };
 
         // can only occur once per table
-        $column['first_timestamp'] = $column['True_Type'] === 'timestamp' ? ! $timestampSeen : false;
+        $column['first_timestamp'] = $column['True_Type'] === 'timestamp';
 
         return $column;
     }
@@ -423,9 +426,6 @@ class InsertEdit
      * @param string  $backupField         hidden input field
      * @param string  $columnNameAppendix  the name attribute
      * @param string  $onChangeClause      onchange clause for fields
-     * @param int     $tabindex            tab index
-     * @param int     $tabindexForValue    offset for the values tabindex
-     * @param int     $idindex             id index
      * @param string  $textDir             text direction
      * @param string  $specialCharsEncoded replaced char if the string starts
      *                                       with a \r\n pair (0x0d0a) add an extra \n
@@ -438,9 +438,6 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        int $tabindex,
-        int $tabindexForValue,
-        int $idindex,
         string $textDir,
         string $specialCharsEncoded,
         string $dataType,
@@ -471,9 +468,9 @@ class InsertEdit
             . ' rows="' . $textAreaRows . '"'
             . ' cols="' . $textareaCols . '"'
             . ' dir="' . $textDir . '"'
-            . ' id="field_' . $idindex . '_3"'
+            . ' id="field_' . $this->fieldIndex . '_3"'
             . ($onChangeClause ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
-            . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
+            . ' tabindex="' . $this->fieldIndex . '"'
             . ' data-type="' . $dataType . '">'
             . $specialCharsEncoded
             . '</textarea>';
@@ -487,9 +484,6 @@ class InsertEdit
      * @param string  $specialChars       special characters
      * @param int     $fieldsize          html field size
      * @param string  $onChangeClause     onchange clause for fields
-     * @param int     $tabindex           tab index
-     * @param int     $tabindexForValue   offset for the values tabindex
-     * @param int     $idindex            id index
      * @param string  $dataType           the html5 data-* attribute type
      *
      * @return string                       an html snippet
@@ -500,9 +494,6 @@ class InsertEdit
         string $specialChars,
         int $fieldsize,
         string $onChangeClause,
-        int $tabindex,
-        int $tabindexForValue,
-        int $idindex,
         string $dataType,
     ): string {
         $theClass = 'textfield';
@@ -537,9 +528,9 @@ class InsertEdit
             . ($inputMinMax ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
-            . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
+            . ' tabindex="' . $this->fieldIndex . '"'
             . ($isInteger ? ' inputmode="numeric"' : '')
-            . ' id="field_' . $idindex . '_3">';
+            . ' id="field_' . $this->fieldIndex . '_3">';
     }
 
     /**
@@ -607,10 +598,7 @@ class InsertEdit
      * @param string  $backupField         hidden input field
      * @param string  $columnNameAppendix  the name attribute
      * @param string  $onChangeClause      onchange clause for fields
-     * @param int     $tabindex            tab index
      * @param string  $specialChars        special characters
-     * @param int     $tabindexForValue    offset for the values tabindex
-     * @param int     $idindex             id index
      * @param string  $textDir             text direction
      * @param string  $specialCharsEncoded replaced char if the string starts
      *                                       with a \r\n pair (0x0d0a) add an extra \n
@@ -627,10 +615,7 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        int $tabindex,
         string $specialChars,
-        int $tabindexForValue,
-        int $idindex,
         string $textDir,
         string $specialCharsEncoded,
         string $data,
@@ -649,9 +634,6 @@ class InsertEdit
                 $backupField,
                 $columnNameAppendix,
                 $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
                 $textDir,
                 $specialCharsEncoded,
                 $dataType,
@@ -663,9 +645,6 @@ class InsertEdit
                 $specialChars,
                 $fieldsize,
                 $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
                 $dataType,
             );
         }
@@ -837,7 +816,7 @@ class InsertEdit
                     (int) $extractedColumnspec['spec_in_brackets'],
                 );
         } elseif (
-            (substr($column['True_Type'], 0, 9) === 'timestamp'
+            (str_starts_with($column['True_Type'], 'timestamp')
                 || $column['True_Type'] === 'datetime'
                 || $column['True_Type'] === 'time')
             && (str_contains($currentRow[$column['Field']], '.'))
@@ -904,11 +883,11 @@ class InsertEdit
 
         if ($trueType === 'bit') {
             $specialChars = Util::convertBitDefaultValue($defaultValue);
-        } elseif (substr($trueType, 0, 9) === 'timestamp' || $trueType === 'datetime' || $trueType === 'time') {
+        } elseif (str_starts_with($trueType, 'timestamp') || $trueType === 'datetime' || $trueType === 'time') {
             $specialChars = Util::addMicroseconds($defaultValue);
         } elseif ($trueType === 'binary' || $trueType === 'varbinary') {
             $specialChars = bin2hex($defaultValue);
-        } elseif (substr($trueType, -4) === 'text') {
+        } elseif (str_ends_with($trueType, 'text')) {
             $textDefault = substr($defaultValue, 1, -1);
             $specialChars = stripcslashes($textDefault !== '' ? $textDefault : $defaultValue);
         } else {
@@ -1031,20 +1010,12 @@ class InsertEdit
     /**
      * Executes the sql query and get the result, then move back to the calling page
      *
-     * @param mixed[] $urlParams url parameters array
-     * @param mixed[] $query     built query from buildSqlQuery()
+     * @param mixed[] $query built query from buildSqlQuery()
      *
-     * @return mixed[] $url_params, $total_affected_rows, $last_messages
-     *               $warning_messages, $error_messages, $return_to_sql_query
+     * @return mixed[] $total_affected_rows, $last_messages, $warning_messages, $error_messages
      */
-    public function executeSqlQuery(array $urlParams, array $query): array
+    public function executeSqlQuery(array $query): array
     {
-        $returnToSqlQuery = '';
-        if (! empty($GLOBALS['sql_query'])) {
-            $urlParams['sql_query'] = $GLOBALS['sql_query'];
-            $returnToSqlQuery = $GLOBALS['sql_query'];
-        }
-
         $GLOBALS['sql_query'] = implode('; ', $query) . ';';
         // to ensure that the query is displayed in case of
         // "insert as new row" and then "insert another new row"
@@ -1090,7 +1061,7 @@ class InsertEdit
             $warningMessages = $this->getWarningMessages();
         }
 
-        return [$urlParams, $totalAffectedRows, $lastMessages, $warningMessages, $errorMessages, $returnToSqlQuery];
+        return [$totalAffectedRows, $lastMessages, $warningMessages, $errorMessages];
     }
 
     /**
@@ -1131,7 +1102,7 @@ class InsertEdit
 
         $displayField = $this->relation->getDisplayField($foreigner['foreign_db'], $foreigner['foreign_table']);
         // Field to display from the foreign table?
-        if (is_string($displayField) && strlen($displayField) > 0) {
+        if (is_string($displayField) && $displayField !== '') {
             $dispsql = 'SELECT ' . Util::backquote($displayField)
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
@@ -1277,11 +1248,6 @@ class InsertEdit
         EditField $editField,
     ): string {
         if ($editField->function === 'PHP_PASSWORD_HASH') {
-            /**
-             * @see https://github.com/vimeo/psalm/issues/3350
-             *
-             * @psalm-suppress InvalidArgument
-             */
             $hash = password_hash($editField->value, PASSWORD_DEFAULT);
 
             return $this->dbi->quoteString($hash);
@@ -1299,8 +1265,7 @@ class InsertEdit
             || in_array($editField->function, $this->getGisFromWKBFunctions())
         ) {
             preg_match('/^(\'?)(.*?)\1(?:,(\d+))?$/', $editField->value, $matches);
-            $escapedParams = "'" . $this->dbi->escapeString($matches[2])
-                . (isset($matches[3]) ? "'," . $matches[3] : "'");
+            $escapedParams = $this->dbi->quoteString($matches[2]) . (isset($matches[3]) ? ',' . $matches[3] : '');
 
             return $editField->function . '(' . $escapedParams . ')';
         }
@@ -1448,7 +1413,7 @@ class InsertEdit
         }
 
         if ($editField->type === 'hex') {
-            if (substr($editField->value, 0, 2) != '0x') {
+            if (! str_starts_with($editField->value, '0x')) {
                 return '0x' . $editField->value;
             }
 
@@ -1693,18 +1658,12 @@ class InsertEdit
      * @param mixed[]         $column             column
      * @param int             $columnNumber       column index in table_columns
      * @param mixed[]         $commentsMap        comments map
-     * @param bool            $timestampSeen      whether timestamp seen
      * @param ResultInterface $currentResult      current result
-     * @param string          $jsvkey             javascript validation key
-     * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
      * @param mixed[]         $currentRow         current row
-     * @param int             $oRows              row offset
-     * @param int             $tabindex           tab index
      * @param int             $columnsCnt         columns count
      * @param bool            $isUpload           whether upload
      * @param mixed[]         $foreigners         foreigners
-     * @param int             $tabindexForValue   tab index offset for value
      * @param string          $table              table
      * @param string          $db                 database
      * @param int             $rowId              row id
@@ -1718,18 +1677,12 @@ class InsertEdit
         array $column,
         int $columnNumber,
         array $commentsMap,
-        bool $timestampSeen,
         ResultInterface $currentResult,
-        string $jsvkey,
-        string $vkey,
         bool $insertMode,
         array $currentRow,
-        int $oRows,
-        int &$tabindex,
         int $columnsCnt,
         bool $isUpload,
         array $foreigners,
-        int $tabindexForValue,
         string $table,
         string $db,
         int $rowId,
@@ -1740,7 +1693,7 @@ class InsertEdit
         string $whereClause,
     ): string {
         if (! isset($column['processed'])) {
-            $column = $this->analyzeTableColumnsArray($column, $commentsMap, $timestampSeen);
+            $column = $this->analyzeTableColumnsArray($column, $commentsMap);
         }
 
         $asIs = false;
@@ -1765,8 +1718,9 @@ class InsertEdit
         //Call validation when the form submitted...
         $onChangeClause = 'return verificationsAfterFieldChange('
             . json_encode($fieldHashMd5) . ', '
-            . json_encode($jsvkey) . ',' . json_encode($column['pma_type']) . ')';
+            . json_encode((string) $rowId) . ',' . json_encode($column['pma_type']) . ')';
 
+        $vkey = '[multi_edit][' . $rowId . ']';
         // Use an MD5 as an array index to avoid having special characters
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $fieldHashMd5 . ']';
@@ -1810,8 +1764,7 @@ class InsertEdit
             $backupField = '';
         }
 
-        $idindex = ($oRows * $columnsCnt) + $columnNumber + 1;
-        $tabindex = $idindex;
+        $this->fieldIndex = ($this->rowOffset * $columnsCnt) + $columnNumber + 1;
 
         // The function column
         // -------------------
@@ -1865,7 +1818,7 @@ class InsertEdit
                         $currentValue = $currentRow[$column['Field']];
                     }
 
-                    if (method_exists($transformationPlugin, 'getInputHtml')) {
+                    if ($transformationPlugin instanceof IOTransformationsPlugin) {
                         $transformedHtml = $transformationPlugin->getInputHtml(
                             $column,
                             $rowId,
@@ -1873,13 +1826,9 @@ class InsertEdit
                             $transformationOptions,
                             $currentValue,
                             $textDir,
-                            $tabindex,
-                            $tabindexForValue,
-                            $idindex,
+                            $this->fieldIndex,
                         );
-                    }
 
-                    if (method_exists($transformationPlugin, 'getScripts')) {
                         $GLOBALS['plugin_scripts'] = array_merge(
                             $GLOBALS['plugin_scripts'],
                             $transformationPlugin->getScripts(),
@@ -1973,9 +1922,6 @@ class InsertEdit
                         $specialChars,
                         min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']),
                         $onChangeClause,
-                        $tabindex,
-                        $tabindexForValue,
-                        $idindex,
                         'HEX',
                     );
                 }
@@ -1986,10 +1932,7 @@ class InsertEdit
                     $backupField,
                     $columnNameAppendix,
                     $onChangeClause,
-                    $tabindex,
                     $specialChars,
-                    $tabindexForValue,
-                    $idindex,
                     $textDir,
                     $specialCharsEncoded,
                     $data,
@@ -2009,7 +1952,7 @@ class InsertEdit
             'function_options' => $functionOptions,
             'nullify_code' => $nullifyCode,
             'real_null_value' => $realNullValue,
-            'id_index' => $idindex,
+            'id_index' => $this->fieldIndex,
             'type' => $type,
             'decimals' => $noDecimals,
             'special_chars' => $specialChars,
@@ -2058,18 +2001,11 @@ class InsertEdit
      * @param mixed[]         $urlParams        url parameters
      * @param mixed[][]       $tableColumns     table columns
      * @param mixed[]         $commentsMap      comments map
-     * @param bool            $timestampSeen    whether timestamp seen
      * @param ResultInterface $currentResult    current result
-     * @param string          $jsvkey           javascript validation key
-     * @param string          $vkey             validation key
      * @param bool            $insertMode       whether insert mode
      * @param mixed[]         $currentRow       current row
-     * @param int             $oRows            row offset
-     * @param int             $tabindex         tab index
-     * @param int             $columnsCnt       columns count
      * @param bool            $isUpload         whether upload
      * @param mixed[]         $foreigners       foreigners
-     * @param int             $tabindexForValue tab index offset for value
      * @param string          $table            table
      * @param string          $db               database
      * @param int             $rowId            row id
@@ -2081,18 +2017,11 @@ class InsertEdit
         array $urlParams,
         array $tableColumns,
         array $commentsMap,
-        bool $timestampSeen,
         ResultInterface $currentResult,
-        string $jsvkey,
-        string $vkey,
         bool $insertMode,
         array $currentRow,
-        int &$oRows,
-        int &$tabindex,
-        int $columnsCnt,
         bool $isUpload,
         array $foreigners,
-        int $tabindexForValue,
         string $table,
         string $db,
         int $rowId,
@@ -2111,7 +2040,8 @@ class InsertEdit
             $whereClause = $whereClauseArray[$rowId];
         }
 
-        for ($columnNumber = 0; $columnNumber < $columnsCnt; $columnNumber++) {
+        $columnCount = count($tableColumns);
+        for ($columnNumber = 0; $columnNumber < $columnCount; $columnNumber++) {
             $tableColumn = $tableColumns[$columnNumber];
             $columnMime = [];
             if (isset($mimeMap[$tableColumn['Field']])) {
@@ -2127,18 +2057,12 @@ class InsertEdit
                 $tableColumn,
                 $columnNumber,
                 $commentsMap,
-                $timestampSeen,
                 $currentResult,
-                $jsvkey,
-                $vkey,
                 $insertMode,
                 $currentRow,
-                $oRows,
-                $tabindex,
-                $columnsCnt,
+                $columnCount,
                 $isUpload,
                 $foreigners,
-                $tabindexForValue,
                 $table,
                 $db,
                 $rowId,
@@ -2150,7 +2074,7 @@ class InsertEdit
             );
         }
 
-        $oRows++;
+        $this->rowOffset++;
 
         return $htmlOutput . '  </tbody>'
             . '</table></div><br>'
