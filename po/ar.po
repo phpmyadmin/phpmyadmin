@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-23 00:20+0000\n"
-"PO-Revision-Date: 2023-04-18 10:06+0000\n"
+"PO-Revision-Date: 2023-04-26 11:52+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -6997,7 +6997,7 @@ msgstr "القيمة / استعلام فرعي فارغ"
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
-msgstr "إضافة جداول من قواعد بياتات أخرى"
+msgstr "اضافة جداول من قواعد بيانات اخري"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Page name"
@@ -10714,7 +10714,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:290
 #: templates/table/structure/display_structure.twig:525
 msgid "Drop"
-msgstr "إسقاط"
+msgstr "سقّط"
 
 #: libraries/classes/Operations.php:522
 #, fuzzy
@@ -12153,7 +12153,7 @@ msgstr "يسمح بإسقاط الجداول."
 #: templates/server/privileges/privileges_table.twig:399
 #: templates/server/privileges/privileges_table.twig:402
 msgid "Allows creating and dropping indexes."
-msgstr "يسمح بإنشاء وإسقاط الفهارس."
+msgstr "يسمح بإنشاء وحذف الفهارس."
 
 #: libraries/classes/Server/Privileges.php:282
 #: libraries/classes/Server/Privileges.php:310
