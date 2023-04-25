@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-23 00:20+0000\n"
-"PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2023-04-26 11:52+0000\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
 "Language: et\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -5719,10 +5719,8 @@ msgstr ""
 "%sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
 
 #: libraries/classes/Controllers/Import/ImportController.php:236
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "Vale vorm määratud!"
+msgstr "Vale vorminguparameeter"
 
 #: libraries/classes/Controllers/Import/ImportController.php:362
 #: libraries/classes/Controllers/Import/ImportController.php:601
@@ -6187,10 +6185,8 @@ msgid "Connections / Processes"
 msgstr "Ühendused / Protsessid"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:173
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "Tabelite hulk:"
+msgstr "Lausete arv"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Local monitor configuration incompatible!"
@@ -7768,6 +7764,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn ei ole saadaval. Palun kasuta toetatud brauserit turvatud "
+"kontekstis (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid ""
@@ -8092,11 +8090,9 @@ msgstr "Näd"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "calendar-year-month"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
@@ -8424,10 +8420,8 @@ msgstr ""
 "phpMyAdmin ei suutnud katkestada %s lõimu. Tõenäoliselt on see juba suletud."
 
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:90
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "Lisa käske:"
+msgstr "Muud laused"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:127
 msgid "Received"
@@ -12577,15 +12571,12 @@ msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Riistvaraline turvavõti (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:198
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Võimaldab autentimist FIDO U2F toega riistvaralise pääsmikuga (nt YubiKey)."
+"Võimaldab autentimist WebAuthn/FIDO2 protokolli toetava riistvaralise "
+"pääsmikuga (nt Yubikey)."
 
 #: libraries/classes/Query/Utilities.php:93
 msgid ""
@@ -16381,10 +16372,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Paljundatud"
+msgstr "Aegunud!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -16394,6 +16383,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"FIDO U2F API ei ole soovitatud, eelistatud on Web Authentication API "
+"(WebAuthn)."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16403,6 +16394,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Firefoxiga saab jätkuvalt autentida kasutades FIDO U2F APIt. Siiski on "
+"soovitatav, et sa kasutaksid WebAuthn autentimist."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -16433,27 +16426,18 @@ msgid "Verify"
 msgstr "Kinnita"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita seadme "
-"registreerimine."
+"Palun ühenda oma WebAuthn/FIDO2 seade. Järgnevalt kinnita seadmes "
+"registreering."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita meldimine "
-"seadmega."
+"Palun ühenda oma WebAuthn/FIDO2 seade. Järgnevalt kinnita meldimine seadmes."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16690,15 +16674,11 @@ msgstr ""
 "häälestatud."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Kaheastmeline autentimine pole saadaval; palun paigalda täiendavad "
-"sõltuvused, et lubada autentimise taustprogrammid."
+"Palun paigalda täiendavad sõltuvused, et lubada täiendavad "
+"autentimisvõimalused."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
