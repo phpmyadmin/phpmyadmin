@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-01-28 03:53+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2023-04-26 11:52+0000\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "et/>\n"
 "Language: et\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7425,6 +7425,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn ei ole saadaval. Palun kasuta toetatud brauserit turvatud "
+"kontekstis (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -11856,15 +11858,12 @@ msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Riistvaraline turvavõti (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Võimaldab autentimist FIDO U2F toega riistvaralise pääsmikuga (nt YubiKey)."
+"Võimaldab autentimist WebAuthn/FIDO2 protokolli toetava riistvaralise "
+"pääsmikuga (nt Yubikey)."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -13110,10 +13109,8 @@ msgstr ""
 "tavapärast IPv4 aadresside vastendamist IPv6 aadressideks"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Salvestab universaalselt unikaalse identifikaatori (UUID)"
+msgstr "128-bitine UUID (universaalselt unikaalne identifikaator)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -16139,10 +16136,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Paljundatud"
+msgstr "Aegunud!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -16152,6 +16147,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"FIDO U2F API ei ole soovitatud, eelistatud on Web Authentication API "
+"(WebAuthn)."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16161,6 +16158,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Firefoxiga saab jätkuvalt autentida kasutades FIDO U2F APIt. Siiski on "
+"soovitatav, et sa kasutaksid WebAuthn autentimist."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -16191,27 +16190,18 @@ msgid "Verify"
 msgstr "Kinnita"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita seadme "
-"registreerimine."
+"Palun ühenda oma WebAuthn/FIDO2 seade. Järgnevalt kinnita seadmes "
+"registreering."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita meldimine "
-"seadmega."
+"Palun ühenda oma WebAuthn/FIDO2 seade. Järgnevalt kinnita meldimine seadmes."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16444,15 +16434,11 @@ msgstr ""
 "häälestatud."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Kaheastmeline autentimine pole saadaval; palun paigalda täiendavad "
-"sõltuvused, et lubada autentimise taustprogrammid."
+"Palun paigalda täiendavad sõltuvused, et lubada täiendavad "
+"autentimisvõimalused."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
