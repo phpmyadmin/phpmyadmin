@@ -65,7 +65,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AuthLog
      */
-    public string $AuthLog;
+    public string $authLog;
 
     /**
      * Whether to log successful authentication attempts
@@ -76,7 +76,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AuthLogSuccess
      */
-    public bool $AuthLogSuccess;
+    public bool $authLogSuccess;
 
     /**
      * Disable the default warning that is displayed on the DB Details Structure page if
@@ -2413,8 +2413,8 @@ final class Settings
     public function __construct(array $settings)
     {
         $this->PmaAbsoluteUri = $this->setPmaAbsoluteUri($settings);
-        $this->AuthLog = $this->setAuthLog($settings);
-        $this->AuthLogSuccess = $this->setAuthLogSuccess($settings);
+        $this->authLog = $this->setAuthLog($settings);
+        $this->authLogSuccess = $this->setAuthLogSuccess($settings);
         $this->PmaNoRelation_DisableWarning = $this->setPmaNoRelationDisableWarning($settings);
         $this->SuhosinDisableWarning = $this->setSuhosinDisableWarning($settings);
         $this->LoginCookieValidityDisableWarning = $this->setLoginCookieValidityDisableWarning($settings);
@@ -2610,8 +2610,8 @@ final class Settings
     {
         return [
             'PmaAbsoluteUri' => $this->PmaAbsoluteUri,
-            'AuthLog' => $this->AuthLog,
-            'AuthLogSuccess' => $this->AuthLogSuccess,
+            'AuthLog' => $this->authLog,
+            'AuthLogSuccess' => $this->authLogSuccess,
             'PmaNoRelation_DisableWarning' => $this->PmaNoRelation_DisableWarning,
             'SuhosinDisableWarning' => $this->SuhosinDisableWarning,
             'LoginCookieValidityDisableWarning' => $this->LoginCookieValidityDisableWarning,

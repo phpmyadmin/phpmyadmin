@@ -1026,7 +1026,7 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['AuthLog' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->AuthLog);
+        $this->assertSame($expected, $settings->authLog);
         $this->assertArrayHasKey('AuthLog', $settingsArray);
         $this->assertSame($expected, $settingsArray['AuthLog']);
     }
@@ -1045,7 +1045,7 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['AuthLogSuccess' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->AuthLogSuccess);
+        $this->assertSame($expected, $settings->authLogSuccess);
         $this->assertArrayHasKey('AuthLogSuccess', $settingsArray);
         $this->assertSame($expected, $settingsArray['AuthLogSuccess']);
     }

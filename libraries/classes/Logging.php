@@ -1,9 +1,4 @@
 <?php
-/**
- * Logging functionality for webserver.
- *
- * This includes web server specific code to log some information.
- */
 
 declare(strict_types=1);
 
@@ -22,16 +17,18 @@ use const LOG_PID;
 use const LOG_WARNING;
 
 /**
- * Misc logging functions
+ * Logging functionality for webserver.
+ *
+ * This includes web server specific code to log some information.
  */
 class Logging
 {
     /**
      * Get authentication logging destination
      */
-    public static function getLogDestination(): string
+    public static function getLogDestination(string $authLog): string
     {
-        $logFile = $GLOBALS['config']->get('AuthLog');
+        $logFile = $authLog;
 
         /* Autodetect */
         if ($logFile === 'auto') {
@@ -68,19 +65,23 @@ class Logging
      * @param string $user   user name
      * @param string $status status message
      */
-    public static function logUser(string $user, string $status = 'ok'): void
+    public static function logUser(Config $config, string $user, string $status = 'ok'): void
     {
         if (function_exists('apache_note')) {
+            /** @psalm-suppress UnusedFunctionCall */
             apache_note('userID', $user);
+            /** @psalm-suppress UnusedFunctionCall */
             apache_note('userStatus', $status);
         }
 
+        $settings = $config->getSettings();
+
         /* Do not log successful authentications */
-        if (! $GLOBALS['config']->get('AuthLogSuccess') && $status === 'ok') {
+        if (! $settings->authLogSuccess && $status === 'ok') {
             return;
         }
 
-        $logFile = self::getLogDestination();
+        $logFile = self::getLogDestination($settings->authLog);
         if (empty($logFile)) {
             return;
         }

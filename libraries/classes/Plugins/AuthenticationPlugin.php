@@ -95,7 +95,7 @@ abstract class AuthenticationPlugin
      */
     public function showFailure(string $failure): void
     {
-        Logging::logUser($this->user, $failure);
+        Logging::logUser($GLOBALS['config'], $this->user, $failure);
     }
 
     /**

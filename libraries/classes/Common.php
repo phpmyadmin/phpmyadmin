@@ -254,7 +254,7 @@ final class Common
             $authPlugin->checkTwoFactor();
 
             /* Log success */
-            Logging::logUser($GLOBALS['cfg']['Server']['user']);
+            Logging::logUser($config, $GLOBALS['cfg']['Server']['user']);
 
             if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
                 echo self::getGenericError(sprintf(

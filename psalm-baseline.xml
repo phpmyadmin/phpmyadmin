@@ -8142,25 +8142,6 @@
       <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Logging.php">
-    <MixedAssignment>
-      <code>$logFile</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code>$logFile</code>
-      <code>$logFile</code>
-    </MixedReturnStatement>
-    <NullableReturnStatement>
-      <code>$logFile</code>
-    </NullableReturnStatement>
-    <UnusedFunctionCall>
-      <code>apache_note</code>
-      <code>apache_note</code>
-    </UnusedFunctionCall>
-  </file>
   <file src="libraries/classes/Menu.php">
     <MixedAssignment>
       <code>$binaryLogs</code>
