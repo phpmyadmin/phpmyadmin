@@ -119,6 +119,8 @@ final class Common
             return;
         }
 
+        $request = self::updateUriScheme($config, $request);
+
         if ($route !== '/messages') {
             try {
                 // Include session handling after the globals, to prevent overwriting.
@@ -646,5 +648,16 @@ final class Common
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => $message,
         ]);
+    }
+
+    private static function updateUriScheme(Config $config, ServerRequest $request): ServerRequest
+    {
+        $uriScheme = $config->isHttps() ? 'https' : 'http';
+        $uri = $request->getUri();
+        if ($uri->getScheme() === $uriScheme) {
+            return $request;
+        }
+
+        return $request->withUri($uri->withScheme($uriScheme));
     }
 }

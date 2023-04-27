@@ -32,6 +32,7 @@ use function implode;
 use function ini_get;
 use function intval;
 use function is_array;
+use function is_bool;
 use function is_dir;
 use function is_int;
 use function is_numeric;
@@ -93,14 +94,9 @@ class Config
     /** @var mixed[] */
     public array $defaultServer = [];
 
-    private bool $isHttps;
+    private bool $isHttps = false;
 
     private Settings|null $config = null;
-
-    public function __construct()
-    {
-        $this->isHttps = $this->isHttps();
-    }
 
     /**
      * @param string|null $source source to read config from
@@ -117,6 +113,7 @@ class Config
         // other settings, independent of config file, comes in
         $this->checkSystem();
 
+        $this->isHttps = $this->isHttps();
         $this->baseSettings = $this->settings;
     }
 
@@ -783,9 +780,10 @@ class Config
      */
     public function isHttps(): bool
     {
+        /** @var mixed $isHttps */
         $isHttps = $this->get('is_https');
-        if ($isHttps !== null) {
-            return (bool) $isHttps;
+        if (is_bool($isHttps)) {
+            return $isHttps;
         }
 
         $url = $this->get('PmaAbsoluteUri');
