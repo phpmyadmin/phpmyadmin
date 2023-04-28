@@ -75,13 +75,13 @@ use const PHP_URL_SCHEME;
 class Config
 {
     /** @var mixed[]   default configuration settings */
-    public array $default = [];
+    public array $default;
 
     /** @var mixed[]   configuration settings, without user preferences applied */
-    public array $baseSettings = [];
+    public array $baseSettings;
 
     /** @var mixed[]   configuration settings */
-    public array $settings = [];
+    public array $settings;
 
     /** @var string  config source */
     public string $source = '';
@@ -92,11 +92,22 @@ class Config
     public bool $errorConfigFile = false;
 
     /** @var mixed[] */
-    public array $defaultServer = [];
+    public array $defaultServer;
 
     private bool $isHttps = false;
 
-    private Settings|null $config = null;
+    private Settings $config;
+
+    public function __construct()
+    {
+        $this->config = new Settings([]);
+        $this->defaultServer = $this->config->Servers[1]->asArray();
+        $config = $this->config->asArray();
+        unset($config['Servers']);
+        $this->default = $config;
+        $this->settings = $config;
+        $this->baseSettings = $config;
+    }
 
     /**
      * @param string|null $source source to read config from
@@ -105,7 +116,7 @@ class Config
      */
     public function loadAndCheck(string|null $source = null): void
     {
-        $this->settings = ['is_setup' => false];
+        $this->settings['is_setup'] = false;
 
         // functions need to refresh in case of config file changed goes in PhpMyAdmin\Config::load()
         $this->load($source);
@@ -318,22 +329,6 @@ class Config
     }
 
     /**
-     * loads default values from default source
-     */
-    public function loadDefaults(): void
-    {
-        $settings = new Settings([]);
-        $cfg = $settings->asArray();
-
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->defaultServer = $settings->Servers[1]->asArray();
-        unset($cfg['Servers']);
-
-        $this->default = $cfg;
-        $this->settings = array_replace_recursive($this->settings, $cfg);
-    }
-
-    /**
      * loads configuration from $source, usually the config file
      * should be called on object creation
      *
@@ -343,8 +338,6 @@ class Config
      */
     public function load(string|null $source = null): bool
     {
-        $this->loadDefaults();
-
         if ($source !== null) {
             $this->setSource($source);
         }
@@ -404,6 +397,7 @@ class Config
         );
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
+        $this->config = new Settings($cfg);
 
         return true;
     }
@@ -460,6 +454,7 @@ class Config
         // load config array
         $this->settings = array_replace_recursive($this->settings, $configData);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $configData);
+        $this->config = new Settings($this->settings);
 
         if ($isMinimumCommon) {
             return;
@@ -716,6 +711,7 @@ class Config
         }
 
         $this->settings[$setting] = $value;
+        $this->config = new Settings($this->settings);
     }
 
     /**
@@ -1151,6 +1147,7 @@ class Config
         if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
             // No server => create one with defaults
             $this->settings['Servers'] = [1 => $this->defaultServer];
+            $this->config = new Settings($this->settings);
 
             return;
         }
@@ -1184,6 +1181,7 @@ class Config
         }
 
         $this->settings['Servers'] = $newServers;
+        $this->config = new Settings($this->settings);
     }
 
     /**
@@ -1317,10 +1315,6 @@ class Config
 
     public function getSettings(): Settings
     {
-        if ($this->config === null) {
-            $this->config = new Settings($this->settings);
-        }
-
         return $this->config;
     }
 }

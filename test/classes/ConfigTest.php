@@ -9,7 +9,6 @@ use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Dbal\Connection;
 
 use function array_merge;
-use function array_replace_recursive;
 use function define;
 use function defined;
 use function file_exists;
@@ -420,30 +419,18 @@ class ConfigTest extends AbstractTestCase
         }
     }
 
-    /**
-     * Tests loading of default values
-     *
-     * @group large
-     */
-    public function testLoadDefaults(): void
+    public function testConstructor(): void
     {
-        $this->object->defaultServer = [];
-        $this->object->default = [];
-        $this->object->settings = ['is_setup' => false, 'AvailableCharsets' => ['test']];
-
-        $this->object->loadDefaults();
-
+        $object = new Config();
         $settings = new Settings([]);
         $config = $settings->asArray();
-
         $this->assertIsArray($config['Servers']);
-        $this->assertEquals($config['Servers'][1], $this->object->defaultServer);
+        $this->assertEquals($settings, $object->getSettings());
+        $this->assertSame($config['Servers'][1], $object->defaultServer);
         unset($config['Servers']);
-        $this->assertEquals($config, $this->object->default);
-        $this->assertEquals(
-            array_replace_recursive(['is_setup' => false, 'AvailableCharsets' => ['test']], $config),
-            $this->object->settings,
-        );
+        $this->assertSame($config, $object->default);
+        $this->assertSame($config, $object->settings);
+        $this->assertSame($config, $object->baseSettings);
     }
 
     /**
@@ -1055,13 +1042,5 @@ class ConfigTest extends AbstractTestCase
                 ],
             ],
         ];
-    }
-
-    public function testGetSettings(): void
-    {
-        $config = new Config();
-        $firstCall = $config->getSettings();
-        $secondCall = $config->getSettings();
-        $this->assertSame($firstCall, $secondCall);
     }
 }
