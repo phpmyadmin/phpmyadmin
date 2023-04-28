@@ -47,7 +47,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $config = new Config();
-        $config->settings['MaxRows'] = 50;
+        $config->set('MaxRows', 50);
         $browseForeigners = new BrowseForeigners(new Template(), $config);
 
         $this->assertEquals(
@@ -128,7 +128,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $config = new Config();
-        $config->settings['LimitChars'] = 5;
+        $config->set('LimitChars', 5);
         $browseForeigners = new BrowseForeigners(new Template(), $config);
 
         $this->assertEquals(
