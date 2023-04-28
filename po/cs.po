@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-02-23 12:40+0000\n"
+"PO-Revision-Date: 2023-04-29 07:47+0000\n"
 "Last-Translator: mixeros <mixer@mixercz.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/>"
 "\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7426,8 +7426,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
-"WebAuth není dostupný. Prosím, použijte podporovaný prohlížeč v zabezpečeném "
-"kontextu (HTTPS)."
+"WebAuthn není k dispozici. Prosím, použijte podporovaný prohlížeč s "
+"šifrováním (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -11855,7 +11855,7 @@ msgid ""
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Poskytuje ověření pomocí hardwarových bezpečnostních tokenů podporujících "
-"WebAuthn/FIDO protokol, například YubiKey."
+"WebAuthn/FIDO2, například YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -16188,16 +16188,12 @@ msgstr "Ověřit"
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
-msgstr ""
-"Připojte zařízení WebAuthn/FIDO2 k USB portu počítače. Poté na zařízení "
-"potvrďte registraci."
+msgstr "Připojte zařízení WebAuthn/FIDO2. Poté na zařízení potvrďte registraci."
 
 #: templates/login/twofactor/webauthn_request.twig:1
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
-msgstr ""
-"Připojte zařízení WebAuthn/FIDO2 k portu USB počítače. Poté v zařízení "
-"potvrďte přihlášení."
+msgstr "Připojte zařízení WebAuthn/FIDO2. Poté v zařízení potvrďte přihlášení."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16431,8 +16427,7 @@ msgstr "Pro tento účet je dostupné dvoustupňové ověřování, ale není na
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Nainstalujte prosím volitelné závislosti, abyste povolili více způsobů "
-"ověřování."
+"Nainstalujte prosím volitelné závislosti k povolení více ověřovacích metod."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
