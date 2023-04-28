@@ -179,14 +179,13 @@ final class FieldMetadata
      *     def: string,
      *     catalog: string,
      * } $field
-     * @phpstan-param object $field Ignore unknown property access
      */
     public function __construct(object $field)
     {
-        $type = $field->type; // @phpstan-ignore-line
+        $type = $field->type;
         $this->mappedType = $this->getMappedInternalType($type);
 
-        $flags = $field->flags; // @phpstan-ignore-line
+        $flags = $field->flags;
         $this->isMultipleKey = (bool) ($flags & MYSQLI_MULTIPLE_KEY_FLAG);
         $this->isPrimaryKey = (bool) ($flags & MYSQLI_PRI_KEY_FLAG);
         $this->isUniqueKey = (bool) ($flags & MYSQLI_UNIQUE_KEY_FLAG);
@@ -210,13 +209,13 @@ final class FieldMetadata
         $this->isMappedTypeGeometry = $this->isType(self::TYPE_GEOMETRY);
         $this->isMappedTypeTimestamp = $this->isType(self::TYPE_TIMESTAMP);
 
-        $this->name = $field->name; // @phpstan-ignore-line
-        $this->orgname = $field->orgname; // @phpstan-ignore-line
-        $this->table = $field->table; // @phpstan-ignore-line
-        $this->orgtable = $field->orgtable; // @phpstan-ignore-line
-        $this->charsetnr = $field->charsetnr; // @phpstan-ignore-line
-        $this->decimals = $field->decimals; // @phpstan-ignore-line
-        $this->length = $field->length; // @phpstan-ignore-line
+        $this->name = $field->name;
+        $this->orgname = $field->orgname;
+        $this->table = $field->table;
+        $this->orgtable = $field->orgtable;
+        $this->charsetnr = $field->charsetnr;
+        $this->decimals = $field->decimals;
+        $this->length = $field->length;
 
         // 63 is the number for the MySQL charset "binary"
         $this->isBinary = (
