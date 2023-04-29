@@ -25,7 +25,7 @@ class SpatialControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', []);
+        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
@@ -53,7 +53,7 @@ class SpatialControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field1`, `test_field2`);', []);
+        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field1`, `test_field2`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);

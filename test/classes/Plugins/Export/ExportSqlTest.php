@@ -807,7 +807,7 @@ SQL;
         // phpcs:enable
         $dbiDummy->addResult($isViewQuery, []);
         $dbiDummy->addResult($isViewQuery, []);
-        $dbiDummy->addResult('USE `db`', []);
+        $dbiDummy->addResult('USE `db`', true);
         $dbiDummy->addResult(
             'SHOW CREATE TABLE `db`.`table`',
             [['table', $createTableStatement]],
@@ -859,7 +859,7 @@ SQL;
         $dbiDummy->addResult('SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', []);
         $dbiDummy->addResult($isViewQuery, []);
         $dbiDummy->addResult($isViewQuery, []);
-        $dbiDummy->addResult('USE `db`', []);
+        $dbiDummy->addResult('USE `db`', true);
         $dbiDummy->addResult('SHOW CREATE TABLE `db`.`table`', []);
         $dbiDummy->addErrorCode('error occurred');
 

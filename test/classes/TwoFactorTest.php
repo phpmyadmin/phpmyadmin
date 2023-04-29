@@ -93,11 +93,7 @@ class TwoFactorTest extends AbstractTestCase
             ['Tables_in_phpmyadmin'],
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']],
-            ['NULL'],
-        );
+        $this->dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', [], ['NULL']);
     }
 
     /**
@@ -141,7 +137,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->dummyDbi->addResult(
             'UPDATE `phpmyadmin`.`pma__userconfig` SET `timevalue` = NOW(),'
             . ' `config_data` = \'' . $jsonData . '\' WHERE `username` = \'groot\'',
-            [],
+            true,
         );
     }
 

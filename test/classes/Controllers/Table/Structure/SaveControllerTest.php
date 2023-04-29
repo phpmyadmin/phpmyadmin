@@ -78,7 +78,7 @@ class SaveControllerTest extends AbstractTestCase
         $dummyDbi->addResult(
             'ALTER TABLE `test_table` CHANGE `name` `new_name` VARCHAR(21)'
             . ' CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;',
-            [],
+            true,
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
