@@ -633,7 +633,6 @@ final class Common
 
     private static function setCurrentServerGlobal(ContainerInterface $container, Config $config): void
     {
-        $config->checkServers();
         $server = $config->selectServer();
         $GLOBALS['server'] = $server;
         $GLOBALS['urlParams']['server'] = $server;

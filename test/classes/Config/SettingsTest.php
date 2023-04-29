@@ -1172,6 +1172,11 @@ class SettingsTest extends TestCase
         yield 'null value' => [null, [1 => $server]];
         yield 'valid value' => [[1 => [], 2 => []], [1 => $server, 2 => $server]];
         yield 'valid value 2' => [[2 => ['host' => 'test']], [2 => new Server(['host' => 'test'])]];
+        yield 'valid value 3' => [
+            [4 => ['host' => '', 'verbose' => '']],
+            [4 => new Server(['host' => '', 'verbose' => 'Server 4'])],
+        ];
+
         yield 'invalid value' => ['invalid', [1 => $server]];
         yield 'invalid value 2' => [[0 => [], 2 => 'invalid', 'invalid' => [], 4 => []], [4 => $server]];
         yield 'invalid value 3' => [[0 => []], [1 => $server]];
