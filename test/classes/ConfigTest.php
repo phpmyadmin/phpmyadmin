@@ -719,24 +719,29 @@ PHP;
     /**
      * Test for selectServer
      *
-     * @param mixed[] $settings settings array
-     * @param string  $request  request
-     * @param int     $expected expected result
+     * @param mixed[]        $settings settings array
+     * @param string|mixed[] $request  request
+     * @param int            $expected expected result
      *
      * @dataProvider selectServerProvider
      */
-    public function testSelectServer(array $settings, string $request, int $expected): void
+    public function testSelectServer(array $settings, string|array $request, int $expected): void
     {
-        $object = new Config();
-        $object->settings = (new Settings(['Servers' => $settings]))->asArray();
-        $_REQUEST['server'] = $request;
-        $this->assertEquals($expected, $object->selectServer());
+        $config = new Config();
+        $config->config = new Settings(['Servers' => $settings, 'ServerDefault' => 1]);
+        $selectedServer = $config->selectServer($request);
+        $this->assertSame($expected, $selectedServer);
+        $this->assertGreaterThanOrEqual(0, $selectedServer);
+        $expectedServer = $expected >= 1 ? $config->config->Servers[$expected]->asArray() : [];
+        $this->assertArrayHasKey('Server', $config->settings);
+        $this->assertSame($config->settings['Server'], $expectedServer);
+        $this->assertSame($expected, $config->server);
     }
 
     /**
      * Data provider for selectServer test
      *
-     * @return array<string, array{mixed[], string, int}>
+     * @return array<string, array{mixed[], string|mixed[], int}>
      */
     public static function selectServerProvider(): array
     {
@@ -748,6 +753,10 @@ PHP;
             'md5' => [[66 => ['verbose' => 'Server 66', 'host' => '']], md5('server 66'), 66],
             'nonexisting_string' => [[1 => []], 'invalid', 1],
             'nonexisting' => [[1 => []], '100', 1],
+            'none selected' => [[2 => []], '100', 0],
+            'none selected with string' => [[2 => []], 'unknown', 0],
+            'negative number' => [[1 => []], '-1', 1],
+            'array' => [[1 => []], ['1'], 1],
         ];
     }
 
