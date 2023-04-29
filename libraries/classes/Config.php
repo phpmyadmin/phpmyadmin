@@ -86,9 +86,6 @@ class Config
 
     public bool $errorConfigFile = false;
 
-    /** @var mixed[] */
-    public array $defaultServer;
-
     private bool $isHttps = false;
 
     private Settings $config;
@@ -96,7 +93,6 @@ class Config
     public function __construct()
     {
         $this->config = new Settings([]);
-        $this->defaultServer = $this->config->Servers[1]->asArray();
         $config = $this->config->asArray();
         $this->default = $config;
         $this->settings = $config;

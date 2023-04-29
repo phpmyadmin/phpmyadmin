@@ -377,7 +377,6 @@ PHP;
         $config = $settings->asArray();
         $this->assertIsArray($config['Servers']);
         $this->assertEquals($settings, $object->getSettings());
-        $this->assertSame($config['Servers'][1], $object->defaultServer);
         $this->assertEquals($config, $object->default);
         $this->assertSame($config, $object->settings);
         $this->assertSame($config, $object->baseSettings);
