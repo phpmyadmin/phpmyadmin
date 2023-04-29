@@ -167,7 +167,6 @@ abstract class AbstractTestCase extends TestCase
     protected function setGlobalConfig(): void
     {
         $GLOBALS['config'] = $this->createConfig();
-        $GLOBALS['config']->checkServers();
         $GLOBALS['config']->set('environment', 'development');
         $GLOBALS['cfg'] = $GLOBALS['config']->settings;
     }

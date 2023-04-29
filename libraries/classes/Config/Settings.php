@@ -13,6 +13,7 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Config\Settings\SqlQueryBox;
 use PhpMyAdmin\Config\Settings\Transformations;
 
+use function __;
 use function array_map;
 use function count;
 use function defined;
@@ -21,6 +22,7 @@ use function is_array;
 use function is_int;
 use function is_string;
 use function min;
+use function sprintf;
 use function strlen;
 
 use const DIRECTORY_SEPARATOR;
@@ -2929,19 +2931,28 @@ final class Settings
         }
 
         $servers = [];
-        /**
-         * @var int|string $key
-         * @var mixed $server
-         */
         foreach ($settings['Servers'] as $key => $server) {
             if (! is_int($key) || $key < 1 || ! is_array($server)) {
                 continue;
             }
 
             $servers[$key] = new Server($server);
+            if ($servers[$key]->host !== '' || $servers[$key]->verbose !== '') {
+                continue;
+            }
+
+            /**
+             * Ensures that the database server has a name.
+             *
+             * @link https://github.com/phpmyadmin/phpmyadmin/issues/6878
+             *
+             * @psalm-suppress ImpureFunctionCall
+             */
+            $server['verbose'] = sprintf(__('Server %d'), $key);
+            $servers[$key] = new Server($server);
         }
 
-        if (count($servers) === 0) {
+        if ($servers === []) {
             return [1 => new Server()];
         }
 

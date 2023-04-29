@@ -11,9 +11,7 @@ use PhpMyAdmin\Theme\ThemeManager;
 use Throwable;
 
 use function __;
-use function array_filter;
 use function array_key_last;
-use function array_merge;
 use function array_replace_recursive;
 use function array_slice;
 use function count;
@@ -34,7 +32,6 @@ use function intval;
 use function is_array;
 use function is_bool;
 use function is_dir;
-use function is_int;
 use function is_numeric;
 use function is_readable;
 use function is_string;
@@ -53,7 +50,6 @@ use function realpath;
 use function rtrim;
 use function setcookie;
 use function sprintf;
-use function str_contains;
 use function stripos;
 use function strtolower;
 use function substr;
@@ -61,7 +57,6 @@ use function sys_get_temp_dir;
 use function time;
 use function trim;
 
-use const ARRAY_FILTER_USE_KEY;
 use const DIRECTORY_SEPARATOR;
 use const PHP_OS;
 use const PHP_URL_PATH;
@@ -103,7 +98,6 @@ class Config
         $this->config = new Settings([]);
         $this->defaultServer = $this->config->Servers[1]->asArray();
         $config = $this->config->asArray();
-        unset($config['Servers']);
         $this->default = $config;
         $this->settings = $config;
         $this->baseSettings = $config;
@@ -346,6 +340,7 @@ class Config
             return false;
         }
 
+        /** @var mixed $cfg */
         $cfg = [];
 
         /**
@@ -379,25 +374,11 @@ class Config
             $this->sourceMtime = (int) filemtime($this->getSource());
         }
 
-        /**
-         * Ignore keys with / as we do not use these
-         *
-         * These can be confusing for user configuration layer as it
-         * flatten array using / and thus don't see difference between
-         * $cfg['Export/method'] and $cfg['Export']['method'], while rest
-         * of the code uses the setting only in latter form.
-         *
-         * This could be removed once we consistently handle both values
-         * in the functional code as well.
-         */
-        $cfg = array_filter(
-            $cfg,
-            static fn (string $key): bool => ! str_contains($key, '/'),
-            ARRAY_FILTER_USE_KEY,
-        );
+        if (is_array($cfg)) {
+            $this->config = new Settings($cfg);
+        }
 
-        $this->settings = array_replace_recursive($this->settings, $cfg);
-        $this->config = new Settings($cfg);
+        $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
 
         return true;
     }
@@ -1136,52 +1117,6 @@ class Config
         }
 
         return (int) $server;
-    }
-
-    /**
-     * Checks whether Servers configuration is valid and possibly apply fixups.
-     */
-    public function checkServers(): void
-    {
-        // Do we have some server?
-        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
-            // No server => create one with defaults
-            $this->settings['Servers'] = [1 => $this->defaultServer];
-            $this->config = new Settings($this->settings);
-
-            return;
-        }
-
-        // We have server(s) => apply default configuration
-        $newServers = [];
-
-        foreach ($this->settings['Servers'] as $serverIndex => $server) {
-            // Detect wrong configuration
-            if (! is_int($serverIndex) || $serverIndex < 1 || ! is_array($server)) {
-                continue;
-            }
-
-            $server = array_merge($this->defaultServer, $server);
-
-            // Final solution to bug #582890
-            // If we are using a socket connection
-            // and there is nothing in the verbose server name
-            // or the host field, then generate a name for the server
-            // in the form of "Server 2", localized of course!
-            if (empty($server['host']) && empty($server['verbose'])) {
-                $server['verbose'] = sprintf(__('Server %d'), $serverIndex);
-            }
-
-            $newServers[$serverIndex] = $server;
-        }
-
-        if ($newServers === []) {
-            // Ensures it has at least one valid server config.
-            $newServers = [1 => $this->defaultServer];
-        }
-
-        $this->settings['Servers'] = $newServers;
-        $this->config = new Settings($this->settings);
     }
 
     /**

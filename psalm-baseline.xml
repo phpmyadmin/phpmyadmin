@@ -261,7 +261,6 @@
       <code><![CDATA[$gdInfo['GD Version']]]></code>
       <code>$path</code>
       <code><![CDATA[$server['verbose']]]></code>
-      <code><![CDATA[$this->settings['Servers']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code>$url</code>
@@ -14151,8 +14150,6 @@
       <code><![CDATA[$gdNfo['GD Version']]]></code>
     </MixedArgument>
     <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
       <code>mixed[]</code>
       <code>mixed[]</code>
       <code>mixed[]</code>

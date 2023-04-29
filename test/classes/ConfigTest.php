@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Dbal\Connection;
 
-use function array_merge;
 use function define;
 use function defined;
 use function file_exists;
@@ -17,6 +16,7 @@ use function fileperms;
 use function function_exists;
 use function gd_info;
 use function mb_strstr;
+use function md5;
 use function ob_end_clean;
 use function ob_get_contents;
 use function ob_start;
@@ -83,9 +83,6 @@ class ConfigTest extends AbstractTestCase
         unset($this->permTestObj);
     }
 
-    /**
-     * Test for load
-     */
     public function testLoadConfigs(): void
     {
         $defaultConfig = $this->createConfig();
@@ -102,70 +99,24 @@ class ConfigTest extends AbstractTestCase
         $config = new Config();
         $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
+        $this->assertEquals($defaultConfig->getSettings(), $config->getSettings());
 
-        $contents = '<?php' . "\n"
-                    . '$cfg[\'ProtectBinary\'] = true;';
+        $contents = <<<'PHP'
+<?php
+$cfg['environment'] = 'development';
+$cfg['UnknownKey'] = true;
+PHP;
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a config changes the setup
         $config = new Config();
         $config->loadAndCheck($tmpConfig);
-        $defaultConfig->settings['ProtectBinary'] = true;
+        $defaultConfig->set('environment', 'development');
         $this->assertSame($defaultConfig->settings, $config->settings);
-        $defaultConfig->settings['ProtectBinary'] = 'blob';
-
-        // Teardown
-        unlink($tmpConfig);
-        $this->assertFalse(file_exists($tmpConfig));
-    }
-
-    /**
-     * Test for load
-     */
-    public function testLoadInvalidConfigs(): void
-    {
-        $defaultConfig = $this->createConfig();
-        $tmpConfig = tempnam('./', 'config.test.inc.php');
-        if ($tmpConfig === false) {
-            $this->markTestSkipped('Creating a temporary file does not work');
-        }
-
-        $this->assertFileExists($tmpConfig);
-
-        // end of setup
-
-        // Test loading an empty file does not change the default config
-        $config = new Config();
-        $config->loadAndCheck($tmpConfig);
-        $this->assertSame($defaultConfig->settings, $config->settings);
-
-        $contents = '<?php' . "\n"
-                    . '$cfg[\'fooBar\'] = true;';
-        file_put_contents($tmpConfig, $contents);
-
-        // Test loading a custom key config changes the setup
-        $config = new Config();
-        $config->loadAndCheck($tmpConfig);
-        $defaultConfig->settings['fooBar'] = true;
-        // Equals because of the key sorting
-        $this->assertEquals($defaultConfig->settings, $config->settings);
-        unset($defaultConfig->settings['fooBar']);
-
-        $contents = '<?php' . "\n"
-                    . '$cfg[\'/InValidKey\'] = true;' . "\n"
-                    . '$cfg[\'In/ValidKey\'] = true;' . "\n"
-                    . '$cfg[\'/InValid/Key\'] = true;' . "\n"
-                    . '$cfg[\'In/Valid/Key\'] = true;' . "\n"
-                    . '$cfg[\'ValidKey\'] = true;';
-        file_put_contents($tmpConfig, $contents);
-
-        // Test loading a custom key config changes the setup
-        $config = new Config();
-        $config->loadAndCheck($tmpConfig);
-        $defaultConfig->settings['ValidKey'] = true;
-        // Equals because of the key sorting
-        $this->assertEquals($defaultConfig->settings, $config->settings);
-        unset($defaultConfig->settings['ValidKey']);
+        $this->assertArrayHasKey('environment', $config->settings);
+        $this->assertSame($config->settings['environment'], 'development');
+        $this->assertArrayNotHasKey('UnknownKey', $config->settings);
+        $this->assertEquals($defaultConfig->getSettings(), $config->getSettings());
 
         // Teardown
         unlink($tmpConfig);
@@ -427,8 +378,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertIsArray($config['Servers']);
         $this->assertEquals($settings, $object->getSettings());
         $this->assertSame($config['Servers'][1], $object->defaultServer);
-        unset($config['Servers']);
-        $this->assertSame($config, $object->default);
+        $this->assertEquals($config, $object->default);
         $this->assertSame($config, $object->settings);
         $this->assertSame($config, $object->baseSettings);
     }
@@ -768,77 +718,6 @@ class ConfigTest extends AbstractTestCase
     }
 
     /**
-     * Test for checkServers
-     *
-     * @param mixed[] $settings settings array
-     * @param mixed[] $expected expected result
-     *
-     * @dataProvider serverSettingsProvider
-     */
-    public function testCheckServers(array $settings, array $expected): void
-    {
-        $this->object->settings['Servers'] = $settings;
-        $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, $expected);
-
-        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
-    }
-
-    /**
-     * Data provider for checkServers test
-     *
-     * @return mixed[]
-     */
-    public static function serverSettingsProvider(): array
-    {
-        return [
-            'empty' => [[], []],
-            'only_host' => [[1 => ['host' => '127.0.0.1']], ['host' => '127.0.0.1']],
-            'empty_host' => [[1 => ['host' => '']], ['verbose' => 'Server 1', 'host' => '']],
-        ];
-    }
-
-    public function testCheckServersWithInvalidServer(): void
-    {
-        $server = ['host' => '127.0.0.1'];
-        $this->object->settings['Servers'] = ['invalid' => $server, 1 => $server, 0 => $server, 2 => 'invalid'];
-        $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, $server);
-
-        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
-        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
-        $this->assertArrayNotHasKey(2, $this->object->settings['Servers']);
-        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
-        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
-    }
-
-    public function testCheckServersWithOnlyInvalidServers(): void
-    {
-        $server = ['host' => '127.0.0.1'];
-        $this->object->settings['Servers'] = ['invalid' => $server, -1 => $server, 0 => $server];
-        $this->object->checkServers();
-
-        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
-        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
-        $this->assertArrayNotHasKey(-1, $this->object->settings['Servers']);
-        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
-        /** @psalm-suppress InvalidArrayOffset */
-        $this->assertEquals($this->object->defaultServer, $this->object->settings['Servers'][1]);
-    }
-
-    public function testCheckServersWithServerKeysGreaterThanOne(): void
-    {
-        $server = ['host' => '127.0.0.1'];
-        $this->object->settings['Servers'] = [2 => $server];
-        $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, $server);
-
-        $this->assertArrayNotHasKey(1, $this->object->settings['Servers']);
-        $this->assertArrayHasKey(2, $this->object->settings['Servers']);
-        $this->assertEquals($expected, $this->object->settings['Servers'][2]);
-    }
-
-    /**
      * Test for selectServer
      *
      * @param mixed[] $settings settings array
@@ -846,20 +725,19 @@ class ConfigTest extends AbstractTestCase
      * @param int     $expected expected result
      *
      * @dataProvider selectServerProvider
-     * @depends testCheckServers
      */
     public function testSelectServer(array $settings, string $request, int $expected): void
     {
-        $this->object->settings['Servers'] = $settings;
-        $this->object->checkServers();
+        $object = new Config();
+        $object->settings = (new Settings(['Servers' => $settings]))->asArray();
         $_REQUEST['server'] = $request;
-        $this->assertEquals($expected, $this->object->selectServer());
+        $this->assertEquals($expected, $object->selectServer());
     }
 
     /**
      * Data provider for selectServer test
      *
-     * @return mixed[]
+     * @return array<string, array{mixed[], string, int}>
      */
     public static function selectServerProvider(): array
     {
@@ -868,7 +746,7 @@ class ConfigTest extends AbstractTestCase
             'number' => [[1 => []], '1', 1],
             'host' => [[2 => ['host' => '127.0.0.1']], '127.0.0.1', 2],
             'verbose' => [[1 => ['verbose' => 'Server 1', 'host' => '']], 'Server 1', 1],
-            'md5' => [[66 => ['verbose' => 'Server 1', 'host' => '']], '753f173bd4ac8a45eae0fe9a4fbe0fc0', 66],
+            'md5' => [[66 => ['verbose' => 'Server 66', 'host' => '']], md5('server 66'), 66],
             'nonexisting_string' => [[1 => []], 'invalid', 1],
             'nonexisting' => [[1 => []], '100', 1],
         ];
