@@ -38,7 +38,7 @@ class OperationsControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
-        $GLOBALS['config']->selectServer();
+        $GLOBALS['config']->selectServer('1');
         $GLOBALS['cfg'] = $GLOBALS['config']->settings;
         $GLOBALS['cfg']['MaxDbList'] = 0;
 

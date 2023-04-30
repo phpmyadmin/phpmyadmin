@@ -49,7 +49,7 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['sql_indexes'] = null;
         $GLOBALS['sql_auto_increments'] = null;
-        $GLOBALS['config']->selectServer();
+        $GLOBALS['config']->selectServer('1');
         $GLOBALS['cfg'] = $GLOBALS['config']->settings;
 
         $this->dummyDbi->addResult(

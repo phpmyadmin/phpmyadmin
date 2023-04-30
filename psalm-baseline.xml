@@ -212,17 +212,12 @@
   <file src="libraries/classes/Common.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['controluser']]]></code>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['user']]]></code>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
       <code>$sqlDelimiter</code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['user']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['theme']]]></code>
@@ -260,7 +255,6 @@
       <code>$defaultValue</code>
       <code><![CDATA[$gdInfo['GD Version']]]></code>
       <code>$path</code>
-      <code><![CDATA[$server['verbose']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code>$url</code>
@@ -272,11 +266,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
       <code><![CDATA[$configData['lang']]]></code>
-      <code><![CDATA[$server['host']]]></code>
-      <code><![CDATA[$server['verbose']]]></code>
-      <code><![CDATA[$server['verbose']]]></code>
-      <code><![CDATA[$this->settings['Servers'][$server]]]></code>
-      <code><![CDATA[$this->settings['Servers'][$server]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
@@ -289,10 +278,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
       <code>$tempDir[$name]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$this->settings['Servers'][$server]]]></code>
-      <code><![CDATA[$this->settings['Servers'][$this->settings['ServerDefault']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['cfg']['LoginCookieValidity']]]></code>
       <code>$collationConnection</code>
@@ -300,15 +285,11 @@
       <code>$defaultValue</code>
       <code>$defaultValue</code>
       <code>$evalResult</code>
-      <code>$i</code>
       <code>$password</code>
       <code>$password</code>
       <code>$path</code>
       <code>$prefsType</code>
       <code>$prefsType</code>
-      <code>$request</code>
-      <code>$server</code>
-      <code>$server</code>
       <code>$server[$item]</code>
       <code><![CDATA[$server['hide_connection_errors']]]></code>
       <code><![CDATA[$server['host']]]></code>
@@ -331,14 +312,10 @@
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code>$defaultValue</code>
-      <code>$request</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code>$request</code>
-    </PossiblyInvalidCast>
     <RiskyCast>
       <code><![CDATA[$server['port']]]></code>
     </RiskyCast>

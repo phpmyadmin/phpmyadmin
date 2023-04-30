@@ -161,31 +161,6 @@ parameters:
 			path: libraries/classes/Common.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Cannot access offset float\\|int\\<min, \\-1\\>\\|int\\<1, max\\>\\|\\(non\\-falsy\\-string&numeric\\-string\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Config.php
@@ -197,11 +172,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Config\\:\\:getUploadTempDir\\(\\) should return string\\|null but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtolower expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 

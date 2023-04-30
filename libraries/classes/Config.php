@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -86,17 +87,15 @@ class Config
 
     public bool $errorConfigFile = false;
 
-    /** @var mixed[] */
-    public array $defaultServer;
-
     private bool $isHttps = false;
 
-    private Settings $config;
+    public Settings $config;
+    /** @var int<0, max> */
+    public int $server = 0;
 
     public function __construct()
     {
         $this->config = new Settings([]);
-        $this->defaultServer = $this->config->Servers[1]->asArray();
         $config = $this->config->asArray();
         $this->default = $config;
         $this->settings = $config;
@@ -1063,34 +1062,27 @@ class Config
         return null;
     }
 
-    /**
-     * Selects server based on request parameters.
-     */
-    public function selectServer(): int
+    /** @return int<0, max> */
+    public function selectServer(mixed $serverParamFromRequest): int
     {
-        $request = empty($_REQUEST['server']) ? 0 : $_REQUEST['server'];
-
-        /**
-         * Lookup server by name
-         * (see FAQ 4.8)
-         */
-        if (! is_numeric($request)) {
-            foreach ($this->settings['Servers'] as $i => $server) {
-                $verboseToLower = mb_strtolower($server['verbose']);
-                $serverToLower = mb_strtolower($request);
-                if (
-                    $server['host'] == $request
-                    || $server['verbose'] == $request
-                    || $verboseToLower === $serverToLower
-                    || md5($verboseToLower) === $serverToLower
-                ) {
-                    $request = $i;
+        $serverNumber = 0;
+        if (is_numeric($serverParamFromRequest)) {
+            $serverNumber = (int) $serverParamFromRequest;
+            $serverNumber = $serverNumber >= 1 ? $serverNumber : 0;
+        } elseif (is_string($serverParamFromRequest) && $serverParamFromRequest !== '') {
+            /** Lookup server by name (see FAQ 4.8) */
+            foreach ($this->config->Servers as $i => $server) {
+                if ($server->host === $serverParamFromRequest || $server->verbose === $serverParamFromRequest) {
+                    $serverNumber = $i;
                     break;
                 }
-            }
 
-            if (is_string($request)) {
-                $request = 0;
+                $verboseToLower = mb_strtolower($server->verbose);
+                $serverToLower = mb_strtolower($serverParamFromRequest);
+                if ($verboseToLower === $serverToLower || md5($verboseToLower) === $serverToLower) {
+                    $serverNumber = $i;
+                    break;
+                }
             }
         }
 
@@ -1102,21 +1094,19 @@ class Config
          * present a choice of servers in the case that there are multiple servers
          * and '$this->settings['ServerDefault'] = 0' is set.
          */
-
-        if (is_numeric($request) && ! empty($request) && ! empty($this->settings['Servers'][$request])) {
-            $server = $request;
-            $this->settings['Server'] = $this->settings['Servers'][$server];
+        if (isset($this->config->Servers[$serverNumber])) {
+            $this->settings['Server'] = $this->config->Servers[$serverNumber]->asArray();
+        } elseif (isset($this->config->Servers[$this->config->ServerDefault])) {
+            $serverNumber = $this->config->ServerDefault;
+            $this->settings['Server'] = $this->config->Servers[$this->config->ServerDefault]->asArray();
         } else {
-            if (! empty($this->settings['Servers'][$this->settings['ServerDefault']])) {
-                $server = $this->settings['ServerDefault'];
-                $this->settings['Server'] = $this->settings['Servers'][$server];
-            } else {
-                $server = 0;
-                $this->settings['Server'] = [];
-            }
+            $serverNumber = 0;
+            $this->settings['Server'] = [];
         }
 
-        return (int) $server;
+        $this->server = $serverNumber;
+
+        return $this->server;
     }
 
     /**
@@ -1251,5 +1241,10 @@ class Config
     public function getSettings(): Settings
     {
         return $this->config;
+    }
+
+    public function getCurrentServer(): Server|null
+    {
+        return $this->config->Servers[$this->server] ?? null;
     }
 }

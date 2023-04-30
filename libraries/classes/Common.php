@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
@@ -185,7 +186,7 @@ final class Common
             return;
         }
 
-        self::setCurrentServerGlobal($container, $config);
+        self::setCurrentServerGlobal($container, $config, $request->getParam('server'));
 
         $GLOBALS['cfg'] = $config->settings;
         $settings = $config->getSettings();
@@ -228,7 +229,8 @@ final class Common
         $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
         $container->setAlias('dbi', DatabaseInterface::class);
 
-        if (! empty($GLOBALS['cfg']['Server'])) {
+        $currentServer = $config->getCurrentServer();
+        if ($currentServer !== null) {
             $config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
             /** @var AuthenticationPluginFactory $authPluginFactory */
@@ -251,12 +253,12 @@ final class Common
                 // phpcs:enable
             }
 
-            self::connectToDatabaseServer($GLOBALS['dbi'], $authPlugin);
+            self::connectToDatabaseServer($GLOBALS['dbi'], $authPlugin, $currentServer);
             $authPlugin->rememberCredentials();
             $authPlugin->checkTwoFactor();
 
             /* Log success */
-            Logging::logUser($config, $GLOBALS['cfg']['Server']['user']);
+            Logging::logUser($config, $currentServer->user);
 
             if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
                 echo self::getGenericError(sprintf(
@@ -549,14 +551,17 @@ final class Common
         throw new RuntimeException(__('possible exploit'));
     }
 
-    private static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void
-    {
+    private static function connectToDatabaseServer(
+        DatabaseInterface $dbi,
+        AuthenticationPlugin $auth,
+        Server $currentServer,
+    ): void {
         /**
          * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
-         * user but the true user link must be open after this one so it would be default one for all the scripts).
+         * user but the true user link must be open after this one, so it would be default one for all the scripts).
          */
         $controlConnection = null;
-        if ($GLOBALS['cfg']['Server']['controluser'] !== '') {
+        if ($currentServer->controluser !== '') {
             $controlConnection = $dbi->connect(Connection::TYPE_CONTROL);
         }
 
@@ -631,9 +636,12 @@ final class Common
         $container->setParameter('sql_query', $sqlQuery);
     }
 
-    private static function setCurrentServerGlobal(ContainerInterface $container, Config $config): void
-    {
-        $server = $config->selectServer();
+    private static function setCurrentServerGlobal(
+        ContainerInterface $container,
+        Config $config,
+        mixed $serverParamFromRequest,
+    ): void {
+        $server = $config->selectServer($serverParamFromRequest);
         $GLOBALS['server'] = $server;
         $GLOBALS['urlParams']['server'] = $server;
         $container->setParameter('server', $server);
