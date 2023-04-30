@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-04-23 00:20+0000\n"
+"POT-Creation-Date: 2023-04-30 00:18+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1255,8 +1255,8 @@ msgstr "搜尋："
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
-#: templates/preferences/manage/main.twig:46
-#: templates/preferences/manage/main.twig:108
+#: templates/preferences/manage/main.twig:45
+#: templates/preferences/manage/main.twig:107
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
@@ -1616,27 +1616,27 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南文"
 
-#: libraries/classes/Common.php:261
+#: libraries/classes/Common.php:263
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "應升級到 %s %s 或更新版本。"
 
-#: libraries/classes/Common.php:293
+#: libraries/classes/Common.php:295
 msgid "Error: Token mismatch"
 msgstr "錯誤：連線資訊失效，請重新連線"
 
-#: libraries/classes/Common.php:354
+#: libraries/classes/Common.php:356
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "請參閱%s我們的說明文件%s以取得更多的資訊。"
 
-#: libraries/classes/Common.php:465
+#: libraries/classes/Common.php:467
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "未能設定連線階段 cookie。可能正在以 HTTP 而非 HTTPS 存取 phpMyAdmin。"
 
-#: libraries/classes/Common.php:512
+#: libraries/classes/Common.php:514
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1645,17 +1645,17 @@ msgstr ""
 "已啟用 PHP 設定的 mbstring.func_overload。此選項與 phpMyAdmin 不相容，可能會"
 "導致一些資料損壞！"
 
-#: libraries/classes/Common.php:527
+#: libraries/classes/Common.php:529
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:537
+#: libraries/classes/Common.php:539
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/classes/Common.php:547
+#: libraries/classes/Common.php:549
 msgid "possible exploit"
 msgstr "可能被駭"
 
@@ -3394,8 +3394,8 @@ msgid "Character set of the file"
 msgstr "檔案編碼"
 
 #: libraries/classes/Config/Descriptions.php:644
-#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:162
-#: templates/import.twig:164 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:160
+#: templates/import.twig:162 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "格式"
@@ -4798,7 +4798,7 @@ msgstr "OpenDocument/OpenOffice 文字檔"
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
 #: templates/export.twig:495 templates/preferences/header.twig:42
-#: templates/preferences/manage/main.twig:68
+#: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:125
@@ -4824,7 +4824,7 @@ msgstr "使用 LOAD DATA 的 CSV"
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
 #: libraries/classes/Menu.php:486 libraries/classes/Util.php:1700
 #: libraries/classes/Util.php:1715 libraries/classes/Util.php:1732
-#: templates/import.twig:3 templates/import.twig:192
+#: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -4839,29 +4839,24 @@ msgstr "預設轉換"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "無法儲存設定，送出的設定值表單內容錯誤！"
 
-#: libraries/classes/Config.php:638
+#: libraries/classes/Config.php:611
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "無法讀取現有設定檔 (%s)。"
 
-#: libraries/classes/Config.php:674
+#: libraries/classes/Config.php:647
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "設定檔權限錯誤，檔案不應讓所有人可以寫入！"
 
-#: libraries/classes/Config.php:688
+#: libraries/classes/Config.php:661
 msgid "Failed to read configuration file!"
 msgstr "無法讀取設定檔！"
 
-#: libraries/classes/Config.php:690
+#: libraries/classes/Config.php:663
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "此情況通常是有語法錯誤，請檢查以下顯示的錯誤。"
-
-#: libraries/classes/Config.php:1177
-#, php-format
-msgid "Server %d"
-msgstr "伺服器 %d"
 
 #: libraries/classes/Config/ServerConfigChecks.php:57
 #, php-format
@@ -4983,6 +4978,11 @@ msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr "此系統目前未有提供 %1$sGZip 壓縮和解壓縮%2$s所必須的 (%3$s) 函式。"
+
+#: libraries/classes/Config/Settings.php:2951
+#, php-format
+msgid "Server %d"
+msgstr "伺服器 %d"
 
 #: libraries/classes/ConfigStorage/Relation.php:1328
 msgid "no description"
@@ -5149,7 +5149,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "無法載入匯出外掛程式，請檢查安裝！"
 
 #: libraries/classes/Controllers/Database/ImportController.php:60
-#: libraries/classes/Controllers/Import/ImportController.php:561
+#: libraries/classes/Controllers/Import/ImportController.php:560
 #: libraries/classes/Controllers/Server/ImportController.php:56
 #: libraries/classes/Controllers/Table/ImportController.php:67
 msgid "Could not load import plugins, please check your installation!"
@@ -5301,7 +5301,7 @@ msgstr "是"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:291
+#: libraries/classes/Controllers/Table/ReplaceController.php:299
 #: libraries/classes/Core.php:593 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "無更改"
@@ -5469,30 +5469,30 @@ msgstr ""
 "找不到 curl 擴充套件，且 allow_url_fopen 已停用；故此某些功能，例如錯誤回報與"
 "版本檢查等，會無法使用。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:204
+#: libraries/classes/Controllers/Import/ImportController.php:203
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "上傳的檔案過大，請參閱%s說明文件%s了解如何解決此問題。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:236
+#: libraries/classes/Controllers/Import/ImportController.php:235
 #, fuzzy
 #| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
 msgstr "指定了不正確的表單！"
 
-#: libraries/classes/Controllers/Import/ImportController.php:362
-#: libraries/classes/Controllers/Import/ImportController.php:601
+#: libraries/classes/Controllers/Import/ImportController.php:361
+#: libraries/classes/Controllers/Import/ImportController.php:600
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: libraries/classes/Controllers/Import/ImportController.php:387
-#: libraries/classes/Controllers/Import/ImportController.php:597
+#: libraries/classes/Controllers/Import/ImportController.php:386
+#: libraries/classes/Controllers/Import/ImportController.php:596
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:509
+#: libraries/classes/Controllers/Import/ImportController.php:508
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5501,13 +5501,13 @@ msgstr ""
 "沒有接收到要匯入的資料。可能是因為未附上檔案名稱，或是檔案大小超出 PHP 限"
 "制。 請參閱 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:608
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "完成匯入，共執行了 %d 個查詢指令。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:646
+#: libraries/classes/Controllers/Import/ImportController.php:645
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5515,7 +5515,7 @@ msgid ""
 msgstr ""
 "Script 執行已逾時，若要完成匯入，請%s重新上傳原來的檔案%s，匯入會繼續進行。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:656
+#: libraries/classes/Controllers/Import/ImportController.php:655
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5523,7 +5523,7 @@ msgstr ""
 "最近一次執行的匯入沒有資料可以解析，通常是因為 phpMyAdmin 無法在指定時間內完"
 "成匯入。可試試增加 PHP 執行時間上限。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:724
+#: libraries/classes/Controllers/Import/ImportController.php:723
 #: libraries/classes/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫 DROP DATABASE 指令已經被停用。"
@@ -5698,8 +5698,8 @@ msgstr "儲存並關閉"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 #: templates/config/form_display/display.twig:47
-#: templates/preferences/manage/main.twig:114
-#: templates/preferences/manage/main.twig:122
+#: templates/preferences/manage/main.twig:113
+#: templates/preferences/manage/main.twig:121
 #: templates/table/insert/actions_panel.twig:36
 msgid "Reset"
 msgstr "重設"
@@ -6595,7 +6595,7 @@ msgstr "否"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:156
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:154
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "啟用外鍵檢查"
@@ -6925,7 +6925,7 @@ msgstr "資料點內容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
-#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1836
+#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1635
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "略過"
@@ -7482,13 +7482,13 @@ msgid "Table %s already exists!"
 msgstr "已有 %s 資料表！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/InsertEdit.php:325
+#: libraries/classes/InsertEdit.php:283
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "隱藏"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/Controllers/Table/ChangeController.php:212
+#: libraries/classes/Controllers/Table/ChangeController.php:183
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8932,7 +8932,7 @@ msgstr "有太多的資料表連結(join)未使用索引。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:78
 #: libraries/classes/Database/Routines.php:1221
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:205
 #: libraries/classes/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
@@ -8978,7 +8978,7 @@ msgstr "資料表名稱必須是一個非空的字串。"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
 #: libraries/classes/Html/Generator.php:770 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:665 libraries/classes/Message.php:169
+#: libraries/classes/InsertEdit.php:551 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -8992,7 +8992,7 @@ msgstr "顯示欄位已成功更新。"
 msgid "Internal relationships were successfully updated."
 msgstr "內部關聯已成功更新。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:195
+#: libraries/classes/Controllers/Table/ReplaceController.php:198
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
@@ -10233,7 +10233,7 @@ msgid ""
 "removed."
 msgstr "索引 %1$s 和 %2$s 看來是相同的，其中一個可能會被移除。"
 
-#: libraries/classes/InsertEdit.php:340
+#: libraries/classes/InsertEdit.php:298
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10241,7 +10241,7 @@ msgstr "索引 %1$s 和 %2$s 看來是相同的，其中一個可能會被移除
 msgid "Function"
 msgstr "函式"
 
-#: libraries/classes/InsertEdit.php:341
+#: libraries/classes/InsertEdit.php:299
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:267
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:360
 #: libraries/classes/Plugins/Export/ExportLatex.php:506
@@ -10275,12 +10275,12 @@ msgstr "函式"
 msgid "Type"
 msgstr "類型"
 
-#: libraries/classes/InsertEdit.php:666 templates/import.twig:57
-#: templates/import.twig:82
+#: libraries/classes/InsertEdit.php:552 templates/import.twig:56
+#: templates/import.twig:80
 msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄發生錯誤，無法使用。"
 
-#: libraries/classes/InsertEdit.php:674
+#: libraries/classes/InsertEdit.php:560
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10290,15 +10290,15 @@ msgstr "設定之上傳目錄發生錯誤，無法使用。"
 msgid "Or"
 msgstr "或"
 
-#: libraries/classes/InsertEdit.php:675
+#: libraries/classes/InsertEdit.php:561
 msgid "web server upload directory:"
 msgstr "網頁伺服器上傳資料夾："
 
-#: libraries/classes/InsertEdit.php:1227 libraries/classes/Sql.php:892
+#: libraries/classes/InsertEdit.php:1031 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/classes/InsertEdit.php:1251 libraries/classes/Sql.php:872
+#: libraries/classes/InsertEdit.php:1055 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 ID：%1$d"
@@ -11969,7 +11969,7 @@ msgid ""
 msgstr ""
 "圖片上傳功能，同時會顯示縮圖。選項為縮圖的寬與高，預設為 100 X 100 像素。"
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:83
 msgid "Image preview here"
 msgstr "在此預覽圖片"
 
@@ -15462,7 +15462,7 @@ msgstr ""
 msgid "Use this for future exports"
 msgstr "以後匯出時，也使用此設定"
 
-#: templates/export.twig:405 templates/import.twig:100
+#: templates/export.twig:405 templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "檔案字元編碼："
 
@@ -15496,11 +15496,11 @@ msgstr "略過超過 %s MiB 的資料表"
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: templates/export.twig:478 templates/import.twig:175
+#: templates/export.twig:478 templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "格式選項："
 
-#: templates/export.twig:487 templates/import.twig:184
+#: templates/export.twig:487 templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "轉換編碼："
 
@@ -15654,7 +15654,7 @@ msgstr "一般設定"
 msgid "Server connection collation:"
 msgstr "伺服器連線編碼與排序："
 
-#: templates/home/index.twig:84 templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:84 templates/preferences/manage/main.twig:55
 msgid "More settings"
 msgstr "更多設定"
 
@@ -15824,41 +15824,41 @@ msgstr "下載檔案"
 msgid "Select file to import"
 msgstr "選擇要匯入的檔案"
 
-#: templates/import.twig:47 templates/import.twig:74
-#: templates/preferences/manage/main.twig:22
+#: templates/import.twig:46 templates/import.twig:72
+#: templates/preferences/manage/main.twig:21
 msgid "Browse your computer:"
 msgstr "由電腦上傳："
 
-#: templates/import.twig:52 templates/import.twig:79
+#: templates/import.twig:51 templates/import.twig:77
 msgid "You may also drag and drop a file on any page."
 msgstr "也可以在任何頁面拖放檔案。"
 
-#: templates/import.twig:59 templates/import.twig:85
+#: templates/import.twig:58 templates/import.twig:83
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "從由網頁伺服器上傳目錄選擇 [strong]%s[/strong]："
 
-#: templates/import.twig:66 templates/import.twig:93
+#: templates/import.twig:65 templates/import.twig:91
 #, fuzzy
 #| msgid "There are no files to upload!"
 msgid "There are no files to import!"
 msgstr "無可上傳的檔案！"
 
-#: templates/import.twig:97
+#: templates/import.twig:95
 msgid "File uploads are not allowed on this server."
 msgstr "此伺服器不允許上傳檔案。"
 
-#: templates/import.twig:123
+#: templates/import.twig:121
 msgid "Partial import:"
 msgstr "部分匯入："
 
-#: templates/import.twig:128
+#: templates/import.twig:126
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr "上一個匯入逾時，隨後重新送出將會從 %d 處開始。"
 
-#: templates/import.twig:135
+#: templates/import.twig:133
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -15871,7 +15871,7 @@ msgstr ""
 "當偵測到執行時間已接近 PHP 執行時間的限制，允許中斷匯入的動作。<em>(若要匯入"
 "大型檔案，這是很好的方法，不過使用這種方法會破壞指令中的交易動作)</em>"
 
-#: templates/import.twig:137
+#: templates/import.twig:135
 #, fuzzy
 #| msgid ""
 #| "Allow interrupt of import in case script detects it is close to time "
@@ -15884,11 +15884,11 @@ msgstr ""
 "允許程式在偵測到執行時間快到上限時，自動中斷匯入。若要匯入大型檔案，這是很好"
 "的做法，不過使用這種方法會破壞指令中的交易事件。"
 
-#: templates/import.twig:141
+#: templates/import.twig:139
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "由第一行開始跳過此數量的查詢 (SQL)："
 
-#: templates/import.twig:151
+#: templates/import.twig:149
 msgid "Other options"
 msgstr "其他選項"
 
@@ -16129,7 +16129,7 @@ msgid "Two-factor authentication"
 msgstr "雙因素認證"
 
 #: templates/preferences/header.twig:55
-#: templates/preferences/manage/main.twig:72
+#: templates/preferences/manage/main.twig:71
 msgid "Configuration has been saved."
 msgstr "已儲存設定值。"
 
@@ -16151,36 +16151,36 @@ msgid "Do you want to import remaining settings?"
 msgstr "是否匯入其餘的設定？"
 
 #: templates/preferences/manage/main.twig:3
-#: templates/preferences/manage/main.twig:33
+#: templates/preferences/manage/main.twig:32
 msgid "Saved on: @DATE@"
 msgstr "儲存於：@DATE@"
 
-#: templates/preferences/manage/main.twig:20
+#: templates/preferences/manage/main.twig:19
 msgid "Import from file"
 msgstr "從檔案匯入"
 
-#: templates/preferences/manage/main.twig:27
+#: templates/preferences/manage/main.twig:26
 msgid "Import from browser's storage"
 msgstr "從瀏覽器記錄匯入"
 
-#: templates/preferences/manage/main.twig:30
+#: templates/preferences/manage/main.twig:29
 msgid "Settings will be imported from your browser's local storage."
 msgstr "將使用瀏覽器的本機儲存記錄匯入設定。"
 
-#: templates/preferences/manage/main.twig:36
+#: templates/preferences/manage/main.twig:35
 msgid "You have no saved settings!"
 msgstr "尚未儲存設定！"
 
-#: templates/preferences/manage/main.twig:40
-#: templates/preferences/manage/main.twig:104
+#: templates/preferences/manage/main.twig:39
+#: templates/preferences/manage/main.twig:103
 msgid "This feature is not supported by your web browser"
 msgstr "所使用的網頁瀏覽器不支援此功能"
 
-#: templates/preferences/manage/main.twig:44
+#: templates/preferences/manage/main.twig:43
 msgid "Merge with current configuration"
 msgstr "合併至目前設定"
 
-#: templates/preferences/manage/main.twig:59
+#: templates/preferences/manage/main.twig:58
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -16189,27 +16189,27 @@ msgstr ""
 "藉著修改 config.inc.php 設定檔，可以調整更多的設定項目，如：使用 %s安裝程"
 "式%s 。"
 
-#: templates/preferences/manage/main.twig:81
+#: templates/preferences/manage/main.twig:80
 msgid "Save as JSON file"
 msgstr "另存為 JSON 檔案"
 
-#: templates/preferences/manage/main.twig:85
+#: templates/preferences/manage/main.twig:84
 msgid "Save as PHP file"
 msgstr "儲存為 PHP 檔案"
 
-#: templates/preferences/manage/main.twig:90
+#: templates/preferences/manage/main.twig:89
 msgid "Save to browser's storage"
 msgstr "儲存到瀏覽器記錄"
 
-#: templates/preferences/manage/main.twig:96
+#: templates/preferences/manage/main.twig:95
 msgid "Settings will be saved in your browser's local storage."
 msgstr "設定將儲存到瀏覽器的本機記錄。"
 
-#: templates/preferences/manage/main.twig:99
+#: templates/preferences/manage/main.twig:98
 msgid "Existing settings will be overwritten!"
 msgstr "現有設定將被覆蓋！"
 
-#: templates/preferences/manage/main.twig:120
+#: templates/preferences/manage/main.twig:119
 msgid "You can reset all your settings and restore them to default values."
 msgstr "可以將所有設定恢復為預設值。"
 

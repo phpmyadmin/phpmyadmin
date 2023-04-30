@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-04-23 00:20+0000\n"
+"POT-Creation-Date: 2023-04-30 00:18+0000\n"
 "PO-Revision-Date: 2022-11-07 12:02+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1309,8 +1309,8 @@ msgstr "ค้นหา:"
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
-#: templates/preferences/manage/main.twig:46
-#: templates/preferences/manage/main.twig:108
+#: templates/preferences/manage/main.twig:45
+#: templates/preferences/manage/main.twig:107
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
@@ -1670,27 +1670,27 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "เวียดนาม"
 
-#: libraries/classes/Common.php:261
+#: libraries/classes/Common.php:263
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/classes/Common.php:293
+#: libraries/classes/Common.php:295
 msgid "Error: Token mismatch"
 msgstr "เกิดข้อผิดพลาด: โทเค็นไม่ตรงกัน"
 
-#: libraries/classes/Common.php:354
+#: libraries/classes/Common.php:356
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Common.php:465
+#: libraries/classes/Common.php:467
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:512
+#: libraries/classes/Common.php:514
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1699,17 +1699,17 @@ msgstr ""
 "คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP ตัวเลือกนี้ไม่เข้ากันกับ "
 "phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้!"
 
-#: libraries/classes/Common.php:527
+#: libraries/classes/Common.php:529
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:537
+#: libraries/classes/Common.php:539
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:547
+#: libraries/classes/Common.php:549
 msgid "possible exploit"
 msgstr "﻿ใช้ประโยชน์ได้"
 
@@ -3480,8 +3480,8 @@ msgid "Character set of the file"
 msgstr "ชุดอักขระของไฟล์"
 
 #: libraries/classes/Config/Descriptions.php:644
-#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:162
-#: templates/import.twig:164 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:160
+#: templates/import.twig:162 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "รูปแบบ"
@@ -5020,7 +5020,7 @@ msgstr "เอกสารอ้างอิง"
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
 #: templates/export.twig:495 templates/preferences/header.twig:42
-#: templates/preferences/manage/main.twig:68
+#: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:125
@@ -5046,7 +5046,7 @@ msgstr ""
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
 #: libraries/classes/Menu.php:486 libraries/classes/Util.php:1700
 #: libraries/classes/Util.php:1715 libraries/classes/Util.php:1732
-#: templates/import.twig:3 templates/import.twig:192
+#: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5062,29 +5062,24 @@ msgstr "การแปลงที่เรียกใช้ได้"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: libraries/classes/Config.php:638
+#: libraries/classes/Config.php:611
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
 
-#: libraries/classes/Config.php:674
+#: libraries/classes/Config.php:647
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "สิทธิ์สำหรับไฟล์ตั้งค่าไม่ถูกต้อง ไม่ควรให้เขียนได้ทั้งหมด!"
 
-#: libraries/classes/Config.php:688
+#: libraries/classes/Config.php:661
 msgid "Failed to read configuration file!"
 msgstr "ไม่สามารถอ่านไฟล์การตั้งค่าได้!"
 
-#: libraries/classes/Config.php:690
+#: libraries/classes/Config.php:663
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ซึ่งมักจะหมายความว่ามีข้อผิดพลาดทางไวยากรณ์อยู่โปรดตรวจสอบข้อผิดพลาดที่แสดงด้านล่าง"
-
-#: libraries/classes/Config.php:1177
-#, php-format
-msgid "Server %d"
-msgstr "เซิร์ฟเวอร์ %d"
 
 #: libraries/classes/Config/ServerConfigChecks.php:57
 #, php-format
@@ -5193,6 +5188,11 @@ msgid ""
 "are unavailable on this system."
 msgstr ""
 "การบีบอัดและการคลาย %sGZip%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
+
+#: libraries/classes/Config/Settings.php:2951
+#, php-format
+msgid "Server %d"
+msgstr "เซิร์ฟเวอร์ %d"
 
 #: libraries/classes/ConfigStorage/Relation.php:1328
 msgid "no description"
@@ -5385,7 +5385,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ImportController.php:60
-#: libraries/classes/Controllers/Import/ImportController.php:561
+#: libraries/classes/Controllers/Import/ImportController.php:560
 #: libraries/classes/Controllers/Server/ImportController.php:56
 #: libraries/classes/Controllers/Table/ImportController.php:67
 msgid "Could not load import plugins, please check your installation!"
@@ -5543,7 +5543,7 @@ msgstr "ใช่"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:291
+#: libraries/classes/Controllers/Table/ReplaceController.php:299
 #: libraries/classes/Core.php:593 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "ไม่มีการเปลี่ยนแปลง"
@@ -5714,7 +5714,7 @@ msgstr ""
 "ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดใช้งานอยู่ "
 "ทำให้บางคุณลักษณะอย่างการรายงานข้อผิดพลาดหรือตรวจสอบรุ่นล่าสุดจะถูกปิดไว้"
 
-#: libraries/classes/Controllers/Import/ImportController.php:204
+#: libraries/classes/Controllers/Import/ImportController.php:203
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5723,23 +5723,23 @@ msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %s เอกสารช่วยเหลือ%s "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
 
-#: libraries/classes/Controllers/Import/ImportController.php:236
+#: libraries/classes/Controllers/Import/ImportController.php:235
 #, fuzzy
 #| msgid "Remove database"
 msgid "Incorrect format parameter"
 msgstr "เอาฐานข้อมูลออก"
 
-#: libraries/classes/Controllers/Import/ImportController.php:362
-#: libraries/classes/Controllers/Import/ImportController.php:601
+#: libraries/classes/Controllers/Import/ImportController.php:361
+#: libraries/classes/Controllers/Import/ImportController.php:600
 msgid "Showing bookmark"
 msgstr "แสดงบุ๊คมาร์ค"
 
-#: libraries/classes/Controllers/Import/ImportController.php:387
-#: libraries/classes/Controllers/Import/ImportController.php:597
+#: libraries/classes/Controllers/Import/ImportController.php:386
+#: libraries/classes/Controllers/Import/ImportController.php:596
 msgid "The bookmark has been deleted."
 msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
 
-#: libraries/classes/Controllers/Import/ImportController.php:509
+#: libraries/classes/Controllers/Import/ImportController.php:508
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5748,13 +5748,13 @@ msgstr ""
 "ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
 "กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
 
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:608
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "นำเข้าสำเร็จเรียบร้อย การเรียกใช้ %d รายการได้ถูกดำเนินการแล้ว"
 
-#: libraries/classes/Controllers/Import/ImportController.php:646
+#: libraries/classes/Controllers/Import/ImportController.php:645
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5763,7 +5763,7 @@ msgstr ""
 "หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา %sนำเข้าไฟล์เดิม%s "
 "อีกรอบ และการนำเข้าจะดำเนินต่อไป"
 
-#: libraries/classes/Controllers/Import/ImportController.php:656
+#: libraries/classes/Controllers/Import/ImportController.php:655
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5771,7 +5771,7 @@ msgstr ""
 "ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
 "ตามเวลารันสูงสุดที่กำหนดใน PHP"
 
-#: libraries/classes/Controllers/Import/ImportController.php:724
+#: libraries/classes/Controllers/Import/ImportController.php:723
 #: libraries/classes/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
@@ -5951,8 +5951,8 @@ msgstr "บันทึกและปิด"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 #: templates/config/form_display/display.twig:47
-#: templates/preferences/manage/main.twig:114
-#: templates/preferences/manage/main.twig:122
+#: templates/preferences/manage/main.twig:113
+#: templates/preferences/manage/main.twig:121
 #: templates/table/insert/actions_panel.twig:36
 msgid "Reset"
 msgstr "รีเซ็ต"
@@ -6858,7 +6858,7 @@ msgstr "ไม่"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:156
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:154
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "เปิดการตรวจสอบคีย์นอก"
@@ -7189,7 +7189,7 @@ msgstr "สารบัญ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
-#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1836
+#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1635
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "ข้าม"
@@ -7761,13 +7761,13 @@ msgid "Table %s already exists!"
 msgstr "มีตาราง %s อยู่แล้ว!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/InsertEdit.php:325
+#: libraries/classes/InsertEdit.php:283
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "ซ่อน"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/Controllers/Table/ChangeController.php:212
+#: libraries/classes/Controllers/Table/ChangeController.php:183
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -9153,7 +9153,7 @@ msgstr "ตารางที่ถูกติดตาม"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:78
 #: libraries/classes/Database/Routines.php:1221
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:205
 #: libraries/classes/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL คืนผลลัพธ์ว่างเปล่ากลับมา (null / 0 แถว)."
@@ -9199,7 +9199,7 @@ msgstr "ชื่อตารางยังว่างอยู่!"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
 #: libraries/classes/Html/Generator.php:770 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:665 libraries/classes/Message.php:169
+#: libraries/classes/InsertEdit.php:551 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9216,7 +9216,7 @@ msgstr "เธรด %s ถูกทำลายเรียบร้อยแ�
 msgid "Internal relationships were successfully updated."
 msgstr "รีเลชันภายใน"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:195
+#: libraries/classes/Controllers/Table/ReplaceController.php:198
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -10530,7 +10530,7 @@ msgid ""
 "removed."
 msgstr "ดัชนี %1$s และ %2$s น่าจะเป็นอันเดียวกัน ควรจะลบออกไปอันหนึ่ง"
 
-#: libraries/classes/InsertEdit.php:340
+#: libraries/classes/InsertEdit.php:298
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10538,7 +10538,7 @@ msgstr "ดัชนี %1$s และ %2$s น่าจะเป็นอัน
 msgid "Function"
 msgstr "ฟังก์ชั่น"
 
-#: libraries/classes/InsertEdit.php:341
+#: libraries/classes/InsertEdit.php:299
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:267
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:360
 #: libraries/classes/Plugins/Export/ExportLatex.php:506
@@ -10572,12 +10572,12 @@ msgstr "ฟังก์ชั่น"
 msgid "Type"
 msgstr "ชนิด"
 
-#: libraries/classes/InsertEdit.php:666 templates/import.twig:57
-#: templates/import.twig:82
+#: libraries/classes/InsertEdit.php:552 templates/import.twig:56
+#: templates/import.twig:80
 msgid "The directory you set for upload work cannot be reached."
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
 
-#: libraries/classes/InsertEdit.php:674
+#: libraries/classes/InsertEdit.php:560
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10587,17 +10587,17 @@ msgstr "ไม่สามารถใช้งาน ไดเรกทอร�
 msgid "Or"
 msgstr "หรือ"
 
-#: libraries/classes/InsertEdit.php:675
+#: libraries/classes/InsertEdit.php:561
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/classes/InsertEdit.php:1227 libraries/classes/Sql.php:892
+#: libraries/classes/InsertEdit.php:1031 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1251 libraries/classes/Sql.php:872
+#: libraries/classes/InsertEdit.php:1055 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -12355,7 +12355,7 @@ msgid ""
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:83
 msgid "Image preview here"
 msgstr ""
 
@@ -16183,7 +16183,7 @@ msgstr ""
 msgid "Use this for future exports"
 msgstr ""
 
-#: templates/export.twig:405 templates/import.twig:100
+#: templates/export.twig:405 templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "ชุดอักขระของไฟล์:"
 
@@ -16225,11 +16225,11 @@ msgstr ""
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: templates/export.twig:478 templates/import.twig:175
+#: templates/export.twig:478 templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "ตัวเลือกรูปแบบเฉพาะ:"
 
-#: templates/export.twig:487 templates/import.twig:184
+#: templates/export.twig:487 templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -16398,7 +16398,7 @@ msgstr "การตั้งค่าทั่วไป"
 msgid "Server connection collation:"
 msgstr "ตรวจทานการเชื่อมต่อเซิร์ฟเวอร์"
 
-#: templates/home/index.twig:84 templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:84 templates/preferences/manage/main.twig:55
 msgid "More settings"
 msgstr "ตั้งค่าเพิ่มเติม"
 
@@ -16572,60 +16572,60 @@ msgstr "บันทึกเป็นไฟล์"
 msgid "Select file to import"
 msgstr "ไฟล์ที่ต้องการนำเข้า:"
 
-#: templates/import.twig:47 templates/import.twig:74
-#: templates/preferences/manage/main.twig:22
+#: templates/import.twig:46 templates/import.twig:72
+#: templates/preferences/manage/main.twig:21
 msgid "Browse your computer:"
 msgstr "เรียกดูคอมพิวเตอร์ของคุณ:"
 
-#: templates/import.twig:52 templates/import.twig:79
+#: templates/import.twig:51 templates/import.twig:77
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: templates/import.twig:59 templates/import.twig:85
+#: templates/import.twig:58 templates/import.twig:83
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: templates/import.twig:66 templates/import.twig:93
+#: templates/import.twig:65 templates/import.twig:91
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to import!"
 msgstr "ไม่มีไฟล์ที่จะอัพโหลด"
 
-#: templates/import.twig:97
+#: templates/import.twig:95
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: templates/import.twig:123
+#: templates/import.twig:121
 #, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "นำเข้าบางส่วน:"
 
-#: templates/import.twig:128
+#: templates/import.twig:126
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: templates/import.twig:135
+#: templates/import.twig:133
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
 
-#: templates/import.twig:137
+#: templates/import.twig:135
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
 
-#: templates/import.twig:141
+#: templates/import.twig:139
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
 
-#: templates/import.twig:151
+#: templates/import.twig:149
 #, fuzzy
 #| msgid "Options"
 msgid "Other options"
@@ -16883,7 +16883,7 @@ msgid "Two-factor authentication"
 msgstr "กำหนดค่าการรับรองความถูกต้อง"
 
 #: templates/preferences/header.twig:55
-#: templates/preferences/manage/main.twig:72
+#: templates/preferences/manage/main.twig:71
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
@@ -16905,36 +16905,36 @@ msgid "Do you want to import remaining settings?"
 msgstr ""
 
 #: templates/preferences/manage/main.twig:3
-#: templates/preferences/manage/main.twig:33
+#: templates/preferences/manage/main.twig:32
 msgid "Saved on: @DATE@"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:20
+#: templates/preferences/manage/main.twig:19
 msgid "Import from file"
 msgstr "นำเข้าจากไฟล์"
 
-#: templates/preferences/manage/main.twig:27
+#: templates/preferences/manage/main.twig:26
 msgid "Import from browser's storage"
 msgstr "นำเข้าจากที่เก็บข้อมูลของเบราเซอร์"
 
-#: templates/preferences/manage/main.twig:30
+#: templates/preferences/manage/main.twig:29
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
-#: templates/preferences/manage/main.twig:36
+#: templates/preferences/manage/main.twig:35
 msgid "You have no saved settings!"
 msgstr "คุณไม่มีการตั้งค่าที่บันทึกไว้!"
 
-#: templates/preferences/manage/main.twig:40
-#: templates/preferences/manage/main.twig:104
+#: templates/preferences/manage/main.twig:39
+#: templates/preferences/manage/main.twig:103
 msgid "This feature is not supported by your web browser"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:44
+#: templates/preferences/manage/main.twig:43
 msgid "Merge with current configuration"
 msgstr "ผสานเข้ากับการกำหนดค่าปัจจุบัน"
 
-#: templates/preferences/manage/main.twig:59
+#: templates/preferences/manage/main.twig:58
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -16943,31 +16943,31 @@ msgstr ""
 "คุณสามารถกำหนดการตั้งค่าเพิ่มเติมได้โดยแก้ไข config.inc.php เช่น โดยการใช้ %sSetup "
 "script%s"
 
-#: templates/preferences/manage/main.twig:81
+#: templates/preferences/manage/main.twig:80
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save as JSON file"
 msgstr "บันทึกเป็นไฟล์"
 
-#: templates/preferences/manage/main.twig:85
+#: templates/preferences/manage/main.twig:84
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
 msgstr "บันทึกเป็นไฟล์"
 
-#: templates/preferences/manage/main.twig:90
+#: templates/preferences/manage/main.twig:89
 msgid "Save to browser's storage"
 msgstr "บันทึกไปยังที่เก็บข้อมูลของเบราเซอร์"
 
-#: templates/preferences/manage/main.twig:96
+#: templates/preferences/manage/main.twig:95
 msgid "Settings will be saved in your browser's local storage."
 msgstr "การตั้งค่าจะถูกบันทึกไว้ในที่เก็บข้อมูลของเบราเซอร์ภายในเครื่องของคุณ"
 
-#: templates/preferences/manage/main.twig:99
+#: templates/preferences/manage/main.twig:98
 msgid "Existing settings will be overwritten!"
 msgstr "ถ้ามีการตั้งค่าอยู่แล้วจะถูกเขียนทับ!"
 
-#: templates/preferences/manage/main.twig:120
+#: templates/preferences/manage/main.twig:119
 msgid "You can reset all your settings and restore them to default values."
 msgstr "คุณสามารถรีเซ็ตการตั้งค่าทั้งหมดของคุณและเรียกคืนเป็นค่าเริ่มต้น"
 

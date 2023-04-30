@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-04-23 00:20+0000\n"
+"POT-Creation-Date: 2023-04-30 00:18+0000\n"
 "PO-Revision-Date: 2023-03-28 13:56+0000\n"
 "Last-Translator: Luc <some_physics@live.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1403,8 +1403,8 @@ msgstr "Suche:"
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
-#: templates/preferences/manage/main.twig:46
-#: templates/preferences/manage/main.twig:108
+#: templates/preferences/manage/main.twig:45
+#: templates/preferences/manage/main.twig:107
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
@@ -1764,21 +1764,21 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamesisch"
 
-#: libraries/classes/Common.php:261
+#: libraries/classes/Common.php:263
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sie sollten auf %s %s oder neuer aktualisieren."
 
-#: libraries/classes/Common.php:293
+#: libraries/classes/Common.php:295
 msgid "Error: Token mismatch"
 msgstr "Fehler: Token stimmen nicht überein"
 
-#: libraries/classes/Common.php:354
+#: libraries/classes/Common.php:356
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Siehe %sunsere Dokumentation%s für mehr Informationen."
 
-#: libraries/classes/Common.php:465
+#: libraries/classes/Common.php:467
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1786,7 +1786,7 @@ msgstr ""
 "Session-Cookie konnte nicht gesetzt werden. Möglicherweise verwenden Sie "
 "HTTP anstelle von HTTPS, um auf phpMyAdmin zuzugreifen."
 
-#: libraries/classes/Common.php:512
+#: libraries/classes/Common.php:514
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1796,7 +1796,7 @@ msgstr ""
 "aktiviert. Diese ist nicht kompatibel zu phpMyAdmin, weshalb es zu Problemen "
 "und Datenverlust kommen kann!"
 
-#: libraries/classes/Common.php:527
+#: libraries/classes/Common.php:529
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1804,11 +1804,11 @@ msgstr ""
 "Die Funktionen ini_get und/oder ini_set sind in der php.ini deaktiviert. "
 "phpMyAdmin benötigt diese Funktionen!"
 
-#: libraries/classes/Common.php:537
+#: libraries/classes/Common.php:539
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS Überschreibversuch"
 
-#: libraries/classes/Common.php:547
+#: libraries/classes/Common.php:549
 msgid "possible exploit"
 msgstr "Mögliche Ausnutzung"
 
@@ -3702,8 +3702,8 @@ msgid "Character set of the file"
 msgstr "Zeichensatz der Datei"
 
 #: libraries/classes/Config/Descriptions.php:644
-#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:162
-#: templates/import.twig:164 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:160
+#: templates/import.twig:162 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Format"
@@ -5100,7 +5100,7 @@ msgstr "OpenDocument Text"
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
 #: templates/export.twig:495 templates/preferences/header.twig:42
-#: templates/preferences/manage/main.twig:68
+#: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:125
@@ -5126,7 +5126,7 @@ msgstr "CSV mit LOAD DATA"
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
 #: libraries/classes/Menu.php:486 libraries/classes/Util.php:1700
 #: libraries/classes/Util.php:1715 libraries/classes/Util.php:1732
-#: templates/import.twig:3 templates/import.twig:192
+#: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5143,33 +5143,28 @@ msgstr ""
 "Einstellungen können nicht gespeichert werden, ausgefülltes Konfigurations-"
 "Formular enthält Fehler!"
 
-#: libraries/classes/Config.php:638
+#: libraries/classes/Config.php:611
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Bestehende Konfigurationsdatei (%s) kann nicht gelesen werden."
 
-#: libraries/classes/Config.php:674
+#: libraries/classes/Config.php:647
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Falsche Zugriffsrechte auf die Konfigurationsdatei. Schreibzugriff sollte "
 "nicht für alle möglich sein!"
 
-#: libraries/classes/Config.php:688
+#: libraries/classes/Config.php:661
 msgid "Failed to read configuration file!"
 msgstr "Fehler beim Lesen der Konfigurationsdatei!"
 
-#: libraries/classes/Config.php:690
+#: libraries/classes/Config.php:663
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 "Dies bedeutet im Allgemeinen, dass sich ein Syntax-Fehler eingeschlichen "
 "hat. Bitte überprüfen Sie die unten angezeigten Fehler."
-
-#: libraries/classes/Config.php:1177
-#, php-format
-msgid "Server %d"
-msgstr "Server %d"
 
 #: libraries/classes/Config/ServerConfigChecks.php:57
 #, php-format
@@ -5314,6 +5309,11 @@ msgid ""
 msgstr ""
 "%1$sGZip-Komprimierung und Dekomprimierung%2$s benötigt Funktionen (%3$s), "
 "die auf diesem System nicht verfügbar sind."
+
+#: libraries/classes/Config/Settings.php:2951
+#, php-format
+msgid "Server %d"
+msgstr "Server %d"
 
 #: libraries/classes/ConfigStorage/Relation.php:1328
 msgid "no description"
@@ -5498,7 +5498,7 @@ msgstr ""
 "Installation!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:60
-#: libraries/classes/Controllers/Import/ImportController.php:561
+#: libraries/classes/Controllers/Import/ImportController.php:560
 #: libraries/classes/Controllers/Server/ImportController.php:56
 #: libraries/classes/Controllers/Table/ImportController.php:67
 msgid "Could not load import plugins, please check your installation!"
@@ -5660,7 +5660,7 @@ msgstr "Ja"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:291
+#: libraries/classes/Controllers/Table/ReplaceController.php:299
 #: libraries/classes/Core.php:593 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Keine Änderung"
@@ -5858,7 +5858,7 @@ msgstr ""
 "deaktiviert. Aus diesem Grund sind einige Funktionen wie das Melden von "
 "Fehlern oder die Versionsüberprüfung deaktiviert."
 
-#: libraries/classes/Controllers/Import/ImportController.php:204
+#: libraries/classes/Controllers/Import/ImportController.php:203
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5867,21 +5867,21 @@ msgstr ""
 "Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
 "%sDokumentation%s zur Lösung diese Problems."
 
-#: libraries/classes/Controllers/Import/ImportController.php:236
+#: libraries/classes/Controllers/Import/ImportController.php:235
 msgid "Incorrect format parameter"
 msgstr "Falsche Formatparameter"
 
-#: libraries/classes/Controllers/Import/ImportController.php:362
-#: libraries/classes/Controllers/Import/ImportController.php:601
+#: libraries/classes/Controllers/Import/ImportController.php:361
+#: libraries/classes/Controllers/Import/ImportController.php:600
 msgid "Showing bookmark"
 msgstr "Bookmark wird angezeigt"
 
-#: libraries/classes/Controllers/Import/ImportController.php:387
-#: libraries/classes/Controllers/Import/ImportController.php:597
+#: libraries/classes/Controllers/Import/ImportController.php:386
+#: libraries/classes/Controllers/Import/ImportController.php:596
 msgid "The bookmark has been deleted."
 msgstr "SQL-Abfrage wurde gelöscht."
 
-#: libraries/classes/Controllers/Import/ImportController.php:509
+#: libraries/classes/Controllers/Import/ImportController.php:508
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5891,7 +5891,7 @@ msgstr ""
 "ausgewählt, oder die Dateigröße hat die maximal erlaubte Größe der PHP-"
 "Konfiguration überschritten. Siehe [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:608
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5900,7 +5900,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Der Import wurde erfolgreich abgeschlossen, %d Abfragen wurden ausgeführt."
 
-#: libraries/classes/Controllers/Import/ImportController.php:646
+#: libraries/classes/Controllers/Import/ImportController.php:645
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5909,7 +5909,7 @@ msgstr ""
 "Das Ausführungszeitlimit wurde erreicht. Wenn Sie %sdie Datei erneut "
 "abschicken%s, wird der Import fortgesetzt."
 
-#: libraries/classes/Controllers/Import/ImportController.php:656
+#: libraries/classes/Controllers/Import/ImportController.php:655
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5918,7 +5918,7 @@ msgstr ""
 "dass phpMyAdmin nicht in der Lage sein wird, den Import zu beenden, sofern "
 "nicht die Ausführungszeitbeschränkungen von PHP gelockert werden."
 
-#: libraries/classes/Controllers/Import/ImportController.php:724
+#: libraries/classes/Controllers/Import/ImportController.php:723
 #: libraries/classes/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
@@ -6109,8 +6109,8 @@ msgstr "Speichern & Schließen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 #: templates/config/form_display/display.twig:47
-#: templates/preferences/manage/main.twig:114
-#: templates/preferences/manage/main.twig:122
+#: templates/preferences/manage/main.twig:113
+#: templates/preferences/manage/main.twig:121
 #: templates/table/insert/actions_panel.twig:36
 msgid "Reset"
 msgstr "Zurücksetzen"
@@ -7028,7 +7028,7 @@ msgstr "Nein"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:156
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:154
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Fremdschlüsselüberprüfung aktivieren"
@@ -7380,7 +7380,7 @@ msgstr "Datenpunkt-Inhalt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
-#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1836
+#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1635
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorieren"
@@ -7980,13 +7980,13 @@ msgstr "Die Tabelle %s existiert bereits!"
 
 # Hide heist im deutschen in der EDV ausblenden
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/InsertEdit.php:325
+#: libraries/classes/InsertEdit.php:283
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Verstecken"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/Controllers/Table/ChangeController.php:212
+#: libraries/classes/Controllers/Table/ChangeController.php:183
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -9513,7 +9513,7 @@ msgstr "Es gibt ein Problem mit Ihrer Anfrage."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:78
 #: libraries/classes/Database/Routines.php:1221
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:205
 #: libraries/classes/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Datensätze)."
@@ -9557,7 +9557,7 @@ msgstr "Der Partitionsname muss eine nicht leere Zeichenkette sein."
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
 #: libraries/classes/Html/Generator.php:770 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:665 libraries/classes/Message.php:169
+#: libraries/classes/InsertEdit.php:551 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9571,7 +9571,7 @@ msgstr "Spaltendarstellung erfolgreich aktualisiert."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne Verknüpfungen wurden erfolgreich aktualisiert."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:195
+#: libraries/classes/Controllers/Table/ReplaceController.php:198
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
@@ -10881,7 +10881,7 @@ msgstr ""
 "Die Indizes %1$s und %2$s scheinen gleich zu sein und einer könnte "
 "möglicherweise entfernt werden."
 
-#: libraries/classes/InsertEdit.php:340
+#: libraries/classes/InsertEdit.php:298
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10889,7 +10889,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funktion"
 
-#: libraries/classes/InsertEdit.php:341
+#: libraries/classes/InsertEdit.php:299
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:267
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:360
 #: libraries/classes/Plugins/Export/ExportLatex.php:506
@@ -10923,12 +10923,12 @@ msgstr "Funktion"
 msgid "Type"
 msgstr "Typ"
 
-#: libraries/classes/InsertEdit.php:666 templates/import.twig:57
-#: templates/import.twig:82
+#: libraries/classes/InsertEdit.php:552 templates/import.twig:56
+#: templates/import.twig:80
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden."
 
-#: libraries/classes/InsertEdit.php:674
+#: libraries/classes/InsertEdit.php:560
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10938,15 +10938,15 @@ msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden."
 msgid "Or"
 msgstr "Oder"
 
-#: libraries/classes/InsertEdit.php:675
+#: libraries/classes/InsertEdit.php:561
 msgid "web server upload directory:"
 msgstr "Upload-Verzeichnis auf dem Webserver:"
 
-#: libraries/classes/InsertEdit.php:1227 libraries/classes/Sql.php:892
+#: libraries/classes/InsertEdit.php:1031 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Ansicht als SQL Abfrage"
 
-#: libraries/classes/InsertEdit.php:1251 libraries/classes/Sql.php:872
+#: libraries/classes/InsertEdit.php:1055 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID der eingefügten Zeile: %1$d"
@@ -12709,7 +12709,7 @@ msgstr ""
 "Bild-Upload-Funktionalität, die auch eine Vorschau anzeigt. Die möglichen "
 "Werte sind Breite und Höhe des Vorschaubildes in Pixeln. Vorgabe: 100 x 100."
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:83
 msgid "Image preview here"
 msgstr "Bildvorschau hier"
 
@@ -16238,7 +16238,7 @@ msgstr ""
 msgid "Use this for future exports"
 msgstr "Verwenden Sie dies für zukünftige Exporte"
 
-#: templates/export.twig:405 templates/import.twig:100
+#: templates/export.twig:405 templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "Zeichencodierung der Datei:"
 
@@ -16270,11 +16270,11 @@ msgstr "Tabellen überspringen, die größer sind als:"
 msgid "The size is measured in MiB."
 msgstr "Die Größe wird in MiB gemessen."
 
-#: templates/export.twig:478 templates/import.twig:175
+#: templates/export.twig:478 templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "Formatspezifische Optionen:"
 
-#: templates/export.twig:487 templates/import.twig:184
+#: templates/export.twig:487 templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "Zeichensatz Umwandlung:"
 
@@ -16431,7 +16431,7 @@ msgstr "Allgemeine Einstellungen"
 msgid "Server connection collation:"
 msgstr "Zeichensatz/Kollation der Verbindung zum Server:"
 
-#: templates/home/index.twig:84 templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:84 templates/preferences/manage/main.twig:55
 msgid "More settings"
 msgstr "Weitere Einstellungen"
 
@@ -16594,35 +16594,35 @@ msgstr "Eine Datei hochladen"
 msgid "Select file to import"
 msgstr "Zu importierende Datei auswählen"
 
-#: templates/import.twig:47 templates/import.twig:74
-#: templates/preferences/manage/main.twig:22
+#: templates/import.twig:46 templates/import.twig:72
+#: templates/preferences/manage/main.twig:21
 msgid "Browse your computer:"
 msgstr "Durchsuchen Sie Ihren Computer:"
 
-#: templates/import.twig:52 templates/import.twig:79
+#: templates/import.twig:51 templates/import.twig:77
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 "Sie können auch per Drag &amp; Drop eine Datei auf einer beliebigen Seite "
 "legen."
 
-#: templates/import.twig:59 templates/import.twig:85
+#: templates/import.twig:58 templates/import.twig:83
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Wählen Sie vom Webserver-Uploadverzeichnis [strong]%s[/strong]:"
 
-#: templates/import.twig:66 templates/import.twig:93
+#: templates/import.twig:65 templates/import.twig:91
 msgid "There are no files to import!"
 msgstr "Es sind keine Dateien zum Importieren vorhanden!"
 
-#: templates/import.twig:97
+#: templates/import.twig:95
 msgid "File uploads are not allowed on this server."
 msgstr "Das Hochladen von Dateien ist auf diesem Server nicht erlaubt."
 
-#: templates/import.twig:123
+#: templates/import.twig:121
 msgid "Partial import:"
 msgstr "Teilweiser Import:"
 
-#: templates/import.twig:128
+#: templates/import.twig:126
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -16630,7 +16630,7 @@ msgstr ""
 "Der vorherige Import-Vorgang wurde durch eine Zeitüberschreitung "
 "abgebrochen. Er wird nun bei Position %d fortgesetzt."
 
-#: templates/import.twig:135
+#: templates/import.twig:133
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
@@ -16638,7 +16638,7 @@ msgstr ""
 "Erlauben Sie die Unterbrechung eines Imports, falls das Skript erkennt, dass "
 "es sich dem PHP-Timeout-Limit nähert."
 
-#: templates/import.twig:137
+#: templates/import.twig:135
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
@@ -16646,12 +16646,12 @@ msgstr ""
 "Dies kann eine gute Möglichkeit sein, große Dateien zu importieren, kann "
 "jedoch Transaktionen unterbrechen."
 
-#: templates/import.twig:141
+#: templates/import.twig:139
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
 "Diese Anzahl Abfragen (für SQL) überspringen, beginnend von der ersten:"
 
-#: templates/import.twig:151
+#: templates/import.twig:149
 msgid "Other options"
 msgstr "Andere Optionen"
 
@@ -16912,7 +16912,7 @@ msgid "Two-factor authentication"
 msgstr "Zwei-Faktor-Authentifizierung"
 
 #: templates/preferences/header.twig:55
-#: templates/preferences/manage/main.twig:72
+#: templates/preferences/manage/main.twig:71
 msgid "Configuration has been saved."
 msgstr "Die Konfiguration wurde gespeichert."
 
@@ -16934,36 +16934,36 @@ msgid "Do you want to import remaining settings?"
 msgstr "Sollen die restlichen Einstellungen importiert werden?"
 
 #: templates/preferences/manage/main.twig:3
-#: templates/preferences/manage/main.twig:33
+#: templates/preferences/manage/main.twig:32
 msgid "Saved on: @DATE@"
 msgstr "Gespeichert am: @DATE@"
 
-#: templates/preferences/manage/main.twig:20
+#: templates/preferences/manage/main.twig:19
 msgid "Import from file"
 msgstr "Import aus Datei"
 
-#: templates/preferences/manage/main.twig:27
+#: templates/preferences/manage/main.twig:26
 msgid "Import from browser's storage"
 msgstr "Import aus Browserspeicher"
 
-#: templates/preferences/manage/main.twig:30
+#: templates/preferences/manage/main.twig:29
 msgid "Settings will be imported from your browser's local storage."
 msgstr "Einstellungen werden aus Ihrem lokalen Browserspeicher importiert."
 
-#: templates/preferences/manage/main.twig:36
+#: templates/preferences/manage/main.twig:35
 msgid "You have no saved settings!"
 msgstr "Sie haben keine gespeicherten Einstellungen!"
 
-#: templates/preferences/manage/main.twig:40
-#: templates/preferences/manage/main.twig:104
+#: templates/preferences/manage/main.twig:39
+#: templates/preferences/manage/main.twig:103
 msgid "This feature is not supported by your web browser"
 msgstr "Dieses Feature wird von ihrem Webbrowser nicht unterstützt"
 
-#: templates/preferences/manage/main.twig:44
+#: templates/preferences/manage/main.twig:43
 msgid "Merge with current configuration"
 msgstr "Mit aktueller Konfiguration zusammenführen"
 
-#: templates/preferences/manage/main.twig:59
+#: templates/preferences/manage/main.twig:58
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -16972,27 +16972,27 @@ msgstr ""
 "Weitere Einstellungen können durch das Anpassen der Datei config.inc.php "
 "verändert werden, z.B. durch die Verwendung von %sSetup Script%s."
 
-#: templates/preferences/manage/main.twig:81
+#: templates/preferences/manage/main.twig:80
 msgid "Save as JSON file"
 msgstr "Als JSON-Datei speichern"
 
-#: templates/preferences/manage/main.twig:85
+#: templates/preferences/manage/main.twig:84
 msgid "Save as PHP file"
 msgstr "Als PHP-Datei speichern"
 
-#: templates/preferences/manage/main.twig:90
+#: templates/preferences/manage/main.twig:89
 msgid "Save to browser's storage"
 msgstr "Im Browserspeicher speichern"
 
-#: templates/preferences/manage/main.twig:96
+#: templates/preferences/manage/main.twig:95
 msgid "Settings will be saved in your browser's local storage."
 msgstr "Einstellungen werden in Ihrem lokalen Browserspeicher gespeichert."
 
-#: templates/preferences/manage/main.twig:99
+#: templates/preferences/manage/main.twig:98
 msgid "Existing settings will be overwritten!"
 msgstr "Vorhandene Einstellungen werden überschrieben!"
 
-#: templates/preferences/manage/main.twig:120
+#: templates/preferences/manage/main.twig:119
 msgid "You can reset all your settings and restore them to default values."
 msgstr "Sie können alle Einstellungen auf die Standardwerte zurücksetzen."
 

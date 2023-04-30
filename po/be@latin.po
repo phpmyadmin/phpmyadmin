@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-04-23 00:20+0000\n"
+"POT-Creation-Date: 2023-04-30 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -1304,8 +1304,8 @@ msgstr "Pošuk"
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
-#: templates/preferences/manage/main.twig:46
-#: templates/preferences/manage/main.twig:108
+#: templates/preferences/manage/main.twig:45
+#: templates/preferences/manage/main.twig:107
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
@@ -1763,27 +1763,27 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Imia tablicy"
 
-#: libraries/classes/Common.php:261
+#: libraries/classes/Common.php:263
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Vam treba abnavić %s da versii %s ci paźniejšaj."
 
-#: libraries/classes/Common.php:293
+#: libraries/classes/Common.php:295
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/classes/Common.php:354
+#: libraries/classes/Common.php:356
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Common.php:465
+#: libraries/classes/Common.php:467
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:512
+#: libraries/classes/Common.php:514
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1792,17 +1792,17 @@ msgstr ""
 "Vy ŭklučyli mbstring.func_overload u vašym kanfihuracyjnym fajle PHP. Hetaja "
 "opcyja niesumiaščalnaja z phpMyAdmin i moža vyklikać paškodžańnie dadzienych!"
 
-#: libraries/classes/Common.php:527
+#: libraries/classes/Common.php:529
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:537
+#: libraries/classes/Common.php:539
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:547
+#: libraries/classes/Common.php:549
 msgid "possible exploit"
 msgstr ""
 
@@ -3562,8 +3562,8 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:644
-#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:162
-#: templates/import.twig:164 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:660 templates/import.twig:160
+#: templates/import.twig:162 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Farmat"
@@ -5135,7 +5135,7 @@ msgstr "Tekst Open Document"
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
 #: templates/export.twig:495 templates/preferences/header.twig:42
-#: templates/preferences/manage/main.twig:68
+#: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:125
@@ -5161,7 +5161,7 @@ msgstr "CSV z vykarystańniem LOAD DATA"
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
 #: libraries/classes/Menu.php:486 libraries/classes/Util.php:1700
 #: libraries/classes/Util.php:1715 libraries/classes/Util.php:1732
-#: templates/import.twig:3 templates/import.twig:192
+#: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5178,32 +5178,26 @@ msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: libraries/classes/Config.php:638
+#: libraries/classes/Config.php:611
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/classes/Config.php:674
+#: libraries/classes/Config.php:647
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/classes/Config.php:688
+#: libraries/classes/Config.php:661
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file!"
 msgstr "Niemahčyma zahruzić kanfihuracyju pa zmoŭčańni z: \"%1$s\""
 
-#: libraries/classes/Config.php:690
+#: libraries/classes/Config.php:663
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-
-#: libraries/classes/Config.php:1177
-#, fuzzy, php-format
-#| msgid "Server"
-msgid "Server %d"
-msgstr "Server"
 
 #: libraries/classes/Config/ServerConfigChecks.php:57
 #, php-format
@@ -5304,6 +5298,12 @@ msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
+
+#: libraries/classes/Config/Settings.php:2951
+#, fuzzy, php-format
+#| msgid "Server"
+msgid "Server %d"
+msgstr "Server"
 
 #: libraries/classes/ConfigStorage/Relation.php:1328
 msgid "no description"
@@ -5499,7 +5499,7 @@ msgstr ""
 "ŭstalavanyja fajły!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:60
-#: libraries/classes/Controllers/Import/ImportController.php:561
+#: libraries/classes/Controllers/Import/ImportController.php:560
 #: libraries/classes/Controllers/Server/ImportController.php:56
 #: libraries/classes/Controllers/Table/ImportController.php:67
 msgid "Could not load import plugins, please check your installation!"
@@ -5667,7 +5667,7 @@ msgstr "Tak"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:291
+#: libraries/classes/Controllers/Table/ReplaceController.php:299
 #: libraries/classes/Core.php:593 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Niama źmienaŭ"
@@ -5835,7 +5835,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:204
+#: libraries/classes/Controllers/Import/ImportController.php:203
 #, fuzzy, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
@@ -5848,23 +5848,23 @@ msgstr ""
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
 "abmiežavańnie."
 
-#: libraries/classes/Controllers/Import/ImportController.php:236
+#: libraries/classes/Controllers/Import/ImportController.php:235
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Incorrect format parameter"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: libraries/classes/Controllers/Import/ImportController.php:362
-#: libraries/classes/Controllers/Import/ImportController.php:601
+#: libraries/classes/Controllers/Import/ImportController.php:361
+#: libraries/classes/Controllers/Import/ImportController.php:600
 msgid "Showing bookmark"
 msgstr "Pakazvajučy zakładku"
 
-#: libraries/classes/Controllers/Import/ImportController.php:387
-#: libraries/classes/Controllers/Import/ImportController.php:597
+#: libraries/classes/Controllers/Import/ImportController.php:386
+#: libraries/classes/Controllers/Import/ImportController.php:596
 msgid "The bookmark has been deleted."
 msgstr "Zakładka była vydalenaja."
 
-#: libraries/classes/Controllers/Import/ImportController.php:509
+#: libraries/classes/Controllers/Import/ImportController.php:508
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5874,7 +5874,7 @@ msgstr ""
 "zahružany, albo pamier fajła pieravysiŭ maksymalny pamier, vyznačany "
 "kanfihuracyjaj PHP. Hł. [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:608
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -5883,7 +5883,7 @@ msgstr[0] "Impartravańnie paśpiachova zavieršanaje, vykanana %d zapytaŭ."
 msgstr[1] "Impartravańnie paśpiachova zavieršanaje, vykanana %d zapytaŭ."
 msgstr[2] "Impartravańnie paśpiachova zavieršanaje, vykanana %d zapytaŭ."
 
-#: libraries/classes/Controllers/Import/ImportController.php:646
+#: libraries/classes/Controllers/Import/ImportController.php:645
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -5895,7 +5895,7 @@ msgstr ""
 "Vyjšaŭ dazvoleny čas vykanańnia skrypta. Kali vy chočacie zavieršyć "
 "impartavańnie, kali łaska, zahruzicie fajł znoŭ i impartavańnie ŭznavicca."
 
-#: libraries/classes/Controllers/Import/ImportController.php:656
+#: libraries/classes/Controllers/Import/ImportController.php:655
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5904,7 +5904,7 @@ msgstr ""
 "Heta zvyčajna značyć, što phpMyAdmin nia zmoža skončyć hetaje impartavańnia, "
 "kali vy nie pavialičycie limity vykanańnia php-skryptoŭ."
 
-#: libraries/classes/Controllers/Import/ImportController.php:724
+#: libraries/classes/Controllers/Import/ImportController.php:723
 #: libraries/classes/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Kamandy \"DROP DATABASE\" adklučanyja."
@@ -6105,8 +6105,8 @@ msgstr "Zachavać jak fajł"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 #: templates/config/form_display/display.twig:47
-#: templates/preferences/manage/main.twig:114
-#: templates/preferences/manage/main.twig:122
+#: templates/preferences/manage/main.twig:113
+#: templates/preferences/manage/main.twig:121
 #: templates/table/insert/actions_panel.twig:36
 msgid "Reset"
 msgstr "Skinuć"
@@ -7150,7 +7150,7 @@ msgstr "Nie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:156
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:154
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 #, fuzzy
 #| msgid "Disable foreign key checks"
@@ -7532,7 +7532,7 @@ msgstr "Pamier ukazalnika na dadzienyja"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
-#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1836
+#: libraries/classes/ErrorHandler.php:443 libraries/classes/InsertEdit.php:1635
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignaravać"
@@ -8162,13 +8162,13 @@ msgid "Table %s already exists!"
 msgstr "Tablica %s užo isnuje!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/InsertEdit.php:325
+#: libraries/classes/InsertEdit.php:283
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Schavać"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/Controllers/Table/ChangeController.php:212
+#: libraries/classes/Controllers/Table/ChangeController.php:183
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -9739,7 +9739,7 @@ msgstr "Kolkaść patokaŭ, jakija nie źjaŭlajucca śpiačymi."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:78
 #: libraries/classes/Database/Routines.php:1221
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:205
 #: libraries/classes/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL viarnuła pusty vynik (to bok nul radkoŭ)."
@@ -9785,7 +9785,7 @@ msgstr "Pustaja nazva tablicy!"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
 #: libraries/classes/Html/Generator.php:770 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:665 libraries/classes/Message.php:169
+#: libraries/classes/InsertEdit.php:551 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9803,7 +9803,7 @@ msgstr "Patok %s byŭ paśpiachova spynieny."
 msgid "Internal relationships were successfully updated."
 msgstr "Unutranaja suviaź dadadzienaja"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:195
+#: libraries/classes/Controllers/Table/ReplaceController.php:198
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -11212,7 +11212,7 @@ msgstr ""
 "Padobna, što indeksy %1$s i %2$s źjaŭlajucca adnolkavymi, a tamu adzin ź "
 "ich, mahčyma, možna vydalić."
 
-#: libraries/classes/InsertEdit.php:340
+#: libraries/classes/InsertEdit.php:298
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -11220,7 +11220,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funkcyja"
 
-#: libraries/classes/InsertEdit.php:341
+#: libraries/classes/InsertEdit.php:299
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:267
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:360
 #: libraries/classes/Plugins/Export/ExportLatex.php:506
@@ -11254,12 +11254,12 @@ msgstr "Funkcyja"
 msgid "Type"
 msgstr "Typ"
 
-#: libraries/classes/InsertEdit.php:666 templates/import.twig:57
-#: templates/import.twig:82
+#: libraries/classes/InsertEdit.php:552 templates/import.twig:56
+#: templates/import.twig:80
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Niemahčyma adkryć paznačanuju vami tečku dla zahruzki fajłaŭ."
 
-#: libraries/classes/InsertEdit.php:674
+#: libraries/classes/InsertEdit.php:560
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -11269,17 +11269,17 @@ msgstr "Niemahčyma adkryć paznačanuju vami tečku dla zahruzki fajłaŭ."
 msgid "Or"
 msgstr "Abo"
 
-#: libraries/classes/InsertEdit.php:675
+#: libraries/classes/InsertEdit.php:561
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "tečka web-servera dla zahruzki fajłaŭ"
 
-#: libraries/classes/InsertEdit.php:1227 libraries/classes/Sql.php:892
+#: libraries/classes/InsertEdit.php:1031 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: libraries/classes/InsertEdit.php:1251 libraries/classes/Sql.php:872
+#: libraries/classes/InsertEdit.php:1055 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID ustaŭlenaha radku: %1$d"
@@ -13144,7 +13144,7 @@ msgid ""
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:83
 msgid "Image preview here"
 msgstr ""
 
@@ -17109,7 +17109,7 @@ msgstr ""
 msgid "Use this for future exports"
 msgstr ""
 
-#: templates/export.twig:405 templates/import.twig:100
+#: templates/export.twig:405 templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "Kadyroŭka fajła:"
 
@@ -17151,13 +17151,13 @@ msgstr ""
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: templates/export.twig:478 templates/import.twig:175
+#: templates/export.twig:478 templates/import.twig:173
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Opcyi pieraŭtvareńnia"
 
-#: templates/export.twig:487 templates/import.twig:184
+#: templates/export.twig:487 templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -17330,7 +17330,7 @@ msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 msgid "Server connection collation:"
 msgstr "Supastaŭleńnie padłučeńnia da MySQL"
 
-#: templates/home/index.twig:84 templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:84 templates/preferences/manage/main.twig:55
 #, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
@@ -17530,38 +17530,38 @@ msgstr "Zachavać jak fajł"
 msgid "Select file to import"
 msgstr "Impartavać fajł"
 
-#: templates/import.twig:47 templates/import.twig:74
-#: templates/preferences/manage/main.twig:22
+#: templates/import.twig:46 templates/import.twig:72
+#: templates/preferences/manage/main.twig:21
 msgid "Browse your computer:"
 msgstr ""
 
-#: templates/import.twig:52 templates/import.twig:79
+#: templates/import.twig:51 templates/import.twig:77
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: templates/import.twig:59 templates/import.twig:85
+#: templates/import.twig:58 templates/import.twig:83
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "tečka web-servera dla zahruzki fajłaŭ"
 
-#: templates/import.twig:66 templates/import.twig:93
+#: templates/import.twig:65 templates/import.twig:91
 #, fuzzy
 #| msgid "File to import"
 msgid "There are no files to import!"
 msgstr "Impartavać fajł"
 
-#: templates/import.twig:97
+#: templates/import.twig:95
 msgid "File uploads are not allowed on this server."
 msgstr "Zahruzki fajłaŭ nie dazvolenyja na hetym servery."
 
-#: templates/import.twig:123
+#: templates/import.twig:121
 #, fuzzy
 #| msgid "Partial import"
 msgid "Partial import:"
 msgstr "Častkovy impart"
 
-#: templates/import.twig:128
+#: templates/import.twig:126
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -17569,7 +17569,7 @@ msgstr ""
 "Papiaredniaje impartavańnie spyniłasia z-za niedachopu času. Paśla novaj "
 "zahruzki impartavańnie budzie praciahnutaje z pazycyi %d."
 
-#: templates/import.twig:135
+#: templates/import.twig:133
 #, fuzzy
 #| msgid ""
 #| "ow the interruption of an import in case the script detects it is se to "
@@ -17583,19 +17583,19 @@ msgstr ""
 "skončvajecca čas vykanańnia. Heta moža być dobrym sposabam impartavańnia "
 "vialikich fajłaŭ, adnak, heta moža pierapynić tranzakcyi."
 
-#: templates/import.twig:137
+#: templates/import.twig:135
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
 
-#: templates/import.twig:141
+#: templates/import.twig:139
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Kolkaść (zapytaŭ), jakija treba prapuścić ad pačatku"
 
-#: templates/import.twig:151
+#: templates/import.twig:149
 #, fuzzy
 #| msgid "Options"
 msgid "Other options"
@@ -17858,7 +17858,7 @@ msgid "Two-factor authentication"
 msgstr "Aŭtentyfikacyja…"
 
 #: templates/preferences/header.twig:55
-#: templates/preferences/manage/main.twig:72
+#: templates/preferences/manage/main.twig:71
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
@@ -17880,69 +17880,69 @@ msgid "Do you want to import remaining settings?"
 msgstr ""
 
 #: templates/preferences/manage/main.twig:3
-#: templates/preferences/manage/main.twig:33
+#: templates/preferences/manage/main.twig:32
 msgid "Saved on: @DATE@"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:20
+#: templates/preferences/manage/main.twig:19
 #, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
 msgstr "Impartavać fajły"
 
-#: templates/preferences/manage/main.twig:27
+#: templates/preferences/manage/main.twig:26
 msgid "Import from browser's storage"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:30
+#: templates/preferences/manage/main.twig:29
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
-#: templates/preferences/manage/main.twig:36
+#: templates/preferences/manage/main.twig:35
 msgid "You have no saved settings!"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:40
-#: templates/preferences/manage/main.twig:104
+#: templates/preferences/manage/main.twig:39
+#: templates/preferences/manage/main.twig:103
 msgid "This feature is not supported by your web browser"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:44
+#: templates/preferences/manage/main.twig:43
 msgid "Merge with current configuration"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:59
+#: templates/preferences/manage/main.twig:58
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
 
-#: templates/preferences/manage/main.twig:81
+#: templates/preferences/manage/main.twig:80
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save as JSON file"
 msgstr "Zachavać jak fajł"
 
-#: templates/preferences/manage/main.twig:85
+#: templates/preferences/manage/main.twig:84
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
 msgstr "Zachavać jak fajł"
 
-#: templates/preferences/manage/main.twig:90
+#: templates/preferences/manage/main.twig:89
 msgid "Save to browser's storage"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:96
+#: templates/preferences/manage/main.twig:95
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
 
-#: templates/preferences/manage/main.twig:99
+#: templates/preferences/manage/main.twig:98
 msgid "Existing settings will be overwritten!"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:120
+#: templates/preferences/manage/main.twig:119
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
