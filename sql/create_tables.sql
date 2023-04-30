@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `pma__history` (
   PRIMARY KEY  (`id`),
   KEY `username` (`username`,`db`,`table`,`timevalue`)
 )
-  COMMENT='SQL history for phpMyAdmin'
+  COMMENT='SQL history, for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_coords` (
   `y` float unsigned NOT NULL default '0',
   PRIMARY KEY  (`db_name`,`table_name`,`pdf_page_number`)
 )
-  COMMENT='Table coordinates for phpMyAdmin PDF output'
+  COMMENT='Table coordinates, for phpMyAdmin PDF output'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_info` (
   `display_field` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`db_name`,`table_name`)
 )
-  COMMENT='Table information for phpMyAdmin'
+  COMMENT='Table information, for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
