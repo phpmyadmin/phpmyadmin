@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-30 00:18+0000\n"
-"PO-Revision-Date: 2023-04-14 15:54+0000\n"
-"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
+"PO-Revision-Date: 2023-05-02 08:51+0000\n"
+"Last-Translator: Xzonn <Xzonn@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -5839,10 +5839,8 @@ msgid "Connections / Processes"
 msgstr "连接 / 进程"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:173
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "数据表数量："
+msgstr "语句数量"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Local monitor configuration incompatible!"
@@ -7918,10 +7916,8 @@ msgid ""
 msgstr "phpMyAdmin 无法杀死线程 %s。该线程可能已经关闭。"
 
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:90
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "添加语句："
+msgstr "其他语句"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:127
 msgid "Received"
@@ -17180,7 +17176,7 @@ msgstr "ø 每小时"
 
 #: templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "包含最频繁语句的饼图。"
 
 #: templates/server/status/status/index.twig:6
 #, php-format
