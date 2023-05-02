@@ -8,8 +8,6 @@ use function count;
 use function in_array;
 use function is_array;
 
-// phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-
 /** @psalm-immutable */
 final class Server
 {
@@ -66,7 +64,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_key
      */
-    public string|null $ssl_key = null;
+    public string|null $sslKey = null;
 
     /**
      * Path to the cert file when using SSL for connecting to the MySQL server
@@ -77,7 +75,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_cert
      */
-    public string|null $ssl_cert = null;
+    public string|null $sslCert = null;
 
     /**
      * Path to the CA file when using SSL for connecting to the MySQL server
@@ -88,7 +86,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_ca
      */
-    public string|null $ssl_ca = null;
+    public string|null $sslCa = null;
 
     /**
      * Directory containing trusted SSL CA certificates in PEM format
@@ -99,7 +97,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_ca_path
      */
-    public string|null $ssl_ca_path = null;
+    public string|null $sslCaPath = null;
 
     /**
      * List of allowable ciphers for SSL connections to the MySQL server
@@ -110,7 +108,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_ciphers
      */
-    public string|null $ssl_ciphers = null;
+    public string|null $sslCiphers = null;
 
     /**
      * MySQL 5.6 or later triggers the mysqlnd driver in PHP to validate the
@@ -125,7 +123,7 @@ final class Server
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_ssl_verify
      * @see https://bugs.php.net/68344
      */
-    public bool $ssl_verify;
+    public bool $sslVerify;
 
     /**
      * Use compressed protocol for the MySQL connection
@@ -149,7 +147,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controlhost
      */
-    public string $controlhost;
+    public string $controlHost;
 
     /**
      * MySQL control port. This permits to use a port different from the
@@ -162,7 +160,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controlport
      */
-    public string $controlport;
+    public string $controlPort;
 
     /**
      * MySQL control user settings (this user must have read-only
@@ -175,7 +173,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controluser
      */
-    public string $controluser;
+    public string $controlUser;
 
     /**
      * MySQL control user settings (this user must have read-only
@@ -188,68 +186,68 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_controlpass
      */
-    public string $controlpass;
+    public string $controlPass;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
      * @see self::$socket
      */
-    public string $control_socket;
+    public string $controlSocket;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
      * @see self::$ssl
      */
-    public bool $control_ssl;
+    public bool $controlSsl;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
-     * @see self::$ssl_key
+     * @see self::$sslKey
      */
-    public string|null $control_ssl_key = null;
+    public string|null $controlSslKey = null;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
-     * @see self::$ssl_cert
+     * @see self::$sslCert
      */
-    public string|null $control_ssl_cert = null;
+    public string|null $controlSslCert = null;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
-     * @see self::$ssl_ca
+     * @see self::$sslCa
      */
-    public string|null $control_ssl_ca = null;
+    public string|null $controlSslCa = null;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
-     * @see self::$ssl_ca_path
+     * @see self::$sslCaPath
      */
-    public string|null $control_ssl_ca_path = null;
+    public string|null $controlSslCaPath = null;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
-     * @see self::$ssl_ciphers
+     * @see self::$sslCiphers
      */
-    public string|null $control_ssl_ciphers = null;
+    public string|null $controlSslCiphers = null;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
-     * @see self::$ssl_verify
+     * @see self::$sslVerify
      * @see https://bugs.php.net/68344
      */
-    public bool $control_ssl_verify;
+    public bool $controlSslVerify;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
      * @see self::$compress
      */
-    public bool $control_compress;
+    public bool $controlCompress;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
-     * @see self::$hide_connection_errors
+     * @see self::$hideConnectionErrors
      */
-    public bool $control_hide_connection_errors;
+    public bool $controlHideConnectionErrors;
 
     /**
      * Authentication method (valid choices: config, http, signon or cookie)
@@ -262,7 +260,7 @@ final class Server
      *
      * @psalm-var 'config'|'http'|'signon'|'cookie'
      */
-    public string $auth_type;
+    public string $authType;
 
     /**
      * HTTP Basic Auth Realm name to display (only used with 'HTTP' auth_type)
@@ -273,7 +271,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_auth_http_realm
      */
-    public string $auth_http_realm;
+    public string $authHttpRealm;
 
     /**
      * MySQL user
@@ -306,7 +304,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SignonSession
      */
-    public string $SignonSession;
+    public string $signonSession;
 
     /**
      * Cookie params to match session to use for 'signon' authentication method
@@ -323,7 +321,7 @@ final class Server
      *   lifetime: 0|positive-int, path: string, domain: string, secure: bool, httponly: bool, samesite?: 'Lax'|'Strict'
      * }
      */
-    public array $SignonCookieParams;
+    public array $signonCookieParams;
 
     /**
      * PHP script to use for 'signon' authentication method
@@ -334,7 +332,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SignonScript
      */
-    public string $SignonScript;
+    public string $signonScript;
 
     /**
      * URL where to redirect user to login for 'signon' authentication method
@@ -345,7 +343,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SignonURL
      */
-    public string $SignonURL;
+    public string $signonUrl;
 
     /**
      * URL where to redirect user after logout
@@ -356,7 +354,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_LogoutURL
      */
-    public string $LogoutURL;
+    public string $logoutUrl;
 
     /**
      * If set to a db-name, only this db is displayed in navigation panel
@@ -370,7 +368,7 @@ final class Server
      *
      * @var string|string[]
      */
-    public string|array $only_db;
+    public string|array $onlyDb;
 
     /**
      * Database name to be hidden from listings
@@ -381,7 +379,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_hide_db
      */
-    public string $hide_db;
+    public string $hideDb;
 
     /**
      * Verbose name for this host - leave blank to show the hostname
@@ -407,7 +405,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_pmadb
      */
-    public string $pmadb;
+    public string $pmaDb;
 
     /**
      * Bookmark table
@@ -420,7 +418,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_bookmarktable
      */
-    public string|false $bookmarktable;
+    public string|false $bookmarkTable;
 
     /**
      * table to describe the relation between links (see doc)
@@ -446,7 +444,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_table_info
      */
-    public string|false $table_info;
+    public string|false $tableInfo;
 
     /**
      * table to describe the tables position for the designer and PDF schema
@@ -459,7 +457,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_table_coords
      */
-    public string|false $table_coords;
+    public string|false $tableCoords;
 
     /**
      * table to describe pages of relationpdf
@@ -472,7 +470,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_pdf_pages
      */
-    public string|false $pdf_pages;
+    public string|false $pdfPages;
 
     /**
      * table to store column information
@@ -485,7 +483,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_column_info
      */
-    public string|false $column_info;
+    public string|false $columnInfo;
 
     /**
      * table to store SQL history
@@ -537,7 +535,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_table_uiprefs
      */
-    public string|false $table_uiprefs;
+    public string|false $tableUiPrefs;
 
     /**
      * table to store SQL tracking
@@ -563,7 +561,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_userconfig
      */
-    public string|false $userconfig;
+    public string|false $userConfig;
 
     /**
      * table to store users and their assignment to user groups
@@ -589,7 +587,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_usergroups
      */
-    public string|false $usergroups;
+    public string|false $userGroups;
 
     /**
      * table to store information about item hidden from navigation tree
@@ -602,7 +600,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_navigationhiding
      */
-    public string|false $navigationhiding;
+    public string|false $navigationHiding;
 
     /**
      * table to store information about saved searches from query-by-example on a db
@@ -615,7 +613,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_savedsearches
      */
-    public string|false $savedsearches;
+    public string|false $savedSearches;
 
     /**
      * table to store central list of columns per database
@@ -628,7 +626,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_central_columns
      */
-    public string|false $central_columns;
+    public string|false $centralColumns;
 
     /**
      * table to store designer settings
@@ -641,7 +639,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_designer_settings
      */
-    public string|false $designer_settings;
+    public string|false $designerSettings;
 
     /**
      * table to store export templates
@@ -654,7 +652,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_export_templates
      */
-    public string|false $export_templates;
+    public string|false $exportTemplates;
 
     /**
      * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
@@ -673,7 +671,7 @@ final class Server
      *
      * @psalm-var positive-int
      */
-    public int $MaxTableUiprefs;
+    public int $maxTableUiPrefs;
 
     /**
      * Sets the time zone used by phpMyAdmin. Possible values are explained at
@@ -685,7 +683,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_SessionTimeZone
      */
-    public string $SessionTimeZone;
+    public string $sessionTimeZone;
 
     /**
      * whether to allow root login
@@ -696,7 +694,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowRoot
      */
-    public bool $AllowRoot;
+    public bool $allowRoot;
 
     /**
      * whether to allow login of any user without a password
@@ -707,7 +705,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowNoPassword
      */
-    public bool $AllowNoPassword;
+    public bool $allowNoPassword;
 
     /**
      * Host authentication
@@ -726,7 +724,7 @@ final class Server
      * @var array<string, string|string[]>
      * @psalm-var array{order: ''|'deny,allow'|'allow,deny'|'explicit', rules: string[]}
      */
-    public array $AllowDeny;
+    public array $allowDeny;
 
     /**
      * Disable use of INFORMATION_SCHEMA.
@@ -739,7 +737,7 @@ final class Server
      * @see https://github.com/phpmyadmin/phpmyadmin/issues/8970
      * @see https://bugs.mysql.com/19588
      */
-    public bool $DisableIS;
+    public bool $disableIS;
 
     /**
      * Whether the tracking mechanism creates
@@ -751,7 +749,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_version_auto_create
      */
-    public bool $tracking_version_auto_create;
+    public bool $trackingVersionAutoCreate;
 
     /**
      * Defines the list of statements
@@ -765,7 +763,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_default_statements
      */
-    public string $tracking_default_statements;
+    public string $trackingDefaultStatements;
 
     /**
      * Whether a DROP VIEW IF EXISTS statement will be added
@@ -777,7 +775,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_add_drop_view
      */
-    public bool $tracking_add_drop_view;
+    public bool $trackingAddDropView;
 
     /**
      * Whether a DROP TABLE IF EXISTS statement will be added
@@ -789,7 +787,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_add_drop_table
      */
-    public bool $tracking_add_drop_table;
+    public bool $trackingAddDropTable;
 
     /**
      * Whether a DROP DATABASE IF EXISTS statement will be added
@@ -801,7 +799,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_tracking_add_drop_database
      */
-    public bool $tracking_add_drop_database;
+    public bool $trackingAddDropDatabase;
 
     /**
      * Whether to show or hide detailed MySQL/MariaDB connection errors on the login page.
@@ -812,7 +810,7 @@ final class Server
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_hide_connection_errors
      */
-    public bool $hide_connection_errors;
+    public bool $hideConnectionErrors;
 
     /** @param array<int|string, mixed> $server */
     public function __construct(array $server = [])
@@ -821,71 +819,71 @@ final class Server
         $this->port = $this->setPort($server);
         $this->socket = $this->setSocket($server);
         $this->ssl = $this->setSsl($server);
-        $this->ssl_key = $this->setSslKey($server);
-        $this->ssl_cert = $this->setSslCert($server);
-        $this->ssl_ca = $this->setSslCa($server);
-        $this->ssl_ca_path = $this->setSslCaPath($server);
-        $this->ssl_ciphers = $this->setSslCiphers($server);
-        $this->ssl_verify = $this->setSslVerify($server);
+        $this->sslKey = $this->setSslKey($server);
+        $this->sslCert = $this->setSslCert($server);
+        $this->sslCa = $this->setSslCa($server);
+        $this->sslCaPath = $this->setSslCaPath($server);
+        $this->sslCiphers = $this->setSslCiphers($server);
+        $this->sslVerify = $this->setSslVerify($server);
         $this->compress = $this->setCompress($server);
-        $this->controlhost = $this->setControlHost($server);
-        $this->controlport = $this->setControlPort($server);
-        $this->controluser = $this->setControlUser($server);
-        $this->controlpass = $this->setControlPass($server);
-        $this->control_socket = $this->setControlSocket($server);
-        $this->control_ssl = $this->setControlSsl($server);
-        $this->control_ssl_key = $this->setControlSslKey($server);
-        $this->control_ssl_cert = $this->setControlSslCert($server);
-        $this->control_ssl_ca = $this->setControlSslCa($server);
-        $this->control_ssl_ca_path = $this->setControlSslCaPath($server);
-        $this->control_ssl_ciphers = $this->setControlSslCiphers($server);
-        $this->control_ssl_verify = $this->setControlSslVerify($server);
-        $this->control_compress = $this->setControlCompress($server);
-        $this->control_hide_connection_errors = $this->setControlHideConnectionErrors($server);
-        $this->auth_type = $this->setAuthType($server);
-        $this->auth_http_realm = $this->setAuthHttpRealm($server);
+        $this->controlHost = $this->setControlHost($server);
+        $this->controlPort = $this->setControlPort($server);
+        $this->controlUser = $this->setControlUser($server);
+        $this->controlPass = $this->setControlPass($server);
+        $this->controlSocket = $this->setControlSocket($server);
+        $this->controlSsl = $this->setControlSsl($server);
+        $this->controlSslKey = $this->setControlSslKey($server);
+        $this->controlSslCert = $this->setControlSslCert($server);
+        $this->controlSslCa = $this->setControlSslCa($server);
+        $this->controlSslCaPath = $this->setControlSslCaPath($server);
+        $this->controlSslCiphers = $this->setControlSslCiphers($server);
+        $this->controlSslVerify = $this->setControlSslVerify($server);
+        $this->controlCompress = $this->setControlCompress($server);
+        $this->controlHideConnectionErrors = $this->setControlHideConnectionErrors($server);
+        $this->authType = $this->setAuthType($server);
+        $this->authHttpRealm = $this->setAuthHttpRealm($server);
         $this->user = $this->setUser($server);
         $this->password = $this->setPassword($server);
-        $this->SignonSession = $this->setSignonSession($server);
-        $this->SignonCookieParams = $this->setSignonCookieParams($server);
-        $this->SignonScript = $this->setSignonScript($server);
-        $this->SignonURL = $this->setSignonUrl($server);
-        $this->LogoutURL = $this->setLogoutUrl($server);
-        $this->only_db = $this->setOnlyDb($server);
-        $this->hide_db = $this->setHideDb($server);
+        $this->signonSession = $this->setSignonSession($server);
+        $this->signonCookieParams = $this->setSignonCookieParams($server);
+        $this->signonScript = $this->setSignonScript($server);
+        $this->signonUrl = $this->setSignonUrl($server);
+        $this->logoutUrl = $this->setLogoutUrl($server);
+        $this->onlyDb = $this->setOnlyDb($server);
+        $this->hideDb = $this->setHideDb($server);
         $this->verbose = $this->setVerbose($server);
-        $this->pmadb = $this->setPmadb($server);
-        $this->bookmarktable = $this->setBookmarktable($server);
+        $this->pmaDb = $this->setPmaDb($server);
+        $this->bookmarkTable = $this->setBookmarkTable($server);
         $this->relation = $this->setRelation($server);
-        $this->table_info = $this->setTableInfo($server);
-        $this->table_coords = $this->setTableCoords($server);
-        $this->pdf_pages = $this->setPdfPages($server);
-        $this->column_info = $this->setColumnInfo($server);
+        $this->tableInfo = $this->setTableInfo($server);
+        $this->tableCoords = $this->setTableCoords($server);
+        $this->pdfPages = $this->setPdfPages($server);
+        $this->columnInfo = $this->setColumnInfo($server);
         $this->history = $this->setHistory($server);
         $this->recent = $this->setRecent($server);
         $this->favorite = $this->setFavorite($server);
-        $this->table_uiprefs = $this->setTableUiprefs($server);
+        $this->tableUiPrefs = $this->setTableUiPrefs($server);
         $this->tracking = $this->setTracking($server);
-        $this->userconfig = $this->setUserconfig($server);
+        $this->userConfig = $this->setUserConfig($server);
         $this->users = $this->setUsers($server);
-        $this->usergroups = $this->setUsergroups($server);
-        $this->navigationhiding = $this->setNavigationhiding($server);
-        $this->savedsearches = $this->setSavedsearches($server);
-        $this->central_columns = $this->setCentralColumns($server);
-        $this->designer_settings = $this->setDesignerSettings($server);
-        $this->export_templates = $this->setExportTemplates($server);
-        $this->MaxTableUiprefs = $this->setMaxTableUiprefs($server);
-        $this->SessionTimeZone = $this->setSessionTimeZone($server);
-        $this->AllowRoot = $this->setAllowRoot($server);
-        $this->AllowNoPassword = $this->setAllowNoPassword($server);
-        $this->AllowDeny = $this->setAllowDeny($server);
-        $this->DisableIS = $this->setDisableIs($server);
-        $this->tracking_version_auto_create = $this->setTrackingVersionAutoCreate($server);
-        $this->tracking_default_statements = $this->setTrackingDefaultStatements($server);
-        $this->tracking_add_drop_view = $this->setTrackingAddDropView($server);
-        $this->tracking_add_drop_table = $this->setTrackingAddDropTable($server);
-        $this->tracking_add_drop_database = $this->setTrackingAddDropDatabase($server);
-        $this->hide_connection_errors = $this->setHideConnectionErrors($server);
+        $this->userGroups = $this->setUserGroups($server);
+        $this->navigationHiding = $this->setNavigationHiding($server);
+        $this->savedSearches = $this->setSavedSearches($server);
+        $this->centralColumns = $this->setCentralColumns($server);
+        $this->designerSettings = $this->setDesignerSettings($server);
+        $this->exportTemplates = $this->setExportTemplates($server);
+        $this->maxTableUiPrefs = $this->setMaxTableUiPrefs($server);
+        $this->sessionTimeZone = $this->setSessionTimeZone($server);
+        $this->allowRoot = $this->setAllowRoot($server);
+        $this->allowNoPassword = $this->setAllowNoPassword($server);
+        $this->allowDeny = $this->setAllowDeny($server);
+        $this->disableIS = $this->setDisableIs($server);
+        $this->trackingVersionAutoCreate = $this->setTrackingVersionAutoCreate($server);
+        $this->trackingDefaultStatements = $this->setTrackingDefaultStatements($server);
+        $this->trackingAddDropView = $this->setTrackingAddDropView($server);
+        $this->trackingAddDropTable = $this->setTrackingAddDropTable($server);
+        $this->trackingAddDropDatabase = $this->setTrackingAddDropDatabase($server);
+        $this->hideConnectionErrors = $this->setHideConnectionErrors($server);
     }
 
     /** @return array<string, string|bool|int|array<mixed>|null> */
@@ -896,71 +894,71 @@ final class Server
             'port' => $this->port,
             'socket' => $this->socket,
             'ssl' => $this->ssl,
-            'ssl_key' => $this->ssl_key,
-            'ssl_cert' => $this->ssl_cert,
-            'ssl_ca' => $this->ssl_ca,
-            'ssl_ca_path' => $this->ssl_ca_path,
-            'ssl_ciphers' => $this->ssl_ciphers,
-            'ssl_verify' => $this->ssl_verify,
+            'ssl_key' => $this->sslKey,
+            'ssl_cert' => $this->sslCert,
+            'ssl_ca' => $this->sslCa,
+            'ssl_ca_path' => $this->sslCaPath,
+            'ssl_ciphers' => $this->sslCiphers,
+            'ssl_verify' => $this->sslVerify,
             'compress' => $this->compress,
-            'controlhost' => $this->controlhost,
-            'controlport' => $this->controlport,
-            'controluser' => $this->controluser,
-            'controlpass' => $this->controlpass,
-            'control_socket' => $this->control_socket,
-            'control_ssl' => $this->control_ssl,
-            'control_ssl_key' => $this->control_ssl_key,
-            'control_ssl_cert' => $this->control_ssl_cert,
-            'control_ssl_ca' => $this->control_ssl_ca,
-            'control_ssl_ca_path' => $this->control_ssl_ca_path,
-            'control_ssl_ciphers' => $this->control_ssl_ciphers,
-            'control_ssl_verify' => $this->control_ssl_verify,
-            'control_compress' => $this->control_compress,
-            'control_hide_connection_errors' => $this->control_hide_connection_errors,
-            'auth_type' => $this->auth_type,
-            'auth_http_realm' => $this->auth_http_realm,
+            'controlhost' => $this->controlHost,
+            'controlport' => $this->controlPort,
+            'controluser' => $this->controlUser,
+            'controlpass' => $this->controlPass,
+            'control_socket' => $this->controlSocket,
+            'control_ssl' => $this->controlSsl,
+            'control_ssl_key' => $this->controlSslKey,
+            'control_ssl_cert' => $this->controlSslCert,
+            'control_ssl_ca' => $this->controlSslCa,
+            'control_ssl_ca_path' => $this->controlSslCaPath,
+            'control_ssl_ciphers' => $this->controlSslCiphers,
+            'control_ssl_verify' => $this->controlSslVerify,
+            'control_compress' => $this->controlCompress,
+            'control_hide_connection_errors' => $this->controlHideConnectionErrors,
+            'auth_type' => $this->authType,
+            'auth_http_realm' => $this->authHttpRealm,
             'user' => $this->user,
             'password' => $this->password,
-            'SignonSession' => $this->SignonSession,
-            'SignonCookieParams' => $this->SignonCookieParams,
-            'SignonScript' => $this->SignonScript,
-            'SignonURL' => $this->SignonURL,
-            'LogoutURL' => $this->LogoutURL,
-            'only_db' => $this->only_db,
-            'hide_db' => $this->hide_db,
+            'SignonSession' => $this->signonSession,
+            'SignonCookieParams' => $this->signonCookieParams,
+            'SignonScript' => $this->signonScript,
+            'SignonURL' => $this->signonUrl,
+            'LogoutURL' => $this->logoutUrl,
+            'only_db' => $this->onlyDb,
+            'hide_db' => $this->hideDb,
             'verbose' => $this->verbose,
-            'pmadb' => $this->pmadb,
-            'bookmarktable' => $this->bookmarktable,
+            'pmadb' => $this->pmaDb,
+            'bookmarktable' => $this->bookmarkTable,
             'relation' => $this->relation,
-            'table_info' => $this->table_info,
-            'table_coords' => $this->table_coords,
-            'pdf_pages' => $this->pdf_pages,
-            'column_info' => $this->column_info,
+            'table_info' => $this->tableInfo,
+            'table_coords' => $this->tableCoords,
+            'pdf_pages' => $this->pdfPages,
+            'column_info' => $this->columnInfo,
             'history' => $this->history,
             'recent' => $this->recent,
             'favorite' => $this->favorite,
-            'table_uiprefs' => $this->table_uiprefs,
+            'table_uiprefs' => $this->tableUiPrefs,
             'tracking' => $this->tracking,
-            'userconfig' => $this->userconfig,
+            'userconfig' => $this->userConfig,
             'users' => $this->users,
-            'usergroups' => $this->usergroups,
-            'navigationhiding' => $this->navigationhiding,
-            'savedsearches' => $this->savedsearches,
-            'central_columns' => $this->central_columns,
-            'designer_settings' => $this->designer_settings,
-            'export_templates' => $this->export_templates,
-            'MaxTableUiprefs' => $this->MaxTableUiprefs,
-            'SessionTimeZone' => $this->SessionTimeZone,
-            'AllowRoot' => $this->AllowRoot,
-            'AllowNoPassword' => $this->AllowNoPassword,
-            'AllowDeny' => $this->AllowDeny,
-            'DisableIS' => $this->DisableIS,
-            'tracking_version_auto_create' => $this->tracking_version_auto_create,
-            'tracking_default_statements' => $this->tracking_default_statements,
-            'tracking_add_drop_view' => $this->tracking_add_drop_view,
-            'tracking_add_drop_table' => $this->tracking_add_drop_table,
-            'tracking_add_drop_database' => $this->tracking_add_drop_database,
-            'hide_connection_errors' => $this->hide_connection_errors,
+            'usergroups' => $this->userGroups,
+            'navigationhiding' => $this->navigationHiding,
+            'savedsearches' => $this->savedSearches,
+            'central_columns' => $this->centralColumns,
+            'designer_settings' => $this->designerSettings,
+            'export_templates' => $this->exportTemplates,
+            'MaxTableUiprefs' => $this->maxTableUiPrefs,
+            'SessionTimeZone' => $this->sessionTimeZone,
+            'AllowRoot' => $this->allowRoot,
+            'AllowNoPassword' => $this->allowNoPassword,
+            'AllowDeny' => $this->allowDeny,
+            'DisableIS' => $this->disableIS,
+            'tracking_version_auto_create' => $this->trackingVersionAutoCreate,
+            'tracking_default_statements' => $this->trackingDefaultStatements,
+            'tracking_add_drop_view' => $this->trackingAddDropView,
+            'tracking_add_drop_table' => $this->trackingAddDropTable,
+            'tracking_add_drop_database' => $this->trackingAddDropDatabase,
+            'hide_connection_errors' => $this->hideConnectionErrors,
         ];
     }
 
@@ -1417,7 +1415,7 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setPmadb(array $server): string
+    private function setPmaDb(array $server): string
     {
         if (isset($server['pmadb'])) {
             return (string) $server['pmadb'];
@@ -1427,7 +1425,7 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setBookmarktable(array $server): false|string
+    private function setBookmarkTable(array $server): false|string
     {
         if (isset($server['bookmarktable'])) {
             return $server['bookmarktable'] === false ? false : (string) $server['bookmarktable'];
@@ -1517,7 +1515,7 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setTableUiprefs(array $server): false|string
+    private function setTableUiPrefs(array $server): false|string
     {
         if (isset($server['table_uiprefs'])) {
             return $server['table_uiprefs'] === false ? false : (string) $server['table_uiprefs'];
@@ -1537,7 +1535,7 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setUserconfig(array $server): false|string
+    private function setUserConfig(array $server): false|string
     {
         if (isset($server['userconfig'])) {
             return $server['userconfig'] === false ? false : (string) $server['userconfig'];
@@ -1557,7 +1555,7 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setUsergroups(array $server): false|string
+    private function setUserGroups(array $server): false|string
     {
         if (isset($server['usergroups'])) {
             return $server['usergroups'] === false ? false : (string) $server['usergroups'];
@@ -1567,7 +1565,7 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setNavigationhiding(array $server): false|string
+    private function setNavigationHiding(array $server): false|string
     {
         if (isset($server['navigationhiding'])) {
             return $server['navigationhiding'] === false
@@ -1579,7 +1577,7 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setSavedsearches(array $server): false|string
+    private function setSavedSearches(array $server): false|string
     {
         if (isset($server['savedsearches'])) {
             return $server['savedsearches'] === false ? false : (string) $server['savedsearches'];
@@ -1627,7 +1625,7 @@ final class Server
      *
      * @psalm-return positive-int
      */
-    private function setMaxTableUiprefs(array $server): int
+    private function setMaxTableUiPrefs(array $server): int
     {
         if (isset($server['MaxTableUiprefs'])) {
             $maxTableUiprefs = (int) $server['MaxTableUiprefs'];

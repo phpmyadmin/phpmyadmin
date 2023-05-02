@@ -561,7 +561,7 @@ final class Common
          * user but the true user link must be open after this one, so it would be default one for all the scripts).
          */
         $controlConnection = null;
-        if ($currentServer->controluser !== '') {
+        if ($currentServer->controlUser !== '') {
             $controlConnection = $dbi->connect(Connection::TYPE_CONTROL);
         }
 

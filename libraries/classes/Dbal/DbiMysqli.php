@@ -57,23 +57,22 @@ class DbiMysqli implements DbiExtension
             $clientFlags |= MYSQLI_CLIENT_COMPRESS;
         }
 
-        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         /* Optionally enable SSL */
         if ($server->ssl) {
             $clientFlags |= MYSQLI_CLIENT_SSL;
             if (
-                $server->ssl_key !== null && $server->ssl_key !== '' ||
-                $server->ssl_cert !== null && $server->ssl_cert !== '' ||
-                $server->ssl_ca !== null && $server->ssl_ca !== '' ||
-                $server->ssl_ca_path !== null && $server->ssl_ca_path !== '' ||
-                $server->ssl_ciphers !== null && $server->ssl_ciphers !== ''
+                $server->sslKey !== null && $server->sslKey !== '' ||
+                $server->sslCert !== null && $server->sslCert !== '' ||
+                $server->sslCa !== null && $server->sslCa !== '' ||
+                $server->sslCaPath !== null && $server->sslCaPath !== '' ||
+                $server->sslCiphers !== null && $server->sslCiphers !== ''
             ) {
                 $mysqli->ssl_set(
-                    $server->ssl_key ?? '',
-                    $server->ssl_cert ?? '',
-                    $server->ssl_ca ?? '',
-                    $server->ssl_ca_path ?? '',
-                    $server->ssl_ciphers ?? '',
+                    $server->sslKey ?? '',
+                    $server->sslCert ?? '',
+                    $server->sslCa ?? '',
+                    $server->sslCaPath ?? '',
+                    $server->sslCiphers ?? '',
                 );
             }
 
@@ -83,8 +82,8 @@ class DbiMysqli implements DbiExtension
              * @link https://bugs.php.net/bug.php?id=68344
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
-            if (! $server->ssl_verify) {
-                $mysqli->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, (int) $server->ssl_verify);
+            if (! $server->sslVerify) {
+                $mysqli->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, (int) $server->sslVerify);
                 $clientFlags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
         }
@@ -106,7 +105,9 @@ class DbiMysqli implements DbiExtension
              * - #2001 - SSL Connection is required. Please specify SSL options and retry.
              * - #9002 - SSL connection is required. Please specify SSL options and retry.
              */
+            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             $errorNumber = $mysqli->connect_errno;
+            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             $errorMessage = $mysqli->connect_error;
             if (
                 ! $server->ssl
@@ -122,7 +123,7 @@ class DbiMysqli implements DbiExtension
                 return self::connect($user, $password, $server->withSSL(true));
             }
 
-            if ($errorNumber === 1045 && $server->hide_connection_errors) {
+            if ($errorNumber === 1045 && $server->hideConnectionErrors) {
                 trigger_error(
                     sprintf(
                         __(
@@ -142,8 +143,6 @@ class DbiMysqli implements DbiExtension
 
             return null;
         }
-
-        // phpcs:enable
 
         $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
 

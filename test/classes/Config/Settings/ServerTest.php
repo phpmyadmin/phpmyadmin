@@ -7,8 +7,6 @@ namespace PhpMyAdmin\Tests\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PHPUnit\Framework\TestCase;
 
-// phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-
 /** @covers \PhpMyAdmin\Config\Settings\Server */
 class ServerTest extends TestCase
 {
@@ -93,7 +91,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_key' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->ssl_key);
+        $this->assertSame($expected, $server->sslKey);
         $this->assertArrayHasKey('ssl_key', $serverArray);
         $this->assertSame($expected, $serverArray['ssl_key']);
     }
@@ -112,7 +110,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_cert' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->ssl_cert);
+        $this->assertSame($expected, $server->sslCert);
         $this->assertArrayHasKey('ssl_cert', $serverArray);
         $this->assertSame($expected, $serverArray['ssl_cert']);
     }
@@ -122,7 +120,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_ca' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->ssl_ca);
+        $this->assertSame($expected, $server->sslCa);
         $this->assertArrayHasKey('ssl_ca', $serverArray);
         $this->assertSame($expected, $serverArray['ssl_ca']);
     }
@@ -132,7 +130,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_ca_path' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->ssl_ca_path);
+        $this->assertSame($expected, $server->sslCaPath);
         $this->assertArrayHasKey('ssl_ca_path', $serverArray);
         $this->assertSame($expected, $serverArray['ssl_ca_path']);
     }
@@ -142,7 +140,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_ciphers' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->ssl_ciphers);
+        $this->assertSame($expected, $server->sslCiphers);
         $this->assertArrayHasKey('ssl_ciphers', $serverArray);
         $this->assertSame($expected, $serverArray['ssl_ciphers']);
     }
@@ -152,7 +150,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_verify' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->ssl_verify);
+        $this->assertSame($expected, $server->sslVerify);
         $this->assertArrayHasKey('ssl_verify', $serverArray);
         $this->assertSame($expected, $serverArray['ssl_verify']);
     }
@@ -181,7 +179,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controlhost' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlhost);
+        $this->assertSame($expected, $server->controlHost);
         $this->assertArrayHasKey('controlhost', $serverArray);
         $this->assertSame($expected, $serverArray['controlhost']);
     }
@@ -191,7 +189,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_host' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlhost);
+        $this->assertSame($expected, $server->controlHost);
         $this->assertArrayHasKey('controlhost', $serverArray);
         $this->assertSame($expected, $serverArray['controlhost']);
     }
@@ -210,7 +208,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controlport' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlport);
+        $this->assertSame($expected, $server->controlPort);
         $this->assertArrayHasKey('controlport', $serverArray);
         $this->assertSame($expected, $serverArray['controlport']);
     }
@@ -220,7 +218,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_port' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlport);
+        $this->assertSame($expected, $server->controlPort);
         $this->assertArrayHasKey('controlport', $serverArray);
         $this->assertSame($expected, $serverArray['controlport']);
     }
@@ -239,7 +237,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controluser' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controluser);
+        $this->assertSame($expected, $server->controlUser);
         $this->assertArrayHasKey('controluser', $serverArray);
         $this->assertSame($expected, $serverArray['controluser']);
     }
@@ -249,7 +247,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_user' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controluser);
+        $this->assertSame($expected, $server->controlUser);
         $this->assertArrayHasKey('controluser', $serverArray);
         $this->assertSame($expected, $serverArray['controluser']);
     }
@@ -268,7 +266,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controlpass' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlpass);
+        $this->assertSame($expected, $server->controlPass);
         $this->assertArrayHasKey('controlpass', $serverArray);
         $this->assertSame($expected, $serverArray['controlpass']);
     }
@@ -278,7 +276,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_pass' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlpass);
+        $this->assertSame($expected, $server->controlPass);
         $this->assertArrayHasKey('controlpass', $serverArray);
         $this->assertSame($expected, $serverArray['controlpass']);
     }
@@ -288,7 +286,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_password' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlpass);
+        $this->assertSame($expected, $server->controlPass);
         $this->assertArrayHasKey('controlpass', $serverArray);
         $this->assertSame($expected, $serverArray['controlpass']);
     }
@@ -307,7 +305,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_socket' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_socket);
+        $this->assertSame($expected, $server->controlSocket);
         $this->assertArrayHasKey('control_socket', $serverArray);
         $this->assertSame($expected, $serverArray['control_socket']);
     }
@@ -317,7 +315,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_ssl);
+        $this->assertSame($expected, $server->controlSsl);
         $this->assertArrayHasKey('control_ssl', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl']);
     }
@@ -327,7 +325,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_key' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_ssl_key);
+        $this->assertSame($expected, $server->controlSslKey);
         $this->assertArrayHasKey('control_ssl_key', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl_key']);
     }
@@ -337,7 +335,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_cert' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_ssl_cert);
+        $this->assertSame($expected, $server->controlSslCert);
         $this->assertArrayHasKey('control_ssl_cert', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl_cert']);
     }
@@ -347,7 +345,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_ca' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_ssl_ca);
+        $this->assertSame($expected, $server->controlSslCa);
         $this->assertArrayHasKey('control_ssl_ca', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl_ca']);
     }
@@ -357,7 +355,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_ca_path' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_ssl_ca_path);
+        $this->assertSame($expected, $server->controlSslCaPath);
         $this->assertArrayHasKey('control_ssl_ca_path', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl_ca_path']);
     }
@@ -367,7 +365,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_ciphers' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_ssl_ciphers);
+        $this->assertSame($expected, $server->controlSslCiphers);
         $this->assertArrayHasKey('control_ssl_ciphers', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl_ciphers']);
     }
@@ -377,7 +375,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_verify' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_ssl_verify);
+        $this->assertSame($expected, $server->controlSslVerify);
         $this->assertArrayHasKey('control_ssl_verify', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl_verify']);
     }
@@ -387,7 +385,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_compress' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_compress);
+        $this->assertSame($expected, $server->controlCompress);
         $this->assertArrayHasKey('control_compress', $serverArray);
         $this->assertSame($expected, $serverArray['control_compress']);
     }
@@ -397,7 +395,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_hide_connection_errors' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->control_hide_connection_errors);
+        $this->assertSame($expected, $server->controlHideConnectionErrors);
         $this->assertArrayHasKey('control_hide_connection_errors', $serverArray);
         $this->assertSame($expected, $serverArray['control_hide_connection_errors']);
     }
@@ -407,7 +405,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['auth_type' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->auth_type);
+        $this->assertSame($expected, $server->authType);
         $this->assertArrayHasKey('auth_type', $serverArray);
         $this->assertSame($expected, $serverArray['auth_type']);
     }
@@ -428,7 +426,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['auth_http_realm' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->auth_http_realm);
+        $this->assertSame($expected, $server->authHttpRealm);
         $this->assertArrayHasKey('auth_http_realm', $serverArray);
         $this->assertSame($expected, $serverArray['auth_http_realm']);
     }
@@ -485,7 +483,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonSession' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->SignonSession);
+        $this->assertSame($expected, $server->signonSession);
         $this->assertArrayHasKey('SignonSession', $serverArray);
         $this->assertSame($expected, $serverArray['SignonSession']);
     }
@@ -508,7 +506,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonCookieParams' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->SignonCookieParams);
+        $this->assertSame($expected, $server->signonCookieParams);
         $this->assertArrayHasKey('SignonCookieParams', $serverArray);
         $this->assertSame($expected, $serverArray['SignonCookieParams']);
     }
@@ -578,7 +576,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonScript' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->SignonScript);
+        $this->assertSame($expected, $server->signonScript);
         $this->assertArrayHasKey('SignonScript', $serverArray);
         $this->assertSame($expected, $serverArray['SignonScript']);
     }
@@ -597,7 +595,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonURL' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->SignonURL);
+        $this->assertSame($expected, $server->signonUrl);
         $this->assertArrayHasKey('SignonURL', $serverArray);
         $this->assertSame($expected, $serverArray['SignonURL']);
     }
@@ -616,7 +614,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['LogoutURL' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->LogoutURL);
+        $this->assertSame($expected, $server->logoutUrl);
         $this->assertArrayHasKey('LogoutURL', $serverArray);
         $this->assertSame($expected, $serverArray['LogoutURL']);
     }
@@ -639,7 +637,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['only_db' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->only_db);
+        $this->assertSame($expected, $server->onlyDb);
         $this->assertArrayHasKey('only_db', $serverArray);
         $this->assertSame($expected, $serverArray['only_db']);
     }
@@ -659,7 +657,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['hide_db' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->hide_db);
+        $this->assertSame($expected, $server->hideDb);
         $this->assertArrayHasKey('hide_db', $serverArray);
         $this->assertSame($expected, $serverArray['hide_db']);
     }
@@ -697,7 +695,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['pmadb' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->pmadb);
+        $this->assertSame($expected, $server->pmaDb);
         $this->assertArrayHasKey('pmadb', $serverArray);
         $this->assertSame($expected, $serverArray['pmadb']);
     }
@@ -716,7 +714,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['bookmarktable' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->bookmarktable);
+        $this->assertSame($expected, $server->bookmarkTable);
         $this->assertArrayHasKey('bookmarktable', $serverArray);
         $this->assertSame($expected, $serverArray['bookmarktable']);
     }
@@ -746,7 +744,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['table_info' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->table_info);
+        $this->assertSame($expected, $server->tableInfo);
         $this->assertArrayHasKey('table_info', $serverArray);
         $this->assertSame($expected, $serverArray['table_info']);
     }
@@ -756,7 +754,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['pdf_pages' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->pdf_pages);
+        $this->assertSame($expected, $server->pdfPages);
         $this->assertArrayHasKey('pdf_pages', $serverArray);
         $this->assertSame($expected, $serverArray['pdf_pages']);
     }
@@ -766,7 +764,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['column_info' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->column_info);
+        $this->assertSame($expected, $server->columnInfo);
         $this->assertArrayHasKey('column_info', $serverArray);
         $this->assertSame($expected, $serverArray['column_info']);
     }
@@ -802,11 +800,11 @@ class ServerTest extends TestCase
     }
 
     /** @dataProvider valuesForConfigStorageTablesProvider */
-    public function testTableUiprefs(mixed $actual, string|false $expected): void
+    public function testTableUiPrefs(mixed $actual, string|false $expected): void
     {
         $server = new Server(['table_uiprefs' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->table_uiprefs);
+        $this->assertSame($expected, $server->tableUiPrefs);
         $this->assertArrayHasKey('table_uiprefs', $serverArray);
         $this->assertSame($expected, $serverArray['table_uiprefs']);
     }
@@ -826,7 +824,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['userconfig' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->userconfig);
+        $this->assertSame($expected, $server->userConfig);
         $this->assertArrayHasKey('userconfig', $serverArray);
         $this->assertSame($expected, $serverArray['userconfig']);
     }
@@ -846,7 +844,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['usergroups' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->usergroups);
+        $this->assertSame($expected, $server->userGroups);
         $this->assertArrayHasKey('usergroups', $serverArray);
         $this->assertSame($expected, $serverArray['usergroups']);
     }
@@ -856,7 +854,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['navigationhiding' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->navigationhiding);
+        $this->assertSame($expected, $server->navigationHiding);
         $this->assertArrayHasKey('navigationhiding', $serverArray);
         $this->assertSame($expected, $serverArray['navigationhiding']);
     }
@@ -866,7 +864,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['savedsearches' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->savedsearches);
+        $this->assertSame($expected, $server->savedSearches);
         $this->assertArrayHasKey('savedsearches', $serverArray);
         $this->assertSame($expected, $serverArray['savedsearches']);
     }
@@ -876,7 +874,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['central_columns' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->central_columns);
+        $this->assertSame($expected, $server->centralColumns);
         $this->assertArrayHasKey('central_columns', $serverArray);
         $this->assertSame($expected, $serverArray['central_columns']);
     }
@@ -886,7 +884,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['designer_settings' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->designer_settings);
+        $this->assertSame($expected, $server->designerSettings);
         $this->assertArrayHasKey('designer_settings', $serverArray);
         $this->assertSame($expected, $serverArray['designer_settings']);
     }
@@ -896,23 +894,23 @@ class ServerTest extends TestCase
     {
         $server = new Server(['export_templates' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->export_templates);
+        $this->assertSame($expected, $server->exportTemplates);
         $this->assertArrayHasKey('export_templates', $serverArray);
         $this->assertSame($expected, $serverArray['export_templates']);
     }
 
-    /** @dataProvider valuesForMaxTableUiprefsProvider */
-    public function testMaxTableUiprefs(mixed $actual, int $expected): void
+    /** @dataProvider valuesForMaxTableUiPrefsProvider */
+    public function testMaxTableUiPrefs(mixed $actual, int $expected): void
     {
         $server = new Server(['MaxTableUiprefs' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->MaxTableUiprefs);
+        $this->assertSame($expected, $server->maxTableUiPrefs);
         $this->assertArrayHasKey('MaxTableUiprefs', $serverArray);
         $this->assertSame($expected, $serverArray['MaxTableUiprefs']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
-    public static function valuesForMaxTableUiprefsProvider(): iterable
+    public static function valuesForMaxTableUiPrefsProvider(): iterable
     {
         yield 'null value' => [null, 100];
         yield 'valid value' => [1, 1];
@@ -926,7 +924,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SessionTimeZone' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->SessionTimeZone);
+        $this->assertSame($expected, $server->sessionTimeZone);
         $this->assertArrayHasKey('SessionTimeZone', $serverArray);
         $this->assertSame($expected, $serverArray['SessionTimeZone']);
     }
@@ -945,7 +943,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['AllowRoot' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->AllowRoot);
+        $this->assertSame($expected, $server->allowRoot);
         $this->assertArrayHasKey('AllowRoot', $serverArray);
         $this->assertSame($expected, $serverArray['AllowRoot']);
     }
@@ -955,7 +953,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['AllowNoPassword' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->AllowNoPassword);
+        $this->assertSame($expected, $server->allowNoPassword);
         $this->assertArrayHasKey('AllowNoPassword', $serverArray);
         $this->assertSame($expected, $serverArray['AllowNoPassword']);
     }
@@ -969,7 +967,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['AllowDeny' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->AllowDeny);
+        $this->assertSame($expected, $server->allowDeny);
         $this->assertArrayHasKey('AllowDeny', $serverArray);
         $this->assertSame($expected, $serverArray['AllowDeny']);
     }
@@ -1000,7 +998,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['DisableIS' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->DisableIS);
+        $this->assertSame($expected, $server->disableIS);
         $this->assertArrayHasKey('DisableIS', $serverArray);
         $this->assertSame($expected, $serverArray['DisableIS']);
     }
@@ -1010,7 +1008,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_version_auto_create' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tracking_version_auto_create);
+        $this->assertSame($expected, $server->trackingVersionAutoCreate);
         $this->assertArrayHasKey('tracking_version_auto_create', $serverArray);
         $this->assertSame($expected, $serverArray['tracking_version_auto_create']);
     }
@@ -1020,7 +1018,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_default_statements' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tracking_default_statements);
+        $this->assertSame($expected, $server->trackingDefaultStatements);
         $this->assertArrayHasKey('tracking_default_statements', $serverArray);
         $this->assertSame($expected, $serverArray['tracking_default_statements']);
     }
@@ -1044,7 +1042,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_add_drop_view' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tracking_add_drop_view);
+        $this->assertSame($expected, $server->trackingAddDropView);
         $this->assertArrayHasKey('tracking_add_drop_view', $serverArray);
         $this->assertSame($expected, $serverArray['tracking_add_drop_view']);
     }
@@ -1054,7 +1052,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_add_drop_table' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tracking_add_drop_table);
+        $this->assertSame($expected, $server->trackingAddDropTable);
         $this->assertArrayHasKey('tracking_add_drop_table', $serverArray);
         $this->assertSame($expected, $serverArray['tracking_add_drop_table']);
     }
@@ -1064,7 +1062,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_add_drop_database' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tracking_add_drop_database);
+        $this->assertSame($expected, $server->trackingAddDropDatabase);
         $this->assertArrayHasKey('tracking_add_drop_database', $serverArray);
         $this->assertSame($expected, $serverArray['tracking_add_drop_database']);
     }
@@ -1074,7 +1072,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['hide_connection_errors' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->hide_connection_errors);
+        $this->assertSame($expected, $server->hideConnectionErrors);
         $this->assertArrayHasKey('hide_connection_errors', $serverArray);
         $this->assertSame($expected, $serverArray['hide_connection_errors']);
     }
