@@ -594,7 +594,10 @@ Server connection settings
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
-        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`,
+        :config:option:`$cfg['Servers'][$i]['socket']`,
+        :config:option:`$cfg['Servers'][$i]['compress']`,
+        :config:option:`$cfg['Servers'][$i]['hide_connection_errors']`
 
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 

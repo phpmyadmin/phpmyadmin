@@ -186,6 +186,16 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controlhost']);
     }
 
+    /** @dataProvider valuesForControlHostProvider */
+    public function testControlHost2(mixed $actual, string $expected): void
+    {
+        $server = new Server(['control_host' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controlhost);
+        $this->assertArrayHasKey('controlhost', $serverArray);
+        $this->assertSame($expected, $serverArray['controlhost']);
+    }
+
     /** @return iterable<string, array{mixed, string}> */
     public static function valuesForControlHostProvider(): iterable
     {
@@ -199,6 +209,16 @@ class ServerTest extends TestCase
     public function testControlPort(mixed $actual, string $expected): void
     {
         $server = new Server(['controlport' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controlport);
+        $this->assertArrayHasKey('controlport', $serverArray);
+        $this->assertSame($expected, $serverArray['controlport']);
+    }
+
+    /** @dataProvider valuesForControlPortProvider */
+    public function testControlPort2(mixed $actual, string $expected): void
+    {
+        $server = new Server(['control_port' => $actual]);
         $serverArray = $server->asArray();
         $this->assertSame($expected, $server->controlport);
         $this->assertArrayHasKey('controlport', $serverArray);
@@ -224,6 +244,16 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controluser']);
     }
 
+    /** @dataProvider valuesForControlUserProvider */
+    public function testControlUser2(mixed $actual, string $expected): void
+    {
+        $server = new Server(['control_user' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controluser);
+        $this->assertArrayHasKey('controluser', $serverArray);
+        $this->assertSame($expected, $serverArray['controluser']);
+    }
+
     /** @return iterable<string, array{mixed, string}> */
     public static function valuesForControlUserProvider(): iterable
     {
@@ -243,6 +273,26 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controlpass']);
     }
 
+    /** @dataProvider valuesForControlPassProvider */
+    public function testControlPass2(mixed $actual, string $expected): void
+    {
+        $server = new Server(['control_pass' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controlpass);
+        $this->assertArrayHasKey('controlpass', $serverArray);
+        $this->assertSame($expected, $serverArray['controlpass']);
+    }
+
+    /** @dataProvider valuesForControlPassProvider */
+    public function testControlPass3(mixed $actual, string $expected): void
+    {
+        $server = new Server(['control_password' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controlpass);
+        $this->assertArrayHasKey('controlpass', $serverArray);
+        $this->assertSame($expected, $serverArray['controlpass']);
+    }
+
     /** @return iterable<string, array{mixed, string}> */
     public static function valuesForControlPassProvider(): iterable
     {
@@ -250,6 +300,106 @@ class ServerTest extends TestCase
         yield 'valid value' => ['test', 'test'];
         yield 'valid value 2' => ['', ''];
         yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForSocketProvider */
+    public function testControlSocket(mixed $actual, string $expected): void
+    {
+        $server = new Server(['control_socket' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_socket);
+        $this->assertArrayHasKey('control_socket', $serverArray);
+        $this->assertSame($expected, $serverArray['control_socket']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testControlSsl(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['control_ssl' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_ssl);
+        $this->assertArrayHasKey('control_ssl', $serverArray);
+        $this->assertSame($expected, $serverArray['control_ssl']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testControlSslKey(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['control_ssl_key' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_ssl_key);
+        $this->assertArrayHasKey('control_ssl_key', $serverArray);
+        $this->assertSame($expected, $serverArray['control_ssl_key']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testControlSslCert(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['control_ssl_cert' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_ssl_cert);
+        $this->assertArrayHasKey('control_ssl_cert', $serverArray);
+        $this->assertSame($expected, $serverArray['control_ssl_cert']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testControlSslCa(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['control_ssl_ca' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_ssl_ca);
+        $this->assertArrayHasKey('control_ssl_ca', $serverArray);
+        $this->assertSame($expected, $serverArray['control_ssl_ca']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testControlSslCaPath(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['control_ssl_ca_path' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_ssl_ca_path);
+        $this->assertArrayHasKey('control_ssl_ca_path', $serverArray);
+        $this->assertSame($expected, $serverArray['control_ssl_ca_path']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testControlSslCiphers(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['control_ssl_ciphers' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_ssl_ciphers);
+        $this->assertArrayHasKey('control_ssl_ciphers', $serverArray);
+        $this->assertSame($expected, $serverArray['control_ssl_ciphers']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testControlSslVerify(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['control_ssl_verify' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_ssl_verify);
+        $this->assertArrayHasKey('control_ssl_verify', $serverArray);
+        $this->assertSame($expected, $serverArray['control_ssl_verify']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testControlCompress(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['control_compress' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_compress);
+        $this->assertArrayHasKey('control_compress', $serverArray);
+        $this->assertSame($expected, $serverArray['control_compress']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testControlHideConnectionErrors(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['control_hide_connection_errors' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->control_hide_connection_errors);
+        $this->assertArrayHasKey('control_hide_connection_errors', $serverArray);
+        $this->assertSame($expected, $serverArray['control_hide_connection_errors']);
     }
 
     /** @dataProvider valuesForAuthTypeProvider */

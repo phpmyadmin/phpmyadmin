@@ -507,7 +507,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 46
+			count: 57
 			path: libraries/classes/Config/Settings/Server.php
 
 		-

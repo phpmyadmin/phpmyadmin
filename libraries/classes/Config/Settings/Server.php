@@ -191,6 +191,67 @@ final class Server
     public string $controlpass;
 
     /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$socket
+     */
+    public string $control_socket;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$ssl
+     */
+    public bool $control_ssl;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$ssl_key
+     */
+    public string|null $control_ssl_key = null;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$ssl_cert
+     */
+    public string|null $control_ssl_cert = null;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$ssl_ca
+     */
+    public string|null $control_ssl_ca = null;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$ssl_ca_path
+     */
+    public string|null $control_ssl_ca_path = null;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$ssl_ciphers
+     */
+    public string|null $control_ssl_ciphers = null;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$ssl_verify
+     * @see https://bugs.php.net/68344
+     */
+    public bool $control_ssl_verify;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$compress
+     */
+    public bool $control_compress;
+
+    /**
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
+     * @see self::$hide_connection_errors
+     */
+    public bool $control_hide_connection_errors;
+
+    /**
      * Authentication method (valid choices: config, http, signon or cookie)
      *
      * ```php
@@ -767,10 +828,20 @@ final class Server
         $this->ssl_ciphers = $this->setSslCiphers($server);
         $this->ssl_verify = $this->setSslVerify($server);
         $this->compress = $this->setCompress($server);
-        $this->controlhost = $this->setControlhost($server);
-        $this->controlport = $this->setControlport($server);
-        $this->controluser = $this->setControluser($server);
-        $this->controlpass = $this->setControlpass($server);
+        $this->controlhost = $this->setControlHost($server);
+        $this->controlport = $this->setControlPort($server);
+        $this->controluser = $this->setControlUser($server);
+        $this->controlpass = $this->setControlPass($server);
+        $this->control_socket = $this->setControlSocket($server);
+        $this->control_ssl = $this->setControlSsl($server);
+        $this->control_ssl_key = $this->setControlSslKey($server);
+        $this->control_ssl_cert = $this->setControlSslCert($server);
+        $this->control_ssl_ca = $this->setControlSslCa($server);
+        $this->control_ssl_ca_path = $this->setControlSslCaPath($server);
+        $this->control_ssl_ciphers = $this->setControlSslCiphers($server);
+        $this->control_ssl_verify = $this->setControlSslVerify($server);
+        $this->control_compress = $this->setControlCompress($server);
+        $this->control_hide_connection_errors = $this->setControlHideConnectionErrors($server);
         $this->auth_type = $this->setAuthType($server);
         $this->auth_http_realm = $this->setAuthHttpRealm($server);
         $this->user = $this->setUser($server);
@@ -836,6 +907,16 @@ final class Server
             'controlport' => $this->controlport,
             'controluser' => $this->controluser,
             'controlpass' => $this->controlpass,
+            'control_socket' => $this->control_socket,
+            'control_ssl' => $this->control_ssl,
+            'control_ssl_key' => $this->control_ssl_key,
+            'control_ssl_cert' => $this->control_ssl_cert,
+            'control_ssl_ca' => $this->control_ssl_ca,
+            'control_ssl_ca_path' => $this->control_ssl_ca_path,
+            'control_ssl_ciphers' => $this->control_ssl_ciphers,
+            'control_ssl_verify' => $this->control_ssl_verify,
+            'control_compress' => $this->control_compress,
+            'control_hide_connection_errors' => $this->control_hide_connection_errors,
             'auth_type' => $this->auth_type,
             'auth_http_realm' => $this->auth_http_realm,
             'user' => $this->user,
@@ -1003,43 +1084,163 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlhost(array $server): string
+    private function setControlHost(array $server): string
     {
         if (isset($server['controlhost'])) {
             return (string) $server['controlhost'];
         }
 
+        if (isset($server['control_host'])) {
+            return (string) $server['control_host'];
+        }
+
         return '';
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlport(array $server): string
+    private function setControlPort(array $server): string
     {
         if (isset($server['controlport'])) {
             return (string) $server['controlport'];
         }
 
+        if (isset($server['control_port'])) {
+            return (string) $server['control_port'];
+        }
+
         return '';
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControluser(array $server): string
+    private function setControlUser(array $server): string
     {
         if (isset($server['controluser'])) {
             return (string) $server['controluser'];
         }
 
+        if (isset($server['control_user'])) {
+            return (string) $server['control_user'];
+        }
+
         return '';
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlpass(array $server): string
+    private function setControlPass(array $server): string
     {
         if (isset($server['controlpass'])) {
             return (string) $server['controlpass'];
         }
 
+        if (isset($server['control_pass'])) {
+            return (string) $server['control_pass'];
+        }
+
+        if (isset($server['control_password'])) {
+            return (string) $server['control_password'];
+        }
+
         return '';
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSocket(array $server): string
+    {
+        if (isset($server['control_socket'])) {
+            return (string) $server['control_socket'];
+        }
+
+        return '';
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSsl(array $server): bool
+    {
+        if (isset($server['control_ssl'])) {
+            return (bool) $server['control_ssl'];
+        }
+
+        return false;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSslKey(array $server): string|null
+    {
+        if (isset($server['control_ssl_key'])) {
+            return (string) $server['control_ssl_key'];
+        }
+
+        return null;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSslCert(array $server): string|null
+    {
+        if (isset($server['control_ssl_cert'])) {
+            return (string) $server['control_ssl_cert'];
+        }
+
+        return null;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSslCa(array $server): string|null
+    {
+        if (isset($server['control_ssl_ca'])) {
+            return (string) $server['control_ssl_ca'];
+        }
+
+        return null;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSslCaPath(array $server): string|null
+    {
+        if (isset($server['control_ssl_ca_path'])) {
+            return (string) $server['control_ssl_ca_path'];
+        }
+
+        return null;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSslCiphers(array $server): string|null
+    {
+        if (isset($server['control_ssl_ciphers'])) {
+            return (string) $server['control_ssl_ciphers'];
+        }
+
+        return null;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlSslVerify(array $server): bool
+    {
+        if (isset($server['control_ssl_verify'])) {
+            return (bool) $server['control_ssl_verify'];
+        }
+
+        return true;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlCompress(array $server): bool
+    {
+        if (isset($server['control_compress'])) {
+            return (bool) $server['control_compress'];
+        }
+
+        return false;
+    }
+
+    /** @param array<int|string, mixed> $server */
+    private function setControlHideConnectionErrors(array $server): bool
+    {
+        if (isset($server['control_hide_connection_errors'])) {
+            return (bool) $server['control_hide_connection_errors'];
+        }
+
+        return false;
     }
 
     /**
