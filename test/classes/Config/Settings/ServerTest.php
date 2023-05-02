@@ -7,368 +7,925 @@ namespace PhpMyAdmin\Tests\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PHPUnit\Framework\TestCase;
 
-use function array_keys;
-use function array_merge;
-
-// phpcs:disable Generic.Files.LineLength.TooLong
+// phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
 /** @covers \PhpMyAdmin\Config\Settings\Server */
 class ServerTest extends TestCase
 {
-    /** @var array<string, array|bool|int|string|null> */
-    private array $defaultValues = [
-        'host' => 'localhost',
-        'port' => '',
-        'socket' => '',
-        'ssl' => false,
-        'ssl_key' => null,
-        'ssl_cert' => null,
-        'ssl_ca' => null,
-        'ssl_ca_path' => null,
-        'ssl_ciphers' => null,
-        'ssl_verify' => true,
-        'compress' => false,
-        'controlhost' => '',
-        'controlport' => '',
-        'controluser' => '',
-        'controlpass' => '',
-        'auth_type' => 'cookie',
-        'auth_http_realm' => '',
-        'user' => 'root',
-        'password' => '',
-        'SignonSession' => '',
-        'SignonCookieParams' => ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false],
-        'SignonScript' => '',
-        'SignonURL' => '',
-        'LogoutURL' => '',
-        'only_db' => '',
-        'hide_db' => '',
-        'verbose' => '',
-        'pmadb' => '',
-        'bookmarktable' => '',
-        'relation' => '',
-        'table_info' => '',
-        'table_coords' => '',
-        'pdf_pages' => '',
-        'column_info' => '',
-        'history' => '',
-        'recent' => '',
-        'favorite' => '',
-        'table_uiprefs' => '',
-        'tracking' => '',
-        'userconfig' => '',
-        'users' => '',
-        'usergroups' => '',
-        'navigationhiding' => '',
-        'savedsearches' => '',
-        'central_columns' => '',
-        'designer_settings' => '',
-        'export_templates' => '',
-        'MaxTableUiprefs' => 100,
-        'SessionTimeZone' => '',
-        'AllowRoot' => true,
-        'AllowNoPassword' => false,
-        'AllowDeny' => ['order' => '', 'rules' => []],
-        'DisableIS' => false,
-        'tracking_version_auto_create' => false,
-        'tracking_default_statements' => 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE',
-        'tracking_add_drop_view' => true,
-        'tracking_add_drop_table' => true,
-        'tracking_add_drop_database' => true,
-        'hide_connection_errors' => false,
-    ];
-
-    /**
-     * @param mixed[][] $values
-     * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
-     *
-     * @dataProvider providerForTestConstructor
-     */
-    public function testConstructor(array $values): void
+    /** @dataProvider valuesForHostProvider */
+    public function testHost(mixed $actual, string $expected): void
     {
-        $actualValues = [];
-        $expectedValues = [];
-        /** @psalm-suppress MixedAssignment */
-        foreach ($values as $value) {
-            $actualValues[$value[0]] = $value[1];
-            $expectedValues[$value[0]] = $value[2];
-        }
+        $server = new Server(['host' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->host);
+        $this->assertArrayHasKey('host', $serverArray);
+        $this->assertSame($expected, $serverArray['host']);
+    }
 
-        $expected = array_merge($this->defaultValues, $expectedValues);
-        $settings = new Server($actualValues);
-        $serverArray = $settings->asArray();
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForHostProvider(): iterable
+    {
+        yield 'null value' => [null, 'localhost'];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
 
-        foreach (array_keys($expectedValues) as $key) {
-            $this->assertSame($expected[$key], $settings->$key);
-            $this->assertArrayHasKey($key, $serverArray);
-            $this->assertSame($expected[$key], $serverArray[$key]);
-        }
+    /** @dataProvider valuesForPortProvider */
+    public function testPort(mixed $actual, string $expected): void
+    {
+        $server = new Server(['port' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->port);
+        $this->assertArrayHasKey('port', $serverArray);
+        $this->assertSame($expected, $serverArray['port']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForPortProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForSocketProvider */
+    public function testSocket(mixed $actual, string $expected): void
+    {
+        $server = new Server(['socket' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->socket);
+        $this->assertArrayHasKey('socket', $serverArray);
+        $this->assertSame($expected, $serverArray['socket']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSocketProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testSsl(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['ssl' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->ssl);
+        $this->assertArrayHasKey('ssl', $serverArray);
+        $this->assertSame($expected, $serverArray['ssl']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultFalseProvider(): iterable
+    {
+        yield 'null value' => [null, false];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value with type coercion' => [1, true];
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testSslKey(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['ssl_key' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->ssl_key);
+        $this->assertArrayHasKey('ssl_key', $serverArray);
+        $this->assertSame($expected, $serverArray['ssl_key']);
+    }
+
+    /** @return iterable<string, array{mixed, string|null}> */
+    public static function valuesForSslOptionsProvider(): iterable
+    {
+        yield 'null value' => [null, null];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testSslCert(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['ssl_cert' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->ssl_cert);
+        $this->assertArrayHasKey('ssl_cert', $serverArray);
+        $this->assertSame($expected, $serverArray['ssl_cert']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testSslCa(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['ssl_ca' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->ssl_ca);
+        $this->assertArrayHasKey('ssl_ca', $serverArray);
+        $this->assertSame($expected, $serverArray['ssl_ca']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testSslCaPath(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['ssl_ca_path' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->ssl_ca_path);
+        $this->assertArrayHasKey('ssl_ca_path', $serverArray);
+        $this->assertSame($expected, $serverArray['ssl_ca_path']);
+    }
+
+    /** @dataProvider valuesForSslOptionsProvider */
+    public function testSslCiphers(mixed $actual, string|null $expected): void
+    {
+        $server = new Server(['ssl_ciphers' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->ssl_ciphers);
+        $this->assertArrayHasKey('ssl_ciphers', $serverArray);
+        $this->assertSame($expected, $serverArray['ssl_ciphers']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testSslVerify(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['ssl_verify' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->ssl_verify);
+        $this->assertArrayHasKey('ssl_verify', $serverArray);
+        $this->assertSame($expected, $serverArray['ssl_verify']);
+    }
+
+    /** @return iterable<string, array{mixed, bool}> */
+    public static function booleanWithDefaultTrueProvider(): iterable
+    {
+        yield 'null value' => [null, true];
+        yield 'valid value' => [true, true];
+        yield 'valid value 2' => [false, false];
+        yield 'valid value with type coercion' => [0, false];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testCompress(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['compress' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->compress);
+        $this->assertArrayHasKey('compress', $serverArray);
+        $this->assertSame($expected, $serverArray['compress']);
+    }
+
+    /** @dataProvider valuesForControlHostProvider */
+    public function testControlHost(mixed $actual, string $expected): void
+    {
+        $server = new Server(['controlhost' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controlhost);
+        $this->assertArrayHasKey('controlhost', $serverArray);
+        $this->assertSame($expected, $serverArray['controlhost']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForControlHostProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForControlPortProvider */
+    public function testControlPort(mixed $actual, string $expected): void
+    {
+        $server = new Server(['controlport' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controlport);
+        $this->assertArrayHasKey('controlport', $serverArray);
+        $this->assertSame($expected, $serverArray['controlport']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForControlPortProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForControlUserProvider */
+    public function testControlUser(mixed $actual, string $expected): void
+    {
+        $server = new Server(['controluser' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controluser);
+        $this->assertArrayHasKey('controluser', $serverArray);
+        $this->assertSame($expected, $serverArray['controluser']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForControlUserProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForControlPassProvider */
+    public function testControlPass(mixed $actual, string $expected): void
+    {
+        $server = new Server(['controlpass' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->controlpass);
+        $this->assertArrayHasKey('controlpass', $serverArray);
+        $this->assertSame($expected, $serverArray['controlpass']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForControlPassProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForAuthTypeProvider */
+    public function testAuthType(mixed $actual, string $expected): void
+    {
+        $server = new Server(['auth_type' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->auth_type);
+        $this->assertArrayHasKey('auth_type', $serverArray);
+        $this->assertSame($expected, $serverArray['auth_type']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForAuthTypeProvider(): iterable
+    {
+        yield 'null value' => [null, 'cookie'];
+        yield 'valid value' => ['config', 'config'];
+        yield 'valid value 2' => ['http', 'http'];
+        yield 'valid value 3' => ['signon', 'signon'];
+        yield 'valid value 4' => ['cookie', 'cookie'];
+        yield 'invalid value' => ['invalid', 'cookie'];
+    }
+
+    /** @dataProvider valuesForAuthHttpRealmProvider */
+    public function testAuthHttpRealm(mixed $actual, string $expected): void
+    {
+        $server = new Server(['auth_http_realm' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->auth_http_realm);
+        $this->assertArrayHasKey('auth_http_realm', $serverArray);
+        $this->assertSame($expected, $serverArray['auth_http_realm']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForAuthHttpRealmProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForUserProvider */
+    public function testUser(mixed $actual, string $expected): void
+    {
+        $server = new Server(['user' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->user);
+        $this->assertArrayHasKey('user', $serverArray);
+        $this->assertSame($expected, $serverArray['user']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForUserProvider(): iterable
+    {
+        yield 'null value' => [null, 'root'];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForPasswordProvider */
+    public function testPassword(mixed $actual, string $expected): void
+    {
+        $server = new Server(['password' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->password);
+        $this->assertArrayHasKey('password', $serverArray);
+        $this->assertSame($expected, $serverArray['password']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForPasswordProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForSignonSessionProvider */
+    public function testSignonSession(mixed $actual, string $expected): void
+    {
+        $server = new Server(['SignonSession' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->SignonSession);
+        $this->assertArrayHasKey('SignonSession', $serverArray);
+        $this->assertSame($expected, $serverArray['SignonSession']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSignonSessionProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
     }
 
     /**
-     * [setting key, actual value, expected value]
+     * @param array<string, int|string|bool> $expected
      *
-     * @return mixed[][][][]
-     * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
+     * @dataProvider valuesForSignonCookieParamsProvider
      */
-    public static function providerForTestConstructor(): array
+    public function testSignonCookieParams(mixed $actual, array $expected): void
     {
-        return [
-            'null values' => [
-                [
-                    ['host', null, 'localhost'],
-                    ['port', null, ''],
-                    ['socket', null, ''],
-                    ['ssl', null, false],
-                    ['ssl_key', null, null],
-                    ['ssl_cert', null, null],
-                    ['ssl_ca', null, null],
-                    ['ssl_ca_path', null, null],
-                    ['ssl_ciphers', null, null],
-                    ['ssl_verify', null, true],
-                    ['compress', null, false],
-                    ['controlhost', null, ''],
-                    ['controlport', null, ''],
-                    ['controluser', null, ''],
-                    ['controlpass', null, ''],
-                    ['auth_type', null, 'cookie'],
-                    ['auth_http_realm', null, ''],
-                    ['user', null, 'root'],
-                    ['password', null, ''],
-                    ['SignonSession', null, ''],
-                    ['SignonCookieParams', null, ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false]],
-                    ['SignonScript', null, ''],
-                    ['SignonURL', null, ''],
-                    ['LogoutURL', null, ''],
-                    ['only_db', null, ''],
-                    ['hide_db', null, ''],
-                    ['verbose', null, ''],
-                    ['pmadb', null, ''],
-                    ['bookmarktable', null, ''],
-                    ['relation', null, ''],
-                    ['table_info', null, ''],
-                    ['table_coords', null, ''],
-                    ['pdf_pages', null, ''],
-                    ['column_info', null, ''],
-                    ['history', null, ''],
-                    ['recent', null, ''],
-                    ['favorite', null, ''],
-                    ['table_uiprefs', null, ''],
-                    ['tracking', null, ''],
-                    ['userconfig', null, ''],
-                    ['users', null, ''],
-                    ['usergroups', null, ''],
-                    ['navigationhiding', null, ''],
-                    ['savedsearches', null, ''],
-                    ['central_columns', null, ''],
-                    ['designer_settings', null, ''],
-                    ['export_templates', null, ''],
-                    ['MaxTableUiprefs', null, 100],
-                    ['SessionTimeZone', null, ''],
-                    ['AllowRoot', null, true],
-                    ['AllowNoPassword', null, false],
-                    ['AllowDeny', null, ['order' => '', 'rules' => []]],
-                    ['DisableIS', null, false],
-                    ['tracking_version_auto_create', null, false],
-                    ['tracking_default_statements', null, 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE'],
-                    ['tracking_add_drop_view', null, true],
-                    ['tracking_add_drop_table', null, true],
-                    ['tracking_add_drop_database', null, true],
-                    ['hide_connection_errors', null, false],
-                ],
+        $server = new Server(['SignonCookieParams' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->SignonCookieParams);
+        $this->assertArrayHasKey('SignonCookieParams', $serverArray);
+        $this->assertSame($expected, $serverArray['SignonCookieParams']);
+    }
+
+    /** @return iterable<string, array{mixed, array<string, int|string|bool>}> */
+    public static function valuesForSignonCookieParamsProvider(): iterable
+    {
+        yield 'null value' => [
+            null,
+            ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false],
+        ];
+
+        yield 'valid value' => [
+            [
+                'lifetime' => 0,
+                'path' => 'test',
+                'domain' => 'test',
+                'secure' => false,
+                'httponly' => false,
+                'samesite' => 'Lax',
             ],
-            'valid values' => [
-                [
-                    ['host', 'test', 'test'],
-                    ['port', 'test', 'test'],
-                    ['socket', 'test', 'test'],
-                    ['ssl', false, false],
-                    ['ssl_key', 'test', 'test'],
-                    ['ssl_cert', 'test', 'test'],
-                    ['ssl_ca', 'test', 'test'],
-                    ['ssl_ca_path', 'test', 'test'],
-                    ['ssl_ciphers', 'test', 'test'],
-                    ['ssl_verify', true, true],
-                    ['compress', false, false],
-                    ['controlhost', 'test', 'test'],
-                    ['controlport', 'test', 'test'],
-                    ['controluser', 'test', 'test'],
-                    ['controlpass', 'test', 'test'],
-                    ['auth_type', 'config', 'config'],
-                    ['auth_http_realm', 'test', 'test'],
-                    ['user', 'test', 'test'],
-                    ['password', 'test', 'test'],
-                    ['SignonSession', 'test', 'test'],
-                    ['SignonCookieParams', ['lifetime' => 0, 'path' => 'test', 'domain' => 'test', 'secure' => false, 'httponly' => false, 'samesite' => 'Lax'], ['lifetime' => 0, 'path' => 'test', 'domain' => 'test', 'secure' => false, 'httponly' => false, 'samesite' => 'Lax']],
-                    ['SignonScript', 'test', 'test'],
-                    ['SignonURL', 'test', 'test'],
-                    ['LogoutURL', 'test', 'test'],
-                    ['only_db', ['test1', 'test2', 1234], ['test1', 'test2', '1234']],
-                    ['hide_db', 'test', 'test'],
-                    ['verbose', 'test', 'test'],
-                    ['pmadb', 'test', 'test'],
-                    ['bookmarktable', false, false],
-                    ['relation', false, false],
-                    ['table_info', false, false],
-                    ['table_coords', false, false],
-                    ['pdf_pages', false, false],
-                    ['column_info', false, false],
-                    ['history', false, false],
-                    ['recent', false, false],
-                    ['favorite', false, false],
-                    ['table_uiprefs', false, false],
-                    ['tracking', false, false],
-                    ['userconfig', false, false],
-                    ['users', false, false],
-                    ['usergroups', false, false],
-                    ['navigationhiding', false, false],
-                    ['savedsearches', false, false],
-                    ['central_columns', false, false],
-                    ['designer_settings', false, false],
-                    ['export_templates', false, false],
-                    ['MaxTableUiprefs', 1, 1],
-                    ['SessionTimeZone', 'test', 'test'],
-                    ['AllowRoot', true, true],
-                    ['AllowNoPassword', false, false],
-                    ['AllowDeny', ['order' => '', 'rules' => ['allow root from 192.168.5.50', 'allow % from 192.168.6.10']], ['order' => '', 'rules' => ['allow root from 192.168.5.50', 'allow % from 192.168.6.10']]],
-                    ['DisableIS', false, false],
-                    ['tracking_version_auto_create', false, false],
-                    ['tracking_default_statements', 'test', 'test'],
-                    ['tracking_add_drop_view', true, true],
-                    ['tracking_add_drop_table', true, true],
-                    ['tracking_add_drop_database', true, true],
-                    ['hide_connection_errors', true, true],
-                ],
-            ],
-            'valid values 2' => [
-                [
-                    ['ssl', true, true],
-                    ['ssl_verify', false, false],
-                    ['compress', true, true],
-                    ['auth_type', 'http', 'http'],
-                    ['SignonCookieParams', ['lifetime' => 1, 'secure' => true, 'httponly' => true, 'samesite' => 'Strict'], ['lifetime' => 1, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict']],
-                    ['only_db', 'test', 'test'],
-                    ['bookmarktable', 'test', 'test'],
-                    ['relation', 'test', 'test'],
-                    ['table_info', 'test', 'test'],
-                    ['table_coords', 'test', 'test'],
-                    ['pdf_pages', 'test', 'test'],
-                    ['column_info', 'test', 'test'],
-                    ['history', 'test', 'test'],
-                    ['recent', 'test', 'test'],
-                    ['favorite', 'test', 'test'],
-                    ['table_uiprefs', 'test', 'test'],
-                    ['tracking', 'test', 'test'],
-                    ['userconfig', 'test', 'test'],
-                    ['users', 'test', 'test'],
-                    ['usergroups', 'test', 'test'],
-                    ['navigationhiding', 'test', 'test'],
-                    ['savedsearches', 'test', 'test'],
-                    ['central_columns', 'test', 'test'],
-                    ['designer_settings', 'test', 'test'],
-                    ['export_templates', 'test', 'test'],
-                    ['AllowRoot', false, false],
-                    ['AllowNoPassword', true, true],
-                    ['AllowDeny', ['order' => 'deny,allow'], ['order' => 'deny,allow', 'rules' => []]],
-                    ['DisableIS', true, true],
-                    ['tracking_version_auto_create', true, true],
-                    ['tracking_add_drop_view', false, false],
-                    ['tracking_add_drop_table', false, false],
-                    ['tracking_add_drop_database', false, false],
-                    ['hide_connection_errors', false, false],
-                ],
-            ],
-            'valid values 3' => [
-                [
-                    ['auth_type', 'signon', 'signon'],
-                    ['SignonCookieParams', [], ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false]],
-                    ['AllowDeny', ['order' => 'allow,deny'], ['order' => 'allow,deny', 'rules' => []]],
-                ],
-            ],
-            'valid values 4' => [
-                [
-                    ['auth_type', 'cookie', 'cookie'],
-                    ['AllowDeny', ['order' => 'explicit'], ['order' => 'explicit', 'rules' => []]],
-                ],
-            ],
-            'valid values 5' => [[['AllowDeny', [], ['order' => '', 'rules' => []]]]],
-            'valid values with type coercion' => [
-                [
-                    ['host', 1234, '1234'],
-                    ['port', 1234, '1234'],
-                    ['socket', 1234, '1234'],
-                    ['ssl', 1, true],
-                    ['ssl_key', 1234, '1234'],
-                    ['ssl_cert', 1234, '1234'],
-                    ['ssl_ca', 1234, '1234'],
-                    ['ssl_ca_path', 1234, '1234'],
-                    ['ssl_ciphers', 1234, '1234'],
-                    ['ssl_verify', 0, false],
-                    ['compress', 1, true],
-                    ['controlhost', 1234, '1234'],
-                    ['controlport', 1234, '1234'],
-                    ['controluser', 1234, '1234'],
-                    ['controlpass', 1234, '1234'],
-                    ['auth_http_realm', 1234, '1234'],
-                    ['user', 1234, '1234'],
-                    ['password', 1234, '1234'],
-                    ['SignonSession', 1234, '1234'],
-                    ['SignonCookieParams', ['lifetime' => '1', 'path' => 1234, 'domain' => 1234, 'secure' => 1, 'httponly' => 1], ['lifetime' => 1, 'path' => '1234', 'domain' => '1234', 'secure' => true, 'httponly' => true]],
-                    ['SignonScript', 1234, '1234'],
-                    ['SignonURL', 1234, '1234'],
-                    ['LogoutURL', 1234, '1234'],
-                    ['only_db', 1234, '1234'],
-                    ['hide_db', 1234, '1234'],
-                    ['verbose', 1234, '1234'],
-                    ['pmadb', 1234, '1234'],
-                    ['bookmarktable', true, '1'],
-                    ['relation', true, '1'],
-                    ['table_info', true, '1'],
-                    ['table_coords', true, '1'],
-                    ['pdf_pages', true, '1'],
-                    ['column_info', true, '1'],
-                    ['history', true, '1'],
-                    ['recent', true, '1'],
-                    ['favorite', true, '1'],
-                    ['table_uiprefs', true, '1'],
-                    ['tracking', true, '1'],
-                    ['userconfig', true, '1'],
-                    ['users', true, '1'],
-                    ['usergroups', true, '1'],
-                    ['navigationhiding', true, '1'],
-                    ['savedsearches', true, '1'],
-                    ['central_columns', true, '1'],
-                    ['designer_settings', true, '1'],
-                    ['export_templates', true, '1'],
-                    ['MaxTableUiprefs', '1', 1],
-                    ['SessionTimeZone', 1234, '1234'],
-                    ['AllowRoot', 0, false],
-                    ['AllowNoPassword', 1, true],
-                    ['AllowDeny', ['rules' => [1234]], ['order' => '', 'rules' => ['1234']]],
-                    ['DisableIS', 1, true],
-                    ['tracking_version_auto_create', 1, true],
-                    ['tracking_default_statements', 1234, '1234'],
-                    ['tracking_add_drop_view', 0, false],
-                    ['tracking_add_drop_table', 0, false],
-                    ['tracking_add_drop_database', 0, false],
-                    ['hide_connection_errors', 1, true],
-                ],
-            ],
-            'invalid values' => [
-                [
-                    ['auth_type', 'invalid', 'cookie'],
-                    ['SignonCookieParams', 'invalid', ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false]],
-                    ['only_db', [], ''],
-                    ['MaxTableUiprefs', -1, 100],
-                    ['AllowDeny', 'invalid', ['order' => '', 'rules' => []]],
-                ],
-            ],
-            'invalid values 2' => [
-                [
-                    ['SignonCookieParams', ['invalid' => 'invalid', 'lifetime' => -1, 'samesite' => 'invalid'], ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false]],
-                    ['AllowDeny', ['invalid' => 'invalid', 'order' => 'invalid', 'rules' => 'invalid'], ['order' => '', 'rules' => []]],
-                ],
+            [
+                'lifetime' => 0,
+                'path' => 'test',
+                'domain' => 'test',
+                'secure' => false,
+                'httponly' => false,
+                'samesite' => 'Lax',
             ],
         ];
+
+        yield 'valid value 2' => [
+            ['lifetime' => 1, 'secure' => true, 'httponly' => true, 'samesite' => 'Strict'],
+            [
+                'lifetime' => 1,
+                'path' => '/',
+                'domain' => '',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'Strict',
+            ],
+        ];
+
+        yield 'valid value 3' => [
+            [],
+            ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false],
+        ];
+
+        yield 'valid value with type coercion' => [
+            ['lifetime' => '1', 'path' => 1234, 'domain' => 1234, 'secure' => 1, 'httponly' => 1],
+            ['lifetime' => 1, 'path' => '1234', 'domain' => '1234', 'secure' => true, 'httponly' => true],
+        ];
+
+        yield 'invalid value' => [
+            'invalid',
+            ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false],
+        ];
+
+        yield 'invalid value 2' => [
+            ['invalid' => 'invalid', 'lifetime' => -1, 'samesite' => 'invalid'],
+            ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false],
+        ];
+    }
+
+    /** @dataProvider valuesForSignonScriptProvider */
+    public function testSignonScript(mixed $actual, string $expected): void
+    {
+        $server = new Server(['SignonScript' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->SignonScript);
+        $this->assertArrayHasKey('SignonScript', $serverArray);
+        $this->assertSame($expected, $serverArray['SignonScript']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSignonScriptProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForSignonURLProvider */
+    public function testSignonURL(mixed $actual, string $expected): void
+    {
+        $server = new Server(['SignonURL' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->SignonURL);
+        $this->assertArrayHasKey('SignonURL', $serverArray);
+        $this->assertSame($expected, $serverArray['SignonURL']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSignonURLProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForLogoutURLProvider */
+    public function testLogoutURL(mixed $actual, string $expected): void
+    {
+        $server = new Server(['LogoutURL' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->LogoutURL);
+        $this->assertArrayHasKey('LogoutURL', $serverArray);
+        $this->assertSame($expected, $serverArray['LogoutURL']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForLogoutURLProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /**
+     * @param string|string[] $expected
+     *
+     * @dataProvider valuesForOnlyDbProvider
+     */
+    public function testOnlyDb(mixed $actual, string|array $expected): void
+    {
+        $server = new Server(['only_db' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->only_db);
+        $this->assertArrayHasKey('only_db', $serverArray);
+        $this->assertSame($expected, $serverArray['only_db']);
+    }
+
+    /** @return iterable<string, array{mixed, string|string[]}> */
+    public static function valuesForOnlyDbProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => [['test1', 'test2', 1234], ['test1', 'test2', '1234']];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value with type coercion' => [1234, '1234'];
+        yield 'invalid value' => [[], ''];
+    }
+
+    /** @dataProvider valuesForHideDbProvider */
+    public function testHideDb(mixed $actual, string $expected): void
+    {
+        $server = new Server(['hide_db' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->hide_db);
+        $this->assertArrayHasKey('hide_db', $serverArray);
+        $this->assertSame($expected, $serverArray['hide_db']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForHideDbProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForVerboseProvider */
+    public function testVerbose(mixed $actual, string $expected): void
+    {
+        $server = new Server(['verbose' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->verbose);
+        $this->assertArrayHasKey('verbose', $serverArray);
+        $this->assertSame($expected, $serverArray['verbose']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForVerboseProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForPmaDbProvider */
+    public function testPmaDb(mixed $actual, string $expected): void
+    {
+        $server = new Server(['pmadb' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->pmadb);
+        $this->assertArrayHasKey('pmadb', $serverArray);
+        $this->assertSame($expected, $serverArray['pmadb']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForPmaDbProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testBookmarkTable(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['bookmarktable' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->bookmarktable);
+        $this->assertArrayHasKey('bookmarktable', $serverArray);
+        $this->assertSame($expected, $serverArray['bookmarktable']);
+    }
+
+    /** @return iterable<string, array{mixed, string|false}> */
+    public static function valuesForConfigStorageTablesProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => ['test', 'test'];
+        yield 'valid value 3' => ['', ''];
+        yield 'valid value with type coercion' => [true, '1'];
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testRelation(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['relation' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->relation);
+        $this->assertArrayHasKey('relation', $serverArray);
+        $this->assertSame($expected, $serverArray['relation']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testTableInfo(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['table_info' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->table_info);
+        $this->assertArrayHasKey('table_info', $serverArray);
+        $this->assertSame($expected, $serverArray['table_info']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testPdfPages(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['pdf_pages' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->pdf_pages);
+        $this->assertArrayHasKey('pdf_pages', $serverArray);
+        $this->assertSame($expected, $serverArray['pdf_pages']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testColumnInfo(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['column_info' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->column_info);
+        $this->assertArrayHasKey('column_info', $serverArray);
+        $this->assertSame($expected, $serverArray['column_info']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testHistory(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['history' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->history);
+        $this->assertArrayHasKey('history', $serverArray);
+        $this->assertSame($expected, $serverArray['history']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testRecent(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['recent' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->recent);
+        $this->assertArrayHasKey('recent', $serverArray);
+        $this->assertSame($expected, $serverArray['recent']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testFavorite(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['favorite' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->favorite);
+        $this->assertArrayHasKey('favorite', $serverArray);
+        $this->assertSame($expected, $serverArray['favorite']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testTableUiprefs(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['table_uiprefs' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->table_uiprefs);
+        $this->assertArrayHasKey('table_uiprefs', $serverArray);
+        $this->assertSame($expected, $serverArray['table_uiprefs']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testTracking(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['tracking' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->tracking);
+        $this->assertArrayHasKey('tracking', $serverArray);
+        $this->assertSame($expected, $serverArray['tracking']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testUserConfig(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['userconfig' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->userconfig);
+        $this->assertArrayHasKey('userconfig', $serverArray);
+        $this->assertSame($expected, $serverArray['userconfig']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testUsers(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['users' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->users);
+        $this->assertArrayHasKey('users', $serverArray);
+        $this->assertSame($expected, $serverArray['users']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testUserGroups(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['usergroups' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->usergroups);
+        $this->assertArrayHasKey('usergroups', $serverArray);
+        $this->assertSame($expected, $serverArray['usergroups']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testNavigationHiding(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['navigationhiding' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->navigationhiding);
+        $this->assertArrayHasKey('navigationhiding', $serverArray);
+        $this->assertSame($expected, $serverArray['navigationhiding']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testSavedSearches(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['savedsearches' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->savedsearches);
+        $this->assertArrayHasKey('savedsearches', $serverArray);
+        $this->assertSame($expected, $serverArray['savedsearches']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testCentralColumns(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['central_columns' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->central_columns);
+        $this->assertArrayHasKey('central_columns', $serverArray);
+        $this->assertSame($expected, $serverArray['central_columns']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testDesignerSettings(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['designer_settings' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->designer_settings);
+        $this->assertArrayHasKey('designer_settings', $serverArray);
+        $this->assertSame($expected, $serverArray['designer_settings']);
+    }
+
+    /** @dataProvider valuesForConfigStorageTablesProvider */
+    public function testExportTemplates(mixed $actual, string|false $expected): void
+    {
+        $server = new Server(['export_templates' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->export_templates);
+        $this->assertArrayHasKey('export_templates', $serverArray);
+        $this->assertSame($expected, $serverArray['export_templates']);
+    }
+
+    /** @dataProvider valuesForMaxTableUiprefsProvider */
+    public function testMaxTableUiprefs(mixed $actual, int $expected): void
+    {
+        $server = new Server(['MaxTableUiprefs' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->MaxTableUiprefs);
+        $this->assertArrayHasKey('MaxTableUiprefs', $serverArray);
+        $this->assertSame($expected, $serverArray['MaxTableUiprefs']);
+    }
+
+    /** @return iterable<string, array{mixed, int}> */
+    public static function valuesForMaxTableUiprefsProvider(): iterable
+    {
+        yield 'null value' => [null, 100];
+        yield 'valid value' => [1, 1];
+        yield 'valid value with type coercion' => ['1', 1];
+        yield 'invalid value' => [-1, 100];
+        yield 'invalid value 2' => [0, 100];
+    }
+
+    /** @dataProvider valuesForSessionTimeZoneProvider */
+    public function testSessionTimeZone(mixed $actual, string $expected): void
+    {
+        $server = new Server(['SessionTimeZone' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->SessionTimeZone);
+        $this->assertArrayHasKey('SessionTimeZone', $serverArray);
+        $this->assertSame($expected, $serverArray['SessionTimeZone']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForSessionTimeZoneProvider(): iterable
+    {
+        yield 'null value' => [null, ''];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testAllowRoot(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['AllowRoot' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->AllowRoot);
+        $this->assertArrayHasKey('AllowRoot', $serverArray);
+        $this->assertSame($expected, $serverArray['AllowRoot']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testAllowNoPassword(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['AllowNoPassword' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->AllowNoPassword);
+        $this->assertArrayHasKey('AllowNoPassword', $serverArray);
+        $this->assertSame($expected, $serverArray['AllowNoPassword']);
+    }
+
+    /**
+     * @param array<string, string|string[]> $expected
+     *
+     * @dataProvider valuesForAllowDenyProvider
+     */
+    public function testAllowDeny(mixed $actual, array $expected): void
+    {
+        $server = new Server(['AllowDeny' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->AllowDeny);
+        $this->assertArrayHasKey('AllowDeny', $serverArray);
+        $this->assertSame($expected, $serverArray['AllowDeny']);
+    }
+
+    /** @return iterable<string, array{mixed, array<string, string|string[]>}> */
+    public static function valuesForAllowDenyProvider(): iterable
+    {
+        yield 'null value' => [null, ['order' => '', 'rules' => []]];
+        yield 'valid value' => [
+            ['order' => '', 'rules' => ['allow root from 192.168.5.50', 'allow % from 192.168.6.10']],
+            ['order' => '', 'rules' => ['allow root from 192.168.5.50', 'allow % from 192.168.6.10']],
+        ];
+
+        yield 'valid value 2' => [['order' => 'deny,allow'], ['order' => 'deny,allow', 'rules' => []]];
+        yield 'valid value 3' => [['order' => 'allow,deny'], ['order' => 'allow,deny', 'rules' => []]];
+        yield 'valid value 4' => [['order' => 'explicit'], ['order' => 'explicit', 'rules' => []]];
+        yield 'valid value 5' => [[], ['order' => '', 'rules' => []]];
+        yield 'valid value with type coercion' => [['rules' => [1234]], ['order' => '', 'rules' => ['1234']]];
+        yield 'invalid value' => ['invalid', ['order' => '', 'rules' => []]];
+        yield 'invalid value 2' => [
+            ['invalid' => 'invalid', 'order' => 'invalid', 'rules' => 'invalid'],
+            ['order' => '', 'rules' => []],
+        ];
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testDisableIS(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['DisableIS' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->DisableIS);
+        $this->assertArrayHasKey('DisableIS', $serverArray);
+        $this->assertSame($expected, $serverArray['DisableIS']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testTrackingVersionAutoCreate(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['tracking_version_auto_create' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->tracking_version_auto_create);
+        $this->assertArrayHasKey('tracking_version_auto_create', $serverArray);
+        $this->assertSame($expected, $serverArray['tracking_version_auto_create']);
+    }
+
+    /** @dataProvider valuesForTrackingDefaultStatementsProvider */
+    public function testTrackingDefaultStatements(mixed $actual, string $expected): void
+    {
+        $server = new Server(['tracking_default_statements' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->tracking_default_statements);
+        $this->assertArrayHasKey('tracking_default_statements', $serverArray);
+        $this->assertSame($expected, $serverArray['tracking_default_statements']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForTrackingDefaultStatementsProvider(): iterable
+    {
+        yield 'null value' => [
+            null,
+            'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,'
+            . 'TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE',
+        ];
+
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testTrackingAddDropView(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['tracking_add_drop_view' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->tracking_add_drop_view);
+        $this->assertArrayHasKey('tracking_add_drop_view', $serverArray);
+        $this->assertSame($expected, $serverArray['tracking_add_drop_view']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testTrackingAddDropTable(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['tracking_add_drop_table' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->tracking_add_drop_table);
+        $this->assertArrayHasKey('tracking_add_drop_table', $serverArray);
+        $this->assertSame($expected, $serverArray['tracking_add_drop_table']);
+    }
+
+    /** @dataProvider booleanWithDefaultTrueProvider */
+    public function testTrackingAddDropDatabase(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['tracking_add_drop_database' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->tracking_add_drop_database);
+        $this->assertArrayHasKey('tracking_add_drop_database', $serverArray);
+        $this->assertSame($expected, $serverArray['tracking_add_drop_database']);
+    }
+
+    /** @dataProvider booleanWithDefaultFalseProvider */
+    public function testHideConnectionErrors(mixed $actual, bool $expected): void
+    {
+        $server = new Server(['hide_connection_errors' => $actual]);
+        $serverArray = $server->asArray();
+        $this->assertSame($expected, $server->hide_connection_errors);
+        $this->assertArrayHasKey('hide_connection_errors', $serverArray);
+        $this->assertSame($expected, $serverArray['hide_connection_errors']);
     }
 }

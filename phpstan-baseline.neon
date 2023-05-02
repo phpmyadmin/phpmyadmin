@@ -9096,16 +9096,6 @@ parameters:
 			path: test/classes/Config/Settings/SchemaTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\Settings\\\\ServerTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/ServerTest.php
-
-		-
-			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Server\\.$#"
-			count: 1
-			path: test/classes/Config/Settings/ServerTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Console' and PhpMyAdmin\\\\Config\\\\Settings\\\\Console will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Config/SettingsTest.php
