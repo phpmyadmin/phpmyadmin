@@ -126,8 +126,8 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test for Area
      *
-     * @param mixed[] $ring array of points forming the ring
-     * @param float   $area area of the ring
+     * @param non-empty-list<array{x: float, y: float}> $ring array of points forming the ring
+     * @param float                                     $area area of the ring
      *
      * @dataProvider providerForTestArea
      */
@@ -140,7 +140,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testArea
      *
-     * @return array<array{mixed[], float}>
+     * @return list<array{non-empty-list<array{x: float, y: float}>, float}>
      */
     public static function providerForTestArea(): array
     {
@@ -164,9 +164,9 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test for isPointInsidePolygon
      *
-     * @param mixed[] $point    x, y coordinates of the point
-     * @param mixed[] $polygon  array of points forming the ring
-     * @param bool    $isInside output
+     * @param array{x: float, y: float}                 $point    x, y coordinates of the point
+     * @param non-empty-list<array{x: float, y: float}> $polygon  array of points forming the ring
+     * @param bool                                      $isInside output
      *
      * @dataProvider providerForTestIsPointInsidePolygon
      */
@@ -179,7 +179,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testIsPointInsidePolygon
      *
-     * @return array<array{mixed[], mixed[], bool}>
+     * @return array<array{array{x: float, y: float}, non-empty-list<array{x: float, y: float}>, bool}>
      */
     public static function providerForTestIsPointInsidePolygon(): array
     {
@@ -205,7 +205,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test for getPointOnSurface
      *
-     * @param mixed[] $ring array of points forming the ring
+     * @param non-empty-list<array{x: float, y: float}> $ring array of points forming the ring
      *
      * @dataProvider providerForTestGetPointOnSurface
      */
@@ -417,7 +417,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for isOuterRing() method
      *
-     * @param array<array<string, int>> $ring coordinates of the points in a ring
+     * @param non-empty-list<array{x: float, y: float}> $ring coordinates of the points in a ring
      *
      * @dataProvider providerForIsOuterRing
      */
@@ -430,7 +430,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testIsOuterRing() test case
      *
-     * @return array<array{array<array<string, int>>}>
+     * @return array<array{non-empty-list<array{x: float, y: float}>}>
      */
     public static function providerForIsOuterRing(): array
     {

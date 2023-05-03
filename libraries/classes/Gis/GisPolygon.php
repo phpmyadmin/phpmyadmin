@@ -296,7 +296,7 @@ class GisPolygon extends GisGeometry
     /**
      * Calculates the area of a closed simple polygon.
      *
-     * @param mixed[] $ring array of points forming the ring
+     * @param non-empty-list<array{x: float, y: float}> $ring array of points forming the ring
      *
      * @return float the area of a closed simple polygon
      */
@@ -330,7 +330,7 @@ class GisPolygon extends GisGeometry
      * Determines whether a set of points represents an outer ring.
      * If points are in clockwise orientation then, they form an outer ring.
      *
-     * @param mixed[] $ring array of points forming the ring
+     * @param non-empty-list<array{x: float, y: float}> $ring array of points forming the ring
      */
     public static function isOuterRing(array $ring): bool
     {
@@ -342,8 +342,8 @@ class GisPolygon extends GisGeometry
     /**
      * Determines whether a given point is inside a given polygon.
      *
-     * @param mixed[] $point   x, y coordinates of the point
-     * @param mixed[] $polygon array of points forming the ring
+     * @param array{x: float, y: float}                 $point   x, y coordinates of the point
+     * @param non-empty-list<array{x: float, y: float}> $polygon array of points forming the ring
      */
     public static function isPointInsidePolygon(array $point, array $polygon): bool
     {
@@ -394,9 +394,9 @@ class GisPolygon extends GisGeometry
      * Returns a point that is guaranteed to be on the surface of the ring.
      * (for simple closed rings)
      *
-     * @param mixed[] $ring array of points forming the ring
+     * @param non-empty-list<array{x: float, y: float}> $ring array of points forming the ring
      *
-     * @return mixed[]|false a point on the surface of the ring
+     * @return array{x: float, y: float}|false a point on the surface of the ring
      */
     public static function getPointOnSurface(array $ring): array|false
     {
@@ -415,7 +415,7 @@ class GisPolygon extends GisGeometry
             }
         }
 
-        if (! isset($x0)) {
+        if (! isset($x0, $x1, $y0, $y1)) {
             return false;
         }
 

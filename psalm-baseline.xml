@@ -6627,110 +6627,17 @@
     <ArgumentTypeCoercion>
       <code>$pointsArr</code>
     </ArgumentTypeCoercion>
-    <MixedArgument>
-      <code>($y1 - $y0) ** 2 + ($x0 - $x1) ** 2</code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$gisData[$index]['POLYGON']]]></code>
       <code><![CDATA[$gisData[$index]['POLYGON'][$i]]]></code>
       <code><![CDATA[$gisData[$index]['POLYGON'][$i]['no_of_points']]]></code>
       <code><![CDATA[$gisData[$index]['POLYGON']['no_of_lines']]]></code>
-      <code><![CDATA[$p1['x']]]></code>
-      <code><![CDATA[$p1['x']]]></code>
-      <code><![CDATA[$p1['x']]]></code>
-      <code><![CDATA[$p1['x']]]></code>
-      <code><![CDATA[$p1['y']]]></code>
-      <code><![CDATA[$p1['y']]]></code>
-      <code><![CDATA[$p1['y']]]></code>
-      <code><![CDATA[$p1['y']]]></code>
-      <code><![CDATA[$p1['y']]]></code>
-      <code><![CDATA[$p2['x']]]></code>
-      <code><![CDATA[$p2['x']]]></code>
-      <code><![CDATA[$p2['x']]]></code>
-      <code><![CDATA[$p2['y']]]></code>
-      <code><![CDATA[$p2['y']]]></code>
-      <code><![CDATA[$p2['y']]]></code>
-      <code><![CDATA[$p2['y']]]></code>
-      <code><![CDATA[$polygon[$last]['x']]]></code>
-      <code><![CDATA[$polygon[$last]['y']]]></code>
-      <code><![CDATA[$polygon[0]['x']]]></code>
-      <code><![CDATA[$polygon[0]['y']]]></code>
-      <code><![CDATA[$ring[$i + 1]['x']]]></code>
-      <code><![CDATA[$ring[$i + 1]['y']]]></code>
-      <code><![CDATA[$ring[$i + 1]['y']]]></code>
-      <code><![CDATA[$ring[$i]['x']]]></code>
-      <code><![CDATA[$ring[$i]['x']]]></code>
-      <code><![CDATA[$ring[$i]['y']]]></code>
-      <code><![CDATA[$ring[$i]['y']]]></code>
-      <code><![CDATA[$ring[$i]['y']]]></code>
-      <code><![CDATA[$ring[$j]['x']]]></code>
-      <code><![CDATA[$ring[$j]['y']]]></code>
-      <code><![CDATA[$ring[$last]['x']]]></code>
-      <code><![CDATA[$ring[$last]['y']]]></code>
-      <code><![CDATA[$ring[0]['x']]]></code>
-      <code><![CDATA[$ring[0]['y']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code>$area</code>
-      <code>$area</code>
-      <code>$area</code>
       <code>$noOfLines</code>
       <code>$noOfPoints</code>
-      <code>$p1</code>
-      <code>$p1</code>
-      <code>$p1</code>
-      <code>$p1</code>
-      <code>$p1</code>
-      <code>$p2</code>
-      <code><![CDATA[$pointA['x']]]></code>
-      <code><![CDATA[$pointA['y']]]></code>
-      <code><![CDATA[$pointB['x']]]></code>
-      <code><![CDATA[$pointB['y']]]></code>
-      <code>$x0</code>
-      <code>$x1</code>
-      <code>$x2</code>
-      <code>$xinters</code>
-      <code>$y0</code>
-      <code>$y1</code>
-      <code>$y2</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>float</code>
-    </MixedInferredReturnType>
     <MixedOperand>
-      <code>$area</code>
-      <code>$area</code>
-      <code>$epsilon * ($y1 - $y0)</code>
-      <code>$epsilon * ($y1 - $y0)</code>
-      <code><![CDATA[$p2['x']]]></code>
-      <code><![CDATA[$p2['y']]]></code>
-      <code><![CDATA[$pointA['x']]]></code>
-      <code><![CDATA[$pointB['x']]]></code>
-      <code><![CDATA[$point['y']]]></code>
-      <code><![CDATA[$ring[$i]['x']]]></code>
-      <code><![CDATA[$ring[$i]['x'] * $ring[$j]['y']]]></code>
-      <code><![CDATA[$ring[$i]['y']]]></code>
-      <code>$x0</code>
-      <code>$x0</code>
-      <code>$x0</code>
-      <code>$x0</code>
-      <code>$x2</code>
-      <code>$x2</code>
-      <code>$y0</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1 - $y0</code>
-      <code>$y1 - $y0</code>
-      <code>$y2</code>
-      <code>$y2</code>
-      <code><![CDATA[($pointA['x'] - $x2) * ($x0 - $x1)]]></code>
-      <code><![CDATA[($pointB['x'] - $x2) * ($x0 - $x1)]]></code>
-      <code><![CDATA[($point['y'] - $p1['y'])
-                    * ($p2['x'] - $p1['x'])]]></code>
-      <code>($y1 - $y0) ** 2</code>
       <code><![CDATA[isset($gisData[$index]['POLYGON'][$i][$j]['x'])
                         && trim((string) $gisData[$index]['POLYGON'][$i][$j]['x']) != ''
                         ? $gisData[$index]['POLYGON'][$i][$j]['x'] : $empty]]></code>
@@ -6738,31 +6645,10 @@
                         && trim((string) $gisData[$index]['POLYGON'][$i][$j]['y']) != ''
                         ? $gisData[$index]['POLYGON'][$i][$j]['y'] : $empty]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code>$area</code>
-    </MixedReturnStatement>
     <PossiblyFalseArgument>
       <code>$black</code>
       <code>$fillColor</code>
     </PossiblyFalseArgument>
-    <PossiblyNullOperand>
-      <code>$x1</code>
-      <code>$x1</code>
-      <code>$x1</code>
-      <code>$x1</code>
-      <code>$y0</code>
-      <code>$y0</code>
-      <code>$y0</code>
-      <code>$y0</code>
-      <code>$y0</code>
-      <code>$y0</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1</code>
-      <code>$y1</code>
-    </PossiblyNullOperand>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>

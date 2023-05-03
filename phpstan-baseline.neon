@@ -4006,7 +4006,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$point of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$point of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array\\{x\\: float, y\\: float\\}, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4016,12 +4016,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getPointOnSurface\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getPointOnSurface\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isOuterRing\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isOuterRing\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4031,7 +4031,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#2 \\$polygon of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$polygon of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4092,12 +4092,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 18
+			count: 3
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
 			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 22
+			count: 3
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
