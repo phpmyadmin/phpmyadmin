@@ -666,7 +666,7 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) should return array\\{foreign_link\\: bool, the_total\\: mixed, foreign_display\\: string, disp_row\\: array\\<int, non\\-empty\\-array\\>\\|null, foreign_field\\: mixed\\} but returns array\\{foreign_link\\: bool, the_total\\: int\\|string\\|null, foreign_display\\: string, disp_row\\: array\\<int, array\\<string\\|null\\>\\>\\|null, foreign_field\\: mixed\\}\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) should return array\\{foreign_link\\: bool, the_total\\: int\\|string\\|null, foreign_display\\: string, disp_row\\: array\\<int, non\\-empty\\-array\\>\\|null, foreign_field\\: mixed\\} but returns array\\{foreign_link\\: bool, the_total\\: int\\|string\\|null, foreign_display\\: string, disp_row\\: array\\<int, array\\<string\\|null\\>\\>\\|null, foreign_field\\: mixed\\}\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -9357,11 +9357,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 3 on mixed\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:providerForTestGetPointOnSurface\\(\\) should return array\\<array\\{array\\}\\> but returns array\\{array\\{mixed\\}, array\\{mixed\\}\\}\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 

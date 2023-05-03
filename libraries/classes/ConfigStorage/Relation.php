@@ -977,7 +977,7 @@ class Relation
      * @return array<string, mixed>    data about the foreign keys
      * @psalm-return array{
      *     foreign_link: bool,
-     *     the_total: mixed,
+     *     the_total: int|string|null,
      *     foreign_display: string,
      *     disp_row: list<non-empty-array>|null,
      *     foreign_field: mixed

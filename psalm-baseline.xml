@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.9.0@8b9ad1eb9e8b7d3101f949291da2b9f7767cd163">
+<files psalm-version="5.10.0@a5effd2d2dddd1a7ea7a0f6a051ce63ff979e356">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -26,15 +26,6 @@
     <MixedOperand>
       <code><![CDATA[$rule['justification_formula']]]></code>
     </MixedOperand>
-    <UnusedClosureParam>
-      <code>$arguments</code>
-      <code>$arguments</code>
-      <code>$arguments</code>
-      <code>$arguments</code>
-      <code>$arguments</code>
-      <code>$arguments</code>
-      <code>$arguments</code>
-    </UnusedClosureParam>
   </file>
   <file src="libraries/classes/Bookmark.php">
     <DeprecatedMethod>
@@ -319,6 +310,9 @@
     <RiskyCast>
       <code><![CDATA[$server['port']]]></code>
     </RiskyCast>
+    <TypeDoesNotContainType>
+      <code>md5($verboseToLower) === $serverToLower</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
     <MixedArgument>
@@ -712,6 +706,11 @@
     </InvalidArgument>
     <InvalidReturnStatement>
       <code>$tableNameReplacements</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[array<string, string>]]></code>
+    </InvalidReturnType>
+    <LessSpecificReturnStatement>
       <code><![CDATA[[
             'foreign_link' => $foreignLink,
             'the_total' => $theTotal,
@@ -719,17 +718,7 @@
             'disp_row' => $dispRow,
             'foreign_field' => $foreignField,
         ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array<string, string>]]></code>
-      <code><![CDATA[array{
-     *     foreign_link: bool,
-     *     the_total: mixed,
-     *     foreign_display: string,
-     *     disp_row: list<non-empty-array>|null,
-     *     foreign_field: mixed
-     * }]]></code>
-    </InvalidReturnType>
+    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
@@ -814,6 +803,15 @@
       <code>$foreigners[$column]</code>
       <code><![CDATA[$row['display_field']]]></code>
     </MixedReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[array{
+     *     foreign_link: bool,
+     *     the_total: int|string|null,
+     *     foreign_display: string,
+     *     disp_row: list<non-empty-array>|null,
+     *     foreign_field: mixed
+     * }]]></code>
+    </MoreSpecificReturnType>
     <PossiblyFalseArgument>
       <code><![CDATA[$GLOBALS['cfg']['Server']['column_info']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Server']['column_info']]]></code>
@@ -4616,9 +4614,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <LessSpecificReturnStatement>
-      <code>[$fieldCount, $fieldPrimary, $fieldIndex, $fieldUnique, $fieldFullText, $fieldSpatial]</code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$_POST['field_name'][$column['col_index']]]]></code>
       <code>$fieldPrimary[0]</code>
@@ -4676,9 +4671,10 @@
       <code><![CDATA[$partition['value']]]></code>
       <code><![CDATA[$partition['value_type']]]></code>
     </MixedOperand>
-    <MoreSpecificReturnType>
+    <MixedReturnTypeCoercion>
+      <code>[$fieldCount, $fieldPrimary, $fieldIndex, $fieldUnique, $fieldFullText, $fieldSpatial]</code>
       <code>array{int, array, array, array, array, array}</code>
-    </MoreSpecificReturnType>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['after_field']]]></code>
       <code><![CDATA[$_POST['comment']]]></code>
@@ -6104,16 +6100,12 @@
       <code><![CDATA[list<array<array-key, string|null>>]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[array_column($this->result->fetch_all(), 0)]]></code>
-    </LessSpecificReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[array<array-key, string|null>]]></code>
+      <code><![CDATA[array_column($this->result->fetch_all(), 0)]]></code>
       <code><![CDATA[array_column($this->result->fetch_all(), 1, 0)]]></code>
-    </MixedReturnTypeCoercion>
-    <MoreSpecificReturnType>
       <code><![CDATA[list<string|null>]]></code>
-    </MoreSpecificReturnType>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <DeprecatedMethod>
@@ -6442,7 +6434,6 @@
       <code>$afterCount</code>
       <code>$posNext</code>
       <code>$preCount</code>
-      <code>$sortedColumnMessage</code>
       <code>$total</code>
     </UnusedParam>
   </file>
@@ -8806,14 +8797,6 @@
       <code>$subpartitionCount</code>
       <code>$subpartitions</code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code>$subpartitions[$j]</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code>$subpartitions[$j]</code>
-      <code>$subpartitions[$j]</code>
-      <code><![CDATA[$subpartitions[$j]['prefix']]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code>$partitionCount</code>
       <code><![CDATA[$partition['subpartition_count']]]></code>
@@ -9368,6 +9351,11 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$GLOBALS['what']]]></code>
     </MixedOperand>
+    <PossiblyFalseOperand>
+      <code><![CDATA[date('Y-m-d', strtotime($row[$j]))]]></code>
+      <code><![CDATA[date('Y-m-d\TH:i:s', strtotime($row[$j]))]]></code>
+      <code><![CDATA[date('\P\TH\Hi\Ms\S', strtotime($row[$j]))]]></code>
+    </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
     </PossiblyInvalidArgument>
@@ -9542,9 +9530,6 @@
       <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
     </InvalidArrayOffset>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$field->key->columns]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
@@ -9635,6 +9620,7 @@
       <code><![CDATA[$trigger['drop']]]></code>
     </MixedOperand>
     <MixedPropertyTypeCoercion>
+      <code><![CDATA[$field->key->columns]]></code>
       <code><![CDATA[$field->references->columns]]></code>
     </MixedPropertyTypeCoercion>
     <PossiblyInvalidArrayOffset>
@@ -10460,6 +10446,8 @@
     </MixedPropertyFetch>
     <PossiblyNullArgument>
       <code>$cellAttrs</code>
+      <code>$sheets</code>
+      <code>$text</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$attr['number-columns-repeated']]]></code>
@@ -10467,6 +10455,9 @@
       <code><![CDATA[$tblAttr['name']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
+    <PossiblyNullReference>
+      <code>count</code>
+    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
@@ -10622,9 +10613,6 @@
     <PossiblyInvalidCast>
       <code>$tables[$i][Import::TBL_NAME]</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code><![CDATA[$namespaces['pma'] ?? null]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$dbAttr['charset']]]></code>
@@ -10637,12 +10625,14 @@
       <code><![CDATA[$tblAttr['name']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
+    <PossiblyNullReference>
+      <code>attributes</code>
+      <code>children</code>
+      <code>count</code>
+    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <UnnecessaryVarAnnotation>
-      <code>SimpleXMLElement</code>
-    </UnnecessaryVarAnnotation>
     <UnusedVariable>
       <code>$val3</code>
     </UnusedVariable>
@@ -11836,9 +11826,6 @@
     </UnsupportedReferenceUsage>
   </file>
   <file src="libraries/classes/Replication/Replication.php">
-    <LessSpecificReturnStatement>
-      <code>$output</code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$pos['File']]]></code>
     </MixedArgument>
@@ -11853,9 +11840,10 @@
     <MixedOperand>
       <code><![CDATA[$pos['Position']]]></code>
     </MixedOperand>
-    <MoreSpecificReturnType>
+    <MixedReturnTypeCoercion>
+      <code>$output</code>
       <code><![CDATA[array{'File'?: string, 'Position'?: string}]]></code>
-    </MoreSpecificReturnType>
+    </MixedReturnTypeCoercion>
     <PossiblyNullArgument>
       <code>$host</code>
     </PossiblyNullArgument>
@@ -11935,9 +11923,6 @@
     <MixedAssignment>
       <code>$value</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>response</code>
-    </PossiblyUnusedMethod>
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
       <code><![CDATA[(string) $GLOBALS['table']]]></code>
@@ -13312,12 +13297,12 @@
       <code><![CDATA[$data['name']]]></code>
       <code><![CDATA[$data['version']]]></code>
     </MixedArgument>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$data['colorModes']]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedProperty>
       <code>$filesizeInfo</code>
     </PossiblyUnusedProperty>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$data['colorModes']]]></code>
-    </PropertyTypeCoercion>
     <UnevaluatedCode>
       <code>return false;</code>
     </UnevaluatedCode>
@@ -13854,20 +13839,24 @@
   <file src="libraries/classes/WebAuthn/CustomServer.php">
     <InvalidReturnStatement>
       <code>$decoded</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code>array{fmt: string, attStmt: mixed[], authData: string}</code>
+    </InvalidReturnType>
+    <LessSpecificReturnStatement>
       <code><![CDATA[[
             'type' => $clientData['type'],
             'challenge' => $clientData['challenge'],
             'origin' => $clientData['origin'],
         ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
       <code><![CDATA[array{
      *   type: 'webauthn.create'|'webauthn.get',
      *   challenge: non-empty-string,
      *   origin: non-empty-string
      * }]]></code>
-      <code>array{fmt: string, attStmt: mixed[], authData: string}</code>
-    </InvalidReturnType>
+    </MoreSpecificReturnType>
   </file>
   <file src="libraries/classes/ZipExtension.php">
     <MixedArgument>
@@ -13908,9 +13897,6 @@
       <code>$service</code>
       <code>$serviceName</code>
     </MixedAssignment>
-    <UnevaluatedCode>
-      <code>declare(strict_types=1);</code>
-    </UnevaluatedCode>
   </file>
   <file src="test/classes/AbstractNetworkTestCase.php">
     <MixedAssignment>
@@ -14626,18 +14612,15 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
-    <LessSpecificReturnStatement>
-      <code><![CDATA[[[$temp['POLYGON'][0]], [$temp['POLYGON'][1]]]]]></code>
-    </LessSpecificReturnStatement>
     <MixedArrayAccess>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]]]></code>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]['y']]]></code>
       <code><![CDATA[$temp['POLYGON'][0]['no_of_points']]]></code>
       <code><![CDATA[$temp['POLYGON'][1]['no_of_points']]]></code>
     </MixedArrayAccess>
-    <MoreSpecificReturnType>
-      <code><![CDATA[array<array{mixed[]}>]]></code>
-    </MoreSpecificReturnType>
+    <PossiblyInvalidArgument>
+      <code>testGetPointOnSurface</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>
@@ -15493,6 +15476,14 @@
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
+  </file>
+  <file src="test/selenium/Database/EventsTest.php">
+    <PossiblyFalseOperand>
+      <code>$end</code>
+      <code>$start</code>
+      <code><![CDATA[date('Y-m-d', strtotime('+1 day'))]]></code>
+      <code><![CDATA[date('Y-m-d', strtotime('-1 day'))]]></code>
+    </PossiblyFalseOperand>
   </file>
   <file src="test/selenium/Database/ProceduresTest.php">
     <MixedInferredReturnType>
