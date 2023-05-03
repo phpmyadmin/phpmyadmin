@@ -220,7 +220,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGetPointOnSurface
      *
-     * @return array<array{mixed[]}>
+     * @return list{list{mixed}, list{mixed}}
      */
     public static function providerForTestGetPointOnSurface(): array
     {
