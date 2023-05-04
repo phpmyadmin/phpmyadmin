@@ -27,7 +27,7 @@ class UserPassword
     /**
      * Generate the message
      *
-     * @return mixed[]   error value and message
+     * @return array{error: boolean, msg: Message} error value and message
      */
     public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword): array
     {
@@ -65,10 +65,17 @@ class UserPassword
 
         $serverVersion = $this->dbi->getVersion();
 
-        if ($authenticationPlugin !== null && $authenticationPlugin !== '' && $authenticationPlugin !== '0') {
-            $origAuthPlugin = $authenticationPlugin;
-        } else {
-            $origAuthPlugin = $this->serverPrivileges->getCurrentAuthenticationPlugin($username, $hostname);
+        $serverVersion = $this->dbi->getVersion();
+
+        $origAuthPlugin = $this->serverPrivileges->getCurrentAuthenticationPlugin($username, $hostname);
+        $authPluginChanged = false;
+
+        if (isset($_POST['authentication_plugin']) && ! empty($_POST['authentication_plugin'])) {
+            if ($origAuthPlugin !== $_POST['authentication_plugin']) {
+                $authPluginChanged = true;
+            }
+
+            $origAuthPlugin = $_POST['authentication_plugin'];
         }
 
         $sqlQuery = 'SET password = '
@@ -76,10 +83,14 @@ class UserPassword
 
         $isPerconaOrMySql = Compatibility::isMySqlOrPerconaDb();
         if ($isPerconaOrMySql && $serverVersion >= 50706) {
-            $sqlQuery = 'ALTER USER ' . $this->dbi->quoteString($username)
-                . '@' . $this->dbi->quoteString($hostname)
-                . ' IDENTIFIED WITH ' . $origAuthPlugin . ' BY '
-                . ($password == '' ? '\'\'' : '\'***\'');
+            $sqlQuery = $this->getChangePasswordQueryAlterUserMySQL(
+                $serverVersion,
+                $username,
+                $hostname,
+                $origAuthPlugin,
+                $password === '' ? '' : '***', // Mask it, preview mode
+                $authPluginChanged,
+            );
         } elseif (
             ($isPerconaOrMySql && $serverVersion >= 50507)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200)
@@ -104,6 +115,7 @@ class UserPassword
             $sqlQuery,
             $hashingFunction,
             $origAuthPlugin,
+            $authPluginChanged,
         );
 
         $authPlugin = $this->authPluginFactory->create();
@@ -112,6 +124,43 @@ class UserPassword
         return $sqlQuery;
     }
 
+    private function getChangePasswordQueryAlterUserMySQL(
+        int $serverVersion,
+        string $username,
+        string $hostname,
+        string $authPlugin,
+        string $password,
+        bool $authPluginChanged,
+    ): string {
+        // Starting with MySQL 5.7.37 the security check changed
+        // See: https://github.com/mysql/mysql-server/commit/b31a8a5d7805834ca2d25629c0e584d2c53b1a5b
+        // See: https://github.com/phpmyadmin/phpmyadmin/issues/17654
+        // That means that you should not try to change or state a plugin using IDENTIFIED WITH
+        // Or it will say: Access denied; you need (at least one of) the CREATE USER privilege(s) for this operation
+        // So let's avoid stating a plugin if it's not needed/changed
+
+        if ($serverVersion >= 50706 && $serverVersion < 50737) {
+            return 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
+                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname)
+                . '\' IDENTIFIED WITH ' . $authPlugin . ' BY '
+                . ($password === '' ? '\'\'' : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
+        }
+
+        $sqlQuery = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
+            . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\' IDENTIFIED';
+
+        if ($authPluginChanged) {
+            $sqlQuery .= ' WITH ' . $authPlugin;
+        }
+
+        return $sqlQuery . ' BY ' . (
+            $password === '' ? '\'\'' : '\'' . $GLOBALS['dbi']->escapeString($password) . '\''
+        );
+    }
+
+    /**
+     * Generate the hashing function
+     */
     private function changePassHashingFunction(string|null $authenticationPlugin): string
     {
         if ($authenticationPlugin === 'mysql_old_password') {
@@ -123,13 +172,6 @@ class UserPassword
 
     /**
      * Changes password for a user
-     *
-     * @param string $username        Username
-     * @param string $hostname        Hostname
-     * @param string $password        Password
-     * @param string $sqlQuery        SQL query
-     * @param string $hashingFunction Hashing function
-     * @param string $origAuthPlugin  Original Authentication Plugin
      */
     private function changePassUrlParamsAndSubmitQuery(
         string $username,
@@ -138,16 +180,22 @@ class UserPassword
         string $sqlQuery,
         string $hashingFunction,
         string $origAuthPlugin,
+        bool $authPluginChanged,
     ): void {
         $errUrl = Url::getFromRoute('/user-password');
 
         $serverVersion = $this->dbi->getVersion();
+        $isPerconaOrMySql = Compatibility::isMySqlOrPerconaDb();
 
-        if (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706) {
-            $localQuery = 'ALTER USER ' . $this->dbi->quoteString($username)
-                . '@' . $this->dbi->quoteString($hostname)
-                . ' IDENTIFIED with ' . $origAuthPlugin . ' BY '
-                . $this->dbi->quoteString($password);
+        if ($isPerconaOrMySql && $serverVersion >= 50706) {
+            $localQuery = $this->getChangePasswordQueryAlterUserMySQL(
+                $serverVersion,
+                $username,
+                $hostname,
+                $origAuthPlugin,
+                $password,
+                $authPluginChanged,
+            );
         } elseif (
             Compatibility::isMariaDb()
             && $serverVersion >= 50200

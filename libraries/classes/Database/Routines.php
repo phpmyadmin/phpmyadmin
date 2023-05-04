@@ -563,7 +563,7 @@ class Routines
             return null;
         }
 
-        $parser = new Parser($definition);
+        $parser = new Parser('DELIMITER $$' . "\n" . $definition);
 
         /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
@@ -1463,7 +1463,7 @@ class Routines
         $executeAction = '';
 
         if ($definition !== null) {
-            $parser = new Parser($definition);
+            $parser = new Parser('DELIMITER $$' . "\n" . $definition);
 
             /** @var CreateStatement $stmt */
             $stmt = $parser->statements[0];
