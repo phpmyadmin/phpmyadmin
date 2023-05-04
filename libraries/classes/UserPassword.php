@@ -27,7 +27,7 @@ class UserPassword
     /**
      * Generate the message
      *
-     * @return array{error: boolean, msg: Message} error value and message
+     * @return array{error: bool, msg: Message} error value and message
      */
     public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword): array
     {
@@ -140,21 +140,21 @@ class UserPassword
         // So let's avoid stating a plugin if it's not needed/changed
 
         if ($serverVersion >= 50706 && $serverVersion < 50737) {
-            return 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname)
-                . '\' IDENTIFIED WITH ' . $authPlugin . ' BY '
-                . ($password === '' ? '\'\'' : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
+            return 'ALTER USER ' . $GLOBALS['dbi']->quoteString($username)
+                . '@' . $GLOBALS['dbi']->quoteString($hostname)
+                . ' IDENTIFIED WITH ' . $authPlugin . ' BY '
+                . ($password === '' ? "''" : '' . $GLOBALS['dbi']->quoteString($password) . '');
         }
 
-        $sqlQuery = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
-            . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\' IDENTIFIED';
+        $sqlQuery = 'ALTER USER ' . $GLOBALS['dbi']->quoteString($username)
+            . '@' . $GLOBALS['dbi']->quoteString($hostname) . ' IDENTIFIED';
 
         if ($authPluginChanged) {
             $sqlQuery .= ' WITH ' . $authPlugin;
         }
 
         return $sqlQuery . ' BY ' . (
-            $password === '' ? '\'\'' : '\'' . $GLOBALS['dbi']->escapeString($password) . '\''
+            $password === '' ? "''" : $GLOBALS['dbi']->quoteString($password)
         );
     }
 

@@ -13581,14 +13581,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/UserPassword.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code>$origAuthPlugin</code>
