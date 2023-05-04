@@ -4423,8 +4423,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['change_password_message']['msg']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']->getDisplay()]]></code>
       <code>$password</code>
       <code>$pmaPw</code>
@@ -4433,7 +4431,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['change_password_message']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code>$noPass</code>
       <code>$password</code>
@@ -13584,12 +13581,27 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/UserPassword.php">
+    <DeprecatedMethod>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['pma_pw']]]></code>
+      <code>$origAuthPlugin</code>
+      <code>$origAuthPlugin</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['pma_pw']]]></code>
+      <code>$origAuthPlugin</code>
+      <code>$origAuthPlugin</code>
     </PossiblyInvalidCast>
+    <UnusedVariable>
+      <code>$serverVersion</code>
+    </UnusedVariable>
   </file>
   <file src="libraries/classes/UserPreferences.php">
     <MixedArgumentTypeCoercion>
