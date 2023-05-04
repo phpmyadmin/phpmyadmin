@@ -3922,7 +3922,7 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 8
+			count: 7
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -3967,7 +3967,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'points' on mixed\\.$#"
-			count: 5
+			count: 3
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -3997,6 +3997,11 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
+			message: "#^Cannot call method isInsidePolygon\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4006,32 +4011,17 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$point of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array\\{x\\: float, y\\: float\\}, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Parameter \\#1 \\$points of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects array\\<int, int\\>, array\\<float\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getPointOnSurface\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isOuterRing\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$points of static method PhpMyAdmin\\\\Gis\\\\Ds\\\\Polygon\\:\\:fromXYArray\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Parameter \\#2 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#2 \\$polygon of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -8966,6 +8956,16 @@ parameters:
 			path: test/classes/ErrorHandlerTest.php
 
 		-
+			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			count: 2
+			path: test/classes/Gis/Ds/PolygonTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$points of static method PhpMyAdmin\\\\Gis\\\\Ds\\\\Polygon\\:\\:fromXYArray\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
+			count: 2
+			path: test/classes/Gis/Ds/PolygonTest.php
+
+		-
 			message: "#^Cannot access offset 'no_of_lines' on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
@@ -8977,7 +8977,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-

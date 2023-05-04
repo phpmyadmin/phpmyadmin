@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Gis\Ds\Polygon;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -348,20 +349,22 @@ class GisMultiPolygon extends GisGeometry
      */
     public function getShape(array $rowData): string
     {
-        // Determines whether each line ring is an inner ring or an outer ring.
-        // If it's an inner ring get a point on the surface which can be used to
-        // correctly classify inner rings to their respective outer rings.
+        // Buffer polygons for further use
+        /** @var Polygon[] $polygons */
+        $polygons = [];
         foreach ($rowData['parts'] as $i => $ring) {
-            $rowData['parts'][$i]['isOuter'] = GisPolygon::isOuterRing($ring['points']);
-        }
+            $polygons[$i] = Polygon::fromXYArray($ring['points']);
 
-        // Find points on surface for inner rings
-        foreach ($rowData['parts'] as $i => $ring) {
-            if ($ring['isOuter']) {
+            // Determines whether each line ring is an inner ring or an outer ring.
+            // If it's an inner ring get a point on the surface which can be used to
+            // correctly classify inner rings to their respective outer rings.
+            $rowData['parts'][$i]['isOuter'] = $polygons[$i]->isOuterRing();
+            if ($rowData['parts'][$i]['isOuter']) {
                 continue;
             }
 
-            $rowData['parts'][$i]['pointOnSurface'] = GisPolygon::getPointOnSurface($ring['points']);
+            // Find points on surface for inner rings
+            $rowData['parts'][$i]['pointOnSurface'] = $polygons[$i]->getPointOnSurface();
         }
 
         // Classify inner rings to their respective outer rings.
@@ -377,7 +380,7 @@ class GisMultiPolygon extends GisGeometry
 
                 // If the pointOnSurface of the inner ring
                 // is also inside the outer ring
-                if (! GisPolygon::isPointInsidePolygon($ring1['pointOnSurface'], $ring2['points'])) {
+                if (! $ring1['pointOnSurface']->isInsidePolygon($polygons[$k])) {
                     continue;
                 }
 

@@ -6367,6 +6367,11 @@
       <code>mixed</code>
     </UnusedReturnValue>
   </file>
+  <file src="libraries/classes/Gis/Ds/Polygon.php">
+    <NullArgument>
+      <code>$polygon</code>
+    </NullArgument>
+  </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
     <MixedOperand>
       <code><![CDATA[$scaleData['height']]]></code>
@@ -6508,9 +6513,6 @@
       <code>$labelPoint[0]</code>
       <code>$labelPoint[1]</code>
       <code>$labelPoint[1]</code>
-      <code><![CDATA[$ring1['pointOnSurface']]]></code>
-      <code><![CDATA[$ring2['points']]]></code>
-      <code><![CDATA[$ring['points']]]></code>
       <code><![CDATA[$ring['points']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -6532,11 +6534,8 @@
       <code><![CDATA[$ring1['isOuter']]]></code>
       <code><![CDATA[$ring1['pointOnSurface']]]></code>
       <code><![CDATA[$ring2['isOuter']]]></code>
-      <code><![CDATA[$ring2['points']]]></code>
       <code><![CDATA[$ring['inner']]]></code>
       <code><![CDATA[$ring['isOuter']]]></code>
-      <code><![CDATA[$ring['isOuter']]]></code>
-      <code><![CDATA[$ring['points']]]></code>
       <code><![CDATA[$ring['points']]]></code>
       <code><![CDATA[$ring['points']]]></code>
       <code><![CDATA[$rowData['parts'][$j]]]></code>
@@ -6553,6 +6552,8 @@
       <code><![CDATA[$rowData['parts'][$k]['inner']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
+      <code>$polygons[$i]</code>
+      <code>$polygons[$k]</code>
       <code><![CDATA[$rowData['parts'][$i]]]></code>
       <code><![CDATA[$rowData['parts'][$i]]]></code>
       <code><![CDATA[$rowData['parts'][$j]]]></code>
@@ -6561,7 +6562,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$dataRow</code>
-      <code>$i</code>
       <code>$i</code>
       <code>$innerPoint</code>
       <code>$j</code>
@@ -6573,11 +6573,13 @@
       <code>$point</code>
       <code>$ring</code>
       <code>$ring</code>
-      <code>$ring</code>
       <code>$ring1</code>
       <code>$ring2</code>
       <code><![CDATA[$rowData['parts'][$k]['inner'][]]]></code>
     </MixedAssignment>
+    <MixedMethodCall>
+      <code>isInsidePolygon</code>
+    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$innerPoint['x']]]></code>
       <code><![CDATA[$innerPoint['y']]]></code>
@@ -13800,6 +13802,19 @@
       <code>$privates</code>
     </PossiblyUnusedProperty>
   </file>
+  <file src="test/classes/Gis/Ds/PolygonTest.php">
+    <MixedArgument>
+      <code><![CDATA[$temp['POLYGON'][0]]]></code>
+      <code><![CDATA[$temp['POLYGON'][1]]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$temp['POLYGON'][0]['no_of_points']]]></code>
+      <code><![CDATA[$temp['POLYGON'][1]['no_of_points']]]></code>
+    </MixedArrayAccess>
+    <PossiblyInvalidArgument>
+      <code>testGetPointOnSurface</code>
+    </PossiblyInvalidArgument>
+  </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
@@ -13812,12 +13827,7 @@
     <MixedArrayAccess>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]]]></code>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]['y']]]></code>
-      <code><![CDATA[$temp['POLYGON'][0]['no_of_points']]]></code>
-      <code><![CDATA[$temp['POLYGON'][1]['no_of_points']]]></code>
     </MixedArrayAccess>
-    <PossiblyInvalidArgument>
-      <code>testGetPointOnSurface</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>
