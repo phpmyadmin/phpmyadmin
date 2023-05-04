@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Gis;
+namespace PhpMyAdmin\Gis\Ds;
 
 use function max;
 use function min;
