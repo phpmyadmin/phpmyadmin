@@ -57,33 +57,33 @@ class LintControllerTest extends AbstractTestCase
         $expectedJson = json_encode([
             [
                 'message' => 'An alias was previously found. (near <code>`actor_id`</code>)',
-                'fromLine' => 0,
+                'fromLine' => 1,
                 'fromColumn' => 29,
-                'toLine' => 0,
+                'toLine' => 1,
                 'toColumn' => 39,
                 'severity' => 'error',
             ],
             [
                 'message' => 'Unexpected token. (near <code>`actor_id`</code>)',
-                'fromLine' => 0,
+                'fromLine' => 1,
                 'fromColumn' => 29,
-                'toLine' => 0,
+                'toLine' => 1,
                 'toColumn' => 39,
                 'severity' => 'error',
             ],
             [
                 'message' => 'Unexpected token. (near <code>=</code>)',
-                'fromLine' => 0,
+                'fromLine' => 1,
                 'fromColumn' => 40,
-                'toLine' => 0,
+                'toLine' => 1,
                 'toColumn' => 41,
                 'severity' => 'error',
             ],
             [
                 'message' => 'Unexpected token. (near <code>1</code>)',
-                'fromLine' => 0,
+                'fromLine' => 1,
                 'fromColumn' => 42,
-                'toLine' => 0,
+                'toLine' => 1,
                 'toColumn' => 43,
                 'severity' => 'error',
             ],
@@ -92,7 +92,7 @@ class LintControllerTest extends AbstractTestCase
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
-            ['sql_query', '', 'SELECT * FROM `actor` WHEREE `actor_id` = 1;'],
+            ['sql_query', '', 'SELECT * FROM `actor` WHEREE `actor_id` = 1'],
             ['options', null, null],
         ]);
 
