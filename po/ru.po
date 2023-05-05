@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2022-10-18 17:02+0000\n"
-"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
+"PO-Revision-Date: 2023-05-06 10:51+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7031,6 +7031,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"Функция HEX будет рассматривать целое число как строку при вычислении "
+"шестнадцатеричного значения"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 msgid ""
@@ -7122,6 +7124,8 @@ msgstr "Удалить страницу"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Некоторые таблицы, сохранённые на этой странице, могли быть переименованы "
+"или удалены."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:10
@@ -7384,11 +7388,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "Имя столбца скопировано в буфер обмена!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "Не удалось скопировать имя столбца в буфер обмена!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
@@ -7506,7 +7510,7 @@ msgstr "Неизвестная ошибка ключа безопасности.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Клиент не поддерживает ключ безопасности."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
@@ -7527,6 +7531,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn недоступен. Пожалуйста, используйте поддерживаемый браузер в "
+"безопасном контексте (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -7534,6 +7540,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Вы не можете открыть, сохранить или удалить макет страницы, так как "
+"IndexedDB не работает в вашем браузере, а ваше хранилище конфигурации "
+"phpMyAdmin не настроено для этого."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #, php-format
@@ -8576,7 +8585,7 @@ msgstr "MySQL вернула пустой результат (т.е. ноль с
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:75
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:75
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Операции обслуживания нескольких таблиц отключены."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:109
 #: libraries/classes/Controllers/Table/OperationsController.php:298
@@ -9183,6 +9192,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Ошибка 1045: пользователю отказано в доступе. Дополнительная информация об "
+"ошибке может быть доступна, но скрыта директивой конфигурации %s."
 
 #: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -9684,7 +9695,7 @@ msgstr "Дамп был сохранен в файл %s."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:985
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Экспорт raw запроса не поддерживается для этого метода экспорта."
 
 #: libraries/classes/File.php:231
 msgid "File was not an uploaded file."
@@ -10827,6 +10838,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Ваш пароль слишком длинный. Для предотвращения атак типа \"отказ в "
+"обслуживании\" phpMyAdmin ограничивает пароли длиной менее 1000 символов."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
