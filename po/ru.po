@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-04-30 00:18+0000\n"
-"PO-Revision-Date: 2023-03-01 12:28+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2023-05-06 10:52+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-rc\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -7886,6 +7886,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Вы не можете открыть, сохранить или удалить макет страницы, так как "
+"IndexedDB не работает в вашем браузере, а ваше хранилище конфигурации "
+"phpMyAdmin не настроено для этого."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 #, php-format
@@ -9446,7 +9449,7 @@ msgstr "Не доступно в данной версии MySQL."
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:66
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:66
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Операции обслуживания нескольких таблиц отключены."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:112
 #: libraries/classes/Controllers/Table/OperationsController.php:325
@@ -10067,6 +10070,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Ошибка 1045: пользователю отказано в доступе. Дополнительная информация об "
+"ошибке может быть доступна, но скрыта директивой конфигурации %s."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
@@ -10548,7 +10553,7 @@ msgstr "Дамп был сохранен в файл %s."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:906
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Экспорт raw запроса не поддерживается для этого метода экспорта."
 
 #: libraries/classes/File.php:225
 msgid "File was not an uploaded file."
