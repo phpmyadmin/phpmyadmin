@@ -75,7 +75,7 @@ class ChangeLogController extends AbstractController
 
             // CVE/CAN entries
             '/((CAN|CVE)-[0-9]+-[0-9]+)/' => '<a href="url.php?url='
-                . 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=\\1">\\1</a>',
+                . 'https://www.cve.org/CVERecord?id=\\1">\\1</a>',
 
             // PMASAentries
             '/(PMASA-[0-9]+-[0-9]+)/' => '<a href="url.php?url=https://www.phpmyadmin.net/security/\\1/">\\1</a>',

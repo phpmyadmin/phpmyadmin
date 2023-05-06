@@ -683,6 +683,8 @@ class Core
             'www.github.com',
             /* Percona domains */
             'www.percona.com',
+            /* CVE domain */
+            'www.cve.org',
             /* Following are doubtful ones. */
             'mysqldatabaseadministration.blogspot.com',
         ];
