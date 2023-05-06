@@ -184,18 +184,18 @@ class ImportOdsTest extends AbstractTestCase
         // The process could probably detect that all the values for columns V to BL are empty
         // That would make the empty columns not needed and would create a cleaner structure
 
-        $endOfSql = ');;';
+        $endOfSql = ');';
 
         if (! $odsEmptyRowsMode) {
             $fullCols = 'NULL' . str_repeat(', NULL', 18);// 19 empty cells
-            $endOfSql = '),' . "\n" . ' (' . $fullCols . '),' . "\n" . ' (' . $fullCols . ');;';
+            $endOfSql = '),' . "\n" . ' (' . $fullCols . '),' . "\n" . ' (' . $fullCols . ');';
         }
 
         //Test function called
         $this->object->doImport($importHandle);
 
         $this->assertSame(
-            'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;'
+            'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'
             . 'CREATE TABLE IF NOT EXISTS `ODS_DB`.`Shop` ('
             . '`Artikelnummer` varchar(7), `Name` varchar(41), `keywords` varchar(15), `EK_Preis` varchar(21),'
             . ' `Preis` varchar(23), `Details` varchar(10), `addInfo` varchar(22), `Einheit` varchar(3),'
@@ -203,9 +203,9 @@ class ImportOdsTest extends AbstractTestCase
             . ' `Gebinde` varchar(71), `Verbrauchsnachweis` varchar(7), `Genehmigungspflichtig` varchar(7),'
             . ' `Gefahrstoff` varchar(11), `GefahrArbeitsbereich` varchar(14), `Verwendungszweck` varchar(10),'
             . ' `Verbrauch` varchar(10), `showLagerbestand` varchar(7)) '
-            . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;'
+            . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'
             . 'CREATE TABLE IF NOT EXISTS `ODS_DB`.`Feuille 1` (`value` varchar(19)) '
-            . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;'
+            . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'
             . 'INSERT INTO `ODS_DB`.`Shop` ('
             . '`Artikelnummer`, `Name`, `keywords`, `EK_Preis`, `Preis`, `Details`, `addInfo`, `Einheit`,'
             . ' `Wirkstoff`, `verkuerztHaltbar`, `kuehlkette`, `Gebinde`, `Verbrauchsnachweis`,'
@@ -246,7 +246,7 @@ class ImportOdsTest extends AbstractTestCase
              . ' (\'true\'),' . "\n"
              . ' (\'12\')'
              . ($odsEmptyRowsMode ? '' : ',' . "\n" . ' (NULL)')
-             . ($odsEmptyRowsMode ? ';;' : ',' . "\n" . ' (NULL);;'),
+             . ($odsEmptyRowsMode ? ';' : ',' . "\n" . ' (NULL);'),
             $GLOBALS['sql_query'],
         );
 
