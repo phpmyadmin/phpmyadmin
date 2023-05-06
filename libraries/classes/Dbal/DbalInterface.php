@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
@@ -452,13 +453,11 @@ interface DbalInterface
     /**
      * Connects to the database server.
      *
-     * @param int          $mode   Connection mode.
-     * @param mixed[]|null $server Server information like host/port/socket/persistent
-     * @param int|null     $target How to store connection link, defaults to $mode
-     * @psalm-param ConnectionType $mode
+     * @param int|null $target How to store connection link, defaults to $mode
+     * @psalm-param ConnectionType $connectionType
      * @psalm-param ConnectionType|null $target
      */
-    public function connect(int $mode, array|null $server = null, int|null $target = null): Connection|null;
+    public function connect(Server $currentServer, int $connectionType, int|null $target = null): Connection|null;
 
     /**
      * selects given database

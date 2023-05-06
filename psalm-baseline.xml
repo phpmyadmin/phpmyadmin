@@ -206,6 +206,7 @@
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
       <code>$sqlDelimiter</code>
     </MixedArgument>
@@ -231,13 +232,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Config.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['controlhost']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['controlpass']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['controlport']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['controluser']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['hide_connection_errors']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$collationConnection</code>
       <code>$configData</code>
@@ -276,21 +270,11 @@
       <code>$defaultValue</code>
       <code>$defaultValue</code>
       <code>$evalResult</code>
-      <code>$password</code>
-      <code>$password</code>
       <code>$path</code>
       <code>$prefsType</code>
       <code>$prefsType</code>
-      <code>$server[$item]</code>
-      <code><![CDATA[$server['hide_connection_errors']]]></code>
-      <code><![CDATA[$server['host']]]></code>
-      <code><![CDATA[$server['port']]]></code>
-      <code>$server[substr($key, 8)]</code>
       <code>$url</code>
       <code>$url</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$val</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -307,9 +291,6 @@
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
     </PossiblyInvalidArrayOffset>
-    <RiskyCast>
-      <code><![CDATA[$server['port']]]></code>
-    </RiskyCast>
     <TypeDoesNotContainType>
       <code>md5($verboseToLower) === $serverToLower</code>
     </TypeDoesNotContainType>
@@ -5943,11 +5924,9 @@
     <MixedArgument>
       <code>$a</code>
       <code>$b</code>
-      <code>$password</code>
       <code><![CDATA[$tableData[$sortBy] ?? '']]></code>
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
-      <code>$user</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($eachTables, 'strnatcasecmp')]]></code>
@@ -11866,9 +11845,6 @@
       <code>$output</code>
       <code><![CDATA[array{'File'?: string, 'Position'?: string}]]></code>
     </MixedReturnTypeCoercion>
-    <PossiblyNullArgument>
-      <code>$host</code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Replication/ReplicationGui.php">
     <InvalidArrayOffset>
@@ -14142,7 +14118,6 @@
       <code><![CDATA[$gdNfo['GD Version']]]></code>
     </MixedArgument>
     <MixedInferredReturnType>
-      <code>mixed[]</code>
       <code>mixed[]</code>
       <code>mixed[]</code>
       <code>mixed[]</code>

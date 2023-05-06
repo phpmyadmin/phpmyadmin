@@ -244,6 +244,7 @@ final class Common
             }
 
             $authPlugin->authenticate();
+            $currentServer = new Server($GLOBALS['cfg']['Server']);
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
             if ($route === '/import' && ($_POST['format'] ?? '') === 'ldi') {
@@ -562,11 +563,11 @@ final class Common
          */
         $controlConnection = null;
         if ($currentServer->controlUser !== '') {
-            $controlConnection = $dbi->connect(Connection::TYPE_CONTROL);
+            $controlConnection = $dbi->connect($currentServer, Connection::TYPE_CONTROL);
         }
 
         // Connects to the server (validates user's login)
-        $userConnection = $dbi->connect(Connection::TYPE_USER);
+        $userConnection = $dbi->connect($currentServer, Connection::TYPE_USER);
         if ($userConnection === null) {
             $auth->showFailure('mysql-denied');
         }
@@ -579,7 +580,7 @@ final class Common
          * Open separate connection for control queries, this is needed to avoid problems with table locking used in
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
-        $dbi->connect(Connection::TYPE_USER, null, Connection::TYPE_CONTROL);
+        $dbi->connect($currentServer, Connection::TYPE_USER, Connection::TYPE_CONTROL);
     }
 
     public static function getRequest(): ServerRequest

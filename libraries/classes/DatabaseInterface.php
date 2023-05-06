@@ -41,7 +41,6 @@ use function explode;
 use function implode;
 use function is_array;
 use function is_int;
-use function is_string;
 use function mb_strtolower;
 use function microtime;
 use function openlog;
@@ -1555,47 +1554,32 @@ class DatabaseInterface implements DbalInterface
     /**
      * Connects to the database server.
      *
-     * @param int          $mode   Connection mode.
-     * @param mixed[]|null $server Server information like host/port/socket/persistent
-     * @param int|null     $target How to store connection link, defaults to $mode
-     * @psalm-param ConnectionType $mode
+     * @param int|null $target How to store connection link, defaults to $mode
+     * @psalm-param ConnectionType $connectionType
      * @psalm-param ConnectionType|null $target
      */
-    public function connect(int $mode, array|null $server = null, int|null $target = null): Connection|null
+    public function connect(Server $currentServer, int $connectionType, int|null $target = null): Connection|null
     {
-        [$user, $password, $server] = Config::getConnectionParams($mode, $server);
+        $server = Config::getConnectionParams($currentServer, $connectionType);
 
-        if ($target === null) {
-            $target = $mode;
-        }
-
-        if ($user === null || $password === null || ! is_array($server)) {
-            trigger_error(
-                __('Missing connection parameters!'),
-                E_USER_WARNING,
-            );
-
-            return null;
-        }
-
-        $server['host'] = ! is_string($server['host']) || $server['host'] === '' ? 'localhost' : $server['host'];
+        $target ??= $connectionType;
 
         // Do not show location and backtrace for connection errors
         $GLOBALS['errorHandler']->setHideLocation(true);
-        $result = $this->extension->connect($user, $password, new Server($server));
+        $result = $this->extension->connect($server);
         $GLOBALS['errorHandler']->setHideLocation(false);
 
         if ($result !== null) {
             $this->connections[$target] = $result;
             /* Run post connect for user connections */
-            if ($target == Connection::TYPE_USER) {
+            if ($target === Connection::TYPE_USER) {
                 $this->postConnect();
             }
 
             return $result;
         }
 
-        if ($mode == Connection::TYPE_CONTROL) {
+        if ($connectionType === Connection::TYPE_CONTROL) {
             trigger_error(
                 __(
                     'Connection for controluser as defined in your configuration failed.',
@@ -1606,7 +1590,7 @@ class DatabaseInterface implements DbalInterface
             return null;
         }
 
-        if ($mode === Connection::TYPE_AUXILIARY) {
+        if ($connectionType === Connection::TYPE_AUXILIARY) {
             // Do not go back to main login if connection failed
             // (currently used only in unit testing)
             return null;
