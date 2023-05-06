@@ -37,7 +37,7 @@ class AddControllerTest extends AbstractTestCase
     public function testWithoutRelationParameters(): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'user';
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $dbi = $this->createDatabaseInterface();
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
@@ -63,10 +63,7 @@ class AddControllerTest extends AbstractTestCase
             'bookmarkwork' => true,
             'bookmark' => 'bookmark',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(

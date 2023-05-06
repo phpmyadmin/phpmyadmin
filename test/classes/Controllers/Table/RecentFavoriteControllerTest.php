@@ -44,7 +44,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $_REQUEST['db'] = 'test_db';
         $_REQUEST['table'] = 'test_table';
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $_SESSION['tmpval'] = [];
         $_SESSION['tmpval']['recentTables'][2] = [['db' => 'test_db', 'table' => 'test_table']];
@@ -75,7 +75,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $_REQUEST['db'] = 'invalid_db';
         $_REQUEST['table'] = 'invalid_table';
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $_SESSION['tmpval'] = [];
         $_SESSION['tmpval']['recentTables'][2] = [['db' => 'invalid_db', 'table' => 'invalid_table']];

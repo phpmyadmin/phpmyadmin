@@ -62,10 +62,7 @@ class SystemDatabaseTest extends AbstractTestCase
             'column_info' => 'column_info',
             'relation' => 'relation',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->sysDb = new SystemDatabase($dbi);
     }

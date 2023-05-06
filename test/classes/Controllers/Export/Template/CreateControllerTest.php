@@ -44,10 +44,7 @@ class CreateControllerTest extends AbstractTestCase
             'db' => 'db',
             'export_templates' => 'table',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $GLOBALS['cfg']['Server']['user'] = 'user';
 

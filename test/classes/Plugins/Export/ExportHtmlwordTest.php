@@ -429,10 +429,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
@@ -501,10 +498,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
@@ -543,10 +537,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $result = $this->object->getTableDef('database', '', false, false, false);
 

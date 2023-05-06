@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use ReflectionProperty;
 
 #[CoversClass(Table::class)]
 class TableTest extends AbstractTestCase
@@ -891,7 +893,7 @@ class TableTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'relation',
         ]);
-        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $ret = Table::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
         $this->assertSame(-1, $ret);

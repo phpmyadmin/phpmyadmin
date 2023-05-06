@@ -131,7 +131,7 @@ class ExportSqlTest extends AbstractTestCase
             'relwork' => true,
             'mimework' => true,
         ]);
-        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
@@ -879,10 +879,7 @@ SQL;
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $GLOBALS['sql_include_comments'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

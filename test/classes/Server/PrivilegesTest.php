@@ -1139,10 +1139,7 @@ class PrivilegesTest extends AbstractTestCase
             'usergroups' => 'usergroups',
             'menuswork' => true,
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult(
@@ -1170,10 +1167,7 @@ class PrivilegesTest extends AbstractTestCase
             'trackingwork' => true,
             'tracking' => 'tracking',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT * FROM `pmadb`.`users`', []);
@@ -1268,10 +1262,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['old_hostname'] = 'old_hostname';
         $_POST['old_username'] = 'old_username';
         $relationParameters = RelationParameters::fromArray([]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $queries = [];
 
