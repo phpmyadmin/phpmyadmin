@@ -188,7 +188,7 @@ jobs:
           coverage-reports: build/logs/clover.xml
 
   test-php-psr7-implementations:
-    name: Test on PHP (+ psr7-${{ matrix.psr-7-library }}) ${{ matrix.php-version }} and ${{ matrix.os }}
+    name: Test on PHP ${{ matrix.php-version }} (+ psr7-${{ matrix.psr-7-library }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -196,7 +196,7 @@ jobs:
         php-version: ['8.1']
         os: [ubuntu-latest]
         php-extensions: ['mbstring, iconv, mysqli, zip, bz2']
-        psr-7-library: ['guzzlehttp/psr7', 'nyholm/psr7', 'laminas/laminas-diactoros']
+        psr-7-library: ['guzzlehttp/psr7', 'slim/psr7', 'laminas/laminas-diactoros']
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -223,7 +223,7 @@ jobs:
           dependency-versions: highest
 
       - name: Remove default PSR-7 implementation
-        run: composer remove slim/psr7
+        run: composer remove nyholm/psr7
 
       - name: Add PSR-7 implementation
         run: composer require ${{ matrix.psr-7-library }}
