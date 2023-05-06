@@ -329,6 +329,7 @@ class Descriptions
                 . 'storage). If disabled, this utilizes JS-routines to display query history '
                 . '(lost by window close).',
             ),
+            'AllowSharedBookmarks_desc' => __('Allow users to create bookmarks that are available for all other users'),
             'Servers_SessionTimeZone_desc' => __(
                 'Sets the effective timezone; possibly different than the one from your database server',
             ),
@@ -854,6 +855,7 @@ class Descriptions
             'ProtectBinary_name' => __('Protect binary columns'),
             'QueryHistoryDB_name' => __('Permanent query history'),
             'QueryHistoryMax_name' => __('Query history length'),
+            'AllowSharedBookmarks_name' => __('Allow shared bookmarks between users'),
             'RecodingEngine_name' => __('Recoding engine'),
             'RememberSorting_name' => __('Remember table\'s sorting'),
             'TablePrimaryKeyOrder_name' => __('Primary key default sort order'),

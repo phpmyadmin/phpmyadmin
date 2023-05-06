@@ -175,7 +175,7 @@ class Bookmark
     /**
      * Creates a Bookmark object from the parameters
      *
-     * @param mixed[] $bkmFields the properties of the bookmark to add; here, $bkm_fields['bkm_sql_query'] is urlencoded
+     * @param mixed[] $bkmFields the properties of the bookmark to add; here, $bkmFields['bkm_sql_query'] is urlencoded
      * @param bool    $allUsers  whether to make the bookmark available for all users
      */
     public static function createBookmark(
@@ -188,6 +188,14 @@ class Bookmark
             && strlen($bkmFields['bkm_sql_query']) > 0
             && strlen($bkmFields['bkm_label']) > 0)
         ) {
+            return false;
+        }
+
+        if (! $GLOBALS['cfg']['AllowSharedBookmarks']) {
+            $allUsers = false;
+        }
+
+        if (! $allUsers && ! strlen((string) $bkmFields['bkm_user'])) {
             return false;
         }
 
@@ -227,10 +235,17 @@ class Bookmark
         string $user,
         string|false $db = false,
     ): array {
+        $exactUserMatch = ! $GLOBALS['cfg']['AllowSharedBookmarks'];
+
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . " WHERE ( `user` = ''"
-            . ' OR `user` = ' . $dbi->quoteString($user) . ' )';
+            . ' WHERE (`user` = ' . $dbi->quoteString($user);
+        if (! $exactUserMatch) {
+            $query .= " OR `user` = ''";
+        }
+
+        $query .= ')';
+
         if ($db !== false) {
             $query .= ' AND dbase = ' . $dbi->quoteString($db);
         }
@@ -273,6 +288,10 @@ class Bookmark
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
         if ($bookmarkFeature === null) {
             return null;
+        }
+
+        if (! $GLOBALS['cfg']['AllowSharedBookmarks']) {
+            $exactUserMatch = true;
         }
 
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
