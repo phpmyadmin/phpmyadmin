@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.10.0@a5effd2d2dddd1a7ea7a0f6a051ce63ff979e356">
+<files psalm-version="5.11.0@c9b192ab8400fdaf04b2b13d110575adc879aa90">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -7505,6 +7505,30 @@
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
   </file>
+  <file src="libraries/classes/Http/Factory/ServerRequestFactory.php">
+    <MixedArgument>
+      <code>$serverRequest</code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code>$factory</code>
+      <code>$factory</code>
+      <code>$serverRequest</code>
+    </MixedAssignment>
+    <MixedInferredReturnType>
+      <code>ServerRequestFactoryInterface</code>
+      <code>UriFactoryInterface</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement>
+      <code>$factory</code>
+      <code>$factory</code>
+      <code>$factory</code>
+      <code>$factory</code>
+    </MixedReturnStatement>
+    <UndefinedClass>
+      <code>SlimServerRequestFactory</code>
+      <code>SlimUriFactory</code>
+    </UndefinedClass>
+  </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
       <code>bool</code>
@@ -14686,7 +14710,7 @@
     <UndefinedClass>
       <code>GuzzleHttpFactory</code>
       <code>LaminasServerRequestFactory</code>
-      <code>NyholmPsr17Factory</code>
+      <code>SlimServerRequestFactory</code>
     </UndefinedClass>
   </file>
   <file src="test/classes/ImportTest.php">
