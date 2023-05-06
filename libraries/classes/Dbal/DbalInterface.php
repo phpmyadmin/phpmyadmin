@@ -281,7 +281,7 @@ interface DbalInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      */
-    public function postConnect(): void;
+    public function postConnect(Server $currentServer): void;
 
     /**
      * Sets collation connection for user link

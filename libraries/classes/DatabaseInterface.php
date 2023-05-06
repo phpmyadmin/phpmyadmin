@@ -1038,7 +1038,7 @@ class DatabaseInterface implements DbalInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      */
-    public function postConnect(): void
+    public function postConnect(Server $currentServer): void
     {
         $version = $this->fetchSingleRow('SELECT @@version, @@version_comment');
 
@@ -1065,9 +1065,9 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Set timezone for the session, if required.
-        if ($GLOBALS['cfg']['Server']['SessionTimeZone'] != '') {
+        if ($currentServer->sessionTimeZone !== '') {
             $sqlQueryTz = 'SET ' . Util::backquote('time_zone') . ' = '
-                . $this->quoteString($GLOBALS['cfg']['Server']['SessionTimeZone']);
+                . $this->quoteString($currentServer->sessionTimeZone);
 
             if (! $this->tryQuery($sqlQueryTz)) {
                 $errorMessageTz = sprintf(
@@ -1078,7 +1078,7 @@ class DatabaseInterface implements DbalInterface
                         . 'phpMyAdmin is currently using the default time zone '
                         . 'of the database server.',
                     ),
-                    $GLOBALS['cfg']['Server']['SessionTimeZone'],
+                    $currentServer->sessionTimeZone,
                     $GLOBALS['server'],
                     $GLOBALS['server'],
                 );
@@ -1573,7 +1573,7 @@ class DatabaseInterface implements DbalInterface
             $this->connections[$target] = $result;
             /* Run post connect for user connections */
             if ($target === Connection::TYPE_USER) {
-                $this->postConnect();
+                $this->postConnect($currentServer);
             }
 
             return $result;

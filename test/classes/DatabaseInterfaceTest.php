@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -117,7 +118,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testPostConnectShouldNotCallSetVersionIfNoVersion(): void
     {
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
         LanguageManager::getInstance()->availableLanguages();
 
         $mock = $this->getMockBuilder(DatabaseInterface::class)
@@ -131,7 +131,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->expects($this->never())->method('setVersion');
 
-        $mock->postConnect();
+        $mock->postConnect(new Server(['SessionTimeZone' => '']));
     }
 
     /**
@@ -141,7 +141,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testPostConnectShouldCallSetVersionOnce(): void
     {
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
         $versionQueryResult = [
             '@@version' => '10.20.7-MariaDB-1:10.9.3+maria~ubu2204',
             '@@version_comment' => 'mariadb.org binary distribution',
@@ -159,7 +158,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->expects($this->once())->method('setVersion')->with($versionQueryResult);
 
-        $mock->postConnect();
+        $mock->postConnect(new Server(['SessionTimeZone' => '']));
     }
 
     /**
@@ -181,7 +180,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
         bool $isPercona,
     ): void {
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
         LanguageManager::getInstance()->availableLanguages();
 
         $mock = $this->getMockBuilder(DatabaseInterface::class)
@@ -193,7 +191,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ->method('fetchSingleRow')
             ->will($this->returnValue($version));
 
-        $mock->postConnect();
+        $mock->postConnect(new Server(['SessionTimeZone' => '']));
 
         $this->assertEquals($mock->getVersion(), $versionInt);
         $this->assertEquals($mock->isMariaDB(), $isMariaDb);
