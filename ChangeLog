@@ -37,6 +37,9 @@ phpMyAdmin - ChangeLog
 - issue        Stop pmadb database detection when all features are disabled
 - issue        Replace slim/psr7 by nyholm/psr7 (CVE-2023-30536)
 - issue #17654 Fix unprivileged user cannot change password on MySQL >= 5.7.37
+- issue        Add CVE MITRE link to allowed domains and use cve.org
+- issue #18330 Fix TypeError when no-datetime field is modified
+- issue #18212 Fix Query Builder doesn't replace a table name with it's alias in the `WHERE` block
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid

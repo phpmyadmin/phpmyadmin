@@ -31,7 +31,10 @@ function getFormatsText () {
 }
 
 function generateCondition (criteriaDiv, table) {
-    var query = '`' + escapeBacktick(table.val()) + '`.';
+    const tableName = table.val();
+    const tableAlias = table.siblings('.table_alias').val();
+
+    var query = '`' + escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
     query += '`' + escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         var formatsText = getFormatsText();
