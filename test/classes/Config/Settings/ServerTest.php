@@ -300,8 +300,8 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForSocketProvider */
-    public function testControlSocket(mixed $actual, string $expected): void
+    /** @dataProvider valuesForControlSocketProvider */
+    public function testControlSocket(mixed $actual, string|null $expected): void
     {
         $server = new Server(['control_socket' => $actual]);
         $serverArray = $server->asArray();
@@ -310,14 +310,32 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_socket']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
-    public function testControlSsl(mixed $actual, bool $expected): void
+    /** @return iterable<string, array{mixed, string|null}> */
+    public static function valuesForControlSocketProvider(): iterable
+    {
+        yield 'null value' => [null, null];
+        yield 'valid value' => ['test', 'test'];
+        yield 'valid value 2' => ['', ''];
+        yield 'valid value with type coercion' => [1234, '1234'];
+    }
+
+    /** @dataProvider valuesForControlSslProvider */
+    public function testControlSsl(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_ssl' => $actual]);
         $serverArray = $server->asArray();
         $this->assertSame($expected, $server->controlSsl);
         $this->assertArrayHasKey('control_ssl', $serverArray);
         $this->assertSame($expected, $serverArray['control_ssl']);
+    }
+
+    /** @return iterable<string, array{mixed, bool|null}> */
+    public static function valuesForControlSslProvider(): iterable
+    {
+        yield 'null value' => [null, null];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value with type coercion' => [1, true];
     }
 
     /** @dataProvider valuesForSslOptionsProvider */
@@ -370,8 +388,8 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_ssl_ciphers']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
-    public function testControlSslVerify(mixed $actual, bool $expected): void
+    /** @dataProvider valuesForControlSslVerifyProvider */
+    public function testControlSslVerify(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_ssl_verify' => $actual]);
         $serverArray = $server->asArray();
@@ -380,8 +398,17 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_ssl_verify']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
-    public function testControlCompress(mixed $actual, bool $expected): void
+    /** @return iterable<string, array{mixed, bool|null}> */
+    public static function valuesForControlSslVerifyProvider(): iterable
+    {
+        yield 'null value' => [null, null];
+        yield 'valid value' => [true, true];
+        yield 'valid value 2' => [false, false];
+        yield 'valid value with type coercion' => [0, false];
+    }
+
+    /** @dataProvider valuesForControlCompressProvider */
+    public function testControlCompress(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_compress' => $actual]);
         $serverArray = $server->asArray();
@@ -390,14 +417,32 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_compress']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
-    public function testControlHideConnectionErrors(mixed $actual, bool $expected): void
+    /** @return iterable<string, array{mixed, bool|null}> */
+    public static function valuesForControlCompressProvider(): iterable
+    {
+        yield 'null value' => [null, null];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value with type coercion' => [1, true];
+    }
+
+    /** @dataProvider valuesForControlHideConnectionErrorsProvider */
+    public function testControlHideConnectionErrors(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_hide_connection_errors' => $actual]);
         $serverArray = $server->asArray();
         $this->assertSame($expected, $server->controlHideConnectionErrors);
         $this->assertArrayHasKey('control_hide_connection_errors', $serverArray);
         $this->assertSame($expected, $serverArray['control_hide_connection_errors']);
+    }
+
+    /** @return iterable<string, array{mixed, bool|null}> */
+    public static function valuesForControlHideConnectionErrorsProvider(): iterable
+    {
+        yield 'null value' => [null, null];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value with type coercion' => [1, true];
     }
 
     /** @dataProvider valuesForAuthTypeProvider */
