@@ -40,7 +40,7 @@ use const MYSQLI_USE_RESULT;
  */
 class DbiMysqli implements DbiExtension
 {
-    public function connect(string $user, string $password, Server $server): Connection|null
+    public function connect(Server $server): Connection|null
     {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -95,7 +95,15 @@ class DbiMysqli implements DbiExtension
         }
 
         try {
-            $mysqli->real_connect($host, $user, $password, '', (int) $server->port, $server->socket, $clientFlags);
+            $mysqli->real_connect(
+                $host,
+                $server->user,
+                $server->password,
+                '',
+                (int) $server->port,
+                $server->socket,
+                $clientFlags,
+            );
         } catch (mysqli_sql_exception) {
             /**
              * Switch to SSL if server asked us to do so, unfortunately
@@ -120,7 +128,7 @@ class DbiMysqli implements DbiExtension
                     E_USER_WARNING,
                 );
 
-                return self::connect($user, $password, $server->withSSL(true));
+                return self::connect($server->withSSL(true));
             }
 
             if ($errorNumber === 1045 && $server->hideConnectionErrors) {

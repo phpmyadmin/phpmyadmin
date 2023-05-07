@@ -1112,109 +1112,77 @@ class Config
     /**
      * Return connection parameters for the database server
      *
-     * @param int          $mode   Connection mode.
-     * @param mixed[]|null $server Server information like host/port/socket/persistent
-     * @psalm-param ConnectionType $mode
-     *
-     * @return mixed[] user, host and server settings array
+     * @psalm-param ConnectionType $connectionType
      */
-    public static function getConnectionParams(int $mode, array|null $server = null): array
+    public static function getConnectionParams(Server $currentServer, int $connectionType): Server
     {
-        $user = null;
-        $password = null;
-
-        if ($mode == Connection::TYPE_USER) {
-            $user = $GLOBALS['cfg']['Server']['user'];
-            $password = $GLOBALS['cfg']['Server']['password'];
-            $server = $GLOBALS['cfg']['Server'];
-        } elseif ($mode == Connection::TYPE_CONTROL) {
-            $user = $GLOBALS['cfg']['Server']['controluser'];
-            $password = $GLOBALS['cfg']['Server']['controlpass'];
-
-            $server = [];
-
-            $server['hide_connection_errors'] = $GLOBALS['cfg']['Server']['hide_connection_errors'];
-
-            if (! empty($GLOBALS['cfg']['Server']['controlhost'])) {
-                $server['host'] = $GLOBALS['cfg']['Server']['controlhost'];
-            } else {
-                $server['host'] = $GLOBALS['cfg']['Server']['host'];
+        if ($connectionType !== Connection::TYPE_CONTROL) {
+            if ($currentServer->host !== '' && $currentServer->port !== '') {
+                return $currentServer;
             }
 
-            // Share the settings if the host is same
-            if ($server['host'] == $GLOBALS['cfg']['Server']['host']) {
-                $shared = [
-                    'port',
-                    'socket',
-                    'compress',
-                    'ssl',
-                    'ssl_key',
-                    'ssl_cert',
-                    'ssl_ca',
-                    'ssl_ca_path',
-                    'ssl_ciphers',
-                    'ssl_verify',
-                ];
-                foreach ($shared as $item) {
-                    if (! isset($GLOBALS['cfg']['Server'][$item])) {
-                        continue;
-                    }
+            $server = $currentServer->asArray();
+            $server['host'] = $server['host'] === '' ? 'localhost' : $server['host'];
+            $server['port'] = $server['port'] === '' ? '0' : $server['port'];
 
-                    $server[$item] = $GLOBALS['cfg']['Server'][$item];
-                }
-            }
-
-            // Set configured port
-            if (! empty($GLOBALS['cfg']['Server']['controlport'])) {
-                $server['port'] = $GLOBALS['cfg']['Server']['controlport'];
-            }
-
-            // Set any configuration with control_ prefix
-            foreach ($GLOBALS['cfg']['Server'] as $key => $val) {
-                if (substr($key, 0, 8) !== 'control_') {
-                    continue;
-                }
-
-                $server[substr($key, 8)] = $val;
-            }
-        } else {
-            if ($server === null) {
-                return [null, null, null];
-            }
-
-            if (isset($server['user'])) {
-                $user = $server['user'];
-            }
-
-            if (isset($server['password'])) {
-                $password = $server['password'];
-            }
+            return new Server($server);
         }
 
-        // Perform sanity checks on some variables
-        $server['port'] = empty($server['port']) ? 0 : (int) $server['port'];
+        $server = [
+            'user' => $currentServer->controlUser,
+            'password' => $currentServer->controlPass,
+            'host' => $currentServer->controlHost !== '' ? $currentServer->controlHost : $currentServer->host,
+            'port' => '0',
+            'socket' => null,
+            'compress' => null,
+            'ssl' => null,
+            'ssl_key' => null,
+            'ssl_cert' => null,
+            'ssl_ca' => null,
+            'ssl_ca_path' => null,
+            'ssl_ciphers' => null,
+            'ssl_verify' => null,
+            'hide_connection_errors' => null,
+        ];
 
-        if (empty($server['socket'])) {
-            $server['socket'] = null;
+        // Share the settings if the host is same
+        if ($server['host'] === $currentServer->host) {
+            $server['port'] = $currentServer->port !== '' ? $currentServer->port : '0';
+            $server['socket'] = $currentServer->socket;
+            $server['compress'] = $currentServer->compress;
+            $server['ssl'] = $currentServer->ssl;
+            $server['ssl_key'] = $currentServer->sslKey;
+            $server['ssl_cert'] = $currentServer->sslCert;
+            $server['ssl_ca'] = $currentServer->sslCa;
+            $server['ssl_ca_path'] = $currentServer->sslCaPath;
+            $server['ssl_ciphers'] = $currentServer->sslCiphers;
+            $server['ssl_verify'] = $currentServer->sslVerify;
+            $server['hide_connection_errors'] = $currentServer->hideConnectionErrors;
         }
 
-        if (empty($server['host'])) {
+        // Set configured port
+        if ($currentServer->controlPort !== '') {
+            $server['port'] = $currentServer->controlPort;
+        }
+
+        // Set any configuration with control_ prefix
+        $server['socket'] = $currentServer->controlSocket ?? $server['socket'];
+        $server['compress'] = $currentServer->controlCompress ?? $server['compress'];
+        $server['ssl'] = $currentServer->controlSsl ?? $server['ssl'];
+        $server['ssl_key'] = $currentServer->controlSslKey ?? $server['ssl_key'];
+        $server['ssl_cert'] = $currentServer->controlSslCert ?? $server['ssl_cert'];
+        $server['ssl_ca'] = $currentServer->controlSslCa ?? $server['ssl_ca'];
+        $server['ssl_ca_path'] = $currentServer->controlSslCaPath ?? $server['ssl_ca_path'];
+        $server['ssl_ciphers'] = $currentServer->controlSslCiphers ?? $server['ssl_ciphers'];
+        $server['ssl_verify'] = $currentServer->controlSslVerify ?? $server['ssl_verify'];
+        $server['hide_connection_errors'] = $currentServer->controlHideConnectionErrors
+            ?? $server['hide_connection_errors'];
+
+        if ($server['host'] === '') {
             $server['host'] = 'localhost';
         }
 
-        if (! isset($server['ssl'])) {
-            $server['ssl'] = false;
-        }
-
-        if (! isset($server['compress'])) {
-            $server['compress'] = false;
-        }
-
-        if (! isset($server['hide_connection_errors'])) {
-            $server['hide_connection_errors'] = false;
-        }
-
-        return [$user, $password, $server];
+        return new Server($server);
     }
 
     /**

@@ -192,13 +192,13 @@ final class Server
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
      * @see self::$socket
      */
-    public string $controlSocket;
+    public string|null $controlSocket;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
      * @see self::$ssl
      */
-    public bool $controlSsl;
+    public bool|null $controlSsl;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
@@ -235,19 +235,19 @@ final class Server
      * @see self::$sslVerify
      * @see https://bugs.php.net/68344
      */
-    public bool $controlSslVerify;
+    public bool|null $controlSslVerify;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
      * @see self::$compress
      */
-    public bool $controlCompress;
+    public bool|null $controlCompress;
 
     /**
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_control_*
      * @see self::$hideConnectionErrors
      */
-    public bool $controlHideConnectionErrors;
+    public bool|null $controlHideConnectionErrors;
 
     /**
      * Authentication method (valid choices: config, http, signon or cookie)
@@ -1142,23 +1142,23 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlSocket(array $server): string
+    private function setControlSocket(array $server): string|null
     {
         if (isset($server['control_socket'])) {
             return (string) $server['control_socket'];
         }
 
-        return '';
+        return null;
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlSsl(array $server): bool
+    private function setControlSsl(array $server): bool|null
     {
         if (isset($server['control_ssl'])) {
             return (bool) $server['control_ssl'];
         }
 
-        return false;
+        return null;
     }
 
     /** @param array<int|string, mixed> $server */
@@ -1212,33 +1212,33 @@ final class Server
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlSslVerify(array $server): bool
+    private function setControlSslVerify(array $server): bool|null
     {
         if (isset($server['control_ssl_verify'])) {
             return (bool) $server['control_ssl_verify'];
         }
 
-        return true;
+        return null;
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlCompress(array $server): bool
+    private function setControlCompress(array $server): bool|null
     {
         if (isset($server['control_compress'])) {
             return (bool) $server['control_compress'];
         }
 
-        return false;
+        return null;
     }
 
     /** @param array<int|string, mixed> $server */
-    private function setControlHideConnectionErrors(array $server): bool
+    private function setControlHideConnectionErrors(array $server): bool|null
     {
         if (isset($server['control_hide_connection_errors'])) {
             return (bool) $server['control_hide_connection_errors'];
         }
 
-        return false;
+        return null;
     }
 
     /**

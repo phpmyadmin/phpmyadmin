@@ -3521,17 +3521,7 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:connect\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#2 \\$b of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:usortComparisonCallback\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#2 \\$password of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:connect\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -7317,11 +7307,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Replication\\\\Replication\\:\\:replicaBinLogPrimary\\(\\) should return array\\{File\\?\\: string, Position\\?\\: string\\} but returns array\\{\\}\\|array\\{File\\: mixed, Position\\: mixed\\}\\.$#"
-			count: 1
-			path: libraries/classes/Replication/Replication.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Core\\:\\:sanitizeMySQLHost\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Replication/Replication.php
 

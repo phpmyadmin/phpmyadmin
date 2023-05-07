@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 
 use function define;
@@ -763,24 +764,22 @@ PHP;
     /**
      * Test for getConnectionParams
      *
-     * @param mixed[]      $serverCfg Server configuration
-     * @param mixed[]|null $server    Server array to test
-     * @param mixed[]      $expected  Expected result
-     * @psalm-param ConnectionType $mode
+     * @param mixed[] $serverCfg Server configuration
+     * @param mixed[] $expected  Expected result
+     * @psalm-param ConnectionType $connectionType
      *
      * @dataProvider connectionParams
      */
-    public function testGetConnectionParams(array $serverCfg, int $mode, array|null $server, array $expected): void
+    public function testGetConnectionParams(array $serverCfg, int $connectionType, array $expected): void
     {
-        $GLOBALS['cfg']['Server'] = $serverCfg;
-        $result = Config::getConnectionParams($mode, $server);
-        $this->assertEquals($expected, $result);
+        $result = Config::getConnectionParams(new Server($serverCfg), $connectionType);
+        $this->assertEquals(new Server($expected), $result);
     }
 
     /**
      * Data provider for getConnectionParams test
      *
-     * @return mixed[]
+     * @return array<array{mixed[], ConnectionType, mixed[]}>
      */
     public static function connectionParams(): array
     {
@@ -815,118 +814,130 @@ PHP;
             [
                 $cfgBasic,
                 Connection::TYPE_USER,
-                null,
                 [
-                    'u',
-                    'pass',
-                    [
-                        'user' => 'u',
-                        'password' => 'pass',
-                        'host' => 'localhost',
-                        'socket' => null,
-                        'port' => 0,
-                        'ssl' => false,
-                        'compress' => false,
-                        'controluser' => 'u2',
-                        'controlpass' => 'p2',
-                        'hide_connection_errors' => false,
-                    ],
+                    'user' => 'u',
+                    'password' => 'pass',
+                    'host' => 'localhost',
+                    'socket' => null,
+                    'port' => 0,
+                    'ssl' => false,
+                    'compress' => false,
+                    'controluser' => 'u2',
+                    'controlpass' => 'p2',
+                    'hide_connection_errors' => false,
                 ],
             ],
             [
                 $cfgBasic,
                 Connection::TYPE_CONTROL,
-                null,
                 [
-                    'u2',
-                    'p2',
-                    [
-                        'host' => 'localhost',
-                        'socket' => null,
-                        'port' => 0,
-                        'ssl' => false,
-                        'compress' => false,
-                        'hide_connection_errors' => false,
-                    ],
+                    'user' => 'u2',
+                    'password' => 'p2',
+                    'host' => 'localhost',
+                    'socket' => null,
+                    'port' => 0,
+                    'ssl' => false,
+                    'compress' => false,
+                    'hide_connection_errors' => false,
                 ],
             ],
             [
                 $cfgSsl,
                 Connection::TYPE_USER,
-                null,
                 [
-                    'u',
-                    'pass',
-                    [
-                        'user' => 'u',
-                        'password' => 'pass',
-                        'host' => 'localhost',
-                        'socket' => null,
-                        'port' => 0,
-                        'ssl' => true,
-                        'compress' => false,
-                        'controluser' => 'u2',
-                        'controlpass' => 'p2',
-                        'hide_connection_errors' => false,
-                    ],
+                    'user' => 'u',
+                    'password' => 'pass',
+                    'host' => 'localhost',
+                    'socket' => null,
+                    'port' => 0,
+                    'ssl' => true,
+                    'compress' => false,
+                    'controluser' => 'u2',
+                    'controlpass' => 'p2',
+                    'hide_connection_errors' => false,
                 ],
             ],
             [
                 $cfgSsl,
                 Connection::TYPE_CONTROL,
-                null,
                 [
-                    'u2',
-                    'p2',
-                    [
-                        'host' => 'localhost',
-                        'socket' => null,
-                        'port' => 0,
-                        'ssl' => true,
-                        'compress' => false,
-                        'hide_connection_errors' => false,
-                    ],
+                    'user' => 'u2',
+                    'password' => 'p2',
+                    'host' => 'localhost',
+                    'socket' => null,
+                    'port' => 0,
+                    'ssl' => true,
+                    'compress' => false,
+                    'hide_connection_errors' => false,
                 ],
             ],
             [
                 $cfgControlSsl,
                 Connection::TYPE_USER,
-                null,
                 [
-                    'u',
-                    'pass',
-                    [
-                        'user' => 'u',
-                        'password' => 'pass',
-                        'host' => 'localhost',
-                        'socket' => null,
-                        'port' => 0,
-                        'ssl' => false,
-                        'compress' => false,
-                        'controluser' => 'u2',
-                        'controlpass' => 'p2',
-                        'control_ssl' => true,
-                        'hide_connection_errors' => false,
-                    ],
+                    'user' => 'u',
+                    'password' => 'pass',
+                    'host' => 'localhost',
+                    'socket' => null,
+                    'port' => 0,
+                    'ssl' => false,
+                    'compress' => false,
+                    'controluser' => 'u2',
+                    'controlpass' => 'p2',
+                    'control_ssl' => true,
+                    'hide_connection_errors' => false,
                 ],
             ],
             [
                 $cfgControlSsl,
                 Connection::TYPE_CONTROL,
-                null,
                 [
-                    'u2',
-                    'p2',
-                    [
-                        'host' => 'localhost',
-                        'socket' => null,
-                        'port' => 0,
-                        'ssl' => true,
-                        'compress' => false,
-                        'hide_connection_errors' => false,
-                    ],
+                    'user' => 'u2',
+                    'password' => 'p2',
+                    'host' => 'localhost',
+                    'socket' => null,
+                    'port' => 0,
+                    'ssl' => true,
+                    'compress' => false,
+                    'hide_connection_errors' => false,
                 ],
             ],
+        ];
+    }
+
+    /**
+     * @psalm-param ConnectionType $connectionType
+     *
+     * @dataProvider connectionParamsWhenConnectionIsUserOrAuxiliaryProvider
+     */
+    public function testGetConnectionParamsWhenConnectionIsUserOrAuxiliary(
+        int $connectionType,
+        string $host,
+        string $port,
+        string $expectedHost,
+        string $expectedPort,
+    ): void {
+        $actual = Config::getConnectionParams(new Server(['host' => $host, 'port' => $port]), $connectionType);
+        $expected = new Server(['host' => $expectedHost, 'port' => $expectedPort]);
+        $this->assertEquals($expected, $actual);
+    }
+
+    /** @psalm-return iterable<string, array{ConnectionType, string, string, string, string}> */
+    public static function connectionParamsWhenConnectionIsUserOrAuxiliaryProvider(): iterable
+    {
+        yield 'user with only port empty' => [Connection::TYPE_USER, 'test.host', '', 'test.host', '0'];
+        yield 'user with only host empty' => [Connection::TYPE_USER, '', '12345', 'localhost', '12345'];
+        yield 'user with host and port empty' => [Connection::TYPE_USER, '', '', 'localhost', '0'];
+        yield 'user with host and port defined' => [Connection::TYPE_USER, 'test.host', '12345', 'test.host', '12345'];
+        yield 'aux with only port empty' => [Connection::TYPE_AUXILIARY, 'test.host', '', 'test.host', '0'];
+        yield 'aux with only host empty' => [Connection::TYPE_AUXILIARY, '', '12345', 'localhost', '12345'];
+        yield 'aux with host and port empty' => [Connection::TYPE_AUXILIARY, '', '', 'localhost', '0'];
+        yield 'aux with host and port defined' => [
+            Connection::TYPE_AUXILIARY,
+            'test.host',
+            '12345',
+            'test.host',
+            '12345',
         ];
     }
 }

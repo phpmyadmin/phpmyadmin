@@ -17,7 +17,7 @@ interface DbiExtension
     /**
      * Connects to the database server.
      */
-    public function connect(string $user, string $password, Server $server): Connection|null;
+    public function connect(Server $server): Connection|null;
 
     /**
      * selects given database

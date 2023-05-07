@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Replication;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -131,16 +132,17 @@ class Replication
         int|null $port = null,
         string|null $socket = null,
     ): Connection|null {
-        $server = [];
-        $server['user'] = $user;
-        $server['password'] = $password;
-        $server['host'] = Core::sanitizeMySQLHost($host);
-        $server['port'] = $port;
-        $server['socket'] = $socket;
+        $currentServer = new Server([
+            'user' => $user,
+            'password' => $password,
+            'host' => Core::sanitizeMySQLHost($host ?? ''),
+            'port' => $port,
+            'socket' => $socket,
+        ]);
 
         // 5th parameter set to true means that it's an auxiliary connection
         // and we must not go back to login page if it fails
-        return $this->dbi->connect(Connection::TYPE_AUXILIARY, $server);
+        return $this->dbi->connect($currentServer, Connection::TYPE_AUXILIARY);
     }
 
     /**
