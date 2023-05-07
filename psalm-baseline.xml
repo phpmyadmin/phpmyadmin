@@ -862,9 +862,6 @@
       <code>$tabs</code>
       <code>$tabs</code>
     </PossiblyNullIterator>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $groupName</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/AbstractController.php">
     <InvalidArrayOffset>

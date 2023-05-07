@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { escapeHtml } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    Javascript functions used in server user groups page
@@ -26,7 +25,7 @@ AJAX.registerOnload('server/user_groups.js', function () {
         const userGroupName = $(event.relatedTarget).data('user-group');
         (this.querySelector('.modal-body') as HTMLDivElement).innerText = window.sprintf(
             window.Messages.strDropUserGroupWarning,
-            escapeHtml(userGroupName)
+            userGroupName
         );
     });
 

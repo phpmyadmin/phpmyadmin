@@ -2,7 +2,7 @@
   {% if user_group == null %}
     <h2>{{ 'Add user group'|trans }}</h2>
   {% else %}
-    <h2>{{ 'Edit user group: \'%s\''|trans|format(edit_user_group_special_chars) }}</h2>
+    <h2>{{ 'Edit user group: \'%s\''|trans|format(edit_user_group_special_chars)|raw }}</h2>
   {% endif %}
 
   <form action="{{ user_group_url|raw }}" method="post" class="card disableAjax">
