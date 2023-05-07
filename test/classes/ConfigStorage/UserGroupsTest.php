@@ -11,10 +11,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
-
-use function htmlspecialchars;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\UserGroups
@@ -75,16 +74,16 @@ class UserGroupsTest extends AbstractTestCase
     public function testGetHtmlForUserGroupsTableWithUserGroups(): void
     {
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
-        $this->assertStringContainsString('<td>usergroup</td>', $html);
+        $this->assertStringContainsString('<td>user&lt;br&gt;group</td>', $html);
         $urlTag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
-            . Url::getCommon(['viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')], '');
+            . Url::getCommon(['viewUsers' => 1, 'userGroup' => 'user<br>group'], '');
         $this->assertStringContainsString($urlTag, $html);
         $urlTag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
-            . Url::getCommon(['editUserGroup' => 1, 'userGroup' => htmlspecialchars('usergroup')], '');
+            . Url::getCommon(['editUserGroup' => 1, 'userGroup' => 'user<br>group'], '');
         $this->assertStringContainsString($urlTag, $html);
         $this->assertStringContainsString(
             '<button type="button" class="btn btn-link" data-bs-toggle="modal"'
-            . ' data-bs-target="#deleteUserGroupModal" data-user-group="usergroup">',
+            . ' data-bs-target="#deleteUserGroupModal" data-user-group="user&lt;br&gt;group">',
             $html
         );
     }
@@ -124,7 +123,7 @@ class UserGroupsTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` WHERE `usergroup`=\'user<br>group\'';
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -137,7 +136,7 @@ class UserGroupsTest extends AbstractTestCase
             ->will($this->returnCallback(static function (): Generator {
                 yield from [
                     [
-                        'usergroup' => 'ug',
+                        'usergroup' => 'user<br>group',
                         'tab' => 'server_sql',
                         'allowed' => 'Y',
                     ],
@@ -150,8 +149,9 @@ class UserGroupsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         // editing a user group
-        $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature, 'ug');
-        $this->assertStringContainsString('<input type="hidden" name="userGroup" value="ug"', $html);
+        $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature, 'user<br>group');
+        $this->assertStringContainsString('Edit user group: \'user&lt;br&gt;group\'', $html);
+        $this->assertStringContainsString('<input type="hidden" name="userGroup" value="user&lt;br&gt;group"', $html);
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString(
@@ -162,5 +162,18 @@ class UserGroupsTest extends AbstractTestCase
             '<input type="checkbox" class="checkall" name="server_databases" value="Y">',
             $html
         );
+    }
+
+    public function testGetHtmlForListingUsersOfAGroupWithNoUsers(): void
+    {
+        $dummyDbi = new DbiDummy();
+        $dbi = DatabaseInterface::load($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
+
+        $dummyDbi->addResult('SELECT `username` FROM `pmadb`.`users` WHERE `usergroup`=\'user<br>group\'', []);
+
+        $output = UserGroups::getHtmlForListingUsersofAGroup($this->configurableMenusFeature, 'user<br>group');
+        $this->assertStringContainsString('Users of \'user&lt;br&gt;group\' user group', $output);
+        $this->assertStringContainsString('No users were found belonging to this user group.', $output);
     }
 }

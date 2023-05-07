@@ -98,7 +98,7 @@ class UserGroups
 
             foreach ($userGroups as $groupName => $tabs) {
                 $userGroupVal = [];
-                $userGroupVal['name'] = htmlspecialchars((string) $groupName);
+                $userGroupVal['name'] = $groupName;
                 $userGroupVal['serverTab'] = self::getAllowedTabNames($tabs, 'server');
                 $userGroupVal['dbTab'] = self::getAllowedTabNames($tabs, 'db');
                 $userGroupVal['tableTab'] = self::getAllowedTabNames($tabs, 'table');
