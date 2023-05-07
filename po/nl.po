@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-05-07 00:18+0000\n"
-"PO-Revision-Date: 2023-04-19 06:38+0000\n"
+"PO-Revision-Date: 2023-05-09 14:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -2784,6 +2784,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Sta gebruikers toe om bladwijzers te maken die beschikbaar zijn voor andere "
+"gebruikers"
 
 #: libraries/classes/Config/Descriptions.php:334
 msgid ""
@@ -4416,7 +4418,7 @@ msgstr "Lengte querygeschiedenis"
 
 #: libraries/classes/Config/Descriptions.php:858
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Sta met andere gebruikers gedeelde bladwijzers toe"
 
 #: libraries/classes/Config/Descriptions.php:859
 msgid "Recoding engine"
