@@ -65,7 +65,7 @@ class UserGroupsTest extends AbstractTestCase
 
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
         $this->assertStringNotContainsString('<table id="userGroupsTable">', $html);
-        $urlTag = '<a href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
+        $urlTag = '<a class="btn btn-primary" href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
         $this->assertStringContainsString($urlTag, $html);
     }
 
@@ -117,7 +117,7 @@ class UserGroupsTest extends AbstractTestCase
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature);
         $this->assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
-        $this->assertStringContainsString('<input type="text" name="userGroup"', $html);
+        $this->assertStringContainsString('<input class="form-control" type="text" name="userGroup"', $html);
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -145,11 +145,13 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString(
-            '<input type="checkbox" class="checkall" checked="checked" name="server_sql" value="Y">',
+            '<input class="form-check-input checkall" type="checkbox"'
+            . ' checked="checked" name="server_sql" id="server_sql" value="Y">',
             $html,
         );
         $this->assertStringContainsString(
-            '<input type="checkbox" class="checkall" name="server_databases" value="Y">',
+            '<input class="form-check-input checkall" type="checkbox"'
+            . ' name="server_databases" id="server_databases" value="Y">',
             $html,
         );
     }
