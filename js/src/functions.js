@@ -3518,13 +3518,27 @@ Functions.showIndexEditDialog = function ($outer) {
     Indexes.checkIndexType();
     Functions.checkIndexName('index_frm');
     var $indexColumns = $('#index_columns');
-    $indexColumns.find('td').each(function () {
-        $(this).css('width', $(this).width() + 'px');
-    });
     $indexColumns.find('tbody').sortable({
         axis: 'y',
         containment: $indexColumns.find('tbody'),
-        tolerance: 'pointer'
+        tolerance: 'pointer',
+        forcePlaceholderSize: true,
+        // Add custom dragged row
+        helper: function (event, tr) {
+            var $originalCells = tr.children();
+            var $helper = tr.clone();
+            $helper.children().each(function (index) {
+                // Set cell width in dragged row
+                $(this).width($originalCells.eq(index).outerWidth());
+                var $childrenSelect = $originalCells.eq(index).children('select');
+                if ($childrenSelect.length) {
+                    var selectedIndex = $childrenSelect.prop('selectedIndex');
+                    // Set correct select value in dragged row
+                    $(this).children('select').prop('selectedIndex', parseInt(selectedIndex));
+                }
+            });
+            return $helper;
+        }
     });
     Functions.showHints($outer);
     // Add a slider for selecting how many columns to add to the index
