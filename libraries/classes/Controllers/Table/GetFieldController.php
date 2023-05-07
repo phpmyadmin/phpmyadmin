@@ -54,10 +54,11 @@ class GetFieldController extends AbstractController
             Generator::mysqlDie(__('Invalid table name'));
         }
 
+        $whereClause = (string) $request->getQueryParam('where_clause', '');
+        $whereClauseSign = (string) $request->getQueryParam('where_clause_sign', '');
         if (
-            ! isset($_GET['where_clause'])
-            || ! isset($_GET['where_clause_sign'])
-            || ! Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_sign'])
+            $whereClause === '' || $whereClauseSign === ''
+            || ! Core::checkSqlQuerySignature($whereClause, $whereClauseSign)
         ) {
             $this->response->setRequestStatus(false);
             /* l10n: In case a SQL query did not pass a security check  */
@@ -66,10 +67,11 @@ class GetFieldController extends AbstractController
             return;
         }
 
+        $transformKey = (string) $request->getQueryParam('transform_key', '');
         /* Grab data */
-        $sql = 'SELECT ' . Util::backquote($_GET['transform_key'])
+        $sql = 'SELECT ' . Util::backquote($transformKey)
             . ' FROM ' . Util::backquote($GLOBALS['table'])
-            . ' WHERE ' . $_GET['where_clause'] . ';';
+            . ' WHERE ' . $whereClause . ';';
         $result = $this->dbi->fetchValue($sql);
 
         /* Check return code */
@@ -86,7 +88,7 @@ class GetFieldController extends AbstractController
         ini_set('url_rewriter.tags', '');
 
         Core::downloadHeader(
-            $GLOBALS['table'] . '-' . $_GET['transform_key'] . '.bin',
+            $GLOBALS['table'] . '-' . $transformKey . '.bin',
             Mime::detect($result),
             mb_strlen($result, '8bit'),
         );

@@ -24,10 +24,14 @@ class GetFieldControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'table_with_blob';
-        $_GET['transform_key'] = 'file';
-        $_GET['sql_query'] = 'SELECT * FROM `test_db`.`table_with_blob`';
-        $_GET['where_clause'] = '`table_with_blob`.`id` = 1';
-        $_GET['where_clause_sign'] = Core::signSqlQuery('`table_with_blob`.`id` = 1');
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getQueryParam')->willReturnMap([
+            ['transform_key', '', 'file' ],
+            ['sql_query', '', 'SELECT * FROM `test_db`.`table_with_blob`'],
+            ['where_clause', '', '`table_with_blob`.`id` = 1'],
+            ['where_clause_sign', '', Core::signSqlQuery('`table_with_blob`.`id` = 1')],
+        ]);
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
@@ -49,7 +53,7 @@ class GetFieldControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $GLOBALS['dbi'] = $dbi;
 
-        (new GetFieldController(new ResponseRenderer(), new Template(), $dbi))($this->createStub(ServerRequest::class));
+        (new GetFieldController(new ResponseRenderer(), new Template(), $dbi))($request);
         $this->expectOutputString('46494c45');
     }
 }
