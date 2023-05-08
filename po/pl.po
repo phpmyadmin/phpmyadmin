@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-03-22 03:43+0000\n"
-"Last-Translator: Marcin Gil <mg@artigo.pl>\n"
+"PO-Revision-Date: 2023-05-09 14:50+0000\n"
+"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -561,7 +561,6 @@ msgid "Temp disk rate"
 msgstr "Szybkość dysku tymczasowego"
 
 #: libraries/advisory_rules_generic.php:343
-#, fuzzy
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -571,13 +570,13 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"Pomóc może zwiększenie {max_heap_table_size} i {tmp_table_size}. Jednak "
-"niektóre tabele tymczasowe są zawsze zapisywane na dysku, niezależnie od "
-"wartości tych zmiennych. Aby je wyeliminować, będziesz musiał przepisać "
-"swoje zapytania, aby uniknąć tych warunków (w tabeli tymczasowej: obecność "
-"kolumny BLOB lub TEXT lub obecność kolumny większej niż 512 bajtów), jak "
-"wspomniano w <a href=\"https:// dev.mysql.com/doc/refman/8.0/en/internal-"
-"temporary-tables.html\">Dokumentacja MySQL</a>"
+"Zwiększenie {max_heap_table_size} i {tmp_table_size} może pomóc. Jednak "
+"niektóre tabele tymczasowe zawsze są zapisywane na dysku, niezależnie od "
+"wartości tych zmiennych. Aby wyeliminować te trzeba będzie przepisać "
+"zapytania, aby uniknąć tych warunków (w obrębie tabeli tymczasowej: Obecność "
+"kolumny BLOB lub TEXT lub obecności kolumny większej niż 512 bajtów) Jak "
+"wspomniano w <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
+"temporary-tables.html\">Dokumentacji MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, fuzzy, php-format
@@ -2000,9 +1999,8 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Włącz kompresję bzip2 dla operacji importowania."
 
 #: libraries/classes/Config/Descriptions.php:105
-#, fuzzy
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Wpisz adres URL interfejsu API zgodnego z reCAPTCHA v2."
+msgstr "Wprowadź adres URL interfejsu API zgodnego z reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:106
 #, fuzzy
@@ -3143,7 +3141,6 @@ msgstr ""
 "niezależnie od wyboru po prawej stronie."
 
 #: libraries/classes/Config/Descriptions.php:532
-#, fuzzy
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -3152,9 +3149,9 @@ msgid ""
 msgstr ""
 "Adres URL serwera proxy, który ma być używany podczas pobierania informacji "
 "o najnowszej wersji phpMyAdmin lub podczas przesyłania raportów o błędach. "
-"Jest to potrzebne, jeśli serwer, na którym zainstalowany jest phpMyAdmin, "
-"nie ma bezpośredniego dostępu do Internetu. Format to: „nazwa hosta:numer "
-"portu”."
+"Potrzebujesz tego, jeśli serwer, na którym jest zainstalowany phpMyAdmin, "
+"nie ma bezpośredniego dostępu do Internetu. Format to: \"nazwa hosta:numer "
+"portu\"."
 
 #: libraries/classes/Config/Descriptions.php:538
 #, fuzzy
@@ -3178,13 +3175,12 @@ msgstr ""
 "Enter). Nowe linie zostaną wstawione z Shift + Enter."
 
 #: libraries/classes/Config/Descriptions.php:548
-#, fuzzy
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
-"Włącz tryb konfiguracji zerowej, który pozwala automatycznie skonfigurować "
-"tabele przechowywania konfiguracji phpMyAdmin."
+"Włącz tryb konfiguracji zerowej, który umożliwia automatyczne ustawienie "
+"tabel przechowywania konfiguracji phpMyAdmina."
 
 #: libraries/classes/Config/Descriptions.php:551
 #, fuzzy
@@ -5094,7 +5090,7 @@ msgstr "Sprawdzenie wersji"
 #: libraries/classes/Config/Descriptions.php:963
 #, fuzzy
 msgid "Proxy URL"
-msgstr "Adres URL proxy"
+msgstr "Proxy URL"
 
 #: libraries/classes/Config/Descriptions.php:964
 #, fuzzy
@@ -5132,14 +5128,12 @@ msgid "Response parameter for reCAPTCHA v2 API"
 msgstr "Parametr odpowiedzi dla API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:971
-#, fuzzy
 msgid "Public key for reCAPTCHA"
 msgstr "Klucz publiczny dla reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:972
-#, fuzzy
 msgid "Private key for reCAPTCHA"
-msgstr "Klucz prywatny do reCAPTCHA"
+msgstr "Klucz prywatny dla reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:973
 #, fuzzy
@@ -6239,9 +6233,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Masz zamiar WYCIĄĆ całą bazę danych!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Masz zamiar ZNISZCZYĆ całą tabelę!"
+msgstr "Zamierzasz USUNĄĆ wszystkie wiersze tabeli!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 #, fuzzy
@@ -6590,15 +6583,13 @@ msgstr "Odblokuj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
 msgid "Lock this account."
-msgstr "Liczba plików dziennika"
+msgstr "Zablokuj to konto."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
 msgid "Unlock this account."
-msgstr "Konto użytkownika"
+msgstr "Odblokuj to konto."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 msgid "Template was created."
@@ -8504,12 +8495,12 @@ msgstr[1] "%1$d bazy danych zostały pomyślnie usunięte."
 msgstr[2] "%1$d baz danych zostało pomyślnie usuniętych."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
+#, php-format
 msgid "The account %s@%s has been successfully locked."
 msgstr "Konto %s@%s zostało pomyślnie zablokowane."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Konto %s@%s zostało pomyślnie odblokowane."
 
@@ -9270,9 +9261,8 @@ msgid "Missing parameter:"
 msgstr "Brakuje parametru:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
-#, fuzzy
 msgid "User groups management is not enabled."
-msgstr "Pamięć podręczna zapytania nie jest włączona."
+msgstr "Zarządzanie grupami użytkowników nie jest włączone."
 
 #: libraries/classes/Controllers/Server/Variables/SetVariableController.php:93
 msgid "Setting variable failed"
@@ -9388,7 +9378,7 @@ msgid "No column selected."
 msgstr "Nie wybrano żadnej kolumny."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d baza danych została pomyślnie usunięta."
