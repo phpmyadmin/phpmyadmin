@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-05-07 00:18+0000\n"
-"PO-Revision-Date: 2023-04-16 17:22+0000\n"
+"PO-Revision-Date: 2023-05-09 14:50+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:179
 #, php-format
@@ -2744,6 +2744,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Dovoli uporabnikom ustvarjanje zaznamkov, ki bodo na voljo vsem ostalih "
+"uporabnikom"
 
 #: libraries/classes/Config/Descriptions.php:334
 msgid ""
@@ -4352,7 +4354,7 @@ msgstr "Dolžina zgodovine poizvedb"
 
 #: libraries/classes/Config/Descriptions.php:858
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Dovoli deljene zaznamke med uporabniki"
 
 #: libraries/classes/Config/Descriptions.php:859
 msgid "Recoding engine"
