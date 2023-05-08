@@ -40,7 +40,6 @@ class UserGroups
         global $dbi;
 
         $users = [];
-        $numRows = 0;
 
         $userGroupSpecialChars = htmlspecialchars($userGroup);
         $usersTable = Util::backquote($configurableMenusFeature->database)
@@ -63,7 +62,6 @@ class UserGroups
 
         return $template->render('server/user_groups/user_listings', [
             'user_group_special_chars' => $userGroupSpecialChars,
-            'num_rows' => $numRows,
             'users' => $users,
         ]);
     }
