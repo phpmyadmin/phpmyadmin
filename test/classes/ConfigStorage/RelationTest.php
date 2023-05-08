@@ -1749,7 +1749,6 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
 
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
@@ -1759,12 +1758,26 @@ class RelationTest extends AbstractTestCase
             ],
             ['Tables_in_PMA-storage'],
         );
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `PMA-storage`',
+            [
+                ['pma__tracking'],
+            ],
+            ['Tables_in_PMA-storage'],
+        );
+
+        $dummyDbi->addSelectDb('PMA-storage');
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
+        /**
+         * TODO: Warning! This test doesn't actually test anything.
+         * The method above does't initialize Relation param cache.
+         * A proper test is needed to verify that the user disabled features result in disabled Relation cache.
+         */
         $this->assertArrayHasKey(
             'relation',
             $relation->getRelationParameters()->toArray(),
