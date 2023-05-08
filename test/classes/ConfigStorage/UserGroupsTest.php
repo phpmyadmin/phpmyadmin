@@ -168,4 +168,25 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString('Users of \'user&lt;br&gt;group\' user group', $output);
         $this->assertStringContainsString('No users were found belonging to this user group.', $output);
     }
+
+    public function testGetHtmlForListingUsersOfAGroupWithUsers(): void
+    {
+        $dummyDbi = new DbiDummy();
+        $dbi = DatabaseInterface::load($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
+
+        $dummyDbi->addResult(
+            'SELECT `username` FROM `pmadb`.`users` WHERE `usergroup`=\'user<br>group\'',
+            [['user<br>one'], ['user<br>two']],
+            ['username'],
+        );
+
+        $output = UserGroups::getHtmlForListingUsersofAGroup($this->configurableMenusFeature, 'user<br>group');
+        $this->assertStringContainsString('Users of \'user&lt;br&gt;group\' user group', $output);
+        $this->assertStringContainsString('<td>1</td>', $output);
+        $this->assertStringContainsString('<td>user&lt;br&gt;one</td>', $output);
+        $this->assertStringContainsString('<td>2</td>', $output);
+        $this->assertStringContainsString('<td>user&lt;br&gt;two</td>', $output);
+        $this->assertStringNotContainsString('No users were found belonging to this user group.', $output);
+    }
 }
