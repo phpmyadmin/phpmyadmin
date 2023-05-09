@@ -389,7 +389,7 @@ div.container.modal_form {
   margin: 0 auto;
   width: 30em;
   text-align: center;
-  background: $white;
+  background: var(--#{$prefix}body-bg);
   z-index: 999;
 }
 
@@ -399,7 +399,7 @@ div#modalOverlay {
   left: 0;
   height: 100%;
   width: 100%;
-  background: $white;
+  background: var(--#{$prefix}body-bg);
   z-index: 900;
 }
 

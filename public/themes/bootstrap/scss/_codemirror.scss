@@ -5,8 +5,15 @@ $textarea-rows: 15;
   height: 20rem;
   direction: ltr;
   border: $card-border-width solid $card-border-color;
+  background-color: var(--#{$prefix}body-bg);
+  color: var(--#{$prefix}body-color);
 
   @include border-radius($card-border-radius);
+}
+
+.CodeMirror-gutters {
+  border-right-color: var(--#{$prefix}border-color);;
+  background-color: rgba(var(--#{$prefix}body-color-rgb), .03);
 }
 
 // Code mirror default style (do not affect the console style)

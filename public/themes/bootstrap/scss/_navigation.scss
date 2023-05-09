@@ -387,10 +387,10 @@ li.fast_filter {
 }
 
 #pma_navigation_collapser {
-  width: 20px;
-  height: 22px;
-  line-height: 22px;
-  background: #eee;
+  width: 22px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #eee;
   color: #555;
   font-weight: bold;
   position: fixed;
@@ -402,6 +402,14 @@ li.fast_filter {
   text-shadow: 0 1px 0 $white;
   filter: dropshadow(color = $white, offx = 0, offy = 1);
   border: 1px solid rgba($black, 0.125);
+}
+
+@include color-mode(dark) {
+  #pma_navigation_collapser {
+    background-color: #343a40;
+    color: #eee;
+    text-shadow: 0 1px 0 $black;
+  }
 }
 
 // Quick warp links
