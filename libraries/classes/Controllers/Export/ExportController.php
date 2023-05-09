@@ -85,7 +85,7 @@ final class ExportController extends AbstractController
         $onServerParam = $request->getParsedBodyParam('onserver');
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
-        $structureOrDataForced = $request->hasBodyParam('structure_or_data_forced');
+        $structureOrDataForced = (bool) $request->getParsedBodyParam('structure_or_data_forced');
         $rememberTemplate = $request->getParsedBodyParam('remember_template');
         $dbSelect = $request->getParsedBodyParam('db_select');
         $tableStructure = $request->getParsedBodyParam('table_structure');
