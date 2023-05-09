@@ -21,7 +21,7 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Parameter \\#2 \\$values of function vsprintf expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$values of function vsprintf expects array\\<bool\\|float\\|int\\|string\\|null\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Advisory/Advisor.php
 
@@ -1541,6 +1541,16 @@ parameters:
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
@@ -1599,6 +1609,11 @@ parameters:
 			message: "#^Parameter \\#3 \\$dbName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:unhideNavigationItem\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/CreateNewColumnController.php
 
 		-
 			message: "#^Parameter \\#3 \\$normalizedTo of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
@@ -2009,6 +2024,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerDSN\\(\\) expects int, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/HomeController.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Sql/EnumValuesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Sql/RelationalValuesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlentities expects string, mixed given\\.$#"
@@ -3932,6 +3957,11 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -6831,9 +6861,19 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php
+
+		-
 			message: "#^Parameter \\#2 \\$additionalParameters of static method PhpMyAdmin\\\\Url\\:\\:getFromRoute\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php
 
 		-
 			message: "#^Parameter \\#2 \\$additionalParameters of static method PhpMyAdmin\\\\Url\\:\\:getFromRoute\\(\\) expects array, mixed given\\.$#"
@@ -7407,6 +7447,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/SavedSearches.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 
@@ -8367,6 +8412,11 @@ parameters:
 
 		-
 			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(array\\|bool\\|float\\|int\\|resource\\|string\\|null, int\\=\\)\\: int given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -9451,6 +9501,11 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, bool\\|float\\|int\\|object given\\.$#"
+			count: 1
+			path: test/classes/InsertEditTest.php
+
+		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
 			count: 2
 			path: test/classes/InternalRelationsTest.php
@@ -9809,6 +9864,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
 			count: 1
 			path: test/classes/UserPasswordTest.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: test/classes/UtilTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerForTestGetMySQLDocuURL\\(\\) should return array\\<int, array\\{string, string, int, string\\}\\> but returns array\\{array\\{'ALTER_TABLE', 'alter\\-table\\-index', '8\\.0\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', 'alter\\-table\\-index', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', 'alter\\-table\\-index', '5\\.6\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', '', '5\\.5\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', '', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}\\}\\.$#"
