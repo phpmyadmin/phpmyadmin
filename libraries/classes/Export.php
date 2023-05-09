@@ -1159,10 +1159,8 @@ class Export
      * @param DatabaseName $db       database name
      * @param mixed[]      $tables   list of table names
      * @param string       $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
-     *
-     * @return mixed result of the query
      */
-    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE'): mixed
+    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE'): void
     {
         $locks = [];
         foreach ($tables as $table) {
@@ -1172,17 +1170,15 @@ class Export
 
         $sql = 'LOCK TABLES ' . implode(', ', $locks);
 
-        return $this->dbi->tryQuery($sql);
+        $this->dbi->tryQuery($sql);
     }
 
     /**
      * Releases table locks
-     *
-     * @return mixed result of the query
      */
-    public function unlockTables(): mixed
+    public function unlockTables(): void
     {
-        return $this->dbi->tryQuery('UNLOCK TABLES');
+        $this->dbi->tryQuery('UNLOCK TABLES');
     }
 
     /**

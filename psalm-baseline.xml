@@ -6681,10 +6681,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code>mixed</code>
-      <code>mixed</code>
-    </PossiblyUnusedReturnValue>
     <RedundantCondition>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
