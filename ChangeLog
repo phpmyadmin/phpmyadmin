@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - issue        Make database and web server info separately configurable on `$cfg['ShowServerInfo']`
 - issue        Add a configuration option to (dis)allow shared bookmarks: `$cfg['AllowSharedBookmarks'] = true;`
 - issue        Redesign the User Groups form page
+- issue        Redesign the database and table privileges pages
 
 5.2.2 (not yet released)
 - issue #17028 Fix total count of rows in not accurate

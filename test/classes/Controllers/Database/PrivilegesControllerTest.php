@@ -15,7 +15,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 
 use function __;
-use function _pgettext;
 
 /** @covers \PhpMyAdmin\Controllers\Database\PrivilegesController */
 class PrivilegesControllerTest extends AbstractTestCase
@@ -104,12 +103,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             __('Action'),
-            $actual,
-        );
-
-        //_pgettext('Create new user', 'New')
-        $this->assertStringContainsString(
-            _pgettext('Create new user', 'New'),
             $actual,
         );
     }
