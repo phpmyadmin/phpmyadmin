@@ -13331,7 +13331,6 @@
       <code>$configThemeExists</code>
     </RedundantCondition>
     <UnevaluatedCode>
-      <code>$configThemeExists = false;</code>
       <code>return false;</code>
     </UnevaluatedCode>
   </file>

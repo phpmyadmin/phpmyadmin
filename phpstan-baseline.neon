@@ -8581,7 +8581,7 @@ parameters:
 			path: libraries/classes/Theme/Theme.php
 
 		-
-			message: "#^If condition is always true\\.$#"
+			message: "#^Left side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Theme/ThemeManager.php
 
@@ -8592,7 +8592,7 @@ parameters:
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Theme/ThemeManager.php
 
 		-

@@ -70,9 +70,8 @@ class ThemeManager
 
         $this->theme = new Theme();
 
-        $configThemeExists = true;
-
-        if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
+        $configThemeExists = $this->checkTheme($GLOBALS['cfg']['ThemeDefault']);
+        if (! $configThemeExists) {
             trigger_error(
                 sprintf(
                     __('Default theme %s not found!'),
@@ -80,14 +79,16 @@ class ThemeManager
                 ),
                 E_USER_ERROR,
             );
-            $configThemeExists = false;
         } else {
             $this->themeDefault = $GLOBALS['cfg']['ThemeDefault'];
         }
 
         // check if user have a theme cookie
         $cookieTheme = $this->getThemeCookie();
-        if ($cookieTheme && $this->setActiveTheme($cookieTheme)) {
+        if (
+            $cookieTheme && $this->setActiveTheme($cookieTheme)
+            || $configThemeExists && $this->setActiveTheme($this->themeDefault)
+        ) {
             $colorMode = $this->getColorModeCookie();
             if (is_string($colorMode) && $colorMode !== '') {
                 $this->theme->setColorMode($colorMode);
@@ -96,13 +97,7 @@ class ThemeManager
             return;
         }
 
-        if ($configThemeExists) {
-            // otherwise use default theme
-            $this->setActiveTheme($this->themeDefault);
-        } else {
-            // or fallback theme
-            $this->setActiveTheme(self::FALLBACK_THEME);
-        }
+        $this->setActiveTheme(self::FALLBACK_THEME);
     }
 
     /**
