@@ -754,7 +754,7 @@ class Export
                 && ! $isView
             ) {
                 $tableObj = new Table($table, $db->getName(), $this->dbi);
-                $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+                $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db->getName())
@@ -881,7 +881,6 @@ class Export
      * @param string       $errorUrl        the URL in case of error
      * @param string|null  $db              the database where the query is executed
      * @param string       $sqlQuery        the query to be executed
-     * @param string       $exportType      the export type
      */
     public static function exportRaw(
         string $whatStrucOrData,
@@ -889,7 +888,6 @@ class Export
         string $errorUrl,
         string|null $db,
         string $sqlQuery,
-        string $exportType,
     ): void {
         // In case the we need to dump just the raw query
         if ($whatStrucOrData !== 'raw') {
@@ -1015,7 +1013,7 @@ class Export
             } else {
                 // Data is exported only for Non-generated columns
                 $tableObj = new Table($table, $db, $this->dbi);
-                $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+                $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db)

@@ -6681,9 +6681,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedParam>
-      <code>$exportType</code>
-    </PossiblyUnusedParam>
     <PossiblyUnusedReturnValue>
       <code>mixed</code>
       <code>mixed</code>
