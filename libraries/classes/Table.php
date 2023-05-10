@@ -2206,11 +2206,7 @@ class Table implements Stringable
             $foreignTable = $destinationForeignTable[$masterFieldMd5];
             $foreignField = $destinationForeignColumn[$masterFieldMd5];
 
-            if (isset($existrelForeign[$masterFieldMd5]['ref_db_name'])) {
-                $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'];
-            } else {
-                $refDbName = $GLOBALS['db'];
-            }
+            $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'] ?? $GLOBALS['db'];
 
             $emptyFields = false;
             foreach ($masterField as $key => $oneField) {
