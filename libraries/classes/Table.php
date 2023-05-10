@@ -963,11 +963,8 @@ class Table implements Stringable
 
         /**
          * The full name of source table, quoted.
-         *
-         * @var string $source
          */
-        $source = Util::backquote($sourceDb)
-            . '.' . Util::backquote($sourceTable);
+        $source = Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
 
         // If the target database is not specified, the operation is taking
         // place in the same database.
@@ -981,11 +978,8 @@ class Table implements Stringable
 
         /**
          * The full name of target table, quoted.
-         *
-         * @var string $target
          */
-        $target = Util::backquote($targetDb)
-            . '.' . Util::backquote($targetTable);
+        $target = Util::backquote($targetDb) . '.' . Util::backquote($targetTable);
 
         // No table is created when this is a data-only operation.
         if ($what !== 'dataonly') {
