@@ -118,6 +118,7 @@ return [
         'table_maintenance' => ['class' => PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],
         'table_search' => ['class' => PhpMyAdmin\Table\Search::class, 'arguments' => ['$dbi' => '@dbi']],
         'template' => ['class' => PhpMyAdmin\Template::class, 'arguments' => ['$config' => '@config']],
+        PhpMyAdmin\Theme\ThemeManager::class => ['class' => PhpMyAdmin\Theme\ThemeManager::class],
         'tracking' => [
             'class' => PhpMyAdmin\Tracking\Tracking::class,
             'arguments' => [

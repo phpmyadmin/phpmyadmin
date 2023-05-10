@@ -51,6 +51,7 @@ class ManageController extends AbstractController
         private UserPreferences $userPreferences,
         private Relation $relation,
         private Config $config,
+        private ThemeManager $themeManager,
     ) {
         parent::__construct($response, $template);
     }
@@ -190,14 +191,13 @@ class ManageController extends AbstractController
 
                 // check for ThemeDefault
                 $redirectParams = [];
-                $tmanager = ThemeManager::getInstance();
                 if (
                     isset($configuration['ThemeDefault'])
-                    && $tmanager->theme->getId() != $configuration['ThemeDefault']
-                    && $tmanager->checkTheme($configuration['ThemeDefault'])
+                    && $this->themeManager->theme->getId() != $configuration['ThemeDefault']
+                    && $this->themeManager->checkTheme($configuration['ThemeDefault'])
                 ) {
-                    $tmanager->setActiveTheme($configuration['ThemeDefault']);
-                    $tmanager->setThemeCookie();
+                    $this->themeManager->setActiveTheme($configuration['ThemeDefault']);
+                    $this->themeManager->setThemeCookie();
                 }
 
                 if (isset($configuration['lang']) && $configuration['lang'] != $GLOBALS['lang']) {
@@ -225,7 +225,7 @@ class ManageController extends AbstractController
                     }
 
                     // reload config
-                    $this->config->loadUserPreferences();
+                    $this->config->loadUserPreferences($this->themeManager);
                     $this->userPreferences->redirect($GLOBALS['return_url'] ?? '', $redirectParams);
 
                     return;

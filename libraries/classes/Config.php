@@ -399,7 +399,7 @@ class Config
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
      */
-    public function loadUserPreferences(bool $isMinimumCommon = false): void
+    public function loadUserPreferences(ThemeManager $themeManager, bool $isMinimumCommon = false): void
     {
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
@@ -445,29 +445,28 @@ class Config
         // in frames
 
         // save theme
-        $tmanager = ThemeManager::getInstance();
-        if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
+        if ($themeManager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if (
                 (! isset($configData['ThemeDefault'])
-                && $tmanager->theme->getId() !== 'original')
+                && $themeManager->theme->getId() !== 'original')
                 || isset($configData['ThemeDefault'])
-                && $configData['ThemeDefault'] != $tmanager->theme->getId()
+                && $configData['ThemeDefault'] != $themeManager->theme->getId()
             ) {
                 $this->setUserValue(
                     null,
                     'ThemeDefault',
-                    $tmanager->theme->getId(),
+                    $themeManager->theme->getId(),
                     'original',
                 );
             }
         } else {
             // no cookie - read default from settings
             if (
-                $this->settings['ThemeDefault'] != $tmanager->theme->getId()
-                && $tmanager->checkTheme($this->settings['ThemeDefault'])
+                $this->settings['ThemeDefault'] != $themeManager->theme->getId()
+                && $themeManager->checkTheme($this->settings['ThemeDefault'])
             ) {
-                $tmanager->setActiveTheme($this->settings['ThemeDefault']);
-                $tmanager->setThemeCookie();
+                $themeManager->setActiveTheme($this->settings['ThemeDefault']);
+                $themeManager->setThemeCookie();
             }
         }
 

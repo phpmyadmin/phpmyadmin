@@ -54,6 +54,7 @@ class ThemeManagerTest extends AbstractTestCase
     public function testGetThemesArray(): void
     {
         $tm = new ThemeManager();
+        $tm->initializeTheme();
         $themes = $tm->getThemesArray();
         $this->assertIsArray($themes);
         $this->assertArrayHasKey(0, $themes);

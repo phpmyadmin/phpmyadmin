@@ -191,15 +191,14 @@ final class Common
         $GLOBALS['cfg'] = $config->settings;
         $settings = $config->getSettings();
 
-        /* setup themes                                          LABEL_theme_setup    */
-
-        $GLOBALS['theme'] = ThemeManager::initializeTheme();
+        /** @var ThemeManager $themeManager */
+        $themeManager = $container->get(ThemeManager::class);
+        $GLOBALS['theme'] = $themeManager->initializeTheme();
 
         $GLOBALS['dbi'] = null;
 
         if ($isMinimumCommon) {
-            $config->loadUserPreferences(true);
-            $container->set('theme_manager', ThemeManager::getInstance());
+            $config->loadUserPreferences($themeManager, true);
             Tracker::enable();
 
             if ($route === '/url') {
@@ -223,7 +222,7 @@ final class Common
          */
         $config->setCookie('pma_lang', (string) $GLOBALS['lang']);
 
-        ThemeManager::getInstance()->setThemeCookie();
+        $themeManager->setThemeCookie();
 
         $GLOBALS['dbi'] = DatabaseInterface::load();
         $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
@@ -306,9 +305,7 @@ final class Common
         $container->set('response', ResponseRenderer::getInstance());
 
         // load user preferences
-        $config->loadUserPreferences();
-
-        $container->set('theme_manager', ThemeManager::getInstance());
+        $config->loadUserPreferences($themeManager);
 
         /* Tell tracker that it can actually work */
         Tracker::enable();

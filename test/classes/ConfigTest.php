@@ -582,17 +582,6 @@ PHP;
     }
 
     /**
-     * Test for loading user preferences
-     *
-     * @todo Test actually preferences loading
-     * @doesNotPerformAssertions
-     */
-    public function testLoadUserPreferences(): void
-    {
-        $this->object->loadUserPreferences();
-    }
-
-    /**
      * Test for setting user config value
      */
     public function testSetUserValue(): void

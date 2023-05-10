@@ -26,11 +26,6 @@ use const ROOT_PATH;
  */
 class ThemeManager
 {
-    /**
-     * ThemeManager instance
-     */
-    private static ThemeManager|null $instance = null;
-
     /** @var string file-system path to the theme folder */
     private string $themesPath;
 
@@ -46,7 +41,7 @@ class ThemeManager
     public bool $perServer = false;
 
     /** @var string name of active theme */
-    public string $activeTheme = '';
+    public string $activeTheme;
 
     /** @var Theme Theme active theme */
     public Theme $theme;
@@ -58,17 +53,18 @@ class ThemeManager
 
     public function __construct()
     {
-        $this->themes = [];
         $this->themeDefault = self::FALLBACK_THEME;
-        $this->activeTheme = '';
+        $this->activeTheme = $this->themeDefault;
         $this->themesPath = self::getThemesFsDir();
         $this->themesPathUrl = self::getThemesDir();
+        $this->theme = new Theme();
+    }
 
+    public function initializeTheme(): Theme
+    {
         $this->setThemePerServer($GLOBALS['cfg']['ThemePerServer']);
 
         $this->loadThemes();
-
-        $this->theme = new Theme();
 
         $configThemeExists = $this->checkTheme($GLOBALS['cfg']['ThemeDefault']);
         if (! $configThemeExists) {
@@ -94,20 +90,12 @@ class ThemeManager
                 $this->theme->setColorMode($colorMode);
             }
 
-            return;
+            return $this->theme;
         }
 
         $this->setActiveTheme(self::FALLBACK_THEME);
-    }
 
-    /**
-     * Returns the singleton ThemeManager object
-     *
-     * @return ThemeManager The instance
-     */
-    public static function getInstance(): ThemeManager
-    {
-        return self::$instance ??= new ThemeManager();
+        return $this->theme;
     }
 
     /**
@@ -284,13 +272,6 @@ class ThemeManager
         }
 
         return $themes;
-    }
-
-    public static function initializeTheme(): Theme
-    {
-        $themeManager = self::getInstance();
-
-        return $themeManager->theme;
     }
 
     /**

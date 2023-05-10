@@ -446,7 +446,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$config' => '@config',
-                '$themeManager' => '@theme_manager',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
                 '$dbi' => '@dbi',
             ],
         ],
@@ -634,6 +634,7 @@ return [
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         Preferences\FeaturesController::class => [
@@ -644,6 +645,7 @@ return [
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         Preferences\ImportController::class => [
@@ -654,6 +656,7 @@ return [
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         Preferences\MainPanelController::class => [
@@ -664,6 +667,7 @@ return [
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         Preferences\ManageController::class => [
@@ -674,6 +678,7 @@ return [
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         Preferences\NavigationController::class => [
@@ -684,6 +689,7 @@ return [
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         Preferences\SqlController::class => [
@@ -694,6 +700,7 @@ return [
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         Preferences\TwoFactorController::class => [
@@ -1446,7 +1453,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$themeManager' => '@theme_manager',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
             ],
         ],
         ThemeSetController::class => [
@@ -1454,7 +1461,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$themeManager' => '@theme_manager',
+                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
                 '$userPreferences' => '@user_preferences',
             ],
         ],

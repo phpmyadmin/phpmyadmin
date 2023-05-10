@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -27,6 +28,7 @@ class SqlController extends AbstractController
         private UserPreferences $userPreferences,
         private Relation $relation,
         private Config $config,
+        private ThemeManager $themeManager,
     ) {
         parent::__construct($response, $template);
     }
@@ -62,7 +64,7 @@ class SqlController extends AbstractController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $this->config->loadUserPreferences();
+                $this->config->loadUserPreferences($this->themeManager);
                 $GLOBALS['tabHash'] = $request->getParsedBodyParam('tab_hash');
                 $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/sql', null, $GLOBALS['hash']);
