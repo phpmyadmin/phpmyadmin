@@ -1206,8 +1206,8 @@ class Table implements Stringable
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
 
             $oldTable = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
-            $nonGeneratedCols = $oldTable->getNonGeneratedColumns(true);
-            if (count($nonGeneratedCols) > 0) {
+            $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
+            if ($nonGeneratedCols !== []) {
                 $sqlInsertData = 'INSERT INTO ' . $target . '('
                     . implode(', ', $nonGeneratedCols)
                     . ') SELECT ' . implode(', ', $nonGeneratedCols)
