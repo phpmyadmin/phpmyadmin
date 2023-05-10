@@ -162,10 +162,12 @@ function goToStep4 () {
 
 declare global {
     interface Window {
+        goToFinish1NF: typeof goToFinish1NF;
         goToStep4: typeof goToStep4;
     }
 }
 
+window.goToFinish1NF = goToFinish1NF;
 window.goToStep4 = goToStep4;
 
 function goToStep3 () {
