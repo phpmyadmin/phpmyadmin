@@ -12918,6 +12918,7 @@
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['on_update']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['on_update']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_db_name']]]></code>
+      <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_db_name']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_index_list']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_index_list']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_table_name']]]></code>
@@ -13095,15 +13096,10 @@
       <code><![CDATA[Generator::mysqlDie($tmpErrorCreate, $createQuery, false, '', false)]]></code>
       <code><![CDATA[Generator::mysqlDie($tmpErrorDrop, $dropQuery, false, '', false)]]></code>
     </PossiblyNullOperand>
-    <PossiblyNullReference>
+    <PossiblyUndefinedArrayOffset>
       <code>$existrelForeign[$masterFieldMd5]</code>
       <code>$existrelForeign[$masterFieldMd5]</code>
-      <code>$existrelForeign[$masterFieldMd5]</code>
-      <code>$existrelForeign[$masterFieldMd5]</code>
-      <code>$existrelForeign[$masterFieldMd5]</code>
-      <code>$existrelForeign[$masterFieldMd5]</code>
-      <code>$existrelForeign[$masterFieldMd5]</code>
-    </PossiblyNullReference>
+    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedProperty>
       <code>$engine</code>
       <code>$type</code>
