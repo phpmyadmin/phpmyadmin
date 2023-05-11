@@ -30,8 +30,8 @@ $resize-img: '../img/designer/resize.png';
 }
 
 #canvas {
-  background-color: $white;
-  color: $black;
+  background-color: var(--#{$prefix}body-bg);
+  color: var(--#{$prefix}body-color);
 }
 
 canvas.designer {
@@ -273,8 +273,8 @@ canvas.designer {
 
 #osn_tab {
   position: absolute;
-  background-color: $white;
-  color: $black;
+  background-color: var(--#{$prefix}body-bg);
+  color: var(--#{$prefix}body-color);
 }
 
 .designer_header {
@@ -486,6 +486,13 @@ a {
   font-size: 1.2em;
   padding: 5px;
   font-weight: bold;
+}
+
+@include color-mode(dark) {
+  .side-menu,
+  #name-panel {
+    background-color: var(--#{$prefix}secondary-bg);
+  }
 }
 
 #container-form {

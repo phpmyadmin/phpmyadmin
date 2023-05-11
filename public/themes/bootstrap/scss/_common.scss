@@ -6,27 +6,6 @@
   margin: 0 0 12px;
 }
 
-button.mult_submit,
-.checkall_box + label {
-  text-decoration: none;
-  color: #235a81;
-  cursor: pointer;
-  outline: none;
-}
-
-button.mult_submit {
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-    color: #235a81;
-  }
-}
-
-.checkall_box + label:hover {
-  text-decoration: underline;
-  color: #235a81;
-}
-
 #navbarDropdown > img {
   display: none;
 }
@@ -483,7 +462,15 @@ div#tablestatistics table {
   width: 100%;
 
   .navbar {
-    background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
+    background-color: #f8f8f8;
+  }
+}
+
+@include color-mode(dark) {
+  #topmenucontainer {
+    .navbar {
+      background-color: #262a2e;
+    }
   }
 }
 
@@ -1256,6 +1243,17 @@ table#index_columns {
   }
 }
 
+@include color-mode(dark) {
+  .config-form fieldset th small,
+  .config-form fieldset th .small {
+    color: inherit;
+  }
+
+  .config-form .custom {
+    background: #555;
+  }
+}
+
 fieldset {
   .group-header {
     th {
@@ -1296,6 +1294,12 @@ fieldset {
       color: #666;
       background-color: #ddd;
     }
+  }
+}
+
+@include color-mode(dark) {
+  fieldset .group-header th {
+    background: #333;
   }
 }
 
