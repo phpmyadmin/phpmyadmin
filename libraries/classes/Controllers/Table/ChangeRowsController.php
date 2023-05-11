@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
+use function array_values;
 use function is_array;
 
 final class ChangeRowsController extends AbstractController
@@ -41,9 +42,7 @@ final class ChangeRowsController extends AbstractController
         // for the /table/change script.
         $GLOBALS['where_clause'] = [];
         if (isset($_POST['rows_to_delete']) && is_array($_POST['rows_to_delete'])) {
-            foreach ($_POST['rows_to_delete'] as $eachWhereClause) {
-                $GLOBALS['where_clause'][] = $eachWhereClause;
-            }
+            $GLOBALS['where_clause'] = array_values($_POST['rows_to_delete']);
         }
 
         $GLOBALS['active_page'] = Url::getFromRoute('/table/change');
