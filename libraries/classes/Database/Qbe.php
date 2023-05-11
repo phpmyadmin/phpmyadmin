@@ -671,7 +671,7 @@ class Qbe
             }
 
             if (
-                (empty($this->prevCriteria)
+                ($this->prevCriteria === []
                 || ! isset($this->prevCriteria[$columnIndex]))
                 || $this->prevCriteria[$columnIndex] != $tmpCriteria
             ) {

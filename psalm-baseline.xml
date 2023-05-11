@@ -10323,22 +10323,14 @@
     <MixedArrayAccess>
       <code>$table[2][0]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code>$curTempLine[]</code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$cell</code>
       <code>$cell</code>
-      <code>$curTempTableHeaders</code>
-      <code>$curTempTable[]</code>
     </MixedAssignment>
     <PossiblyUndefinedArrayOffset>
       <code>$cellData[1]</code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUndefinedVariable>
-      <code>$curTempLine</code>
-    </PossiblyUndefinedVariable>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>

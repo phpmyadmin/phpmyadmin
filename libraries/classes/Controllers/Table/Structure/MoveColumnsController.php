@@ -132,7 +132,7 @@ final class MoveColumnsController extends AbstractController
             array_splice($columnNames, $i, 0, $column);
         }
 
-        if (empty($changes) && ! isset($_REQUEST['preview_sql'])) { // should never happen
+        if ($changes === [] && ! isset($_REQUEST['preview_sql'])) { // should never happen
             $this->response->setRequestStatus(false);
 
             return;

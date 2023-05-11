@@ -116,7 +116,7 @@ class Session
         if (! empty(ini_get('session.auto_start')) && session_name() !== 'phpMyAdmin' && ! empty(session_id())) {
             // Do not delete the existing non empty session, it might be used by
             // other applications; instead just close it.
-            if (empty($_SESSION)) {
+            if ($_SESSION === []) {
                 // Ignore errors as this might have been destroyed in other
                 // request meanwhile
                 @session_destroy();

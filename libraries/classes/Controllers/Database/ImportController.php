@@ -55,7 +55,7 @@ final class ImportController extends AbstractController
 
         $importList = Plugins::getImport('database');
 
-        if (empty($importList)) {
+        if ($importList === []) {
             $this->response->addHTML(Message::error(__(
                 'Could not load import plugins, please check your installation!',
             ))->getDisplay());

@@ -115,7 +115,7 @@ final class Search
             $fullWhereClause[] = $whereClause;
         }
 
-        if (! empty($fullWhereClause)) {
+        if ($fullWhereClause !== []) {
             return ' WHERE ' . implode(' AND ', $fullWhereClause);
         }
 
@@ -227,7 +227,7 @@ final class Search
                 }
 
                 $wheres = [];
-                if (! empty($values)) {
+                if ($values !== []) {
                     $wheres[] = $backquotedName . ' ' . $funcType
                         . ' (' . implode(',', $values) . ')';
                 }

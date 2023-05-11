@@ -260,7 +260,7 @@ class ErrorReport
             'allowed_to_send_error_reports' => $this->config->get('SendErrorReports') !== 'never',
         ];
 
-        if (! empty($reportData)) {
+        if ($reportData !== []) {
             $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }
 
