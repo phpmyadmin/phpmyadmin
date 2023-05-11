@@ -542,7 +542,7 @@ class Tracker
             return;
         }
 
-        if (! (substr($query, -1) === ';')) {
+        if (substr($query, -1) !== ';') {
             $query .= ";\n";
         }
 

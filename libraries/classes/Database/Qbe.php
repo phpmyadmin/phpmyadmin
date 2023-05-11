@@ -1233,7 +1233,7 @@ class Qbe
         // Of course the actual query would be faster if we check for
         // the Criteria which gives the smallest result set in its table,
         // but it would take too much time to check this
-        if (! (count($candidateColumns) > 1)) {
+        if (count($candidateColumns) <= 1) {
             // Only one single candidate
             return reset($candidateColumns);
         }
