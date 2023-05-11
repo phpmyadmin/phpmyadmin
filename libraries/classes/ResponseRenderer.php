@@ -36,14 +36,14 @@ class ResponseRenderer
     /**
      * HTML data to be used in the response
      */
-    private string $HTML;
+    private string $HTML = '';
     /**
      * An array of JSON key-value pairs
      * to be sent back for ajax requests
      *
      * @var mixed[]
      */
-    private array $JSON;
+    private array $JSON = [];
     /**
      * PhpMyAdmin\Footer instance
      */
@@ -55,12 +55,12 @@ class ResponseRenderer
     /**
      * Whether response object is disabled
      */
-    protected bool $isDisabled;
+    protected bool $isDisabled = false;
     /**
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses
      */
-    protected bool $isSuccess;
+    protected bool $isSuccess = true;
 
     /**
      * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
@@ -146,11 +146,7 @@ class ResponseRenderer
         $this->buffer = new OutputBuffering();
         $this->buffer->start();
         $this->header = new Header();
-        $this->HTML = '';
-        $this->JSON = [];
         $this->footer = new Footer();
-        $this->isSuccess = true;
-        $this->isDisabled = false;
 
         if (! defined('TESTSUITE')) {
             register_shutdown_function($this->response(...));

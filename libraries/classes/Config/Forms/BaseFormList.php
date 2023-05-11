@@ -54,7 +54,6 @@ class BaseFormList
     /** @param ConfigFile $cf Config file instance */
     final public function __construct(ConfigFile $cf)
     {
-        $this->forms = [];
         foreach (static::$all as $class) {
             $this->forms[] = new $class($cf);
         }

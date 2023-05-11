@@ -22,7 +22,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * HTML data to be used in the response
      */
-    protected string $htmlString;
+    protected string $htmlString = '';
 
     /**
      * An array of JSON key-value pairs
@@ -30,7 +30,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      *
      * @var mixed[]
      */
-    protected array $json;
+    protected array $json = [];
 
     private int $responseCode = 200;
 
@@ -40,8 +40,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function __construct()
     {
         $this->isSuccess = true;
-        $this->htmlString = '';
-        $this->json = [];
         $this->isAjax = false;
         $this->isDisabled = false;
 
