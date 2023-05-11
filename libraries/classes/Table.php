@@ -638,10 +638,8 @@ class Table implements Stringable
                 if (is_array($columnsWithIndex) && ! in_array($name, $columnsWithIndex)) {
                     $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
                 }
-            } else {
-                if (is_array($columnsWithIndex) && ! in_array($oldColumnName, $columnsWithIndex)) {
-                    $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
-                }
+            } elseif (is_array($columnsWithIndex) && ! in_array($oldColumnName, $columnsWithIndex)) {
+                $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
             }
         }
 
@@ -723,27 +721,24 @@ class Table implements Stringable
             $rowCount = $this->dbi->fetchValue(
                 'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.' . Util::backquote($this->name),
             );
-        } else {
+        } elseif ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
             // For complex views, even trying to get a partial record
             // count could bring down a server, so we offer an
             // alternative: setting MaxExactCountViews to 0 will bypass
             // completely the record counting for views
-
-            if ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
-                $rowCount = false;
-            } else {
-                // Counting all rows of a VIEW could be too long,
-                // so use a LIMIT clause.
-                // Use try_query because it can fail (when a VIEW is
-                // based on a table that no longer exists)
-                $result = $this->dbi->tryQuery(
-                    'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
-                    . Util::backquote($this->name) . ' LIMIT '
-                    . $GLOBALS['cfg']['MaxExactCountViews'],
-                );
-                if ($result) {
-                    $rowCount = $result->numRows();
-                }
+            $rowCount = false;
+        } else {
+            // Counting all rows of a VIEW could be too long,
+            // so use a LIMIT clause.
+            // Use try_query because it can fail (when a VIEW is
+            // based on a table that no longer exists)
+            $result = $this->dbi->tryQuery(
+                'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
+                . Util::backquote($this->name) . ' LIMIT '
+                . $GLOBALS['cfg']['MaxExactCountViews'],
+            );
+            if ($result) {
+                $rowCount = $result->numRows();
             }
         }
 

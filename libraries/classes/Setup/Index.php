@@ -173,23 +173,21 @@ class Index
                 sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading.'
                     . ' The newest version is %s, released on %s.'), $version, $date),
             );
+        } elseif ($versionLocal % 100 == 0) {
+            self::messagesSet(
+                'notice',
+                $messageId,
+                __('Version check'),
+                Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
+                    . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date)),
+            );
         } else {
-            if ($versionLocal % 100 == 0) {
-                self::messagesSet(
-                    'notice',
-                    $messageId,
-                    __('Version check'),
-                    Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
-                        . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date)),
-                );
-            } else {
-                self::messagesSet(
-                    'notice',
-                    $messageId,
-                    __('Version check'),
-                    __('No newer stable version is available'),
-                );
-            }
+            self::messagesSet(
+                'notice',
+                $messageId,
+                __('Version check'),
+                __('No newer stable version is available'),
+            );
         }
     }
 }

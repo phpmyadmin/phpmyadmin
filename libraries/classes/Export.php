@@ -363,14 +363,12 @@ class Export
                     $filenameTemplate,
                 );
             }
-        } else {
-            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-                $GLOBALS['config']->setUserValue(
-                    'pma_table_filename_template',
-                    'Export/file_template_table',
-                    $filenameTemplate,
-                );
-            }
+        } elseif ($rememberTemplate !== '' && $rememberTemplate !== '0') {
+            $GLOBALS['config']->setUserValue(
+                'pma_table_filename_template',
+                'Export/file_template_table',
+                $filenameTemplate,
+            );
         }
 
         $filename = Util::expandUserString($filenameTemplate);

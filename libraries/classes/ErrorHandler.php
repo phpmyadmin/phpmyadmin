@@ -193,10 +193,10 @@ class ErrorHandler
     ): bool {
         if (Util::isErrorReportingAvailable()) {
             /**
-            * Check if Error Control Operator (@) was used, but still show
-            * user errors even in this case.
-            * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
-            */
+             * Check if Error Control Operator (@) was used, but still show
+             * user errors even in this case.
+             * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
+             */
             $isSilenced = ! (error_reporting() & $errno);
 
             if (
@@ -214,10 +214,8 @@ class ErrorHandler
             ) {
                 return false;
             }
-        } else {
-            if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0) {
-                return false;
-            }
+        } elseif (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0) {
+            return false;
         }
 
         $this->addError($errstr, $errno, $errfile, $errline, true);

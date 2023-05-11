@@ -421,12 +421,10 @@ class Events
                 if (! empty($_POST['item_ends'])) {
                     $query .= 'ENDS ' . $this->dbi->quoteString($_POST['item_ends']) . ' ';
                 }
+            } elseif (! empty($_POST['item_execute_at'])) {
+                $query .= 'AT ' . $this->dbi->quoteString($_POST['item_execute_at']) . ' ';
             } else {
-                if (! empty($_POST['item_execute_at'])) {
-                    $query .= 'AT ' . $this->dbi->quoteString($_POST['item_execute_at']) . ' ';
-                } else {
-                    $GLOBALS['errors'][] = __('You must provide a valid execution time for the event.');
-                }
+                $GLOBALS['errors'][] = __('You must provide a valid execution time for the event.');
             }
         } else {
             $GLOBALS['errors'][] = __('You must provide a valid type for the event.');

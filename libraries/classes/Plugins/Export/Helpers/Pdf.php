@@ -130,12 +130,10 @@ class Pdf extends PdfLib
                     } else {
                         $this->x = $x;
                     }
+                } elseif ($thisPageOlm != $oldPageOlm) {
+                    $this->x = $x + $thisPageOlm - $oldPageOlm;
                 } else {
-                    if ($thisPageOlm != $oldPageOlm) {
-                        $this->x = $x + $thisPageOlm - $oldPageOlm;
-                    } else {
-                        $this->x = $x;
-                    }
+                    $this->x = $x;
                 }
             }
 
@@ -766,13 +764,11 @@ class Pdf extends PdfLib
                     // any column whose data's width is bigger than
                     // the start width is now discarded
                     unset($colFits[$key]);
-                } else {
+                } elseif ($stringWidth > $val && $stringWidth < $sColWidth * 3) {
                     // if data's width is bigger than the current column width,
                     // enlarge the column (but avoid enlarging it if the
                     // data's width is very big)
-                    if ($stringWidth > $val && $stringWidth < $sColWidth * 3) {
-                        $colFits[$key] = $stringWidth;
-                    }
+                    $colFits[$key] = $stringWidth;
                 }
             }
         }

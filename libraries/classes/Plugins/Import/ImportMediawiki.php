@@ -448,12 +448,10 @@ class ImportMediawiki extends ImportPlugin
                         $insideAttribute = true;
                         // remember the attribute`s declaration character (" or ')
                         $startAttributeCharacter = $curChar;
-                    } else {
-                        if ($curChar == $startAttributeCharacter) {
-                            $insideAttribute = false;
-                            // unset attribute declaration character
-                            $startAttributeCharacter = false;
-                        }
+                    } elseif ($curChar == $startAttributeCharacter) {
+                        $insideAttribute = false;
+                        // unset attribute declaration character
+                        $startAttributeCharacter = false;
                     }
                 }
             }

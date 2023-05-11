@@ -250,7 +250,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
-      <code><![CDATA[$configData['lang']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
@@ -13020,6 +13019,7 @@
       <code>has</code>
     </MixedMethodCall>
     <MixedOperand>
+      <code><![CDATA[$GLOBALS['cfg']['MaxExactCountViews']]]></code>
       <code>$backquoted ? Util::backquote($column) : $column</code>
       <code>$index[0]</code>
     </MixedOperand>

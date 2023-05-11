@@ -459,15 +459,13 @@ class Config
                     'original',
                 );
             }
-        } else {
+        } elseif (
+            $this->settings['ThemeDefault'] != $themeManager->theme->getId()
+            && $themeManager->checkTheme($this->settings['ThemeDefault'])
+        ) {
             // no cookie - read default from settings
-            if (
-                $this->settings['ThemeDefault'] != $themeManager->theme->getId()
-                && $themeManager->checkTheme($this->settings['ThemeDefault'])
-            ) {
-                $themeManager->setActiveTheme($this->settings['ThemeDefault']);
-                $themeManager->setThemeCookie();
-            }
+            $themeManager->setActiveTheme($this->settings['ThemeDefault']);
+            $themeManager->setThemeCookie();
         }
 
         // save language
@@ -480,14 +478,12 @@ class Config
             ) {
                 $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
             }
-        } else {
+        } elseif (isset($configData['lang'])) {
             // read language from settings
-            if (isset($configData['lang'])) {
-                $language = LanguageManager::getInstance()->getLanguage($configData['lang']);
-                if ($language !== false) {
-                    $language->activate();
-                    $this->setCookie('pma_lang', $language->getCode());
-                }
+            $language = LanguageManager::getInstance()->getLanguage($configData['lang']);
+            if ($language !== false) {
+                $language->activate();
+                $this->setCookie('pma_lang', $language->getCode());
             }
         }
 

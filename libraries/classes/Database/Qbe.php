@@ -1099,12 +1099,10 @@ class Qbe
                     } else {
                         $uniqueColumns[$column] = 'N';
                     }
+                } elseif (isset($whereClauseColumns[$column])) {
+                    $indexColumns[$column] = 'Y';
                 } else {
-                    if (isset($whereClauseColumns[$column])) {
-                        $indexColumns[$column] = 'Y';
-                    } else {
-                        $indexColumns[$column] = 'N';
-                    }
+                    $indexColumns[$column] = 'N';
                 }
             }
         }

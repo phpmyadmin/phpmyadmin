@@ -87,19 +87,17 @@ class ListDatabase extends ListAbstract
             if ($likeDbName !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $likeDbName . "'";
             }
+        } elseif ($GLOBALS['dbs_to_test'] === false || $likeDbName !== null) {
+            $command .= 'SHOW DATABASES';
+            if ($likeDbName !== null) {
+                $command .= " LIKE '" . $likeDbName . "'";
+            }
         } else {
-            if ($GLOBALS['dbs_to_test'] === false || $likeDbName !== null) {
-                $command .= 'SHOW DATABASES';
-                if ($likeDbName !== null) {
-                    $command .= " LIKE '" . $likeDbName . "'";
-                }
-            } else {
-                foreach ($GLOBALS['dbs_to_test'] as $db) {
-                    $databaseList = array_merge(
-                        $databaseList,
-                        $this->retrieve($db),
-                    );
-                }
+            foreach ($GLOBALS['dbs_to_test'] as $db) {
+                $databaseList = array_merge(
+                    $databaseList,
+                    $this->retrieve($db),
+                );
             }
         }
 

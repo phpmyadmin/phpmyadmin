@@ -905,16 +905,14 @@ class Operations
                             ),
                         );
                     }
+                } elseif (isset($_POST['submit_move'])) {
+                    $message = Message::success(
+                        __('Table %s has been moved to %s.'),
+                    );
                 } else {
-                    if (isset($_POST['submit_move'])) {
-                        $message = Message::success(
-                            __('Table %s has been moved to %s.'),
-                        );
-                    } else {
-                        $message = Message::success(
-                            __('Table %s has been copied to %s.'),
-                        );
-                    }
+                    $message = Message::success(
+                        __('Table %s has been copied to %s.'),
+                    );
                 }
 
                 $old = Util::backquote($db) . '.'

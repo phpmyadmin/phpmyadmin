@@ -358,10 +358,8 @@ class ExportLatex extends ExportPlugin
             if (! $this->export->outputHandler($buffer . '\\endhead \\endfoot' . "\n")) {
                 return false;
             }
-        } else {
-            if (! $this->export->outputHandler('\\\\ \hline')) {
-                return false;
-            }
+        } elseif (! $this->export->outputHandler('\\\\ \hline')) {
+            return false;
         }
 
         // print the whole table

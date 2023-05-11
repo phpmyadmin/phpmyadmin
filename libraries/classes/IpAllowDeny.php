@@ -94,10 +94,8 @@ class IpAllowDeny
                 if (($ipocts[$i] > $regs[2]) || ($ipocts[$i] < $regs[1])) {
                     $result = false;
                 }
-            } else {
-                if ($maskocts[$i] !== $ipocts[$i]) {
-                    $result = false;
-                }
+            } elseif ($maskocts[$i] !== $ipocts[$i]) {
+                $result = false;
             }
         }
 

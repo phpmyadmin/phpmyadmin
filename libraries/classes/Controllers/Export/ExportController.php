@@ -288,41 +288,38 @@ final class ExportController extends AbstractController
 
                 return;
             }
-        } else {
+        } elseif ($GLOBALS['asfile']) {
             /**
              * Send headers depending on whether the user chose to download a dump file
              * or not
              */
-            if ($GLOBALS['asfile']) {
-                // Download
-                // (avoid rewriting data containing HTML with anchors and forms;
-                // this was reported to happen under Plesk)
-                ini_set('url_rewriter.tags', '');
-                $filename = Sanitize::sanitizeFilename($filename);
-
-                Core::downloadHeader($filename, $mimeType);
-            } else {
-                // HTML
-                if ($GLOBALS['export_type'] === 'database') {
-                    $GLOBALS['num_tables'] = count($GLOBALS['tables']);
-                    if ($GLOBALS['num_tables'] === 0) {
-                        $GLOBALS['message'] = Message::error(
-                            __('No tables found in database.'),
-                        );
-                        $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
-                        /** @var DatabaseExportController $controller */
-                        $controller = Core::getContainerBuilder()->get(DatabaseExportController::class);
-                        $controller($request);
-                        exit;
-                    }
+            // Download
+            // (avoid rewriting data containing HTML with anchors and forms;
+            // this was reported to happen under Plesk)
+            ini_set('url_rewriter.tags', '');
+            $filename = Sanitize::sanitizeFilename($filename);
+            Core::downloadHeader($filename, $mimeType);
+        } else {
+            // HTML
+            if ($GLOBALS['export_type'] === 'database') {
+                $GLOBALS['num_tables'] = count($GLOBALS['tables']);
+                if ($GLOBALS['num_tables'] === 0) {
+                    $GLOBALS['message'] = Message::error(
+                        __('No tables found in database.'),
+                    );
+                    $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
+                    /** @var DatabaseExportController $controller */
+                    $controller = Core::getContainerBuilder()->get(DatabaseExportController::class);
+                    $controller($request);
+                    exit;
                 }
-
-                echo $this->export->getHtmlForDisplayedExportHeader(
-                    $GLOBALS['export_type'],
-                    $GLOBALS['db'],
-                    $GLOBALS['table'],
-                );
             }
+
+            echo $this->export->getHtmlForDisplayedExportHeader(
+                $GLOBALS['export_type'],
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+            );
         }
 
         try {
