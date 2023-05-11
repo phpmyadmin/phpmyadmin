@@ -192,7 +192,7 @@ class ResponseRenderer
      */
     public function setRequestStatus(bool $state): void
     {
-        $this->isSuccess = ($state === true);
+        $this->isSuccess = $state;
     }
 
     /**

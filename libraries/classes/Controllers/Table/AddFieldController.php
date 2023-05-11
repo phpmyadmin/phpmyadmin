@@ -110,7 +110,7 @@ class AddFieldController extends AbstractController
                 $GLOBALS['errorUrl'],
             );
 
-            if ($GLOBALS['result'] !== true) {
+            if (! $GLOBALS['result']) {
                 $errorMessageHtml = Generator::mysqlDie('', '', false, $GLOBALS['errorUrl'], false);
                 $this->response->addHTML($errorMessageHtml ?? '');
                 $this->response->setRequestStatus(false);

@@ -1069,7 +1069,7 @@ class NavigationTree
 
             $haveAjax = ['functions', 'procedures', 'events', 'triggers', 'indexes'];
             $parent = $node->parents(false, true);
-            $isNewView = $parent[0]->realName === 'views' && $node->isNew === true;
+            $isNewView = $parent[0]->realName === 'views' && $node->isNew;
             $linkHasAjaxClass = $parent[0]->type == Node::CONTAINER
                 && (in_array($parent[0]->realName, $haveAjax) || $isNewView);
 

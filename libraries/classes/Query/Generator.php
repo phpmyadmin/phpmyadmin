@@ -28,7 +28,7 @@ class Generator
         bool $tblIsGroup,
     ): string {
         $sqlWhereTable = 'AND t.`TABLE_NAME` ';
-        if ($tblIsGroup === true) {
+        if ($tblIsGroup) {
             $sqlWhereTable .= 'LIKE ' . $escapedTabletable . '%';
         } else {
             $sqlWhereTable .= Util::getCollateForIS() . ' = ' . $escapedTabletable;

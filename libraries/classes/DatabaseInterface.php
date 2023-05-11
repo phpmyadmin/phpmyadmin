@@ -492,10 +492,10 @@ class DatabaseInterface implements DbalInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if ($tables === []) {
             $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database);
-            if (($table !== '' && $table !== []) || ($tableIsGroup === true) || $tableType) {
+            if (($table !== '' && $table !== []) || $tableIsGroup || $tableType) {
                 $sql .= ' WHERE';
                 $needAnd = false;
-                if (($table !== '' && $table !== []) || ($tableIsGroup === true)) {
+                if (($table !== '' && $table !== []) || $tableIsGroup) {
                     if (is_array($table)) {
                         $sql .= ' `Name` IN ('
                             . implode(

@@ -195,12 +195,12 @@ class Tracker
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
         $createSql = '';
 
-        if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true && $isView === false) {
+        if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true && ! $isView) {
             $createSql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
 
-        if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true && $isView === true) {
+        if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true && $isView) {
             $createSql .= self::getLogComment()
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
