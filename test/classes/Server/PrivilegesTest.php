@@ -490,9 +490,7 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue(8003));
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $serverPrivileges->dbi = $dbi;
 
@@ -536,9 +534,7 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue(80011));
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $serverPrivileges->dbi = $dbi;
 
@@ -839,9 +835,7 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue($fieldsInfo));
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $serverPrivileges->dbi = $dbi;
 
@@ -907,9 +901,7 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue($fieldsInfo));
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
         $dbi->expects($this->any())->method('isGrantUser')
             ->will($this->returnValue(true));
 
@@ -1691,9 +1683,7 @@ class PrivilegesTest extends AbstractTestCase
             );
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $serverPrivileges->dbi = $dbi;
 
@@ -1731,9 +1721,7 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue('Some error occurred!'));
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $serverPrivileges->dbi = $dbi;
 

@@ -262,9 +262,7 @@ class TableTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $GLOBALS['dbi'] = $dbi;
     }

@@ -216,9 +216,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getCompatibilities')
             ->will($this->returnValue([]));
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));

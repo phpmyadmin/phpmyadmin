@@ -38,9 +38,7 @@ class SearchTest extends AbstractTestCase
 
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());

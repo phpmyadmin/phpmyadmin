@@ -107,9 +107,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             );
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->load();
@@ -190,9 +188,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->save([1]);
@@ -226,9 +222,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->will($this->returnValue('err1'));
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static function (string $string) {
-                return "'" . $string . "'";
-            }));
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->save([1]);
