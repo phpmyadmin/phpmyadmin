@@ -10089,10 +10089,6 @@
       <code>$resRel</code>
       <code>$resRel</code>
     </PossiblyUndefinedVariable>
-    <PossiblyUnusedParam>
-      <code>$aliases</code>
-      <code>$view</code>
-    </PossiblyUnusedParam>
     <PropertyNotSetInConstructor>
       <code>$results</code>
       <code>Pdf</code>
