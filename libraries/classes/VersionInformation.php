@@ -77,10 +77,8 @@ class VersionInformation
      * Calculates numerical equivalent of phpMyAdmin version string
      *
      * @param string $version version
-     *
-     * @return mixed false on failure, integer on success
      */
-    public function versionToInt(string $version): mixed
+    public function versionToInt(string $version): int
     {
         $parts = explode('-', $version);
         if (count($parts) > 1) {

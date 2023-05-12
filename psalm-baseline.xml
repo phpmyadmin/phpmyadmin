@@ -12588,12 +12588,7 @@
       <code>$removeIds[]</code>
       <code>$type</code>
       <code>$version</code>
-      <code>$versionLocal</code>
-      <code>$versionUpstream</code>
     </MixedAssignment>
-    <MixedOperand>
-      <code>$versionLocal</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Sql.php">
     <DeprecatedMethod>
