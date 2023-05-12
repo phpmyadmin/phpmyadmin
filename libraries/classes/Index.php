@@ -179,10 +179,10 @@ class Index
     /**
      * Load index data for table
      */
-    private static function loadIndexes(DatabaseInterface $dbi, string $table, string $schema): bool
+    private static function loadIndexes(DatabaseInterface $dbi, string $table, string $schema): void
     {
         if (isset(self::$registry[$schema][$table])) {
-            return true;
+            return;
         }
 
         $rawIndexes = $dbi->getTableIndexes($schema, $table);
@@ -198,8 +198,6 @@ class Index
 
             $key->addColumn($eachIndex);
         }
-
-        return true;
     }
 
     /**

@@ -7786,9 +7786,6 @@
       <code>hasPrimary</code>
       <code>isPacked</code>
     </PossiblyUnusedMethod>
-    <UnusedReturnValue>
-      <code>bool</code>
-    </UnusedReturnValue>
   </file>
   <file src="libraries/classes/IndexColumn.php">
     <MixedAssignment>
