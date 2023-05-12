@@ -60,6 +60,6 @@ final class ColumnPreferencesController extends AbstractController
             return;
         }
 
-        $this->response->setRequestStatus($status === true);
+        $this->response->setRequestStatus($status);
     }
 }

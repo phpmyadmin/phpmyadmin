@@ -174,7 +174,7 @@ class StructureController extends AbstractController
         }
 
         $createTable = '';
-        if ($this->dbIsSystemSchema === false) {
+        if (! $this->dbIsSystemSchema) {
             $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
             $checkUserPrivileges->getPrivileges();
 
@@ -186,7 +186,7 @@ class StructureController extends AbstractController
             'has_tables' => $this->numTables > 0,
             'list_navigator_html' => $listNavigator ?? '',
             'table_list_html' => $tableList ?? '',
-            'is_system_schema' => $this->dbIsSystemSchema === true,
+            'is_system_schema' => $this->dbIsSystemSchema,
             'create_table_html' => $createTable,
         ]);
     }

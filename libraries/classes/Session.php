@@ -185,7 +185,7 @@ class Session
 
         $sessionResult = session_start();
 
-        if ($sessionResult !== true || $origErrorCount !== $errorHandler->countErrors(false)) {
+        if (! $sessionResult || $origErrorCount !== $errorHandler->countErrors(false)) {
             setcookie($httpCookieName, '', 1);
             $errors = $errorHandler->sliceErrors($origErrorCount);
             self::sessionFailed($errors);

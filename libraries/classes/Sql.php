@@ -678,16 +678,16 @@ class Sql
                 $statement = $statementInfo->statement;
 
                 // Remove ORDER BY to decrease unnecessary sorting time
-                if ($statementInfo->order !== false) {
+                if ($statementInfo->order) {
                     $statement->order = null;
                 }
 
                 // Removes LIMIT clause that might have been added
-                if ($statementInfo->limit !== false) {
+                if ($statementInfo->limit) {
                     $statement->limit = false;
                 }
 
-                if ($statementInfo->isGroup === false && count($statement->expr) === 1) {
+                if (! $statementInfo->isGroup && count($statement->expr) === 1) {
                     $statement->expr[0] = new Expression();
                     $statement->expr[0]->expr = '1';
                 }

@@ -1618,7 +1618,7 @@ class Table implements Stringable
 
         foreach ($columnsMetaQueryResult as $column) {
             $value = $column['Field'];
-            if ($backquoted === true) {
+            if ($backquoted) {
                 $value = Util::backquote($value);
             }
 
