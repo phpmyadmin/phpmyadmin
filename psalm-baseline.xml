@@ -778,7 +778,7 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>array|false</code>
-      <code>string|false</code>
+      <code>string</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$column['COLUMN_NAME']]]></code>

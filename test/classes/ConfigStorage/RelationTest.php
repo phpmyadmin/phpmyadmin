@@ -52,7 +52,8 @@ class RelationTest extends AbstractTestCase
 
         $db = 'information_schema';
         $table = 'PMA';
-        $this->assertFalse(
+        $this->assertSame(
+            '',
             $relation->getDisplayField($db, $table),
         );
     }
