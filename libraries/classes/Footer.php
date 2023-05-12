@@ -37,11 +37,11 @@ class Footer
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links
      */
-    private bool $isMinimal;
+    private bool $isMinimal = false;
     /**
      * Whether to display anything
      */
-    private bool $isEnabled;
+    private bool $isEnabled = true;
 
     private Relation $relation;
 
@@ -53,9 +53,7 @@ class Footer
     public function __construct()
     {
         $this->template = new Template();
-        $this->isEnabled = true;
         $this->scripts = new Scripts();
-        $this->isMinimal = false;
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 

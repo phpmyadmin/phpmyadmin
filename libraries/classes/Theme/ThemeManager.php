@@ -41,20 +41,18 @@ class ThemeManager
     public bool $perServer = false;
 
     /** @var string name of active theme */
-    public string $activeTheme;
+    public string $activeTheme = self::FALLBACK_THEME;
 
     /** @var Theme Theme active theme */
     public Theme $theme;
 
-    public string $themeDefault;
+    public string $themeDefault = self::FALLBACK_THEME;
 
     /** @const string The name of the fallback theme */
     public const FALLBACK_THEME = 'pmahomme';
 
     public function __construct()
     {
-        $this->themeDefault = self::FALLBACK_THEME;
-        $this->activeTheme = $this->themeDefault;
         $this->themesPath = self::getThemesFsDir();
         $this->themesPathUrl = self::getThemesDir();
         $this->theme = new Theme();

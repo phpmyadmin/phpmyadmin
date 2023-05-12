@@ -46,15 +46,15 @@ class Header
     /**
      * The page title
      */
-    private string $title;
+    private string $title = '';
     /**
      * The value for the id attribute for the body tag
      */
-    private string $bodyId;
+    private string $bodyId = '';
     /**
      * Whether to show the top menu
      */
-    private bool $menuEnabled;
+    private bool $menuEnabled = false;
     /**
      * Whether to show the warnings
      */
@@ -62,11 +62,11 @@ class Header
     /**
      * Whether we are servicing an ajax request.
      */
-    private bool $isAjax;
+    private bool $isAjax = false;
     /**
      * Whether to display anything
      */
-    private bool $isEnabled;
+    private bool $isEnabled = true;
     /**
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
@@ -85,13 +85,7 @@ class Header
     public function __construct()
     {
         $this->template = new Template();
-
-        $this->isEnabled = true;
-        $this->isAjax = false;
-        $this->bodyId = '';
-        $this->title = '';
         $this->console = new Console(new Relation($GLOBALS['dbi']), $this->template);
-        $this->menuEnabled = false;
         if ($GLOBALS['dbi'] !== null) {
             $this->menuEnabled = true;
             $this->menu = new Menu($GLOBALS['dbi'], $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
