@@ -8,10 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
-use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
-use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
 use PhpMyAdmin\Version;
 
 use function __;
@@ -36,7 +33,7 @@ use function sprintf;
  */
 class SvgRelationSchema extends ExportRelationSchema
 {
-    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
+    /** @var TableStatsSvg[] */
     private array $tables = [];
 
     /** @var RelationStatsSvg[] Relations */
@@ -266,8 +263,6 @@ class SvgRelationSchema extends ExportRelationSchema
 
     /**
      * Draws tables
-     *
-     * @see TableStatsSvg::Table_Stats_tableDraw()
      */
     private function drawTables(): void
     {

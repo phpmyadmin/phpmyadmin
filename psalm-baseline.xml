@@ -10923,9 +10923,6 @@
       <code><![CDATA[$this->y + 14]]></code>
       <code><![CDATA[$this->y + 14 + $this->currentCell]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedParam>
-      <code>$showColor</code>
-    </PossiblyUnusedParam>
     <PossiblyUnusedProperty>
       <code>$height</code>
     </PossiblyUnusedProperty>
@@ -11305,9 +11302,6 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php">
-    <InvalidArgument>
-      <code><![CDATA[$this->showColor]]></code>
-    </InvalidArgument>
     <MixedArgument>
       <code>$oneField</code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
@@ -11337,13 +11331,6 @@
       <code>$oneKey</code>
       <code>$rel</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->tables[$table]]]></code>
-    </PossiblyInvalidArgument>
-    <TooFewArguments>
-      <code>tableDraw</code>
-      <code>tableDraw</code>
-    </TooFewArguments>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php">
     <MixedArgument>

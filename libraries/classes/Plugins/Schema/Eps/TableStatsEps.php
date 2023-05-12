@@ -120,10 +120,8 @@ class TableStatsEps extends TableStats
      * @see Eps
      * @see Eps::line
      * @see Eps::rect
-     *
-     * @param bool $showColor Whether to display color
      */
-    public function tableDraw(bool $showColor): void
+    public function tableDraw(): void
     {
         $this->diagram->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
         $this->diagram->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
