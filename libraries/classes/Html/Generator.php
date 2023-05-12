@@ -761,7 +761,7 @@ class Generator
 
         if ($sqlQuery === '') {
             $formattedSql = '';
-        } elseif (count($errors)) {
+        } elseif ($errors !== []) {
             $formattedSql = htmlspecialchars($sqlQuery);
         } else {
             $formattedSql = self::formatSql($sqlQuery, true);

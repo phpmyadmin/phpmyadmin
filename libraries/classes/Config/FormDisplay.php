@@ -23,7 +23,6 @@ use function __;
 use function array_flip;
 use function array_keys;
 use function array_search;
-use function count;
 use function explode;
 use function function_exists;
 use function gettype;
@@ -155,7 +154,7 @@ class FormDisplay
         }
 
         // save forms
-        if (count($this->forms) > 0) {
+        if ($this->forms !== []) {
             return $this->save(array_keys($this->forms), $allowPartialSave);
         }
 
@@ -187,7 +186,7 @@ class FormDisplay
         $errors = Validator::validate($this->configFile, $paths, $values, false);
 
         // change error keys from canonical paths to work paths
-        if (is_array($errors) && count($errors) > 0) {
+        if (is_array($errors) && $errors !== []) {
             $this->errors = [];
             foreach ($errors as $path => $errorList) {
                 $workPath = array_search($path, $this->systemPaths);

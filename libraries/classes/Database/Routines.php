@@ -77,7 +77,7 @@ class Routines
          */
         // FIXME: this must be simpler than that
         if (
-            ! count($GLOBALS['errors'])
+            $GLOBALS['errors'] === []
             && ( ! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
             || (empty($_REQUEST['add_item']) && empty($_REQUEST['edit_item'])
@@ -179,7 +179,7 @@ class Routines
         $routineQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if (! count($errors)) {
+        if ($errors === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 if (! in_array($_POST['item_original_type'], ['PROCEDURE', 'FUNCTION'], true)) {
@@ -245,7 +245,7 @@ class Routines
             }
         }
 
-        if (count($errors)) {
+        if ($errors !== []) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'One or more errors have occurred while processing your request:',
@@ -1100,7 +1100,7 @@ class Routines
         if ($routine['item_type'] === 'PROCEDURE') {
             $queries[] = 'CALL ' . Util::backquote($routine['item_name'])
                         . '(' . implode(', ', $args) . ");\n";
-            if (count($endQuery)) {
+            if ($endQuery !== []) {
                 $queries[] = 'SELECT ' . implode(', ', $endQuery) . ";\n";
             }
         } else {

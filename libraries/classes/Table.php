@@ -657,11 +657,11 @@ class Table implements Stringable
         $checkQuery = 'SELECT ';
 
         $uniqueFields = $this->getUniqueColumns(true, false);
-        if (count($uniqueFields) > 0) {
+        if ($uniqueFields !== []) {
             $fieldsToSelect = implode(', ', $uniqueFields);
         } else {
             $indexedCols = $this->getIndexedColumns(true, false);
-            if (count($indexedCols) > 0) {
+            if ($indexedCols !== []) {
                 $fieldsToSelect = implode(', ', $indexedCols);
             } else {
                 $fieldsToSelect = '*';

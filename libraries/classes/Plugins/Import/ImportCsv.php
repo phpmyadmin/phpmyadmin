@@ -712,7 +712,7 @@ class ImportCsv extends AbstractImportCsv
             // check to see if {filename} as table exist
             $nameArray = preg_grep('/' . $importFileName . '/isU', $result);
             // if no use filename as table name
-            if ($nameArray === false || count($nameArray) === 0) {
+            if ($nameArray === false || $nameArray === []) {
                 return $importFileName;
             }
 
@@ -787,7 +787,7 @@ class ImportCsv extends AbstractImportCsv
                 }
 
                 foreach ($tmp as $val) {
-                    if (count($fields) > 0) {
+                    if ($fields !== []) {
                         $sqlTemplate .= ', ';
                     }
 

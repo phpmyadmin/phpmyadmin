@@ -61,7 +61,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
             ->with()
             ->will($this->returnValue(false));
 
-        if (count($param) > 0) {
+        if ($param !== []) {
             if (is_array($param[0])) {
                 if (is_array($param[0][0]) && count($param) === 1) {
                     $param = $param[0];

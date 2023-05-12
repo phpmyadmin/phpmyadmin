@@ -6851,11 +6851,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between 0 and 0 will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php

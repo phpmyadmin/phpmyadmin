@@ -239,7 +239,7 @@ class ImportShp extends ImportPlugin
             }
         }
 
-        if (count($rows) === 0) {
+        if ($rows === []) {
             $GLOBALS['error'] = true;
             $GLOBALS['message'] = Message::error(
                 __('The imported file does not contain any data!'),

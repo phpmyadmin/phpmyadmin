@@ -1669,7 +1669,7 @@ class Relation
             // an array
             $resRel = $this->getForeigners($db, $table);
 
-            $haveRel = count($resRel) > 0;
+            $haveRel = $resRel !== [];
         }
 
         return [$resRel, $haveRel];

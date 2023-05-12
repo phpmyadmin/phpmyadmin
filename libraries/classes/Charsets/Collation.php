@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Charsets;
 
 use function __;
 use function _pgettext;
-use function count;
 use function explode;
 use function implode;
 
@@ -238,7 +237,7 @@ final class Collation
             $result .= ' (' . $variant . ')';
         }
 
-        if (count($suffixes) > 0) {
+        if ($suffixes !== []) {
             $result .= ', ' . implode(', ', $suffixes);
         }
 

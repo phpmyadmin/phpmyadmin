@@ -38,7 +38,7 @@ final class ReservedWordCheckController extends AbstractController
             $reservedKeywordsNames[] = trim($GLOBALS['table']);
         }
 
-        if (count($reservedKeywordsNames) === 0) {
+        if ($reservedKeywordsNames === []) {
             $this->response->setRequestStatus(false);
         }
 

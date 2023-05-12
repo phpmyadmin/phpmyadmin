@@ -15,7 +15,6 @@ use PhpMyAdmin\Config\Settings\Transformations;
 
 use function __;
 use function array_map;
-use function count;
 use function defined;
 use function in_array;
 use function is_array;
@@ -3548,7 +3547,7 @@ final class Settings
             return (string) $settings['NavigationTreeTableSeparator'];
         }
 
-        if (count($settings['NavigationTreeTableSeparator']) > 0) {
+        if ($settings['NavigationTreeTableSeparator'] !== []) {
             $navigationTreeTableSeparator = [];
             /** @var mixed $separator */
             foreach ($settings['NavigationTreeTableSeparator'] as $separator) {

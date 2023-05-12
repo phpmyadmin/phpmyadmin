@@ -651,7 +651,7 @@ class Normalization
         $dropCols = false;
         $error = false;
         $headText = '<h3>' . __('The third step of normalization is complete.') . '</h3>';
-        if (count($newTables) === 0) {
+        if ($newTables === []) {
             return ['legendText' => __('End of step'), 'headText' => $headText, 'queryError' => false];
         }
 

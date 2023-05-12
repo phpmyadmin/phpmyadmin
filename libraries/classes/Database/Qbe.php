@@ -1158,7 +1158,7 @@ class Qbe
             }
         }
 
-        if (count($veryGood) > 0) {
+        if ($veryGood !== []) {
             $candidateColumns = $veryGood;
             // Candidates restricted in index+where
         } else {
@@ -1222,7 +1222,7 @@ class Qbe
             }
         }
 
-        if (count($foreignTables)) {
+        if ($foreignTables !== []) {
             $candidateColumns = $foreignTables;
         }
 
@@ -1387,7 +1387,7 @@ class Qbe
         // Tables that can not be combined with the table cluster
         // which includes master table
         $unfinalized = array_diff($searchTables, array_keys($finalized));
-        if (count($unfinalized) > 0) {
+        if ($unfinalized !== []) {
             // We need to look for intermediary tables to JOIN unfinalized tables
             // Heuristic to chose intermediary tables is to look for tables
             // having relationships with unfinalized tables
@@ -1425,7 +1425,7 @@ class Qbe
                         }
 
                         // We are done if no unfinalized tables anymore
-                        if (count($tempUnfinalized) === 0) {
+                        if ($tempUnfinalized === []) {
                             break 3;
                         }
                     }
@@ -1434,7 +1434,7 @@ class Qbe
 
             $unfinalized = array_diff($searchTables, array_keys($finalized));
             // If there are still unfinalized tables
-            if (count($unfinalized) > 0) {
+            if ($unfinalized !== []) {
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
                     ', ',
@@ -1700,21 +1700,21 @@ class Qbe
         array|null $indexColumns,
     ): array {
         // now we want to find the best.
-        if (isset($uniqueColumns) && count($uniqueColumns) > 0) {
+        if (isset($uniqueColumns) && $uniqueColumns !== []) {
             $candidateColumns = $uniqueColumns;
             $needSort = 1;
 
             return [$candidateColumns, $needSort];
         }
 
-        if (isset($indexColumns) && count($indexColumns) > 0) {
+        if (isset($indexColumns) && $indexColumns !== []) {
             $candidateColumns = $indexColumns;
             $needSort = 1;
 
             return [$candidateColumns, $needSort];
         }
 
-        if (isset($whereClauseColumns) && count($whereClauseColumns) > 0) {
+        if (isset($whereClauseColumns) && $whereClauseColumns !== []) {
             $candidateColumns = $whereClauseColumns;
             $needSort = 0;
 

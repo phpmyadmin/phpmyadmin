@@ -19,7 +19,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
 use function __;
-use function count;
 use function htmlspecialchars;
 use function is_array;
 use function mb_substr;
@@ -247,7 +246,7 @@ class ExportXml extends ExportPlugin
                 . '" collation="' . htmlspecialchars($dbCollation) . '" charset="' . htmlspecialchars($dbCharset)
                 . '">' . "\n";
 
-            if (count($tables) === 0) {
+            if ($tables === []) {
                 $tables[] = $table;
             }
 
