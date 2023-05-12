@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-05-07 00:18+0000\n"
 "PO-Revision-Date: 2023-05-12 08:51+0000\n"
-"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -3320,8 +3320,8 @@ msgstr "Domyślna wartość klucza obcego sprawdza zaznaczenie dla kilku pytań.
 #: libraries/classes/Config/Descriptions.php:553
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
-"Usuń zaznaczenie pola wyboru, aby wyłączyć importowanie metodą przeciągania "
-"i upuszczania"
+"Usuń zaznaczenie pola wyboru, aby wyłączyć importowanie metodą przeciągnij i "
+"upuść"
 
 #: libraries/classes/Config/Descriptions.php:554
 msgid "How many rows can be inserted at one time."
