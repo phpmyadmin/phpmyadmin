@@ -323,7 +323,7 @@ class CentralColumns
             }
         }
 
-        if (! empty($existingCols)) {
+        if ($existingCols !== []) {
             $existingCols = implode(',', array_unique($existingCols));
             $message = Message::notice(
                 sprintf(
@@ -421,7 +421,7 @@ class CentralColumns
             }
         }
 
-        if (! empty($colNotExist)) {
+        if ($colNotExist !== []) {
             $colNotExist = implode(',', array_unique($colNotExist));
             $message = Message::notice(
                 sprintf(

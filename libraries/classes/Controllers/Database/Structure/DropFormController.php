@@ -41,7 +41,7 @@ final class DropFormController extends AbstractController
 
         foreach ($selected as $selectedValue) {
             $current = $selectedValue;
-            if (! empty($views) && in_array($current, $views)) {
+            if ($views !== [] && in_array($current, $views)) {
                 $fullQueryViews .= (empty($fullQueryViews) ? 'DROP VIEW ' : ', ')
                     . Util::backquote(htmlspecialchars($current));
             } else {

@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Replication;
 
 use PhpMyAdmin\DatabaseInterface;
 
-use function count;
 use function explode;
 use function sprintf;
 
@@ -141,7 +140,7 @@ final class ReplicationInfo
     {
         $this->primaryInfo = ['status' => false];
 
-        if (count($this->primaryStatus) > 0) {
+        if ($this->primaryStatus !== []) {
             $this->primaryInfo['status'] = true;
         }
 
@@ -163,7 +162,7 @@ final class ReplicationInfo
     {
         $this->replicaInfo = ['status' => false];
 
-        if (count($this->replicaStatus) > 0) {
+        if ($this->replicaStatus !== []) {
             $this->replicaInfo['status'] = true;
         }
 

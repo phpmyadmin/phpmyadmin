@@ -58,7 +58,7 @@ final class DropTableController extends AbstractController
             $this->relationCleanup->table($GLOBALS['db'], $selected[$i]);
             $current = $selected[$i];
 
-            if (! empty($views) && in_array($current, $views)) {
+            if ($views !== [] && in_array($current, $views)) {
                 $sqlQueryViews .= (empty($sqlQueryViews) ? 'DROP VIEW ' : ', ') . Util::backquote($current);
             } else {
                 $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')

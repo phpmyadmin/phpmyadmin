@@ -12,7 +12,6 @@ use PhpMyAdmin\Charsets\Collation;
 
 use function __;
 use function array_keys;
-use function count;
 use function explode;
 use function is_string;
 use function ksort;
@@ -74,7 +73,7 @@ class Charsets
     private static function loadCharsets(DatabaseInterface $dbi, bool $disableIs): void
     {
         /* Data already loaded */
-        if (count(self::$charsets) > 0) {
+        if (self::$charsets !== []) {
             return;
         }
 
@@ -106,7 +105,7 @@ class Charsets
     private static function loadCollations(DatabaseInterface $dbi, bool $disableIs): void
     {
         /* Data already loaded */
-        if (count(self::$collations) > 0) {
+        if (self::$collations !== []) {
             return;
         }
 

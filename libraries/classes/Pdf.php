@@ -112,7 +112,7 @@ class Pdf extends TCPDF
      */
     public function _putpages(): void
     {
-        if (count($this->alias) > 0) {
+        if ($this->alias !== []) {
             $nbPages = count($this->pages);
             for ($n = 1; $n <= $nbPages; $n++) {
                 $this->pages[$n] = strtr($this->pages[$n], $this->alias);

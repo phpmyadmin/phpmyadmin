@@ -35,7 +35,6 @@ use function array_shift;
 use function array_slice;
 use function basename;
 use function closelog;
-use function count;
 use function defined;
 use function explode;
 use function implode;
@@ -689,7 +688,7 @@ class DatabaseInterface implements DbalInterface
             $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $connectionType);
 
             $mysqlError = $this->getError($connectionType);
-            if (! count($databases) && isset($GLOBALS['errno'])) {
+            if ($databases === [] && isset($GLOBALS['errno'])) {
                 Generator::mysqlDie($mysqlError, $sql);
             }
 

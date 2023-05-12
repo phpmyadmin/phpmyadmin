@@ -2024,7 +2024,7 @@ class Util
         }
 
         // is there at least one "in use" table?
-        if (count($sotCache) > 0) {
+        if ($sotCache !== []) {
             $tblGroupSql = '';
             $whereAdded = false;
             if (
@@ -2073,7 +2073,7 @@ class Util
                     }
                 }
 
-                if (count($names) > 0) {
+                if ($names !== []) {
                     $tables += $GLOBALS['dbi']->getTablesFull($db, $names);
                 }
 

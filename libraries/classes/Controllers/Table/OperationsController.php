@@ -245,7 +245,7 @@ class OperationsController extends AbstractController
                 $GLOBALS['tbl_collation'],
             );
 
-            if (count($GLOBALS['table_alters']) > 0) {
+            if ($GLOBALS['table_alters'] !== []) {
                 $GLOBALS['sql_query'] = 'ALTER TABLE '
                     . Util::backquote($GLOBALS['table']);
                 $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $GLOBALS['table_alters']);

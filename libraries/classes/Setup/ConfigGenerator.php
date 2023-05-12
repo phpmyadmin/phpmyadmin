@@ -100,7 +100,7 @@ class ConfigGenerator
             return sprintf('$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\'%s\');%s', sodium_bin2hex($secret), $eol);
         }
 
-        if (! is_array($varValue) || empty($varValue)) {
+        if (! is_array($varValue) || $varValue === []) {
             return "\$cfg['" . $varName . "'] = "
                 . var_export($varValue, true) . ';' . $eol;
         }

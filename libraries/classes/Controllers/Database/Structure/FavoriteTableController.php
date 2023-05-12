@@ -145,7 +145,7 @@ final class FavoriteTableController extends AbstractController
     ): array {
         $favoriteInstanceTables = $favoriteInstance->getTables();
 
-        if (empty($favoriteInstanceTables) && isset($favoriteTables[$user])) {
+        if ($favoriteInstanceTables === [] && isset($favoriteTables[$user])) {
             foreach ($favoriteTables[$user] as $value) {
                 $favoriteInstance->add($value['db'], $value['table']);
             }

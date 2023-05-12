@@ -133,6 +133,7 @@ class ImportMediawiki extends ImportPlugin
                 $lastChunkLine = $bufferLines[--$fullBufferLinesCount];
             }
 
+            $curTempLine = [];
             for ($lineNr = 0; $lineNr < $fullBufferLinesCount; ++$lineNr) {
                 $curBufferLine = trim($bufferLines[$lineNr]);
 
@@ -206,7 +207,7 @@ class ImportMediawiki extends ImportPlugin
                     // Check begin row or end table
 
                     // Add current line to the values storage
-                    if (! empty($curTempLine)) {
+                    if ($curTempLine !== []) {
                         // If the current line contains header cells
                         // ( marked with '!' ),
                         // it will be marked as table header
@@ -339,7 +340,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private function setTableHeaders(array &$tableHeaders, array $tableRow): void
     {
-        if (! empty($tableHeaders)) {
+        if ($tableHeaders !== []) {
             return;
         }
 

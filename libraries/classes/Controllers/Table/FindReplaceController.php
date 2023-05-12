@@ -16,7 +16,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_key_exists;
-use function count;
 use function is_array;
 use function mb_strtolower;
 use function preg_match;
@@ -298,7 +297,7 @@ class FindReplaceController extends AbstractController
                 . ' SET ' . Util::backquote($column);
 
             if (is_array($toReplace)) {
-                if (count($toReplace) > 0) {
+                if ($toReplace !== []) {
                     $sqlQuery .= ' = CASE';
                     foreach ($toReplace as $row) {
                         $sqlQuery .= "\n WHEN " . Util::backquote($column)

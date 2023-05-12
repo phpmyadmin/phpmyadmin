@@ -113,7 +113,7 @@ final class SaveController extends AbstractController
             $adjustPrivileges[$_POST['field_orig'][$i]] = $_POST['field_name'][$i];
         }
 
-        if (count($changes) > 0 || isset($_POST['preview_sql'])) {
+        if ($changes !== [] || isset($_POST['preview_sql'])) {
             // Builds the primary keys statements and updates the table
             $keyQuery = '';
             /**
@@ -145,7 +145,7 @@ final class SaveController extends AbstractController
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
-                Core::previewSQL(count($changes) > 0 ? $sqlQuery : '');
+                Core::previewSQL($changes !== [] ? $sqlQuery : '');
 
                 exit;
             }

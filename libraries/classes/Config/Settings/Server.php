@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Settings;
 
-use function count;
 use function in_array;
 use function is_array;
 
@@ -1382,7 +1381,7 @@ final class Server
         if (isset($server['only_db'])) {
             if (! is_array($server['only_db'])) {
                 $onlyDb = (string) $server['only_db'];
-            } elseif (count($server['only_db']) > 0) {
+            } elseif ($server['only_db'] !== []) {
                 $onlyDb = [];
                 /** @var mixed $database */
                 foreach ($server['only_db'] as $database) {

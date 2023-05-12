@@ -17,7 +17,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
 
 use function __;
-use function count;
 use function in_array;
 use function is_string;
 use function json_decode;
@@ -77,7 +76,7 @@ class ErrorReportController extends AbstractController
 
             $reportData = $this->errorReport->getData($exceptionType);
             // report if and only if there were 'actual' errors.
-            if (count($reportData) > 0) {
+            if ($reportData !== []) {
                 $serverResponse = $this->errorReport->send($reportData);
                 if (! is_string($serverResponse)) {
                     $success = false;

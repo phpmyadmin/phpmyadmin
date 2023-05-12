@@ -184,7 +184,7 @@ class RecentFavoriteTable
      */
     public function getHtmlList(): string
     {
-        if (count($this->tables)) {
+        if ($this->tables !== []) {
             if ($this->tableType === 'recent') {
                 $tables = [];
                 foreach ($this->tables as $table) {

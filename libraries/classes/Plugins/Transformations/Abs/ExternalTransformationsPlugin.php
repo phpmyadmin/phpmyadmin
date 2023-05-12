@@ -11,7 +11,6 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
 use function __;
-use function count;
 use function fclose;
 use function feof;
 use function fgets;
@@ -98,8 +97,13 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         //$allowed_programs[0] = '/usr/local/bin/tidy';
         //$allowed_programs[1] = '/usr/local/bin/validate';
 
-        // no-op when no allowed programs
-        if (count($allowedPrograms) === 0) {
+        /**
+         * no-op when no allowed programs
+         *
+         * @psalm-suppress RedundantCondition
+         * @phpstan-ignore-next-line
+         */
+        if ($allowedPrograms === []) {
             return $buffer;
         }
 

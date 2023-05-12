@@ -96,7 +96,7 @@ class ExportController extends AbstractController
 
         $exportList = Plugins::getExport('table', isset($GLOBALS['single_table']));
 
-        if (empty($exportList)) {
+        if ($exportList === []) {
             $this->response->addHTML(Message::error(
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());

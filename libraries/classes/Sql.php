@@ -346,7 +346,7 @@ class Sql
         // and the true error message to the query executor
 
         return (isset($statementInfo->parser)
-            && count($statementInfo->parser->errors) === 0)
+            && $statementInfo->parser->errors === [])
             && ($_SESSION['tmpval']['max_rows'] !== 'all')
             && ! ($statementInfo->isExport
             || $statementInfo->isAnalyse)
