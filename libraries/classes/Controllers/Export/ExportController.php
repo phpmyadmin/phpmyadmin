@@ -429,7 +429,6 @@ final class ExportController extends AbstractController
                     $GLOBALS['errorUrl'],
                     $GLOBALS['db'],
                     $GLOBALS['sql_query'],
-                    $GLOBALS['export_type'],
                 );
             } else {
                 // We export just one table

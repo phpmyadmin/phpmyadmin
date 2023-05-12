@@ -752,7 +752,7 @@ class Export
                 && ! $isView
             ) {
                 $tableObj = new Table($table, $db->getName(), $this->dbi);
-                $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+                $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db->getName())
@@ -879,7 +879,6 @@ class Export
      * @param string       $errorUrl        the URL in case of error
      * @param string|null  $db              the database where the query is executed
      * @param string       $sqlQuery        the query to be executed
-     * @param string       $exportType      the export type
      */
     public static function exportRaw(
         string $whatStrucOrData,
@@ -887,7 +886,6 @@ class Export
         string $errorUrl,
         string|null $db,
         string $sqlQuery,
-        string $exportType,
     ): void {
         // In case the we need to dump just the raw query
         if ($whatStrucOrData !== 'raw') {
@@ -1013,7 +1011,7 @@ class Export
             } else {
                 // Data is exported only for Non-generated columns
                 $tableObj = new Table($table, $db, $this->dbi);
-                $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+                $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db)
@@ -1159,10 +1157,8 @@ class Export
      * @param DatabaseName $db       database name
      * @param mixed[]      $tables   list of table names
      * @param string       $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
-     *
-     * @return mixed result of the query
      */
-    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE'): mixed
+    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE'): void
     {
         $locks = [];
         foreach ($tables as $table) {
@@ -1172,17 +1168,15 @@ class Export
 
         $sql = 'LOCK TABLES ' . implode(', ', $locks);
 
-        return $this->dbi->tryQuery($sql);
+        $this->dbi->tryQuery($sql);
     }
 
     /**
      * Releases table locks
-     *
-     * @return mixed result of the query
      */
-    public function unlockTables(): mixed
+    public function unlockTables(): void
     {
-        return $this->dbi->tryQuery('UNLOCK TABLES');
+        $this->dbi->tryQuery('UNLOCK TABLES');
     }
 
     /**
