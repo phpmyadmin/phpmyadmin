@@ -270,30 +270,28 @@ class ExportCsv extends ExportPlugin
 
                     if ($GLOBALS['csv_enclosed'] == '') {
                         $insertValues[] = $field;
-                    } else {
+                    } elseif ($GLOBALS['csv_escaped'] != $GLOBALS['csv_enclosed']) {
                         // also double the escape string if found in the data
-                        if ($GLOBALS['csv_escaped'] != $GLOBALS['csv_enclosed']) {
-                            $insertValues[] = $GLOBALS['csv_enclosed']
-                                . str_replace(
-                                    $GLOBALS['csv_enclosed'],
-                                    $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
-                                    str_replace(
-                                        $GLOBALS['csv_escaped'],
-                                        $GLOBALS['csv_escaped'] . $GLOBALS['csv_escaped'],
-                                        $field,
-                                    ),
-                                )
-                                . $GLOBALS['csv_enclosed'];
-                        } else {
-                            // avoid a problem when escape string equals enclose
-                            $insertValues[] = $GLOBALS['csv_enclosed']
-                                . str_replace(
-                                    $GLOBALS['csv_enclosed'],
-                                    $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
+                        $insertValues[] = $GLOBALS['csv_enclosed']
+                            . str_replace(
+                                $GLOBALS['csv_enclosed'],
+                                $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
+                                str_replace(
+                                    $GLOBALS['csv_escaped'],
+                                    $GLOBALS['csv_escaped'] . $GLOBALS['csv_escaped'],
                                     $field,
-                                )
-                                . $GLOBALS['csv_enclosed'];
-                        }
+                                ),
+                            )
+                            . $GLOBALS['csv_enclosed'];
+                    } else {
+                        // avoid a problem when escape string equals enclose
+                        $insertValues[] = $GLOBALS['csv_enclosed']
+                            . str_replace(
+                                $GLOBALS['csv_enclosed'],
+                                $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
+                                $field,
+                            )
+                            . $GLOBALS['csv_enclosed'];
                     }
                 } else {
                     $insertValues[] = '';

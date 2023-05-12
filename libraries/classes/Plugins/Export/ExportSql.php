@@ -1278,10 +1278,8 @@ class ExportSql extends ExportPlugin
 
             if (isset($column['Default'])) {
                 $createQuery .= ' DEFAULT ' . $GLOBALS['dbi']->quoteString($column['Default']);
-            } else {
-                if ($column['Null'] === 'YES') {
-                    $createQuery .= ' DEFAULT NULL';
-                }
+            } elseif ($column['Null'] === 'YES') {
+                $createQuery .= ' DEFAULT NULL';
             }
 
             if (! empty($column['Comment'])) {
@@ -1566,15 +1564,13 @@ class ExportSql extends ExportPlugin
                         if ($field->key->type === 'FULLTEXT KEY') {
                             $indexesFulltext[] = $field::build($field);
                             unset($statement->fields[$key]);
-                        } else {
-                            if (empty($GLOBALS['sql_if_not_exists'])) {
-                                $indexes[] = str_replace(
-                                    'COMMENT=\'',
-                                    'COMMENT \'',
-                                    $field::build($field),
-                                );
-                                unset($statement->fields[$key]);
-                            }
+                        } elseif (empty($GLOBALS['sql_if_not_exists'])) {
+                            $indexes[] = str_replace(
+                                'COMMENT=\'',
+                                'COMMENT \'',
+                                $field::build($field),
+                            );
+                            unset($statement->fields[$key]);
                         }
                     }
 

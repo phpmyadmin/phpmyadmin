@@ -3154,17 +3154,15 @@ class Privileges
             }
 
             $createUserShow = sprintf($createUserStmt, '***');
-        } else {
+        } elseif ($_POST['pred_password'] === 'keep') {
             // Use 'SET PASSWORD' syntax for pre-5.7.6 MySQL versions
             // and pre-5.2.0 MariaDB versions
-            if ($_POST['pred_password'] === 'keep') {
-                $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $slashedPassword);
-            } elseif ($_POST['pred_password'] === 'none') {
-                $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, null);
-            } else {
-                $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
-                $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $hashedPassword);
-            }
+            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $slashedPassword);
+        } elseif ($_POST['pred_password'] === 'none') {
+            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, null);
+        } else {
+            $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
+            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $hashedPassword);
         }
 
         $alterRealSqlQuery = '';

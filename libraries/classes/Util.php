@@ -1474,10 +1474,8 @@ class Util
 
                         $retval[] = $subvalue;
                     }
-                } else {
-                    if ($value !== '-') {
-                        $retval[] = $value;
-                    }
+                } elseif ($value !== '-') {
+                    $retval[] = $value;
                 }
             }
         }

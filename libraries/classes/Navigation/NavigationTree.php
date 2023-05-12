@@ -158,35 +158,31 @@ class NavigationTree
                 $this->pos3Name[0] = $_POST['pos3_name'] ?? '';
                 $this->pos3Value[0] = (int) $_POST['pos3_value'];
             }
-        } else {
-            if (isset($_POST['n0_aPath'])) {
-                $count = 0;
-                while (isset($_POST['n' . $count . '_aPath'])) {
-                    $this->aPath[$count] = $this->parsePath($_POST['n' . $count . '_aPath']);
-                    if (isset($_POST['n' . $count . '_pos2_name'])) {
-                        $this->pos2Name[$count] = $_POST['n' . $count . '_pos2_name'];
-                        $this->pos2Value[$count] = (int) $_POST['n' . $count . '_pos2_value'];
-                    }
-
-                    if (isset($_POST['n' . $count . '_pos3_name'])) {
-                        $this->pos3Name[$count] = $_POST['n' . $count . '_pos3_name'];
-                        $this->pos3Value[$count] = (int) $_POST['n' . $count . '_pos3_value'];
-                    }
-
-                    $count++;
+        } elseif (isset($_POST['n0_aPath'])) {
+            $count = 0;
+            while (isset($_POST['n' . $count . '_aPath'])) {
+                $this->aPath[$count] = $this->parsePath($_POST['n' . $count . '_aPath']);
+                if (isset($_POST['n' . $count . '_pos2_name'])) {
+                    $this->pos2Name[$count] = $_POST['n' . $count . '_pos2_name'];
+                    $this->pos2Value[$count] = (int) $_POST['n' . $count . '_pos2_value'];
                 }
+
+                if (isset($_POST['n' . $count . '_pos3_name'])) {
+                    $this->pos3Name[$count] = $_POST['n' . $count . '_pos3_name'];
+                    $this->pos3Value[$count] = (int) $_POST['n' . $count . '_pos3_value'];
+                }
+
+                $count++;
             }
         }
 
         if (isset($_POST['vPath'])) {
             $this->vPath[0] = $this->parsePath($_POST['vPath']);
-        } else {
-            if (isset($_POST['n0_vPath'])) {
-                $count = 0;
-                while (isset($_POST['n' . $count . '_vPath'])) {
-                    $this->vPath[$count] = $this->parsePath($_POST['n' . $count . '_vPath']);
-                    $count++;
-                }
+        } elseif (isset($_POST['n0_vPath'])) {
+            $count = 0;
+            while (isset($_POST['n' . $count . '_vPath'])) {
+                $this->vPath[$count] = $this->parsePath($_POST['n' . $count . '_vPath']);
+                $count++;
             }
         }
 
@@ -1343,39 +1339,36 @@ class NavigationTree
                 'pos',
                 ['dbselector'],
             );
-        } else {
-            if ($node->type == Node::CONTAINER && ! $node->isGroup) {
-                $paths = $node->getPaths();
-
-                $level = isset($paths['aPath_clean'][4]) ? 3 : 2;
-                $urlParams = [
-                    'aPath' => $paths['aPath'],
-                    'vPath' => $paths['vPath'],
-                    'pos' => $this->pos,
-                    'server' => $GLOBALS['server'],
-                    'pos2_name' => $paths['aPath_clean'][2],
-                ];
-                if ($level == 3) {
-                    $pos = $node->pos3;
-                    $urlParams['pos2_value'] = $node->pos2;
-                    $urlParams['pos3_name'] = $paths['aPath_clean'][4];
-                } else {
-                    $pos = $node->pos2;
-                }
-
-                /** @var Node $realParent */
-                $realParent = $node->realParent();
-                $num = $realParent->getPresence($node->realName, $this->searchClause2);
-                $retval .= Generator::getListNavigator(
-                    $num,
-                    $pos,
-                    $urlParams,
-                    Url::getFromRoute('/navigation'),
-                    'frame_navigation',
-                    $GLOBALS['cfg']['MaxNavigationItems'],
-                    'pos' . $level . '_value',
-                );
+        } elseif ($node->type == Node::CONTAINER && ! $node->isGroup) {
+            $paths = $node->getPaths();
+            $level = isset($paths['aPath_clean'][4]) ? 3 : 2;
+            $urlParams = [
+                'aPath' => $paths['aPath'],
+                'vPath' => $paths['vPath'],
+                'pos' => $this->pos,
+                'server' => $GLOBALS['server'],
+                'pos2_name' => $paths['aPath_clean'][2],
+            ];
+            if ($level == 3) {
+                $pos = $node->pos3;
+                $urlParams['pos2_value'] = $node->pos2;
+                $urlParams['pos3_name'] = $paths['aPath_clean'][4];
+            } else {
+                $pos = $node->pos2;
             }
+
+            /** @var Node $realParent */
+            $realParent = $node->realParent();
+            $num = $realParent->getPresence($node->realName, $this->searchClause2);
+            $retval .= Generator::getListNavigator(
+                $num,
+                $pos,
+                $urlParams,
+                Url::getFromRoute('/navigation'),
+                'frame_navigation',
+                $GLOBALS['cfg']['MaxNavigationItems'],
+                'pos' . $level . '_value',
+            );
         }
 
         return $retval;

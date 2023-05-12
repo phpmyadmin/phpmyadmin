@@ -178,13 +178,11 @@ class OperationsController extends AbstractController
                     /* Change database to be used */
                     if ($move) {
                         $GLOBALS['db'] = $newDatabaseName->getName();
+                    } elseif ($request->getParsedBodyParam('switch_to_new') === 'true') {
+                        $_SESSION['pma_switch_to_new'] = true;
+                        $GLOBALS['db'] = $newDatabaseName->getName();
                     } else {
-                        if ($request->getParsedBodyParam('switch_to_new') === 'true') {
-                            $_SESSION['pma_switch_to_new'] = true;
-                            $GLOBALS['db'] = $newDatabaseName->getName();
-                        } else {
-                            $_SESSION['pma_switch_to_new'] = false;
-                        }
+                        $_SESSION['pma_switch_to_new'] = false;
                     }
                 }
             }
