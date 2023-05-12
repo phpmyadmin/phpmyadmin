@@ -40,7 +40,7 @@ final class ChecksumController extends AbstractController
             Assert::isArray($selectedTablesParam);
             Assert::notEmpty($selectedTablesParam);
             Assert::allStringNotEmpty($selectedTablesParam);
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
