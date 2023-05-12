@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-05-07 00:18+0000\n"
 "PO-Revision-Date: 2023-05-12 09:11+0000\n"
-"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
+"Last-Translator: Michal Biesiada <blade-14@o2.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -7056,8 +7056,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
-"Masz wcześniej zapisane zapytanie. Kliknij Pobierz automatycznie zapisane "
-"zapytanie, aby załadować zapytanie."
+"Masz wcześniej zapisane zapytanie. Kliknij Pobierz aby załadować "
+"automatycznie zapisane zapytanie."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 #, php-format
@@ -12734,7 +12734,7 @@ msgstr "Błąd 404! Strona %s nie została znaleziona."
 
 #: libraries/classes/Routing.php:156
 msgid "Error 405! Request method not allowed."
-msgstr "Błąd 405! Niedozwolona metoda żądania."
+msgstr "Błąd 405! Metoda żądania jest niedozwolona."
 
 #: libraries/classes/SavedSearches.php:220
 msgid "Please provide a name for this bookmarked search."
