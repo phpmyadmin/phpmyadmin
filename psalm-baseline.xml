@@ -9735,12 +9735,6 @@
       <code>$comments</code>
       <code>$mimeMap</code>
     </PossiblyUndefinedVariable>
-    <PossiblyUnusedParam>
-      <code>$addSemicolon</code>
-      <code>$errorUrl</code>
-      <code>$showDates</code>
-      <code>$view</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportXml.php">
     <InvalidArrayOffset>
