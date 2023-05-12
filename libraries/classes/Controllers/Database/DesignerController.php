@@ -111,7 +111,6 @@ class DesignerController extends AbstractController
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($operation === 'addNewRelation') {
                 [$success, $GLOBALS['message']] = $this->designerCommon->addNewRelation(
-                    $db,
                     $request->getParsedBodyParam('T1'),
                     $request->getParsedBodyParam('F1'),
                     $request->getParsedBodyParam('T2'),

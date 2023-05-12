@@ -996,7 +996,6 @@
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code>$db</code>
       <code>$html</code>
       <code>$page</code>
       <code><![CDATA[$position['dbName']]]></code>
@@ -5143,9 +5142,6 @@
       <code>$indexArray1</code>
       <code>$indexArray2</code>
     </PossiblyNullArrayOffset>
-    <PossiblyUnusedParam>
-      <code>$db</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Database/Designer/DesignerTable.php">
     <PossiblyUnusedMethod>
