@@ -9210,9 +9210,6 @@
       <code>$comments</code>
       <code>$mimeMap</code>
     </PossiblyUndefinedVariable>
-    <PossiblyUnusedParam>
-      <code>$view</code>
-    </PossiblyUnusedParam>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
