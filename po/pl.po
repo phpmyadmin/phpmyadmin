@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-05-07 00:18+0000\n"
 "PO-Revision-Date: 2023-05-14 00:20+0000\n"
-"Last-Translator: Kamil Tekiela <tekiela246@gmail.com>\n"
+"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -7777,7 +7777,7 @@ msgstr "Dodaj prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Replace table with prefix"
-msgstr "Zamień prefiks tabeli"
+msgstr "Zmień prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 #: templates/database/structure/check_all_tables.twig:28
