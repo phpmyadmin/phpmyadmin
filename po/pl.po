@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-05-09 14:50+0000\n"
+"PO-Revision-Date: 2023-05-13 10:51+0000\n"
 "Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
@@ -924,15 +924,15 @@ msgstr "Zbyt wiele połączeń przerwanych."
 
 #: libraries/advisory_rules_generic.php:547
 #: libraries/advisory_rules_generic.php:561
-#, fuzzy
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a "
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Połączenia są zwykle przerywane, gdy nie można ich autoryzować. <a "
-"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
-"of-aborted_connects/\">Ten artykuł</a> może pomóc w odnalezieniu źródła."
+"Połączenia są zwykle przerywane, gdy nie można ich autoryzować. <a href="
+"\"https://www.percona.com/blog/2008/08/23/"
+"how-to-track-down-the-source-of-aborted_connects/\">Ten artykuł</a> może "
+"pomóc w odnalezieniu źródła."
 
 #: libraries/advisory_rules_generic.php:551
 #, fuzzy, php-format
@@ -1250,13 +1250,13 @@ msgstr ""
 "Flushing zapytania pamięci podręcznej może pomóc."
 
 #: libraries/advisory_rules_mysql_before80003.php:45
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
 msgstr ""
 "Bieżący stosunek wolnej pamięci podręcznej zapytań do całkowitego rozmiaru "
-"pamięci podręcznej zapytań wynosi %s%%. Powinno być powyżej 80%%"
+"pamięci podręcznej zapytań wynosi %s%%. Powinien być powyżej 80%%"
 
 #: libraries/advisory_rules_mysql_before80003.php:52
 #, fuzzy
@@ -1404,7 +1404,7 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit jest ustawiony na 1 MB"
 
 #: libraries/classes/Advisor.php:234
-#, fuzzy, php-format
+#, php-format
 msgid "Error when evaluating: %s"
 msgstr "Błąd podczas obliczania: %s"
 
@@ -1651,7 +1651,6 @@ msgid "West European"
 msgstr "Zachodnioeuropejski"
 
 #: libraries/classes/Charsets/Collation.php:369
-#, fuzzy
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Środkowoeuropejski"
@@ -1690,7 +1689,6 @@ msgid "Japanese"
 msgstr "Japoński"
 
 #: libraries/classes/Charsets/Collation.php:398
-#, fuzzy
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Bałtycki"
@@ -1702,7 +1700,6 @@ msgid "Armenian"
 msgstr "Ormiański"
 
 #: libraries/classes/Charsets/Collation.php:406
-#, fuzzy
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrylica"
@@ -1739,10 +1736,9 @@ msgid "Greek"
 msgstr "Grecki"
 
 #: libraries/classes/Charsets/Collation.php:424
-#, fuzzy
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Czesko-słowacki"
+msgstr "Czesko-Słowacki"
 
 #: libraries/classes/Charsets/Collation.php:427
 #: libraries/classes/Charsets/Collation.php:593
@@ -1785,7 +1781,6 @@ msgid "Bulgarian"
 msgstr "Bułgarski"
 
 #: libraries/classes/Charsets/Collation.php:476
-#, fuzzy
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorwacki"
@@ -1827,7 +1822,6 @@ msgid "Hungarian"
 msgstr "Węgierski"
 
 #: libraries/classes/Charsets/Collation.php:515
-#, fuzzy
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandzki"
@@ -2012,7 +2006,6 @@ msgstr ""
 "reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:107
-#, fuzzy
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Wprowadź parametr żądania używany przez interfejs API zgodny z reCAPTCHA v2."
@@ -3251,11 +3244,8 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr "Domyślna wartość klucza obcego sprawdza zaznaczenie dla kilku pytań."
 
 #: libraries/classes/Config/Descriptions.php:564
-#, fuzzy
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
-"Usuń zaznaczenie pola wyboru, aby wyłączyć importowanie metodą przeciągania "
-"i upuszczania"
+msgstr "Odznacz to pole, aby wyłączyć importowanie metodą przeciągnij i upuść"
 
 #: libraries/classes/Config/Descriptions.php:565
 #, fuzzy
@@ -3848,15 +3838,12 @@ msgid "Export as separate files"
 msgstr "Eksportuj jako osobne pliki"
 
 #: libraries/classes/Config/Descriptions.php:705
-#, fuzzy
 msgid "Remember filename template"
-msgstr "Zapamiętaj szablon nazwy pliku"
+msgstr "Zapamiętaj nazwę pliku szablonu"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Usuń klauzulę DEFINIER z definicji"
+msgstr "Usuń klauzulę DEFINER z definicji"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5088,7 +5075,6 @@ msgid "Version check"
 msgstr "Sprawdzenie wersji"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
 msgid "Proxy URL"
 msgstr "Proxy URL"
 
@@ -5774,11 +5760,10 @@ msgid "The database name is empty!"
 msgstr "Nazwa bazy danych jest pusta!"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:99
-#, fuzzy
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nie można skopiować bazy danych pod tę samą nazwę. Zmień nazwę i spróbuj "
-"ponownie."
+"Nie można utworzyć kopii bazy danych o takiej samej nazwie. Zmień nazwę i "
+"spróbuj ponownie."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:177
 #, fuzzy, php-format
@@ -6230,7 +6215,7 @@ msgstr "Masz zamiar ZNISZCZYĆ całą tabelę!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:46
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Masz zamiar WYCIĄĆ całą bazę danych!"
+msgstr "Zamierzasz WYCIĄĆ całą bazę danych!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "You are about to DELETE all the rows of the table!"
@@ -7497,16 +7482,16 @@ msgstr "Przeglądaj zewnętrzne wartości"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
-"Żadne wcześniej zapisane automatycznie zapytanie nie jest dostępne. Wczytuję "
-"domyślne zapytanie."
+"Żadne wcześniej zapisane automatycznie zapytanie nie jest dostępne. "
+"Wczytywanie domyślnego zapytania."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
-"Masz wcześniej zapisane zapytanie. Kliknij Pobierz automatycznie zapisane "
-"zapytanie, aby załadować zapytanie."
+"Masz wcześniej zapisane zapytanie. Kliknij Pobierz aby załadować "
+"automatycznie zapisane zapytanie."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, php-format
@@ -7612,7 +7597,7 @@ msgstr "Powrót"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr "Pokaż mi możliwe zależności częściowe na podstawie danych w tabeli"
+msgstr "Pokaż możliwe zależności częściowe na podstawie danych w tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 #, fuzzy
@@ -7987,9 +7972,8 @@ msgid "Submit"
 msgstr "Wyślij"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:546
-#, fuzzy
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Naciśnij ESC, aby anulować edycję."
+msgstr "Naciśnij ESC, aby anulować edycję.<br>- Shift+Enter dla nowej linii."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid ""
@@ -8301,7 +8285,7 @@ msgstr "Dodaj prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Replace table with prefix"
-msgstr "Zamień prefiks tabeli"
+msgstr "Zmień prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #: templates/database/structure/check_all_tables.twig:28
@@ -9155,7 +9139,6 @@ msgstr ""
 "Liczba tymczasowych tabel aktualnie otwartych przez podrzędny wątek SQL."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
@@ -9164,7 +9147,6 @@ msgstr ""
 "transakcje."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
 "ON oznacza, że ten serwer jest podrzędny i jest podłączony go serwera "
@@ -10643,9 +10625,8 @@ msgstr ""
 "kompresji nie jest obsługiwany, albo jest wyłączony w konfiguracji."
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
 msgid "Session not found."
-msgstr "Nie znaleziono rozszerzenia SOAP"
+msgstr "Nie znaleziono sesji."
 
 #: libraries/classes/Html/Generator.php:146
 #, php-format
@@ -10671,7 +10652,7 @@ msgstr "SSL jest używany bez urzędu certyfikacji"
 
 #: libraries/classes/Html/Generator.php:252
 msgid "SSL is used"
-msgstr "Używany jest protokół SSL"
+msgstr "Protokół SSL jest w użyciu"
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
@@ -11268,7 +11249,6 @@ msgid "New"
 msgstr "Nowy"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
 msgid "Trigger"
 msgstr "Wyzwalacze"
 
@@ -11637,7 +11617,6 @@ msgstr "Napraw"
 
 #: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:134
-#, fuzzy
 msgid "Truncate"
 msgstr "Truncate"
 
@@ -13015,13 +12994,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Sprzętowy klucz bezpieczeństwa (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Zapewnia uwierzytelnianie przy użyciu sprzętowych tokenów zabezpieczających "
-"obsługujących FIDO U2F."
+"obsługujących FIDO U2F, takich jak YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -13050,18 +13028,16 @@ msgid "For testing purposes only!"
 msgstr "Tylko do celów testowych!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
-#, fuzzy
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Sprzętowy klucz bezpieczeństwa (FIDO U2F)"
+msgstr "Sprzętowy klucz bezpieczeństwa (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Zapewnia uwierzytelnianie przy użyciu sprzętowych tokenów zabezpieczających "
-"obsługujących FIDO U2F."
+"obsługujących WebAuthn/FIDO2, takich jak YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -13161,7 +13137,7 @@ msgid "Unknown error"
 msgstr "Nieznany błąd"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to connect to primary %s."
 msgstr "Nie można połączyć się z serwerem głównym %s."
 
@@ -13174,12 +13150,11 @@ msgstr ""
 "serwerze głównym."
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
 msgid "Unable to change primary!"
 msgstr "Nie można zmienić serwera głównego!"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
+#, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "Serwer główny został pomyślnie zmieniony na %s."
 
@@ -13198,9 +13173,8 @@ msgid "Error 404! The page %s was not found."
 msgstr "Błąd 404! Strona %s nie została znaleziona."
 
 #: libraries/classes/Routing.php:173
-#, fuzzy
 msgid "Error 405! Request method not allowed."
-msgstr "Błąd 405! Niedozwolona metoda żądania."
+msgstr "Błąd 405! Metoda żądania jest niedozwolona."
 
 #: libraries/classes/SavedSearches.php:239
 msgid "Please provide a name for this bookmarked search."
@@ -13245,14 +13219,12 @@ msgid "Caching sha2 authentication"
 msgstr "Buforowanie uwierzytelniania sha2"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
 msgid "Unix Socket based authentication"
-msgstr "Uwierzytelnianie ciasteczkami"
+msgstr "Uwierzytelnianie oparte na Unix Socket"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
 msgid "Old MySQL-4.0 authentication"
-msgstr "Natywne uwierzytelnianie MySQL"
+msgstr "Stare uwierzytelnianie MySQL-4.0"
 
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
@@ -13721,20 +13693,17 @@ msgid "Show open tables"
 msgstr "Pokaż otwarte tabele"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
 msgid "Show replica hosts"
 msgstr "Pokaż podrzędne hosty"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
 msgid "Show primary status"
 msgstr "Pokaż stan serwera głównego"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
 msgid "Show replica status"
-msgstr "Status serwera podrzędnego"
+msgstr "Pokaż stan serwera podrzędnego"
 
 #: libraries/classes/Server/Status/Data.php:215
 #, fuzzy
@@ -14458,11 +14427,10 @@ msgid "Could not save configuration"
 msgstr "Nie można zapisać konfiguracji"
 
 #: libraries/classes/UserPreferences.php:192
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "%sUtwórz%s magazyn konfiguracji phpMyAdmina w bieżącej bazie danych."
+msgstr ""
+"Nie można uzyskać dostępu do bazy danych przechowywania konfiguracji "
+"phpMyAdmin."
 
 #: libraries/classes/Util.php:132
 #, php-format
@@ -15416,7 +15384,6 @@ msgstr "Działanie"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
 msgid "Create new table"
 msgstr "Utwórz nową tabelę"
 
@@ -15795,7 +15762,6 @@ msgid "Check all"
 msgstr "Zaznacz wszystko"
 
 #: templates/database/events/index.twig:27
-#, fuzzy
 msgid "Create new event"
 msgstr "Utwórz nowe wydarzenie"
 
@@ -15841,14 +15807,12 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Eksportowanie tabeli z bazy \"%s\""
 
 #: templates/database/export/index.twig:30
-#, fuzzy
 msgid "Export the structure of all tables."
 msgstr "Eksportuj strukturę wszystkich tabel."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
 msgid "Export the data of all tables."
-msgstr "Eksportuj dane wszystkich tabel."
+msgstr "Eksportuj dane ze wszystkich tabel."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15858,7 +15822,7 @@ msgstr "Importowanie do bazy danych \"%s\""
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
-msgstr "Zapytanie wielotabelowe"
+msgstr "Wielo-tabelowe zapytanie"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
@@ -16216,13 +16180,12 @@ msgid "Is deterministic"
 msgstr "Jest deterministyczna"
 
 #: templates/database/routines/editor_form.twig:135
-#, fuzzy
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "Nie masz wystarczających uprawnień do wykonania tej operacji; Więcej "
-"informacji można znaleźć w dokumentacji"
+"informacji można znaleźć w dokumentacji."
 
 #: templates/database/routines/editor_form.twig:148
 msgid "Security type"
@@ -16601,7 +16564,6 @@ msgid "Time"
 msgstr "Czas"
 
 #: templates/database/triggers/list.twig:27
-#, fuzzy
 msgid "Create new trigger"
 msgstr "Utwórz nowy wyzwalacz"
 
@@ -16633,7 +16595,6 @@ msgstr "Sortuj wg klucza:"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
-#, fuzzy
 msgid "Extra options"
 msgstr "Dodatkowe opcje"
 
@@ -16777,9 +16738,8 @@ msgid "Custom - display all possible options"
 msgstr "Dostosuj - wyświetli wszystkie możliwe opcje"
 
 #: templates/export.twig:121
-#, fuzzy
 msgid "File format to export"
-msgstr "Format pliku do eksportu"
+msgstr "Format pliku do wyeksportowania"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -16878,9 +16838,8 @@ msgstr ""
 "znajdziesz w FAQ 6.27."
 
 #: templates/export.twig:398
-#, fuzzy
 msgid "Use this for future exports"
-msgstr "użyj tego dla przyszłego eksportu"
+msgstr "Wykorzystaj to do przyszłego eksportu"
 
 #: templates/export.twig:409 templates/import.twig:103
 #, fuzzy
@@ -16911,9 +16870,8 @@ msgid "Export tables as separate files"
 msgstr "Eksportuj tabele jako osobne pliki"
 
 #: templates/export.twig:474
-#, fuzzy
 msgid "Skip tables larger than:"
-msgstr "Pomiń tabele większe niż %s MiB"
+msgstr "Pomiń tabele większe niż:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
@@ -17112,10 +17070,9 @@ msgid "Theme"
 msgstr "Motyw"
 
 #: templates/home/index.twig:142
-#, fuzzy
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Pokaż tylko"
+msgstr "Pokaż wszystko"
 
 #: templates/home/index.twig:157
 #, fuzzy
@@ -17152,7 +17109,6 @@ msgid "Web server"
 msgstr "Serwer WWW"
 
 #: templates/home/index.twig:207
-#, fuzzy
 msgid "Database client version:"
 msgstr "Wersja klienta bazy danych:"
 
@@ -17203,9 +17159,8 @@ msgid "Notice"
 msgstr "Informacja"
 
 #: templates/home/index.twig:295
-#, fuzzy
 msgid "phpMyAdmin Themes"
-msgstr "Strona główna phpMyAdmina"
+msgstr "Motywy phpMyAdmin"
 
 #: templates/home/index.twig:306
 #, fuzzy
@@ -17213,9 +17168,9 @@ msgid "Get more themes!"
 msgstr "Pobierz więcej motywów!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Schemat bazy danych %s"
+msgstr "Zrzut ekranu z %s motywu"
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -17288,9 +17243,8 @@ msgstr ""
 "[compression]</strong>. Przykład: <strong> .sql.zip </strong>"
 
 #: templates/import.twig:40
-#, fuzzy
 msgid "Upload a file"
-msgstr "Ściągnij plik"
+msgstr "Prześlij plik"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -17312,9 +17266,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Wybierz z katalogu przesyłania serwera WWW [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
 msgid "There are no files to import!"
-msgstr "Brak plików do załadowania!"
+msgstr "Brak plików do zaimportowania!"
 
 #: templates/import.twig:100
 #, fuzzy
@@ -17357,9 +17310,8 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Pomiń tę liczbę zapytań (dla SQL), zaczynając od pierwszej:"
 
 #: templates/import.twig:154
-#, fuzzy
 msgid "Other options"
-msgstr "Inne opcje:"
+msgstr "Inne opcje"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:506
@@ -17642,8 +17594,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Zeskanuj poniższy kod QR do aplikacji do uwierzytelniania dwuskładnikowego "
-"na swoim urządzeniu i wprowadź wygenerowany przez nią kod uwierzytelniający."
+"Zeskanuj poniższy kod QR do aplikacji uwierzytelniania dwuskładnikowego na "
+"twoim urządzeniu i wprowadź wygenerowany przez nią kod uwierzytelniający."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -17660,7 +17612,7 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
-"Otwórz aplikację do uwierzytelniania dwuskładnikowego na swoim urządzeniu, "
+"Otwórz aplikację do uwierzytelniania dwuskładnikowego na twoim urządzeniu, "
 "aby wyświetlić kod uwierzytelniający i zweryfikować swoją tożsamość."
 
 #: templates/login/twofactor/invalid.twig:2
@@ -17674,10 +17626,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Replikowane"
+msgstr "Przestarzałe!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -17730,27 +17680,19 @@ msgid "Verify"
 msgstr "Zweryfikować"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Podłącz urządzenie FIDO U2F do portu USB komputera. Następnie potwierdź "
-"rejestrację na urządzeniu."
+"Podłącz urządzenie WebAuthn/FIDO2 do portu USB komputera. Następnie "
+"potwierdź rejestrację na urządzeniu."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Podłącz urządzenie FIDO U2F do portu USB komputera. Następnie potwierdź "
-"logowanie na urządzeniu."
+"Podłącz urządzenie WebAuthn/FIDO2 do portu USB komputera. Następnie "
+"potwierdź logowanie na urządzeniu."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -18116,9 +18058,8 @@ msgid "OK"
 msgstr "OK"
 
 #: templates/relation/check_relations.twig:62
-#, fuzzy
 msgid "General relation features:"
-msgstr "Ogólne cechy relacji:"
+msgstr "Ogólne funkcje relacyjne:"
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -18143,19 +18084,16 @@ msgid "Enabled"
 msgstr "Włączone"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
 msgid "Display features:"
-msgstr "Funkcje wyświetlacza:"
+msgstr "Funkcje wyświetlania:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
 msgid "Designer and creation of PDFs:"
-msgstr "Projektant i tworzenie plików PDF:"
+msgstr "Projektowanie i tworzenie plików PDF:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
 msgid "Displaying column comments:"
-msgstr "Wyświetlanie komentarzy do kolumn:"
+msgstr "Wyświetl komentarze dla kolumn:"
 
 #: templates/relation/check_relations.twig:160
 #, fuzzy
@@ -18167,7 +18105,6 @@ msgid "Please see the documentation on how to update your column_info table."
 msgstr "Zobacz dokumentację dotyczącą aktualizacji tabeli column_info."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
 msgid "Bookmarked SQL query:"
 msgstr "Zapamiętane zapytanie SQL:"
 
@@ -18181,27 +18118,22 @@ msgid "Persistent recently used tables:"
 msgstr "Stale ostatnio używane tabele"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
 msgid "Persistent favorite tables:"
-msgstr "Trwałe ulubione tabele"
+msgstr "Trwałe ulubione tabele:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
 msgid "Persistent tables' UI preferences:"
-msgstr "Preferencje trwałych tabel UI"
+msgstr "Preferencje trwałych tabel UI:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
 msgid "Tracking:"
-msgstr "Śledzenie"
+msgstr "Śledzenie:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
 msgid "User preferences:"
-msgstr "Preferencje użytkownika"
+msgstr "Preferencje użytkownika:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
 msgid "Configurable menus:"
 msgstr "Konfigurowalne menu:"
 
@@ -18210,24 +18142,20 @@ msgid "Hide/show navigation items:"
 msgstr "Ukryj/pokaż elementy nawigacyjne:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
 msgid "Saving Query-By-Example searches:"
-msgstr "Zapisywanie kwerendy przez przykład wyszukiwania"
+msgstr "Zapisywanie kwerendy przez przykład wyszukiwania:"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
 msgid "Managing central list of columns:"
-msgstr "Zarządzanie centralną listą kolumn"
+msgstr "Zarządzanie centralną listą kolumn:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
 msgid "Remembering designer settings:"
-msgstr "Zapamiętywanie ustawień projektanta"
+msgstr "Zapamiętywanie ustawień projektanta:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
 msgid "Saving export templates:"
-msgstr "Zapisywanie szablonów eksportu"
+msgstr "Zapisywanie szablonów eksportu:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -18300,10 +18228,9 @@ msgid "Character sets and collations"
 msgstr "Zestawy znaków i sortowanie"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "Ustawienia domyślne"
+msgstr "domyślny"
 
 #: templates/server/databases/index.twig:3
 #, fuzzy
@@ -18322,13 +18249,11 @@ msgstr "Brak uprawnień do tworzenia baz danych"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
 msgid "Primary replication"
 msgstr "Replikacja serwera głównego"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
 msgid "Replica replication"
 msgstr "Replikacja serwera podrzędnego"
 
@@ -18867,20 +18792,17 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Usuń bazy danych o takich samych nazwach jak użytkownicy."
 
 #: templates/server/privileges/users_overview.twig:178
-#, fuzzy
 msgid "Save changes"
-msgstr "Zapisz stronę"
+msgstr "Zapisz zmiany"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
 msgid "Replica configuration"
 msgstr "Konfiguracja serwera podrzędnego"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
 msgid "Change or reconfigure primary server"
-msgstr "Zmień lub ponownie skonfiguruj serwer główny"
+msgstr "Zmień lub skonfiguruj ponownie serwer główny"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -18895,13 +18817,13 @@ msgid "Port:"
 msgstr "Port:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Ten serwer nie jest skonfigurowany jako serwer główny w procesie replikacji. "
-"Czy chcesz %sskonfigurować%s to?"
+"Czy chcesz to %sskonfigurować%s?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -18909,9 +18831,8 @@ msgstr "Brak uprawnień"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
 msgid "Add replica replication user"
-msgstr "Dodaj użytkownika replikacji replik"
+msgstr "Dodaj użytkownika replikacji na serwerze podrzędnym"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -18925,12 +18846,10 @@ msgid "Generate password:"
 msgstr "Wygeneruj hasło:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
 msgid "Primary configuration"
-msgstr "Konfiguracja serwera"
+msgstr "Konfiguracja serwera głównego"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -18939,9 +18858,9 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 "Ten serwer nie jest skonfigurowany jako serwer główny w procesie replikacji. "
-"Możesz wybrać replikację wszystkich baz danych i ignorowanie niektórych z "
+"Możesz wybrać replikację wszystkich baz danych lub zignorować niektóre z "
 "nich (przydatne, jeśli chcesz replikować większość baz danych) lub możesz "
-"wybrać domyślne ignorowanie wszystkich baz danych i zezwolenie na replikację "
+"wybrać domyślne ignorowanie wszystkich baz danych i zezwolić na replikację "
 "tylko niektórych baz danych. Wybierz tryb:"
 
 #: templates/server/replication/primary_configuration.twig:9
@@ -18965,28 +18884,24 @@ msgstr ""
 "serwer MySQL."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
-"Po ponownym uruchomieniu serwera MySQL kliknij przycisk Go. Następnie "
+"Po ponownym uruchomieniu serwera MySQL naciśnij przycisk Go. Następnie "
 "powinien pojawić się komunikat informujący, że ten serwer <strong>jest</"
 "strong> skonfigurowany jako główny."
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
 msgid "This server is configured as primary in a replication process."
 msgstr "Ten serwer jest skonfigurowany jako główny w procesie replikacji."
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
 msgid "Show connected replicas"
 msgstr "Pokaż połączone serwery podrzędne"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
@@ -18995,41 +18910,35 @@ msgstr ""
 "widoczne na tej liście."
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
 msgid "Primary connection:"
-msgstr "Połączenie z serwerem:"
+msgstr "Połączenie z serwerem głównym:"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
 msgid "Replica SQL Thread not running!"
 msgstr "Wątek SQL serwera podrzędnego nie uruchomiony!"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
 msgid "Replica IO Thread not running!"
-msgstr "Wątek IO serwera podrzędnego nie uruchomiony!"
+msgstr "Wątek IO serwera podrzędnego nie jest uruchomiony!"
 
 #: templates/server/replication/replica_configuration.twig:31
 #, fuzzy
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
-"Serwer jest skonfigurowany jako podrzędny w procesie replikacji. Czy chesz:"
+"Serwer jest skonfigurowany jako podrzędny w procesie replikacji. Czy chcesz:"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
 msgid "See replica status table"
 msgstr "Zobacz status tabeli serwera podrzędnego"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
 msgid "Control replica:"
-msgstr "Replika kontrolna:"
+msgstr "Kontrola serwera podrzędnego:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
 msgid "Reset replica"
-msgstr "Nie zreplikowane"
+msgstr "Zresetuj serwer podrzędny"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -19053,11 +18962,10 @@ msgid "Error management:"
 msgstr "Błąd zarządzania:"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
-"Włącznie \"omijania błędów\" może powodować rozsynchronizowanie serwera "
-"master i slave!"
+"Pomijanie błędów może skutkować desynchronizacją serwera głównego oraz "
+"serwera podrzędnego!"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -19069,23 +18977,21 @@ msgid "Skip next %s errors."
 msgstr "Pomiń następne błędy %s."
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Ten serwer nie jest skonfigurowany jako podrzędny w procesie replikacji. Czy "
-"chcesz %sskonfigurować%s to?"
+"chcesz go %sskonfigurować%s?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
 msgid "Primary status"
-msgstr "Importuj status"
+msgstr "Status serwera głównego"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
 msgid "Replica status"
-msgstr "Stan replikacji"
+msgstr "Status serwera podrzędnego"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -19489,7 +19395,6 @@ msgstr ""
 "jakich dostarcza serwer MySQL nie są wiarygodne."
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
@@ -19498,19 +19403,17 @@ msgstr ""
 "procesie <b>replikacji</b>."
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
-"Ten serwer MySQL jest ustawiony jako <b>master</b> w procesie <b>replikacji</"
-"b>."
+"Ten serwer MySQL jest ustawiony jako <b>główny</b> w procesie "
+"<b>replikacji</b>."
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Ten serwer MySQL jest pracuje jako <b>podrzędny</b> w procesie "
+"Ten serwer MySQL jest ustawiony jako <b>podrzędny</b> w procesie "
 "<b>replikacji</b>."
 
 #: templates/server/status/status/index.twig:69
@@ -19577,7 +19480,6 @@ msgid "Table level tabs"
 msgstr "Poziom zakładek tabeli"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
 msgid "Delete user group"
 msgstr "Usuń grupę użytkowników"
 
@@ -19617,7 +19519,6 @@ msgid "Configuration file"
 msgstr "Plik konfiguracyjny"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
 msgid "Generated configuration file"
 msgstr "Wygenerowany plik konfiguracyjny"
 
@@ -19811,9 +19712,8 @@ msgid "Use this value"
 msgstr "Użyj tej wartości"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
 msgid "Chart type"
-msgstr "Typ wykresu"
+msgstr "Rodzaj wykresu"
 
 #: templates/table/chart/tbl_chart.twig:13
 #, fuzzy
@@ -20082,9 +19982,8 @@ msgid "Binary"
 msgstr "Binarne"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
 msgid "Use the NULL value for this column."
-msgstr "Wartość dla kolumny \"%s\""
+msgstr "Użyj wartości NULL dla tej kolumny."
 
 #: templates/table/insert/column_row.twig:65
 #, fuzzy
@@ -20174,7 +20073,6 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Opróżnij tabelę (TRUNCATE)"
 
 #: templates/table/operations/index.twig:431
-#, fuzzy
 msgid "Empty the table (DELETE FROM)"
 msgstr "Opróżnij tabelę (DELETE FROM)"
 
