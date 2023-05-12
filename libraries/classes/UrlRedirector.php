@@ -12,8 +12,7 @@ use function preg_match;
  */
 final class UrlRedirector
 {
-    /** @psalm-return never */
-    public static function redirect(string $url): void
+    public static function redirect(string $url): never
     {
         // Load database service because services.php is not available here
         $GLOBALS['dbi'] = DatabaseInterface::load();

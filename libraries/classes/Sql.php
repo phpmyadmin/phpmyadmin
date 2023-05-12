@@ -486,7 +486,7 @@ class Sql
      * @param string $error        error after executing the query
      * @param string $fullSqlQuery full sql query
      */
-    private function handleQueryExecuteError(bool $isGotoFile, string $error, string $fullSqlQuery): void
+    private function handleQueryExecuteError(bool $isGotoFile, string $error, string $fullSqlQuery): never
     {
         if ($isGotoFile) {
             $message = Message::rawError($error);

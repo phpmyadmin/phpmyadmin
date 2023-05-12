@@ -368,7 +368,7 @@ class ResponseRenderer
     /**
      * Sends an HTML response to the browser
      */
-    public function response(): void
+    public function response(): never
     {
         $this->buffer->stop();
         if ($this->HTML === '') {
