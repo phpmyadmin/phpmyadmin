@@ -690,8 +690,7 @@ class Routines
             'item_param_name' => $routine['item_param_name'][$i] ?? '',
             'item_param_length' => $routine['item_param_length'][$i] ?? '',
             'item_param_opts_num' => $routine['item_param_opts_num'][$i] ?? '',
-            'supported_datatypes' => Util::getSupportedDatatypes(
-                true,
+            'supported_datatypes' => Generator::getSupportedDatatypes(
                 $routine['item_param_type'][$i],
             ),
             'charsets' => $charsets,

@@ -5489,9 +5489,6 @@
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
-      <code>Util::getSupportedDatatypes()</code>
-      <code>Util::getSupportedDatatypes()</code>
-      <code>Util::getSupportedDatatypes()</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$options</code>

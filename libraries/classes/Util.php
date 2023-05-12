@@ -1450,33 +1450,25 @@ class Util
 
     /**
      * This function processes the datatypes supported by the DB,
-     * as specified in Types->getColumns() and either returns an array
-     * (useful for quickly checking if a datatype is supported)
-     * or an HTML snippet that creates a drop-down list.
+     * as specified in Types->getColumns() and returns an array
+     * (useful for quickly checking if a datatype is supported).
      *
-     * @param bool   $html     Whether to generate an html snippet or an array
-     * @param string $selected The value to mark as selected in HTML mode
-     *
-     * @return mixed   An HTML snippet or an array of datatypes.
+     * @return mixed[] An array of datatypes.
      */
-    public static function getSupportedDatatypes(bool $html = false, string $selected = ''): mixed
+    public static function getSupportedDatatypes(): array
     {
-        if ($html) {
-            $retval = Generator::getSupportedDatatypes($selected);
-        } else {
-            $retval = [];
-            foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
-                if (is_array($value)) {
-                    foreach ($value as $subvalue) {
-                        if ($subvalue === '-') {
-                            continue;
-                        }
-
-                        $retval[] = $subvalue;
+        $retval = [];
+        foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
+            if (is_array($value)) {
+                foreach ($value as $subvalue) {
+                    if ($subvalue === '-') {
+                        continue;
                     }
-                } elseif ($value !== '-') {
-                    $retval[] = $value;
+
+                    $retval[] = $subvalue;
                 }
+            } elseif ($value !== '-') {
+                $retval[] = $value;
             }
         }
 

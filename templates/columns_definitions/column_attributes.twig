@@ -20,7 +20,7 @@
 <td class="text-center">
   <select class="column_type" name="field_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}"
     {{- column_meta['column_status'] is defined and not column_meta['column_status']['isEditable'] ? ' disabled' }}>
-    {{ get_supported_datatypes(true, type_upper) }}
+    {{ get_supported_datatypes(type_upper) }}
   </select>
   {% set ci = ci + 1 %}
 </td>
