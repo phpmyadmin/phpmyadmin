@@ -9434,12 +9434,6 @@
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyUnusedParam>
-      <code>$addSemicolon</code>
-      <code>$errorUrl</code>
-      <code>$showDates</code>
-      <code>$view</code>
-    </PossiblyUnusedParam>
     <PossiblyUnusedReturnValue>
       <code>string</code>
     </PossiblyUnusedReturnValue>
