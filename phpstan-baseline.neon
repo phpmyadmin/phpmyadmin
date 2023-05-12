@@ -6196,11 +6196,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
 			message: "#^Parameter \\#2 \\$tableRow of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:setTableHeaders\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php

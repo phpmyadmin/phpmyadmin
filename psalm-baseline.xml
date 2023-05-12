@@ -10308,7 +10308,6 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$cell</code>
-      <code>$cell</code>
       <code>$table[0]</code>
       <code>$table[1]</code>
       <code>$table[2][0]</code>
@@ -10318,7 +10317,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-      <code>$cell</code>
       <code>$cell</code>
     </MixedAssignment>
     <PossiblyUndefinedArrayOffset>
