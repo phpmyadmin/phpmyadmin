@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-05-07 00:18+0000\n"
 "PO-Revision-Date: 2023-05-12 09:11+0000\n"
-"Last-Translator: Michal Biesiada <blade-14@o2.pl>\n"
+"Last-Translator: Kamil Monicz <kamil.monicz@outlook.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -14931,7 +14931,7 @@ msgstr "Importowanie do bazy danych \"%s\""
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
-msgstr "Zapytanie wielotabelowe"
+msgstr "Wielo-tabelowe zapytanie"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
