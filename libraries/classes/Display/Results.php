@@ -4119,14 +4119,14 @@ class Results
         }
 
         if (isset($map[$meta->name])) {
-            /** @var array{0: string, 1: string, 2: string|false, 3: string} $relation */
+            /** @var array{0: string, 1: string, 2: string, 3: string} $relation */
             $relation = $map[$meta->name];
             // Field to display from the foreign table?
             $dispval = '';
 
             // Check that we have a valid column name
             // Relation::getDisplayField() returns false by default
-            if ($relation[2] !== '' && $relation[2] !== false) {
+            if ($relation[2] !== '') {
                 $dispval = $this->getFromForeign($relation, $whereComparison);
             }
 
@@ -4158,7 +4158,7 @@ class Results
                     // always apply a transformation on the real data,
                     // not on the display field
                     $displayedData = $transformationPlugin->applyTransformation($data, $transformOptions, $meta);
-                } elseif ($relationalDisplay === self::RELATIONAL_DISPLAY_COLUMN && $relation[2]) {
+                } elseif ($relationalDisplay === self::RELATIONAL_DISPLAY_COLUMN && $relation[2] !== '') {
                     // user chose "relational display field" in the
                     // display options, so show display field in the cell
                     $displayedData = $dispval === null ? '<em>NULL</em>' : Core::mimeDefaultFunction($dispval);

@@ -477,9 +477,9 @@ class Relation
      * @param string $db    the name of the db to check for
      * @param string $table the name of the table to check for
      *
-     * @return string|false field name or false
+     * @return string field name
      */
-    public function getDisplayField(string $db, string $table): string|false
+    public function getDisplayField(string $db, string $table): string
     {
         $displayFeature = $this->getRelationParameters()->displayFeature;
 
@@ -522,7 +522,7 @@ class Relation
             }
         }
 
-        return false;
+        return '';
     }
 
     /**
@@ -1028,7 +1028,7 @@ class Relation
 
                 $fQueryMain = 'SELECT ' . Util::backquote($foreignField)
                     . (
-                        $foreignDisplay === false
+                        $foreignDisplay === ''
                             ? ''
                             : ', ' . Util::backquote($foreignDisplay)
                     );
@@ -1040,14 +1040,14 @@ class Relation
                         '%' . $this->dbi->escapeMysqlWildcards($foreignFilter) . '%',
                     )
                     . (
-                        $foreignDisplay === false
+                        $foreignDisplay === ''
                         ? ''
                         : ' OR ' . Util::backquote($foreignDisplay)
                         . ' LIKE ' . $this->dbi->quoteString(
                             '%' . $this->dbi->escapeMysqlWildcards($foreignFilter) . '%',
                         )
                     );
-                $fQueryOrder = $foreignDisplay === false ? '' : ' ORDER BY '
+                $fQueryOrder = $foreignDisplay === '' ? '' : ' ORDER BY '
                     . Util::backquote($foreignTable) . '.'
                     . Util::backquote($foreignDisplay);
 

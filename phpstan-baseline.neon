@@ -656,7 +656,7 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) should return string\\|false but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
