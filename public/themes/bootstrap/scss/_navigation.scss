@@ -70,8 +70,7 @@
     width: 200px;
   }
 
-  #favoriteTableList select,
-  #serverChoice select {
+  #favoriteTableList select {
     width: 80%;
   }
 }
@@ -147,17 +146,11 @@
   margin: 0;
   margin-left: 5px;
   overflow: hidden;
-  color: var(--#{$prefix}body-color);
   height: 74%;
   position: relative;
 
   a {
-    color: var(--#{$prefix}black);
     padding-left: 0;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   ul {
@@ -478,10 +471,6 @@ li.fast_filter {
 
 @include color-mode(dark) {
   #pma_navigation_tree {
-    a {
-      color: var(--#{$prefix}white);
-    }
-
     li {
       &.activePointer,
       &.selected {

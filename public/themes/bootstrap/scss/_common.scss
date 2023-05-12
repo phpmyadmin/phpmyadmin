@@ -1636,7 +1636,7 @@ input#auto_increment_opt {
 .navigation {
   margin: 0.8em 0;
   border-radius: 5px;
-  background: linear-gradient(#eee, #ccc);
+  background: var(--#{$prefix}secondary-bg);
 
   td {
     margin: 0;

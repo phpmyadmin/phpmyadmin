@@ -4,8 +4,8 @@
             <fieldset class="pma-fieldset">
         {% endif %}
         {{ get_hidden_fields([]) }}
-        <label for="select_server">{% trans 'Current server:' %}</label>
-        <select id="select_server" class="autosubmit" name="server">
+        <label for="select_server" class="form-label">{% trans 'Current server:' %}</label>
+        <select id="select_server" class="form-select autosubmit" name="server">
             <option value="">({% trans 'Servers' %}) ...</option>
             {% for server in servers.select %}
               <option value="{{ server.value }}"{{ server.selected ? ' selected' }}>{{ server.label }}</option>
