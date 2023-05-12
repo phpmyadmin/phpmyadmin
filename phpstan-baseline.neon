@@ -8332,7 +8332,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Table.php
 
 		-

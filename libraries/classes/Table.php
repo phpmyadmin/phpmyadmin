@@ -958,11 +958,8 @@ class Table implements Stringable
 
         /**
          * The full name of source table, quoted.
-         *
-         * @var string $source
          */
-        $source = Util::backquote($sourceDb)
-            . '.' . Util::backquote($sourceTable);
+        $source = Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
 
         // If the target database is not specified, the operation is taking
         // place in the same database.
@@ -976,11 +973,8 @@ class Table implements Stringable
 
         /**
          * The full name of target table, quoted.
-         *
-         * @var string $target
          */
-        $target = Util::backquote($targetDb)
-            . '.' . Util::backquote($targetTable);
+        $target = Util::backquote($targetDb) . '.' . Util::backquote($targetTable);
 
         // No table is created when this is a data-only operation.
         if ($what !== 'dataonly') {
@@ -1207,8 +1201,8 @@ class Table implements Stringable
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
 
             $oldTable = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
-            $nonGeneratedCols = $oldTable->getNonGeneratedColumns(true);
-            if (count($nonGeneratedCols) > 0) {
+            $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
+            if ($nonGeneratedCols !== []) {
                 $sqlInsertData = 'INSERT INTO ' . $target . '('
                     . implode(', ', $nonGeneratedCols)
                     . ') SELECT ' . implode(', ', $nonGeneratedCols)
@@ -2201,11 +2195,7 @@ class Table implements Stringable
             $foreignTable = $destinationForeignTable[$masterFieldMd5];
             $foreignField = $destinationForeignColumn[$masterFieldMd5];
 
-            if (isset($existrelForeign[$masterFieldMd5]['ref_db_name'])) {
-                $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'];
-            } else {
-                $refDbName = $GLOBALS['db'];
-            }
+            $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'] ?? $GLOBALS['db'];
 
             $emptyFields = false;
             foreach ($masterField as $key => $oneField) {
