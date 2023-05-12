@@ -49,7 +49,6 @@ use function sprintf;
 use function str_contains;
 use function str_starts_with;
 use function stripos;
-use function strlen;
 use function strtolower;
 use function strtoupper;
 use function strtr;
@@ -1796,7 +1795,7 @@ class DatabaseInterface implements DbalInterface
              */
             foreach ($fields as $value) {
                 if (
-                    strlen($value->orgtable) === 0 ||
+                    $value->orgtable === '' ||
                         mb_strtolower($value->orgtable) !== mb_strtolower($value->table)
                 ) {
                     continue;

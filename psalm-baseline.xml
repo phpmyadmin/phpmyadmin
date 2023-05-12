@@ -4591,6 +4591,7 @@
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_POST['field_name'][$column['col_index']]]]></code>
+      <code><![CDATA[$_POST['field_name'][$i]]]></code>
       <code>$fieldPrimary[0]</code>
       <code>$index</code>
       <code>$index</code>
@@ -4664,8 +4665,6 @@
       <code><![CDATA[$_POST['field_length'][$i]]]></code>
       <code><![CDATA[$_POST['field_name']]]></code>
       <code><![CDATA[$_POST['field_name'][$column['col_index']]]]></code>
-      <code><![CDATA[$_POST['field_name'][$i]]]></code>
-      <code><![CDATA[$_POST['field_name'][$i]]]></code>
       <code><![CDATA[$_POST['field_name'][$previousField]]]></code>
       <code><![CDATA[$_POST['field_null'][$i] ?? 'NO']]></code>
       <code><![CDATA[$_POST['field_type'][$i]]]></code>

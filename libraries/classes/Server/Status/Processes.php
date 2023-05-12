@@ -11,7 +11,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_change_key_case;
 use function count;
-use function strlen;
 
 use const CASE_LOWER;
 
@@ -59,7 +58,7 @@ final class Processes
                 'id' => $process['id'],
                 'user' => $process['user'],
                 'host' => $process['host'],
-                'db' => ! isset($process['db']) || strlen($process['db']) === 0 ? '' : $process['db'],
+                'db' => $process['db'] ?? '',
                 'command' => $process['command'],
                 'time' => $process['time'],
                 'state' => ! empty($process['state']) ? $process['state'] : '---',

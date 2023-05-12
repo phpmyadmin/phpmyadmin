@@ -14,7 +14,6 @@ use function intval;
 use function json_decode;
 use function min;
 use function preg_replace;
-use function strlen;
 use function trim;
 
 /**
@@ -62,8 +61,7 @@ class CreateAddField
         $definitions = [];
         $previousField = -1;
         for ($i = 0; $i < $fieldCount; ++$i) {
-            // '0' is also empty for php :-(
-            if (strlen($_POST['field_name'][$i]) === 0) {
+            if ($_POST['field_name'][$i] === '') {
                 continue;
             }
 
