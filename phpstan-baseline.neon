@@ -4937,7 +4937,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Message.php
 
 		-
@@ -4946,22 +4946,12 @@ parameters:
 			path: libraries/classes/Message.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Message\\:\\:sanitize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Message.php
+
+		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Message.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Message\\:\\:\\$message \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Message.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Message\\:\\:\\$params \\(array\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Message.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Message\\:\\:\\$string \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
 
@@ -8142,11 +8132,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function ucwords expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:notice\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 

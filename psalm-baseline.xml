@@ -8119,13 +8119,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code>$addMessage</code>
-      <code>$message</code>
-      <code>$message[$key]</code>
-      <code>$params</code>
-      <code>$string</code>
-      <code><![CDATA[$this->message]]></code>
-      <code><![CDATA[$this->params]]></code>
-      <code><![CDATA[$this->string]]></code>
       <code>$val</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -12616,7 +12609,6 @@
       <code><![CDATA[$oneResult['Status']]]></code>
       <code>$sortCol</code>
       <code><![CDATA[$statement->expr]]></code>
-      <code>Message::sanitize($warning)</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$showTable</code>
