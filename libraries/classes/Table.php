@@ -1395,7 +1395,7 @@ class Table implements Stringable
 
         // If the table is moved to a different database drop its triggers first
         $triggers = Triggers::getDetails($this->dbi, $this->getDbName(), $this->getName(), '');
-        $handleTriggers = $this->getDbName() != $newDb && $triggers;
+        $handleTriggers = $this->getDbName() !== $newDb && $triggers;
         if ($handleTriggers) {
             foreach ($triggers as $trigger) {
                 $sql = 'DROP TRIGGER IF EXISTS '
@@ -2379,7 +2379,7 @@ class Table implements Stringable
         }
 
         $sqlQuery .= ' FOREIGN KEY (' . implode(', ', $field) . ') REFERENCES '
-            . ($this->dbName != $foreignDb
+            . ($this->dbName !== $foreignDb
                 ? Util::backquote($foreignDb) . '.' : '')
             . Util::backquote($foreignTable)
             . '(' . implode(', ', $foreignField) . ')';

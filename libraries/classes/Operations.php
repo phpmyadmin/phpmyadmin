@@ -836,7 +836,7 @@ class Operations
         [$charset] = explode('_', $tableCollation);
 
         $changeAllCollationsQuery .= ' CHARACTER SET ' . $charset
-            . ($charset == $tableCollation ? '' : ' COLLATE ' . $tableCollation);
+            . ($charset === $tableCollation ? '' : ' COLLATE ' . $tableCollation);
 
         $this->dbi->query($changeAllCollationsQuery);
     }
@@ -867,7 +867,7 @@ class Operations
          * A target table name has been sent to this script -> do the work
          */
         if (isset($_POST['new_name']) && is_scalar($_POST['new_name']) && (string) $_POST['new_name'] !== '') {
-            if ($db == $targetDb && $table == $_POST['new_name']) {
+            if ($db === $targetDb && $table == $_POST['new_name']) {
                 if (isset($_POST['submit_move'])) {
                     $message = Message::error(__('Can\'t move table to same one!'));
                 } else {

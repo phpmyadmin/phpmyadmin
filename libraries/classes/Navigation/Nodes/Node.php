@@ -170,13 +170,13 @@ class Node
     {
         if ($realName) {
             foreach ($this->children as $child) {
-                if ($child->realName == $name) {
+                if ($child->realName === $name) {
                     return $child;
                 }
             }
         } else {
             foreach ($this->children as $child) {
-                if ($child->name == $name && ! $child->isNew) {
+                if ($child->name === $name && ! $child->isNew) {
                     return $child;
                 }
             }
@@ -193,7 +193,7 @@ class Node
     public function removeChild(string $name): void
     {
         foreach ($this->children as $key => $child) {
-            if ($child->name == $name) {
+            if ($child->name === $name) {
                 unset($this->children[$key]);
                 break;
             }

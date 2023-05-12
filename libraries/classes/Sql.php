@@ -528,7 +528,7 @@ class Sql
         if ($bookmarkReplace && $bookmarkFeature !== null) {
             $bookmarks = Bookmark::getList($bookmarkFeature, $this->dbi, $GLOBALS['cfg']['Server']['user'], $db);
             foreach ($bookmarks as $bookmark) {
-                if ($bookmark->getLabel() != $bookmarkLabel) {
+                if ($bookmark->getLabel() !== $bookmarkLabel) {
                     continue;
                 }
 
