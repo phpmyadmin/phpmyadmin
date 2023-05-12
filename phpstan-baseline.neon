@@ -4471,7 +4471,7 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Cannot call method Output\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method Output\\(\\) on PhpMyAdmin\\\\Image\\\\ImageWrapper\\|string\\|TCPDF\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 

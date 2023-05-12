@@ -545,14 +545,14 @@ class GisVisualization
      * @param ImageWrapper|TCPDF|string $results   Image object in the case of png
      *                                             TCPDF object in the case of pdf
      *
-     * @return mixed the formatted array of data
+     * @return TCPDF|string|ImageWrapper the formatted array of data
      */
     private function prepareDataSet(
         array $data,
         array $scaleData,
         string $format,
         ImageWrapper|TCPDF|string $results = '',
-    ): mixed {
+    ): TCPDF|string|ImageWrapper {
         $colorIndex = 0;
 
         // loop through the rows
