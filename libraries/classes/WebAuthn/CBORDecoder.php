@@ -158,8 +158,11 @@ final class CBORDecoder
     }
 
     /** @throws WebAuthnException */
-    private function getFloatNumberOrSimpleValue(DataStream $stream, int $value, int $additionalInformation): mixed
-    {
+    private function getFloatNumberOrSimpleValue(
+        DataStream $stream,
+        int $value,
+        int $additionalInformation,
+    ): int|bool|float|null {
         switch ($additionalInformation) {
             case 20:
                 return true;
