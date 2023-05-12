@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-05-13 10:51+0000\n"
-"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
+"Last-Translator: Kamil Tekiela <tekiela246@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -5160,9 +5160,8 @@ msgid "Show current browsing query"
 msgstr "Pokaż aktualne zapytanie przeglądania"
 
 #: libraries/classes/Config/Descriptions.php:980
-#, fuzzy
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr "Wykonuj zapytania na Enter i wstawiaj nową linię za pomocą Shift+Enter"
+msgstr "Wykonaj zapytania na Enter i wstaw nową linię za pomocą Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:168
@@ -6322,7 +6321,6 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Czy na pewno chcesz usunąć podział?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "Czy na pewno chcesz zresetować replikę (RESET REPLICA)?"
 
@@ -13433,16 +13431,15 @@ msgstr "Pozwól blokować tabele dla aktualnego wątku."
 #: libraries/classes/Server/Privileges.php:433
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
 msgid "Needed for the replication replicas."
 msgstr "Potrzebne dla replikacji serwera podrzędnego."
 
 #: libraries/classes/Server/Privileges.php:438
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Pozwala użytkownikowi zapytać, gdzie znajdują się repliki/podstawowe."
+msgstr ""
+"Nadaj użytkownikowi prawo, by zapytać gdzie są serwery podrzędne / nadrzędne."
 
 #: libraries/classes/Server/Privileges.php:448
 #: templates/server/privileges/privileges_table.twig:524
@@ -15269,13 +15266,12 @@ msgid "Set default"
 msgstr "Ustaw wartość domyślną"
 
 #: templates/console/display.twig:162
-#, fuzzy
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Wykonuj zapytania na Enter i wstawiaj nową linię za pomocą Shift+Enter. Aby "
-"to zrobić na stałe, wyświetl ustawienia."
+"Wykonywanie zapytań przy wprowadzaniu i wstawianiu nowej linii za pomocą "
+"Shift+Enter. Aby było to trwałe, wyświetl ustawienia."
 
 #: templates/create_tracking_version.twig:10
 #, fuzzy, php-format
@@ -16201,7 +16197,6 @@ msgid "Routine parameters"
 msgstr "Parametry procedury"
 
 #: templates/database/routines/index.twig:33
-#, fuzzy
 msgid "Create new routine"
 msgstr "Stwórz nową procedurę"
 
@@ -17296,14 +17291,12 @@ msgstr ""
 "do limitu czasu PHP."
 
 #: templates/import.twig:140
-#, fuzzy
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Zezwól na przerwanie importu w przypadku, gdy skrypt wykryje zbliżający się "
-"koniec limitu czasu. Może to być dobry sposób importu dużych plików, "
-"jednakże może on popsuć transakcje."
+"Może to być dobry sposób importu dużych plików, jednakże może on popsuć "
+"transakcje."
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -18096,9 +18089,8 @@ msgid "Displaying column comments:"
 msgstr "Wyświetl komentarze dla kolumn:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
 msgid "Browser transformation:"
-msgstr "Transformacja przeglądarki:"
+msgstr "Sposób prezentacji danych:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
