@@ -686,12 +686,10 @@
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
     <InvalidReturnStatement>
-      <code>$comments</code>
       <code>$tableNameReplacements</code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code><![CDATA[array<string, string>]]></code>
-      <code>string[]</code>
     </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
@@ -803,9 +801,10 @@
     <PossiblyInvalidArgument>
       <code>$foreigners</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArrayOffset>
-      <code>$comments</code>
-    </PossiblyNullArrayOffset>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$column['Comment']]]></code>
+      <code><![CDATA[$column['Comment']]]></code>
+    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedMethod>
       <code>getDbComments</code>
     </PossiblyUnusedMethod>
@@ -962,6 +961,9 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[$row['Null'] !== '']]></code>
+    </DocblockTypeContradiction>
     <MixedAssignment>
       <code>$relation</code>
     </MixedAssignment>
@@ -969,21 +971,15 @@
       <code><![CDATA[$foreigner['foreign_field']]]></code>
       <code>$relation</code>
     </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$row['Field']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code>$columnsComments</code>
-      <code>$mimeMap</code>
-      <code>$rows</code>
-    </PossiblyNullArrayOffset>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$row['Null'] !== '']]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Database/DesignerController.php">
     <InvalidArrayOffset>
@@ -3462,6 +3458,9 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $row['Type']]]></code>
+    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_POST['columnIndex']]]></code>
       <code><![CDATA[$_POST['columnIndex']]]></code>
@@ -3710,13 +3709,6 @@
       <code>$foreignTable</code>
       <code>$foreignTable</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code><![CDATA[$column['Field']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code>$columnArray</code>
-      <code>$columnHashArray</code>
-    </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Table/ReplaceController.php">
     <InvalidArgument>
@@ -3876,6 +3868,9 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $row['Type']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/SqlController.php">
     <InvalidArrayOffset>
@@ -3949,6 +3944,10 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['num_fields']]]></code>
     </MixedAssignment>
+    <TypeDoesNotContainType>
+      <code>$value === []</code>
+      <code>$value === []</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
     <MixedArgument>
@@ -4324,6 +4323,9 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $row['Type']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/TableController.php">
     <MixedArgument>
@@ -4767,7 +4769,6 @@
       <code><![CDATA[$def['Type']]]></code>
       <code>$default</code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
-      <code>$field</code>
       <code>$key</code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
@@ -4859,7 +4860,6 @@
       <code>$defaultValue</code>
       <code>$defaultValues[$rowNum]</code>
       <code>$extra</code>
-      <code>$field</code>
       <code>$hasList[]</code>
       <code>$key</code>
       <code>$length</code>
@@ -4918,6 +4918,9 @@
       <code><![CDATA[(bool) $GLOBALS['cfg']['Server']['DisableIS']]]></code>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $def['Field']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer.php">
     <DeprecatedMethod>
@@ -5769,6 +5772,7 @@
       <code>reset($columns)</code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->attachIndexInfoToColumns($database, $table, $fields)]]></code>
       <code><![CDATA[$this->fetchResult($sql, null, 'Field', $connectionType)]]></code>
       <code><![CDATA[$this->fetchResult($sql, null, null, $connectionType)]]></code>
       <code><![CDATA[array<int, array{
@@ -5789,6 +5793,29 @@
      *   Visible?: string,
      *   Expression?: string|null
      * }>]]></code>
+      <code>array_shift($columns) ?? []</code>
+      <code><![CDATA[array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }]]></code>
+      <code><![CDATA[array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }[]]]></code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
@@ -7783,15 +7810,10 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$column['Comment']]]></code>
-      <code><![CDATA[$column['Extra']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['Key']]]></code>
-      <code><![CDATA[$column['Privileges']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$column['Collation']]]></code>
+      <code><![CDATA[$column['Comment']]]></code>
+      <code><![CDATA[$column['Privileges']]]></code>
       <code><![CDATA[$column['is_blob']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCast>
@@ -8314,6 +8336,9 @@
     <RedundantCast>
       <code>(string) $dependon</code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $def['Field']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Operations.php">
     <DeprecatedMethod>
@@ -8968,19 +8993,12 @@
       <code>$value</code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
-      <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$fieldName</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code>$comments</code>
-      <code>$mimeMap</code>
-    </PossiblyNullArrayOffset>
     <PossiblyUndefinedVariable>
       <code>$comments</code>
       <code>$mimeMap</code>
@@ -8999,6 +9017,10 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportLatex.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[$row['Null'] == '']]></code>
+      <code><![CDATA[$row['Null'] == '']]></code>
+    </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
@@ -9040,9 +9062,7 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
-      <code>$fieldName</code>
       <code>$record[$columns[$i]]</code>
-      <code><![CDATA[$row['Type']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
@@ -9075,9 +9095,6 @@
     </ParamNameMismatch>
     <PossiblyNullOperand>
       <code><![CDATA[$columns[$i]['Default']]]></code>
-      <code><![CDATA[$columns[$i]['Extra']]]></code>
-      <code><![CDATA[$columns[$i]['Null']]]></code>
-      <code><![CDATA[$columns[$i]['Type']]]></code>
       <code>$row[$i]</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
@@ -9179,8 +9196,6 @@
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
       <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$fieldName</code>
       <code>$row[$j]</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
@@ -9366,7 +9381,6 @@
       <code>Context::escape($alias)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$createQuery</code>
       <code>$definition</code>
       <code><![CDATA[$field->name]]></code>
@@ -9383,7 +9397,6 @@
       <code><![CDATA[$aliases[$oldDatabase]['tables']]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$eventDef</code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyAssignment>
@@ -9470,13 +9483,7 @@
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$fieldName</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code>$comments</code>
-      <code>$mimeMap</code>
-    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
@@ -9557,6 +9564,10 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[$column['Null'] == '']]></code>
+      <code><![CDATA[$column['Null'] == '']]></code>
+    </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['maxY']]]></code>
     </InvalidArrayOffset>
@@ -9819,16 +9830,9 @@
       <code>$topMargin</code>
     </ParamNameMismatch>
     <PossiblyNullArgument>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$row[$key]</code>
       <code>$txt</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code>$comments</code>
-      <code>$mimeMap</code>
-      <code>$resRel</code>
-      <code>$resRel</code>
-    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['maxY']]]></code>
     </PossiblyNullOperand>
@@ -10724,6 +10728,10 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[$row['Null'] == '']]></code>
+      <code><![CDATA[$row['Null'] == '']]></code>
+    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$this->diagram->PageNo()]]></code>
       <code><![CDATA[$this->diagram->PageNo()]]></code>
@@ -10825,22 +10833,12 @@
       <code><![CDATA[$_REQUEST['pdf_paper']]]></code>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code>$fieldName</code>
-      <code>$fieldName</code>
-      <code><![CDATA[$row['Type']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-    </PossiblyNullArrayOffset>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$row['Null']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedMethod>
       <code>isWithDataDictionary</code>
     </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$row['Null'] != '']]></code>
+    </RedundantConditionGivenDocblockType>
     <UnusedProperty>
       <code>$bottomMargin</code>
       <code>$rightMargin</code>
@@ -11596,8 +11594,6 @@
     </PossiblyFalseOperand>
     <PossiblyNullArgument>
       <code>$srReplicaAction</code>
-      <code><![CDATA[$val['Type']]]></code>
-      <code><![CDATA[$val['Type']]]></code>
     </PossiblyNullArgument>
     <UnusedFunctionCall>
       <code>strtok</code>
@@ -12394,7 +12390,6 @@
       <code><![CDATA[$statement->altered[0]->field->column]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullArgument>
-      <code><![CDATA[$columns[$indexColumnName]['Extra']]]></code>
       <code>$result</code>
       <code>$row[0]</code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
@@ -13960,6 +13955,13 @@
     <UndefinedMethod>
       <code>expects</code>
     </UndefinedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/StructureControllerTest.php">
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $fields['datetimefield']['Type']]]></code>
+      <code><![CDATA[(string) $fields['id']['Type']]]></code>
+      <code><![CDATA[(string) $fields['name']['Type']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/CoreTest.php">
     <InvalidArgument>

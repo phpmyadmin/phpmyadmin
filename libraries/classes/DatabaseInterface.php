@@ -839,7 +839,17 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return (string|null)[] flat array description
+     * @return array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }
      */
     public function getColumn(
         string $database,
@@ -870,7 +880,17 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return (string|null)[][] array indexed by column names
+     * @return array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }[] array indexed by column names
      */
     public function getColumns(
         string $database,

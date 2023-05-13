@@ -656,11 +656,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) should return array\\<string\\> but returns array\\<string, string\\|null\\>\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -687,6 +682,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) should return array\\|false but returns mixed\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'Comment' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -776,7 +776,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Cannot access offset string\\|null on mixed\\.$#"
+			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
 
@@ -786,12 +786,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#2 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Strict comparison using \\!\\=\\= between 'NO'\\|'YES' and '' will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
 
@@ -2096,6 +2091,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/FindReplaceController.php
+
+		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 16
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
@@ -2166,11 +2166,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function md5 expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, 'strnatcasecmp' given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php
@@ -2212,6 +2207,11 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SearchController.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -2282,6 +2282,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\ChangeController\\:\\:displayHtmlForColumnChange\\(\\) expects array\\<string\\>, array\\<int, mixed\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/Structure/ChangeController.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} and array\\{\\} will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/ChangeController.php
 
@@ -2521,6 +2526,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
 			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
@@ -2736,6 +2746,11 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
 			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
 			count: 2
 			path: libraries/classes/Database/CentralColumns.php
@@ -2773,11 +2788,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
 			count: 5
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
@@ -3316,7 +3326,17 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) should return array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} but returns array\\<string\\|null\\>\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnNames\\(\\) should return array\\<string\\> but returns array\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) should return array\\<array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\> but returns array\\<array\\<string\\|null\\>\\>\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -4596,6 +4616,21 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Offset 'Collation' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Offset 'Comment' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Offset 'Privileges' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#1 \\$buffer of method PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin\\:\\:applyTransformation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -4607,11 +4642,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$data of static method PhpMyAdmin\\\\Utils\\\\Gis\\:\\:convertToWellKnownText\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\ColumnFull constructor expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -4696,32 +4726,7 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#2 \\$type of class PhpMyAdmin\\\\ColumnFull constructor expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Parameter \\#3 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<int, mixed\\>, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#5 \\$key of class PhpMyAdmin\\\\ColumnFull constructor expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#7 \\$extra of class PhpMyAdmin\\\\ColumnFull constructor expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#8 \\$privileges of class PhpMyAdmin\\\\ColumnFull constructor expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#9 \\$comment of class PhpMyAdmin\\\\ColumnFull constructor expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -4962,7 +4967,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Normalization.php
 
 		-
@@ -4977,6 +4982,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor3NF\\(\\) should return array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} but returns array\\{legendText\\: string, headText\\: non\\-falsy\\-string, queryError\\: bool, extra\\: ''\\|PhpMyAdmin\\\\Message\\}\\.$#"
+			count: 1
+			path: libraries/classes/Normalization.php
+
+		-
+			message: "#^Offset 'Type' on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
 
@@ -5002,11 +5012,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Normalization.php
 
@@ -7891,11 +7896,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -9084,6 +9084,11 @@ parameters:
 			message: "#^PHPDoc tag @var for variable \\$result has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: test/classes/Controllers/Table/ReplaceControllerTest.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 3
+			path: test/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
