@@ -3721,8 +3721,18 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Parameter \\#1 \\$table of class PhpMyAdmin\\\\Display\\\\ForeignKeyRelatedTable constructor expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Parameter \\#2 \\$columnValue of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSpecialLinkUrl\\(\\) expects string, mixed given\\.$#"
 			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Parameter \\#2 \\$field of class PhpMyAdmin\\\\Display\\\\ForeignKeyRelatedTable constructor expects string, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -3753,6 +3763,11 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
 			count: 3
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Parameter \\#4 \\$database of class PhpMyAdmin\\\\Display\\\\ForeignKeyRelatedTable constructor expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-

@@ -6125,8 +6125,14 @@
       <code><![CDATA[$multipleUrlParams['sql_query']]]></code>
       <code>$newSortExpressionNoDirection</code>
       <code><![CDATA[$oneKey['ref_db_name'] ?? $GLOBALS['db']]]></code>
+      <code><![CDATA[$oneKey['ref_db_name'] ?? $GLOBALS['db']]]></code>
+      <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
+      <code><![CDATA[$oneKey['ref_table_name']]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
       <code><![CDATA[$rel['foreign_db']]]></code>
+      <code><![CDATA[$rel['foreign_db']]]></code>
+      <code><![CDATA[$rel['foreign_field']]]></code>
+      <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code>$row[$i]</code>
       <code>$row[$i]</code>
@@ -6366,9 +6372,7 @@
       <code><![CDATA[$statementInfo->statement->limit->offset]]></code>
     </MixedPropertyFetch>
     <MixedReturnTypeCoercion>
-      <code>$map</code>
       <code><![CDATA[[$singleSortOrder, implode(', ', $sortOrderColumns), $orderImg ?? '']]]></code>
-      <code><![CDATA[array<string, string[]>]]></code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
