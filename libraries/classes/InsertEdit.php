@@ -304,8 +304,8 @@ class InsertEdit
     /**
      * Analyze the table column array
      *
-     * @param mixed[] $column      description of column in given table
-     * @param mixed[] $commentsMap comments for every column that has a comment
+     * @param mixed[]  $column      description of column in given table
+     * @param string[] $commentsMap comments for every column that has a comment
      *
      * @return mixed[]                   description of column in given table
      */
@@ -350,8 +350,8 @@ class InsertEdit
     /**
      * Retrieve the column title
      *
-     * @param mixed[] $column      description of column in given table
-     * @param mixed[] $commentsMap comments for every column that has a comment
+     * @param mixed[]  $column      description of column in given table
+     * @param string[] $commentsMap comments for every column that has a comment
      *
      * @return string              column title
      */
@@ -1600,7 +1600,7 @@ class InsertEdit
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return mixed[] comments for columns
+     * @return string[] comments for columns
      */
     public function getCommentsMap(string $db, string $table): array
     {
@@ -1657,7 +1657,7 @@ class InsertEdit
      *
      * @param mixed[]         $column             column
      * @param int             $columnNumber       column index in table_columns
-     * @param mixed[]         $commentsMap        comments map
+     * @param string[]        $commentsMap        comments map
      * @param ResultInterface $currentResult      current result
      * @param bool            $insertMode         whether insert mode
      * @param mixed[]         $currentRow         current row
@@ -2000,7 +2000,7 @@ class InsertEdit
      *
      * @param mixed[]         $urlParams        url parameters
      * @param mixed[][]       $tableColumns     table columns
-     * @param mixed[]         $commentsMap      comments map
+     * @param string[]        $commentsMap      comments map
      * @param ResultInterface $currentResult    current result
      * @param bool            $insertMode       whether insert mode
      * @param mixed[]         $currentRow       current row

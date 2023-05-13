@@ -784,6 +784,10 @@
       <code>$foreigners[$column]</code>
       <code><![CDATA[$row['display_field']]]></code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code>$comments</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
     <MoreSpecificReturnType>
       <code><![CDATA[array{
      *     foreign_link: bool,
@@ -4194,7 +4198,6 @@
       <code>$attributes[$rownum]</code>
       <code>$columnsList[]</code>
       <code>$field</code>
-      <code>$rowComments[$rownum]</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
@@ -7651,7 +7654,6 @@
       <code><![CDATA[$column['pma_type']]]></code>
       <code><![CDATA[$column['pma_type']]]></code>
       <code><![CDATA[$column['pma_type']]]></code>
-      <code><![CDATA[$commentsMap[$column['Field']]]]></code>
       <code>$currCellEditedValues[$columnName]</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>

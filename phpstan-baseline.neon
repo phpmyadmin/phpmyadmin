@@ -656,6 +656,11 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) should return array\\<string\\> but returns array\\<int\\|string, mixed\\>\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -4657,7 +4662,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/InsertEdit.php
 
 		-
@@ -5342,7 +5347,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 8
+			count: 7
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -5482,7 +5487,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 9
+			count: 8
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
@@ -5727,7 +5732,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 5
+			count: 4
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
