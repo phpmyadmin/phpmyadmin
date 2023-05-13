@@ -3534,7 +3534,7 @@ Functions.showIndexEditDialog = function ($outer) {
                 if ($childrenSelect.length) {
                     var selectedIndex = $childrenSelect.prop('selectedIndex');
                     // Set correct select value in dragged row
-                    $(this).children('select').prop('selectedIndex', parseInt(selectedIndex));
+                    $(this).children('select').prop('selectedIndex', selectedIndex);
                 }
             });
             return $helper;
