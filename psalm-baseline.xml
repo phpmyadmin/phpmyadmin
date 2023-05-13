@@ -7630,12 +7630,16 @@
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
+      <code><![CDATA[$column['Collation']]]></code>
+      <code><![CDATA[$column['Comment']]]></code>
+      <code><![CDATA[$column['Default']]]></code>
+      <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
+      <code><![CDATA[$column['Key']]]></code>
+      <code><![CDATA[$column['Privileges']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
@@ -7643,8 +7647,6 @@
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
@@ -7700,8 +7702,6 @@
       <code><![CDATA[$extraData['transformations'][$cellIndex]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$commentsMap[$column['Field']]]]></code>
-      <code><![CDATA[$commentsMap[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -7724,12 +7724,9 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
-      <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$columnSetValues</code>
-      <code><![CDATA[$column['pma_type']]]></code>
       <code><![CDATA[$column['values']]]></code>
       <code>$currCellEditedValues</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>

@@ -4616,12 +4616,17 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#1 \\$data of static method PhpMyAdmin\\\\Utils\\\\Gis\\:\\:convertToWellKnownText\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_stripos expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\ColumnFull constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -4657,16 +4662,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function bin2hex expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function md5 expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -4716,7 +4711,42 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Parameter \\#2 \\$type of class PhpMyAdmin\\\\ColumnFull constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#3 \\$collation of class PhpMyAdmin\\\\ColumnFull constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#3 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<int, mixed\\>, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#5 \\$key of class PhpMyAdmin\\\\ColumnFull constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#6 \\$default of class PhpMyAdmin\\\\ColumnFull constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#7 \\$extra of class PhpMyAdmin\\\\ColumnFull constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#8 \\$privileges of class PhpMyAdmin\\\\ColumnFull constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#9 \\$comment of class PhpMyAdmin\\\\ColumnFull constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 

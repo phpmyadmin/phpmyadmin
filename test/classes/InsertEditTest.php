@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -413,7 +414,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testAnalyzeTableColumnsArray(): void
     {
-        $column = ['Field' => '1<2', 'Field_md5' => 'pswd', 'Type' => 'float(10, 1)'];
+        $column = new ColumnFull('1<2', 'float(10, 1)', null, false, '', null, '', '', '');
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -448,15 +449,14 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetColumnTitle(): void
     {
-        $column = [];
-        $column['Field'] = 'f1<';
+        $fieldName = 'f1<';
 
         $this->assertEquals(
             $this->callFunction(
                 $this->insertEdit,
                 InsertEdit::class,
                 'getColumnTitle',
-                [$column, []],
+                [$fieldName, []],
             ),
             'f1&lt;',
         );
@@ -468,7 +468,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getColumnTitle',
-            [$column, $comments],
+            [$fieldName, $comments],
         );
 
         $result = $this->parseString($result);
@@ -483,51 +483,50 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testIsColumn(): void
     {
-        $column = [];
         $types = ['binary', 'varbinary'];
 
-        $column['Type'] = 'binaryfoo';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'binaryfoo';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'Binaryfoo';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'Binaryfoo';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'varbinaryfoo';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'varbinaryfoo';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'barbinaryfoo';
-        $this->assertFalse($this->insertEdit->isColumn($column, $types));
+        $columnType = 'barbinaryfoo';
+        $this->assertFalse($this->insertEdit->isColumn($columnType, $types));
 
         $types = ['char', 'varchar'];
 
-        $column['Type'] = 'char(10)';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'char(10)';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'VarChar(20)';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'VarChar(20)';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'foochar';
-        $this->assertFalse($this->insertEdit->isColumn($column, $types));
+        $columnType = 'foochar';
+        $this->assertFalse($this->insertEdit->isColumn($columnType, $types));
 
         $types = ['blob', 'tinyblob', 'mediumblob', 'longblob'];
 
-        $column['Type'] = 'blob';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'blob';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'bloB';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'bloB';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'mediumBloB';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'mediumBloB';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'tinyblobabc';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'tinyblobabc';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'longblob';
-        $this->assertTrue($this->insertEdit->isColumn($column, $types));
+        $columnType = 'longblob';
+        $this->assertTrue($this->insertEdit->isColumn($columnType, $types));
 
-        $column['Type'] = 'foolongblobbar';
-        $this->assertFalse($this->insertEdit->isColumn($column, $types));
+        $columnType = 'foolongblobbar';
+        $this->assertFalse($this->insertEdit->isColumn($columnType, $types));
     }
 
     /**
@@ -2218,7 +2217,30 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
-            ->will($this->returnValue([['a' => 'b', 'c' => 'd'], ['e' => 'f', 'g' => 'h']]));
+            ->will($this->returnValue([
+                [
+                    'Field' => 'b',
+                    'Type' => 'd',
+                    'Collation' => null,
+                    'Null' => 'NO',
+                    'Key' => '',
+                    'Default' => null,
+                    'Extra' => '',
+                    'Privileges' => '',
+                    'Comment' => '',
+                ],
+                [
+                    'Field' => 'f',
+                    'Type' => 'h',
+                    'Collation' => null,
+                    'Null' => 'YES',
+                    'Key' => '',
+                    'Default' => null,
+                    'Extra' => '',
+                    'Privileges' => '',
+                    'Comment' => '',
+                ],
+            ]));
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -2232,7 +2254,10 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getTableColumns('db', 'table');
 
         $this->assertEquals(
-            [['a' => 'b', 'c' => 'd'], ['e' => 'f', 'g' => 'h']],
+            [
+                new ColumnFull('b', 'd', null, false, '', null, '', '', ''),
+                new ColumnFull('f', 'h', null, true, '', null, '', '', ''),
+            ],
             $result,
         );
     }
@@ -2379,12 +2404,7 @@ class InsertEditTest extends AbstractTestCase
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $GLOBALS['plugin_scripts'] = [];
         $foreigners = ['foreign_keys_data' => []];
-        $tableColumn = [
-            'Field' => 'col',
-            'Type' => 'varchar(20)',
-            'Null' => 'Yes',
-            'Privileges' => 'insert,update,select',
-        ];
+        $tableColumn = new ColumnFull('col', 'varchar(20)', null, true, '', null, '', 'insert,update,select', '');
         $repopulate = [md5('col') => 'val'];
         $columnMime = [
             'input_transformation' => 'Input/Image_JPEG_Upload.php',
@@ -2440,15 +2460,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Test w/o input_transformation
-        $tableColumn = [
-            'Field' => 'qwerty',
-            'Type' => 'datetime',
-            'Null' => 'Yes',
-            'Key' => '',
-            'Extra' => '',
-            'Default' => null,
-            'Privileges' => 'insert,update,select',
-        ];
+        $tableColumn = new ColumnFull('qwerty', 'datetime', null, true, '', null, '', 'insert,update,select', '');
         $repopulate = [md5('qwerty') => '12-10-14'];
         $actual = $this->callFunction(
             $this->insertEdit,
@@ -2537,15 +2549,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['TextareaCols'] = 11;
         $foreigners = ['foreign_keys_data' => []];
         $tableColumns = [
-            [
-                'Field' => 'test',
-                'Extra' => '',
-                'Type' => 'longtext',
-                'Null' => 'Yes',
-                'pma_type' => 'longtext',
-                'True_Type' => 'longtext',
-                'Privileges' => 'select,insert,update,references',
-            ],
+            new ColumnFull('test', 'longtext', null, true, '', null, '', 'select,insert,update,references', ''),
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
@@ -2593,24 +2597,8 @@ class InsertEditTest extends AbstractTestCase
 
         // edit
         $tableColumns = [
-            [
-                'Field' => 'foo',
-                'Type' => 'longtext',
-                'Extra' => '',
-                'Null' => 'Yes',
-                'pma_type' => 'longtext',
-                'True_Type' => 'longtext',
-                'Privileges' => 'select,insert,update,references',
-            ],
-            [
-                'Field' => 'bar',
-                'Type' => 'longtext',
-                'Extra' => '',
-                'Null' => 'Yes',
-                'pma_type' => 'longtext',
-                'True_Type' => 'longtext',
-                'Privileges' => 'select,insert,references',
-            ],
+            new ColumnFull('foo', 'longtext', null, true, '', null, '', 'select,insert,update,references', ''),
+            new ColumnFull('bar', 'longtext', null, true, '', null, '', 'select,insert,references', ''),
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
@@ -2643,36 +2631,9 @@ class InsertEditTest extends AbstractTestCase
 
         // insert
         $tableColumns = [
-            [
-                'Field' => 'foo',
-                'Type' => 'longtext',
-                'Extra' => '',
-                'Null' => 'Yes',
-                'Key' => '',
-                'pma_type' => 'longtext',
-                'True_Type' => 'longtext',
-                'Privileges' => 'select,insert,update,references',
-            ],
-            [
-                'Field' => 'bar',
-                'Type' => 'longtext',
-                'Extra' => '',
-                'Null' => 'Yes',
-                'Key' => '',
-                'pma_type' => 'longtext',
-                'True_Type' => 'longtext',
-                'Privileges' => 'select,update,references',
-            ],
-            [
-                'Field' => 'point',
-                'Type' => 'point',
-                'Extra' => '',
-                'Null' => 'No',
-                'Key' => '',
-                'pma_type' => 'point',
-                'True_Type' => 'point',
-                'Privileges' => 'select,update,references',
-            ],
+            new ColumnFull('foo', 'longtext', null, true, '', null, '', 'select,insert,update,references', ''),
+            new ColumnFull('bar', 'longtext', null, true, '', null, '', 'select,update,references', ''),
+            new ColumnFull('point', 'point', null, false, '', null, '', 'select,update,references', ''),
         ];
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
