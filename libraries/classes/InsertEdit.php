@@ -303,14 +303,16 @@ class InsertEdit
     /**
      * Analyze the table column array
      *
-     * @param ColumnFull $tableColumn description of column in given table
-     * @param string[]   $commentsMap comments for every column that has a comment
+     * @param ColumnFull $tableColumn  description of column in given table
+     * @param string[]   $commentsMap  comments for every column that has a comment
+     * @param int        $columnLength length of the current column taken from field metadata
      *
      * @return mixed[]                   description of column in given table
      */
     private function analyzeTableColumnsArray(
         ColumnFull $tableColumn,
         array $commentsMap,
+        int $columnLength,
     ): array {
         $column = [
             'Field' => $tableColumn->field,
@@ -326,7 +328,13 @@ class InsertEdit
         $column['Field_md5'] = md5($tableColumn->field);
         // True_Type contains only the type (stops at first bracket)
         $column['True_Type'] = preg_replace('@\(.*@s', '', $tableColumn->type);
-        $column['len'] = preg_match('@float|double@', $tableColumn->type) ? 100 : -1;
+        $column['len'] = preg_match('@float|double@', $tableColumn->type) ? 100 : $columnLength;
+        // length is unknown for geometry fields,
+        // make enough space to edit very simple WKTs
+        if ($column['len'] === -1) {
+            $column['len'] = 30;
+        }
+
         $column['Field_title'] = $this->getColumnTitle($tableColumn->field, $commentsMap);
         $column['is_binary'] = $this->isColumn(
             $tableColumn->type,
@@ -1680,29 +1688,29 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit column
      *
-     * @param ColumnFull      $tableColumn        column
-     * @param int             $columnNumber       column index in table_columns
-     * @param string[]        $commentsMap        comments map
-     * @param ResultInterface $currentResult      current result
-     * @param bool            $insertMode         whether insert mode
-     * @param mixed[]         $currentRow         current row
-     * @param int             $columnsCnt         columns count
-     * @param bool            $isUpload           whether upload
-     * @param mixed[]         $foreigners         foreigners
-     * @param string          $table              table
-     * @param string          $db                 database
-     * @param int             $rowId              row id
-     * @param string          $defaultCharEditing default char editing mode which is stored in the config.inc.php script
-     * @param string          $textDir            text direction
-     * @param mixed[]         $repopulate         the data to be repopulated
-     * @param mixed[]         $columnMime         the mime information of column
-     * @param string          $whereClause        the where clause
+     * @param ColumnFull $tableColumn        column
+     * @param int        $columnNumber       column index in table_columns
+     * @param string[]   $commentsMap        comments map
+     * @param int        $columnLength       length of the current column taken from field metadata
+     * @param bool       $insertMode         whether insert mode
+     * @param mixed[]    $currentRow         current row
+     * @param int        $columnsCnt         columns count
+     * @param bool       $isUpload           whether upload
+     * @param mixed[]    $foreigners         foreigners
+     * @param string     $table              table
+     * @param string     $db                 database
+     * @param int        $rowId              row id
+     * @param string     $defaultCharEditing default char editing mode which is stored in the config.inc.php script
+     * @param string     $textDir            text direction
+     * @param mixed[]    $repopulate         the data to be repopulated
+     * @param mixed[]    $columnMime         the mime information of column
+     * @param string     $whereClause        the where clause
      */
     private function getHtmlForInsertEditFormColumn(
         ColumnFull $tableColumn,
         int $columnNumber,
         array $commentsMap,
-        ResultInterface $currentResult,
+        int $columnLength,
         bool $insertMode,
         array $currentRow,
         int $columnsCnt,
@@ -1717,7 +1725,7 @@ class InsertEdit
         array $columnMime,
         string $whereClause,
     ): string {
-        $column = $this->analyzeTableColumnsArray($tableColumn, $commentsMap);
+        $column = $this->analyzeTableColumnsArray($tableColumn, $commentsMap, $columnLength);
 
         $asIs = false;
         /** @var string $fieldHashMd5 */
@@ -1728,15 +1736,6 @@ class InsertEdit
         }
 
         $extractedColumnspec = Util::extractColumnSpec($column['Type']);
-
-        if ($column['len'] === -1) {
-            $column['len'] = $this->dbi->getFieldsMeta($currentResult)[$columnNumber]->length;
-            // length is unknown for geometry fields,
-            // make enough space to edit very simple WKTs
-            if ($column['len'] === -1) {
-                $column['len'] = 30;
-            }
-        }
 
         //Call validation when the form submitted...
         $onChangeClause = 'return verificationsAfterFieldChange('
@@ -2080,7 +2079,7 @@ class InsertEdit
                 $tableColumn,
                 $columnNumber,
                 $commentsMap,
-                $currentResult,
+                $this->dbi->getFieldsMeta($currentResult)[$columnNumber]->length,
                 $insertMode,
                 $currentRow,
                 $columnCount,

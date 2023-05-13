@@ -420,7 +420,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'analyzeTableColumnsArray',
-            [$column, []],
+            [$column, [], -1],
         );
 
         $this->assertEquals($result['Field_md5'], '4342210df36bf2ff2c4e2a997a6d4089');
@@ -2411,11 +2411,6 @@ class InsertEditTest extends AbstractTestCase
             'input_transformation_options' => '150',
         ];
 
-        $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects($this->any())
-            ->method('getFieldsMeta')
-            ->will($this->returnValue([FieldHelper::fromArray(['type' => 0, 'length' => -1])]));
-
         // Test w/ input transformation
         $actual = $this->callFunction(
             $this->insertEdit,
@@ -2425,7 +2420,7 @@ class InsertEditTest extends AbstractTestCase
                 $tableColumn,
                 0,
                 [],
-                $resultStub,
+                -1,
                 false,
                 [],
                 0,
@@ -2470,7 +2465,7 @@ class InsertEditTest extends AbstractTestCase
                 $tableColumn,
                 0,
                 [],
-                $resultStub,
+                -1,
                 true,
                 [],
                 0,
