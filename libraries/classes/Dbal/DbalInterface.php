@@ -183,7 +183,7 @@ interface DbalInterface
      *  Extra: string,
      *  Privileges?: string,
      *  Comment?: string
-     * }
+     * }|null
      */
     public function getColumn(
         string $database,
@@ -191,7 +191,7 @@ interface DbalInterface
         string $column,
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
-    ): array;
+    ): array|null;
 
     /**
      * Returns descriptions of columns in given table

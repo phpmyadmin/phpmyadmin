@@ -3932,10 +3932,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['num_fields']]]></code>
     </MixedAssignment>
-    <TypeDoesNotContainType>
-      <code>$value === []</code>
-      <code>$value === []</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
     <MixedArgument>
@@ -4899,6 +4895,9 @@
       <code>$db</code>
       <code>$table</code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument>
+      <code>$field</code>
+    </PossiblyNullArgument>
     <RedundantCast>
       <code><![CDATA[(bool) $GLOBALS['cfg']['Server']['DisableIS']]]></code>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
@@ -5775,18 +5774,7 @@
      *   Visible?: string,
      *   Expression?: string|null
      * }>]]></code>
-      <code>array_shift($columns) ?? []</code>
-      <code><![CDATA[array{
-     *  Field: string,
-     *  Type: string,
-     *  Collation?: string|null,
-     *  Null:'YES'|'NO',
-     *  Key: string,
-     *  Default: string|null,
-     *  Extra: string,
-     *  Privileges?: string,
-     *  Comment?: string
-     * }]]></code>
+      <code>array_shift($columns)</code>
       <code><![CDATA[array{
      *  Field: string,
      *  Type: string,
@@ -5798,6 +5786,17 @@
      *  Privileges?: string,
      *  Comment?: string
      * }[]]]></code>
+      <code><![CDATA[array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }|null]]></code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>

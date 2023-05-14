@@ -849,7 +849,7 @@ class DatabaseInterface implements DbalInterface
      *  Extra: string,
      *  Privileges?: string,
      *  Comment?: string
-     * }
+     * }|null
      */
     public function getColumn(
         string $database,
@@ -857,7 +857,7 @@ class DatabaseInterface implements DbalInterface
         string $column,
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
-    ): array {
+    ): array|null {
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
@@ -869,7 +869,7 @@ class DatabaseInterface implements DbalInterface
 
         $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
 
-        return array_shift($columns) ?? [];
+        return array_shift($columns);
     }
 
     /**

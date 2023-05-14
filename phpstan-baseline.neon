@@ -2271,11 +2271,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/ChangeController.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} and array\\{\\} will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/ChangeController.php
-
-		-
 			message: "#^Cannot access offset 'COLUMN_COMMENT' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php
@@ -2782,6 +2777,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#10 \\$colDefault of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Parameter \\#2 \\$def of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects array, array\\<string, string\\|null\\>\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
@@ -3301,7 +3301,7 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) should return array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} but returns array\\<string\\|null\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) should return array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\|null but returns array\\<string\\|null\\>\\|null\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
