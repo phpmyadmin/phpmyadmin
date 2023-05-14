@@ -680,7 +680,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $type = $extractedColumnSpec['print_type'];
                 $attribute = $extractedColumnSpec['attribute'];
                 if (! isset($row['Default'])) {
-                    if ($row['Null'] != '' && $row['Null'] !== 'NO') {
+                    if ($row['Null'] !== 'NO') {
                         $row['Default'] = 'NULL';
                     }
                 }
@@ -712,7 +712,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     $fieldName,
                     $type,
                     $attribute,
-                    $row['Null'] == '' || $row['Null'] === 'NO'
+                    $row['Null'] === 'NO'
                         ? __('No')
                         : __('Yes'),
                     $row['Default'] ?? '',

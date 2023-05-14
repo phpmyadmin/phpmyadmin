@@ -84,7 +84,7 @@ class DataDictionaryController extends AbstractController
                     'has_primary_key' => isset($primaryKeys[$row['Field']]),
                     'type' => $extractedColumnSpec['type'],
                     'print_type' => $extractedColumnSpec['print_type'],
-                    'is_nullable' => $row['Null'] !== '' && $row['Null'] !== 'NO',
+                    'is_nullable' => $row['Null'] !== 'NO',
                     'default' => $row['Default'] ?? null,
                     'comment' => $columnsComments[$row['Field']] ?? '',
                     'mime' => $mime,

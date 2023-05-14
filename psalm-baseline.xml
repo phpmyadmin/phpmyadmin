@@ -961,9 +961,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$row['Null'] !== '']]></code>
-    </DocblockTypeContradiction>
     <MixedAssignment>
       <code>$relation</code>
     </MixedAssignment>
@@ -977,9 +974,6 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$row['Null'] !== '']]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Database/DesignerController.php">
     <InvalidArrayOffset>
@@ -3458,9 +3452,6 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $row['Type']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_POST['columnIndex']]]></code>
       <code><![CDATA[$_POST['columnIndex']]]></code>
@@ -3868,9 +3859,6 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $row['Type']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/SqlController.php">
     <InvalidArrayOffset>
@@ -4323,9 +4311,6 @@
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $row['Type']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/TableController.php">
     <MixedArgument>
@@ -4918,9 +4903,6 @@
       <code><![CDATA[(bool) $GLOBALS['cfg']['Server']['DisableIS']]]></code>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $def['Field']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer.php">
     <DeprecatedMethod>
@@ -8336,9 +8318,6 @@
     <RedundantCast>
       <code>(string) $dependon</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $def['Field']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Operations.php">
     <DeprecatedMethod>
@@ -9017,10 +8996,6 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportLatex.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$row['Null'] == '']]></code>
-      <code><![CDATA[$row['Null'] == '']]></code>
-    </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
@@ -9564,10 +9539,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$column['Null'] == '']]></code>
-      <code><![CDATA[$column['Null'] == '']]></code>
-    </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['maxY']]]></code>
     </InvalidArrayOffset>
@@ -10728,10 +10699,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$row['Null'] == '']]></code>
-      <code><![CDATA[$row['Null'] == '']]></code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$this->diagram->PageNo()]]></code>
       <code><![CDATA[$this->diagram->PageNo()]]></code>
@@ -10836,9 +10803,6 @@
     <PossiblyUnusedMethod>
       <code>isWithDataDictionary</code>
     </PossiblyUnusedMethod>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$row['Null'] != '']]></code>
-    </RedundantConditionGivenDocblockType>
     <UnusedProperty>
       <code>$bottomMargin</code>
       <code>$rightMargin</code>
@@ -13955,13 +13919,6 @@
     <UndefinedMethod>
       <code>expects</code>
     </UndefinedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/StructureControllerTest.php">
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $fields['datetimefield']['Type']]]></code>
-      <code><![CDATA[(string) $fields['id']['Type']]]></code>
-      <code><![CDATA[(string) $fields['name']['Type']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/CoreTest.php">
     <InvalidArgument>

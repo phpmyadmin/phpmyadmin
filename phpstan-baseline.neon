@@ -786,11 +786,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: "#^Strict comparison using \\!\\=\\= between 'NO'\\|'YES' and '' will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
 			message: "#^Cannot access offset 'dbName' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Database/DesignerController.php
@@ -2091,11 +2086,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 16
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
@@ -2207,11 +2197,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -2526,11 +2511,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
@@ -2743,11 +2723,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
@@ -4967,7 +4942,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Normalization.php
 
 		-
@@ -9084,11 +9059,6 @@ parameters:
 			message: "#^PHPDoc tag @var for variable \\$result has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: test/classes/Controllers/Table/ReplaceControllerTest.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 3
-			path: test/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
