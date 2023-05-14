@@ -45,7 +45,6 @@ use function stripcslashes;
 use function stripslashes;
 use function strlen;
 use function substr;
-use function time;
 use function trim;
 
 use const ENT_COMPAT;
@@ -306,6 +305,7 @@ class InsertEdit
      * @param ColumnFull $tableColumn  description of column in given table
      * @param string[]   $commentsMap  comments for every column that has a comment
      * @param int        $columnLength length of the current column taken from field metadata
+     * @param bool       $insertMode   whether insert mode
      *
      * @return mixed[]                   description of column in given table
      */
@@ -313,6 +313,7 @@ class InsertEdit
         ColumnFull $tableColumn,
         array $commentsMap,
         int $columnLength,
+        bool $insertMode,
     ): array {
         $column = [
             'Field' => $tableColumn->field,
@@ -361,6 +362,15 @@ class InsertEdit
 
         // can only occur once per table
         $column['first_timestamp'] = $column['True_Type'] === 'timestamp';
+
+        if (
+            $tableColumn->type === 'datetime'
+            && ! $tableColumn->isNull
+            && $tableColumn->default === null
+            && $insertMode
+        ) {
+            $column['Default'] = date('Y-m-d H:i:s');
+        }
 
         return $column;
     }
@@ -1725,7 +1735,7 @@ class InsertEdit
         array $columnMime,
         string $whereClause,
     ): string {
-        $column = $this->analyzeTableColumnsArray($tableColumn, $commentsMap, $columnLength);
+        $column = $this->analyzeTableColumnsArray($tableColumn, $commentsMap, $columnLength, $insertMode);
 
         $asIs = false;
         /** @var string $fieldHashMd5 */
@@ -1746,10 +1756,6 @@ class InsertEdit
         // Use an MD5 as an array index to avoid having special characters
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $fieldHashMd5 . ']';
-
-        if ($column['Type'] === 'datetime' && $column['Null'] !== 'YES' && ! isset($column['Default']) && $insertMode) {
-            $column['Default'] = date('Y-m-d H:i:s', time());
-        }
 
         // Get a list of GIS data types.
         $gisDataTypes = Gis::getDataTypes();

@@ -420,7 +420,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'analyzeTableColumnsArray',
-            [$column, [], -1],
+            [$column, [], -1, false],
         );
 
         $this->assertEquals($result['Field_md5'], '4342210df36bf2ff2c4e2a997a6d4089');
