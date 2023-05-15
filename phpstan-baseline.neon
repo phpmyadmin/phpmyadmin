@@ -9181,11 +9181,6 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Cannot access offset 'Field_title' on mixed\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
 			message: "#^Cannot access offset 'True_Type' on mixed\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php

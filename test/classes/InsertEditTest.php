@@ -429,8 +429,6 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals($result['len'], 100);
 
-        $this->assertEquals($result['Field_title'], '1&lt;2');
-
         $this->assertEquals($result['is_binary'], false);
 
         $this->assertEquals($result['is_blob'], false);

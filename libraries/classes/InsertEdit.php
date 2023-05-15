@@ -303,7 +303,6 @@ class InsertEdit
      * Analyze the table column array
      *
      * @param ColumnFull $tableColumn  description of column in given table
-     * @param string[]   $commentsMap  comments for every column that has a comment
      * @param int        $columnLength length of the current column taken from field metadata
      * @param bool       $insertMode   whether insert mode
      *
@@ -311,7 +310,6 @@ class InsertEdit
      */
     private function analyzeTableColumnsArray(
         ColumnFull $tableColumn,
-        array $commentsMap,
         int $columnLength,
         bool $insertMode,
     ): array {
@@ -336,7 +334,6 @@ class InsertEdit
             $column['len'] = 30;
         }
 
-        $column['Field_title'] = $this->getColumnTitle($tableColumn->field, $commentsMap);
         $column['is_binary'] = $this->isColumn(
             $tableColumn->type,
             ['binary', 'varbinary'],
@@ -1735,7 +1732,7 @@ class InsertEdit
         array $columnMime,
         string $whereClause,
     ): string {
-        $column = $this->analyzeTableColumnsArray($tableColumn, $commentsMap, $columnLength, $insertMode);
+        $column = $this->analyzeTableColumnsArray($tableColumn, $columnLength, $insertMode);
 
         $asIs = false;
         /** @var string $fieldHashMd5 */
@@ -2008,6 +2005,7 @@ class InsertEdit
             'select_option_for_upload' => $selectOptionForUpload,
             'limit_chars' => $GLOBALS['cfg']['LimitChars'],
             'input_field_html' => $inputFieldHtml,
+            'field_title' => $this->getColumnTitle($column['Field'], $commentsMap),
         ]);
     }
 

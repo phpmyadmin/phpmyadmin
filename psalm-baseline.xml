@@ -7611,6 +7611,7 @@
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['Field']]]></code>
+      <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
@@ -14303,7 +14304,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$result['Field']]]></code>
       <code><![CDATA[$result['Field_md5']]]></code>
-      <code><![CDATA[$result['Field_title']]]></code>
       <code><![CDATA[$result['True_Type']]]></code>
       <code><![CDATA[$result['is_binary']]]></code>
       <code><![CDATA[$result['is_blob']]]></code>
