@@ -3516,11 +3516,18 @@
                                         }
                             
                                     }
-                                    else if (p[0] != null && p[1] != null){
-                                        d = Math.sqrt( (x-p[0]) * (x-p[0]) + (y-p[1]) * (y-p[1]) );
+                                    else if (p[0] != null && p[1] != null && s.data[j] != null) {
+                                        d = Math.sqrt((x - p[0]) * (x - p[0]) + (y - p[1]) * (y - p[1]));
                                         if (d <= threshold && (d <= d0 || d0 == null)) {
-                                           d0 = d;
-                                           return {seriesIndex: i, pointIndex:j, gridData:p, data:s.data[j]};
+                                            d0 = d;
+                                            return { seriesIndex: i, pointIndex: j, gridData: p, data: s.data[j] };
+                                        }
+                                    }
+                                    else if (p[0] != null && p[1] != null && s.data[j] == null && s.data[0] != null) {
+                                        d = Math.sqrt((x - p[0]) * (x - p[0]) + (y - p[1]) * (y - p[1]));
+                                        if (d <= threshold && (d <= d0 || d0 == null)) {
+                                            d0 = d;
+                                            return { seriesIndex: i, pointIndex: j, gridData: p, data: s.data[0] };
                                         }
                                     }
                                 } 
