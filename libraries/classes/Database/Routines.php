@@ -1357,17 +1357,17 @@ class Routines
                 ) {
                     $params[$i]['generator'] = null;
                 } else {
-                    $field = [
-                        'True_Type' => mb_strtolower($routine['item_param_type'][$i]),
-                        'Type' => '',
-                        'Key' => '',
-                        'Field' => '',
-                        'Default' => '',
-                        'first_timestamp' => false,
-                    ];
-
-                    $generator = Generator::getFunctionsForField($field, false, []);
-                    $params[$i]['generator'] = $generator;
+                    $defaultFunction = Generator::getDefaultFunctionForField(
+                        mb_strtolower($routine['item_param_type'][$i]),
+                        false,
+                        '',
+                        '',
+                        false,
+                        '',
+                        '',
+                        false,
+                    );
+                    $params[$i]['generator'] = Generator::getFunctionsForField($defaultFunction, []);
                 }
             }
 
