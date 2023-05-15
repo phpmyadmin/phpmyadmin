@@ -4546,6 +4546,11 @@ parameters:
 			path: libraries/classes/IndexColumn.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 3
 			path: libraries/classes/InsertEdit.php

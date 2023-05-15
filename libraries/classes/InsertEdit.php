@@ -1873,6 +1873,7 @@ class InsertEdit
         $textareaCols = $GLOBALS['cfg']['TextareaCols'];
         $maxlength = '';
         $enumSelectedValue = '';
+        $enumValues = [];
         $columnSetValues = [];
         $setSelectSize = 0;
         $isColumnProtectedBlob = false;
@@ -1904,9 +1905,9 @@ class InsertEdit
             }
 
             if ($column['pma_type'] === 'enum') {
-                $column['values'] ??= $extractedColumnspec['enum_set_values'];
+                $enumValues = $extractedColumnspec['enum_set_values'];
 
-                foreach ($column['values'] as $enumValue) {
+                foreach ($enumValues as $enumValue) {
                     if (
                         $data == $enumValue || ($data == ''
                             && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
@@ -1917,10 +1918,8 @@ class InsertEdit
                     }
                 }
             } elseif ($column['pma_type'] === 'set') {
-                $columnSetValues = $column['values'] ?? $extractedColumnspec['enum_set_values'];
-                $setSelectSize = ! isset($column['values'])
-                    ? min(4, count($extractedColumnspec['enum_set_values']))
-                    : $column['select_size'];
+                $columnSetValues = $extractedColumnspec['enum_set_values'];
+                $setSelectSize = min(4, count($extractedColumnspec['enum_set_values']));
             } elseif ($column['is_binary'] || $column['is_blob']) {
                 $isColumnProtectedBlob = ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
@@ -1998,6 +1997,7 @@ class InsertEdit
             'max_length' => $maxlength,
             'longtext_double_textarea' => $GLOBALS['cfg']['LongtextDoubleTextarea'],
             'enum_selected_value' => $enumSelectedValue,
+            'enum_values' => $enumValues,
             'set_values' => $columnSetValues,
             'set_select_size' => $setSelectSize,
             'is_column_protected_blob' => $isColumnProtectedBlob,

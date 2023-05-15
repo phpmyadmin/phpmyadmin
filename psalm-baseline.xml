@@ -7697,7 +7697,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$columnSetValues</code>
-      <code><![CDATA[$column['values']]]></code>
       <code>$currCellEditedValues</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -7709,12 +7708,12 @@
       <code>$defaultValue</code>
       <code>$enumSelectedValue</code>
       <code>$enumValue</code>
+      <code>$enumValues</code>
       <code>$fieldsize</code>
       <code>$file</code>
       <code>$isUnsigned</code>
       <code>$maxlength</code>
       <code>$maxlength</code>
-      <code>$setSelectSize</code>
       <code>$singleQuery</code>
       <code>$specialChars</code>
       <code>$whereClause</code>

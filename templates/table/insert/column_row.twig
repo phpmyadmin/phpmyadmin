@@ -70,12 +70,12 @@
         {% if column.Type|length > 20 %}
           <select name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" class="textfield" id="field_{{ id_index }}_3" onchange="return verificationsAfterFieldChange('{{ column.Field_md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.pma_type }}')">
             <option value=""></option>
-            {% for enum_value in column.values %}
+            {% for enum_value in enum_values %}
               <option value="{{ enum_value }}"{{ enum_value == enum_selected_value ? ' selected' }}>{{ enum_value }}</option>
             {% endfor %}
           </select>
         {% else %}
-          {% for enum_value in column.values %}
+          {% for enum_value in enum_values %}
             <input type="radio" name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" value="{{ enum_value }}" class="textfield" id="field_{{ id_index }}_3_{{ loop.index0 }}" onchange="return verificationsAfterFieldChange('{{ column.Field_md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.pma_type }}')"{{ enum_value == enum_selected_value ? ' checked' }}>
             <label for="field_{{ id_index }}_3_{{ loop.index0 }}">{{ enum_value }}</label>
           {% endfor %}
