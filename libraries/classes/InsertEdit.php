@@ -1845,8 +1845,6 @@ class InsertEdit
 
                     if ($transformationPlugin instanceof IOTransformationsPlugin) {
                         $transformedHtml = $transformationPlugin->getInputHtml(
-                            $column,
-                            $rowId,
                             $columnNameAppendix,
                             $transformationOptions,
                             $currentValue,
