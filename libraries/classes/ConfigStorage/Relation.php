@@ -812,7 +812,7 @@ class Relation
             $value = (string) $value;
 
             if (mb_check_encoding($key, 'utf-8') && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)) {
-                $selected = ($key == $data);
+                $selected = ($key === $data);
                 // show as text if it's valid utf-8
                 $key = htmlspecialchars($key);
             } else {
@@ -1245,7 +1245,7 @@ class Relation
         }
 
         if ($relationParameters->pdfFeature !== null) {
-            if ($sourceDb == $targetDb) {
+            if ($sourceDb === $targetDb) {
                 // rename within the database can be handled
                 $this->renameSingleTable(
                     $relationParameters->pdfFeature->database,
@@ -1740,7 +1740,7 @@ class Relation
         $tables = [];
         $tablesRows = $this->dbi->query('SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb));
         while ($row = $tablesRows->fetchRow()) {
-            if (! isset($row[1]) || mb_strtoupper($row[1]) != $tblStorageEngine) {
+            if (! isset($row[1]) || mb_strtoupper($row[1]) !== $tblStorageEngine) {
                 continue;
             }
 

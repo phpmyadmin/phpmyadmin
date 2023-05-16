@@ -268,7 +268,7 @@ class IpAllowDeny
             $ruleData = explode(' ', $rule);
 
             // check for rule type
-            if ($ruleData[0] != $type) {
+            if ($ruleData[0] !== $type) {
                 continue;
             }
 
