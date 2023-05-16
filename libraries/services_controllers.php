@@ -38,6 +38,7 @@ use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
+use PhpMyAdmin\Theme\ThemeManager;
 
 return [
     'services' => [
@@ -446,7 +447,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
+                '$themeManager' => '@' . ThemeManager::class,
                 '$dbi' => '@dbi',
             ],
         ],
