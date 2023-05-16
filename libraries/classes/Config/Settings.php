@@ -22,7 +22,6 @@ use function is_int;
 use function is_string;
 use function min;
 use function sprintf;
-use function strlen;
 
 use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
@@ -3155,7 +3154,7 @@ final class Settings
         /** @var mixed $host */
         foreach ($settings['MysqlSslWarningSafeHosts'] as $host) {
             $safeHost = (string) $host;
-            if (strlen($safeHost) === 0) {
+            if ($safeHost === '') {
                 continue;
             }
 

@@ -960,7 +960,7 @@ class InsertEdit
         }
 
         if (! $gotoInclude) {
-            if (strlen($GLOBALS['table']) === 0) {
+            if ($GLOBALS['table'] === '') {
                 $gotoInclude = '/database/sql';
             } else {
                 $gotoInclude = '/table/sql';

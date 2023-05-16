@@ -35,7 +35,7 @@ class UserPassword
         $message = Message::success(__('The profile has been updated.'));
 
         if ($skipPassword === false) {
-            if (strlen($pmaPw) === 0 || strlen($pmaPw2) === 0) {
+            if ($pmaPw === '' || $pmaPw2 === '') {
                 $message = Message::error(__('The password is empty!'));
                 $error = true;
             } elseif ($pmaPw !== $pmaPw2) {

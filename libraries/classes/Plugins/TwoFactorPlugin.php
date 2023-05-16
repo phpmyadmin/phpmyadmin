@@ -16,7 +16,6 @@ use function __;
 use function is_array;
 use function parse_url;
 use function sprintf;
-use function strlen;
 
 /**
  * Two factor authentication plugin class
@@ -138,11 +137,11 @@ class TwoFactorPlugin
             }
         }
 
-        if (! isset($parsed['scheme']) || strlen($parsed['scheme']) === 0) {
+        if (! isset($parsed['scheme']) || $parsed['scheme'] === '') {
             $parsed['scheme'] = $GLOBALS['config']->isHttps() ? 'https' : 'http';
         }
 
-        if (! isset($parsed['host']) || strlen($parsed['host']) === 0) {
+        if (! isset($parsed['host']) || $parsed['host'] === '') {
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
 
