@@ -7255,19 +7255,19 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
-    <MixedAssignment>
-      <code>$pdf</code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code>Output</code>
-    </MixedMethodCall>
     <PossiblyInvalidArgument>
       <code>$results</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidMethodCall>
+      <code>Output</code>
+    </PossiblyInvalidMethodCall>
     <PossiblyInvalidOperand>
       <code>$results</code>
       <code>$results</code>
     </PossiblyInvalidOperand>
+    <PossiblyUndefinedMethod>
+      <code>Output</code>
+    </PossiblyUndefinedMethod>
     <RedundantCondition>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
@@ -8115,13 +8115,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code>$addMessage</code>
-      <code>$message</code>
-      <code>$message[$key]</code>
-      <code>$params</code>
-      <code>$string</code>
-      <code><![CDATA[$this->message]]></code>
-      <code><![CDATA[$this->params]]></code>
-      <code><![CDATA[$this->string]]></code>
       <code>$val</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -10311,7 +10304,6 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$cell</code>
-      <code>$cell</code>
       <code>$table[0]</code>
       <code>$table[1]</code>
       <code>$table[2][0]</code>
@@ -10321,7 +10313,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-      <code>$cell</code>
       <code>$cell</code>
     </MixedAssignment>
     <PossiblyUndefinedArrayOffset>
@@ -12612,7 +12603,6 @@
       <code><![CDATA[$oneResult['Status']]]></code>
       <code>$sortCol</code>
       <code><![CDATA[$statement->expr]]></code>
-      <code>Message::sanitize($warning)</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$showTable</code>

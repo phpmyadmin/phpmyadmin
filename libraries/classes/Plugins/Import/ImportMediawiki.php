@@ -516,7 +516,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @param string $cell Cell
      */
-    private function getCellData(string $cell): mixed
+    private function getCellData(string $cell): string
     {
         // A cell could contain both parameters and data
         $cellData = explode('|', $cell, 2);

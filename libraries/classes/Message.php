@@ -548,11 +548,14 @@ class Message implements Stringable
     /**
      * Sanitizes $message
      *
-     * @param mixed $message the message(s)
+     * @param T $message the message(s)
      *
-     * @return mixed  the sanitized message(s)
+     * @return string|mixed[]  the sanitized message(s)
+     * @psalm-return (T is array ? array : string)
+     *
+     * @template T of array|mixed
      */
-    public static function sanitize(mixed $message): mixed
+    public static function sanitize(mixed $message): string|array
     {
         if (is_array($message)) {
             foreach ($message as $key => $val) {
