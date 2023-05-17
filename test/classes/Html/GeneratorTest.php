@@ -6,9 +6,12 @@ namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
 use function _pgettext;
@@ -432,5 +435,71 @@ class GeneratorTest extends AbstractTestCase
             [['True_Type' => 'uuid', 'first_timestamp' => false, 'Key' => '', 'Type' => ''], true, ''],
             [['True_Type' => '', 'first_timestamp' => false, 'Key' => 'PRI', 'Type' => 'char(36)'], true, 'UUID'],
         ];
+    }
+
+    public function testGetMessage(): void
+    {
+        $GLOBALS['cfg']['ShowSQL'] = true;
+        $GLOBALS['display_query'] = null;
+        $GLOBALS['unparsed_sql'] = null;
+        $GLOBALS['sql_query'] = 'SELECT 1;';
+        $usingBookmarkMessage = Message::notice('Bookmark message');
+        $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
+        $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+        $GLOBALS['server'] = 2;
+        $GLOBALS['special_message'] = 'Message [em]two[/em].';
+        SessionCache::set('profiling_supported', true);
+
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $expected = <<<'HTML'
+<div class="alert alert-primary" role="alert">
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Bookmark message
+</div>
+<div class="result_query">
+<div class="alert alert-primary" role="alert">Message <em>one</em>.Message <em>two</em>.</div><div class="sqlOuter"><code class="sql"><pre>
+SELECT 1;
+</pre></code></div><div class="tools d-print-none"><form action="index.php?route=/sql&server=2&lang=en" method="post"><input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token"><input type="hidden" name="sql_query" value="SELECT 1;"><input type="hidden" name="profiling_form" value="1"><input type="checkbox" name="profiling" id="profilingCheckbox" class="autosubmit"> <label for="profilingCheckbox">Profiling</label></form> [&nbsp;<a href="#" class="inline_edit_sql">Edit inline</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/table/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en">Edit</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&server=2&lang=en">Explain SQL</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&show_as_php=1&server=2&lang=en">Create PHP code</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en">Refresh</a>&nbsp;]</div></div>
+HTML;
+        // phpcs:enable
+
+        $this->assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
+        $this->assertArrayNotHasKey('using_bookmark_message', $GLOBALS);
+        $this->assertArrayNotHasKey('special_message', $GLOBALS);
+        SessionCache::remove('profiling_supported');
+    }
+
+    public function testGetMessage2(): void
+    {
+        $GLOBALS['cfg']['ShowSQL'] = true;
+        $GLOBALS['cfg']['SQLQuery']['Edit'] = false;
+        $GLOBALS['cfg']['SQLQuery']['Refresh'] = true;
+        $GLOBALS['display_query'] = 'EXPLAIN SELECT 1;';
+        $GLOBALS['unparsed_sql'] = null;
+        $GLOBALS['sql_query'] = null;
+        $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+        $GLOBALS['server'] = 2;
+        $GLOBALS['show_as_php'] = true;
+        $GLOBALS['special_message'] = 'Message [em]two[/em].';
+        SessionCache::set('profiling_supported', true);
+
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $expected = <<<'HTML'
+<div class="result_query">
+<div class="alert alert-success" role="alert">
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
+</div>
+<div class="sqlOuter"><code class="php"><pre>
+$sql = "EXPLAIN SELECT 1;";
+</pre></code></div><div class="tools d-print-none"><form action="index.php?route=/sql&server=2&lang=en" method="post"><input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token"><input type="hidden" name="sql_query" value="EXPLAIN SELECT 1;"></form> [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&server=2&lang=en">Skip Explain SQL</a>] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en">Without PHP code</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en">Submit query</a>&nbsp;]</div></div>
+HTML;
+        // phpcs:enable
+
+        $this->assertSame($expected, Generator::getMessage(Message::success('Message [em]one[/em].')));
+        $this->assertArrayNotHasKey('special_message', $GLOBALS);
+        SessionCache::remove('profiling_supported');
     }
 }

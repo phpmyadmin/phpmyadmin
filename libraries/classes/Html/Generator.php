@@ -527,12 +527,12 @@ class Generator
                 $urlParams['db'] = $GLOBALS['db'];
                 if (strlen($GLOBALS['table']) > 0) {
                     $urlParams['table'] = $GLOBALS['table'];
-                    $editLink = Url::getFromRoute('/table/sql');
+                    $editLinkRoute = '/table/sql';
                 } else {
-                    $editLink = Url::getFromRoute('/database/sql');
+                    $editLinkRoute = '/database/sql';
                 }
             } else {
-                $editLink = Url::getFromRoute('/server/sql');
+                $editLinkRoute = '/server/sql';
             }
 
             // Want to have the query explained
@@ -546,16 +546,16 @@ class Generator
                     $explainParams['sql_query'] = 'EXPLAIN ' . $sqlQuery;
                     $explainLink = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import'),
-                            $explainParams,
+                            Url::getFromRoute('/import', $explainParams),
+                            null,
                             __('Explain SQL'),
                         ) . '&nbsp;]';
                 } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery)) {
                     $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
                     $explainLink = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import'),
-                            $explainParams,
+                            Url::getFromRoute('/import', $explainParams),
+                            null,
                             __('Skip Explain SQL'),
                         ) . ']';
                 }
@@ -568,7 +568,7 @@ class Generator
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($GLOBALS['cfg']['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
                 $editLink = ' [&nbsp;'
-                    . self::linkOrButton($editLink, $urlParams, __('Edit'))
+                    . self::linkOrButton(Url::getFromRoute($editLinkRoute, $urlParams), null, __('Edit'))
                     . '&nbsp;]';
             } else {
                 $editLink = '';
@@ -580,16 +580,16 @@ class Generator
                 if (! empty($GLOBALS['show_as_php'])) {
                     $phpLink = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import'),
-                            $urlParams,
+                            Url::getFromRoute('/import', $urlParams),
+                            null,
                             __('Without PHP code'),
                         )
                         . '&nbsp;]';
 
                     $phpLink .= ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import'),
-                            $urlParams,
+                            Url::getFromRoute('/import', $urlParams),
+                            null,
                             __('Submit query'),
                         )
                         . '&nbsp;]';
@@ -598,8 +598,8 @@ class Generator
                     $phpParams['show_as_php'] = 1;
                     $phpLink = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import'),
-                            $phpParams,
+                            Url::getFromRoute('/import', $phpParams),
+                            null,
                             __('Create PHP code'),
                         )
                         . '&nbsp;]';
@@ -616,7 +616,7 @@ class Generator
             ) {
                 $refreshLink = Url::getFromRoute('/sql', $urlParams);
                 $refreshLink = ' [&nbsp;'
-                    . self::linkOrButton($refreshLink, $urlParams, __('Refresh')) . '&nbsp;]';
+                    . self::linkOrButton($refreshLink, null, __('Refresh')) . '&nbsp;]';
             } else {
                 $refreshLink = '';
             }
