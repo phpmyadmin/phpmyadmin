@@ -80,7 +80,7 @@
           <td class="text-nowrap">{% trans 'Return type' %}</td>
           <td>
             <select name="item_returntype">
-              {{ get_supported_datatypes(true, routine.item_returntype) }}
+              {{ get_supported_datatypes(routine.item_returntype) }}
             </select>
           </td>
         </tr>

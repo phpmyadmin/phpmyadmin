@@ -3311,11 +3311,6 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php

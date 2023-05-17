@@ -78,7 +78,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'get_supported_datatypes',
-                Util::getSupportedDatatypes(...),
+                Generator::getSupportedDatatypes(...),
                 ['is_safe' => ['html']],
             ),
             new TwigFunction(

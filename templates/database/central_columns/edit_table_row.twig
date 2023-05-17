@@ -13,7 +13,7 @@
 
   <td name="col_type" class="text-nowrap">
     <select class="column_type" name="field_type[{{ row_num }}]" id="field_{{ row_num }}_1">
-      {{ get_supported_datatypes(true, row['col_type']|upper) }}
+      {{ get_supported_datatypes(row['col_type']|upper) }}
     </select>
   </td>
 

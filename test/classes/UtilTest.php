@@ -1813,4 +1813,57 @@ SQL;
         yield 'lower_case_table_names=1' => ['1', ''];
         yield 'lower_case_table_names=2' => ['2', 'COLLATE utf8_general_ci'];
     }
+
+    public function testGetSupportedDatatypes(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        $expected = [
+            'INT',
+            'VARCHAR',
+            'TEXT',
+            'DATE',
+            'TINYINT',
+            'SMALLINT',
+            'MEDIUMINT',
+            'INT',
+            'BIGINT',
+            'DECIMAL',
+            'FLOAT',
+            'DOUBLE',
+            'REAL',
+            'BIT',
+            'BOOLEAN',
+            'SERIAL',
+            'DATE',
+            'DATETIME',
+            'TIMESTAMP',
+            'TIME',
+            'YEAR',
+            'CHAR',
+            'VARCHAR',
+            'TINYTEXT',
+            'TEXT',
+            'MEDIUMTEXT',
+            'LONGTEXT',
+            'BINARY',
+            'VARBINARY',
+            'TINYBLOB',
+            'BLOB',
+            'MEDIUMBLOB',
+            'LONGBLOB',
+            'ENUM',
+            'SET',
+            'GEOMETRY',
+            'POINT',
+            'LINESTRING',
+            'POLYGON',
+            'MULTIPOINT',
+            'MULTILINESTRING',
+            'MULTIPOLYGON',
+            'GEOMETRYCOLLECTION',
+            'JSON',
+        ];
+        $this->assertSame($expected, Util::getSupportedDatatypes());
+    }
 }
