@@ -31,7 +31,7 @@ parameters:
 			path: libraries/classes/Advisor.php
 
 		-
-			message: "#^Parameter \\#2 \\$args of function vsprintf expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$args of function vsprintf expects array\\<bool\\|float\\|int\\|string\\|null\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php
 
@@ -10667,6 +10667,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:testLoadFirstRow\\(\\) has parameter \\$rowsValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/InsertEditTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, bool\\|float\\|int\\|object given\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
 

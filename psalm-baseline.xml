@@ -994,9 +994,6 @@
       <code>$tabs</code>
       <code>$tabs</code>
     </PossiblyNullIterator>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(string) $groupName</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Console.php">
     <PropertyNotSetInConstructor occurrences="1">
