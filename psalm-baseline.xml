@@ -13512,9 +13512,6 @@
       <code>$origAuthPlugin</code>
       <code>$origAuthPlugin</code>
     </PossiblyInvalidCast>
-    <UnusedVariable>
-      <code>$serverVersion</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/UserPreferences.php">
     <MixedArgumentTypeCoercion>

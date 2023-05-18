@@ -65,8 +65,6 @@ class UserPassword
 
         $serverVersion = $this->dbi->getVersion();
 
-        $serverVersion = $this->dbi->getVersion();
-
         $origAuthPlugin = $this->serverPrivileges->getCurrentAuthenticationPlugin($username, $hostname);
         $authPluginChanged = false;
 
