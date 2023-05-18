@@ -233,13 +233,11 @@ class EpsRelationSchema extends ExportRelationSchema
 
     /**
      * Draws tables
-     *
-     * @see TableStatsEps::Table_Stats_tableDraw()
      */
     private function drawTables(): void
     {
         foreach ($this->tables as $table) {
-            $table->tableDraw($this->showColor);
+            $table->tableDraw();
         }
     }
 }
