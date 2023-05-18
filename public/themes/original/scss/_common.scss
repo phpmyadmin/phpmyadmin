@@ -101,19 +101,6 @@ button {
   padding-top: 1em;
 }
 
-div.tools {
-  border: 1px solid #000;
-  padding: 0.2em;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-
-  /* avoid a thick line since this should be used under another fieldset */
-  border-top: 0;
-  text-align: right;
-  float: none;
-  clear: both;
-}
-
 .pma-fieldset.tblFooters {
   margin-top: 0;
   margin-bottom: 0.5em;
@@ -297,7 +284,6 @@ label.error {
   background: $th-background;
 }
 
-div.tools,
 .tblFooters {
   font-weight: normal;
   color: $th-color;
@@ -308,18 +294,6 @@ div.tools,
   &:link,
   &:active,
   &:visited {
-    color: #00f;
-  }
-
-  &:hover {
-    color: #f00;
-  }
-}
-
-div.tools a {
-  &:link,
-  &:visited,
-  &:active {
     color: #00f;
   }
 
@@ -821,31 +795,6 @@ kbd {
   box-shadow: none;
 }
 
-code {
-  font-size: 1em;
-  color: $main-color;
-
-  &.php {
-    display: block;
-    padding-left: 0.3em;
-    margin-top: 0;
-    margin-bottom: 0;
-    max-height: 10em;
-    overflow: auto;
-    direction: ltr;
-  }
-
-  &.sql {
-    display: block;
-    padding: 0.3em;
-    margin-top: 0;
-    margin-bottom: 0;
-    max-height: 10em;
-    overflow: auto;
-    direction: ltr;
-  }
-}
-
 div.sqlvalidate {
   display: block;
   padding: 0.3em;
@@ -862,10 +811,6 @@ div.sqlvalidate {
   border-top: 0;
   border-bottom: 0;
   background: $bg-one;
-}
-
-.result_query div.sqlOuter {
-  text-align: left;
 }
 
 #PMA_slidingMessage code.sql {
@@ -2715,10 +2660,6 @@ body {
 
 // Extra large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) {
-  div.tools {
-    text-align: left;
-  }
-
   .pma-fieldset.tblFooters,
   .tblFooters {
     text-align: left;

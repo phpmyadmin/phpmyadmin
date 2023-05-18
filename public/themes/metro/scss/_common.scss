@@ -382,20 +382,6 @@ select {
   margin-bottom: 20px;
 }
 
-div.tools {
-  padding: 10px;
-  text-align: right;
-
-  span {
-    float: right;
-    margin: 6px 2px;
-  }
-
-  a {
-    color: var(--blue-header) !important;
-  }
-}
-
 .pma-fieldset.tblFooters {
   margin-top: -1px;
   border-top: 0;
@@ -589,7 +575,6 @@ img.lightbulb {
   font-weight: normal;
 }
 
-div.tools,
 .tblFooters {
   font-weight: normal;
   color: $th-color;
@@ -597,7 +582,6 @@ div.tools,
 }
 
 .tblHeaders,
-div.tools,
 .tblFooters {
   a {
     &:link,
@@ -1089,7 +1073,6 @@ code {
   }
 }
 
-.sqlOuter code.sql,
 div.sqlvalidate,
 #inline_editor_outer {
   display: block;
@@ -2869,10 +2852,6 @@ body {
 
 // Extra large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) {
-  div.tools {
-    text-align: left;
-  }
-
   .pma-fieldset.tblFooters,
   .tblFooters {
     text-align: left;
