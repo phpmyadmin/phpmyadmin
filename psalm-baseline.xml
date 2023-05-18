@@ -996,7 +996,6 @@
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code>$db</code>
       <code>$html</code>
       <code>$page</code>
       <code><![CDATA[$position['dbName']]]></code>
@@ -5142,9 +5141,6 @@
       <code>$indexArray1</code>
       <code>$indexArray2</code>
     </PossiblyNullArrayOffset>
-    <PossiblyUnusedParam>
-      <code>$db</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Database/Designer/DesignerTable.php">
     <PossiblyUnusedMethod>
@@ -9201,9 +9197,6 @@
       <code>$comments</code>
       <code>$mimeMap</code>
     </PossiblyUndefinedVariable>
-    <PossiblyUnusedParam>
-      <code>$view</code>
-    </PossiblyUnusedParam>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
@@ -9428,12 +9421,6 @@
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyUnusedParam>
-      <code>$addSemicolon</code>
-      <code>$errorUrl</code>
-      <code>$showDates</code>
-      <code>$view</code>
-    </PossiblyUnusedParam>
     <PossiblyUnusedReturnValue>
       <code>string</code>
     </PossiblyUnusedReturnValue>
@@ -9735,12 +9722,6 @@
       <code>$comments</code>
       <code>$mimeMap</code>
     </PossiblyUndefinedVariable>
-    <PossiblyUnusedParam>
-      <code>$addSemicolon</code>
-      <code>$errorUrl</code>
-      <code>$showDates</code>
-      <code>$view</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportXml.php">
     <InvalidArrayOffset>
@@ -10095,10 +10076,6 @@
       <code>$resRel</code>
       <code>$resRel</code>
     </PossiblyUndefinedVariable>
-    <PossiblyUnusedParam>
-      <code>$aliases</code>
-      <code>$view</code>
-    </PossiblyUnusedParam>
     <PropertyNotSetInConstructor>
       <code>$results</code>
       <code>Pdf</code>
@@ -13819,9 +13796,6 @@
       <code>$newData[$newName]</code>
       <code>$value</code>
     </MixedAssignment>
-    <PossiblyUnusedParam>
-      <code>$time</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/services_loader.php">
     <MixedArgument>

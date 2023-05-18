@@ -317,7 +317,6 @@ class ExportHtmlword extends ExportPlugin
      *                             export types which use this parameter
      * @param bool    $doMime     whether to include mime comments
      *                             at the end
-     * @param bool    $view       whether we're handling a view
      * @param mixed[] $aliases    Aliases of db/table/columns
      *
      * @return string resulting schema
@@ -328,7 +327,6 @@ class ExportHtmlword extends ExportPlugin
         bool $doRelation,
         bool $doComments,
         bool $doMime,
-        bool $view = false,
         array $aliases = [],
     ): string {
         $relationParameters = $this->relation->getRelationParameters();
@@ -532,7 +530,7 @@ class ExportHtmlword extends ExportPlugin
                 . __('Table structure for table') . ' '
                 . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, false, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
@@ -548,7 +546,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= '<h2>'
                 . __('Structure for view') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, true, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '<h2>'

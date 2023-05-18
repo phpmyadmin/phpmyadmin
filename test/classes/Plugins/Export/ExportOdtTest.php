@@ -632,7 +632,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->getTableDef(
                 'database',
                 '',
-                'example.com',
                 true,
                 true,
                 true,
@@ -715,7 +714,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->getTableDef(
                 'database',
                 '',
-                'example.com',
                 true,
                 true,
                 true,

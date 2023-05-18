@@ -489,7 +489,6 @@ class Common
     /**
      * Adds a new foreign relation
      *
-     * @param string $db       database name
      * @param string $t1       foreign table
      * @param string $f1       foreign field
      * @param string $t2       master table
@@ -503,7 +502,6 @@ class Common
      * @psalm-return array{0: bool, 1: string}
      */
     public function addNewRelation(
-        string $db,
         string $t1,
         string $f1,
         string $t2,

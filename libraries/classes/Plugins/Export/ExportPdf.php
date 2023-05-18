@@ -272,13 +272,13 @@ class ExportPdf extends ExportPlugin
          */
         switch ($exportMode) {
             case 'create_table':
-                $pdf->getTableDef($db, $table, $doRelation, true, $doMime, false, $aliases);
+                $pdf->getTableDef($db, $table, $doRelation, true, $doMime);
                 break;
             case 'triggers':
                 $pdf->getTriggers($db, $table);
                 break;
             case 'create_view':
-                $pdf->getTableDef($db, $table, $doRelation, true, $doMime, false, $aliases);
+                $pdf->getTableDef($db, $table, $doRelation, true, $doMime);
                 break;
             case 'stand_in':
                 // export a stand-in definition to resolve view dependencies

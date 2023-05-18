@@ -305,35 +305,27 @@ class ExportTexytext extends ExportPlugin
     /**
      * Returns $table's CREATE definition
      *
-     * @param string  $db           the database name
-     * @param string  $table        the table name
-     * @param string  $errorUrl     the url to go back in case of error
-     * @param bool    $doRelation   whether to include relation comments
-     * @param bool    $doComments   whether to include the pmadb-style column
-     *                               comments as comments in the structure;
-     *                               this is deprecated but the parameter is
-     *                               left here because /export calls
-     *                               $this->exportStructure() also for other
-     *                               export types which use this parameter
-     * @param bool    $doMime       whether to include mime comments
-     * @param bool    $showDates    whether to include creation/update/check dates
-     * @param bool    $addSemicolon whether to add semicolon and end-of-line
-     *                               at the end
-     * @param bool    $view         whether we're handling a view
-     * @param mixed[] $aliases      Aliases of db/table/columns
+     * @param string  $db         the database name
+     * @param string  $table      the table name
+     * @param bool    $doRelation whether to include relation comments
+     * @param bool    $doComments whether to include the pmadb-style column
+     *                             comments as comments in the structure;
+     *                             this is deprecated but the parameter is
+     *                             left here because /export calls
+     *                             $this->exportStructure() also for other
+     *                             export types which use this parameter
+     * @param bool    $doMime     whether to include mime comments
+     *                             at the end
+     * @param mixed[] $aliases    Aliases of db/table/columns
      *
      * @return string resulting schema
      */
     public function getTableDef(
         string $db,
         string $table,
-        string $errorUrl,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
-        bool $showDates = false,
-        bool $addSemicolon = true,
-        bool $view = false,
         array $aliases = [],
     ): string {
         $relationParameters = $this->relation->getRelationParameters();
@@ -503,18 +495,7 @@ class ExportTexytext extends ExportPlugin
             case 'create_table':
                 $dump .= '== ' . __('Table structure for table') . ' '
                 . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef(
-                    $db,
-                    $table,
-                    $errorUrl,
-                    $doRelation,
-                    $doComments,
-                    $doMime,
-                    $dates,
-                    true,
-                    false,
-                    $aliases,
-                );
+                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
@@ -526,18 +507,7 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'create_view':
                 $dump .= '== ' . __('Structure for view') . ' ' . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef(
-                    $db,
-                    $table,
-                    $errorUrl,
-                    $doRelation,
-                    $doComments,
-                    $doMime,
-                    $dates,
-                    true,
-                    true,
-                    $aliases,
-                );
+                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '== ' . __('Stand-in structure for view')

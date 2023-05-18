@@ -310,7 +310,7 @@ class ExportTexytextTest extends AbstractTestCase
             [$GLOBALS['server'] => $relationParameters],
         );
 
-        $result = $this->object->getTableDef('db', 'table', 'example.com', true, true, true);
+        $result = $this->object->getTableDef('db', 'table', true, true, true);
 
         $this->assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }
