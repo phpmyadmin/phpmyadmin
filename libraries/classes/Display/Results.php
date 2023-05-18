@@ -1890,10 +1890,10 @@ class Results
      *
      * @see     getTable()
      *
-     * @param ResultInterface         $dtResult         the link id associated to the query
-     *                                                                    which results have to be displayed
-     * @param array<string, string[]> $map              the list of relations
-     * @param bool                    $isLimitedDisplay with limited operations or not
+     * @param ResultInterface          $dtResult         the link id associated to the query
+     *                                                                     which results have to be displayed
+     * @param ForeignKeyRelatedTable[] $map              the list of relations
+     * @param bool                     $isLimitedDisplay with limited operations or not
      *
      * @return string  html content
      *
@@ -2218,16 +2218,16 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param mixed[]                 $row         current row data
-     * @param int                     $rowNumber   the index of current row
-     * @param mixed[]|false           $colOrder    the column order false when
-     *                                            a property not found false
-     *                                            when a property not found
-     * @param array<string, string[]> $map         the list of relations
-     * @param bool|mixed[]|string     $colVisib    column is visible(false);
-     *                                            column isn't visible(string
-     *                                            array)
-     * @param string                  $urlSqlQuery the analyzed sql query
+     * @param mixed[]                  $row         current row data
+     * @param int                      $rowNumber   the index of current row
+     * @param mixed[]|false            $colOrder    the column order false when
+     *                                             a property not found false
+     *                                             when a property not found
+     * @param ForeignKeyRelatedTable[] $map         the list of relations
+     * @param bool|mixed[]|string      $colVisib    column is visible(false);
+     *                                             column isn't visible(string
+     *                                             array)
+     * @param string                   $urlSqlQuery the analyzed sql query
      * @psalm-param 'double-click'|'click'|'disabled' $gridEditConfig
      *
      * @return string  html content
@@ -2847,12 +2847,12 @@ class Results
      *
      * @see    getTableBody()
      *
-     * @param string|null             $column           the column's value
-     * @param string                  $class            the html class for column
-     * @param bool                    $conditionField   the column should highlighted or not
-     * @param FieldMetadata           $meta             the meta-information about this field
-     * @param array<string, string[]> $map              the list of relations
-     * @param mixed[]                 $transformOptions the transformation parameters
+     * @param string|null              $column           the column's value
+     * @param string                   $class            the html class for column
+     * @param bool                     $conditionField   the column should highlighted or not
+     * @param FieldMetadata            $meta             the meta-information about this field
+     * @param ForeignKeyRelatedTable[] $map              the list of relations
+     * @param mixed[]                  $transformOptions the transformation parameters
      *
      * @return string the prepared cell, html content
      */
@@ -2896,13 +2896,13 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param string|null             $column           the relevant column in data row
-     * @param string                  $class            the html class for column
-     * @param FieldMetadata           $meta             the meta-information about this field
-     * @param array<string, string[]> $map              the list of relations
-     * @param mixed[]                 $urlParams        the parameters for generate url
-     * @param bool                    $conditionField   the column should highlighted or not
-     * @param mixed[]                 $transformOptions the transformation parameters
+     * @param string|null              $column           the relevant column in data row
+     * @param string                   $class            the html class for column
+     * @param FieldMetadata            $meta             the meta-information about this field
+     * @param ForeignKeyRelatedTable[] $map              the list of relations
+     * @param mixed[]                  $urlParams        the parameters for generate url
+     * @param bool                     $conditionField   the column should highlighted or not
+     * @param mixed[]                  $transformOptions the transformation parameters
      *
      * @return string the prepared data cell, html content
      */
@@ -3012,13 +3012,13 @@ class Results
      *
      * @see    getTableBody()
      *
-     * @param string|null             $column           the relevant column in data row
-     * @param string                  $class            the html class for column
-     * @param FieldMetadata           $meta             the meta-information about the field
-     * @param array<string, string[]> $map              the list of relations
-     * @param mixed[]                 $urlParams        the parameters for generate url
-     * @param bool                    $conditionField   the column should highlighted or not
-     * @param mixed[]                 $transformOptions the transformation parameters
+     * @param string|null              $column           the relevant column in data row
+     * @param string                   $class            the html class for column
+     * @param FieldMetadata            $meta             the meta-information about the field
+     * @param ForeignKeyRelatedTable[] $map              the list of relations
+     * @param mixed[]                  $urlParams        the parameters for generate url
+     * @param bool                     $conditionField   the column should highlighted or not
+     * @param mixed[]                  $transformOptions the transformation parameters
      *
      * @return string the prepared data cell, html content
      */
@@ -3442,17 +3442,17 @@ class Results
 
         if ($this->properties['table'] !== '') {
             // This method set the values for $map array
-            $map = $this->setParamForLinkForeignKeyRelatedTables($map);
+            $map = $this->getForeignKeyRelatedTables();
 
             // Coming from 'Distinct values' action of structure page
             // We manipulate relations mechanism to show a link to related rows.
             if ($this->properties['is_browse_distinct']) {
-                $map[$fieldsMeta[1]->name] = [
+                $map[$fieldsMeta[1]->name] = new ForeignKeyRelatedTable(
                     $this->properties['table'],
                     $fieldsMeta[1]->name,
                     '',
                     $this->properties['db'],
-                ];
+                );
             }
         }
 
@@ -3735,13 +3735,9 @@ class Results
     /**
      * Set the value of $map array for linking foreign key related tables
      *
-     * @see      getTable()
-     *
-     * @param array<string, string[]> $map the list of relations
-     *
-     * @return array<string, string[]>
+     * @return ForeignKeyRelatedTable[]
      */
-    private function setParamForLinkForeignKeyRelatedTables(array $map): array
+    private function getForeignKeyRelatedTables(): array
     {
         // To be able to later display a link to the related table,
         // we verify both types of relations: either those that are
@@ -3757,13 +3753,19 @@ class Results
         );
 
         if ($existRel === []) {
-            return $map;
+            return [];
         }
 
+        $map = [];
         foreach ($existRel as $masterField => $rel) {
             if ($masterField !== 'foreign_keys_data') {
                 $displayField = $this->relation->getDisplayField($rel['foreign_db'], $rel['foreign_table']);
-                $map[$masterField] = [$rel['foreign_table'], $rel['foreign_field'], $displayField, $rel['foreign_db']];
+                $map[$masterField] = new ForeignKeyRelatedTable(
+                    $rel['foreign_table'],
+                    $rel['foreign_field'],
+                    $displayField,
+                    $rel['foreign_db'],
+                );
             } else {
                 foreach ($rel as $oneKey) {
                     foreach ($oneKey['index_list'] as $index => $oneField) {
@@ -3772,12 +3774,12 @@ class Results
                             $oneKey['ref_table_name'],
                         );
 
-                        $map[$oneField] = [
+                        $map[$oneField] = new ForeignKeyRelatedTable(
                             $oneKey['ref_table_name'],
                             $oneKey['ref_index_list'][$index],
                             $displayField,
                             $oneKey['ref_db_name'] ?? $GLOBALS['db'],
-                        ];
+                        );
                     }
                 }
             }
@@ -4024,21 +4026,21 @@ class Results
     /**
      * Retrieves the associated foreign key info for a data cell
      *
-     * @param string[] $fieldInfo       the relation
-     * @param string   $whereComparison data for the where clause
+     * @param ForeignKeyRelatedTable $fieldInfo       the relation
+     * @param string                 $whereComparison data for the where clause
      *
      * @return string|null  formatted data
      */
-    private function getFromForeign(array $fieldInfo, string $whereComparison): string|null
+    private function getFromForeign(ForeignKeyRelatedTable $fieldInfo, string $whereComparison): string|null
     {
         $dispsql = 'SELECT '
-            . Util::backquote($fieldInfo[2])
+            . Util::backquote($fieldInfo->displayField)
             . ' FROM '
-            . Util::backquote($fieldInfo[3])
+            . Util::backquote($fieldInfo->database)
             . '.'
-            . Util::backquote($fieldInfo[0])
+            . Util::backquote($fieldInfo->table)
             . ' WHERE '
-            . Util::backquote($fieldInfo[1])
+            . Util::backquote($fieldInfo->field)
             . $whereComparison;
 
         $dispval = $this->dbi->fetchValue($dispsql);
@@ -4063,17 +4065,17 @@ class Results
      * @see     getDataCellForNumericColumns(), getDataCellForGeometryColumns(),
      *          getDataCellForNonNumericColumns(),
      *
-     * @param string                  $class            css classes for the td element
-     * @param bool                    $conditionField   whether the column is a part of the where clause
-     * @param FieldMetadata           $meta             the meta-information about the field
-     * @param array<string, string[]> $map              the list of relations
-     * @param string                  $data             data
-     * @param string                  $displayedData    data that will be displayed (maybe be chunked)
-     * @param string                  $nowrap           'nowrap' if the content should not be wrapped
-     * @param string                  $whereComparison  data for the where clause
-     * @param mixed[]                 $transformOptions options for transformation
-     * @param bool                    $isFieldTruncated whether the field is truncated
-     * @param string                  $originalLength   of a truncated column, or ''
+     * @param string                   $class            css classes for the td element
+     * @param bool                     $conditionField   whether the column is a part of the where clause
+     * @param FieldMetadata            $meta             the meta-information about the field
+     * @param ForeignKeyRelatedTable[] $map              the list of relations
+     * @param string                   $data             data
+     * @param string                   $displayedData    data that will be displayed (maybe be chunked)
+     * @param string                   $nowrap           'nowrap' if the content should not be wrapped
+     * @param string                   $whereComparison  data for the where clause
+     * @param mixed[]                  $transformOptions options for transformation
+     * @param bool                     $isFieldTruncated whether the field is truncated
+     * @param string                   $originalLength   of a truncated column, or ''
      *
      * @return string  formatted data
      */
@@ -4119,14 +4121,12 @@ class Results
         }
 
         if (isset($map[$meta->name])) {
-            /** @var array{0: string, 1: string, 2: string, 3: string} $relation */
             $relation = $map[$meta->name];
             // Field to display from the foreign table?
             $dispval = '';
 
             // Check that we have a valid column name
-            // Relation::getDisplayField() returns false by default
-            if ($relation[2] !== '') {
+            if ($relation->displayField !== '') {
                 $dispval = $this->getFromForeign($relation, $whereComparison);
             }
 
@@ -4140,15 +4140,15 @@ class Results
                 $value .= ' <code>[-&gt;' . $dispval . ']</code>';
             } else {
                 $sqlQuery = 'SELECT * FROM '
-                    . Util::backquote($relation[3]) . '.'
-                    . Util::backquote($relation[0])
+                    . Util::backquote($relation->database) . '.'
+                    . Util::backquote($relation->table)
                     . ' WHERE '
-                    . Util::backquote($relation[1])
+                    . Util::backquote($relation->field)
                     . $whereComparison;
 
                 $urlParams = [
-                    'db' => $relation[3],
-                    'table' => $relation[0],
+                    'db' => $relation->database,
+                    'table' => $relation->table,
                     'pos' => '0',
                     'sql_signature' => Core::signSqlQuery($sqlQuery),
                     'sql_query' => $sqlQuery,
@@ -4158,7 +4158,7 @@ class Results
                     // always apply a transformation on the real data,
                     // not on the display field
                     $displayedData = $transformationPlugin->applyTransformation($data, $transformOptions, $meta);
-                } elseif ($relationalDisplay === self::RELATIONAL_DISPLAY_COLUMN && $relation[2] !== '') {
+                } elseif ($relationalDisplay === self::RELATIONAL_DISPLAY_COLUMN && $relation->displayField !== '') {
                     // user chose "relational display field" in the
                     // display options, so show display field in the cell
                     $displayedData = $dispval === null ? '<em>NULL</em>' : Core::mimeDefaultFunction($dispval);
