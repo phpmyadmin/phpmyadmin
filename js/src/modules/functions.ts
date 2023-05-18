@@ -1095,9 +1095,9 @@ function onloadSqlQueryEditEvents () {
             return false;
         }
 
-        var $form = $(this).prev('form');
+        var $form = $('.result_query form');
         var sqlQuery = ($form.find('input[name=\'sql_query\']').val() as string).trim();
-        var $innerSql = $(this).parent().prev().find('code.sql');
+        var $innerSql = $('.result_query').find('code.sql');
 
         var newContent = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sqlQuery) + '</textarea>\n';
         newContent += Functions.getForeignKeyCheckboxLoader();

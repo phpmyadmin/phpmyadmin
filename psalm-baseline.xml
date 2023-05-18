@@ -7399,7 +7399,6 @@
       <code><![CDATA[$GLOBALS['cfg']['SQLQuery']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
-      <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code><![CDATA[$GLOBALS['using_bookmark_message']]]></code>
       <code><![CDATA[$server['socket']]]></code>
       <code><![CDATA[$server['ssl']]]></code>
@@ -7407,7 +7406,6 @@
       <code><![CDATA[$server['ssl_verify']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code>$alt</code>
       <code>$defaultFunction</code>

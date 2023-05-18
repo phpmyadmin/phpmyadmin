@@ -13,7 +13,6 @@ use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
@@ -453,217 +452,230 @@ class Generator
             unset($GLOBALS['using_bookmark_message']);
         }
 
-        if ($renderSql) {
-            $retval .= '<div class="result_query">' . "\n";
-        }
-
-        if ($message instanceof Message) {
-            if (isset($GLOBALS['special_message'])) {
-                $message->addText($GLOBALS['special_message']);
-                unset($GLOBALS['special_message']);
-            }
-
-            $retval .= $message->getDisplay();
-        } else {
-            $context = 'primary';
+        if (is_string($message)) {
+            $context = Message::NOTICE;
             if ($type === 'error') {
-                $context = 'danger';
+                $context = Message::ERROR;
             } elseif ($type === 'success') {
-                $context = 'success';
+                $context = Message::SUCCESS;
             }
 
-            $retval .= '<div class="alert alert-' . $context . '" role="alert">';
-            $retval .= Sanitize::sanitizeMessage($message);
-            if (isset($GLOBALS['special_message'])) {
-                $retval .= Sanitize::sanitizeMessage($GLOBALS['special_message']);
-                unset($GLOBALS['special_message']);
-            }
-
-            $retval .= '</div>';
+            $message = new Message($message, $context);
         }
 
-        if ($renderSql) {
-            $queryTooBig = false;
+        if (isset($GLOBALS['special_message'])) {
+            $message->addText($GLOBALS['special_message']);
+            unset($GLOBALS['special_message']);
+        }
 
-            $queryLength = mb_strlen($sqlQuery);
-            if ($queryLength > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                // when the query is large (for example an INSERT of binary
-                // data), the parser chokes; so avoid parsing the query
-                $queryTooBig = true;
-                $queryBase = mb_substr($sqlQuery, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+        $retval .= $message->getDisplay();
+
+        if (! $renderSql) {
+            return $retval;
+        }
+
+        $retval .= '<div class="card result_query">' . "\n";
+
+        $queryTooBig = false;
+
+        $queryLength = mb_strlen($sqlQuery);
+        if ($queryLength > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+            // when the query is large (for example an INSERT of binary
+            // data), the parser chokes; so avoid parsing the query
+            $queryTooBig = true;
+            $queryBase = mb_substr($sqlQuery, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+        } else {
+            $queryBase = $sqlQuery;
+        }
+
+        // Html format the query to be displayed
+        // If we want to show some sql code it is easiest to create it here
+        /* SQL-Parser-Analyzer */
+
+        if (! empty($GLOBALS['show_as_php'])) {
+            $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
+            $queryBase = htmlspecialchars(addslashes($queryBase));
+            $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
+            $queryBase = '<code class="php" dir="ltr"><pre>' . "\n"
+                . '$sql = "' . $queryBase . '";' . "\n"
+                . '</pre></code>';
+        } elseif ($queryTooBig) {
+            $queryBase = '<code class="sql" dir="ltr"><pre>' . "\n"
+                . htmlspecialchars($queryBase, ENT_COMPAT) . '</pre></code>';
+        } else {
+            $queryBase = self::formatSql($queryBase);
+        }
+
+        // Prepares links that may be displayed to edit/explain the query
+        // (don't go to default pages, we must go to the page
+        // where the query box is available)
+
+        // Basic url query part
+        $urlParams = [];
+        if (! isset($GLOBALS['db'])) {
+            $GLOBALS['db'] = '';
+        }
+
+        if (strlen($GLOBALS['db']) > 0) {
+            $urlParams['db'] = $GLOBALS['db'];
+            if (strlen($GLOBALS['table']) > 0) {
+                $urlParams['table'] = $GLOBALS['table'];
+                $editLinkRoute = '/table/sql';
             } else {
-                $queryBase = $sqlQuery;
+                $editLinkRoute = '/database/sql';
             }
+        } else {
+            $editLinkRoute = '/server/sql';
+        }
 
-            // Html format the query to be displayed
-            // If we want to show some sql code it is easiest to create it here
-            /* SQL-Parser-Analyzer */
-
-            if (! empty($GLOBALS['show_as_php'])) {
-                $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
-                $queryBase = htmlspecialchars(addslashes($queryBase));
-                $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
-                $queryBase = '<code class="php"><pre>' . "\n"
-                    . '$sql = "' . $queryBase . '";' . "\n"
-                    . '</pre></code>';
-            } elseif ($queryTooBig) {
-                $queryBase = '<code class="sql"><pre>' . "\n"
-                    . htmlspecialchars($queryBase, ENT_COMPAT) . '</pre></code>';
-            } else {
-                $queryBase = self::formatSql($queryBase);
-            }
-
-            // Prepares links that may be displayed to edit/explain the query
-            // (don't go to default pages, we must go to the page
-            // where the query box is available)
-
-            // Basic url query part
-            $urlParams = [];
-            if (! isset($GLOBALS['db'])) {
-                $GLOBALS['db'] = '';
-            }
-
-            if (strlen($GLOBALS['db']) > 0) {
-                $urlParams['db'] = $GLOBALS['db'];
-                if (strlen($GLOBALS['table']) > 0) {
-                    $urlParams['table'] = $GLOBALS['table'];
-                    $editLinkRoute = '/table/sql';
-                } else {
-                    $editLinkRoute = '/database/sql';
-                }
-            } else {
-                $editLinkRoute = '/server/sql';
-            }
-
-            // Want to have the query explained
-            // but only explain a SELECT (that has not been explained)
-            /* SQL-Parser-Analyzer */
-            $explainLink = '';
-            $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery);
-            if (! empty($GLOBALS['cfg']['SQLQuery']['Explain']) && ! $queryTooBig) {
-                $explainParams = $urlParams;
-                if ($isSelect) {
-                    $explainParams['sql_query'] = 'EXPLAIN ' . $sqlQuery;
-                    $explainLink = ' [&nbsp;'
-                        . self::linkOrButton(
-                            Url::getFromRoute('/import', $explainParams),
-                            null,
-                            __('Explain SQL'),
-                        ) . '&nbsp;]';
-                } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery)) {
-                    $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
-                    $explainLink = ' [&nbsp;'
-                        . self::linkOrButton(
-                            Url::getFromRoute('/import', $explainParams),
-                            null,
-                            __('Skip Explain SQL'),
-                        ) . ']';
-                }
-            }
-
-            $urlParams['sql_query'] = $sqlQuery;
-            $urlParams['show_query'] = 1;
-
-            // even if the query is big and was truncated, offer the chance
-            // to edit it (unless it's enormous, see linkOrButton() )
-            if (! empty($GLOBALS['cfg']['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
-                $editLink = ' [&nbsp;'
-                    . self::linkOrButton(Url::getFromRoute($editLinkRoute, $urlParams), null, __('Edit'))
-                    . '&nbsp;]';
-            } else {
-                $editLink = '';
-            }
-
-            // Also we would like to get the SQL formed in some nice
-            // php-code
-            if (! empty($GLOBALS['cfg']['SQLQuery']['ShowAsPHP']) && ! $queryTooBig) {
-                if (! empty($GLOBALS['show_as_php'])) {
-                    $phpLink = ' [&nbsp;'
-                        . self::linkOrButton(
-                            Url::getFromRoute('/import', $urlParams),
-                            null,
-                            __('Without PHP code'),
-                        )
-                        . '&nbsp;]';
-
-                    $phpLink .= ' [&nbsp;'
-                        . self::linkOrButton(
-                            Url::getFromRoute('/import', $urlParams),
-                            null,
-                            __('Submit query'),
-                        )
-                        . '&nbsp;]';
-                } else {
-                    $phpParams = $urlParams;
-                    $phpParams['show_as_php'] = 1;
-                    $phpLink = ' [&nbsp;'
-                        . self::linkOrButton(
-                            Url::getFromRoute('/import', $phpParams),
-                            null,
-                            __('Create PHP code'),
-                        )
-                        . '&nbsp;]';
-                }
-            } else {
-                $phpLink = '';
-            }
-
-            // Refresh query
-            if (
-                ! empty($GLOBALS['cfg']['SQLQuery']['Refresh'])
-                && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
-                && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery)
-            ) {
-                $refreshLink = Url::getFromRoute('/sql', $urlParams);
-                $refreshLink = ' [&nbsp;'
-                    . self::linkOrButton($refreshLink, null, __('Refresh')) . '&nbsp;]';
-            } else {
-                $refreshLink = '';
-            }
-
-            $retval .= '<div class="sqlOuter">';
-            $retval .= $queryBase;
-            $retval .= '</div>';
-
-            $retval .= '<div class="tools d-print-none">';
-            $retval .= '<form action="' . Url::getFromRoute('/sql') . '" method="post">';
-            $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-            $retval .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($sqlQuery) . '">';
-
-            // avoid displaying a Profiling checkbox that could
-            // be checked, which would re-execute an INSERT, for example
-            if ($refreshLink !== '' && Profiling::isSupported($GLOBALS['dbi'])) {
-                $retval .= '<input type="hidden" name="profiling_form" value="1">';
-                $retval .= '<input type="checkbox" name="profiling" id="profilingCheckbox" class="autosubmit"';
-                $retval .= isset($_SESSION['profiling']) ? ' checked' : '';
-                $retval .= '> <label for="profilingCheckbox">' . __('Profiling') . '</label>';
-            }
-
-            $retval .= '</form>';
-
-            /**
-             * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
-             */
-            if (! empty($GLOBALS['cfg']['SQLQuery']['Edit']) && ! $queryTooBig && empty($GLOBALS['show_as_php'])) {
-                $inlineEditLink = ' [&nbsp;'
+        // Want to have the query explained
+        // but only explain a SELECT (that has not been explained)
+        /* SQL-Parser-Analyzer */
+        $explainLink = '';
+        $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery);
+        if (! empty($GLOBALS['cfg']['SQLQuery']['Explain']) && ! $queryTooBig) {
+            $explainParams = $urlParams;
+            if ($isSelect) {
+                $explainParams['sql_query'] = 'EXPLAIN ' . $sqlQuery;
+                $explainLink = '<div class="col-auto">'
                     . self::linkOrButton(
-                        '#',
+                        Url::getFromRoute('/import', $explainParams),
                         null,
-                        _pgettext('Inline edit query', 'Edit inline'),
-                        ['class' => 'inline_edit_sql'],
-                    )
-                    . '&nbsp;]';
-            } else {
-                $inlineEditLink = '';
+                        __('Explain SQL'),
+                        ['class' => 'btn btn-link'],
+                    ) . '</div>' . "\n";
+            } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery)) {
+                $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
+                $explainLink = '<div class="col-auto">'
+                    . self::linkOrButton(
+                        Url::getFromRoute('/import', $explainParams),
+                        null,
+                        __('Skip Explain SQL'),
+                        ['class' => 'btn btn-link'],
+                    ) . '</div>' . "\n";
             }
-
-            $retval .= $inlineEditLink . $editLink . $explainLink . $phpLink
-                . $refreshLink;
-            $retval .= '</div>';
-
-            $retval .= '</div>';
         }
+
+        $urlParams['sql_query'] = $sqlQuery;
+        $urlParams['show_query'] = 1;
+
+        // even if the query is big and was truncated, offer the chance
+        // to edit it (unless it's enormous, see linkOrButton() )
+        if (! empty($GLOBALS['cfg']['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
+            $editLink = '<div class="col-auto">'
+                . self::linkOrButton(
+                    Url::getFromRoute($editLinkRoute, $urlParams),
+                    null,
+                    __('Edit'),
+                    ['class' => 'btn btn-link'],
+                )
+                . '</div>' . "\n";
+        } else {
+            $editLink = '';
+        }
+
+        // Also we would like to get the SQL formed in some nice
+        // php-code
+        if (! empty($GLOBALS['cfg']['SQLQuery']['ShowAsPHP']) && ! $queryTooBig) {
+            if (! empty($GLOBALS['show_as_php'])) {
+                $phpLink = '<div class="col-auto">'
+                    . self::linkOrButton(
+                        Url::getFromRoute('/import', $urlParams),
+                        null,
+                        __('Without PHP code'),
+                        ['class' => 'btn btn-link'],
+                    )
+                    . '</div>' . "\n";
+
+                $phpLink .= '<div class="col-auto">'
+                    . self::linkOrButton(
+                        Url::getFromRoute('/import', $urlParams),
+                        null,
+                        __('Submit query'),
+                        ['class' => 'btn btn-link'],
+                    )
+                    . '</div>' . "\n";
+            } else {
+                $phpParams = $urlParams;
+                $phpParams['show_as_php'] = 1;
+                $phpLink = '<div class="col-auto">'
+                    . self::linkOrButton(
+                        Url::getFromRoute('/import', $phpParams),
+                        null,
+                        __('Create PHP code'),
+                        ['class' => 'btn btn-link'],
+                    )
+                    . '</div>' . "\n";
+            }
+        } else {
+            $phpLink = '';
+        }
+
+        // Refresh query
+        if (
+            ! empty($GLOBALS['cfg']['SQLQuery']['Refresh'])
+            && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
+            && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery)
+        ) {
+            $refreshLink = Url::getFromRoute('/sql', $urlParams);
+            $refreshLink = '<div class="col-auto">'
+                . self::linkOrButton(
+                    $refreshLink,
+                    null,
+                    __('Refresh'),
+                    ['class' => 'btn btn-link'],
+                ) . '</div>' . "\n";
+        } else {
+            $refreshLink = '';
+        }
+
+        $retval .= '<div class="card-body sqlOuter">';
+        $retval .= $queryBase;
+        $retval .= '</div>' . "\n";
+
+        $retval .= '<div class="card-footer tools d-print-none">' . "\n";
+        $retval .= '<div class="row align-items-center">' . "\n";
+        $retval .= '<div class="col-auto">' . "\n";
+        $retval .= '<form action="' . Url::getFromRoute('/sql') . '" method="post">' . "\n";
+        $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']) . "\n";
+        $retval .= '<input type="hidden" name="sql_query" value="'
+            . htmlspecialchars($sqlQuery) . '">' . "\n";
+
+        // avoid displaying a Profiling checkbox that could
+        // be checked, which would re-execute an INSERT, for example
+        if ($refreshLink !== '' && Profiling::isSupported($GLOBALS['dbi'])) {
+            $retval .= '<input type="hidden" name="profiling_form" value="1">' . "\n";
+            $retval .= '<div class="form-check form-switch">' . "\n";
+            $retval .= '<input type="checkbox" name="profiling" id="profilingCheckbox" role="switch"';
+            $retval .= ' class="form-check-input autosubmit"';
+            $retval .= isset($_SESSION['profiling']) ? ' checked>' . "\n" : '>' . "\n";
+            $retval .= '<label class="form-check-label" for="profilingCheckbox">' . __('Profiling') . '</label>' . "\n";
+            $retval .= '</div>' . "\n";
+        }
+
+        $retval .= '</form></div>' . "\n";
+
+        /**
+         * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
+         */
+        if (! empty($GLOBALS['cfg']['SQLQuery']['Edit']) && ! $queryTooBig && empty($GLOBALS['show_as_php'])) {
+            $inlineEditLink = '<div class="col-auto">'
+                . self::linkOrButton(
+                    '#',
+                    null,
+                    _pgettext('Inline edit query', 'Edit inline'),
+                    ['class' => 'btn btn-link inline_edit_sql'],
+                )
+                . '</div>' . "\n";
+        } else {
+            $inlineEditLink = '';
+        }
+
+        $retval .= $inlineEditLink . $editLink . $explainLink . $phpLink
+            . $refreshLink;
+        $retval .= '</div></div>';
+
+        $retval .= '</div>';
 
         return $retval;
     }
@@ -1105,7 +1117,7 @@ class Generator
             $sqlQuery = mb_substr($sqlQuery, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
         }
 
-        return '<code class="sql"><pre>' . "\n"
+        return '<code class="sql" dir="ltr"><pre>' . "\n"
             . htmlspecialchars($sqlQuery, ENT_COMPAT) . "\n"
             . '</pre></code>';
     }

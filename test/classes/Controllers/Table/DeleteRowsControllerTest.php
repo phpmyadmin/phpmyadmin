@@ -59,7 +59,10 @@ class DeleteRowsControllerTest extends AbstractTestCase
         (new DeleteRowsController($response, new Template(), $dbi))($request);
         $actual = $response->getHTMLResult();
         $this->assertStringContainsString(
-            '<div class="alert alert-success" role="alert">Your SQL query has been executed successfully.</div>',
+            '<div class="alert alert-success" role="alert">' . "\n"
+            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success">'
+            . ' Your SQL query has been executed successfully.' . "\n"
+            . '</div>',
             $actual,
         );
         $this->assertStringContainsString('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', $actual);
