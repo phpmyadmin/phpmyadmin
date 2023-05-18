@@ -140,28 +140,8 @@ class Index
         $date = $latestCompatible['date'];
 
         $versionUpstream = $versionInformation->versionToInt($version);
-        if ($versionUpstream === false) {
-            self::messagesSet(
-                'error',
-                $messageId,
-                __('Version check'),
-                __('Got invalid version string from server'),
-            );
-
-            return;
-        }
 
         $versionLocal = $versionInformation->versionToInt(Version::VERSION);
-        if ($versionLocal === false) {
-            self::messagesSet(
-                'error',
-                $messageId,
-                __('Version check'),
-                __('Unparsable version string'),
-            );
-
-            return;
-        }
 
         if ($versionUpstream > $versionLocal) {
             $version = htmlspecialchars($version);
