@@ -26,7 +26,6 @@ module.exports = [
             'database/events': rootPath + '/js/src/database/events.ts',
             'database/multi_table_query': rootPath + '/js/src/database/multi_table_query.ts',
             'database/operations': rootPath + '/js/src/database/operations.ts',
-            'database/qbe': rootPath + '/js/src/database/qbe.ts',
             'database/query_generator': rootPath + '/js/src/database/query_generator.ts',
             'database/routines': rootPath + '/js/src/database/routines.ts',
             'database/search': rootPath + '/js/src/database/search.ts',

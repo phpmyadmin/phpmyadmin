@@ -1202,28 +1202,6 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$request->getParsedBodyParam('db')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('searchName')]]></code>
-      <code>$searchId</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$action</code>
-      <code>$searchId</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$request->getParsedBody()]]></code>
-      <code><![CDATA[$request->getParsedBody()]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="libraries/classes/Controllers/Database/RoutinesController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -5244,180 +5222,6 @@
     <PossiblyNullReference>
       <code>isSuccess</code>
     </PossiblyNullReference>
-  </file>
-  <file src="libraries/classes/Database/Qbe.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$this->criteriaTables]]></code>
-      <code><![CDATA[$this->criteriaTables]]></code>
-      <code><![CDATA[$this->criteriaTables]]></code>
-    </InvalidPropertyAssignmentValue>
-    <MixedArgument>
-      <code>$column</code>
-      <code>$columns[$columnIndex]</code>
-      <code><![CDATA[$eachColumn['Field']]]></code>
-      <code><![CDATA[$foreigner['foreign_field']]]></code>
-      <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code>$indexColumns</code>
-      <code>$name</code>
-      <code>$oneField</code>
-      <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
-      <code><![CDATA[$oneKey['ref_table_name']]]></code>
-      <code>$oneTable</code>
-      <code>$oneTable</code>
-      <code>$oneTable</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code><![CDATA[$this->criteria[$columnIndex]]]></code>
-      <code><![CDATA[$this->criteria[$columnIndex]]]></code>
-      <code><![CDATA[$this->formAliases[$columnIndex]]]></code>
-      <code><![CDATA[$this->formAndOrCols[$lastOrWhere]]]></code>
-      <code><![CDATA[$this->formAndOrCols[$lastWhere]]]></code>
-      <code><![CDATA[$this->formCriterions[$newColumnCount]]]></code>
-      <code>$tmpCriteria</code>
-      <code>$uniqueColumns</code>
-      <code>$value</code>
-      <code>$whereClauseColumns</code>
-      <code>$whereClauseTables</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$selectClauses</code>
-      <code>$table</code>
-      <code>$table</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$foreigner['foreign_field']]]></code>
-      <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code><![CDATA[$oneKey['index_list']]]></code>
-      <code><![CDATA[$oneKey['ref_index_list']]]></code>
-      <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
-      <code><![CDATA[$oneKey['ref_table_name']]]></code>
-      <code><![CDATA[$oneKey['ref_table_name']]]></code>
-      <code><![CDATA[$oneKey['ref_table_name']]]></code>
-      <code><![CDATA[$oneKey['ref_table_name']]]></code>
-      <code><![CDATA[$oneKey['ref_table_name']]]></code>
-      <code><![CDATA[$reference['table_name']]]></code>
-      <code><![CDATA[$reference['table_schema']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code>$checkedTables[$table]</code>
-      <code>$finalized[$foreignTable]</code>
-      <code>$finalized[$foreignTable]</code>
-      <code>$finalized[$foreignTable]</code>
-      <code>$finalized[$masterTable]</code>
-      <code>$finalized[$masterTable]</code>
-      <code>$finalized[$masterTable]</code>
-      <code><![CDATA[$foreignTables[$foreigner['foreign_table']]]]></code>
-      <code><![CDATA[$foreignTables[$oneKey['ref_table_name']]]]></code>
-      <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
-      <code>$relations[$masterTable]</code>
-      <code><![CDATA[$relations[$oneTable][$foreigner['foreign_table']]]]></code>
-      <code><![CDATA[$relations[$oneTable][$oneKey['ref_table_name']]]]></code>
-      <code><![CDATA[$this->formAndOrCols[$lastWhere]]]></code>
-      <code>$tsize[$table]</code>
-    </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code>$tsize[$table]</code>
-    </MixedArrayTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS[${'cur' . $or}][$newColumnCount]]]></code>
-      <code>$clause</code>
-      <code>$clause</code>
-      <code>$column</code>
-      <code>$columnReferences</code>
-      <code>$finalized[$foreignTable]</code>
-      <code>$finalized[$masterTable]</code>
-      <code>$foreignData</code>
-      <code>$foreignTable</code>
-      <code><![CDATA[$foreignTables[$foreigner['foreign_table']]]]></code>
-      <code><![CDATA[$foreignTables[$oneKey['ref_table_name']]]]></code>
-      <code>$foreigner</code>
-      <code>$foreigner</code>
-      <code>$index</code>
-      <code>$indexColumns</code>
-      <code>$isWhere</code>
-      <code>$masterTable</code>
-      <code>$name</code>
-      <code>$oneField</code>
-      <code>$oneKey</code>
-      <code>$oneKey</code>
-      <code>$oneTable</code>
-      <code>$oneTable</code>
-      <code>$oneTable</code>
-      <code>$reference</code>
-      <code>$result</code>
-      <code>$select</code>
-      <code>$selectClauses[]</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$tmpCriteria</code>
-      <code>$uniqueColumns</code>
-      <code>$value</code>
-      <code>$whereClauseColumns</code>
-      <code>$whereClauseTables</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedOperand>
-      <code>$clause</code>
-      <code>$columns[$columnIndex]</code>
-      <code>$select</code>
-      <code><![CDATA[$selected['and'] ?? '']]></code>
-      <code><![CDATA[$selected['or'] ?? '']]></code>
-      <code>$sort[$columnIndex]</code>
-      <code><![CDATA[$this->formAndOrRows[$rowIndex]]]></code>
-      <code><![CDATA[$this->formColumns[$columnIndex]]]></code>
-      <code><![CDATA[$this->formColumns[$columnIndex]]]></code>
-      <code><![CDATA[$this->formCriterions[$columnIndex]]]></code>
-    </MixedOperand>
-    <MixedReturnStatement>
-      <code>$candidateColumns</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>reset($candidateColumns)</code>
-      <code>reset($candidateColumns)</code>
-    </MixedReturnStatement>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['criteriaColumn'][$colInd]]]></code>
-      <code><![CDATA[$_POST['criteriaColumn'][$columnIndex]]]></code>
-      <code>$selected</code>
-      <code>$tmpAlias</code>
-      <code>$tmpOr</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['criteriaColumn'][$colInd]]]></code>
-      <code>$selected</code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['Or' . $rowIndex][$columnIndex]]]></code>
-    </PossiblyInvalidOperand>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code><![CDATA[$_POST['criteria'] ?? array_fill(0, $criteriaColumnCount, '')]]></code>
-      <code><![CDATA[$_POST['criteriaAndOrColumn'] ?? array_fill(0, $criteriaColumnCount, '')]]></code>
-      <code><![CDATA[$_POST['criteriaAndOrRow'] ?? array_fill(0, $criteriaColumnCount, '')]]></code>
-      <code><![CDATA[$_POST['criteriaRowDelete'] ?? array_fill(0, $criteriaColumnCount, '')]]></code>
-      <code><![CDATA[$_POST['criteriaRowInsert'] ?? array_fill(0, $criteriaColumnCount, '')]]></code>
-      <code><![CDATA[$_POST['prev_criteria'] ?? []]]></code>
-    </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument>
-      <code>$table</code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$index['Column_name']]]></code>
-    </PossiblyNullOperand>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset($this->formAndOrRows)]]></code>
-    </RedundantPropertyInitializationCheck>
-    <RiskyCast>
-      <code><![CDATA[$this->formSortOrders[$newColumnCount] = $_POST['criteriaSortOrder'][$colInd]]]></code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Database/Routines.php">
     <DeprecatedMethod>
@@ -11918,33 +11722,6 @@
       <code><![CDATA[isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/SavedSearches.php">
-    <MixedArgument>
-      <code><![CDATA[$criterias['criteriaColumn']]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$data[$field]</code>
-      <code><![CDATA[$data['Or' . $i]]]></code>
-      <code><![CDATA[$this->criterias]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$criterias['Or' . $i]]]></code>
-      <code><![CDATA[$criterias['criteriaColumn']]]></code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyNullArgument>
-      <code><![CDATA[$oneResult['search_data']]]></code>
-      <code><![CDATA[$oneResult['search_name']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getId()]]></code>
-      <code><![CDATA[$this->getId()]]></code>
-    </PossiblyNullOperand>
-    <PossiblyUnusedReturnValue>
-      <code>bool</code>
-      <code>bool</code>
-      <code>bool</code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="libraries/classes/Server/Plugin.php">
     <MixedArgument>
       <code><![CDATA[$state['authVersion'] ?? null]]></code>
@@ -14340,20 +14117,6 @@
   <file src="test/classes/Database/DesignerTest.php">
     <MixedAssignment>
       <code>$result</code>
-    </MixedAssignment>
-  </file>
-  <file src="test/classes/Database/QbeTest.php">
-    <MixedArgument>
-      <code>$actual</code>
-      <code><![CDATA[$this->callFunction($object, Qbe::class, 'getSortRow', [])]]></code>
-      <code><![CDATA[$this->callFunction($object, Qbe::class, 'getSortRow', [])]]></code>
-      <code><![CDATA[$this->callFunction($object, Qbe::class, 'getSortRow', [])]]></code>
-      <code><![CDATA[$this->callFunction($object, Qbe::class, 'getSortSelectCell', [1, 'ASC'])]]></code>
-      <code><![CDATA[$this->callFunction($object, Qbe::class, 'getSortSelectCell', [1])]]></code>
-      <code><![CDATA[$this->callFunction($object, Qbe::class, 'getSortSelectCell', [1])]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$actual</code>
     </MixedAssignment>
   </file>
   <file src="test/classes/Database/RoutinesTest.php">

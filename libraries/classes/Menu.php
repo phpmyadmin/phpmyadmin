@@ -351,7 +351,7 @@ class Menu
         $tabs['query']['text'] = __('Query');
         $tabs['query']['icon'] = 's_db';
         $tabs['query']['route'] = '/database/multi-table-query';
-        $tabs['query']['active'] = $route === '/database/multi-table-query' || $route === '/database/qbe';
+        $tabs['query']['active'] = $route === '/database/multi-table-query';
         if ($numTables == 0) {
             $tabs['query']['warning'] = __('Database seems to be empty!');
         }

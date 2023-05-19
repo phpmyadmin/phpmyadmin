@@ -182,15 +182,6 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
-        Database\QueryByExampleController::class => [
-            'class' => Database\QueryByExampleController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-            ],
-        ],
         Database\RoutinesController::class => [
             'class' => Database\RoutinesController::class,
             'arguments' => [

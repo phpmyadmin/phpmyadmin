@@ -30,8 +30,6 @@ Currently phpMyAdmin can:
 * administer multiple servers
 * add, edit, and remove MySQL user accounts and privileges
 * check referential integrity in MyISAM tables
-* using Query-by-example (QBE), create complex queries automatically
-  connecting required tables
 * create :term:`PDF` graphics of your
   database layout
 * search globally in a database or a subset of it

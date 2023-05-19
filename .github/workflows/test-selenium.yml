@@ -65,7 +65,6 @@ jobs:
           - "Database/Events"
           - "Database/Operations"
           - "Database/Procedures"
-          - "Database/QueryByExample"
           - "Database/Structure"
           - "Database/Triggers"
           - "Export"
