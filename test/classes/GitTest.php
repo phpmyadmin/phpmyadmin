@@ -187,7 +187,7 @@ class GitTest extends AbstractTestCase
             '# pack-refs with: peeled fully-peeled sorted' . "\n" .
             'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . "\n" .
             '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . "\n" .
-            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . "\n",
+            '8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e refs/remotes/origin/master' . "\n",
         );
         mkdir($this->testDir . '.git/objects/pack', 0777, true);//default = 0777, recursive mode
 
@@ -195,44 +195,26 @@ class GitTest extends AbstractTestCase
 
         if (
             $commit === null
-            && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_17bf8b7309919f8ac593d7c563b31472780ee83b'])
+            && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e'])
         ) {
             $this->markTestSkipped('Unable to get remote commit information.');
         }
 
         $this->assertIsArray($commit);
-        $this->assertArrayHasKey('hash', $commit);
-        $this->assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
-
-        $this->assertArrayHasKey('branch', $commit);
-        $this->assertEquals('master', $commit['branch']);
-
-        $this->assertArrayHasKey('message', $commit);
-        $this->assertIsString($commit['message']);
-
-        $this->assertArrayHasKey('is_remote_commit', $commit);
-        $this->assertIsBool($commit['is_remote_commit']);
-
-        $this->assertArrayHasKey('is_remote_branch', $commit);
-        $this->assertIsBool($commit['is_remote_branch']);
-
-        $this->assertArrayHasKey('author', $commit);
-        $this->assertIsArray($commit['author']);
-        $this->assertArrayHasKey('name', $commit['author']);
-        $this->assertArrayHasKey('email', $commit['author']);
-        $this->assertArrayHasKey('date', $commit['author']);
-        $this->assertIsString($commit['author']['name']);
-        $this->assertIsString($commit['author']['email']);
-        $this->assertIsString($commit['author']['date']);
-
-        $this->assertArrayHasKey('committer', $commit);
-        $this->assertIsArray($commit['committer']);
-        $this->assertArrayHasKey('name', $commit['committer']);
-        $this->assertArrayHasKey('email', $commit['committer']);
-        $this->assertArrayHasKey('date', $commit['committer']);
-        $this->assertIsString($commit['committer']['name']);
-        $this->assertIsString($commit['committer']['email']);
-        $this->assertIsString($commit['committer']['date']);
+        $this->assertSame('8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e', $commit['hash']);
+        $this->assertSame('master', $commit['branch']);
+        $this->assertSame(
+            'Update po files' . "\n\n" . '[ci skip]' . "\n\n" . 'Signed-off-by: phpMyAdmin bot <bot@phpmyadmin.net>',
+            $commit['message'],
+        );
+        $this->assertTrue($commit['is_remote_commit']);
+        $this->assertTrue($commit['is_remote_branch']);
+        $this->assertSame('phpMyAdmin bot', $commit['author']['name']);
+        $this->assertSame('bot@phpmyadmin.net', $commit['author']['email']);
+        $this->assertSame('2023-05-14T00:19:49Z', $commit['author']['date']);
+        $this->assertSame('phpMyAdmin bot', $commit['committer']['name']);
+        $this->assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
+        $this->assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
 
         rmdir($this->testDir . '.git/objects/pack');
         rmdir($this->testDir . '.git/objects');
@@ -306,7 +288,7 @@ class GitTest extends AbstractTestCase
             '# pack-refs with: peeled fully-peeled sorted' . "\n" .
             'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . "\n" .
             '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . "\n" .
-            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . "\n",
+            '8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e refs/remotes/origin/master' . "\n",
         );
         mkdir($this->testDir . '.git/objects/info', 0777, true);
         file_put_contents(
@@ -322,44 +304,26 @@ class GitTest extends AbstractTestCase
 
         if (
             $commit === null
-            && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_17bf8b7309919f8ac593d7c563b31472780ee83b'])
+            && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e'])
         ) {
             $this->markTestSkipped('Unable to get remote commit information.');
         }
 
         $this->assertIsArray($commit);
-        $this->assertArrayHasKey('hash', $commit);
-        $this->assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
-
-        $this->assertArrayHasKey('branch', $commit);
-        $this->assertEquals('master', $commit['branch']);
-
-        $this->assertArrayHasKey('message', $commit);
-        $this->assertIsString($commit['message']);
-
-        $this->assertArrayHasKey('is_remote_commit', $commit);
-        $this->assertIsBool($commit['is_remote_commit']);
-
-        $this->assertArrayHasKey('is_remote_branch', $commit);
-        $this->assertIsBool($commit['is_remote_branch']);
-
-        $this->assertArrayHasKey('author', $commit);
-        $this->assertIsArray($commit['author']);
-        $this->assertArrayHasKey('name', $commit['author']);
-        $this->assertArrayHasKey('email', $commit['author']);
-        $this->assertArrayHasKey('date', $commit['author']);
-        $this->assertIsString($commit['author']['name']);
-        $this->assertIsString($commit['author']['email']);
-        $this->assertIsString($commit['author']['date']);
-
-        $this->assertArrayHasKey('committer', $commit);
-        $this->assertIsArray($commit['committer']);
-        $this->assertArrayHasKey('name', $commit['committer']);
-        $this->assertArrayHasKey('email', $commit['committer']);
-        $this->assertArrayHasKey('date', $commit['committer']);
-        $this->assertIsString($commit['committer']['name']);
-        $this->assertIsString($commit['committer']['email']);
-        $this->assertIsString($commit['committer']['date']);
+        $this->assertSame('8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e', $commit['hash']);
+        $this->assertSame('master', $commit['branch']);
+        $this->assertSame(
+            'Update po files' . "\n\n" . '[ci skip]' . "\n\n" . 'Signed-off-by: phpMyAdmin bot <bot@phpmyadmin.net>',
+            $commit['message'],
+        );
+        $this->assertTrue($commit['is_remote_commit']);
+        $this->assertTrue($commit['is_remote_branch']);
+        $this->assertSame('phpMyAdmin bot', $commit['author']['name']);
+        $this->assertSame('bot@phpmyadmin.net', $commit['author']['email']);
+        $this->assertSame('2023-05-14T00:19:49Z', $commit['author']['date']);
+        $this->assertSame('phpMyAdmin bot', $commit['committer']['name']);
+        $this->assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
+        $this->assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
 
         unlink($this->testDir . '.git/objects/info/packs');
         rmdir($this->testDir . '.git/objects/info');

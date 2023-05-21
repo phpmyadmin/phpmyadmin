@@ -1496,7 +1496,7 @@ parameters:
 			path: libraries/classes/Controllers/GitInfoController.php
 
 		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, int\\|false given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/GitInfoController.php
 
@@ -4336,22 +4336,12 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Git\\:\\:checkGitRevision\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Git\\:\\:isRemoteCommit\\(\\) should return stdClass\\|null but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Git.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Git\\:\\:unPackGz\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Parameter \\#2 \\$hash of method PhpMyAdmin\\\\Git\\:\\:unPackGz\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Git.php
 
@@ -4367,16 +4357,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Parameter \\#3 \\$hash of method PhpMyAdmin\\\\Git\\:\\:isRemoteCommit\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Git.php
 

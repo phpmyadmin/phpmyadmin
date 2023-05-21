@@ -360,7 +360,11 @@ class Git
      *
      * @param mixed[] $commit The commit body
      *
-     * @return array<int,array<string,string>|string>
+     * @return array{
+     *     array{name: string, email: string, date: string},
+     *     array{name: string, email: string, date: string},
+     *     string
+     * }
      */
     private function extractDataFormTextBody(array $commit): array
     {
@@ -409,7 +413,7 @@ class Git
 
         // check if commit exists in Github
         if ($commit !== false && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])) {
-            $isRemoteCommit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
+            $isRemoteCommit = (bool) $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
 
             return null;
         }
@@ -440,7 +444,7 @@ class Git
         return null;
     }
 
-    /** @return mixed[] */
+    /** @return array{string|null, string|false|null} */
     private function getHashFromHeadRef(string $gitFolder, string $refHead): array
     {
         // are we on any branch?
@@ -456,6 +460,7 @@ class Git
             $branch = basename($refHead);
         }
 
+        $hash = null;
         $refFile = $gitFolder . '/' . $refHead;
         if (@file_exists($refFile)) {
             $hash = @file_get_contents($refFile);
@@ -524,6 +529,16 @@ class Git
 
     /**
      * detects Git revision, if running inside repo
+     *
+     * @return array{
+     *     hash: string,
+     *     branch: string|false,
+     *     message: string,
+     *     author: array{name: string, email: string, date: string},
+     *     committer: array{name: string, email: string, date: string},
+     *     is_remote_commit: bool,
+     *     is_remote_branch: bool,
+     * }|null
      */
     public function checkGitRevision(): array|null
     {
@@ -549,7 +564,7 @@ class Git
         }
 
         [$hash, $branch] = $this->getHashFromHeadRef($gitFolder, $refHead);
-        if ($hash === null) {
+        if ($hash === null || $branch === null) {
             return null;
         }
 
@@ -576,7 +591,7 @@ class Git
         if ($isRemoteCommit && $branch !== false) {
             // check if branch exists in Github
             if (isset($_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash])) {
-                $isRemoteBranch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
+                $isRemoteBranch = (bool) $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
             } else {
                 $httpRequest = new HttpRequest();
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
@@ -597,14 +612,14 @@ class Git
             [$author, $committer, $message] = $this->extractDataFormTextBody($commit);
         } elseif (isset($commitJson->author, $commitJson->committer, $commitJson->message)) {
             $author = [
-                'name' => $commitJson->author->name,
-                'email' => $commitJson->author->email,
-                'date' => $commitJson->author->date,
+                'name' => (string) $commitJson->author->name,
+                'email' => (string) $commitJson->author->email,
+                'date' => (string) $commitJson->author->date,
             ];
             $committer = [
-                'name' => $commitJson->committer->name,
-                'email' => $commitJson->committer->email,
-                'date' => $commitJson->committer->date,
+                'name' => (string) $commitJson->committer->name,
+                'email' => (string) $commitJson->committer->email,
+                'date' => (string) $commitJson->committer->date,
             ];
             $message = trim($commitJson->message);
         } else {

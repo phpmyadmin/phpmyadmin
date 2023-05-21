@@ -1971,21 +1971,8 @@
   </file>
   <file src="libraries/classes/Controllers/GitInfoController.php">
     <MixedArgument>
-      <code><![CDATA[$commit['author']['date']]]></code>
-      <code><![CDATA[$commit['committer']['date']]]></code>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$commit</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$commit['author']['date']]]></code>
-      <code><![CDATA[$commit['committer']['date']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$commit['author']['date']]]></code>
-      <code><![CDATA[$commit['committer']['date']]]></code>
-    </MixedArrayAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -7082,9 +7069,6 @@
       <code>$commit</code>
       <code><![CDATA[$commitJson->message]]></code>
       <code>$dataline</code>
-      <code>$hash</code>
-      <code>$hash</code>
-      <code>$hash</code>
       <code>$offset + ($position * 20)</code>
       <code>$offset + ($position * 4)</code>
     </MixedArgument>
@@ -7096,8 +7080,6 @@
       <code>$dataline</code>
       <code>$end</code>
       <code>$gitLocation</code>
-      <code>$isRemoteBranch</code>
-      <code>$isRemoteCommit</code>
       <code>$offset</code>
       <code>$position</code>
       <code>$position</code>
@@ -7108,10 +7090,7 @@
       <code>stdClass|null</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code>$branch</code>
       <code>$fanout[256]</code>
-      <code>$hash</code>
-      <code>$hash</code>
       <code>$offset</code>
       <code>$position</code>
       <code>$position</code>
@@ -7131,9 +7110,6 @@
       <code>$packOffsets[1]</code>
       <code>json_decode((string) $isFound)</code>
     </MixedReturnStatement>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION['PMA_VERSION_COMMITDATA_' . $hash]]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
       <code>$gitFolder</code>
     </PossiblyNullArgument>
