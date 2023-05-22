@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.11.0@c9b192ab8400fdaf04b2b13d110575adc879aa90">
+<files psalm-version="5.12.0@f90118cdeacd0088e7215e64c0c99ceca819e176">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -9102,11 +9102,6 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$GLOBALS['what']]]></code>
     </MixedOperand>
-    <PossiblyFalseOperand>
-      <code><![CDATA[date('Y-m-d', strtotime($row[$j]))]]></code>
-      <code><![CDATA[date('Y-m-d\TH:i:s', strtotime($row[$j]))]]></code>
-      <code><![CDATA[date('\P\TH\Hi\Ms\S', strtotime($row[$j]))]]></code>
-    </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
     </PossiblyInvalidArgument>
@@ -10739,6 +10734,9 @@
       <code>Pdf</code>
       <code>Pdf</code>
     </PropertyNotSetInConstructor>
+    <UnsupportedPropertyReferenceUsage>
+      <code><![CDATA[$cw = &$this->CurrentFont['cw']]]></code>
+    </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
     <InvalidArgument>
@@ -11074,6 +11072,9 @@
       <code>$oneKey</code>
       <code>$rel</code>
     </MixedAssignment>
+    <UnsupportedPropertyReferenceUsage>
+      <code><![CDATA[$this->tables[$table]->width = &$this->tablewidth]]></code>
+    </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php">
     <MixedArgument>
@@ -11407,6 +11408,9 @@
     <PossiblyUnusedMethod>
       <code>getCache</code>
     </PossiblyUnusedMethod>
+    <UnsupportedPropertyReferenceUsage>
+      <code><![CDATA[$loc = &$this->tableCache]]></code>
+    </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="libraries/classes/Query/Compatibility.php">
     <MixedArgument>
@@ -12798,6 +12802,9 @@
     <TypeDoesNotContainType>
       <code><![CDATA[! $this->dbi->query($GLOBALS['sql_query'])]]></code>
     </TypeDoesNotContainType>
+    <UnsupportedPropertyReferenceUsage>
+      <code><![CDATA[$this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
+    </UnsupportedPropertyReferenceUsage>
     <UnusedVariable>
       <code>$maintainRelations</code>
     </UnusedVariable>
@@ -13408,16 +13415,12 @@
       <code>$buffer</code>
       <code>$buffer</code>
       <code>$buffer</code>
-      <code>$buffer</code>
     </MixedArgument>
     <MixedInferredReturnType>
-      <code>false|string</code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code>$buffer</code>
-      <code>$isBinary ? bin2hex($buffer) : $buffer</code>
-      <code>$isBinary ? bin2hex($buffer) : $buffer</code>
     </MixedReturnStatement>
     <RedundantCast>
       <code>(string) long2ip((int) $bufferAsFloat)</code>
@@ -15134,14 +15137,6 @@
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="test/selenium/Database/EventsTest.php">
-    <PossiblyFalseOperand>
-      <code>$end</code>
-      <code>$start</code>
-      <code><![CDATA[date('Y-m-d', strtotime('+1 day'))]]></code>
-      <code><![CDATA[date('Y-m-d', strtotime('-1 day'))]]></code>
-    </PossiblyFalseOperand>
   </file>
   <file src="test/selenium/Database/ProceduresTest.php">
     <MixedInferredReturnType>
