@@ -1391,25 +1391,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for buildSqlQuery
-     */
-    public function testBuildSqlQuery(): void
-    {
-        $queryFields = ['a', 'b'];
-        $valueSets = ['1', '2'];
-
-        $this->assertEquals(
-            'INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)',
-            $this->insertEdit->buildInsertSqlQuery('table', true, $queryFields, $valueSets),
-        );
-
-        $this->assertEquals(
-            'INSERT INTO `table` (a, b) VALUES (1), (2)',
-            $this->insertEdit->buildInsertSqlQuery('table', false, $queryFields, $valueSets),
-        );
-    }
-
-    /**
      * Test for executeSqlQuery
      */
     public function testExecuteSqlQuery(): void

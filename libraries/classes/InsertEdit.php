@@ -937,27 +937,6 @@ class InsertEdit
     }
 
     /**
-     * Builds the SQL insert query
-     *
-     * @param bool     $isInsertIgnore $_POST['submit_type'] === 'insertignore'
-     * @param string[] $queryFields    column names array
-     * @param string[] $valueSets      array of query values
-     *
-     * @todo move this to Query generator class
-     */
-    public function buildInsertSqlQuery(
-        string $table,
-        bool $isInsertIgnore,
-        array $queryFields,
-        array $valueSets,
-    ): string {
-        return ($isInsertIgnore ? 'INSERT IGNORE ' : 'INSERT ') . 'INTO '
-            . Util::backquote($table)
-            . ' (' . implode(', ', $queryFields) . ') VALUES ('
-            . implode('), (', $valueSets) . ')';
-    }
-
-    /**
      * Executes the sql query and get the result, then move back to the calling page
      *
      * @param mixed[] $query built query from buildSqlQuery()

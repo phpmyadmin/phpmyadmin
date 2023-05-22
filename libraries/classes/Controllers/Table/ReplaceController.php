@@ -18,6 +18,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -286,7 +287,7 @@ final class ReplaceController extends AbstractController
 
         // Builds the sql query
         if ($isInsert && $valueSets !== []) {
-            $GLOBALS['query'] = (array) $this->insertEdit->buildInsertSqlQuery(
+            $GLOBALS['query'] = (array) QueryGenerator::buildInsertSqlQuery(
                 $GLOBALS['table'],
                 $isInsertignore,
                 $queryFields,
