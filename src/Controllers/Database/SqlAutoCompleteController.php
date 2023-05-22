@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -33,9 +34,9 @@ class SqlAutoCompleteController extends AbstractController
                 $tableNames = $this->dbi->getTables($db);
                 foreach ($tableNames as $tableName) {
                     $sqlAutocomplete[$tableName] = array_map(
-                        static fn (array $field): array => [
-                            'field' => $field['Field'],
-                            'columnHint' => $field['Type'] . match ($field['Key']) {
+                        static fn (Column $field): array => [
+                            'field' => $field->field,
+                            'columnHint' => $field->type . match ($field->key) {
                                 'PRI' => ' | Primary',
                                 'UNI' => ' | Unique',
                                 default=> ''

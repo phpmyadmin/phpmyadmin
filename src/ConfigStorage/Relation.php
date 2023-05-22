@@ -520,11 +520,11 @@ class Relation
         // MySQL native column comments
         $columns = $this->dbi->getColumns($db, $table, true);
         foreach ($columns as $column) {
-            if ($column['Comment'] === '') {
+            if ($column->comment === '') {
                 continue;
             }
 
-            $comments[$column['Field']] = $column['Comment'];
+            $comments[$column->field] = $column->comment;
         }
 
         return $comments;

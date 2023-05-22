@@ -1261,11 +1261,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Offset 'Comment' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Offset 'relation' on array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -6392,7 +6387,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
@@ -7076,11 +7071,6 @@ parameters:
 			path: src/Controllers/Table/Structure/ChangeController.php
 
 		-
-			message: "#^Parameter \\#5 \\$fieldsMeta of method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) expects array\\<int, array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\>\\|null, array\\<int, array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/ChangeController.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
@@ -7536,11 +7526,6 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Collation' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
 			count: 3
 			path: src/Controllers/Table/StructureController.php
@@ -7556,16 +7541,6 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Field' on mixed\\.$#"
-			count: 7
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'Index_length' on mixed\\.$#"
 			count: 7
 			path: src/Controllers/Table/StructureController.php
@@ -7577,7 +7552,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -7597,16 +7572,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Index\\:\\:hasColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/StructureController.php
 
@@ -7652,11 +7617,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/StructureController.php
 
@@ -7742,7 +7702,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -8736,11 +8696,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
@@ -8766,6 +8721,11 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
+			message: "#^Parameter \\#1 \\$def of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects PhpMyAdmin\\\\ColumnFull, PhpMyAdmin\\\\ColumnFull\\|null given\\.$#"
+			count: 1
+			path: src/Database/CentralColumns.php
+
+		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 11
 			path: src/Database/CentralColumns.php
@@ -8777,7 +8737,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
@@ -8801,8 +8761,13 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#2 \\$def of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects array, array\\<string, string\\|null\\>\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$cols of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:findExistingColNames\\(\\) expects array\\<string\\>, array\\<int\\<0, max\\>, mixed\\> given\\.$#"
 			count: 1
+			path: src/Database/CentralColumns.php
+
+		-
+			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects string, mixed given\\.$#"
+			count: 2
 			path: src/Database/CentralColumns.php
 
 		-
@@ -8821,6 +8786,11 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
+			message: "#^Parameter \\#3 \\$centralListTable of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects string, mixed given\\.$#"
+			count: 3
+			path: src/Database/CentralColumns.php
+
+		-
 			message: "#^Parameter \\#3 \\$colName of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
@@ -8831,18 +8801,8 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Database/CentralColumns.php
-
-		-
 			message: "#^Parameter \\#3 \\$pageNow of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, \\(float\\|int\\) given\\.$#"
 			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#4 \\$centralListTable of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects string, mixed given\\.$#"
-			count: 3
 			path: src/Database/CentralColumns.php
 
 		-
@@ -9536,17 +9496,7 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) should return array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\|null but returns array\\<string\\|null\\>\\|null\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnNames\\(\\) should return array\\<string\\> but returns array\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) should return array\\<array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\> but returns array\\<array\\<string\\|null\\>\\>\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -12041,21 +11991,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Offset 'Collation' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Offset 'Comment' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Offset 'Privileges' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -12981,11 +12916,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: "#^Offset 'Type' on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: src/Normalization.php
-
-		-
 			message: "#^Only booleans are allowed in &&, int given on the left side\\.$#"
 			count: 2
 			path: src/Normalization.php
@@ -13881,13 +13811,8 @@ parameters:
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 9
+			count: 7
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -14086,17 +14011,7 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: "#^Offset 'Field' on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, array\\|false given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
@@ -14107,7 +14022,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 13
+			count: 11
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -14327,7 +14242,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 41
+			count: 40
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -14556,18 +14471,8 @@ parameters:
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
-			message: "#^Offset 'Field' on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 5
+			count: 3
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
@@ -16836,11 +16741,6 @@ parameters:
 			path: src/RecentFavoriteTable.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<array\\<string, string\\|null\\>\\> given\\.$#"
-			count: 2
-			path: src/RecentFavoriteTable.php
-
-		-
 			message: "#^Only booleans are allowed in a ternary operator condition, string\\|null given\\.$#"
 			count: 1
 			path: src/RecentFavoriteTable.php
@@ -18042,7 +17942,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
+			count: 1
 			path: src/Sql.php
 
 		-

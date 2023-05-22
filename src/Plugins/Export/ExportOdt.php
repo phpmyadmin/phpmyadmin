@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\OpenDocument;
@@ -372,7 +373,7 @@ class ExportOdt extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAs = $column['Field'] ?? null;
+            $colAs = $column->field;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
             }
@@ -485,7 +486,7 @@ class ExportOdt extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $table);
         foreach ($columns as $column) {
-            $colAs = $fieldName = $column['Field'];
+            $colAs = $fieldName = $column->field;
             if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
@@ -688,15 +689,15 @@ class ExportOdt extends ExportPlugin
     /**
      * Formats the definition for one column
      *
-     * @param mixed[] $column info about this column
-     * @param string  $colAs  column alias
+     * @param Column $column info about this column
+     * @param string $colAs  column alias
      *
      * @return string Formatted column definition
      */
-    protected function formatOneColumnDefinition(array $column, string $colAs = ''): string
+    protected function formatOneColumnDefinition(Column $column, string $colAs = ''): string
     {
         if ($colAs === '') {
-            $colAs = $column['Field'];
+            $colAs = $column->field;
         }
 
         $definition = '<table:table-row>';
@@ -704,7 +705,7 @@ class ExportOdt extends ExportPlugin
             . '<text:p>' . htmlspecialchars($colAs) . '</text:p>'
             . '</table:table-cell>';
 
-        $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
+        $extractedColumnSpec = Util::extractColumnSpec($column->type);
         $type = htmlspecialchars($extractedColumnSpec['print_type']);
         if ($type === '') {
             $type = '&nbsp;';
@@ -713,23 +714,14 @@ class ExportOdt extends ExportPlugin
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>' . htmlspecialchars($type) . '</text:p>'
             . '</table:table-cell>';
-        if (! isset($column['Default'])) {
-            if ($column['Null'] !== 'NO') {
-                $column['Default'] = 'NULL';
-            } else {
-                $column['Default'] = '';
-            }
-        }
 
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>'
-            . ($column['Null'] == '' || $column['Null'] === 'NO'
-                ? __('No')
-                : __('Yes'))
+            . (! $column->isNull ? __('No') : __('Yes'))
             . '</text:p>'
             . '</table:table-cell>';
         $definition .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars($column->default ?? ($column->isNull ? 'NULL' : '')) . '</text:p>'
             . '</table:table-cell>';
 
         return $definition;

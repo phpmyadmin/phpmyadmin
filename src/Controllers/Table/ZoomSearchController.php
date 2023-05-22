@@ -196,9 +196,9 @@ class ZoomSearchController extends AbstractController
 
         foreach ($columns as $row) {
             // set column name
-            $this->columnNames[] = $row['Field'];
+            $this->columnNames[] = $row->field;
 
-            $type = $row['Type'];
+            $type = $row->type;
             // before any replacement
             $this->originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
@@ -226,9 +226,9 @@ class ZoomSearchController extends AbstractController
             }
 
             $this->columnTypes[] = $type;
-            $this->columnNullFlags[] = $row['Null'] === 'YES';
-            $this->columnCollations[] = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
-                ? $row['Collation']
+            $this->columnNullFlags[] = $row->isNull;
+            $this->columnCollations[] = ! empty($row->collation) && $row->collation !== 'NULL'
+                ? $row->collation
                 : '';
         }
 

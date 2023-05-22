@@ -17,7 +17,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 
-use function array_keys;
 use function md5;
 
 /**
@@ -51,9 +50,7 @@ class MultiTableQuery
         $tables = [];
         foreach ($this->tables as $table) {
             $tables[$table]['hash'] = md5($table);
-            $tables[$table]['columns'] = array_keys(
-                $this->dbi->getColumns($this->db, $table),
-            );
+            $tables[$table]['columns'] = $this->dbi->getColumnNames($this->db, $table);
         }
 
         return $this->template->render('database/multi_table_query/form', [

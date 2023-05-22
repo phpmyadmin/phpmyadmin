@@ -26,8 +26,6 @@ use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\Util;
 
-use function array_values;
-use function count;
 use function intval;
 use function mb_strstr;
 use function preg_quote;
@@ -183,13 +181,18 @@ class Tracker
 
         // Get data definition snapshot of table
 
-        $columns = $dbi->getColumns($dbName, $tableName, true);
-        // int indices to reduce size
-        $columns = array_values($columns);
-        // remove Privileges to reduce size
-        /** @infection-ignore-all */
-        for ($i = 0, $nb = count($columns); $i < $nb; $i++) {
-            unset($columns[$i]['Privileges']);
+        $columns = [];
+        foreach ($dbi->getColumns($dbName, $tableName, true) as $column) {
+            $columns[] = [
+                'Field' => $column->field,
+                'Type' => $column->type,
+                'Collation' => $column->collation,
+                'Null' => $column->isNull ? 'YES' : 'NO',
+                'Key' => $column->key,
+                'Default' => $column->default,
+                'Extra' => $column->extra,
+                'Comment' => $column->comment,
+            ];
         }
 
         $indexes = $dbi->getTableIndexes($dbName, $tableName);

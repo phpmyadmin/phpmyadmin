@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -568,8 +569,8 @@ class ExportLatexTest extends AbstractTestCase
             );
 
         $columns = [
-            ['Null' => 'Yes', 'Field' => 'name1', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'],
-            ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'],
+            new Column('name1', 'set(abc)enum123', true, 'PRI', null, ''),
+            new Column('fields', '', false, 'COMP', 'def', ''),
         ];
         $dbi->expects($this->once())
             ->method('getColumns')

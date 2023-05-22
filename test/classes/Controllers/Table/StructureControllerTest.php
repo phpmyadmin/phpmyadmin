@@ -128,9 +128,9 @@ class StructureControllerTest extends AbstractTestCase
             'table_stats' => null,
             'fields' => $fields,
             'extracted_columnspecs' => [
-                1 => Util::extractColumnSpec($fields['id']['Type']),
-                2 => Util::extractColumnSpec($fields['name']['Type']),
-                3 => Util::extractColumnSpec($fields['datetimefield']['Type']),
+                1 => Util::extractColumnSpec($fields['id']->type),
+                2 => Util::extractColumnSpec($fields['name']->type),
+                3 => Util::extractColumnSpec($fields['datetimefield']->type),
             ],
             'columns_with_index' => [],
             'central_list' => [],

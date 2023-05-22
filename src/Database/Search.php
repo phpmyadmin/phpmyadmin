@@ -180,13 +180,13 @@ class Search
             foreach ($allColumns as $column) {
                 if (
                     $this->criteriaColumnName !== ''
-                    && $column['Field'] != $this->criteriaColumnName
+                    && $column->field != $this->criteriaColumnName
                 ) {
                     continue;
                 }
 
-                $column = 'CONVERT(' . Util::backquote($column['Field']) . ' USING utf8)';
-                $likeClausesPerColumn[] = $column . ' ' . $likeOrRegex . ' '
+                $likeClausesPerColumn[] = 'CONVERT(' . Util::backquote($column->field) . ' USING utf8)'
+                    . ' ' . $likeOrRegex . ' '
                     . $this->dbi->quoteString($automaticWildcard . $searchWord . $automaticWildcard);
             }
 

@@ -125,12 +125,12 @@ final class RelationController extends AbstractController
         $columnHashArray = [];
         $columnArray[''] = '';
         foreach ($columns as $column) {
-            if (strtoupper($storageEngine) !== 'INNODB' && empty($column['Key'])) {
+            if (strtoupper($storageEngine) !== 'INNODB' && $column->key === '') {
                 continue;
             }
 
-            $columnArray[$column['Field']] = $column['Field'];
-            $columnHashArray[$column['Field']] = md5($column['Field']);
+            $columnArray[$column->field] = $column->field;
+            $columnHashArray[$column->field] = md5($column->field);
         }
 
         $config = Config::getInstance();

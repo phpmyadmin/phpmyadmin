@@ -69,16 +69,12 @@ class Normalization
 
         $this->dbi->selectDb($db);
         $columns = $this->dbi->getColumns($db, $table, true);
-        $type = '';
         $selectColHtml = '';
         foreach ($columns as $def) {
-            $column = $def['Field'];
-            if (isset($def['Type'])) {
-                $extractedColumnSpec = Util::extractColumnSpec($def['Type']);
-                $type = $extractedColumnSpec['type'];
-            }
+            $column = $def->field;
+            $extractedColumnSpec = Util::extractColumnSpec($def->type);
 
-            if ($columnTypeList !== [] && ! in_array(mb_strtoupper($type), $columnTypeList)) {
+            if ($columnTypeList !== [] && ! in_array(mb_strtoupper($extractedColumnSpec['type']), $columnTypeList)) {
                 continue;
             }
 
@@ -86,11 +82,11 @@ class Normalization
                 $selectColHtml .= '<input type="checkbox" value="'
                     . htmlspecialchars($column) . '">'
                     . htmlspecialchars($column) . ' [ '
-                    . htmlspecialchars($def['Type']) . ' ]<br>';
+                    . htmlspecialchars($def->type) . ' ]<br>';
             } else {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column)
                 . '">' . htmlspecialchars($column)
-                . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
+                . ' [ ' . htmlspecialchars($def->type) . ' ]'
                 . '</option>';
             }
         }

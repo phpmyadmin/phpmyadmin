@@ -2287,33 +2287,15 @@ class InsertEditTest extends AbstractTestCase
             ->method('selectDb')
             ->with('db');
 
+        $columns = [
+            new ColumnFull('b', 'd', null, false, '', null, '', '', ''),
+            new ColumnFull('f', 'h', null, true, '', null, '', '', ''),
+        ];
+
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
-            ->willReturn([
-                [
-                    'Field' => 'b',
-                    'Type' => 'd',
-                    'Collation' => null,
-                    'Null' => 'NO',
-                    'Key' => '',
-                    'Default' => null,
-                    'Extra' => '',
-                    'Privileges' => '',
-                    'Comment' => '',
-                ],
-                [
-                    'Field' => 'f',
-                    'Type' => 'h',
-                    'Collation' => null,
-                    'Null' => 'YES',
-                    'Key' => '',
-                    'Default' => null,
-                    'Extra' => '',
-                    'Privileges' => '',
-                    'Comment' => '',
-                ],
-            ]);
+            ->willReturn($columns);
 
         DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -2415,7 +2397,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table', true)
-            ->willReturn([['Comment' => 'b', 'Field' => 'd']]);
+            ->willReturn([new ColumnFull('d', 'd', null, false, '', null, '', '', 'b')]);
 
         $dbi->expects($this->any())
             ->method('getTable')

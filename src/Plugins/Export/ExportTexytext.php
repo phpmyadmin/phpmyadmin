@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -289,7 +290,7 @@ class ExportTexytext extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAs = $column['Field'] ?? null;
+            $colAs = $column->field;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
             }
@@ -384,13 +385,13 @@ class ExportTexytext extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $table);
         foreach ($columns as $column) {
-            $colAs = $column['Field'];
+            $colAs = $column->field;
             if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
             $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
-            $fieldName = $column['Field'];
+            $fieldName = $column->field;
             if ($doRelation && $foreigners !== []) {
                 $textOutput .= '|' . htmlspecialchars(
                     $this->getRelationString(
@@ -521,53 +522,43 @@ class ExportTexytext extends ExportPlugin
     /**
      * Formats the definition for one column
      *
-     * @param mixed[] $column     info about this column
+     * @param Column  $column     info about this column
      * @param mixed[] $uniqueKeys unique keys for this table
      * @param string  $colAlias   Column Alias
      *
      * @return string Formatted column definition
      */
     public function formatOneColumnDefinition(
-        array $column,
+        Column $column,
         array $uniqueKeys,
         string $colAlias = '',
     ): string {
         if ($colAlias === '') {
-            $colAlias = $column['Field'];
+            $colAlias = $column->field;
         }
 
-        $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
+        $extractedColumnSpec = Util::extractColumnSpec($column->type);
         $type = $extractedColumnSpec['print_type'];
         if (empty($type)) {
             $type = '&nbsp;';
         }
 
-        if (! isset($column['Default'])) {
-            if ($column['Null'] !== 'NO') {
-                $column['Default'] = 'NULL';
-            }
-        }
-
         $fmtPre = '';
         $fmtPost = '';
-        if (in_array($column['Field'], $uniqueKeys)) {
+        if (in_array($column->field, $uniqueKeys)) {
             $fmtPre = '**' . $fmtPre;
             $fmtPost .= '**';
         }
 
-        if ($column['Key'] === 'PRI') {
+        if ($column->key === 'PRI') {
             $fmtPre = '//' . $fmtPre;
             $fmtPost .= '//';
         }
 
-        $definition = '|'
-            . $fmtPre . htmlspecialchars($colAlias) . $fmtPost;
+        $definition = '|' . $fmtPre . htmlspecialchars($colAlias) . $fmtPost;
         $definition .= '|' . htmlspecialchars($type);
-        $definition .= '|'
-            . ($column['Null'] == '' || $column['Null'] === 'NO'
-                ? __('No') : __('Yes'));
-        $definition .= '|'
-            . htmlspecialchars($column['Default'] ?? '');
+        $definition .= '|' . (! $column->isNull ? __('No') : __('Yes'));
+        $definition .= '|' . htmlspecialchars($column->default ?? ($column->isNull ? 'NULL' : ''));
 
         return $definition;
     }

@@ -316,14 +316,14 @@ class ReplicationGui
         $usernameLength = 16;
         $hostnameLength = 41;
         foreach ($fieldsInfo as $val) {
-            if ($val['Field'] === 'User') {
-                strtok($val['Type'], '()');
+            if ($val->field === 'User') {
+                strtok($val->type, '()');
                 $v = strtok('()');
                 if (Util::isInteger($v)) {
                     $usernameLength = (int) $v;
                 }
-            } elseif ($val['Field'] === 'Host') {
-                strtok($val['Type'], '()');
+            } elseif ($val->field === 'Host') {
+                strtok($val->type, '()');
                 $v = strtok('()');
                 if (Util::isInteger($v)) {
                     $hostnameLength = (int) $v;

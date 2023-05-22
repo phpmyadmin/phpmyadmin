@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -163,9 +164,9 @@ class StructureController extends AbstractController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param mixed[] $columnsWithUniqueIndex Columns with unique index
-     * @param mixed[] $fields                 Fields
-     * @param mixed[] $columnsWithIndex       Columns with index
+     * @param mixed[]      $columnsWithUniqueIndex Columns with unique index
+     * @param ColumnFull[] $fields                 Fields
+     * @param mixed[]      $columnsWithIndex       Columns with index
      * @psalm-param non-empty-string $route
      */
     protected function displayStructure(
@@ -219,36 +220,36 @@ class StructureController extends AbstractController
         $collations = [];
         foreach ($fields as $field) {
             ++$rownum;
-            $columnsList[] = $field['Field'];
+            $columnsList[] = $field->field;
 
-            $extractedColumnSpecs[$rownum] = Util::extractColumnSpec($field['Type']);
+            $extractedColumnSpecs[$rownum] = Util::extractColumnSpec($field->type);
             $attributes[$rownum] = $extractedColumnSpecs[$rownum]['attribute'];
-            if (str_contains($field['Extra'], 'on update CURRENT_TIMESTAMP')) {
+            if (str_contains($field->extra, 'on update CURRENT_TIMESTAMP')) {
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
             $displayedFields[$rownum] = new stdClass();
-            $displayedFields[$rownum]->text = $field['Field'];
+            $displayedFields[$rownum]->text = $field->field;
             $displayedFields[$rownum]->icon = '';
             $rowComments[$rownum] = '';
 
-            if (isset($commentsMap[$field['Field']])) {
-                $displayedFields[$rownum]->comment = $commentsMap[$field['Field']];
-                $rowComments[$rownum] = $commentsMap[$field['Field']];
+            if (isset($commentsMap[$field->field])) {
+                $displayedFields[$rownum]->comment = $commentsMap[$field->field];
+                $rowComments[$rownum] = $commentsMap[$field->field];
             }
 
-            if ($primaryIndex !== null && $primaryIndex->hasColumn($field['Field'])) {
+            if ($primaryIndex !== null && $primaryIndex->hasColumn($field->field)) {
                 $displayedFields[$rownum]->icon .= Generator::getImage('b_primary', __('Primary'));
             }
 
-            if (in_array($field['Field'], $columnsWithIndex)) {
+            if (in_array($field->field, $columnsWithIndex)) {
                 $displayedFields[$rownum]->icon .= Generator::getImage('bd_primary', __('Index'));
             }
 
             $collation = Charsets::findCollationByName(
                 $this->dbi,
                 $config->selectedServer['DisableIS'],
-                $field['Collation'] ?? '',
+                $field->collation ?? '',
             );
             if ($collation === null) {
                 continue;

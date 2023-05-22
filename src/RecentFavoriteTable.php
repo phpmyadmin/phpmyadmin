@@ -242,7 +242,7 @@ class RecentFavoriteTable
     public function add(string $db, string $table): bool|Message
     {
         // If table does not exist, do not add._getPmaTable()
-        if (! DatabaseInterface::getInstance()->getColumns($db, $table)) {
+        if (DatabaseInterface::getInstance()->getColumns($db, $table) === []) {
             return true;
         }
 
@@ -280,7 +280,7 @@ class RecentFavoriteTable
             }
 
             // TODO Figure out a better way to find the existence of a table
-            if (! DatabaseInterface::getInstance()->getColumns($tbl['db'], $tbl['table'])) {
+            if (DatabaseInterface::getInstance()->getColumns($tbl['db'], $tbl['table']) === []) {
                 return $this->remove($tbl['db'], $tbl['table']);
             }
         }

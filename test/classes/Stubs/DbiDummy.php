@@ -462,10 +462,10 @@ class DbiDummy implements DbiExtension
             ['query' => 'SHOW INDEXES FROM `pma_test`.`table2`', 'result' => []],
             [
                 'query' => 'SHOW COLUMNS FROM `pma`.`table1`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
                 'result' => [
-                    ['i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment', 'select,insert,update,references', ''],
-                    ['o', 'varchar(100)', 'NO', 'MUL', 'NULL', '', 'select,insert,update,references', ''],
+                    ['i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['o', 'varchar(100)', 'NO', 'MUL', 'NULL', ''],
                 ],
             ],
             [
@@ -1354,8 +1354,8 @@ class DbiDummy implements DbiExtension
             ['query' => 'SHOW COLUMNS FROM `my_db`.`test_tbl`', 'result' => []],
             [
                 'query' => 'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-                'columns' => ['Type'],
-                'result' => [['set(\'Select\',\'Insert\',\'Update\',\'References\',\'Create View\',\'Show view\')']],
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [['field', 'set(\'Select\',\'Insert\',\'Update\',\'References\',\'Create View\',\'Show view\')', 'NO', '', null, '']],
             ],
             [
                 'query' => 'SHOW COLUMNS FROM `PMA_db`.`PMA_table`;',
@@ -1469,8 +1469,8 @@ class DbiDummy implements DbiExtension
             ['query' => 'SHOW ALL SLAVES STATUS', 'result' => []],
             [
                 'query' => 'SHOW COLUMNS FROM `mysql`.`user`',
-                'columns' => ['Field', 'Type', 'Null'],
-                'result' => [['host', 'char(60)', 'NO']],
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [['host', 'char(60)', 'NO', '', null, '']],
             ],
             ['query' => 'SHOW INDEXES FROM `mysql`.`user`', 'result' => []],
             ['query' => 'SHOW INDEXES FROM `my_db`.`test_tbl`', 'result' => []],

@@ -123,9 +123,9 @@ class FindReplaceController extends AbstractController
 
         foreach ($columns as $row) {
             // set column name
-            $this->columnNames[] = $row['Field'];
+            $this->columnNames[] = $row->field;
 
-            $type = $row['Type'];
+            $type = $row->type;
             // reformat mysql query output
             if (strncasecmp($type, 'set', 3) == 0 || strncasecmp($type, 'enum', 4) == 0) {
                 $type = str_replace(',', ', ', $type);

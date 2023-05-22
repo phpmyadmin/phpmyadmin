@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -346,16 +347,18 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', 'view')
             ->willReturn($keys);
 
+        $column = new Column('column', '', false, '', null, '');
+
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', 'view')
-            ->willReturn([['Field' => 'column']]);
+            ->willReturn([$column]);
 
         DatabaseInterface::$instance = $dbi;
 
         $this->object->expects($this->once())
             ->method('formatOneColumnDefinition')
-            ->with(['Field' => 'column'], ['name1'], 'column')
+            ->with($column, ['name1'], 'column')
             ->willReturn('1');
 
         $this->assertEquals(
@@ -398,11 +401,11 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->willReturn($keys);
 
-        $columns = ['Field' => 'fieldname'];
+        $column = new Column('fieldname', '', false, '', null, '');
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->willReturn([$columns]);
+            ->willReturn([$column]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
@@ -424,7 +427,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->object->expects($this->exactly(3))
             ->method('formatOneColumnDefinition')
-            ->with($columns, ['name1'])
+            ->with($column, ['name1'])
             ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
@@ -471,12 +474,12 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->willReturn($keys);
 
-        $columns = ['Field' => 'fieldname'];
+        $column = new Column('fieldname', '', false, '', null, '');
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->willReturn([$columns]);
+            ->willReturn([$column]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
@@ -523,12 +526,12 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->willReturn($keys);
 
-        $columns = ['Field' => 'fieldname'];
+        $column = new Column('fieldname', '', false, '', null, '');
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->willReturn([$columns]);
+            ->willReturn([$column]);
 
         $dbi->expects($this->never())
             ->method('tryQuery');
@@ -694,7 +697,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
 
-        $cols = ['Null' => 'Yes', 'Field' => 'field', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'];
+        $column = new Column('field', 'set(abc)enum123', true, 'PRI', null, '');
 
         $uniqueKeys = ['field'];
 
@@ -702,10 +705,10 @@ class ExportHtmlwordTest extends AbstractTestCase
             '<tr class="print-category"><td class="print"><em>' .
             '<strong>field</strong></em></td><td class="print">set(abc)</td>' .
             '<td class="print">Yes</td><td class="print">NULL</td>',
-            $method->invoke($this->object, $cols, $uniqueKeys),
+            $method->invoke($this->object, $column, $uniqueKeys),
         );
 
-        $cols = ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'];
+        $column = new Column('fields', '', false, 'COMP', 'def', '');
 
         $uniqueKeys = ['field'];
 
@@ -713,7 +716,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             '<tr class="print-category"><td class="print">fields</td>' .
             '<td class="print">&amp;nbsp;</td><td class="print">No</td>' .
             '<td class="print">def</td>',
-            $method->invoke($this->object, $cols, $uniqueKeys),
+            $method->invoke($this->object, $column, $uniqueKeys),
         );
     }
 }

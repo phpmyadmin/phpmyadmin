@@ -202,7 +202,7 @@ class ExportMediawiki extends ExportPlugin
                 $output .= '! style="background:#ffffff" | '
                     . $this->exportCRLF();
                 for ($i = 0; $i < $rowCnt; ++$i) {
-                    $colAs = $columns[$i]['Field'];
+                    $colAs = $columns[$i]->field;
                     if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                         $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                     }
@@ -215,25 +215,25 @@ class ExportMediawiki extends ExportPlugin
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Type' . $this->exportCRLF();
             for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . $columns[$i]['Type'] . $this->exportCRLF();
+                $output .= ' | ' . $columns[$i]->type . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Null' . $this->exportCRLF();
             for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . $columns[$i]['Null'] . $this->exportCRLF();
+                $output .= ' | ' . ($columns[$i]->isNull ? 'YES' : 'NO') . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Default' . $this->exportCRLF();
             for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . $columns[$i]['Default'] . $this->exportCRLF();
+                $output .= ' | ' . ($columns[$i]->default ?? '') . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Extra' . $this->exportCRLF();
             for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . $columns[$i]['Extra'] . $this->exportCRLF();
+                $output .= ' | ' . $columns[$i]->extra . $this->exportCRLF();
             }
 
             $output .= '|}' . str_repeat($this->exportCRLF(), 2);

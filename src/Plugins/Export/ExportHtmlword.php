@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -288,7 +289,7 @@ class ExportHtmlword extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAs = $column['Field'];
+            $colAs = $column->field;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
             }
@@ -400,13 +401,13 @@ class ExportHtmlword extends ExportPlugin
         }
 
         foreach ($columns as $column) {
-            $colAs = $column['Field'];
+            $colAs = $column->field;
             if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
             $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
-            $fieldName = $column['Field'];
+            $fieldName = $column->field;
             if ($doRelation && $foreigners !== []) {
                 $schemaInsert .= '<td class="print">'
                     . htmlspecialchars(
@@ -562,44 +563,38 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Formats the definition for one column
      *
-     * @param mixed[] $column     info about this column
+     * @param Column  $column     info about this column
      * @param mixed[] $uniqueKeys unique keys of the table
      * @param string  $colAlias   Column Alias
      *
      * @return string Formatted column definition
      */
     protected function formatOneColumnDefinition(
-        array $column,
+        Column $column,
         array $uniqueKeys,
         string $colAlias = '',
     ): string {
         if ($colAlias === '') {
-            $colAlias = $column['Field'];
+            $colAlias = $column->field;
         }
 
         $definition = '<tr class="print-category">';
 
-        $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
+        $extractedColumnSpec = Util::extractColumnSpec($column->type);
 
         $type = htmlspecialchars($extractedColumnSpec['print_type']);
         if ($type === '') {
             $type = '&nbsp;';
         }
 
-        if (! isset($column['Default'])) {
-            if ($column['Null'] !== 'NO') {
-                $column['Default'] = 'NULL';
-            }
-        }
-
         $fmtPre = '';
         $fmtPost = '';
-        if (in_array($column['Field'], $uniqueKeys)) {
+        if (in_array($column->field, $uniqueKeys)) {
             $fmtPre = '<strong>' . $fmtPre;
             $fmtPost .= '</strong>';
         }
 
-        if ($column['Key'] === 'PRI') {
+        if ($column->key === 'PRI') {
             $fmtPre = '<em>' . $fmtPre;
             $fmtPost .= '</em>';
         }
@@ -608,12 +603,10 @@ class ExportHtmlword extends ExportPlugin
             . htmlspecialchars($colAlias) . $fmtPost . '</td>';
         $definition .= '<td class="print">' . htmlspecialchars($type) . '</td>';
         $definition .= '<td class="print">'
-            . ($column['Null'] == '' || $column['Null'] === 'NO'
-                ? __('No')
-                : __('Yes'))
+            . (! $column->isNull ? __('No') : __('Yes'))
             . '</td>';
         $definition .= '<td class="print">'
-            . htmlspecialchars($column['Default'] ?? '')
+            . htmlspecialchars($column->default ?? ($column->isNull ? 'NULL' : ''))
             . '</td>';
 
         return $definition;

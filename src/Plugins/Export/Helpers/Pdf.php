@@ -558,27 +558,19 @@ class Pdf extends PdfLib
 
         // fun begin
         foreach ($columns as $column) {
-            $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
+            $extractedColumnSpec = Util::extractColumnSpec($column->type);
 
             $type = $extractedColumnSpec['print_type'];
             if (empty($type)) {
                 $type = ' ';
             }
 
-            if (! isset($column['Default'])) {
-                if ($column['Null'] !== 'NO') {
-                    $column['Default'] = 'NULL';
-                }
-            }
-
-            $data[] = $column['Field'];
+            $data[] = $column->field;
             $data[] = $type;
-            $data[] = $column['Null'] === 'NO'
-                ? 'No'
-                : 'Yes';
-            $data[] = $column['Default'] ?? '';
+            $data[] = ! $column->isNull ? 'No' : 'Yes';
+            $data[] = $column->default ?? ($column->isNull ? 'NULL' : '');
 
-            $fieldName = $column['Field'];
+            $fieldName = $column->field;
 
             if ($doRelation && $haveRel) {
                 $data[] = isset($resRel[$fieldName])

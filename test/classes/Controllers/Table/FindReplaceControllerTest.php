@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\DatabaseInterface;
@@ -38,8 +39,8 @@ class FindReplaceControllerTest extends AbstractTestCase
         $dbi->types = new Types($dbi);
 
         $columns = [
-            ['Field' => 'Field1', 'Type' => 'Type1', 'Null' => 'Null1', 'Collation' => 'Collation1'],
-            ['Field' => 'Field2', 'Type' => 'Type2', 'Null' => 'Null2', 'Collation' => 'Collation2'],
+            new ColumnFull('Field1', 'Type1', 'Collation1', false, '', null, '', '', ''),
+            new ColumnFull('Field2', 'Type2', 'Collation2', false, '', null, '', '', ''),
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->willReturn($columns);

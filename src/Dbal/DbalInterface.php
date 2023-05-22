@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
+use PhpMyAdmin\Column;
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
@@ -171,20 +173,12 @@ interface DbalInterface
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
      * @param string $column   name of column
-     * @param bool   $full     whether to return full info or only column names
+     * @param T      $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array{
-     *  Field: string,
-     *  Type: string,
-     *  Collation?: string|null,
-     *  Null:'YES'|'NO',
-     *  Key: string,
-     *  Default: string|null,
-     *  Extra: string,
-     *  Privileges?: string,
-     *  Comment?: string
-     * }|null
+     * @psalm-return (T is true ? ColumnFull : Column)|null
+     *
+     * @template T of bool
      */
     public function getColumn(
         string $database,
@@ -192,27 +186,20 @@ interface DbalInterface
         string $column,
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
-    ): array|null;
+    ): ColumnFull|Column|null;
 
     /**
      * Returns descriptions of columns in given table
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @param bool   $full     whether to return full info or only column names
+     * @param T      $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array{
-     *  Field: string,
-     *  Type: string,
-     *  Collation?: string|null,
-     *  Null:'YES'|'NO',
-     *  Key: string,
-     *  Default: string|null,
-     *  Extra: string,
-     *  Privileges?: string,
-     *  Comment?: string
-     * }[] array indexed by column names
+     * @return ColumnFull[]|Column[]
+     * @psalm-return (T is true ? ColumnFull[] : Column[])
+     *
+     * @template T of bool
      */
     public function getColumns(
         string $database,

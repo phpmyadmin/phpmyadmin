@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -14,6 +15,7 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function array_filter;
+use function array_map;
 use function array_values;
 use function count;
 use function in_array;
@@ -62,8 +64,20 @@ final class ChangeController extends AbstractController
         $fieldsMeta = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
         $fieldsMeta = array_values(array_filter(
             $fieldsMeta,
-            static fn (array $column): bool => in_array($column['Field'], $selected, true)
+            static fn (ColumnFull $column): bool => in_array($column->field, $selected, true)
         ));
+        // TODO: Refactor columnsDefinition->displayForm() method to avoid unwrapping DTO
+        $fieldsMeta = array_map(static fn (ColumnFull $column): array => [
+            'Field' => $column->field,
+            'Type' => $column->type,
+            'Collation' => $column->collation,
+            'Null' => $column->isNull ? 'YES' : 'NO',
+            'Key' => $column->key,
+            'Default' => $column->default,
+            'Extra' => $column->extra,
+            'Privileges' => $column->privileges,
+            'Comment' => $column->comment,
+        ], $fieldsMeta);
 
         $GLOBALS['num_fields'] = count($fieldsMeta);
 
