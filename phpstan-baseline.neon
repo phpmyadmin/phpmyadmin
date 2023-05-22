@@ -7056,7 +7056,7 @@ parameters:
 			path: src/Controllers/Table/Structure/CentralColumnsRemoveController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/ChangeController.php
 
@@ -7071,7 +7071,7 @@ parameters:
 			path: src/Controllers/Table/Structure/ChangeController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/ChangeController.php
 

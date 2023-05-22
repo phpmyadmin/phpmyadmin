@@ -8,13 +8,15 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 
 use function __;
+use function array_filter;
+use function array_values;
 use function count;
+use function in_array;
 use function is_array;
 
 final class ChangeController extends AbstractController
@@ -57,20 +59,11 @@ final class ChangeController extends AbstractController
     {
         $GLOBALS['num_fields'] ??= null;
 
-        /** @todo optimize in case of multiple fields to modify */
-        $fieldsMeta = [];
-        foreach ($selected as $column) {
-            $value = $this->dbi->getColumn($GLOBALS['db'], $GLOBALS['table'], $column, true);
-            if ($value === null) {
-                $message = Message::error(
-                    __('Failed to get description of column %s!'),
-                );
-                $message->addParam($column);
-                $this->response->addHTML($message->getDisplay());
-            } else {
-                $fieldsMeta[] = $value;
-            }
-        }
+        $fieldsMeta = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
+        $fieldsMeta = array_values(array_filter(
+            $fieldsMeta,
+            static fn (array $column): bool => in_array($column['Field'], $selected, true)
+        ));
 
         $GLOBALS['num_fields'] = count($fieldsMeta);
 
