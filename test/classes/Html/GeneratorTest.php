@@ -457,10 +457,10 @@ class GeneratorTest extends AbstractTestCase
 <div class="alert alert-primary" role="alert">
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Bookmark message
 </div>
-<div class="alert alert-primary" role="alert">
+<div class="card mb-3 result_query">
+<div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>. Message <em>two</em>.
 </div>
-<div class="card result_query">
 <div class="card-body sqlOuter"><code class="sql" dir="ltr"><pre>
 SELECT 1;
 </pre></code></div>
@@ -509,10 +509,10 @@ HTML;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
-<div class="alert alert-success" role="alert">
+<div class="card mb-3 result_query">
+<div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
 </div>
-<div class="card result_query">
 <div class="card-body sqlOuter"><code class="php" dir="ltr"><pre>
 $sql = "EXPLAIN SELECT 1;";
 </pre></code></div>

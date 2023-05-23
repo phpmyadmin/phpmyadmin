@@ -468,13 +468,25 @@ class Generator
             unset($GLOBALS['special_message']);
         }
 
-        $retval .= $message->getDisplay();
-
         if (! $renderSql) {
-            return $retval;
+            return $retval . $message->getDisplay();
         }
 
-        $retval .= '<div class="card result_query">' . "\n";
+        $retval .= '<div class="card mb-3 result_query">' . "\n";
+
+        $context = 'primary';
+        $level = $message->getLevel();
+        if ($level === 'error') {
+            $context = 'danger';
+        } elseif ($level === 'success') {
+            $context = 'success';
+        }
+
+        $message->isDisplayed(true);
+        $retval .= '<div class="alert alert-' . $context;
+        $retval .= ' border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">' . "\n";
+        $retval .= '  ' . $message->getMessage() . "\n";
+        $retval .= '</div>' . "\n";
 
         $queryTooBig = false;
 
