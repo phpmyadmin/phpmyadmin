@@ -108,10 +108,7 @@ class ImportTest extends TestBase
         $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
         $this->byId('buttonGo')->click();
 
-        $this->waitUntilElementIsVisible(
-            'xpath',
-            "//div[@class='alert alert-success' and contains(., 'Import has been successfully')]",
-            30,
-        );
+        $success = $this->waitUntilElementIsVisible('cssSelector', '.alert-success', 30);
+        $this->assertStringContainsString('Import has been successfully', $success->getText());
     }
 }

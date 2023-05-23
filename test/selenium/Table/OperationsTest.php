@@ -61,11 +61,8 @@ class OperationsTest extends TestBase
 
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'Your SQL query has been executed successfully')]",
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('Your SQL query has been executed successfully', $success->getText());
 
         $this->byPartialLinkText('Browse')->click();
 
@@ -91,12 +88,11 @@ class OperationsTest extends TestBase
         $this->byCssSelector("form#moveTableForm input[type='submit']")->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'Table `" . $this->databaseName
-            . '`.`test_table` has been '
-            . 'moved to `' . $this->databaseName . "`.`test_table2`.')]",
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString(
+            'Table `' . $this->databaseName . '`.`test_table` has been moved to `'
+            . $this->databaseName . '`.`test_table2`',
+            $success->getText(),
         );
 
         $this->dbQuery(
@@ -126,11 +122,8 @@ class OperationsTest extends TestBase
         $this->byCssSelector("form#tableOptionsForm input[type='submit']")->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'Table test_table has been renamed to test_table2')]",
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('Table test_table has been renamed to test_table2', $success->getText());
 
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
@@ -156,12 +149,11 @@ class OperationsTest extends TestBase
         $this->waitForElement('cssSelector', 'form#copyTable input[type=\'submit\']')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'Table `" . $this->databaseName
-            . '`.`test_table` has been '
-            . 'copied to `' . $this->databaseName . "`.`test_table2`.')]",
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString(
+            'Table `' . $this->databaseName . '`.`test_table` has been copied to `'
+            . $this->databaseName . '`.`test_table2`',
+            $success->getText(),
         );
 
         $this->dbQuery(

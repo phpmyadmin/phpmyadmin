@@ -42,11 +42,8 @@ class ServerSettingsTest extends TestBase
         $this->moveto($ele);
         $ele->click();
 
-        $this->waitUntilElementIsPresent(
-            'xpath',
-            "//div[@class='alert alert-success' and contains(., 'Configuration has been saved')]",
-            5000,
-        );
+        $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5000);
+        $this->assertStringContainsString('Configuration has been saved', $success->getText());
     }
 
     /**

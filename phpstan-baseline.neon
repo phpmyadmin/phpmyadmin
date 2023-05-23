@@ -9636,11 +9636,6 @@ parameters:
 			path: test/selenium/Database/OperationsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
-			count: 1
-			path: test/selenium/Database/StructureTest.php
-
-		-
 			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 2
 			path: test/selenium/TestBase.php

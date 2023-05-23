@@ -107,11 +107,10 @@ class OperationsTest extends TestBase
         $this->scrollIntoView('copy_db_form', -150);
         $this->byCssSelector('form#copy_db_form input[name="submit_copy"]')->click();
 
-        $this->waitForElement(
-            'xpath',
-            "//div[@class='alert alert-success' and contains(., 'Database "
-            . $this->databaseName
-            . ' has been copied to ' . $newDbName . "')]",
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString(
+            'Database ' . $this->databaseName . ' has been copied to ' . $newDbName,
+            $success->getText(),
         );
 
         $this->dbQuery(
