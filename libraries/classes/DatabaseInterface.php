@@ -839,7 +839,17 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return mixed[] flat array description
+     * @return array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }|null
      */
     public function getColumn(
         string $database,
@@ -847,19 +857,19 @@ class DatabaseInterface implements DbalInterface
         string $column,
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
-    ): array {
+    ): array|null {
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
             $this->escapeString($this->escapeMysqlWildcards($column)),
             $full,
         );
-        /** @var array<string, array> $fields */
+        /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
         $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
 
-        return array_shift($columns) ?? [];
+        return array_shift($columns);
     }
 
     /**
@@ -870,7 +880,17 @@ class DatabaseInterface implements DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return mixed[][] array indexed by column names
+     * @return array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }[] array indexed by column names
      */
     public function getColumns(
         string $database,
@@ -879,7 +899,7 @@ class DatabaseInterface implements DbalInterface
         int $connectionType = Connection::TYPE_USER,
     ): array {
         $sql = QueryGenerator::getColumnsSql($database, $table, null, $full);
-        /** @var array[] $fields */
+        /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
         return $this->attachIndexInfoToColumns($database, $table, $fields);
@@ -888,11 +908,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Attach index information to the column definition
      *
-     * @param string    $database name of database
-     * @param string    $table    name of table to retrieve columns from
-     * @param mixed[][] $fields   column array indexed by their names
+     * @param string            $database name of database
+     * @param string            $table    name of table to retrieve columns from
+     * @param (string|null)[][] $fields   column array indexed by their names
      *
-     * @return mixed[][] Column defintions with index information
+     * @return (string|null)[][] Column defintions with index information
      */
     private function attachIndexInfoToColumns(
         string $database,

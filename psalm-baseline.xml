@@ -744,7 +744,6 @@
       <code><![CDATA[$_SESSION['tmpval']['recentTables'][$GLOBALS['server']]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$comments[$column['Field']]]]></code>
       <code>$foreign[$field]</code>
       <code>$foreign[$field]</code>
       <code>$foreign[$key]</code>
@@ -754,7 +753,6 @@
       <code>$childReferences</code>
       <code>$column</code>
       <code>$columns</code>
-      <code><![CDATA[$comments[$column['Field']]]]></code>
       <code>$field</code>
       <code>$foreignDb</code>
       <code>$foreignField</code>
@@ -803,6 +801,10 @@
     <PossiblyInvalidArgument>
       <code>$foreigners</code>
     </PossiblyInvalidArgument>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$column['Comment']]]></code>
+      <code><![CDATA[$column['Comment']]]></code>
+    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedMethod>
       <code>getDbComments</code>
     </PossiblyUnusedMethod>
@@ -959,17 +961,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
-    <MixedArgument>
-      <code><![CDATA[$row['Field']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
-    </MixedArgument>
-    <MixedArrayOffset>
-      <code><![CDATA[$columnsComments[$row['Field']]]]></code>
-      <code><![CDATA[$mimeMap[$row['Field']]]]></code>
-      <code><![CDATA[$mimeMap[$row['Field']]]]></code>
-      <code><![CDATA[$primaryKeys[$row['Field']]]]></code>
-      <code><![CDATA[$rows[$row['Field']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$relation</code>
     </MixedAssignment>
@@ -3650,7 +3641,6 @@
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
     <MixedArgument>
-      <code><![CDATA[$column['Field']]]></code>
       <code>$foreignDb</code>
       <code>$foreignTable</code>
       <code>$html</code>
@@ -3660,20 +3650,14 @@
                     : []]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[uksort($columnArray, 'strnatcasecmp')]]></code>
       <code><![CDATA[usort($columnList, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$oneKey['ref_db_name']]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$columnArray[$column['Field']]]]></code>
-      <code><![CDATA[$columnHashArray[$column['Field']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['display_query']]]></code>
-      <code><![CDATA[$columnArray[$column['Field']]]]></code>
       <code>$existrelForeign</code>
       <code>$foreignDb</code>
       <code>$foreignTable</code>
@@ -4181,7 +4165,6 @@
       <code>$attributes[$rownum]</code>
       <code>$columnsList[]</code>
       <code>$field</code>
-      <code>$rowComments[$rownum]</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
@@ -4754,7 +4737,6 @@
       <code><![CDATA[$def['Type']]]></code>
       <code>$default</code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
-      <code>$field</code>
       <code>$key</code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
@@ -4846,7 +4828,6 @@
       <code>$defaultValue</code>
       <code>$defaultValues[$rowNum]</code>
       <code>$extra</code>
-      <code>$field</code>
       <code>$hasList[]</code>
       <code>$key</code>
       <code>$length</code>
@@ -4901,6 +4882,9 @@
       <code>$db</code>
       <code>$table</code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument>
+      <code>$field</code>
+    </PossiblyNullArgument>
     <RedundantCast>
       <code><![CDATA[(bool) $GLOBALS['cfg']['Server']['DisableIS']]]></code>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
@@ -5526,9 +5510,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[array_intersect($_POST['criteriaTables'], $this->tablesNamesOnly)]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument>
-      <code><![CDATA[$column['Field']]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$this->searchTypeDescription]]></code>
     </MixedAssignment>
@@ -5759,6 +5740,7 @@
       <code>reset($columns)</code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->attachIndexInfoToColumns($database, $table, $fields)]]></code>
       <code><![CDATA[$this->fetchResult($sql, null, 'Field', $connectionType)]]></code>
       <code><![CDATA[$this->fetchResult($sql, null, null, $connectionType)]]></code>
       <code><![CDATA[array<int, array{
@@ -5779,6 +5761,29 @@
      *   Visible?: string,
      *   Expression?: string|null
      * }>]]></code>
+      <code>array_shift($columns)</code>
+      <code><![CDATA[array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }[]]]></code>
+      <code><![CDATA[array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }|null]]></code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
@@ -7606,9 +7611,6 @@
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
@@ -7616,9 +7618,6 @@
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
       <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$column['Type']]]></code>
@@ -7627,7 +7626,6 @@
       <code><![CDATA[$column['pma_type']]]></code>
       <code><![CDATA[$column['pma_type']]]></code>
       <code><![CDATA[$column['pma_type']]]></code>
-      <code><![CDATA[$commentsMap[$column['Field']]]]></code>
       <code>$currCellEditedValues[$columnName]</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -7674,8 +7672,6 @@
       <code><![CDATA[$extraData['transformations'][$cellIndex]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$commentsMap[$column['Field']]]]></code>
-      <code><![CDATA[$commentsMap[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -7698,12 +7694,9 @@
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
-      <code><![CDATA[$mimeMap[$tableColumn['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$columnSetValues</code>
-      <code><![CDATA[$column['pma_type']]]></code>
       <code><![CDATA[$column['values']]]></code>
       <code>$currCellEditedValues</code>
       <code><![CDATA[$currentRow[$column['Field']]]]></code>
@@ -7775,6 +7768,9 @@
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$column['Collation']]]></code>
+      <code><![CDATA[$column['Comment']]]></code>
+      <code><![CDATA[$column['Privileges']]]></code>
       <code><![CDATA[$column['is_blob']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCast>
@@ -8230,9 +8226,6 @@
       <code>$col</code>
       <code><![CDATA[$cols['nonpk']]]></code>
       <code><![CDATA[$cols['pk']]]></code>
-      <code><![CDATA[$def['Type']]]></code>
-      <code><![CDATA[$def['Type']]]></code>
-      <code><![CDATA[$def['Type']]]></code>
       <code>$dependent</code>
       <code>$dependents</code>
       <code>$dependents</code>
@@ -8297,10 +8290,6 @@
       <code><![CDATA[$def['Type']]]></code>
       <code><![CDATA[$def['Type']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$def['Type']]]></code>
-      <code><![CDATA[$def['Type']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <RedundantCast>
       <code>(string) $dependon</code>
     </RedundantCast>
@@ -8922,7 +8911,6 @@
       <code><![CDATA[$column['Type']]]></code>
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
-      <code>$fieldName</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$trigger['action_timing']]]></code>
       <code><![CDATA[$trigger['definition']]]></code>
@@ -8938,21 +8926,12 @@
       <code><![CDATA[$trigger['event_manipulation']]]></code>
       <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$aliases[$db]['tables'][$table]['columns'][$colAs]]]></code>
-      <code><![CDATA[$aliases[$db]['tables'][$view]['columns'][$colAs]]]></code>
-      <code>$comments[$fieldName]</code>
-      <code>$mimeMap[$fieldName]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
       <code>$colAlias</code>
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$fieldName</code>
       <code>$trigger</code>
       <code>$value</code>
     </MixedAssignment>
@@ -9001,29 +8980,21 @@
     <MixedArgument>
       <code>$columnsAlias[$i]</code>
       <code>$escape[$k]</code>
-      <code>$fieldName</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$aliases[$db]['tables'][$table]['columns'][$colAs]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code>$colAs</code>
       <code>$columnsAlias[$i]</code>
-      <code>$fieldName</code>
       <code>$type</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$colAs</code>
       <code>$comments[$fieldName]</code>
       <code>$escape[$k]</code>
-      <code><![CDATA[$row['Default'] ?? '']]></code>
       <code>$type</code>
     </MixedOperand>
     <ParamNameMismatch>
@@ -9059,21 +9030,13 @@
       <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
       <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
     </InvalidArrayOffset>
-    <MixedArrayOffset>
-      <code><![CDATA[$aliases[$db]['tables'][$table]['columns'][$colAs]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
-      <code>$colAs</code>
       <code>$colAs</code>
       <code>$column</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$colAs</code>
       <code>$column</code>
-      <code><![CDATA[$columns[$i]['Default']]]></code>
-      <code><![CDATA[$columns[$i]['Extra']]]></code>
-      <code><![CDATA[$columns[$i]['Null']]]></code>
-      <code><![CDATA[$columns[$i]['Type']]]></code>
     </MixedOperand>
     <ParamNameMismatch>
       <code>$doComments</code>
@@ -9081,6 +9044,7 @@
       <code>$doRelation</code>
     </ParamNameMismatch>
     <PossiblyNullOperand>
+      <code><![CDATA[$columns[$i]['Default']]]></code>
       <code>$row[$i]</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
@@ -9127,7 +9091,6 @@
       <code><![CDATA[$column['Type']]]></code>
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
-      <code>$fieldName</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$trigger['action_timing']]]></code>
       <code><![CDATA[$trigger['definition']]]></code>
@@ -9145,8 +9108,6 @@
       <code><![CDATA[$aliases[$db]['tables'][$rtable]]]></code>
       <code><![CDATA[$aliases[$db]['tables'][$rtable]]]></code>
       <code><![CDATA[$aliases[$db]['tables'][$rtable]['columns'][$rfield]]]></code>
-      <code><![CDATA[$aliases[$db]['tables'][$table]['columns'][$colAs]]]></code>
-      <code><![CDATA[$aliases[$db]['tables'][$view]['columns'][$colAs]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
@@ -9154,9 +9115,6 @@
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$fieldName</code>
       <code>$rfield</code>
       <code>$rfield</code>
       <code>$rtable</code>
@@ -9280,9 +9238,6 @@
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAs</code>
-      <code><![CDATA[$column['Comment']]]></code>
-      <code><![CDATA[$column['Default']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$engine</code>
       <code>$eventName</code>
       <code>$eventName</code>
@@ -9318,7 +9273,6 @@
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$aliases[$db]['tables'][$table]['columns'][$field]]]></code>
-      <code><![CDATA[$aliases[$db]['tables'][$view]['columns'][$colAlias]]]></code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion>
@@ -9329,7 +9283,6 @@
       <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
-      <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAs</code>
@@ -9353,8 +9306,6 @@
       <code>$trigger</code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$column['Collation']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
       <code><![CDATA[$definition['Type']]]></code>
       <code><![CDATA[$statement->entityOptions->has('AUTO_INCREMENT')]]></code>
       <code><![CDATA[$trigger['drop']]]></code>
@@ -9436,7 +9387,6 @@
       <code><![CDATA[$column['Default'] ?? '']]></code>
       <code><![CDATA[$column['Type']]]></code>
       <code>$comments[$fieldName]</code>
-      <code>$fieldName</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$trigger['definition']]]></code>
       <code>$type</code>
@@ -9451,21 +9401,12 @@
       <code><![CDATA[$trigger['event_manipulation']]]></code>
       <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$aliases[$db]['tables'][$table]['columns'][$colAs]]]></code>
-      <code><![CDATA[$aliases[$db]['tables'][$view]['columns'][$colAs]]]></code>
-      <code>$comments[$fieldName]</code>
-      <code>$mimeMap[$fieldName]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
       <code>$colAlias</code>
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$colAs</code>
-      <code>$fieldName</code>
       <code>$trigger</code>
       <code>$type</code>
       <code>$value</code>
@@ -9575,7 +9516,6 @@
       <code><![CDATA[$GLOBALS['maxY'] - $this->tMargin]]></code>
       <code>$cellFontSize</code>
       <code>$colAs</code>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$fullwidth + $l</code>
       <code>$fullwidth + $l</code>
       <code>$fullwidth + $l</code>
@@ -9674,10 +9614,6 @@
       <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
-      <code>$comments[$fieldName]</code>
-      <code>$mimeMap[$fieldName]</code>
-      <code>$resRel[$fieldName]</code>
-      <code>$resRel[$fieldName]</code>
       <code><![CDATA[$this->headerset[$this->page]]]></code>
       <code><![CDATA[$this->headerset[$this->page]]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]]]></code>
@@ -9705,9 +9641,6 @@
       <code>$data[]</code>
       <code>$data[]</code>
       <code>$data[]</code>
-      <code>$data[]</code>
-      <code>$data[]</code>
-      <code>$fieldName</code>
       <code>$fullwidth</code>
       <code>$fullwidth</code>
       <code>$fullwidth</code>
@@ -10744,15 +10677,12 @@
       <code><![CDATA[$this->diagram->PageNo()]]></code>
     </InvalidArgument>
     <MixedArgument>
-      <code>$fieldName</code>
-      <code>$fieldName</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code>$oneField</code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
       <code><![CDATA[$showTable['Check_time']]]></code>
       <code><![CDATA[$showTable['Create_time']]]></code>
       <code><![CDATA[$showTable['Update_time']]]></code>
@@ -10804,19 +10734,14 @@
       <code><![CDATA[$foreignTable[$foreigner['foreign_field']]]]></code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$table][$fieldName]]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$foreigner['foreign_table']]]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$foreigner['foreign_table']]]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']]]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table][$fieldName]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table][$fieldName]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$attribute</code>
-      <code>$fieldName</code>
-      <code>$fieldName</code>
       <code>$foreignTable</code>
       <code>$index</code>
       <code>$links[0]</code>
@@ -10848,9 +10773,6 @@
       <code><![CDATA[$_REQUEST['pdf_paper']]]></code>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$row['Null']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedMethod>
       <code>isWithDataDictionary</code>
     </PossiblyUnusedMethod>
@@ -11571,8 +11493,6 @@
       <code>$errorMessage</code>
       <code>$serverReplicationVariable</code>
       <code>$successMessage</code>
-      <code><![CDATA[$val['Type']]]></code>
-      <code><![CDATA[$val['Type']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['urlParams']]]></code>
@@ -12309,7 +12229,6 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$columns[$indexColumnName]['Extra']]]></code>
       <code><![CDATA[$extraData['error']]]></code>
       <code><![CDATA[$fieldInfoResult[0]['Type']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
@@ -13354,7 +13273,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$array</code>
-      <code>$columnNames[]</code>
       <code>$columnNames[]</code>
       <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name']]]></code>
       <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part']]]></code>

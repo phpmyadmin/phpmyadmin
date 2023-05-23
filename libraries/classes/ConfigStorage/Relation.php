@@ -531,7 +531,7 @@ class Relation
      * @param string $db    the name of the db to check for
      * @param string $table the name of the table to check for
      *
-     * @return mixed[]    [column_name] = comment
+     * @return string[]    [column_name] = comment
      */
     public function getComments(string $db, string $table = ''): array
     {
@@ -544,7 +544,7 @@ class Relation
         // MySQL native column comments
         $columns = $this->dbi->getColumns($db, $table, true);
         foreach ($columns as $column) {
-            if (empty($column['Comment'])) {
+            if ($column['Comment'] === '') {
                 continue;
             }
 

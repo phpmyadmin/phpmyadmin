@@ -163,8 +163,8 @@ class ChangeController extends AbstractController
         $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $whereClauseArray);
 
         $hasBlobField = false;
-        foreach ($tableColumns as $column) {
-            if ($this->insertEdit->isColumn($column, ['blob', 'tinyblob', 'mediumblob', 'longblob'])) {
+        foreach ($tableColumns as $tableColumn) {
+            if ($this->insertEdit->isColumn($tableColumn->type, ['blob', 'tinyblob', 'mediumblob', 'longblob'])) {
                 $hasBlobField = true;
                 break;
             }

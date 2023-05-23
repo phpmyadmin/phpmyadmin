@@ -15,7 +15,6 @@ use function __;
 use function array_fill;
 use function array_key_exists;
 use function array_merge;
-use function array_values;
 use function bin2hex;
 use function class_exists;
 use function count;
@@ -46,7 +45,6 @@ use function stripcslashes;
 use function stripslashes;
 use function strlen;
 use function substr;
-use function time;
 use function trim;
 
 use const ENT_COMPAT;
@@ -304,36 +302,57 @@ class InsertEdit
     /**
      * Analyze the table column array
      *
-     * @param mixed[] $column      description of column in given table
-     * @param mixed[] $commentsMap comments for every column that has a comment
+     * @param ColumnFull $tableColumn  description of column in given table
+     * @param string[]   $commentsMap  comments for every column that has a comment
+     * @param int        $columnLength length of the current column taken from field metadata
+     * @param bool       $insertMode   whether insert mode
      *
      * @return mixed[]                   description of column in given table
      */
     private function analyzeTableColumnsArray(
-        array $column,
+        ColumnFull $tableColumn,
         array $commentsMap,
+        int $columnLength,
+        bool $insertMode,
     ): array {
-        $column['Field_md5'] = md5($column['Field']);
+        $column = [
+            'Field' => $tableColumn->field,
+            'Type' => $tableColumn->type,
+            'Collation' => $tableColumn->collation,
+            'Null' => $tableColumn->isNull ? 'YES' : 'NO',
+            'Key' => $tableColumn->key,
+            'Default' => $tableColumn->default,
+            'Extra' => $tableColumn->extra,
+            'Privileges' => $tableColumn->privileges,
+            'Comment' => $tableColumn->comment,
+        ];
+        $column['Field_md5'] = md5($tableColumn->field);
         // True_Type contains only the type (stops at first bracket)
-        $column['True_Type'] = preg_replace('@\(.*@s', '', $column['Type']);
-        $column['len'] = preg_match('@float|double@', $column['Type']) ? 100 : -1;
-        $column['Field_title'] = $this->getColumnTitle($column, $commentsMap);
+        $column['True_Type'] = preg_replace('@\(.*@s', '', $tableColumn->type);
+        $column['len'] = preg_match('@float|double@', $tableColumn->type) ? 100 : $columnLength;
+        // length is unknown for geometry fields,
+        // make enough space to edit very simple WKTs
+        if ($column['len'] === -1) {
+            $column['len'] = 30;
+        }
+
+        $column['Field_title'] = $this->getColumnTitle($tableColumn->field, $commentsMap);
         $column['is_binary'] = $this->isColumn(
-            $column,
+            $tableColumn->type,
             ['binary', 'varbinary'],
         );
         $column['is_blob'] = $this->isColumn(
-            $column,
+            $tableColumn->type,
             ['blob', 'tinyblob', 'mediumblob', 'longblob'],
         );
         $column['is_char'] = $this->isColumn(
-            $column,
+            $tableColumn->type,
             ['char', 'varchar'],
         );
 
         $column['pma_type'] = match ($column['True_Type']) {
             'set', 'enum' => $column['True_Type'],
-            default => $column['Type']
+            default => $tableColumn->type,
         };
 
         $column['wrap'] = match ($column['True_Type']) {
@@ -344,26 +363,35 @@ class InsertEdit
         // can only occur once per table
         $column['first_timestamp'] = $column['True_Type'] === 'timestamp';
 
+        if (
+            $tableColumn->type === 'datetime'
+            && ! $tableColumn->isNull
+            && $tableColumn->default === null
+            && $insertMode
+        ) {
+            $column['Default'] = date('Y-m-d H:i:s');
+        }
+
         return $column;
     }
 
     /**
      * Retrieve the column title
      *
-     * @param mixed[] $column      description of column in given table
-     * @param mixed[] $commentsMap comments for every column that has a comment
+     * @param string   $fieldName   name of the column
+     * @param string[] $commentsMap comments for every column that has a comment
      *
      * @return string              column title
      */
-    private function getColumnTitle(array $column, array $commentsMap): string
+    private function getColumnTitle(string $fieldName, array $commentsMap): string
     {
-        if (isset($commentsMap[$column['Field']])) {
+        if (isset($commentsMap[$fieldName])) {
             return '<span style="border-bottom: 1px dashed black;" title="'
-                . htmlspecialchars($commentsMap[$column['Field']]) . '">'
-                . htmlspecialchars($column['Field']) . '</span>';
+                . htmlspecialchars($commentsMap[$fieldName]) . '">'
+                . htmlspecialchars($fieldName) . '</span>';
         }
 
-        return htmlspecialchars($column['Field']);
+        return htmlspecialchars($fieldName);
     }
 
     /**
@@ -371,13 +399,13 @@ class InsertEdit
      * the goal is to ensure that types such as "enum('one','two','binary',..)"
      * or "enum('one','two','varbinary',..)" are not categorized as binary
      *
-     * @param mixed[]  $column description of column in given table
-     * @param string[] $types  the types to verify
+     * @param string   $columnType column type as specified in the column definition
+     * @param string[] $types      the types to verify
      */
-    public function isColumn(array $column, array $types): bool
+    public function isColumn(string $columnType, array $types): bool
     {
         foreach ($types as $oneType) {
-            if (mb_stripos($column['Type'], $oneType) === 0) {
+            if (mb_stripos($columnType, $oneType) === 0) {
                 return true;
             }
         }
@@ -1503,13 +1531,28 @@ class InsertEdit
      * @param string $db    current db
      * @param string $table current table
      *
-     * @return mixed[][]
+     * @return list<ColumnFull>
      */
     public function getTableColumns(string $db, string $table): array
     {
         $this->dbi->selectDb($db);
 
-        return array_values($this->dbi->getColumns($db, $table, true));
+        $columns = [];
+        foreach ($this->dbi->getColumns($db, $table, true) as $column) {
+            $columns[] = new ColumnFull(
+                $column['Field'],
+                $column['Type'],
+                $column['Collation'],
+                $column['Null'] === 'YES',
+                $column['Key'],
+                $column['Default'],
+                $column['Extra'],
+                $column['Privileges'],
+                $column['Comment'],
+            );
+        }
+
+        return $columns;
     }
 
     /**
@@ -1600,7 +1643,7 @@ class InsertEdit
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return mixed[] comments for columns
+     * @return string[] comments for columns
      */
     public function getCommentsMap(string $db, string $table): array
     {
@@ -1655,29 +1698,29 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit column
      *
-     * @param mixed[]         $column             column
-     * @param int             $columnNumber       column index in table_columns
-     * @param mixed[]         $commentsMap        comments map
-     * @param ResultInterface $currentResult      current result
-     * @param bool            $insertMode         whether insert mode
-     * @param mixed[]         $currentRow         current row
-     * @param int             $columnsCnt         columns count
-     * @param bool            $isUpload           whether upload
-     * @param mixed[]         $foreigners         foreigners
-     * @param string          $table              table
-     * @param string          $db                 database
-     * @param int             $rowId              row id
-     * @param string          $defaultCharEditing default char editing mode which is stored in the config.inc.php script
-     * @param string          $textDir            text direction
-     * @param mixed[]         $repopulate         the data to be repopulated
-     * @param mixed[]         $columnMime         the mime information of column
-     * @param string          $whereClause        the where clause
+     * @param ColumnFull $tableColumn        column
+     * @param int        $columnNumber       column index in table_columns
+     * @param string[]   $commentsMap        comments map
+     * @param int        $columnLength       length of the current column taken from field metadata
+     * @param bool       $insertMode         whether insert mode
+     * @param mixed[]    $currentRow         current row
+     * @param int        $columnsCnt         columns count
+     * @param bool       $isUpload           whether upload
+     * @param mixed[]    $foreigners         foreigners
+     * @param string     $table              table
+     * @param string     $db                 database
+     * @param int        $rowId              row id
+     * @param string     $defaultCharEditing default char editing mode which is stored in the config.inc.php script
+     * @param string     $textDir            text direction
+     * @param mixed[]    $repopulate         the data to be repopulated
+     * @param mixed[]    $columnMime         the mime information of column
+     * @param string     $whereClause        the where clause
      */
     private function getHtmlForInsertEditFormColumn(
-        array $column,
+        ColumnFull $tableColumn,
         int $columnNumber,
         array $commentsMap,
-        ResultInterface $currentResult,
+        int $columnLength,
         bool $insertMode,
         array $currentRow,
         int $columnsCnt,
@@ -1692,9 +1735,7 @@ class InsertEdit
         array $columnMime,
         string $whereClause,
     ): string {
-        if (! isset($column['processed'])) {
-            $column = $this->analyzeTableColumnsArray($column, $commentsMap);
-        }
+        $column = $this->analyzeTableColumnsArray($tableColumn, $commentsMap, $columnLength, $insertMode);
 
         $asIs = false;
         /** @var string $fieldHashMd5 */
@@ -1706,15 +1747,6 @@ class InsertEdit
 
         $extractedColumnspec = Util::extractColumnSpec($column['Type']);
 
-        if ($column['len'] === -1) {
-            $column['len'] = $this->dbi->getFieldsMeta($currentResult)[$columnNumber]->length;
-            // length is unknown for geometry fields,
-            // make enough space to edit very simple WKTs
-            if ($column['len'] === -1) {
-                $column['len'] = 30;
-            }
-        }
-
         //Call validation when the form submitted...
         $onChangeClause = 'return verificationsAfterFieldChange('
             . json_encode($fieldHashMd5) . ', '
@@ -1724,10 +1756,6 @@ class InsertEdit
         // Use an MD5 as an array index to avoid having special characters
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $fieldHashMd5 . ']';
-
-        if ($column['Type'] === 'datetime' && $column['Null'] !== 'YES' && ! isset($column['Default']) && $insertMode) {
-            $column['Default'] = date('Y-m-d H:i:s', time());
-        }
 
         // Get a list of GIS data types.
         $gisDataTypes = Gis::getDataTypes();
@@ -1998,20 +2026,20 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param mixed[]         $urlParams        url parameters
-     * @param mixed[][]       $tableColumns     table columns
-     * @param mixed[]         $commentsMap      comments map
-     * @param ResultInterface $currentResult    current result
-     * @param bool            $insertMode       whether insert mode
-     * @param mixed[]         $currentRow       current row
-     * @param bool            $isUpload         whether upload
-     * @param mixed[]         $foreigners       foreigners
-     * @param string          $table            table
-     * @param string          $db               database
-     * @param int             $rowId            row id
-     * @param string          $textDir          text direction
-     * @param mixed[]         $repopulate       the data to be repopulated
-     * @param mixed[]         $whereClauseArray the array of where clauses
+     * @param mixed[]          $urlParams        url parameters
+     * @param list<ColumnFull> $tableColumns     table columns
+     * @param string[]         $commentsMap      comments map
+     * @param ResultInterface  $currentResult    current result
+     * @param bool             $insertMode       whether insert mode
+     * @param mixed[]          $currentRow       current row
+     * @param bool             $isUpload         whether upload
+     * @param mixed[]          $foreigners       foreigners
+     * @param string           $table            table
+     * @param string           $db               database
+     * @param int              $rowId            row id
+     * @param string           $textDir          text direction
+     * @param mixed[]          $repopulate       the data to be repopulated
+     * @param mixed[]          $whereClauseArray the array of where clauses
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,
@@ -2044,12 +2072,12 @@ class InsertEdit
         for ($columnNumber = 0; $columnNumber < $columnCount; $columnNumber++) {
             $tableColumn = $tableColumns[$columnNumber];
             $columnMime = [];
-            if (isset($mimeMap[$tableColumn['Field']])) {
-                $columnMime = $mimeMap[$tableColumn['Field']];
+            if (isset($mimeMap[$tableColumn->field])) {
+                $columnMime = $mimeMap[$tableColumn->field];
             }
 
             $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
-            if (in_array($tableColumn['Extra'], $virtual)) {
+            if (in_array($tableColumn->extra, $virtual)) {
                 continue;
             }
 
@@ -2057,7 +2085,7 @@ class InsertEdit
                 $tableColumn,
                 $columnNumber,
                 $commentsMap,
-                $currentResult,
+                $this->dbi->getFieldsMeta($currentResult)[$columnNumber]->length,
                 $insertMode,
                 $currentRow,
                 $columnCount,

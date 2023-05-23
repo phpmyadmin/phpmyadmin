@@ -574,8 +574,7 @@ class ExportLatex extends ExportPlugin
             }
 
             $localBuffer = $colAs . "\000" . $type . "\000"
-                . ($row['Null'] == '' || $row['Null'] === 'NO'
-                    ? __('No') : __('Yes'))
+                . ($row['Null'] === 'NO' ? __('No') : __('Yes'))
                 . "\000" . ($row['Default'] ?? '');
 
             if ($doRelation && $haveRel) {

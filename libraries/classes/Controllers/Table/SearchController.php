@@ -109,7 +109,7 @@ class SearchController extends AbstractController
             // set column name
             $this->columnNames[] = $row['Field'];
 
-            $type = (string) $row['Type'];
+            $type = $row['Type'];
             // before any replacement
             $this->originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns

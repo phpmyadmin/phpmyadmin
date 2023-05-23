@@ -293,7 +293,7 @@ class CentralColumns
             $hasList = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($fieldSelect as $table) {
                 foreach ($fields[$table] as $def) {
-                    $field = (string) $def['Field'];
+                    $field = $def['Field'];
                     if (! in_array($field, $hasList)) {
                         $hasList[] = $field;
                         $insQuery[] = $this->getInsertQuery($field, $def, $db, $centralListTable);

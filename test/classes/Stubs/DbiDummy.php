@@ -1643,11 +1643,11 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SHOW FULL COLUMNS FROM `test_db`.`test_table`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
-                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
-                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
-                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                    ['id', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
+                    ['name', 'varchar(20)', null, 'NO', '', 'NULL', '', '', ''],
+                    ['datetimefield', 'datetime', null, 'NO', '', 'NULL', '', '', ''],
                 ],
             ],
             [

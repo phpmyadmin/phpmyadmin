@@ -173,7 +173,17 @@ interface DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return mixed[] flat array description
+     * @return array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }|null
      */
     public function getColumn(
         string $database,
@@ -181,7 +191,7 @@ interface DbalInterface
         string $column,
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
-    ): array;
+    ): array|null;
 
     /**
      * Returns descriptions of columns in given table
@@ -191,7 +201,17 @@ interface DbalInterface
      * @param bool   $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return mixed[][] array indexed by column names
+     * @return array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation?: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges?: string,
+     *  Comment?: string
+     * }[] array indexed by column names
      */
     public function getColumns(
         string $database,
