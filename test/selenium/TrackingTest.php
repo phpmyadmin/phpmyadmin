@@ -159,10 +159,8 @@ class TrackingTest extends TestBase
         $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->waitAjax();
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Tracking data deleted successfully.\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('Tracking data deleted successfully.', $success->getText());
 
         // Can not use getCellByTableId,
         // since this is under 'th' and not 'td'

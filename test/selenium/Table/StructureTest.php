@@ -108,10 +108,8 @@ class StructureTest extends TestBase
 
         $this->waitForElement('cssSelector', "input[id='buttonYes']")->click();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'2 columns have been dropped successfully.\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('2 columns have been dropped successfully.', $success->getText());
         $this->waitAjax();
 
         $this->assertFalse(

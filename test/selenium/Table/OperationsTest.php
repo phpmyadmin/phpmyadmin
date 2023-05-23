@@ -186,10 +186,8 @@ class OperationsTest extends TestBase
         $this->waitForElement('id', 'functionConfirmOkButton')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('MySQL returned an empty result set', $success->getText());
 
         $this->dbQuery(
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.test_table',
@@ -213,10 +211,8 @@ class OperationsTest extends TestBase
         $this->waitForElement('id', 'functionConfirmOkButton')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('MySQL returned an empty result set', $success->getText());
 
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'

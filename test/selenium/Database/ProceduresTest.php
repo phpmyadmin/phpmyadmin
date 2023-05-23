@@ -145,10 +145,8 @@ class ProceduresTest extends TestBase
 
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Routine `test_procedure` has been created\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('Routine `test_procedure` has been created', $success->getText());
 
         $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->databaseName . "'",
@@ -181,10 +179,8 @@ class ProceduresTest extends TestBase
 
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Routine `test_procedure` has been modified\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('Routine `test_procedure` has been modified', $success->getText());
 
         $this->executeProcedure('test_procedure', 14);
     }

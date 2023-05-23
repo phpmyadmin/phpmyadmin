@@ -93,10 +93,8 @@ class TriggersTest extends TestBase
 
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been created\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('Trigger `test_trigger` has been created', $success->getText());
 
         $this->assertTrue(
             $this->isElementPresent(
@@ -148,10 +146,8 @@ class TriggersTest extends TestBase
 
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been modified\')]',
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('Trigger `test_trigger` has been modified', $success->getText());
 
         // test trigger
         $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');

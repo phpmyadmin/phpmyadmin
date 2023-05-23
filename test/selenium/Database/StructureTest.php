@@ -50,12 +50,8 @@ class StructureTest extends TestBase
 
         $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
-        $this->assertNotNull(
-            $this->waitForElement(
-                'xpath',
-                '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result\')]',
-            ),
-        );
+        $success = $this->waitForElement('cssSelector', '.alert-success');
+        $this->assertStringContainsString('MySQL returned an empty result', $success->getText());
 
         $this->dbQuery(
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.`test_table`',
