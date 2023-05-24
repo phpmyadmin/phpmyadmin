@@ -15,6 +15,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_column;
 use function array_diff;
+use function array_map;
 use function array_unique;
 use function array_values;
 use function bin2hex;
@@ -164,22 +165,24 @@ class CentralColumns
     /**
      * return the existing columns in central list among the given list of columns
      *
-     * @param string $db        the selected database
-     * @param string $cols      comma separated list of given columns
-     * @param bool   $allFields set if need all the fields of existing columns,
-     *                          otherwise only column_name is returned
+     * @param string   $db        the selected database
+     * @param string[] $cols      list of given columns
+     * @param bool     $allFields set if need all the fields of existing columns,
+     *                            otherwise only column_name is returned
      *
      * @return mixed[] list of columns in central columns among given set of columns
      */
     private function findExistingColNames(
         string $db,
-        string $cols,
+        array $cols,
         bool $allFields = false,
     ): array {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return [];
         }
+
+        $cols = $this->getWhereInColumns($cols);
 
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
@@ -278,7 +281,7 @@ class CentralColumns
         $centralListTable = $cfgCentralColumns['table'];
         $this->dbi->selectDb($db);
         $existingCols = [];
-        $cols = '';
+        $cols = [];
         $insQuery = [];
         $fields = [];
         $message = true;
@@ -286,11 +289,11 @@ class CentralColumns
             foreach ($fieldSelect as $table) {
                 $fields[$table] = $this->dbi->getColumns($db, $table, true);
                 foreach (array_column($fields[$table], 'Field') as $field) {
-                    $cols .= $this->dbi->quoteString($field, Connection::TYPE_CONTROL) . ',';
+                    $cols[] = $field;
                 }
             }
 
-            $hasList = $this->findExistingColNames($db, trim($cols, ','));
+            $hasList = $this->findExistingColNames($db, $cols);
             foreach ($fieldSelect as $table) {
                 foreach ($fields[$table] as $def) {
                     $field = $def['Field'];
@@ -307,11 +310,7 @@ class CentralColumns
                 $table = $_POST['table'];
             }
 
-            foreach ($fieldSelect as $column) {
-                $cols .= $this->dbi->quoteString($column, Connection::TYPE_CONTROL) . ',';
-            }
-
-            $hasList = $this->findExistingColNames($db, trim($cols, ','));
+            $hasList = $this->findExistingColNames($db, $fieldSelect);
             foreach ($fieldSelect as $column) {
                 if (! in_array($column, $hasList)) {
                     $hasList[] = $column;
@@ -385,15 +384,14 @@ class CentralColumns
         $colNotExist = [];
         $fields = [];
         if ($isTable) {
-            $cols = '';
+            $cols = [];
             foreach ($fieldSelect as $table) {
                 $fields[$table] = $this->dbi->getColumnNames($database, $table);
                 foreach ($fields[$table] as $colSelect) {
-                    $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
+                    $cols[] = $colSelect;
                 }
             }
 
-            $cols = trim($cols, ',');
             $hasList = $this->findExistingColNames($database, $cols);
             foreach ($fieldSelect as $table) {
                 foreach ($fields[$table] as $column) {
@@ -405,12 +403,7 @@ class CentralColumns
                 }
             }
         } else {
-            $cols = '';
-            foreach ($fieldSelect as $colSelect) {
-                $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
-            }
-
-            $cols = trim($cols, ',');
+            $cols = $fieldSelect;
             $hasList = $this->findExistingColNames($database, $cols);
             foreach ($fieldSelect as $column) {
                 if (in_array($column, $hasList)) {
@@ -435,6 +428,7 @@ class CentralColumns
 
         $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
 
+        $cols = $this->getWhereInColumns($cols);
         $query = 'DELETE FROM ' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($database, Connection::TYPE_CONTROL) . ' AND col_name IN (' . $cols . ');';
 
@@ -544,14 +538,8 @@ class CentralColumns
 
         $this->dbi->selectDb($db);
         $fields = $this->dbi->getColumnNames($db, $table);
-        $cols = '';
-        foreach ($fields as $colSelect) {
-            $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
-        }
 
-        $cols = trim($cols, ',');
-
-        return $this->findExistingColNames($db, $cols, $allFields);
+        return $this->findExistingColNames($db, $fields, $allFields);
     }
 
     /**
@@ -745,16 +733,10 @@ class CentralColumns
         } else {
             $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
-            $cols = '';
-            foreach ($columns as $colSelect) {
-                $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
-            }
-
-            $cols = trim($cols, ',');
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL);
-            if ($cols) {
-                $query .= ' AND col_name NOT IN (' . $cols . ')';
+            if ($columns !== []) {
+                $query .= ' AND col_name NOT IN (' . $this->getWhereInColumns($columns) . ')';
             }
 
             $query .= ';';
@@ -809,12 +791,7 @@ class CentralColumns
     public function getHtmlForEditingPage(array $selectedFld, string $selectedDb): string
     {
         $html = '';
-        $selectedFldSafe = [];
-        foreach ($selectedFld as $key) {
-            $selectedFldSafe[] = $this->dbi->quoteString($key, Connection::TYPE_CONTROL);
-        }
-
-        $listDetailCols = $this->findExistingColNames($selectedDb, implode(',', $selectedFldSafe), true);
+        $listDetailCols = $this->findExistingColNames($selectedDb, $selectedFld, true);
         $rowNum = 0;
         foreach ($listDetailCols as $row) {
             $tableHtmlRow = $this->getHtmlForEditTableRow($row, $rowNum);
@@ -968,5 +945,14 @@ class CentralColumns
             'text_dir' => $textDir,
             'charsets' => $charsetsList,
         ];
+    }
+
+    /** @param string[] $columns */
+    private function getWhereInColumns(array $columns): string
+    {
+        return implode(',', array_map(
+            fn (string $string): string => $this->dbi->quoteString($string, Connection::TYPE_CONTROL),
+            $columns,
+        ));
     }
 }

@@ -393,7 +393,7 @@ class CentralColumnsTest extends AbstractTestCase
             $this->centralColumns,
             CentralColumns::class,
             'findExistingColNames',
-            ['phpmyadmin', "'col1','col2'", true],
+            ['phpmyadmin', ['col1', 'col2'], true],
         );
         $this->assertStringContainsString(
             $this->callFunction(
@@ -480,7 +480,7 @@ class CentralColumnsTest extends AbstractTestCase
                 $this->centralColumns,
                 CentralColumns::class,
                 'findExistingColNames',
-                ['phpmyadmin', "'col1'", true],
+                ['phpmyadmin', ['col1'], true],
             ),
         );
     }
