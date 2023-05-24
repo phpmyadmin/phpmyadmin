@@ -154,8 +154,8 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue(['PMA_table', 'PMA_table1', 'PMA_table2']),
             );
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+        ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
         $this->centralColumns = new CentralColumns($dbi);
     }

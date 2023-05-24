@@ -4664,41 +4664,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Database/CentralColumns.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code>$centralListTable</code>
       <code>$centralListTable</code>
@@ -4721,10 +4686,8 @@
       <code>$column</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
-      <code><![CDATA[$column['col_default']]]></code>
       <code><![CDATA[$column['col_name']]]></code>
       <code><![CDATA[$column['col_name']]]></code>
-      <code><![CDATA[$column['col_type']]]></code>
       <code><![CDATA[$def['Type']]]></code>
       <code>$default</code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
@@ -4847,8 +4810,10 @@
       <code>$column</code>
       <code>$column</code>
       <code><![CDATA[$column['col_attribute']]]></code>
+      <code><![CDATA[$column['col_default']]]></code>
       <code><![CDATA[$column['col_extra']]]></code>
       <code><![CDATA[$column['col_length']]]></code>
+      <code><![CDATA[$column['col_type']]]></code>
     </MixedOperand>
     <MixedReturnStatement>
       <code>$cfgCentralColumns</code>
@@ -5860,9 +5825,6 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code>$added[$orgFullTableName]</code>
       <code>$multiOrderUrlParams</code>

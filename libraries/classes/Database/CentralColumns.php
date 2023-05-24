@@ -120,10 +120,10 @@ class CentralColumns
         //get current values of $db from central column list
         if ($num == 0) {
             $query = 'SELECT * FROM ' . Util::backquote($centralListTable) . ' '
-                . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ';';
         } else {
             $query = 'SELECT * FROM ' . Util::backquote($centralListTable) . ' '
-                . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' '
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' '
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
@@ -152,7 +152,7 @@ class CentralColumns
         $centralListTable = $cfgCentralColumns['table'];
         $query = 'SELECT count(db_name) FROM '
             . Util::backquote($centralListTable) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
+            . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ';';
         $res = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         if (isset($res[0])) {
             return (int) $res[0];
@@ -185,14 +185,14 @@ class CentralColumns
         $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $centralListTable = $cfgCentralColumns['table'];
         if ($allFields) {
-            $query = 'SELECT * FROM ' . Util::backquote($centralListTable) . ' '
-                . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
+            $query = 'SELECT * FROM ' . Util::backquote($centralListTable) . ' WHERE db_name = '
+                . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' AND col_name IN (' . $cols . ');';
             $hasList = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
             $this->handleColumnExtra($hasList);
         } else {
             $query = 'SELECT col_name FROM '
-                . Util::backquote($centralListTable) . ' '
-                . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
+                . Util::backquote($centralListTable) . ' WHERE db_name = '
+                . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' AND col_name IN (' . $cols . ');';
             $hasList = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         }
 
@@ -238,14 +238,14 @@ class CentralColumns
 
         return 'INSERT INTO '
             . Util::backquote($centralListTable) . ' '
-            . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
-            . '\'' . $this->dbi->escapeString($column) . '\',\''
-            . $this->dbi->escapeString($type) . '\','
-            . '\'' . $this->dbi->escapeString((string) $length) . '\',\''
-            . $this->dbi->escapeString($collation) . '\','
-            . '\'' . $this->dbi->escapeString($isNull) . '\','
+            . 'VALUES ( ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' ,'
+            . $this->dbi->quoteString($column, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($type, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString((string) $length, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($collation, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($isNull, Connection::TYPE_CONTROL) . ','
             . '\'' . implode(',', [$extra, $attribute])
-            . '\',\'' . $this->dbi->escapeString($default) . '\');';
+            . '\',' . $this->dbi->quoteString($default, Connection::TYPE_CONTROL) . ');';
     }
 
     /**
@@ -286,7 +286,7 @@ class CentralColumns
             foreach ($fieldSelect as $table) {
                 $fields[$table] = $this->dbi->getColumns($db, $table, true);
                 foreach (array_column($fields[$table], 'Field') as $field) {
-                    $cols .= "'" . $this->dbi->escapeString($field) . "',";
+                    $cols .= $this->dbi->quoteString($field, Connection::TYPE_CONTROL) . ',';
                 }
             }
 
@@ -308,7 +308,7 @@ class CentralColumns
             }
 
             foreach ($fieldSelect as $column) {
-                $cols .= "'" . $this->dbi->escapeString($column) . "',";
+                $cols .= $this->dbi->quoteString($column, Connection::TYPE_CONTROL) . ',';
             }
 
             $hasList = $this->findExistingColNames($db, trim($cols, ','));
@@ -389,7 +389,7 @@ class CentralColumns
             foreach ($fieldSelect as $table) {
                 $fields[$table] = $this->dbi->getColumnNames($database, $table);
                 foreach ($fields[$table] as $colSelect) {
-                    $cols .= '\'' . $this->dbi->escapeString($colSelect) . '\',';
+                    $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
                 }
             }
 
@@ -407,7 +407,7 @@ class CentralColumns
         } else {
             $cols = '';
             foreach ($fieldSelect as $colSelect) {
-                $cols .= '\'' . $this->dbi->escapeString($colSelect) . '\',';
+                $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
             }
 
             $cols = trim($cols, ',');
@@ -435,8 +435,8 @@ class CentralColumns
 
         $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
 
-        $query = 'DELETE FROM ' . Util::backquote($centralListTable) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($database) . '\' AND col_name IN (' . $cols . ');';
+        $query = 'DELETE FROM ' . Util::backquote($centralListTable) . ' WHERE db_name = '
+            . $this->dbi->quoteString($database, Connection::TYPE_CONTROL) . ' AND col_name IN (' . $cols . ');';
 
         if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
@@ -476,7 +476,7 @@ class CentralColumns
                 }
 
                 $query .= ' MODIFY ' . Util::backquote($column['col_name']) . ' '
-                    . $this->dbi->escapeString($column['col_type']);
+                    . $column['col_type'];
                 if ($column['col_length']) {
                     $query .= '(' . $column['col_length'] . ')';
                 }
@@ -494,9 +494,12 @@ class CentralColumns
                         $column['col_default'] !== 'CURRENT_TIMESTAMP'
                         && $column['col_default'] !== 'current_timestamp()'
                     ) {
-                        $query .= ' DEFAULT \'' . $this->dbi->escapeString((string) $column['col_default']) . '\'';
+                        $query .= ' DEFAULT ' . $this->dbi->quoteString(
+                            (string) $column['col_default'],
+                            Connection::TYPE_CONTROL,
+                        );
                     } else {
-                        $query .= ' DEFAULT ' . $this->dbi->escapeString($column['col_default']);
+                        $query .= ' DEFAULT ' . $column['col_default'];
                     }
                 }
 
@@ -543,7 +546,7 @@ class CentralColumns
         $fields = $this->dbi->getColumnNames($db, $table);
         $cols = '';
         foreach ($fields as $colSelect) {
-            $cols .= '\'' . $this->dbi->escapeString($colSelect) . '\',';
+            $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
         }
 
         $cols = trim($cols, ',');
@@ -603,17 +606,16 @@ class CentralColumns
             $query = $this->getInsertQuery($colName, $def, $db, $centralTable);
         } else {
             $query = 'UPDATE ' . Util::backquote($centralTable)
-                . ' SET col_type = \'' . $this->dbi->escapeString($colType) . '\''
-                . ', col_name = \'' . $this->dbi->escapeString($colName) . '\''
-                . ', col_length = \'' . $this->dbi->escapeString($colLength) . '\''
+                . ' SET col_type = ' . $this->dbi->quoteString($colType, Connection::TYPE_CONTROL)
+                . ', col_name = ' . $this->dbi->quoteString($colName, Connection::TYPE_CONTROL)
+                . ', col_length = ' . $this->dbi->quoteString($colLength, Connection::TYPE_CONTROL)
                 . ', col_isNull = ' . $colIsNull
-                . ', col_collation = \'' . $this->dbi->escapeString($collation) . '\''
+                . ', col_collation = ' . $this->dbi->quoteString($collation, Connection::TYPE_CONTROL)
                 . ', col_extra = \''
                 . implode(',', [$colExtra, $colAttribute]) . '\''
-                . ', col_default = \'' . $this->dbi->escapeString($colDefault) . '\''
-                . ' WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' '
-                . 'AND col_name = \'' . $this->dbi->escapeString($origColName)
-                . '\'';
+                . ', col_default = ' . $this->dbi->quoteString($colDefault, Connection::TYPE_CONTROL)
+                . ' WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+                . ' AND col_name = ' . $this->dbi->quoteString($origColName, Connection::TYPE_CONTROL);
         }
 
         if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
@@ -739,18 +741,18 @@ class CentralColumns
         $centralTable = $cfgCentralColumns['table'];
         if ($table === '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
-                . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ';';
         } else {
             $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
             $cols = '';
             foreach ($columns as $colSelect) {
-                $cols .= '\'' . $this->dbi->escapeString($colSelect) . '\',';
+                $cols .= $this->dbi->quoteString($colSelect, Connection::TYPE_CONTROL) . ',';
             }
 
             $cols = trim($cols, ',');
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
-                . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'';
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL);
             if ($cols) {
                 $query .= ' AND col_name NOT IN (' . $cols . ')';
             }
@@ -809,12 +811,10 @@ class CentralColumns
         $html = '';
         $selectedFldSafe = [];
         foreach ($selectedFld as $key) {
-            $selectedFldSafe[] = $this->dbi->escapeString($key);
+            $selectedFldSafe[] = $this->dbi->quoteString($key, Connection::TYPE_CONTROL);
         }
 
-        $columnsList = implode("','", $selectedFldSafe);
-        $columnsList = "'" . $columnsList . "'";
-        $listDetailCols = $this->findExistingColNames($selectedDb, $columnsList, true);
+        $listDetailCols = $this->findExistingColNames($selectedDb, implode(',', $selectedFldSafe), true);
         $rowNum = 0;
         foreach ($listDetailCols as $row) {
             $tableHtmlRow = $this->getHtmlForEditTableRow($row, $rowNum);
@@ -848,7 +848,7 @@ class CentralColumns
         $centralListTable = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($centralListTable) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
+            . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
             . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
         $result = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
 

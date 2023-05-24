@@ -2761,8 +2761,8 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 5
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
+			count: 4
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
