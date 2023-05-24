@@ -3127,9 +3127,7 @@ class Results
         // otherwise, preserve whitespaces and wrap
         $nowrap = $meta->isDateTimeType() || $boolNoWrap ? 'text-nowrap' : 'pre_wrap';
 
-        $whereComparison = ' = \''
-            . $this->dbi->escapeString($originalDataForWhereClause)
-            . '\'';
+        $whereComparison = ' = ' . $this->dbi->quoteString($originalDataForWhereClause);
 
         return $this->getRowData(
             $class,
