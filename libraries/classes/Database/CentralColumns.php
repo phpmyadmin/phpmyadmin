@@ -256,11 +256,11 @@ class CentralColumns
      * are added to central list otherwise the $field_select is considered as
      * list of columns and these columns are added to central list if not already added
      *
-     * @param mixed[] $fieldSelect if $isTable is true selected tables list
+     * @param string[] $fieldSelect if $isTable is true selected tables list
      *                            otherwise selected columns list
-     * @param bool    $isTable     if passed array is of tables or columns
-     * @param string  $table       if $isTable is false, then table name to
-     *                             which columns belong
+     * @param bool     $isTable     if passed array is of tables or columns
+     * @param string   $table       if $isTable is false, then table name to
+     *                              which columns belong
      *
      * @return true|Message
      */
@@ -358,10 +358,10 @@ class CentralColumns
      * central columns list otherwise $field_select is columns list and it removes
      * given columns if present in central list
      *
-     * @param string  $database    Database name
-     * @param mixed[] $fieldSelect if $isTable selected list of tables otherwise
+     * @param string   $database    Database name
+     * @param string[] $fieldSelect if $isTable selected list of tables otherwise
      *                            selected list of columns to remove from central list
-     * @param bool    $isTable     if passed array is of tables or columns
+     * @param bool     $isTable     if passed array is of tables or columns
      *
      * @return true|Message
      */
@@ -783,8 +783,8 @@ class CentralColumns
     /**
      * Get HTML for editing page central columns
      *
-     * @param mixed[] $selectedFld Array containing the selected fields
-     * @param string  $selectedDb  String containing the name of database
+     * @param string[] $selectedFld Array containing the selected fields
+     * @param string   $selectedDb  String containing the name of database
      *
      * @return string HTML for complete editing page for central columns
      */

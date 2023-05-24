@@ -12,8 +12,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use Webmozart\Assert\Assert;
 
 use function __;
+use function is_array;
 
 final class RemoveController extends AbstractController
 {
@@ -30,14 +32,16 @@ final class RemoveController extends AbstractController
     {
         $GLOBALS['message'] ??= null;
 
-        $selected = $_POST['selected_tbl'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_tbl', []);
 
-        if (empty($selected)) {
+        if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
             return;
         }
+
+        Assert::allString($selected);
 
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->deleteColumnsFromList($_POST['db'], $selected);

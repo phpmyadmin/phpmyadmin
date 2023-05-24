@@ -927,7 +927,6 @@
     <MixedArgument>
       <code>$columnDefault</code>
       <code>$columnDefault</code>
-      <code><![CDATA[$name['selected_fld']]]></code>
       <code><![CDATA[$params['col_attribute']]]></code>
       <code><![CDATA[$params['col_attribute']]]></code>
       <code><![CDATA[$params['col_extra'] ?? '']]></code>
@@ -945,11 +944,11 @@
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
-      <code><![CDATA[$params['selected_fld']]]></code>
       <code><![CDATA[$params['table-select']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$variables</code>
+      <code><![CDATA[[$params['column-select']]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['message']]]></code>
@@ -1293,17 +1292,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php">
-    <PossiblyInvalidArgument>
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php">
-    <InvalidArgument>
-      <code>$selected</code>
-    </InvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1311,7 +1304,6 @@
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['db']]]></code>
-      <code>$selected</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['db']]]></code>
@@ -4681,7 +4673,6 @@
       <code><![CDATA[$cfgCentralColumns['db']]]></code>
       <code><![CDATA[$cfgCentralColumns['db']]]></code>
       <code>$collation</code>
-      <code>$column</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
       <code><![CDATA[$column['col_name']]]></code>
@@ -4709,15 +4700,9 @@
       <code><![CDATA[$row['col_extra']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$type</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>$cols</code>
-      <code>$cols</code>
-      <code>$fieldSelect</code>
-      <code>$selectedFld</code>
       <code>[$extra, $attribute]</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -4756,10 +4741,6 @@
       <code><![CDATA[$row['col_extra']]]></code>
       <code><![CDATA[$row['col_extra']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code>$fields[$table]</code>
-      <code>$fields[$table]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$attribute</code>
       <code>$centralListTable</code>
@@ -4772,8 +4753,6 @@
       <code>$centralTable</code>
       <code>$collation</code>
       <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$columnDefault</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
@@ -4781,7 +4760,6 @@
       <code>$defaultValue</code>
       <code>$defaultValues[$rowNum]</code>
       <code>$extra</code>
-      <code>$hasList[]</code>
       <code>$length</code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code>$pmadb</code>
@@ -4795,18 +4773,12 @@
       <code>$row</code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultType']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$type</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>mixed[]|bool</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code>$column</code>
-      <code>$column</code>
       <code><![CDATA[$column['col_attribute']]]></code>
       <code><![CDATA[$column['col_default']]]></code>
       <code><![CDATA[$column['col_extra']]]></code>

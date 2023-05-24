@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function is_array;
@@ -38,6 +39,8 @@ final class CentralColumnsAddController extends AbstractController
 
             return;
         }
+
+        Assert::allString($selected);
 
         $centralColsError = $this->centralColumns->syncUniqueColumns($selected, false);
 
