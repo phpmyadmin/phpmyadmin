@@ -3445,25 +3445,9 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Table/GetFieldController.php">
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['transform_key']]]></code>
-      <code><![CDATA[$_GET['where_clause']]]></code>
-      <code><![CDATA[$_GET['where_clause_sign']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['where_clause']]]></code>
-      <code><![CDATA[$_GET['where_clause_sign']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_GET['transform_key']]]></code>
-      <code><![CDATA[$_GET['where_clause']]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code>$result</code>
     </PossiblyNullArgument>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
     <MixedArrayAccess>

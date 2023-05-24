@@ -2868,14 +2868,29 @@ function showIndexEditDialog ($outer) {
     checkIndexType();
     checkIndexName('index_frm');
     var $indexColumns = $('#index_columns');
-    $indexColumns.find('td').each(function () {
-        $(this).css('width', $(this).width() + 'px');
-    });
-
     $indexColumns.find('tbody').sortable({
         axis: 'y',
         containment: $indexColumns.find('tbody'),
-        tolerance: 'pointer'
+        tolerance: 'pointer',
+        forcePlaceholderSize: true,
+        // Add custom dragged row
+        // @ts-ignore
+        helper: function (event, tr: any) {
+            var $originalCells = (tr as JQuery<HTMLElement>).children();
+            var $helper = (tr as JQuery<HTMLElement>).clone();
+            $helper.children().each(function (index) {
+                // Set cell width in dragged row
+                $(this).width($originalCells.eq(index).outerWidth());
+                var $childrenSelect = $originalCells.eq(index).children('select');
+                if ($childrenSelect.length) {
+                    var selectedIndex = $childrenSelect.prop('selectedIndex');
+                    // Set correct select value in dragged row
+                    $(this).children('select').prop('selectedIndex', selectedIndex);
+                }
+            });
+
+            return $helper;
+        }
     });
 
     Functions.showHints($outer);

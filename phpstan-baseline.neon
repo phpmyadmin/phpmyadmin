@@ -2101,6 +2101,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 3
+			path: libraries/classes/Controllers/Table/GetFieldController.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GetFieldController.php
