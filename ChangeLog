@@ -36,6 +36,9 @@ phpMyAdmin - ChangeLog
 - issue #18212 Fix Query Builder doesn't replace a table name with it's alias in the `WHERE` block
 - issue        Keep the criteria box collapsed by the user when un-checking the criteria checkbox
 - issue        Fix colspan for actions column on database table list
+- issue        Fix double encoding on User Groups pages
+- issue        Fix list of users of an user group not showing up
+- issue        Fix duplicate query params in the SQL message card
 - issue #18314 Fix dragged row in index form
 
 5.2.1 (2023-02-07)

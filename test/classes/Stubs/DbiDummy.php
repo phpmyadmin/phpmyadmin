@@ -2572,7 +2572,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC',
                 'columns' => ['usergroup', 'tab', 'allowed'],
-                'result' => [['usergroup', 'server_sql', 'Y']],
+                'result' => [['user<br>group', 'server_sql', 'Y']],
             ],
             [
                 'query' => 'DESCRIBE `test_table`',
