@@ -4311,7 +4311,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code>$item</code>
     </MixedAssignment>
     <UnusedParam>
       <code>$request</code>

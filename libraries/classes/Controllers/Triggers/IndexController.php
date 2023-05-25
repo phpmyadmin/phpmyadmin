@@ -76,28 +76,16 @@ final class IndexController extends AbstractController
         $this->triggers->handleEditor();
         $this->triggers->export();
 
-        $items = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
+        $triggers = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
         $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $GLOBALS['db'], $GLOBALS['table']);
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
-
-        $rows = '';
-        foreach ($items as $item) {
-            $rows .= $this->template->render('triggers/row', [
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
-                'trigger' => $item,
-                'has_drop_privilege' => $hasTriggerPrivilege,
-                'has_edit_privilege' => $hasTriggerPrivilege,
-                'row_class' => $isAjax ? 'ajaxInsert hide' : '',
-            ]);
-        }
 
         $this->render('triggers/list', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'items' => $items,
-            'rows' => $rows,
+            'triggers' => $triggers,
             'has_privilege' => $hasTriggerPrivilege,
+            'is_ajax' => $isAjax,
         ]);
     }
 }

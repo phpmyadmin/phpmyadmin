@@ -56,7 +56,7 @@ class IndexControllerTest extends AbstractTestCase
             new Triggers($this->dbi, $template, $response),
         ))($this->createStub(ServerRequest::class));
 
-        $items = [
+        $triggers = [
             [
                 'name' => 'test_trigger',
                 'table' => 'test_table',
@@ -70,20 +70,12 @@ class IndexControllerTest extends AbstractTestCase
                     . ' FOR EACH ROW BEGIN END' . "\n" . '//' . "\n",
             ],
         ];
-        $rows = $template->render('triggers/row', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-            'trigger' => $items[0],
-            'has_drop_privilege' => true,
-            'has_edit_privilege' => true,
-            'row_class' => '',
-        ]);
         $expected = $template->render('triggers/list', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'items' => $items,
-            'rows' => $rows,
+            'triggers' => $triggers,
             'has_privilege' => true,
+            'is_ajax' => false,
         ]);
 
         $this->assertSame($expected, $response->getHTMLResult());
