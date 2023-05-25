@@ -4311,10 +4311,11 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code>$item</code>
     </MixedAssignment>
-    <PossiblyUnusedParam>
+    <UnusedParam>
       <code>$request</code>
-    </PossiblyUnusedParam>
+    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/UserPasswordController.php">
     <InvalidArrayOffset>
@@ -12943,7 +12944,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$createItem</code>
       <code>$exportData</code>
-      <code>$item</code>
       <code><![CDATA[$item['item_original_name']]]></code>
       <code><![CDATA[$oneResult['action_timing']]]></code>
       <code><![CDATA[$oneResult['definer']]]></code>

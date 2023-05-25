@@ -78,13 +78,14 @@ class IndexControllerTest extends AbstractTestCase
             'has_edit_privilege' => true,
             'row_class' => '',
         ]);
-
-        $this->expectOutputString($template->render('triggers/list', [
+        $expected = $template->render('triggers/list', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'items' => $items,
             'rows' => $rows,
             'has_privilege' => true,
-        ]));
+        ]);
+
+        $this->assertSame($expected, $response->getHTMLResult());
     }
 }

@@ -45,42 +45,6 @@ class Triggers
     }
 
     /**
-     * Main function for the triggers functionality
-     */
-    public function main(): void
-    {
-        /**
-         * Process all requests
-         */
-        $this->handleEditor();
-        $this->export();
-
-        $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
-        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $GLOBALS['db'], $GLOBALS['table']);
-        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
-
-        $rows = '';
-        foreach ($items as $item) {
-            $rows .= $this->template->render('triggers/row', [
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
-                'trigger' => $item,
-                'has_drop_privilege' => $hasTriggerPrivilege,
-                'has_edit_privilege' => $hasTriggerPrivilege,
-                'row_class' => $isAjax ? 'ajaxInsert hide' : '',
-            ]);
-        }
-
-        echo $this->template->render('triggers/list', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-            'items' => $items,
-            'rows' => $rows,
-            'has_privilege' => $hasTriggerPrivilege,
-        ]);
-    }
-
-    /**
      * Handles editor requests for adding or editing an item
      */
     public function handleEditor(): void
@@ -469,7 +433,7 @@ class Triggers
         echo $message->getDisplay();
     }
 
-    private function export(): void
+    public function export(): void
     {
         if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
             return;
