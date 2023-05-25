@@ -34,6 +34,7 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\ThemeSetController;
 use PhpMyAdmin\Controllers\Transformation;
+use PhpMyAdmin\Controllers\Triggers;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
@@ -347,15 +348,6 @@ return [
                 '$template' => '@template',
                 '$tracking' => '@tracking',
                 '$dbi' => '@dbi',
-            ],
-        ],
-        Database\TriggersController::class => [
-            'class' => Database\TriggersController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$triggers' => '@triggers',
             ],
         ],
         DatabaseController::class => [
@@ -1417,8 +1409,8 @@ return [
                 '$trackingChecker' => '@tracking_checker',
             ],
         ],
-        Table\TriggersController::class => [
-            'class' => Table\TriggersController::class,
+        Triggers\IndexController::class => [
+            'class' => Triggers\IndexController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',

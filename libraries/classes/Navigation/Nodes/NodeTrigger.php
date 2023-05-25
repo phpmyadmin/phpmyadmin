@@ -29,11 +29,11 @@ class NodeTrigger extends Node
         $this->icon = ['image' => 'b_triggers', 'title' => __('Trigger')];
         $this->links = [
             'text' => [
-                'route' => '/database/triggers',
+                'route' => '/triggers',
                 'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
             ],
             'icon' => [
-                'route' => '/database/triggers',
+                'route' => '/triggers',
                 'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
             ],
         ];

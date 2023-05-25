@@ -1,4 +1,4 @@
-<form class="rte_form" action="{{ url('/database/triggers') }}" method="post">
+<form class="rte_form" action="{{ url('/triggers') }}" method="post">
   {{ get_hidden_inputs(db, table) }}
   <input name="{{ is_edit ? 'edit_item' : 'add_item' }}" type="hidden" value="1">
   {% if is_edit %}

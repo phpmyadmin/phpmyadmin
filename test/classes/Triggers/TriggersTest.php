@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Database;
+namespace PhpMyAdmin\Tests\Triggers;
 
-use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Triggers\Triggers;
 
-/** @covers \PhpMyAdmin\Database\Triggers */
+/** @covers \PhpMyAdmin\Triggers\Triggers */
 class TriggersTest extends AbstractTestCase
 {
     private Triggers $triggers;

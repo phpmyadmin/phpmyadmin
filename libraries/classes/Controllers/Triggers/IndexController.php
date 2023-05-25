@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Table;
+namespace PhpMyAdmin\Controllers\Triggers;
 
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -20,7 +20,7 @@ use function strlen;
 /**
  * Triggers management.
  */
-class TriggersController extends AbstractController
+final class IndexController extends AbstractController
 {
     public function __construct(
         ResponseRenderer $response,
@@ -37,7 +37,7 @@ class TriggersController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['database/triggers.js']);
+        $this->addScriptFiles(['triggers.js']);
 
         if (! $this->response->isAjax()) {
             /**

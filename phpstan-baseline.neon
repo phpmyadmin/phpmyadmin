@@ -3136,136 +3136,6 @@ parameters:
 			path: libraries/classes/Database/Search.php
 
 		-
-			message: "#^Cannot access offset 'ACTION_STATEMENT' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'ACTION_TIMING' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'DEFINER' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'Definer' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_MANIPULATION' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_OBJECT_TABLE' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'Event' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'Statement' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'TRIGGER_NAME' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'Table' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'Timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'Trigger' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'definer' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'definition' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'drop' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Offset 'drop' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$createStatement of method PhpMyAdmin\\\\Database\\\\Triggers\\:\\:checkResult\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
 			message: "#^Binary operation \"\\+\" between string\\|null and string\\|null results in an error\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -5741,7 +5611,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of static method PhpMyAdmin\\\\Database\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$table of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
@@ -8499,6 +8369,136 @@ parameters:
 			message: "#^Foreach overwrites \\$file with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
+
+		-
+			message: "#^Cannot access offset 'ACTION_STATEMENT' on mixed\\.$#"
+			count: 3
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'ACTION_TIMING' on mixed\\.$#"
+			count: 3
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'DEFINER' on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'Definer' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'EVENT_MANIPULATION' on mixed\\.$#"
+			count: 3
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'EVENT_OBJECT_TABLE' on mixed\\.$#"
+			count: 3
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'Event' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'Statement' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'TRIGGER_NAME' on mixed\\.$#"
+			count: 3
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'Table' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'Timing' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'Trigger' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'create' on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'definer' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'definition' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'drop' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'name' on mixed\\.$#"
+			count: 4
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'table' on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Offset 'drop' does not exist on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Parameter \\#1 \\$createStatement of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:checkResult\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
+			count: 4
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
 
 		-
 			message: "#^Call to an undefined method object\\:\\:configure\\(\\)\\.$#"

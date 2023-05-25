@@ -7,11 +7,11 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
-use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Triggers\Triggers;
 
 use function __;
 use function array_merge;

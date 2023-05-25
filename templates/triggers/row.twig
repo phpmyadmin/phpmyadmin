@@ -8,7 +8,7 @@
   </td>
   {% if table is empty %}
     <td>
-      <a href="{{ url('/table/triggers', {'db': db, 'table': trigger.table}) }}">{{ trigger.table }}</a>
+      <a href="{{ url('/triggers', {'db': db, 'table': trigger.table}) }}">{{ trigger.table }}</a>
     </td>
   {% endif %}
   <td>
@@ -19,7 +19,7 @@
   </td>
   <td>
     {% if has_edit_privilege %}
-      <a class="ajax edit_anchor" href="{{ url('/database/triggers', {
+      <a class="ajax edit_anchor" href="{{ url('/triggers', {
         'db': db,
         'table': table,
         'edit_item': true,
@@ -32,7 +32,7 @@
     {% endif %}
   </td>
   <td>
-    <a class="ajax export_anchor" href="{{ url('/database/triggers', {
+    <a class="ajax export_anchor" href="{{ url('/triggers', {
       'db': db,
       'table': table,
       'export_item': true,
@@ -49,7 +49,7 @@
           'db': db,
           'table': table,
           'sql_query': trigger.drop,
-          'goto': url('/database/triggers', {'db': db})
+          'goto': url('/triggers', {'db': db})
         },
         get_icon('b_drop', 'Drop'|trans),
         {'class': 'ajax drop_anchor'}

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Database;
+namespace PhpMyAdmin\Triggers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -61,7 +61,7 @@ class Triggers
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->template->render('database/triggers/row', [
+            $rows .= $this->template->render('triggers/row', [
                 'db' => $GLOBALS['db'],
                 'table' => $GLOBALS['table'],
                 'trigger' => $item,
@@ -71,7 +71,7 @@ class Triggers
             ]);
         }
 
-        echo $this->template->render('database/triggers/list', [
+        echo $this->template->render('triggers/list', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'items' => $items,
@@ -197,7 +197,7 @@ class Triggers
                         );
                         $this->response->addJSON(
                             'new_row',
-                            $this->template->render('database/triggers/row', [
+                            $this->template->render('triggers/row', [
                                 'db' => $GLOBALS['db'],
                                 'table' => $GLOBALS['table'],
                                 'trigger' => $trigger,
@@ -340,7 +340,7 @@ class Triggers
         $query .= 'AND `TABLE_TYPE` IN (\'BASE TABLE\', \'SYSTEM VERSIONED\')';
         $tables = $this->dbi->fetchResult($query);
 
-        return $this->template->render('database/triggers/editor_form', [
+        return $this->template->render('triggers/editor_form', [
             'db' => $db,
             'table' => $table,
             'is_edit' => $mode === 'edit',
@@ -496,7 +496,7 @@ class Triggers
                 exit;
             }
 
-            $this->response->addHTML($this->template->render('database/triggers/export', [
+            $this->response->addHTML($this->template->render('triggers/export', [
                 'data' => $exportData,
                 'item_name' => $itemName,
             ]));

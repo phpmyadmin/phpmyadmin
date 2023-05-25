@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
-use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\FieldMetadata;
@@ -30,6 +29,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 

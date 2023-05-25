@@ -30,11 +30,11 @@ class NodeTriggerTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'text' => [
-                    'route' => '/database/triggers',
+                    'route' => '/triggers',
                     'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
                 ],
                 'icon' => [
-                    'route' => '/database/triggers',
+                    'route' => '/triggers',
                     'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
                 ],
             ],

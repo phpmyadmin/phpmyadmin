@@ -23,13 +23,13 @@
     </div>
 
     <div class="ms-auto">
-      <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/database/triggers', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
+      <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/triggers', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
         {{ get_icon('b_trigger_add', 'Create new trigger'|trans) }}
       </a>
     </div>
   </div>
 
-  <form id="rteListForm" class="ajax" action="{{ url(table is not empty ? '/table/triggers' : '/database/triggers') }}">
+  <form id="rteListForm" class="ajax" action="{{ url('/triggers') }}">
     {{ get_hidden_inputs(db, table) }}
 
     <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>

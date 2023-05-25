@@ -35,6 +35,7 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\ThemeSetController;
 use PhpMyAdmin\Controllers\Transformation;
+use PhpMyAdmin\Controllers\Triggers;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
@@ -108,7 +109,6 @@ return static function (RouteCollector $routes): void {
             $routes->post('/show-create', Database\Structure\ShowCreateController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', Database\TrackingController::class);
-        $routes->addRoute(['GET', 'POST'], '/triggers', Database\TriggersController::class);
     });
     $routes->post('/databases', DatabaseController::class);
     $routes->addRoute(['GET', 'POST'], '/error-report', ErrorReportController::class);
@@ -290,7 +290,6 @@ return static function (RouteCollector $routes): void {
             $routes->post('/unique', Table\Structure\UniqueController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', Table\TrackingController::class);
-        $routes->addRoute(['GET', 'POST'], '/triggers', Table\TriggersController::class);
         $routes->addRoute(['GET', 'POST'], '/zoom-search', Table\ZoomSearchController::class);
     });
     $routes->post('/tables', TableController::class);
@@ -302,6 +301,7 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/overview', Transformation\OverviewController::class);
         $routes->addRoute(['GET', 'POST'], '/wrapper', Transformation\WrapperController::class);
     });
+    $routes->addRoute(['GET', 'POST'], '/triggers', Triggers\IndexController::class);
     $routes->addRoute(['GET', 'POST'], '/user-password', UserPasswordController::class);
     $routes->addRoute(['GET', 'POST'], '/version-check', VersionCheckController::class);
     $routes->addGroup('/view', static function (RouteCollector $routes): void {

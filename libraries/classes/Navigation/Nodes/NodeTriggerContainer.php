@@ -26,8 +26,8 @@ class NodeTriggerContainer extends Node
 
         $this->icon = ['image' => 'b_triggers', 'title' => __('Triggers')];
         $this->links = [
-            'text' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
-            'icon' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
+            'text' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
+            'icon' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
         ];
         $this->realName = 'triggers';
 
@@ -35,8 +35,8 @@ class NodeTriggerContainer extends Node
         $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_trigger italics');
         $new->icon = ['image' => 'b_trigger_add', 'title' => $newLabel];
         $new->links = [
-            'text' => ['route' => '/database/triggers', 'params' => ['add_item' => 1, 'db' => null]],
-            'icon' => ['route' => '/database/triggers', 'params' => ['add_item' => 1, 'db' => null]],
+            'text' => ['route' => '/triggers', 'params' => ['add_item' => 1, 'db' => null]],
+            'icon' => ['route' => '/triggers', 'params' => ['add_item' => 1, 'db' => null]],
         ];
         $this->addChild($new);
     }
