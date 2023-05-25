@@ -429,4 +429,23 @@ class Generator
 
         return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
     }
+
+    /**
+     * Builds the SQL insert query
+     *
+     * @param bool     $isInsertIgnore $_POST['submit_type'] === 'insertignore'
+     * @param string[] $queryFields    column names array
+     * @param string[] $valueSets      array of query values
+     */
+    public static function buildInsertSqlQuery(
+        string $table,
+        bool $isInsertIgnore,
+        array $queryFields,
+        array $valueSets,
+    ): string {
+        return ($isInsertIgnore ? 'INSERT IGNORE ' : 'INSERT ') . 'INTO '
+            . Util::backquote($table)
+            . ' (' . implode(', ', $queryFields) . ') VALUES ('
+            . implode('), (', $valueSets) . ')';
+    }
 }

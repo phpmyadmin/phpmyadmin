@@ -376,15 +376,16 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Test for Generator::getDefaultFunctionForField
      *
-     * @param array  $field      field settings
-     * @param bool   $insertMode true if insert mode
-     * @param string $expected   expected result
-     * @psalm-param array<string, string|bool|null> $field
-     *
      * @dataProvider providerForTestGetDefaultFunctionForField
      */
     public function testGetDefaultFunctionForField(
-        array $field,
+        string $trueType,
+        bool $firstTimestamp,
+        string|null $defaultValue,
+        string $extra,
+        bool $isNull,
+        string $key,
+        string $type,
         bool $insertMode,
         string $expected,
     ): void {
@@ -394,7 +395,16 @@ class GeneratorTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbiStub;
 
-        $result = Generator::getDefaultFunctionForField($field, $insertMode);
+        $result = Generator::getDefaultFunctionForField(
+            $trueType,
+            $firstTimestamp,
+            $defaultValue,
+            $extra,
+            $isNull,
+            $key,
+            $type,
+            $insertMode,
+        );
 
         $this->assertEquals($expected, $result);
     }
@@ -402,38 +412,55 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Data provider for Generator::getDefaultFunctionForField test
      *
-     * @return mixed[]
-     * @psalm-return array<int, array{array<string, string|bool|null>, bool, string}>
+     * @return array{string, bool, string|null, string, bool, string, string, bool, string}[]
      */
     public static function providerForTestGetDefaultFunctionForField(): array
     {
         return [
             [
-                [
-                    'True_Type' => 'GEOMETRY',
-                    'first_timestamp' => false,
-                    'Extra' => null,
-                    'Key' => '',
-                    'Type' => '',
-                    'Null' => 'NO',
-                ],
+                'GEOMETRY',
+                false,
+                null,
+                '',
+                false,
+                '',
+                '',
                 true,
                 'ST_GeomFromText',
             ],
             [
-                [
-                    'True_Type' => 'timestamp',
-                    'first_timestamp' => true,
-                    'Extra' => null,
-                    'Key' => '',
-                    'Type' => '',
-                    'Null' => 'NO',
-                ],
+                'timestamp',
+                true,
+                null,
+                '',
+                false,
+                '',
+                '',
                 true,
                 'NOW',
             ],
-            [['True_Type' => 'uuid', 'first_timestamp' => false, 'Key' => '', 'Type' => ''], true, ''],
-            [['True_Type' => '', 'first_timestamp' => false, 'Key' => 'PRI', 'Type' => 'char(36)'], true, 'UUID'],
+            [
+                'uuid',
+                false,
+                null,
+                '',
+                false,
+                '',
+                '',
+                true,
+                '',
+            ],
+            [
+                '',
+                false,
+                null,
+                '',
+                false,
+                'PRI',
+                'char(36)',
+                true,
+                'UUID',
+            ],
         ];
     }
 

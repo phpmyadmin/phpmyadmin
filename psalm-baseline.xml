@@ -129,6 +129,13 @@
       <code><![CDATA[$GLOBALS['table_priv']]]></code>
     </MixedAssignment>
   </file>
+  <file src="libraries/classes/ColumnFull.php">
+    <PossiblyUnusedProperty>
+      <code>$collation</code>
+      <code>$comment</code>
+      <code>$privileges</code>
+    </PossiblyUnusedProperty>
+  </file>
   <file src="libraries/classes/Command/CacheWarmupCommand.php">
     <UnusedClass>
       <code>CacheWarmupCommand</code>
@@ -7178,7 +7185,6 @@
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code>$alt</code>
       <code>$defaultFunction</code>
-      <code><![CDATA[$field['True_Type']]]></code>
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -7592,33 +7598,13 @@
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
-      <code><![CDATA[$column['Extra']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['Field']]]></code>
-      <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['True_Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
-      <code><![CDATA[$column['pma_type']]]></code>
-      <code><![CDATA[$column['pma_type']]]></code>
-      <code><![CDATA[$column['pma_type']]]></code>
-      <code><![CDATA[$column['pma_type']]]></code>
-      <code><![CDATA[$column['pma_type']]]></code>
       <code>$currCellEditedValues[$columnName]</code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
       <code>$currentValue</code>
       <code>$defaultValue</code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
@@ -7638,13 +7624,11 @@
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
       <code>$whereClause</code>
       <code>$whereClause</code>
-      <code><![CDATA[min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$query</code>
       <code>$thisUrlParams</code>
       <code>$thisUrlParams</code>
-      <code>$urlParams</code>
       <code>$whereClauseArray</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -7655,59 +7639,28 @@
       <code>$editedValues[$cellIndex][$columnName]</code>
       <code><![CDATA[$extraData['transformations'][$cellIndex]]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$columnSetValues</code>
-      <code><![CDATA[$column['values']]]></code>
       <code>$currCellEditedValues</code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
-      <code><![CDATA[$currentRow[$column['Field']]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
       <code>$currentValue</code>
       <code>$data</code>
       <code>$defaultValue</code>
-      <code>$defaultValue</code>
       <code>$enumSelectedValue</code>
       <code>$enumValue</code>
-      <code>$fieldsize</code>
+      <code>$enumValues</code>
       <code>$file</code>
       <code>$isUnsigned</code>
       <code>$maxlength</code>
       <code>$maxlength</code>
-      <code>$setSelectSize</code>
       <code>$singleQuery</code>
       <code>$specialChars</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>int</code>
-    </MixedInferredReturnType>
     <MixedMethodCall>
       <code>new $className()</code>
       <code>new $className()</code>
@@ -7716,16 +7669,6 @@
       <code>$file</code>
       <code>$maxlength</code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[min(
-            max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
-            $GLOBALS['cfg']['MaxSizeForInputField'],
-        )]]></code>
-      <code><![CDATA[min(
-            max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
-            $GLOBALS['cfg']['MaxSizeForInputField'],
-        )]]></code>
-    </MixedReturnStatement>
     <MoreSpecificReturnType>
       <code><![CDATA[array{
      *     bool,
@@ -7755,7 +7698,6 @@
       <code><![CDATA[$column['Collation']]]></code>
       <code><![CDATA[$column['Comment']]]></code>
       <code><![CDATA[$column['Privileges']]]></code>
-      <code><![CDATA[$column['is_blob']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['InsertRows']]]></code>
@@ -14285,18 +14227,6 @@
     </MixedArrayAssignment>
   </file>
   <file src="test/classes/InsertEditTest.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$result['Field']]]></code>
-      <code><![CDATA[$result['Field_md5']]]></code>
-      <code><![CDATA[$result['Field_title']]]></code>
-      <code><![CDATA[$result['True_Type']]]></code>
-      <code><![CDATA[$result['is_binary']]]></code>
-      <code><![CDATA[$result['is_blob']]]></code>
-      <code><![CDATA[$result['is_char']]]></code>
-      <code><![CDATA[$result['len']]]></code>
-      <code><![CDATA[$result['pma_type']]]></code>
-      <code><![CDATA[$result['wrap']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -14304,7 +14234,6 @@
     <MixedAssignment>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>

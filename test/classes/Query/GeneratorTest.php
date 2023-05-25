@@ -158,4 +158,23 @@ class GeneratorTest extends AbstractTestCase
             ),
         );
     }
+
+    /**
+     * Test for buildSqlQuery
+     */
+    public function testBuildSqlQuery(): void
+    {
+        $queryFields = ['a', 'b'];
+        $valueSets = ['1', '2'];
+
+        $this->assertEquals(
+            'INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)',
+            Generator::buildInsertSqlQuery('table', true, $queryFields, $valueSets),
+        );
+
+        $this->assertEquals(
+            'INSERT INTO `table` (a, b) VALUES (1), (2)',
+            Generator::buildInsertSqlQuery('table', false, $queryFields, $valueSets),
+        );
+    }
 }

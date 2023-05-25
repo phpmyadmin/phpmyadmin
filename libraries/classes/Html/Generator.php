@@ -258,23 +258,28 @@ class Generator
     /**
      * Returns default function for a particular column.
      *
-     * @param mixed[] $field      Data about the column for which
-     *                          to generate the dropdown
-     * @param bool    $insertMode Whether the operation is 'insert'
-     *
      * @return string An HTML snippet of a dropdown list with function
      *                names appropriate for the requested column.
-     *
-     * @global mixed $data data of currently edited row
-     *                     (used to detect whether to choose defaults)
-     * @global array $cfg  PMA configuration
      */
-    public static function getDefaultFunctionForField(array $field, bool $insertMode): string
-    {
+    public static function getDefaultFunctionForField(
+        string $trueType,
+        bool $firstTimestamp,
+        string|null $defaultValue,
+        string $extra,
+        bool $isNull,
+        string $key,
+        string $type,
+        bool $insertMode,
+    ): string {
+        // For uuid field, no default function
+        if ($trueType === 'uuid') {
+            return '';
+        }
+
         $defaultFunction = '';
 
         // Can we get field class based values?
-        $currentClass = $GLOBALS['dbi']->types->getTypeClass($field['True_Type']);
+        $currentClass = $GLOBALS['dbi']->types->getTypeClass($trueType);
         if (! empty($currentClass) && isset($GLOBALS['cfg']['DefaultFunctions']['FUNC_' . $currentClass])) {
             $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['FUNC_' . $currentClass];
             // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
@@ -295,18 +300,13 @@ class Generator
         // and the column does not have the
         // ON UPDATE DEFAULT TIMESTAMP attribute.
         if (
-            ($field['True_Type'] === 'timestamp')
-            && $field['first_timestamp']
-            && empty($field['Default'])
-            && $field['Extra'] !== 'on update CURRENT_TIMESTAMP'
-            && $field['Null'] === 'NO'
+            ($trueType === 'timestamp')
+            && $firstTimestamp
+            && ($defaultValue === null || $defaultValue === '')
+            && $extra !== 'on update CURRENT_TIMESTAMP'
+            && ! $isNull
         ) {
             $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['first_timestamp'];
-        }
-
-        // For uuid field, no default function
-        if ($field['True_Type'] === 'uuid') {
-            return '';
         }
 
         // For primary keys of type char(36) or varchar(36) UUID if the default
@@ -314,8 +314,8 @@ class Generator
         // Only applies to insert mode, as it would silently trash data on updates.
         if (
             $insertMode
-            && $field['Key'] === 'PRI'
-            && ($field['Type'] === 'char(36)' || $field['Type'] === 'varchar(36)')
+            && $key === 'PRI'
+            && ($type === 'char(36)' || $type === 'varchar(36)')
         ) {
             return $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
         }
@@ -326,16 +326,12 @@ class Generator
     /**
      * Creates a dropdown box with MySQL functions for a particular column.
      *
-     * @param mixed[] $field       Data about the column for which to generate the dropdown
-     * @param bool    $insertMode  Whether the operation is 'insert'
      * @param mixed[] $foreignData Foreign data
      *
      * @return string An HTML snippet of a dropdown list with function names appropriate for the requested column.
      */
-    public static function getFunctionsForField(array $field, bool $insertMode, array $foreignData): string
+    public static function getFunctionsForField(string $defaultFunction, array $foreignData): string
     {
-        $defaultFunction = self::getDefaultFunctionForField($field, $insertMode);
-
         // Create the output
         $retval = '<option></option>' . "\n";
         // loop on the dropdown array and print all available options for that
