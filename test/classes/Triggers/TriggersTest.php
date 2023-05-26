@@ -324,4 +324,132 @@ class TriggersTest extends AbstractTestCase
             ],
         ];
     }
+
+    public function testGetDetails(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW TRIGGERS FROM `test_db`',
+            [
+                ['test_trigger', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost'],
+                ['a_trigger', 'UPDATE', 'test_table2', 'BEGIN END', 'BEFORE', 'definer2@localhost'],
+            ],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+
+        $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $expected = [
+            [
+                'name' => 'a_trigger',
+                'table' => 'test_table2',
+                'action_timing' => 'BEFORE',
+                'event_manipulation' => 'UPDATE',
+                'definition' => 'BEGIN END',
+                'definer' => 'definer2@localhost',
+                'full_trigger_name' => '`a_trigger`',
+                'drop' => 'DROP TRIGGER IF EXISTS `a_trigger`',
+                'create' => "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n//\n",
+            ],
+            [
+                'name' => 'test_trigger',
+                'table' => 'test_table',
+                'action_timing' => 'AFTER',
+                'event_manipulation' => 'INSERT',
+                'definition' => 'BEGIN END',
+                'definer' => 'definer@localhost',
+                'full_trigger_name' => '`test_trigger`',
+                'drop' => 'DROP TRIGGER IF EXISTS `test_trigger`',
+                'create' => "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table`\n FOR EACH ROW BEGIN END\n//\n",
+            ],
+        ];
+        $this->assertSame($expected, $triggers);
+    }
+
+    public function testGetDetails2(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            "SHOW TRIGGERS FROM `test_db` LIKE 'test_table2';",
+            [['a_trigger', 'UPDATE', 'test_table2', 'BEGIN END', 'BEFORE', 'definer2@localhost']],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+
+        $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db', 'test_table2', '$$');
+        $expected = [
+            [
+                'name' => 'a_trigger',
+                'table' => 'test_table2',
+                'action_timing' => 'BEFORE',
+                'event_manipulation' => 'UPDATE',
+                'definition' => 'BEGIN END',
+                'definer' => 'definer2@localhost',
+                'full_trigger_name' => '`a_trigger`',
+                'drop' => 'DROP TRIGGER IF EXISTS `a_trigger`',
+                'create' => "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n$$\n",
+            ],
+        ];
+        $this->assertSame($expected, $triggers);
+    }
+
+    /** @covers \PhpMyAdmin\Query\Generator */
+    public function testGetDetails3(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $dbiDummy = $this->createDbiDummy();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $dbiDummy->addResult(
+            "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'test_db'",
+            [['test_db', 'test_trigger', 'DELETE', 'test_table', 'AFTER', 'BEGIN END', 'test_db', 'test_table', 'definer@localhost']],
+            ['TRIGGER_SCHEMA', 'TRIGGER_NAME', 'EVENT_MANIPULATION', 'EVENT_OBJECT_TABLE', 'ACTION_TIMING', 'ACTION_STATEMENT', 'EVENT_OBJECT_SCHEMA', 'EVENT_OBJECT_TABLE', 'DEFINER'],
+        );
+        // phpcs:enable
+
+        $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $expected = [
+            [
+                'name' => 'test_trigger',
+                'table' => 'test_table',
+                'action_timing' => 'AFTER',
+                'event_manipulation' => 'DELETE',
+                'definition' => 'BEGIN END',
+                'definer' => 'definer@localhost',
+                'full_trigger_name' => '`test_trigger`',
+                'drop' => 'DROP TRIGGER IF EXISTS `test_trigger`',
+                'create' => "CREATE TRIGGER `test_trigger` AFTER DELETE ON `test_table`\n FOR EACH ROW BEGIN END\n//\n",
+            ],
+        ];
+        $this->assertSame($expected, $triggers);
+    }
+
+    /** @covers \PhpMyAdmin\Query\Generator */
+    public function testGetDetails4(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $dbiDummy = $this->createDbiDummy();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $dbiDummy->addResult(
+            "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'test_db' AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'test_table';",
+            [['test_db', 'test_trigger', 'DELETE', 'test_table', 'AFTER', 'BEGIN END', 'test_db', 'test_table', 'definer@localhost']],
+            ['TRIGGER_SCHEMA', 'TRIGGER_NAME', 'EVENT_MANIPULATION', 'EVENT_OBJECT_TABLE', 'ACTION_TIMING', 'ACTION_STATEMENT', 'EVENT_OBJECT_SCHEMA', 'EVENT_OBJECT_TABLE', 'DEFINER'],
+        );
+        // phpcs:enable
+
+        $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db', 'test_table');
+        $expected = [
+            [
+                'name' => 'test_trigger',
+                'table' => 'test_table',
+                'action_timing' => 'AFTER',
+                'event_manipulation' => 'DELETE',
+                'definition' => 'BEGIN END',
+                'definer' => 'definer@localhost',
+                'full_trigger_name' => '`test_trigger`',
+                'drop' => 'DROP TRIGGER IF EXISTS `test_trigger`',
+                'create' => "CREATE TRIGGER `test_trigger` AFTER DELETE ON `test_table`\n FOR EACH ROW BEGIN END\n//\n",
+            ],
+        ];
+        $this->assertSame($expected, $triggers);
+    }
 }
