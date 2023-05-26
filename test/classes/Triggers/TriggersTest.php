@@ -9,7 +9,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Triggers;
 
-/** @covers \PhpMyAdmin\Triggers\Triggers */
+/**
+ * @covers \PhpMyAdmin\Triggers\Trigger
+ * @covers \PhpMyAdmin\Triggers\Triggers
+ */
 class TriggersTest extends AbstractTestCase
 {
     private Triggers $triggers;

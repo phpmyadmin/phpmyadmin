@@ -503,48 +503,46 @@ class Triggers
         $result = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaTriggersRequest(
-                $dbi->escapeString($db),
-                $table === '' ? null : $dbi->escapeString($table),
+                $dbi->quoteString($db),
+                $table === '' ? null : $dbi->quoteString($table),
             );
         } else {
             $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
             if ($table !== '') {
-                $query .= " LIKE '" . $dbi->escapeString($table) . "';";
+                $query .= ' LIKE ' . $dbi->quoteString($table) . ';';
             }
         }
 
+        /** @var mixed[][] $triggers */
         $triggers = $dbi->fetchResult($query);
 
         foreach ($triggers as $trigger) {
-            if ($GLOBALS['cfg']['Server']['DisableIS']) {
-                $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
-                $trigger['ACTION_TIMING'] = $trigger['Timing'];
-                $trigger['EVENT_MANIPULATION'] = $trigger['Event'];
-                $trigger['EVENT_OBJECT_TABLE'] = $trigger['Table'];
-                $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
-                $trigger['DEFINER'] = $trigger['Definer'];
+            $newTrigger = Trigger::tryFromArray($trigger);
+            if ($newTrigger === null) {
+                continue;
             }
 
             $oneResult = [];
-            $oneResult['name'] = $trigger['TRIGGER_NAME'];
-            $oneResult['table'] = $trigger['EVENT_OBJECT_TABLE'];
-            $oneResult['action_timing'] = $trigger['ACTION_TIMING'];
-            $oneResult['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
-            $oneResult['definition'] = $trigger['ACTION_STATEMENT'];
-            $oneResult['definer'] = $trigger['DEFINER'];
+            $oneResult['name'] = $newTrigger->name;
+            $oneResult['table'] = $newTrigger->table;
+            $oneResult['action_timing'] = $newTrigger->timing;
+            $oneResult['event_manipulation'] = $newTrigger->event;
+            $oneResult['definition'] = $newTrigger->statement;
+            $oneResult['definer'] = $newTrigger->definer;
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
-            $oneResult['full_trigger_name'] = Util::backquote($trigger['TRIGGER_NAME']);
-            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS '
-                . $oneResult['full_trigger_name'];
-            $oneResult['create'] = 'CREATE TRIGGER '
-                . $oneResult['full_trigger_name'] . ' '
-                . $trigger['ACTION_TIMING'] . ' '
-                . $trigger['EVENT_MANIPULATION']
-                . ' ON ' . Util::backquote($trigger['EVENT_OBJECT_TABLE'])
-                . "\n" . ' FOR EACH ROW '
-                . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
+            $oneResult['full_trigger_name'] = Util::backquote($newTrigger->name);
+            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS ' . $oneResult['full_trigger_name'];
+            $oneResult['create'] = sprintf(
+                "CREATE TRIGGER %s %s %s ON %s\n FOR EACH ROW %s\n%s\n",
+                $oneResult['full_trigger_name'],
+                $newTrigger->timing,
+                $newTrigger->event,
+                Util::backquote($newTrigger->table),
+                $newTrigger->statement,
+                $delimiter,
+            );
 
             $result[] = $oneResult;
         }

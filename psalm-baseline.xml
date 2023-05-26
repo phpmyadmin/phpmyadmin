@@ -12871,9 +12871,6 @@
   <file src="libraries/classes/Triggers/Triggers.php">
     <DeprecatedMethod>
       <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -12886,8 +12883,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$createItem</code>
       <code>$exportData</code>
-      <code><![CDATA[$trigger['EVENT_OBJECT_TABLE']]]></code>
-      <code><![CDATA[$trigger['TRIGGER_NAME']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$temp['action_timing']]]></code>
@@ -12898,23 +12893,6 @@
       <code><![CDATA[$temp['event_manipulation']]]></code>
       <code><![CDATA[$temp['name']]]></code>
       <code><![CDATA[$temp['table']]]></code>
-      <code><![CDATA[$trigger['ACTION_STATEMENT']]]></code>
-      <code><![CDATA[$trigger['ACTION_STATEMENT']]]></code>
-      <code><![CDATA[$trigger['ACTION_TIMING']]]></code>
-      <code><![CDATA[$trigger['ACTION_TIMING']]]></code>
-      <code><![CDATA[$trigger['DEFINER']]]></code>
-      <code><![CDATA[$trigger['Definer']]]></code>
-      <code><![CDATA[$trigger['EVENT_MANIPULATION']]]></code>
-      <code><![CDATA[$trigger['EVENT_MANIPULATION']]]></code>
-      <code><![CDATA[$trigger['EVENT_OBJECT_TABLE']]]></code>
-      <code><![CDATA[$trigger['EVENT_OBJECT_TABLE']]]></code>
-      <code><![CDATA[$trigger['Event']]]></code>
-      <code><![CDATA[$trigger['Statement']]]></code>
-      <code><![CDATA[$trigger['TRIGGER_NAME']]]></code>
-      <code><![CDATA[$trigger['TRIGGER_NAME']]]></code>
-      <code><![CDATA[$trigger['Table']]]></code>
-      <code><![CDATA[$trigger['Timing']]]></code>
-      <code><![CDATA[$trigger['Trigger']]]></code>
       <code><![CDATA[$trigger['create']]]></code>
       <code><![CDATA[$trigger['name']]]></code>
       <code><![CDATA[$trigger['table']]]></code>
@@ -12931,12 +12909,6 @@
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$trigger['ACTION_STATEMENT']]]></code>
-      <code><![CDATA[$trigger['ACTION_TIMING']]]></code>
-      <code><![CDATA[$trigger['DEFINER']]]></code>
-      <code><![CDATA[$trigger['EVENT_MANIPULATION']]]></code>
-      <code><![CDATA[$trigger['EVENT_OBJECT_TABLE']]]></code>
-      <code><![CDATA[$trigger['TRIGGER_NAME']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -12944,12 +12916,6 @@
       <code>$createItem</code>
       <code>$exportData</code>
       <code><![CDATA[$item['item_original_name']]]></code>
-      <code><![CDATA[$oneResult['action_timing']]]></code>
-      <code><![CDATA[$oneResult['definer']]]></code>
-      <code><![CDATA[$oneResult['definition']]]></code>
-      <code><![CDATA[$oneResult['event_manipulation']]]></code>
-      <code><![CDATA[$oneResult['name']]]></code>
-      <code><![CDATA[$oneResult['table']]]></code>
       <code><![CDATA[$retval['create']]]></code>
       <code><![CDATA[$retval['drop']]]></code>
       <code><![CDATA[$retval['item_action_timing']]]></code>
@@ -12962,21 +12928,11 @@
       <code>$temp</code>
       <code>$trigger</code>
       <code>$trigger</code>
-      <code>$trigger</code>
-      <code><![CDATA[$trigger['ACTION_STATEMENT']]]></code>
-      <code><![CDATA[$trigger['ACTION_TIMING']]]></code>
-      <code><![CDATA[$trigger['DEFINER']]]></code>
-      <code><![CDATA[$trigger['EVENT_MANIPULATION']]]></code>
-      <code><![CDATA[$trigger['EVENT_OBJECT_TABLE']]]></code>
-      <code><![CDATA[$trigger['TRIGGER_NAME']]]></code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$string</code>
-      <code><![CDATA[$trigger['ACTION_STATEMENT']]]></code>
-      <code><![CDATA[$trigger['ACTION_TIMING']]]></code>
-      <code><![CDATA[$trigger['EVENT_MANIPULATION']]]></code>
       <code><![CDATA[$trigger['drop']]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
