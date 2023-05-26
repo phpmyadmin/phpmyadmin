@@ -12869,9 +12869,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="libraries/classes/Triggers/Triggers.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>

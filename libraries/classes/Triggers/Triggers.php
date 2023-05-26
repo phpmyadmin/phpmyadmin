@@ -11,6 +11,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_column;
@@ -299,10 +300,7 @@ class Triggers
      */
     public function getEditorForm(string $db, string $table, string $mode, array $item): string
     {
-        $query = 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ';
-        $query .= 'WHERE `TABLE_SCHEMA`=\'' . $this->dbi->escapeString($db) . '\' ';
-        $query .= 'AND `TABLE_TYPE` IN (\'BASE TABLE\', \'SYSTEM VERSIONED\')';
-        $tables = $this->dbi->fetchResult($query);
+        $tables = $this->getTables($db);
 
         return $this->template->render('triggers/editor_form', [
             'db' => $db,
@@ -552,5 +550,20 @@ class Triggers
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
+    }
+
+    /** @return list<non-empty-string> */
+    private function getTables(string $db): array
+    {
+        $query = sprintf(
+            'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=%s'
+            . " AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+            $this->dbi->quoteString($db),
+        );
+        $tables = $this->dbi->fetchResult($query);
+        Assert::allStringNotEmpty($tables);
+        Assert::isList($tables);
+
+        return $tables;
     }
 }
