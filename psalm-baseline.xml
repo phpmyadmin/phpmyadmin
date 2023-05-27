@@ -2420,14 +2420,12 @@
       <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['new_config']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
+      <code>$returnUrl</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
@@ -2438,11 +2436,10 @@
       <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['new_config']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
       <code><![CDATA[$_POST[str_replace('/', '-', (string) $k)]]]></code>
       <code>$configuration</code>
       <code><![CDATA[$redirectParams['lang']]]></code>
+      <code>$returnUrl</code>
       <code>$v</code>
       <code>$val</code>
     </MixedAssignment>

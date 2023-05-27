@@ -63,7 +63,6 @@ class ManageController extends AbstractController
         $GLOBALS['json'] ??= null;
         $GLOBALS['lang'] ??= null;
         $GLOBALS['new_config'] ??= null;
-        $GLOBALS['return_url'] ??= null;
         $GLOBALS['query'] ??= null;
 
         $route = $request->getRoute();
@@ -137,7 +136,7 @@ class ManageController extends AbstractController
             $_SESSION['userprefs_autoload'] = true;
 
             $configuration = json_decode($GLOBALS['json'], true);
-            $GLOBALS['return_url'] = $request->getParsedBodyParam('return_url');
+            $returnUrl = $request->getParsedBodyParam('return_url');
             if (! is_array($configuration)) {
                 if (! isset($GLOBALS['error'])) {
                     $GLOBALS['error'] = __('Could not import configuration');
@@ -181,7 +180,7 @@ class ManageController extends AbstractController
                         'form_errors' => $formDisplay->displayErrors(),
                         'json' => $GLOBALS['json'],
                         'import_merge' => $request->getParsedBodyParam('import_merge'),
-                        'return_url' => $GLOBALS['return_url'],
+                        'return_url' => $returnUrl,
                     ]);
 
                     return;
@@ -205,9 +204,9 @@ class ManageController extends AbstractController
                 // save settings
                 $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
                 if ($result === true) {
-                    if ($GLOBALS['return_url']) {
-                        $GLOBALS['query'] = Util::splitURLQuery($GLOBALS['return_url']);
-                        $GLOBALS['return_url'] = parse_url($GLOBALS['return_url'], PHP_URL_PATH);
+                    if ($returnUrl) {
+                        $GLOBALS['query'] = Util::splitURLQuery($returnUrl);
+                        $returnUrl = parse_url($returnUrl, PHP_URL_PATH);
 
                         foreach ($GLOBALS['query'] as $q) {
                             $pos = mb_strpos($q, '=');
@@ -219,12 +218,12 @@ class ManageController extends AbstractController
                             $redirectParams[$k] = mb_substr($q, $pos + 1);
                         }
                     } else {
-                        $GLOBALS['return_url'] = 'index.php?route=/preferences/manage';
+                        $returnUrl = 'index.php?route=/preferences/manage';
                     }
 
                     // reload config
                     $this->config->loadUserPreferences($this->themeManager);
-                    $this->userPreferences->redirect($GLOBALS['return_url'] ?? '', $redirectParams);
+                    $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
 
                     return;
                 }

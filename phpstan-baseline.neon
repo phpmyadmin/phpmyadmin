@@ -1676,6 +1676,16 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
+			message: "#^Parameter \\#1 \\$url of function parse_url expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$url of static method PhpMyAdmin\\\\Util\\:\\:splitURLQuery\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php
