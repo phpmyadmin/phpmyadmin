@@ -3542,7 +3542,6 @@
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['columns']]]></code>
       <code><![CDATA[$GLOBALS['comment']]]></code>
-      <code><![CDATA[$GLOBALS['create_options']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['hideOrderTable']]]></code>
       <code><![CDATA[$GLOBALS['indexes']]]></code>
@@ -3574,7 +3573,6 @@
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['columns']]]></code>
       <code><![CDATA[$GLOBALS['comment']]]></code>
-      <code><![CDATA[$GLOBALS['create_options']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['hideOrderTable']]]></code>
       <code><![CDATA[$GLOBALS['indexes']]]></code>

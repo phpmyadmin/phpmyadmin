@@ -58,7 +58,6 @@ class OperationsController extends AbstractController
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
-        $GLOBALS['create_options'] ??= null;
         $GLOBALS['table_alters'] ??= null;
         $GLOBALS['warning_messages'] ??= null;
         $GLOBALS['reload'] ??= null;
@@ -118,19 +117,19 @@ class OperationsController extends AbstractController
         $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
         $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
         $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
-        $GLOBALS['create_options'] = $pmaTable->getCreateOptions();
+        $createOptions = $pmaTable->getCreateOptions();
 
         // set initial value of these variables, based on the current table engine
         if ($pmaTable->isEngine('ARIA')) {
             // the value for transactional can be implicit
             // (no create option found, in this case it means 1)
             // or explicit (option found with a value of 0 or 1)
-            // ($create_options['transactional'] may have been set by Table class,
-            // from the $create_options)
-            $GLOBALS['create_options']['transactional'] = ($GLOBALS['create_options']['transactional'] ?? '') == '0'
+            // ($createOptions['transactional'] may have been set by Table class,
+            // from the $createOptions)
+            $createOptions['transactional'] = ($createOptions['transactional'] ?? '') == '0'
                 ? '0'
                 : '1';
-            $GLOBALS['create_options']['page_checksum'] ??= '';
+            $createOptions['page_checksum'] ??= '';
         }
 
         $pmaTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
@@ -219,9 +218,9 @@ class OperationsController extends AbstractController
                 $GLOBALS['new_tbl_storage_engine'] = mb_strtoupper($newTableStorageEngine);
 
                 if ($pmaTable->isEngine('ARIA')) {
-                    $GLOBALS['create_options']['transactional'] = ($GLOBALS['create_options']['transactional'] ?? '')
+                    $createOptions['transactional'] = ($createOptions['transactional'] ?? '')
                         == '0' ? '0' : '1';
-                    $GLOBALS['create_options']['page_checksum'] ??= '';
+                    $createOptions['page_checksum'] ??= '';
                 }
             } else {
                 $GLOBALS['new_tbl_storage_engine'] = '';
@@ -229,14 +228,14 @@ class OperationsController extends AbstractController
 
             $GLOBALS['table_alters'] = $this->operations->getTableAltersArray(
                 $pmaTable,
-                $GLOBALS['create_options']['pack_keys'],
-                (empty($GLOBALS['create_options']['checksum']) ? '0' : '1'),
-                ($GLOBALS['create_options']['page_checksum'] ?? ''),
-                (empty($GLOBALS['create_options']['delay_key_write']) ? '0' : '1'),
-                $GLOBALS['create_options']['row_format'] ?? $pmaTable->getRowFormat(),
+                $createOptions['pack_keys'],
+                (empty($createOptions['checksum']) ? '0' : '1'),
+                ($createOptions['page_checksum'] ?? ''),
+                (empty($createOptions['delay_key_write']) ? '0' : '1'),
+                $createOptions['row_format'] ?? $pmaTable->getRowFormat(),
                 $GLOBALS['new_tbl_storage_engine'],
-                (isset($GLOBALS['create_options']['transactional'])
-                    && $GLOBALS['create_options']['transactional'] == '0' ? '0' : '1'),
+                (isset($createOptions['transactional'])
+                    && $createOptions['transactional'] == '0' ? '0' : '1'),
                 $GLOBALS['tbl_collation'],
             );
 
@@ -328,7 +327,7 @@ class OperationsController extends AbstractController
             $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
             $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
             $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
-            $GLOBALS['create_options'] = $pmaTable->getCreateOptions();
+            $createOptions = $pmaTable->getCreateOptions();
         }
 
         unset($GLOBALS['reread_info']);
@@ -448,7 +447,7 @@ class OperationsController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        $hasPackKeys = isset($GLOBALS['create_options']['pack_keys'])
+        $hasPackKeys = isset($createOptions['pack_keys'])
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM']);
         $hasChecksumAndDelayKeyWrite = $pmaTable->isEngine(['MYISAM', 'ARIA']);
         $hasTransactionalAndPageChecksum = $pmaTable->isEngine('ARIA');
@@ -500,13 +499,13 @@ class OperationsController extends AbstractController
             'has_auto_increment' => $hasAutoIncrement,
             'auto_increment' => $GLOBALS['auto_increment'],
             'has_pack_keys' => $hasPackKeys,
-            'pack_keys' => $GLOBALS['create_options']['pack_keys'] ?? '',
+            'pack_keys' => $createOptions['pack_keys'] ?? '',
             'has_transactional_and_page_checksum' => $hasTransactionalAndPageChecksum,
             'has_checksum_and_delay_key_write' => $hasChecksumAndDelayKeyWrite,
-            'delay_key_write' => empty($GLOBALS['create_options']['delay_key_write']) ? '0' : '1',
-            'transactional' => ($GLOBALS['create_options']['transactional'] ?? '') == '0' ? '0' : '1',
-            'page_checksum' => $GLOBALS['create_options']['page_checksum'] ?? '',
-            'checksum' => empty($GLOBALS['create_options']['checksum']) ? '0' : '1',
+            'delay_key_write' => empty($createOptions['delay_key_write']) ? '0' : '1',
+            'transactional' => ($createOptions['transactional'] ?? '') == '0' ? '0' : '1',
+            'page_checksum' => $createOptions['page_checksum'] ?? '',
+            'checksum' => empty($createOptions['checksum']) ? '0' : '1',
             'database_list' => $databaseList,
             'has_foreign_keys' => $hasForeignKeys,
             'has_privileges' => $hasPrivileges,
