@@ -2417,13 +2417,12 @@
   <file src="libraries/classes/Controllers/Preferences/ManageController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
+      <code>$json</code>
       <code>$returnUrl</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -2431,18 +2430,17 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$_POST[str_replace('/', '-', (string) $k)]]]></code>
       <code>$configuration</code>
+      <code>$json</code>
       <code><![CDATA[$redirectParams['lang']]]></code>
       <code>$returnUrl</code>
       <code>$v</code>
       <code>$val</code>
     </MixedAssignment>
     <PossiblyFalseArgument>
-      <code><![CDATA[$GLOBALS['json']]]></code>
+      <code>$json</code>
     </PossiblyFalseArgument>
     <PossiblyFalseOperand>
       <code>$pos</code>

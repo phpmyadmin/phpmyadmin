@@ -1676,6 +1676,11 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
 			message: "#^Parameter \\#1 \\$url of function parse_url expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php

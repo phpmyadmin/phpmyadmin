@@ -60,7 +60,6 @@ class ManageController extends AbstractController
     {
         $GLOBALS['cf'] ??= null;
         $GLOBALS['error'] ??= null;
-        $GLOBALS['json'] ??= null;
         $GLOBALS['lang'] ??= null;
         $GLOBALS['query'] ??= null;
 
@@ -107,7 +106,7 @@ class ManageController extends AbstractController
 
         if ($request->hasBodyParam('submit_import')) {
             // load from JSON file
-            $GLOBALS['json'] = '';
+            $json = '';
             if (
                 $request->hasBodyParam('import_type')
                 && $request->getParsedBodyParam('import_type') === 'text_file'
@@ -124,17 +123,17 @@ class ManageController extends AbstractController
                     $GLOBALS['error'] = $importHandle->getError();
                 } else {
                     // read JSON from uploaded file
-                    $GLOBALS['json'] = $importHandle->getRawContent();
+                    $json = $importHandle->getRawContent();
                 }
             } else {
                 // read from POST value (json)
-                $GLOBALS['json'] = $request->getParsedBodyParam('json');
+                $json = $request->getParsedBodyParam('json');
             }
 
             // hide header message
             $_SESSION['userprefs_autoload'] = true;
 
-            $configuration = json_decode($GLOBALS['json'], true);
+            $configuration = json_decode($json, true);
             $returnUrl = $request->getParsedBodyParam('return_url');
             if (! is_array($configuration)) {
                 if (! isset($GLOBALS['error'])) {
@@ -177,7 +176,7 @@ class ManageController extends AbstractController
 
                     echo $this->template->render('preferences/manage/error', [
                         'form_errors' => $formDisplay->displayErrors(),
-                        'json' => $GLOBALS['json'],
+                        'json' => $json,
                         'import_merge' => $request->getParsedBodyParam('import_merge'),
                         'return_url' => $returnUrl,
                     ]);
