@@ -215,11 +215,10 @@ class Generator
             . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
             . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
             . ' FROM information_schema.TRIGGERS'
-            . ' WHERE EVENT_OBJECT_SCHEMA ' . Util::getCollateForIS() . '='
-            . ' \'' . $escapedDb . '\'';
+            . ' WHERE EVENT_OBJECT_SCHEMA ' . Util::getCollateForIS() . '= ' . $escapedDb;
 
         if ($escapedTable !== null) {
-            $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS() . " = '" . $escapedTable . "';";
+            $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS() . ' = ' . $escapedTable . ';';
         }
 
         return $query;

@@ -23,20 +23,20 @@
     </div>
 
     <div class="ms-auto">
-      <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/database/triggers', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
+      <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/triggers', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
         {{ get_icon('b_trigger_add', 'Create new trigger'|trans) }}
       </a>
     </div>
   </div>
 
-  <form id="rteListForm" class="ajax" action="{{ url(table is not empty ? '/table/triggers' : '/database/triggers') }}">
+  <form id="rteListForm" class="ajax" action="{{ url('/triggers') }}">
     {{ get_hidden_inputs(db, table) }}
 
-    <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
+    <div id="nothing2display"{{ triggers is not empty ? ' class="hide"' }}>
       {% trans 'There are no triggers to display.' %}
     </div>
 
-    <table id="triggersTable" class="table table-striped table-hover{{ items is empty ? ' hide' }} w-auto data">
+    <table id="triggersTable" class="table table-striped table-hover{{ triggers is empty ? ' hide' }} w-auto data">
       <thead>
         <tr>
           <th></th>
@@ -52,7 +52,20 @@
       <tbody>
         <tr class="hide">{% for i in 0..(table is empty ? 7 : 6) %}<td></td>{% endfor %}</tr>
 
-        {{ rows|raw }}
+        {% for trigger in triggers %}
+          {{ include(
+            'triggers/row.twig',
+            {
+              'db': db,
+              'table': table,
+              'trigger': trigger,
+              'has_drop_privilege': has_privilege,
+              'has_edit_privilege': has_privilege,
+              'row_class': is_ajax ? 'ajaxInsert hide' : '',
+            },
+            with_context = false
+          ) }}
+        {% endfor %}
       </tbody>
     </table>
   </form>

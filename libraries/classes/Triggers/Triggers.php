@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Database;
+namespace PhpMyAdmin\Triggers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -11,6 +11,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_column;
@@ -42,42 +43,6 @@ class Triggers
         private Template $template,
         private ResponseRenderer $response,
     ) {
-    }
-
-    /**
-     * Main function for the triggers functionality
-     */
-    public function main(): void
-    {
-        /**
-         * Process all requests
-         */
-        $this->handleEditor();
-        $this->export();
-
-        $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
-        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $GLOBALS['db'], $GLOBALS['table']);
-        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
-
-        $rows = '';
-        foreach ($items as $item) {
-            $rows .= $this->template->render('database/triggers/row', [
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
-                'trigger' => $item,
-                'has_drop_privilege' => $hasTriggerPrivilege,
-                'has_edit_privilege' => $hasTriggerPrivilege,
-                'row_class' => $isAjax ? 'ajaxInsert hide' : '',
-            ]);
-        }
-
-        echo $this->template->render('database/triggers/list', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-            'items' => $items,
-            'rows' => $rows,
-            'has_privilege' => $hasTriggerPrivilege,
-        ]);
     }
 
     /**
@@ -197,7 +162,7 @@ class Triggers
                         );
                         $this->response->addJSON(
                             'new_row',
-                            $this->template->render('database/triggers/row', [
+                            $this->template->render('triggers/row', [
                                 'db' => $GLOBALS['db'],
                                 'table' => $GLOBALS['table'],
                                 'trigger' => $trigger,
@@ -335,12 +300,9 @@ class Triggers
      */
     public function getEditorForm(string $db, string $table, string $mode, array $item): string
     {
-        $query = 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ';
-        $query .= 'WHERE `TABLE_SCHEMA`=\'' . $this->dbi->escapeString($db) . '\' ';
-        $query .= 'AND `TABLE_TYPE` IN (\'BASE TABLE\', \'SYSTEM VERSIONED\')';
-        $tables = $this->dbi->fetchResult($query);
+        $tables = $this->getTables($db);
 
-        return $this->template->render('database/triggers/editor_form', [
+        return $this->template->render('triggers/editor_form', [
             'db' => $db,
             'table' => $table,
             'is_edit' => $mode === 'edit',
@@ -469,7 +431,7 @@ class Triggers
         echo $message->getDisplay();
     }
 
-    private function export(): void
+    public function export(): void
     {
         if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
             return;
@@ -496,7 +458,7 @@ class Triggers
                 exit;
             }
 
-            $this->response->addHTML($this->template->render('database/triggers/export', [
+            $this->response->addHTML($this->template->render('triggers/export', [
                 'data' => $exportData,
                 'item_name' => $itemName,
             ]));
@@ -539,48 +501,46 @@ class Triggers
         $result = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaTriggersRequest(
-                $dbi->escapeString($db),
-                $table === '' ? null : $dbi->escapeString($table),
+                $dbi->quoteString($db),
+                $table === '' ? null : $dbi->quoteString($table),
             );
         } else {
             $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
             if ($table !== '') {
-                $query .= " LIKE '" . $dbi->escapeString($table) . "';";
+                $query .= ' LIKE ' . $dbi->quoteString($table) . ';';
             }
         }
 
+        /** @var mixed[][] $triggers */
         $triggers = $dbi->fetchResult($query);
 
         foreach ($triggers as $trigger) {
-            if ($GLOBALS['cfg']['Server']['DisableIS']) {
-                $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
-                $trigger['ACTION_TIMING'] = $trigger['Timing'];
-                $trigger['EVENT_MANIPULATION'] = $trigger['Event'];
-                $trigger['EVENT_OBJECT_TABLE'] = $trigger['Table'];
-                $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
-                $trigger['DEFINER'] = $trigger['Definer'];
+            $newTrigger = Trigger::tryFromArray($trigger);
+            if ($newTrigger === null) {
+                continue;
             }
 
             $oneResult = [];
-            $oneResult['name'] = $trigger['TRIGGER_NAME'];
-            $oneResult['table'] = $trigger['EVENT_OBJECT_TABLE'];
-            $oneResult['action_timing'] = $trigger['ACTION_TIMING'];
-            $oneResult['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
-            $oneResult['definition'] = $trigger['ACTION_STATEMENT'];
-            $oneResult['definer'] = $trigger['DEFINER'];
+            $oneResult['name'] = $newTrigger->name;
+            $oneResult['table'] = $newTrigger->table;
+            $oneResult['action_timing'] = $newTrigger->timing;
+            $oneResult['event_manipulation'] = $newTrigger->event;
+            $oneResult['definition'] = $newTrigger->statement;
+            $oneResult['definer'] = $newTrigger->definer;
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
-            $oneResult['full_trigger_name'] = Util::backquote($trigger['TRIGGER_NAME']);
-            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS '
-                . $oneResult['full_trigger_name'];
-            $oneResult['create'] = 'CREATE TRIGGER '
-                . $oneResult['full_trigger_name'] . ' '
-                . $trigger['ACTION_TIMING'] . ' '
-                . $trigger['EVENT_MANIPULATION']
-                . ' ON ' . Util::backquote($trigger['EVENT_OBJECT_TABLE'])
-                . "\n" . ' FOR EACH ROW '
-                . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
+            $oneResult['full_trigger_name'] = Util::backquote($newTrigger->name);
+            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS ' . $oneResult['full_trigger_name'];
+            $oneResult['create'] = sprintf(
+                "CREATE TRIGGER %s %s %s ON %s\n FOR EACH ROW %s\n%s\n",
+                $oneResult['full_trigger_name'],
+                $newTrigger->timing,
+                $newTrigger->event,
+                Util::backquote($newTrigger->table),
+                $newTrigger->statement,
+                $delimiter,
+            );
 
             $result[] = $oneResult;
         }
@@ -590,5 +550,20 @@ class Triggers
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
+    }
+
+    /** @return list<non-empty-string> */
+    private function getTables(string $db): array
+    {
+        $query = sprintf(
+            'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=%s'
+            . " AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+            $this->dbi->quoteString($db),
+        );
+        $tables = $this->dbi->fetchResult($query);
+        Assert::allStringNotEmpty($tables);
+        Assert::isList($tables);
+
+        return $tables;
     }
 }

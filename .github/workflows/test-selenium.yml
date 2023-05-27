@@ -66,7 +66,6 @@ jobs:
           - "Database/Operations"
           - "Database/Procedures"
           - "Database/Structure"
-          - "Database/Triggers"
           - "Export"
           - "Import"
           - "Login"
@@ -79,6 +78,7 @@ jobs:
           - "Table/Operations"
           - "Table/Structure"
           - "Tracking"
+          - "Triggers"
           - "Xss"
     steps:
       - name: Checkout code

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium\Database;
-
-use PhpMyAdmin\Tests\Selenium\TestBase;
+namespace PhpMyAdmin\Tests\Selenium;
 
 /** @coversNothing */
 class TriggersTest extends TestBase

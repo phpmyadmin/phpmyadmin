@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Controllers\Table;
+namespace PhpMyAdmin\Tests\Controllers\Triggers;
 
-use PhpMyAdmin\Controllers\Table\TriggersController;
-use PhpMyAdmin\Database\Triggers;
+use PhpMyAdmin\Controllers\Triggers\IndexController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Triggers\Triggers;
 
-/** @covers \PhpMyAdmin\Controllers\Table\TriggersController */
-class TriggersControllerTest extends AbstractTestCase
+/** @covers \PhpMyAdmin\Controllers\Triggers\IndexController */
+class IndexControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
 
@@ -49,14 +49,14 @@ class TriggersControllerTest extends AbstractTestCase
 
         $template = new Template();
         $response = new ResponseRenderer();
-        (new TriggersController(
+        (new IndexController(
             $response,
             $template,
             $this->dbi,
             new Triggers($this->dbi, $template, $response),
         ))($this->createStub(ServerRequest::class));
 
-        $items = [
+        $triggers = [
             [
                 'name' => 'test_trigger',
                 'table' => 'test_table',
@@ -70,21 +70,14 @@ class TriggersControllerTest extends AbstractTestCase
                     . ' FOR EACH ROW BEGIN END' . "\n" . '//' . "\n",
             ],
         ];
-        $rows = $template->render('database/triggers/row', [
+        $expected = $template->render('triggers/list', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'trigger' => $items[0],
-            'has_drop_privilege' => true,
-            'has_edit_privilege' => true,
-            'row_class' => '',
+            'triggers' => $triggers,
+            'has_privilege' => true,
+            'is_ajax' => false,
         ]);
 
-        $this->expectOutputString($template->render('database/triggers/list', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-            'items' => $items,
-            'rows' => $rows,
-            'has_privilege' => true,
-        ]));
+        $this->assertSame($expected, $response->getHTMLResult());
     }
 }

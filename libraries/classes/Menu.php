@@ -303,10 +303,10 @@ class Menu
         }
 
         if (! $isSystemSchema && Util::currentUserHasPrivilege('TRIGGER', $this->db, $this->table) && ! $tableIsView) {
-            $tabs['triggers']['route'] = '/table/triggers';
+            $tabs['triggers']['route'] = '/triggers';
             $tabs['triggers']['text'] = __('Triggers');
             $tabs['triggers']['icon'] = 'b_triggers';
-            $tabs['triggers']['active'] = $route === '/table/triggers';
+            $tabs['triggers']['active'] = $route === '/triggers';
         }
 
         return $tabs;
@@ -396,10 +396,10 @@ class Menu
             }
 
             if (Util::currentUserHasPrivilege('TRIGGER', $this->db)) {
-                $tabs['triggers']['route'] = '/database/triggers';
+                $tabs['triggers']['route'] = '/triggers';
                 $tabs['triggers']['text'] = __('Triggers');
                 $tabs['triggers']['icon'] = 'b_triggers';
-                $tabs['triggers']['active'] = $route === '/database/triggers';
+                $tabs['triggers']['active'] = $route === '/triggers';
             }
         }
 
