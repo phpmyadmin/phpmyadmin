@@ -3548,10 +3548,8 @@
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
       <code>$newMessage</code>
       <code>$newMessage</code>
     </MixedArgument>
@@ -3575,7 +3573,6 @@
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4396,16 +4393,11 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
       <code>$newname</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>

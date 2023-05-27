@@ -58,7 +58,6 @@ class OperationsController extends AbstractController
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
-        $GLOBALS['warning_messages'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
@@ -157,12 +156,12 @@ class OperationsController extends AbstractController
             return;
         }
 
+        $warningMessages = [];
         /**
          * Updates table comment, type and options if required
          */
         if ($request->hasBodyParam('submitoptions')) {
             $newMessage = '';
-            $GLOBALS['warning_messages'] = [];
 
             /** @var mixed $newName */
             $newName = $request->getParsedBodyParam('new_name');
@@ -237,7 +236,7 @@ class OperationsController extends AbstractController
                 $GLOBALS['sql_query'] .= ';';
                 $GLOBALS['result'] = (bool) $this->dbi->query($GLOBALS['sql_query']);
                 $GLOBALS['reread_info'] = true;
-                $GLOBALS['warning_messages'] = $this->operations->getWarningMessagesArray();
+                $warningMessages = $this->operations->getWarningMessagesArray();
             }
 
             /** @var mixed $tableCollationParam */
@@ -350,9 +349,9 @@ class OperationsController extends AbstractController
                     : Message::error($newMessage);
             }
 
-            if (! empty($GLOBALS['warning_messages'])) {
+            if ($warningMessages !== []) {
                 $newMessage = new Message();
-                $newMessage->addMessagesString($GLOBALS['warning_messages']);
+                $newMessage->addMessagesString($warningMessages);
                 $newMessage->isError(true);
                 if ($this->response->isAjax()) {
                     $this->response->setRequestStatus(false);
@@ -366,8 +365,6 @@ class OperationsController extends AbstractController
 
                     return;
                 }
-
-                unset($GLOBALS['warning_messages']);
             }
 
             if (empty($GLOBALS['sql_query'])) {
