@@ -104,7 +104,7 @@ class Message implements Stringable
     /**
      * holds additional messages
      *
-     * @var    mixed[]
+     * @var    (string|Message)[]
      */
     protected array $addedMessages = [];
 
@@ -538,7 +538,7 @@ class Message implements Stringable
     /**
      * return all added messages
      *
-     * @return mixed[]
+     * @return (string|Message)[]
      */
     public function getAddedMessages(): array
     {

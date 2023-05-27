@@ -7642,15 +7642,11 @@
       <code><![CDATA[$this->params]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$addMessage</code>
       <code>$val</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand>
-      <code>$addMessage</code>
-    </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[self::$level[$this->getNumber()]]]></code>
     </MixedReturnStatement>
