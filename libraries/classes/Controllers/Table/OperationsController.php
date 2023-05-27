@@ -58,7 +58,6 @@ class OperationsController extends AbstractController
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
-        $GLOBALS['table_alters'] ??= null;
         $GLOBALS['warning_messages'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
@@ -134,7 +133,6 @@ class OperationsController extends AbstractController
 
         $pmaTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
         $GLOBALS['reread_info'] = false;
-        $GLOBALS['table_alters'] = [];
 
         /**
          * If the table has to be moved to some other database
@@ -226,7 +224,7 @@ class OperationsController extends AbstractController
                 $GLOBALS['new_tbl_storage_engine'] = '';
             }
 
-            $GLOBALS['table_alters'] = $this->operations->getTableAltersArray(
+            $tableAlters = $this->operations->getTableAltersArray(
                 $pmaTable,
                 $createOptions['pack_keys'],
                 (empty($createOptions['checksum']) ? '0' : '1'),
@@ -239,14 +237,13 @@ class OperationsController extends AbstractController
                 $GLOBALS['tbl_collation'],
             );
 
-            if ($GLOBALS['table_alters'] !== []) {
+            if ($tableAlters !== []) {
                 $GLOBALS['sql_query'] = 'ALTER TABLE '
                     . Util::backquote($GLOBALS['table']);
-                $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $GLOBALS['table_alters']);
+                $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
                 $GLOBALS['sql_query'] .= ';';
                 $GLOBALS['result'] = (bool) $this->dbi->query($GLOBALS['sql_query']);
                 $GLOBALS['reread_info'] = true;
-                unset($GLOBALS['table_alters']);
                 $GLOBALS['warning_messages'] = $this->operations->getWarningMessagesArray();
             }
 

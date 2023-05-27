@@ -3551,7 +3551,6 @@
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['table_alters']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
@@ -3563,7 +3562,7 @@
       <code>$newMessage</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['table_alters']]]></code>
+      <code>$tableAlters</code>
       <code>is_array($partitionNames) ? $partitionNames : []</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -3585,7 +3584,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['table_alters']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
