@@ -62,7 +62,6 @@ class OperationsController extends AbstractController
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['comment'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
@@ -419,18 +418,15 @@ class OperationsController extends AbstractController
             }
         }
 
-        $GLOBALS['comment'] = '';
+        $comment = '';
         if (mb_strstr($showComment, '; InnoDB free') === false) {
             if (mb_strstr($showComment, 'InnoDB free') === false) {
                 // only user entered comment
-                $GLOBALS['comment'] = $showComment;
-            } else {
-                // here we have just InnoDB generated part
-                $GLOBALS['comment'] = '';
+                $comment = $showComment;
             }
         } else {
             // remove InnoDB comment from end, just the minimal part (*? is non greedy)
-            $GLOBALS['comment'] = preg_replace('@; InnoDB free:.*?$@', '', $showComment);
+            $comment = preg_replace('@; InnoDB free:.*?$@', '', $showComment);
         }
 
         $storageEngines = StorageEngine::getArray();
@@ -479,7 +475,7 @@ class OperationsController extends AbstractController
             'url_params' => $GLOBALS['urlParams'],
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
-            'table_comment' => $GLOBALS['comment'],
+            'table_comment' => $comment,
             'storage_engine' => $GLOBALS['tbl_storage_engine'],
             'storage_engines' => $storageEngines,
             'charsets' => $charsets,
