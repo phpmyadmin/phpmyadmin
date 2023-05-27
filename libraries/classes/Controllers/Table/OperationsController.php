@@ -62,7 +62,6 @@ class OperationsController extends AbstractController
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['notNull'] ??= null;
         $GLOBALS['comment'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
@@ -405,15 +404,15 @@ class OperationsController extends AbstractController
                     continue;
                 }
 
-                $GLOBALS['notNull'] = true;
+                $notNull = true;
                 foreach ($idx->getColumns() as $column) {
                     if ($column->getNull()) {
-                        $GLOBALS['notNull'] = false;
+                        $notNull = false;
                         break;
                     }
                 }
 
-                if ($GLOBALS['notNull']) {
+                if ($notNull) {
                     $hideOrderTable = true;
                     break;
                 }
