@@ -62,7 +62,6 @@ class ManageController extends AbstractController
         $GLOBALS['error'] ??= null;
         $GLOBALS['json'] ??= null;
         $GLOBALS['lang'] ??= null;
-        $GLOBALS['new_config'] ??= null;
         $GLOBALS['query'] ??= null;
 
         $route = $request->getRoute();
@@ -145,14 +144,14 @@ class ManageController extends AbstractController
                 // sanitize input values: treat them as though
                 // they came from HTTP POST request
                 $formDisplay = new UserFormList($GLOBALS['cf']);
-                $GLOBALS['new_config'] = $GLOBALS['cf']->getFlatDefaultConfig();
+                $newConfig = $GLOBALS['cf']->getFlatDefaultConfig();
                 if ($request->hasBodyParam('import_merge')) {
-                    $GLOBALS['new_config'] = array_merge($GLOBALS['new_config'], $GLOBALS['cf']->getConfigArray());
+                    $newConfig = array_merge($newConfig, $GLOBALS['cf']->getConfigArray());
                 }
 
-                $GLOBALS['new_config'] = array_merge($GLOBALS['new_config'], $configuration);
+                $newConfig = array_merge($newConfig, $configuration);
                 $postParamBackup = $_POST;
-                foreach ($GLOBALS['new_config'] as $k => $v) {
+                foreach ($newConfig as $k => $v) {
                     $_POST[str_replace('/', '-', (string) $k)] = $v;
                 }
 
