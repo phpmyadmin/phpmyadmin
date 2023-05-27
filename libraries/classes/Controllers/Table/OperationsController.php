@@ -62,7 +62,6 @@ class OperationsController extends AbstractController
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['hideOrderTable'] ??= null;
         $GLOBALS['indexes'] ??= null;
         $GLOBALS['notNull'] ??= null;
         $GLOBALS['comment'] ??= null;
@@ -391,7 +390,7 @@ class OperationsController extends AbstractController
 
         $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
-        $GLOBALS['hideOrderTable'] = false;
+        $hideOrderTable = false;
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
@@ -399,7 +398,7 @@ class OperationsController extends AbstractController
             $GLOBALS['indexes'] = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
             foreach ($GLOBALS['indexes'] as $name => $idx) {
                 if ($name === 'PRIMARY') {
-                    $GLOBALS['hideOrderTable'] = true;
+                    $hideOrderTable = true;
                     break;
                 }
 
@@ -416,7 +415,7 @@ class OperationsController extends AbstractController
                 }
 
                 if ($GLOBALS['notNull']) {
-                    $GLOBALS['hideOrderTable'] = true;
+                    $hideOrderTable = true;
                     break;
                 }
             }
@@ -481,7 +480,7 @@ class OperationsController extends AbstractController
             'table' => $GLOBALS['table'],
             'url_params' => $GLOBALS['urlParams'],
             'columns' => $columns,
-            'hide_order_table' => $GLOBALS['hideOrderTable'],
+            'hide_order_table' => $hideOrderTable,
             'table_comment' => $GLOBALS['comment'],
             'storage_engine' => $GLOBALS['tbl_storage_engine'],
             'storage_engines' => $storageEngines,
