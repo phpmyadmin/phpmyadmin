@@ -57,7 +57,6 @@ class OperationsController extends AbstractController
         $GLOBALS['tbl_storage_engine'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
-        $GLOBALS['row_format'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
         $GLOBALS['create_options'] ??= null;
         $GLOBALS['table_alters'] ??= null;
@@ -118,7 +117,6 @@ class OperationsController extends AbstractController
 
         $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
         $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
-        $GLOBALS['row_format'] = $pmaTable->getRowFormat();
         $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
         $GLOBALS['create_options'] = $pmaTable->getCreateOptions();
 
@@ -229,15 +227,13 @@ class OperationsController extends AbstractController
                 $GLOBALS['new_tbl_storage_engine'] = '';
             }
 
-            $GLOBALS['row_format'] = $GLOBALS['create_options']['row_format'] ?? $pmaTable->getRowFormat();
-
             $GLOBALS['table_alters'] = $this->operations->getTableAltersArray(
                 $pmaTable,
                 $GLOBALS['create_options']['pack_keys'],
                 (empty($GLOBALS['create_options']['checksum']) ? '0' : '1'),
                 ($GLOBALS['create_options']['page_checksum'] ?? ''),
                 (empty($GLOBALS['create_options']['delay_key_write']) ? '0' : '1'),
-                $GLOBALS['row_format'],
+                $GLOBALS['create_options']['row_format'] ?? $pmaTable->getRowFormat(),
                 $GLOBALS['new_tbl_storage_engine'],
                 (isset($GLOBALS['create_options']['transactional'])
                     && $GLOBALS['create_options']['transactional'] == '0' ? '0' : '1'),
@@ -331,7 +327,6 @@ class OperationsController extends AbstractController
 
             $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
             $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
-            $GLOBALS['row_format'] = $pmaTable->getRowFormat();
             $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
             $GLOBALS['create_options'] = $pmaTable->getCreateOptions();
         }
