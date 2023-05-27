@@ -572,7 +572,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'TRIGGER_NAME' => 'tna"me',
                 'EVENT_MANIPULATION' => 'UPDATE',
                 'EVENT_OBJECT_TABLE' => 'table',
-                'ACTION_TIMING' => 'ac>t',
+                'ACTION_TIMING' => 'BEFORE',
                 'ACTION_STATEMENT' => 'def',
                 'EVENT_OBJECT_SCHEMA' => 'database',
                 'DEFINER' => 'test_user@localhost',
@@ -590,7 +590,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<td class="print">tna&quot;me</td>' .
-            '<td class="print">ac&gt;t</td>' .
+            '<td class="print">BEFORE</td>' .
             '<td class="print">UPDATE</td>' .
             '<td class="print">def</td>',
             $result,

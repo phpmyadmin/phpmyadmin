@@ -11,7 +11,7 @@ final class Trigger
 {
     public function __construct(
         public readonly string $name,
-        public readonly string $timing,
+        public readonly Timing $timing,
         public readonly Event $event,
         public readonly string $table,
         public readonly string $statement,
@@ -31,6 +31,8 @@ final class Trigger
             $definer = $trigger['Definer'] ?? $trigger['DEFINER'] ?? null;
             Assert::string($name);
             Assert::string($timing);
+            $timing = Timing::tryFrom($timing);
+            Assert::notNull($timing);
             Assert::string($event);
             $event = Event::tryFrom($event);
             Assert::notNull($event);

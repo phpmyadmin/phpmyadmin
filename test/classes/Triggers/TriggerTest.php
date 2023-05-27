@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Triggers;
 
 use PhpMyAdmin\Triggers\Event;
+use PhpMyAdmin\Triggers\Timing;
 use PhpMyAdmin\Triggers\Trigger;
 use PHPUnit\Framework\TestCase;
 
@@ -26,7 +27,7 @@ class TriggerTest extends TestCase
         $actual = Trigger::tryFromArray($trigger);
         $this->assertNotNull($actual);
         $this->assertSame('trigger_name', $actual->name);
-        $this->assertSame('BEFORE', $actual->timing);
+        $this->assertSame(Timing::Before, $actual->timing);
         $this->assertSame(Event::Update, $actual->event);
         $this->assertSame('test_table', $actual->table);
         $this->assertSame('BEGIN END', $actual->statement);
