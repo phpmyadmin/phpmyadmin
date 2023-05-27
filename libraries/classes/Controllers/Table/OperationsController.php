@@ -62,7 +62,6 @@ class OperationsController extends AbstractController
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['columns'] ??= null;
         $GLOBALS['hideOrderTable'] ??= null;
         $GLOBALS['indexes'] ??= null;
         $GLOBALS['notNull'] ??= null;
@@ -390,7 +389,7 @@ class OperationsController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
 
-        $GLOBALS['columns'] = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
+        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
         $GLOBALS['hideOrderTable'] = false;
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
@@ -481,7 +480,7 @@ class OperationsController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'url_params' => $GLOBALS['urlParams'],
-            'columns' => $GLOBALS['columns'],
+            'columns' => $columns,
             'hide_order_table' => $GLOBALS['hideOrderTable'],
             'table_comment' => $GLOBALS['comment'],
             'storage_engine' => $GLOBALS['tbl_storage_engine'],
