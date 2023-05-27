@@ -55,7 +55,6 @@ class OperationsController extends AbstractController
         $GLOBALS['reread_info'] ??= null;
         $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
-        $GLOBALS['show_comment'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['row_format'] ??= null;
@@ -110,11 +109,11 @@ class OperationsController extends AbstractController
         if ($pmaTable->isView()) {
             $GLOBALS['tbl_is_view'] = true;
             $GLOBALS['tbl_storage_engine'] = __('View');
-            $GLOBALS['show_comment'] = null;
+            $showComment = '';
         } else {
             $GLOBALS['tbl_is_view'] = false;
             $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
-            $GLOBALS['show_comment'] = $pmaTable->getComment();
+            $showComment = $pmaTable->getComment();
         }
 
         $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
@@ -323,11 +322,11 @@ class OperationsController extends AbstractController
             if ($pmaTable->isView()) {
                 $GLOBALS['tbl_is_view'] = true;
                 $GLOBALS['tbl_storage_engine'] = __('View');
-                $GLOBALS['show_comment'] = null;
+                $showComment = '';
             } else {
                 $GLOBALS['tbl_is_view'] = false;
                 $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
-                $GLOBALS['show_comment'] = $pmaTable->getComment();
+                $showComment = $pmaTable->getComment();
             }
 
             $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
@@ -436,17 +435,17 @@ class OperationsController extends AbstractController
         }
 
         $GLOBALS['comment'] = '';
-        if (mb_strstr((string) $GLOBALS['show_comment'], '; InnoDB free') === false) {
-            if (mb_strstr((string) $GLOBALS['show_comment'], 'InnoDB free') === false) {
+        if (mb_strstr($showComment, '; InnoDB free') === false) {
+            if (mb_strstr($showComment, 'InnoDB free') === false) {
                 // only user entered comment
-                $GLOBALS['comment'] = (string) $GLOBALS['show_comment'];
+                $GLOBALS['comment'] = $showComment;
             } else {
                 // here we have just InnoDB generated part
                 $GLOBALS['comment'] = '';
             }
         } else {
             // remove InnoDB comment from end, just the minimal part (*? is non greedy)
-            $GLOBALS['comment'] = preg_replace('@; InnoDB free:.*?$@', '', (string) $GLOBALS['show_comment']);
+            $GLOBALS['comment'] = preg_replace('@; InnoDB free:.*?$@', '', $showComment);
         }
 
         $storageEngines = StorageEngine::getArray();
