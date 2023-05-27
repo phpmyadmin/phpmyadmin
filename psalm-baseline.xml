@@ -3546,7 +3546,6 @@
       <code><![CDATA[$GLOBALS['hideOrderTable']]]></code>
       <code><![CDATA[$GLOBALS['indexes']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['new_tbl_storage_engine']]]></code>
       <code><![CDATA[$GLOBALS['notNull']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
@@ -3576,7 +3575,6 @@
       <code><![CDATA[$GLOBALS['hideOrderTable']]]></code>
       <code><![CDATA[$GLOBALS['indexes']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['new_tbl_storage_engine']]]></code>
       <code><![CDATA[$GLOBALS['notNull']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>

@@ -61,7 +61,6 @@ class OperationsController extends AbstractController
         $GLOBALS['warning_messages'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
-        $GLOBALS['new_tbl_storage_engine'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['columns'] ??= null;
         $GLOBALS['hideOrderTable'] ??= null;
@@ -209,19 +208,18 @@ class OperationsController extends AbstractController
 
             /** @var mixed $newTableStorageEngine */
             $newTableStorageEngine = $request->getParsedBodyParam('new_tbl_storage_engine');
+            $newTblStorageEngine = '';
             if (
                 is_string($newTableStorageEngine) && $newTableStorageEngine !== ''
                 && mb_strtoupper($newTableStorageEngine) !== $GLOBALS['tbl_storage_engine']
             ) {
-                $GLOBALS['new_tbl_storage_engine'] = mb_strtoupper($newTableStorageEngine);
+                $newTblStorageEngine = mb_strtoupper($newTableStorageEngine);
 
                 if ($pmaTable->isEngine('ARIA')) {
                     $createOptions['transactional'] = ($createOptions['transactional'] ?? '')
                         == '0' ? '0' : '1';
                     $createOptions['page_checksum'] ??= '';
                 }
-            } else {
-                $GLOBALS['new_tbl_storage_engine'] = '';
             }
 
             $tableAlters = $this->operations->getTableAltersArray(
@@ -231,7 +229,7 @@ class OperationsController extends AbstractController
                 ($createOptions['page_checksum'] ?? ''),
                 (empty($createOptions['delay_key_write']) ? '0' : '1'),
                 $createOptions['row_format'] ?? $pmaTable->getRowFormat(),
-                $GLOBALS['new_tbl_storage_engine'],
+                $newTblStorageEngine,
                 (isset($createOptions['transactional'])
                     && $createOptions['transactional'] == '0' ? '0' : '1'),
                 $GLOBALS['tbl_collation'],
