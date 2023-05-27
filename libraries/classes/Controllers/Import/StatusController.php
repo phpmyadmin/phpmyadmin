@@ -31,11 +31,9 @@ class StatusController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['SESSION_KEY'] ??= null;
-        $GLOBALS['upload_id'] ??= null;
-        $GLOBALS['plugins'] ??= null;
         $GLOBALS['timestamp'] ??= null;
 
-        [$GLOBALS['SESSION_KEY'], $GLOBALS['upload_id'], $GLOBALS['plugins']] = Ajax::uploadProgressSetup();
+        [$GLOBALS['SESSION_KEY']] = Ajax::uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
         if ($request->hasQueryParam('message')) {
