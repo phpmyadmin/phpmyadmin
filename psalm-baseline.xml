@@ -2418,7 +2418,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['form_display']]]></code>
       <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['new_config']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
@@ -2437,7 +2436,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['form_display']]]></code>
       <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['new_config']]]></code>

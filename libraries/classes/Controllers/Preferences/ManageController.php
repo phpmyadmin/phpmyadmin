@@ -64,7 +64,6 @@ class ManageController extends AbstractController
         $GLOBALS['lang'] ??= null;
         $GLOBALS['new_config'] ??= null;
         $GLOBALS['return_url'] ??= null;
-        $GLOBALS['form_display'] ??= null;
         $GLOBALS['all_ok'] ??= null;
         $GLOBALS['query'] ??= null;
 
@@ -147,7 +146,7 @@ class ManageController extends AbstractController
             } else {
                 // sanitize input values: treat them as though
                 // they came from HTTP POST request
-                $GLOBALS['form_display'] = new UserFormList($GLOBALS['cf']);
+                $formDisplay = new UserFormList($GLOBALS['cf']);
                 $GLOBALS['new_config'] = $GLOBALS['cf']->getFlatDefaultConfig();
                 if ($request->hasBodyParam('import_merge')) {
                     $GLOBALS['new_config'] = array_merge($GLOBALS['new_config'], $GLOBALS['cf']->getConfigArray());
@@ -160,12 +159,12 @@ class ManageController extends AbstractController
                 }
 
                 $GLOBALS['cf']->resetConfigData();
-                $GLOBALS['all_ok'] = $GLOBALS['form_display']->process(true, false);
-                $GLOBALS['all_ok'] = $GLOBALS['all_ok'] && ! $GLOBALS['form_display']->hasErrors();
+                $GLOBALS['all_ok'] = $formDisplay->process(true, false);
+                $GLOBALS['all_ok'] = $GLOBALS['all_ok'] && ! $formDisplay->hasErrors();
                 $_POST = $postParamBackup;
 
                 if (! $GLOBALS['all_ok'] && $request->hasBodyParam('fix_errors')) {
-                    $GLOBALS['form_display']->fixErrors();
+                    $formDisplay->fixErrors();
                     $GLOBALS['all_ok'] = true;
                 }
 
@@ -180,7 +179,7 @@ class ManageController extends AbstractController
                     ]);
 
                     echo $this->template->render('preferences/manage/error', [
-                        'form_errors' => $GLOBALS['form_display']->displayErrors(),
+                        'form_errors' => $formDisplay->displayErrors(),
                         'json' => $GLOBALS['json'],
                         'import_merge' => $request->getParsedBodyParam('import_merge'),
                         'return_url' => $GLOBALS['return_url'],
