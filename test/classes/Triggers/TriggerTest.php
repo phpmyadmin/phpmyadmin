@@ -29,7 +29,7 @@ class TriggerTest extends TestCase
         $this->assertSame('trigger_name', $actual->name);
         $this->assertSame(Timing::Before, $actual->timing);
         $this->assertSame(Event::Update, $actual->event);
-        $this->assertSame('test_table', $actual->table);
+        $this->assertSame('test_table', $actual->table->getName());
         $this->assertSame('BEGIN END', $actual->statement);
         $this->assertSame('definer@localhost', $actual->definer);
     }
