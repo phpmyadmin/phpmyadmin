@@ -327,7 +327,7 @@ class ExportTexytextTest extends AbstractTestCase
             [
                 'TRIGGER_SCHEMA' => 'database',
                 'TRIGGER_NAME' => 'tna"me',
-                'EVENT_MANIPULATION' => 'manip&',
+                'EVENT_MANIPULATION' => 'DELETE',
                 'EVENT_OBJECT_TABLE' => 'ta<ble',
                 'ACTION_TIMING' => 'ac>t',
                 'ACTION_STATEMENT' => 'def',
@@ -344,7 +344,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $result = $this->object->getTriggers('database', 'ta<ble');
 
-        $this->assertStringContainsString('|tna"me|ac>t|manip&|def', $result);
+        $this->assertStringContainsString('|tna"me|ac>t|DELETE|def', $result);
 
         $this->assertStringContainsString('|Name|Time|Event|Definition', $result);
     }

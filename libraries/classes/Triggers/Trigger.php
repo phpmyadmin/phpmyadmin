@@ -12,7 +12,7 @@ final class Trigger
     public function __construct(
         public readonly string $name,
         public readonly string $timing,
-        public readonly string $event,
+        public readonly Event $event,
         public readonly string $table,
         public readonly string $statement,
         public readonly string $definer,
@@ -32,6 +32,8 @@ final class Trigger
             Assert::string($name);
             Assert::string($timing);
             Assert::string($event);
+            $event = Event::tryFrom($event);
+            Assert::notNull($event);
             Assert::string($table);
             Assert::string($statement);
             Assert::string($definer);

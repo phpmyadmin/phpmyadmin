@@ -524,7 +524,7 @@ class Triggers
             $oneResult['name'] = $newTrigger->name;
             $oneResult['table'] = $newTrigger->table;
             $oneResult['action_timing'] = $newTrigger->timing;
-            $oneResult['event_manipulation'] = $newTrigger->event;
+            $oneResult['event_manipulation'] = $newTrigger->event->value;
             $oneResult['definition'] = $newTrigger->statement;
             $oneResult['definer'] = $newTrigger->definer;
 
@@ -536,7 +536,7 @@ class Triggers
                 "CREATE TRIGGER %s %s %s ON %s\n FOR EACH ROW %s\n%s\n",
                 $oneResult['full_trigger_name'],
                 $newTrigger->timing,
-                $newTrigger->event,
+                $newTrigger->event->value,
                 Util::backquote($newTrigger->table),
                 $newTrigger->statement,
                 $delimiter,

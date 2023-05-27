@@ -735,7 +735,7 @@ class ExportOdtTest extends AbstractTestCase
             [
                 'TRIGGER_SCHEMA' => 'database',
                 'TRIGGER_NAME' => 'tna"me',
-                'EVENT_MANIPULATION' => 'manip&',
+                'EVENT_MANIPULATION' => 'INSERT',
                 'EVENT_OBJECT_TABLE' => 'ta<ble',
                 'ACTION_TIMING' => 'ac>t',
                 'ACTION_STATEMENT' => 'def',
@@ -761,7 +761,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->assertStringContainsString('<text:p>ac&gt;t</text:p>', $result);
 
-        $this->assertStringContainsString('<text:p>manip&amp;</text:p>', $result);
+        $this->assertStringContainsString('<text:p>INSERT</text:p>', $result);
 
         $this->assertStringContainsString('<text:p>def</text:p>', $result);
     }
