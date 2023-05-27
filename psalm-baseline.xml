@@ -7687,6 +7687,12 @@
       <code><![CDATA[$this->pos3Name]]></code>
       <code><![CDATA[$this->pos3Name]]></code>
     </InvalidPropertyAssignmentValue>
+    <InvalidReturnStatement>
+      <code><![CDATA[array_map(base64_decode(...), explode('.', $string))]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[non-empty-list<string>]]></code>
+    </InvalidReturnType>
     <MixedArgument>
       <code>$db</code>
       <code>$item</code>

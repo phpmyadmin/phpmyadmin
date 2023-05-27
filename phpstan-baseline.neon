@@ -4676,6 +4676,11 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:parsePath\\(\\) should return non\\-empty\\-array\\<int, string\\> but returns non\\-empty\\-array\\<int, string\\|false\\>\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Only numeric types are allowed in \\+, int\\|false given on the left side\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
