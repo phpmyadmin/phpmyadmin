@@ -2416,7 +2416,6 @@
   </file>
   <file src="libraries/classes/Controllers/Preferences/ManageController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['new_config']]]></code>
@@ -2434,7 +2433,6 @@
       <code>$key</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['json']]]></code>
       <code><![CDATA[$GLOBALS['json']]]></code>

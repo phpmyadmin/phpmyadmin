@@ -64,7 +64,6 @@ class ManageController extends AbstractController
         $GLOBALS['lang'] ??= null;
         $GLOBALS['new_config'] ??= null;
         $GLOBALS['return_url'] ??= null;
-        $GLOBALS['all_ok'] ??= null;
         $GLOBALS['query'] ??= null;
 
         $route = $request->getRoute();
@@ -159,16 +158,16 @@ class ManageController extends AbstractController
                 }
 
                 $GLOBALS['cf']->resetConfigData();
-                $GLOBALS['all_ok'] = $formDisplay->process(true, false);
-                $GLOBALS['all_ok'] = $GLOBALS['all_ok'] && ! $formDisplay->hasErrors();
+                $allOk = $formDisplay->process(true, false);
+                $allOk = $allOk && ! $formDisplay->hasErrors();
                 $_POST = $postParamBackup;
 
-                if (! $GLOBALS['all_ok'] && $request->hasBodyParam('fix_errors')) {
+                if (! $allOk && $request->hasBodyParam('fix_errors')) {
                     $formDisplay->fixErrors();
-                    $GLOBALS['all_ok'] = true;
+                    $allOk = true;
                 }
 
-                if (! $GLOBALS['all_ok']) {
+                if (! $allOk) {
                     // mimic original form and post json in a hidden field
                     $relationParameters = $this->relation->getRelationParameters();
 
