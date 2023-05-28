@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-05-21 00:19+0000\n"
+"POT-Creation-Date: 2023-05-28 00:19+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1403,7 +1403,6 @@ msgstr "Cerca:"
 #: templates/database/operations/index.twig:225
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/database/triggers/editor_form.twig:74
 #: templates/display/results/table.twig:271
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
@@ -1440,7 +1439,8 @@ msgstr "Cerca:"
 #: templates/table/structure/display_structure.twig:343
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
-#: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
+#: templates/table/zoom_search/index.twig:152
+#: templates/triggers/editor_form.twig:74 templates/view_create.twig:116
 msgid "Go"
 msgstr "Esegui"
 
@@ -4766,8 +4766,8 @@ msgstr "Ignora le tabelle bloccate"
 #: libraries/classes/ConfigStorage/UserGroups.php:111
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: libraries/classes/Display/Results.php:2701
-#: libraries/classes/Html/Generator.php:569
-#: libraries/classes/Html/Generator.php:831
+#: libraries/classes/Html/Generator.php:577
+#: libraries/classes/Html/Generator.php:839
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4779,23 +4779,22 @@ msgstr "Ignora le tabelle bloccate"
 #: templates/database/routines/row.twig:24
 #: templates/database/routines/row.twig:27
 #: templates/database/structure/structure_table_row.twig:66
-#: templates/database/triggers/row.twig:28
-#: templates/database/triggers/row.twig:31
 #: templates/display/results/table.twig:308
 #: templates/display/results/table.twig:309 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:497
+#: templates/triggers/row.twig:28 templates/triggers/row.twig:31
 msgid "Edit"
 msgstr "Modifica"
 
 #: libraries/classes/Config/Descriptions.php:931
-#: libraries/classes/Html/Generator.php:544
+#: libraries/classes/Html/Generator.php:552
 msgid "Explain SQL"
 msgstr "Spiega SQL"
 
 #: libraries/classes/Config/Descriptions.php:932
-#: libraries/classes/Export.php:1259 libraries/classes/Html/Generator.php:625
+#: libraries/classes/Export.php:1259 libraries/classes/Html/Generator.php:633
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4803,7 +4802,7 @@ msgid "Refresh"
 msgstr "Aggiorna"
 
 #: libraries/classes/Config/Descriptions.php:933
-#: libraries/classes/Html/Generator.php:605
+#: libraries/classes/Html/Generator.php:613
 msgid "Create PHP code"
 msgstr "Crea il codice PHP"
 
@@ -4863,8 +4862,6 @@ msgstr "Server"
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:153
-#: templates/database/triggers/editor_form.twig:32
-#: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/user_properties.twig:37
@@ -4875,6 +4872,7 @@ msgstr "Server"
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:133
 #: templates/table/relation/foreign_key_row.twig:102
+#: templates/triggers/editor_form.twig:32 templates/triggers/list.twig:45
 msgid "Table"
 msgstr "Tabella"
 
@@ -5110,9 +5108,6 @@ msgstr "Testo OpenDocument"
 #: templates/database/routines/row.twig:64
 #: templates/database/routines/row.twig:67
 #: templates/database/structure/check_all_tables.twig:12
-#: templates/database/triggers/list.twig:16
-#: templates/database/triggers/list.twig:17
-#: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:321
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
@@ -5125,7 +5120,8 @@ msgstr "Testo OpenDocument"
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
-#: templates/table/privileges/index.twig:121
+#: templates/table/privileges/index.twig:121 templates/triggers/list.twig:16
+#: templates/triggers/list.twig:17 templates/triggers/row.twig:41
 msgid "Export"
 msgstr "Esporta"
 
@@ -5634,7 +5630,7 @@ msgstr "sconosciuto"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
 #: libraries/classes/IndexColumn.php:154 libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:614
-#: libraries/classes/Plugins/Export/ExportLatex.php:578
+#: libraries/classes/Plugins/Export/ExportLatex.php:577
 #: libraries/classes/Plugins/Export/ExportOdt.php:730
 #: libraries/classes/Plugins/Export/ExportTexytext.php:569
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
@@ -5671,7 +5667,7 @@ msgstr "Sì"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:299
+#: libraries/classes/Controllers/Table/ReplaceController.php:300
 #: libraries/classes/Core.php:595 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nessun cambiamento"
@@ -6193,7 +6189,7 @@ msgid "Matched rows:"
 msgstr "Righe coinvolte:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:806 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:814 templates/export.twig:67
 msgid "SQL query:"
 msgstr "Query SQL:"
 
@@ -6726,8 +6722,7 @@ msgstr "Spiega l'output"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:439
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:328
 #: libraries/classes/Server/Status/Processes.php:95
-#: templates/database/triggers/list.twig:47
-#: templates/sql/profiling_chart.twig:17
+#: templates/sql/profiling_chart.twig:17 templates/triggers/list.twig:47
 msgid "Time"
 msgstr "Tempo"
 
@@ -6992,7 +6987,7 @@ msgstr "Cambio il charset"
 #: libraries/classes/IndexColumn.php:151 libraries/classes/Index.php:448
 #: libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:613
-#: libraries/classes/Plugins/Export/ExportLatex.php:578
+#: libraries/classes/Plugins/Export/ExportLatex.php:577
 #: libraries/classes/Plugins/Export/ExportOdt.php:729
 #: libraries/classes/Plugins/Export/ExportTexytext.php:569
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:716
@@ -7237,7 +7232,7 @@ msgid "No partial dependencies selected!"
 msgstr "Nessuna dipendenza parziale selezionata!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:897
+#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:905
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:269
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7374,7 +7369,7 @@ msgstr "Contenuto del punto"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:639
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1635
+#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1579
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignora"
@@ -7978,7 +7973,7 @@ msgid "Table %s already exists!"
 msgstr "La tabella %s esiste già!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:714
-#: libraries/classes/InsertEdit.php:283
+#: libraries/classes/InsertEdit.php:279
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Nascondi"
@@ -9492,14 +9487,14 @@ msgid "Invalid table name"
 msgstr "Nome tabella non valido"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:64
+#: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Controllers/Transformation/WrapperController.php:68
 msgid "There is an issue with your request."
 msgstr "C'è un problema con la tua richiesta."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:78
+#: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1220
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:205
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:201
 #: libraries/classes/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
@@ -9542,8 +9537,8 @@ msgstr "Il nome della partizione deve essere una stringa non vuota."
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
-#: libraries/classes/Html/Generator.php:782 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:551 libraries/classes/Message.php:169
+#: libraries/classes/Html/Generator.php:790 libraries/classes/Import.php:138
+#: libraries/classes/InsertEdit.php:501 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9557,7 +9552,7 @@ msgstr "Il campo display è stato aggiornato con successo."
 msgid "Internal relationships were successfully updated."
 msgstr "Le relazioni interne sono state aggiornate con successo."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:198
+#: libraries/classes/Controllers/Table/ReplaceController.php:199
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Riga: %1$s, Campo: %2$s, Errore: %3$s"
@@ -9753,9 +9748,9 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:231
 #: libraries/classes/Database/Routines.php:333
 #: libraries/classes/Database/Routines.php:1227
-#: libraries/classes/Database/Triggers.php:107
-#: libraries/classes/Database/Triggers.php:116
-#: libraries/classes/Database/Triggers.php:143
+#: libraries/classes/Triggers/Triggers.php:72
+#: libraries/classes/Triggers/Triggers.php:81
+#: libraries/classes/Triggers/Triggers.php:108
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "La seguente query è fallita: \"%s\""
@@ -9769,11 +9764,11 @@ msgstr "La seguente query è fallita: \"%s\""
 #: libraries/classes/Database/Routines.php:337
 #: libraries/classes/Database/Routines.php:1231
 #: libraries/classes/Database/Routines.php:1514
-#: libraries/classes/Database/Triggers.php:111
-#: libraries/classes/Database/Triggers.php:120
-#: libraries/classes/Database/Triggers.php:147
-#: libraries/classes/Database/Triggers.php:427
-#: libraries/classes/Html/Generator.php:847
+#: libraries/classes/Html/Generator.php:855
+#: libraries/classes/Triggers/Triggers.php:76
+#: libraries/classes/Triggers/Triggers.php:85
+#: libraries/classes/Triggers/Triggers.php:112
+#: libraries/classes/Triggers/Triggers.php:389
 msgid "MySQL said: "
 msgstr "Messaggio di MySQL: "
 
@@ -9789,7 +9784,7 @@ msgstr "L'evento %1$s è stato creato."
 
 #: libraries/classes/Database/Events.php:153
 #: libraries/classes/Database/Routines.php:251
-#: libraries/classes/Database/Triggers.php:164
+#: libraries/classes/Triggers/Triggers.php:129
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Si sono verificati uno o più errori durante l'esecuzione della tua richiesta:"
@@ -9804,7 +9799,7 @@ msgstr "Modifica evento"
 
 #: libraries/classes/Database/Events.php:392
 #: libraries/classes/Database/Routines.php:963
-#: libraries/classes/Database/Triggers.php:371
+#: libraries/classes/Triggers/Triggers.php:333
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Il definer deve essere nel seguente formato: \"nomeutente@nomehost\"!"
 
@@ -9835,7 +9830,7 @@ msgstr ""
 
 #: libraries/classes/Database/Events.php:483
 #: libraries/classes/Database/Routines.php:1512
-#: libraries/classes/Database/Triggers.php:425
+#: libraries/classes/Triggers/Triggers.php:387
 msgid "The backed up query was:"
 msgstr "La query di backup è:"
 
@@ -9843,7 +9838,7 @@ msgstr "La query di backup è:"
 #: libraries/classes/Database/Routines.php:140
 #: libraries/classes/Database/Routines.php:1120
 #: libraries/classes/Database/Routines.php:1287
-#: libraries/classes/Database/Triggers.php:456
+#: libraries/classes/Triggers/Triggers.php:418
 msgid "Error in processing request:"
 msgstr "Errore nell'elaborazione della richiesta:"
 
@@ -9865,7 +9860,7 @@ msgstr ""
 "Errore nell'elaborazione della richiesta: non é stata trovato alcun evento "
 "con nome %1$s nel database %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1073
+#: libraries/classes/DatabaseInterface.php:1093
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9877,13 +9872,13 @@ msgstr ""
 "['SessionTimeZone'][/em]. Al momento phpMyAdmin sta usando la timezone "
 "predefinita sul server."
 
-#: libraries/classes/DatabaseInterface.php:1115
+#: libraries/classes/DatabaseInterface.php:1135
 msgid "Failed to set configured collation connection!"
 msgstr ""
 "Errore durante l'impostazione della connessione per la collazione "
 "configurata!"
 
-#: libraries/classes/DatabaseInterface.php:1583
+#: libraries/classes/DatabaseInterface.php:1603
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Connessione per controluser come definito nella configurazione fallita."
@@ -10030,70 +10025,6 @@ msgstr "la frase esatta come un campo completo"
 #: templates/database/search/main.twig:34
 msgid "as regular expression"
 msgstr "come espressione regolare"
-
-#: libraries/classes/Database/Triggers.php:130
-#, php-format
-msgid "Trigger %1$s has been modified."
-msgstr "Il trigger %1$s é stato modificato."
-
-#: libraries/classes/Database/Triggers.php:150
-#, php-format
-msgid "Trigger %1$s has been created."
-msgstr "Il trigger %1$s é stato creato."
-
-#: libraries/classes/Database/Triggers.php:249
-msgid "Add trigger"
-msgstr "Aggiungi trigger"
-
-#: libraries/classes/Database/Triggers.php:253
-msgid "Edit trigger"
-msgstr "Modifica trigger"
-
-#: libraries/classes/Database/Triggers.php:379
-msgid "You must provide a trigger name!"
-msgstr "Devi fornire un nome di trigger!"
-
-#: libraries/classes/Database/Triggers.php:385
-msgid "You must provide a valid timing for the trigger!"
-msgstr "Devi fornire un timing valido per il trigger!"
-
-#: libraries/classes/Database/Triggers.php:391
-msgid "You must provide a valid event for the trigger!"
-msgstr "Devi fornire un evento valido per il trigger!"
-
-#: libraries/classes/Database/Triggers.php:398
-msgid "You must provide a valid table name!"
-msgstr "Devi fornire un nome valido di tabella!"
-
-#: libraries/classes/Database/Triggers.php:405
-msgid "You must provide a trigger definition."
-msgstr "È necessario fornire una definizione per il trigger."
-
-#: libraries/classes/Database/Triggers.php:424
-msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
-"Ci dispiace, non siamo riusciti a ripristinare il trigger che é stato "
-"rimosso."
-
-#: libraries/classes/Database/Triggers.php:458
-#, php-format
-msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Non é stata trovato alcun trigger con nome %1$s nel database %2$s."
-
-#: libraries/classes/Database/Triggers.php:490
-#: templates/database/triggers/export.twig:2
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Esportazione del trigger %s"
-
-#: libraries/classes/Database/Triggers.php:508
-#, php-format
-msgid ""
-"Error in processing request: No trigger with name %1$s found in database "
-"%2$s."
-msgstr ""
-"Errore nell'elaborazione della richiesta: non é stata trovato alcun trigger "
-"con nome %1$s nel database %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:127
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -10524,7 +10455,7 @@ msgstr ""
 "più alto."
 
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:716
+#: libraries/classes/Html/Generator.php:724
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
@@ -10681,42 +10612,42 @@ msgstr "SSL attivo con Autorità di Certificazione"
 msgid "SSL is used"
 msgstr "SSL attivo"
 
-#: libraries/classes/Html/Generator.php:354
+#: libraries/classes/Html/Generator.php:350
 msgid "The PHP function password_hash() with default options."
 msgstr "La funzione PHP password_hash() con opzioni di default."
 
-#: libraries/classes/Html/Generator.php:355
+#: libraries/classes/Html/Generator.php:351
 msgid "password_hash() PHP function"
 msgstr "Funzione PHP password_hash()"
 
-#: libraries/classes/Html/Generator.php:553
+#: libraries/classes/Html/Generator.php:561
 msgid "Skip Explain SQL"
 msgstr "Non Spiegare SQL"
 
-#: libraries/classes/Html/Generator.php:585
+#: libraries/classes/Html/Generator.php:593
 msgid "Without PHP code"
 msgstr "Senza codice PHP"
 
-#: libraries/classes/Html/Generator.php:594
+#: libraries/classes/Html/Generator.php:602
 #: templates/database/multi_table_query/form.twig:161
 msgid "Submit query"
 msgstr "Invia query"
 
-#: libraries/classes/Html/Generator.php:652 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:660 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profiling"
 
-#: libraries/classes/Html/Generator.php:666
+#: libraries/classes/Html/Generator.php:674
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Modifica inline"
 
-#: libraries/classes/Html/Generator.php:789
+#: libraries/classes/Html/Generator.php:797
 msgid "Static analysis:"
 msgstr "Analisi statica:"
 
-#: libraries/classes/Html/Generator.php:792
+#: libraries/classes/Html/Generator.php:800
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Sono stati trovati %d errori durante l'analisi."
@@ -10817,7 +10748,7 @@ msgstr ""
 "Sembra che gli indici %1$s e %2$s sono uguali ed uno di questi potrebbe, "
 "possibilmente, essere rimosso."
 
-#: libraries/classes/InsertEdit.php:298
+#: libraries/classes/InsertEdit.php:294
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10825,7 +10756,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funzione"
 
-#: libraries/classes/InsertEdit.php:299
+#: libraries/classes/InsertEdit.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:267
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:358
 #: libraries/classes/Plugins/Export/ExportLatex.php:504
@@ -10859,12 +10790,12 @@ msgstr "Funzione"
 msgid "Type"
 msgstr "Tipo"
 
-#: libraries/classes/InsertEdit.php:552 templates/import.twig:56
+#: libraries/classes/InsertEdit.php:502 templates/import.twig:56
 #: templates/import.twig:80
 msgid "The directory you set for upload work cannot be reached."
 msgstr "La directory impostata per l'upload non può essere trovata."
 
-#: libraries/classes/InsertEdit.php:560
+#: libraries/classes/InsertEdit.php:510
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
 #: templates/server/privileges/privileges_table.twig:87
@@ -10873,15 +10804,15 @@ msgstr "La directory impostata per l'upload non può essere trovata."
 msgid "Or"
 msgstr "Oppure"
 
-#: libraries/classes/InsertEdit.php:561
+#: libraries/classes/InsertEdit.php:511
 msgid "web server upload directory:"
 msgstr "directory di upload del web-server:"
 
-#: libraries/classes/InsertEdit.php:1031 libraries/classes/Sql.php:892
+#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Visualizzo la query SQL"
 
-#: libraries/classes/InsertEdit.php:1055 libraries/classes/Sql.php:872
+#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Inserita riga id: %1$d"
@@ -10917,7 +10848,7 @@ msgstr "Monitoraggio"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:503
 #: libraries/classes/Plugins/Export/ExportXml.php:119
 #: libraries/classes/Util.php:1710 libraries/classes/Util.php:1726
-#: templates/database/triggers/list.twig:3
+#: templates/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Trigger"
 
@@ -11120,8 +11051,7 @@ msgstr "Nuovo"
 #: libraries/classes/Plugins/Export/ExportOdt.php:575
 #: libraries/classes/Plugins/Export/ExportTexytext.php:440
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:330
-#: templates/database/triggers/editor_form.twig:52
-#: templates/database/triggers/list.twig:48
+#: templates/triggers/editor_form.twig:52 templates/triggers/list.twig:48
 msgid "Event"
 msgstr "Evento"
 
@@ -11520,11 +11450,7 @@ msgstr "Tronca"
 #: templates/database/routines/row.twig:77
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/database/structure/structure_table_row.twig:87
-#: templates/database/triggers/list.twig:19
-#: templates/database/triggers/list.twig:20
-#: templates/database/triggers/row.twig:52
-#: templates/database/triggers/row.twig:58 templates/indexes.twig:58
-#: templates/server/databases/index.twig:67
+#: templates/indexes.twig:58 templates/server/databases/index.twig:67
 #: templates/server/databases/index.twig:68
 #: templates/server/databases/index.twig:321
 #: templates/table/relation/foreign_key_row.twig:25
@@ -11532,6 +11458,8 @@ msgstr "Tronca"
 #: templates/table/structure/display_structure.twig:120
 #: templates/table/structure/display_structure.twig:290
 #: templates/table/structure/display_structure.twig:525
+#: templates/triggers/list.twig:19 templates/triggers/list.twig:20
+#: templates/triggers/row.twig:52 templates/triggers/row.twig:58
 msgid "Drop"
 msgstr "Elimina"
 
@@ -11814,9 +11742,9 @@ msgstr "Collegamenti a"
 #: templates/database/events/index.twig:43
 #: templates/database/routines/editor_form.twig:55
 #: templates/database/routines/execute_form.twig:15
-#: templates/database/routines/index.twig:49
-#: templates/database/triggers/list.twig:43 templates/setup/home/index.twig:49
+#: templates/database/routines/index.twig:49 templates/setup/home/index.twig:49
 #: templates/table/structure/display_structure.twig:21
+#: templates/triggers/list.twig:43
 msgid "Name"
 msgstr "Nome"
 
@@ -11826,7 +11754,7 @@ msgstr "Nome"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:332
 #: templates/database/events/editor_form.twig:87
 #: templates/database/routines/editor_form.twig:118
-#: templates/database/triggers/editor_form.twig:62
+#: templates/triggers/editor_form.twig:62
 msgid "Definition"
 msgstr "Definizione"
 
@@ -12640,7 +12568,7 @@ msgstr ""
 "miniatura. Le opzioni sono larghezza e altezza in pixel dell'immagine in "
 "miniatura. Il valore predefinito è 100 X 100."
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:83
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:79
 msgid "Image preview here"
 msgstr "Anteprima immagine qui"
 
@@ -13774,6 +13702,69 @@ msgstr "La versione %1$s di %2$s è stata cancellata."
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Versione %1$s creata, monitoraggio attivato per %2$s."
+
+#: libraries/classes/Triggers/Triggers.php:95
+#, php-format
+msgid "Trigger %1$s has been modified."
+msgstr "Il trigger %1$s é stato modificato."
+
+#: libraries/classes/Triggers/Triggers.php:115
+#, php-format
+msgid "Trigger %1$s has been created."
+msgstr "Il trigger %1$s é stato creato."
+
+#: libraries/classes/Triggers/Triggers.php:214
+msgid "Add trigger"
+msgstr "Aggiungi trigger"
+
+#: libraries/classes/Triggers/Triggers.php:218
+msgid "Edit trigger"
+msgstr "Modifica trigger"
+
+#: libraries/classes/Triggers/Triggers.php:341
+msgid "You must provide a trigger name!"
+msgstr "Devi fornire un nome di trigger!"
+
+#: libraries/classes/Triggers/Triggers.php:347
+msgid "You must provide a valid timing for the trigger!"
+msgstr "Devi fornire un timing valido per il trigger!"
+
+#: libraries/classes/Triggers/Triggers.php:353
+msgid "You must provide a valid event for the trigger!"
+msgstr "Devi fornire un evento valido per il trigger!"
+
+#: libraries/classes/Triggers/Triggers.php:360
+msgid "You must provide a valid table name!"
+msgstr "Devi fornire un nome valido di tabella!"
+
+#: libraries/classes/Triggers/Triggers.php:367
+msgid "You must provide a trigger definition."
+msgstr "È necessario fornire una definizione per il trigger."
+
+#: libraries/classes/Triggers/Triggers.php:386
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr ""
+"Ci dispiace, non siamo riusciti a ripristinare il trigger che é stato "
+"rimosso."
+
+#: libraries/classes/Triggers/Triggers.php:420
+#, php-format
+msgid "No trigger with name %1$s found in database %2$s."
+msgstr "Non é stata trovato alcun trigger con nome %1$s nel database %2$s."
+
+#: libraries/classes/Triggers/Triggers.php:452 templates/triggers/export.twig:2
+#, php-format
+msgid "Export of trigger %s"
+msgstr "Esportazione del trigger %s"
+
+#: libraries/classes/Triggers/Triggers.php:470
+#, php-format
+msgid ""
+"Error in processing request: No trigger with name %1$s found in database "
+"%2$s."
+msgstr ""
+"Errore nell'elaborazione della richiesta: non é stata trovato alcun trigger "
+"con nome %1$s nel database %2$s."
 
 #: libraries/classes/Types.php:200
 msgid ""
@@ -15005,7 +14996,7 @@ msgstr "Seleziona il Tipo di Esportazione Relazionale"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
-#: templates/database/triggers/editor_form.twig:14 templates/view_create.twig:8
+#: templates/triggers/editor_form.twig:14 templates/view_create.twig:8
 msgid "Details"
 msgstr "Dettagli"
 
@@ -15048,8 +15039,7 @@ msgstr "Conserva dopo il completamento"
 
 #: templates/database/events/editor_form.twig:101
 #: templates/database/routines/editor_form.twig:147
-#: templates/database/triggers/editor_form.twig:66
-#: templates/view_create.twig:45
+#: templates/triggers/editor_form.twig:66 templates/view_create.twig:45
 msgid "Definer"
 msgstr "Definizione"
 
@@ -15059,7 +15049,6 @@ msgstr "Definizione"
 #: templates/database/routines/index.twig:13
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/database/triggers/list.twig:13
 #: templates/display/results/table.twig:304
 #: templates/display/results/table.twig:305 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
@@ -15074,7 +15063,7 @@ msgstr "Definizione"
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/server/user_groups/edit_user_groups.twig:22
 #: templates/table/privileges/index.twig:117
-#: templates/table/privileges/index.twig:118
+#: templates/table/privileges/index.twig:118 templates/triggers/list.twig:13
 msgid "Check all"
 msgstr "Seleziona tutto"
 
@@ -15725,23 +15714,6 @@ msgstr "Tabelle non monitorate"
 #: templates/table/structure/display_structure.twig:413
 msgid "Track table"
 msgstr "Controlla tabella"
-
-#: templates/database/triggers/editor_form.twig:28
-msgid "Trigger name"
-msgstr "Nome del trigger"
-
-#: templates/database/triggers/editor_form.twig:42
-msgctxt "Trigger action time"
-msgid "Time"
-msgstr "Tempo"
-
-#: templates/database/triggers/list.twig:27
-msgid "Create new trigger"
-msgstr "Crea un nuovo trigger"
-
-#: templates/database/triggers/list.twig:36
-msgid "There are no triggers to display."
-msgstr "Non ci sono trigger da visualizzare."
 
 #: templates/display/results/checkbox_and_links.twig:16
 #: templates/display/results/checkbox_and_links.twig:78
@@ -19364,6 +19336,23 @@ msgstr "Descrizione"
 #: templates/transformation_overview.twig:32
 msgid "Available input transformations"
 msgstr "Trasformazioni disponibili per l'input"
+
+#: templates/triggers/editor_form.twig:28
+msgid "Trigger name"
+msgstr "Nome del trigger"
+
+#: templates/triggers/editor_form.twig:42
+msgctxt "Trigger action time"
+msgid "Time"
+msgstr "Tempo"
+
+#: templates/triggers/list.twig:27
+msgid "Create new trigger"
+msgstr "Crea un nuovo trigger"
+
+#: templates/triggers/list.twig:36
+msgid "There are no triggers to display."
+msgstr "Non ci sono trigger da visualizzare."
 
 #: templates/view_create.twig:65
 msgid "VIEW name"

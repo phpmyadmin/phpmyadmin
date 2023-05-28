@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-05-21 00:19+0000\n"
+"POT-Creation-Date: 2023-05-28 00:19+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1280,7 +1280,6 @@ msgstr "Paieška"
 #: templates/database/operations/index.twig:225
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/database/triggers/editor_form.twig:74
 #: templates/display/results/table.twig:271
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
@@ -1317,7 +1316,8 @@ msgstr "Paieška"
 #: templates/table/structure/display_structure.twig:343
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
-#: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
+#: templates/table/zoom_search/index.twig:152
+#: templates/triggers/editor_form.twig:74 templates/view_create.twig:116
 msgid "Go"
 msgstr "Vykdyti"
 
@@ -5053,8 +5053,8 @@ msgstr "Praleisti užrakintas lenteles"
 #: libraries/classes/ConfigStorage/UserGroups.php:111
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: libraries/classes/Display/Results.php:2701
-#: libraries/classes/Html/Generator.php:569
-#: libraries/classes/Html/Generator.php:831
+#: libraries/classes/Html/Generator.php:577
+#: libraries/classes/Html/Generator.php:839
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -5066,23 +5066,22 @@ msgstr "Praleisti užrakintas lenteles"
 #: templates/database/routines/row.twig:24
 #: templates/database/routines/row.twig:27
 #: templates/database/structure/structure_table_row.twig:66
-#: templates/database/triggers/row.twig:28
-#: templates/database/triggers/row.twig:31
 #: templates/display/results/table.twig:308
 #: templates/display/results/table.twig:309 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:497
+#: templates/triggers/row.twig:28 templates/triggers/row.twig:31
 msgid "Edit"
 msgstr "Redaguoti"
 
 #: libraries/classes/Config/Descriptions.php:931
-#: libraries/classes/Html/Generator.php:544
+#: libraries/classes/Html/Generator.php:552
 msgid "Explain SQL"
 msgstr "Paaiškinti SQL"
 
 #: libraries/classes/Config/Descriptions.php:932
-#: libraries/classes/Export.php:1259 libraries/classes/Html/Generator.php:625
+#: libraries/classes/Export.php:1259 libraries/classes/Html/Generator.php:633
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -5090,7 +5089,7 @@ msgid "Refresh"
 msgstr "Atnaujinti"
 
 #: libraries/classes/Config/Descriptions.php:933
-#: libraries/classes/Html/Generator.php:605
+#: libraries/classes/Html/Generator.php:613
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -5154,8 +5153,6 @@ msgstr "Serveris"
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:153
-#: templates/database/triggers/editor_form.twig:32
-#: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/user_properties.twig:37
@@ -5166,6 +5163,7 @@ msgstr "Serveris"
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:133
 #: templates/table/relation/foreign_key_row.twig:102
+#: templates/triggers/editor_form.twig:32 templates/triggers/list.twig:45
 msgid "Table"
 msgstr "Lentelė"
 
@@ -5429,9 +5427,6 @@ msgstr "Open Document rašyklė"
 #: templates/database/routines/row.twig:64
 #: templates/database/routines/row.twig:67
 #: templates/database/structure/check_all_tables.twig:12
-#: templates/database/triggers/list.twig:16
-#: templates/database/triggers/list.twig:17
-#: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:321
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
@@ -5444,7 +5439,8 @@ msgstr "Open Document rašyklė"
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
-#: templates/table/privileges/index.twig:121
+#: templates/table/privileges/index.twig:121 templates/triggers/list.twig:16
+#: templates/triggers/list.twig:17 templates/triggers/row.twig:41
 msgid "Export"
 msgstr "Eksportuoti"
 
@@ -5981,7 +5977,7 @@ msgstr "nežinoma"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
 #: libraries/classes/IndexColumn.php:154 libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:614
-#: libraries/classes/Plugins/Export/ExportLatex.php:578
+#: libraries/classes/Plugins/Export/ExportLatex.php:577
 #: libraries/classes/Plugins/Export/ExportOdt.php:730
 #: libraries/classes/Plugins/Export/ExportTexytext.php:569
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
@@ -6018,7 +6014,7 @@ msgstr "Taip"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:299
+#: libraries/classes/Controllers/Table/ReplaceController.php:300
 #: libraries/classes/Core.php:595 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nėra pakeitimų"
@@ -6541,7 +6537,7 @@ msgid "Matched rows:"
 msgstr "Paveiktos eilutės:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:806 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:814 templates/export.twig:67
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -7089,8 +7085,7 @@ msgstr "Paaiškinti išvestį"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:439
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:328
 #: libraries/classes/Server/Status/Processes.php:95
-#: templates/database/triggers/list.twig:47
-#: templates/sql/profiling_chart.twig:17
+#: templates/sql/profiling_chart.twig:17 templates/triggers/list.twig:47
 msgid "Time"
 msgstr "Laikas"
 
@@ -7384,7 +7379,7 @@ msgstr "Keičiama koduotė"
 #: libraries/classes/IndexColumn.php:151 libraries/classes/Index.php:448
 #: libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:613
-#: libraries/classes/Plugins/Export/ExportLatex.php:578
+#: libraries/classes/Plugins/Export/ExportLatex.php:577
 #: libraries/classes/Plugins/Export/ExportOdt.php:729
 #: libraries/classes/Plugins/Export/ExportTexytext.php:569
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:716
@@ -7633,7 +7628,7 @@ msgid "No partial dependencies selected!"
 msgstr "Nepažymėjote duomenų bazės."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:897
+#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:905
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:269
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7774,7 +7769,7 @@ msgstr "Duomenų rodyklės dydis"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:639
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1635
+#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1579
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignoruoti"
@@ -8393,7 +8388,7 @@ msgid "Table %s already exists!"
 msgstr "Lentelė %s jau yra!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:714
-#: libraries/classes/InsertEdit.php:283
+#: libraries/classes/InsertEdit.php:279
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Paslėpti"
@@ -9835,14 +9830,14 @@ msgid "Invalid table name"
 msgstr "Neteisingas lentelės vardas"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:64
+#: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Controllers/Transformation/WrapperController.php:68
 msgid "There is an issue with your request."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:78
+#: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1220
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:205
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:201
 #: libraries/classes/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL grąžino tuščią rezultatų rinkinį (nėra eilučių)."
@@ -9887,8 +9882,8 @@ msgstr "Tuščias lentelės vardas!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
-#: libraries/classes/Html/Generator.php:782 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:551 libraries/classes/Message.php:169
+#: libraries/classes/Html/Generator.php:790 libraries/classes/Import.php:138
+#: libraries/classes/InsertEdit.php:501 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9906,7 +9901,7 @@ msgstr "Gija %s buvo sėkmingai išjungta."
 msgid "Internal relationships were successfully updated."
 msgstr "Vidinis sąryšis įdėtas"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:198
+#: libraries/classes/Controllers/Table/ReplaceController.php:199
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Eilutė: %1$s, Stulpelis: %2$s, Klaida: %3$s"
@@ -10129,9 +10124,9 @@ msgstr "Nepavyko įkelti importuotų įskiepių, prašome patikrinti įdiegimą!
 #: libraries/classes/Database/Routines.php:231
 #: libraries/classes/Database/Routines.php:333
 #: libraries/classes/Database/Routines.php:1227
-#: libraries/classes/Database/Triggers.php:107
-#: libraries/classes/Database/Triggers.php:116
-#: libraries/classes/Database/Triggers.php:143
+#: libraries/classes/Triggers/Triggers.php:72
+#: libraries/classes/Triggers/Triggers.php:81
+#: libraries/classes/Triggers/Triggers.php:108
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "Sekančios užklausos nepavyko: „%s“"
@@ -10145,11 +10140,11 @@ msgstr "Sekančios užklausos nepavyko: „%s“"
 #: libraries/classes/Database/Routines.php:337
 #: libraries/classes/Database/Routines.php:1231
 #: libraries/classes/Database/Routines.php:1514
-#: libraries/classes/Database/Triggers.php:111
-#: libraries/classes/Database/Triggers.php:120
-#: libraries/classes/Database/Triggers.php:147
-#: libraries/classes/Database/Triggers.php:427
-#: libraries/classes/Html/Generator.php:847
+#: libraries/classes/Html/Generator.php:855
+#: libraries/classes/Triggers/Triggers.php:76
+#: libraries/classes/Triggers/Triggers.php:85
+#: libraries/classes/Triggers/Triggers.php:112
+#: libraries/classes/Triggers/Triggers.php:389
 msgid "MySQL said: "
 msgstr "MySQL atsakymas: "
 
@@ -10165,7 +10160,7 @@ msgstr "Įvykis %1$s buvo sukurtas."
 
 #: libraries/classes/Database/Events.php:153
 #: libraries/classes/Database/Routines.php:251
-#: libraries/classes/Database/Triggers.php:164
+#: libraries/classes/Triggers/Triggers.php:129
 #, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
@@ -10182,7 +10177,7 @@ msgstr "Redaguoti įvykį"
 
 #: libraries/classes/Database/Events.php:392
 #: libraries/classes/Database/Routines.php:963
-#: libraries/classes/Database/Triggers.php:371
+#: libraries/classes/Triggers/Triggers.php:333
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
@@ -10214,7 +10209,7 @@ msgstr "Atsiprašome, nepavyko atstatyti pašalinto įvykio."
 
 #: libraries/classes/Database/Events.php:483
 #: libraries/classes/Database/Routines.php:1512
-#: libraries/classes/Database/Triggers.php:425
+#: libraries/classes/Triggers/Triggers.php:387
 msgid "The backed up query was:"
 msgstr ""
 
@@ -10222,7 +10217,7 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:140
 #: libraries/classes/Database/Routines.php:1120
 #: libraries/classes/Database/Routines.php:1287
-#: libraries/classes/Database/Triggers.php:456
+#: libraries/classes/Triggers/Triggers.php:418
 #, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
@@ -10246,7 +10241,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
 
-#: libraries/classes/DatabaseInterface.php:1073
+#: libraries/classes/DatabaseInterface.php:1093
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -10254,13 +10249,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1115
+#: libraries/classes/DatabaseInterface.php:1135
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "Nepavyko perskaityti konfigūracijos failo"
 
-#: libraries/classes/DatabaseInterface.php:1583
+#: libraries/classes/DatabaseInterface.php:1603
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -10408,76 +10403,6 @@ msgstr "ištisa frazė"
 #: templates/database/search/main.twig:34
 msgid "as regular expression"
 msgstr "kaip reguliarųjį išsireiškimą"
-
-#: libraries/classes/Database/Triggers.php:130
-#, php-format
-msgid "Trigger %1$s has been modified."
-msgstr ""
-
-#: libraries/classes/Database/Triggers.php:150
-#, php-format
-msgid "Trigger %1$s has been created."
-msgstr ""
-
-#: libraries/classes/Database/Triggers.php:249
-msgid "Add trigger"
-msgstr ""
-
-#: libraries/classes/Database/Triggers.php:253
-msgid "Edit trigger"
-msgstr ""
-
-#: libraries/classes/Database/Triggers.php:379
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a trigger name!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Database/Triggers.php:385
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a valid timing for the trigger!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Database/Triggers.php:391
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a valid event for the trigger!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Database/Triggers.php:398
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a valid table name!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Database/Triggers.php:405
-msgid "You must provide a trigger definition."
-msgstr ""
-
-#: libraries/classes/Database/Triggers.php:424
-msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
-
-#: libraries/classes/Database/Triggers.php:458
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
-msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
-
-#: libraries/classes/Database/Triggers.php:490
-#: templates/database/triggers/export.twig:2
-#, php-format
-msgid "Export of trigger %s"
-msgstr ""
-
-#: libraries/classes/Database/Triggers.php:508
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
-msgid ""
-"Error in processing request: No trigger with name %1$s found in database "
-"%2$s."
-msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
 
 #: libraries/classes/Dbal/DbiMysqli.php:127
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -10885,7 +10810,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:716
+#: libraries/classes/Html/Generator.php:724
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
@@ -11050,48 +10975,48 @@ msgstr ""
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:354
+#: libraries/classes/Html/Generator.php:350
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:355
+#: libraries/classes/Html/Generator.php:351
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:553
+#: libraries/classes/Html/Generator.php:561
 msgid "Skip Explain SQL"
 msgstr "Praleisti SQL užklausos aiškinimą"
 
-#: libraries/classes/Html/Generator.php:585
+#: libraries/classes/Html/Generator.php:593
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "be PHP kodo"
 
-#: libraries/classes/Html/Generator.php:594
+#: libraries/classes/Html/Generator.php:602
 #: templates/database/multi_table_query/form.twig:161
 msgid "Submit query"
 msgstr "Vykdyti užklausą"
 
-#: libraries/classes/Html/Generator.php:652 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:660 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profiliavimas"
 
-#: libraries/classes/Html/Generator.php:666
+#: libraries/classes/Html/Generator.php:674
 #, fuzzy
 #| msgid "Edit mode"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Redagavimo režimas"
 
-#: libraries/classes/Html/Generator.php:789
+#: libraries/classes/Html/Generator.php:797
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "Statiniai duomenys"
 
-#: libraries/classes/Html/Generator.php:792
+#: libraries/classes/Html/Generator.php:800
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -11198,7 +11123,7 @@ msgid ""
 msgstr ""
 "Žurnalai %1$s ir %2$s atrodo vienodi ir vienas iš jų gali būti pašalintas."
 
-#: libraries/classes/InsertEdit.php:298
+#: libraries/classes/InsertEdit.php:294
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -11206,7 +11131,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funkcija"
 
-#: libraries/classes/InsertEdit.php:299
+#: libraries/classes/InsertEdit.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:267
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:358
 #: libraries/classes/Plugins/Export/ExportLatex.php:504
@@ -11240,12 +11165,12 @@ msgstr "Funkcija"
 msgid "Type"
 msgstr "Tipas"
 
-#: libraries/classes/InsertEdit.php:552 templates/import.twig:56
+#: libraries/classes/InsertEdit.php:502 templates/import.twig:56
 #: templates/import.twig:80
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Aplankas, kuris nurodytas įkeliamiems failams, nepasiekiamas."
 
-#: libraries/classes/InsertEdit.php:560
+#: libraries/classes/InsertEdit.php:510
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
 #: templates/server/privileges/privileges_table.twig:87
@@ -11254,17 +11179,17 @@ msgstr "Aplankas, kuris nurodytas įkeliamiems failams, nepasiekiamas."
 msgid "Or"
 msgstr "Arba"
 
-#: libraries/classes/InsertEdit.php:561
+#: libraries/classes/InsertEdit.php:511
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "web serverio katalogas atsiuntimams"
 
-#: libraries/classes/InsertEdit.php:1031 libraries/classes/Sql.php:892
+#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
-#: libraries/classes/InsertEdit.php:1055 libraries/classes/Sql.php:872
+#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Įterpto įrašo id: %1$d"
@@ -11298,7 +11223,7 @@ msgstr "Sekimas"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:503
 #: libraries/classes/Plugins/Export/ExportXml.php:119
 #: libraries/classes/Util.php:1710 libraries/classes/Util.php:1726
-#: templates/database/triggers/list.twig:3
+#: templates/triggers/list.twig:3
 msgid "Triggers"
 msgstr ""
 
@@ -11527,8 +11452,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportOdt.php:575
 #: libraries/classes/Plugins/Export/ExportTexytext.php:440
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:330
-#: templates/database/triggers/editor_form.twig:52
-#: templates/database/triggers/list.twig:48
+#: templates/triggers/editor_form.twig:52 templates/triggers/list.twig:48
 msgid "Event"
 msgstr "Įvykis"
 
@@ -11893,11 +11817,7 @@ msgstr ""
 #: templates/database/routines/row.twig:77
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/database/structure/structure_table_row.twig:87
-#: templates/database/triggers/list.twig:19
-#: templates/database/triggers/list.twig:20
-#: templates/database/triggers/row.twig:52
-#: templates/database/triggers/row.twig:58 templates/indexes.twig:58
-#: templates/server/databases/index.twig:67
+#: templates/indexes.twig:58 templates/server/databases/index.twig:67
 #: templates/server/databases/index.twig:68
 #: templates/server/databases/index.twig:321
 #: templates/table/relation/foreign_key_row.twig:25
@@ -11905,6 +11825,8 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:120
 #: templates/table/structure/display_structure.twig:290
 #: templates/table/structure/display_structure.twig:525
+#: templates/triggers/list.twig:19 templates/triggers/list.twig:20
+#: templates/triggers/row.twig:52 templates/triggers/row.twig:58
 msgid "Drop"
 msgstr "Šalinti"
 
@@ -12188,9 +12110,9 @@ msgstr "Sąryšis su"
 #: templates/database/events/index.twig:43
 #: templates/database/routines/editor_form.twig:55
 #: templates/database/routines/execute_form.twig:15
-#: templates/database/routines/index.twig:49
-#: templates/database/triggers/list.twig:43 templates/setup/home/index.twig:49
+#: templates/database/routines/index.twig:49 templates/setup/home/index.twig:49
 #: templates/table/structure/display_structure.twig:21
+#: templates/triggers/list.twig:43
 msgid "Name"
 msgstr "Pavadinimas"
 
@@ -12200,7 +12122,7 @@ msgstr "Pavadinimas"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:332
 #: templates/database/events/editor_form.twig:87
 #: templates/database/routines/editor_form.twig:118
-#: templates/database/triggers/editor_form.twig:62
+#: templates/triggers/editor_form.twig:62
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
@@ -13093,7 +13015,7 @@ msgid ""
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:83
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:79
 msgid "Image preview here"
 msgstr ""
 
@@ -14300,6 +14222,75 @@ msgstr "Sukurti versiją"
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:95
+#, php-format
+msgid "Trigger %1$s has been modified."
+msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:115
+#, php-format
+msgid "Trigger %1$s has been created."
+msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:214
+msgid "Add trigger"
+msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:218
+msgid "Edit trigger"
+msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:341
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a trigger name!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Triggers/Triggers.php:347
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid timing for the trigger!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Triggers/Triggers.php:353
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid event for the trigger!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Triggers/Triggers.php:360
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Triggers/Triggers.php:367
+msgid "You must provide a trigger definition."
+msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:386
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:420
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No trigger with name %1$s found in database %2$s."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
+
+#: libraries/classes/Triggers/Triggers.php:452 templates/triggers/export.twig:2
+#, php-format
+msgid "Export of trigger %s"
+msgstr ""
+
+#: libraries/classes/Triggers/Triggers.php:470
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid ""
+"Error in processing request: No trigger with name %1$s found in database "
+"%2$s."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
 
 #: libraries/classes/Types.php:200
 msgid ""
@@ -15656,7 +15647,7 @@ msgstr "Pasirinkti eksportavimo sąryšinį tipą"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
-#: templates/database/triggers/editor_form.twig:14 templates/view_create.twig:8
+#: templates/triggers/editor_form.twig:14 templates/view_create.twig:8
 msgid "Details"
 msgstr "Detalės"
 
@@ -15705,8 +15696,7 @@ msgstr "Pabaigus išlaikyti"
 
 #: templates/database/events/editor_form.twig:101
 #: templates/database/routines/editor_form.twig:147
-#: templates/database/triggers/editor_form.twig:66
-#: templates/view_create.twig:45
+#: templates/triggers/editor_form.twig:66 templates/view_create.twig:45
 msgid "Definer"
 msgstr ""
 
@@ -15716,7 +15706,6 @@ msgstr ""
 #: templates/database/routines/index.twig:13
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/database/triggers/list.twig:13
 #: templates/display/results/table.twig:304
 #: templates/display/results/table.twig:305 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
@@ -15731,7 +15720,7 @@ msgstr ""
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/server/user_groups/edit_user_groups.twig:22
 #: templates/table/privileges/index.twig:117
-#: templates/table/privileges/index.twig:118
+#: templates/table/privileges/index.twig:118 templates/triggers/list.twig:13
 #, fuzzy
 #| msgid "Check All"
 msgid "Check all"
@@ -16462,25 +16451,6 @@ msgstr "Nesekamos lentelės"
 #: templates/table/structure/display_structure.twig:413
 msgid "Track table"
 msgstr "Sekti lentelę"
-
-#: templates/database/triggers/editor_form.twig:28
-msgid "Trigger name"
-msgstr ""
-
-#: templates/database/triggers/editor_form.twig:42
-msgctxt "Trigger action time"
-msgid "Time"
-msgstr "Laikas"
-
-#: templates/database/triggers/list.twig:27
-#, fuzzy
-#| msgid "Create version"
-msgid "Create new trigger"
-msgstr "Sukurti versiją"
-
-#: templates/database/triggers/list.twig:36
-msgid "There are no triggers to display."
-msgstr ""
 
 #: templates/display/results/checkbox_and_links.twig:16
 #: templates/display/results/checkbox_and_links.twig:78
@@ -20606,6 +20576,25 @@ msgstr "Paaiškinimas"
 #| msgid "Available transformations"
 msgid "Available input transformations"
 msgstr "Galimos transformacijos"
+
+#: templates/triggers/editor_form.twig:28
+msgid "Trigger name"
+msgstr ""
+
+#: templates/triggers/editor_form.twig:42
+msgctxt "Trigger action time"
+msgid "Time"
+msgstr "Laikas"
+
+#: templates/triggers/list.twig:27
+#, fuzzy
+#| msgid "Create version"
+msgid "Create new trigger"
+msgstr "Sukurti versiją"
+
+#: templates/triggers/list.twig:36
+msgid "There are no triggers to display."
+msgstr ""
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
