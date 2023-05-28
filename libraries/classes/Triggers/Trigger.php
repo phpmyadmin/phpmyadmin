@@ -11,7 +11,7 @@ use Webmozart\Assert\InvalidArgumentException;
 final class Trigger
 {
     public function __construct(
-        public readonly string $name,
+        public readonly TriggerName $name,
         public readonly Timing $timing,
         public readonly Event $event,
         public readonly TableName $table,
@@ -31,6 +31,8 @@ final class Trigger
             $statement = $trigger['Statement'] ?? $trigger['ACTION_STATEMENT'] ?? null;
             $definer = $trigger['Definer'] ?? $trigger['DEFINER'] ?? null;
             Assert::string($name);
+            $name = TriggerName::tryFromValue($name);
+            Assert::notNull($name);
             Assert::string($timing);
             $timing = Timing::tryFrom($timing);
             Assert::notNull($timing);

@@ -521,7 +521,7 @@ class Triggers
             }
 
             $oneResult = [];
-            $oneResult['name'] = $newTrigger->name;
+            $oneResult['name'] = $newTrigger->name->getName();
             $oneResult['table'] = $newTrigger->table->getName();
             $oneResult['action_timing'] = $newTrigger->timing->value;
             $oneResult['event_manipulation'] = $newTrigger->event->value;
