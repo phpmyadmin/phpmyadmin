@@ -235,6 +235,7 @@ cleanup_composer_vendors() {
         vendor/brick/math/SECURITY.md \
         vendor/brick/math/psalm-baseline.xml \
         vendor/brick/math/psalm.xml \
+        vendor/ramsey/collection/conventional-commits.json \
         vendor/ramsey/collection/SECURITY.md \
         vendor/spomky-labs/base64url/.github/ \
         vendor/spomky-labs/cbor-php/.php_cs.dist \
