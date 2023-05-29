@@ -200,7 +200,8 @@ jobs:
         php-extensions: ['mbstring, iconv, mysqli, zip, bz2']
         psr-7-library: ['guzzlehttp/psr7', 'slim/psr7', 'nyholm/psr7']
         include:
-          - {psr-7-library: 'laminas/laminas-diactoros', php-version: '7.4'}
+          # See: https://github.com/laminas/laminas-diactoros/releases/tag/2.18.0
+          - {psr-7-library: 'laminas/laminas-diactoros', php-version: '8.0'}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
