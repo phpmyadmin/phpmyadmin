@@ -99,8 +99,8 @@
         "code-lts/u2f-php-server": "^1.2",
         "php-webdriver/webdriver": "^1.14",
         "phpmyadmin/coding-standard": "^4.0",
-        "phpstan/extension-installer": "^1.2",
-        "phpstan/phpstan": "^1.10.12",
+        "phpstan/extension-installer": "^1.3",
+        "phpstan/phpstan": "^1.10.15",
         "phpstan/phpstan-phpunit": "^1.3",
         "phpstan/phpstan-strict-rules": "^1.5",
         "phpstan/phpstan-webmozart-assert": "^1.2",
@@ -110,7 +110,7 @@
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^6.2",
         "tecnickcom/tcpdf": "6.6.2",
-        "vimeo/psalm": "^5.7",
+        "vimeo/psalm": "^5.12",
         "web-auth/webauthn-lib": "^3.3.2"
     },
     "extra": {
