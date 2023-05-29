@@ -955,13 +955,13 @@ class NavigationTree
         $paths = $node->getPaths();
         if (isset($paths['aPath_clean'][2])) {
             $renderDetails['position'] = 'pos2_nav';
-            $renderDetails['data_name'] = (string) $paths['aPath_clean'][2];
+            $renderDetails['data_name'] = $paths['aPath_clean'][2];
             $renderDetails['data_value'] = (string) $node->pos2;
         }
 
         if (isset($paths['aPath_clean'][4])) {
             $renderDetails['position'] = 'pos3_nav';
-            $renderDetails['data_name'] = (string) $paths['aPath_clean'][4];
+            $renderDetails['data_name'] = $paths['aPath_clean'][4];
             $renderDetails['data_value'] = (string) $node->pos3;
         }
 
@@ -1157,7 +1157,7 @@ class NavigationTree
             'pagination_params' => $paginationParams,
             'node_is_group' => $nodeIsGroup ?? false,
             'link_classes' => $linkClasses ?? '',
-            'paths' => ['a_path' => $paths['aPath'] ?? '', 'v_path' => $paths['vPath'] ?? '', 'pos' => $this->pos],
+            'paths' => ['a_path' => $paths['aPath'], 'v_path' => $paths['vPath'], 'pos' => $this->pos],
             'node_icon' => $nodeIcon ?? '',
         ]);
     }

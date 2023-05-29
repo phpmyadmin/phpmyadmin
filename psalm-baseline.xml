@@ -7709,7 +7709,6 @@
       <code>$path[0]</code>
       <code>$path[0]</code>
       <code>$path[0]</code>
-      <code><![CDATA[$paths['vPath_clean']]]></code>
       <code>$separator</code>
       <code>$separator</code>
       <code>$value</code>
@@ -7717,9 +7716,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$node->secondIcon['image']]]></code>
       <code><![CDATA[$node->secondIcon['title']]]></code>
-      <code><![CDATA[$paths['aPath_clean'][2]]]></code>
-      <code><![CDATA[$paths['aPath_clean'][4]]]></code>
-      <code><![CDATA[$paths['aPath_clean'][4]]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$db</code>
@@ -7731,7 +7727,6 @@
       <code>$path</code>
       <code>$separator</code>
       <code>$separator</code>
-      <code><![CDATA[$urlParams['pos3_name']]]></code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
@@ -7825,7 +7820,6 @@
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code><![CDATA[$paths['aPath_clean']]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code>$child</code>

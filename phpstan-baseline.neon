@@ -4641,27 +4641,12 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Cannot access offset 2 on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot access offset 4 on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Cannot access property \\$pos2 on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -4721,22 +4706,12 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#2 \\$paths of method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:findTreeMatch\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Parameter \\#2 \\$searchClause of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getPresence\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
 			message: "#^Cannot access property \\$children on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
 

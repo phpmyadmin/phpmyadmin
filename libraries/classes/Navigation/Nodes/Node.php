@@ -313,7 +313,7 @@ class Node
      * Returns the actual path and the virtual paths for a node
      * both as clean arrays and base64 encoded strings
      *
-     * @return mixed[]
+     * @return array{aPath: string, aPath_clean: string[], vPath: string, vPath_clean: string[]}
      */
     public function getPaths(): array
     {
