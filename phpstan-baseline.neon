@@ -4226,26 +4226,6 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Instantiated class Slim\\\\Psr7\\\\Factory\\\\ServerRequestFactory not found\\.$#"
-			count: 1
-			path: libraries/classes/Http/Factory/ServerRequestFactory.php
-
-		-
-			message: "#^Instantiated class Slim\\\\Psr7\\\\Factory\\\\UriFactory not found\\.$#"
-			count: 1
-			path: libraries/classes/Http/Factory/ServerRequestFactory.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Http\\\\Factory\\\\ServerRequestFactory\\:\\:createServerRequestFactory\\(\\) should return Psr\\\\Http\\\\Message\\\\ServerRequestFactoryInterface but returns Psr\\\\Http\\\\Message\\\\ServerRequestFactoryInterface\\|Slim\\\\Psr7\\\\Factory\\\\ServerRequestFactory\\.$#"
-			count: 1
-			path: libraries/classes/Http/Factory/ServerRequestFactory.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Http\\\\Factory\\\\ServerRequestFactory\\:\\:createUriFactory\\(\\) should return Psr\\\\Http\\\\Message\\\\UriFactoryInterface but returns Psr\\\\Http\\\\Message\\\\UriFactoryInterface\\|Slim\\\\Psr7\\\\Factory\\\\UriFactory\\.$#"
-			count: 1
-			path: libraries/classes/Http/Factory/ServerRequestFactory.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Http\\\\ServerRequest\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Http/ServerRequest.php
@@ -9056,7 +9036,7 @@ parameters:
 			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
 
 		-
-			message: "#^Class Slim\\\\Psr7\\\\Factory\\\\ServerRequestFactory not found\\.$#"
+			message: "#^Class Nyholm\\\\Psr7\\\\Factory\\\\Psr17Factory not found\\.$#"
 			count: 1
 			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
 

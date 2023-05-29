@@ -33,7 +33,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
     }
 
     /** @phpstan-param class-string $className */
-    private function testOrSkip(string $className, string $humanName): void
+    private function runOrSkip(string $className, string $humanName): void
     {
         if (! class_exists($className)) {
             $this->markTestSkipped($humanName . ' is missing');
@@ -61,7 +61,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      */
     public function testPsr7ImplementationGet(string $className, string $humanName): void
     {
-        $this->testOrSkip($className, $humanName);
+        $this->runOrSkip($className, $humanName);
 
         $_GET['foo'] = 'bar';
         $_GET['blob'] = 'baz';
@@ -171,7 +171,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      */
     public function testPsr7ImplementationCreateServerRequestFactory(string $className, string $humanName): void
     {
-        $this->testOrSkip($className, $humanName);
+        $this->runOrSkip($className, $humanName);
 
         $serverRequestFactory = new $className();
         $this->assertInstanceOf(ServerRequestFactoryInterface::class, $serverRequestFactory);
