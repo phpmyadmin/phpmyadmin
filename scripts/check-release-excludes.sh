@@ -47,7 +47,7 @@ validateExtension() {
         ;;
         js/global.d.ts)
         ;;
-        js/vendor/*)
+        public/js/vendor/*)
             if [ \
                 "${extension}" != "js" -a "${extension}" != "map" \
                 -a "${extension}" != "css" -a "${filename}" != "LICENSE" \
@@ -68,14 +68,14 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        js/dist/*)
-            if [ "${extension}" != "js" ];then
+        public/js/dist/*)
+            if [ "${extension}" != "js" -a "${extension}" != "map" ];then
                 foundFileExt
             fi
         ;;
         js/src/*)
             if [ \
-                "${extension}" != "js" -a "${extension}" != "mjs" \
+                "${extension}" != "ts" -a "${extension}" != "mjs"  \
             ]; then
                 foundFileExt
             fi
@@ -95,7 +95,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        setup/*)
+        public/setup/*)
             if [ \
                 "${extension}" != "php" -a "${extension}" != "twig" \
                 -a "${extension}" != "css" \
@@ -118,7 +118,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        themes/*)
+        public/themes/*)
             if [ \
                 "${extension}" != "css" -a "${extension}" != "png" \
                 -a "${extension}" != "scss" -a "${extension}" != "map" \
@@ -178,11 +178,13 @@ validateExtension() {
         ;;
         README)
         ;;
-        favicon.ico)
+        public/favicon.ico)
         ;;
         tsconfig.json)
         ;;
         webpack.config.cjs)
+        ;;
+        babel.config.json)
         ;;
         package.json)
         ;;
@@ -192,13 +194,15 @@ validateExtension() {
         ;;
         yarn.lock)
         ;;
-        robots.txt)
+        public/robots.txt)
         ;;
         index.php)
         ;;
+        public/index.php)
+        ;;
         config.sample.inc.php)
         ;;
-        show_config_errors.php)
+        public/show_config_errors.php)
         ;;
         *)
             foundFileExt
