@@ -111,7 +111,7 @@
         "symfony/console": "^6.2",
         "tecnickcom/tcpdf": "6.6.2",
         "vimeo/psalm": "^5.12",
-        "web-auth/webauthn-lib": "^3.3.2"
+        "web-auth/webauthn-lib": "^3.3.12"
     },
     "extra": {
         "branch-alias": {
