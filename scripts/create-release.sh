@@ -169,6 +169,7 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/.github/ \
         vendor/bacon/bacon-qr-code/phpunit.xml.dist \
         vendor/bacon/bacon-qr-code/test/ \
+        vendor/dasprid/enum/.github/ \
         vendor/dasprid/enum/phpunit.xml.dist \
         vendor/dasprid/enum/test/ \
         vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
@@ -200,6 +201,7 @@ cleanup_composer_vendors() {
         vendor/webmozart/assert/.php_cs \
         vendor/webmozart/assert/psalm.xml \
         vendor/twig/twig/src/Test/ \
+        vendor/psr/http-message/docs/ \
         vendor/psr/log/Psr/Log/Test/ \
         vendor/psr/http-factory/.pullapprove.yml \
         vendor/slim/psr7/MAINTAINERS.md \
