@@ -57,7 +57,7 @@
         "ext-sodium": "*",
         "ext-xml": "*",
         "composer/ca-bundle": "^1.2",
-        "google/recaptcha": "^1.1",
+        "google/recaptcha": "^1.3",
         "nikic/fast-route": "^1.3",
         "phpmyadmin/motranslator": "^5.0",
         "phpmyadmin/shapefile": "^3.0.1",
