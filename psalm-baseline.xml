@@ -7788,28 +7788,6 @@
       <code>$_REQUEST['unlim_num_rows']</code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Http/Factory/ServerRequestFactory.php">
-    <MixedArgument occurrences="1">
-      <code>$serverRequest</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$factory</code>
-      <code>$factory</code>
-      <code>$serverRequest</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>ServerRequestFactoryInterface</code>
-      <code>UriFactoryInterface</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="2">
-      <code>$factory</code>
-      <code>$factory</code>
-    </MixedReturnStatement>
-    <UndefinedClass occurrences="2">
-      <code>SlimServerRequestFactory</code>
-      <code>SlimUriFactory</code>
-    </UndefinedClass>
-  </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
     <TooFewArguments occurrences="1">
       <code>imagefilledpolygon($this-&gt;image, $points, $color)</code>
@@ -15699,7 +15677,7 @@
     <UndefinedClass occurrences="3">
       <code>GuzzleHttpFactory</code>
       <code>LaminasServerRequestFactory</code>
-      <code>SlimServerRequestFactory</code>
+      <code>NyholmPsr17Factory</code>
     </UndefinedClass>
   </file>
   <file src="test/classes/ImportTest.php">
