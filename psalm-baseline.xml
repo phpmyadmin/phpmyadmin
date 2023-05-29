@@ -1060,9 +1060,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
@@ -1216,9 +1213,6 @@
     <PossiblyInvalidArgument>
       <code>$type</code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
@@ -7072,30 +7066,6 @@
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
-  </file>
-  <file src="libraries/classes/Http/Factory/ServerRequestFactory.php">
-    <MixedArgument>
-      <code>$serverRequest</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$factory</code>
-      <code>$factory</code>
-      <code>$serverRequest</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>ServerRequestFactoryInterface</code>
-      <code>UriFactoryInterface</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code>$factory</code>
-      <code>$factory</code>
-      <code>$factory</code>
-      <code>$factory</code>
-    </MixedReturnStatement>
-    <UndefinedClass>
-      <code>SlimServerRequestFactory</code>
-      <code>SlimUriFactory</code>
-    </UndefinedClass>
   </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
@@ -14116,7 +14086,7 @@
     <UndefinedClass>
       <code>GuzzleHttpFactory</code>
       <code>LaminasServerRequestFactory</code>
-      <code>SlimServerRequestFactory</code>
+      <code>NyholmPsr17Factory</code>
     </UndefinedClass>
   </file>
   <file src="test/classes/ImportTest.php">

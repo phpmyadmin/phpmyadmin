@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix list of users of an user group not showing up
 - issue        Fix duplicate query params in the SQL message card
 - issue #18314 Fix dragged row in index form
+- issue #17392 Fix the actions not being hidden in the Triggers, Routines, Events pages
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
