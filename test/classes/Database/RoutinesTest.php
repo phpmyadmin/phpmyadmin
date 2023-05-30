@@ -972,6 +972,10 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 $data,
+                '<form action="index.php?route=/database/routines&server=0&lang=en" method="post" class="rte_form">',
+            ],
+            [
+                $data,
                 'name="item_name"',
             ],
             [
@@ -1109,6 +1113,10 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
+            [
+                $data,
+                '<form action="index.php?route=/database/routines&server=0&lang=en" method="post" class="rte_form">',
+            ],
             [
                 $data,
                 'name="execute_routine"',

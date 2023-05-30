@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix duplicate query params in the SQL message card
 - issue #18314 Fix dragged row in index form
 - issue #17392 Fix the actions not being hidden in the Triggers, Routines, Events pages
+- issue #18441 Fix execute routine page not working when not in a modal
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
