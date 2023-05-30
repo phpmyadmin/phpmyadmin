@@ -40,6 +40,7 @@ use function _ngettext;
 use function array_intersect_key;
 use function array_key_exists;
 use function array_keys;
+use function array_map;
 use function array_merge;
 use function array_shift;
 use function base64_decode;
@@ -289,16 +290,11 @@ class NavigationTree
      *
      * @param string $string The path to parse
      *
-     * @return mixed[]
+     * @return non-empty-list<string>
      */
     private function parsePath(string $string): array
     {
-        $path = explode('.', $string);
-        foreach ($path as $key => $value) {
-            $path[$key] = base64_decode($value);
-        }
-
-        return $path;
+        return array_map(base64_decode(...), explode('.', $string));
     }
 
     /**
