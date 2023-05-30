@@ -38,7 +38,6 @@ class OperationsController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
-        $GLOBALS['warning_messages'] ??= null;
         $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
 
         $GLOBALS['errorUrl'] ??= null;
@@ -58,6 +57,7 @@ class OperationsController extends AbstractController
         $type = 'success';
         $newname = $request->getParsedBodyParam('new_name');
 
+        $warningMessages = [];
         if ($request->hasBodyParam('submitoptions')) {
             if (is_string($newname) && $tableObject->rename($newname)) {
                 $message->addText($tableObject->getLastMessage());
@@ -71,7 +71,7 @@ class OperationsController extends AbstractController
                     $GLOBALS['result'] = false;
             }
 
-            $GLOBALS['warning_messages'] = $this->operations->getWarningMessagesArray();
+            $warningMessages = $this->operations->getWarningMessagesArray();
         }
 
         if (isset($GLOBALS['result'])) {
@@ -90,8 +90,8 @@ class OperationsController extends AbstractController
                 $type = $GLOBALS['result'] ? 'success' : 'error';
             }
 
-            if (! empty($GLOBALS['warning_messages'])) {
-                $message->addMessagesString($GLOBALS['warning_messages']);
+            if ($warningMessages !== []) {
+                $message->addMessagesString($warningMessages);
                 $message->isError(true);
             }
 

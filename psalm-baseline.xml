@@ -3518,33 +3518,21 @@
   <file src="libraries/classes/Controllers/Table/OperationsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['columns']]]></code>
-      <code><![CDATA[$GLOBALS['comment']]]></code>
-      <code><![CDATA[$GLOBALS['create_options']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['hideOrderTable']]]></code>
-      <code><![CDATA[$GLOBALS['indexes']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['new_tbl_storage_engine']]]></code>
-      <code><![CDATA[$GLOBALS['notNull']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['row_format']]]></code>
-      <code><![CDATA[$GLOBALS['show_comment']]]></code>
-      <code><![CDATA[$GLOBALS['table_alters']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
       <code>$newMessage</code>
       <code>$newMessage</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['table_alters']]]></code>
+      <code>$tableAlters</code>
       <code>is_array($partitionNames) ? $partitionNames : []</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -3552,28 +3540,17 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['columns']]]></code>
-      <code><![CDATA[$GLOBALS['comment']]]></code>
-      <code><![CDATA[$GLOBALS['create_options']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['hideOrderTable']]]></code>
-      <code><![CDATA[$GLOBALS['indexes']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['new_tbl_storage_engine']]]></code>
-      <code><![CDATA[$GLOBALS['notNull']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['row_format']]]></code>
-      <code><![CDATA[$GLOBALS['show_comment']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['table_alters']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4394,16 +4371,11 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['warning_messages']]]></code>
       <code>$newname</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>

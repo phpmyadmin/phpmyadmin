@@ -55,23 +55,12 @@ class OperationsController extends AbstractController
         $GLOBALS['reread_info'] ??= null;
         $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
-        $GLOBALS['show_comment'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
-        $GLOBALS['row_format'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
-        $GLOBALS['create_options'] ??= null;
-        $GLOBALS['table_alters'] ??= null;
-        $GLOBALS['warning_messages'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
-        $GLOBALS['new_tbl_storage_engine'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['columns'] ??= null;
-        $GLOBALS['hideOrderTable'] ??= null;
-        $GLOBALS['indexes'] ??= null;
-        $GLOBALS['notNull'] ??= null;
-        $GLOBALS['comment'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
@@ -110,35 +99,33 @@ class OperationsController extends AbstractController
         if ($pmaTable->isView()) {
             $GLOBALS['tbl_is_view'] = true;
             $GLOBALS['tbl_storage_engine'] = __('View');
-            $GLOBALS['show_comment'] = null;
+            $showComment = '';
         } else {
             $GLOBALS['tbl_is_view'] = false;
             $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
-            $GLOBALS['show_comment'] = $pmaTable->getComment();
+            $showComment = $pmaTable->getComment();
         }
 
         $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
         $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
-        $GLOBALS['row_format'] = $pmaTable->getRowFormat();
         $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
-        $GLOBALS['create_options'] = $pmaTable->getCreateOptions();
+        $createOptions = $pmaTable->getCreateOptions();
 
         // set initial value of these variables, based on the current table engine
         if ($pmaTable->isEngine('ARIA')) {
             // the value for transactional can be implicit
             // (no create option found, in this case it means 1)
             // or explicit (option found with a value of 0 or 1)
-            // ($create_options['transactional'] may have been set by Table class,
-            // from the $create_options)
-            $GLOBALS['create_options']['transactional'] = ($GLOBALS['create_options']['transactional'] ?? '') == '0'
+            // ($createOptions['transactional'] may have been set by Table class,
+            // from the $createOptions)
+            $createOptions['transactional'] = ($createOptions['transactional'] ?? '') == '0'
                 ? '0'
                 : '1';
-            $GLOBALS['create_options']['page_checksum'] ??= '';
+            $createOptions['page_checksum'] ??= '';
         }
 
         $pmaTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
         $GLOBALS['reread_info'] = false;
-        $GLOBALS['table_alters'] = [];
 
         /**
          * If the table has to be moved to some other database
@@ -169,12 +156,12 @@ class OperationsController extends AbstractController
             return;
         }
 
+        $warningMessages = [];
         /**
          * Updates table comment, type and options if required
          */
         if ($request->hasBodyParam('submitoptions')) {
             $newMessage = '';
-            $GLOBALS['warning_messages'] = [];
 
             /** @var mixed $newName */
             $newName = $request->getParsedBodyParam('new_name');
@@ -215,45 +202,41 @@ class OperationsController extends AbstractController
 
             /** @var mixed $newTableStorageEngine */
             $newTableStorageEngine = $request->getParsedBodyParam('new_tbl_storage_engine');
+            $newTblStorageEngine = '';
             if (
                 is_string($newTableStorageEngine) && $newTableStorageEngine !== ''
                 && mb_strtoupper($newTableStorageEngine) !== $GLOBALS['tbl_storage_engine']
             ) {
-                $GLOBALS['new_tbl_storage_engine'] = mb_strtoupper($newTableStorageEngine);
+                $newTblStorageEngine = mb_strtoupper($newTableStorageEngine);
 
                 if ($pmaTable->isEngine('ARIA')) {
-                    $GLOBALS['create_options']['transactional'] = ($GLOBALS['create_options']['transactional'] ?? '')
+                    $createOptions['transactional'] = ($createOptions['transactional'] ?? '')
                         == '0' ? '0' : '1';
-                    $GLOBALS['create_options']['page_checksum'] ??= '';
+                    $createOptions['page_checksum'] ??= '';
                 }
-            } else {
-                $GLOBALS['new_tbl_storage_engine'] = '';
             }
 
-            $GLOBALS['row_format'] = $GLOBALS['create_options']['row_format'] ?? $pmaTable->getRowFormat();
-
-            $GLOBALS['table_alters'] = $this->operations->getTableAltersArray(
+            $tableAlters = $this->operations->getTableAltersArray(
                 $pmaTable,
-                $GLOBALS['create_options']['pack_keys'],
-                (empty($GLOBALS['create_options']['checksum']) ? '0' : '1'),
-                ($GLOBALS['create_options']['page_checksum'] ?? ''),
-                (empty($GLOBALS['create_options']['delay_key_write']) ? '0' : '1'),
-                $GLOBALS['row_format'],
-                $GLOBALS['new_tbl_storage_engine'],
-                (isset($GLOBALS['create_options']['transactional'])
-                    && $GLOBALS['create_options']['transactional'] == '0' ? '0' : '1'),
+                $createOptions['pack_keys'],
+                (empty($createOptions['checksum']) ? '0' : '1'),
+                ($createOptions['page_checksum'] ?? ''),
+                (empty($createOptions['delay_key_write']) ? '0' : '1'),
+                $createOptions['row_format'] ?? $pmaTable->getRowFormat(),
+                $newTblStorageEngine,
+                (isset($createOptions['transactional'])
+                    && $createOptions['transactional'] == '0' ? '0' : '1'),
                 $GLOBALS['tbl_collation'],
             );
 
-            if ($GLOBALS['table_alters'] !== []) {
+            if ($tableAlters !== []) {
                 $GLOBALS['sql_query'] = 'ALTER TABLE '
                     . Util::backquote($GLOBALS['table']);
-                $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $GLOBALS['table_alters']);
+                $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
                 $GLOBALS['sql_query'] .= ';';
                 $GLOBALS['result'] = (bool) $this->dbi->query($GLOBALS['sql_query']);
                 $GLOBALS['reread_info'] = true;
-                unset($GLOBALS['table_alters']);
-                $GLOBALS['warning_messages'] = $this->operations->getWarningMessagesArray();
+                $warningMessages = $this->operations->getWarningMessagesArray();
             }
 
             /** @var mixed $tableCollationParam */
@@ -323,18 +306,17 @@ class OperationsController extends AbstractController
             if ($pmaTable->isView()) {
                 $GLOBALS['tbl_is_view'] = true;
                 $GLOBALS['tbl_storage_engine'] = __('View');
-                $GLOBALS['show_comment'] = null;
+                $showComment = '';
             } else {
                 $GLOBALS['tbl_is_view'] = false;
                 $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
-                $GLOBALS['show_comment'] = $pmaTable->getComment();
+                $showComment = $pmaTable->getComment();
             }
 
             $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
             $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
-            $GLOBALS['row_format'] = $pmaTable->getRowFormat();
             $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
-            $GLOBALS['create_options'] = $pmaTable->getCreateOptions();
+            $createOptions = $pmaTable->getCreateOptions();
         }
 
         unset($GLOBALS['reread_info']);
@@ -367,9 +349,9 @@ class OperationsController extends AbstractController
                     : Message::error($newMessage);
             }
 
-            if (! empty($GLOBALS['warning_messages'])) {
+            if ($warningMessages !== []) {
                 $newMessage = new Message();
-                $newMessage->addMessagesString($GLOBALS['warning_messages']);
+                $newMessage->addMessagesString($warningMessages);
                 $newMessage->isError(true);
                 if ($this->response->isAjax()) {
                     $this->response->setRequestStatus(false);
@@ -383,8 +365,6 @@ class OperationsController extends AbstractController
 
                     return;
                 }
-
-                unset($GLOBALS['warning_messages']);
             }
 
             if (empty($GLOBALS['sql_query'])) {
@@ -402,17 +382,17 @@ class OperationsController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
 
-        $GLOBALS['columns'] = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
+        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
-        $GLOBALS['hideOrderTable'] = false;
+        $hideOrderTable = false;
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
         if ($GLOBALS['tbl_storage_engine'] === 'INNODB') {
-            $GLOBALS['indexes'] = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
-            foreach ($GLOBALS['indexes'] as $name => $idx) {
+            $indexes = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
+            foreach ($indexes as $name => $idx) {
                 if ($name === 'PRIMARY') {
-                    $GLOBALS['hideOrderTable'] = true;
+                    $hideOrderTable = true;
                     break;
                 }
 
@@ -420,33 +400,30 @@ class OperationsController extends AbstractController
                     continue;
                 }
 
-                $GLOBALS['notNull'] = true;
+                $notNull = true;
                 foreach ($idx->getColumns() as $column) {
                     if ($column->getNull()) {
-                        $GLOBALS['notNull'] = false;
+                        $notNull = false;
                         break;
                     }
                 }
 
-                if ($GLOBALS['notNull']) {
-                    $GLOBALS['hideOrderTable'] = true;
+                if ($notNull) {
+                    $hideOrderTable = true;
                     break;
                 }
             }
         }
 
-        $GLOBALS['comment'] = '';
-        if (mb_strstr((string) $GLOBALS['show_comment'], '; InnoDB free') === false) {
-            if (mb_strstr((string) $GLOBALS['show_comment'], 'InnoDB free') === false) {
+        $comment = '';
+        if (mb_strstr($showComment, '; InnoDB free') === false) {
+            if (mb_strstr($showComment, 'InnoDB free') === false) {
                 // only user entered comment
-                $GLOBALS['comment'] = (string) $GLOBALS['show_comment'];
-            } else {
-                // here we have just InnoDB generated part
-                $GLOBALS['comment'] = '';
+                $comment = $showComment;
             }
         } else {
             // remove InnoDB comment from end, just the minimal part (*? is non greedy)
-            $GLOBALS['comment'] = preg_replace('@; InnoDB free:.*?$@', '', (string) $GLOBALS['show_comment']);
+            $comment = preg_replace('@; InnoDB free:.*?$@', '', $showComment);
         }
 
         $storageEngines = StorageEngine::getArray();
@@ -454,7 +431,7 @@ class OperationsController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        $hasPackKeys = isset($GLOBALS['create_options']['pack_keys'])
+        $hasPackKeys = isset($createOptions['pack_keys'])
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM']);
         $hasChecksumAndDelayKeyWrite = $pmaTable->isEngine(['MYISAM', 'ARIA']);
         $hasTransactionalAndPageChecksum = $pmaTable->isEngine('ARIA');
@@ -493,9 +470,9 @@ class OperationsController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'url_params' => $GLOBALS['urlParams'],
-            'columns' => $GLOBALS['columns'],
-            'hide_order_table' => $GLOBALS['hideOrderTable'],
-            'table_comment' => $GLOBALS['comment'],
+            'columns' => $columns,
+            'hide_order_table' => $hideOrderTable,
+            'table_comment' => $comment,
             'storage_engine' => $GLOBALS['tbl_storage_engine'],
             'storage_engines' => $storageEngines,
             'charsets' => $charsets,
@@ -506,13 +483,13 @@ class OperationsController extends AbstractController
             'has_auto_increment' => $hasAutoIncrement,
             'auto_increment' => $GLOBALS['auto_increment'],
             'has_pack_keys' => $hasPackKeys,
-            'pack_keys' => $GLOBALS['create_options']['pack_keys'] ?? '',
+            'pack_keys' => $createOptions['pack_keys'] ?? '',
             'has_transactional_and_page_checksum' => $hasTransactionalAndPageChecksum,
             'has_checksum_and_delay_key_write' => $hasChecksumAndDelayKeyWrite,
-            'delay_key_write' => empty($GLOBALS['create_options']['delay_key_write']) ? '0' : '1',
-            'transactional' => ($GLOBALS['create_options']['transactional'] ?? '') == '0' ? '0' : '1',
-            'page_checksum' => $GLOBALS['create_options']['page_checksum'] ?? '',
-            'checksum' => empty($GLOBALS['create_options']['checksum']) ? '0' : '1',
+            'delay_key_write' => empty($createOptions['delay_key_write']) ? '0' : '1',
+            'transactional' => ($createOptions['transactional'] ?? '') == '0' ? '0' : '1',
+            'page_checksum' => $createOptions['page_checksum'] ?? '',
+            'checksum' => empty($createOptions['checksum']) ? '0' : '1',
             'database_list' => $databaseList,
             'has_foreign_keys' => $hasForeignKeys,
             'has_privileges' => $hasPrivileges,
