@@ -682,6 +682,10 @@ class RoutinesTest extends AbstractTestCase
         ];
 
         return [
+            [
+                $data,
+                '<form action="index.php?route=/database/routines&server=0&lang=en" method="post" class="rte_form">',
+            ],
             [$data, 'name="item_name"'],
             [$data, 'name="funcs[foo]"'],
             [$data, '<input class="datefield" type="text" name="params[foo]">'],
@@ -755,7 +759,14 @@ class RoutinesTest extends AbstractTestCase
             'item_sqldataaccess' => '',
         ];
 
-        return [[$data, 'name="execute_routine"'], [$data, 'name="ajax_request"']];
+        return [
+            [
+                $data,
+                '<form action="index.php?route=/database/routines&server=0&lang=en" method="post" class="rte_form">',
+            ],
+            [$data, 'name="execute_routine"'],
+            [$data, 'name="ajax_request"'],
+        ];
     }
 
     /**
