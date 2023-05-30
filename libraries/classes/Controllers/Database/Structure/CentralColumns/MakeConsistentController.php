@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function is_array;
@@ -31,7 +32,7 @@ final class MakeConsistentController extends AbstractController
     {
         $GLOBALS['message'] ??= null;
 
-        $selected = $_POST['selected_tbl'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
@@ -39,6 +40,8 @@ final class MakeConsistentController extends AbstractController
 
             return;
         }
+
+        Assert::allString($selected);
 
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->makeConsistentWithList($GLOBALS['db'], $selected);

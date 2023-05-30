@@ -741,7 +741,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$selectedFld of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getHtmlForEditingPage\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$fieldSelect of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) expects array\\<string\\>, array\\<int, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/CentralColumnsController.php
 
@@ -753,16 +753,6 @@ parameters:
 		-
 			message: "#^Parameter \\#10 \\$colDefault of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$fieldSelect of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects array, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$selectedDb of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getHtmlForEditingPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Database/CentralColumnsController.php
 
 		-
@@ -2736,11 +2726,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
@@ -2761,8 +2746,8 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 5
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
@@ -2796,22 +2781,7 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 

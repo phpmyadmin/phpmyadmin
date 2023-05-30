@@ -927,7 +927,6 @@
     <MixedArgument>
       <code>$columnDefault</code>
       <code>$columnDefault</code>
-      <code><![CDATA[$name['selected_fld']]]></code>
       <code><![CDATA[$params['col_attribute']]]></code>
       <code><![CDATA[$params['col_attribute']]]></code>
       <code><![CDATA[$params['col_extra'] ?? '']]></code>
@@ -945,11 +944,11 @@
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
-      <code><![CDATA[$params['selected_fld']]]></code>
       <code><![CDATA[$params['table-select']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$variables</code>
+      <code><![CDATA[[$params['column-select']]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['message']]]></code>
@@ -1287,17 +1286,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php">
-    <PossiblyInvalidArgument>
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php">
-    <InvalidArgument>
-      <code>$selected</code>
-    </InvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1305,7 +1298,6 @@
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['db']]]></code>
-      <code>$selected</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['db']]]></code>
@@ -4614,41 +4606,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Database/CentralColumns.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code>$centralListTable</code>
       <code>$centralListTable</code>
@@ -4665,20 +4622,14 @@
       <code>$centralTable</code>
       <code><![CDATA[$cfgCentralColumns['db']]]></code>
       <code><![CDATA[$cfgCentralColumns['db']]]></code>
-      <code>$colSelect</code>
       <code>$collation</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
-      <code><![CDATA[$column['col_default']]]></code>
       <code><![CDATA[$column['col_name']]]></code>
       <code><![CDATA[$column['col_name']]]></code>
-      <code><![CDATA[$column['col_type']]]></code>
       <code><![CDATA[$def['Type']]]></code>
       <code>$default</code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
-      <code>$key</code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code><![CDATA[$params['db']]]></code>
@@ -4699,8 +4650,6 @@
       <code><![CDATA[$row['col_extra']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$type</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -4742,10 +4691,6 @@
       <code><![CDATA[$row['col_extra']]]></code>
       <code><![CDATA[$row['col_extra']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code>$fields[$table]</code>
-      <code>$fields[$table]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$attribute</code>
       <code>$centralListTable</code>
@@ -4756,11 +4701,7 @@
       <code>$centralListTable</code>
       <code>$centralTable</code>
       <code>$centralTable</code>
-      <code>$colSelect</code>
       <code>$collation</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$column</code>
       <code>$columnDefault</code>
       <code>$columnDefault[$i]</code>
@@ -4769,8 +4710,6 @@
       <code>$defaultValue</code>
       <code>$defaultValues[$rowNum]</code>
       <code>$extra</code>
-      <code>$hasList[]</code>
-      <code>$key</code>
       <code>$length</code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code>$pmadb</code>
@@ -4784,21 +4723,17 @@
       <code>$row</code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultType']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$type</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>mixed[]|bool</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code>$column</code>
-      <code>$column</code>
       <code><![CDATA[$column['col_attribute']]]></code>
+      <code><![CDATA[$column['col_default']]]></code>
       <code><![CDATA[$column['col_extra']]]></code>
       <code><![CDATA[$column['col_length']]]></code>
+      <code><![CDATA[$column['col_type']]]></code>
     </MixedOperand>
     <MixedReturnStatement>
       <code>$cfgCentralColumns</code>
@@ -5657,9 +5592,6 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code>$added[$orgFullTableName]</code>
       <code>$multiOrderUrlParams</code>

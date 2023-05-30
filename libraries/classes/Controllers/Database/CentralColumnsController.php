@@ -13,6 +13,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function is_bool;
@@ -253,6 +254,8 @@ class CentralColumnsController extends AbstractController
     /** @param mixed[] $params Request parameters */
     public function editPage(array $params): void
     {
+        Assert::isArray($params['selected_fld']);
+        Assert::allString($params['selected_fld']);
         $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
 
         $this->render('database/central_columns/edit', ['rows' => $rows]);
@@ -277,6 +280,9 @@ class CentralColumnsController extends AbstractController
     {
         $name = [];
         parse_str($params['col_name'], $name);
+
+        Assert::isArray($name['selected_fld']);
+        Assert::allString($name['selected_fld']);
 
         return $this->centralColumns->deleteColumnsFromList($params['db'], $name['selected_fld'], false);
     }
