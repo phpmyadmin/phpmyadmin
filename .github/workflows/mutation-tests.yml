@@ -20,13 +20,72 @@ permissions:
   contents: read
 
 jobs:
-  infection:
-    name: Infection
+  infection-changed-files:
+    name: Infection for changed files
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
         php-version:
-          - "8.1"
+          - "8.2"
+        operating-system:
+          - ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Checkout base ref code
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.base_ref }}
+
+      - name: Install Gettext
+        run: sudo apt-get install -y gettext
+
+      - name: Generate mo files
+        run: ./scripts/generate-mo --quiet
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: pcov
+          ini-values: memory_limit=-1
+          tools: composer:v2, infection
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v2
+        with:
+          dependency-versions: highest
+
+      - name: Collect coverage report
+        run: composer run phpunit -- --testsuite unit --stop-on-failure
+
+      - name: Run Infection for changed files only
+        if: github.event_name == 'pull_request'
+        run: |
+          infection -j$(nproc) --git-diff-lines --git-diff-base=origin/$GITHUB_BASE_REF \
+            --logger-github --ignore-msi-with-no-mutations --only-covered \
+            --skip-initial-tests --coverage=build/logs --no-interaction --no-progress
+
+      - name: Run Infection for changed files only
+        if: github.event_name == 'push'
+        run: |
+          infection -j$(nproc) --git-diff-lines --git-diff-base=origin/$GITHUB_REF_NAME \
+            --logger-github --ignore-msi-with-no-mutations --only-covered \
+            --skip-initial-tests --coverage=build/logs --no-interaction --no-progress
+
+  infection-all-files:
+    name: Infection for all files
+    if: github.event_name == 'schedule'
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        php-version:
+          - "8.2"
         operating-system:
           - ubuntu-latest
     steps:
@@ -55,16 +114,7 @@ jobs:
       - name: Collect coverage report
         run: composer run phpunit -- --testsuite unit --stop-on-failure
 
-      - name: Run Infection for changed files only
-        if: github.event_name != 'schedule'
-        run: |
-          git fetch --depth=1 origin $GITHUB_BASE_REF
-          infection -j$(nproc) --git-diff-lines --git-diff-base=origin/$GITHUB_BASE_REF \
-            --logger-github --ignore-msi-with-no-mutations --only-covered \
-            --skip-initial-tests --coverage=build/logs --no-interaction --no-progress
-
-      - name: Run Infection
-        if: github.event_name == 'schedule'
+      - name: Run Infection for all files
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
         run: infection -j$(nproc) --skip-initial-tests --coverage=build/logs --no-interaction --no-progress
