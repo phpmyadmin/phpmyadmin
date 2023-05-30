@@ -40,20 +40,16 @@ class Template
     /**
      * Twig environment
      */
-    protected static Environment $twig;
+    protected static Environment|null $twig = null;
 
     public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
 
+    private Config|null $config;
+
     public function __construct(Config|null $config = null)
     {
-        if (isset(static::$twig)) {
-            return;
-        }
-
         $config = $config ?? $GLOBALS['config'] ?? null;
-        $cacheDir = $config?->getTempDir('twig');
-
-        static::$twig = self::getTwigEnvironment($cacheDir);
+        $this->config = $config instanceof Config ? $config : null;
     }
 
     public static function getTwigEnvironment(string|null $cacheDir): Environment
@@ -104,6 +100,10 @@ class Template
      */
     private function load(string $templateName): TemplateWrapper
     {
+        if (static::$twig === null) {
+            static::$twig = self::getTwigEnvironment($this->config?->getTempDir('twig'));
+        }
+
         try {
             $template = static::$twig->load($templateName . '.twig');
         } catch (RuntimeException $e) {
