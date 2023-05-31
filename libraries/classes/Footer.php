@@ -36,7 +36,7 @@ class Footer
      *
      * @var bool
      */
-    private $isAjax;
+    private $isAjax = false;
     /**
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use ArrayIterator;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
+use ReflectionProperty;
 
 use function json_encode;
 
@@ -116,10 +117,7 @@ class FooterTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for footer when ajax enabled
-     */
-    public function testAjax(): void
+    public function testGetDisplayWhenAjaxIsEnabled(): void
     {
         $footer = new Footer();
         $footer->setAjax(true);
@@ -166,5 +164,18 @@ class FooterTest extends AbstractTestCase
             "  </div>\n  </body>\n</html>\n",
             $footer->getDisplay()
         );
+    }
+
+    public function testSetAjax(): void
+    {
+        $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
+        $isAjax->setAccessible(true);
+        $footer = new Footer();
+
+        $this->assertFalse($isAjax->getValue($footer));
+        $footer->setAjax(true);
+        $this->assertTrue($isAjax->getValue($footer));
+        $footer->setAjax(false);
+        $this->assertFalse($isAjax->getValue($footer));
     }
 }

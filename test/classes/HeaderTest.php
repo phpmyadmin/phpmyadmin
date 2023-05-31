@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Console;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
 use ReflectionProperty;
@@ -244,5 +245,27 @@ class HeaderTest extends AbstractTestCase
                     . 'img-src \'self\' data:  *.tile.openstreetmap.org captcha.tld csp.tld ;object-src \'none\';',
             ],
         ];
+    }
+
+    public function testSetAjax(): void
+    {
+        $header = new Header();
+        $consoleReflection = new ReflectionProperty(Header::class, 'console');
+        $consoleReflection->setAccessible(true);
+        $console = $consoleReflection->getValue($header);
+        $this->assertInstanceOf(Console::class, $console);
+        $isAjax = new ReflectionProperty(Header::class, 'isAjax');
+        $isAjax->setAccessible(true);
+        $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
+        $consoleIsAjax->setAccessible(true);
+
+        $this->assertFalse($isAjax->getValue($header));
+        $this->assertFalse($consoleIsAjax->getValue($console));
+        $header->setAjax(true);
+        $this->assertTrue($isAjax->getValue($header));
+        $this->assertTrue($consoleIsAjax->getValue($console));
+        $header->setAjax(false);
+        $this->assertFalse($isAjax->getValue($header));
+        $this->assertFalse($consoleIsAjax->getValue($console));
     }
 }

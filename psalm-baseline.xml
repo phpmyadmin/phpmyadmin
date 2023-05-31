@@ -995,11 +995,6 @@
       <code>$tabs</code>
     </PossiblyNullIterator>
   </file>
-  <file src="libraries/classes/Console.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$isAjax</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="libraries/classes/Controllers/AbstractController.php">
     <MixedArgument occurrences="1">
       <code>$db</code>
@@ -6820,9 +6815,6 @@
       <code>array{revision: string, revisionUrl: string, branch: string, branchUrl: string}|[]</code>
       <code>is_array($info) ? $info : []</code>
     </MixedReturnTypeCoercion>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$isAjax</code>
-    </PropertyNotSetInConstructor>
     <RedundantCast occurrences="3">
       <code>(string) $GLOBALS['db']</code>
       <code>(string) $GLOBALS['table']</code>

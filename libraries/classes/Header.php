@@ -76,7 +76,7 @@ class Header
      *
      * @var bool
      */
-    private $isAjax;
+    private $isAjax = false;
     /**
      * Whether to display anything
      *
@@ -107,7 +107,6 @@ class Header
         $this->template = new Template();
 
         $this->isEnabled = true;
-        $this->isAjax = false;
         $this->bodyId = '';
         $this->title = '';
         $this->console = new Console();
