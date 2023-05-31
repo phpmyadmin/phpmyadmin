@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Twig\Error\LoaderError;
 
 /** @covers \PhpMyAdmin\Template */
@@ -160,5 +163,19 @@ class TemplateTest extends AbstractTestCase
             ['test/gettext/plural_notes', ['table_count' => 1], 'One table'],
             ['test/gettext/plural_notes', ['table_count' => 2], '2 tables'],
         ];
+    }
+
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
+    public function testLoadingTwigEnvOnlyOnce(): void
+    {
+        $config = $this->createMock(Config::class);
+        $config->expects($this->once())->method('getTempDir')->with($this->equalTo('twig'))->willReturn(null);
+
+        $template = new Template($config);
+        $this->assertSame('static content', $template->render('test/static'));
+
+        $template2 = new Template($config);
+        $this->assertSame('static content', $template2->render('test/static'));
     }
 }
