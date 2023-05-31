@@ -338,7 +338,7 @@ class GeneratorTest extends AbstractTestCase
     public function testFormatSql(): void
     {
         $this->assertEquals(
-            '<code class="sql"><pre>' . "\n"
+            '<code class="sql" dir="ltr"><pre>' . "\n"
             . 'SELECT 1 &lt; 2' . "\n"
             . '</pre></code>',
             Generator::formatSql('SELECT 1 < 2')
@@ -347,7 +347,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
 
         $this->assertEquals(
-            '<code class="sql"><pre>' . "\n"
+            '<code class="sql" dir="ltr"><pre>' . "\n"
             . 'SELECT[...]' . "\n"
             . '</pre></code>',
             Generator::formatSql('SELECT 1 < 2', true)
@@ -554,7 +554,7 @@ class GeneratorTest extends AbstractTestCase
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Bookmark message
 </div>
 <div class="result_query">
-<div class="alert alert-primary" role="alert">Message <em>one</em>.Message <em>two</em>.</div><div class="sqlOuter"><code class="sql"><pre>
+<div class="alert alert-primary" role="alert">Message <em>one</em>.Message <em>two</em>.</div><div class="sqlOuter"><code class="sql" dir="ltr"><pre>
 SELECT 1;
 </pre></code></div><div class="tools d-print-none"><form action="index.php?route=/sql&server=2&lang=en" method="post"><input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token"><input type="hidden" name="sql_query" value="SELECT 1;"><input type="hidden" name="profiling_form" value="1"><input type="checkbox" name="profiling" id="profilingCheckbox" class="autosubmit"> <label for="profilingCheckbox">Profiling</label></form> [&nbsp;<a href="#" class="inline_edit_sql">Edit inline</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/table/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en">Edit</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&server=2&lang=en">Explain SQL</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&show_as_php=1&server=2&lang=en">Create PHP code</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en">Refresh</a>&nbsp;]</div></div>
 HTML;
@@ -588,7 +588,7 @@ HTML;
 <div class="alert alert-success" role="alert">
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
 </div>
-<div class="sqlOuter"><code class="php"><pre>
+<div class="sqlOuter"><code class="php" dir="ltr"><pre>
 $sql = "EXPLAIN SELECT 1;";
 </pre></code></div><div class="tools d-print-none"><form action="index.php?route=/sql&server=2&lang=en" method="post"><input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token"><input type="hidden" name="sql_query" value="EXPLAIN SELECT 1;"></form> [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&server=2&lang=en">Skip Explain SQL</a>] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en">Without PHP code</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en">Submit query</a>&nbsp;]</div></div>
 HTML;

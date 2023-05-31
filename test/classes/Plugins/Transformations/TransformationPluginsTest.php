@@ -993,7 +993,7 @@ class TransformationPluginsTest extends AbstractTestCase
                         'option2',
                     ],
                 ],
-                '<code class="sql"><pre>' . "\n"
+                '<code class="sql" dir="ltr"><pre>' . "\n"
                 . 'select *' . "\n"
                 . '</pre></code>',
             ],

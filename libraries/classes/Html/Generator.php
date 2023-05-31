@@ -545,11 +545,11 @@ class Generator
                 $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
                 $queryBase = htmlspecialchars(addslashes($queryBase));
                 $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
-                $queryBase = '<code class="php"><pre>' . "\n"
+                $queryBase = '<code class="php" dir="ltr"><pre>' . "\n"
                     . '$sql = "' . $queryBase . '";' . "\n"
                     . '</pre></code>';
             } elseif ($queryTooBig) {
-                $queryBase = '<code class="sql"><pre>' . "\n" .
+                $queryBase = '<code class="sql" dir="ltr"><pre>' . "\n" .
                     htmlspecialchars($queryBase, ENT_COMPAT) .
                     '</pre></code>';
             } else {
@@ -1171,7 +1171,7 @@ class Generator
             $sqlQuery = mb_substr($sqlQuery, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
         }
 
-        return '<code class="sql"><pre>' . "\n"
+        return '<code class="sql" dir="ltr"><pre>' . "\n"
             . htmlspecialchars($sqlQuery, ENT_COMPAT) . "\n"
             . '</pre></code>';
     }

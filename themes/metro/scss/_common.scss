@@ -1085,7 +1085,6 @@ code {
     margin-bottom: 0;
     max-height: 10em;
     overflow: auto;
-    direction: ltr;
   }
 }
 
@@ -1098,7 +1097,6 @@ div.sqlvalidate,
   overflow: auto;
   background-color: $body-bg;
   border: 1px solid $border-color;
-  direction: ltr;
 }
 
 textarea#partitiondefinition {
