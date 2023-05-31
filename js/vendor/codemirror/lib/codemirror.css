@@ -6,6 +6,7 @@
   height: 300px;
   color: black;
   direction: ltr;
+  text-align: left;
 }
 
 /* PADDING */
@@ -61,7 +62,7 @@
   z-index: 1;
 }
 .cm-fat-cursor .CodeMirror-line::selection,
-.cm-fat-cursor .CodeMirror-line > span::selection, 
+.cm-fat-cursor .CodeMirror-line > span::selection,
 .cm-fat-cursor .CodeMirror-line > span > span::selection { background: transparent; }
 .cm-fat-cursor .CodeMirror-line::-moz-selection,
 .cm-fat-cursor .CodeMirror-line > span::-moz-selection,
