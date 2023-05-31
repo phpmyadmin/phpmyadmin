@@ -433,10 +433,6 @@ class Triggers
 
     public function export(): void
     {
-        if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
-            return;
-        }
-
         $itemName = $_GET['item_name'];
         $triggers = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
         $exportData = false;

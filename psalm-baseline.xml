@@ -4275,9 +4275,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </MixedAssignment>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/UserPasswordController.php">
     <InvalidArrayOffset>

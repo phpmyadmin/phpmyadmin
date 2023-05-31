@@ -74,11 +74,13 @@ final class IndexController extends AbstractController
         $GLOBALS['errors'] = [];
 
         $this->triggers->handleEditor();
-        $this->triggers->export();
+        if ($request->hasQueryParam('export_item') && $request->hasQueryParam('item_name')) {
+            $this->triggers->export();
+        }
 
         $triggers = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
         $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $GLOBALS['db'], $GLOBALS['table']);
-        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
+        $isAjax = $this->response->isAjax() && empty($request->getParam('ajax_page_request'));
 
         $this->render('triggers/list', [
             'db' => $GLOBALS['db'],
