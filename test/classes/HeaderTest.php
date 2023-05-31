@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Console;
 use PhpMyAdmin\Header;
 use ReflectionProperty;
 
@@ -264,5 +265,23 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'main.js', 'fire' => 1],
         ];
         $this->assertSame($expected, $scripts->getFiles());
+    }
+
+    public function testSetAjax(): void
+    {
+        $header = new Header();
+        $console = (new ReflectionProperty(Header::class, 'console'))->getValue($header);
+        $this->assertInstanceOf(Console::class, $console);
+        $isAjax = new ReflectionProperty(Header::class, 'isAjax');
+        $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
+
+        $this->assertFalse($isAjax->getValue($header));
+        $this->assertFalse($consoleIsAjax->getValue($console));
+        $header->setAjax(true);
+        $this->assertTrue($isAjax->getValue($header));
+        $this->assertTrue($consoleIsAjax->getValue($console));
+        $header->setAjax(false);
+        $this->assertFalse($isAjax->getValue($header));
+        $this->assertFalse($consoleIsAjax->getValue($console));
     }
 }
