@@ -6,11 +6,11 @@ namespace PhpMyAdmin\Controllers\Table\Maintenance;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidIdentifierName;
-use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\InvalidIdentifier;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Maintenance;
@@ -48,12 +48,12 @@ final class AnalyzeController extends AbstractController
         }
 
         try {
-            $database = DatabaseName::fromValue($request->getParam('db'));
+            $database = DatabaseName::from($request->getParam('db'));
             $selectedTables = [];
             foreach ($selectedTablesParam as $table) {
-                $selectedTables[] = TableName::fromValue($table);
+                $selectedTables[] = TableName::from($table);
             }
-        } catch (InvalidIdentifierName $exception) {
+        } catch (InvalidIdentifier $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message->getDisplay());

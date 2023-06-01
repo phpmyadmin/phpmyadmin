@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbal;
+namespace PhpMyAdmin\Identifiers;
 
 use function __;
 use function sprintf;
 
-class InvalidTableName extends InvalidIdentifierName
+class InvalidTableName extends InvalidIdentifier
 {
     public static function fromEmptyName(): self
     {

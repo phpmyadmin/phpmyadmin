@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Export;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Transformations;
@@ -115,7 +115,7 @@ class ExportTest extends AbstractTestCase
         $export = new Export($dbi);
 
         $export->exportDatabase(
-            DatabaseName::fromValue('test_db'),
+            DatabaseName::from('test_db'),
             ['test_table'],
             'structure_and_data',
             ['test_table'],

@@ -8,14 +8,14 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\SqlParser\Lexer;
@@ -482,8 +482,8 @@ final class Common
     {
         $GLOBALS['urlParams'] ??= null;
 
-        $db = DatabaseName::tryFromValue($request->getParam('db'));
-        $table = TableName::tryFromValue($request->getParam('table'));
+        $db = DatabaseName::tryFrom($request->getParam('db'));
+        $table = TableName::tryFrom($request->getParam('table'));
 
         $GLOBALS['db'] = $db?->getName() ?? '';
         $GLOBALS['table'] = $table?->getName() ?? '';

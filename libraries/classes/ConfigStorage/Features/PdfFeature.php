@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\ConfigStorage\Features;
 
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 
 /** @psalm-immutable */
 final class PdfFeature

@@ -7,11 +7,11 @@ namespace PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -383,10 +383,10 @@ final class ExportController extends AbstractController
                 }
 
                 if ($lockTables) {
-                    $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), $GLOBALS['tables'], 'READ');
+                    $this->export->lockTables(DatabaseName::from($GLOBALS['db']), $GLOBALS['tables'], 'READ');
                     try {
                         $this->export->exportDatabase(
-                            DatabaseName::fromValue($GLOBALS['db']),
+                            DatabaseName::from($GLOBALS['db']),
                             $GLOBALS['tables'],
                             $whatStrucOrData,
                             $tableStructure,
@@ -406,7 +406,7 @@ final class ExportController extends AbstractController
                     }
                 } else {
                     $this->export->exportDatabase(
-                        DatabaseName::fromValue($GLOBALS['db']),
+                        DatabaseName::from($GLOBALS['db']),
                         $GLOBALS['tables'],
                         $whatStrucOrData,
                         $tableStructure,
@@ -439,7 +439,7 @@ final class ExportController extends AbstractController
 
                 if ($lockTables) {
                     try {
-                        $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), [$GLOBALS['table']], 'READ');
+                        $this->export->lockTables(DatabaseName::from($GLOBALS['db']), [$GLOBALS['table']], 'READ');
                         $this->export->exportTable(
                             $GLOBALS['db'],
                             $GLOBALS['table'],

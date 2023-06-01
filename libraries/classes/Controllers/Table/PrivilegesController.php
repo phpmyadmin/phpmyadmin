@@ -10,10 +10,10 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidIdentifierName;
-use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\InvalidIdentifier;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
@@ -40,13 +40,13 @@ class PrivilegesController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         try {
-            $db = DatabaseName::fromValue($request->getParam('db'));
-            $table = TableName::fromValue($request->getParam('table'));
+            $db = DatabaseName::from($request->getParam('db'));
+            $table = TableName::from($request->getParam('table'));
             if ($this->dbi->getLowerCaseNames() === 1) {
-                $db = DatabaseName::fromValue(mb_strtolower($db->getName()));
-                $table = TableName::fromValue(mb_strtolower($table->getName()));
+                $db = DatabaseName::from(mb_strtolower($db->getName()));
+                $table = TableName::from(mb_strtolower($table->getName()));
             }
-        } catch (InvalidIdentifierName $exception) {
+        } catch (InvalidIdentifier $exception) {
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
 
             return;

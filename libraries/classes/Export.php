@@ -10,8 +10,8 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Exceptions\ExportException;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 
@@ -579,7 +579,7 @@ class Export
 
             $tables = $this->dbi->getTables($currentDb);
             $this->exportDatabase(
-                DatabaseName::fromValue($currentDb),
+                DatabaseName::from($currentDb),
                 $tables,
                 $whatStrucOrData,
                 $tables,

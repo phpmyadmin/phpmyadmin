@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Dbal;
+namespace PhpMyAdmin\Tests\Identifiers;
 
-use PhpMyAdmin\Dbal\InvalidTableName;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\InvalidTriggerName;
+use PhpMyAdmin\Identifiers\TriggerName;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
 /**
- * @covers \PhpMyAdmin\Dbal\TableName
- * @covers \PhpMyAdmin\Dbal\InvalidTableName
+ * @covers \PhpMyAdmin\Identifiers\InvalidTriggerName
+ * @covers \PhpMyAdmin\Identifiers\TriggerName
  */
-class TableNameTest extends TestCase
+final class TriggerNameTest extends TestCase
 {
     /** @dataProvider providerForTestValidNames */
     public function testValidName(string $validName): void
     {
-        $name = TableName::fromValue($validName);
+        $name = TriggerName::from($validName);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
     }
@@ -27,7 +27,7 @@ class TableNameTest extends TestCase
     /** @dataProvider providerForTestValidNames */
     public function testTryFromValueValidName(string $validName): void
     {
-        $name = TableName::tryFromValue($validName);
+        $name = TriggerName::tryFrom($validName);
         $this->assertNotNull($name);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
@@ -44,10 +44,10 @@ class TableNameTest extends TestCase
     /** @dataProvider providerForTestInvalidNames */
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
-        $this->assertNull(TableName::tryFromValue($name));
-        $this->expectException(InvalidTableName::class);
+        $this->assertNull(TriggerName::tryFrom($name));
+        $this->expectException(InvalidTriggerName::class);
         $this->expectExceptionMessage($exceptionMessage);
-        TableName::fromValue($name);
+        TriggerName::from($name);
     }
 
     /**
@@ -56,11 +56,11 @@ class TableNameTest extends TestCase
      */
     public static function providerForTestInvalidNames(): iterable
     {
-        yield 'null' => [null, 'The table name must be a non-empty string.'];
-        yield 'integer' => [1, 'The table name must be a non-empty string.'];
-        yield 'array' => [['table'], 'The table name must be a non-empty string.'];
-        yield 'empty string' => ['', 'The table name must be a non-empty string.'];
-        yield 'too long name' => [str_repeat('a', 65), 'The table name cannot be longer than 64 characters.'];
-        yield 'trailing space' => ['a ', 'The table name cannot end with a space character.'];
+        yield 'null' => [null, 'The trigger name must not be empty.'];
+        yield 'integer' => [1, 'The trigger name must not be empty.'];
+        yield 'array' => [['trigger_name'], 'The trigger name must not be empty.'];
+        yield 'empty string' => ['', 'The trigger name must not be empty.'];
+        yield 'too long name' => [str_repeat('a', 65), 'The trigger name cannot be longer than 64 characters.'];
+        yield 'trailing space' => ['a ', 'The trigger name cannot end with a space character.'];
     }
 }

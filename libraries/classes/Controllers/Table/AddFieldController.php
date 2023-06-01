@@ -9,10 +9,10 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -105,7 +105,7 @@ class AddFieldController extends AbstractController
             }
 
             $GLOBALS['result'] = $createAddField->tryColumnCreationQuery(
-                DatabaseName::fromValue($GLOBALS['db']),
+                DatabaseName::from($GLOBALS['db']),
                 $GLOBALS['sql_query'],
                 $GLOBALS['errorUrl'],
             );

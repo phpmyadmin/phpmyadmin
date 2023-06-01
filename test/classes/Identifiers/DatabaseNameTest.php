@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Dbal;
+namespace PhpMyAdmin\Tests\Identifiers;
 
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidDatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
 /**
- * @covers \PhpMyAdmin\Dbal\DatabaseName
- * @covers \PhpMyAdmin\Dbal\InvalidDatabaseName
+ * @covers \PhpMyAdmin\Identifiers\DatabaseName
+ * @covers \PhpMyAdmin\Identifiers\InvalidDatabaseName
  */
 class DatabaseNameTest extends TestCase
 {
     /** @dataProvider providerForTestValidNames */
     public function testValidName(string $validName): void
     {
-        $name = DatabaseName::fromValue($validName);
+        $name = DatabaseName::from($validName);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
     }
@@ -27,7 +27,7 @@ class DatabaseNameTest extends TestCase
     /** @dataProvider providerForTestValidNames */
     public function testTryFromValueWithValidName(string $validName): void
     {
-        $name = DatabaseName::tryFromValue($validName);
+        $name = DatabaseName::tryFrom($validName);
         $this->assertNotNull($name);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
@@ -44,10 +44,10 @@ class DatabaseNameTest extends TestCase
     /** @dataProvider providerForTestInvalidNames */
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
-        $this->assertNull(DatabaseName::tryFromValue($name));
+        $this->assertNull(DatabaseName::tryFrom($name));
         $this->expectException(InvalidDatabaseName::class);
         $this->expectExceptionMessage($exceptionMessage);
-        DatabaseName::fromValue($name);
+        DatabaseName::from($name);
     }
 
     /**

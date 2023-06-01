@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -24,8 +24,8 @@ final class AddNewPrimaryController extends AbstractController
     {
         $numFields = 1;
 
-        $db = DatabaseName::tryFromValue($GLOBALS['db']);
-        $table = TableName::tryFromValue($GLOBALS['table']);
+        $db = DatabaseName::tryFrom($GLOBALS['db']);
+        $table = TableName::tryFrom($GLOBALS['table']);
         $dbName = isset($db) ? $db->getName() : '';
         $tableName = isset($table) ? $table->getName() : '';
 

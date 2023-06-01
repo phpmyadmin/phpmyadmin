@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -44,7 +44,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'en';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
-        $this->object = new SvgRelationSchema(DatabaseName::fromValue('test_db'));
+        $this->object = new SvgRelationSchema(DatabaseName::from('test_db'));
     }
 
     /**
