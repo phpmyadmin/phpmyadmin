@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -24,7 +24,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
-        $this->object = new ExportRelationSchema(DatabaseName::fromValue('test_db'), null);
+        $this->object = new ExportRelationSchema(DatabaseName::from('test_db'), null);
     }
 
     /**

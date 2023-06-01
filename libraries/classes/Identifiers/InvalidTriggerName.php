@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Triggers;
-
-use PhpMyAdmin\Dbal\InvalidIdentifierName;
+namespace PhpMyAdmin\Identifiers;
 
 use function __;
 use function sprintf;
 
-final class InvalidTriggerName extends InvalidIdentifierName
+final class InvalidTriggerName extends InvalidIdentifier
 {
     public static function fromEmptyName(): self
     {

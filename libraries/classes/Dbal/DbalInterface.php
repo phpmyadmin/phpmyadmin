@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table;
 

@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbal;
+namespace PhpMyAdmin\Identifiers;
 
-use Stringable;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
 /** @psalm-immutable */
-final class TableName implements Stringable
+final class TriggerName implements Identifier
 {
     /**
      * @see https://dev.mysql.com/doc/refman/en/identifier-length.html
@@ -20,41 +19,45 @@ final class TableName implements Stringable
     /** @psalm-var non-empty-string */
     private string $name;
 
-    /** @throws InvalidTableName */
+    /** @throws InvalidTriggerName */
     private function __construct(mixed $name)
     {
         try {
             Assert::stringNotEmpty($name);
         } catch (InvalidArgumentException) {
-            throw InvalidTableName::fromEmptyName();
+            throw InvalidTriggerName::fromEmptyName();
         }
 
         try {
             Assert::maxLength($name, self::MAX_LENGTH);
         } catch (InvalidArgumentException) {
-            throw InvalidTableName::fromLongName(self::MAX_LENGTH);
+            throw InvalidTriggerName::fromLongName(self::MAX_LENGTH);
         }
 
         try {
             Assert::notEndsWith($name, ' ');
         } catch (InvalidArgumentException) {
-            throw InvalidTableName::fromNameWithTrailingSpace();
+            throw InvalidTriggerName::fromNameWithTrailingSpace();
         }
 
         $this->name = $name;
     }
 
-    /** @throws InvalidTableName */
-    public static function fromValue(mixed $name): self
+    /**
+     * @throws InvalidTriggerName
+     *
+     * @psalm-assert non-empty-string $name
+     */
+    public static function from(mixed $name): static
     {
         return new self($name);
     }
 
-    public static function tryFromValue(mixed $name): self|null
+    public static function tryFrom(mixed $name): static|null
     {
         try {
             return new self($name);
-        } catch (InvalidTableName) {
+        } catch (InvalidTriggerName) {
             return null;
         }
     }

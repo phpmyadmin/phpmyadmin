@@ -22,9 +22,9 @@ use PhpMyAdmin\ConfigStorage\Features\SqlHistoryFeature;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature;
 use PhpMyAdmin\ConfigStorage\Features\UserPreferencesFeature;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidDatabaseName;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\InvalidDatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Version;
 
 use function is_string;
@@ -66,20 +66,20 @@ final class RelationParameters
         }
 
         try {
-            $db = DatabaseName::fromValue($params['db'] ?? null);
+            $db = DatabaseName::from($params['db'] ?? null);
         } catch (InvalidDatabaseName) {
             return new self($user, null);
         }
 
         $bookmarkFeature = null;
         if (isset($params['bookmarkwork'], $params['bookmark']) && $params['bookmarkwork']) {
-            $bookmark = TableName::tryFromValue($params['bookmark']);
+            $bookmark = TableName::tryFrom($params['bookmark']);
             if ($bookmark !== null) {
                 $bookmarkFeature = new BookmarkFeature($db, $bookmark);
             }
         }
 
-        $columnInfo = TableName::tryFromValue($params['column_info'] ?? null);
+        $columnInfo = TableName::tryFrom($params['column_info'] ?? null);
         $browserTransformationFeature = null;
         if (isset($params['mimework']) && $params['mimework'] && $columnInfo !== null) {
             $browserTransformationFeature = new BrowserTransformationFeature($db, $columnInfo);
@@ -92,7 +92,7 @@ final class RelationParameters
 
         $centralColumnsFeature = null;
         if (isset($params['centralcolumnswork'], $params['central_columns']) && $params['centralcolumnswork']) {
-            $centralColumns = TableName::tryFromValue($params['central_columns']);
+            $centralColumns = TableName::tryFrom($params['central_columns']);
             if ($centralColumns !== null) {
                 $centralColumnsFeature = new CentralColumnsFeature($db, $centralColumns);
             }
@@ -100,8 +100,8 @@ final class RelationParameters
 
         $configurableMenusFeature = null;
         if (isset($params['menuswork'], $params['usergroups'], $params['users']) && $params['menuswork']) {
-            $userGroups = TableName::tryFromValue($params['usergroups']);
-            $users = TableName::tryFromValue($params['users']);
+            $userGroups = TableName::tryFrom($params['usergroups']);
+            $users = TableName::tryFrom($params['users']);
             if ($userGroups !== null && $users !== null) {
                 $configurableMenusFeature = new ConfigurableMenusFeature($db, $userGroups, $users);
             }
@@ -109,16 +109,16 @@ final class RelationParameters
 
         $databaseDesignerSettingsFeature = null;
         if (isset($params['designersettingswork'], $params['designer_settings']) && $params['designersettingswork']) {
-            $designerSettings = TableName::tryFromValue($params['designer_settings']);
+            $designerSettings = TableName::tryFrom($params['designer_settings']);
             if ($designerSettings !== null) {
                 $databaseDesignerSettingsFeature = new DatabaseDesignerSettingsFeature($db, $designerSettings);
             }
         }
 
-        $relation = TableName::tryFromValue($params['relation'] ?? null);
+        $relation = TableName::tryFrom($params['relation'] ?? null);
         $displayFeature = null;
         if (isset($params['displaywork'], $params['table_info']) && $params['displaywork'] && $relation !== null) {
-            $tableInfo = TableName::tryFromValue($params['table_info']);
+            $tableInfo = TableName::tryFrom($params['table_info']);
             if ($tableInfo !== null) {
                 $displayFeature = new DisplayFeature($db, $relation, $tableInfo);
             }
@@ -126,7 +126,7 @@ final class RelationParameters
 
         $exportTemplatesFeature = null;
         if (isset($params['exporttemplateswork'], $params['export_templates']) && $params['exporttemplateswork']) {
-            $exportTemplates = TableName::tryFromValue($params['export_templates']);
+            $exportTemplates = TableName::tryFrom($params['export_templates']);
             if ($exportTemplates !== null) {
                 $exportTemplatesFeature = new ExportTemplatesFeature($db, $exportTemplates);
             }
@@ -134,7 +134,7 @@ final class RelationParameters
 
         $favoriteTablesFeature = null;
         if (isset($params['favoritework'], $params['favorite']) && $params['favoritework']) {
-            $favorite = TableName::tryFromValue($params['favorite']);
+            $favorite = TableName::tryFrom($params['favorite']);
             if ($favorite !== null) {
                 $favoriteTablesFeature = new FavoriteTablesFeature($db, $favorite);
             }
@@ -142,7 +142,7 @@ final class RelationParameters
 
         $navigationItemsHidingFeature = null;
         if (isset($params['navwork'], $params['navigationhiding']) && $params['navwork']) {
-            $navigationHiding = TableName::tryFromValue($params['navigationhiding']);
+            $navigationHiding = TableName::tryFrom($params['navigationhiding']);
             if ($navigationHiding !== null) {
                 $navigationItemsHidingFeature = new NavigationItemsHidingFeature($db, $navigationHiding);
             }
@@ -150,8 +150,8 @@ final class RelationParameters
 
         $pdfFeature = null;
         if (isset($params['pdfwork'], $params['pdf_pages'], $params['table_coords']) && $params['pdfwork']) {
-            $pdfPages = TableName::tryFromValue($params['pdf_pages']);
-            $tableCoords = TableName::tryFromValue($params['table_coords']);
+            $pdfPages = TableName::tryFrom($params['pdf_pages']);
+            $tableCoords = TableName::tryFrom($params['table_coords']);
             if ($pdfPages !== null && $tableCoords !== null) {
                 $pdfFeature = new PdfFeature($db, $pdfPages, $tableCoords);
             }
@@ -159,7 +159,7 @@ final class RelationParameters
 
         $recentlyUsedTablesFeature = null;
         if (isset($params['recentwork'], $params['recent']) && $params['recentwork']) {
-            $recent = TableName::tryFromValue($params['recent']);
+            $recent = TableName::tryFrom($params['recent']);
             if ($recent !== null) {
                 $recentlyUsedTablesFeature = new RecentlyUsedTablesFeature($db, $recent);
             }
@@ -172,7 +172,7 @@ final class RelationParameters
 
         $savedQueryByExampleSearchesFeature = null;
         if (isset($params['savedsearcheswork'], $params['savedsearches']) && $params['savedsearcheswork']) {
-            $savedSearches = TableName::tryFromValue($params['savedsearches']);
+            $savedSearches = TableName::tryFrom($params['savedsearches']);
             if ($savedSearches !== null) {
                 $savedQueryByExampleSearchesFeature = new SavedQueryByExampleSearchesFeature($db, $savedSearches);
             }
@@ -180,7 +180,7 @@ final class RelationParameters
 
         $sqlHistoryFeature = null;
         if (isset($params['historywork'], $params['history']) && $params['historywork']) {
-            $history = TableName::tryFromValue($params['history']);
+            $history = TableName::tryFrom($params['history']);
             if ($history !== null) {
                 $sqlHistoryFeature = new SqlHistoryFeature($db, $history);
             }
@@ -188,7 +188,7 @@ final class RelationParameters
 
         $trackingFeature = null;
         if (isset($params['trackingwork'], $params['tracking']) && $params['trackingwork']) {
-            $tracking = TableName::tryFromValue($params['tracking']);
+            $tracking = TableName::tryFrom($params['tracking']);
             if ($tracking !== null) {
                 $trackingFeature = new TrackingFeature($db, $tracking);
             }
@@ -196,7 +196,7 @@ final class RelationParameters
 
         $uiPreferencesFeature = null;
         if (isset($params['uiprefswork'], $params['table_uiprefs']) && $params['uiprefswork']) {
-            $tableUiPrefs = TableName::tryFromValue($params['table_uiprefs']);
+            $tableUiPrefs = TableName::tryFrom($params['table_uiprefs']);
             if ($tableUiPrefs !== null) {
                 $uiPreferencesFeature = new UiPreferencesFeature($db, $tableUiPrefs);
             }
@@ -204,7 +204,7 @@ final class RelationParameters
 
         $userPreferencesFeature = null;
         if (isset($params['userconfigwork'], $params['userconfig']) && $params['userconfigwork']) {
-            $userConfig = TableName::tryFromValue($params['userconfig']);
+            $userConfig = TableName::tryFrom($params['userconfig']);
             if ($userConfig !== null) {
                 $userPreferencesFeature = new UserPreferencesFeature($db, $userConfig);
             }

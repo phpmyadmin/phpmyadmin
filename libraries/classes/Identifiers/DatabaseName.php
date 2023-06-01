@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbal;
+namespace PhpMyAdmin\Identifiers;
 
-use Stringable;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
 /** @psalm-immutable */
-final class DatabaseName implements Stringable
+final class DatabaseName implements Identifier
 {
     /**
      * @see https://dev.mysql.com/doc/refman/en/identifier-length.html
@@ -44,13 +43,17 @@ final class DatabaseName implements Stringable
         $this->name = $name;
     }
 
-    /** @throws InvalidDatabaseName */
-    public static function fromValue(mixed $name): self
+    /**
+     * @throws InvalidDatabaseName
+     *
+     * @psalm-assert non-empty-string $name
+     */
+    public static function from(mixed $name): static
     {
         return new self($name);
     }
 
-    public static function tryFromValue(mixed $name): self|null
+    public static function tryFrom(mixed $name): static|null
     {
         try {
             return new self($name);

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Identifiers\DatabaseName;
 
 use function count;
 use function implode;

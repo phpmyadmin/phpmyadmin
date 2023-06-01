@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Triggers;
+namespace PhpMyAdmin\Tests\Identifiers;
 
-use PhpMyAdmin\Triggers\InvalidTriggerName;
-use PhpMyAdmin\Triggers\TriggerName;
+use PhpMyAdmin\Identifiers\InvalidTableName;
+use PhpMyAdmin\Identifiers\TableName;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
 /**
- * @covers \PhpMyAdmin\Triggers\InvalidTriggerName
- * @covers \PhpMyAdmin\Triggers\TriggerName
+ * @covers \PhpMyAdmin\Identifiers\TableName
+ * @covers \PhpMyAdmin\Identifiers\InvalidTableName
  */
-final class TriggerNameTest extends TestCase
+class TableNameTest extends TestCase
 {
     /** @dataProvider providerForTestValidNames */
     public function testValidName(string $validName): void
     {
-        $name = TriggerName::fromValue($validName);
+        $name = TableName::from($validName);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
     }
@@ -27,7 +27,7 @@ final class TriggerNameTest extends TestCase
     /** @dataProvider providerForTestValidNames */
     public function testTryFromValueValidName(string $validName): void
     {
-        $name = TriggerName::tryFromValue($validName);
+        $name = TableName::tryFrom($validName);
         $this->assertNotNull($name);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
@@ -44,10 +44,10 @@ final class TriggerNameTest extends TestCase
     /** @dataProvider providerForTestInvalidNames */
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
-        $this->assertNull(TriggerName::tryFromValue($name));
-        $this->expectException(InvalidTriggerName::class);
+        $this->assertNull(TableName::tryFrom($name));
+        $this->expectException(InvalidTableName::class);
         $this->expectExceptionMessage($exceptionMessage);
-        TriggerName::fromValue($name);
+        TableName::from($name);
     }
 
     /**
@@ -56,11 +56,11 @@ final class TriggerNameTest extends TestCase
      */
     public static function providerForTestInvalidNames(): iterable
     {
-        yield 'null' => [null, 'The trigger name must not be empty.'];
-        yield 'integer' => [1, 'The trigger name must not be empty.'];
-        yield 'array' => [['trigger_name'], 'The trigger name must not be empty.'];
-        yield 'empty string' => ['', 'The trigger name must not be empty.'];
-        yield 'too long name' => [str_repeat('a', 65), 'The trigger name cannot be longer than 64 characters.'];
-        yield 'trailing space' => ['a ', 'The trigger name cannot end with a space character.'];
+        yield 'null' => [null, 'The table name must be a non-empty string.'];
+        yield 'integer' => [1, 'The table name must be a non-empty string.'];
+        yield 'array' => [['table'], 'The table name must be a non-empty string.'];
+        yield 'empty string' => ['', 'The table name must be a non-empty string.'];
+        yield 'too long name' => [str_repeat('a', 65), 'The table name cannot be longer than 64 characters.'];
+        yield 'trailing space' => ['a ', 'The table name cannot end with a space character.'];
     }
 }

@@ -2731,7 +2731,7 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Dbal\\\\DatabaseName\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 8
 			path: libraries/classes/Database/CentralColumns.php
 

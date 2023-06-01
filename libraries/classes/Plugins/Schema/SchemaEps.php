@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;

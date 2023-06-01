@@ -9,11 +9,11 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -317,7 +317,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        DatabaseName::fromValue($GLOBALS['db']),
+                        DatabaseName::from($GLOBALS['db']),
                         $idBookmark,
                         'id',
                         $request->hasBodyParam('action_bookmark_all'),
@@ -349,7 +349,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        DatabaseName::fromValue($GLOBALS['db']),
+                        DatabaseName::from($GLOBALS['db']),
                         $idBookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {
@@ -373,7 +373,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        DatabaseName::fromValue($GLOBALS['db']),
+                        DatabaseName::from($GLOBALS['db']),
                         $idBookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {

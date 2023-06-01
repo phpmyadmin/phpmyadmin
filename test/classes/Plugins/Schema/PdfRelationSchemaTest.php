@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -42,7 +42,7 @@ class PdfRelationSchemaTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
-        $this->object = new PdfRelationSchema(DatabaseName::fromValue('test_db'));
+        $this->object = new PdfRelationSchema(DatabaseName::from('test_db'));
     }
 
     /**

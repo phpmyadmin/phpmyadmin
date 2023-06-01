@@ -13,11 +13,11 @@ namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\FieldHelper;
 use PHPUnit\Framework\Assert;
 use stdClass;

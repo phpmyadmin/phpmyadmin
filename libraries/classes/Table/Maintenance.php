@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Dbal\Warning;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Table\Maintenance\Message;
 use PhpMyAdmin\Util;

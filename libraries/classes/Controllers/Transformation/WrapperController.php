@@ -8,11 +8,11 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidIdentifierName;
-use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\InvalidIdentifier;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -52,9 +52,9 @@ class WrapperController extends AbstractController
         $this->response->getHeader()->setIsTransformationWrapper(true);
 
         try {
-            $db = DatabaseName::fromValue($request->getParam('db'));
-            $table = TableName::fromValue($request->getParam('table'));
-        } catch (InvalidIdentifierName) {
+            $db = DatabaseName::from($request->getParam('db'));
+            $table = TableName::from($request->getParam('table'));
+        } catch (InvalidIdentifier) {
             return;
         }
 
