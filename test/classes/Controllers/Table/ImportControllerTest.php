@@ -17,6 +17,12 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /** @covers \PhpMyAdmin\Controllers\Table\ImportController */
 class ImportControllerTest extends AbstractTestCase
 {
+    /**
+     * Test for imports
+     *
+     * @requires extension bz2
+     * @requires extension zip
+     */
     public function testImportController(): void
     {
         $this->setTheme();
