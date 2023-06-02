@@ -11881,6 +11881,7 @@
       <code><![CDATA[$oneResult['Duration']]]></code>
       <code><![CDATA[$oneResult['Duration']]]></code>
       <code><![CDATA[$oneResult['Duration']]]></code>
+      <code><![CDATA[$oneResult['Duration']]]></code>
       <code><![CDATA[$oneResult['Status']]]></code>
       <code><![CDATA[$statementInfo->statement->where[0]]]></code>
     </MixedArrayAccess>
@@ -11898,6 +11899,7 @@
       <code>$prevTable</code>
       <code><![CDATA[$profiling['chart'][$status]]]></code>
       <code><![CDATA[$profiling['chart'][$status]]]></code>
+      <code><![CDATA[$profiling['states'][$status]['total_time']]]></code>
       <code><![CDATA[$profiling['total_time']]]></code>
       <code>$resultSetColumnNames[]</code>
       <code>$sortCol</code>
@@ -11918,6 +11920,7 @@
       <code>$maxRows</code>
       <code><![CDATA[$oneResult['Duration']]]></code>
       <code><![CDATA[$profiling['chart'][$status]]]></code>
+      <code><![CDATA[$profiling['states'][$status]['total_time']]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$oneFieldMeta->table]]></code>
