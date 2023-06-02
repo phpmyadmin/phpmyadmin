@@ -287,6 +287,7 @@ class Sql
                 $profiling['chart'][$status] = $oneResult['Duration'];
             } else {
                 $profiling['states'][$status]['calls']++;
+                $profiling['states'][$status]['total_time'] += $oneResult['Duration'];
                 $profiling['chart'][$status] += $oneResult['Duration'];
             }
         }
