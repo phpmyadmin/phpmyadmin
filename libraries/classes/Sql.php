@@ -24,7 +24,9 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
+use function array_column;
 use function array_keys;
+use function array_sum;
 use function bin2hex;
 use function ceil;
 use function count;
@@ -247,36 +249,41 @@ class Sql
      * @psalm-param non-empty-list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
      * @psalm-return array{
-     *     total_time: int|float,
-     *     states: array<string, array{total_time: int|float|numeric-string, calls: int<1, max>}>,
-     *     chart: array<string, int|float|numeric-string>,
+     *     total_time: float,
+     *     states: array<string, array{total_time: float, calls: int<1, max>}>,
+     *     chart: array<string, float>,
      *     profile: list<array{status: string, duration: string, duration_raw: numeric-string}>
-     * }
+     * }|array{}
      */
     private function getDetailedProfilingStats(array $profilingResults): array
     {
-        $profiling = ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []];
+        $totalTime = (float) array_sum(array_column($profilingResults, 'Duration'));
+        if ($totalTime === 0.0) {
+            return [];
+        }
 
-        foreach ($profilingResults as $oneResult) {
-            $status = ucwords($oneResult['Status']);
-            $profiling['total_time'] += $oneResult['Duration'];
-            $profiling['profile'][] = [
+        $states = [];
+        $chart = [];
+        $profile = [];
+        foreach ($profilingResults as $result) {
+            $status = ucwords($result['Status']);
+            $profile[] = [
                 'status' => $status,
-                'duration' => Util::formatNumber($oneResult['Duration'], 3, 1),
-                'duration_raw' => $oneResult['Duration'],
+                'duration' => Util::formatNumber($result['Duration'], 3, 1),
+                'duration_raw' => $result['Duration'],
             ];
 
-            if (! isset($profiling['states'][$status])) {
-                $profiling['states'][$status] = ['total_time' => $oneResult['Duration'], 'calls' => 1];
-                $profiling['chart'][$status] = $oneResult['Duration'];
+            if (! isset($states[$status])) {
+                $states[$status] = ['total_time' => (float) $result['Duration'], 'calls' => 1];
+                $chart[$status] = (float) $result['Duration'];
             } else {
-                $profiling['states'][$status]['calls']++;
-                $profiling['states'][$status]['total_time'] += $oneResult['Duration'];
-                $profiling['chart'][$status] += $oneResult['Duration'];
+                $states[$status]['calls']++;
+                $states[$status]['total_time'] += $result['Duration'];
+                $chart[$status] += $result['Duration'];
             }
         }
 
-        return $profiling;
+        return ['total_time' => $totalTime, 'states' => $states, 'chart' => $chart, 'profile' => $profile];
     }
 
     /**
@@ -1021,7 +1028,9 @@ class Sql
             $scripts->addFile('sql.js');
 
             $profiling = $this->getDetailedProfilingStats($profilingResults);
-            $profilingChart = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            if ($profiling !== []) {
+                $profilingChart = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            }
         }
 
         $bookmark = '';
@@ -1441,7 +1450,9 @@ class Sql
         $profilingChartHtml = '';
         if ($profilingResults !== []) {
             $profiling = $this->getDetailedProfilingStats($profilingResults);
-            $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            if ($profiling !== []) {
+                $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            }
         }
 
         $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex($table, $db, $editable, $hasUnique);

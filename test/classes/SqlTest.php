@@ -617,10 +617,17 @@ class SqlTest extends AbstractTestCase
     public function testGetDetailedProfilingStatsWithoutData(): void
     {
         $method = new ReflectionMethod($this->sql, 'getDetailedProfilingStats');
-        $this->assertSame(
-            ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []],
-            $method->invoke($this->sql, []),
-        );
+        $this->assertSame([], $method->invoke($this->sql, []));
+    }
+
+    public function testGetDetailedProfilingStatsWithZeroTotalTime(): void
+    {
+        $method = new ReflectionMethod($this->sql, 'getDetailedProfilingStats');
+        $profiling = [
+            ['Status' => 'Starting', 'Duration' => '0'],
+            ['Status' => 'checking permissions', 'Duration' => '0'],
+        ];
+        $this->assertSame([], $method->invoke($this->sql, $profiling));
     }
 
     public function testGetDetailedProfilingStatsWithData(): void
@@ -659,50 +666,50 @@ class SqlTest extends AbstractTestCase
         $expected = [
             'total_time' => 0.000299,
             'states' => [
-                'Starting' => ['total_time' => '0.000017', 'calls' => 1],
-                'Checking Permissions' => ['total_time' => '0.000003', 'calls' => 1],
+                'Starting' => ['total_time' => 0.000017, 'calls' => 1],
+                'Checking Permissions' => ['total_time' => 0.000003, 'calls' => 1],
                 'Opening Tables' => ['total_time' => 0.00016, 'calls' => 2],
-                'After Opening Tables' => ['total_time' => 6.0E-6, 'calls' => 2],
-                'System Lock' => ['total_time' => 4.0E-6, 'calls' => 2],
-                'Table Lock' => ['total_time' => 1.5E-5, 'calls' => 2],
-                'Unlocking Tables' => ['total_time' => 4.0E-6, 'calls' => 2],
-                'Closing Tables' => ['total_time' => 9.0E-6, 'calls' => 3],
-                'Init' => ['total_time' => '0.000007', 'calls' => 1],
-                'Optimizing' => ['total_time' => '0.000004', 'calls' => 1],
-                'Statistics' => ['total_time' => '0.000006', 'calls' => 1],
-                'Preparing' => ['total_time' => '0.000006', 'calls' => 1],
-                'Executing' => ['total_time' => '0.000002', 'calls' => 1],
-                'Sending Data' => ['total_time' => '0.000029', 'calls' => 1],
-                'End Of Update Loop' => ['total_time' => '0.000003', 'calls' => 1],
-                'Query End' => ['total_time' => '0.000002', 'calls' => 1],
-                'Commit' => ['total_time' => '0.000002', 'calls' => 1],
-                'Starting Cleanup' => ['total_time' => '0.000002', 'calls' => 1],
-                'Freeing Items' => ['total_time' => '0.000002', 'calls' => 1],
-                'Updating Status' => ['total_time' => '0.000007', 'calls' => 1],
-                'Reset For Next Command' => ['total_time' => '0.000009', 'calls' => 1],
+                'After Opening Tables' => ['total_time' => 0.000006, 'calls' => 2],
+                'System Lock' => ['total_time' => 0.000004, 'calls' => 2],
+                'Table Lock' => ['total_time' => 0.000015, 'calls' => 2],
+                'Unlocking Tables' => ['total_time' => 0.000004, 'calls' => 2],
+                'Closing Tables' => ['total_time' => 0.000009, 'calls' => 3],
+                'Init' => ['total_time' => 0.000007, 'calls' => 1],
+                'Optimizing' => ['total_time' => 0.000004, 'calls' => 1],
+                'Statistics' => ['total_time' => 0.000006, 'calls' => 1],
+                'Preparing' => ['total_time' => 0.000006, 'calls' => 1],
+                'Executing' => ['total_time' => 0.000002, 'calls' => 1],
+                'Sending Data' => ['total_time' => 0.000029, 'calls' => 1],
+                'End Of Update Loop' => ['total_time' => 0.000003, 'calls' => 1],
+                'Query End' => ['total_time' => 0.000002, 'calls' => 1],
+                'Commit' => ['total_time' => 0.000002, 'calls' => 1],
+                'Starting Cleanup' => ['total_time' => 0.000002, 'calls' => 1],
+                'Freeing Items' => ['total_time' => 0.000002, 'calls' => 1],
+                'Updating Status' => ['total_time' => 0.000007, 'calls' => 1],
+                'Reset For Next Command' => ['total_time' => 0.000009, 'calls' => 1],
             ],
             'chart' => [
-                'Starting' => '0.000017',
-                'Checking Permissions' => '0.000003',
+                'Starting' => 0.000017,
+                'Checking Permissions' => 0.000003,
                 'Opening Tables' => 0.00016,
-                'After Opening Tables' => 6.0E-6,
-                'System Lock' => 4.0E-6,
-                'Table Lock' => 1.5E-5,
-                'Unlocking Tables' => 4.0E-6,
-                'Closing Tables' => 9.0E-6,
-                'Init' => '0.000007',
-                'Optimizing' => '0.000004',
-                'Statistics' => '0.000006',
-                'Preparing' => '0.000006',
-                'Executing' => '0.000002',
-                'Sending Data' => '0.000029',
-                'End Of Update Loop' => '0.000003',
-                'Query End' => '0.000002',
-                'Commit' => '0.000002',
-                'Starting Cleanup' => '0.000002',
-                'Freeing Items' => '0.000002',
-                'Updating Status' => '0.000007',
-                'Reset For Next Command' => '0.000009',
+                'After Opening Tables' => 0.000006,
+                'System Lock' => 0.000004,
+                'Table Lock' => 0.000015,
+                'Unlocking Tables' => 0.000004,
+                'Closing Tables' => 0.000009,
+                'Init' => 0.000007,
+                'Optimizing' => 0.000004,
+                'Statistics' => 0.000006,
+                'Preparing' => 0.000006,
+                'Executing' => 0.000002,
+                'Sending Data' => 0.000029,
+                'End Of Update Loop' => 0.000003,
+                'Query End' => 0.000002,
+                'Commit' => 0.000002,
+                'Starting Cleanup' => 0.000002,
+                'Freeing Items' => 0.000002,
+                'Updating Status' => 0.000007,
+                'Reset For Next Command' => 0.000009,
             ],
             'profile' => [
                 ['status' => 'Starting', 'duration' => '17 µ', 'duration_raw' => '0.000017'],
