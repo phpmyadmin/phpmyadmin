@@ -6516,11 +6516,6 @@ parameters:
 			path: libraries/classes/Plugins/UploadInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Profiling\\:\\:getInformation\\(\\) should return array\\<string, string\\>\\|null but returns array\\.$#"
-			count: 1
-			path: libraries/classes/Profiling.php
-
-		-
 			message: "#^Cannot access offset 'AUTO_INCREMENT' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Query/Compatibility.php
@@ -7561,16 +7556,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Cannot access offset 'Duration' on mixed\\.$#"
-			count: 7
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Cannot access offset 'Status' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -7587,16 +7572,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) should return int\\|numeric\\-string but returns float\\|int\\|numeric\\-string\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getDetailedProfilingStats\\(\\) should return array\\<string, array\\|int\\> but returns array\\<string, array\\<int\\|string, mixed\\>\\|float\\|int\\>\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -7637,16 +7612,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function bin2hex expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function ucwords expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 

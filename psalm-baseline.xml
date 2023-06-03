@@ -10826,12 +10826,6 @@
       <code>getUploadStatus</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Profiling.php">
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$dbi->fetchResult('SHOW PROFILE;')]]></code>
-      <code><![CDATA[array<string, string>|null]]></code>
-    </MixedReturnTypeCoercion>
-  </file>
   <file src="libraries/classes/Query/Cache.php">
     <MixedArrayOffset>
       <code>$loc[$key]</code>
@@ -11749,8 +11743,6 @@
       <code><![CDATA[$fieldInfoResult[0]['Type']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code>$numberOfLine / $maxRows</code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Status']]]></code>
       <code>$sortCol</code>
       <code><![CDATA[$statement->expr]]></code>
     </MixedArgument>
@@ -11767,14 +11759,6 @@
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$fieldInfoResult[0]['Type']]]></code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$oneResult['Status']]]></code>
       <code><![CDATA[$statementInfo->statement->where[0]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
@@ -11786,13 +11770,8 @@
       <code>$maxRows</code>
       <code>$oneFieldMeta</code>
       <code>$oneMeta</code>
-      <code>$oneResult</code>
       <code>$pos</code>
       <code>$prevTable</code>
-      <code><![CDATA[$profiling['chart'][$status]]]></code>
-      <code><![CDATA[$profiling['chart'][$status]]]></code>
-      <code><![CDATA[$profiling['states'][$status]['total_time']]]></code>
-      <code><![CDATA[$profiling['total_time']]]></code>
       <code>$resultSetColumnNames[]</code>
       <code>$sortCol</code>
       <code>$unlimNumRows</code>
@@ -11810,9 +11789,6 @@
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code>$maxRows</code>
       <code>$maxRows</code>
-      <code><![CDATA[$oneResult['Duration']]]></code>
-      <code><![CDATA[$profiling['chart'][$status]]]></code>
-      <code><![CDATA[$profiling['states'][$status]['total_time']]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$oneFieldMeta->table]]></code>
@@ -11827,10 +11803,6 @@
       <code>$unlimNumRows</code>
       <code>@((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion>
-      <code>$profiling</code>
-      <code><![CDATA[array<string, int|mixed[]>]]></code>
-    </MixedReturnTypeCoercion>
     <NoValue>
       <code><![CDATA[$statementInfo->statement->where]]></code>
     </NoValue>

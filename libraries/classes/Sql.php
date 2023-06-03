@@ -244,9 +244,14 @@ class Sql
     }
 
     /**
-     * @param mixed[] $profilingResults
+     * @psalm-param non-empty-list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
-     * @return array<string, int|mixed[]>
+     * @psalm-return array{
+     *     total_time: int|float,
+     *     states: array<string, array{total_time: int|float|numeric-string, calls: int<1, max>}>,
+     *     chart: array<string, int|float|numeric-string>,
+     *     profile: list<array{status: string, duration: string, duration_raw: numeric-string}>
+     * }
      */
     private function getDetailedProfilingStats(array $profilingResults): array
     {
@@ -719,8 +724,8 @@ class Sql
      *  ResultInterface|false|null,
      *  int|numeric-string,
      *  int|numeric-string,
-     *  array<string, string>|null,
-     *  array|null
+     *  list<array{Status: non-empty-string, Duration: numeric-string}>,
+     *  mixed[]|null
      * }
      */
     private function executeTheQuery(
@@ -741,7 +746,7 @@ class Sql
             $result = null;
             $numRows = 0;
             $unlimNumRows = 0;
-            $profilingResults = null;
+            $profilingResults = [];
         } else { // If we don't ask to see the php code
             Profiling::enable($this->dbi);
 
@@ -930,11 +935,11 @@ class Sql
      * @param int|string                 $numRows              number of rows
      * @param DisplayResults             $displayResultsObject DisplayResult instance
      * @param mixed[]|null               $extraData            extra data
-     * @param mixed[]|null               $profilingResults     profiling results
      * @param ResultInterface|false|null $result               executed query results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
      * @psalm-param int|numeric-string $numRows
+     * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
      * @return string html
      */
@@ -946,7 +951,7 @@ class Sql
         int|string $numRows,
         DisplayResults $displayResultsObject,
         array|null $extraData,
-        array|null $profilingResults,
+        array $profilingResults,
         ResultInterface|false|null $result,
         string $sqlQuery,
         string|null $completeQuery,
@@ -1010,7 +1015,7 @@ class Sql
         );
 
         $profilingChart = '';
-        if ($profilingResults !== null) {
+        if ($profilingResults !== []) {
             $header = $response->getHeader();
             $scripts = $header->getScripts();
             $scripts->addFile('sql.js');
@@ -1300,11 +1305,11 @@ class Sql
      * @param int|string                 $numRows              number of rows
      * @param string|null                $dispQuery            display query
      * @param Message|string|null        $dispMessage          display message
-     * @param mixed[]|null               $profilingResults     profiling results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
+     * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
      * @return string html
      */
@@ -1319,7 +1324,7 @@ class Sql
         int|string $numRows,
         string|null $dispQuery,
         Message|string|null $dispMessage,
-        array|null $profilingResults,
+        array $profilingResults,
         string $sqlQuery,
         string|null $completeQuery,
     ): string {
@@ -1434,7 +1439,7 @@ class Sql
         );
 
         $profilingChartHtml = '';
-        if ($profilingResults) {
+        if ($profilingResults !== []) {
             $profiling = $this->getDetailedProfilingStats($profilingResults);
             $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
         }
