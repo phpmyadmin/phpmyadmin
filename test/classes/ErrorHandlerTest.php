@@ -7,11 +7,15 @@ namespace PhpMyAdmin\Tests;
 use Exception;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use ReflectionProperty;
 
 use function array_keys;
 use function array_pop;
 use function count;
 
+use const E_ERROR;
 use const E_RECOVERABLE_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
@@ -310,11 +314,19 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testHandleExceptionForDevEnv(): void
     {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['config']->set('environment', 'development');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue($responseStub);
+        $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
         $errorHandler->handleException(new Exception('Exception message.'));
-        $output = $this->getActualOutputForAssertion();
+        $output = $responseStub->getHTMLResult();
         $errors = $errorHandler->getCurrentErrors();
         $this->assertCount(1, $errors);
         $error = array_pop($errors);
@@ -328,11 +340,19 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testHandleExceptionForProdEnv(): void
     {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['config']->set('environment', 'production');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue($responseStub);
+        $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
         $errorHandler->handleException(new Exception('Exception message.'));
-        $output = $this->getActualOutputForAssertion();
+        $output = $responseStub->getHTMLResult();
         $errors = $errorHandler->getCurrentErrors();
         $this->assertCount(1, $errors);
         $error = array_pop($errors);
@@ -342,5 +362,58 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->assertStringContainsString('Exception: Exception message.', $output);
         $this->assertStringNotContainsString('Internal error', $output);
         $this->assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+    }
+
+    public function testAddErrorWithFatalErrorAndHeadersSent(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['config']->set('environment', 'production');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue($responseStub);
+        $responseStub->setHeadersSent(true);
+        $errorHandler = new ErrorHandler();
+        $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        $expectedStart = <<<'HTML'
+<div class="alert alert-danger" role="alert"><strong>Error</strong> in name#1<br>
+<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<br>
+<br>
+<strong>Backtrace</strong><br>
+<br>
+HTML;
+
+        $output = $responseStub->getHTMLResult();
+        $this->assertStringStartsWith($expectedStart, $output);
+        $this->assertStringEndsWith('</div></body></html>', $output);
+    }
+
+    public function testAddErrorWithFatalErrorAndHeadersNotSent(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['config']->set('environment', 'production');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue($responseStub);
+        $responseStub->setHeadersSent(false);
+        $errorHandler = new ErrorHandler();
+        $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        $expectedStart = <<<'HTML'
+<html><head><title>Error: Fatal error message!</title></head>
+<div class="alert alert-danger" role="alert"><strong>Error</strong> in name#1<br>
+<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<br>
+<br>
+<strong>Backtrace</strong><br>
+<br>
+HTML;
+
+        $output = $responseStub->getHTMLResult();
+        $this->assertStringStartsWith($expectedStart, $output);
+        $this->assertStringEndsWith('</div></body></html>', $output);
     }
 }
