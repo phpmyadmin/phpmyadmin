@@ -2154,9 +2154,7 @@
   </file>
   <file src="libraries/classes/Controllers/Import/StatusController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['plugins']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
-      <code><![CDATA[$GLOBALS['upload_id']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$_SESSION['Import_message']['message'] ?? '']]></code>
@@ -2166,9 +2164,7 @@
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['plugins']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
-      <code><![CDATA[$GLOBALS['upload_id']]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
