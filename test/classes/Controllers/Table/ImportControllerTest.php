@@ -18,8 +18,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 class ImportControllerTest extends AbstractTestCase
 {
     /**
-     * Test for blowfish_secret session with Invalid Secret
-     *
      * @requires extension bz2
      * @requires extension zip
      */
