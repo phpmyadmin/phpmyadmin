@@ -889,7 +889,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         });
                     } else {
                         $(g.cEdit).on('keypress change paste', '.edit_box', function () {
-                            $checkbox.prop('checked', false);
+                            if ($(this).val() !== '') {
+                                $checkbox.prop('checked', false);
+                            }
                         });
 
                         // Capture ctrl+v (on IE and Chrome)
