@@ -167,7 +167,7 @@ class ServerConfigChecksTest extends AbstractTestCase
     }
 
     /**
-     * Test for imports
+     * Test for blowfish_secret session
      *
      * @requires extension bz2
      * @requires extension zip
