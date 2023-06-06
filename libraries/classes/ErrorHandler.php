@@ -12,7 +12,6 @@ use function array_splice;
 use function count;
 use function defined;
 use function error_reporting;
-use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
 use function set_exception_handler;
@@ -328,12 +327,16 @@ class ErrorHandler
      */
     protected function dispFatalError(Error $error): void
     {
-        if (! headers_sent()) {
-            $this->dispPageStart($error);
+        $response = ResponseRenderer::getInstance();
+        if (! $response->headersSent()) {
+            $response->disable();
+            $response->addHTML('<html><head><title>');
+            $response->addHTML($error->getTitle());
+            $response->addHTML('</title></head>' . "\n");
         }
 
-        echo $error->getDisplay();
-        $this->dispPageEnd();
+        $response->addHTML($error->getDisplay());
+        $response->addHTML('</body></html>');
         if (! defined('TESTSUITE')) {
             exit;
         }
@@ -362,32 +365,6 @@ class ErrorHandler
         }
 
         return $retval;
-    }
-
-    /**
-     * display HTML header
-     *
-     * @param Error $error the error
-     */
-    protected function dispPageStart(Error|null $error = null): void
-    {
-        ResponseRenderer::getInstance()->disable();
-        echo '<html><head><title>';
-        if ($error !== null) {
-            echo $error->getTitle();
-        } else {
-            echo 'phpMyAdmin error reporting page';
-        }
-
-        echo '</title></head>';
-    }
-
-    /**
-     * display HTML footer
-     */
-    protected function dispPageEnd(): void
-    {
-        echo '</body></html>';
     }
 
     /**

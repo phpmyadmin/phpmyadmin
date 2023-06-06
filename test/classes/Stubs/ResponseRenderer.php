@@ -34,6 +34,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
 
     private int $responseCode = 200;
 
+    private bool $isHeadersSent = false;
+
     /**
      * Creates a new class instance
      */
@@ -168,5 +170,15 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function isDisabled(): bool
     {
         return $this->isDisabled;
+    }
+
+    public function headersSent(): bool
+    {
+        return $this->isHeadersSent;
+    }
+
+    public function setHeadersSent(bool $isHeadersSent): void
+    {
+        $this->isHeadersSent = $isHeadersSent;
     }
 }
