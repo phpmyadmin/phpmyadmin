@@ -63,7 +63,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @global string $conn_error the last connection error
      */
-    public function showLoginForm(): bool
+    public function showLoginForm(): never
     {
         $GLOBALS['conn_error'] ??= null;
 
@@ -379,7 +379,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             SessionCache::remove('proc_priv');
 
             $this->showFailure('no-activity');
-            ResponseRenderer::getInstance()->callExit();
         }
 
         // check password cookie
@@ -552,12 +551,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      * prepares error message and switches to showLoginForm() which display the error
      * and the login form
      *
-     * this function MUST exit/quit the application,
-     * currently done by call to showLoginForm()
-     *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    public function showFailure(string $failure): never
     {
         $GLOBALS['conn_error'] ??= null;
 

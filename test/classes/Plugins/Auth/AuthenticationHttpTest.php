@@ -314,7 +314,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $result = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -326,15 +326,20 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             ->getMock();
 
         $this->object->expects($this->exactly(2))
-            ->method('authForm');
+            ->method('authForm')
+            ->willThrowException(new ExitException());
         // case 2
         $GLOBALS['cfg']['Server']['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         // case 3
         $GLOBALS['errno'] = 1043;
+        $this->expectException(ExitException::class);
         $this->object->showFailure('');
     }
 }
