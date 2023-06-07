@@ -270,11 +270,11 @@ final class Common
                 return;
             }
 
-            // Sets the default delimiter (if specified).
+            /** @var mixed $sqlDelimiter */
             $sqlDelimiter = $request->getParam('sql_delimiter', '');
-            if (strlen($sqlDelimiter) > 0) {
-                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-                Lexer::$DEFAULT_DELIMITER = $sqlDelimiter;
+            if (is_string($sqlDelimiter) && $sqlDelimiter !== '') {
+                // Sets the default delimiter (if specified).
+                Lexer::$defaultDelimiter = $sqlDelimiter;
             }
 
             // TODO: Set SQL modes too.

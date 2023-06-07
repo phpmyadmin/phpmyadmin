@@ -151,16 +151,6 @@ parameters:
 			path: libraries/classes/Command/TwigLintCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$DEFAULT_DELIMITER \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Config.php
@@ -4522,11 +4512,6 @@ parameters:
 
 		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|null and int\\<0, max\\> results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
 

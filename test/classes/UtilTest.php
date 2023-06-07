@@ -1166,7 +1166,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testBackquoteForbidenWords(): void
     {
-        foreach (Context::$KEYWORDS as $keyword => $type) {
+        foreach (Context::$keywords as $keyword => $type) {
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
                 $this->assertEquals(
                     '`' . $keyword . '`',

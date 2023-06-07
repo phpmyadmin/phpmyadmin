@@ -19,7 +19,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\SqlParser\Utils\Misc;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -208,7 +207,7 @@ final class ExportController extends AbstractController
         $parser = new Parser($GLOBALS['sql_query']);
         $aliases = [];
         if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
-            $aliases = Misc::getAliases($parser->statements[0], $GLOBALS['db']);
+            $aliases = $parser->statements[0]->getAliases($GLOBALS['db']);
         }
 
         if ($aliasesParam !== null && $aliasesParam !== []) {

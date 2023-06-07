@@ -215,12 +215,10 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
-      <code>$sqlDelimiter</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['theme']]]></code>
-      <code>$sqlDelimiter</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['url'] ?? '']]></code>
