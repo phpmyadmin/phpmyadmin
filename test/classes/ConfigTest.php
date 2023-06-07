@@ -12,6 +12,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\Group;
+use ReflectionProperty;
 
 use function define;
 use function defined;
@@ -672,6 +673,7 @@ PHP;
         $this->assertDirectoryExists($dir);
         $this->assertDirectoryIsWritable($dir);
 
+        (new ReflectionProperty(Config::class, 'tempDir'))->setValue([]);
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
         $this->assertEquals(

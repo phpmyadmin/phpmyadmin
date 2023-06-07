@@ -265,7 +265,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
-      <code>$tempDir[$name]</code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['cfg']['LoginCookieValidity']]]></code>
@@ -283,11 +282,9 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>string</code>
-      <code>string|null</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code>$cookiePath</code>
-      <code>$tempDir[$name]</code>
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code>$defaultValue</code>
