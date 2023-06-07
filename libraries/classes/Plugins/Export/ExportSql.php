@@ -1390,7 +1390,7 @@ class ExportSql extends ExportPlugin
         }
 
         // Old mode is stored so it can be restored once exporting is done.
-        $oldMode = Context::$MODE;
+        $oldMode = Context::getMode();
 
         $warning = '';
 
@@ -1489,12 +1489,12 @@ class ExportSql extends ExportPlugin
                 if (! $this->useSqlBackquotes) {
                     // Option "Enclose table and column names with backquotes"
                     // was checked.
-                    Context::$MODE |= Context::SQL_MODE_NO_ENCLOSING_QUOTES;
+                    Context::setMode(Context::getMode() | Context::SQL_MODE_NO_ENCLOSING_QUOTES);
                 }
 
                 // Using appropriate quotes.
                 if ($compat === 'MSSQL') {
-                    Context::$MODE |= Context::SQL_MODE_ANSI_QUOTES;
+                    Context::setMode(Context::getMode() | Context::SQL_MODE_ANSI_QUOTES);
                 }
             }
 
@@ -1695,7 +1695,7 @@ class ExportSql extends ExportPlugin
         }
 
         // Restoring old mode.
-        Context::$MODE = $oldMode;
+        Context::setMode($oldMode);
 
         return $warning . $schemaCreate . ($addSemicolon ? ';' . "\n" : '');
     }
