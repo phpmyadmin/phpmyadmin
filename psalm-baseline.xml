@@ -282,11 +282,9 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>string</code>
       <code>string|null</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code>$cookiePath</code>
       <code>$tempDir[$name]</code>
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
