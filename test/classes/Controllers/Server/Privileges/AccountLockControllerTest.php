@@ -13,9 +13,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\Stub;
 
-/** @covers \PhpMyAdmin\Controllers\Server\Privileges\AccountLockController */
+#[CoversClass(AccountLockController::class)]
 class AccountLockControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */

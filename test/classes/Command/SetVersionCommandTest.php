@@ -6,13 +6,15 @@ namespace PhpMyAdmin\Tests\Command;
 
 use PhpMyAdmin\Command\SetVersionCommand;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use RangeException;
 use Symfony\Component\Console\Command\Command;
 
 use function class_exists;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Command\SetVersionCommand */
+#[CoversClass(SetVersionCommand::class)]
 class SetVersionCommandTest extends AbstractTestCase
 {
     private SetVersionCommand $command;
@@ -49,7 +51,7 @@ class SetVersionCommandTest extends AbstractTestCase
         ];
     }
 
-    /** @dataProvider dataProviderBadVersions */
+    #[DataProvider('dataProviderBadVersions')]
     public function testGetGeneratedClassInvalidVersion(string $version): void
     {
         if (! class_exists(Command::class)) {
@@ -161,7 +163,7 @@ class SetVersionCommandTest extends AbstractTestCase
         ];
     }
 
-    /** @dataProvider dataProviderGoodVersions */
+    #[DataProvider('dataProviderGoodVersions')]
     public function testGetGeneratedClassValidVersion(string $version, string $content): void
     {
         if (! class_exists(Command::class)) {

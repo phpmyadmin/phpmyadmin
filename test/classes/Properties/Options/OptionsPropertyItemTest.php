@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/** @covers \PhpMyAdmin\Properties\Options\OptionsPropertyItem */
+#[CoversClass(OptionsPropertyItem::class)]
 class OptionsPropertyItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyItem&MockObject */

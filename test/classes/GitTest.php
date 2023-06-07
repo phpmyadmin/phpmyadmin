@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Git;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
 use function file_put_contents;
 use function mkdir;
@@ -16,10 +18,8 @@ use function unlink;
 
 use const DIRECTORY_SEPARATOR;
 
-/**
- * @covers \PhpMyAdmin\Git
- * @group git-revision
- */
+#[CoversClass(Git::class)]
+#[Group('git-revision')]
 class GitTest extends AbstractTestCase
 {
     protected Git $object;
@@ -88,9 +88,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for isGitRevision
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testIsGitRevisionLocalGitDir(): void
     {
         $this->assertFalse(
@@ -125,9 +124,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for isGitRevision
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testIsGitRevisionExternalGitDir(): void
     {
         file_put_contents($this->testDir . '.git', 'gitdir: ' . $this->testDir . '.customgitdir');
@@ -163,9 +161,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for checkGitRevision packs folder
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testCheckGitRevisionPacksFolder(): void
     {
         mkdir($this->testDir . '.git');
@@ -226,9 +223,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for checkGitRevision packs folder
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testCheckGitRevisionRefFile(): void
     {
         mkdir($this->testDir . '.git');
@@ -264,9 +260,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for checkGitRevision with packs as file
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testCheckGitRevisionPacksFile(): void
     {
         mkdir($this->testDir . '.git');

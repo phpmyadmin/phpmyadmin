@@ -9,10 +9,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Controllers\NavigationController */
+#[CoversClass(NavigationController::class)]
 class NavigationControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

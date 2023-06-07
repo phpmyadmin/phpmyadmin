@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\FormatConverter;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function hex2bin;
 
-/** @covers \PhpMyAdmin\Utils\FormatConverter */
+#[CoversClass(FormatConverter::class)]
 class FormatConverterTest extends AbstractTestCase
 {
     /**
@@ -18,9 +20,8 @@ class FormatConverterTest extends AbstractTestCase
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
      * @param bool   $isBinary The data is binary data
-     *
-     * @dataProvider providerBinaryToIp
      */
+    #[DataProvider('providerBinaryToIp')]
     public function testBinaryToIp(string $expected, string $input, bool $isBinary): void
     {
         $result = FormatConverter::binaryToIp($input, $isBinary);
@@ -54,9 +55,8 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
-     *
-     * @dataProvider providerIpToBinary
      */
+    #[DataProvider('providerIpToBinary')]
     public function testIpToBinary(string $expected, string $input): void
     {
         $result = FormatConverter::ipToBinary($input);
@@ -78,9 +78,8 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
-     *
-     * @dataProvider providerIpToLong
      */
+    #[DataProvider('providerIpToLong')]
     public function testIpToLong(string $expected, string $input): void
     {
         $result = FormatConverter::ipToLong($input);
@@ -102,9 +101,8 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
-     *
-     * @dataProvider providerLongToIp
      */
+    #[DataProvider('providerLongToIp')]
     public function testLongToIp(string $expected, string $input): void
     {
         $result = FormatConverter::longToIp($input);

@@ -10,6 +10,9 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionProperty;
 use Throwable;
 
@@ -23,7 +26,7 @@ use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
 
-/** @covers \PhpMyAdmin\ErrorHandler */
+#[CoversClass(ErrorHandler::class)]
 class ErrorHandlerTest extends AbstractTestCase
 {
     protected ErrorHandler $object;
@@ -79,9 +82,8 @@ class ErrorHandlerTest extends AbstractTestCase
      * @param string $outputShow expected output if showing of errors is enabled
      * @param string $outputHide expected output if showing of errors is
      *                           disabled and 'sendErrorReports' is set to 'never'
-     *
-     * @dataProvider providerForTestHandleError
      */
+    #[DataProvider('providerForTestHandleError')]
     public function testGetDispErrorsForDisplayFalse(
         int $errno,
         string $errstr,
@@ -114,9 +116,8 @@ class ErrorHandlerTest extends AbstractTestCase
      * @param int    $errline    error line
      * @param string $outputShow expected output if showing of errors is enabled
      * @param string $outputHide expected output if showing of errors is disabled
-     *
-     * @dataProvider providerForTestHandleError
      */
+    #[DataProvider('providerForTestHandleError')]
     public function testGetDispErrorsForDisplayTrue(
         int $errno,
         string $errstr,
@@ -150,9 +151,8 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for countErrors
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -164,9 +164,8 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for sliceErrors
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSliceErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -195,9 +194,8 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for sliceErrors with 10 elements as an example
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSliceErrorsOtherExample(): void
     {
         for ($i = 0; $i < 10; $i++) {

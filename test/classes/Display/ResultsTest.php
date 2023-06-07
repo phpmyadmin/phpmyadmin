@@ -24,6 +24,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 use stdClass;
 
@@ -45,7 +47,7 @@ use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TIMESTAMP;
 
-/** @covers \PhpMyAdmin\Display\Results */
+#[CoversClass(DisplayResults::class)]
 class ResultsTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -216,9 +218,8 @@ class ResultsTest extends AbstractTestCase
      * @param mixed[] $rowInfo     information about row
      * @param string  $fieldName   column name
      * @param string  $output      output of getSpecialLinkUrl
-     *
-     * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
+    #[DataProvider('dataProviderForTestGetSpecialLinkUrl')]
     public function testGetSpecialLinkUrl(
         string $db,
         string $table,
@@ -298,9 +299,8 @@ class ResultsTest extends AbstractTestCase
      * @param mixed[]         $row         current row data
      * @param mixed[]         $colOrder    the column order
      * @param mixed[]         $output      output of getRowInfoForSpecialLinks
-     *
-     * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
+    #[DataProvider('dataProviderForTestGetRowInfoForSpecialLinks')]
     public function testGetRowInfoForSpecialLinks(
         array $fieldsMeta,
         int $fieldsCount,
@@ -361,9 +361,8 @@ class ResultsTest extends AbstractTestCase
      * @param int     $limitChars Partial or Full text
      * @param string  $str        the string to be tested
      * @param mixed[] $output     return value of getPartialText
-     *
-     * @dataProvider dataProviderForTestGetPartialText
      */
+    #[DataProvider('dataProviderForTestGetPartialText')]
     public function testGetPartialText(string $pftext, int $limitChars, string $str, array $output): void
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
@@ -430,9 +429,8 @@ class ResultsTest extends AbstractTestCase
      * @param mixed[]        $urlParams        parameters that should go to the download link
      * @param bool           $isTruncated      the result is truncated or not
      * @param string         $output           the output of this function
-     *
-     * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
+    #[DataProvider('dataProviderForTestHandleNonPrintableContents')]
     public function testHandleNonPrintableContents(
         bool $displayBinary,
         bool $displayBlob,
@@ -603,9 +601,8 @@ class ResultsTest extends AbstractTestCase
      * @param bool        $conditionField   the column should highlighted or not
      * @param mixed[]     $transformOptions the transformation parameters
      * @param string      $output           the output of this function
-     *
-     * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
+    #[DataProvider('dataProviderForTestGetDataCellForNonNumericColumns')]
     public function testGetDataCellForNonNumericColumns(
         string $protectBinary,
         string|null $column,
@@ -787,11 +784,8 @@ class ResultsTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @param mixed[] $urlParams
-     *
-     * @dataProvider dataProviderGetSortOrderHiddenInputs
-     */
+    /** @param mixed[] $urlParams */
+    #[DataProvider('dataProviderGetSortOrderHiddenInputs')]
     public function testGetSortOrderHiddenInputs(
         string $sqlAdd,
         string $sqlRemove,
@@ -894,9 +888,8 @@ class ResultsTest extends AbstractTestCase
      * @param mixed[] $post
      * @param mixed[] $request
      * @param mixed[] $expected
-     *
-     * @dataProvider providerSetConfigParamsForDisplayTable
      */
+    #[DataProvider('providerSetConfigParamsForDisplayTable')]
     public function testSetConfigParamsForDisplayTable(
         array $session,
         array $get,
@@ -1725,7 +1718,7 @@ class ResultsTest extends AbstractTestCase
         ];
     }
 
-    /** @dataProvider dataProviderSortOrder */
+    #[DataProvider('dataProviderSortOrder')]
     public function testGetSingleAndMultiSortUrls(
         string $orderSetting,
         string $querySortDirection,

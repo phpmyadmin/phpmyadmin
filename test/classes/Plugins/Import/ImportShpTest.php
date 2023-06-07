@@ -8,14 +8,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 use function extension_loaded;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Import\ImportShp
- * @requires extension zip
- */
+#[CoversClass(ImportShp::class)]
+#[RequiresPhpExtension('zip')]
 class ImportShpTest extends AbstractTestCase
 {
     protected ImportShp $object;
@@ -96,9 +97,8 @@ class ImportShpTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -119,10 +119,9 @@ class ImportShpTest extends AbstractTestCase
 
     /**
      * Test for doImport with complex data
-     *
-     * @group medium
-     * @group 32bit-incompatible
      */
+    #[Group('medium')]
+    #[Group('32bit-incompatible')]
     public function testImportOsm(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -155,10 +154,9 @@ class ImportShpTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
-     * @group 32bit-incompatible
      */
+    #[Group('medium')]
+    #[Group('32bit-incompatible')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail

@@ -8,11 +8,12 @@ use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function ob_get_clean;
 use function ob_start;
 
-/** @covers \PhpMyAdmin\Setup\FormProcessing */
+#[CoversClass(FormProcessing::class)]
 class FormProcessingTest extends AbstractNetworkTestCase
 {
     /**

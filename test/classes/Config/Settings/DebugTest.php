@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Debug;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Config\Settings\Debug */
+#[CoversClass(Debug::class)]
 class DebugTest extends TestCase
 {
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSql(mixed $actual, bool $expected): void
     {
         $debug = new Debug(['sql' => $actual]);
@@ -20,7 +22,7 @@ class DebugTest extends TestCase
         $this->assertSame($expected, $debugArray['sql']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqllog(mixed $actual, bool $expected): void
     {
         $debug = new Debug(['sqllog' => $actual]);
@@ -30,7 +32,7 @@ class DebugTest extends TestCase
         $this->assertSame($expected, $debugArray['sqllog']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testDemo(mixed $actual, bool $expected): void
     {
         $debug = new Debug(['demo' => $actual]);
@@ -40,7 +42,7 @@ class DebugTest extends TestCase
         $this->assertSame($expected, $debugArray['demo']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSimple2fa(mixed $actual, bool $expected): void
     {
         $debug = new Debug(['simple2fa' => $actual]);

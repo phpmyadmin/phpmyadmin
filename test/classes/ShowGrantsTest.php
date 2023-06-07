@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ShowGrants;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\ShowGrants */
+#[CoversClass(ShowGrants::class)]
 class ShowGrantsTest extends AbstractTestCase
 {
     public function test1(): void

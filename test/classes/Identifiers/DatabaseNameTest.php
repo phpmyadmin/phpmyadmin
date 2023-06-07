@@ -6,17 +6,17 @@ namespace PhpMyAdmin\Tests\Identifiers;
 
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\Identifiers\DatabaseName
- * @covers \PhpMyAdmin\Identifiers\InvalidDatabaseName
- */
+#[CoversClass(DatabaseName::class)]
+#[CoversClass(InvalidDatabaseName::class)]
 class DatabaseNameTest extends TestCase
 {
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testValidName(string $validName): void
     {
         $name = DatabaseName::from($validName);
@@ -24,7 +24,7 @@ class DatabaseNameTest extends TestCase
         $this->assertEquals($validName, (string) $name);
     }
 
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testTryFromValueWithValidName(string $validName): void
     {
         $name = DatabaseName::tryFrom($validName);
@@ -41,7 +41,7 @@ class DatabaseNameTest extends TestCase
         yield [str_repeat('a', 64)];
     }
 
-    /** @dataProvider providerForTestInvalidNames */
+    #[DataProvider('providerForTestInvalidNames')]
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
         $this->assertNull(DatabaseName::tryFrom($name));

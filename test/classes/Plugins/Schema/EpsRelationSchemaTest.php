@@ -7,8 +7,10 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
-/** @covers \PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema */
+#[CoversClass(EpsRelationSchema::class)]
 class EpsRelationSchemaTest extends AbstractTestCase
 {
     protected EpsRelationSchema $object;
@@ -55,9 +57,8 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testConstructor(): void
     {
         $this->assertEquals(33, $this->object->getPageNumber());
@@ -70,9 +71,8 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPageNumber
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);

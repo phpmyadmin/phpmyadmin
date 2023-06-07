@@ -7,6 +7,10 @@ namespace PhpMyAdmin\Tests\Theme;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\Theme;
 use PhpMyAdmin\Theme\ThemeManager;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\Group;
 
 use function filemtime;
 
@@ -14,7 +18,7 @@ use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
 use const TEST_PATH;
 
-/** @covers \PhpMyAdmin\Theme\Theme */
+#[CoversClass(Theme::class)]
 class ThemeTest extends AbstractTestCase
 {
     protected Theme $object;
@@ -55,9 +59,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::loadInfo
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testCheckImgPathNotExisted(): void
     {
         $this->object->setPath('path/to/nowhere');
@@ -166,9 +169,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::checkVersion
-     *
-     * @depends testLoadInfo
      */
+    #[Depends('testLoadInfo')]
     public function testGetSetCheckVersion(): void
     {
         $this->assertEquals(
@@ -226,9 +228,8 @@ class ThemeTest extends AbstractTestCase
      * @param string|null $file     file name for image
      * @param string|null $fallback fallback image
      * @param string      $output   expected output
-     *
-     * @dataProvider providerForGetImgPath
      */
+    #[DataProvider('providerForGetImgPath')]
     public function testGetImgPath(string|null $file, string|null $fallback, string $output): void
     {
         $this->assertEquals(

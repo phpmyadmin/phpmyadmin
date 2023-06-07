@@ -6,10 +6,11 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
-/** @covers \PhpMyAdmin\Engines\Innodb */
+#[CoversClass(Innodb::class)]
 class InnodbTest extends AbstractTestCase
 {
     protected Innodb $object;

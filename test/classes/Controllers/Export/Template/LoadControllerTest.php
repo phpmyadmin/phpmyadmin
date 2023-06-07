@@ -14,9 +14,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Controllers\Export\Template\LoadController */
+#[CoversClass(LoadController::class)]
 class LoadControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

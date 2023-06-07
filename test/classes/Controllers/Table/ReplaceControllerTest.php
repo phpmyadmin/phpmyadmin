@@ -22,10 +22,11 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/** @covers \PhpMyAdmin\Controllers\Table\ReplaceController */
+#[CoversClass(ReplaceController::class)]
 class ReplaceControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

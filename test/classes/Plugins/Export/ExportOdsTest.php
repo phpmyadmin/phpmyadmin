@@ -19,6 +19,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -32,11 +35,9 @@ use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TINY_BLOB;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportOds
- * @requires extension zip
- * @group medium
- */
+#[CoversClass(ExportOds::class)]
+#[Group('medium')]
+#[RequiresPhpExtension('zip')]
 class ExportOdsTest extends AbstractTestCase
 {
     protected ExportOds $object;

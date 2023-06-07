@@ -20,6 +20,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionProperty;
 
 use function hash;
@@ -37,10 +40,8 @@ use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_TINY;
 
-/**
- * @covers \PhpMyAdmin\InsertEdit
- * @group medium
- */
+#[CoversClass(InsertEdit::class)]
+#[Group('medium')]
 class InsertEditTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -344,9 +345,8 @@ class InsertEditTest extends AbstractTestCase
      * Test for loadFirstRow
      *
      * @param array<false> $rowsValue
-     *
-     * @dataProvider dataProviderConfigValueInsertRows
      */
+    #[DataProvider('dataProviderConfigValueInsertRows')]
     public function testGetInsertRows(string|int $configValue, array $rowsValue): void
     {
         $GLOBALS['cfg']['InsertRows'] = $configValue;
@@ -1214,9 +1214,8 @@ class InsertEditTest extends AbstractTestCase
 
     /**
      * Test for getSpecialCharsForInsertingMode
-     *
-     * @dataProvider providerForTestGetSpecialCharsForInsertingMode
      */
+    #[DataProvider('providerForTestGetSpecialCharsForInsertingMode')]
     public function testGetSpecialCharsForInsertingMode(
         string|null $defaultValue,
         string $trueType,

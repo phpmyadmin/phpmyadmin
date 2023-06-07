@@ -12,8 +12,9 @@ use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\OperationsController */
+#[CoversClass(OperationsController::class)]
 class OperationsControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

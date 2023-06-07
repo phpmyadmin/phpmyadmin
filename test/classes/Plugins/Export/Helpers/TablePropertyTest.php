@@ -6,8 +6,10 @@ namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty */
+#[CoversClass(TableProperty::class)]
 class TablePropertyTest extends AbstractTestCase
 {
     protected TableProperty $object;
@@ -69,9 +71,8 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * @param string $nullable nullable value
      * @param string $expected expected output
-     *
-     * @dataProvider isNotNullProvider
      */
+    #[DataProvider('isNotNullProvider')]
     public function testIsNotNull(string $nullable, string $expected): void
     {
         $this->object->nullable = $nullable;
@@ -95,9 +96,8 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * @param string $key      key value
      * @param string $expected expected output
-     *
-     * @dataProvider isUniqueProvider
      */
+    #[DataProvider('isUniqueProvider')]
     public function testIsUnique(string $key, string $expected): void
     {
         $this->object->key = $key;
@@ -121,9 +121,8 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * @param string $type     type value
      * @param string $expected expected output
-     *
-     * @dataProvider getDotNetPrimitiveTypeProvider
      */
+    #[DataProvider('getDotNetPrimitiveTypeProvider')]
     public function testGetDotNetPrimitiveType(string $type, string $expected): void
     {
         $this->object->type = $type;
@@ -159,9 +158,8 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * @param string $type     type value
      * @param string $expected expected output
-     *
-     * @dataProvider getDotNetObjectTypeProvider
      */
+    #[DataProvider('getDotNetObjectTypeProvider')]
     public function testGetDotNetObjectType(string $type, string $expected): void
     {
         $this->object->type = $type;

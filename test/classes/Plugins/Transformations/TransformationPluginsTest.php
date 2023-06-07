@@ -26,6 +26,9 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
 
 use function date_default_timezone_set;
@@ -37,9 +40,8 @@ use const MYSQLI_TYPE_TINY;
 
 /**
  * Tests for different input/output transformation plugins
- *
- * @coversNothing
  */
+#[CoversNothing]
 class TransformationPluginsTest extends AbstractTestCase
 {
     /**
@@ -354,10 +356,9 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param string  $method   the method name
      * @param mixed   $expected the expected output
      * @param mixed[] $args     the array of arguments
-     *
-     * @dataProvider multiDataProvider
-     * @group medium
      */
+    #[DataProvider('multiDataProvider')]
+    #[Group('medium')]
     public function testGetMulti(object $object, string $method, mixed $expected, array $args = []): void
     {
         if (! method_exists($object, $method)) {
@@ -604,10 +605,9 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param bool                  $success     the expected output of isSuccess
      * @param string                $error       the expected output of getError
      * @psalm-param array{string, array, FieldMetadata|null} $applyArgs
-     *
-     * @dataProvider transformationDataProvider
-     * @group medium
      */
+    #[DataProvider('transformationDataProvider')]
+    #[Group('medium')]
     public function testTransformation(
         TransformationsPlugin $object,
         array $applyArgs,

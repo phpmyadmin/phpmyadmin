@@ -11,8 +11,12 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
-/** @covers \PhpMyAdmin\Controllers\ThemeSetController */
+#[CoversClass(ThemeSetController::class)]
 class ThemeSetControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -22,10 +26,8 @@ class ThemeSetControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[PreserveGlobalState(false)]
+    #[RunInSeparateProcess]
     public function testSetTheme(): void
     {
         $GLOBALS['cfg']['ThemeManager'] = true;
@@ -46,13 +48,10 @@ class ThemeSetControllerTest extends AbstractTestCase
         (new ThemeSetController(new ResponseRenderer(), new Template(), $themeManager, $userPreferences))($request);
     }
 
-    /**
-     * @param string[]|string|null $themeName
-     *
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     * @dataProvider providerForTestWithoutTheme
-     */
+    /** @param string[]|string|null $themeName */
+    #[DataProvider('providerForTestWithoutTheme')]
+    #[PreserveGlobalState(false)]
+    #[RunInSeparateProcess]
     public function testWithoutTheme(bool $hasThemes, array|string|null $themeName): void
     {
         $GLOBALS['cfg']['ThemeManager'] = $hasThemes;

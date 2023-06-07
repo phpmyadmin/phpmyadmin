@@ -11,9 +11,10 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Throwable;
 
-/** @covers \PhpMyAdmin\Controllers\AbstractController */
+#[CoversClass(AbstractController::class)]
 class AbstractControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

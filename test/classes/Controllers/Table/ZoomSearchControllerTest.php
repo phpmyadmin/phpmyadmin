@@ -13,8 +13,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\ZoomSearchController */
+#[CoversClass(ZoomSearchController::class)]
 class ZoomSearchControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

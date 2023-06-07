@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Config\Settings\Transformations */
+#[CoversClass(Transformations::class)]
 class TransformationsTest extends TestCase
 {
-    /**
-     * @param array<int, int|string> $expected
-     *
-     * @dataProvider valuesForSubstringProvider
-     */
+    /** @param array<int, int|string> $expected */
+    #[DataProvider('valuesForSubstringProvider')]
     public function testSubstring(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['Substring' => $actual]);
@@ -39,11 +38,8 @@ class TransformationsTest extends TestCase
         yield 'invalid value' => ['invalid', [0, 'all', '…']];
     }
 
-    /**
-     * @param array<int, string> $expected
-     *
-     * @dataProvider valuesForBool2TextProvider
-     */
+    /** @param array<int, string> $expected */
+    #[DataProvider('valuesForBool2TextProvider')]
     public function testBool2Text(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['Bool2Text' => $actual]);
@@ -66,11 +62,8 @@ class TransformationsTest extends TestCase
         yield 'invalid value' => ['invalid', ['T', 'F']];
     }
 
-    /**
-     * @param array<int, int|string> $expected
-     *
-     * @dataProvider valuesForExternalProvider
-     */
+    /** @param array<int, int|string> $expected */
+    #[DataProvider('valuesForExternalProvider')]
     public function testExternal(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['External' => $actual]);
@@ -96,11 +89,8 @@ class TransformationsTest extends TestCase
         yield 'invalid values' => ['invalid', [0, '-f /dev/null -i -wrap -q', 1, 1]];
     }
 
-    /**
-     * @param array<int, string> $expected
-     *
-     * @dataProvider valuesForPreApPendProvider
-     */
+    /** @param array<int, string> $expected */
+    #[DataProvider('valuesForPreApPendProvider')]
     public function testPreApPend(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['PreApPend' => $actual]);
@@ -123,11 +113,8 @@ class TransformationsTest extends TestCase
         yield 'invalid values' => ['invalid', ['', '']];
     }
 
-    /**
-     * @param array<int, int> $expected
-     *
-     * @dataProvider valuesForHexProvider
-     */
+    /** @param array<int, int> $expected */
+    #[DataProvider('valuesForHexProvider')]
     public function testHex(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['Hex' => $actual]);
@@ -149,11 +136,8 @@ class TransformationsTest extends TestCase
         yield 'invalid values' => ['invalid', [2]];
     }
 
-    /**
-     * @param array<int, int|string> $expected
-     *
-     * @dataProvider valuesForDateFormatProvider
-     */
+    /** @param array<int, int|string> $expected */
+    #[DataProvider('valuesForDateFormatProvider')]
     public function testDateFormat(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['DateFormat' => $actual]);
@@ -178,11 +162,8 @@ class TransformationsTest extends TestCase
         yield 'invalid values' => ['invalid', [0, '', 'local']];
     }
 
-    /**
-     * @param array<int|string, int|string|array<string>|null> $expected
-     *
-     * @dataProvider valuesForInlineProvider
-     */
+    /** @param array<int|string, int|string|array<string>|null> $expected */
+    #[DataProvider('valuesForInlineProvider')]
     public function testInline(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['Inline' => $actual]);
@@ -214,11 +195,8 @@ class TransformationsTest extends TestCase
         yield 'invalid values' => ['invalid', [100, 100, 'wrapper_link' => null, 'wrapper_params' => []]];
     }
 
-    /**
-     * @param array<int, int|string|null> $expected
-     *
-     * @dataProvider valuesForTextImageLinkProvider
-     */
+    /** @param array<int, int|string|null> $expected */
+    #[DataProvider('valuesForTextImageLinkProvider')]
     public function testTextImageLink(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['TextImageLink' => $actual]);
@@ -243,11 +221,8 @@ class TransformationsTest extends TestCase
         yield 'invalid values' => ['invalid', [null, 100, 50]];
     }
 
-    /**
-     * @param array<int, string|bool|null> $expected
-     *
-     * @dataProvider valuesForTextLinkProvider
-     */
+    /** @param array<int, string|bool|null> $expected */
+    #[DataProvider('valuesForTextLinkProvider')]
     public function testTextLink(mixed $actual, array $expected): void
     {
         $transformations = new Transformations(['TextLink' => $actual]);

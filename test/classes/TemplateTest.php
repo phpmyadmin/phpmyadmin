@@ -7,11 +7,13 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Twig\Error\LoaderError;
 
-/** @covers \PhpMyAdmin\Template */
+#[CoversClass(Template::class)]
 class TemplateTest extends AbstractTestCase
 {
     protected Template $template;
@@ -48,9 +50,8 @@ class TemplateTest extends AbstractTestCase
      * Test for set function
      *
      * @param string $data Template name
-     *
-     * @dataProvider providerTestSet
      */
+    #[DataProvider('providerTestSet')]
     public function testSet(string $data): void
     {
         $result = $this->template->render($data, ['variable1' => 'value1', 'variable2' => 'value2']);
@@ -74,9 +75,8 @@ class TemplateTest extends AbstractTestCase
      * @param string $templateFile Template name
      * @param string $key          Template variable array key
      * @param string $value        Template variable array value
-     *
-     * @dataProvider providerTestDynamicRender
      */
+    #[DataProvider('providerTestDynamicRender')]
     public function testDynamicRender(string $templateFile, string $key, string $value): void
     {
         $this->assertEquals(
@@ -109,9 +109,8 @@ class TemplateTest extends AbstractTestCase
      *
      * @param string $templateFile   Template name
      * @param string $expectedResult Expected result
-     *
-     * @dataProvider providerTestRender
      */
+    #[DataProvider('providerTestRender')]
     public function testRender(string $templateFile, string $expectedResult): void
     {
         $this->assertEquals(
@@ -136,9 +135,8 @@ class TemplateTest extends AbstractTestCase
      * @param string  $templateFile   Template name
      * @param mixed[] $renderParams   Render params
      * @param string  $expectedResult Expected result
-     *
-     * @dataProvider providerTestRenderGettext
      */
+    #[DataProvider('providerTestRenderGettext')]
     public function testRenderGettext(string $templateFile, array $renderParams, string $expectedResult): void
     {
         $this->assertEquals(

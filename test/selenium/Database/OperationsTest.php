@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Group;
 
-/** @coversNothing */
+#[CoversNothing]
 class OperationsTest extends TestBase
 {
     /**
@@ -31,9 +33,8 @@ class OperationsTest extends TestBase
 
     /**
      * Test for adding database comment
-     *
-     * @group large
      */
+    #[Group('large')]
     public function testDbComment(): void
     {
         $this->skipIfNotPMADB();
@@ -52,9 +53,8 @@ class OperationsTest extends TestBase
 
     /**
      * Test for renaming database
-     *
-     * @group large
      */
+    #[Group('large')]
     public function testRenameDB(): void
     {
         $this->getToDBOperations();
@@ -91,9 +91,8 @@ class OperationsTest extends TestBase
 
     /**
      * Test for copying database
-     *
-     * @group large
      */
+    #[Group('large')]
     public function testCopyDb(): void
     {
         $this->getToDBOperations();

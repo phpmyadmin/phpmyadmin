@@ -13,11 +13,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function htmlspecialchars;
 
-/** @covers \PhpMyAdmin\Controllers\Server\ShowEngineController */
+#[CoversClass(ShowEngineController::class)]
 class ShowEngineControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

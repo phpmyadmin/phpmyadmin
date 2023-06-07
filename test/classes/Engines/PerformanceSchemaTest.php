@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Engines\PerformanceSchema */
+#[CoversClass(PerformanceSchema::class)]
 class PerformanceSchemaTest extends AbstractTestCase
 {
     protected PerformanceSchema $object;

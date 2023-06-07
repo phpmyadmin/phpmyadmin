@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Common;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Common */
+#[CoversClass(Common::class)]
 class CommonTest extends AbstractTestCase
 {
     public function testCheckTokenRequestParam(): void

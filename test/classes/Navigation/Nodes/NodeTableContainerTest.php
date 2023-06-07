@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Navigation\Nodes\NodeTableContainer */
+#[CoversClass(NodeTableContainer::class)]
 class NodeTableContainerTest extends AbstractTestCase
 {
     /**

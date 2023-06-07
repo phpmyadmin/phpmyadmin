@@ -9,8 +9,10 @@ use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
-/** @covers \PhpMyAdmin\Replication\ReplicationGui */
+#[CoversClass(ReplicationGui::class)]
 class ReplicationGuiTest extends AbstractTestCase
 {
     /**
@@ -48,7 +50,7 @@ class ReplicationGuiTest extends AbstractTestCase
         $this->replicationGui = new ReplicationGui(new Replication($GLOBALS['dbi']), new Template());
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testGetHtmlForPrimaryReplication(): void
     {
         $html = $this->replicationGui->getHtmlForPrimaryReplication(null, false, 'primary_add_user', null, null);

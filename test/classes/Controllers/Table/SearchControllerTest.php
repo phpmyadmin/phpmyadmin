@@ -15,12 +15,13 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function hash;
 
 use const MYSQLI_TYPE_LONG;
 
-/** @covers \PhpMyAdmin\Controllers\Table\SearchController */
+#[CoversClass(SearchController::class)]
 class SearchControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

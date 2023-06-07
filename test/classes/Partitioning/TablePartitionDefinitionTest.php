@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Partitioning;
 
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function count;
 
-/** @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition */
+#[CoversClass(TablePartitionDefinition::class)]
 class TablePartitionDefinitionTest extends TestCase
 {
-    /** @dataProvider providerGetDetails */
+    #[DataProvider('providerGetDetails')]
     public function testGetDetails(
         string $partitionBy,
         bool $canHaveSubpartitions,
@@ -234,7 +236,7 @@ class TablePartitionDefinitionTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /** @dataProvider providerGetDetailsWithMaxPartitions */
+    #[DataProvider('providerGetDetailsWithMaxPartitions')]
     public function testGetDetailsWithMaxPartitions(int $partitionCount, string $partitionCountFromPost): void
     {
         $_POST = ['partition_count' => $partitionCountFromPost];

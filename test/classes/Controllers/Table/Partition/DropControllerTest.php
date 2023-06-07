@@ -11,11 +11,13 @@ use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Partition\DropController */
+#[CoversClass(DropController::class)]
 class DropControllerTest extends AbstractTestCase
 {
-    /** @dataProvider providerForTestInvalidDatabaseAndTable */
+    #[DataProvider('providerForTestInvalidDatabaseAndTable')]
     public function testInvalidDatabaseAndTable(
         string|null $partition,
         string|null $db,

@@ -19,6 +19,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -27,10 +29,8 @@ use function __;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportHtmlword
- * @group medium
- */
+#[CoversClass(ExportHtmlword::class)]
+#[Group('medium')]
 class ExportHtmlwordTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

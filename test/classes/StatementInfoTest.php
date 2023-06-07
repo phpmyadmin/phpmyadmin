@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\StatementInfo;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\StatementInfo */
+#[CoversClass(StatementInfo::class)]
 class StatementInfoTest extends TestCase
 {
     public function testFromArray(): void

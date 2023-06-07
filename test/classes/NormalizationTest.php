@@ -14,13 +14,14 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 use function __;
 use function _pgettext;
 use function json_encode;
 
-/** @covers \PhpMyAdmin\Normalization */
+#[CoversClass(Normalization::class)]
 class NormalizationTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

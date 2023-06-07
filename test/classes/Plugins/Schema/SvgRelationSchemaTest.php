@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema
- * @requires extension xmlwriter
- */
+#[CoversClass(SvgRelationSchema::class)]
+#[RequiresPhpExtension('xmlwriter')]
 class SvgRelationSchemaTest extends AbstractTestCase
 {
     protected SvgRelationSchema $object;
@@ -60,9 +61,8 @@ class SvgRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testConstructor(): void
     {
         $this->assertEquals(33, $this->object->getPageNumber());

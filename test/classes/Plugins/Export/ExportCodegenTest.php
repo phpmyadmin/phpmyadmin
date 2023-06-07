@@ -14,6 +14,8 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -21,10 +23,8 @@ use ReflectionProperty;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportCodegen
- * @group medium
- */
+#[CoversClass(ExportCodegen::class)]
+#[Group('medium')]
 class ExportCodegenTest extends AbstractTestCase
 {
     protected ExportCodegen $object;

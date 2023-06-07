@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Query;
 
 use PhpMyAdmin\Query\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Query\Generator */
+#[CoversClass(Generator::class)]
 class GeneratorTest extends AbstractTestCase
 {
     public function testGetColumnsSql(): void

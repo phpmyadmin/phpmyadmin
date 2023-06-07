@@ -8,6 +8,8 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 
 use function explode;
@@ -17,14 +19,13 @@ use function str_repeat;
 
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
-/** @covers \PhpMyAdmin\Setup\ConfigGenerator */
+#[CoversClass(ConfigGenerator::class)]
 class ConfigGeneratorTest extends AbstractTestCase
 {
     /**
      * Test for ConfigGenerator::getConfigFile
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testGetConfigFile(): void
     {
         unset($_SESSION['eol']);

@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema
- * @requires extension xmlwriter
- */
+#[CoversClass(DiaRelationSchema::class)]
+#[RequiresPhpExtension('xmlwriter')]
 class DiaRelationSchemaTest extends AbstractTestCase
 {
     protected DiaRelationSchema $object;
@@ -57,9 +58,8 @@ class DiaRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct, the Property is set correctly
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetProperty(): void
     {
         $this->assertEquals(33, $this->object->getPageNumber());

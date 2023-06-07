@@ -18,6 +18,8 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -25,10 +27,8 @@ use function __;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportLatex
- * @group medium
- */
+#[CoversClass(ExportLatex::class)]
+#[Group('medium')]
 class ExportLatexTest extends AbstractTestCase
 {
     protected ExportLatex $object;

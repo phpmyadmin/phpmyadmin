@@ -16,13 +16,13 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
 use ReflectionProperty;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportExcel
- * @group medium
- */
+#[CoversClass(ExportExcel::class)]
+#[Group('medium')]
 class ExportExcelTest extends AbstractTestCase
 {
     protected ExportExcel $object;

@@ -18,6 +18,8 @@ use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 
 use function __;
@@ -29,7 +31,7 @@ use function ini_restore;
 use function ini_set;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Tracking\Tracking */
+#[CoversClass(Tracking::class)]
 class TrackingTest extends AbstractTestCase
 {
     private Tracking $tracking;
@@ -661,9 +663,8 @@ class TrackingTest extends AbstractTestCase
      *
      * @param mixed[]     $fetchArrayReturn Value to be returned by mocked fetchArray
      * @param TrackedData $expected         Expected value
-     *
-     * @dataProvider getTrackedDataProvider
      */
+    #[DataProvider('getTrackedDataProvider')]
     public function testGetTrackedData(array $fetchArrayReturn, TrackedData $expected): void
     {
         $resultStub = $this->createMock(DummyResult::class);

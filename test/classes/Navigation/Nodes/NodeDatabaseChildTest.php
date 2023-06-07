@@ -10,13 +10,12 @@ use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabase
- */
+#[CoversClass(NodeDatabaseChild::class)]
+#[CoversClass(NodeDatabase::class)]
 class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**

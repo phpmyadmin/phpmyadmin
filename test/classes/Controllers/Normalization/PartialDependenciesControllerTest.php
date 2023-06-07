@@ -12,8 +12,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Normalization\PartialDependenciesController */
+#[CoversClass(PartialDependenciesController::class)]
 class PartialDependenciesControllerTest extends AbstractTestCase
 {
     public function testDefault(): void

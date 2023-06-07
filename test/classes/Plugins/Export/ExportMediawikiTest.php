@@ -16,6 +16,8 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -23,10 +25,8 @@ use function __;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportMediawiki
- * @group medium
- */
+#[CoversClass(ExportMediawiki::class)]
+#[Group('medium')]
 class ExportMediawikiTest extends AbstractTestCase
 {
     protected ExportMediawiki $object;

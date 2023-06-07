@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Display\DisplayParts */
+#[CoversClass(DisplayParts::class)]
 class DisplayPartsTest extends TestCase
 {
     public function testFromArray(): void

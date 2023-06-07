@@ -7,13 +7,15 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 use ReflectionProperty;
 
 use function array_keys;
 use function preg_match;
 
-/** @covers \PhpMyAdmin\Config\Form */
+#[CoversClass(Form::class)]
 class FormTest extends AbstractTestCase
 {
     protected Form $object;
@@ -50,9 +52,8 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::__constructor
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testContructor(): void
     {
         $this->assertEquals(1, $this->object->index);

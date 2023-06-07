@@ -7,16 +7,16 @@ namespace PhpMyAdmin\Tests;
 use DateTime;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\ZipExtension;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ZipArchive;
 
 use function file_put_contents;
 use function tempnam;
 use function unlink;
 
-/**
- * @covers \PhpMyAdmin\OpenDocument
- * @requires extension zip
- */
+#[CoversClass(OpenDocument::class)]
+#[RequiresPhpExtension('zip')]
 class OpenDocumentTest extends AbstractTestCase
 {
     public function testCreateDocument(): void

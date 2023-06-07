@@ -7,12 +7,11 @@ namespace PhpMyAdmin\Tests\Dbal;
 use mysqli_stmt;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Dbal\MysqliStatement;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Dbal\MysqliStatement
- * @covers \PhpMyAdmin\Dbal\MysqliResult
- */
+#[CoversClass(MysqliStatement::class)]
+#[CoversClass(MysqliResult::class)]
 class MysqliStatementTest extends TestCase
 {
     public function testGetResult(): void

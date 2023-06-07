@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 
-/** @covers \PhpMyAdmin\ResponseRenderer */
+#[CoversClass(ResponseRenderer::class)]
 class ResponseRendererTest extends AbstractTestCase
 {
     protected function setUp(): void

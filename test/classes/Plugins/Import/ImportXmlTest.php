@@ -8,14 +8,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Import\ImportXml
- * @requires extension xml
- * @requires extension xmlwriter
- */
+#[CoversClass(ImportXml::class)]
+#[RequiresPhpExtension('xml')]
+#[RequiresPhpExtension('xmlwriter')]
 class ImportXmlTest extends AbstractTestCase
 {
     protected ImportXml $object;
@@ -71,9 +72,8 @@ class ImportXmlTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -98,10 +98,9 @@ class ImportXmlTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
-     * @requires extension simplexml
      */
+    #[Group('medium')]
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result

@@ -11,16 +11,17 @@ use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Plugins\AuthenticationPluginFactory */
+#[CoversClass(AuthenticationPluginFactory::class)]
 class AuthenticationPluginFactoryTest extends AbstractTestCase
 {
     /**
      * @param non-empty-string $type
      * @param class-string     $class
-     *
-     * @dataProvider providerForTestValidPlugins
      */
+    #[DataProvider('providerForTestValidPlugins')]
     public function testValidPlugins(string $type, string $class): void
     {
         $GLOBALS['cfg']['Server']['auth_type'] = $type;

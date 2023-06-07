@@ -6,9 +6,11 @@ namespace PhpMyAdmin\Tests\Advisory;
 
 use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-/** @covers \PhpMyAdmin\Advisory\Advisor */
+#[CoversClass(Advisor::class)]
 class AdvisorTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -26,9 +28,8 @@ class AdvisorTest extends AbstractTestCase
      *
      * @param float  $time     time
      * @param string $expected expected result
-     *
-     * @dataProvider advisorTimes
      */
+    #[DataProvider('advisorTimes')]
     public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
@@ -53,9 +54,8 @@ class AdvisorTest extends AbstractTestCase
      * @param mixed[]     $rule     Rule to test
      * @param mixed[]     $expected Expected rendered rule in fired/errors list
      * @param string|null $error    Expected error string (null if none error expected)
-     *
-     * @dataProvider rulesProvider
      */
+    #[DataProvider('rulesProvider')]
     public function testAddRule(array $rule, array $expected, string|null $error): void
     {
         parent::setLanguage();

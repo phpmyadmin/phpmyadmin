@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Properties\Plugins\ExportPluginProperties */
+#[CoversClass(ExportPluginProperties::class)]
 class ExportPluginPropertiesTest extends AbstractTestCase
 {
     protected ExportPluginProperties $object;

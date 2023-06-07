@@ -13,8 +13,9 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\ImportController */
+#[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
 {
     public function testImportController(): void

@@ -9,12 +9,14 @@ use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_merge;
 
 use const MYSQLI_TYPE_STRING;
 
-/** @covers \PhpMyAdmin\Table\ColumnsDefinition */
+#[CoversClass(ColumnsDefinition::class)]
 class ColumnsDefinitionTest extends AbstractTestCase
 {
     public function testDisplayForm(): void
@@ -209,9 +211,8 @@ SQL;
      * @param array $expected   expected result
      * @phpstan-param array<string, string|null> $columnMeta
      * @phpstan-param array<string, string> $expected
-     *
-     * @dataProvider providerColumnMetaDefault
      */
+    #[DataProvider('providerColumnMetaDefault')]
     public function testDecorateColumnMetaDefault(array $columnMeta, array $expected): void
     {
         $result = ColumnsDefinition::decorateColumnMetaDefault($columnMeta);

@@ -10,16 +10,17 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 use function bin2hex;
 
-/** @covers \PhpMyAdmin\Controllers\Table\GetFieldController */
+#[CoversClass(GetFieldController::class)]
 class GetFieldControllerTest extends AbstractTestCase
 {
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[PreserveGlobalState(false)]
+    #[RunInSeparateProcess]
     public function testGetFieldController(): void
     {
         $GLOBALS['db'] = 'test_db';

@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 
 use function _ngettext;
 use function count;
@@ -12,10 +16,8 @@ use function file_exists;
 use function is_readable;
 use function strtolower;
 
-/**
- * @covers \PhpMyAdmin\Language
- * @covers \PhpMyAdmin\LanguageManager
- */
+#[CoversClass(Language::class)]
+#[CoversClass(LanguageManager::class)]
 class LanguageTest extends AbstractTestCase
 {
     private LanguageManager $manager;
@@ -153,9 +155,8 @@ class LanguageTest extends AbstractTestCase
      * @param string $agent   Value for HTTP User-Agent header
      * @param string $default Value for default language
      * @param string $expect  Expected language code
-     *
-     * @dataProvider selectDataProvider
      */
+    #[DataProvider('selectDataProvider')]
     public function testSelect(
         string $lang,
         string $post,
@@ -231,10 +232,9 @@ class LanguageTest extends AbstractTestCase
      * Test for setting and parsing locales
      *
      * @param string $locale locale name
-     *
-     * @group large
-     * @dataProvider listLocales
      */
+    #[DataProvider('listLocales')]
+    #[Group('large')]
     public function testGettext(string $locale): void
     {
         $GLOBALS['config']->set('FilterLanguages', '');

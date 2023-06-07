@@ -13,6 +13,9 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use Psr\Http\Message\ServerRequestInterface;
 
 use function __;
@@ -44,17 +47,16 @@ const FIELD_TYPE_INTEGER = 1;
 const FIELD_TYPE_VARCHAR = 253;
 const FIELD_TYPE_UNKNOWN = -1;
 
-/** @covers \PhpMyAdmin\Util */
+#[CoversClass(Util::class)]
 class UtilTest extends AbstractTestCase
 {
     /**
      * Test for listPHPExtensions
-     *
-     * @requires extension mysqli
-     * @requires extension curl
-     * @requires extension mbstring
-     * @requires extension sodium
      */
+    #[RequiresPhpExtension('curl')]
+    #[RequiresPhpExtension('mbstring')]
+    #[RequiresPhpExtension('mysqli')]
+    #[RequiresPhpExtension('sodium')]
     public function testListPHPExtensions(): void
     {
         $this->assertSame(
@@ -278,9 +280,8 @@ class UtilTest extends AbstractTestCase
      * @param array           $expected Expected Result
      * @psalm-param array<int, mixed> $row
      * @psalm-param array{string, bool, array<string, string>} $expected
-     *
-     * @dataProvider providerGetUniqueConditionForGroupFlag
      */
+    #[DataProvider('providerGetUniqueConditionForGroupFlag')]
     public function testGetUniqueConditionForGroupFlag(array $meta, array $row, array $expected): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
@@ -413,9 +414,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $collation Collation
      * @param string $expected  Expected Charset Query
-     *
-     * @dataProvider charsetQueryData
      */
+    #[DataProvider('charsetQueryData')]
     public function testGenerateCharsetQueryPart(string $collation, string $expected): void
     {
         $this->assertEquals(
@@ -462,9 +462,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string|null $bit Value
      * @param string      $val Expected value
-     *
-     * @dataProvider providerConvertBitDefaultValue
      */
+    #[DataProvider('providerConvertBitDefaultValue')]
     public function testConvertBitDefaultValue(string|null $bit, string $val): void
     {
         $this->assertEquals(
@@ -497,9 +496,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $in  string to evaluate
      * @param string $out expected output
-     *
-     * @dataProvider providerExpandUserString
      */
+    #[DataProvider('providerExpandUserString')]
     public function testExpandUserString(string $in, string $out): void
     {
         parent::setGlobalConfig();
@@ -544,9 +542,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string  $in  Column specification
      * @param mixed[] $out Expected value
-     *
-     * @dataProvider providerExtractColumnSpec
      */
+    #[DataProvider('providerExtractColumnSpec')]
     public function testExtractColumnSpec(string $in, array $out): void
     {
         $GLOBALS['cfg']['LimitChars'] = 1000;
@@ -693,9 +690,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param int|string $size     Size
      * @param int|float  $expected Expected value (float on some cpu architectures)
-     *
-     * @dataProvider providerExtractValueFromFormattedSize
      */
+    #[DataProvider('providerExtractValueFromFormattedSize')]
     public function testExtractValueFromFormattedSize(int|string $size, int|float $expected): void
     {
         $this->assertEquals(
@@ -726,9 +722,8 @@ class UtilTest extends AbstractTestCase
      * @param int              $b Sensitiveness
      * @param int              $c Number of decimals to retain
      * @param mixed[]          $e Expected value
-     *
-     * @dataProvider providerFormatByteDown
      */
+    #[DataProvider('providerFormatByteDown')]
     public function testFormatByteDown(float|int|string $a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
@@ -794,9 +789,8 @@ class UtilTest extends AbstractTestCase
      * @param int              $b Sensitiveness
      * @param int              $c Number of decimals to retain
      * @param string           $d Expected value
-     *
-     * @dataProvider providerFormatNumber
      */
+    #[DataProvider('providerFormatNumber')]
     public function testFormatNumber(float|int|string $a, int $b, int $c, string $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
@@ -875,9 +869,8 @@ class UtilTest extends AbstractTestCase
      * @param int|float|string $size Size (float on some cpu architectures)
      * @param string           $unit Unit
      * @param string           $res  Result
-     *
-     * @dataProvider providerGetFormattedMaximumUploadSize
      */
+    #[DataProvider('providerGetFormattedMaximumUploadSize')]
     public function testGetFormattedMaximumUploadSize(int|float|string $size, string $unit, string $res): void
     {
         $this->assertEquals(
@@ -918,9 +911,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $target Target
      * @param string $result Expected value
-     *
-     * @dataProvider providerGetTitleForTarget
      */
+    #[DataProvider('providerGetTitleForTarget')]
     public function testGetTitleForTarget(string $target, string $result): void
     {
         $this->assertEquals(
@@ -954,9 +946,8 @@ class UtilTest extends AbstractTestCase
      * @param string $e      Expected output
      * @param string $tz     Timezone to set
      * @param string $locale Locale to set
-     *
-     * @dataProvider providerLocalisedDate
      */
+    #[DataProvider('providerLocalisedDate')]
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
         parent::setLanguage();
@@ -1038,9 +1029,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param int    $a Timespan in seconds
      * @param string $e Expected output
-     *
-     * @dataProvider providerTimespanFormat
      */
+    #[DataProvider('providerTimespanFormat')]
     public function testTimespanFormat(int $a, string $e): void
     {
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
@@ -1074,9 +1064,8 @@ class UtilTest extends AbstractTestCase
      * @param int    $a Value
      * @param int    $b Length
      * @param string $e Expected output
-     *
-     * @dataProvider providerPrintableBitValue
      */
+    #[DataProvider('providerPrintableBitValue')]
     public function testPrintableBitValue(int $a, int $b, string $e): void
     {
         $this->assertEquals(
@@ -1103,9 +1092,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $param    String
      * @param string $expected Expected output
-     *
-     * @dataProvider providerUnQuote
      */
+    #[DataProvider('providerUnQuote')]
     public function testUnQuote(string $param, string $expected): void
     {
         $this->assertEquals(
@@ -1129,9 +1117,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $param    String
      * @param string $expected Expected output
-     *
-     * @dataProvider providerUnQuoteSelectedChar
      */
+    #[DataProvider('providerUnQuoteSelectedChar')]
     public function testUnQuoteSelectedChar(string $param, string $expected): void
     {
         $this->assertEquals(
@@ -1150,7 +1137,7 @@ class UtilTest extends AbstractTestCase
         return [['"test\'"', "test'"], ["'test''", "'test''"], ["`test'`", "`test'`"], ["'test'test", "'test'test"]];
     }
 
-    /** @dataProvider providerForTestBackquote */
+    #[DataProvider('providerForTestBackquote')]
     public function testBackquote(string|null $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
         $this->assertSame($expectedNoneOutput, Util::backquote($entry));
@@ -1199,9 +1186,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $a String
      * @param string $e Expected output
-     *
-     * @dataProvider providerUserDir
      */
+    #[DataProvider('providerUserDir')]
     public function testUserDir(string $a, string $e): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
@@ -1224,9 +1210,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $a String
      * @param string $e Expected output
-     *
-     * @dataProvider providerDuplicateFirstNewline
      */
+    #[DataProvider('providerDuplicateFirstNewline')]
     public function testDuplicateFirstNewline(string $a, string $e): void
     {
         $this->assertEquals(
@@ -1267,9 +1252,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param bool  $expected Expected result for a given input
      * @param mixed $input    Input data to check
-     *
-     * @dataProvider providerIsInteger
      */
+    #[DataProvider('providerIsInteger')]
     public function testIsInteger(bool $expected, mixed $input): void
     {
         $isInteger = Util::isInteger($input);
@@ -1291,9 +1275,8 @@ class UtilTest extends AbstractTestCase
      *
      * @param string $header The http Forwarded header
      * @param string $proto  The protocol http/https
-     *
-     * @dataProvider providerForwardedHeaders
      */
+    #[DataProvider('providerForwardedHeaders')]
     public function testGetProtoFromForwardedHeader(string $header, string $proto): void
     {
         $protocolDetected = Util::getProtoFromForwardedHeader($header);
@@ -1573,7 +1556,7 @@ SQL;
         ];
     }
 
-    /** @dataProvider dataProviderScriptNames */
+    #[DataProvider('dataProviderScriptNames')]
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
         $GLOBALS['lang'] = 'en';
@@ -1603,7 +1586,7 @@ SQL;
         $this->assertFalse(Util::showText('ActionLinksMode'));
     }
 
-    /** @dataProvider providerForTestGetMySQLDocuURL */
+    #[DataProvider('providerForTestGetMySQLDocuURL')]
     public function testGetMySQLDocuURL(string $link, string $anchor, string $version, string $expected): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
@@ -1763,9 +1746,8 @@ SQL;
      * @param bool $isMariaDB True if mariadb
      * @param int  $version   Database version as integer
      * @param bool $expected  Expected Result
-     *
-     * @dataProvider provideForTestIsUUIDSupported
      */
+    #[DataProvider('provideForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1796,7 +1778,7 @@ SQL;
         return [[false, 60100, false], [false, 100700, false], [true, 60100, false], [true, 100700, true]];
     }
 
-    /** @dataProvider providerForTestGetLowerCaseNames */
+    #[DataProvider('providerForTestGetLowerCaseNames')]
     public function testGetCollateForIS(string $lowerCaseTableNames, string $expected): void
     {
         $dbiDummy = $this->createDbiDummy();

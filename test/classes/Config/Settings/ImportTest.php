@@ -5,14 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Import;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-
-/** @covers \PhpMyAdmin\Config\Settings\Import */
+#[CoversClass(Import::class)]
 class ImportTest extends TestCase
 {
-    /** @dataProvider valuesForFormatProvider */
+    #[DataProvider('valuesForFormatProvider')]
     public function testFormat(mixed $actual, string $expected): void
     {
         $import = new Import(['format' => $actual]);
@@ -33,7 +34,7 @@ class ImportTest extends TestCase
         yield 'invalid value' => ['invalid', 'sql'];
     }
 
-    /** @dataProvider valuesForCharsetProvider */
+    #[DataProvider('valuesForCharsetProvider')]
     public function testCharset(mixed $actual, string $expected): void
     {
         $import = new Import(['charset' => $actual]);
@@ -52,7 +53,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testAllowInterrupt(mixed $actual, bool $expected): void
     {
         $import = new Import(['allow_interrupt' => $actual]);
@@ -71,7 +72,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /** @dataProvider valuesForSkipQueriesProvider */
+    #[DataProvider('valuesForSkipQueriesProvider')]
     public function testSkipQueries(mixed $actual, int $expected): void
     {
         $import = new Import(['skip_queries' => $actual]);
@@ -91,7 +92,7 @@ class ImportTest extends TestCase
         yield 'invalid value' => [-1, 0];
     }
 
-    /** @dataProvider valuesForSqlCompatibilityProvider */
+    #[DataProvider('valuesForSqlCompatibilityProvider')]
     public function testSqlCompatibility(mixed $actual, string $expected): void
     {
         $import = new Import(['sql_compatibility' => $actual]);
@@ -118,7 +119,7 @@ class ImportTest extends TestCase
         yield 'invalid value' => ['invalid', 'NONE'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlNoAutoValueOnZero(mixed $actual, bool $expected): void
     {
         $import = new Import(['sql_no_auto_value_on_zero' => $actual]);
@@ -128,7 +129,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['sql_no_auto_value_on_zero']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlReadAsMultibytes(mixed $actual, bool $expected): void
     {
         $import = new Import(['sql_read_as_multibytes' => $actual]);
@@ -147,7 +148,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testCsvReplace(mixed $actual, bool $expected): void
     {
         $import = new Import(['csv_replace' => $actual]);
@@ -157,7 +158,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['csv_replace']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testCsvIgnore(mixed $actual, bool $expected): void
     {
         $import = new Import(['csv_ignore' => $actual]);
@@ -167,7 +168,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['csv_ignore']);
     }
 
-    /** @dataProvider valuesForCsvTerminatedProvider */
+    #[DataProvider('valuesForCsvTerminatedProvider')]
     public function testCsvTerminated(mixed $actual, string $expected): void
     {
         $import = new Import(['csv_terminated' => $actual]);
@@ -186,7 +187,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvEnclosedProvider */
+    #[DataProvider('valuesForCsvEnclosedProvider')]
     public function testCsvEnclosed(mixed $actual, string $expected): void
     {
         $import = new Import(['csv_enclosed' => $actual]);
@@ -205,7 +206,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvEscapedProvider */
+    #[DataProvider('valuesForCsvEscapedProvider')]
     public function testCsvEscaped(mixed $actual, string $expected): void
     {
         $import = new Import(['csv_escaped' => $actual]);
@@ -224,7 +225,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvNewLineProvider */
+    #[DataProvider('valuesForCsvNewLineProvider')]
     public function testCsvNewLine(mixed $actual, string $expected): void
     {
         $import = new Import(['csv_new_line' => $actual]);
@@ -243,7 +244,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvColumnsProvider */
+    #[DataProvider('valuesForCsvColumnsProvider')]
     public function testCsvColumns(mixed $actual, string $expected): void
     {
         $import = new Import(['csv_columns' => $actual]);
@@ -262,7 +263,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testCsvColNames(mixed $actual, bool $expected): void
     {
         $import = new Import(['csv_col_names' => $actual]);
@@ -272,7 +273,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['csv_col_names']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testLdiReplace(mixed $actual, bool $expected): void
     {
         $import = new Import(['ldi_replace' => $actual]);
@@ -282,7 +283,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['ldi_replace']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testLdiIgnore(mixed $actual, bool $expected): void
     {
         $import = new Import(['ldi_ignore' => $actual]);
@@ -292,7 +293,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['ldi_ignore']);
     }
 
-    /** @dataProvider valuesForLdiTerminatedProvider */
+    #[DataProvider('valuesForLdiTerminatedProvider')]
     public function testLdiTerminated(mixed $actual, string $expected): void
     {
         $import = new Import(['ldi_terminated' => $actual]);
@@ -311,7 +312,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLdiEnclosedProvider */
+    #[DataProvider('valuesForLdiEnclosedProvider')]
     public function testLdiEnclosed(mixed $actual, string $expected): void
     {
         $import = new Import(['ldi_enclosed' => $actual]);
@@ -330,7 +331,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLdiEscapedProvider */
+    #[DataProvider('valuesForLdiEscapedProvider')]
     public function testLdiEscaped(mixed $actual, string $expected): void
     {
         $import = new Import(['ldi_escaped' => $actual]);
@@ -349,7 +350,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLdiNewLineProvider */
+    #[DataProvider('valuesForLdiNewLineProvider')]
     public function testLdiNewLine(mixed $actual, string $expected): void
     {
         $import = new Import(['ldi_new_line' => $actual]);
@@ -368,7 +369,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLdiColumnsProvider */
+    #[DataProvider('valuesForLdiColumnsProvider')]
     public function testLdiColumns(mixed $actual, string $expected): void
     {
         $import = new Import(['ldi_columns' => $actual]);
@@ -387,7 +388,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLdiLocalOptionProvider */
+    #[DataProvider('valuesForLdiLocalOptionProvider')]
     public function testLdiLocalOption(mixed $actual, string|bool $expected): void
     {
         $import = new Import(['ldi_local_option' => $actual]);
@@ -407,7 +408,7 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => ['1', true];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testOdsColNames(mixed $actual, bool $expected): void
     {
         $import = new Import(['ods_col_names' => $actual]);
@@ -417,7 +418,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['ods_col_names']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdsEmptyRows(mixed $actual, bool $expected): void
     {
         $import = new Import(['ods_empty_rows' => $actual]);
@@ -427,7 +428,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['ods_empty_rows']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdsRecognizePercentages(mixed $actual, bool $expected): void
     {
         $import = new Import(['ods_recognize_percentages' => $actual]);
@@ -437,7 +438,7 @@ class ImportTest extends TestCase
         $this->assertSame($expected, $importArray['ods_recognize_percentages']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdsRecognizeCurrency(mixed $actual, bool $expected): void
     {
         $import = new Import(['ods_recognize_currency' => $actual]);

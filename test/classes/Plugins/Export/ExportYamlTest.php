@@ -13,16 +13,16 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
 use ReflectionProperty;
 
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportYaml
- * @group medium
- */
+#[CoversClass(ExportYaml::class)]
+#[Group('medium')]
 class ExportYamlTest extends AbstractTestCase
 {
     protected ExportYaml $object;

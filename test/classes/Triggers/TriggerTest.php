@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Tests\Triggers;
 use PhpMyAdmin\Triggers\Event;
 use PhpMyAdmin\Triggers\Timing;
 use PhpMyAdmin\Triggers\Trigger;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Triggers\Trigger */
+#[CoversClass(Trigger::class)]
 class TriggerTest extends TestCase
 {
     public function testTryFromArrayWithEmptyArray(): void
@@ -17,11 +19,8 @@ class TriggerTest extends TestCase
         $this->assertNull(Trigger::tryFromArray([]));
     }
 
-    /**
-     * @param mixed[] $trigger
-     *
-     * @dataProvider arrayWithValidValuesProvider
-     */
+    /** @param mixed[] $trigger */
+    #[DataProvider('arrayWithValidValuesProvider')]
     public function testTryFromArrayWithValidValues(array $trigger): void
     {
         $actual = Trigger::tryFromArray($trigger);
@@ -60,11 +59,8 @@ class TriggerTest extends TestCase
         ];
     }
 
-    /**
-     * @param mixed[] $trigger
-     *
-     * @dataProvider arrayWithInvalidValuesProvider
-     */
+    /** @param mixed[] $trigger */
+    #[DataProvider('arrayWithInvalidValuesProvider')]
     public function testTryFromArrayWithInvalidValues(array $trigger): void
     {
         $this->assertNull(Trigger::tryFromArray($trigger));

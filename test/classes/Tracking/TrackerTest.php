@@ -13,10 +13,12 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 use ReflectionMethod;
 
-/** @covers \PhpMyAdmin\Tracking\Tracker */
+#[CoversClass(Tracker::class)]
 class TrackerTest extends AbstractTestCase
 {
     /**
@@ -330,9 +332,8 @@ class TrackerTest extends AbstractTestCase
      * @param string|null $tableName            Expected tablename
      * @param string|null $db                   Expected dbname
      * @param string|null $tableNameAfterRename Expected name after rename
-     *
-     * @dataProvider parseQueryData
      */
+    #[DataProvider('parseQueryData')]
     public function testParseQuery(
         string $query,
         string $type,

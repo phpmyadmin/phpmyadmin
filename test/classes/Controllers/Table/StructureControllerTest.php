@@ -16,9 +16,10 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\StructureController */
+#[CoversClass(StructureController::class)]
 class StructureControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

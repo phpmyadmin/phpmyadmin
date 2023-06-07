@@ -21,6 +21,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -29,7 +32,7 @@ use function _pgettext;
 use function htmlspecialchars;
 use function implode;
 
-/** @covers \PhpMyAdmin\Server\Privileges */
+#[CoversClass(Privileges::class)]
 class PrivilegesTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -553,7 +556,7 @@ class PrivilegesTest extends AbstractTestCase
         );
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testGetHtmlToDisplayPrivilegesTable(): void
     {
         $GLOBALS['hostname'] = 'hostname';
@@ -884,7 +887,7 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertStringContainsString($expect, $sqlQuery);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testGetHtmlForAddUser(): void
     {
         $dbi = $this->createDatabaseInterface();
@@ -1876,9 +1879,8 @@ class PrivilegesTest extends AbstractTestCase
     /**
      * @param string $a Expected value
      * @param string $b String to escape
-     *
-     * @dataProvider providerUnEscapeMysqlWildcards
      */
+    #[DataProvider('providerUnEscapeMysqlWildcards')]
     public function testEscapeMysqlWildcards(string $a, string $b): void
     {
         $dbi = $this->createDatabaseInterface();
@@ -1892,9 +1894,8 @@ class PrivilegesTest extends AbstractTestCase
     /**
      * @param string $a String to unescape
      * @param string $b Expected value
-     *
-     * @dataProvider providerUnEscapeMysqlWildcards
      */
+    #[DataProvider('providerUnEscapeMysqlWildcards')]
     public function testUnescapeMysqlWildcards(string $a, string $b): void
     {
         $dbi = $this->createDatabaseInterface();

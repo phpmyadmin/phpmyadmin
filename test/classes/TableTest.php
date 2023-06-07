@@ -13,8 +13,10 @@ use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Table */
+#[CoversClass(Table::class)]
 class TableTest extends AbstractTestCase
 {
     /**
@@ -366,9 +368,8 @@ class TableTest extends AbstractTestCase
      * @param string $name         name to test
      * @param bool   $result       expected result
      * @param bool   $isBackquoted is backquoted
-     *
-     * @dataProvider dataValidateName
      */
+    #[DataProvider('dataValidateName')]
     public function testValidateName(string $name, bool $result, bool $isBackquoted = false): void
     {
         $this->assertEquals(

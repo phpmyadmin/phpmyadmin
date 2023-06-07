@@ -10,8 +10,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Bookmark */
+#[CoversClass(Bookmark::class)]
 class BookmarkTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

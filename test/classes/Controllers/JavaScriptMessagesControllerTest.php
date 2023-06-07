@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\TestCase;
 
 use function json_decode;
 use function strlen;
 use function substr;
 
-/** @covers \PhpMyAdmin\Controllers\JavaScriptMessagesController */
+#[CoversClass(JavaScriptMessagesController::class)]
 class JavaScriptMessagesControllerTest extends TestCase
 {
-    /** @runInSeparateProcess */
+    #[RunInSeparateProcess]
     public function testIndex(): void
     {
         (new JavaScriptMessagesController())();

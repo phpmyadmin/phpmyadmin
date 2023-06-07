@@ -12,10 +12,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function json_encode;
 
-/** @covers \PhpMyAdmin\Controllers\Normalization\SecondNormalForm\CreateNewTablesController */
+#[CoversClass(CreateNewTablesController::class)]
 class CreateNewTablesControllerTest extends AbstractTestCase
 {
     public function testDefault(): void

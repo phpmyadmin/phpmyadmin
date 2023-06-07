@@ -12,11 +12,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function htmlspecialchars;
 
-/** @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController */
+#[CoversClass(RefreshController::class)]
 class RefreshControllerTest extends AbstractTestCase
 {
     private Data $data;

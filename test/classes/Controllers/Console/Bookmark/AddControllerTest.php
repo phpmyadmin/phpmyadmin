@@ -11,9 +11,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Controllers\Console\Bookmark\AddController */
+#[CoversClass(AddController::class)]
 class AddControllerTest extends AbstractTestCase
 {
     public function testWithInvalidParams(): void

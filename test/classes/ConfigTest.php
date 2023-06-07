@@ -8,6 +8,10 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\Group;
 
 use function define;
 use function defined;
@@ -36,10 +40,8 @@ use const INFO_MODULES;
 use const PHP_OS;
 use const TEST_PATH;
 
-/**
- * @covers \PhpMyAdmin\Config
- * @psalm-import-type ConnectionType from Connection
- */
+/** @psalm-import-type ConnectionType from Connection */
+#[CoversClass(Config::class)]
 class ConfigTest extends AbstractTestCase
 {
     protected Config $object;
@@ -126,9 +128,8 @@ PHP;
 
     /**
      * Test for CheckSystem
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testCheckSystem(): void
     {
         $this->object->checkSystem();
@@ -162,9 +163,8 @@ PHP;
      * @param string $os      Expected parsed OS (or null if none)
      * @param string $browser Expected parsed browser (or null if none)
      * @param string $version Expected browser version (or null if none)
-     *
-     * @dataProvider userAgentProvider
      */
+    #[DataProvider('userAgentProvider')]
     public function testCheckClient(
         string $agent,
         string $os,
@@ -323,9 +323,8 @@ PHP;
      *
      * @param string $server Server identification
      * @param int    $iis    Whether server should be detected as IIS
-     *
-     * @dataProvider serverNames
      */
+    #[DataProvider('serverNames')]
     public function testCheckWebServer(string $server, int $iis): void
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
@@ -442,9 +441,8 @@ PHP;
      * @param string $pmaAbsoluteUri  phpMyAdmin absolute URI
      * @param int    $port            server port
      * @param bool   $expected        expected result
-     *
-     * @dataProvider httpsParams
      */
+    #[DataProvider('httpsParams')]
     public function testIsHttps(
         string $scheme,
         string $https,
@@ -518,9 +516,8 @@ PHP;
      * @param string $request  The request URL used for phpMyAdmin
      * @param string $absolute The absolute URL used for phpMyAdmin
      * @param string $expected Expected root path
-     *
-     * @dataProvider rootUris
      */
+    #[DataProvider('rootUris')]
     public function testGetRootPath(string $request, string $absolute, string $expected): void
     {
         $_SERVER['PHP_SELF'] = $request;
@@ -556,9 +553,8 @@ PHP;
      *
      * @param string $source File name of config to load
      * @param bool   $result Expected result of loading
-     *
-     * @dataProvider configPaths
      */
+    #[DataProvider('configPaths')]
     public function testLoad(string $source, bool $result): void
     {
         if ($result) {
@@ -667,9 +663,8 @@ PHP;
 
     /**
      * Test for getTempDir
-     *
-     * @group file-system
      */
+    #[Group('file-system')]
     public function testGetTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
@@ -687,10 +682,9 @@ PHP;
 
     /**
      * Test for getUploadTempDir
-     *
-     * @group file-system
-     * @depends testGetTempDir
      */
+    #[Depends('testGetTempDir')]
+    #[Group('file-system')]
     public function testGetUploadTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
@@ -712,9 +706,8 @@ PHP;
      * @param mixed[]        $settings settings array
      * @param string|mixed[] $request  request
      * @param int            $expected expected result
-     *
-     * @dataProvider selectServerProvider
      */
+    #[DataProvider('selectServerProvider')]
     public function testSelectServer(array $settings, string|array $request, int $expected): void
     {
         $config = new Config();
@@ -756,9 +749,8 @@ PHP;
      * @param mixed[] $serverCfg Server configuration
      * @param mixed[] $expected  Expected result
      * @psalm-param ConnectionType $connectionType
-     *
-     * @dataProvider connectionParams
      */
+    #[DataProvider('connectionParams')]
     public function testGetConnectionParams(array $serverCfg, int $connectionType, array $expected): void
     {
         $result = Config::getConnectionParams(new Server($serverCfg), $connectionType);
@@ -894,11 +886,8 @@ PHP;
         ];
     }
 
-    /**
-     * @psalm-param ConnectionType $connectionType
-     *
-     * @dataProvider connectionParamsWhenConnectionIsUserOrAuxiliaryProvider
-     */
+    /** @psalm-param ConnectionType $connectionType */
+    #[DataProvider('connectionParamsWhenConnectionIsUserOrAuxiliaryProvider')]
     public function testGetConnectionParamsWhenConnectionIsUserOrAuxiliary(
         int $connectionType,
         string $host,

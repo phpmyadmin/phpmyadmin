@@ -7,13 +7,16 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisGeometryCollection;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use TCPDF;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisGeometryCollection
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
- */
+#[CoversClass(GisGeometryCollection::class)]
+#[PreserveGlobalState(false)]
+#[RunTestsInSeparateProcesses]
 class GisGeometryCollectionTest extends GisGeomTestCase
 {
     /**
@@ -36,9 +39,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @param string    $spatial spatial data of a row
      * @param ScaleData $minMax  expected results
-     *
-     * @dataProvider providerForTestScaleRow
      */
+    #[DataProvider('providerForTestScaleRow')]
     public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisGeometryCollection::singleton();
@@ -52,9 +54,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      * @param int          $index   index in $gis_data
      * @param string|null  $empty   empty parameter
      * @param string       $output  expected output
-     *
-     * @dataProvider providerForTestGenerateWkt
      */
+    #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisGeometryCollection::singleton();
@@ -83,9 +84,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @param string       $wkt    point in WKT form
      * @param array<mixed> $params expected output array
-     *
-     * @dataProvider providerForTestGenerateParams
      */
+    #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisGeometryCollection::singleton();
@@ -208,7 +208,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         ];
     }
 
-    /** @requires extension gd */
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $object = GisGeometryCollection::singleton();
@@ -239,9 +239,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      * @param int[]                    $color     line color
      * @param array<string, int|float> $scaleData scaling parameters
      * @param TCPDF                    $pdf       expected output
-     *
-     * @dataProvider providerForPrepareRowAsPdf
      */
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -286,9 +285,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      * @param int[]                    $color     line color
      * @param array<string, int|float> $scaleData scaling parameters
      * @param string                   $output    expected output
-     *
-     * @dataProvider providerForPrepareRowAsSvg
      */
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -330,9 +328,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      * @param string $label   field label
      * @param int[]  $color   line color
      * @param string $output  expected output
-     *
-     * @dataProvider providerForPrepareRowAsOl
      */
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

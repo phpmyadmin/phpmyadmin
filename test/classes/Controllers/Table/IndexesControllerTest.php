@@ -16,12 +16,13 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
 use function __;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Controllers\Table\IndexesController */
+#[CoversClass(IndexesController::class)]
 class IndexesControllerTest extends AbstractTestCase
 {
     /**

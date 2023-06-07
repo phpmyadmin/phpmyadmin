@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Query;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Compatibility;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Query\Compatibility */
+#[CoversClass(Compatibility::class)]
 class CompatibilityTest extends TestCase
 {
-    /** @dataProvider providerForTestHasAccountLocking */
+    #[DataProvider('providerForTestHasAccountLocking')]
     public function testHasAccountLocking(bool $expected, bool $isMariaDb, int $version): void
     {
         $this->assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
@@ -33,7 +35,7 @@ class CompatibilityTest extends TestCase
         ];
     }
 
-    /** @dataProvider providerForTestIsUUIDSupported */
+    #[DataProvider('providerForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);

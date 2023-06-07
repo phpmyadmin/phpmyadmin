@@ -10,13 +10,17 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Throwable;
 
 use function base64_encode;
 use function ob_get_clean;
 use function ob_start;
 
-/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp */
+#[CoversClass(AuthenticationHttp::class)]
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     protected AuthenticationHttp $object;
@@ -162,9 +166,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @param string      $expectedUser   expected username to be set
      * @param string|bool $expectedPass   expected password to be set
      * @param string|bool $oldUsr         value for $_REQUEST['old_usr']
-     *
-     * @dataProvider readCredentialsProvider
      */
+    #[DataProvider('readCredentialsProvider')]
     public function testAuthCheck(
         string $user,
         string $pass,
@@ -284,10 +287,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $this->assertEquals(3, $GLOBALS['server']);
     }
 
-    /**
-     * @group medium
-     * @runInSeparateProcess
-     */
+    #[Group('medium')]
+    #[RunInSeparateProcess]
     public function testAuthFails(): void
     {
         $GLOBALS['cfg']['Server']['host'] = '';

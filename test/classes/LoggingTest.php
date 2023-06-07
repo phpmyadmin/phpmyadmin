@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Logging;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Logging */
+#[CoversClass(Logging::class)]
 class LoggingTest extends AbstractTestCase
 {
     public function testGetLogMessage(): void

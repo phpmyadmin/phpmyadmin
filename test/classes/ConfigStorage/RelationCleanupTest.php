@@ -10,8 +10,9 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\ConfigStorage\RelationCleanup */
+#[CoversClass(RelationCleanup::class)]
 class RelationCleanupTest extends AbstractTestCase
 {
     public function testColumnWithoutRelations(): void

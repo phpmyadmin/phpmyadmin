@@ -6,17 +6,17 @@ namespace PhpMyAdmin\Tests\Identifiers;
 
 use PhpMyAdmin\Identifiers\InvalidTriggerName;
 use PhpMyAdmin\Identifiers\TriggerName;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\Identifiers\InvalidTriggerName
- * @covers \PhpMyAdmin\Identifiers\TriggerName
- */
+#[CoversClass(InvalidTriggerName::class)]
+#[CoversClass(TriggerName::class)]
 final class TriggerNameTest extends TestCase
 {
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testValidName(string $validName): void
     {
         $name = TriggerName::from($validName);
@@ -24,7 +24,7 @@ final class TriggerNameTest extends TestCase
         $this->assertEquals($validName, (string) $name);
     }
 
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testTryFromValueValidName(string $validName): void
     {
         $name = TriggerName::tryFrom($validName);
@@ -41,7 +41,7 @@ final class TriggerNameTest extends TestCase
         yield [str_repeat('a', 64)];
     }
 
-    /** @dataProvider providerForTestInvalidNames */
+    #[DataProvider('providerForTestInvalidNames')]
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
         $this->assertNull(TriggerName::tryFrom($name));

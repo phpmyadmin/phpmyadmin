@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\Nodes\NodeTrigger;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Navigation\Nodes\NodeTrigger */
+#[CoversClass(NodeTrigger::class)]
 class NodeTriggerTest extends AbstractTestCase
 {
     /**

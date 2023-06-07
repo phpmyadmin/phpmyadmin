@@ -11,8 +11,9 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\CollationConnectionController */
+#[CoversClass(CollationConnectionController::class)]
 class CollationConnectionControllerTest extends AbstractTestCase
 {
     public function testInvoke(): void

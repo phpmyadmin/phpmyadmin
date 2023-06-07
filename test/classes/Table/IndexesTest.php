@@ -12,8 +12,9 @@ use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Table\Indexes */
+#[CoversClass(Indexes::class)]
 class IndexesTest extends AbstractTestCase
 {
     protected function setUp(): void

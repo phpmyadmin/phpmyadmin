@@ -12,9 +12,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Structure\SaveController */
+#[CoversClass(SaveController::class)]
 class SaveControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

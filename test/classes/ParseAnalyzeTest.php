@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StatementInfo;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\ParseAnalyze */
+#[CoversClass(ParseAnalyze::class)]
 class ParseAnalyzeTest extends AbstractTestCase
 {
     protected function setUp(): void

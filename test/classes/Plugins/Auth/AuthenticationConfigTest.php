@@ -10,12 +10,13 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Throwable;
 
 use function ob_get_clean;
 use function ob_start;
 
-/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig */
+#[CoversClass(AuthenticationConfig::class)]
 class AuthenticationConfigTest extends AbstractTestCase
 {
     protected AuthenticationConfig $object;

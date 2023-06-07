@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/** @covers \PhpMyAdmin\Gis\GisGeometry */
+#[CoversClass(GisGeometry::class)]
 class GisGeometryTest extends AbstractTestCase
 {
     /** @var GisGeometry&MockObject */
@@ -43,9 +45,8 @@ class GisGeometryTest extends AbstractTestCase
      * @param string         $pointSet Point set
      * @param ScaleData|null $minMax   Existing min, max values
      * @param ScaleData|null $output   Expected output array
-     *
-     * @dataProvider providerForTestSetMinMax
      */
+    #[DataProvider('providerForTestSetMinMax')]
     public function testSetMinMax(string $pointSet, ScaleData|null $minMax, ScaleData|null $output): void
     {
         $this->assertEquals(
@@ -77,9 +78,8 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @param string  $value  Geometry data
      * @param mixed[] $output Expected output
-     *
-     * @dataProvider providerForTestParseWktAndSrid
      */
+    #[DataProvider('providerForTestParseWktAndSrid')]
     public function testParseWktAndSrid(string $value, array $output): void
     {
         $this->assertEquals(
@@ -120,9 +120,8 @@ class GisGeometryTest extends AbstractTestCase
      * @param mixed[]|null $scaleData Data related to scaling
      * @param bool         $linear    If true, as a 1D array, else as a 2D array
      * @param mixed[]      $output    Expected output
-     *
-     * @dataProvider providerForTestExtractPointsInternal
      */
+    #[DataProvider('providerForTestExtractPointsInternal')]
     public function testExtractPointsInternal(
         string $pointSet,
         array|null $scaleData,

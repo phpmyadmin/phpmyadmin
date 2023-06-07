@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-/** @coversNothing */
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Group;
+
+#[CoversNothing]
 class NormalizationTest extends TestBase
 {
     /**
@@ -37,9 +40,8 @@ class NormalizationTest extends TestBase
 
     /**
      * Test for normalization to 1NF
-     *
-     * @group large
      */
+    #[Group('large')]
     public function testNormalizationTo1NF(): void
     {
         $this->assertTrue(

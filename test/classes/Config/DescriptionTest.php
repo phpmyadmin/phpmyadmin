@@ -7,15 +7,17 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 use function array_keys;
 use function in_array;
 
-/**
- * @covers \PhpMyAdmin\Config\Descriptions
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
- */
+#[CoversClass(Descriptions::class)]
+#[PreserveGlobalState(false)]
+#[RunTestsInSeparateProcesses]
 class DescriptionTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -29,9 +31,8 @@ class DescriptionTest extends AbstractTestCase
      * @param string $item     item
      * @param string $type     type
      * @param string $expected expected result
-     *
-     * @dataProvider getValues
      */
+    #[DataProvider('getValues')]
     public function testGet(string $item, string $type, string $expected): void
     {
         $this->assertEquals($expected, Descriptions::get($item, $type));

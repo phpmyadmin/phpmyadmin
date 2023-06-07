@@ -12,8 +12,10 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Import\SimulateDml */
+#[CoversClass(SimulateDml::class)]
 class SimulateDmlTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -29,7 +31,7 @@ class SimulateDmlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->dbi;
     }
 
-    /** @dataProvider providerForTestGetMatchedRows */
+    #[DataProvider('providerForTestGetMatchedRows')]
     public function testGetMatchedRows(string $sqlQuery, string $simulatedQuery): void
     {
         $GLOBALS['db'] = 'PMA';

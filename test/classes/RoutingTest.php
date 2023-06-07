@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests;
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function copy;
 use function unlink;
@@ -14,7 +16,7 @@ use function unlink;
 use const CACHE_DIR;
 use const TEST_PATH;
 
-/** @covers \PhpMyAdmin\Routing */
+#[CoversClass(Routing::class)]
 class RoutingTest extends AbstractTestCase
 {
     /**
@@ -66,9 +68,8 @@ class RoutingTest extends AbstractTestCase
      * @param string $request  The REQUEST_URI value
      * @param string $pathInfo The PATH_INFO value
      * @param string $expected Expected result
-     *
-     * @dataProvider providerForTestCleanupPathInfo
      */
+    #[DataProvider('providerForTestCleanupPathInfo')]
     public function testCleanupPathInfo(string $phpSelf, string $request, string $pathInfo, string $expected): void
     {
         $_SERVER['PHP_SELF'] = $phpSelf;

@@ -13,8 +13,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Normalization\MoveRepeatingGroup */
+#[CoversClass(MoveRepeatingGroup::class)]
 class MoveRepeatingGroupTest extends AbstractTestCase
 {
     public function testDefault(): void
