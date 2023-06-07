@@ -13,12 +13,13 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function array_sum;
 use function htmlspecialchars;
 
-/** @covers \PhpMyAdmin\Controllers\Server\Status\QueriesController */
+#[CoversClass(QueriesController::class)]
 class QueriesControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

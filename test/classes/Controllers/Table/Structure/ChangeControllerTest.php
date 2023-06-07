@@ -13,9 +13,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Structure\ChangeController */
+#[CoversClass(ChangeController::class)]
 class ChangeControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

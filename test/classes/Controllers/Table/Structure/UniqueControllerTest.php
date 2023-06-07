@@ -12,8 +12,9 @@ use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Structure\UniqueController */
+#[CoversClass(UniqueController::class)]
 class UniqueControllerTest extends AbstractTestCase
 {
     public function testAddUniqueKeyToSingleField(): void

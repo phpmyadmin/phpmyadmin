@@ -10,13 +10,15 @@ use Nyholm\Psr7\Factory\Psr17Factory as NyholmPsr17Factory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Psr7\Factory\ServerRequestFactory as SlimServerRequestFactory;
 
 use function class_exists;
 
-/** @covers \PhpMyAdmin\Http\Factory\ServerRequestFactory */
+#[CoversClass(ServerRequestFactory::class)]
 class ServerRequestFactoryTest extends AbstractTestCase
 {
     private const IMPLEMENTATION_CLASSES = [
@@ -54,11 +56,8 @@ class ServerRequestFactoryTest extends AbstractTestCase
         }
     }
 
-    /**
-     * @phpstan-param class-string $className
-     *
-     * @dataProvider dataProviderPsr7Implementations
-     */
+    /** @phpstan-param class-string $className */
+    #[DataProvider('dataProviderPsr7Implementations')]
     public function testPsr7ImplementationGet(string $className, string $humanName): void
     {
         $this->runOrSkip($className, $humanName);
@@ -164,11 +163,8 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $this->assertSame('', $request->getParsedBodyParam('input3', 'default'));
     }
 
-    /**
-     * @phpstan-param class-string $className
-     *
-     * @dataProvider dataProviderPsr7Implementations
-     */
+    /** @phpstan-param class-string $className */
+    #[DataProvider('dataProviderPsr7Implementations')]
     public function testPsr7ImplementationCreateServerRequestFactory(string $className, string $humanName): void
     {
         $this->runOrSkip($className, $humanName);

@@ -13,12 +13,13 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
 use function __;
 use function htmlspecialchars;
 
-/** @covers \PhpMyAdmin\SqlQueryForm */
+#[CoversClass(SqlQueryForm::class)]
 class SqlQueryFormTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

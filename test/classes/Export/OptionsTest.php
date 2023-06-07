@@ -13,8 +13,9 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Export\Options */
+#[CoversClass(Options::class)]
 class OptionsTest extends AbstractTestCase
 {
     private Options $export;

@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\VersionInformation;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use stdClass;
 
-/** @covers \PhpMyAdmin\VersionInformation */
+#[CoversClass(VersionInformation::class)]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
@@ -51,10 +54,9 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Test version checking
-     *
-     * @group large
-     * @group network
      */
+    #[Group('large')]
+    #[Group('network')]
     public function testGetLatestVersion(): void
     {
         $this->setProxySettings();
@@ -72,9 +74,8 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @param string $version Version string
      * @param int    $numeric Integer matching version
-     *
-     * @dataProvider dataVersions
      */
+    #[DataProvider('dataVersions')]
     public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
@@ -168,9 +169,8 @@ class VersionInformationTest extends AbstractTestCase
      * @param list<object>       $versions           The versions to use
      * @param array{int, string} $conditions         The conditions that will be executed
      * @param string|null        $matchedLastVersion The version that will be matched
-     *
-     * @dataProvider dataProviderVersionConditions
      */
+    #[DataProvider('dataProviderVersionConditions')]
     public function testGetLatestCompatibleVersionWithNewPHPVersion(
         array $versions,
         array $conditions,

@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Sanitize */
+#[CoversClass(Sanitize::class)]
 class SanitizeTest extends AbstractTestCase
 {
     /**
@@ -53,9 +55,8 @@ class SanitizeTest extends AbstractTestCase
      *
      * @param string $link     link
      * @param string $expected expected result
-     *
-     * @dataProvider docLinks
      */
+    #[DataProvider('docLinks')]
     public function testDoc(string $link, string $expected): void
     {
         $this->assertEquals(
@@ -166,9 +167,8 @@ class SanitizeTest extends AbstractTestCase
      * @param string                   $key      Key
      * @param string|bool|int|string[] $value    Value
      * @param string                   $expected Expected output
-     *
-     * @dataProvider variables
      */
+    #[DataProvider('variables')]
     public function testGetJsValue(string $key, string|bool|int|array $value, string $expected): void
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
@@ -243,9 +243,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests link sanitize
-     *
-     * @dataProvider dataProviderCheckLinks
      */
+    #[DataProvider('dataProviderCheckLinks')]
     public function testCheckLink(bool $expected, string $url, bool $http, bool $other): void
     {
         $this->assertSame(

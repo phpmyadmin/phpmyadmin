@@ -12,15 +12,16 @@ use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use ReflectionClass;
 
 use function array_slice;
 
-/**
- * @covers \PhpMyAdmin\Database\CentralColumns
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
- */
+#[CoversClass(CentralColumns::class)]
+#[PreserveGlobalState(false)]
+#[RunTestsInSeparateProcesses]
 class CentralColumnsTest extends AbstractTestCase
 {
     private CentralColumns $centralColumns;

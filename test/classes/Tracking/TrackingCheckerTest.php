@@ -12,9 +12,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tracking\TrackedTable;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\TrackingChecker;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Tracking\TrackingChecker */
+#[CoversClass(TrackingChecker::class)]
 class TrackingCheckerTest extends AbstractTestCase
 {
     private TrackingChecker $trackingChecker;

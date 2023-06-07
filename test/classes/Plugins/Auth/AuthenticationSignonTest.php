@@ -9,6 +9,7 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Throwable;
 
 use function ob_get_clean;
@@ -17,7 +18,7 @@ use function session_get_cookie_params;
 use function session_id;
 use function session_name;
 
-/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon */
+#[CoversClass(AuthenticationSignon::class)]
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     protected AuthenticationSignon $object;

@@ -6,17 +6,17 @@ namespace PhpMyAdmin\Tests\Identifiers;
 
 use PhpMyAdmin\Identifiers\InvalidTableName;
 use PhpMyAdmin\Identifiers\TableName;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\Identifiers\TableName
- * @covers \PhpMyAdmin\Identifiers\InvalidTableName
- */
+#[CoversClass(TableName::class)]
+#[CoversClass(InvalidTableName::class)]
 class TableNameTest extends TestCase
 {
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testValidName(string $validName): void
     {
         $name = TableName::from($validName);
@@ -24,7 +24,7 @@ class TableNameTest extends TestCase
         $this->assertEquals($validName, (string) $name);
     }
 
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testTryFromValueValidName(string $validName): void
     {
         $name = TableName::tryFrom($validName);
@@ -41,7 +41,7 @@ class TableNameTest extends TestCase
         yield [str_repeat('a', 64)];
     }
 
-    /** @dataProvider providerForTestInvalidNames */
+    #[DataProvider('providerForTestInvalidNames')]
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
         $this->assertNull(TableName::tryFrom($name));

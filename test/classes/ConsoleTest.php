@@ -7,9 +7,10 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Template;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
-/** @covers \PhpMyAdmin\Console */
+#[CoversClass(Console::class)]
 class ConsoleTest extends AbstractTestCase
 {
     public function testGetScripts(): void

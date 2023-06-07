@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Menu;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Menu */
+#[CoversClass(Menu::class)]
 class MenuTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

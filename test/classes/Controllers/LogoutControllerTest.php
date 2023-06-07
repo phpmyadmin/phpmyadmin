@@ -9,8 +9,9 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\LogoutController */
+#[CoversClass(LogoutController::class)]
 class LogoutControllerTest extends AbstractTestCase
 {
     public function testValidLogout(): void

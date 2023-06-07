@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-/** @coversNothing */
+use PHPUnit\Framework\Attributes\CoversNothing;
+
+#[CoversNothing]
 class SqlQueryTest extends TestBase
 {
     /**

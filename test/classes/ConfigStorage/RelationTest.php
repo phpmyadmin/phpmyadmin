@@ -10,14 +10,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 
 use function implode;
 
-/**
- * @covers \PhpMyAdmin\ConfigStorage\Relation
- * @group medium
- */
+#[CoversClass(Relation::class)]
+#[Group('medium')]
 class RelationTest extends AbstractTestCase
 {
     /**
@@ -2162,9 +2163,8 @@ class RelationTest extends AbstractTestCase
     /**
      * @param array<string, bool|string> $params
      * @param string[]                   $queries
-     *
-     * @dataProvider providerForTestRenameTable
      */
+    #[DataProvider('providerForTestRenameTable')]
     public function testRenameTable(array $params, array $queries): void
     {
         $dummyDbi = $this->createDbiDummy();

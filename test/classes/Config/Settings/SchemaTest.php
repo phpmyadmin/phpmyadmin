@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Schema;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function array_keys;
 use function array_merge;
 
-/** @covers \PhpMyAdmin\Config\Settings\Schema */
+#[CoversClass(Schema::class)]
 class SchemaTest extends TestCase
 {
     /** @var array<string, bool|string> */
@@ -40,9 +42,8 @@ class SchemaTest extends TestCase
     /**
      * @param mixed[][] $values
      * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
-     *
-     * @dataProvider providerForTestConstructor
      */
+    #[DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

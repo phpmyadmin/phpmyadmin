@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Dbal;
 
 use PhpMyAdmin\Dbal\Warning;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Dbal\Warning */
+#[CoversClass(Warning::class)]
 class WarningTest extends TestCase
 {
-    /**
-     * @param mixed[] $row
-     *
-     * @dataProvider providerForTestWarning
-     */
+    /** @param mixed[] $row */
+    #[DataProvider('providerForTestWarning')]
     public function testWarning(array $row, string $level, int $code, string $message, string $toString): void
     {
         $warning = Warning::fromArray($row);

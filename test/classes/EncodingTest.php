@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function _setlocale;
 use function file_get_contents;
@@ -18,7 +21,7 @@ use function unlink;
 use const LC_ALL;
 use const PHP_INT_SIZE;
 
-/** @covers \PhpMyAdmin\Encoding */
+#[CoversClass(Encoding::class)]
 class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -37,9 +40,8 @@ class EncodingTest extends AbstractTestCase
 
     /**
      * Test for Encoding::convertString
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testNoConversion(): void
     {
         $this->assertEquals(
@@ -58,7 +60,7 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
-    /** @requires extension recode */
+    #[RequiresPhpExtension('recode')]
     public function testRecode(): void
     {
         Encoding::setEngine(Encoding::ENGINE_RECODE);
@@ -76,10 +78,9 @@ class EncodingTest extends AbstractTestCase
      * This group is used on debian packaging to exclude the test
      *
      * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
-     *
-     * @group extension-iconv
-     * @requires extension iconv
      */
+    #[Group('extension-iconv')]
+    #[RequiresPhpExtension('iconv')]
     public function testIconv(): void
     {
         // Set PHP native locale

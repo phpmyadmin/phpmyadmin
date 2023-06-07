@@ -10,15 +10,15 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
 use function htmlspecialchars;
 
 use const ENT_COMPAT;
 
-/**
- * @covers \PhpMyAdmin\Export
- * @group large
- */
+#[CoversClass(Export::class)]
+#[Group('large')]
 class ExportTest extends AbstractTestCase
 {
     public function testMergeAliases(): void

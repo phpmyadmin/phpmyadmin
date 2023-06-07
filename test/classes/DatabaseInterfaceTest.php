@@ -16,8 +16,10 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\DatabaseInterface */
+#[CoversClass(DatabaseInterface::class)]
 class DatabaseInterfaceTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -47,9 +49,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param mixed[]          $expected        expected result
      * @param bool             $needsSecondCall The test will need to call another time the DB
      * @psalm-param list<non-empty-list<string>>|false $value
-     *
-     * @dataProvider currentUserData
      */
+    #[DataProvider('currentUserData')]
     public function testGetCurrentUser(array|false $value, string $string, array $expected, bool $needsSecondCall): void
     {
         $dummyDbi = $this->createDbiDummy();
@@ -170,9 +171,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param bool  $isMariaDb  True if mariadb
      * @param bool  $isPercona  True if percona
      * @phpstan-param array<array-key, mixed> $version
-     *
-     * @dataProvider provideDatabaseVersionData
      */
+    #[DataProvider('provideDatabaseVersionData')]
     public function testPostConnectShouldSetVersion(
         array $version,
         int $versionInt,
@@ -238,9 +238,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param int    $errorNumber  Error code
      * @param string $errorMessage Error message as returned by server
      * @param string $match        Expected text
-     *
-     * @dataProvider errorData
      */
+    #[DataProvider('errorData')]
     public function testFormatError(int $errorNumber, string $errorMessage, string $match): void
     {
         $this->assertStringContainsString(
@@ -268,9 +267,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param string[][] $value    value
      * @param bool       $expected expected result
      * @psalm-param list<non-empty-list<string>> $value
-     *
-     * @dataProvider isAmazonRdsData
      */
+    #[DataProvider('isAmazonRdsData')]
     public function testIsAmazonRdsData(array $value, bool $expected): void
     {
         $dummyDbi = $this->createDbiDummy();
@@ -310,9 +308,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param int    $expected expected numeric version
      * @param int    $major    expected major version
      * @param bool   $upgrade  whether upgrade should ne needed
-     *
-     * @dataProvider versionData
      */
+    #[DataProvider('versionData')]
     public function testVersion(string $version, int $expected, int $major, bool $upgrade): void
     {
         $verInt = Utilities::versionToInt($version);
@@ -702,9 +699,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param bool  $isMariaDb  True if mariadb
      * @param bool  $isPercona  True if percona
      * @phpstan-param array<array-key, mixed> $version
-     *
-     * @dataProvider provideDatabaseVersionData
      */
+    #[DataProvider('provideDatabaseVersionData')]
     public function testSetVersion(
         array $version,
         int $versionInt,
@@ -754,7 +750,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ];
     }
 
-    /** @dataProvider providerForTestGetLowerCaseNames */
+    #[DataProvider('providerForTestGetLowerCaseNames')]
     public function testGetLowerCaseNames(string|false|null $result, int $expected): void
     {
         $dbiDummy = $this->createDbiDummy();

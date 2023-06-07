@@ -12,17 +12,16 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function in_array;
 
-/** @covers \PhpMyAdmin\Controllers\Normalization\FirstNormalForm\FirstStepController */
+#[CoversClass(FirstStepController::class)]
 class FirstStepControllerTest extends AbstractTestCase
 {
-    /**
-     * @psalm-param '1nf'|'2nf'|'3nf' $expectedNormalizeTo
-     *
-     * @dataProvider providerForTestDefault
-     */
+    /** @psalm-param '1nf'|'2nf'|'3nf' $expectedNormalizeTo */
+    #[DataProvider('providerForTestDefault')]
     public function testDefault(string|null $normalizeTo, string $expectedNormalizeTo): void
     {
         $GLOBALS['db'] = 'test_db';

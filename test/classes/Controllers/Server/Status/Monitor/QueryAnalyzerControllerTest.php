@@ -13,8 +13,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController */
+#[CoversClass(QueryAnalyzerController::class)]
 class QueryAnalyzerControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

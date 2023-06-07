@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ShowGrants;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\CheckUserPrivileges */
+#[CoversClass(CheckUserPrivileges::class)]
 class CheckUserPrivilegesTest extends AbstractTestCase
 {
     private CheckUserPrivileges $checkUserPrivileges;

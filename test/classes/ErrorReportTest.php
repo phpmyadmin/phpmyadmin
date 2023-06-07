@@ -12,6 +12,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function htmlspecialchars;
 use function json_encode;
@@ -21,7 +23,7 @@ use const ENT_QUOTES;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 
-/** @covers \PhpMyAdmin\ErrorReport */
+#[CoversClass(ErrorReport::class)]
 class ErrorReportTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -311,9 +313,8 @@ class ErrorReportTest extends AbstractTestCase
      *
      * @param string  $url    The url to test
      * @param mixed[] $result The result
-     *
-     * @dataProvider urlsToSanitize
      */
+    #[DataProvider('urlsToSanitize')]
     public function testSanitizeUrl(string $url, array $result): void
     {
         // $this->errorReport->sanitizeUrl

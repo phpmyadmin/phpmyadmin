@@ -8,8 +8,10 @@ use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Database\Search */
+#[CoversClass(Search::class)]
 class SearchTest extends AbstractTestCase
 {
     protected Search $object;
@@ -60,9 +62,8 @@ class SearchTest extends AbstractTestCase
      *
      * @param string $type     type
      * @param string $expected expected result
-     *
-     * @dataProvider searchTypes
      */
+    #[DataProvider('searchTypes')]
     public function testGetWhereClause(string $type, string $expected): void
     {
         $_POST['criteriaSearchType'] = $type;

@@ -11,9 +11,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
-/** @covers \PhpMyAdmin\Database\Designer */
+#[CoversClass(Designer::class)]
 class DesignerTest extends AbstractTestCase
 {
     private Designer $designer;

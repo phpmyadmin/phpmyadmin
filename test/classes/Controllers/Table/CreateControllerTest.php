@@ -12,10 +12,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function array_merge;
 
-/** @covers \PhpMyAdmin\Controllers\Table\CreateController */
+#[CoversClass(CreateController::class)]
 class CreateControllerTest extends AbstractTestCase
 {
     public function testCreateController(): void

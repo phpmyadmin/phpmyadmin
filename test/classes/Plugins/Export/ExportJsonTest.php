@@ -14,13 +14,13 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
 use ReflectionProperty;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportJson
- * @group medium
- */
+#[CoversClass(ExportJson::class)]
+#[Group('medium')]
 class ExportJsonTest extends AbstractTestCase
 {
     protected ExportJson $object;

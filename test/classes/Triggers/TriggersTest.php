@@ -7,12 +7,14 @@ namespace PhpMyAdmin\Tests\Triggers;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 
-/**
- * @covers \PhpMyAdmin\Triggers\Trigger
- * @covers \PhpMyAdmin\Triggers\Triggers
- */
+#[CoversClass(Trigger::class)]
+#[CoversClass(Triggers::class)]
 class TriggersTest extends AbstractTestCase
 {
     private Triggers $triggers;
@@ -48,9 +50,8 @@ class TriggersTest extends AbstractTestCase
      *
      * @param array<string, string> $in  Input
      * @param array<string, string> $out Expected output
-     *
-     * @dataProvider providerGetDataFromRequestEmpty
      */
+    #[DataProvider('providerGetDataFromRequestEmpty')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
@@ -120,10 +121,9 @@ class TriggersTest extends AbstractTestCase
      * Test for getEditorForm
      *
      * @param array<string, string> $data Data for trigger
-     *
-     * @dataProvider providerGetEditorFormAdd
-     * @group medium
      */
+    #[DataProvider('providerGetEditorFormAdd')]
+    #[Group('medium')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -166,10 +166,9 @@ class TriggersTest extends AbstractTestCase
      * Test for getEditorForm
      *
      * @param array<string, string> $data Data for trigger
-     *
-     * @dataProvider providerGetEditorFormEdit
-     * @group medium
      */
+    #[DataProvider('providerGetEditorFormEdit')]
+    #[Group('medium')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -212,9 +211,8 @@ class TriggersTest extends AbstractTestCase
      * Test for getEditorForm
      *
      * @param array<string, string> $data Data for trigger
-     *
-     * @dataProvider providerGetEditorFormAjax
      */
+    #[DataProvider('providerGetEditorFormAjax')]
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -257,9 +255,8 @@ class TriggersTest extends AbstractTestCase
      * @param string $definition Definition
      * @param string $query      Query
      * @param int    $numErr     Error number
-     *
-     * @dataProvider providerGetQueryFromRequest
      */
+    #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(
         string $definer,
         string $name,
@@ -396,7 +393,6 @@ class TriggersTest extends AbstractTestCase
         $this->assertSame($expected, $triggers);
     }
 
-    /** @covers \PhpMyAdmin\Query\Generator */
     public function testGetDetails3(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -426,7 +422,6 @@ class TriggersTest extends AbstractTestCase
         $this->assertSame($expected, $triggers);
     }
 
-    /** @covers \PhpMyAdmin\Query\Generator */
     public function testGetDetails4(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

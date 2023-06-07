@@ -14,10 +14,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Tracking\TrackingChecker;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 use ReflectionException;
 
-/** @covers \PhpMyAdmin\Controllers\Database\StructureController */
+#[CoversClass(StructureController::class)]
 class StructureControllerTest extends AbstractTestCase
 {
     private ResponseStub $response;

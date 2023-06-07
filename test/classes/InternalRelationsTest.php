@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\InternalRelations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\InternalRelations */
+#[CoversClass(InternalRelations::class)]
 class InternalRelationsTest extends TestCase
 {
     public function testGetInformationSchema(): void

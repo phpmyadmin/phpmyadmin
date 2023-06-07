@@ -13,12 +13,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
 use function json_encode;
 use function time;
 
-/** @covers \PhpMyAdmin\UserPreferences */
+#[CoversClass(UserPreferences::class)]
 class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /**

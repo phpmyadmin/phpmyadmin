@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\SqlQueryBox;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Config\Settings\SqlQueryBox */
+#[CoversClass(SqlQueryBox::class)]
 class SqlQueryBoxTest extends TestCase
 {
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testEdit(mixed $actual, bool $expected): void
     {
         $sqlQueryBox = new SqlQueryBox(['Edit' => $actual]);
@@ -21,7 +23,7 @@ class SqlQueryBoxTest extends TestCase
         $this->assertSame($expected, $sqlQueryBoxArray['Edit']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testExplain(mixed $actual, bool $expected): void
     {
         $sqlQueryBox = new SqlQueryBox(['Explain' => $actual]);
@@ -32,7 +34,7 @@ class SqlQueryBoxTest extends TestCase
         $this->assertSame($expected, $sqlQueryBoxArray['Explain']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testShowAsPHP(mixed $actual, bool $expected): void
     {
         $sqlQueryBox = new SqlQueryBox(['ShowAsPHP' => $actual]);
@@ -43,7 +45,7 @@ class SqlQueryBoxTest extends TestCase
         $this->assertSame($expected, $sqlQueryBoxArray['ShowAsPHP']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testRefresh(mixed $actual, bool $expected): void
     {
         $sqlQueryBox = new SqlQueryBox(['Refresh' => $actual]);

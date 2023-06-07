@@ -13,11 +13,12 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Database\Designer\Common */
+#[CoversClass(Common::class)]
 class CommonTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

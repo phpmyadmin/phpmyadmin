@@ -6,16 +6,17 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Header;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionProperty;
 
 use function gmdate;
 
 use const DATE_RFC1123;
 
-/**
- * @covers \PhpMyAdmin\Header
- * @group medium
- */
+#[CoversClass(Header::class)]
+#[Group('medium')]
 class HeaderTest extends AbstractTestCase
 {
     /**
@@ -132,10 +133,7 @@ class HeaderTest extends AbstractTestCase
         $this->assertFalse($reflection->getValue($header));
     }
 
-    /**
-     * @covers \PhpMyAdmin\Core::getNoCacheHeaders
-     * @dataProvider providerForTestGetHttpHeaders
-     */
+    #[DataProvider('providerForTestGetHttpHeaders')]
     public function testGetHttpHeaders(
         string|bool $frameOptions,
         string $cspAllow,

@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Http;
 
 use PhpMyAdmin\Http\ServerRequest;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 
-/** @covers \PhpMyAdmin\Http\ServerRequest */
+#[CoversClass(ServerRequest::class)]
 class ServerRequestTest extends TestCase
 {
     /**
      * @param array<string, string> $get
      * @param array<string, string> $post
-     *
-     * @dataProvider providerForTestGetRoute
      */
+    #[DataProvider('providerForTestGetRoute')]
     public function testGetRoute(string $expected, array $get, array $post): void
     {
         $requestStub = $this->createStub(ServerRequestInterface::class);

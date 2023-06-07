@@ -15,15 +15,15 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
 use ReflectionProperty;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportPdf
- * @group medium
- */
+#[CoversClass(ExportPdf::class)]
+#[Group('medium')]
 class ExportPdfTest extends AbstractTestCase
 {
     protected ExportPdf $object;

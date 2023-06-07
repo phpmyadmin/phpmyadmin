@@ -9,9 +9,13 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Transformations */
+#[CoversClass(Transformations::class)]
 class TransformationsTest extends AbstractTestCase
 {
     private Transformations $transformations;
@@ -45,9 +49,8 @@ class TransformationsTest extends AbstractTestCase
      *
      * @param string  $input    String to parse
      * @param mixed[] $expected Expected result
-     *
-     * @dataProvider getOptionsData
      */
+    #[DataProvider('getOptionsData')]
     public function testGetOptions(string $input, array $expected): void
     {
         $this->assertEquals(
@@ -72,10 +75,8 @@ class TransformationsTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[PreserveGlobalState(false)]
+    #[RunInSeparateProcess]
     public function testGetTypes(): void
     {
         $this->assertEquals(
@@ -240,9 +241,8 @@ class TransformationsTest extends AbstractTestCase
     /**
      * @param string $value    value
      * @param string $expected expected result
-     *
-     * @dataProvider fixupData
      */
+    #[DataProvider('fixupData')]
     public function testFixup(string $value, string $expected): void
     {
         $this->assertEquals(
@@ -268,9 +268,8 @@ class TransformationsTest extends AbstractTestCase
      *
      * @param string $file                transformation file
      * @param string $expectedDescription expected description
-     *
-     * @dataProvider providerGetDescription
      */
+    #[DataProvider('providerGetDescription')]
     public function testGetDescription(string $file, string $expectedDescription): void
     {
         $this->assertEquals(
@@ -294,9 +293,8 @@ class TransformationsTest extends AbstractTestCase
      *
      * @param string $file         transformation file
      * @param string $expectedName expected name
-     *
-     * @dataProvider providerGetName
      */
+    #[DataProvider('providerGetName')]
     public function testGetName(string $file, string $expectedName): void
     {
         $this->assertEquals(

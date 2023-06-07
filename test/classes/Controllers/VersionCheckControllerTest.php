@@ -10,11 +10,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\VersionInformation;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
-/**
- * @covers \PhpMyAdmin\Controllers\VersionCheckController
- * @runTestsInSeparateProcesses
- */
+#[CoversClass(VersionCheckController::class)]
+#[RunTestsInSeparateProcesses]
 class VersionCheckControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

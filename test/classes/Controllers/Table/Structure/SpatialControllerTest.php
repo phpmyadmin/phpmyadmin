@@ -12,8 +12,9 @@ use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Structure\SpatialController */
+#[CoversClass(SpatialController::class)]
 class SpatialControllerTest extends AbstractTestCase
 {
     public function testAddSpatialKeyToSingleField(): void

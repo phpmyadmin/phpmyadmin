@@ -7,10 +7,12 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function __;
 
-/** @covers \PhpMyAdmin\Server\Select */
+#[CoversClass(Select::class)]
 class SelectTest extends AbstractTestCase
 {
     /**
@@ -60,9 +62,8 @@ class SelectTest extends AbstractTestCase
 
     /**
      * Test for Select::render
-     *
-     * @dataProvider renderDataProvider
      */
+    #[DataProvider('renderDataProvider')]
     public function testRender(bool $notOnlyOptions, bool $omitFieldset): void
     {
         if ($notOnlyOptions) {

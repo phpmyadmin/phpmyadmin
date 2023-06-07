@@ -11,8 +11,11 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
 
-/** @covers \PhpMyAdmin\Database\Routines */
+#[CoversClass(Routines::class)]
 class RoutinesTest extends AbstractTestCase
 {
     private Routines $routines;
@@ -53,9 +56,8 @@ class RoutinesTest extends AbstractTestCase
      *
      * @param array<string, mixed> $in  Input
      * @param array<string, mixed> $out Expected output
-     *
-     * @dataProvider providerGetDataFromRequest
      */
+    #[DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequest(array $in, array $out): void
     {
         unset($_POST);
@@ -245,10 +247,9 @@ class RoutinesTest extends AbstractTestCase
      * Test for getParameterRow
      *
      * @param array<string, mixed> $data Data for routine
-     *
-     * @depends testGetParameterRowEmpty
-     * @dataProvider providerGetParameterRow
      */
+    #[Depends('testGetParameterRowEmpty')]
+    #[DataProvider('providerGetParameterRow')]
     public function testGetParameterRow(array $data, int $index, string $matcher): void
     {
         $this->assertStringContainsString(
@@ -303,10 +304,9 @@ class RoutinesTest extends AbstractTestCase
      * Test for getParameterRow
      *
      * @param array<string, mixed> $data Data for routine
-     *
-     * @depends testGetParameterRow
-     * @dataProvider providerGetParameterRowAjax
      */
+    #[Depends('testGetParameterRow')]
+    #[DataProvider('providerGetParameterRowAjax')]
     public function testGetParameterRowAjax(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -363,10 +363,9 @@ class RoutinesTest extends AbstractTestCase
      * Test for getEditorForm
      *
      * @param array<string, mixed> $data Data for routine
-     *
-     * @depends testGetParameterRowAjax
-     * @dataProvider providerGetEditorForm1
      */
+    #[Depends('testGetParameterRowAjax')]
+    #[DataProvider('providerGetEditorForm1')]
     public function testGetEditorForm1(array $data, string $matcher): void
     {
         $this->assertStringContainsString(
@@ -432,10 +431,9 @@ class RoutinesTest extends AbstractTestCase
      * Test for getEditorForm
      *
      * @param array<string, mixed> $data Data for routine
-     *
-     * @depends testGetParameterRowAjax
-     * @dataProvider providerGetEditorForm2
      */
+    #[Depends('testGetParameterRowAjax')]
+    #[DataProvider('providerGetEditorForm2')]
     public function testGetEditorForm2(array $data, string $matcher): void
     {
         $this->assertStringContainsString(
@@ -501,10 +499,9 @@ class RoutinesTest extends AbstractTestCase
      * Test for getEditorForm
      *
      * @param array<string, mixed> $data Data for routine
-     *
-     * @depends testGetParameterRowAjax
-     * @dataProvider providerGetEditorForm3
      */
+    #[Depends('testGetParameterRowAjax')]
+    #[DataProvider('providerGetEditorForm3')]
     public function testGetEditorForm3(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -571,10 +568,9 @@ class RoutinesTest extends AbstractTestCase
      * Test for getEditorForm
      *
      * @param array<string, mixed> $data Data for routine
-     *
-     * @depends testGetParameterRowAjax
-     * @dataProvider providerGetEditorForm4
      */
+    #[Depends('testGetParameterRowAjax')]
+    #[DataProvider('providerGetEditorForm4')]
     public function testGetEditorForm4(array $data, string $matcher): void
     {
         $this->assertStringContainsString(
@@ -623,9 +619,8 @@ class RoutinesTest extends AbstractTestCase
      * Test for getExecuteForm
      *
      * @param array<string, mixed> $data Data for routine
-     *
-     * @dataProvider providerGetExecuteForm1
      */
+    #[DataProvider('providerGetExecuteForm1')]
     public function testGetExecuteForm1(array $data, string $matcher): void
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
@@ -701,9 +696,8 @@ class RoutinesTest extends AbstractTestCase
      * Test for getExecuteForm
      *
      * @param array<string, string|int|array<mixed>> $data Data for routine
-     *
-     * @dataProvider providerGetExecuteForm2
      */
+    #[DataProvider('providerGetExecuteForm2')]
     public function testGetExecuteForm2(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -775,9 +769,8 @@ class RoutinesTest extends AbstractTestCase
      * @param array<string, string|array<string>> $request Request
      * @param string                              $query   Query
      * @param int                                 $numErr  Error number
-     *
-     * @dataProvider providerGetQueryFromRequest
      */
+    #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = false;

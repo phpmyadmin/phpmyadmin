@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Advisory;
 
 use PhpMyAdmin\Advisory\Rules;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Advisory\Rules
- * @psalm-import-type RuleType from Rules
- */
+/** @psalm-import-type RuleType from Rules */
+#[CoversClass(Rules::class)]
 class RulesTest extends TestCase
 {
-    /**
-     * @psalm-param callable(): list<RuleType> $rulesFactory
-     *
-     * @dataProvider providerForTestRules
-     */
+    /** @psalm-param callable(): list<RuleType> $rulesFactory */
+    #[DataProvider('providerForTestRules')]
     public function testRules(callable $rulesFactory): void
     {
         $rules = $rulesFactory();

@@ -9,8 +9,10 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @coversNothing */
+#[CoversNothing]
 class DbiDummyTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -66,9 +68,8 @@ class DbiDummyTest extends AbstractTestCase
      *
      * @param string $schema   schema name
      * @param bool   $expected expected result
-     *
-     * @dataProvider schemaData
      */
+    #[DataProvider('schemaData')]
     public function testSystemSchema(string $schema, bool $expected): void
     {
         $this->assertEquals($expected, Utilities::isSystemSchema($schema));
@@ -86,9 +87,8 @@ class DbiDummyTest extends AbstractTestCase
      * @param int    $number   error number
      * @param string $message  error message
      * @param string $expected expected result
-     *
-     * @dataProvider errorData
      */
+    #[DataProvider('errorData')]
     public function testFormatError(int $number, string $message, string $expected): void
     {
         $GLOBALS['server'] = 1;

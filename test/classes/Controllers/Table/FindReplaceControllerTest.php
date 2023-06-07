@@ -10,8 +10,9 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\FindReplaceController */
+#[CoversClass(FindReplaceController::class)]
 class FindReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

@@ -13136,13 +13136,15 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="test/classes/Advisory/AdvisorTest.php">
-    <PossiblyInvalidArgument>
-      <code>testAddRule</code>
-      <code>testAddRule</code>
-      <code>testAddRule</code>
-      <code>testAdvisorBytime</code>
-      <code>testAdvisorBytime</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>advisorTimes</code>
+      <code>rulesProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Advisory/RulesTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestRules</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/BrowseForeignersTest.php">
     <MixedArgument>
@@ -13153,14 +13155,14 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/CacheTest.php">
-    <PossiblyInvalidArgument>
-      <code>testCacheGet</code>
-      <code>testCacheGetDefaultValue</code>
-      <code>testCacheHas</code>
-      <code>testCachePurge</code>
-      <code>testCacheRemove</code>
-      <code>testCacheSet</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>dataProviderCacheKeyValues</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Charsets/CollationTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerTestBuildDescription</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/CheckUserPrivilegesTest.php">
     <RedundantConditionGivenDocblockType>
@@ -13176,11 +13178,10 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Command/SetVersionCommandTest.php">
-    <PossiblyInvalidArgument>
-      <code>testGetGeneratedClassInvalidVersion</code>
-      <code>testGetGeneratedClassValidVersion</code>
-      <code>testGetGeneratedClassValidVersion</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>dataProviderBadVersions</code>
+      <code>dataProviderGoodVersions</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Command/TwigLintCommandTest.php">
     <MixedArgument>
@@ -13236,6 +13237,9 @@
     <MixedOperand>
       <code>$second</code>
     </MixedOperand>
+    <PossiblyUnusedMethod>
+      <code>getValues</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Config/FormDisplayTest.php">
     <MixedArrayAccess>
@@ -13265,6 +13269,9 @@
     <InvalidReturnType>
       <code><![CDATA[array{array{class-string<BaseFormList>, class-string<BaseForm>}}]]></code>
     </InvalidReturnType>
+    <PossiblyUnusedMethod>
+      <code>formObjects</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Config/ServerConfigChecksTest.php">
     <MixedArgument>
@@ -13293,6 +13300,174 @@
       <code><![CDATA[$this->sessionID]]></code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Config/Settings/ConsoleTest.php">
+    <PossiblyUnusedMethod>
+      <code>booleanWithDefaultFalseProvider</code>
+      <code>booleanWithDefaultTrueProvider</code>
+      <code>valuesForHeightProvider</code>
+      <code>valuesForModeProvider</code>
+      <code>valuesForOrderByProvider</code>
+      <code>valuesForOrderProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/Settings/DebugTest.php">
+    <PossiblyUnusedMethod>
+      <code>booleanWithDefaultFalseProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/Settings/ExportTest.php">
+    <PossiblyUnusedMethod>
+      <code>booleanWithDefaultFalseProvider</code>
+      <code>booleanWithDefaultTrueProvider</code>
+      <code>structureOrDataWithDefaultDataProvider</code>
+      <code>structureOrDataWithDefaultStructureOrDataProvider</code>
+      <code>valuesForCharsetProvider</code>
+      <code>valuesForCodegenFormatProvider</code>
+      <code>valuesForCompressionProvider</code>
+      <code>valuesForCsvEnclosedProvider</code>
+      <code>valuesForCsvEscapedProvider</code>
+      <code>valuesForCsvNullProvider</code>
+      <code>valuesForCsvSeparatorProvider</code>
+      <code>valuesForCsvTerminatedProvider</code>
+      <code>valuesForExcelEditionProvider</code>
+      <code>valuesForExcelNullProvider</code>
+      <code>valuesForFileTemplateDatabaseProvider</code>
+      <code>valuesForFileTemplateServerProvider</code>
+      <code>valuesForFileTemplateTableProvider</code>
+      <code>valuesForFormatProvider</code>
+      <code>valuesForHtmlwordNullProvider</code>
+      <code>valuesForLatexDataCaptionProvider</code>
+      <code>valuesForLatexDataContinuedCaptionProvider</code>
+      <code>valuesForLatexDataLabelProvider</code>
+      <code>valuesForLatexNullProvider</code>
+      <code>valuesForLatexStructureCaptionProvider</code>
+      <code>valuesForLatexStructureContinuedCaptionProvider</code>
+      <code>valuesForLatexStructureLabelProvider</code>
+      <code>valuesForMethodProvider</code>
+      <code>valuesForOdsNullProvider</code>
+      <code>valuesForOdtNullProvider</code>
+      <code>valuesForPdfReportTitleProvider</code>
+      <code>valuesForSqlCompatibilityProvider</code>
+      <code>valuesForSqlHeaderCommentProvider</code>
+      <code>valuesForSqlInsertSyntaxProvider</code>
+      <code>valuesForSqlMaxQuerySizeProvider</code>
+      <code>valuesForSqlTypeProvider</code>
+      <code>valuesForTexytextNullProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/Settings/ImportTest.php">
+    <PossiblyUnusedMethod>
+      <code>booleanWithDefaultFalseProvider</code>
+      <code>booleanWithDefaultTrueProvider</code>
+      <code>valuesForCharsetProvider</code>
+      <code>valuesForCsvColumnsProvider</code>
+      <code>valuesForCsvEnclosedProvider</code>
+      <code>valuesForCsvEscapedProvider</code>
+      <code>valuesForCsvNewLineProvider</code>
+      <code>valuesForCsvTerminatedProvider</code>
+      <code>valuesForFormatProvider</code>
+      <code>valuesForLdiColumnsProvider</code>
+      <code>valuesForLdiEnclosedProvider</code>
+      <code>valuesForLdiEscapedProvider</code>
+      <code>valuesForLdiLocalOptionProvider</code>
+      <code>valuesForLdiNewLineProvider</code>
+      <code>valuesForLdiTerminatedProvider</code>
+      <code>valuesForSkipQueriesProvider</code>
+      <code>valuesForSqlCompatibilityProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/Settings/SchemaTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestConstructor</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/Settings/ServerTest.php">
+    <PossiblyUnusedMethod>
+      <code>booleanWithDefaultFalseProvider</code>
+      <code>booleanWithDefaultTrueProvider</code>
+      <code>valuesForAllowDenyProvider</code>
+      <code>valuesForAuthHttpRealmProvider</code>
+      <code>valuesForAuthTypeProvider</code>
+      <code>valuesForConfigStorageTablesProvider</code>
+      <code>valuesForControlCompressProvider</code>
+      <code>valuesForControlHideConnectionErrorsProvider</code>
+      <code>valuesForControlHostProvider</code>
+      <code>valuesForControlPassProvider</code>
+      <code>valuesForControlPortProvider</code>
+      <code>valuesForControlSocketProvider</code>
+      <code>valuesForControlSslProvider</code>
+      <code>valuesForControlSslVerifyProvider</code>
+      <code>valuesForControlUserProvider</code>
+      <code>valuesForHideDbProvider</code>
+      <code>valuesForHostProvider</code>
+      <code>valuesForLogoutURLProvider</code>
+      <code>valuesForMaxTableUiPrefsProvider</code>
+      <code>valuesForOnlyDbProvider</code>
+      <code>valuesForPasswordProvider</code>
+      <code>valuesForPmaDbProvider</code>
+      <code>valuesForPortProvider</code>
+      <code>valuesForSessionTimeZoneProvider</code>
+      <code>valuesForSignonCookieParamsProvider</code>
+      <code>valuesForSignonScriptProvider</code>
+      <code>valuesForSignonSessionProvider</code>
+      <code>valuesForSignonURLProvider</code>
+      <code>valuesForSocketProvider</code>
+      <code>valuesForSslOptionsProvider</code>
+      <code>valuesForTrackingDefaultStatementsProvider</code>
+      <code>valuesForUserProvider</code>
+      <code>valuesForVerboseProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/Settings/SqlQueryBoxTest.php">
+    <PossiblyUnusedMethod>
+      <code>booleanWithDefaultTrueProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/Settings/TransformationsTest.php">
+    <PossiblyUnusedMethod>
+      <code>valuesForBool2TextProvider</code>
+      <code>valuesForDateFormatProvider</code>
+      <code>valuesForExternalProvider</code>
+      <code>valuesForHexProvider</code>
+      <code>valuesForInlineProvider</code>
+      <code>valuesForPreApPendProvider</code>
+      <code>valuesForSubstringProvider</code>
+      <code>valuesForTextImageLinkProvider</code>
+      <code>valuesForTextLinkProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Config/SettingsTest.php">
+    <PossiblyUnusedMethod>
+      <code>booleanWithDefaultFalseProvider</code>
+      <code>booleanWithDefaultTrueProvider</code>
+      <code>providerForTestConstructor</code>
+      <code>valuesForAllowThirdPartyFramingProvider</code>
+      <code>valuesForAuthLogProvider</code>
+      <code>valuesForBlowfishSecretProvider</code>
+      <code>valuesForExecTimeLimitProvider</code>
+      <code>valuesForLimitCharsProvider</code>
+      <code>valuesForMaxCharactersInDisplayedSQLProvider</code>
+      <code>valuesForMaxDbListProvider</code>
+      <code>valuesForMaxRowsProvider</code>
+      <code>valuesForMaxTableListProvider</code>
+      <code>valuesForMysqlMinVersionProvider</code>
+      <code>valuesForOBGzipProvider</code>
+      <code>valuesForPmaAbsoluteUriProvider</code>
+      <code>valuesForProxyPassProvider</code>
+      <code>valuesForProxyUrlProvider</code>
+      <code>valuesForProxyUserProvider</code>
+      <code>valuesForRepeatCellsProvider</code>
+      <code>valuesForServerDefaultProvider</code>
+      <code>valuesForServersProvider</code>
+      <code>valuesForSessionSavePathProvider</code>
+      <code>valuesForTranslationWarningThresholdProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/ConfigStorage/RelationParametersTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestToArray</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/ConfigStorage/RelationTest.php">
     <DocblockTypeContradiction>
       <code>assertSame</code>
@@ -13302,6 +13477,9 @@
       <code>$_SESSION</code>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
+    <PossiblyUnusedMethod>
+      <code>providerForTestRenameTable</code>
+    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code>assertSame</code>
       <code>assertSame</code>
@@ -13332,13 +13510,16 @@
     <MixedArgument>
       <code><![CDATA[$gdNfo['GD Version']]]></code>
     </MixedArgument>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>configPaths</code>
+      <code>connectionParams</code>
+      <code>connectionParamsWhenConnectionIsUserOrAuxiliaryProvider</code>
+      <code>httpsParams</code>
+      <code>rootUris</code>
+      <code>selectServerProvider</code>
+      <code>serverNames</code>
+      <code>userAgentProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
     <MixedArgument>
@@ -13402,6 +13583,11 @@
       <code>[$currentTable]</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Controllers/GisDataEditorControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestValidateGisData</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/Controllers/NavigationControllerTest.php">
     <MixedArgument>
       <code>$responseMessage</code>
@@ -13411,6 +13597,11 @@
       <code>$responseMessage</code>
       <code>$responseMessage</code>
     </MixedAssignment>
+  </file>
+  <file src="test/classes/Controllers/Normalization/FirstNormalForm/FirstStepControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestDefault</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Databases/CreateControllerTest.php">
     <MixedArgument>
@@ -13496,6 +13687,66 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
+  <file src="test/classes/Controllers/Table/Maintenance/AnalyzeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Maintenance/CheckControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Maintenance/ChecksumControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Maintenance/OptimizeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Maintenance/RepairControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Partition/AnalyzeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Partition/CheckControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Partition/DropControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Partition/OptimizeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Partition/RebuildControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Partition/RepairControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Partition/TruncateControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/Controllers/Table/RelationControllerTest.php">
     <MixedMethodCall>
       <code>method</code>
@@ -13524,11 +13775,12 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
+  <file src="test/classes/Controllers/ThemeSetControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestWithoutTheme</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/CoreTest.php">
-    <InvalidArgument>
-      <code>testPopulateRequestWithEncryptedQueryParamsWithInvalidParam</code>
-      <code>testPopulateRequestWithEncryptedQueryParamsWithInvalidParam</code>
-    </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$arr['arr']]]></code>
       <code><![CDATA[$arr['arr']]]></code>
@@ -13568,6 +13820,23 @@
       <code><![CDATA[$arr['sarr'][0][1][0]]]></code>
       <code><![CDATA[$arr['sarr'][0][2]]]></code>
     </MixedArrayAccess>
+    <PossiblyUnusedMethod>
+      <code>provideTestIsAllowedDomain</code>
+      <code>provideTestSafeUnserialize</code>
+      <code>provideTestSanitizeMySQLHost</code>
+      <code>providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam</code>
+      <code>providerTestGetRealSize</code>
+      <code>providerTestGotoNowhere</code>
+      <code>providerTestLinkURL</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/CreateAddFieldTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerGetColumnCreationQueryRequest</code>
+      <code>providerGetNumberOfFieldsFromRequest</code>
+      <code>providerGetPartitionsDefinition</code>
+      <code>providerGetTableCreationQuery</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Crypto/CryptoTest.php">
     <EmptyArrayAccess>
@@ -13642,33 +13911,63 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Database/EventsTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerGetDataFromRequest</code>
+      <code>providerGetEditorFormAdd</code>
+      <code>providerGetEditorFormAjax</code>
+      <code>providerGetEditorFormEdit</code>
+      <code>providerGetQueryFromRequest</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/Database/RoutinesTest.php">
     <MixedAssignment>
       <code>$_POST[$key]</code>
       <code>$_REQUEST[$key]</code>
       <code>$value</code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>providerGetDataFromRequest</code>
+      <code>providerGetEditorForm1</code>
+      <code>providerGetEditorForm2</code>
+      <code>providerGetEditorForm3</code>
+      <code>providerGetEditorForm4</code>
+      <code>providerGetExecuteForm1</code>
+      <code>providerGetExecuteForm2</code>
+      <code>providerGetParameterRow</code>
+      <code>providerGetParameterRowAjax</code>
+      <code>providerGetQueryFromRequest</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Database/SearchTest.php">
+    <PossiblyUnusedMethod>
+      <code>searchTypes</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/DatabaseInterfaceTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testFormatError</code>
-      <code>testFormatError</code>
-      <code>testFormatError</code>
-      <code>testVersion</code>
-      <code>testVersion</code>
-      <code>testVersion</code>
-      <code>testVersion</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>currentUserData</code>
+      <code>errorData</code>
+      <code>isAmazonRdsData</code>
+      <code>provideDatabaseVersionData</code>
+      <code>providerForTestGetLowerCaseNames</code>
+      <code>versionData</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Dbal/DbiDummyTest.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code>errorData</code>
+      <code>schemaData</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Dbal/WarningTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestWarning</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Display/ResultsTest.php">
     <DocblockTypeContradiction>
@@ -13723,53 +14022,48 @@
       <code>$output</code>
       <code>$output</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testGetSortOrderHiddenInputs</code>
-      <code>testGetSortOrderHiddenInputs</code>
-      <code>testGetSortOrderHiddenInputs</code>
-      <code>testGetSortOrderHiddenInputs</code>
-      <code>testGetSortOrderHiddenInputs</code>
-      <code>testSetConfigParamsForDisplayTable</code>
-      <code>testSetConfigParamsForDisplayTable</code>
-      <code>testSetConfigParamsForDisplayTable</code>
-      <code>testSetConfigParamsForDisplayTable</code>
-      <code>testSetConfigParamsForDisplayTable</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>dataProviderForTestGetDataCellForNonNumericColumns</code>
+      <code>dataProviderForTestGetPartialText</code>
+      <code>dataProviderForTestGetRowInfoForSpecialLinks</code>
+      <code>dataProviderForTestGetSpecialLinkUrl</code>
+      <code>dataProviderForTestHandleNonPrintableContents</code>
+      <code>dataProviderGetSortOrderHiddenInputs</code>
+      <code>dataProviderSortOrder</code>
+      <code>providerSetConfigParamsForDisplayTable</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Engines/PbxtTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerFortTestResolveTypeSize</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/ErrorHandlerTest.php">
     <InvalidScalarArgument>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
+    <PossiblyUnusedMethod>
+      <code>providerForTestHandleError</code>
+    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code>assertIsString</code>
     </RedundantCondition>
   </file>
   <file src="test/classes/ErrorReportTest.php">
-    <PossiblyInvalidArgument>
-      <code>testSanitizeUrl</code>
-      <code>testSanitizeUrl</code>
-    </PossiblyInvalidArgument>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
       <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
     </PossiblyUndefinedArrayOffset>
+    <PossiblyUnusedMethod>
+      <code>urlsToSanitize</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/ErrorTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>filePathProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Export/OptionsTest.php">
     <InvalidArrayOffset>
@@ -13783,6 +14077,11 @@
       <code><![CDATA[$GLOBALS['cfg']['Export']['quick_export_onserver_overwrite']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']['remember_file_template']]]></code>
     </InvalidArrayOffset>
+  </file>
+  <file src="test/classes/FileTest.php">
+    <PossiblyUnusedMethod>
+      <code>compressedFiles</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/FlashMessagesTest.php">
     <InvalidScalarArgument>
@@ -13817,9 +14116,27 @@
       <code><![CDATA[$temp['POLYGON'][0]['no_of_points']]]></code>
       <code><![CDATA[$temp['POLYGON'][1]['no_of_points']]]></code>
     </MixedArrayAccess>
-    <PossiblyInvalidArgument>
-      <code>testGetPointOnSurface</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>providerForIsOuterRing</code>
+      <code>providerForTestArea</code>
+      <code>providerForTestGetPointOnSurface</code>
+      <code>providerForTestIsPointInsidePolygon</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Gis/GisFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestFactory</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Gis/GisGeometryCollectionTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestScaleRow</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
     <DeprecatedMethod>
@@ -13828,12 +14145,77 @@
     <MixedAssignment>
       <code>$points</code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>providerForTestExtractPointsInternal</code>
+      <code>providerForTestParseWktAndSrid</code>
+      <code>providerForTestSetMinMax</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Gis/GisLineStringTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestScaleRow</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Gis/GisMultiLineStringTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestScaleRow</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Gis/GisMultiPointTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestScaleRow</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Gis/GisMultiPolygonTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestGetShape</code>
+      <code>providerForTestScaleRow</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Gis/GisPointTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestGetShape</code>
+      <code>providerForTestScaleRow</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
     <MixedArrayAccess>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]]]></code>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]['y']]]></code>
     </MixedArrayAccess>
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestScaleRow</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>
@@ -13850,17 +14232,9 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/HeaderTest.php">
-    <PossiblyInvalidArgument>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-      <code>testGetHttpHeaders</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>providerForTestGetHttpHeaders</code>
+    </PossiblyUnusedMethod>
     <RedundantCast>
       <code>(string) gmdate(DATE_RFC1123)</code>
     </RedundantCast>
@@ -13869,9 +14243,10 @@
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>linksOrButtons</code>
+      <code>providerForTestGetDefaultFunctionForField</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
     <InvalidConstantAssignmentValue>
@@ -13885,17 +14260,42 @@
     <MixedMethodCall>
       <code>new $className()</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument>
-      <code>testPsr7ImplementationCreateServerRequestFactory</code>
-      <code>testPsr7ImplementationCreateServerRequestFactory</code>
-      <code>testPsr7ImplementationGet</code>
-      <code>testPsr7ImplementationGet</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>dataProviderPsr7Implementations</code>
+    </PossiblyUnusedMethod>
     <UndefinedClass>
       <code>GuzzleHttpFactory</code>
       <code>LaminasServerRequestFactory</code>
       <code>NyholmPsr17Factory</code>
     </UndefinedClass>
+  </file>
+  <file src="test/classes/Http/ServerRequestTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestGetRoute</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Identifiers/DatabaseNameTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidNames</code>
+      <code>providerForTestValidNames</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Identifiers/TableNameTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidNames</code>
+      <code>providerForTestValidNames</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Identifiers/TriggerNameTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidNames</code>
+      <code>providerForTestValidNames</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Import/SimulateDmlTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestGetMatchedRows</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/ImportTest.php">
     <DocblockTypeContradiction>
@@ -13906,18 +14306,15 @@
       <code>assertSame</code>
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testSkipByteOrderMarksFromContents</code>
-      <code>testSkipByteOrderMarksFromContents</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>provDetectType</code>
+      <code>provGetColumnAlphaName</code>
+      <code>provGetColumnNumberFromName</code>
+      <code>provGetDecimalPrecision</code>
+      <code>provGetDecimalScale</code>
+      <code>provGetDecimalSize</code>
+      <code>providerContentWithByteOrderMarks</code>
+    </PossiblyUnusedMethod>
     <TypeDoesNotContainNull>
       <code>assertNull</code>
       <code>assertNull</code>
@@ -13967,6 +14364,10 @@
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>dataProviderConfigValueInsertRows</code>
+      <code>providerForTestGetSpecialCharsForInsertingMode</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment>
@@ -13979,30 +14380,36 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/IpAllowDenyTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['TrustedProxies']]]></code>
     </PossiblyNullArrayOffset>
+    <PossiblyUnusedMethod>
+      <code>proxyIPs</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/LanguageTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>listLocales</code>
+      <code>selectDataProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/LinterTest.php">
+    <PossiblyUnusedMethod>
+      <code>lintProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/MessageTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>decodeBBDataProvider</code>
+      <code>providerAffectedRows</code>
+      <code>providerDeletedRows</code>
+      <code>providerInsertedRows</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/MimeTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerForTestDetect</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
     <DeprecatedMethod>
@@ -14010,9 +14417,9 @@
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeTableTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerForTestIcon</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/NormalizationTest.php">
     <MixedArgument>
@@ -14026,6 +14433,22 @@
     <RedundantCondition>
       <code>assertNotFalse</code>
     </RedundantCondition>
+  </file>
+  <file src="test/classes/OperationsTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerGetPartitionMaintenanceChoices</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Partitioning/PartitionTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestHavePartitioning</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Partitioning/TablePartitionDefinitionTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerGetDetails</code>
+      <code>providerGetDetailsWithMaxPartitions</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/PdfTest.php">
     <MixedArgument>
@@ -14045,13 +14468,23 @@
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>checkRulesProvider</code>
+      <code>dataProviderPasswordLength</code>
+    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code>assertIsString</code>
     </RedundantCondition>
+  </file>
+  <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
+    <PossiblyUnusedMethod>
+      <code>readCredentialsProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Plugins/AuthenticationPluginFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestValidPlugins</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Plugins/Export/ExportCodegenTest.php">
     <MixedAssignment>
@@ -14122,12 +14555,12 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="test/classes/Plugins/Export/Helpers/TablePropertyTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>getDotNetObjectTypeProvider</code>
+      <code>getDotNetPrimitiveTypeProvider</code>
+      <code>isNotNullProvider</code>
+      <code>isUniqueProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Plugins/Import/ImportLdiTest.php">
     <TypeDoesNotContainType>
@@ -14163,9 +14596,9 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>dataProviderOdsEmptyRows</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Plugins/Import/ImportShpTest.php">
     <InvalidArrayOffset>
@@ -14192,9 +14625,10 @@
     </MixedArgument>
   </file>
   <file src="test/classes/Plugins/Transformations/TransformationPluginsTest.php">
-    <InvalidArgument>
-      <code>testTransformation</code>
-    </InvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>multiDataProvider</code>
+      <code>transformationDataProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/PluginsTest.php">
     <InvalidReturnStatement>
@@ -14219,6 +14653,9 @@
     <InvalidReturnType>
       <code><![CDATA[array{array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}}]]></code>
     </InvalidReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerForTestGetDefault</code>
+    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code>assertIsArray</code>
       <code>assertIsArray</code>
@@ -14250,12 +14687,23 @@
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
+  <file src="test/classes/Query/CompatibilityTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestHasAccountLocking</code>
+      <code>providerForTestIsUUIDSupported</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/RoutingTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestCleanupPathInfo</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/SanitizeTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>dataProviderCheckLinks</code>
+      <code>docLinks</code>
+      <code>variables</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Server/PluginsTest.php">
     <RedundantCondition>
@@ -14286,6 +14734,9 @@
       <code>getMessage</code>
       <code>getMessage</code>
     </MixedMethodCall>
+    <PossiblyUnusedMethod>
+      <code>providerUnEscapeMysqlWildcards</code>
+    </PossiblyUnusedMethod>
     <UnusedVariable>
       <code>$password</code>
       <code>$routinename</code>
@@ -14300,10 +14751,14 @@
       <code><![CDATA[$server['port']]]></code>
       <code><![CDATA[$server['user']]]></code>
     </MixedArgument>
-    <PossiblyInvalidArgument>
-      <code>testRender</code>
-      <code>testRender</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>renderDataProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Server/SysInfo/SysInfoTest.php">
+    <PossiblyUnusedMethod>
+      <code>sysInfoOsProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Setup/ConfigGeneratorTest.php">
     <MixedAssignment>
@@ -14321,22 +14776,17 @@
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code>testCountQueryResults</code>
-      <code>testCountQueryResults</code>
-      <code>testCountQueryResults</code>
-      <code>testCountQueryResults</code>
-      <code>testCountQueryResults</code>
-      <code>testCountQueryResults</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>dataProviderCountQueryResults</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/StorageEngineTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerGetEngine</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Stubs/DummyResult.php">
     <InvalidReturnStatement>
@@ -14354,6 +14804,11 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Table/ColumnsDefinitionTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerColumnMetaDefault</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/Table/IndexesTest.php">
     <MixedArgument>
       <code><![CDATA[$jsonArray['sql_data']]]></code>
@@ -14365,6 +14820,11 @@
     <UndefinedMethod>
       <code>expects</code>
     </UndefinedMethod>
+  </file>
+  <file src="test/classes/Table/Maintenance/MessageTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestFromArray</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/TableTest.php">
     <InvalidArrayOffset>
@@ -14383,6 +14843,9 @@
       <code>will</code>
       <code>will</code>
     </MixedMethodCall>
+    <PossiblyUnusedMethod>
+      <code>dataValidateName</code>
+    </PossiblyUnusedMethod>
     <UndefinedMethod>
       <code>expects</code>
       <code>expects</code>
@@ -14390,12 +14853,12 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/TemplateTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerTestDynamicRender</code>
+      <code>providerTestRender</code>
+      <code>providerTestRenderGettext</code>
+      <code>providerTestSet</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Theme/ThemeManagerTest.php">
     <RedundantCondition>
@@ -14409,14 +14872,14 @@
     <MixedAssignment>
       <code><![CDATA[$this->backup]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerForGetImgPath</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Tracking/TrackerTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>parseQueryData</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Tracking/TrackingTest.php">
     <MixedArgument>
@@ -14428,25 +14891,36 @@
       <code><![CDATA[$ret[0]['statement']]]></code>
       <code><![CDATA[$ret[0]['username']]]></code>
     </MixedArrayAccess>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
     <PossiblyUndefinedArrayOffset>
       <code>$data[0]</code>
       <code>$fetchArrayReturn[0]</code>
     </PossiblyUndefinedArrayOffset>
+    <PossiblyUnusedMethod>
+      <code>getTrackedDataProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/TransformationsTest.php">
-    <PossiblyInvalidArgument>
-      <code>testFixup</code>
-      <code>testFixup</code>
-      <code>testGetDescription</code>
-      <code>testGetDescription</code>
-      <code>testGetName</code>
-      <code>testGetName</code>
-      <code>testGetOptions</code>
-      <code>testGetOptions</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>fixupData</code>
+      <code>getOptionsData</code>
+      <code>providerGetDescription</code>
+      <code>providerGetName</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Triggers/TriggerTest.php">
+    <PossiblyUnusedMethod>
+      <code>arrayWithInvalidValuesProvider</code>
+      <code>arrayWithValidValuesProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Triggers/TriggersTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerGetDataFromRequestEmpty</code>
+      <code>providerGetEditorFormAdd</code>
+      <code>providerGetEditorFormAjax</code>
+      <code>providerGetEditorFormEdit</code>
+      <code>providerGetQueryFromRequest</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/TwoFactorTest.php">
     <MixedArgument>
@@ -14454,10 +14928,24 @@
       <code><![CDATA[$object->config['settings']['secret']]]></code>
     </MixedArgument>
   </file>
+  <file src="test/classes/TypesByDatabaseVersionTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerFortTestGetAllFunctions</code>
+      <code>providerFortTestGetColumns</code>
+      <code>providerFortTestGetFunctions</code>
+      <code>providerFortTestGetFunctionsClass</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/TypesTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForGetTypeOperators</code>
+      <code>providerForTestGetTypeDescription</code>
+      <code>providerForTestGetTypeOperatorsHtml</code>
+      <code>providerFortTestGetFunctionsClass</code>
+      <code>providerFortTestGetTypeClass</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/UserPasswordTest.php">
-    <InvalidArgument>
-      <code>testSetChangePasswordMsg</code>
-    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[[
             [false, Message::success('The profile has been updated.'), true, '', ''],
@@ -14478,6 +14966,9 @@
     <InvalidReturnType>
       <code>array{0: bool, 1: Message, 2: string, 3: string, 4: string}[]</code>
     </InvalidReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerSetChangePasswordMsg</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/UserPreferencesTest.php">
     <MixedArgument>
@@ -14489,9 +14980,6 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/UtilTest.php">
-    <InvalidArgument>
-      <code>testGetMySQLDocuURL</code>
-    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[[
             [
@@ -14547,61 +15035,52 @@
       <code><![CDATA[$_SESSION['cache']['server_server']['is_superuser']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_server']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testBackquote</code>
-      <code>testBackquote</code>
-      <code>testGetScriptNameForOption</code>
-      <code>testGetScriptNameForOption</code>
-      <code>testGetScriptNameForOption</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>charsetQueryData</code>
+      <code>dataProviderScriptNames</code>
+      <code>provideForTestIsUUIDSupported</code>
+      <code>providerConvertBitDefaultValue</code>
+      <code>providerDuplicateFirstNewline</code>
+      <code>providerExpandUserString</code>
+      <code>providerExtractColumnSpec</code>
+      <code>providerExtractValueFromFormattedSize</code>
+      <code>providerForTestBackquote</code>
+      <code>providerForTestGetLowerCaseNames</code>
+      <code>providerForTestGetMySQLDocuURL</code>
+      <code>providerFormatByteDown</code>
+      <code>providerFormatNumber</code>
+      <code>providerForwardedHeaders</code>
+      <code>providerGetFormattedMaximumUploadSize</code>
+      <code>providerGetTitleForTarget</code>
+      <code>providerGetUniqueConditionForGroupFlag</code>
+      <code>providerIsInteger</code>
+      <code>providerLocalisedDate</code>
+      <code>providerPrintableBitValue</code>
+      <code>providerTimespanFormat</code>
+      <code>providerUnQuote</code>
+      <code>providerUnQuoteSelectedChar</code>
+      <code>providerUserDir</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Utils/ForeignKeyTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testHandleDisableCheckCleanup</code>
-      <code>testHandleDisableCheckCleanup</code>
-      <code>testHandleDisableCheckInit</code>
-      <code>testHandleDisableCheckInit</code>
-      <code>testHandleDisableCheckInitVarFalse</code>
-      <code>testHandleDisableCheckInitVarFalse</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>providerCheckCleanup</code>
+      <code>providerCheckInit</code>
+      <code>providerIsSupported</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Utils/FormatConverterTest.php">
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>providerBinaryToIp</code>
+      <code>providerIpToBinary</code>
+      <code>providerIpToLong</code>
+      <code>providerLongToIp</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Utils/GisTest.php">
-    <PossiblyInvalidArgument>
-      <code>testConvertToWellKnownText</code>
-      <code>testConvertToWellKnownText</code>
-      <code>testConvertToWellKnownText</code>
-      <code>testConvertToWellKnownText</code>
-      <code>testConvertToWellKnownText</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>providerConvertToWellKnownText</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Utils/HttpRequestTest.php">
     <MixedArgument>
@@ -14619,28 +15098,9 @@
     <MixedOperand>
       <code><![CDATA[$curl !== false ? $curl['ssl_version'] : '?']]></code>
     </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code>testCreate</code>
-      <code>testCreate</code>
-      <code>testCreate</code>
-      <code>testCreate</code>
-      <code>testCurl</code>
-      <code>testCurl</code>
-      <code>testCurl</code>
-      <code>testCurl</code>
-      <code>testCurlCAInfo</code>
-      <code>testCurlCAInfo</code>
-      <code>testCurlCAInfo</code>
-      <code>testCurlCAInfo</code>
-      <code>testCurlCAPath</code>
-      <code>testCurlCAPath</code>
-      <code>testCurlCAPath</code>
-      <code>testCurlCAPath</code>
-      <code>testFopen</code>
-      <code>testFopen</code>
-      <code>testFopen</code>
-      <code>testFopen</code>
-    </PossiblyInvalidArgument>
+    <PossiblyUnusedMethod>
+      <code>httpRequests</code>
+    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code>$curl !== false</code>
       <code>$curl !== false</code>
@@ -14673,9 +15133,22 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache']['version_check']]]></code>
     </MixedArrayAccess>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>dataProviderVersionConditions</code>
+      <code>dataVersions</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/WebAuthn/CBORDecoderTest.php">
+    <PossiblyUnusedMethod>
+      <code>dataProviderForTestDecode</code>
+      <code>indefiniteLengthValuesProvider</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/ZipExtensionTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideTestFindFile</code>
+      <code>provideTestGetContents</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/selenium/Database/ProceduresTest.php">
     <MixedInferredReturnType>
@@ -14684,6 +15157,11 @@
     <MixedReturnStatement>
       <code>$sqlMode</code>
     </MixedReturnStatement>
+  </file>
+  <file src="test/selenium/ExportTest.php">
+    <PossiblyUnusedMethod>
+      <code>exportDataProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/selenium/TestBase.php">
     <DocblockTypeContradiction>

@@ -16,16 +16,16 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
 use ReflectionProperty;
 
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportXml
- * @group medium
- */
+#[CoversClass(ExportXml::class)]
+#[Group('medium')]
 class ExportXmlTest extends AbstractTestCase
 {
     protected ExportXml $object;
@@ -65,7 +65,7 @@ class ExportXmlTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportXml::class, 'setProperties');
@@ -166,7 +166,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testExportHeader(): void
     {
         $GLOBALS['xml_export_functions'] = 1;

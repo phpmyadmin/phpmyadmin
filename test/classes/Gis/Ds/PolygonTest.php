@@ -7,8 +7,10 @@ namespace PhpMyAdmin\Tests\Gis\Ds;
 use PhpMyAdmin\Gis\Ds\Point;
 use PhpMyAdmin\Gis\Ds\Polygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Gis\Ds\Polygon */
+#[CoversClass(Polygon::class)]
 class PolygonTest extends AbstractTestCase
 {
     /**
@@ -42,9 +44,8 @@ class PolygonTest extends AbstractTestCase
 
     /**
      * test for Area
-     *
-     * @dataProvider providerForTestArea
      */
+    #[DataProvider('providerForTestArea')]
     public function testArea(Polygon $ring, float $area): void
     {
         $this->assertEquals($area, $ring->area());
@@ -90,9 +91,8 @@ class PolygonTest extends AbstractTestCase
 
     /**
      * test for isPointInsidePolygon
-     *
-     * @dataProvider providerForTestIsPointInsidePolygon
      */
+    #[DataProvider('providerForTestIsPointInsidePolygon')]
     public function testIsPointInsidePolygon(Point $point, Polygon $polygon, bool $isInside): void
     {
         $this->assertEquals($isInside, $point->isInsidePolygon($polygon));
@@ -128,9 +128,8 @@ class PolygonTest extends AbstractTestCase
      * test for getPointOnSurface
      *
      * @param Polygon $ring array of points forming the ring
-     *
-     * @dataProvider providerForTestGetPointOnSurface
      */
+    #[DataProvider('providerForTestGetPointOnSurface')]
     public function testGetPointOnSurface(Polygon $ring): void
     {
         $point = $ring->getPointOnSurface();
@@ -156,9 +155,8 @@ class PolygonTest extends AbstractTestCase
      * test case for isOuterRing() method
      *
      * @param Polygon $ring coordinates of the points in a ring
-     *
-     * @dataProvider providerForIsOuterRing
      */
+    #[DataProvider('providerForIsOuterRing')]
     public function testIsOuterRing(Polygon $ring): void
     {
         $this->assertTrue($ring->isOuterRing());

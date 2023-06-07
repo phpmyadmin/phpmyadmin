@@ -13,6 +13,8 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionMethod;
 use stdClass;
 
@@ -20,7 +22,7 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_VAR_STRING;
 
-/** @covers \PhpMyAdmin\Sql */
+#[CoversClass(Sql::class)]
 class SqlTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -398,11 +400,8 @@ class SqlTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @param mixed[] $sessionTmpVal
-     *
-     * @dataProvider dataProviderCountQueryResults
-     */
+    /** @param mixed[] $sessionTmpVal */
+    #[DataProvider('dataProviderCountQueryResults')]
     public function testCountQueryResults(
         string|null $sqlQuery,
         array $sessionTmpVal,

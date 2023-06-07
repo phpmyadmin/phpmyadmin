@@ -8,9 +8,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
-/** @covers \PhpMyAdmin\Navigation\Nodes\Node */
+#[CoversClass(Node::class)]
 class NodeTest extends AbstractTestCase
 {
     /**

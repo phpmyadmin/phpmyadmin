@@ -10,6 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use const MYSQLI_NOT_NULL_FLAG;
 use const MYSQLI_NUM_FLAG;
@@ -17,7 +18,7 @@ use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DATE;
 use const MYSQLI_TYPE_LONG;
 
-/** @covers \PhpMyAdmin\Controllers\Table\ChartController */
+#[CoversClass(ChartController::class)]
 class ChartControllerTest extends AbstractTestCase
 {
     public function testChartController(): void

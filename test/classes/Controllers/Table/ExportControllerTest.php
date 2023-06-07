@@ -15,8 +15,9 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\ExportController */
+#[CoversClass(ExportController::class)]
 class ExportControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

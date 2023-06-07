@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Dbal;
 
 use mysqli_result;
+use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Dbal\DbiMysqli */
+#[CoversClass(DbiMysqli::class)]
 class MysqliResultTest extends AbstractTestCase
 {
     /**

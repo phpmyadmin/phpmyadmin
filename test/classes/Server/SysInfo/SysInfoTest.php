@@ -7,8 +7,10 @@ namespace PhpMyAdmin\Tests\Server\SysInfo;
 use PhpMyAdmin\Server\SysInfo\Base;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Server\SysInfo\SysInfo */
+#[CoversClass(SysInfo::class)]
 class SysInfoTest extends AbstractTestCase
 {
     /**
@@ -16,9 +18,8 @@ class SysInfoTest extends AbstractTestCase
      *
      * @param string $os       OS name as returned by PHP_OS
      * @param string $expected Expected detected OS name
-     *
-     * @dataProvider sysInfoOsProvider
      */
+    #[DataProvider('sysInfoOsProvider')]
     public function testGetSysInfoOs(string $os, string $expected): void
     {
         $this->assertEquals(

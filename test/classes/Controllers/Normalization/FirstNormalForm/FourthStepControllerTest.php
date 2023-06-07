@@ -12,8 +12,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Normalization\FirstNormalForm\FourthStepController */
+#[CoversClass(FourthStepController::class)]
 class FourthStepControllerTest extends AbstractTestCase
 {
     public function testDefault(): void

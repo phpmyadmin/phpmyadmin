@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
@@ -23,7 +24,7 @@ use function __;
 use function htmlspecialchars;
 use function str_replace;
 
-/** @covers \PhpMyAdmin\Controllers\Server\VariablesController */
+#[CoversClass(VariablesController::class)]
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

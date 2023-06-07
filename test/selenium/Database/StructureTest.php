@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Group;
 
-/** @coversNothing */
+#[CoversNothing]
 class StructureTest extends TestBase
 {
     /**
@@ -41,9 +43,8 @@ class StructureTest extends TestBase
 
     /**
      * Test for truncating a table
-     *
-     * @group large
      */
+    #[Group('large')]
     public function testTruncateTable(): void
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
@@ -65,9 +66,8 @@ class StructureTest extends TestBase
 
     /**
      * Tests for dropping multiple tables
-     *
-     * @group large
      */
+    #[Group('large')]
     public function testDropMultipleTables(): void
     {
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();

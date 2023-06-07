@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\IndexColumn;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\IndexColumn */
+#[CoversClass(IndexColumn::class)]
 class IndexColumnTest extends TestCase
 {
     private IndexColumn $object;

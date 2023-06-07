@@ -20,11 +20,15 @@ use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\MockObject\MockObject;
 
 use function json_encode;
 
-/** @covers \PhpMyAdmin\StorageEngine */
+#[CoversClass(StorageEngine::class)]
 class StorageEngineTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -63,10 +67,8 @@ class StorageEngineTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[PreserveGlobalState(false)]
+    #[RunInSeparateProcess]
     public function testGetStorageEngines(): void
     {
         $this->assertEquals(
@@ -100,9 +102,8 @@ class StorageEngineTest extends AbstractTestCase
      * @param string $expectedClass Class that should be selected
      * @param string $engineName    Engine name
      * @psalm-param class-string $expectedClass
-     *
-     * @dataProvider providerGetEngine
      */
+    #[DataProvider('providerGetEngine')]
     public function testGetEngine(string $expectedClass, string $engineName): void
     {
         $actual = StorageEngine::getEngine($engineName);

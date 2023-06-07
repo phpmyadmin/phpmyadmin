@@ -14,14 +14,15 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use ReflectionClass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\RecentFavoriteController
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
- */
+#[CoversClass(RecentFavoriteController::class)]
+#[PreserveGlobalState(false)]
+#[RunTestsInSeparateProcesses]
 class RecentFavoriteControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

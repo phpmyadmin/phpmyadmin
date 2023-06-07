@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function htmlspecialchars;
 
@@ -23,7 +24,7 @@ use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 
-/** @covers \PhpMyAdmin\Controllers\Export\ExportController */
+#[CoversClass(ExportController::class)]
 class ExportControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Table\Search */
+#[CoversClass(Search::class)]
 class SearchTest extends AbstractTestCase
 {
     private Search $search;

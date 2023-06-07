@@ -9,11 +9,13 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
-/** @covers \PhpMyAdmin\Controllers\SchemaExportController */
+#[CoversClass(SchemaExportController::class)]
 class SchemaExportControllerTest extends AbstractTestCase
 {
-    /** @runInSeparateProcess */
+    #[RunInSeparateProcess]
     public function testExport(): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();

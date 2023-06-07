@@ -11,6 +11,9 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionException;
 use ReflectionMethod;
 use Throwable;
@@ -29,7 +32,7 @@ use function time;
 
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
-/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie */
+#[CoversClass(AuthenticationCookie::class)]
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     protected AuthenticationCookie $object;
@@ -69,7 +72,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testAuthErrorAJAX(): void
     {
         $mockResponse = $this->mockResponse();
@@ -155,7 +158,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testAuthError(): void
     {
         $_REQUEST = [];
@@ -231,7 +234,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testAuthCaptcha(): void
     {
         $mockResponse = $this->mockResponse();
@@ -309,7 +312,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testAuthCaptchaCheckbox(): void
     {
         $mockResponse = $this->mockResponse();
@@ -744,7 +747,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         ];
     }
 
-    /** @dataProvider dataProviderPasswordLength */
+    #[DataProvider('dataProviderPasswordLength')]
     public function testAuthFailsTooLongPass(string $password, bool $trueFalse, string|null $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
@@ -987,9 +990,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      * @param bool    $nopass   nopass
      * @param mixed[] $rules    rules
      * @param string  $expected expected result
-     *
-     * @dataProvider checkRulesProvider
      */
+    #[DataProvider('checkRulesProvider')]
     public function testCheckRules(
         string $user,
         string $pass,

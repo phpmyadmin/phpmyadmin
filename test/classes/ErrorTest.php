@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function preg_match;
 
 use const DIRECTORY_SEPARATOR;
 
-/** @covers \PhpMyAdmin\Error */
+#[CoversClass(Error::class)]
 class ErrorTest extends AbstractTestCase
 {
     protected Error $object;
@@ -62,9 +64,8 @@ class ErrorTest extends AbstractTestCase
      *
      * @param string $file     actual
      * @param string $expected expected
-     *
-     * @dataProvider filePathProvider
      */
+    #[DataProvider('filePathProvider')]
     public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);

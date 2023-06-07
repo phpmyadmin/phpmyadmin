@@ -5,14 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Export;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-
-/** @covers \PhpMyAdmin\Config\Settings\Export */
+#[CoversClass(Export::class)]
 class ExportTest extends TestCase
 {
-    /** @dataProvider valuesForFormatProvider */
+    #[DataProvider('valuesForFormatProvider')]
     public function testFormat(mixed $actual, string $expected): void
     {
         $export = new Export(['format' => $actual]);
@@ -42,7 +43,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'sql'];
     }
 
-    /** @dataProvider valuesForMethodProvider */
+    #[DataProvider('valuesForMethodProvider')]
     public function testMethod(mixed $actual, string $expected): void
     {
         $export = new Export(['method' => $actual]);
@@ -62,7 +63,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'quick'];
     }
 
-    /** @dataProvider valuesForCompressionProvider */
+    #[DataProvider('valuesForCompressionProvider')]
     public function testCompression(mixed $actual, string $expected): void
     {
         $export = new Export(['compression' => $actual]);
@@ -82,7 +83,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'none'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testLockTables(mixed $actual, bool $expected): void
     {
         $export = new Export(['lock_tables' => $actual]);
@@ -101,7 +102,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testAsSeparateFiles(mixed $actual, bool $expected): void
     {
         $export = new Export(['as_separate_files' => $actual]);
@@ -111,7 +112,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['as_separate_files']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testAsfile(mixed $actual, bool $expected): void
     {
         $export = new Export(['asfile' => $actual]);
@@ -130,7 +131,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /** @dataProvider valuesForCharsetProvider */
+    #[DataProvider('valuesForCharsetProvider')]
     public function testCharset(mixed $actual, string $expected): void
     {
         $export = new Export(['charset' => $actual]);
@@ -149,7 +150,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testOnserver(mixed $actual, bool $expected): void
     {
         $export = new Export(['onserver' => $actual]);
@@ -159,7 +160,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['onserver']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testOnserverOverwrite(mixed $actual, bool $expected): void
     {
         $export = new Export(['onserver_overwrite' => $actual]);
@@ -169,7 +170,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['onserver_overwrite']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testQuickExportOnserver(mixed $actual, bool $expected): void
     {
         $export = new Export(['quick_export_onserver' => $actual]);
@@ -179,7 +180,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['quick_export_onserver']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testQuickExportOnserverOverwrite(mixed $actual, bool $expected): void
     {
         $export = new Export(['quick_export_onserver_overwrite' => $actual]);
@@ -189,7 +190,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['quick_export_onserver_overwrite']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testRememberFileTemplate(mixed $actual, bool $expected): void
     {
         $export = new Export(['remember_file_template' => $actual]);
@@ -199,7 +200,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['remember_file_template']);
     }
 
-    /** @dataProvider valuesForFileTemplateTableProvider */
+    #[DataProvider('valuesForFileTemplateTableProvider')]
     public function testFileTemplateTable(mixed $actual, string $expected): void
     {
         $export = new Export(['file_template_table' => $actual]);
@@ -218,7 +219,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForFileTemplateDatabaseProvider */
+    #[DataProvider('valuesForFileTemplateDatabaseProvider')]
     public function testFileTemplateDatabase(mixed $actual, string $expected): void
     {
         $export = new Export(['file_template_database' => $actual]);
@@ -237,7 +238,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForFileTemplateServerProvider */
+    #[DataProvider('valuesForFileTemplateServerProvider')]
     public function testFileTemplateServer(mixed $actual, string $expected): void
     {
         $export = new Export(['file_template_server' => $actual]);
@@ -256,7 +257,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testCodegenStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['codegen_structure_or_data' => $actual]);
@@ -276,7 +277,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'data'];
     }
 
-    /** @dataProvider valuesForCodegenFormatProvider */
+    #[DataProvider('valuesForCodegenFormatProvider')]
     public function testCodegenFormat(mixed $actual, int $expected): void
     {
         $export = new Export(['codegen_format' => $actual]);
@@ -297,7 +298,7 @@ class ExportTest extends TestCase
         yield 'invalid value 2' => [2, 0];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testOdsColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['ods_columns' => $actual]);
@@ -307,7 +308,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['ods_columns']);
     }
 
-    /** @dataProvider valuesForOdsNullProvider */
+    #[DataProvider('valuesForOdsNullProvider')]
     public function testOdsNull(mixed $actual, string $expected): void
     {
         $export = new Export(['ods_null' => $actual]);
@@ -326,7 +327,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    #[DataProvider('structureOrDataWithDefaultStructureOrDataProvider')]
     public function testOdtStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['odt_structure_or_data' => $actual]);
@@ -346,7 +347,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'structure_and_data'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdtColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['odt_columns' => $actual]);
@@ -356,7 +357,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['odt_columns']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdtRelation(mixed $actual, bool $expected): void
     {
         $export = new Export(['odt_relation' => $actual]);
@@ -366,7 +367,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['odt_relation']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdtComments(mixed $actual, bool $expected): void
     {
         $export = new Export(['odt_comments' => $actual]);
@@ -376,7 +377,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['odt_comments']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdtMime(mixed $actual, bool $expected): void
     {
         $export = new Export(['odt_mime' => $actual]);
@@ -386,7 +387,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['odt_mime']);
     }
 
-    /** @dataProvider valuesForOdtNullProvider */
+    #[DataProvider('valuesForOdtNullProvider')]
     public function testOdtNull(mixed $actual, string $expected): void
     {
         $export = new Export(['odt_null' => $actual]);
@@ -405,7 +406,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    #[DataProvider('structureOrDataWithDefaultStructureOrDataProvider')]
     public function testHtmlwordStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['htmlword_structure_or_data' => $actual]);
@@ -415,7 +416,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['htmlword_structure_or_data']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testHtmlwordColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['htmlword_columns' => $actual]);
@@ -425,7 +426,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['htmlword_columns']);
     }
 
-    /** @dataProvider valuesForHtmlwordNullProvider */
+    #[DataProvider('valuesForHtmlwordNullProvider')]
     public function testHtmlwordNull(mixed $actual, string $expected): void
     {
         $export = new Export(['htmlword_null' => $actual]);
@@ -444,7 +445,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    #[DataProvider('structureOrDataWithDefaultStructureOrDataProvider')]
     public function testTexytextStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['texytext_structure_or_data' => $actual]);
@@ -454,7 +455,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['texytext_structure_or_data']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testTexytextColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['texytext_columns' => $actual]);
@@ -464,7 +465,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['texytext_columns']);
     }
 
-    /** @dataProvider valuesForTexytextNullProvider */
+    #[DataProvider('valuesForTexytextNullProvider')]
     public function testTexytextNull(mixed $actual, string $expected): void
     {
         $export = new Export(['texytext_null' => $actual]);
@@ -483,7 +484,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testCsvColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['csv_columns' => $actual]);
@@ -493,7 +494,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['csv_columns']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testCsvStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['csv_structure_or_data' => $actual]);
@@ -503,7 +504,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['csv_structure_or_data']);
     }
 
-    /** @dataProvider valuesForCsvNullProvider */
+    #[DataProvider('valuesForCsvNullProvider')]
     public function testCsvNull(mixed $actual, string $expected): void
     {
         $export = new Export(['csv_null' => $actual]);
@@ -522,7 +523,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvSeparatorProvider */
+    #[DataProvider('valuesForCsvSeparatorProvider')]
     public function testCsvSeparator(mixed $actual, string $expected): void
     {
         $export = new Export(['csv_separator' => $actual]);
@@ -541,7 +542,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvEnclosedProvider */
+    #[DataProvider('valuesForCsvEnclosedProvider')]
     public function testCsvEnclosed(mixed $actual, string $expected): void
     {
         $export = new Export(['csv_enclosed' => $actual]);
@@ -560,7 +561,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvEscapedProvider */
+    #[DataProvider('valuesForCsvEscapedProvider')]
     public function testCsvEscaped(mixed $actual, string $expected): void
     {
         $export = new Export(['csv_escaped' => $actual]);
@@ -579,7 +580,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForCsvTerminatedProvider */
+    #[DataProvider('valuesForCsvTerminatedProvider')]
     public function testCsvTerminated(mixed $actual, string $expected): void
     {
         $export = new Export(['csv_terminated' => $actual]);
@@ -598,7 +599,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testCsvRemoveCRLF(mixed $actual, bool $expected): void
     {
         $export = new Export(['csv_removeCRLF' => $actual]);
@@ -608,7 +609,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['csv_removeCRLF']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testExcelColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['excel_columns' => $actual]);
@@ -618,7 +619,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['excel_columns']);
     }
 
-    /** @dataProvider valuesForExcelNullProvider */
+    #[DataProvider('valuesForExcelNullProvider')]
     public function testExcelNull(mixed $actual, string $expected): void
     {
         $export = new Export(['excel_null' => $actual]);
@@ -637,7 +638,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForExcelEditionProvider */
+    #[DataProvider('valuesForExcelEditionProvider')]
     public function testExcelEdition(mixed $actual, string $expected): void
     {
         $export = new Export(['excel_edition' => $actual]);
@@ -657,7 +658,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'win'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testExcelRemoveCRLF(mixed $actual, bool $expected): void
     {
         $export = new Export(['excel_removeCRLF' => $actual]);
@@ -667,7 +668,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['excel_removeCRLF']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testExcelStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['excel_structure_or_data' => $actual]);
@@ -677,7 +678,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['excel_structure_or_data']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    #[DataProvider('structureOrDataWithDefaultStructureOrDataProvider')]
     public function testLatexStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_structure_or_data' => $actual]);
@@ -687,7 +688,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['latex_structure_or_data']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testLatexColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['latex_columns' => $actual]);
@@ -697,7 +698,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['latex_columns']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testLatexRelation(mixed $actual, bool $expected): void
     {
         $export = new Export(['latex_relation' => $actual]);
@@ -707,7 +708,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['latex_relation']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testLatexComments(mixed $actual, bool $expected): void
     {
         $export = new Export(['latex_comments' => $actual]);
@@ -717,7 +718,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['latex_comments']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testLatexMime(mixed $actual, bool $expected): void
     {
         $export = new Export(['latex_mime' => $actual]);
@@ -727,7 +728,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['latex_mime']);
     }
 
-    /** @dataProvider valuesForLatexNullProvider */
+    #[DataProvider('valuesForLatexNullProvider')]
     public function testLatexNull(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_null' => $actual]);
@@ -746,7 +747,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testLatexCaption(mixed $actual, bool $expected): void
     {
         $export = new Export(['latex_caption' => $actual]);
@@ -756,7 +757,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['latex_caption']);
     }
 
-    /** @dataProvider valuesForLatexStructureCaptionProvider */
+    #[DataProvider('valuesForLatexStructureCaptionProvider')]
     public function testLatexStructureCaption(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_structure_caption' => $actual]);
@@ -775,7 +776,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLatexStructureContinuedCaptionProvider */
+    #[DataProvider('valuesForLatexStructureContinuedCaptionProvider')]
     public function testLatexStructureContinuedCaption(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_structure_continued_caption' => $actual]);
@@ -794,7 +795,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLatexDataCaptionProvider */
+    #[DataProvider('valuesForLatexDataCaptionProvider')]
     public function testLatexDataCaption(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_data_caption' => $actual]);
@@ -813,7 +814,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLatexDataContinuedCaptionProvider */
+    #[DataProvider('valuesForLatexDataContinuedCaptionProvider')]
     public function testLatexDataContinuedCaption(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_data_continued_caption' => $actual]);
@@ -832,7 +833,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLatexDataLabelProvider */
+    #[DataProvider('valuesForLatexDataLabelProvider')]
     public function testLatexDataLabel(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_data_label' => $actual]);
@@ -851,7 +852,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLatexStructureLabelProvider */
+    #[DataProvider('valuesForLatexStructureLabelProvider')]
     public function testLatexStructureLabel(mixed $actual, string $expected): void
     {
         $export = new Export(['latex_structure_label' => $actual]);
@@ -870,7 +871,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testMediawikiStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['mediawiki_structure_or_data' => $actual]);
@@ -880,7 +881,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['mediawiki_structure_or_data']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testMediawikiCaption(mixed $actual, bool $expected): void
     {
         $export = new Export(['mediawiki_caption' => $actual]);
@@ -890,7 +891,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['mediawiki_caption']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testMediawikiHeaders(mixed $actual, bool $expected): void
     {
         $export = new Export(['mediawiki_headers' => $actual]);
@@ -900,7 +901,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['mediawiki_headers']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testOdsStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['ods_structure_or_data' => $actual]);
@@ -910,7 +911,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['ods_structure_or_data']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testPdfStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['pdf_structure_or_data' => $actual]);
@@ -920,7 +921,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['pdf_structure_or_data']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testPhparrayStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['phparray_structure_or_data' => $actual]);
@@ -930,7 +931,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['phparray_structure_or_data']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testJsonStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['json_structure_or_data' => $actual]);
@@ -940,7 +941,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['json_structure_or_data']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testJsonPrettyPrint(mixed $actual, bool $expected): void
     {
         $export = new Export(['json_pretty_print' => $actual]);
@@ -950,7 +951,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['json_pretty_print']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testJsonUnicode(mixed $actual, bool $expected): void
     {
         $export = new Export(['json_unicode' => $actual]);
@@ -960,7 +961,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['json_unicode']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultStructureOrDataProvider */
+    #[DataProvider('structureOrDataWithDefaultStructureOrDataProvider')]
     public function testSqlStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['sql_structure_or_data' => $actual]);
@@ -970,7 +971,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_structure_or_data']);
     }
 
-    /** @dataProvider valuesForSqlCompatibilityProvider */
+    #[DataProvider('valuesForSqlCompatibilityProvider')]
     public function testSqlCompatibility(mixed $actual, string $expected): void
     {
         $export = new Export(['sql_compatibility' => $actual]);
@@ -997,7 +998,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'NONE'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlIncludeComments(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_include_comments' => $actual]);
@@ -1007,7 +1008,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_include_comments']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlDisableFk(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_disable_fk' => $actual]);
@@ -1017,7 +1018,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_disable_fk']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlViewsAsTables(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_views_as_tables' => $actual]);
@@ -1027,7 +1028,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_views_as_tables']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlMetadata(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_metadata' => $actual]);
@@ -1037,7 +1038,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_metadata']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlUseTransaction(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_use_transaction' => $actual]);
@@ -1047,7 +1048,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_use_transaction']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlCreateDatabase(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_create_database' => $actual]);
@@ -1057,7 +1058,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_create_database']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlDropDatabase(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_drop_database' => $actual]);
@@ -1067,7 +1068,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_drop_database']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlDropTable(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_drop_table' => $actual]);
@@ -1077,7 +1078,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_drop_table']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlIfNotExists(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_if_not_exists' => $actual]);
@@ -1087,7 +1088,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_if_not_exists']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlViewCurrentUser(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_view_current_user' => $actual]);
@@ -1097,7 +1098,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_view_current_user']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlOrReplaceView(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_or_replace_view' => $actual]);
@@ -1107,7 +1108,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_or_replace_view']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlProcedureFunction(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_procedure_function' => $actual]);
@@ -1117,7 +1118,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_procedure_function']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlCreateTable(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_create_table' => $actual]);
@@ -1127,7 +1128,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_create_table']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlCreateView(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_create_view' => $actual]);
@@ -1137,7 +1138,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_create_view']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlCreateTrigger(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_create_trigger' => $actual]);
@@ -1147,7 +1148,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_create_trigger']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlAutoIncrement(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_auto_increment' => $actual]);
@@ -1157,7 +1158,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_auto_increment']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlBackquotes(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_backquotes' => $actual]);
@@ -1167,7 +1168,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_backquotes']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlDates(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_dates' => $actual]);
@@ -1177,7 +1178,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_dates']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlRelation(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_relation' => $actual]);
@@ -1187,7 +1188,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_relation']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlTruncate(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_truncate' => $actual]);
@@ -1197,7 +1198,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_truncate']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlDelayed(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_delayed' => $actual]);
@@ -1207,7 +1208,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_delayed']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlIgnore(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_ignore' => $actual]);
@@ -1217,7 +1218,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_ignore']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlUtcTime(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_utc_time' => $actual]);
@@ -1227,7 +1228,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_utc_time']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSqlHexForBinary(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_hex_for_binary' => $actual]);
@@ -1237,7 +1238,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_hex_for_binary']);
     }
 
-    /** @dataProvider valuesForSqlTypeProvider */
+    #[DataProvider('valuesForSqlTypeProvider')]
     public function testSqlType(mixed $actual, string $expected): void
     {
         $export = new Export(['sql_type' => $actual]);
@@ -1257,7 +1258,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => ['invalid', 'INSERT'];
     }
 
-    /** @dataProvider valuesForSqlMaxQuerySizeProvider */
+    #[DataProvider('valuesForSqlMaxQuerySizeProvider')]
     public function testSqlMaxQuerySize(mixed $actual, int $expected): void
     {
         $export = new Export(['sql_max_query_size' => $actual]);
@@ -1276,7 +1277,7 @@ class ExportTest extends TestCase
         yield 'invalid value' => [-1, 50000];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSqlMime(mixed $actual, bool $expected): void
     {
         $export = new Export(['sql_mime' => $actual]);
@@ -1286,7 +1287,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['sql_mime']);
     }
 
-    /** @dataProvider valuesForSqlHeaderCommentProvider */
+    #[DataProvider('valuesForSqlHeaderCommentProvider')]
     public function testSqlHeaderComment(mixed $actual, string $expected): void
     {
         $export = new Export(['sql_header_comment' => $actual]);
@@ -1305,7 +1306,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForSqlInsertSyntaxProvider */
+    #[DataProvider('valuesForSqlInsertSyntaxProvider')]
     public function testSqlInsertSyntax(mixed $actual, string $expected): void
     {
         $export = new Export(['sql_insert_syntax' => $actual]);
@@ -1327,7 +1328,7 @@ class ExportTest extends TestCase
         yield 'invalid value 2' => ['', 'both'];
     }
 
-    /** @dataProvider valuesForPdfReportTitleProvider */
+    #[DataProvider('valuesForPdfReportTitleProvider')]
     public function testPdfReportTitle(mixed $actual, string $expected): void
     {
         $export = new Export(['pdf_report_title' => $actual]);
@@ -1346,7 +1347,7 @@ class ExportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testXmlStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['xml_structure_or_data' => $actual]);
@@ -1356,7 +1357,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_structure_or_data']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportStruc(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_struc' => $actual]);
@@ -1366,7 +1367,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_struc']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportEvents(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_events' => $actual]);
@@ -1376,7 +1377,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_events']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportFunctions(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_functions' => $actual]);
@@ -1386,7 +1387,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_functions']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportProcedures(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_procedures' => $actual]);
@@ -1396,7 +1397,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_procedures']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportTables(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_tables' => $actual]);
@@ -1406,7 +1407,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_tables']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportTriggers(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_triggers' => $actual]);
@@ -1416,7 +1417,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_triggers']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportViews(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_views' => $actual]);
@@ -1426,7 +1427,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_views']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testXmlExportContents(mixed $actual, bool $expected): void
     {
         $export = new Export(['xml_export_contents' => $actual]);
@@ -1436,7 +1437,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['xml_export_contents']);
     }
 
-    /** @dataProvider structureOrDataWithDefaultDataProvider */
+    #[DataProvider('structureOrDataWithDefaultDataProvider')]
     public function testYamlStructureOrData(mixed $actual, string $expected): void
     {
         $export = new Export(['yaml_structure_or_data' => $actual]);
@@ -1446,7 +1447,7 @@ class ExportTest extends TestCase
         $this->assertSame($expected, $exportArray['yaml_structure_or_data']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testRemoveDefinerFromDefinitions(mixed $actual, bool $expected): void
     {
         $export = new Export(['remove_definer_from_definitions' => $actual]);
