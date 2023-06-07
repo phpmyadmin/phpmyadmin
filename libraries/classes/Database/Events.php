@@ -200,7 +200,7 @@ class Events
                 }
 
                 $this->response->addJSON('tableType', 'events');
-                exit;
+                $this->response->callExit();
             }
         }
 
@@ -508,7 +508,7 @@ class Events
                 unset($_POST);
             }
 
-            exit;
+            $this->response->callExit();
         }
 
         $message = __('Error in processing request:') . ' ';
@@ -521,7 +521,7 @@ class Events
         if ($this->response->isAjax()) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
-            exit;
+            $this->response->callExit();
         }
 
         echo $message->getDisplay();
@@ -549,7 +549,7 @@ class Events
                 $this->response->addJSON('message', $exportData);
                 $this->response->addJSON('title', $title);
 
-                exit;
+                $this->response->callExit();
             }
 
             $output = '<div class="container">';
@@ -574,7 +574,7 @@ class Events
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
 
-            exit;
+            $this->response->callExit();
         }
 
         $this->response->addHTML($message->getDisplay());

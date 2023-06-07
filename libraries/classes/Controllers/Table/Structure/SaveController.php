@@ -147,7 +147,7 @@ final class SaveController extends AbstractController
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL($changes !== [] ? $sqlQuery : '');
 
-                exit;
+                $this->response->callExit();
             }
 
             $columnsWithIndex = $this->dbi

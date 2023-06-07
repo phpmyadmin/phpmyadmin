@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Exceptions\ExitException;
+
 use function defined;
 use function header;
 use function headers_sent;
@@ -378,7 +380,7 @@ class ResponseRenderer
         }
 
         $this->buffer->flush();
-        exit;
+        $this->callExit();
     }
 
     /**
@@ -441,9 +443,7 @@ class ResponseRenderer
     {
         $this->setHttpResponseCode(303);
         $this->header('Location: ' . $location);
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $this->callExit();
     }
 
     /**
@@ -485,5 +485,18 @@ class ResponseRenderer
     public function getFooterScripts(): Scripts
     {
         return $this->footer->getScripts();
+    }
+
+    public function callExit(string $message = ''): never
+    {
+        if (defined('TESTSUITE')) {
+            throw new ExitException($message);
+        }
+
+        if ($message !== '') {
+            exit($message);
+        }
+
+        exit;
     }
 }

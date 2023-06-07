@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use Throwable;
 
 use function base64_encode;
 use function ob_get_clean;
@@ -88,9 +90,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
         } else {
-            $this->assertFalse(
-                $this->object->showLoginForm(),
-            );
+            $this->expectException(ExitException::class);
+            $this->object->showLoginForm();
         }
     }
 
@@ -305,8 +306,14 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $GLOBALS['errno'] = 31;
 
         ob_start();
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
 
         $this->assertIsString($result);
 

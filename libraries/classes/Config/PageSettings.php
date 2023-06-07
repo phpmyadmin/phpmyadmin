@@ -98,7 +98,7 @@ class PageSettings
             // reload page
             $response = ResponseRenderer::getInstance();
             Core::sendHeaderLocation($response->getSelfUrl());
-            exit;
+            $response->callExit();
         }
 
         return $result;

@@ -8184,6 +8184,9 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['allowDeny_forbidden']]]></code>
     </InvalidArrayOffset>
+    <PossiblyUnusedReturnValue>
+      <code>bool</code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <DocblockTypeContradiction>
@@ -8247,6 +8250,7 @@
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
+      <code>bool</code>
     </PossiblyUnusedReturnValue>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['LoginCookieStore']]]></code>
@@ -8274,6 +8278,9 @@
     <PossiblyInvalidCast>
       <code>$oldUser</code>
     </PossiblyInvalidCast>
+    <PossiblyUnusedReturnValue>
+      <code>bool</code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
     <MixedArgument>
@@ -8326,6 +8333,9 @@
     <PossiblyNullReference>
       <code>issetCookie</code>
     </PossiblyNullReference>
+    <PossiblyUnusedReturnValue>
+      <code>bool</code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="libraries/classes/Plugins/AuthenticationPluginFactory.php">
     <RedundantFunctionCall>

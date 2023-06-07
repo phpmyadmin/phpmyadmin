@@ -135,6 +135,6 @@ class Pdf extends TCPDF
         echo Message::error(
             __('Error while creating PDF:') . ' ' . $errorMessage,
         )->getDisplay();
-        exit;
+        ResponseRenderer::getInstance()->callExit();
     }
 }

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Schema;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
 
 use function array_flip;
@@ -91,7 +92,7 @@ abstract class TableStats
         $result = $GLOBALS['dbi']->tryQuery($sql);
         if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
-            exit;
+            ResponseRenderer::getInstance()->callExit();
         }
 
         if ($this->showKeys) {

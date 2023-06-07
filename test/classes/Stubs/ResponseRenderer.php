@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
@@ -180,5 +181,10 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function setHeadersSent(bool $isHeadersSent): void
     {
         $this->isHeadersSent = $isHeadersSent;
+    }
+
+    public function callExit(string $message = ''): never
+    {
+        throw new ExitException($message);
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 
@@ -100,6 +101,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
             ->with()
             ->will($this->returnValue(false));
 
+        $this->expectException(ExitException::class);
         FormProcessing::process($formDisplay);
     }
 }

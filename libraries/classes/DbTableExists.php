@@ -46,7 +46,7 @@ final class DbTableExists
                 Message::error(__('No databases selected.')),
             );
 
-            exit;
+            $response->callExit();
         }
 
         $urlParams = ['reload' => 1];
@@ -65,7 +65,7 @@ final class DbTableExists
 
         Core::sendHeaderLocation('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
 
-        exit;
+        $response->callExit();
     }
 
     private static function checkTable(string $db, string $table, bool $isTransformationWrapper): void
@@ -90,7 +90,7 @@ final class DbTableExists
         }
 
         if ($isTransformationWrapper) {
-            exit;
+            ResponseRenderer::getInstance()->callExit();
         }
 
         if ($table !== '') {
@@ -110,6 +110,6 @@ final class DbTableExists
         $controller = Core::getContainerBuilder()->get(SqlController::class);
         $controller(Common::getRequest());
 
-        exit;
+        ResponseRenderer::getInstance()->callExit();
     }
 }

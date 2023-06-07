@@ -248,7 +248,7 @@ abstract class AuthenticationPlugin
                     'error_message' => $exception->getMessage(),
                 ]);
 
-                exit;
+                ResponseRenderer::getInstance()->callExit();
             }
 
             $this->showLoginForm();
@@ -313,11 +313,7 @@ abstract class AuthenticationPlugin
 
         $response = ResponseRenderer::getInstance();
         if ($response->loginPage()) {
-            if (defined('TESTSUITE')) {
-                return;
-            }
-
-            exit;
+            $response->callExit();
         }
 
         echo $this->template->render('login/header');
@@ -330,8 +326,6 @@ abstract class AuthenticationPlugin
         ]);
         echo $this->template->render('login/footer');
         echo Config::renderFooter();
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $response->callExit();
     }
 }

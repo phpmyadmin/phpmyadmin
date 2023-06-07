@@ -189,7 +189,7 @@ class Triggers
                 }
 
                 $this->response->addJSON('tableType', 'triggers');
-                exit;
+                $this->response->callExit();
             }
         }
 
@@ -412,7 +412,7 @@ class Triggers
                 unset($_POST);
             }
 
-            exit;
+            $this->response->callExit();
         }
 
         $message = __('Error in processing request:') . ' ';
@@ -425,7 +425,7 @@ class Triggers
         if ($this->response->isAjax()) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
-            exit;
+            $this->response->callExit();
         }
 
         echo $message->getDisplay();
@@ -451,7 +451,7 @@ class Triggers
                 $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
                 $this->response->addJSON('title', $title);
 
-                exit;
+                $this->response->callExit();
             }
 
             $this->response->addHTML($this->template->render('triggers/export', [
@@ -473,7 +473,7 @@ class Triggers
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
 
-            exit;
+            $this->response->callExit();
         }
 
         $this->response->addHTML($message->getDisplay());

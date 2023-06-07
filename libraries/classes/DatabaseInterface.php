@@ -165,7 +165,7 @@ class DatabaseInterface implements DbalInterface
             // The following statement will exit
             Generator::mysqlDie($this->getError($connectionType), $query);
 
-            exit;
+            ResponseRenderer::getInstance()->callExit();
         }
 
         return $result;

@@ -6,8 +6,11 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use Throwable;
 
 use function ob_get_clean;
 use function ob_start;
@@ -51,9 +54,9 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     public function testAuth(): void
     {
-        $this->assertTrue(
-            $this->object->showLoginForm(),
-        );
+        ResponseRenderer::getInstance()->setAjax(true);
+        $this->expectException(ExitException::class);
+        $this->object->showLoginForm();
     }
 
     public function testAuthCheck(): void
@@ -83,8 +86,14 @@ class AuthenticationConfigTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         ob_start();
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (Throwable $throwable) {
+        }
+
         $html = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
 
         $this->assertIsString($html);
 

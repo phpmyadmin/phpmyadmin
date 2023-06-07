@@ -300,9 +300,6 @@ class ErrorHandler
             default:
                 // FATAL error, display it and exit
                 $this->dispFatalError($error);
-                if (! defined('TESTSUITE')) {
-                    exit;
-                }
         }
     }
 
@@ -325,7 +322,7 @@ class ErrorHandler
      *
      * @param Error $error the error
      */
-    protected function dispFatalError(Error $error): void
+    protected function dispFatalError(Error $error): never
     {
         $response = ResponseRenderer::getInstance();
         if (! $response->headersSent()) {
@@ -337,9 +334,7 @@ class ErrorHandler
 
         $response->addHTML($error->getDisplay());
         $response->addHTML('</body></html>');
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $response->callExit();
     }
 
     /**

@@ -16,7 +16,6 @@ use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 use function base64_decode;
-use function defined;
 use function hash_equals;
 use function preg_replace;
 use function sprintf;
@@ -41,11 +40,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
             $response->addJSON('reload_flag', '1');
-            if (defined('TESTSUITE')) {
-                return true;
-            }
-
-            exit;
+            $response->callExit();
         }
 
         return $this->authForm();
@@ -95,11 +90,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         $response->addHTML(Config::renderFooter());
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
-
-        return false;
+        $response->callExit();
     }
 
     /**
@@ -200,9 +191,7 @@ class AuthenticationHttp extends AuthenticationPlugin
                 'error_message' => $error,
             ]);
 
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
+            ResponseRenderer::getInstance()->callExit();
         }
 
         $this->authForm();
