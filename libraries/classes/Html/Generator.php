@@ -889,7 +889,7 @@ class Generator
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $errorMessage);
-            exit;
+            $response->callExit();
         }
 
         if ($backUrl !== '') {
@@ -906,7 +906,7 @@ class Generator
                 . '</fieldset>' . "\n\n";
         }
 
-        exit($errorMessage);
+        $response->callExit($errorMessage);
     }
 
     /**

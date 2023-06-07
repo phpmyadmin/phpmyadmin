@@ -29,7 +29,6 @@ use function array_keys;
 use function base64_decode;
 use function base64_encode;
 use function count;
-use function defined;
 use function explode;
 use function function_exists;
 use function in_array;
@@ -77,11 +76,7 @@ class AuthenticationCookie extends AuthenticationPlugin
          */
         $sessionExpired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
         if (! $sessionExpired && $response->loginPage()) {
-            if (defined('TESTSUITE')) {
-                return true;
-            }
-
-            exit;
+            $response->callExit();
         }
 
         /**
@@ -202,11 +197,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'config_footer' => $configFooter,
         ]);
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
-
-        return true;
+        $response->callExit();
     }
 
     /**
@@ -336,7 +327,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     'error_message' => $exception->getMessage(),
                 ]);
 
-                exit;
+                ResponseRenderer::getInstance()->callExit();
             }
 
             return true;
@@ -388,11 +379,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             SessionCache::remove('proc_priv');
 
             $this->showFailure('no-activity');
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return false;
+            ResponseRenderer::getInstance()->callExit();
         }
 
         // check password cookie
@@ -492,11 +479,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $response->addJSON('success', 1);
             $response->addJSON('new_token', $_SESSION[' PMA_token ']);
 
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return;
+            $response->callExit();
         }
 
         // Set server cookies if required (once per session) and, in this case,
@@ -510,16 +493,15 @@ class AuthenticationCookie extends AuthenticationPlugin
          */
         Util::clearUserCache();
 
-        ResponseRenderer::getInstance()->disable();
+        $response = ResponseRenderer::getInstance();
+        $response->disable();
 
         Core::sendHeaderLocation(
             './index.php?route=/' . Url::getCommonRaw($urlParams, '&'),
             true,
         );
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $response->callExit();
     }
 
     /**

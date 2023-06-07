@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Tests;
 use Exception;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use ReflectionProperty;
+use Throwable;
 
 use function array_keys;
 use function array_pop;
@@ -304,7 +306,12 @@ class ErrorHandlerTest extends AbstractTestCase
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
-        $errorHandler->handleException(new Exception('Exception message.'));
+        try {
+            $errorHandler->handleException(new Exception('Exception message.'));
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
         $output = $responseStub->getHTMLResult();
         $errors = $errorHandler->getCurrentErrors();
         $this->assertCount(1, $errors);
@@ -327,7 +334,12 @@ class ErrorHandlerTest extends AbstractTestCase
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
-        $errorHandler->handleException(new Exception('Exception message.'));
+        try {
+            $errorHandler->handleException(new Exception('Exception message.'));
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
         $output = $responseStub->getHTMLResult();
         $errors = $errorHandler->getCurrentErrors();
         $this->assertCount(1, $errors);
@@ -348,7 +360,12 @@ class ErrorHandlerTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue($responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
-        $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        try {
+            $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        } catch (Throwable $exception) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $exception ?? null);
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expectedStart = <<<'HTML'
 <div class="alert alert-danger" role="alert"><p><strong>Error</strong> in name#1</p><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">
@@ -368,7 +385,12 @@ HTML;
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue($responseStub);
         $responseStub->setHeadersSent(false);
         $errorHandler = new ErrorHandler();
-        $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        try {
+            $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        } catch (Throwable $exception) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $exception ?? null);
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expectedStart = <<<'HTML'
 <html><head><title>Error: Fatal error message!</title></head>

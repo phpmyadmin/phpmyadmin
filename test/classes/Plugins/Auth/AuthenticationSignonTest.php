@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use Throwable;
 
 use function ob_get_clean;
 use function ob_start;
@@ -57,8 +59,14 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         ResponseRenderer::getInstance()->setAjax(false);
 
         ob_start();
-        $this->object->showLoginForm();
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
 
         $this->assertIsString($result);
 

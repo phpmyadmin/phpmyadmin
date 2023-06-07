@@ -269,7 +269,7 @@ final class RelationController extends AbstractController
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($previewSqlData);
 
-            exit;
+            $this->response->callExit();
         }
 
         if (empty($displayQuery) || $seenError) {

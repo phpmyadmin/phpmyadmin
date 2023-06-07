@@ -134,7 +134,7 @@ class Routines
                 echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
             }
 
-            exit;
+            $this->response->callExit();
         }
 
         $message = __('Error in processing request:') . ' ';
@@ -153,7 +153,7 @@ class Routines
         if ($this->response->isAjax()) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
-            exit;
+            $this->response->callExit();
         }
 
         echo $message->getDisplay();
@@ -268,7 +268,7 @@ class Routines
         if (! $GLOBALS['message']->isSuccess()) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $output);
-            exit;
+            $this->response->callExit();
         }
 
         $routines = self::getDetails($this->dbi, $db, $_POST['item_type'], $_POST['item_name']);
@@ -283,7 +283,7 @@ class Routines
         $this->response->addJSON('insert', ! empty($routine));
         $this->response->addJSON('message', $output);
         $this->response->addJSON('tableType', 'routines');
-        exit;
+        $this->response->callExit();
     }
 
     /**
@@ -1127,7 +1127,7 @@ class Routines
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
-                exit;
+                $this->response->callExit();
             }
 
             echo $message->getDisplay();
@@ -1237,14 +1237,14 @@ class Routines
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON('message', $message->getDisplay() . $output);
             $this->response->addJSON('dialog', false);
-            exit;
+            $this->response->callExit();
         }
 
         echo $message->getDisplay() , $output;
         if ($message->isError()) {
             // At least one query has failed, so shouldn't
             // execute any more queries, so we quit.
-            exit;
+            $this->response->callExit();
         }
 
         unset($_POST);
@@ -1280,7 +1280,7 @@ class Routines
                     echo $form;
                 }
 
-                exit;
+                $this->response->callExit();
             }
 
             if ($this->response->isAjax()) {
@@ -1294,7 +1294,7 @@ class Routines
 
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
-                exit;
+                $this->response->callExit();
             }
         }
     }
@@ -1545,7 +1545,7 @@ class Routines
                 $this->response->addJSON('message', $exportData);
                 $this->response->addJSON('title', $title);
 
-                exit;
+                $this->response->callExit();
             }
 
             $output = '<div class="container">';
@@ -1573,7 +1573,7 @@ class Routines
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
 
-            exit;
+            $this->response->callExit();
         }
 
         $this->response->addHTML($message->getDisplay());

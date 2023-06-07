@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use Throwable;
 
 /** @covers \PhpMyAdmin\Controllers\AbstractController */
 class AbstractControllerTest extends AbstractTestCase
@@ -45,7 +47,12 @@ class AbstractControllerTest extends AbstractTestCase
         $message .= '[br]';
         $expected = Message::error($message)->getDisplay();
 
-        $controller->testCheckParameters(['param1', 'param2']);
+        try {
+            $controller->testCheckParameters(['param1', 'param2']);
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
         $this->assertSame($expected, $response->getHTMLResult());
         $this->assertSame(400, $response->getHttpResponseCode());
     }

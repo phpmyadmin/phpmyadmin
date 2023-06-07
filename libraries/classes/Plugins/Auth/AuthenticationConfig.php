@@ -15,7 +15,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
-use function defined;
 use function sprintf;
 use function trigger_error;
 
@@ -39,11 +38,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
             $response->addJSON('reload_flag', '1');
-            if (defined('TESTSUITE')) {
-                return true;
-            }
-
-            exit;
+            $response->callExit();
         }
 
         return true;
@@ -160,8 +155,6 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         echo '</table>' , "\n";
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $response->callExit();
     }
 }

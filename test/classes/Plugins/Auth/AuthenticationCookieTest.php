@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use ReflectionException;
 use ReflectionMethod;
+use Throwable;
 
 use function base64_decode;
 use function base64_encode;
@@ -86,9 +88,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->with('redirect_flag', '1');
 
         $GLOBALS['conn_error'] = true;
-        $this->assertTrue(
-            $this->object->showLoginForm(),
-        );
+
+        $this->expectException(ExitException::class);
+        $this->object->showLoginForm();
     }
 
     private function getAuthErrorMockResponse(): void
@@ -179,8 +181,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
-        $this->object->showLoginForm();
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
 
         $this->assertIsString($result);
 
@@ -258,8 +266,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
-        $this->object->showLoginForm();
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
 
         $this->assertIsString($result);
 
@@ -331,8 +345,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
-        $this->object->showLoginForm();
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
 
         $this->assertIsString($result);
 
@@ -622,9 +642,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->expects($this->once())
             ->method('showFailure');
 
-        $this->assertFalse(
-            $this->object->readCredentials(),
-        );
+        $this->expectException(ExitException::class);
+        $this->object->readCredentials();
     }
 
     public function testAuthSetUser(): void
@@ -678,6 +697,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
 
         $this->object->storeCredentials();
+        $this->expectException(ExitException::class);
         $this->object->rememberCredentials();
     }
 
@@ -994,8 +1014,16 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         }
 
         ob_start();
-        $this->object->checkRules();
+        try {
+            $this->object->checkRules();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        if (! empty($expected)) {
+            $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        }
 
         $this->assertIsString($result);
 

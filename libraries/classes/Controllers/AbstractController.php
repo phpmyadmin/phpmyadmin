@@ -133,9 +133,7 @@ abstract class AbstractController
         $this->response->setRequestStatus(false);
         $this->response->addHTML(Message::error($errorMessage)->getDisplay());
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $this->response->callExit();
     }
 
     /** @psalm-param int<400,599> $statusCode */

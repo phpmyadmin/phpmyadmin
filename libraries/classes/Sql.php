@@ -489,16 +489,16 @@ class Sql
      */
     private function handleQueryExecuteError(bool $isGotoFile, string $error, string $fullSqlQuery): never
     {
+        $response = ResponseRenderer::getInstance();
         if ($isGotoFile) {
             $message = Message::rawError($error);
-            $response = ResponseRenderer::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
         } else {
             Generator::mysqlDie($error, $fullSqlQuery, false);
         }
 
-        exit;
+        $response->callExit();
     }
 
     /**
@@ -1329,7 +1329,7 @@ class Sql
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true && is_object($result)) {
             $this->getResponseForGridEdit($result);
-            exit;
+            ResponseRenderer::getInstance()->callExit();
         }
 
         // Gets the list of fields properties
