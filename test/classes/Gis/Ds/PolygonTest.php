@@ -8,7 +8,7 @@ use PhpMyAdmin\Gis\Ds\Point;
 use PhpMyAdmin\Gis\Ds\Polygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/** @covers \PhpMyAdmin\Ds\Polygon */
+/** @covers \PhpMyAdmin\Gis\Ds\Polygon */
 class PolygonTest extends AbstractTestCase
 {
     /**
