@@ -95,8 +95,7 @@ class ServerConfigChecksTest extends AbstractTestCase
     }
 
     /**
-     * @requires extension bz2
-     * @requires extension zip
+     * @requires extension sodium
      */
     public function testBlowfish(): void
     {
@@ -133,7 +132,8 @@ class ServerConfigChecksTest extends AbstractTestCase
     }
 
     /**
-     * @requires extension sodium
+     * @requires extension bz2
+     * @requires extension zip
      */
     public function testBlowfishWithInvalidSecret(): void
     {
