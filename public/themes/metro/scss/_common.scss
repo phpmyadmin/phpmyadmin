@@ -1707,6 +1707,7 @@ form.append_fields_form .tblFooters {
 .pma_table {
   td {
     position: static;
+
     /* rtl:ignore */
     text-align: left !important;
   }
@@ -1723,6 +1724,7 @@ form.append_fields_form .tblFooters {
   th.draggable {
     /* rtl:ignore */
     text-align: left;
+
     span {
       /* rtl:ignore */
       margin-right: 10px;
