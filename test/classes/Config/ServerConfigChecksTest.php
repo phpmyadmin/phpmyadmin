@@ -95,8 +95,6 @@ class ServerConfigChecksTest extends AbstractTestCase
     }
 
     /**
-     * Test for imports
-     *
      * @requires extension bz2
      * @requires extension zip
      */
@@ -135,10 +133,7 @@ class ServerConfigChecksTest extends AbstractTestCase
     }
 
     /**
-     * Test for imports
-     *
-     * @requires extension bz2
-     * @requires extension zip
+     * @requires extension sodium
      */
     public function testBlowfishWithInvalidSecret(): void
     {
