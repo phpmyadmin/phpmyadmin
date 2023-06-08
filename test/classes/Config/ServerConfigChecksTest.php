@@ -134,6 +134,7 @@ class ServerConfigChecksTest extends AbstractTestCase
     /**
      * @requires extension bz2
      * @requires extension zip
+     * @requires extension sodium
      */
     public function testBlowfishWithInvalidSecret(): void
     {
