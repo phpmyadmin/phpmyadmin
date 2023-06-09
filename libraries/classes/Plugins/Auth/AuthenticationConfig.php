@@ -28,20 +28,18 @@ class AuthenticationConfig extends AuthenticationPlugin
 {
     /**
      * Displays authentication form
-     *
-     * @return bool always true
      */
-    public function showLoginForm(): bool
+    public function showLoginForm(): void
     {
         $response = ResponseRenderer::getInstance();
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
-            // reload_flag removes the token parameter from the URL and reloads
-            $response->addJSON('reload_flag', '1');
-            $response->callExit();
+        if (! $response->isAjax()) {
+            return;
         }
 
-        return true;
+        $response->setRequestStatus(false);
+        // reload_flag removes the token parameter from the URL and reloads
+        $response->addJSON('reload_flag', '1');
+        $response->callExit();
     }
 
     /**
@@ -66,7 +64,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    public function showFailure(string $failure): never
     {
         parent::showFailure($failure);
 

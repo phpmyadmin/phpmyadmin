@@ -32,7 +32,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Displays authentication form
      */
-    public function showLoginForm(): bool
+    public function showLoginForm(): never
     {
         $response = ResponseRenderer::getInstance();
         $response->disable();
@@ -244,7 +244,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    public function showFailure(string $failure): never
     {
         parent::showFailure($failure);
 

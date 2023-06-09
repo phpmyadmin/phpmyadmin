@@ -61,7 +61,7 @@ abstract class AuthenticationPlugin
     /**
      * Displays authentication form
      */
-    abstract public function showLoginForm(): bool;
+    abstract public function showLoginForm(): void;
 
     /**
      * Gets authentication credentials

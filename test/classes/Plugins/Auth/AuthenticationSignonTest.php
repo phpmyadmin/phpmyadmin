@@ -67,7 +67,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $result = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -229,9 +229,13 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->getMock();
 
         $this->object->expects($this->exactly(1))
-            ->method('showLoginForm');
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
-        $this->object->showFailure('empty-denied');
+        try {
+            $this->object->showFailure('empty-denied');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals(
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
@@ -250,9 +254,13 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->getMock();
 
         $this->object->expects($this->exactly(1))
-            ->method('showLoginForm');
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
-        $this->object->showFailure('allow-denied');
+        try {
+            $this->object->showFailure('allow-denied');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals('Access denied!', $_SESSION['PMA_single_signon_error_message']);
     }
@@ -268,11 +276,15 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->getMock();
 
         $this->object->expects($this->exactly(1))
-            ->method('showLoginForm');
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
         $GLOBALS['cfg']['LoginCookieValidity'] = '1440';
 
-        $this->object->showFailure('no-activity');
+        try {
+            $this->object->showFailure('no-activity');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals(
             'You have been automatically logged out due to inactivity of'
@@ -293,7 +305,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->getMock();
 
         $this->object->expects($this->exactly(1))
-            ->method('showLoginForm');
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -305,7 +318,10 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
     }
@@ -322,7 +338,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->getMock();
 
         $this->object->expects($this->exactly(1))
-            ->method('showLoginForm');
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -334,7 +351,10 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
     }

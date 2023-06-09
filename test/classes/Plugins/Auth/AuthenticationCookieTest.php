@@ -73,7 +73,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     #[Group('medium')]
-    public function testAuthErrorAJAX(): void
+    public function testAuthErrorAJAX(): never
     {
         $mockResponse = $this->mockResponse();
 
@@ -191,7 +191,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $result = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -276,7 +276,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $result = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -355,7 +355,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $result = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -643,7 +643,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->will($this->returnValue('testBF'));
 
         $this->object->expects($this->once())
-            ->method('showFailure');
+            ->method('showFailure')
+            ->willThrowException(new ExitException());
 
         $this->expectException(ExitException::class);
         $this->object->readCredentials();
@@ -711,6 +712,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
+
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
@@ -718,7 +723,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('empty-denied');
+        try {
+            $this->object->showFailure('empty-denied');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -773,6 +781,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
+
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
@@ -780,7 +792,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('allow-denied');
+        try {
+            $this->object->showFailure('allow-denied');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals($GLOBALS['conn_error'], 'Access denied!');
     }
@@ -792,6 +807,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
+
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
@@ -802,7 +821,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('no-activity');
+        try {
+            $this->object->showFailure('no-activity');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -817,6 +839,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->onlyMethods(['showLoginForm'])
             ->getMock();
+
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
@@ -836,7 +862,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
@@ -847,6 +876,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->onlyMethods(['showLoginForm'])
             ->getMock();
+
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -866,7 +899,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }

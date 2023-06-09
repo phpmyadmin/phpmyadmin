@@ -94,7 +94,7 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         $html = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($html);
 
