@@ -8817,16 +8817,9 @@
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[Context::escape($field->name)]]></code>
-    </PossiblyInvalidOperand>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code>Context::escape($alias)</code>
-    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument>
       <code>$createQuery</code>
       <code>$definition</code>
-      <code><![CDATA[$field->name]]></code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
