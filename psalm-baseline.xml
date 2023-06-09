@@ -877,11 +877,6 @@
       <code>$params</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Controllers/BrowseForeignersController.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="libraries/classes/Controllers/ChangeLogController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
