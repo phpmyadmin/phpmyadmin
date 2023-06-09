@@ -1161,25 +1161,16 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * backquoteCompat test with forbidden words
-     */
-    public function testBackquoteForbidenWords(): void
+    public function testBackquoteCompatWithReservedKeywords(): void
     {
         Context::load();
-        $this->assertNotEmpty(Context::$keywords);
         foreach (Context::$keywords as $keyword => $type) {
+            $expected = $keyword;
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
-                $this->assertEquals(
-                    '`' . $keyword . '`',
-                    Util::backquoteCompat($keyword, 'NONE', false),
-                );
-            } else {
-                $this->assertEquals(
-                    $keyword,
-                    Util::backquoteCompat($keyword, 'NONE', false),
-                );
+                $expected = '`' . $keyword . '`';
             }
+
+            $this->assertSame($expected, Util::backquoteCompat($keyword, 'NONE', false));
         }
     }
 
