@@ -7356,9 +7356,6 @@
     <PossiblyNullOperand>
       <code>$error[3]</code>
     </PossiblyNullOperand>
-    <UndefinedConstant>
-      <code>USE_UTF_STRINGS</code>
-    </UndefinedConstant>
   </file>
   <file src="libraries/classes/ListDatabase.php">
     <InvalidArrayOffset>
