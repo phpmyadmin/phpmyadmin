@@ -1,20 +1,11 @@
 <form id="ajax_form" action="{{ url(route) }}" method="post">
   {{ get_hidden_inputs(url_params) }}
-
-  <fieldset class="pma-fieldset input">
-    <table>
-      <tr>
-        <td>{% trans 'From' %}</td>
-        <td>
-          <input type="text" name="from_prefix" id="initialPrefix">
-        </td>
-      </tr>
-      <tr>
-        <td>{% trans 'To' %}</td>
-        <td>
-          <input type="text" name="to_prefix" id="newPrefix">
-        </td>
-      </tr>
-    </table>
-  </fieldset>
+  <div class="mb-3">
+    <label for="initialPrefixInput" class="form-label">{% trans 'From' %}</label>
+    <input type="text" class="form-control" id="initialPrefixInput" name="from_prefix">
+  </div>
+  <div>
+    <label for="newPrefixInput" class="form-label">{% trans 'To' %}</label>
+    <input type="text" class="form-control" id="newPrefixInput" name="to_prefix">
+  </div>
 </form>
