@@ -53,7 +53,7 @@ function goTo3NFStep1 (newTables) {
             'tables': tables,
         }, function (data) {
             $('#page_content').find('h3').html(window.Messages.str3NFNormalization);
-            $('#mainContent').find('legend').html(data.legendText);
+            $('#mainContent').find('.card-header').html(data.legendText);
             $('#mainContent').find('h4').html(data.headText);
             $('#mainContent').find('p').html(data.subText);
             $('#mainContent').find('#extra').html(data.extra);
@@ -65,7 +65,7 @@ function goTo3NFStep1 (newTables) {
             });
 
             $('#mainContent').find('#newCols').html('');
-            $('.tblFooters').html('');
+            $('#mainContent .card-footer').html('');
 
             if (data.subText !== '') {
                 $('<input>')
@@ -77,7 +77,7 @@ function goTo3NFStep1 (newTables) {
                     .on('click', function () {
                         processDependencies('', true);
                     })
-                    .appendTo('.tblFooters');
+                    .appendTo('#mainContent .card-footer');
             }
         }
     );
@@ -93,7 +93,7 @@ function goTo2NFStep1 () {
             'server': CommonParams.get('server'),
         }, function (data) {
             $('#page_content h3').html(window.Messages.str2NFNormalization);
-            $('#mainContent legend').html(data.legendText);
+            $('#mainContent .card-header').html(data.legendText);
             $('#mainContent h4').html(data.headText);
             $('#mainContent p').html(data.subText);
             $('#mainContent #extra').html(data.extra);
@@ -108,7 +108,7 @@ function goTo2NFStep1 () {
                     .on('click', function () {
                         processDependencies(data.primary_key);
                     })
-                    .appendTo('.tblFooters');
+                    .appendTo('#mainContent .card-footer');
             } else {
                 if (normalizeto === '3nf') {
                     $('#mainContent #newCols').html(window.Messages.strToNextStep);
@@ -127,7 +127,7 @@ function goToFinish1NF () {
         return true;
     }
 
-    $('#mainContent legend').html(window.Messages.strEndStep);
+    $('#mainContent .card-header').html(window.Messages.strEndStep);
     $('#mainContent h4').html(
         '<h3>' + window.sprintf(window.Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
@@ -135,7 +135,7 @@ function goToFinish1NF () {
     $('#mainContent p').html('');
     $('#mainContent #extra').html('');
     $('#mainContent #newCols').html('');
-    $('.tblFooters').html('');
+    $('#mainContent .card-footer').html('');
 }
 
 function goToStep4 () {
@@ -147,12 +147,12 @@ function goToStep4 () {
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
         }, function (data) {
-            $('#mainContent legend').html(data.legendText);
+            $('#mainContent .card-header').html(data.legendText);
             $('#mainContent h4').html(data.headText);
             $('#mainContent p').html(data.subText);
             $('#mainContent #extra').html(data.extra);
             $('#mainContent #newCols').html('');
-            $('.tblFooters').html('');
+            $('#mainContent .card-footer').html('');
             for (var pk in primaryKey) {
                 $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
@@ -179,12 +179,12 @@ function goToStep3 () {
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
         }, function (data) {
-            $('#mainContent legend').html(data.legendText);
+            $('#mainContent .card-header').html(data.legendText);
             $('#mainContent h4').html(data.headText);
             $('#mainContent p').html(data.subText);
             $('#mainContent #extra').html(data.extra);
             $('#mainContent #newCols').html('');
-            $('.tblFooters').html('');
+            $('#mainContent .card-footer').html('');
             primaryKey = JSON.parse(data.primary_key);
             for (var pk in primaryKey) {
                 $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
@@ -202,11 +202,11 @@ function goToStep2 (extra = undefined) {
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server')
         }, function (data) {
-            $('#mainContent legend').html(data.legendText);
+            $('#mainContent .card-header').html(data.legendText);
             $('#mainContent h4').html(data.headText);
             $('#mainContent p').html(data.subText);
             $('#mainContent #extra,#mainContent #newCols').html('');
-            $('.tblFooters').html('');
+            $('#mainContent .card-footer').html('');
             if (data.hasPrimaryKey === '1') {
                 if (extra === 'goToStep3') {
                     $('#mainContent h4').html(window.Messages.strPrimaryKeyAdded);
@@ -257,11 +257,11 @@ function goTo2NFFinish (pd) {
                         return true;
                     }
 
-                    $('#mainContent legend').html(data.legendText);
+                    $('#mainContent .card-header').html(data.legendText);
                     $('#mainContent h4').html(data.headText);
                     $('#mainContent p').html('');
                     $('#mainContent #extra').html('');
-                    $('.tblFooters').html('');
+                    $('#mainContent .card-footer').html('');
                 } else {
                     ajaxShowMessage(data.extra, false);
                 }
@@ -299,11 +299,11 @@ function goTo3NFFinish (newTables) {
         success: function (data) {
             if (data.success === true) {
                 if (data.queryError === false) {
-                    $('#mainContent legend').html(data.legendText);
+                    $('#mainContent .card-header').html(data.legendText);
                     $('#mainContent h4').html(data.headText);
                     $('#mainContent p').html('');
                     $('#mainContent #extra').html('');
-                    $('.tblFooters').html('');
+                    $('#mainContent .card-footer').html('');
                 } else {
                     ajaxShowMessage(data.extra, false);
                 }
@@ -320,7 +320,7 @@ var backup = '';
 
 function goTo2NFStep2 (pd, primaryKey) {
     $('#newCols').html('');
-    $('#mainContent legend').html(window.Messages.strStep + ' 2.2 ' + window.Messages.strConfirmPd);
+    $('#mainContent .card-header').html(window.Messages.strStep + ' 2.2 ' + window.Messages.strConfirmPd);
     $('#mainContent h4').html(window.Messages.strSelectedPd);
     $('#mainContent p').html(window.Messages.strPdHintNote);
     var extra = '<div class="dependencies_box">';
@@ -360,7 +360,7 @@ function goTo2NFStep2 (pd, primaryKey) {
     }
 
     $('#mainContent #extra').html(extra);
-    $('.tblFooters').html('<input type="button" class="btn btn-primary" value="' + window.Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo2NFFinish" value="' + window.Messages.strGo + '">');
+    $('#mainContent .card-footer').html('<input type="button" class="btn btn-primary" value="' + window.Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo2NFFinish" value="' + window.Messages.strGo + '">');
     $('#goTo2NFFinish').on('click', function () {
         goTo2NFFinish(pd);
     });
@@ -368,7 +368,7 @@ function goTo2NFStep2 (pd, primaryKey) {
 
 function goTo3NFStep2 (pd, tablesTds) {
     $('#newCols').html('');
-    $('#mainContent legend').html(window.Messages.strStep + ' 3.2 ' + window.Messages.strConfirmTd);
+    $('#mainContent .card-header').html(window.Messages.strStep + ' 3.2 ' + window.Messages.strConfirmTd);
     $('#mainContent h4').html(window.Messages.strSelectedTd);
     $('#mainContent p').html(window.Messages.strPdHintNote);
     var extra = '<div class="dependencies_box">';
@@ -412,7 +412,7 @@ function goTo3NFStep2 (pd, tablesTds) {
     }
 
     $('#mainContent #extra').html(extra);
-    $('.tblFooters').html('<input type="button" class="btn btn-primary" value="' + window.Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo3NFFinish" value="' + window.Messages.strGo + '">');
+    $('#mainContent .card-footer').html('<input type="button" class="btn btn-primary" value="' + window.Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo3NFFinish" value="' + window.Messages.strGo + '">');
     $('#goTo3NFFinish').on('click', function () {
         if (! pdFound) {
             goTo3NFFinish([]);
@@ -528,9 +528,9 @@ function moveRepeatingGroup (repeatingCols) {
 AJAX.registerTeardown('normalization.js', function () {
     $('#extra').off('click', '#selectNonAtomicCol');
     $('#splitGo').off('click');
-    $('.tblFooters').off('click', '#saveSplit');
+    $('#mainContent .card-footer').off('click', '#saveSplit');
     $('#extra').off('click', '#addNewPrimary');
-    $('.tblFooters').off('click', '#saveNewPrimary');
+    $('#mainContent .card-footer').off('click', '#saveNewPrimary');
     $('#extra').off('click', '#removeRedundant');
     $('#mainContent p').off('click', '#createPrimaryKey');
     $('#mainContent').off('click', '#backEditPd');
@@ -577,7 +577,7 @@ AJAX.registerOnload('normalization.js', function () {
                             value: window.Messages.strSave,
                             class: 'btn btn-primary'
                         })
-                        .appendTo('.tblFooters');
+                        .appendTo('#mainContent .card-footer');
 
                     $('<input>')
                         .attr({
@@ -590,7 +590,7 @@ AJAX.registerOnload('normalization.js', function () {
                             $('#newCols').html('');
                             $(this).parent().html('');
                         })
-                        .appendTo('.tblFooters');
+                        .appendTo('#mainContent .card-footer');
                 }
             }
         );
@@ -598,7 +598,7 @@ AJAX.registerOnload('normalization.js', function () {
         return false;
     });
 
-    $('.tblFooters').on('click', '#saveSplit', function () {
+    $('#mainContent .card-footer').on('click', '#saveSplit', function () {
         window.centralColumnList = [];
         if ($('#newCols #field_0_1').val() === '') {
             $('#newCols #field_0_1').trigger('focus');
@@ -627,7 +627,7 @@ AJAX.registerOnload('normalization.js', function () {
                         if (data.success === true) {
                             appendHtmlColumnsList();
                             $('#newCols').html('');
-                            $('.tblFooters').html('');
+                            $('#mainContent .card-footer').html('');
                         } else {
                             ajaxShowMessage(data.error, false);
                         }
@@ -663,7 +663,7 @@ AJAX.registerOnload('normalization.js', function () {
                             value: window.Messages.strSave,
                             class: 'btn btn-primary'
                         })
-                        .appendTo('.tblFooters');
+                        .appendTo('#mainContent .card-footer');
 
                     $('<input>')
                         .attr({
@@ -676,7 +676,7 @@ AJAX.registerOnload('normalization.js', function () {
                             $('#newCols').html('');
                             $(this).parent().html('');
                         })
-                        .appendTo('.tblFooters');
+                        .appendTo('#mainContent .card-footer');
                 } else {
                     ajaxShowMessage(data.error, false);
                 }
@@ -686,7 +686,7 @@ AJAX.registerOnload('normalization.js', function () {
         return false;
     });
 
-    $('.tblFooters').on('click', '#saveNewPrimary', function () {
+    $('#mainContent .card-footer').on('click', '#saveNewPrimary', function () {
         var datastring = $('#newCols :input').serialize();
         var argsep = CommonParams.get('arg_separator');
         datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
@@ -696,7 +696,7 @@ AJAX.registerOnload('normalization.js', function () {
                 $('#mainContent p').html(window.Messages.strToNextStep);
                 $('#mainContent #extra').html('');
                 $('#mainContent #newCols').html('');
-                $('.tblFooters').html('');
+                $('#mainContent .card-footer').html('');
                 setTimeout(function () {
                     goToStep3();
                 }, 2000);
@@ -759,7 +759,7 @@ AJAX.registerOnload('normalization.js', function () {
                     $('#newCols').html('');
                     $('#extra input[type=checkbox]').prop('checked', false);
                 })
-                .appendTo('.tblFooters');
+                .appendTo('#mainContent .card-footer');
 
             $('<input>')
                 .attr({
@@ -770,7 +770,7 @@ AJAX.registerOnload('normalization.js', function () {
                 .on('click', function () {
                     moveRepeatingGroup(repeatingCols);
                 })
-                .appendTo('.tblFooters');
+                .appendTo('#mainContent .card-footer');
         }
     });
 
@@ -791,7 +791,7 @@ AJAX.registerOnload('normalization.js', function () {
             // on success
             $('.sqlqueryresults').remove();
             $('.result_query').remove();
-            $('.tblFooters').html('');
+            $('#mainContent .card-footer').html('');
             goToStep2('goToStep3');
         });
 

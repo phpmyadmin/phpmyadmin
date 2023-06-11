@@ -1,16 +1,16 @@
 <div id="primary_addreplicauser_gui">
-  <form action="{{ url('/server/privileges') }}" method="post" autocomplete="off" id="addUsersForm">
+  <form action="{{ url('/server/privileges') }}" method="post" autocomplete="off" id="addUsersForm" class="card">
     {{ get_hidden_inputs('', '') }}
+    <input type="hidden" name="grant_count" value="25">
+    <input type="hidden" name="createdb" id="createdb_0" value="0">
+    {# Needed for the replication replicas. #}
+    <input type="hidden" name="Repl_slave_priv" id="checkbox_Repl_slave_priv" value="Y">
+    <input type="hidden" name="sr_take_action" value="true">
+    <input type="hidden" name="adduser_submit" value="1">
 
-    <fieldset class="pma-fieldset" id="fieldset_add_user_login">
-      <legend>{% trans 'Add replica replication user' %}</legend>
+    <div class="card-header">{% trans 'Add replica replication user' %}</div>
 
-      <input type="hidden" name="grant_count" value="25">
-      <input type="hidden" name="createdb" id="createdb_0" value="0">
-      {# Needed for the replication replicas. #}
-      <input type="hidden" name="Repl_slave_priv" id="checkbox_Repl_slave_priv" value="Y">
-      <input type="hidden" name="sr_take_action" value="true">
-
+    <div class="card-body" id="fieldset_add_user_login">
       <div class="item">
         <label for="select_pred_username">
           {% trans 'User name:' %}
@@ -74,11 +74,10 @@
         </span>
         <input type="text" name="generated_pw" id="generated_pw">
       </div>
-    </fieldset>
+    </div>
 
-    <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
-      <input type="hidden" name="adduser_submit" value="1">
+    <div class="card-footer">
       <input class="btn btn-primary" type="submit" id="adduser_submit" value="{% trans 'Go' %}">
-    </fieldset>
+    </div>
   </form>
 </div>

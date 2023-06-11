@@ -20,38 +20,6 @@ textarea {
   }
 }
 
-.pma-fieldset {
-  margin-top: 1em;
-  border-radius: 4px 4px 0 0;
-  border: #aaa solid 1px;
-  padding: 0.5em;
-  background: #eee;
-  text-shadow: 1px 1px 2px $white;
-  box-shadow: 1px 1px 2px $white inset;
-}
-
-.pma-fieldset {
-  .pma-fieldset {
-    margin: 0.8em;
-    border: 1px solid #aaa;
-    background: #e8e8e8;
-  }
-
-  legend {
-    float: none;
-    font-weight: bold;
-    color: #444;
-    padding: 5px 10px;
-    border-radius: 2px;
-    border: 1px solid #aaa;
-    background-color: $white;
-    max-width: 100%;
-    box-shadow: 3px 3px 15px #bbb;
-    width: initial;
-    font-size: 1em;
-  }
-}
-
 // 3.4
 .datatable {
   table-layout: fixed;
@@ -71,17 +39,6 @@ textarea {
   text-shadow: 0 1px 0 $black;
 }
 
-.pma-fieldset.tblFooters {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  // avoid a thick line since this should be used under another fieldset
-  border-top: 0;
-  text-align: right;
-  float: none;
-  clear: both;
-  border-radius: 0 0 4px 4px;
-}
-
 div.null_div {
   height: 20px;
   text-align: center;
@@ -99,20 +56,6 @@ div.null_div {
     input {
       cursor: pointer;
     }
-  }
-}
-
-.pma-fieldset {
-  .formelement {
-    float: left;
-    margin-right: 0.5em;
-    // IE
-    white-space: nowrap;
-  }
-
-  // revert for Gecko
-  div[class=formelement] {
-    white-space: normal;
   }
 }
 
@@ -227,11 +170,6 @@ td .icon {
   padding: 0 0.5em;
 }
 
-.confirmation {
-  color: $black;
-  background-color: pink;
-}
-
 // end messageboxes
 
 .new_central_col {
@@ -242,39 +180,6 @@ td .icon {
   font-size: 70%;
   font-weight: normal;
   color: #009;
-}
-
-.tblHeaders {
-  font-weight: bold;
-  color: $black;
-  background: #d3dce3;
-}
-
-.tblFooters {
-  font-weight: normal;
-  color: $black;
-  background: #d3dce3;
-}
-
-.tblHeaders a {
-  &:link,
-  &:active,
-  &:visited {
-    color: #00f;
-  }
-}
-
-.tblFooters a {
-  &:link,
-  &:active,
-  &:visited {
-    color: #00f;
-  }
-}
-
-.tblHeaders a:hover,
-.tblFooters a:hover {
-  color: #f00;
 }
 
 .error {
@@ -386,10 +291,6 @@ label.col-3.d-flex.align-items-center {
 
 .color_gray {
   color: gray;
-}
-
-.max_height_400 {
-  max-height: 400px;
 }
 
 li.last.database {
@@ -549,10 +450,6 @@ div#tablestatistics table {
   }
 }
 
-#fieldset_user_global_rights .pma-fieldset {
-  float: left;
-}
-
 #fieldset_user_global_rights > legend input {
   margin-left: 2em;
 }
@@ -576,8 +473,7 @@ caption a.top {
 
 div {
   &#serverstatus table {
-    tbody td.descr a,
-    .tblFooters a {
+    tbody td.descr a {
       white-space: nowrap;
     }
   }
@@ -1321,22 +1217,6 @@ input#auto_increment_opt {
   }
 }
 
-.doubleFieldset {
-  .pma-fieldset {
-    width: 48%;
-    float: left;
-    padding: 0;
-  }
-
-  legend {
-    margin-left: 1.5em;
-  }
-
-  div.wrap {
-    padding: 1.5em;
-  }
-}
-
 #table_name_col_no_outer {
   margin-top: 45px;
 }
@@ -1746,10 +1626,6 @@ input#auto_increment_opt {
 
 body .ui-widget {
   font-size: 1em;
-}
-
-.ui-dialog .pma-fieldset legend a {
-  color: #235a81;
 }
 
 .ui-draggable {
@@ -2513,31 +2389,6 @@ body .ui-dialog {
 }
 // end of styles for jQuery-ui to support rtl languages
 
-/* templates/database/multi_table_query */
-
-.multi_table_query_form {
-  .query-form__tr--hide {
-    display: none;
-  }
-
-  .query-form__fieldset--inline,
-  .query-form__select--inline {
-    display: inline;
-  }
-
-  .query-form__tr--bg-none {
-    background: none;
-  }
-
-  .query-form__input--wide {
-    width: 91%;
-  }
-
-  .query-form__multi-sql-query {
-    float: left;
-  }
-}
-
 // templates/database/designer
 // side menu
 #name-panel {
@@ -2585,10 +2436,6 @@ body .ui-dialog {
     .tablesorter {
       min-width: 100%;
     }
-  }
-
-  .doubleFieldset .pma-fieldset {
-    width: 98%;
   }
 
   .ui-dialog {
@@ -2639,14 +2486,6 @@ body .ui-dialog {
 
 .ui_tpicker_time_input {
   width: 100%;
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@include media-breakpoint-up(xl) {
-  .pma-fieldset.tblFooters,
-  .tblFooters {
-    text-align: left;
-  }
 }
 
 .resize-vertical {

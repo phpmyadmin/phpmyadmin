@@ -147,7 +147,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             // offer a chance to login to other servers if the current one failed
             echo '<tr>' , "\n";
             echo ' <td>' , "\n";
-            echo Select::render(true, true);
+            echo Select::render(true);
             echo ' </td>' , "\n";
             echo '</tr>' , "\n";
         }

@@ -105,7 +105,7 @@ class HomeController extends AbstractController
                 && (count($GLOBALS['cfg']['Servers']) > 1
                 || ($GLOBALS['server'] == 0 && count($GLOBALS['cfg']['Servers']) === 1)));
             if ($hasServerSelection) {
-                $serverSelection = Select::render(true, true);
+                $serverSelection = Select::render(true);
             }
 
             if ($GLOBALS['server'] > 0) {

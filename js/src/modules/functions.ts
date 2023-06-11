@@ -2453,24 +2453,24 @@ function onloadEnumSetEditor (): void {
         /**
          * @var dialog HTML code for the ENUM/SET dialog
          */
-        var dialog = '<div id=\'enum_editor\'>' +
-            '<fieldset class="pma-fieldset">' +
-            '<legend>' + title + '</legend>' +
+        var dialog = '<div id="enum_editor" class="card">' +
+            '<div class="card-header">' + title + '</div>' +
+            '<div class="card-body">' +
             '<p>' + getImageTag('s_notice') +
             window.Messages.enum_hint + '</p>' +
             '<table class="table table-borderless values">' + fields + '</table>' +
-            '</fieldset><fieldset class="pma-fieldset tblFooters">' +
+            '</div><div class="card-footer">' +
             '<table class="table table-borderless add"><tr><td>' +
-            '<div class=\'slider\'></div>' +
+            '<div class="slider"></div>' +
             '</td><td>' +
-            '<form><div><input type=\'submit\' class=\'add_value btn btn-primary\' value=\'' +
+            '<form><div><input type="submit" class="add_value btn btn-primary" value="' +
             window.sprintf(window.Messages.enum_addValue, 1) +
-            '\'></div></form>' +
+            '"></div></form>' +
             '</td></tr></table>' +
-            '<input type=\'hidden\' value=\'' + // So we know which column's data is being edited
+            '<input type="hidden" value="' + // So we know which column's data is being edited
             $(this).closest('td').find('input').attr('id') +
-            '\'>' +
-            '</fieldset>' +
+            '">' +
+            '</div>' +
             '</div>';
         $('#enumEditorGoButton').on('click', function () {
             // When the submit button is clicked,
@@ -2585,17 +2585,18 @@ function onloadEnumSetEditor (): void {
 
         var seeMore = '';
         if (listSize > maxRows) {
-            seeMore = '<fieldset class="pma-fieldset tblFooters text-center fw-bold">' +
-                '<a href=\'#\' id=\'seeMore\'>' + window.Messages.seeMore + '</a></fieldset>';
+            seeMore = '<div class="card-footer">' +
+                '<button type="button" class="btn btn-secondary" id="seeMore">' +
+                window.Messages.seeMore + '</button></div>';
         }
 
-        var centralColumnsDialog = '<div class=\'max_height_400\'>' +
-            '<fieldset class="pma-fieldset">' +
+        var centralColumnsDialog = '<div><div class="card">' +
+            '<div class="card-body">' +
             searchIn +
             '<table id="col_list" class="table table-borderless values">' + fields + '</table>' +
-            '</fieldset>' +
+            '</div>' +
             seeMore +
-            '</div>';
+            '</div></div>';
 
         var width = parseInt(
             ((parseInt($('html').css('font-size'), 10) / 13) * 500).toString(),
@@ -2851,7 +2852,7 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
         modal.find('.modal-body').first().html(data.message);
         $('#indexDialogModalLabel').first().text(title);
         Functions.verifyColumnsProperties();
-        modal.find('.tblFooters').remove();
+        modal.find('.card-footer').remove();
         Functions.showIndexEditDialog(modal);
     }); // end $.get()
 }
