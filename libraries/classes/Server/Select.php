@@ -22,9 +22,8 @@ class Select
      * Renders the server selection in list or selectbox form, or option tags only
      *
      * @param bool $notOnlyOptions whether to include form tags or not
-     * @param bool $omitFieldset   whether to omit fieldset tag or not
      */
-    public static function render(bool $notOnlyOptions, bool $omitFieldset): string
+    public static function render(bool $notOnlyOptions): string
     {
         // Show as list?
         if ($notOnlyOptions) {
@@ -90,7 +89,6 @@ class Select
 
         return $template->render('server/select/index', [
             'not_only_options' => $notOnlyOptions,
-            'omit_fieldset' => $omitFieldset,
             'servers' => $servers,
             'form_action' => $formAction,
         ]);

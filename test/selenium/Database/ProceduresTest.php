@@ -64,7 +64,7 @@ class ProceduresTest extends TestBase
                 $this->waitForElement('id', 'extraOptionsButton')->click();
                 $this->waitForElement('cssSelector', '#extraOptions.collapse.show');
                 $this->waitForElement('xpath', '//label[contains(., "Full texts")]')->click();
-                $this->waitForElement('cssSelector', '.collapse .tblFooters input[type=submit]')->click();
+                $this->waitForElement('cssSelector', '.collapse .card-footer input[type=submit]')->click();
                 $this->waitAjax();
                 sleep(2);// Waitfor the new results
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));

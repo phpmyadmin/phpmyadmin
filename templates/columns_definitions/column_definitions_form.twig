@@ -148,7 +148,8 @@
         </table>
         </div>
     {% endif %}
-    <fieldset class="pma-fieldset tblFooters">
+    <div class="card mt-3">
+      <div class="card-body">
         {% if action == '/table/add-field' or action == '/table/structure/save' %}
             <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{% trans %}Online transaction{% context %}Online transaction part of the SQL DDL for InnoDB{% endtrans %}{{ show_mysql_docu('innodb-online-ddl') }}
         {% endif %}
@@ -157,7 +158,8 @@
         <input class="btn btn-primary" type="submit"
             name="do_save_data"
             value="{% trans 'Save' %}">
-    </fieldset>
+      </div>
+    </div>
     <div id="properties_message"></div>
      {% if is_integers_length_restricted %}
         <div class="alert alert-primary" id="length_not_allowed" role="alert">

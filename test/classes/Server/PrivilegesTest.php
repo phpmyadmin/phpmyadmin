@@ -1527,7 +1527,7 @@ class PrivilegesTest extends AbstractTestCase
             $html,
         );
         $this->assertStringContainsString(
-            Generator::getIcon('b_usradd'),
+            Generator::getIcon('b_usradd', 'Add user account'),
             $html,
         );
         $this->assertStringContainsString(

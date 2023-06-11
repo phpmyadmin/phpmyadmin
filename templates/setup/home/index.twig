@@ -30,9 +30,10 @@
   </div>
 {% endfor %}
 
-<fieldset class="pma-fieldset simple">
-  <legend>{% trans 'Servers' %}</legend>
+<div class="card mb-3">
+  <div class="card-header">{% trans 'Servers' %}</div>
 
+  <div class="card-body">
   <form method="get" action="../setup/{{ url('/setup') }}" class="config-form disableAjax">
     <input type="hidden" name="tab_hash" value="">
     {% if has_check_page_refresh %}
@@ -92,11 +93,13 @@
   </div>
 
   </form>
-</fieldset>
+  </div>
+</div>
 
-<fieldset class="pma-fieldset simple">
-  <legend>{% trans 'Configuration file' %}</legend>
+<div class="card">
+  <div class="card-header">{% trans 'Configuration file' %}</div>
 
+  <div class="card-body">
   <form method="post" action="../setup/{{ url('/setup/show-config') }}" class="config-form disableAjax">
     <input type="hidden" name="tab_hash" value="">
     {% if has_check_page_refresh %}
@@ -169,7 +172,8 @@
   </table>
 
   </form>
-</fieldset>
+</div>
+</div>
 
 <div id="footer">
   <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/'}) }}">{% trans 'phpMyAdmin homepage' %}</a>

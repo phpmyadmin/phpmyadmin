@@ -1005,7 +1005,6 @@
       <code><![CDATA[$request->getParsedBodyParam('on_delete')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('on_update')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('selected_page')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('selected_page')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('selected_value')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('selected_value')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('selected_value')]]></code>

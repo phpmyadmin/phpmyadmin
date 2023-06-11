@@ -777,7 +777,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
@@ -882,11 +882,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$getDb of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#2 \\$page of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForSchemaExport\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 

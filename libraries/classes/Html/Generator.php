@@ -901,9 +901,9 @@ class Generator
 
             $_SESSION['Import_message']['go_back_url'] = $backUrl;
 
-            $errorMessage .= '<fieldset class="pma-fieldset tblFooters">'
+            $errorMessage .= '<div class="card"><div class="card-body">'
                 . '[ <a href="' . $backUrl . '">' . __('Back') . '</a> ]'
-                . '</fieldset>' . "\n\n";
+                . '</div></div>' . "\n\n";
         }
 
         $response->callExit($errorMessage);

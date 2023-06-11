@@ -168,11 +168,11 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
     $('#add_column_button').on('click', function () {
         columnCount++;
-        var $newColumnDom = $($('#new_column_layout').html()).clone();
+        var $newColumnDom = $('<div class="col"></div>').html($('#new_column_layout').html());
         $newColumnDom.find('.jsCriteriaButton').first().attr('data-bs-target', '#criteriaOptionsExtra' + columnCount.toString());
         $newColumnDom.find('.jsCriteriaButton').first().attr('aria-controls', 'criteriaOptionsExtra' + columnCount.toString());
         $newColumnDom.find('.jsCriteriaOptions').first().attr('id', 'criteriaOptionsExtra' + columnCount.toString());
-        $('#add_column_button').parent().before($newColumnDom);
+        $('#add_column_button').parent().siblings('.row').append($newColumnDom);
         addNewColumnCallbacks();
     });
 
@@ -190,7 +190,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
         $('.jsRemoveColumn').each(function () {
             $(this).on('click', function () {
-                $(this).parent().remove();
+                $(this).parent().parent().parent().remove();
             });
         });
 

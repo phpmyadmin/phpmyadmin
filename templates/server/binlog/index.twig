@@ -3,13 +3,11 @@
   {% trans 'Binary log' %}
 </h2>
 
-<form action="{{ url('/server/binlog') }}" method="post">
+<form action="{{ url('/server/binlog') }}" method="post" class="card">
   {{ get_hidden_inputs(url_params) }}
-  <fieldset class="pma-fieldset">
-    <legend>
-      {% trans 'Select binary log to view' %}
-    </legend>
+  <div class="card-header">{% trans 'Select binary log to view' %}</div>
 
+  <div class="card-body">
     {% set full_size = 0 %}
     <select name="log">
       {% for each_log in binary_logs %}
@@ -28,11 +26,11 @@
     {% if full_size > 0 %}
       {{ format_byte_down(full_size)|join(' ') }}
     {% endif %}
-  </fieldset>
+  </div>
 
-  <fieldset class="pma-fieldset tblFooters">
+  <div class="card-footer">
     <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
-  </fieldset>
+  </div>
 </form>
 
 {{ sql_message|raw }}

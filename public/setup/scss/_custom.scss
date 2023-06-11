@@ -287,23 +287,6 @@ fieldset {
     vertical-align: top;
   }
 
-  &.simple {
-    th {
-      width: auto;
-      min-width: 0;
-    }
-
-    th,
-    td {
-      border-top: none;
-      border-bottom: 1px #555 dotted;
-    }
-
-    .lastrow {
-      border: 0;
-    }
-  }
-
   .doc {
     margin-left: 1em;
   }
