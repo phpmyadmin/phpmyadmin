@@ -48,7 +48,7 @@ use function trigger_error;
 use const CONFIG_FILE;
 use const E_USER_ERROR;
 
-final class Common
+final class Application
 {
     private static ServerRequest|null $request = null;
 

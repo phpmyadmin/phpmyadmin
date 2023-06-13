@@ -27,6 +27,35 @@
       <code><![CDATA[$rule['justification_formula']]]></code>
     </MixedOperand>
   </file>
+  <file src="libraries/classes/Application.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['back']]]></code>
+      <code><![CDATA[$GLOBALS['theme']]]></code>
+    </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
+      <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['back']]]></code>
+      <code><![CDATA[$GLOBALS['theme']]]></code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_GET['url'] ?? '']]></code>
+      <code><![CDATA[$_REQUEST['back']]]></code>
+      <code><![CDATA[$_REQUEST['goto']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_GET['url'] ?? '']]></code>
+      <code><![CDATA[$_REQUEST['back']]]></code>
+      <code><![CDATA[$_REQUEST['goto']]]></code>
+    </PossiblyInvalidCast>
+    <RedundantCast>
+      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
+      <code><![CDATA[(string) $_POST['token']]]></code>
+      <code><![CDATA[(string) $_POST['token']]]></code>
+    </RedundantCast>
+  </file>
   <file src="libraries/classes/Bookmark.php">
     <DeprecatedMethod>
       <code>escapeString</code>
@@ -206,35 +235,6 @@
       <code>$prevErrorHandler</code>
       <code>$prevErrorHandler</code>
     </UnusedVariable>
-  </file>
-  <file src="libraries/classes/Common.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
-      <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidCast>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/Config.php">
     <MixedArgument>
@@ -13085,6 +13085,14 @@
       <code>providerForTestRules</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/ApplicationTest.php">
+    <RedundantConditionGivenDocblockType>
+      <code>assertFalse</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="test/classes/BrowseForeignersTest.php">
     <MixedArgument>
       <code>$result</code>
@@ -13135,14 +13143,6 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedAssignment>
-  </file>
-  <file src="test/classes/CommonTest.php">
-    <RedundantConditionGivenDocblockType>
-      <code>assertFalse</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Config/ConfigFileTest.php">
     <MixedArrayAccess>

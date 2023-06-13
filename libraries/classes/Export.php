@@ -1067,7 +1067,7 @@ class Export
     public function showPage(string $exportType): void
     {
         $GLOBALS['active_page'] ??= null;
-        $request = Common::getRequest();
+        $request = Application::getRequest();
         $container = Core::getContainerBuilder();
         if ($exportType === 'server') {
             $GLOBALS['active_page'] = Url::getFromRoute('/server/export');
