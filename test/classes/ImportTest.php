@@ -352,5 +352,38 @@ class ImportTest extends AbstractTestCase
         $this->assertSame('SELECT 2;', $GLOBALS['sql_query']);
         $this->assertSame('SELECT 1;SELECT 2;', $GLOBALS['complete_query']);
         $this->assertSame('SELECT 1;SELECT 2;', $GLOBALS['display_query']);
+
+        $GLOBALS['skip_queries'] = 1;
+
+        $this->import->runQuery('SELECT 3', $sqlData);
+        $this->import->runQuery('SELECT 4;', $sqlData);
+        $this->import->runQuery('SELECT 5', $sqlData);
+
+        $this->assertSame(['SELECT 1;', 'SELECT 2;', 'SELECT 4;'], $sqlData);
+
+        $this->assertSame('SELECT 4;', $GLOBALS['sql_query']);
+        $this->assertSame('SELECT 2;SELECT 4;', $GLOBALS['complete_query']);
+        $this->assertSame('SELECT 2;SELECT 4;', $GLOBALS['display_query']);
+
+        $GLOBALS['skip_queries'] = '';
+        $GLOBALS['sql_query'] = '';
+        $GLOBALS['complete_query'] = null;
+        $GLOBALS['display_query'] = null;
+        $sqlData = [];
+        $this->import = new Import();
+
+        $this->import->runQuery('SELECT 1;', $sqlData);
+
+        $this->assertSame([], $sqlData);
+        $this->assertSame('', $GLOBALS['sql_query']);
+        $this->assertNull($GLOBALS['complete_query']);
+        $this->assertNull($GLOBALS['display_query']);
+
+        $this->import->runQuery('SELECT 2', $sqlData);
+
+        $this->assertSame(['SELECT 1;'], $sqlData);
+        $this->assertSame('SELECT 1;', $GLOBALS['sql_query']);
+        $this->assertSame('SELECT 1;', $GLOBALS['complete_query']);
+        $this->assertSame('SELECT 1;', $GLOBALS['display_query']);
     }
 }

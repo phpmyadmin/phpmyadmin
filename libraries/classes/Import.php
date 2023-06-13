@@ -33,6 +33,7 @@ use function preg_match;
 use function preg_replace;
 use function sprintf;
 use function str_contains;
+use function str_ends_with;
 use function str_starts_with;
 use function strlen;
 use function strpos;
@@ -198,8 +199,13 @@ class Import
 
         $GLOBALS['read_multiply'] = 1;
         if ($this->importRunBuffer === null) {
+            // Add semicolon only if it is missing
+            if ($sql !== '' && ! str_ends_with($sql, ';')) {
+                $sql .= ';';
+            }
+
             // Do we have something to push into buffer?
-            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
+            $this->importRunBuffer = $sql !== '' ? $sql : null;
 
             return;
         }
@@ -207,8 +213,13 @@ class Import
         // Should we skip something?
         if ($GLOBALS['skip_queries'] > 0) {
             $GLOBALS['skip_queries']--;
+            // Add semicolon only if it is missing
+            if ($sql !== '' && ! str_ends_with($sql, ';')) {
+                $sql .= ';';
+            }
+
             // Do we have something to push into buffer?
-            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
+            $this->importRunBuffer = $sql !== '' ? $sql : null;
 
             return;
         }
@@ -265,8 +276,13 @@ class Import
             }
         }
 
+        // Add semicolon only if it is missing
+        if ($sql !== '' && ! str_ends_with($sql, ';')) {
+            $sql .= ';';
+        }
+
         // Do we have something to push into buffer?
-        $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
+        $this->importRunBuffer = $sql !== '' ? $sql : null;
 
         // In case of ROLLBACK, notify the user.
         if (! isset($_POST['rollback_query'])) {
