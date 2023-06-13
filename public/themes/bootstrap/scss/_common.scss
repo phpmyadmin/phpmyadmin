@@ -1699,7 +1699,7 @@ div#page_content div {
 
   .toolbar {
     position: relative;
-    background: #ccc;
+    background: var(--#{$prefix}gray-200);
     border-top: solid 1px #aaa;
     cursor: n-resize;
     pointer-events: auto;
@@ -1753,12 +1753,12 @@ div#page_content div {
   .message span.action:hover,
   .toolbar .button:hover,
   .switch_button:hover {
-    background: #ddd;
+    background: var(--#{$prefix}gray-400);
   }
 
   .toolbar {
     .button.active {
-      background: #ddd;
+      background: var(--#{$prefix}gray-400);
     }
 
     .text {
@@ -1781,7 +1781,7 @@ div#page_content div {
     overflow-y: auto;
     margin-bottom: -65px;
     border-top: solid 1px #aaa;
-    background: $white;
+    background: var(--#{$prefix}body-bg);
     padding-top: 0.4em;
     pointer-events: auto;
 
@@ -1940,7 +1940,7 @@ div#page_content div {
     .action_content {
       position: absolute;
       bottom: 100%;
-      background: #ccc;
+      background: var(--#{$prefix}gray-200);
       border: solid 1px #aaa;
       border-top-left-radius: 3px;
     }
@@ -1961,7 +1961,7 @@ div#page_content div {
     }
 
     .text {
-      background: $white;
+      background: var(--#{$prefix}white);
     }
 
     &.collapsed {
@@ -2027,6 +2027,36 @@ div#page_content div {
   .button.hide,
   .message span.text.hide {
     display: none;
+  }
+}
+
+@include color-mode(dark) {
+  #pma_console {
+    .toolbar {
+      background-color: var(--#{$prefix}gray-800);
+
+      .button.active {
+        background: var(--#{$prefix}gray-600);
+        color: var(--#{$prefix}white);
+      }
+    }
+
+    .message span.action:hover,
+    .toolbar .button:hover,
+    .switch_button:hover {
+      background: var(--#{$prefix}gray-600);
+      color: var(--#{$prefix}white);
+    }
+
+    .message {
+      .action_content {
+        background: var(--#{$prefix}gray-800);
+      }
+
+      .text {
+        background: var(--#{$prefix}black);
+      }
+    }
   }
 }
 
