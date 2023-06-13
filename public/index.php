@@ -29,4 +29,4 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 
 require AUTOLOAD_FILE;
 
-Application::run();
+Application::init()->run();

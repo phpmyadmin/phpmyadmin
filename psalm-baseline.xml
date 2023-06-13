@@ -30,7 +30,6 @@
   <file src="libraries/classes/Application.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
@@ -38,7 +37,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['url'] ?? '']]></code>

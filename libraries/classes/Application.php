@@ -52,6 +52,14 @@ final class Application
 {
     private static ServerRequest|null $request = null;
 
+    public static function init(): self
+    {
+        /** @var Application $application */
+        $application = Core::getContainerBuilder()->get(self::class);
+
+        return $application;
+    }
+
     /**
      * Misc stuff and REQUIRED by ALL the scripts.
      * MUST be included by every script
@@ -80,33 +88,28 @@ final class Application
      * - db connection
      * - authentication work
      */
-    public static function run(bool $isSetupPage = false): void
+    public function run(bool $isSetupPage = false): void
     {
-        $GLOBALS['lang'] ??= null;
-        $GLOBALS['theme'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['token_mismatch'] ??= null;
+        $container = Core::getContainerBuilder();
 
         $request = self::getRequest();
         $route = $request->getRoute();
 
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
-        $container = Core::getContainerBuilder();
-
         /** @var ErrorHandler $errorHandler */
         $errorHandler = $container->get('error_handler');
         $GLOBALS['errorHandler'] = $errorHandler;
 
         try {
-            self::checkRequiredPhpExtensions();
+            $this->checkRequiredPhpExtensions();
         } catch (MissingExtensionException $exception) {
-            echo self::getGenericError($exception->getMessage());
+            echo $this->getGenericError($exception->getMessage());
 
             return;
         }
 
-        self::configurePhpSettings();
+        $this->configurePhpSettings();
 
         /** @var Config $config */
         $config = $container->get('config');
@@ -115,19 +118,19 @@ final class Application
         try {
             $config->loadAndCheck(CONFIG_FILE);
         } catch (ConfigException $exception) {
-            echo self::getGenericError($exception->getMessage());
+            echo $this->getGenericError($exception->getMessage());
 
             return;
         }
 
-        $request = self::updateUriScheme($config, $request);
+        $request = $this->updateUriScheme($config, $request);
 
         if ($route !== '/messages') {
             try {
                 // Include session handling after the globals, to prevent overwriting.
                 Session::setUp($config, $errorHandler);
             } catch (SessionHandlerException $exception) {
-                echo self::getGenericError($exception->getMessage());
+                echo $this->getGenericError($exception->getMessage());
 
                 return;
             }
@@ -147,10 +150,10 @@ final class Application
         $GLOBALS['urlParams'] = [];
         $container->setParameter('url_params', $GLOBALS['urlParams']);
 
-        self::setGotoAndBackGlobals($container, $config);
-        self::checkTokenRequestParam();
-        self::setDatabaseAndTableFromRequest($container, $request);
-        self::setSQLQueryGlobalFromRequest($container, $request);
+        $this->setGotoAndBackGlobals($container, $config);
+        $this->checkTokenRequestParam();
+        $this->setDatabaseAndTableFromRequest($container, $request);
+        $this->setSQLQueryGlobalFromRequest($container, $request);
 
         //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
         //$_REQUEST['server']; // checked later in this file
@@ -172,21 +175,21 @@ final class Application
             $config->checkPermissions();
             $config->checkErrors();
         } catch (ConfigException $exception) {
-            echo self::getGenericError($exception->getMessage());
+            echo $this->getGenericError($exception->getMessage());
 
             return;
         }
 
         try {
-            self::checkServerConfiguration();
-            self::checkRequest();
+            $this->checkServerConfiguration();
+            $this->checkRequest();
         } catch (RuntimeException $exception) {
-            echo self::getGenericError($exception->getMessage());
+            echo $this->getGenericError($exception->getMessage());
 
             return;
         }
 
-        self::setCurrentServerGlobal($container, $config, $request->getParam('server'));
+        $this->setCurrentServerGlobal($container, $config, $request->getParam('server'));
 
         $GLOBALS['cfg'] = $config->settings;
         $settings = $config->getSettings();
@@ -206,7 +209,7 @@ final class Application
             }
 
             if ($isSetupPage) {
-                self::setupPageBootstrap($config);
+                $this->setupPageBootstrap($config);
                 Routing::callSetupController($request);
 
                 return;
@@ -237,7 +240,7 @@ final class Application
             try {
                 $authPlugin = $authPluginFactory->create();
             } catch (AuthenticationPluginException $exception) {
-                echo self::getGenericError($exception->getMessage());
+                echo $this->getGenericError($exception->getMessage());
 
                 return;
             }
@@ -253,7 +256,7 @@ final class Application
                 // phpcs:enable
             }
 
-            self::connectToDatabaseServer($GLOBALS['dbi'], $authPlugin, $currentServer);
+            $this->connectToDatabaseServer($GLOBALS['dbi'], $authPlugin, $currentServer);
             $authPlugin->rememberCredentials();
             $authPlugin->checkTwoFactor();
 
@@ -261,7 +264,7 @@ final class Application
             Logging::logUser($config, $currentServer->user);
 
             if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
-                echo self::getGenericError(sprintf(
+                echo $this->getGenericError(sprintf(
                     __('You should upgrade to %s %s or later.'),
                     'MySQL',
                     $settings->mysqlMinVersion['human'],
@@ -322,7 +325,7 @@ final class Application
     /**
      * Checks that required PHP extensions are there.
      */
-    private static function checkRequiredPhpExtensions(): void
+    private function checkRequiredPhpExtensions(): void
     {
         /**
          * Warning about mbstring.
@@ -374,7 +377,7 @@ final class Application
     /**
      * Applies changes to PHP configuration.
      */
-    private static function configurePhpSettings(): void
+    private function configurePhpSettings(): void
     {
         /**
          * Set utf-8 encoding for PHP
@@ -397,7 +400,7 @@ final class Application
         date_default_timezone_set(@date_default_timezone_get());
     }
 
-    private static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
+    private function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
     {
         $GLOBALS['back'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -442,7 +445,7 @@ final class Application
      * GET Requests would never have token and therefore checking
      * mis-match does not make sense.
      */
-    public static function checkTokenRequestParam(): void
+    public function checkTokenRequestParam(): void
     {
         $GLOBALS['token_mismatch'] = true;
         $GLOBALS['token_provided'] = false;
@@ -478,7 +481,7 @@ final class Application
         Sanitize::removeRequestVars($allowList);
     }
 
-    private static function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
+    private function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
 
@@ -500,7 +503,7 @@ final class Application
     /**
      * Check whether PHP configuration matches our needs.
      */
-    private static function checkServerConfiguration(): void
+    private function checkServerConfiguration(): void
     {
         /**
          * As we try to handle charsets by ourself, mbstring overloads just
@@ -533,7 +536,7 @@ final class Application
     /**
      * Checks request and fails with fatal error if something problematic is found
      */
-    private static function checkRequest(): void
+    private function checkRequest(): void
     {
         if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
             throw new RuntimeException(__('GLOBALS overwrite attempt'));
@@ -549,7 +552,7 @@ final class Application
         throw new RuntimeException(__('possible exploit'));
     }
 
-    private static function connectToDatabaseServer(
+    private function connectToDatabaseServer(
         DatabaseInterface $dbi,
         AuthenticationPlugin $auth,
         Server $currentServer,
@@ -589,13 +592,13 @@ final class Application
         return self::$request;
     }
 
-    private static function setupPageBootstrap(Config $config): void
+    private function setupPageBootstrap(Config $config): void
     {
         // use default error handler
         restore_error_handler();
 
         // Save current language in a cookie, since it was not set in Common::run().
-        $config->setCookie('pma_lang', (string) $GLOBALS['lang']);
+        $config->setCookie('pma_lang', $GLOBALS['lang']);
         $config->set('is_setup', true);
 
         $GLOBALS['ConfigFile'] = new ConfigFile();
@@ -619,7 +622,7 @@ final class Application
         ob_start();
     }
 
-    private static function setSQLQueryGlobalFromRequest(ContainerInterface $container, ServerRequest $request): void
+    private function setSQLQueryGlobalFromRequest(ContainerInterface $container, ServerRequest $request): void
     {
         $sqlQuery = '';
         if ($request->isPost()) {
@@ -634,7 +637,7 @@ final class Application
         $container->setParameter('sql_query', $sqlQuery);
     }
 
-    private static function setCurrentServerGlobal(
+    private function setCurrentServerGlobal(
         ContainerInterface $container,
         Config $config,
         mixed $serverParamFromRequest,
@@ -646,7 +649,7 @@ final class Application
         $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 
-    private static function getGenericError(string $message): string
+    private function getGenericError(string $message): string
     {
         return (new Template())->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
@@ -655,7 +658,7 @@ final class Application
         ]);
     }
 
-    private static function updateUriScheme(Config $config, ServerRequest $request): ServerRequest
+    private function updateUriScheme(Config $config, ServerRequest $request): ServerRequest
     {
         $uriScheme = $config->isHttps() ? 'https' : 'http';
         $uri = $request->getUri();
