@@ -915,9 +915,9 @@ table#index_columns {
   }
 
   li {
-    background: #d3dce3;
-    border: 1px solid #aaa;
-    color: $black;
+    background-color: var(--bs-secondary-bg);
+    border: 1px solid var(--bs-border-color);
+    color: var(--bs-secondary-color);
     font-weight: bold;
     margin: 0.4em;
     padding: 0.2em;
