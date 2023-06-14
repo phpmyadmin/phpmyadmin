@@ -2388,42 +2388,31 @@
   </file>
   <file src="libraries/classes/Controllers/Preferences/ManageController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['form_display']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['new_config']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
+      <code>$json</code>
+      <code>$returnUrl</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['form_display']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['new_config']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
       <code><![CDATA[$_POST[str_replace('/', '-', (string) $k)]]]></code>
       <code>$configuration</code>
+      <code>$json</code>
       <code><![CDATA[$redirectParams['lang']]]></code>
+      <code>$returnUrl</code>
       <code>$v</code>
       <code>$val</code>
     </MixedAssignment>
     <PossiblyFalseArgument>
-      <code><![CDATA[$GLOBALS['json']]]></code>
+      <code>$json</code>
     </PossiblyFalseArgument>
     <PossiblyFalseOperand>
       <code>$pos</code>
