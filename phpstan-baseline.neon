@@ -2636,6 +2636,11 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method Symfony\\\\Component\\\\DependencyInjection\\\\Container\\:\\:setParameter\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
 			message: "#^Parameter \\#1 \\$pattern of function preg_match expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -2647,6 +2652,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -3757,7 +3767,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/FlashMessages.php
 
 		-
@@ -3937,7 +3947,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'inner' on mixed\\.$#"
-			count: 4
+			count: 5
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -3997,7 +4007,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 2
+			count: 6
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -5782,7 +5792,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 7
+			count: 10
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
@@ -5869,6 +5879,11 @@ parameters:
 			message: "#^Variable property access on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
+			message: "#^Cannot access offset 0 on array\\|bool\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportShp.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
@@ -6172,7 +6187,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 8
+			count: 12
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -6262,7 +6277,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 4
+			count: 6
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
@@ -6487,6 +6502,11 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'publicKey' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
+			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TwoFactor/Key.php
 
@@ -6931,7 +6951,7 @@ parameters:
 			path: libraries/classes/ResponseRenderer.php
 
 		-
-			message: "#^Casting to array\\<string, mixed\\> something that's already array\\<string, mixed\\>\\.$#"
+			message: "#^Casting to array something that's already array\\.$#"
 			count: 4
 			path: libraries/classes/Sanitize.php
 
@@ -7257,11 +7277,16 @@ parameters:
 
 		-
 			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|null\\.$#"
-			count: 1
+			count: 3
 			path: libraries/classes/Server/Privileges.php
 
 		-
 			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|true\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Possibly invalid array key type array\\<string\\>\\|string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -7337,7 +7362,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 5
+			count: 10
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
@@ -8912,6 +8937,11 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiPolygonTest.php
+
+		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
