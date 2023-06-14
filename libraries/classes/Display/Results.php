@@ -1067,7 +1067,7 @@ class Results
         $displayParams = $this->properties['display_params'];
 
         // 1. Displays the full/partial text button (part 1)...
-        $buttonHtml = '<thead><tr>' . "\n";
+        $buttonHtml = '';
 
         $emptyPreCondition = $displayParts->hasEditLink && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE;
 
@@ -1087,7 +1087,7 @@ class Results
 
             $displayParams['emptypre'] = $emptyPreCondition ? 4 : 0;
 
-            $buttonHtml .= '<th class="column_action position-sticky d-print-none"' . $colspan
+            $buttonHtml .= '<th class="column_action position-sticky bg-body d-print-none"' . $colspan
                 . '>' . $fullOrPartialTextLink . '</th>';
         } elseif (
             $leftOrBoth
@@ -1101,7 +1101,7 @@ class Results
         } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
-            $buttonHtml .= '<th class="column_action position-sticky"></th>';
+            $buttonHtml .= '<th class="column_action position-sticky bg-body"></th>';
         }
 
         $this->properties['display_params'] = $displayParams;
@@ -1732,7 +1732,7 @@ class Results
                 && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? 4 : 1;
 
             $rightColumnHtml .= "\n"
-                . '<th class="column_action d-print-none"' . $colspan . '>'
+                . '<th class="column_action position-sticky bg-body d-print-none"' . $colspan . '>'
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
@@ -1748,7 +1748,7 @@ class Results
             $displayParams['emptyafter'] = $displayParts->hasEditLink
                 && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? 4 : 1;
 
-            $rightColumnHtml .= "\n" . '<td class="d-print-none"' . $colspan
+            $rightColumnHtml .= "\n" . '<td class="position-sticky bg-body d-print-none"' . $colspan
                 . '></td>';
         }
 

@@ -293,10 +293,12 @@
 
   <div class="table-responsive-md">
     <table class="table table-striped table-hover table-sm table_results data ajax w-auto" data-uniqueId="{{ unique_id }}">
+      <thead>
+        <tr>
 
-      {{ headers.button|raw }}
-      {{ headers.table_headers_for_columns|raw }}
-      {{ headers.column_at_right_side|raw }}
+          {{ headers.button|raw }}
+          {{ headers.table_headers_for_columns|raw }}
+          {{ headers.column_at_right_side|raw }}
 
         </tr>
       </thead>
