@@ -94,9 +94,6 @@ class ServerConfigChecksTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @requires extension sodium
-     */
     public function testBlowfish(): void
     {
         $_SESSION[$this->sessionID] = [];
@@ -134,7 +131,6 @@ class ServerConfigChecksTest extends AbstractTestCase
     /**
      * @requires extension bz2
      * @requires extension zip
-     * @requires extension sodium
      */
     public function testBlowfishWithInvalidSecret(): void
     {
@@ -165,7 +161,6 @@ class ServerConfigChecksTest extends AbstractTestCase
     /**
      * @requires extension bz2
      * @requires extension zip
-     * @requires extension sodium
      */
     public function testBlowfishWithValidSecret(): void
     {
