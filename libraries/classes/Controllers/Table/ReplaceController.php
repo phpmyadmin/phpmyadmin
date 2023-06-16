@@ -139,7 +139,8 @@ final class ReplaceController extends AbstractController
             $multiEditSalt = $request->getParsedBodyParam('salt')['multi_edit'][$rowNumber] ?? [];
             $multiEditColumnsType = $request->getParsedBodyParam('fields_type')['multi_edit'][$rowNumber] ?? [];
             $multiEditColumnsNull = $request->getParsedBodyParam('fields_null')['multi_edit'][$rowNumber] ?? [];
-            $multiEditColumnsNullPrev = $request->getParsedBodyParam('fields_null_prev')['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumnsNullPrev =
+                $request->getParsedBodyParam('fields_null_prev')['multi_edit'][$rowNumber] ?? [];
             $multiEditAutoIncrement = $request->getParsedBodyParam('auto_increment')['multi_edit'][$rowNumber] ?? [];
             $multiEditVirtual = $request->getParsedBodyParam('virtual')['multi_edit'][$rowNumber] ?? [];
 
@@ -471,7 +472,7 @@ final class ReplaceController extends AbstractController
         $tableObj = new Table(
             $request->getParsedBodyParam('table'),
             $request->getParsedBodyParam('db'),
-            $this->dbi
+            $this->dbi,
         );
         $extraData['row_count'] = $tableObj->countRecords();
 
@@ -534,6 +535,7 @@ final class ReplaceController extends AbstractController
     private function getParamsForUpdateOrInsert(ServerRequest $request): array
     {
         $whereClause = $request->getParsedBodyParam('where_clause');
+
         if ($whereClause !== null) {
             // we were editing something => use the WHERE clause
             $loopArray = is_array($whereClause)

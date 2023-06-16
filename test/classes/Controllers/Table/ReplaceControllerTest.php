@@ -200,10 +200,10 @@ class ReplaceControllerTest extends AbstractTestCase
      */
     public function testGetParamsForUpdateOrInsert(): void
     {
-        $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['where_clause', '', 'LIMIT 1'],
-            ['submit_type', '', 'showinsert'],
+        $request1 = $this->createStub(ServerRequest::class);
+        $request1->method('getParsedBodyParam')->willReturnMap([
+            ['where_clause', null, 'LIMIT 1'],
+            ['submit_type', null, 'showinsert'],
         ]);
 
         $replaceController = new ReplaceController(
@@ -220,7 +220,7 @@ class ReplaceControllerTest extends AbstractTestCase
             $replaceController,
             ReplaceController::class,
             'getParamsForUpdateOrInsert',
-            [$request],
+            [$request1],
         );
 
         $this->assertEquals(
@@ -229,9 +229,9 @@ class ReplaceControllerTest extends AbstractTestCase
         );
 
         // case 2 (else)
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['submit_type', '', 'showinsert'],
-            ['fields', [], ['multi_edit' => ['a' => 'b', 'c' => 'd']]],
+        $request2 = $this->createStub(ServerRequest::class);
+        $request2->method('getParsedBodyParam')->willReturnMap([
+            ['fields', null, ['multi_edit' => ['a' => 'b', 'c' => 'd']]],
         ]);
 
         /** @var array $result */
@@ -239,7 +239,7 @@ class ReplaceControllerTest extends AbstractTestCase
             $replaceController,
             ReplaceController::class,
             'getParamsForUpdateOrInsert',
-            [$request],
+            [$request2],
         );
 
         $this->assertEquals(
