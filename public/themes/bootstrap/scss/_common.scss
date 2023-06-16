@@ -1027,31 +1027,6 @@ table#index_columns {
     border-color: #a11 !important;
   }
 
-  input {
-    &[type=text],
-    &[type=password],
-    &[type=number] {
-      border: 1px #a7a6aa solid;
-      height: auto;
-
-      &:focus {
-        border: 1px #6676ff solid;
-        background: #f7fbff;
-      }
-    }
-  }
-
-  select,
-  textarea {
-    border: 1px #a7a6aa solid;
-    height: auto;
-
-    &:focus {
-      border: 1px #6676ff solid;
-      background: #f7fbff;
-    }
-  }
-
   .field-comment-mark {
     font-family: serif;
     color: #007;
