@@ -75,20 +75,22 @@ class ReplaceControllerTest extends AbstractTestCase
         $_POST['db'] = $GLOBALS['db'];
         $_POST['table'] = $GLOBALS['table'];
         $_POST['ajax_request'] = 'true';
-        $_POST['clause_is_unique'] = 1;
-        $_POST['where_clause'] = ['`test`.`ser` = 2', '`test`.`ser` = 1'];
-        $_POST['rel_fields_list'] = '';
-        $_POST['do_transformations'] = true;
-        $_POST['transform_fields_list'] = '0%5Bvc%5D=sss%20s%20s&1%5Bvc%5D=zzff%20s%20sf%0A';
         $_POST['relational_display'] = 'K';
         $_POST['goto'] = 'index.php?route=/sql';
-        $_POST['submit_type'] = 'save';
-        $_POST['fields'] = ['multi_edit' => [0 => ['zzff s sf'], 1 => ['sss s s']]];
-        $_POST['fields_name'] = ['multi_edit' => [0 => ['vc'], 1 => ['vc']]];
-        $_POST['fields_null'] = ['multi_edit' => [0 => [], 1 => []]];
 
         $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['sql_query', null, '']]);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['sql_query', null, ''],
+            ['clause_is_unique', null, 1],
+            ['where_clause', [], ['`test`.`ser` = 2', '`test`.`ser` = 1']],
+            ['rel_fields_list', '', ''],
+            ['do_transformations', null, true],
+            ['transform_fields_list', '', '0%5Bvc%5D=sss%20s%20s&1%5Bvc%5D=zzff%20s%20sf%0A'],
+            ['submit_type', '', 'save'],
+            ['fields', [], ['multi_edit' => [0 => ['zzff s sf'], 1 => ['sss s s']]]],
+            ['fields_name', [], ['multi_edit' => [0 => ['vc'], 1 => ['vc']]]],
+            ['fields_null', [], ['multi_edit' => [0 => [], 1 => []]]],
+        ]);
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
@@ -139,7 +141,6 @@ class ReplaceControllerTest extends AbstractTestCase
     {
         $GLOBALS['urlParams'] = [];
         $GLOBALS['goto'] = 'index.php?route=/sql';
-        $_POST['insert_rows'] = 5;
         $_POST['sql_query'] = 'SELECT 1';
         $GLOBALS['cfg']['InsertRows'] = 2;
         $GLOBALS['cfg']['Server']['host'] = 'host.tld';
@@ -163,6 +164,11 @@ class ReplaceControllerTest extends AbstractTestCase
         );
 
         $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['insert_rows', null, 5],
+            ['sql_query', '', 'SELECT 1'],
+        ]);
+
         $changeController = new ChangeController($response, $template, $insertEdit, $relation);
         $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
         $GLOBALS['containerBuilder']->method('get')->willReturn($changeController);
@@ -194,8 +200,11 @@ class ReplaceControllerTest extends AbstractTestCase
      */
     public function testGetParamsForUpdateOrInsert(): void
     {
-        $_POST['where_clause'] = 'LIMIT 1';
-        $_POST['submit_type'] = 'showinsert';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['where_clause', '', 'LIMIT 1'],
+            ['submit_type', '', 'showinsert'],
+        ]);
 
         $replaceController = new ReplaceController(
             $this->createStub(ResponseRenderer::class),
@@ -211,7 +220,7 @@ class ReplaceControllerTest extends AbstractTestCase
             $replaceController,
             ReplaceController::class,
             'getParamsForUpdateOrInsert',
-            [],
+            [$request],
         );
 
         $this->assertEquals(
@@ -220,15 +229,17 @@ class ReplaceControllerTest extends AbstractTestCase
         );
 
         // case 2 (else)
-        unset($_POST['where_clause']);
-        $_POST['fields']['multi_edit'] = ['a' => 'b', 'c' => 'd'];
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['submit_type', '', 'showinsert'],
+            ['fields', [], ['multi_edit' => ['a' => 'b', 'c' => 'd']]],
+        ]);
 
         /** @var array $result */
         $result = $this->callFunction(
             $replaceController,
             ReplaceController::class,
             'getParamsForUpdateOrInsert',
-            [],
+            [$request],
         );
 
         $this->assertEquals(
