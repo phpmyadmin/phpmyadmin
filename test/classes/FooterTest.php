@@ -133,7 +133,7 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer();
         $this->assertStringContainsString(
-            '<script data-cfasync="false" type="text/javascript">',
+            '<script data-cfasync="false">',
             $footer->getScripts()->getDisplay(),
         );
     }

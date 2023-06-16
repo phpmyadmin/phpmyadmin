@@ -417,10 +417,10 @@ class CoreTest extends AbstractNetworkTestCase
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . htmlspecialchars($testUri, ENT_QUOTES) . '">'
-            . "\n    <script type=\"text/javascript\">\n        //<![CDATA["
+            . "\n    <script>\n        //<![CDATA["
             . "\n        setTimeout(function() { window.location = decodeURI('" . $testUriJs . "'); }, 2000);"
             . "\n        //]]>\n    </script>\n</head>"
-            . "\n<body>\n<script type=\"text/javascript\">\n    //<![CDATA["
+            . "\n<body>\n<script>\n    //<![CDATA["
             . "\n    document.write('<p><a href=\"" . $testUriJs . '">' . __('Go') . "</a></p>');"
             . "\n    //]]>\n</script>\n</body>\n</html>\n";
 
