@@ -1,5 +1,5 @@
 <div class="clearfloat d-print-none">
-    <img class="selectallarrow" src="{{ image('arrow_' ~ text_dir ~ '.png') }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+    {{ get_image('select_all_arrow', 'With selected:'|trans, { 'dir': text_dir, 'width': '38', 'height': '22' }) }}
     <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
     <label for="tablesForm_checkall">{% trans 'Check all' %}</label>
     {% if overhead_check != '' %}
