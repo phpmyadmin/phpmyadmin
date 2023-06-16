@@ -11,6 +11,9 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+use ReflectionProperty;
+use Twig\Cache\CacheInterface;
+use Twig\Environment;
 use Twig\Error\LoaderError;
 
 #[CoversClass(Template::class)]
@@ -175,5 +178,20 @@ class TemplateTest extends AbstractTestCase
 
         $template2 = new Template($config);
         $this->assertSame('static content', $template2->render('test/static'));
+    }
+
+    public function testDisableCache(): void
+    {
+        (new ReflectionProperty(Template::class, 'twig'))->setValue(null);
+        $template = new Template($this->createStub(Config::class));
+        $template->disableCache();
+        $twig = (new ReflectionProperty(Template::class, 'twig'))->getValue();
+        $this->assertInstanceOf(Environment::class, $twig);
+        $this->assertFalse($twig->getCache());
+        $twig->setCache($this->createStub(CacheInterface::class));
+        $this->assertNotFalse($twig->getCache());
+        $template->disableCache();
+        $this->assertFalse($twig->getCache());
+        (new ReflectionProperty(Template::class, 'twig'))->setValue(null);
     }
 }

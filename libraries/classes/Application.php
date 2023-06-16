@@ -52,6 +52,13 @@ final class Application
 {
     private static ServerRequest|null $request = null;
 
+    public function __construct(
+        private readonly ErrorHandler $errorHandler,
+        private readonly Config $config,
+        private readonly Template $template,
+    ) {
+    }
+
     public static function init(): self
     {
         /** @var Application $application */
@@ -90,20 +97,14 @@ final class Application
      */
     public function run(bool $isSetupPage = false): void
     {
-        $container = Core::getContainerBuilder();
-
-        $request = self::getRequest();
-        $route = $request->getRoute();
-
-        $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
-
-        /** @var ErrorHandler $errorHandler */
-        $errorHandler = $container->get('error_handler');
-        $GLOBALS['errorHandler'] = $errorHandler;
+        $GLOBALS['errorHandler'] = $this->errorHandler;
+        $GLOBALS['config'] = $this->config;
 
         try {
             $this->checkRequiredPhpExtensions();
         } catch (MissingExtensionException $exception) {
+            // Disables template caching because the cache directory is not known yet.
+            $this->template->disableCache();
             echo $this->getGenericError($exception->getMessage());
 
             return;
@@ -111,24 +112,27 @@ final class Application
 
         $this->configurePhpSettings();
 
-        /** @var Config $config */
-        $config = $container->get('config');
-        $GLOBALS['config'] = $config;
-
         try {
-            $config->loadAndCheck(CONFIG_FILE);
+            $this->config->loadAndCheck(CONFIG_FILE);
         } catch (ConfigException $exception) {
+            // Disables template caching because the cache directory is not known yet.
+            $this->template->disableCache();
             echo $this->getGenericError($exception->getMessage());
 
             return;
         }
 
-        $request = $this->updateUriScheme($config, $request);
+        $request = self::getRequest();
+        $route = $request->getRoute();
+
+        $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
+
+        $request = $this->updateUriScheme($this->config, $request);
 
         if ($route !== '/messages') {
             try {
                 // Include session handling after the globals, to prevent overwriting.
-                Session::setUp($config, $errorHandler);
+                Session::setUp($this->config, $this->errorHandler);
             } catch (SessionHandlerException $exception) {
                 echo $this->getGenericError($exception->getMessage());
 
@@ -137,6 +141,8 @@ final class Application
         }
 
         $request = Core::populateRequestWithEncryptedQueryParams($request);
+
+        $container = Core::getContainerBuilder();
 
         /**
          * init some variables LABEL_variables_init
@@ -150,7 +156,7 @@ final class Application
         $GLOBALS['urlParams'] = [];
         $container->setParameter('url_params', $GLOBALS['urlParams']);
 
-        $this->setGotoAndBackGlobals($container, $config);
+        $this->setGotoAndBackGlobals($container, $this->config);
         $this->checkTokenRequestParam();
         $this->setDatabaseAndTableFromRequest($container, $request);
         $this->setSQLQueryGlobalFromRequest($container, $request);
@@ -172,8 +178,8 @@ final class Application
              * check for errors occurred while loading configuration
              * this check is done here after loading language files to present errors in locale
              */
-            $config->checkPermissions();
-            $config->checkErrors();
+            $this->config->checkPermissions();
+            $this->config->checkErrors();
         } catch (ConfigException $exception) {
             echo $this->getGenericError($exception->getMessage());
 
@@ -189,10 +195,10 @@ final class Application
             return;
         }
 
-        $this->setCurrentServerGlobal($container, $config, $request->getParam('server'));
+        $this->setCurrentServerGlobal($container, $this->config, $request->getParam('server'));
 
-        $GLOBALS['cfg'] = $config->settings;
-        $settings = $config->getSettings();
+        $GLOBALS['cfg'] = $this->config->settings;
+        $settings = $this->config->getSettings();
 
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
@@ -201,7 +207,7 @@ final class Application
         $GLOBALS['dbi'] = null;
 
         if ($isMinimumCommon) {
-            $config->loadUserPreferences($themeManager, true);
+            $this->config->loadUserPreferences($themeManager, true);
             Tracker::enable();
 
             if ($route === '/url') {
@@ -209,7 +215,7 @@ final class Application
             }
 
             if ($isSetupPage) {
-                $this->setupPageBootstrap($config);
+                $this->setupPageBootstrap($this->config);
                 Routing::callSetupController($request);
 
                 return;
@@ -223,7 +229,7 @@ final class Application
         /**
          * save some settings in cookies
          */
-        $config->setCookie('pma_lang', (string) $GLOBALS['lang']);
+        $this->config->setCookie('pma_lang', (string) $GLOBALS['lang']);
 
         $themeManager->setThemeCookie();
 
@@ -231,9 +237,9 @@ final class Application
         $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
         $container->setAlias('dbi', DatabaseInterface::class);
 
-        $currentServer = $config->getCurrentServer();
+        $currentServer = $this->config->getCurrentServer();
         if ($currentServer !== null) {
-            $config->getLoginCookieValidityFromCache($GLOBALS['server']);
+            $this->config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
             /** @var AuthenticationPluginFactory $authPluginFactory */
             $authPluginFactory = $container->get(AuthenticationPluginFactory::class);
@@ -261,7 +267,7 @@ final class Application
             $authPlugin->checkTwoFactor();
 
             /* Log success */
-            Logging::logUser($config, $currentServer->user);
+            Logging::logUser($this->config, $currentServer->user);
 
             if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
                 echo $this->getGenericError(sprintf(
@@ -308,7 +314,7 @@ final class Application
         $container->set('response', ResponseRenderer::getInstance());
 
         // load user preferences
-        $config->loadUserPreferences($themeManager);
+        $this->config->loadUserPreferences($themeManager);
 
         /* Tell tracker that it can actually work */
         Tracker::enable();
@@ -651,7 +657,7 @@ final class Application
 
     private function getGenericError(string $message): string
     {
-        return (new Template())->render('error/generic', [
+        return $this->template->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => $message,

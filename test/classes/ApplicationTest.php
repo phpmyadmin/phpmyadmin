@@ -19,7 +19,11 @@ final class ApplicationTest extends AbstractTestCase
 {
     public function testInit(): void
     {
-        $application = new Application();
+        $application = new Application(
+            $this->createStub(ErrorHandler::class),
+            $this->createStub(Config::class),
+            $this->createStub(Template::class),
+        );
         $container = $this->createMock(ContainerBuilder::class);
         $container->expects($this->once())->method('get')
             ->with($this->identicalTo(Application::class))->willReturn($application);
@@ -37,23 +41,17 @@ final class ApplicationTest extends AbstractTestCase
         $config->expects($this->once())->method('loadAndCheck')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
 
-        $container = $this->createStub(ContainerBuilder::class);
-        $container->method('get')->willReturnMap([
-            ['error_handler', 1, $errorHandler],
-            ['config', 1, $config],
-        ]);
-        $GLOBALS['containerBuilder'] = $container;
-
         $request = $this->createStub(ServerRequest::class);
         (new ReflectionProperty(Application::class, 'request'))->setValue($request);
 
-        $expected = (new Template())->render('error/generic', [
+        $template = new Template($config);
+        $expected = $template->render('error/generic', [
             'lang' => 'en',
             'dir' => 'ltr',
             'error_message' => 'Failed to load phpMyAdmin configuration.',
         ]);
 
-        $application = new Application();
+        $application = new Application($errorHandler, $config, $template);
         $application->run();
 
         $output = $this->getActualOutputForAssertion();
@@ -66,7 +64,11 @@ final class ApplicationTest extends AbstractTestCase
 
     public function testCheckTokenRequestParam(): void
     {
-        $application = new Application();
+        $application = new Application(
+            $this->createStub(ErrorHandler::class),
+            $this->createStub(Config::class),
+            $this->createStub(Template::class),
+        );
 
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $application->checkTokenRequestParam();
