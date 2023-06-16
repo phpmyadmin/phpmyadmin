@@ -63,7 +63,10 @@ return [
             'class' => Advisor::class,
             'arguments' => ['$dbi' => '@dbi', '$expression' => '@expression_language'],
         ],
-        Application::class => ['class' => Application::class],
+        Application::class => [
+            'class' => Application::class,
+            'arguments' => ['$errorHandler' => '@error_handler', '$config' => '@config', '$template' => '@template'],
+        ],
         'browse_foreigners' => [
             'class' => BrowseForeigners::class,
             'arguments' => ['@template', '@config'],
