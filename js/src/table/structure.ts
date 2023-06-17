@@ -192,6 +192,7 @@ AJAX.registerOnload('table/structure.js', function () {
          */
         var currColumnName = $currRow.children('th').children('label').text().trim();
         currColumnName = escapeJsString(escapeHtml(currColumnName));
+
         /**
          * @var $afterFieldItem    Corresponding entry in the 'After' field.
          */
