@@ -236,7 +236,7 @@ class Export
             . $this->getHTMLForBackButton($exportType, $db, $table)
             . $this->getHTMLForRefreshButton($exportType)
             . '</div>'
-            . '<script type="text/javascript">' . "\n"
+            . '<script>' . "\n"
             . '//<![CDATA[' . "\n"
             . 'var $body = $("body");' . "\n"
             . '$("#textSQLDUMP")' . "\n"
