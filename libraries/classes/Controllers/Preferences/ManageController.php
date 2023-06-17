@@ -60,12 +60,7 @@ class ManageController extends AbstractController
     {
         $GLOBALS['cf'] ??= null;
         $GLOBALS['error'] ??= null;
-        $GLOBALS['json'] ??= null;
         $GLOBALS['lang'] ??= null;
-        $GLOBALS['new_config'] ??= null;
-        $GLOBALS['return_url'] ??= null;
-        $GLOBALS['form_display'] ??= null;
-        $GLOBALS['all_ok'] ??= null;
         $GLOBALS['query'] ??= null;
 
         $route = $request->getRoute();
@@ -111,7 +106,7 @@ class ManageController extends AbstractController
 
         if ($request->hasBodyParam('submit_import')) {
             // load from JSON file
-            $GLOBALS['json'] = '';
+            $json = '';
             if (
                 $request->hasBodyParam('import_type')
                 && $request->getParsedBodyParam('import_type') === 'text_file'
@@ -128,18 +123,18 @@ class ManageController extends AbstractController
                     $GLOBALS['error'] = $importHandle->getError();
                 } else {
                     // read JSON from uploaded file
-                    $GLOBALS['json'] = $importHandle->getRawContent();
+                    $json = $importHandle->getRawContent();
                 }
             } else {
                 // read from POST value (json)
-                $GLOBALS['json'] = $request->getParsedBodyParam('json');
+                $json = $request->getParsedBodyParam('json');
             }
 
             // hide header message
             $_SESSION['userprefs_autoload'] = true;
 
-            $configuration = json_decode($GLOBALS['json'], true);
-            $GLOBALS['return_url'] = $request->getParsedBodyParam('return_url');
+            $configuration = json_decode($json, true);
+            $returnUrl = $request->getParsedBodyParam('return_url');
             if (! is_array($configuration)) {
                 if (! isset($GLOBALS['error'])) {
                     $GLOBALS['error'] = __('Could not import configuration');
@@ -147,29 +142,29 @@ class ManageController extends AbstractController
             } else {
                 // sanitize input values: treat them as though
                 // they came from HTTP POST request
-                $GLOBALS['form_display'] = new UserFormList($GLOBALS['cf']);
-                $GLOBALS['new_config'] = $GLOBALS['cf']->getFlatDefaultConfig();
+                $formDisplay = new UserFormList($GLOBALS['cf']);
+                $newConfig = $GLOBALS['cf']->getFlatDefaultConfig();
                 if ($request->hasBodyParam('import_merge')) {
-                    $GLOBALS['new_config'] = array_merge($GLOBALS['new_config'], $GLOBALS['cf']->getConfigArray());
+                    $newConfig = array_merge($newConfig, $GLOBALS['cf']->getConfigArray());
                 }
 
-                $GLOBALS['new_config'] = array_merge($GLOBALS['new_config'], $configuration);
+                $newConfig = array_merge($newConfig, $configuration);
                 $postParamBackup = $_POST;
-                foreach ($GLOBALS['new_config'] as $k => $v) {
+                foreach ($newConfig as $k => $v) {
                     $_POST[str_replace('/', '-', (string) $k)] = $v;
                 }
 
                 $GLOBALS['cf']->resetConfigData();
-                $GLOBALS['all_ok'] = $GLOBALS['form_display']->process(true, false);
-                $GLOBALS['all_ok'] = $GLOBALS['all_ok'] && ! $GLOBALS['form_display']->hasErrors();
+                $allOk = $formDisplay->process(true, false);
+                $allOk = $allOk && ! $formDisplay->hasErrors();
                 $_POST = $postParamBackup;
 
-                if (! $GLOBALS['all_ok'] && $request->hasBodyParam('fix_errors')) {
-                    $GLOBALS['form_display']->fixErrors();
-                    $GLOBALS['all_ok'] = true;
+                if (! $allOk && $request->hasBodyParam('fix_errors')) {
+                    $formDisplay->fixErrors();
+                    $allOk = true;
                 }
 
-                if (! $GLOBALS['all_ok']) {
+                if (! $allOk) {
                     // mimic original form and post json in a hidden field
                     $relationParameters = $this->relation->getRelationParameters();
 
@@ -180,10 +175,10 @@ class ManageController extends AbstractController
                     ]);
 
                     echo $this->template->render('preferences/manage/error', [
-                        'form_errors' => $GLOBALS['form_display']->displayErrors(),
-                        'json' => $GLOBALS['json'],
+                        'form_errors' => $formDisplay->displayErrors(),
+                        'json' => $json,
                         'import_merge' => $request->getParsedBodyParam('import_merge'),
-                        'return_url' => $GLOBALS['return_url'],
+                        'return_url' => $returnUrl,
                     ]);
 
                     return;
@@ -207,9 +202,9 @@ class ManageController extends AbstractController
                 // save settings
                 $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
                 if ($result === true) {
-                    if ($GLOBALS['return_url']) {
-                        $GLOBALS['query'] = Util::splitURLQuery($GLOBALS['return_url']);
-                        $GLOBALS['return_url'] = parse_url($GLOBALS['return_url'], PHP_URL_PATH);
+                    if ($returnUrl) {
+                        $GLOBALS['query'] = Util::splitURLQuery($returnUrl);
+                        $returnUrl = parse_url($returnUrl, PHP_URL_PATH);
 
                         foreach ($GLOBALS['query'] as $q) {
                             $pos = mb_strpos($q, '=');
@@ -221,12 +216,12 @@ class ManageController extends AbstractController
                             $redirectParams[$k] = mb_substr($q, $pos + 1);
                         }
                     } else {
-                        $GLOBALS['return_url'] = 'index.php?route=/preferences/manage';
+                        $returnUrl = 'index.php?route=/preferences/manage';
                     }
 
                     // reload config
                     $this->config->loadUserPreferences($this->themeManager);
-                    $this->userPreferences->redirect($GLOBALS['return_url'] ?? '', $redirectParams);
+                    $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
 
                     return;
                 }

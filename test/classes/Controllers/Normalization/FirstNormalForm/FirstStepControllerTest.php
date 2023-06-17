@@ -57,7 +57,7 @@ class FirstStepControllerTest extends AbstractTestCase
         $output = $response->getHTMLResult();
         $this->assertStringContainsString('First step of normalization (1NF)', $output);
         $this->assertStringContainsString(
-            '<div id=\'mainContent\' data-normalizeto=\'' . $expectedNormalizeTo . '\'>',
+            '<div class="card" id="mainContent" data-normalizeto="' . $expectedNormalizeTo . '">',
             $output,
         );
         $this->assertStringContainsString('<option value=\'no_such_col\'>No such column</option>', $output);

@@ -1932,18 +1932,19 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 /* Add filter options if more than a bunch of rows there to filter */
                 if (logData.numRows > 12) {
                     $('#logTable').prepend(
-                        '<fieldset class="pma-fieldset" id="logDataFilter">' +
-                        '    <legend>' + window.Messages.strFiltersForLogTable + '</legend>' +
-                        '    <div class="formelement">' +
-                        '        <label for="filterQueryText">' + window.Messages.strFilterByWordRegexp + '</label>' +
-                        '        <input name="filterQueryText" type="text" id="filterQueryText">' +
+                        '<div class="card mb-3">' +
+                        '<div class="card-header">' + window.Messages.strFiltersForLogTable + '</div>' +
+                        '<div class="card-body">' +
+                        '    <div class="mb-3">' +
+                        '        <label class="form-label" for="filterQueryText">' + window.Messages.strFilterByWordRegexp + '</label>' +
+                        '        <input class="form-control" name="filterQueryText" type="text" id="filterQueryText">' +
                         '    </div>' +
-                        ((logData.numRows > 250) ? ' <div class="formelement"><button class="btn btn-secondary" name="startFilterQueryText" id="startFilterQueryText">' + window.Messages.strFilter + '</button></div>' : '') +
-                        '    <div class="formelement">' +
-                        '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1"> ' +
-                        '       <label for="noWHEREData"> ' + window.Messages.strIgnoreWhereAndGroup + '</label>' +
-                        '   </div' +
-                        '</fieldset>'
+                        '    <div class="form-check">' +
+                        '       <input class="form-check-input" type="checkbox" id="noWHEREData" name="noWHEREData" value="1"> ' +
+                        '       <label class="form-check-label" for="noWHEREData"> ' + window.Messages.strIgnoreWhereAndGroup + '</label>' +
+                        '   </div>' +
+                        ((logData.numRows > 250) ? ' <div class="mt-3"><button class="btn btn-secondary" name="startFilterQueryText" id="startFilterQueryText">' + window.Messages.strFilter + '</button></div>' : '') +
+                        '</div></div>'
                     );
 
                     $('#noWHEREData').on('change', function () {

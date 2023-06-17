@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use PhpMyAdmin\Common;
+use PhpMyAdmin\Application;
 
 // phpcs:disable PSR1.Files.SideEffects
 if (! defined('ROOT_PATH')) {
@@ -29,4 +29,4 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 
 require AUTOLOAD_FILE;
 
-Common::run(true);
+Application::init()->run(true);

@@ -428,15 +428,16 @@ var removeIndexOnChangeEvent = function () {
  * @param {string} colIndex    Index of new column on form
  */
 function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
-    var $singleColumnRadio = $('<input type="radio" id="single_column" name="index_choice"' +
-        ' checked="checked">' +
-        '<label for="single_column">' + window.Messages.strCreateSingleColumnIndex + '</label>');
-    var $compositeIndexRadio = $('<input type="radio" id="composite_index"' +
-        ' name="index_choice">' +
-        '<label for="composite_index">' + window.Messages.strCreateCompositeIndex + '</label>');
-    var $dialogContent = $('<fieldset class="pma-fieldset" id="advance_index_creator"></fieldset>');
+    var $singleColumnRadio = $('<div class="form-check">' +
+        '<input class="form-check-input" type="radio" id="single_column" name="index_choice" checked="checked">' +
+        '<label class="form-check-label" for="single_column">' +
+        window.Messages.strCreateSingleColumnIndex + '</label></div>');
+    var $compositeIndexRadio = $('<div class="form-check">' +
+        '<input class="form-check-input" type="radio" id="composite_index" name="index_choice">' +
+        '<label class="form-check-label" for="composite_index">' +
+        window.Messages.strCreateCompositeIndex + '</label></div>');
+    var $dialogContent = $('<fieldset id="advance_index_creator"></fieldset>');
     $dialogContent.append('<legend>' + indexChoice.toUpperCase() + '</legend>');
-
 
     // For UNIQUE/INDEX type, show choice for single-column and composite index.
     $dialogContent.append($singleColumnRadio);

@@ -48,7 +48,7 @@ class DesignerController extends AbstractController
             } elseif ($dialog === 'export') {
                 $html = $this->databaseDesigner->getHtmlForSchemaExport(
                     $db,
-                    $request->getParsedBodyParam('selected_page'),
+                    (int) $request->getParsedBodyParam('selected_page'),
                 );
             } elseif ($dialog === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for

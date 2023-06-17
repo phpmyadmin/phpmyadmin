@@ -167,7 +167,7 @@ class DesignerTest extends AbstractTestCase
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page);
         // export type
-        $this->assertStringContainsString('<select id="plugins" name="export_type">', $result);
+        $this->assertStringContainsString('<select class="form-select" id="plugins" name="export_type">', $result);
 
         // hidden field
         $this->assertStringContainsString('<input type="hidden" name="page_number" value="' . $page . '">', $result);

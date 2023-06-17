@@ -108,7 +108,7 @@ final class DbTableExists
 
         /** @var SqlController $controller */
         $controller = Core::getContainerBuilder()->get(SqlController::class);
-        $controller(Common::getRequest());
+        $controller(Application::getRequest());
 
         ResponseRenderer::getInstance()->callExit();
     }

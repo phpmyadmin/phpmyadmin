@@ -44,12 +44,11 @@ class Template
 
     public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
 
-    private Config|null $config;
+    private Config $config;
 
     public function __construct(Config|null $config = null)
     {
-        $config = $config ?? $GLOBALS['config'] ?? null;
-        $this->config = $config instanceof Config ? $config : null;
+        $this->config = $config ?? $GLOBALS['config'];
     }
 
     public static function getTwigEnvironment(string|null $cacheDir): Environment
@@ -101,7 +100,7 @@ class Template
     private function load(string $templateName): TemplateWrapper
     {
         if (static::$twig === null) {
-            static::$twig = self::getTwigEnvironment($this->config?->getTempDir('twig'));
+            static::$twig = self::getTwigEnvironment($this->config->getTempDir('twig'));
         }
 
         try {
@@ -136,5 +135,14 @@ class Template
     public function render(string $template, array $data = []): string
     {
         return $this->load($template)->render($data);
+    }
+
+    public function disableCache(): void
+    {
+        if (static::$twig === null) {
+            static::$twig = self::getTwigEnvironment(null);
+        }
+
+        static::$twig->setCache(false);
     }
 }

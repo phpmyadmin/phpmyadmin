@@ -40,50 +40,107 @@ $textarea-rows: 15;
   border: none;
 }
 
-span {
-  &.cm-keyword,
-  &.cm-statement-verb {
-    color: #909;
+.cm-s-default {
+  .cm-keyword {
+    color: $pink-600;
   }
 
-  &.cm-variable {
-    color: black;
+  .cm-number {
+    color: $teal-600;
   }
 
-  &.cm-comment {
-    color: #808000;
+  .cm-atom,
+  .cm-def,
+  .cm-variable-2 {
+    color: $blue-600;
   }
 
-  &.cm-mysql-string {
-    color: #008000;
+  .cm-string {
+    color: $cyan-600;
   }
 
-  &.cm-operator {
-    color: fuchsia;
+  .cm-comment,
+  .cm-string-2 {
+    color: $orange-600;
   }
 
-  &.cm-mysql-word {
-    color: black;
+  .cm-builtin {
+    color: $purple-600;
   }
 
-  &.cm-builtin {
-    color: #f00;
+  .cm-variable-3,
+  .cm-type,
+  .cm-tag {
+    color: $green-600;
   }
 
-  &.cm-variable-2 {
-    color: #f90;
+  .cm-attribute,
+  .cm-link {
+    color: $blue-600;
   }
 
-  &.cm-variable-3 {
-    color: #00f;
+  .cm-meta,
+  .cm-qualifier,
+  .cm-bracket,
+  .cm-hr {
+    color: $gray-600;
   }
 
-  &.cm-separator {
-    color: fuchsia;
+  .cm-error {
+    color: $red-600;
   }
+}
 
-  &.cm-number {
-    color: teal;
+@include color-mode(dark) {
+  .cm-s-default {
+    .cm-keyword {
+      color: $pink-400;
+    }
+
+    .cm-number {
+      color: $teal-400;
+    }
+
+    .cm-atom,
+    .cm-def,
+    .cm-variable-2 {
+      color: $blue-400;
+    }
+
+    .cm-string {
+      color: $cyan-400;
+    }
+
+    .cm-comment,
+    .cm-string-2 {
+      color: $orange-400;
+    }
+
+    .cm-builtin {
+      color: $purple-400;
+    }
+
+    .cm-variable-3,
+    .cm-type,
+    .cm-tag {
+      color: $green-400;
+    }
+
+    .cm-attribute,
+    .cm-link {
+      color: $blue-400;
+    }
+
+    .cm-meta,
+    .cm-qualifier,
+    .cm-bracket,
+    .cm-hr {
+      color: $gray-400;
+    }
+
+    .cm-error {
+      color: $red-400;
+    }
   }
 }
 
@@ -110,4 +167,8 @@ span {
     font-family: monospace;
     font-weight: bold;
   }
+}
+
+.CodeMirror-cursor {
+  border-color: var(--bs-body-color);
 }

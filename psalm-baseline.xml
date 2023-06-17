@@ -27,6 +27,33 @@
       <code><![CDATA[$rule['justification_formula']]]></code>
     </MixedOperand>
   </file>
+  <file src="libraries/classes/Application.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['back']]]></code>
+    </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
+      <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['back']]]></code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_GET['url'] ?? '']]></code>
+      <code><![CDATA[$_REQUEST['back']]]></code>
+      <code><![CDATA[$_REQUEST['goto']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_GET['url'] ?? '']]></code>
+      <code><![CDATA[$_REQUEST['back']]]></code>
+      <code><![CDATA[$_REQUEST['goto']]]></code>
+    </PossiblyInvalidCast>
+    <RedundantCast>
+      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
+      <code><![CDATA[(string) $_POST['token']]]></code>
+      <code><![CDATA[(string) $_POST['token']]]></code>
+    </RedundantCast>
+  </file>
   <file src="libraries/classes/Bookmark.php">
     <DeprecatedMethod>
       <code>escapeString</code>
@@ -207,35 +234,6 @@
       <code>$prevErrorHandler</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Common.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
-      <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidCast>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-    </RedundantCast>
-  </file>
   <file src="libraries/classes/Config.php">
     <MixedArgument>
       <code>$collationConnection</code>
@@ -282,11 +280,9 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>string</code>
       <code>string|null</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code>$cookiePath</code>
       <code>$tempDir[$name]</code>
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
@@ -1004,7 +1000,6 @@
       <code><![CDATA[$request->getParsedBodyParam('index')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('on_delete')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('on_update')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('selected_page')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('selected_page')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('selected_value')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('selected_value')]]></code>
@@ -2391,42 +2386,31 @@
   </file>
   <file src="libraries/classes/Controllers/Preferences/ManageController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['form_display']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['new_config']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
+      <code>$json</code>
+      <code>$returnUrl</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['all_ok']]]></code>
       <code><![CDATA[$GLOBALS['cf']]]></code>
-      <code><![CDATA[$GLOBALS['form_display']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['json']]]></code>
-      <code><![CDATA[$GLOBALS['new_config']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
-      <code><![CDATA[$GLOBALS['return_url']]]></code>
       <code><![CDATA[$_POST[str_replace('/', '-', (string) $k)]]]></code>
       <code>$configuration</code>
+      <code>$json</code>
       <code><![CDATA[$redirectParams['lang']]]></code>
+      <code>$returnUrl</code>
       <code>$v</code>
       <code>$val</code>
     </MixedAssignment>
     <PossiblyFalseArgument>
-      <code><![CDATA[$GLOBALS['json']]]></code>
+      <code>$json</code>
     </PossiblyFalseArgument>
     <PossiblyFalseOperand>
       <code>$pos</code>
@@ -13088,6 +13072,14 @@
       <code>providerForTestRules</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/ApplicationTest.php">
+    <RedundantConditionGivenDocblockType>
+      <code>assertFalse</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="test/classes/BrowseForeignersTest.php">
     <MixedArgument>
       <code>$result</code>
@@ -13138,14 +13130,6 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedAssignment>
-  </file>
-  <file src="test/classes/CommonTest.php">
-    <RedundantConditionGivenDocblockType>
-      <code>assertFalse</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Config/ConfigFileTest.php">
     <MixedArrayAccess>

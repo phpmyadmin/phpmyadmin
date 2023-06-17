@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-06-04 00:22+0000\n"
+"POT-Creation-Date: 2023-06-11 00:21+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1157,11 +1157,11 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit được đặt thành 1 MiB"
 
-#: libraries/classes/BrowseForeigners.php:176
+#: libraries/classes/BrowseForeigners.php:175
 msgid "Search:"
 msgstr "Tìm kiếm:"
 
-#: libraries/classes/BrowseForeigners.php:182
+#: libraries/classes/BrowseForeigners.php:181
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
 #: libraries/classes/Normalization.php:226
@@ -1217,23 +1217,23 @@ msgstr "Tìm kiếm:"
 msgid "Go"
 msgstr "Thực hiện"
 
-#: libraries/classes/BrowseForeigners.php:197
-#: libraries/classes/BrowseForeigners.php:201
+#: libraries/classes/BrowseForeigners.php:196
+#: libraries/classes/BrowseForeigners.php:200
 #: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
 #: templates/table/structure/display_structure.twig:475
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "Tên khóa"
 
-#: libraries/classes/BrowseForeigners.php:198
-#: libraries/classes/BrowseForeigners.php:200
+#: libraries/classes/BrowseForeigners.php:197
+#: libraries/classes/BrowseForeigners.php:199
 #: templates/server/engines/index.twig:14
 #: templates/server/plugins/index.twig:27
 #: templates/server/status/variables/index.twig:77
 msgid "Description"
 msgstr "Mô tả"
 
-#: libraries/classes/BrowseForeigners.php:288
+#: libraries/classes/BrowseForeigners.php:287
 #: libraries/classes/Language.php:182 libraries/classes/Pdf.php:81
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:471
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:505
@@ -1241,7 +1241,7 @@ msgstr "Mô tả"
 msgid "Page number:"
 msgstr "Số trang:"
 
-#: libraries/classes/BrowseForeigners.php:302
+#: libraries/classes/BrowseForeigners.php:301
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #: templates/display/results/table.twig:99
 #: templates/server/privileges/initials_row.twig:17
@@ -4429,7 +4429,7 @@ msgid "Add DROP DATABASE"
 msgstr "Thêm DROP DATABASE"
 
 #: libraries/classes/Config/Descriptions.php:902
-#: templates/database/structure/copy_form.twig:34
+#: templates/database/structure/copy_form.twig:31
 msgid "Add DROP TABLE"
 msgstr "Thêm DROP TABLE"
 
@@ -4639,7 +4639,7 @@ msgstr "Máy phục vụ"
 #: libraries/classes/Plugins/Export/ExportXml.php:449
 #: libraries/classes/Server/Privileges.php:1573
 #: libraries/classes/Server/Privileges.php:1575
-#: templates/database/structure/show_create.twig:10
+#: templates/database/structure/show_create.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:153
@@ -4787,7 +4787,7 @@ msgid "Group queries"
 msgstr "Nhóm truy vấn"
 
 #: libraries/classes/Config/Descriptions.php:969
-#: templates/sql/profiling_chart.twig:9
+#: templates/sql/profiling_chart.twig:11
 msgid "Order"
 msgstr "Thứ tự"
 
@@ -5246,7 +5246,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:64
 #: libraries/classes/Controllers/Database/TrackingController.php:116
-#: libraries/classes/Controllers/Export/ExportController.php:308
+#: libraries/classes/Controllers/Export/ExportController.php:307
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
@@ -5393,8 +5393,8 @@ msgstr "không hiểu"
 #: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1117
 #: templates/database/privileges/index.twig:69
-#: templates/database/structure/drop_form.twig:19
-#: templates/database/structure/empty_form.twig:19 templates/indexes.twig:65
+#: templates/database/structure/drop_form.twig:20
+#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:65
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
@@ -5478,12 +5478,12 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Bạn có lẽ nên làm tươi trang này lại."
 
-#: libraries/classes/Controllers/Export/ExportController.php:112
+#: libraries/classes/Controllers/Export/ExportController.php:111
 #: libraries/classes/Export.php:1245
 msgid "Bad type!"
 msgstr "Sai kiểu!"
 
-#: libraries/classes/Controllers/Export/ExportController.php:200
+#: libraries/classes/Controllers/Export/ExportController.php:199
 msgid "Bad parameters!"
 msgstr "Tham số sai!"
 
@@ -5674,7 +5674,7 @@ msgstr "Câu lệnh \"DROP DATABASE\" bị tăt."
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Chỉ các truy vấn UPDATE và DELETE trên một bảng được mô phỏng."
 
-#: libraries/classes/Controllers/Import/StatusController.php:65
+#: libraries/classes/Controllers/Import/StatusController.php:63
 msgid "Could not load the progress of the import."
 msgstr "Không thể tải tiến trình của nhập khẩu."
 
@@ -6466,7 +6466,7 @@ msgstr "Xuất vùng chọn:"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:439
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:328
 #: libraries/classes/Server/Status/Processes.php:95
-#: templates/sql/profiling_chart.twig:17 templates/triggers/list.twig:49
+#: templates/sql/profiling_chart.twig:13 templates/triggers/list.twig:49
 msgid "Time"
 msgstr "Thời gian"
 
@@ -6741,8 +6741,8 @@ msgstr "Đang đổi bảng mã"
 #: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1118
 #: templates/database/privileges/index.twig:69
-#: templates/database/structure/drop_form.twig:20
-#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:65
+#: templates/database/structure/drop_form.twig:21
+#: templates/database/structure/empty_form.twig:21 templates/indexes.twig:65
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -6765,8 +6765,8 @@ msgid "No"
 msgstr "Không"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:374
-#: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:154
+#: templates/database/structure/drop_form.twig:15
+#: templates/database/structure/empty_form.twig:15 templates/import.twig:154
 #: templates/sql/query.twig:144 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Bật kiểm tra khóa ngoại"
@@ -6971,7 +6971,7 @@ msgstr "Chưa chọn cơ sở dữ liệu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
 #: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:905
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:269
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Quay lại"
@@ -7102,7 +7102,7 @@ msgstr "bài tóm tắt diễn tả nội dung của dữ liệu này"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:639
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1579
+#: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:1579
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Bỏ qua"
@@ -7511,7 +7511,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Vui lòng xem ở phần dưới của cửa sổ này."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:642
-#: libraries/classes/ErrorHandler.php:446
+#: libraries/classes/ErrorHandler.php:418
 msgid "Ignore All"
 msgstr "Bỏ qua tất"
 
@@ -8990,7 +8990,7 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:237
-#: libraries/classes/Sql.php:1082
+#: libraries/classes/Sql.php:1096
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
@@ -9097,7 +9097,7 @@ msgstr "Có quá nhiều phép gia nhập mà không dùng chỉ mục."
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1220
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:201
-#: libraries/classes/Sql.php:896
+#: libraries/classes/Sql.php:908
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
@@ -9119,7 +9119,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/OperationsController.php:308
 #: libraries/classes/Controllers/Table/StructureController.php:78
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
-#: templates/database/structure/show_create.twig:32
+#: templates/database/structure/show_create.twig:35
 #: templates/database/structure/structure_table_row.twig:122
 #: templates/database/structure/structure_table_row.twig:186
 msgid "View"
@@ -9686,7 +9686,7 @@ msgstr "Tổng %1$d, %2$d trong truy vấn"
 msgid "%d total"
 msgstr "tổng %d"
 
-#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:902
+#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:914
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
@@ -10005,15 +10005,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:99
+#: libraries/classes/ErrorHandler.php:98
 msgid "Too many error messages, some are not displayed."
 msgstr "Quá nhiều lời nhắn lỗi, một số trong chúng sẽ không được hiển thị."
 
-#: libraries/classes/ErrorHandler.php:430
+#: libraries/classes/ErrorHandler.php:402
 msgid "Report"
 msgstr "Báo cáo"
 
-#: libraries/classes/ErrorHandler.php:435 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:407 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Lần sau sẽ tự động gửi báo cáo"
 
@@ -10165,7 +10165,7 @@ msgid "Submit query"
 msgstr "Gửi truy vấn"
 
 #: libraries/classes/Html/Generator.php:660 templates/console/display.twig:43
-#: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
+#: templates/console/display.twig:201 templates/sql/profiling_chart.twig:3
 msgid "Profiling"
 msgstr "Hồ sơ"
 
@@ -10237,7 +10237,7 @@ msgstr "Vui lòng nhập vào nhiều hơn {0} ký tự"
 msgid "The trigger name cannot end with a space character."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:910
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:922
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
@@ -10394,11 +10394,11 @@ msgstr "Hoặc"
 msgid "web server upload directory:"
 msgstr "thư mục để tải lên máy chủ:"
 
-#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:893
+#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:905
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:873
+#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:885
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -10407,14 +10407,14 @@ msgstr "Chỉ số id người dùng kép: %1$d"
 msgid "Ignoring unsupported language code."
 msgstr "Bỏ qua mã ngôn ngữ không được hỗ trợ."
 
-#: libraries/classes/Linter.php:104
+#: libraries/classes/Linter.php:102
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
 "Việc kiểm chuẩn bị tắt cho truy vấn này bị tắt bởi vì nó vượt quá chiều dài "
 "cho phép."
 
-#: libraries/classes/Linter.php:156
+#: libraries/classes/Linter.php:154
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (gần <code>%2$s</code>)"
@@ -10692,7 +10692,7 @@ msgstr "Bẫy"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:27
 #: libraries/classes/Plugins/Export/ExportXml.php:124
-#: templates/database/structure/show_create.twig:28
+#: templates/database/structure/show_create.twig:30
 msgid "Views"
 msgstr "Trình bày"
 
@@ -11034,25 +11034,25 @@ msgstr "Tên bảng còn để trống!"
 msgid "Error while creating PDF:"
 msgstr "Gặp lỗi khi tạo PDF:"
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:80
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:73
 msgid "Cannot connect: invalid settings."
 msgstr "Không thể kết nối: cài đặt sai."
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:88
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:81
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:94
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:74
 #: libraries/classes/Plugins/AuthenticationPlugin.php:169
 msgid "Access denied!"
 msgstr "Không đủ thẩm quyền!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:93
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:86
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:79
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
 msgstr "Chúc mừng bạn dùng %s"
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:107
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -11061,7 +11061,7 @@ msgstr ""
 "Bạn gần như chắc chắn là chưa tạo tập tin cấu hình. Bạn có lẽ nên dùng "
 "%1$strang cài đặt%2$s để tạo cho mình một cái."
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:128
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:121
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -11069,43 +11069,43 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:149
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:142
 msgid "Retry to connect"
 msgstr "Thử kết nối lại"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:133
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:128
 msgid "Your session has expired. Please log in again."
 msgstr "Phiên của bạn đã hết hạn. Vui lòng đăng nhập lại."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:251
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:242
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:278
 #, fuzzy
 #| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Không thể kết nối đến máy chủ phục vụ cơ sở dữ liệu!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:280
 msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha đã nhập là sai, hãy thử lại!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:292
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:311
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Bạn không được phép đăng nhập vào máy MySQL này!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:84
 msgid "Wrong username/password. Access denied."
 msgstr "Sai tài_khoản/mật_khẩu. Từ chối truy cập."
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:136
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:129
 msgid "Can not find signon authentication script:"
 msgstr "Không thể tìm thấy văn lệnh xác thực đăng nhập:"
 
@@ -11131,7 +11131,7 @@ msgstr ""
 msgid "Cannot log in to the MySQL server"
 msgstr "Không thể đăng nhập vào máy phục vụ MySQL"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:325
+#: libraries/classes/Plugins/AuthenticationPlugin.php:321
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -11861,7 +11861,7 @@ msgstr "Bảng %s không tồn tại!"
 msgid "Schema of the %s database - Page %s"
 msgstr "Lược đồ của cơ sở dữ liệu %s - Trang %s"
 
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:255
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:256
 msgid "SCHEMA ERROR: "
 msgstr "LƯỢC ĐỒ SAI: "
 
@@ -12859,16 +12859,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Không có phiên bản ổn định nào mới hơn"
 
-#: libraries/classes/Sql.php:444
+#: libraries/classes/Sql.php:456
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Dùng đánh dấu \"%s\" như là truy vấn duyệt mặc định."
 
-#: libraries/classes/Sql.php:890
+#: libraries/classes/Sql.php:902
 msgid "Showing as PHP code"
 msgstr "Hiện dạng mã PHP"
 
-#: libraries/classes/Sql.php:1262
+#: libraries/classes/Sql.php:1276
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12877,7 +12877,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa không sẵn có. %s"
 
-#: libraries/classes/Sql.php:1276
+#: libraries/classes/Sql.php:1290
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13064,21 +13064,21 @@ msgstr "Không có dữ liệu"
 
 #: libraries/classes/Tracking/Tracking.php:290
 #: templates/database/operations/index.twig:131
-#: templates/database/structure/copy_form.twig:19
+#: templates/database/structure/copy_form.twig:21
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Chỉ cấu trúc"
 
 #: libraries/classes/Tracking/Tracking.php:293
 #: templates/database/operations/index.twig:143
-#: templates/database/structure/copy_form.twig:29
+#: templates/database/structure/copy_form.twig:25
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Chỉ dữ liệu"
 
 #: libraries/classes/Tracking/Tracking.php:296
 #: templates/database/operations/index.twig:137
-#: templates/database/structure/copy_form.twig:24
+#: templates/database/structure/copy_form.twig:17
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
 msgstr "Cấu trúc và dữ liệu"
@@ -13857,7 +13857,7 @@ msgstr "Bảng mã đối chiếu"
 #: templates/database/operations/index.twig:68
 #: templates/database/operations/index.twig:173
 #: templates/database/routines/editor_form.twig:133
-#: templates/database/structure/copy_form.twig:50
+#: templates/database/structure/copy_form.twig:45
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
 #: templates/table/operations/index.twig:315
@@ -14277,7 +14277,7 @@ msgstr "Xóa trang"
 
 #: templates/database/designer/main.twig:84
 #: templates/database/designer/main.twig:87
-#: templates/database/structure/show_create.twig:11
+#: templates/database/structure/show_create.twig:12
 msgid "Create table"
 msgstr "Tạo bảng"
 
@@ -14720,7 +14720,7 @@ msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE trước khi sao chép"
 
 #: templates/database/operations/index.twig:165
-#: templates/database/structure/copy_form.twig:44
+#: templates/database/structure/copy_form.twig:39
 #: templates/table/operations/index.twig:306
 msgid "Add constraints"
 msgstr "Thêm ràng buộc"
@@ -14961,8 +14961,7 @@ msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<b>Tổng cộng:</b> <i>%s</i> khớp mẫu"
 
-#: templates/database/structure/add_prefix.twig:7
-#: templates/database/structure/add_prefix.twig:9
+#: templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
 msgstr "Thêm tiền tố"
 
@@ -14981,11 +14980,11 @@ msgstr "Tổng"
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: templates/database/structure/change_prefix_form.twig:7
+#: templates/database/structure/change_prefix_form.twig:4
 msgid "From"
 msgstr "Từ"
 
-#: templates/database/structure/change_prefix_form.twig:13
+#: templates/database/structure/change_prefix_form.twig:8
 msgid "To"
 msgstr "Đến"
 
@@ -15090,7 +15089,7 @@ msgstr ""
 msgid "Options:"
 msgstr "Tùy chọn"
 
-#: templates/database/structure/copy_form.twig:39
+#: templates/database/structure/copy_form.twig:35
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
@@ -15117,7 +15116,7 @@ msgstr "Thêm vào ưa dùng"
 msgid "Showing create queries"
 msgstr "Hiện tạo các truy vấn"
 
-#: templates/database/structure/show_create.twig:33
+#: templates/database/structure/show_create.twig:36
 #: templates/display/results/table.twig:379 templates/modals/create_view.twig:5
 #: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
 msgid "Create view"
@@ -18143,31 +18142,31 @@ msgstr "Cho mọi người truy cập đánh dấu này"
 msgid "Create new bookmark"
 msgstr "Tạo đánh đánh dấu"
 
-#: templates/sql/profiling_chart.twig:4
+#: templates/sql/profiling_chart.twig:7
 msgid "Detailed profile"
 msgstr "Hồ sơ chi tiết"
 
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:43
+#: templates/sql/profiling_chart.twig:12 templates/sql/profiling_chart.twig:36
 msgid "State"
 msgstr "Tình trạng"
 
-#: templates/sql/profiling_chart.twig:38
+#: templates/sql/profiling_chart.twig:32
 msgid "Summary by state"
 msgstr "Định chỗ theo tình trạng"
 
-#: templates/sql/profiling_chart.twig:47
+#: templates/sql/profiling_chart.twig:37
 msgid "Total Time"
 msgstr "Tổng thời gian"
 
-#: templates/sql/profiling_chart.twig:51
+#: templates/sql/profiling_chart.twig:38
 msgid "% Time"
 msgstr "Thời gian:"
 
-#: templates/sql/profiling_chart.twig:55
+#: templates/sql/profiling_chart.twig:39
 msgid "Calls"
 msgstr "Các cuộc gọi"
 
-#: templates/sql/profiling_chart.twig:59
+#: templates/sql/profiling_chart.twig:40
 msgid "ø Time"
 msgstr "ø Thời gian"
 

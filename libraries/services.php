@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Application;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
@@ -61,6 +62,10 @@ return [
         'advisor' => [
             'class' => Advisor::class,
             'arguments' => ['$dbi' => '@dbi', '$expression' => '@expression_language'],
+        ],
+        Application::class => [
+            'class' => Application::class,
+            'arguments' => ['$errorHandler' => '@error_handler', '$config' => '@config', '$template' => '@template'],
         ],
         'browse_foreigners' => [
             'class' => BrowseForeigners::class,
