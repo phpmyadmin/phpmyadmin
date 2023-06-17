@@ -6406,6 +6406,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
+			message: "#^Cannot access offset 0 on array\\|bool\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportShp.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportShp\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportShp.php
@@ -6966,6 +6971,11 @@ parameters:
 			path: libraries/classes/Plugins/TwoFactor/Key.php
 
 		-
+			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
 			message: "#^Parameter \\#1 \\$registrations of static method CodeLts\\\\U2F\\\\U2FServer\\\\U2FServer\\:\\:makeAuthentication\\(\\) expects array\\<CodeLts\\\\U2F\\\\U2FServer\\\\stdClass\\>, array\\<stdClass\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TwoFactor/Key.php
@@ -7522,11 +7532,16 @@ parameters:
 
 		-
 			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|null\\.$#"
-			count: 1
+			count: 3
 			path: libraries/classes/Server/Privileges.php
 
 		-
 			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|true\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Possibly invalid array key type array\\|string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -9299,6 +9314,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\Settings\\\\TransformationsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Config/Settings/TransformationsTest.php
+
+		-
+			message: "#^Cannot access offset 1 on array\\|bool\\|int\\|string\\|null\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\SettingsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
