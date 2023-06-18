@@ -5,7 +5,6 @@ import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import highlightSql from './modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
-import createProfilingChart from './modules/functions/createProfilingChart.ts';
 import { escapeHtml } from './modules/functions/escape.ts';
 import refreshMainContent from './modules/functions/refreshMainContent.ts';
 import isStorageSupported from './modules/functions/isStorageSupported.ts';
@@ -1323,27 +1322,45 @@ AJAX.registerOnload('sql.js', function () {
     }
 });
 
-/**
- * Profiling Chart
- */
-function makeProfilingChart () {
-    if ($('#profilingchart').length === 0 ||
-        $('#profilingchart').html().length !== 0 ||
-        ! $.jqplot || ! $.jqplot.Highlighter || ! $.jqplot.PieRenderer
-    ) {
+function buildProfilingChart () {
+    const profilingChartCanvas = document.getElementById('profilingChartCanvas') as HTMLCanvasElement;
+    if (! profilingChartCanvas) {
         return;
     }
 
-    var data = [];
-    $.each(JSON.parse($('#profilingChartData').html()), function (key, value) {
-        data.push([key, parseFloat(value)]);
+    const chartDataJson = profilingChartCanvas.getAttribute('data-chart-data');
+    let chartData = null;
+    try {
+        chartData = JSON.parse(chartDataJson);
+    } catch (e) {
+        return;
+    }
+
+    if (! (chartData && 'labels' in chartData && 'data' in chartData)) {
+        return;
+    }
+
+    const lang = CommonParams.get('lang');
+    const numberFormat = new Intl.NumberFormat(lang.replace('_', '-'), {
+        style: 'unit',
+        unit: 'second',
+        unitDisplay: 'long',
+        notation: 'engineering',
     });
 
-    // Remove chart and data divs contents
-    $('#profilingchart').html('').show();
-    $('#profilingChartData').html('');
-
-    createProfilingChart('profilingchart', data);
+    new window.Chart(profilingChartCanvas, {
+        type: 'pie',
+        data: {
+            labels: chartData.labels,
+            datasets: [{ data: chartData.data }],
+        },
+        options: {
+            plugins: {
+                legend: { position: 'bottom' },
+                tooltip: { callbacks: { label: context => context.parsed ? numberFormat.format(context.parsed) : '' } },
+            },
+        },
+    });
 }
 
 /**
@@ -1390,8 +1407,8 @@ function initProfilingTables () {
 }
 
 AJAX.registerOnload('sql.js', function () {
-    Sql.makeProfilingChart();
     Sql.initProfilingTables();
+    buildProfilingChart();
 });
 
 const Sql = {
@@ -1407,7 +1424,6 @@ const Sql = {
     browseForeignDialog: browseForeignDialog,
     getAutoSavedKey: getAutoSavedKey,
     checkSavedQuery: checkSavedQuery,
-    makeProfilingChart: makeProfilingChart,
     initProfilingTables: initProfilingTables,
 };
 
