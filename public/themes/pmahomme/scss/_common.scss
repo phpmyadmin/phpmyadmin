@@ -752,22 +752,6 @@ div {
 
 // end serverstatus
 
-// profiling
-
-div#profilingchart {
-  width: 850px;
-  height: 370px;
-  float: left;
-}
-
-#profilingchart .jqplot-highlighter-tooltip {
-  top: auto !important;
-  left: 11px;
-  bottom: 24px;
-}
-
-// end profiling
-
 // table charting
 #resizer {
   border: 1px solid silver;

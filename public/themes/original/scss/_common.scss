@@ -577,19 +577,6 @@ div#logTable {
   padding-left: 7px;
 }
 
-/* profiling */
-div#profilingchart {
-  width: 850px;
-  height: 370px;
-  float: left;
-}
-
-#profilingchart .jqplot-highlighter-tooltip {
-  top: auto !important;
-  left: 11px;
-  bottom: 24px;
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
