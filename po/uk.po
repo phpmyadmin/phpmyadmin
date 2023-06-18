@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2022-11-12 14:49+0000\n"
-"Last-Translator: Tlsn <developer216@gmail.com>\n"
+"PO-Revision-Date: 2023-06-19 18:48+0000\n"
+"Last-Translator: Yevhen Bronza <zhenya.bronza@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "uk/>\n"
 "Language: uk\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4497,7 +4497,7 @@ msgstr "Показати поточний перегляд запиту"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 "Виконати запит по натиснені на Enter і вставити новий рядок по натиснені на "
-"Shift + Enter"
+"Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:168
@@ -7492,6 +7492,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn недоступний. Будь ласка, використовуйте браузер, що підтримується, "
+"у безпечному контексті (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -11919,16 +11921,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Ключ безпеки устаткування (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Забезпечує автентифікацію за допомогою апаратних жетонів безпеки, що "
-"підтримують FIDO U2F, таких як Yubikey."
+"Забезпечує автентифікацію за допомогою апаратних токенів безпеки, що "
+"підтримують FIDO U2F, таких як YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11959,19 +11957,15 @@ msgstr "Для цілей тестування!"
 #, fuzzy
 #| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Ключ безпеки устаткування (FIDO U2F)"
+msgstr "Ключ безпеки устаткування (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Забезпечує автентифікацію за допомогою апаратних жетонів безпеки, що "
-"підтримують FIDO U2F, таких як Yubikey."
+"Забезпечує автентифікацію за допомогою апаратних токенів безпеки, що "
+"підтримують протокол WebAuthn/FIDO2, таких як YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -13233,10 +13227,8 @@ msgstr ""
 "звичайного відображення адрес IPv4 в адреси IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Зберігає універсальний унікальний ідентифікатор (UUID)"
+msgstr "128-bit UUID (універсальний унікальний ідентифікатор)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -16327,27 +16319,19 @@ msgid "Verify"
 msgstr "Перевірити"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Будь ласка, підключіть пристрій FIDO U2F до USB-порту комп'ютера. Потім "
-"підтвердіть реєстрацію на пристрої."
+"Будь ласка, підключіть WebAuthn/FIDO2 пристрій. Потім підтвердіть реєстрацію "
+"на пристрої."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Будь ласка, підключіть пристрій FIDO U2F до USB-порту комп'ютера. Потім "
-"підтвердіть логін на пристрої."
+"Будь ласка, підключіть WebAuthn/FIDO2 пристрій. Потім підтвердіть логін на "
+"пристрої."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
