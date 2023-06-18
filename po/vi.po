@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-06-11 00:21+0000\n"
+"POT-Creation-Date: 2023-06-18 00:21+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1157,6 +1157,47 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit được đặt thành 1 MiB"
 
+#: libraries/classes/Application.php:274
+#, php-format
+msgid "You should upgrade to %s %s or later."
+msgstr "Bạn nên nâng cấp lên %s %s hay bản mới hơn."
+
+#: libraries/classes/Application.php:306
+msgid "Error: Token mismatch"
+msgstr "Lỗi: Không khớp thẻ"
+
+#: libraries/classes/Application.php:365
+#, php-format
+msgid "See %sour documentation%s for more information."
+msgstr "Xem %stài liệu của chúng tôi%s để có thêm thông tin."
+
+#: libraries/classes/Application.php:476
+msgid ""
+"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
+"access phpMyAdmin."
+msgstr ""
+
+#: libraries/classes/Application.php:523
+msgid ""
+"You have enabled mbstring.func_overload in your PHP configuration. This "
+"option is incompatible with phpMyAdmin and might cause some data to be "
+"corrupted!"
+msgstr ""
+
+#: libraries/classes/Application.php:538
+msgid ""
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
+msgstr ""
+
+#: libraries/classes/Application.php:548
+msgid "GLOBALS overwrite attempt"
+msgstr "Cố gắng kết nối gặp lỗi"
+
+#: libraries/classes/Application.php:558
+msgid "possible exploit"
+msgstr "Kết quả có thể"
+
 #: libraries/classes/BrowseForeigners.php:175
 msgid "Search:"
 msgstr "Tìm kiếm:"
@@ -1164,7 +1205,7 @@ msgstr "Tìm kiếm:"
 #: libraries/classes/BrowseForeigners.php:181
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
-#: libraries/classes/Normalization.php:226
+#: libraries/classes/Normalization.php:225
 #: libraries/classes/Tracking/Tracking.php:305
 #: libraries/classes/Tracking/Tracking.php:447
 #: templates/columns_definitions/column_definitions_form.twig:42
@@ -1176,7 +1217,7 @@ msgstr "Tìm kiếm:"
 #: templates/database/operations/index.twig:225
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/display/results/table.twig:271
+#: templates/display/results/table.twig:279
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
@@ -1184,15 +1225,15 @@ msgstr "Tìm kiếm:"
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:45
 #: templates/preferences/manage/main.twig:107
-#: templates/server/binlog/index.twig:34
+#: templates/server/binlog/index.twig:32
 #: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
 #: templates/server/privileges/privileges_summary.twig:104
 #: templates/server/privileges/user_properties.twig:153
-#: templates/server/privileges/users_overview.twig:159
-#: templates/server/replication/change_primary.twig:33
-#: templates/server/replication/primary_add_replica_user.twig:81
-#: templates/server/replication/primary_configuration.twig:30
+#: templates/server/privileges/users_overview.twig:158
+#: templates/server/replication/change_primary.twig:35
+#: templates/server/replication/primary_add_replica_user.twig:80
+#: templates/server/replication/primary_configuration.twig:32
 #: templates/server/replication/replica_configuration.twig:16
 #: templates/server/replication/replica_configuration.twig:88
 #: templates/sql/query.twig:149 templates/sql/query.twig:200
@@ -1200,7 +1241,7 @@ msgstr "Tìm kiếm:"
 #: templates/table/index_form.twig:245
 #: templates/table/insert/actions_panel.twig:38
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
-#: templates/table/normalization/normalization.twig:24
+#: templates/table/normalization/normalization.twig:26
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1213,13 +1254,13 @@ msgstr "Tìm kiếm:"
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
 #: templates/table/zoom_search/index.twig:152
-#: templates/triggers/editor_form.twig:74 templates/view_create.twig:116
+#: templates/triggers/editor_form.twig:74 templates/view_create.twig:118
 msgid "Go"
 msgstr "Thực hiện"
 
 #: libraries/classes/BrowseForeigners.php:196
 #: libraries/classes/BrowseForeigners.php:200
-#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
+#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:17
 #: templates/table/structure/display_structure.twig:475
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
@@ -1578,47 +1619,6 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: libraries/classes/Common.php:265
-#, php-format
-msgid "You should upgrade to %s %s or later."
-msgstr "Bạn nên nâng cấp lên %s %s hay bản mới hơn."
-
-#: libraries/classes/Common.php:297
-msgid "Error: Token mismatch"
-msgstr "Lỗi: Không khớp thẻ"
-
-#: libraries/classes/Common.php:356
-#, php-format
-msgid "See %sour documentation%s for more information."
-msgstr "Xem %stài liệu của chúng tôi%s để có thêm thông tin."
-
-#: libraries/classes/Common.php:467
-msgid ""
-"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
-"access phpMyAdmin."
-msgstr ""
-
-#: libraries/classes/Common.php:514
-msgid ""
-"You have enabled mbstring.func_overload in your PHP configuration. This "
-"option is incompatible with phpMyAdmin and might cause some data to be "
-"corrupted!"
-msgstr ""
-
-#: libraries/classes/Common.php:529
-msgid ""
-"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
-"requires these functions!"
-msgstr ""
-
-#: libraries/classes/Common.php:539
-msgid "GLOBALS overwrite attempt"
-msgstr "Cố gắng kết nối gặp lỗi"
-
-#: libraries/classes/Common.php:549
-msgid "possible exploit"
-msgstr "Kết quả có thể"
-
 #: libraries/classes/Config/ConfigFile.php:523
 #: libraries/classes/Config/ConfigFile.php:537
 #: libraries/classes/Config/ConfigFile.php:591
@@ -1701,7 +1701,7 @@ msgstr "Biểu tượng"
 #: libraries/classes/Config/ConfigFile.php:550
 #: libraries/classes/Config/ConfigFile.php:562
 #: libraries/classes/Config/ConfigFile.php:570
-#: templates/database/multi_table_query/form.twig:104
+#: templates/database/multi_table_query/form.twig:107
 msgid "Text"
 msgstr "Chữ"
 
@@ -1731,6 +1731,7 @@ msgstr "Phải"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
 #: templates/columns_definitions/column_attributes.twig:217
 #: templates/columns_definitions/column_attributes.twig:240
+#: templates/config/form_display/input.twig:43
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
@@ -1745,7 +1746,7 @@ msgstr "Không"
 #: libraries/classes/Display/Results.php:1593
 #: libraries/classes/Display/Results.php:1600 libraries/classes/Util.php:2236
 #: libraries/classes/Util.php:2253
-#: templates/database/multi_table_query/form.twig:54
+#: templates/database/multi_table_query/form.twig:57
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:126
 #: templates/server/databases/index.twig:145
@@ -1759,7 +1760,7 @@ msgstr "Tăng dần"
 #: libraries/classes/Display/Results.php:1588
 #: libraries/classes/Display/Results.php:1605 libraries/classes/Util.php:2241
 #: libraries/classes/Util.php:2258
-#: templates/database/multi_table_query/form.twig:55
+#: templates/database/multi_table_query/form.twig:58
 #: templates/server/databases/index.twig:111
 #: templates/server/databases/index.twig:128
 #: templates/server/databases/index.twig:147
@@ -3840,7 +3841,7 @@ msgid "Navigation tree"
 msgstr "Cây điều hướng"
 
 #: libraries/classes/Config/Descriptions.php:746
-#: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
+#: templates/server/select/index.twig:6 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "Máy phục vụ"
 
@@ -4298,7 +4299,7 @@ msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
 #: libraries/classes/Config/Descriptions.php:870
-#: templates/setup/home/index.twig:50
+#: templates/setup/home/index.twig:51
 msgid "Authentication type"
 msgstr "Kiểu xác thực"
 
@@ -4560,10 +4561,10 @@ msgstr "Bỏ qua các bảng bị khóa"
 #: templates/database/routines/row.twig:20
 #: templates/database/routines/row.twig:23
 #: templates/database/structure/structure_table_row.twig:66
-#: templates/display/results/table.twig:308
-#: templates/display/results/table.twig:309 templates/indexes.twig:34
+#: templates/display/results/table.twig:319
+#: templates/display/results/table.twig:320 templates/indexes.twig:35
 #: templates/server/variables/index.twig:41
-#: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
+#: templates/server/variables/index.twig:44 templates/setup/home/index.twig:64
 #: templates/table/structure/display_structure.twig:497
 #: templates/triggers/row.twig:28 templates/triggers/row.twig:31
 msgid "Edit"
@@ -4620,8 +4621,8 @@ msgstr "Số hàng Textarea"
 #: templates/table/operations/index.twig:62
 #: templates/table/operations/index.twig:257
 #: templates/table/operations/index.twig:263
-#: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:126
+#: templates/table/relation/common_form.twig:38
+#: templates/table/relation/common_form.twig:130
 #: templates/table/relation/foreign_key_row.twig:91
 msgid "Database"
 msgstr "Cơ sở dữ liệu"
@@ -4650,8 +4651,8 @@ msgstr "Máy phục vụ"
 #: templates/table/maintenance/checksum.twig:12
 #: templates/table/operations/index.twig:65
 #: templates/table/operations/index.twig:266
-#: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:133
+#: templates/table/relation/common_form.twig:39
+#: templates/table/relation/common_form.twig:137
 #: templates/table/relation/foreign_key_row.twig:102
 #: templates/triggers/editor_form.twig:32 templates/triggers/list.twig:47
 msgid "Table"
@@ -4894,26 +4895,26 @@ msgstr "Văn bản OpenDocument"
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:36
 #: templates/database/privileges/index.twig:91
+#: templates/database/privileges/index.twig:115
 #: templates/database/privileges/index.twig:116
-#: templates/database/privileges/index.twig:117
 #: templates/database/routines/index.twig:17
 #: templates/database/routines/index.twig:18
 #: templates/database/routines/row.twig:60
 #: templates/database/routines/row.twig:63
 #: templates/database/structure/check_all_tables.twig:12
-#: templates/display/results/table.twig:321
-#: templates/display/results/table.twig:322
-#: templates/display/results/table.twig:354 templates/export.twig:3
+#: templates/display/results/table.twig:332
+#: templates/display/results/table.twig:333
+#: templates/display/results/table.twig:365 templates/export.twig:3
 #: templates/export.twig:495 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
+#: templates/server/privileges/users_overview.twig:124
 #: templates/server/privileges/users_overview.twig:125
-#: templates/server/privileges/users_overview.twig:126
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
-#: templates/table/privileges/index.twig:120
-#: templates/table/privileges/index.twig:121 templates/triggers/list.twig:17
+#: templates/table/privileges/index.twig:119
+#: templates/table/privileges/index.twig:120 templates/triggers/list.twig:17
 #: templates/triggers/list.twig:18 templates/triggers/row.twig:41
 msgid "Export"
 msgstr "Xuất"
@@ -5394,7 +5395,7 @@ msgstr "không hiểu"
 #: templates/database/designer/main.twig:1117
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:20
-#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:65
+#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:66
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
@@ -5404,7 +5405,7 @@ msgstr "không hiểu"
 #: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:53
 #: templates/server/privileges/users_overview.twig:65
-#: templates/table/delete/confirm.twig:28
+#: templates/table/delete/confirm.twig:30
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/structure/display_structure.twig:532
@@ -5904,13 +5905,13 @@ msgid "Please select column(s) for the index."
 msgstr "Vui lòng chọn (các) cột cho chỉ mục"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
-#: templates/columns_definitions/column_definitions_form.twig:156
+#: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/modals/index_dialog_modal.twig:21
 #: templates/table/index_form.twig:246
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:36
-#: templates/table/relation/common_form.twig:174
+#: templates/table/relation/common_form.twig:179
 #: templates/table/structure/display_structure.twig:344
 #: templates/table/structure/display_structure.twig:354
 msgid "Preview SQL"
@@ -5966,8 +5967,8 @@ msgstr "Xóa bỏ người dùng đã chọn"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 #: libraries/classes/Tracking/Tracking.php:206
 #: libraries/classes/Tracking/Tracking.php:588
-#: templates/columns_definitions/column_definitions_form.twig:175
-#: templates/columns_definitions/column_definitions_form.twig:180
+#: templates/columns_definitions/column_definitions_form.twig:177
+#: templates/columns_definitions/column_definitions_form.twig:182
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:190
@@ -5989,8 +5990,8 @@ msgstr "Xóa bỏ người dùng đã chọn"
 #: templates/modals/preview_sql_modal.twig:10
 #: templates/modals/unhide_nav_item.twig:6
 #: templates/modals/unhide_nav_item.twig:10
-#: templates/server/privileges/users_overview.twig:169
-#: templates/server/privileges/users_overview.twig:177
+#: templates/server/privileges/users_overview.twig:168
+#: templates/server/privileges/users_overview.twig:176
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
 #: templates/server/status/monitor/index.twig:129
@@ -6000,8 +6001,8 @@ msgstr "Xóa bỏ người dùng đã chọn"
 #: templates/sql/query.twig:221 templates/sql/query.twig:226
 #: templates/table/insert/actions_panel.twig:49
 #: templates/table/insert/actions_panel.twig:54
-#: templates/table/relation/common_form.twig:184
 #: templates/table/relation/common_form.twig:189
+#: templates/table/relation/common_form.twig:194
 #: templates/table/search/index.twig:182
 #: templates/table/structure/display_structure.twig:329
 #: templates/table/structure/display_structure.twig:345
@@ -6645,7 +6646,7 @@ msgstr "Áp dụng"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
-#: templates/server/privileges/users_overview.twig:173
+#: templates/server/privileges/users_overview.twig:172
 #: templates/server/status/monitor/index.twig:95
 #: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
@@ -6742,7 +6743,7 @@ msgstr "Đang đổi bảng mã"
 #: templates/database/designer/main.twig:1118
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:21
-#: templates/database/structure/empty_form.twig:21 templates/indexes.twig:65
+#: templates/database/structure/empty_form.twig:21 templates/indexes.twig:66
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -6752,7 +6753,7 @@ msgstr "Đang đổi bảng mã"
 #: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:55
 #: templates/server/privileges/users_overview.twig:65
-#: templates/table/delete/confirm.twig:29
+#: templates/table/delete/confirm.twig:31
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/structure/display_structure.twig:532
@@ -6848,11 +6849,11 @@ msgstr "Hiện hộp truy vấn"
 #: templates/database/central_columns/main.twig:387
 #: templates/database/designer/main.twig:388
 #: templates/database/search/results.twig:38
-#: templates/display/results/table.twig:316
-#: templates/display/results/table.twig:317 templates/export.twig:54
+#: templates/display/results/table.twig:327
+#: templates/display/results/table.twig:328 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
-#: templates/setup/home/index.twig:68 templates/sql/query.twig:188
+#: templates/setup/home/index.twig:69 templates/sql/query.twig:188
 msgid "Delete"
 msgstr "Xóa bỏ"
 
@@ -6886,7 +6887,7 @@ msgid "Variable %d:"
 msgstr "Biến %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
-#: libraries/classes/Normalization.php:947
+#: libraries/classes/Normalization.php:945
 msgid "Pick"
 msgstr "Chọn"
 
@@ -6921,7 +6922,7 @@ msgid "Primary key added."
 msgstr "Đã thêm khóa chính."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Normalization.php:253
+#: libraries/classes/Normalization.php:251
 msgid "Taking you to next step…"
 msgstr "Đưa bạn đến bước kế tiếp…"
 
@@ -6931,10 +6932,10 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Bước đầu của việc tiêu chuẩn hóa là đủ cho bảng '%s'."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:429
-#: libraries/classes/Normalization.php:509
-#: libraries/classes/Normalization.php:568
-#: libraries/classes/Normalization.php:655
-#: libraries/classes/Normalization.php:728
+#: libraries/classes/Normalization.php:507
+#: libraries/classes/Normalization.php:566
+#: libraries/classes/Normalization.php:653
+#: libraries/classes/Normalization.php:726
 msgid "End of step"
 msgstr "Bước cuối"
 
@@ -6945,7 +6946,7 @@ msgstr "Bước thứ hai của việc tiêu chuẩn hóa (2NF)"
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:775
-#: libraries/classes/Normalization.php:341
+#: libraries/classes/Normalization.php:339
 msgid "Done"
 msgstr "Xong"
 
@@ -7027,14 +7028,14 @@ msgid "No dependencies selected!"
 msgstr "Chưa chọn ô điều khiển."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:457
-#: templates/columns_definitions/column_definitions_form.twig:159
+#: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
 #: templates/database/central_columns/main.twig:278
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/insert/actions_panel.twig:8
-#: templates/table/relation/common_form.twig:175
+#: templates/table/relation/common_form.twig:180
 #: templates/table/structure/partition_definition_form.twig:13
 #: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
@@ -7110,8 +7111,8 @@ msgstr "Bỏ qua"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Display/Results.php:2705
 #: libraries/classes/Html/Generator.php:77
-#: templates/display/results/table.twig:312
-#: templates/display/results/table.twig:313
+#: templates/display/results/table.twig:323
+#: templates/display/results/table.twig:324
 msgid "Copy"
 msgstr "Chép"
 
@@ -7149,7 +7150,7 @@ msgid "Polygon"
 msgstr "Hình đa giác"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:499
-#: templates/display/results/table.twig:255
+#: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "Hình dạng"
 
@@ -7701,7 +7702,7 @@ msgstr "Ẩn"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
 #: libraries/classes/Controllers/Table/ChangeController.php:183
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
@@ -8223,32 +8224,32 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Lỗi nghiêm trọng: Bảng điều hướng chỉ có thể truy cập thông qua AJAX"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:25
-#: libraries/classes/Normalization.php:216
+#: libraries/classes/Normalization.php:215
 msgid "Select one…"
 msgstr "Chọn một…"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:26
-#: libraries/classes/Normalization.php:217
+#: libraries/classes/Normalization.php:216
 msgid "No such column"
 msgstr "Không có cột nào như vậy"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:31
-#: libraries/classes/Normalization.php:221 libraries/classes/Types.php:700
+#: libraries/classes/Normalization.php:220 libraries/classes/Types.php:700
 msgctxt "string types"
 msgid "String"
 msgstr "Chuỗi"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:94
+#: libraries/classes/Controllers/Preferences/ManageController.php:89
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "Thiếu các bảng lưu trữ cấu hình phpMyAdmin"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:95
+#: libraries/classes/Controllers/Preferences/ManageController.php:90
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:145
+#: libraries/classes/Controllers/Preferences/ManageController.php:140
 msgid "Could not import configuration"
 msgstr "Không thể nhập cấu hình"
 
@@ -9648,12 +9649,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Display/Results.php:1242
-#: templates/display/results/table.twig:210
+#: templates/display/results/table.twig:212
 msgid "Partial texts"
 msgstr "Các chữ riêng"
 
 #: libraries/classes/Display/Results.php:1246
-#: templates/display/results/table.twig:214
+#: templates/display/results/table.twig:216
 msgid "Full texts"
 msgstr "Toàn văn"
 
@@ -9993,8 +9994,8 @@ msgstr ""
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
-#: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
-#: templates/setup/home/index.twig:131
+#: templates/server/variables/index.twig:17 templates/setup/home/index.twig:116
+#: templates/setup/home/index.twig:134
 msgid "Documentation"
 msgstr "Tài liệu"
 
@@ -10160,7 +10161,7 @@ msgid "Without PHP code"
 msgstr "Không mã PHP"
 
 #: libraries/classes/Html/Generator.php:602
-#: templates/database/multi_table_query/form.twig:161
+#: templates/database/multi_table_query/form.twig:166
 msgid "Submit query"
 msgstr "Gửi truy vấn"
 
@@ -10365,7 +10366,7 @@ msgstr "Hàm"
 #: templates/database/routines/editor_form.twig:56
 #: templates/database/routines/execute_form.twig:16
 #: templates/database/routines/index.twig:53
-#: templates/database/structure/table_header.twig:30 templates/indexes.twig:17
+#: templates/database/structure/table_header.twig:30 templates/indexes.twig:18
 #: templates/table/privileges/index.twig:21
 #: templates/table/search/index.twig:39
 #: templates/table/structure/display_structure.twig:22
@@ -10589,15 +10590,15 @@ msgstr "Mới"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:664
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
-#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
+#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
 #: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
-#: templates/table/relation/common_form.twig:18
-#: templates/table/relation/common_form.twig:23
-#: templates/table/relation/common_form.twig:38
-#: templates/table/relation/common_form.twig:71
-#: templates/table/relation/common_form.twig:140
+#: templates/table/relation/common_form.twig:20
+#: templates/table/relation/common_form.twig:25
+#: templates/table/relation/common_form.twig:40
+#: templates/table/relation/common_form.twig:76
+#: templates/table/relation/common_form.twig:144
 #: templates/table/relation/foreign_key_row.twig:114
 #: templates/table/relation/foreign_key_row.twig:124
 #: templates/table/search/index.twig:38
@@ -10705,95 +10706,95 @@ msgstr "Mới"
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/classes/Normalization.php:197
-#: templates/table/normalization/normalization.twig:11
+#: libraries/classes/Normalization.php:196
+#: templates/table/normalization/normalization.twig:13
 msgid "First step of normalization (1NF)"
 msgstr "Bước đầu của thường hóa (1NF)"
 
-#: libraries/classes/Normalization.php:200
-#: libraries/classes/Normalization.php:249
-#: libraries/classes/Normalization.php:295
-#: libraries/classes/Normalization.php:327
+#: libraries/classes/Normalization.php:198
+#: libraries/classes/Normalization.php:247
+#: libraries/classes/Normalization.php:293
+#: libraries/classes/Normalization.php:325
 msgid "Step 1."
 msgstr "Bước 1."
 
-#: libraries/classes/Normalization.php:202
+#: libraries/classes/Normalization.php:201
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/classes/Normalization.php:207
+#: libraries/classes/Normalization.php:206
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/classes/Normalization.php:209
+#: libraries/classes/Normalization.php:208
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
 
-#: libraries/classes/Normalization.php:224
+#: libraries/classes/Normalization.php:223
 msgid "split into "
 msgstr "chia thành "
 
-#: libraries/classes/Normalization.php:246
+#: libraries/classes/Normalization.php:244
 msgid "Have a primary key"
 msgstr "Có một khóa chính"
 
-#: libraries/classes/Normalization.php:252
+#: libraries/classes/Normalization.php:250
 msgid "Primary key already exists."
 msgstr "Khóa chính đã sẵn có."
 
-#: libraries/classes/Normalization.php:257
+#: libraries/classes/Normalization.php:255
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/classes/Normalization.php:265
+#: libraries/classes/Normalization.php:263
 msgid "Add a primary key on existing column(s)"
 msgstr "Thêm một khóa chính vào các cột sẵn có"
 
-#: libraries/classes/Normalization.php:269
+#: libraries/classes/Normalization.php:267
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/classes/Normalization.php:271
+#: libraries/classes/Normalization.php:269
 msgid "+ Add a new primary key column"
 msgstr "+ Thêm khóa chính mới"
 
-#: libraries/classes/Normalization.php:294
+#: libraries/classes/Normalization.php:292
 msgid "Remove redundant columns"
 msgstr "Gỡ bỏ các cột thừa"
 
-#: libraries/classes/Normalization.php:297
+#: libraries/classes/Normalization.php:295
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/classes/Normalization.php:303
+#: libraries/classes/Normalization.php:301
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:308
+#: libraries/classes/Normalization.php:306
 msgid "Remove selected"
 msgstr "Xóa mục đã chọn"
 
-#: libraries/classes/Normalization.php:309
+#: libraries/classes/Normalization.php:307
 msgid "No redundant column"
 msgstr "Không cột thừa"
 
-#: libraries/classes/Normalization.php:326
+#: libraries/classes/Normalization.php:324
 msgid "Move repeating groups"
 msgstr ""
 
-#: libraries/classes/Normalization.php:329
+#: libraries/classes/Normalization.php:327
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -10802,117 +10803,117 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: libraries/classes/Normalization.php:337
+#: libraries/classes/Normalization.php:335
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:342
+#: libraries/classes/Normalization.php:340
 msgid "No repeating group"
 msgstr ""
 
-#: libraries/classes/Normalization.php:370
+#: libraries/classes/Normalization.php:368
 msgid "Step 2."
 msgstr "Bước 2."
 
-#: libraries/classes/Normalization.php:370
+#: libraries/classes/Normalization.php:368
 msgid "Find partial dependencies"
 msgstr "Tìm các phần phụ thuộc một phần"
 
-#: libraries/classes/Normalization.php:391
+#: libraries/classes/Normalization.php:389
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/classes/Normalization.php:397
-#: libraries/classes/Normalization.php:439
+#: libraries/classes/Normalization.php:395
+#: libraries/classes/Normalization.php:437
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: libraries/classes/Normalization.php:402
+#: libraries/classes/Normalization.php:400
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: libraries/classes/Normalization.php:406
-#: libraries/classes/Normalization.php:817
+#: libraries/classes/Normalization.php:404
+#: libraries/classes/Normalization.php:815
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: libraries/classes/Normalization.php:408
+#: libraries/classes/Normalization.php:406
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Normalization.php:411
+#: libraries/classes/Normalization.php:409
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:424
-#: libraries/classes/Normalization.php:859
+#: libraries/classes/Normalization.php:422
+#: libraries/classes/Normalization.php:857
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "“%1$s” phụ thuộc vào:"
 
-#: libraries/classes/Normalization.php:435
+#: libraries/classes/Normalization.php:433
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:463
+#: libraries/classes/Normalization.php:461
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:505
+#: libraries/classes/Normalization.php:503
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: libraries/classes/Normalization.php:557
-#: libraries/classes/Normalization.php:717
-#: libraries/classes/Normalization.php:792
+#: libraries/classes/Normalization.php:555
+#: libraries/classes/Normalization.php:715
+#: libraries/classes/Normalization.php:790
 msgid "Error in processing!"
 msgstr "Gặp lỗi khi xử lý!"
 
-#: libraries/classes/Normalization.php:604
+#: libraries/classes/Normalization.php:602
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:653
+#: libraries/classes/Normalization.php:651
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: libraries/classes/Normalization.php:768
+#: libraries/classes/Normalization.php:766
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:815
+#: libraries/classes/Normalization.php:813
 msgid "Step 3."
 msgstr "Bước 3."
 
-#: libraries/classes/Normalization.php:815
+#: libraries/classes/Normalization.php:813
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Normalization.php:819
+#: libraries/classes/Normalization.php:817
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10920,23 +10921,23 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: libraries/classes/Normalization.php:873
+#: libraries/classes/Normalization.php:871
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: libraries/classes/Normalization.php:876
+#: libraries/classes/Normalization.php:874
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: libraries/classes/Normalization.php:943
+#: libraries/classes/Normalization.php:941
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/classes/Normalization.php:958
+#: libraries/classes/Normalization.php:956
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -10981,7 +10982,7 @@ msgstr "Cắt ngắn"
 #: templates/database/routines/row.twig:73
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/database/structure/structure_table_row.twig:87
-#: templates/indexes.twig:58 templates/server/databases/index.twig:67
+#: templates/indexes.twig:59 templates/server/databases/index.twig:67
 #: templates/server/databases/index.twig:68
 #: templates/server/databases/index.twig:321
 #: templates/table/relation/foreign_key_row.twig:25
@@ -11209,7 +11210,7 @@ msgstr "Đang đổ dữ liệu cho bảng"
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:250
 #: templates/database/data_dictionary/index.twig:24
-#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
+#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:24
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/structure/display_structure.twig:482
@@ -11263,7 +11264,7 @@ msgstr "Liên kết tới"
 #: templates/database/events/index.twig:45
 #: templates/database/routines/editor_form.twig:55
 #: templates/database/routines/execute_form.twig:15
-#: templates/database/routines/index.twig:52 templates/setup/home/index.twig:49
+#: templates/database/routines/index.twig:52 templates/setup/home/index.twig:50
 #: templates/table/structure/display_structure.twig:21
 #: templates/triggers/list.twig:45
 msgid "Name"
@@ -11367,7 +11368,7 @@ msgstr "Đặt tên các cột ở hàng đầu tiên"
 #: libraries/classes/Plugins/Export/ExportLatex.php:204
 #: libraries/classes/Plugins/Export/ExportSql.php:701
 #: libraries/classes/Plugins/Export/ExportXml.php:214
-#: templates/server/replication/change_primary.twig:22
+#: templates/server/replication/change_primary.twig:25
 #: templates/server/replication/primary_add_replica_user.twig:29
 msgid "Host:"
 msgstr "Máy chủ:"
@@ -12604,8 +12605,8 @@ msgid "You have revoked the privileges for %s."
 msgstr "Bạn đã thu hồi đặc quyền dành cho %s."
 
 #: libraries/classes/Server/Privileges.php:1218
-#: templates/database/privileges/index.twig:123
-#: templates/table/privileges/index.twig:127
+#: templates/database/privileges/index.twig:122
+#: templates/table/privileges/index.twig:126
 msgid "Not enough privilege to view users."
 msgstr "Không đủ thẩm quyền để xem các tài khoản."
 
@@ -12784,7 +12785,7 @@ msgid "Transaction coordinator"
 msgstr "Điều phối giao dịch"
 
 #: libraries/classes/Server/Status/Data.php:153
-#: templates/server/binlog/index.twig:27
+#: templates/server/binlog/index.twig:25
 msgid "Files"
 msgstr "Tập tin"
 
@@ -13007,7 +13008,7 @@ msgstr "Chưa định nghĩa bộ phận chỉ mục nào!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Gặp lỗi khi tạo khóa ngoại trên %1$s (kiểm tra lại kiểu dữ liệu)"
 
-#: libraries/classes/Template.php:117
+#: libraries/classes/Template.php:116
 #, fuzzy, php-format
 #| msgid "Error while loading the search."
 msgid "Error while working with template cache: %s"
@@ -13567,7 +13568,7 @@ msgid "Users"
 msgstr "Người dùng"
 
 #: libraries/classes/Util.php:2228
-#: templates/database/multi_table_query/form.twig:53
+#: templates/database/multi_table_query/form.twig:56
 msgid "Sort"
 msgstr "Sắp xếp"
 
@@ -13610,7 +13611,7 @@ msgstr ""
 "tài liệu để biết thêm chi tiết"
 
 #: templates/columns_definitions/column_attributes.twig:116
-#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
+#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:19
 #: templates/table/structure/display_structure.twig:152
 #: templates/table/structure/display_structure.twig:160
 #: templates/table/structure/display_structure.twig:298
@@ -13691,20 +13692,20 @@ msgstr "Máy lưu trữ"
 msgid "PARTITION definition:"
 msgstr "Định nghĩa PHÂN VÙNG:"
 
-#: templates/columns_definitions/column_definitions_form.twig:153
+#: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
 #| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Bao quanh những thứ xuất ra bằng một giao dịch"
 
-#: templates/columns_definitions/column_definitions_form.twig:165
+#: templates/columns_definitions/column_definitions_form.twig:167
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
 
-#: templates/columns_definitions/column_definitions_form.twig:174
+#: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
 #: templates/export.twig:81 templates/modals/add_index.twig:5
@@ -13713,7 +13714,7 @@ msgstr ""
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
 #: templates/table/insert/actions_panel.twig:48
-#: templates/table/relation/common_form.twig:183
+#: templates/table/relation/common_form.twig:188
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
@@ -13778,7 +13779,7 @@ msgstr "Bộ máy"
 #: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:107
 #: templates/database/routines/editor_form.twig:172
-#: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
+#: templates/database/structure/table_header.twig:46 templates/indexes.twig:25
 #: templates/table/structure/display_partitions.twig:32
 #: templates/table/structure/display_structure.twig:483
 #: templates/table/tracking/structure_snapshot_columns.twig:12
@@ -13838,7 +13839,7 @@ msgstr ""
 #: templates/database/operations/index.twig:194
 #: templates/database/operations/index.twig:198
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:65 templates/indexes.twig:22
+#: templates/home/index.twig:65 templates/indexes.twig:23
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
@@ -13943,7 +13944,7 @@ msgstr "Truy vấn lại"
 msgid "SQL Query Console"
 msgstr "Hộp truy vấn SQL"
 
-#: templates/console/display.twig:9 templates/setup/home/index.twig:166
+#: templates/console/display.twig:9 templates/setup/home/index.twig:169
 #: templates/sql/query.twig:38
 msgid "Clear"
 msgstr "Xóa sạch"
@@ -14150,7 +14151,7 @@ msgstr "Nhấn vào để sắp xếp."
 #: templates/database/privileges/index.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:154 templates/indexes.twig:15
+#: templates/database/tracking/tables.twig:154 templates/indexes.twig:16
 #: templates/server/databases/index.twig:163
 #: templates/server/privileges/privileges_summary.twig:23
 #: templates/server/privileges/users_overview.twig:22
@@ -14190,24 +14191,24 @@ msgstr "Chú thích cơ sở dữ liệu:"
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
 #: templates/database/structure/index.twig:19
-#: templates/display/results/table.twig:340
+#: templates/display/results/table.twig:351
 #: templates/table/structure/display_structure.twig:393
 msgid "Print"
 msgstr "In"
 
-#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
+#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:20
 #: templates/table/structure/display_structure.twig:478
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "Đã đóng gói"
 
-#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
+#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:22
 #: templates/table/structure/display_structure.twig:480
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "Số lượng"
 
-#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:92
+#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:93
 #: templates/table/structure/display_structure.twig:559
 msgid "No index defined!"
 msgstr "Chưa định nghĩa chỉ mục!"
@@ -14242,11 +14243,11 @@ msgstr "Chọn tất cả"
 msgid "Add an option for column \"%s\"."
 msgstr "Thêm tùy-chọn cho cột \"%s\"."
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/database/designer/edit_delete_pages.twig:5
 msgid "Page to open"
 msgstr "Trang cần mở"
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/database/designer/edit_delete_pages.twig:5
 msgid "Page to delete"
 msgstr "Trang cần xóa"
 
@@ -14437,15 +14438,15 @@ msgstr "Toán tử"
 msgid "Active options"
 msgstr "Tùy chọn đang kích hoạt"
 
-#: templates/database/designer/page_save_as.twig:19
+#: templates/database/designer/page_save_as.twig:18
 msgid "Save to selected page"
 msgstr "Lưu vào trang đã chọn"
 
-#: templates/database/designer/page_save_as.twig:23
+#: templates/database/designer/page_save_as.twig:22
 msgid "Create a page and save to it"
 msgstr "Tạo một trang"
 
-#: templates/database/designer/page_save_as.twig:29
+#: templates/database/designer/page_save_as.twig:28
 msgid "New page name"
 msgstr "Tên trang mới"
 
@@ -14453,13 +14454,15 @@ msgstr "Tên trang mới"
 msgid "Select page"
 msgstr "Chọn trang"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
+#: templates/database/designer/schema_export.twig:6
+#, fuzzy
+#| msgid "Select Export Relational Type"
+msgid "Select export relational type:"
 msgstr "Chọn kiểu quan hệ xuất"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
-#: templates/triggers/editor_form.twig:14 templates/view_create.twig:8
+#: templates/triggers/editor_form.twig:14 templates/view_create.twig:11
 msgid "Details"
 msgstr "Chi tiết"
 
@@ -14468,7 +14471,7 @@ msgid "Event name"
 msgstr "Tên sự kiện"
 
 #: templates/database/events/editor_form.twig:40
-#: templates/server/binlog/index.twig:86
+#: templates/server/binlog/index.twig:84
 msgid "Event type"
 msgstr "Kiểu sự kiện"
 
@@ -14502,31 +14505,31 @@ msgstr "Đóng cong khi tạo xong"
 
 #: templates/database/events/editor_form.twig:101
 #: templates/database/routines/editor_form.twig:147
-#: templates/triggers/editor_form.twig:66 templates/view_create.twig:45
+#: templates/triggers/editor_form.twig:66 templates/view_create.twig:50
 msgid "Definer"
 msgstr "Bộ định nghĩa"
 
 #: templates/database/events/index.twig:14
+#: templates/database/privileges/index.twig:112
 #: templates/database/privileges/index.twig:113
-#: templates/database/privileges/index.twig:114
 #: templates/database/routines/index.twig:14
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/display/results/table.twig:304
-#: templates/display/results/table.twig:305 templates/select_all.twig:4
-#: templates/select_all.twig:5 templates/server/databases/index.twig:64
+#: templates/display/results/table.twig:315
+#: templates/display/results/table.twig:316 templates/select_all.twig:3
+#: templates/select_all.twig:4 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:58
 #: templates/server/privileges/privileges_table.twig:269
 #: templates/server/privileges/privileges_table.twig:270
 #: templates/server/privileges/privileges_table.twig:279
 #: templates/server/privileges/privileges_table.twig:356
 #: templates/server/privileges/privileges_table.twig:560
+#: templates/server/privileges/users_overview.twig:120
 #: templates/server/privileges/users_overview.twig:121
-#: templates/server/privileges/users_overview.twig:122
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/server/user_groups/edit_user_groups.twig:22
-#: templates/table/privileges/index.twig:117
-#: templates/table/privileges/index.twig:118 templates/triggers/list.twig:14
+#: templates/table/privileges/index.twig:116
+#: templates/table/privileges/index.twig:117 templates/triggers/list.twig:14
 msgid "Check all"
 msgstr "Theo dõi bảng"
 
@@ -14598,72 +14601,72 @@ msgstr "Nhập vào cơ sở dữ liệu \"%s\""
 msgid "Query window"
 msgstr "Cửa sổ Truy vấn"
 
-#: templates/database/multi_table_query/form.twig:24
-#: templates/database/multi_table_query/form.twig:114
+#: templates/database/multi_table_query/form.twig:27
+#: templates/database/multi_table_query/form.twig:117
 #, fuzzy
 #| msgid "Select table"
 msgid "select table"
 msgstr "Chọn bảng"
 
-#: templates/database/multi_table_query/form.twig:31
-#: templates/database/multi_table_query/form.twig:122
+#: templates/database/multi_table_query/form.twig:34
+#: templates/database/multi_table_query/form.twig:125
 #, fuzzy
 #| msgid "Select a column."
 msgid "select column"
 msgstr "Chọn một cột."
 
-#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:40
 #, fuzzy
 #| msgid "Tables"
 msgid "Table alias"
 msgstr "Các bảng"
 
-#: templates/database/multi_table_query/form.twig:38
+#: templates/database/multi_table_query/form.twig:41
 #, fuzzy
 #| msgid "Column names"
 msgid "Column alias"
 msgstr "Các tên cột"
 
-#: templates/database/multi_table_query/form.twig:41
+#: templates/database/multi_table_query/form.twig:44
 #, fuzzy
 #| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
 msgstr "Dùng cột này để làm nhãn cho từng điểm"
 
-#: templates/database/multi_table_query/form.twig:45
+#: templates/database/multi_table_query/form.twig:48
 #, fuzzy
 #| msgid "Criteria:"
 msgid "criteria"
 msgstr "Tiêu chuẩn:"
 
-#: templates/database/multi_table_query/form.twig:59
+#: templates/database/multi_table_query/form.twig:62
 #, fuzzy
 #| msgid "Add %s"
 msgid "Add as"
 msgstr "Thêm %s"
 
-#: templates/database/multi_table_query/form.twig:105
+#: templates/database/multi_table_query/form.twig:108
 #, fuzzy
 #| msgid "Move column"
 msgid "Another column"
 msgstr "Di chuyển cột"
 
-#: templates/database/multi_table_query/form.twig:132
+#: templates/database/multi_table_query/form.twig:135
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:139
+#: templates/database/multi_table_query/form.twig:142
 #, fuzzy
 #| msgid "Remove redundant columns"
 msgid "Remove this column"
 msgstr "Gỡ bỏ các cột thừa"
 
-#: templates/database/multi_table_query/form.twig:145
+#: templates/database/multi_table_query/form.twig:150
 #: templates/table/relation/foreign_key_row.twig:85
 msgid "+ Add column"
 msgstr "+ Thêm cột"
 
-#: templates/database/multi_table_query/form.twig:160
+#: templates/database/multi_table_query/form.twig:165
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
@@ -14751,7 +14754,7 @@ msgstr "Những người dùng có quyền truy cập vào \"%s\""
 #: templates/server/privileges/login_information_fields.twig:7
 #: templates/server/privileges/login_information_fields.twig:12
 #: templates/server/privileges/users_overview.twig:8
-#: templates/server/replication/change_primary.twig:15
+#: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:19
 #: templates/server/replication/primary_add_replica_user.twig:24
 #: templates/table/privileges/index.twig:19
@@ -14800,26 +14803,26 @@ msgstr "wildcard"
 msgid "routine"
 msgstr "thủ tục"
 
-#: templates/database/privileges/index.twig:112
-#: templates/database/privileges/index.twig:115
+#: templates/database/privileges/index.twig:111
+#: templates/database/privileges/index.twig:114
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/display/results/table.twig:303
-#: templates/display/results/table.twig:306 templates/select_all.twig:2
-#: templates/select_all.twig:6
-#: templates/server/privileges/users_overview.twig:120
-#: templates/server/privileges/users_overview.twig:123
-#: templates/table/privileges/index.twig:116
-#: templates/table/privileges/index.twig:119
+#: templates/display/results/table.twig:314
+#: templates/display/results/table.twig:317 templates/select_all.twig:1
+#: templates/select_all.twig:5
+#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/users_overview.twig:122
+#: templates/table/privileges/index.twig:115
+#: templates/table/privileges/index.twig:118
 msgid "With selected:"
 msgstr "Lưu mục đã chọn"
 
-#: templates/database/privileges/index.twig:132
-#: templates/server/privileges/add_user_fieldset.twig:6
+#: templates/database/privileges/index.twig:131
+#: templates/server/privileges/add_user_fieldset.twig:5
 #: templates/server/privileges/add_user.twig:4
-#: templates/server/privileges/user_overview.twig:24
-#: templates/server/privileges/users_overview.twig:140
-#: templates/table/privileges/index.twig:137
+#: templates/server/privileges/user_overview.twig:23
+#: templates/server/privileges/users_overview.twig:139
+#: templates/table/privileges/index.twig:136
 msgid "Add user account"
 msgstr "Tạo tài khoản người dùng mới"
 
@@ -15097,7 +15100,7 @@ msgstr "Thêm giá trị AUTO_INCREMENT"
 
 #: templates/database/structure/drop_form.twig:6
 #: templates/database/structure/empty_form.twig:6
-#: templates/table/delete/confirm.twig:12
+#: templates/table/delete/confirm.twig:13
 #: templates/table/structure/drop_confirm.twig:7
 #: templates/table/structure/primary.twig:3
 msgid "Do you really want to execute the following query?"
@@ -15117,8 +15120,8 @@ msgid "Showing create queries"
 msgstr "Hiện tạo các truy vấn"
 
 #: templates/database/structure/show_create.twig:36
-#: templates/display/results/table.twig:379 templates/modals/create_view.twig:5
-#: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
+#: templates/display/results/table.twig:390 templates/modals/create_view.twig:5
+#: templates/sql/no_results_returned.twig:14 templates/view_create.twig:14
 msgid "Create view"
 msgstr "Tạo view"
 
@@ -15251,16 +15254,16 @@ msgstr "Bắt đầu"
 
 #: templates/display/results/table.twig:35
 #: templates/display/results/table.twig:38 templates/list_navigator.twig:16
-#: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
-#: templates/server/binlog/index.twig:52
+#: templates/list_navigator.twig:21 templates/server/binlog/index.twig:45
+#: templates/server/binlog/index.twig:50
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Kế trước"
 
 #: templates/display/results/table.twig:55
 #: templates/display/results/table.twig:59 templates/list_navigator.twig:33
-#: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
-#: templates/server/binlog/index.twig:77
+#: templates/list_navigator.twig:35 templates/server/binlog/index.twig:70
+#: templates/server/binlog/index.twig:75
 msgctxt "Next page"
 msgid "Next"
 msgstr "Kế tiếp"
@@ -15302,52 +15305,52 @@ msgstr "Sắp xếp theo khóa"
 msgid "Extra options"
 msgstr "Tùy chọn trả về"
 
-#: templates/display/results/table.twig:222
+#: templates/display/results/table.twig:224
 msgid "Relational key"
 msgstr "Khóa quan hệ"
 
-#: templates/display/results/table.twig:226
+#: templates/display/results/table.twig:228
 #, fuzzy
 #| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Hiển thị cột cho các quan hệ"
 
-#: templates/display/results/table.twig:234
+#: templates/display/results/table.twig:237
 msgid "Show binary contents"
 msgstr "Hiển thị nội dung dạng nhị phân"
 
-#: templates/display/results/table.twig:238
+#: templates/display/results/table.twig:243
 msgid "Show BLOB contents"
 msgstr "Hiển thị nội dung của một BLOB"
 
-#: templates/display/results/table.twig:248
+#: templates/display/results/table.twig:255
 msgid "Hide browser transformation"
 msgstr "Ẩn trình duyệt chuyển đổi"
 
-#: templates/display/results/table.twig:260
+#: templates/display/results/table.twig:268
 #, fuzzy
 msgid "Well Known Text"
 msgstr "Văn bản nổi tiếng"
 
-#: templates/display/results/table.twig:264
+#: templates/display/results/table.twig:272
 msgid "Well Known Binary"
 msgstr ""
 
-#: templates/display/results/table.twig:336
+#: templates/display/results/table.twig:347
 #: templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Kết quả truy vấn các thao tác"
 
-#: templates/display/results/table.twig:342
+#: templates/display/results/table.twig:353
 msgid "Copy to clipboard"
 msgstr "Chép vào clipboard"
 
-#: templates/display/results/table.twig:361
+#: templates/display/results/table.twig:372
 #: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Hiển thị biểu đồ"
 
-#: templates/display/results/table.twig:369
+#: templates/display/results/table.twig:380
 msgid "Visualize GIS data"
 msgstr "Định dạng dữ liệu chưa rõ"
 
@@ -16011,19 +16014,19 @@ msgstr "Bỏ qua số lượng truy vấn này (cho SQL) bắt đầu tính từ
 msgid "Other options"
 msgstr "Những tùy chọn khác:"
 
-#: templates/indexes.twig:39
+#: templates/indexes.twig:40
 #: templates/table/structure/display_structure.twig:506
 #, fuzzy
 #| msgid "Rename to"
 msgid "Rename"
 msgstr "Đổi tên thành"
 
-#: templates/indexes.twig:45
+#: templates/indexes.twig:46
 #: templates/table/structure/display_structure.twig:512
 msgid "The primary key has been dropped."
 msgstr "Khóa chính đã được xóa bỏ"
 
-#: templates/indexes.twig:50
+#: templates/indexes.twig:51
 #: templates/table/structure/display_structure.twig:517
 #, php-format
 msgid "Index %s has been dropped."
@@ -16046,7 +16049,7 @@ msgstr "Tài khoản:"
 #: templates/login/form.twig:85
 #: templates/server/privileges/change_password.twig:24
 #: templates/server/privileges/login_information_fields.twig:44
-#: templates/server/replication/change_primary.twig:18
+#: templates/server/replication/change_primary.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:49
 msgid "Password:"
 msgstr "Mật khẩu:"
@@ -16171,7 +16174,7 @@ msgstr ""
 msgid "Show hidden navigation tree items."
 msgstr "Hiển thị các mục ẩn cây điều hướng."
 
-#: templates/navigation/item_unhide_dialog.twig:20
+#: templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
 msgstr ""
 
@@ -16664,42 +16667,42 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: templates/server/binlog/index.twig:10
+#: templates/server/binlog/index.twig:8
 msgid "Select binary log to view"
 msgstr "Chọn nhật ký dạng nhị phân để xem"
 
-#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
+#: templates/server/binlog/index.twig:57 templates/server/binlog/index.twig:58
 #: templates/server/status/processes/list.twig:20
 #, fuzzy
 #| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Cắt cụt các truy vấn hiện"
 
-#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#: templates/server/binlog/index.twig:61 templates/server/binlog/index.twig:62
 #: templates/server/status/processes/list.twig:26
 #, fuzzy
 #| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Hiện Toàn bộ các truy vấn"
 
-#: templates/server/binlog/index.twig:84
+#: templates/server/binlog/index.twig:82
 msgid "Log name"
 msgstr "Tên nhật ký"
 
-#: templates/server/binlog/index.twig:85
+#: templates/server/binlog/index.twig:83
 msgid "Position"
 msgstr "Vị trí"
 
-#: templates/server/binlog/index.twig:87
+#: templates/server/binlog/index.twig:85
 #: templates/server/replication/primary_replication.twig:24
 msgid "Server ID"
 msgstr "ID máy chủ"
 
-#: templates/server/binlog/index.twig:88
+#: templates/server/binlog/index.twig:86
 msgid "Original position"
 msgstr "Vị trí nguyên bản"
 
-#: templates/server/binlog/index.twig:89
+#: templates/server/binlog/index.twig:87
 #: templates/table/structure/display_table_stats.twig:2
 msgid "Information"
 msgstr "Thông tin"
@@ -16842,9 +16845,9 @@ msgstr "Đang xóa"
 msgid "deleted"
 msgstr "Xóa bỏ"
 
-#: templates/server/privileges/add_user_fieldset.twig:4
-#: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:137
+#: templates/server/privileges/add_user_fieldset.twig:2
+#: templates/server/privileges/user_overview.twig:20
+#: templates/server/privileges/users_overview.twig:136
 msgctxt "Create new user"
 msgid "New"
 msgstr "Mới"
@@ -16969,7 +16972,7 @@ msgid "Login Information"
 msgstr "Thông tin đăng nhập"
 
 #: templates/server/privileges/login_information_fields.twig:5
-#: templates/server/replication/change_primary.twig:14
+#: templates/server/replication/change_primary.twig:17
 #: templates/server/replication/primary_add_replica_user.twig:16
 msgid "User name:"
 msgstr "Tài khoản:"
@@ -17033,7 +17036,7 @@ msgstr ""
 #: templates/server/privileges/login_information_fields.twig:46
 #: templates/server/privileges/login_information_fields.twig:54
 #: templates/server/privileges/users_overview.twig:10
-#: templates/server/replication/change_primary.twig:19
+#: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:52
 #: templates/server/replication/primary_add_replica_user.twig:57
 msgid "Password"
@@ -17084,7 +17087,7 @@ msgstr ""
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:83
-#: templates/server/privileges/users_overview.twig:168
+#: templates/server/privileges/users_overview.twig:167
 #: templates/server/user_groups/edit_user_groups.twig:31
 msgid "Edit user group"
 msgstr "Sửa nhóm người dùng"
@@ -17278,38 +17281,31 @@ msgstr "… xóa cái cũ từ bảng người dùng và tải lại đặc quy�
 msgid "User group"
 msgstr "Nhóm người dùng"
 
-#: templates/server/privileges/users_overview.twig:147
+#: templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
 msgstr "Xóa bỏ các tài khoản người dùng đã chọn"
 
-#: templates/server/privileges/users_overview.twig:149
+#: templates/server/privileges/users_overview.twig:148
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Thu hồi mọi đặc quyền đang được cấp từ người dùng và xóa chúng sau đó."
 
-#: templates/server/privileges/users_overview.twig:153
+#: templates/server/privileges/users_overview.twig:152
 msgid "Drop the databases that have the same names as the users."
 msgstr "Xóa cơ sở dữ liệu mà có cùng tên như người dùng."
 
-#: templates/server/privileges/users_overview.twig:178
+#: templates/server/privileges/users_overview.twig:177
 #, fuzzy
 #| msgid "Save page"
 msgid "Save changes"
 msgstr "Ghi lại trang"
 
-#: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
-msgid "Replica configuration"
-msgstr "Cấu hình máy phụ"
-
-#: templates/server/replication/change_primary.twig:6
-#: templates/server/replication/replica_configuration.twig:97
+#: templates/server/replication/change_primary.twig:7
 #, fuzzy
 #| msgid "Change or reconfigure master server"
-msgid "Change or reconfigure primary server"
+msgid "Replica configuration - Change or reconfigure primary server"
 msgstr "Thay đổi hoặc cấu hình lại máy phục vụ chính"
 
-#: templates/server/replication/change_primary.twig:9
+#: templates/server/replication/change_primary.twig:12
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
@@ -17317,7 +17313,7 @@ msgstr ""
 "Hãy chắc là bạn có mã-số-máy-chủ không trùng lặp trong tập tin cấu hình (my."
 "cnf) của bạn. Nếu không hãy thêm dòng sau đây vào phần [mysqld]:"
 
-#: templates/server/replication/change_primary.twig:26
+#: templates/server/replication/change_primary.twig:29
 msgid "Port:"
 msgstr "Cổng:"
 
@@ -17339,7 +17335,7 @@ msgstr ""
 msgid "No privileges"
 msgstr "Không có đặc quyền."
 
-#: templates/server/replication/primary_add_replica_user.twig:6
+#: templates/server/replication/primary_add_replica_user.twig:11
 #: templates/server/replication/primary_replication.twig:44
 #, fuzzy
 #| msgid "Add slave replication user"
@@ -17362,7 +17358,7 @@ msgstr "Tạo mật khẩu:"
 msgid "Primary configuration"
 msgstr "Cấu hình máy chủ"
 
-#: templates/server/replication/primary_configuration.twig:4
+#: templates/server/replication/primary_configuration.twig:6
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17371,25 +17367,25 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 
-#: templates/server/replication/primary_configuration.twig:9
+#: templates/server/replication/primary_configuration.twig:11
 msgid "Replicate all databases; Ignore:"
 msgstr "Nhân bản mọi cơ sở dữ liệu: Bỏ qua:"
 
-#: templates/server/replication/primary_configuration.twig:10
+#: templates/server/replication/primary_configuration.twig:12
 msgid "Ignore all databases; Replicate:"
 msgstr "Bỏ qua mọi cơ sở dữ liệu: Nhân bản:"
 
-#: templates/server/replication/primary_configuration.twig:12
+#: templates/server/replication/primary_configuration.twig:14
 msgid "Please select databases:"
 msgstr "Hãy chọn một cơ sở dữ liệu:"
 
-#: templates/server/replication/primary_configuration.twig:15
+#: templates/server/replication/primary_configuration.twig:17
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
 
-#: templates/server/replication/primary_configuration.twig:21
+#: templates/server/replication/primary_configuration.twig:23
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
@@ -17502,6 +17498,12 @@ msgstr "Bỏ qua lỗi hiện tại"
 msgid "Skip next %s errors."
 msgstr "Bỏ qua %s lỗi kế"
 
+#: templates/server/replication/replica_configuration.twig:97
+#, fuzzy
+#| msgid "Change or reconfigure master server"
+msgid "Change or reconfigure primary server"
+msgstr "Thay đổi hoặc cấu hình lại máy phục vụ chính"
+
 #: templates/server/replication/replica_configuration.twig:107
 #, fuzzy, php-format
 #| msgid ""
@@ -17532,7 +17534,7 @@ msgstr "Trạng thái bản sao"
 msgid "Variable"
 msgstr "Biến"
 
-#: templates/server/select/index.twig:7 templates/server/select/index.twig:19
+#: templates/server/select/index.twig:4 templates/server/select/index.twig:13
 msgid "Current server:"
 msgstr "Máy phục vụ hiện tại:"
 
@@ -18030,7 +18032,7 @@ msgstr "Không đủ đặc quyền để xem các cài đặt và biến máy p
 msgid "Overview"
 msgstr "Tổng quan"
 
-#: templates/setup/config/index.twig:4 templates/setup/home/index.twig:98
+#: templates/setup/config/index.twig:4 templates/setup/home/index.twig:100
 msgid "Configuration file"
 msgstr "Tập tin cấu hình"
 
@@ -18040,7 +18042,7 @@ msgstr "Tập tin cấu hình"
 msgid "Generated configuration file"
 msgstr "Gặp lỗi khi đọc tập tin cấu hình!"
 
-#: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
+#: templates/setup/config/index.twig:22 templates/setup/home/index.twig:168
 msgid "Download"
 msgstr "Tải về"
 
@@ -18066,47 +18068,47 @@ msgstr "Hiện mẫu đơn"
 msgid "Show hidden messages"
 msgstr "Hiện các mục tin ẩn"
 
-#: templates/setup/home/index.twig:79
+#: templates/setup/home/index.twig:80
 msgid "There are no configured servers"
 msgstr "Hiện chưa có máy in nào được cấu hình."
 
-#: templates/setup/home/index.twig:88
+#: templates/setup/home/index.twig:89
 msgid "New server"
 msgstr "Máy chủ mới"
 
-#: templates/setup/home/index.twig:110
+#: templates/setup/home/index.twig:113
 msgid "Default language"
 msgstr "Ngôn ngữ mặc định"
 
-#: templates/setup/home/index.twig:128
+#: templates/setup/home/index.twig:131
 msgid "Default server"
 msgstr "Máy chủ mặc định"
 
-#: templates/setup/home/index.twig:139
+#: templates/setup/home/index.twig:142
 msgid "let the user choose"
 msgstr "để người dùng chọn"
 
-#: templates/setup/home/index.twig:146
+#: templates/setup/home/index.twig:149
 msgid "- none -"
 msgstr "- không -"
 
-#: templates/setup/home/index.twig:153
+#: templates/setup/home/index.twig:156
 msgid "End of line"
 msgstr "Kết thúc dòng"
 
-#: templates/setup/home/index.twig:164
+#: templates/setup/home/index.twig:167
 msgid "Display"
 msgstr "Trình bày"
 
-#: templates/setup/home/index.twig:175
+#: templates/setup/home/index.twig:179
 msgid "phpMyAdmin homepage"
 msgstr "Trang chủ phpMyAdmin"
 
-#: templates/setup/home/index.twig:176
+#: templates/setup/home/index.twig:180
 msgid "Donate"
 msgstr "Quyên góp"
 
-#: templates/setup/home/index.twig:177
+#: templates/setup/home/index.twig:181
 msgid "Check for latest version"
 msgstr "Kiểm tra phiên bản mới nhất"
 
@@ -18507,7 +18509,7 @@ msgstr "Tiếp tục chèn với %s hàng"
 msgid "Checksum"
 msgstr "Kiểm tra"
 
-#: templates/table/normalization/normalization.twig:5
+#: templates/table/normalization/normalization.twig:4
 msgid "Improve table structure (Normalization):"
 msgstr "Tăng cường cấu trúc bảng (Thường hóa):"
 
@@ -18515,21 +18517,21 @@ msgstr "Tăng cường cấu trúc bảng (Thường hóa):"
 msgid "Select up to what step you want to normalize"
 msgstr "Chọn xem bước nào bạn muốn thường hóa"
 
-#: templates/table/normalization/normalization.twig:15
-msgid "Second step of normalization (1NF+2NF)"
-msgstr "Bước hai của thường hóa (1NF+2NF)"
-
-#: templates/table/normalization/normalization.twig:19
-msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr "Bước ba của thường hóa (1NF+2NF+3NF)"
-
-#: templates/table/normalization/normalization.twig:23
+#: templates/table/normalization/normalization.twig:9
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 "Gợi ý: vui lòng theo các thủ tục một cách cẩn thận cốt để mà có được sự "
 "thường hóa đúng"
+
+#: templates/table/normalization/normalization.twig:17
+msgid "Second step of normalization (1NF+2NF)"
+msgstr "Bước hai của thường hóa (1NF+2NF)"
+
+#: templates/table/normalization/normalization.twig:21
+msgid "Third step of normalization (1NF+2NF+3NF)"
+msgstr "Bước ba của thường hóa (1NF+2NF+3NF)"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
@@ -18674,59 +18676,59 @@ msgstr "Phân vùng con"
 msgid "table-specific"
 msgstr "dành-riêng-cho-bảng"
 
-#: templates/table/relation/common_form.twig:9
+#: templates/table/relation/common_form.twig:10
 msgid "Foreign key constraints"
 msgstr "Các ràng buộc khóa ngoại"
 
-#: templates/table/relation/common_form.twig:14
+#: templates/table/relation/common_form.twig:16
 msgid "Actions"
 msgstr "Hành động"
 
-#: templates/table/relation/common_form.twig:15
+#: templates/table/relation/common_form.twig:17
 msgid "Constraint properties"
 msgstr "Thuộc tính ràng buộc"
 
-#: templates/table/relation/common_form.twig:19
+#: templates/table/relation/common_form.twig:21
 msgid ""
 "Creating a foreign key over a non-indexed column would automatically create "
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
 
-#: templates/table/relation/common_form.twig:24
+#: templates/table/relation/common_form.twig:26
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 "Chỉ hiển thị các cột có chỉ mục. Bạn có thể định nghĩa một chỉ mục ở bên "
 "dưới."
 
-#: templates/table/relation/common_form.twig:28
+#: templates/table/relation/common_form.twig:30
 msgid "Foreign key constraint"
 msgstr "Ràng buộc khóa ngoại"
 
-#: templates/table/relation/common_form.twig:44
+#: templates/table/relation/common_form.twig:47
 msgid "+ Add constraint"
 msgstr "+ Thêm ràng buộc"
 
-#: templates/table/relation/common_form.twig:57
-#: templates/table/relation/common_form.twig:65
+#: templates/table/relation/common_form.twig:61
+#: templates/table/relation/common_form.twig:69
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Các quan hệ nội tại"
 
-#: templates/table/relation/common_form.twig:73
+#: templates/table/relation/common_form.twig:78
 msgid "Internal relation"
 msgstr "Quan hệ nội tại"
 
-#: templates/table/relation/common_form.twig:75
+#: templates/table/relation/common_form.twig:80
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 "Quan hệ nội tại là không cần thiết khi một quan hệ KHÓA NGOẠI đã sẵn có."
 
-#: templates/table/relation/common_form.twig:158
+#: templates/table/relation/common_form.twig:163
 msgid "Choose column to display:"
 msgstr "Chọn cột bạn muốn hiển thị:"
 
@@ -18869,7 +18871,7 @@ msgid "Move the columns by dragging them up and down."
 msgstr "Di chuyển các cột bằng cách kéo chúng lên hoặc xuống."
 
 #: templates/table/structure/display_structure.twig:389
-#: templates/view_create.twig:13
+#: templates/view_create.twig:16
 msgid "Edit view"
 msgstr "Sửa view"
 
@@ -19063,13 +19065,18 @@ msgstr "Phiên bản tạo"
 msgid "There are no triggers to display."
 msgstr "Ở đây không có bẫy nào để trình bày."
 
-#: templates/view_create.twig:65
+#: templates/view_create.twig:70
 msgid "VIEW name"
 msgstr "Tên VIEW"
 
-#: templates/view_create.twig:79
+#: templates/view_create.twig:84
 msgid "Column names"
 msgstr "Các tên cột"
+
+#, fuzzy
+#~| msgid "Slave configuration"
+#~ msgid "Replica configuration"
+#~ msgstr "Cấu hình máy phụ"
 
 #, php-format
 #~ msgid "Do you really want to delete the search \"%s\"?"

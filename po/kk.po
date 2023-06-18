@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-06-11 00:21+0000\n"
+"POT-Creation-Date: 2023-06-18 00:21+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1391,6 +1391,53 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit máni 1 MiB ornatylǵan"
 
+#: libraries/classes/Application.php:274
+#, php-format
+msgid "You should upgrade to %s %s or later."
+msgstr "%s%s nusqasyna nemese odan keıingige jańartýyńyz qajet."
+
+#: libraries/classes/Application.php:306
+msgid "Error: Token mismatch"
+msgstr "Qate: Token sáıkessizdigi"
+
+#: libraries/classes/Application.php:365
+#, php-format
+msgid "See %sour documentation%s for more information."
+msgstr "Kóbirek aqparat úshin %sbizdiń qujattamyzdy%s qarańyz."
+
+#: libraries/classes/Application.php:476
+msgid ""
+"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
+"access phpMyAdmin."
+msgstr ""
+"Seanstyń cookie-faılyn ornatý sátsiz aıaqtaldy. Múmkin phpMyAdmin-ge qatynaý "
+"úshin HTTPS ornyna HTTP paıdalanǵansyz."
+
+#: libraries/classes/Application.php:523
+msgid ""
+"You have enabled mbstring.func_overload in your PHP configuration. This "
+"option is incompatible with phpMyAdmin and might cause some data to be "
+"corrupted!"
+msgstr ""
+"PHP konfıgýrasıasynda mbstring.func_overload qosylǵan. Bul opsıa phpMyAdmin "
+"úshin úılespeıdi jáne keıbir derekterdiń búlinýine ákelýi múmkin!"
+
+#: libraries/classes/Application.php:538
+msgid ""
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
+msgstr ""
+"ini_get jáne/nemese ini_set fýnksıalary php.ini ishinde óshirilgen. "
+"phpMyAdmin bul fýnksıalardy qajet etedi!"
+
+#: libraries/classes/Application.php:548
+msgid "GLOBALS overwrite attempt"
+msgstr "GLOBALS qaıta jazý áreketi"
+
+#: libraries/classes/Application.php:558
+msgid "possible exploit"
+msgstr "osaldyq yqtımal"
+
 #: libraries/classes/BrowseForeigners.php:175
 msgid "Search:"
 msgstr "Izdeý:"
@@ -1398,7 +1445,7 @@ msgstr "Izdeý:"
 #: libraries/classes/BrowseForeigners.php:181
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
-#: libraries/classes/Normalization.php:226
+#: libraries/classes/Normalization.php:225
 #: libraries/classes/Tracking/Tracking.php:305
 #: libraries/classes/Tracking/Tracking.php:447
 #: templates/columns_definitions/column_definitions_form.twig:42
@@ -1410,7 +1457,7 @@ msgstr "Izdeý:"
 #: templates/database/operations/index.twig:225
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/display/results/table.twig:271
+#: templates/display/results/table.twig:279
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
@@ -1418,15 +1465,15 @@ msgstr "Izdeý:"
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:45
 #: templates/preferences/manage/main.twig:107
-#: templates/server/binlog/index.twig:34
+#: templates/server/binlog/index.twig:32
 #: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
 #: templates/server/privileges/privileges_summary.twig:104
 #: templates/server/privileges/user_properties.twig:153
-#: templates/server/privileges/users_overview.twig:159
-#: templates/server/replication/change_primary.twig:33
-#: templates/server/replication/primary_add_replica_user.twig:81
-#: templates/server/replication/primary_configuration.twig:30
+#: templates/server/privileges/users_overview.twig:158
+#: templates/server/replication/change_primary.twig:35
+#: templates/server/replication/primary_add_replica_user.twig:80
+#: templates/server/replication/primary_configuration.twig:32
 #: templates/server/replication/replica_configuration.twig:16
 #: templates/server/replication/replica_configuration.twig:88
 #: templates/sql/query.twig:149 templates/sql/query.twig:200
@@ -1434,7 +1481,7 @@ msgstr "Izdeý:"
 #: templates/table/index_form.twig:245
 #: templates/table/insert/actions_panel.twig:38
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
-#: templates/table/normalization/normalization.twig:24
+#: templates/table/normalization/normalization.twig:26
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1447,13 +1494,13 @@ msgstr "Izdeý:"
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
 #: templates/table/zoom_search/index.twig:152
-#: templates/triggers/editor_form.twig:74 templates/view_create.twig:116
+#: templates/triggers/editor_form.twig:74 templates/view_create.twig:118
 msgid "Go"
 msgstr "Ótý"
 
 #: libraries/classes/BrowseForeigners.php:196
 #: libraries/classes/BrowseForeigners.php:200
-#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
+#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:17
 #: templates/table/structure/display_structure.twig:475
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
@@ -1777,53 +1824,6 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vetnam"
 
-#: libraries/classes/Common.php:265
-#, php-format
-msgid "You should upgrade to %s %s or later."
-msgstr "%s%s nusqasyna nemese odan keıingige jańartýyńyz qajet."
-
-#: libraries/classes/Common.php:297
-msgid "Error: Token mismatch"
-msgstr "Qate: Token sáıkessizdigi"
-
-#: libraries/classes/Common.php:356
-#, php-format
-msgid "See %sour documentation%s for more information."
-msgstr "Kóbirek aqparat úshin %sbizdiń qujattamyzdy%s qarańyz."
-
-#: libraries/classes/Common.php:467
-msgid ""
-"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
-"access phpMyAdmin."
-msgstr ""
-"Seanstyń cookie-faılyn ornatý sátsiz aıaqtaldy. Múmkin phpMyAdmin-ge qatynaý "
-"úshin HTTPS ornyna HTTP paıdalanǵansyz."
-
-#: libraries/classes/Common.php:514
-msgid ""
-"You have enabled mbstring.func_overload in your PHP configuration. This "
-"option is incompatible with phpMyAdmin and might cause some data to be "
-"corrupted!"
-msgstr ""
-"PHP konfıgýrasıasynda mbstring.func_overload qosylǵan. Bul opsıa phpMyAdmin "
-"úshin úılespeıdi jáne keıbir derekterdiń búlinýine ákelýi múmkin!"
-
-#: libraries/classes/Common.php:529
-msgid ""
-"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
-"requires these functions!"
-msgstr ""
-"ini_get jáne/nemese ini_set fýnksıalary php.ini ishinde óshirilgen. "
-"phpMyAdmin bul fýnksıalardy qajet etedi!"
-
-#: libraries/classes/Common.php:539
-msgid "GLOBALS overwrite attempt"
-msgstr "GLOBALS qaıta jazý áreketi"
-
-#: libraries/classes/Common.php:549
-msgid "possible exploit"
-msgstr "osaldyq yqtımal"
-
 #: libraries/classes/Config/ConfigFile.php:523
 #: libraries/classes/Config/ConfigFile.php:537
 #: libraries/classes/Config/ConfigFile.php:591
@@ -1906,7 +1906,7 @@ msgstr "Belgisheler"
 #: libraries/classes/Config/ConfigFile.php:550
 #: libraries/classes/Config/ConfigFile.php:562
 #: libraries/classes/Config/ConfigFile.php:570
-#: templates/database/multi_table_query/form.twig:104
+#: templates/database/multi_table_query/form.twig:107
 msgid "Text"
 msgstr "Mátin"
 
@@ -1936,6 +1936,7 @@ msgstr "Oń"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
 #: templates/columns_definitions/column_attributes.twig:217
 #: templates/columns_definitions/column_attributes.twig:240
+#: templates/config/form_display/input.twig:43
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
@@ -1950,7 +1951,7 @@ msgstr "Eshbir"
 #: libraries/classes/Display/Results.php:1593
 #: libraries/classes/Display/Results.php:1600 libraries/classes/Util.php:2236
 #: libraries/classes/Util.php:2253
-#: templates/database/multi_table_query/form.twig:54
+#: templates/database/multi_table_query/form.twig:57
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:126
 #: templates/server/databases/index.twig:145
@@ -1964,7 +1965,7 @@ msgstr "Ósý boıynsha"
 #: libraries/classes/Display/Results.php:1588
 #: libraries/classes/Display/Results.php:1605 libraries/classes/Util.php:2241
 #: libraries/classes/Util.php:2258
-#: templates/database/multi_table_query/form.twig:55
+#: templates/database/multi_table_query/form.twig:58
 #: templates/server/databases/index.twig:111
 #: templates/server/databases/index.twig:128
 #: templates/server/databases/index.twig:147
@@ -4055,7 +4056,7 @@ msgid "Navigation tree"
 msgstr "Sharlaý tarmaǵy"
 
 #: libraries/classes/Config/Descriptions.php:746
-#: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
+#: templates/server/select/index.twig:6 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "Serverler"
 
@@ -4512,7 +4513,7 @@ msgid "HTTP Realm"
 msgstr "HTTP aımaǵy"
 
 #: libraries/classes/Config/Descriptions.php:870
-#: templates/setup/home/index.twig:50
+#: templates/setup/home/index.twig:51
 msgid "Authentication type"
 msgstr "Túpnusqalyq rastama túri"
 
@@ -4772,10 +4773,10 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: templates/database/routines/row.twig:20
 #: templates/database/routines/row.twig:23
 #: templates/database/structure/structure_table_row.twig:66
-#: templates/display/results/table.twig:308
-#: templates/display/results/table.twig:309 templates/indexes.twig:34
+#: templates/display/results/table.twig:319
+#: templates/display/results/table.twig:320 templates/indexes.twig:35
 #: templates/server/variables/index.twig:41
-#: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
+#: templates/server/variables/index.twig:44 templates/setup/home/index.twig:64
 #: templates/table/structure/display_structure.twig:497
 #: templates/triggers/row.twig:28 templates/triggers/row.twig:31
 msgid "Edit"
@@ -4832,8 +4833,8 @@ msgstr "Mátinaýmaq joldary"
 #: templates/table/operations/index.twig:62
 #: templates/table/operations/index.twig:257
 #: templates/table/operations/index.twig:263
-#: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:126
+#: templates/table/relation/common_form.twig:38
+#: templates/table/relation/common_form.twig:130
 #: templates/table/relation/foreign_key_row.twig:91
 msgid "Database"
 msgstr "Derekqor"
@@ -4862,8 +4863,8 @@ msgstr "Server"
 #: templates/table/maintenance/checksum.twig:12
 #: templates/table/operations/index.twig:65
 #: templates/table/operations/index.twig:266
-#: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:133
+#: templates/table/relation/common_form.twig:39
+#: templates/table/relation/common_form.twig:137
 #: templates/table/relation/foreign_key_row.twig:102
 #: templates/triggers/editor_form.twig:32 templates/triggers/list.twig:47
 msgid "Table"
@@ -5102,26 +5103,26 @@ msgstr "OpenDocument mátini"
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:36
 #: templates/database/privileges/index.twig:91
+#: templates/database/privileges/index.twig:115
 #: templates/database/privileges/index.twig:116
-#: templates/database/privileges/index.twig:117
 #: templates/database/routines/index.twig:17
 #: templates/database/routines/index.twig:18
 #: templates/database/routines/row.twig:60
 #: templates/database/routines/row.twig:63
 #: templates/database/structure/check_all_tables.twig:12
-#: templates/display/results/table.twig:321
-#: templates/display/results/table.twig:322
-#: templates/display/results/table.twig:354 templates/export.twig:3
+#: templates/display/results/table.twig:332
+#: templates/display/results/table.twig:333
+#: templates/display/results/table.twig:365 templates/export.twig:3
 #: templates/export.twig:495 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
+#: templates/server/privileges/users_overview.twig:124
 #: templates/server/privileges/users_overview.twig:125
-#: templates/server/privileges/users_overview.twig:126
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
-#: templates/table/privileges/index.twig:120
-#: templates/table/privileges/index.twig:121 templates/triggers/list.twig:17
+#: templates/table/privileges/index.twig:119
+#: templates/table/privileges/index.twig:120 templates/triggers/list.twig:17
 #: templates/triggers/list.twig:18 templates/triggers/row.twig:41
 msgid "Export"
 msgstr "Eksport"
@@ -5630,7 +5631,7 @@ msgstr "belgisiz"
 #: templates/database/designer/main.twig:1117
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:20
-#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:65
+#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:66
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
@@ -5640,7 +5641,7 @@ msgstr "belgisiz"
 #: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:53
 #: templates/server/privileges/users_overview.twig:65
-#: templates/table/delete/confirm.twig:28
+#: templates/table/delete/confirm.twig:30
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/structure/display_structure.twig:532
@@ -6153,13 +6154,13 @@ msgid "Please select column(s) for the index."
 msgstr "Indeks úshin baǵan(dar)dy bólekteńiz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
-#: templates/columns_definitions/column_definitions_form.twig:156
+#: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/modals/index_dialog_modal.twig:21
 #: templates/table/index_form.twig:246
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:36
-#: templates/table/relation/common_form.twig:174
+#: templates/table/relation/common_form.twig:179
 #: templates/table/structure/display_structure.twig:344
 #: templates/table/structure/display_structure.twig:354
 msgid "Preview SQL"
@@ -6215,8 +6216,8 @@ msgstr "Bólektelgen paıdalanushylardy alastaý"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 #: libraries/classes/Tracking/Tracking.php:206
 #: libraries/classes/Tracking/Tracking.php:588
-#: templates/columns_definitions/column_definitions_form.twig:175
-#: templates/columns_definitions/column_definitions_form.twig:180
+#: templates/columns_definitions/column_definitions_form.twig:177
+#: templates/columns_definitions/column_definitions_form.twig:182
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:190
@@ -6238,8 +6239,8 @@ msgstr "Bólektelgen paıdalanushylardy alastaý"
 #: templates/modals/preview_sql_modal.twig:10
 #: templates/modals/unhide_nav_item.twig:6
 #: templates/modals/unhide_nav_item.twig:10
-#: templates/server/privileges/users_overview.twig:169
-#: templates/server/privileges/users_overview.twig:177
+#: templates/server/privileges/users_overview.twig:168
+#: templates/server/privileges/users_overview.twig:176
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
 #: templates/server/status/monitor/index.twig:129
@@ -6249,8 +6250,8 @@ msgstr "Bólektelgen paıdalanushylardy alastaý"
 #: templates/sql/query.twig:221 templates/sql/query.twig:226
 #: templates/table/insert/actions_panel.twig:49
 #: templates/table/insert/actions_panel.twig:54
-#: templates/table/relation/common_form.twig:184
 #: templates/table/relation/common_form.twig:189
+#: templates/table/relation/common_form.twig:194
 #: templates/table/search/index.twig:182
 #: templates/table/structure/display_structure.twig:329
 #: templates/table/structure/display_structure.twig:345
@@ -6889,7 +6890,7 @@ msgstr "Qoldaný"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
-#: templates/server/privileges/users_overview.twig:173
+#: templates/server/privileges/users_overview.twig:172
 #: templates/server/status/monitor/index.twig:95
 #: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
@@ -6986,7 +6987,7 @@ msgstr "Tańbalar jıynyn ózgertý"
 #: templates/database/designer/main.twig:1118
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:21
-#: templates/database/structure/empty_form.twig:21 templates/indexes.twig:65
+#: templates/database/structure/empty_form.twig:21 templates/indexes.twig:66
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -6996,7 +6997,7 @@ msgstr "Tańbalar jıynyn ózgertý"
 #: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:55
 #: templates/server/privileges/users_overview.twig:65
-#: templates/table/delete/confirm.twig:29
+#: templates/table/delete/confirm.twig:31
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/structure/display_structure.twig:532
@@ -7095,11 +7096,11 @@ msgstr "Saýal uıasyn kórsetý"
 #: templates/database/central_columns/main.twig:387
 #: templates/database/designer/main.twig:388
 #: templates/database/search/results.twig:38
-#: templates/display/results/table.twig:316
-#: templates/display/results/table.twig:317 templates/export.twig:54
+#: templates/display/results/table.twig:327
+#: templates/display/results/table.twig:328 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
-#: templates/setup/home/index.twig:68 templates/sql/query.twig:188
+#: templates/setup/home/index.twig:69 templates/sql/query.twig:188
 msgid "Delete"
 msgstr "Joıý"
 
@@ -7134,7 +7135,7 @@ msgid "Variable %d:"
 msgstr "Aınymaly %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
-#: libraries/classes/Normalization.php:947
+#: libraries/classes/Normalization.php:945
 msgid "Pick"
 msgstr "Tańdaý"
 
@@ -7168,7 +7169,7 @@ msgid "Primary key added."
 msgstr "Alǵashqy kilt ústeldi."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Normalization.php:253
+#: libraries/classes/Normalization.php:251
 msgid "Taking you to next step…"
 msgstr "Sizdi kelesi qadamǵa aparady…"
 
@@ -7178,10 +7179,10 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "«%s» kestesi úshin biryńǵaılaýdyń birinshi qadamy aıaqtaldy."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:429
-#: libraries/classes/Normalization.php:509
-#: libraries/classes/Normalization.php:568
-#: libraries/classes/Normalization.php:655
-#: libraries/classes/Normalization.php:728
+#: libraries/classes/Normalization.php:507
+#: libraries/classes/Normalization.php:566
+#: libraries/classes/Normalization.php:653
+#: libraries/classes/Normalization.php:726
 msgid "End of step"
 msgstr "Qadam sońy"
 
@@ -7192,7 +7193,7 @@ msgstr "Biryńǵaılaýdyń ekinshi qadamy (2NF)"
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:775
-#: libraries/classes/Normalization.php:341
+#: libraries/classes/Normalization.php:339
 msgid "Done"
 msgstr "Daıyn"
 
@@ -7274,14 +7275,14 @@ msgid "No dependencies selected!"
 msgstr "Táýeldilikter tańdalmady!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:457
-#: templates/columns_definitions/column_definitions_form.twig:159
+#: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
 #: templates/database/central_columns/main.twig:278
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/insert/actions_panel.twig:8
-#: templates/table/relation/common_form.twig:175
+#: templates/table/relation/common_form.twig:180
 #: templates/table/structure/partition_definition_form.twig:13
 #: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
@@ -7359,8 +7360,8 @@ msgstr "Elemeý"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Display/Results.php:2705
 #: libraries/classes/Html/Generator.php:77
-#: templates/display/results/table.twig:312
-#: templates/display/results/table.twig:313
+#: templates/display/results/table.twig:323
+#: templates/display/results/table.twig:324
 msgid "Copy"
 msgstr "Kóshirý"
 
@@ -7398,7 +7399,7 @@ msgid "Polygon"
 msgstr "Kópburysh"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:499
-#: templates/display/results/table.twig:255
+#: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "Geometrıa"
 
@@ -7944,7 +7945,7 @@ msgstr "Jasyrý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
 #: libraries/classes/Controllers/Table/ChangeController.php:183
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
@@ -8466,30 +8467,30 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Túzetilmeıtin qate: Sharlaýǵa tek AJAX arqyly qatynaý bolady"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:25
-#: libraries/classes/Normalization.php:216
+#: libraries/classes/Normalization.php:215
 msgid "Select one…"
 msgstr "Bireýin bólekteý…"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:26
-#: libraries/classes/Normalization.php:217
+#: libraries/classes/Normalization.php:216
 msgid "No such column"
 msgstr "Mundaı baǵan joq"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:31
-#: libraries/classes/Normalization.php:221 libraries/classes/Types.php:700
+#: libraries/classes/Normalization.php:220 libraries/classes/Types.php:700
 msgctxt "string types"
 msgid "String"
 msgstr "Jol"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:94
+#: libraries/classes/Controllers/Preferences/ManageController.php:89
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin konfıgýrasıasynan úzindi"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:95
+#: libraries/classes/Controllers/Preferences/ManageController.php:90
 msgid "Paste it to your config.inc.php"
 msgstr "Ony config.inc.php faılyńyzǵa qoıyńyz"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:145
+#: libraries/classes/Controllers/Preferences/ManageController.php:140
 msgid "Could not import configuration"
 msgstr "Konfıgýrasıa ımporttalmady"
 
@@ -9989,12 +9990,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Display/Results.php:1242
-#: templates/display/results/table.twig:210
+#: templates/display/results/table.twig:212
 msgid "Partial texts"
 msgstr "Ishinara mátinder"
 
 #: libraries/classes/Display/Results.php:1246
-#: templates/display/results/table.twig:214
+#: templates/display/results/table.twig:216
 msgid "Full texts"
 msgstr "Tolyq mátinder"
 
@@ -10373,8 +10374,8 @@ msgstr ""
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
-#: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
-#: templates/setup/home/index.twig:131
+#: templates/server/variables/index.twig:17 templates/setup/home/index.twig:116
+#: templates/setup/home/index.twig:134
 msgid "Documentation"
 msgstr "Qujattama"
 
@@ -10546,7 +10547,7 @@ msgid "Without PHP code"
 msgstr "PHP-kodysyz"
 
 #: libraries/classes/Html/Generator.php:602
-#: templates/database/multi_table_query/form.twig:161
+#: templates/database/multi_table_query/form.twig:166
 msgid "Submit query"
 msgstr "Saýaldy jiberý"
 
@@ -10749,7 +10750,7 @@ msgstr "Funksıa"
 #: templates/database/routines/editor_form.twig:56
 #: templates/database/routines/execute_form.twig:16
 #: templates/database/routines/index.twig:53
-#: templates/database/structure/table_header.twig:30 templates/indexes.twig:17
+#: templates/database/structure/table_header.twig:30 templates/indexes.twig:18
 #: templates/table/privileges/index.twig:21
 #: templates/table/search/index.twig:39
 #: templates/table/structure/display_structure.twig:22
@@ -10976,15 +10977,15 @@ msgstr "Jańa"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:664
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
-#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
+#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
 #: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
-#: templates/table/relation/common_form.twig:18
-#: templates/table/relation/common_form.twig:23
-#: templates/table/relation/common_form.twig:38
-#: templates/table/relation/common_form.twig:71
-#: templates/table/relation/common_form.twig:140
+#: templates/table/relation/common_form.twig:20
+#: templates/table/relation/common_form.twig:25
+#: templates/table/relation/common_form.twig:40
+#: templates/table/relation/common_form.twig:76
+#: templates/table/relation/common_form.twig:144
 #: templates/table/relation/foreign_key_row.twig:114
 #: templates/table/relation/foreign_key_row.twig:124
 #: templates/table/search/index.twig:38
@@ -11092,19 +11093,19 @@ msgstr "Jańa"
 msgid "Make all columns atomic"
 msgstr "Barlyq baǵandardy «atomic» etip jasaý"
 
-#: libraries/classes/Normalization.php:197
-#: templates/table/normalization/normalization.twig:11
+#: libraries/classes/Normalization.php:196
+#: templates/table/normalization/normalization.twig:13
 msgid "First step of normalization (1NF)"
 msgstr "Biryńǵaılaýdyń birinshi qadamy (1NF)"
 
-#: libraries/classes/Normalization.php:200
-#: libraries/classes/Normalization.php:249
-#: libraries/classes/Normalization.php:295
-#: libraries/classes/Normalization.php:327
+#: libraries/classes/Normalization.php:198
+#: libraries/classes/Normalization.php:247
+#: libraries/classes/Normalization.php:293
+#: libraries/classes/Normalization.php:325
 msgid "Step 1."
 msgstr "1-qadam."
 
-#: libraries/classes/Normalization.php:202
+#: libraries/classes/Normalization.php:201
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -11112,11 +11113,11 @@ msgstr ""
 "Birden kóp baǵanǵa bólinetin kezkelgen baǵan bar ma? Mysaly: mekenjaıdy "
 "kóshe, qala, el jáne poshta ındeksi dep bólýge bolady."
 
-#: libraries/classes/Normalization.php:207
+#: libraries/classes/Normalization.php:206
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Bul kestede áldeqashan joq baǵandardyń ortalyq tizimi kórsetilsin"
 
-#: libraries/classes/Normalization.php:209
+#: libraries/classes/Normalization.php:208
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -11124,19 +11125,19 @@ msgstr ""
 "Bireýden kóbirek bólýge bolatyn baǵandy tańdańyz («mundaı baǵan joq» degendi "
 "bólektegende, bul kelesi qadamǵa ótkizedi)."
 
-#: libraries/classes/Normalization.php:224
+#: libraries/classes/Normalization.php:223
 msgid "split into "
 msgstr "mynaǵan bólý "
 
-#: libraries/classes/Normalization.php:246
+#: libraries/classes/Normalization.php:244
 msgid "Have a primary key"
 msgstr "Alǵashqy kilt bar"
 
-#: libraries/classes/Normalization.php:252
+#: libraries/classes/Normalization.php:250
 msgid "Primary key already exists."
 msgstr "Alǵashqy kilt áldeqashan bar."
 
-#: libraries/classes/Normalization.php:257
+#: libraries/classes/Normalization.php:255
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -11144,26 +11145,26 @@ msgstr ""
 "Alǵashqy kilt joq; bireýin qosyńyz.<br>Tuspal: Alǵashqy kilt - barlyq "
 "joldardy biregeı túrde anyqtaıtyn baǵan (nemese baǵandar quramasy)."
 
-#: libraries/classes/Normalization.php:265
+#: libraries/classes/Normalization.php:263
 msgid "Add a primary key on existing column(s)"
 msgstr "Qoldanysta bar baǵan(dar) boıynsha alǵashqy kilt qosý"
 
-#: libraries/classes/Normalization.php:269
+#: libraries/classes/Normalization.php:267
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Eger qoldanysta bar baǵandar quramasyn alǵashqy kilt retinde jasaý múmkin "
 "bolmasa"
 
-#: libraries/classes/Normalization.php:271
+#: libraries/classes/Normalization.php:269
 msgid "+ Add a new primary key column"
 msgstr "+ Jańa alǵashqy kilt baǵanyn ústeý"
 
-#: libraries/classes/Normalization.php:294
+#: libraries/classes/Normalization.php:292
 msgid "Remove redundant columns"
 msgstr "Qajetsiz baǵandardy alastaý"
 
-#: libraries/classes/Normalization.php:297
+#: libraries/classes/Normalization.php:295
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -11173,7 +11174,7 @@ msgstr ""
 "Mysaly, eger first_name, last_name jáne full_name bolsa, first_name jáne "
 "last_name biriktirgende, full_name beredi, ol artyq bolady."
 
-#: libraries/classes/Normalization.php:303
+#: libraries/classes/Normalization.php:301
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -11181,19 +11182,19 @@ msgstr ""
 "Qajetsiz baǵandardy tekserip, «alastaý» degendi basyńyz. Qajetsiz baǵan "
 "bolmasa, «Qajetsiz baǵan joq» degendi basyńyz"
 
-#: libraries/classes/Normalization.php:308
+#: libraries/classes/Normalization.php:306
 msgid "Remove selected"
 msgstr "Bólektelgendi alastaý"
 
-#: libraries/classes/Normalization.php:309
+#: libraries/classes/Normalization.php:307
 msgid "No redundant column"
 msgstr "Qajetsiz baǵan joq"
 
-#: libraries/classes/Normalization.php:326
+#: libraries/classes/Normalization.php:324
 msgid "Move repeating groups"
 msgstr "Qaıtalanatyn toptardy jyljytý"
 
-#: libraries/classes/Normalization.php:329
+#: libraries/classes/Normalization.php:327
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -11207,7 +11208,7 @@ msgstr ""
 "topty quraıtyn baǵandar bolýy múmkin. Bul jaǵdaıda jańa keste (book_id, "
 "author) jasalýy kerek."
 
-#: libraries/classes/Normalization.php:337
+#: libraries/classes/Normalization.php:335
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -11215,19 +11216,19 @@ msgstr ""
 "Qaıtalanatyn topty quraıtyn baǵandardy tekserińiz. Eger mundaı top bolmasa, "
 "«Qaıtalanatyn top joq» degendi basyńyz"
 
-#: libraries/classes/Normalization.php:342
+#: libraries/classes/Normalization.php:340
 msgid "No repeating group"
 msgstr "Qaıtalanatyn top joq"
 
-#: libraries/classes/Normalization.php:370
+#: libraries/classes/Normalization.php:368
 msgid "Step 2."
 msgstr "2-qadam."
 
-#: libraries/classes/Normalization.php:370
+#: libraries/classes/Normalization.php:368
 msgid "Find partial dependencies"
 msgstr "Ishinara táýeldilikterdi tabý"
 
-#: libraries/classes/Normalization.php:391
+#: libraries/classes/Normalization.php:389
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -11236,12 +11237,12 @@ msgstr ""
 "Alǵashqy kilt (%1$s) kestedegi barlyq baǵandardan turatyndyqtan alǵashqy "
 "emes baǵan joq, sondyqtan ishinara táýeldilikter múmkin emes."
 
-#: libraries/classes/Normalization.php:397
-#: libraries/classes/Normalization.php:439
+#: libraries/classes/Normalization.php:395
+#: libraries/classes/Normalization.php:437
 msgid "Table is already in second normal form."
 msgstr "Keste áldeqashan ekinshi qalypty pishinde."
 
-#: libraries/classes/Normalization.php:402
+#: libraries/classes/Normalization.php:400
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -11250,20 +11251,20 @@ msgstr ""
 "Alǵashqy kilt (%1$s) birden kóp baǵannan turady, sondyqtan ishinara "
 "táýeldilikterdi tabý qajet."
 
-#: libraries/classes/Normalization.php:406
-#: libraries/classes/Normalization.php:817
+#: libraries/classes/Normalization.php:404
+#: libraries/classes/Normalization.php:815
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 "Durys qalypqa keltirý úshin kelesi suraq(tarǵa)qa muqıat jaýap berińiz."
 
-#: libraries/classes/Normalization.php:408
+#: libraries/classes/Normalization.php:406
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "+ Kestedegi derekterge negizdelgen yqtımal ishinara táýeldilikter kórsetilsin"
 
-#: libraries/classes/Normalization.php:411
+#: libraries/classes/Normalization.php:409
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -11273,13 +11274,13 @@ msgstr ""
 "tabylatyn, olardyń mánderi birge biriktirilgen, berilgen jıyn arasynda "
 "baǵandardyń <b>eń az jıynyn</b> bólekteńiz."
 
-#: libraries/classes/Normalization.php:424
-#: libraries/classes/Normalization.php:859
+#: libraries/classes/Normalization.php:422
+#: libraries/classes/Normalization.php:857
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "«%1$s» mynaǵan táýeldi:"
 
-#: libraries/classes/Normalization.php:435
+#: libraries/classes/Normalization.php:433
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -11288,7 +11289,7 @@ msgstr ""
 "Ishinara táýeldilikter yqtımal emes, sebebi alǵashqy kiltte (%1$s) bir ǵana "
 "baǵany bar."
 
-#: libraries/classes/Normalization.php:463
+#: libraries/classes/Normalization.php:461
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -11297,18 +11298,18 @@ msgstr ""
 "«%1$s» túpnusqa kestesin Ekinshi qalypty pishinge qoıý úshin, biz kelesi "
 "kestelerdi jasaýymyz kerek:"
 
-#: libraries/classes/Normalization.php:505
+#: libraries/classes/Normalization.php:503
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "«%1$s» kestesi úshin biryńǵaılaýdyń ekinshi qadamy aıaqtaldy."
 
-#: libraries/classes/Normalization.php:557
-#: libraries/classes/Normalization.php:717
-#: libraries/classes/Normalization.php:792
+#: libraries/classes/Normalization.php:555
+#: libraries/classes/Normalization.php:715
+#: libraries/classes/Normalization.php:790
 msgid "Error in processing!"
 msgstr "Óńdep shyǵarý qatesi!"
 
-#: libraries/classes/Normalization.php:604
+#: libraries/classes/Normalization.php:602
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -11317,24 +11318,24 @@ msgstr ""
 "«%1$s» túpnusqa kestesin Úshinshi qalypty pishinge qoıý úshin, biz kelesi "
 "kestelerdi jasaýymyz kerek:"
 
-#: libraries/classes/Normalization.php:653
+#: libraries/classes/Normalization.php:651
 msgid "The third step of normalization is complete."
 msgstr "Biryńǵaılaýdyń úshinshi qadamy aıaqtaldy."
 
-#: libraries/classes/Normalization.php:768
+#: libraries/classes/Normalization.php:766
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Bólektelgen qaıtalanatyn top «%s» kestesine jyljytyldy"
 
-#: libraries/classes/Normalization.php:815
+#: libraries/classes/Normalization.php:813
 msgid "Step 3."
 msgstr "3-qadam."
 
-#: libraries/classes/Normalization.php:815
+#: libraries/classes/Normalization.php:813
 msgid "Find transitive dependencies"
 msgstr "Ótpeli táýeldilikti tabý"
 
-#: libraries/classes/Normalization.php:819
+#: libraries/classes/Normalization.php:817
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -11346,7 +11347,7 @@ msgstr ""
 "baǵandardyń <b>eń az jıynyn</b> bólekteńiz.<br>Eskerim: Baǵanda ótpeli "
 "táýeldilik bolmaýy múmkin, bul jaǵdaıda eshqandaı bólekteýdi qajet etpeısiz."
 
-#: libraries/classes/Normalization.php:873
+#: libraries/classes/Normalization.php:871
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -11354,11 +11355,11 @@ msgstr ""
 "Kestede kezkelgen alǵashqy emes kilt baǵandary bolmaǵandyqtan, ótpeli "
 "táýeldilikter yqtımal emes"
 
-#: libraries/classes/Normalization.php:876
+#: libraries/classes/Normalization.php:874
 msgid "Table is already in Third normal form!"
 msgstr "Keste áldeqashan úshinshi qalypty pishinde!"
 
-#: libraries/classes/Normalization.php:943
+#: libraries/classes/Normalization.php:941
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -11366,7 +11367,7 @@ msgstr ""
 "Bul tizim kesteniń derekteriniń ishki jıynyn negizge alady jáne durys bolýǵa "
 "qajet etpeıdi. "
 
-#: libraries/classes/Normalization.php:958
+#: libraries/classes/Normalization.php:956
 msgid "No partial dependencies found!"
 msgstr "Ishinara táýeldilikter tabylmady!"
 
@@ -11411,7 +11412,7 @@ msgstr "Bosatý"
 #: templates/database/routines/row.twig:73
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/database/structure/structure_table_row.twig:87
-#: templates/indexes.twig:58 templates/server/databases/index.twig:67
+#: templates/indexes.twig:59 templates/server/databases/index.twig:67
 #: templates/server/databases/index.twig:68
 #: templates/server/databases/index.twig:321
 #: templates/table/relation/foreign_key_row.twig:25
@@ -11645,7 +11646,7 @@ msgstr "Keste úshin derekterdi damptaý"
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:250
 #: templates/database/data_dictionary/index.twig:24
-#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
+#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:24
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/structure/display_structure.twig:482
@@ -11699,7 +11700,7 @@ msgstr "Kelesige siltemeler"
 #: templates/database/events/index.twig:45
 #: templates/database/routines/editor_form.twig:55
 #: templates/database/routines/execute_form.twig:15
-#: templates/database/routines/index.twig:52 templates/setup/home/index.twig:49
+#: templates/database/routines/index.twig:52 templates/setup/home/index.twig:50
 #: templates/table/structure/display_structure.twig:21
 #: templates/triggers/list.twig:45
 msgid "Name"
@@ -11803,7 +11804,7 @@ msgstr "Baǵan ataýlaryn birinshi jolǵa qoıý:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:204
 #: libraries/classes/Plugins/Export/ExportSql.php:701
 #: libraries/classes/Plugins/Export/ExportXml.php:214
-#: templates/server/replication/change_primary.twig:22
+#: templates/server/replication/change_primary.twig:25
 #: templates/server/replication/primary_add_replica_user.twig:29
 msgid "Host:"
 msgstr "Túın:"
@@ -13138,8 +13139,8 @@ msgid "You have revoked the privileges for %s."
 msgstr "%s úshin artyqshylyqtardy qaıtaryp aldyńyz."
 
 #: libraries/classes/Server/Privileges.php:1218
-#: templates/database/privileges/index.twig:123
-#: templates/table/privileges/index.twig:127
+#: templates/database/privileges/index.twig:122
+#: templates/table/privileges/index.twig:126
 msgid "Not enough privilege to view users."
 msgstr "Paıdalanýshylardy qaraý úshin artyqshylyqtar jetkiliksiz."
 
@@ -13307,7 +13308,7 @@ msgid "Transaction coordinator"
 msgstr "Tranzaksıa úılestirýshisi"
 
 #: libraries/classes/Server/Status/Data.php:153
-#: templates/server/binlog/index.twig:27
+#: templates/server/binlog/index.twig:25
 msgid "Files"
 msgstr "Faıl"
 
@@ -13529,7 +13530,7 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "%1$s boıynsha syrtqy kiltti jasaǵandaǵy qate (derekter túrlerin tekserińiz)"
 
-#: libraries/classes/Template.php:117
+#: libraries/classes/Template.php:116
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Úlgi keshimen jumys isteý kezindegi qate: %s"
@@ -14098,7 +14099,7 @@ msgid "Users"
 msgstr "Paıdalanushylar"
 
 #: libraries/classes/Util.php:2228
-#: templates/database/multi_table_query/form.twig:53
+#: templates/database/multi_table_query/form.twig:56
 msgid "Sort"
 msgstr "Suryptaý"
 
@@ -14141,7 +14142,7 @@ msgstr ""
 "egjeıler úshin qujattamany qarańyz"
 
 #: templates/columns_definitions/column_attributes.twig:116
-#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
+#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:19
 #: templates/table/structure/display_structure.twig:152
 #: templates/table/structure/display_structure.twig:160
 #: templates/table/structure/display_structure.twig:298
@@ -14220,20 +14221,20 @@ msgstr "Saqtaýysh mehanızmdary"
 msgid "PARTITION definition:"
 msgstr "PARTITION anyqtaýy:"
 
-#: templates/columns_definitions/column_definitions_form.twig:153
+#: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
 #| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Eksportty tranzaksıaǵa qorshaý"
 
-#: templates/columns_definitions/column_definitions_form.twig:165
+#: templates/columns_definitions/column_definitions_form.twig:167
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
 
-#: templates/columns_definitions/column_definitions_form.twig:174
+#: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
 #: templates/export.twig:81 templates/modals/add_index.twig:5
@@ -14242,7 +14243,7 @@ msgstr ""
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
 #: templates/table/insert/actions_panel.twig:48
-#: templates/table/relation/common_form.twig:183
+#: templates/table/relation/common_form.twig:188
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
@@ -14307,7 +14308,7 @@ msgstr "Mehanızm"
 #: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:107
 #: templates/database/routines/editor_form.twig:172
-#: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
+#: templates/database/structure/table_header.twig:46 templates/indexes.twig:25
 #: templates/table/structure/display_partitions.twig:32
 #: templates/table/structure/display_structure.twig:483
 #: templates/table/tracking/structure_snapshot_columns.twig:12
@@ -14373,7 +14374,7 @@ msgstr ""
 #: templates/database/operations/index.twig:194
 #: templates/database/operations/index.twig:198
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:65 templates/indexes.twig:22
+#: templates/home/index.twig:65 templates/indexes.twig:23
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
@@ -14482,7 +14483,7 @@ msgstr "Jańǵyrtý"
 msgid "SQL Query Console"
 msgstr "SQL-saýal konsóli"
 
-#: templates/console/display.twig:9 templates/setup/home/index.twig:166
+#: templates/console/display.twig:9 templates/setup/home/index.twig:169
 #: templates/sql/query.twig:38
 msgid "Clear"
 msgstr "Tazalaý"
@@ -14687,7 +14688,7 @@ msgstr "Suryptaý úshin basyńyz."
 #: templates/database/privileges/index.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:154 templates/indexes.twig:15
+#: templates/database/tracking/tables.twig:154 templates/indexes.twig:16
 #: templates/server/databases/index.twig:163
 #: templates/server/privileges/privileges_summary.twig:23
 #: templates/server/privileges/users_overview.twig:22
@@ -14727,24 +14728,24 @@ msgstr "Derekqor túsiniktemesi:"
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
 #: templates/database/structure/index.twig:19
-#: templates/display/results/table.twig:340
+#: templates/display/results/table.twig:351
 #: templates/table/structure/display_structure.twig:393
 msgid "Print"
 msgstr "Basyp shyǵarý"
 
-#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
+#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:20
 #: templates/table/structure/display_structure.twig:478
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "Qaptalǵan"
 
-#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
+#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:22
 #: templates/table/structure/display_structure.twig:480
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "Element sany"
 
-#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:92
+#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:93
 #: templates/table/structure/display_structure.twig:559
 msgid "No index defined!"
 msgstr "Indeks anyqtalmady!"
@@ -14779,11 +14780,11 @@ msgstr "Barlyǵyn bólekteý"
 msgid "Add an option for column \"%s\"."
 msgstr "«%s» baǵanyna opsıany qosý."
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/database/designer/edit_delete_pages.twig:5
 msgid "Page to open"
 msgstr "Ashylatyn bet"
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/database/designer/edit_delete_pages.twig:5
 msgid "Page to delete"
 msgstr "Joıylatyn bet"
 
@@ -14964,15 +14965,15 @@ msgstr "Operator"
 msgid "Active options"
 msgstr "Belsendi opsıalar"
 
-#: templates/database/designer/page_save_as.twig:19
+#: templates/database/designer/page_save_as.twig:18
 msgid "Save to selected page"
 msgstr "Bólektelgen bette saqtaý"
 
-#: templates/database/designer/page_save_as.twig:23
+#: templates/database/designer/page_save_as.twig:22
 msgid "Create a page and save to it"
 msgstr "Betti jasaý men soǵan saqtaý"
 
-#: templates/database/designer/page_save_as.twig:29
+#: templates/database/designer/page_save_as.twig:28
 msgid "New page name"
 msgstr "Jańa bet aty"
 
@@ -14980,13 +14981,15 @@ msgstr "Jańa bet aty"
 msgid "Select page"
 msgstr "Betti bólekteý"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
+#: templates/database/designer/schema_export.twig:6
+#, fuzzy
+#| msgid "Select Export Relational Type"
+msgid "Select export relational type:"
 msgstr "Exporttyń qatynastyq túrin bólekteý"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
-#: templates/triggers/editor_form.twig:14 templates/view_create.twig:8
+#: templates/triggers/editor_form.twig:14 templates/view_create.twig:11
 msgid "Details"
 msgstr "Egjeıler"
 
@@ -14995,7 +14998,7 @@ msgid "Event name"
 msgstr "Oqıǵa aty"
 
 #: templates/database/events/editor_form.twig:40
-#: templates/server/binlog/index.twig:86
+#: templates/server/binlog/index.twig:84
 msgid "Event type"
 msgstr "Oqıǵa túri"
 
@@ -15029,31 +15032,31 @@ msgstr "Aıaqtalǵannan keıin saqtap otyrý"
 
 #: templates/database/events/editor_form.twig:101
 #: templates/database/routines/editor_form.twig:147
-#: templates/triggers/editor_form.twig:66 templates/view_create.twig:45
+#: templates/triggers/editor_form.twig:66 templates/view_create.twig:50
 msgid "Definer"
 msgstr "Anyqtaýshy"
 
 #: templates/database/events/index.twig:14
+#: templates/database/privileges/index.twig:112
 #: templates/database/privileges/index.twig:113
-#: templates/database/privileges/index.twig:114
 #: templates/database/routines/index.twig:14
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/display/results/table.twig:304
-#: templates/display/results/table.twig:305 templates/select_all.twig:4
-#: templates/select_all.twig:5 templates/server/databases/index.twig:64
+#: templates/display/results/table.twig:315
+#: templates/display/results/table.twig:316 templates/select_all.twig:3
+#: templates/select_all.twig:4 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:58
 #: templates/server/privileges/privileges_table.twig:269
 #: templates/server/privileges/privileges_table.twig:270
 #: templates/server/privileges/privileges_table.twig:279
 #: templates/server/privileges/privileges_table.twig:356
 #: templates/server/privileges/privileges_table.twig:560
+#: templates/server/privileges/users_overview.twig:120
 #: templates/server/privileges/users_overview.twig:121
-#: templates/server/privileges/users_overview.twig:122
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/server/user_groups/edit_user_groups.twig:22
-#: templates/table/privileges/index.twig:117
-#: templates/table/privileges/index.twig:118 templates/triggers/list.twig:14
+#: templates/table/privileges/index.twig:116
+#: templates/table/privileges/index.twig:117 templates/triggers/list.twig:14
 msgid "Check all"
 msgstr "Barlyǵyn belgileý"
 
@@ -15125,54 +15128,54 @@ msgstr "«%s» derekqoryna ımporttaý"
 msgid "Query window"
 msgstr "Saýal terezesi"
 
-#: templates/database/multi_table_query/form.twig:24
-#: templates/database/multi_table_query/form.twig:114
+#: templates/database/multi_table_query/form.twig:27
+#: templates/database/multi_table_query/form.twig:117
 msgid "select table"
 msgstr "kesteni bólekteý"
 
-#: templates/database/multi_table_query/form.twig:31
-#: templates/database/multi_table_query/form.twig:122
+#: templates/database/multi_table_query/form.twig:34
+#: templates/database/multi_table_query/form.twig:125
 msgid "select column"
 msgstr "baǵandy bólekteý"
 
-#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:40
 msgid "Table alias"
 msgstr "Keste búrkenshik aty"
 
-#: templates/database/multi_table_query/form.twig:38
+#: templates/database/multi_table_query/form.twig:41
 msgid "Column alias"
 msgstr "Baǵan búrkenshik aty"
 
-#: templates/database/multi_table_query/form.twig:41
+#: templates/database/multi_table_query/form.twig:44
 msgid "Use this column in criteria"
 msgstr "Bul baǵandy sharttarda paıdalaný"
 
-#: templates/database/multi_table_query/form.twig:45
+#: templates/database/multi_table_query/form.twig:48
 msgid "criteria"
 msgstr "sharttar"
 
-#: templates/database/multi_table_query/form.twig:59
+#: templates/database/multi_table_query/form.twig:62
 msgid "Add as"
 msgstr "Basqasha ústeý"
 
-#: templates/database/multi_table_query/form.twig:105
+#: templates/database/multi_table_query/form.twig:108
 msgid "Another column"
 msgstr "Taǵy basqa baǵan"
 
-#: templates/database/multi_table_query/form.twig:132
+#: templates/database/multi_table_query/form.twig:135
 msgid "Enter criteria as free text"
 msgstr "Erkin mátin retinde sharttardy engizý"
 
-#: templates/database/multi_table_query/form.twig:139
+#: templates/database/multi_table_query/form.twig:142
 msgid "Remove this column"
 msgstr "Bul baǵandy alastaý"
 
-#: templates/database/multi_table_query/form.twig:145
+#: templates/database/multi_table_query/form.twig:150
 #: templates/table/relation/foreign_key_row.twig:85
 msgid "+ Add column"
 msgstr "+ Baǵandy ústeý"
 
-#: templates/database/multi_table_query/form.twig:160
+#: templates/database/multi_table_query/form.twig:165
 msgid "Update query"
 msgstr "Saýaldy jańartý"
 
@@ -15254,7 +15257,7 @@ msgstr "«%s» qatynaýyna ıe paıdalanýshylar"
 #: templates/server/privileges/login_information_fields.twig:7
 #: templates/server/privileges/login_information_fields.twig:12
 #: templates/server/privileges/users_overview.twig:8
-#: templates/server/replication/change_primary.twig:15
+#: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:19
 #: templates/server/replication/primary_add_replica_user.twig:24
 #: templates/table/privileges/index.twig:19
@@ -15303,26 +15306,26 @@ msgstr "qoıylmaly tańba"
 msgid "routine"
 msgstr "rásim"
 
-#: templates/database/privileges/index.twig:112
-#: templates/database/privileges/index.twig:115
+#: templates/database/privileges/index.twig:111
+#: templates/database/privileges/index.twig:114
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/display/results/table.twig:303
-#: templates/display/results/table.twig:306 templates/select_all.twig:2
-#: templates/select_all.twig:6
-#: templates/server/privileges/users_overview.twig:120
-#: templates/server/privileges/users_overview.twig:123
-#: templates/table/privileges/index.twig:116
-#: templates/table/privileges/index.twig:119
+#: templates/display/results/table.twig:314
+#: templates/display/results/table.twig:317 templates/select_all.twig:1
+#: templates/select_all.twig:5
+#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/users_overview.twig:122
+#: templates/table/privileges/index.twig:115
+#: templates/table/privileges/index.twig:118
 msgid "With selected:"
 msgstr "Bólektelgendermen:"
 
-#: templates/database/privileges/index.twig:132
-#: templates/server/privileges/add_user_fieldset.twig:6
+#: templates/database/privileges/index.twig:131
+#: templates/server/privileges/add_user_fieldset.twig:5
 #: templates/server/privileges/add_user.twig:4
-#: templates/server/privileges/user_overview.twig:24
-#: templates/server/privileges/users_overview.twig:140
-#: templates/table/privileges/index.twig:137
+#: templates/server/privileges/user_overview.twig:23
+#: templates/server/privileges/users_overview.twig:139
+#: templates/table/privileges/index.twig:136
 msgid "Add user account"
 msgstr "Paıdalanushy tirkelgisin ústeý"
 
@@ -15598,7 +15601,7 @@ msgstr "AUTO INCREMENT mánin ústeý"
 
 #: templates/database/structure/drop_form.twig:6
 #: templates/database/structure/empty_form.twig:6
-#: templates/table/delete/confirm.twig:12
+#: templates/table/delete/confirm.twig:13
 #: templates/table/structure/drop_confirm.twig:7
 #: templates/table/structure/primary.twig:3
 msgid "Do you really want to execute the following query?"
@@ -15618,8 +15621,8 @@ msgid "Showing create queries"
 msgstr "Jasaý saýaldary kórsetilýde"
 
 #: templates/database/structure/show_create.twig:36
-#: templates/display/results/table.twig:379 templates/modals/create_view.twig:5
-#: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
+#: templates/display/results/table.twig:390 templates/modals/create_view.twig:5
+#: templates/sql/no_results_returned.twig:14 templates/view_create.twig:14
 msgid "Create view"
 msgstr "Kórinis jasaý"
 
@@ -15751,16 +15754,16 @@ msgstr "Basy"
 
 #: templates/display/results/table.twig:35
 #: templates/display/results/table.twig:38 templates/list_navigator.twig:16
-#: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
-#: templates/server/binlog/index.twig:52
+#: templates/list_navigator.twig:21 templates/server/binlog/index.twig:45
+#: templates/server/binlog/index.twig:50
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Aldyńǵy"
 
 #: templates/display/results/table.twig:55
 #: templates/display/results/table.twig:59 templates/list_navigator.twig:33
-#: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
-#: templates/server/binlog/index.twig:77
+#: templates/list_navigator.twig:35 templates/server/binlog/index.twig:70
+#: templates/server/binlog/index.twig:75
 msgctxt "Next page"
 msgid "Next"
 msgstr "Kelesi"
@@ -15800,49 +15803,49 @@ msgstr "Kilt boıynsha suryptaý:"
 msgid "Extra options"
 msgstr "Qaıtarym opsıalary"
 
-#: templates/display/results/table.twig:222
+#: templates/display/results/table.twig:224
 msgid "Relational key"
 msgstr "Qatynastyq kilt"
 
-#: templates/display/results/table.twig:226
+#: templates/display/results/table.twig:228
 msgid "Display column for relationships"
 msgstr "Qatynastyqtar úshin kesteni beıneleý"
 
-#: templates/display/results/table.twig:234
+#: templates/display/results/table.twig:237
 msgid "Show binary contents"
 msgstr "Ekilik mazmundardy kórsetý"
 
-#: templates/display/results/table.twig:238
+#: templates/display/results/table.twig:243
 msgid "Show BLOB contents"
 msgstr "BLOB mazmundardy kórsetý"
 
-#: templates/display/results/table.twig:248
+#: templates/display/results/table.twig:255
 msgid "Hide browser transformation"
 msgstr "Sholǵysh túrlendirýlerin jasyrý"
 
-#: templates/display/results/table.twig:260
+#: templates/display/results/table.twig:268
 msgid "Well Known Text"
 msgstr "Óte tanymal mátin"
 
-#: templates/display/results/table.twig:264
+#: templates/display/results/table.twig:272
 msgid "Well Known Binary"
 msgstr "Óte tanymal ekilik"
 
-#: templates/display/results/table.twig:336
+#: templates/display/results/table.twig:347
 #: templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Saýal nátijesindegi áreketter"
 
-#: templates/display/results/table.twig:342
+#: templates/display/results/table.twig:353
 msgid "Copy to clipboard"
 msgstr "Aralyq saqtaǵyshqa kóshirý"
 
-#: templates/display/results/table.twig:361
+#: templates/display/results/table.twig:372
 #: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Dıagram beıneleý"
 
-#: templates/display/results/table.twig:369
+#: templates/display/results/table.twig:380
 msgid "Visualize GIS data"
 msgstr "GIS-derekterdi kórnekileý"
 
@@ -16492,19 +16495,19 @@ msgstr "Birinshisinen bastap, osy saýal (SQL úshin) sanyn ótkizip jiberý:"
 msgid "Other options"
 msgstr "Basqa opsıalar:"
 
-#: templates/indexes.twig:39
+#: templates/indexes.twig:40
 #: templates/table/structure/display_structure.twig:506
 #, fuzzy
 #| msgid "Rename to"
 msgid "Rename"
 msgstr "Mynaǵan qaıta ataý"
 
-#: templates/indexes.twig:45
+#: templates/indexes.twig:46
 #: templates/table/structure/display_structure.twig:512
 msgid "The primary key has been dropped."
 msgstr "Alǵashqy kilt joıyldy."
 
-#: templates/indexes.twig:50
+#: templates/indexes.twig:51
 #: templates/table/structure/display_structure.twig:517
 #, php-format
 msgid "Index %s has been dropped."
@@ -16527,7 +16530,7 @@ msgstr "Paıdalanýshy aty:"
 #: templates/login/form.twig:85
 #: templates/server/privileges/change_password.twig:24
 #: templates/server/privileges/login_information_fields.twig:44
-#: templates/server/replication/change_primary.twig:18
+#: templates/server/replication/change_primary.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:49
 msgid "Password:"
 msgstr "Paról:"
@@ -16677,7 +16680,7 @@ msgstr ""
 msgid "Show hidden navigation tree items."
 msgstr "Sharlaý tarmaǵynyń jasyryn elementterin kórsetý."
 
-#: templates/navigation/item_unhide_dialog.twig:20
+#: templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
 msgstr "Kórsetý"
 
@@ -17177,38 +17180,38 @@ msgstr ""
 "Jańartylǵan konfıgýrasıa faılyn júkteý úshin phpMyAdmin júıesine qaıta "
 "kirińiz."
 
-#: templates/server/binlog/index.twig:10
+#: templates/server/binlog/index.twig:8
 msgid "Select binary log to view"
 msgstr "Qaralatyn ekilik jurnaldy bólekteý"
 
-#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
+#: templates/server/binlog/index.twig:57 templates/server/binlog/index.twig:58
 #: templates/server/status/processes/list.twig:20
 msgid "Truncate shown queries"
 msgstr "Kórsetiletin saýaldardy bosatý"
 
-#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#: templates/server/binlog/index.twig:61 templates/server/binlog/index.twig:62
 #: templates/server/status/processes/list.twig:26
 msgid "Show full queries"
 msgstr "Tolyq saýaldardy kórsetý"
 
-#: templates/server/binlog/index.twig:84
+#: templates/server/binlog/index.twig:82
 msgid "Log name"
 msgstr "Jurnal aty"
 
-#: templates/server/binlog/index.twig:85
+#: templates/server/binlog/index.twig:83
 msgid "Position"
 msgstr "Jaıǵasym"
 
-#: templates/server/binlog/index.twig:87
+#: templates/server/binlog/index.twig:85
 #: templates/server/replication/primary_replication.twig:24
 msgid "Server ID"
 msgstr "Server ID"
 
-#: templates/server/binlog/index.twig:88
+#: templates/server/binlog/index.twig:86
 msgid "Original position"
 msgstr "Typnusqalyq jaıǵasym"
 
-#: templates/server/binlog/index.twig:89
+#: templates/server/binlog/index.twig:87
 #: templates/table/structure/display_table_stats.twig:2
 msgid "Information"
 msgstr "Aqparat"
@@ -17342,9 +17345,9 @@ msgstr "Joıý"
 msgid "deleted"
 msgstr "Joıý"
 
-#: templates/server/privileges/add_user_fieldset.twig:4
-#: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:137
+#: templates/server/privileges/add_user_fieldset.twig:2
+#: templates/server/privileges/user_overview.twig:20
+#: templates/server/privileges/users_overview.twig:136
 msgctxt "Create new user"
 msgid "New"
 msgstr "Jańa"
@@ -17472,7 +17475,7 @@ msgid "Login Information"
 msgstr "Kirý aqparaty"
 
 #: templates/server/privileges/login_information_fields.twig:5
-#: templates/server/replication/change_primary.twig:14
+#: templates/server/replication/change_primary.twig:17
 #: templates/server/replication/primary_add_replica_user.twig:16
 msgid "User name:"
 msgstr "Paıdalanushy aty:"
@@ -17534,7 +17537,7 @@ msgstr ""
 #: templates/server/privileges/login_information_fields.twig:46
 #: templates/server/privileges/login_information_fields.twig:54
 #: templates/server/privileges/users_overview.twig:10
-#: templates/server/replication/change_primary.twig:19
+#: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:52
 #: templates/server/replication/primary_add_replica_user.twig:57
 msgid "Password"
@@ -17578,7 +17581,7 @@ msgstr ""
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:83
-#: templates/server/privileges/users_overview.twig:168
+#: templates/server/privileges/users_overview.twig:167
 #: templates/server/user_groups/edit_user_groups.twig:31
 msgid "Edit user group"
 msgstr "Paıdalanushy tobyn óńdeý"
@@ -17779,40 +17782,33 @@ msgstr ""
 msgid "User group"
 msgstr "Paıdalanushy toby"
 
-#: templates/server/privileges/users_overview.twig:147
+#: templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
 msgstr "Bólektelgen paıdalanýshy tirkelgilerin alastaý"
 
-#: templates/server/privileges/users_overview.twig:149
+#: templates/server/privileges/users_overview.twig:148
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Paıdalanýshylardan barlyq belsendi artyqshylyqtardy keri shaqyrý jáne keıin "
 "joıý."
 
-#: templates/server/privileges/users_overview.twig:153
+#: templates/server/privileges/users_overview.twig:152
 msgid "Drop the databases that have the same names as the users."
 msgstr "Paıdalanýshylarmen birdeı ataýlary bar derekqorlardy joıý."
 
-#: templates/server/privileges/users_overview.twig:178
+#: templates/server/privileges/users_overview.twig:177
 #, fuzzy
 #| msgid "Save page"
 msgid "Save changes"
 msgstr "Betti saqtaý"
 
-#: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
-msgid "Replica configuration"
-msgstr "Jetekteginiń konfıgýrasıasy"
-
-#: templates/server/replication/change_primary.twig:6
-#: templates/server/replication/replica_configuration.twig:97
+#: templates/server/replication/change_primary.twig:7
 #, fuzzy
 #| msgid "Change or reconfigure master server"
-msgid "Change or reconfigure primary server"
+msgid "Replica configuration - Change or reconfigure primary server"
 msgstr "Jetekshi serverdi ózgertý nemese qaıta teńsheý"
 
-#: templates/server/replication/change_primary.twig:9
+#: templates/server/replication/change_primary.twig:12
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
@@ -17820,7 +17816,7 @@ msgstr ""
 "Konfıgýrasıalyq faılyńyzda (my.cnf) biregeı server-id bolýyn tekserińiz. "
 "Bolmasa, kelesi joldy [mysqld] bólimine qosyńyz:"
 
-#: templates/server/replication/change_primary.twig:26
+#: templates/server/replication/change_primary.twig:29
 msgid "Port:"
 msgstr "Port:"
 
@@ -17840,7 +17836,7 @@ msgstr ""
 msgid "No privileges"
 msgstr "Artyqshylyqtar joq"
 
-#: templates/server/replication/primary_add_replica_user.twig:6
+#: templates/server/replication/primary_add_replica_user.twig:11
 #: templates/server/replication/primary_replication.twig:44
 #, fuzzy
 #| msgid "Add slave replication user"
@@ -17863,7 +17859,7 @@ msgstr "Paróldi jasap shyǵarý:"
 msgid "Primary configuration"
 msgstr "Server konfıgýrasıasy"
 
-#: templates/server/replication/primary_configuration.twig:4
+#: templates/server/replication/primary_configuration.twig:6
 #, fuzzy
 #| msgid ""
 #| "This server is not configured as a master server in a replication "
@@ -17884,19 +17880,19 @@ msgstr ""
 "ádepki boıynsha barlyq derekqorlardy elemeýdi tańdap, tek belgili "
 "derekqorlardy replıkalaýyna ruqsat ete alasyz. Rejimdi bólekteńiz:"
 
-#: templates/server/replication/primary_configuration.twig:9
+#: templates/server/replication/primary_configuration.twig:11
 msgid "Replicate all databases; Ignore:"
 msgstr "Barlyq dekekqorlardy replıkalaý; Elemeý:"
 
-#: templates/server/replication/primary_configuration.twig:10
+#: templates/server/replication/primary_configuration.twig:12
 msgid "Ignore all databases; Replicate:"
 msgstr "Barlyq derekqorlardy elemeý; Replıkalaý:"
 
-#: templates/server/replication/primary_configuration.twig:12
+#: templates/server/replication/primary_configuration.twig:14
 msgid "Please select databases:"
 msgstr "Derekqorlardy bólekteńiz:"
 
-#: templates/server/replication/primary_configuration.twig:15
+#: templates/server/replication/primary_configuration.twig:17
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
@@ -17904,7 +17900,7 @@ msgstr ""
 "Endi my.cnf faılyndaǵy [mysqld] bóliminiń sońyna kelesi joldardy ústeńiz, "
 "keıin MySQL serverin qaıta iske qosyńyz."
 
-#: templates/server/replication/primary_configuration.twig:21
+#: templates/server/replication/primary_configuration.twig:23
 #, fuzzy
 #| msgid ""
 #| "Once you restarted MySQL server, please click on Go button. Afterwards, "
@@ -18025,6 +18021,12 @@ msgstr "Aǵymdyq qateni ótkizý"
 msgid "Skip next %s errors."
 msgstr "Kelesi %s qateni ótkizý."
 
+#: templates/server/replication/replica_configuration.twig:97
+#, fuzzy
+#| msgid "Change or reconfigure master server"
+msgid "Change or reconfigure primary server"
+msgstr "Jetekshi serverdi ózgertý nemese qaıta teńsheý"
+
 #: templates/server/replication/replica_configuration.twig:107
 #, fuzzy, php-format
 #| msgid ""
@@ -18055,7 +18057,7 @@ msgstr "Replıkalaý mártebesi"
 msgid "Variable"
 msgstr "Aınymaly"
 
-#: templates/server/select/index.twig:7 templates/server/select/index.twig:19
+#: templates/server/select/index.twig:4 templates/server/select/index.twig:13
 msgid "Current server:"
 msgstr "Aǵymdyq server:"
 
@@ -18577,7 +18579,7 @@ msgstr ""
 msgid "Overview"
 msgstr "Sholý"
 
-#: templates/setup/config/index.twig:4 templates/setup/home/index.twig:98
+#: templates/setup/config/index.twig:4 templates/setup/home/index.twig:100
 msgid "Configuration file"
 msgstr "Konfıgýrasıa faıly"
 
@@ -18587,7 +18589,7 @@ msgstr "Konfıgýrasıa faıly"
 msgid "Generated configuration file"
 msgstr "Konfıgýrasıa faıly oqylmady!"
 
-#: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
+#: templates/setup/config/index.twig:22 templates/setup/home/index.twig:168
 msgid "Download"
 msgstr "Júktep alý"
 
@@ -18611,47 +18613,47 @@ msgstr "Pishindi kórsetý"
 msgid "Show hidden messages"
 msgstr "Jasyryn habarlardy kórsetý"
 
-#: templates/setup/home/index.twig:79
+#: templates/setup/home/index.twig:80
 msgid "There are no configured servers"
 msgstr "Teńshelgen serverler joq"
 
-#: templates/setup/home/index.twig:88
+#: templates/setup/home/index.twig:89
 msgid "New server"
 msgstr "Jańa server"
 
-#: templates/setup/home/index.twig:110
+#: templates/setup/home/index.twig:113
 msgid "Default language"
 msgstr "Ádepki til"
 
-#: templates/setup/home/index.twig:128
+#: templates/setup/home/index.twig:131
 msgid "Default server"
 msgstr "Ádepki server"
 
-#: templates/setup/home/index.twig:139
+#: templates/setup/home/index.twig:142
 msgid "let the user choose"
 msgstr "paıdalanushy tańdasyn"
 
-#: templates/setup/home/index.twig:146
+#: templates/setup/home/index.twig:149
 msgid "- none -"
 msgstr "- joq -"
 
-#: templates/setup/home/index.twig:153
+#: templates/setup/home/index.twig:156
 msgid "End of line"
 msgstr "Jol sońy"
 
-#: templates/setup/home/index.twig:164
+#: templates/setup/home/index.twig:167
 msgid "Display"
 msgstr "Beıneleý"
 
-#: templates/setup/home/index.twig:175
+#: templates/setup/home/index.twig:179
 msgid "phpMyAdmin homepage"
 msgstr "phpMyAdmin basqy beti"
 
-#: templates/setup/home/index.twig:176
+#: templates/setup/home/index.twig:180
 msgid "Donate"
 msgstr "Demeý"
 
-#: templates/setup/home/index.twig:177
+#: templates/setup/home/index.twig:181
 msgid "Check for latest version"
 msgstr "Sońǵy nusqa úshin tekserý"
 
@@ -19053,7 +19055,7 @@ msgstr "%s jolymen kiristirýdi jalǵastyrý"
 msgid "Checksum"
 msgstr "Tekserý"
 
-#: templates/table/normalization/normalization.twig:5
+#: templates/table/normalization/normalization.twig:4
 msgid "Improve table structure (Normalization):"
 msgstr "Kesteniń qurylymyn jaqsartý (Biryńǵaılaý):"
 
@@ -19061,19 +19063,19 @@ msgstr "Kesteniń qurylymyn jaqsartý (Biryńǵaılaý):"
 msgid "Select up to what step you want to normalize"
 msgstr "Qandaı qadamdy biryńǵaılaǵyńyz keletinin bólekteńiz"
 
-#: templates/table/normalization/normalization.twig:15
-msgid "Second step of normalization (1NF+2NF)"
-msgstr "Biryńǵaılaýdyń ekinshi qadamy (1NF+2NF)"
-
-#: templates/table/normalization/normalization.twig:19
-msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr "Biryńǵaılaýdyń úshinshi qadamy (1NF+2NF+3NF)"
-
-#: templates/table/normalization/normalization.twig:23
+#: templates/table/normalization/normalization.twig:9
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr "Tuspal: Durys biryńǵaılaýdy alý úshin rásimdi muqıat oryndańyz"
+
+#: templates/table/normalization/normalization.twig:17
+msgid "Second step of normalization (1NF+2NF)"
+msgstr "Biryńǵaılaýdyń ekinshi qadamy (1NF+2NF)"
+
+#: templates/table/normalization/normalization.twig:21
+msgid "Third step of normalization (1NF+2NF+3NF)"
+msgstr "Biryńǵaılaýdyń úshinshi qadamy (1NF+2NF+3NF)"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
@@ -19218,19 +19220,19 @@ msgstr "Ishki bólim"
 msgid "table-specific"
 msgstr "kestege tán"
 
-#: templates/table/relation/common_form.twig:9
+#: templates/table/relation/common_form.twig:10
 msgid "Foreign key constraints"
 msgstr "Syrtqy kilt shekteýleri"
 
-#: templates/table/relation/common_form.twig:14
+#: templates/table/relation/common_form.twig:16
 msgid "Actions"
 msgstr "Áreketter"
 
-#: templates/table/relation/common_form.twig:15
+#: templates/table/relation/common_form.twig:17
 msgid "Constraint properties"
 msgstr "Shekteý sıpattary"
 
-#: templates/table/relation/common_form.twig:19
+#: templates/table/relation/common_form.twig:21
 msgid ""
 "Creating a foreign key over a non-indexed column would automatically create "
 "an index on it. Alternatively, you can define an index below, before "
@@ -19240,36 +19242,36 @@ msgstr ""
 "jasalady. Sonymen qatar, syrtqy kiltin jasamas buryn tómendegi ındeksti "
 "anyqtaı alasyz."
 
-#: templates/table/relation/common_form.twig:24
+#: templates/table/relation/common_form.twig:26
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 "Tek ındeksi bar baǵandar beınelelenedi. Indeksti tómende anyqtaı alasyz."
 
-#: templates/table/relation/common_form.twig:28
+#: templates/table/relation/common_form.twig:30
 msgid "Foreign key constraint"
 msgstr "Syrtqy kilt shekteýi"
 
-#: templates/table/relation/common_form.twig:44
+#: templates/table/relation/common_form.twig:47
 msgid "+ Add constraint"
 msgstr "+ Shekteý ústeý"
 
-#: templates/table/relation/common_form.twig:57
-#: templates/table/relation/common_form.twig:65
+#: templates/table/relation/common_form.twig:61
+#: templates/table/relation/common_form.twig:69
 msgid "Internal relationships"
 msgstr "Ishki qatynastyqtar"
 
-#: templates/table/relation/common_form.twig:73
+#: templates/table/relation/common_form.twig:78
 msgid "Internal relation"
 msgstr "Ishki qatynas"
 
-#: templates/table/relation/common_form.twig:75
+#: templates/table/relation/common_form.twig:80
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr "Tıisti FOREIGN KEY qatynasy bolǵanda ishki qatynas qajet emes."
 
-#: templates/table/relation/common_form.twig:158
+#: templates/table/relation/common_form.twig:163
 msgid "Choose column to display:"
 msgstr "Beınelenetin baǵandy tańdaý:"
 
@@ -19412,7 +19414,7 @@ msgid "Move the columns by dragging them up and down."
 msgstr "Baǵandardy joǵaryǵa jáne tómenge súırep aparyńyz."
 
 #: templates/table/structure/display_structure.twig:389
-#: templates/view_create.twig:13
+#: templates/view_create.twig:16
 msgid "Edit view"
 msgstr "Kórinisti óńdeý"
 
@@ -19604,13 +19606,18 @@ msgstr "Nusqa jasaý"
 msgid "There are no triggers to display."
 msgstr "Munda beınelenetin trıgerler joq."
 
-#: templates/view_create.twig:65
+#: templates/view_create.twig:70
 msgid "VIEW name"
 msgstr "VIEW aty"
 
-#: templates/view_create.twig:79
+#: templates/view_create.twig:84
 msgid "Column names"
 msgstr "Baǵan ataýlary"
+
+#, fuzzy
+#~| msgid "Slave configuration"
+#~ msgid "Replica configuration"
+#~ msgstr "Jetekteginiń konfıgýrasıasy"
 
 #~ msgid ""
 #~ "Leave blank for no QBE saved searches support, suggested: "
