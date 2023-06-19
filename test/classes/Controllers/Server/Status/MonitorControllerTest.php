@@ -64,11 +64,7 @@ class MonitorControllerTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString('<div class="tabLinks row">', $html);
-        $this->assertStringContainsString(
-            __('Start Monitor'),
-            $html,
-        );
+        $this->assertStringContainsString(__('Start monitor'), $html);
         $this->assertStringContainsString(
             __('Settings'),
             $html,
@@ -79,7 +75,6 @@ class MonitorControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString('<div class="popupContent settingsPopup">', $html);
-        $this->assertStringContainsString('<a href="#settingsPopup" class="popupLink">', $html);
         $this->assertStringContainsString(
             __('Enable charts dragging'),
             $html,

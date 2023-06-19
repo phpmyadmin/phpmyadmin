@@ -99,7 +99,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
  */
 AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#emptyDialog').remove();
-    $('a.popupLink').off('click');
+    $('#monitorSettingsButton').off('click');
     $('body').off('click');
 });
 
@@ -111,14 +111,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         .attr('id', 'emptyDialog')
         .appendTo('#page_content');
 
-    $('a.popupLink').on('click', function () {
+    $('#monitorSettingsButton').on('click', function () {
         var $link = $(this);
-        $('div.' + $link.attr('href').substring(1))
+        $('div.settingsPopup')
             .show()
             .offset({ top: $link.offset().top + $link.height() + 5, left: $link.offset().left })
             .addClass('openedPopup');
-
-        return false;
     });
 
     $('body').on('click', function (event) {
@@ -136,15 +134,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 });
 
 AJAX.registerTeardown('server/status/monitor.js', function () {
-    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').off('click');
+    $('a[href="#rearrangeCharts"]').off('click');
+    $('#monitorRearrangeChartButton').off('click');
     $('div.popupContent select[name="chartColumns"]').off('change');
     $('div.popupContent select[name="gridChartRefresh"]').off('change');
     $('a[href="#addNewChart"]').off('click');
     $('a[href="#exportMonitorConfig"]').off('click');
     $('a[href="#importMonitorConfig"]').off('click');
     $('a[href="#clearMonitorConfig"]').off('click');
-    $('a[href="#pauseCharts"]').off('click');
-    $('a[href="#monitorInstructionsDialog"]').off('click');
+    $('#monitorPauseResumeButton').off('click');
+    $('#monitorInstructionsButton').off('click');
     $('input[name="chartType"]').off('click');
     $('input[name="useDivisor"]').off('click');
     $('input[name="useUnit"]').off('click');
@@ -160,8 +159,6 @@ AJAX.registerTeardown('server/status/monitor.js', function () {
 });
 
 AJAX.registerOnload('server/status/monitor.js', function () {
-    // Show tab links
-    $('div.tabLinks').show();
     $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
     if (! window.codeMirrorEditor) {
@@ -483,34 +480,34 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         defaultChartGrid.c5 = presetCharts.swap;
     }
 
-    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').on('click', function (event) {
+    $('a[href="#rearrangeCharts"]').on('click', function (event) {
         event.preventDefault();
-        editMode = ! editMode;
-        if ($(this).attr('href') === '#endChartEditMode') {
-            editMode = false;
-        }
+        editMode = true;
 
-        $('a[href="#endChartEditMode"]').toggle(editMode);
+        $('#monitorRearrangeChartButton').removeClass('d-none');
 
-        if (editMode) {
-            // Close the settings popup
-            $('div.popupContent').hide().removeClass('openedPopup');
+        // Close the settings popup
+        $('div.popupContent').hide().removeClass('openedPopup');
 
-            $('#chartGrid').sortableTable({
-                ignoreRect: {
-                    top: 8,
-                    left: chartSize.width - 63,
-                    width: 54,
-                    height: 24
-                }
-            });
-        } else {
-            $('#chartGrid').sortableTable('destroy');
-        }
+        $('#chartGrid').sortableTable({
+            ignoreRect: {
+                top: 8,
+                left: chartSize.width - 63,
+                width: 54,
+                height: 24
+            }
+        });
 
         saveMonitor(); // Save settings
 
         return false;
+    });
+
+    $('#monitorRearrangeChartButton').on('click', function (event) {
+        editMode = false;
+        $('#chartGrid').sortableTable('destroy');
+        saveMonitor();
+        $('#monitorRearrangeChartButton').addClass('d-none');
     });
 
     // global settings
@@ -821,8 +818,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         rebuildGrid();
     });
 
-    $('a[href="#pauseCharts"]').on('click', function (event) {
-        event.preventDefault();
+    $('#monitorPauseResumeButton').on('click', function () {
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
             $(this).html(getImageTag('play') + window.Messages.strResumeMonitor);
@@ -830,16 +826,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $(this).html(getImageTag('pause') + window.Messages.strPauseMonitor);
             if (! runtime.charts) {
                 initGrid();
-                $('a[href="#settingsPopup"]').show();
             }
         }
-
-        return false;
     });
 
-    $('a[href="#monitorInstructionsDialog"]').on('click', function (event) {
-        event.preventDefault();
-
+    $('#monitorInstructionsButton').on('click', function () {
         var $dialog = $('#monitorInstructionsDialog');
         var dlgBtns = {
             [window.Messages.strClose]: {
@@ -2469,5 +2460,5 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
 // Run the monitor once loaded
 AJAX.registerOnload('server/status/monitor.js', function () {
-    $('a[href="#pauseCharts"]').trigger('click');
+    $('#monitorPauseResumeButton').trigger('click');
 });

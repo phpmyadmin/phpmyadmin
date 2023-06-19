@@ -1,25 +1,14 @@
 {% extends 'server/status/base.twig' %}
 {% set active = 'monitor' %}
 {% block content %}
+  <h2 class="mb-3">{{ 'System monitor'|trans }}</h2>
 
-<div class="tabLinks row">
-  <a href="#pauseCharts">
-    {{ get_image('play') }}
-    {%- trans 'Start Monitor' -%}
-  </a>
-  <a href="#settingsPopup" class="popupLink">
-    {{ get_image('s_cog') }}
-    {%- trans 'Settings' -%}
-  </a>
-  <a href="#monitorInstructionsDialog">
-    {{ get_image('b_help') }}
-    {%- trans 'Instructions/Setup' -%}
-  </a>
-  <a href="#endChartEditMode" class="hide">
-    {{ get_image('s_okay') }}
-    {%- trans 'Done dragging (rearranging) charts' -%}
-  </a>
-</div>
+  <div class="mb-3 d-print-none">
+    <button type="button" class="btn btn-secondary" id="monitorPauseResumeButton">{{ get_icon('play', 'Start monitor'|trans) }}</button>
+    <button type="button" class="btn btn-secondary" id="monitorSettingsButton">{{ get_icon('s_cog', 'Settings'|trans) }}</button>
+    <button type="button" class="btn btn-secondary" id="monitorInstructionsButton">{{ get_icon('b_help', 'Instructions/Setup'|trans) }}</button>
+    <button type="button" class="btn btn-primary d-none" id="monitorRearrangeChartButton">{{ get_icon('s_okay', 'Done dragging (rearranging) charts'|trans) }}</button>
+  </div>
 
 <div class="popupContent settingsPopup">
   <a href="#addNewChart">
