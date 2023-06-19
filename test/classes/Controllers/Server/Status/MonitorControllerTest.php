@@ -74,7 +74,7 @@ class MonitorControllerTest extends AbstractTestCase
             $html,
         );
 
-        $this->assertStringContainsString('<div class="popupContent settingsPopup">', $html);
+        $this->assertStringContainsString('<div class="collapse" id="monitorSettingsContent">', $html);
         $this->assertStringContainsString(
             __('Enable charts dragging'),
             $html,

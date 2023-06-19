@@ -347,10 +347,6 @@ select {
   clear: both;
 }
 
-.paddingtop {
-  padding-top: 1em;
-}
-
 .separator {
   color: #fff;
 }
@@ -764,16 +760,6 @@ div.tabLinks {
   .icon {
     margin: -0.2em 0.3em 0 0;
   }
-}
-
-.popupContent {
-  display: none;
-  position: absolute;
-  border: 1px solid #ccc;
-  margin: 0;
-  padding: 3px;
-  background-color: #fff;
-  z-index: 2;
 }
 
 div {

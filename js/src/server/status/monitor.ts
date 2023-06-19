@@ -99,8 +99,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
  */
 AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#emptyDialog').remove();
-    $('#monitorSettingsButton').off('click');
-    $('body').off('click');
 });
 
 /**
@@ -110,38 +108,17 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     $('<div></div>')
         .attr('id', 'emptyDialog')
         .appendTo('#page_content');
-
-    $('#monitorSettingsButton').on('click', function () {
-        var $link = $(this);
-        $('div.settingsPopup')
-            .show()
-            .offset({ top: $link.offset().top + $link.height() + 5, left: $link.offset().left })
-            .addClass('openedPopup');
-    });
-
-    $('body').on('click', function (event) {
-        $('div.openedPopup').each(function () {
-            var $cnt = $(this);
-            var pos = $cnt.offset();
-            // Hide if the mouseclick is outside the popupcontent
-            if (event.pageX > pos.left + $cnt.outerWidth() ||
-                event.pageY > pos.top + $cnt.outerHeight()
-            ) {
-                $cnt.hide().removeClass('openedPopup');
-            }
-        });
-    });
 });
 
 AJAX.registerTeardown('server/status/monitor.js', function () {
-    $('a[href="#rearrangeCharts"]').off('click');
     $('#monitorRearrangeChartButton').off('click');
-    $('div.popupContent select[name="chartColumns"]').off('change');
-    $('div.popupContent select[name="gridChartRefresh"]').off('change');
-    $('a[href="#addNewChart"]').off('click');
-    $('a[href="#exportMonitorConfig"]').off('click');
-    $('a[href="#importMonitorConfig"]').off('click');
-    $('a[href="#clearMonitorConfig"]').off('click');
+    $('#monitorDoneRearrangeChartButton').off('click');
+    $('#monitorChartColumnsSelect').off('change');
+    $('#monitorChartRefreshRateSelect').off('change');
+    $('#monitorAddNewChartButton').off('click');
+    $('#monitorExportConfigButton').off('click');
+    $('#monitorImportConfigButton').off('click');
+    $('#monitorResetConfigButton').off('click');
     $('#monitorPauseResumeButton').off('click');
     $('#monitorInstructionsButton').off('click');
     $('input[name="chartType"]').off('click');
@@ -480,14 +457,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         defaultChartGrid.c5 = presetCharts.swap;
     }
 
-    $('a[href="#rearrangeCharts"]').on('click', function (event) {
+    $('#monitorRearrangeChartButton').on('click', function (event) {
         event.preventDefault();
         editMode = true;
 
-        $('#monitorRearrangeChartButton').removeClass('d-none');
-
-        // Close the settings popup
-        $('div.popupContent').hide().removeClass('openedPopup');
+        $('#monitorRearrangeChartButton').addClass('d-none');
+        $('#monitorDoneRearrangeChartButton').removeClass('d-none');
 
         $('#chartGrid').sortableTable({
             ignoreRect: {
@@ -503,15 +478,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         return false;
     });
 
-    $('#monitorRearrangeChartButton').on('click', function (event) {
+    $('#monitorDoneRearrangeChartButton').on('click', function (event) {
         editMode = false;
         $('#chartGrid').sortableTable('destroy');
         saveMonitor();
-        $('#monitorRearrangeChartButton').addClass('d-none');
+        $('#monitorRearrangeChartButton').removeClass('d-none');
+        $('#monitorDoneRearrangeChartButton').addClass('d-none');
     });
 
     // global settings
-    ($('div.popupContent select[name="chartColumns"]') as JQuery<HTMLSelectElement>).on('change', function () {
+    ($('#monitorChartColumnsSelect') as JQuery<HTMLSelectElement>).on('change', function () {
         monitorSettings.columns = parseInt(this.value, 10);
 
         calculateChartSize();
@@ -577,7 +553,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         saveMonitor(); // Save settings
     });
 
-    ($('div.popupContent select[name="gridChartRefresh"]') as JQuery<HTMLSelectElement>).on('change', function () {
+    ($('#monitorChartRefreshRateSelect') as JQuery<HTMLSelectElement>).on('change', function () {
         monitorSettings.gridRefresh = parseInt(this.value, 10) * 1000;
         clearTimeout(runtime.refreshTimeout);
 
@@ -593,9 +569,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         saveMonitor(); // Save settings
     });
 
-    $('a[href="#addNewChart"]').on('click', function (event) {
-        event.preventDefault();
-
+    $('#monitorAddNewChartButton').on('click', function (event) {
         $('#addChartButton').on('click', function () {
             var type = $('input[name="chartType"]:checked').val();
 
@@ -666,12 +640,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $('#addChartModal').modal('show');
 
         $('#seriesPreview').html('<i>' + window.Messages.strNone + '</i>');
-
-        return false;
     });
 
-    $('a[href="#exportMonitorConfig"]').on('click', function (event) {
-        event.preventDefault();
+    $('#monitorExportConfigButton').on('click', function () {
         var gridCopy = {};
         $.each(runtime.charts, function (key, elem) {
             gridCopy[key] = {};
@@ -710,8 +681,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }, 100);
     });
 
-    $('a[href="#importMonitorConfig"]').on('click', function (event) {
-        event.preventDefault();
+    $('#monitorImportConfigButton').on('click', function () {
         $('#emptyDialog').dialog({
             classes: {
                 'ui-dialog-titlebar-close': 'btn-close'
@@ -806,8 +776,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         });
     });
 
-    $('a[href="#clearMonitorConfig"]').on('click', function (event) {
-        event.preventDefault();
+    $('#monitorResetConfigButton').on('click', function () {
         if (isStorageSupported('localStorage')) {
             window.localStorage.removeItem('monitorCharts');
             window.localStorage.removeItem('monitorSettings');
@@ -1112,7 +1081,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 monitorSettings = JSON.parse(window.localStorage.monitorSettings);
             }
 
-            $('a[href="#clearMonitorConfig"]').toggle(runtime.charts !== null);
+            $('#monitorResetConfigButton').toggle(runtime.charts !== null);
 
             if (runtime.charts !== null
                 && typeof window.localStorage.monitorVersion !== 'undefined'
@@ -1156,8 +1125,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             monitorSettings = defaultMonitorSettings;
         }
 
-        $('select[name="gridChartRefresh"]').val(monitorSettings.gridRefresh / 1000);
-        $('select[name="chartColumns"]').val(monitorSettings.columns);
+        $('#monitorChartRefreshRateSelect').val(monitorSettings.gridRefresh / 1000);
+        $('#monitorChartColumnsSelect').val(monitorSettings.columns);
 
         if (monitorSettings.gridMaxPoints === 'auto') {
             runtime.gridMaxPoints = Math.round((monitorSettings.chartSize.width - 40) / 12);
@@ -2454,7 +2423,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             window.localStorage.monitorVersion = monitorProtocolVersion;
         }
 
-        $('a[href="#clearMonitorConfig"]').show();
+        $('#monitorResetConfigButton').show();
     }
 });
 
