@@ -7,7 +7,7 @@ import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import { Indexes } from '../modules/indexes.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
-import { escapeHtml } from '../modules/functions/escape.ts';
+import { escapeHtml, escapeJsString } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
 
 /**
@@ -191,7 +191,8 @@ AJAX.registerOnload('table/structure.js', function () {
          * @var currColumnName    String containing name of the field referred to by {@link curr_row}
          */
         var currColumnName = $currRow.children('th').children('label').text().trim();
-        currColumnName = escapeHtml(currColumnName);
+        currColumnName = escapeJsString(escapeHtml(currColumnName));
+
         /**
          * @var $afterFieldItem    Corresponding entry in the 'After' field.
          */
