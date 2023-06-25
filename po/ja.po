@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-06-18 00:21+0000\n"
+"POT-Creation-Date: 2023-06-25 00:23+0000\n"
 "PO-Revision-Date: 2023-04-06 01:50+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1904,7 +1904,7 @@ msgstr "右"
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
-#: templates/server/status/monitor/index.twig:211
+#: templates/server/status/monitor/index.twig:192
 #: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
@@ -4627,7 +4627,7 @@ msgstr "ロックされているテーブルをスキップする"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: libraries/classes/Display/Results.php:2701
 #: libraries/classes/Html/Generator.php:577
-#: libraries/classes/Html/Generator.php:839
+#: libraries/classes/Html/Generator.php:840
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4975,7 +4975,7 @@ msgstr "OpenDocument テキスト"
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:124
 #: templates/server/privileges/users_overview.twig:125
-#: templates/server/status/monitor/index.twig:81
+#: templates/server/status/monitor/index.twig:62
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:119
 #: templates/table/privileges/index.twig:120 templates/triggers/list.twig:17
@@ -5000,7 +5000,7 @@ msgstr "LOAD DATA 文を使用した CSV の読み込み"
 #: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
-#: templates/server/status/monitor/index.twig:78
+#: templates/server/status/monitor/index.twig:61
 msgid "Import"
 msgstr "インポート"
 
@@ -6007,7 +6007,7 @@ msgid "Matched rows:"
 msgstr "一致した行:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:814 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:815 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -6074,8 +6074,8 @@ msgstr "選択したユーザを削除する"
 #: templates/server/privileges/users_overview.twig:176
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
-#: templates/server/status/monitor/index.twig:129
-#: templates/server/status/monitor/index.twig:218
+#: templates/server/status/monitor/index.twig:110
+#: templates/server/status/monitor/index.twig:199
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
 #: templates/sql/query.twig:221 templates/sql/query.twig:226
@@ -6267,14 +6267,14 @@ msgstr "バイト"
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Util.php:302
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:167
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 #: libraries/classes/Util.php:304
-#: templates/server/status/monitor/index.twig:187
+#: templates/server/status/monitor/index.twig:168
 msgid "MiB"
 msgstr "MiB"
 
@@ -6319,12 +6319,12 @@ msgstr "トラフィック"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 #: libraries/classes/Menu.php:491 libraries/classes/Util.php:1691
-#: templates/server/status/monitor/index.twig:12
+#: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "設定"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:222
-#: templates/server/status/monitor/index.twig:217
+#: templates/server/status/monitor/index.twig:198
 msgid "Add chart to grid"
 msgstr "モニタリンググラフを追加する"
 
@@ -6715,7 +6715,7 @@ msgstr "適用"
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:172
-#: templates/server/status/monitor/index.twig:95
+#: templates/server/status/monitor/index.twig:76
 #: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
 msgstr "読み込み中…"
@@ -7042,7 +7042,7 @@ msgid "No partial dependencies selected!"
 msgstr "部分的な依存が選択されていません!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:905
+#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -9016,7 +9016,7 @@ msgid "Wrong data or no validation for %s"
 msgstr "「%s」のデータが間違っているか、検証されていません"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:237
-#: libraries/classes/Sql.php:1096
+#: libraries/classes/Sql.php:1097
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -9120,7 +9120,7 @@ msgstr "リクエストに問題があります。"
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1220
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:201
-#: libraries/classes/Sql.php:908
+#: libraries/classes/Sql.php:909
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
@@ -9160,7 +9160,7 @@ msgstr "パーティション名を空文字列にすることはできません
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
-#: libraries/classes/Html/Generator.php:790 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:791 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:501 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -9379,7 +9379,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Routines.php:337
 #: libraries/classes/Database/Routines.php:1231
 #: libraries/classes/Database/Routines.php:1514
-#: libraries/classes/Html/Generator.php:855
+#: libraries/classes/Html/Generator.php:856
 #: libraries/classes/Triggers/Triggers.php:76
 #: libraries/classes/Triggers/Triggers.php:85
 #: libraries/classes/Triggers/Triggers.php:112
@@ -9680,7 +9680,7 @@ msgstr "合計 %1$d, クエリで %2$d"
 msgid "%d total"
 msgstr "合計 %d"
 
-#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:914
+#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:915
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
@@ -10021,7 +10021,7 @@ msgstr ""
 "ファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
 
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:724
+#: libraries/classes/Html/Generator.php:725
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
@@ -10201,21 +10201,21 @@ msgstr "PHP コードを省略"
 msgid "Submit query"
 msgstr "クエリを実行する"
 
-#: libraries/classes/Html/Generator.php:660 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:661 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:3
 msgid "Profiling"
 msgstr "プロファイリング"
 
-#: libraries/classes/Html/Generator.php:674
+#: libraries/classes/Html/Generator.php:675
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インライン編集"
 
-#: libraries/classes/Html/Generator.php:797
+#: libraries/classes/Html/Generator.php:798
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: libraries/classes/Html/Generator.php:800
+#: libraries/classes/Html/Generator.php:801
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -10264,7 +10264,7 @@ msgstr "テーブル名を %d 文字より長くすることはできません�
 msgid "The trigger name cannot end with a space character."
 msgstr "テーブル名を空白文字で終えることはできません。"
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:922
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:923
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
@@ -10420,11 +10420,11 @@ msgstr "または"
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:905
+#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:906
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:885
+#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:886
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -12936,16 +12936,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "入手可能な新しい安定バージョンはありません"
 
-#: libraries/classes/Sql.php:456
+#: libraries/classes/Sql.php:457
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: libraries/classes/Sql.php:902
+#: libraries/classes/Sql.php:903
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/classes/Sql.php:1276
+#: libraries/classes/Sql.php:1277
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12954,7 +12954,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: libraries/classes/Sql.php:1290
+#: libraries/classes/Sql.php:1291
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -17435,64 +17435,72 @@ msgstr "モニタ"
 msgid "Advisor"
 msgstr "アドバイザ"
 
-#: templates/server/status/monitor/index.twig:8
-msgid "Start Monitor"
+#: templates/server/status/monitor/index.twig:4
+#, fuzzy
+#| msgid "System memory"
+msgid "System monitor"
+msgstr "システムメモリ"
+
+#: templates/server/status/monitor/index.twig:7
+#, fuzzy
+#| msgid "Start Monitor"
+msgid "Start monitor"
 msgstr "モニタ開始"
 
-#: templates/server/status/monitor/index.twig:16
+#: templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
 msgstr "使用方法／セットアップ"
 
-#: templates/server/status/monitor/index.twig:20
-msgid "Done dragging (rearranging) charts"
-msgstr "グラフの再配置完了"
-
-#: templates/server/status/monitor/index.twig:27
+#: templates/server/status/monitor/index.twig:16
 msgid "Add chart"
 msgstr "グラフの追加"
 
-#: templates/server/status/monitor/index.twig:31
+#: templates/server/status/monitor/index.twig:17
 msgid "Enable charts dragging"
 msgstr "グラフをドラッグするを有効"
 
-#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/monitor/index.twig:18
+msgid "Done dragging (rearranging) charts"
+msgstr "グラフの再配置完了"
+
+#: templates/server/status/monitor/index.twig:23
 #: templates/server/status/processes/index.twig:33
 msgid "Refresh rate"
 msgstr "更新間隔"
 
-#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/monitor/index.twig:29
 #: templates/server/status/processes/index.twig:40
 #, php-format
 msgid "%d second"
 msgstr "%d 秒"
 
-#: templates/server/status/monitor/index.twig:45
+#: templates/server/status/monitor/index.twig:31
 #: templates/server/status/processes/index.twig:42
 #, php-format
 msgid "%d seconds"
 msgstr "%d 秒"
 
-#: templates/server/status/monitor/index.twig:49
+#: templates/server/status/monitor/index.twig:35
 #: templates/server/status/processes/index.twig:46
 #, php-format
 msgid "%d minute"
 msgstr "%d 分"
 
-#: templates/server/status/monitor/index.twig:51
+#: templates/server/status/monitor/index.twig:37
 #: templates/server/status/processes/index.twig:48
 #, php-format
 msgid "%d minutes"
 msgstr "%d 分"
 
-#: templates/server/status/monitor/index.twig:61
+#: templates/server/status/monitor/index.twig:46
 msgid "Chart columns"
 msgstr "1 段のグラフ数"
 
-#: templates/server/status/monitor/index.twig:74
+#: templates/server/status/monitor/index.twig:57
 msgid "Chart arrangement"
 msgstr "モニタ環境設定"
 
-#: templates/server/status/monitor/index.twig:75
+#: templates/server/status/monitor/index.twig:58
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -17500,15 +17508,15 @@ msgstr ""
 "モニタの環境設定をローカルに保存します。変更されているモニタ環境をエクスポー"
 "トできます。"
 
-#: templates/server/status/monitor/index.twig:84
+#: templates/server/status/monitor/index.twig:63
 msgid "Reset to default"
 msgstr "デフォルトに戻す"
 
-#: templates/server/status/monitor/index.twig:89
+#: templates/server/status/monitor/index.twig:70
 msgid "Monitor Instructions"
 msgstr "モニタの使用方法"
 
-#: templates/server/status/monitor/index.twig:91
+#: templates/server/status/monitor/index.twig:72
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -17522,11 +17530,11 @@ msgstr ""
 "いずれかを有効にする必要があります。なお、general_log は大量のデータを生成"
 "し、サーバの負荷を最大 15% 増加させますので、注意するようにしてください。"
 
-#: templates/server/status/monitor/index.twig:101
+#: templates/server/status/monitor/index.twig:82
 msgid "Using the monitor:"
 msgstr "モニタの使い方："
 
-#: templates/server/status/monitor/index.twig:103
+#: templates/server/status/monitor/index.twig:84
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -17536,7 +17544,7 @@ msgstr ""
 "のところよりグラフを追加や更新間隔の変更することができ、それぞれのグラフにあ"
 "る歯車のアイコンを通じて削除が行えます。"
 
-#: templates/server/status/monitor/index.twig:108
+#: templates/server/status/monitor/index.twig:89
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -17549,11 +17557,11 @@ msgstr ""
 "れ表示されますので、実行されたクエリを確認することができます。SELECT 文の部分"
 "をクリックすることで、更なるクエリ解析が可能です。"
 
-#: templates/server/status/monitor/index.twig:114
+#: templates/server/status/monitor/index.twig:95
 msgid "Please note:"
 msgstr "注意事項："
 
-#: templates/server/status/monitor/index.twig:117
+#: templates/server/status/monitor/index.twig:98
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -17566,80 +17574,80 @@ msgstr ""
 "うにし、それ以上必要がないのであれば、general_log を無効にして一般クエリログ"
 "テーブルを空にしておくのが望ましいです。"
 
-#: templates/server/status/monitor/index.twig:128
-#: templates/server/status/monitor/index.twig:134
+#: templates/server/status/monitor/index.twig:109
+#: templates/server/status/monitor/index.twig:115
 msgid "Chart Title"
 msgstr "グラフの題名"
 
-#: templates/server/status/monitor/index.twig:138
+#: templates/server/status/monitor/index.twig:119
 msgid "Preset chart"
 msgstr "プリセットグラフ"
 
-#: templates/server/status/monitor/index.twig:144
+#: templates/server/status/monitor/index.twig:125
 msgid "Status variable(s)"
 msgstr "状態変数"
 
-#: templates/server/status/monitor/index.twig:149
+#: templates/server/status/monitor/index.twig:130
 msgid "Select series:"
 msgstr "系列の選択："
 
-#: templates/server/status/monitor/index.twig:152
+#: templates/server/status/monitor/index.twig:133
 msgid "Commonly monitored"
 msgstr "一般的なモニタ対象"
 
-#: templates/server/status/monitor/index.twig:170
+#: templates/server/status/monitor/index.twig:151
 msgid "or type variable name:"
 msgstr "もしくは対象変数名:"
 
-#: templates/server/status/monitor/index.twig:177
+#: templates/server/status/monitor/index.twig:158
 msgid "Display as differential value"
 msgstr "差分値として表示する"
 
-#: templates/server/status/monitor/index.twig:182
+#: templates/server/status/monitor/index.twig:163
 msgid "Apply a divisor"
 msgstr "除数を適用する"
 
-#: templates/server/status/monitor/index.twig:193
+#: templates/server/status/monitor/index.twig:174
 msgid "Append unit to data values"
 msgstr "データ値に単位を追加する"
 
-#: templates/server/status/monitor/index.twig:201
+#: templates/server/status/monitor/index.twig:182
 msgid "Add this series"
 msgstr "この系列を追加する"
 
-#: templates/server/status/monitor/index.twig:204
+#: templates/server/status/monitor/index.twig:185
 msgid "Clear series"
 msgstr "系列をクリアする"
 
-#: templates/server/status/monitor/index.twig:208
+#: templates/server/status/monitor/index.twig:189
 msgid "Series in chart:"
 msgstr "グラフの系列:"
 
-#: templates/server/status/monitor/index.twig:224
+#: templates/server/status/monitor/index.twig:205
 msgid "Log statistics"
 msgstr "ログの統計"
 
-#: templates/server/status/monitor/index.twig:226
+#: templates/server/status/monitor/index.twig:207
 msgid "Selected time range:"
 msgstr "選択期間："
 
-#: templates/server/status/monitor/index.twig:234
+#: templates/server/status/monitor/index.twig:215
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "SELECT、INSERT、UPDATE、DELETE 文のみ取得する"
 
-#: templates/server/status/monitor/index.twig:240
+#: templates/server/status/monitor/index.twig:221
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "結果を扱いやすくするために INSERT 文におけるデータ部を同一のように扱う"
 
-#: templates/server/status/monitor/index.twig:244
+#: templates/server/status/monitor/index.twig:225
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "ログの統計元を選択することができます。"
 
-#: templates/server/status/monitor/index.twig:247
+#: templates/server/status/monitor/index.twig:228
 msgid "Results are grouped by query text."
 msgstr "結果はクエリ文でグループ化されます。"
 
-#: templates/server/status/monitor/index.twig:251
+#: templates/server/status/monitor/index.twig:232
 msgid "Query analyzer"
 msgstr "クエリの解析"
 
@@ -17960,6 +17968,12 @@ msgstr "呼び出し"
 #: templates/sql/profiling_chart.twig:40
 msgid "ø Time"
 msgstr "ø 時間"
+
+#: templates/sql/profiling_chart.twig:66
+#, fuzzy
+#| msgid "Profiling results"
+msgid "Pie chart with profiling results."
+msgstr "プロファイリングの結果"
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"

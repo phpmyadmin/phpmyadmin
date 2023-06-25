@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-06-18 00:21+0000\n"
+"POT-Creation-Date: 2023-06-25 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1866,7 +1866,7 @@ msgstr "දකුණ"
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
-#: templates/server/status/monitor/index.twig:211
+#: templates/server/status/monitor/index.twig:192
 #: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
@@ -4883,7 +4883,7 @@ msgstr "අගුලු ළෑ දත්තගබඩා මඟහරින්න
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: libraries/classes/Display/Results.php:2701
 #: libraries/classes/Html/Generator.php:577
-#: libraries/classes/Html/Generator.php:839
+#: libraries/classes/Html/Generator.php:840
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -5255,7 +5255,7 @@ msgstr "OpenDocument පෙළ"
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:124
 #: templates/server/privileges/users_overview.twig:125
-#: templates/server/status/monitor/index.twig:81
+#: templates/server/status/monitor/index.twig:62
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:119
 #: templates/table/privileges/index.twig:120 templates/triggers/list.twig:17
@@ -5280,7 +5280,7 @@ msgstr "LOAD DATA භාවිතයෙන් CSV"
 #: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
-#: templates/server/status/monitor/index.twig:78
+#: templates/server/status/monitor/index.twig:61
 msgid "Import"
 msgstr "ආනයනය"
 
@@ -6280,7 +6280,7 @@ msgid "Matched rows:"
 msgstr "වෙනස් වූ පේළි:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:814 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:815 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL විමසුම:"
 
@@ -6351,8 +6351,8 @@ msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත
 #: templates/server/privileges/users_overview.twig:176
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
-#: templates/server/status/monitor/index.twig:129
-#: templates/server/status/monitor/index.twig:218
+#: templates/server/status/monitor/index.twig:110
+#: templates/server/status/monitor/index.twig:199
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
 #: templates/sql/query.twig:221 templates/sql/query.twig:226
@@ -6563,14 +6563,14 @@ msgstr "B"
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Util.php:302
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:167
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 #: libraries/classes/Util.php:304
-#: templates/server/status/monitor/index.twig:187
+#: templates/server/status/monitor/index.twig:168
 msgid "MiB"
 msgstr "MiB"
 
@@ -6615,12 +6615,12 @@ msgstr "දත්ත හුවමාරුව"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 #: libraries/classes/Menu.php:491 libraries/classes/Util.php:1691
-#: templates/server/status/monitor/index.twig:12
+#: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "සිටුවම්"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:222
-#: templates/server/status/monitor/index.twig:217
+#: templates/server/status/monitor/index.twig:198
 msgid "Add chart to grid"
 msgstr "ජාලකයට ප්‍රස්තාර එක් කරන්න"
 
@@ -7020,7 +7020,7 @@ msgstr ""
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:172
-#: templates/server/status/monitor/index.twig:95
+#: templates/server/status/monitor/index.twig:76
 #: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
 msgstr "පූරණය කෙරෙමින්…"
@@ -7370,7 +7370,7 @@ msgid "No partial dependencies selected!"
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:905
+#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -9463,7 +9463,7 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:237
-#: libraries/classes/Sql.php:1096
+#: libraries/classes/Sql.php:1097
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s පොත් සලකුණ සාදන ලදි."
@@ -9575,7 +9575,7 @@ msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැ�
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1220
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:201
-#: libraries/classes/Sql.php:908
+#: libraries/classes/Sql.php:909
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL හිස් ප්‍රතිඵල කුලකයක් (පේළි කිසිවක් අඩංගු නොවන) සපයන ලදි."
 
@@ -9619,7 +9619,7 @@ msgstr "වගුවෙහි නම හිස්ව ඇත!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
-#: libraries/classes/Html/Generator.php:790 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:791 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:501 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -9869,7 +9869,7 @@ msgstr "පහත විමසුම් අසමත් විය: \"%s\""
 #: libraries/classes/Database/Routines.php:337
 #: libraries/classes/Database/Routines.php:1231
 #: libraries/classes/Database/Routines.php:1514
-#: libraries/classes/Html/Generator.php:855
+#: libraries/classes/Html/Generator.php:856
 #: libraries/classes/Triggers/Triggers.php:76
 #: libraries/classes/Triggers/Triggers.php:85
 #: libraries/classes/Triggers/Triggers.php:112
@@ -10172,7 +10172,7 @@ msgstr ""
 msgid "%d total"
 msgstr "මුළු එකතුව %d"
 
-#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:914
+#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:915
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි."
@@ -10471,7 +10471,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:724
+#: libraries/classes/Html/Generator.php:725
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
@@ -10654,25 +10654,25 @@ msgstr "PHP කේත නොමැතිව"
 msgid "Submit query"
 msgstr "විමසුම ඉදිරිපත් කරන්න"
 
-#: libraries/classes/Html/Generator.php:660 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:661 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:3
 msgid "Profiling"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:674
+#: libraries/classes/Html/Generator.php:675
 #, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
-#: libraries/classes/Html/Generator.php:797
+#: libraries/classes/Html/Generator.php:798
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "ස්ථිතික දත්ත"
 
-#: libraries/classes/Html/Generator.php:800
+#: libraries/classes/Html/Generator.php:801
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -10729,7 +10729,7 @@ msgstr "වචන වෙන් කෙරෙන්නේ හිස් තැන�
 msgid "The trigger name cannot end with a space character."
 msgstr "වචන වෙන් කෙරෙන්නේ හිස් තැනකිනි(\" \")."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:922
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:923
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10886,11 +10886,11 @@ msgstr "හෝ"
 msgid "web server upload directory:"
 msgstr "වෙබ් සේවාදායකයේ උඩුගත ඩිරෙක්ටරිය:"
 
-#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:905
+#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:906
 msgid "Showing SQL query"
 msgstr "SQL විමසුම පෙන්වමින්"
 
-#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:885
+#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:886
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "%1$d පේළිය ඇතුල් කරන ලදි"
@@ -13477,16 +13477,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "අලුත් ස්ථායී අනුවාදයක් නොමැත"
 
-#: libraries/classes/Sql.php:456
+#: libraries/classes/Sql.php:457
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "\"%s\" පොත් සලකුණ පිරික්සීම සඳහා වූ පෙරනිමි SQL විමසුම ලෙස යොදා ගනිමින්."
 
-#: libraries/classes/Sql.php:902
+#: libraries/classes/Sql.php:903
 msgid "Showing as PHP code"
 msgstr "PHP කේත ලෙස පෙන්වමින්"
 
-#: libraries/classes/Sql.php:1276
+#: libraries/classes/Sql.php:1277
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13498,7 +13498,7 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: libraries/classes/Sql.php:1290
+#: libraries/classes/Sql.php:1291
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -18459,36 +18459,44 @@ msgstr "අධීක්ෂකය"
 msgid "Advisor"
 msgstr "උපදේශකය"
 
-#: templates/server/status/monitor/index.twig:8
-msgid "Start Monitor"
+#: templates/server/status/monitor/index.twig:4
+#, fuzzy
+#| msgid "System memory"
+msgid "System monitor"
+msgstr "පද්ධතියේ මතකය"
+
+#: templates/server/status/monitor/index.twig:7
+#, fuzzy
+#| msgid "Start Monitor"
+msgid "Start monitor"
 msgstr "අධීක්ෂණය අරඹන්න"
 
-#: templates/server/status/monitor/index.twig:16
+#: templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
 msgstr "උපදෙස්/පිහිටුවීම"
 
-#: templates/server/status/monitor/index.twig:20
-#, fuzzy
-#| msgid "Done rearranging/editing charts"
-msgid "Done dragging (rearranging) charts"
-msgstr "ප්‍රස්ථාර වෙනස් කර/අනුපිලිවෙල සකස්කර අවසානයි"
-
-#: templates/server/status/monitor/index.twig:27
+#: templates/server/status/monitor/index.twig:16
 msgid "Add chart"
 msgstr "ප්‍රස්ථාර එක් කරන්න"
 
-#: templates/server/status/monitor/index.twig:31
+#: templates/server/status/monitor/index.twig:17
 #, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
 msgstr "ඉස්මතු කිරීම සක්‍රීය කරන්න"
 
-#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/monitor/index.twig:18
+#, fuzzy
+#| msgid "Done rearranging/editing charts"
+msgid "Done dragging (rearranging) charts"
+msgstr "ප්‍රස්ථාර වෙනස් කර/අනුපිලිවෙල සකස්කර අවසානයි"
+
+#: templates/server/status/monitor/index.twig:23
 #: templates/server/status/processes/index.twig:33
 msgid "Refresh rate"
 msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍්‍රතාව"
 
-#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/monitor/index.twig:29
 #: templates/server/status/processes/index.twig:40
 #, fuzzy, php-format
 #| msgid "%d second"
@@ -18496,7 +18504,7 @@ msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍�
 msgid "%d second"
 msgstr "තත්පර %dක්"
 
-#: templates/server/status/monitor/index.twig:45
+#: templates/server/status/monitor/index.twig:31
 #: templates/server/status/processes/index.twig:42
 #, fuzzy, php-format
 #| msgid "%d second"
@@ -18504,29 +18512,29 @@ msgstr "තත්පර %dක්"
 msgid "%d seconds"
 msgstr "තත්පර %dක්"
 
-#: templates/server/status/monitor/index.twig:49
+#: templates/server/status/monitor/index.twig:35
 #: templates/server/status/processes/index.twig:46
 #, fuzzy, php-format
 #| msgid "per minute"
 msgid "%d minute"
 msgstr "මිනිත්තුවකට"
 
-#: templates/server/status/monitor/index.twig:51
+#: templates/server/status/monitor/index.twig:37
 #: templates/server/status/processes/index.twig:48
 #, fuzzy, php-format
 #| msgid "per minute"
 msgid "%d minutes"
 msgstr "මිනිත්තුවකට"
 
-#: templates/server/status/monitor/index.twig:61
+#: templates/server/status/monitor/index.twig:46
 msgid "Chart columns"
 msgstr "ප්‍රස්ථාරයේ තීර"
 
-#: templates/server/status/monitor/index.twig:74
+#: templates/server/status/monitor/index.twig:57
 msgid "Chart arrangement"
 msgstr "ප්‍රස්ථාර සැකසුම"
 
-#: templates/server/status/monitor/index.twig:75
+#: templates/server/status/monitor/index.twig:58
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -18534,15 +18542,15 @@ msgstr ""
 "ප්‍රස්ථාර සැකැස්ම බ්‍රවුසරයේ ගබඩාවේ ගබඩා කර ඇත. සංකීර්ණ වූ සැකැස්මක් ඇත්නම් ඔබට එය අපනයනය "
 "කර ගැනීමට අවශ්‍ය විය හැකිය."
 
-#: templates/server/status/monitor/index.twig:84
+#: templates/server/status/monitor/index.twig:63
 msgid "Reset to default"
 msgstr "පෙරනිමි අගයන් පිහිටුවන්න"
 
-#: templates/server/status/monitor/index.twig:89
+#: templates/server/status/monitor/index.twig:70
 msgid "Monitor Instructions"
 msgstr "අධීක්ෂකය පිලිබඳ උපදෙස්"
 
-#: templates/server/status/monitor/index.twig:91
+#: templates/server/status/monitor/index.twig:72
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -18556,11 +18564,11 @@ msgstr ""
 "general_log ය ඉතා විශාල දත්ත ප්‍රමාණයක් උත්පාදනය කරන බව සහ එමගින් සේවාදායකය මත භාරය "
 "15% දක්වා ඉහල යා හැකි බව සලකන්න."
 
-#: templates/server/status/monitor/index.twig:101
+#: templates/server/status/monitor/index.twig:82
 msgid "Using the monitor:"
 msgstr "අධීක්ෂකය භාවිතා කිරීම:"
 
-#: templates/server/status/monitor/index.twig:103
+#: templates/server/status/monitor/index.twig:84
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -18570,7 +18578,7 @@ msgstr ""
 "ප්‍රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
 "මත ඇති අයිකනය භාවිතා කර ඕනෑම ප්‍රස්ථාරයක් ඉවත් කිරීම සිදු කල හැක."
 
-#: templates/server/status/monitor/index.twig:108
+#: templates/server/status/monitor/index.twig:89
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -18582,11 +18590,11 @@ msgstr ""
 "පූරණය කෙරෙනු ඇත. එහි ඇතුලත් ඕනෑම SELECT ප්‍රකාශයක් ක්ලික් කිරීමෙන් එය තවදුරටත් විශ්ලේෂණය කල "
 "හැක."
 
-#: templates/server/status/monitor/index.twig:114
+#: templates/server/status/monitor/index.twig:95
 msgid "Please note:"
 msgstr "කරුණාවෙන් සලකන්න:"
 
-#: templates/server/status/monitor/index.twig:117
+#: templates/server/status/monitor/index.twig:98
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -18598,82 +18606,82 @@ msgstr ""
 "මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log "
 "අක්‍රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
 
-#: templates/server/status/monitor/index.twig:128
-#: templates/server/status/monitor/index.twig:134
+#: templates/server/status/monitor/index.twig:109
+#: templates/server/status/monitor/index.twig:115
 msgid "Chart Title"
 msgstr "ප්‍රස්තාර මාතෘකාව"
 
-#: templates/server/status/monitor/index.twig:138
+#: templates/server/status/monitor/index.twig:119
 msgid "Preset chart"
 msgstr "පෙරසැදි ප්‍රස්ථාර"
 
-#: templates/server/status/monitor/index.twig:144
+#: templates/server/status/monitor/index.twig:125
 msgid "Status variable(s)"
 msgstr "තත්ව විචල්‍ය(ය)"
 
-#: templates/server/status/monitor/index.twig:149
+#: templates/server/status/monitor/index.twig:130
 msgid "Select series:"
 msgstr "ශ්‍රේණිය තෝරන්න:"
 
-#: templates/server/status/monitor/index.twig:152
+#: templates/server/status/monitor/index.twig:133
 msgid "Commonly monitored"
 msgstr "සාමාන්‍යයෙන් අධීක්ෂණය කරනු ලබන"
 
-#: templates/server/status/monitor/index.twig:170
+#: templates/server/status/monitor/index.twig:151
 msgid "or type variable name:"
 msgstr "හෝ විචල්‍ය නාමය යතුරු කරන්න:"
 
-#: templates/server/status/monitor/index.twig:177
+#: templates/server/status/monitor/index.twig:158
 msgid "Display as differential value"
 msgstr "ආන්තර අගයන් ලෙස පෙන්වන්න"
 
-#: templates/server/status/monitor/index.twig:182
+#: templates/server/status/monitor/index.twig:163
 msgid "Apply a divisor"
 msgstr "භාජකයක් භාවිතා කරන්න"
 
-#: templates/server/status/monitor/index.twig:193
+#: templates/server/status/monitor/index.twig:174
 msgid "Append unit to data values"
 msgstr "දත්ත අගයන් සඳහා ඒකකයක් එක් කරන්න"
 
-#: templates/server/status/monitor/index.twig:201
+#: templates/server/status/monitor/index.twig:182
 msgid "Add this series"
 msgstr "මෙම ශ්‍රේණිය එක් කරන්න"
 
-#: templates/server/status/monitor/index.twig:204
+#: templates/server/status/monitor/index.twig:185
 msgid "Clear series"
 msgstr "ශ්‍රේණිය ඉවත් කරන්න"
 
-#: templates/server/status/monitor/index.twig:208
+#: templates/server/status/monitor/index.twig:189
 #, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "ප්‍රස්ථාරයේ ශ්‍රේණි:"
 
-#: templates/server/status/monitor/index.twig:224
+#: templates/server/status/monitor/index.twig:205
 msgid "Log statistics"
 msgstr "ලොග සංඛ්‍යලේඛන"
 
-#: templates/server/status/monitor/index.twig:226
+#: templates/server/status/monitor/index.twig:207
 msgid "Selected time range:"
 msgstr "තෝරාගත් කාල පරාසය:"
 
-#: templates/server/status/monitor/index.twig:234
+#: templates/server/status/monitor/index.twig:215
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "SELECT,INSERT,UPDATE සහ DELETE ප්‍රකාශ පමණක් ලබාගන්න"
 
-#: templates/server/status/monitor/index.twig:240
+#: templates/server/status/monitor/index.twig:221
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "වඩා හොඳ සමූහනයන් සඳහා INSERT ප්‍රකාශ වල අඩංගු විචල්‍ය දත්ත ඉවත් කරන්න"
 
-#: templates/server/status/monitor/index.twig:244
+#: templates/server/status/monitor/index.twig:225
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "සංඛ්‍යාලේඛන උත්පාදනය කල යුත්තේ කුමන ලොගයෙන් දැයි තෝරන්න."
 
-#: templates/server/status/monitor/index.twig:247
+#: templates/server/status/monitor/index.twig:228
 msgid "Results are grouped by query text."
 msgstr "ප්‍රතිඵල විමසුම් පෙළ මගින් සමූහනය කර ඇත."
 
-#: templates/server/status/monitor/index.twig:251
+#: templates/server/status/monitor/index.twig:232
 msgid "Query analyzer"
 msgstr "විමසුම් විශ්ලේශකය"
 
@@ -19034,6 +19042,12 @@ msgstr "වසන්න"
 #: templates/sql/profiling_chart.twig:40
 msgid "ø Time"
 msgstr "ø කාලය"
+
+#: templates/sql/profiling_chart.twig:66
+#, fuzzy
+#| msgid "Query results operations"
+msgid "Pie chart with profiling results."
+msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"

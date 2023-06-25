@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-06-18 00:21+0000\n"
+"POT-Creation-Date: 2023-06-25 00:23+0000\n"
 "PO-Revision-Date: 2022-10-12 10:26+0000\n"
 "Last-Translator: Yun Minseo <ddugi1214@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1819,7 +1819,7 @@ msgstr "오른쪽"
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
-#: templates/server/status/monitor/index.twig:211
+#: templates/server/status/monitor/index.twig:192
 #: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
@@ -4557,7 +4557,7 @@ msgstr "잠긴 테이블 건너뛰기"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: libraries/classes/Display/Results.php:2701
 #: libraries/classes/Html/Generator.php:577
-#: libraries/classes/Html/Generator.php:839
+#: libraries/classes/Html/Generator.php:840
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4915,7 +4915,7 @@ msgstr "OpenDocument 형식"
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:124
 #: templates/server/privileges/users_overview.twig:125
-#: templates/server/status/monitor/index.twig:81
+#: templates/server/status/monitor/index.twig:62
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:119
 #: templates/table/privileges/index.twig:120 templates/triggers/list.twig:17
@@ -4940,7 +4940,7 @@ msgstr "LOAD DATA문을 이용한 CSV 들여오기"
 #: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
-#: templates/server/status/monitor/index.twig:78
+#: templates/server/status/monitor/index.twig:61
 msgid "Import"
 msgstr "가져오기"
 
@@ -5935,7 +5935,7 @@ msgid "Matched rows:"
 msgstr "일치하는 행:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:814 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:815 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL 질의:"
 
@@ -6003,8 +6003,8 @@ msgstr "선택한 사용자를 삭제"
 #: templates/server/privileges/users_overview.twig:176
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
-#: templates/server/status/monitor/index.twig:129
-#: templates/server/status/monitor/index.twig:218
+#: templates/server/status/monitor/index.twig:110
+#: templates/server/status/monitor/index.twig:199
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
 #: templates/sql/query.twig:221 templates/sql/query.twig:226
@@ -6198,14 +6198,14 @@ msgstr "B"
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Util.php:302
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:167
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 #: libraries/classes/Util.php:304
-#: templates/server/status/monitor/index.twig:187
+#: templates/server/status/monitor/index.twig:168
 msgid "MiB"
 msgstr "MB"
 
@@ -6250,12 +6250,12 @@ msgstr "소통량"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 #: libraries/classes/Menu.php:491 libraries/classes/Util.php:1691
-#: templates/server/status/monitor/index.twig:12
+#: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "설정"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:222
-#: templates/server/status/monitor/index.twig:217
+#: templates/server/status/monitor/index.twig:198
 msgid "Add chart to grid"
 msgstr "차트에 그리드 추가"
 
@@ -6643,7 +6643,7 @@ msgstr "적용"
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:172
-#: templates/server/status/monitor/index.twig:95
+#: templates/server/status/monitor/index.twig:76
 #: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
 msgstr "불러오는 중…"
@@ -6966,7 +6966,7 @@ msgid "No partial dependencies selected!"
 msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:905
+#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -8967,7 +8967,7 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:237
-#: libraries/classes/Sql.php:1096
+#: libraries/classes/Sql.php:1097
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
@@ -9073,7 +9073,7 @@ msgstr "인덱스 없는 조인이 너무 많습니다."
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1220
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:201
-#: libraries/classes/Sql.php:908
+#: libraries/classes/Sql.php:909
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
@@ -9115,7 +9115,7 @@ msgstr "테이블명이 없습니다!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
-#: libraries/classes/Html/Generator.php:790 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:791 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:501 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -9343,7 +9343,7 @@ msgstr "쿼리 실행 실패: \"%s\""
 #: libraries/classes/Database/Routines.php:337
 #: libraries/classes/Database/Routines.php:1231
 #: libraries/classes/Database/Routines.php:1514
-#: libraries/classes/Html/Generator.php:855
+#: libraries/classes/Html/Generator.php:856
 #: libraries/classes/Triggers/Triggers.php:76
 #: libraries/classes/Triggers/Triggers.php:85
 #: libraries/classes/Triggers/Triggers.php:112
@@ -9632,7 +9632,7 @@ msgstr "총 %1$d개 중 현재 쿼리에 %2$d개"
 msgid "%d total"
 msgstr "합계 %d"
 
-#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:914
+#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:915
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "질의 실행시간 %01.4f 초."
@@ -9960,7 +9960,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:724
+#: libraries/classes/Html/Generator.php:725
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
@@ -10135,21 +10135,21 @@ msgstr "PHP 코드 없이 보기"
 msgid "Submit query"
 msgstr "쿼리 실행"
 
-#: libraries/classes/Html/Generator.php:660 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:661 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:3
 msgid "Profiling"
 msgstr "프로파일링"
 
-#: libraries/classes/Html/Generator.php:674
+#: libraries/classes/Html/Generator.php:675
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "인라인 편집"
 
-#: libraries/classes/Html/Generator.php:797
+#: libraries/classes/Html/Generator.php:798
 msgid "Static analysis:"
 msgstr "정적 분석 :"
 
-#: libraries/classes/Html/Generator.php:800
+#: libraries/classes/Html/Generator.php:801
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "분석 중에 %d개의 오류가 발생했습니다."
@@ -10200,7 +10200,7 @@ msgstr "{0} 글자 이하로 입력해 주세요"
 msgid "The trigger name cannot end with a space character."
 msgstr "단어는 스페이스(\" \")로 구분됩니다."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:922
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:923
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10351,11 +10351,11 @@ msgstr "또는"
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:905
+#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:906
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:885
+#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:886
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
@@ -12792,16 +12792,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "더 최신의 안정 버전이 없음"
 
-#: libraries/classes/Sql.php:456
+#: libraries/classes/Sql.php:457
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:902
+#: libraries/classes/Sql.php:903
 msgid "Showing as PHP code"
 msgstr "PHP 코드 보기"
 
-#: libraries/classes/Sql.php:1276
+#: libraries/classes/Sql.php:1277
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12810,7 +12810,7 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
 "복사, 삭제 기능을 사용할 수 없습니다."
 
-#: libraries/classes/Sql.php:1290
+#: libraries/classes/Sql.php:1291
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -17393,64 +17393,72 @@ msgstr "사용 현황"
 msgid "Advisor"
 msgstr "시스템 분석 / 조언"
 
-#: templates/server/status/monitor/index.twig:8
-msgid "Start Monitor"
+#: templates/server/status/monitor/index.twig:4
+#, fuzzy
+#| msgid "System memory"
+msgid "System monitor"
+msgstr "시스템 메모리"
+
+#: templates/server/status/monitor/index.twig:7
+#, fuzzy
+#| msgid "Start Monitor"
+msgid "Start monitor"
 msgstr "모니터링 시작"
 
-#: templates/server/status/monitor/index.twig:16
+#: templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
 msgstr "사용방법/셋업"
 
-#: templates/server/status/monitor/index.twig:20
-msgid "Done dragging (rearranging) charts"
-msgstr ""
-
-#: templates/server/status/monitor/index.twig:27
+#: templates/server/status/monitor/index.twig:16
 msgid "Add chart"
 msgstr "차트 추가"
 
-#: templates/server/status/monitor/index.twig:31
+#: templates/server/status/monitor/index.twig:17
 msgid "Enable charts dragging"
 msgstr "﻿그래프 드래그 사용"
 
-#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/monitor/index.twig:18
+msgid "Done dragging (rearranging) charts"
+msgstr ""
+
+#: templates/server/status/monitor/index.twig:23
 #: templates/server/status/processes/index.twig:33
 msgid "Refresh rate"
 msgstr "새로고침 간격"
 
-#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/monitor/index.twig:29
 #: templates/server/status/processes/index.twig:40
 #, fuzzy, php-format
 msgid "%d second"
 msgstr "%d 초"
 
-#: templates/server/status/monitor/index.twig:45
+#: templates/server/status/monitor/index.twig:31
 #: templates/server/status/processes/index.twig:42
 #, fuzzy, php-format
 msgid "%d seconds"
 msgstr "%d 초"
 
-#: templates/server/status/monitor/index.twig:49
+#: templates/server/status/monitor/index.twig:35
 #: templates/server/status/processes/index.twig:46
 #, fuzzy, php-format
 msgid "%d minute"
 msgstr "분당"
 
-#: templates/server/status/monitor/index.twig:51
+#: templates/server/status/monitor/index.twig:37
 #: templates/server/status/processes/index.twig:48
 #, fuzzy, php-format
 msgid "%d minutes"
 msgstr "분당"
 
-#: templates/server/status/monitor/index.twig:61
+#: templates/server/status/monitor/index.twig:46
 msgid "Chart columns"
 msgstr "그래프 상의 컬럼 갯수"
 
-#: templates/server/status/monitor/index.twig:74
+#: templates/server/status/monitor/index.twig:57
 msgid "Chart arrangement"
 msgstr "그래프 정렬"
 
-#: templates/server/status/monitor/index.twig:75
+#: templates/server/status/monitor/index.twig:58
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -17458,15 +17466,15 @@ msgstr ""
 "차트 설정은 브라우저의 로컬 스토리지에 저장됩니다. 설정된 내용이 있다면 내보"
 "내기를 할 수 있습니다."
 
-#: templates/server/status/monitor/index.twig:84
+#: templates/server/status/monitor/index.twig:63
 msgid "Reset to default"
 msgstr "기본값으로 초기화"
 
-#: templates/server/status/monitor/index.twig:89
+#: templates/server/status/monitor/index.twig:70
 msgid "Monitor Instructions"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:91
+#: templates/server/status/monitor/index.twig:72
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -17475,11 +17483,11 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:101
+#: templates/server/status/monitor/index.twig:82
 msgid "Using the monitor:"
 msgstr "모니터 사용 방식:"
 
-#: templates/server/status/monitor/index.twig:103
+#: templates/server/status/monitor/index.twig:84
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -17489,7 +17497,7 @@ msgstr ""
 "를 추가하거나, 새로고침 주기를 수정할 수 있습니다. 또한 각 차트의 톱니바퀴 아"
 "이콘을 통해 차트를 제거할 수 있습니다."
 
-#: templates/server/status/monitor/index.twig:108
+#: templates/server/status/monitor/index.twig:89
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -17500,11 +17508,11 @@ msgstr ""
 "래그하여 선택하세요. 시간대가 결정되면, 쿼리 그룹 테이블을 불러옵니다. 여기"
 "서 SELECT 구문을 클릭하여 추가적인 분석을 할 수 있습니다."
 
-#: templates/server/status/monitor/index.twig:114
+#: templates/server/status/monitor/index.twig:95
 msgid "Please note:"
 msgstr "주의사항:"
 
-#: templates/server/status/monitor/index.twig:117
+#: templates/server/status/monitor/index.twig:98
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -17516,82 +17524,82 @@ msgstr ""
 "시간대를 선택, general_log를 비활성화, 및 모니터링이 더 이상 필요하지 않는 테"
 "이블은 비우는 것을 추천합니다."
 
-#: templates/server/status/monitor/index.twig:128
-#: templates/server/status/monitor/index.twig:134
+#: templates/server/status/monitor/index.twig:109
+#: templates/server/status/monitor/index.twig:115
 msgid "Chart Title"
 msgstr "차트 제목"
 
-#: templates/server/status/monitor/index.twig:138
+#: templates/server/status/monitor/index.twig:119
 msgid "Preset chart"
 msgstr "프리셋 차트"
 
-#: templates/server/status/monitor/index.twig:144
+#: templates/server/status/monitor/index.twig:125
 msgid "Status variable(s)"
 msgstr "상태 변수"
 
-#: templates/server/status/monitor/index.twig:149
+#: templates/server/status/monitor/index.twig:130
 msgid "Select series:"
 msgstr "시리즈 선택:"
 
-#: templates/server/status/monitor/index.twig:152
+#: templates/server/status/monitor/index.twig:133
 msgid "Commonly monitored"
 msgstr "일반 모니터링 대상"
 
-#: templates/server/status/monitor/index.twig:170
+#: templates/server/status/monitor/index.twig:151
 msgid "or type variable name:"
 msgstr "또는 타입 변수 이름:"
 
-#: templates/server/status/monitor/index.twig:177
+#: templates/server/status/monitor/index.twig:158
 msgid "Display as differential value"
 msgstr "차이값으로 출력"
 
-#: templates/server/status/monitor/index.twig:182
+#: templates/server/status/monitor/index.twig:163
 msgid "Apply a divisor"
 msgstr "나누는 수 적용"
 
-#: templates/server/status/monitor/index.twig:193
+#: templates/server/status/monitor/index.twig:174
 msgid "Append unit to data values"
 msgstr "데이터 값에 단위를 덧붙임"
 
-#: templates/server/status/monitor/index.twig:201
+#: templates/server/status/monitor/index.twig:182
 msgid "Add this series"
 msgstr "이 시리즈 추가"
 
-#: templates/server/status/monitor/index.twig:204
+#: templates/server/status/monitor/index.twig:185
 msgid "Clear series"
 msgstr "시리즈 없애기"
 
-#: templates/server/status/monitor/index.twig:208
+#: templates/server/status/monitor/index.twig:189
 #, fuzzy
 msgid "Series in chart:"
 msgstr "차트의 시리즈:"
 
-#: templates/server/status/monitor/index.twig:224
+#: templates/server/status/monitor/index.twig:205
 msgid "Log statistics"
 msgstr "로그 통계"
 
-#: templates/server/status/monitor/index.twig:226
+#: templates/server/status/monitor/index.twig:207
 #, fuzzy
 msgid "Selected time range:"
 msgstr "모두 선택"
 
-#: templates/server/status/monitor/index.twig:234
+#: templates/server/status/monitor/index.twig:215
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:240
+#: templates/server/status/monitor/index.twig:221
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:244
+#: templates/server/status/monitor/index.twig:225
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "통계가 생성될 로그를 선택하세요."
 
-#: templates/server/status/monitor/index.twig:247
+#: templates/server/status/monitor/index.twig:228
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:251
+#: templates/server/status/monitor/index.twig:232
 msgid "Query analyzer"
 msgstr "질의 분석기"
 
@@ -17930,6 +17938,12 @@ msgstr "닫기"
 #, fuzzy
 msgid "ø Time"
 msgstr "시간"
+
+#: templates/sql/profiling_chart.twig:66
+#, fuzzy
+#| msgid "Profiling results"
+msgid "Pie chart with profiling results."
+msgstr "프로파일링 결과"
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"

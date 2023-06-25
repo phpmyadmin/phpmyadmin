@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-06-18 00:21+0000\n"
+"POT-Creation-Date: 2023-06-25 00:23+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1943,7 +1943,7 @@ msgstr "Højre"
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
-#: templates/server/status/monitor/index.twig:211
+#: templates/server/status/monitor/index.twig:192
 #: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
@@ -4754,7 +4754,7 @@ msgstr "Spring over låste tabeller"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: libraries/classes/Display/Results.php:2701
 #: libraries/classes/Html/Generator.php:577
-#: libraries/classes/Html/Generator.php:839
+#: libraries/classes/Html/Generator.php:840
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -5120,7 +5120,7 @@ msgstr "OpenDocument tekst"
 #: templates/server/privileges/users_overview.twig:95
 #: templates/server/privileges/users_overview.twig:124
 #: templates/server/privileges/users_overview.twig:125
-#: templates/server/status/monitor/index.twig:81
+#: templates/server/status/monitor/index.twig:62
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:119
 #: templates/table/privileges/index.twig:120 templates/triggers/list.twig:17
@@ -5145,7 +5145,7 @@ msgstr "CSV vha. LOAD DATA"
 #: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
-#: templates/server/status/monitor/index.twig:78
+#: templates/server/status/monitor/index.twig:61
 msgid "Import"
 msgstr "Importér"
 
@@ -6165,7 +6165,7 @@ msgid "Matched rows:"
 msgstr "Rækker som matcher:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:814 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:815 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL-forespørgsel:"
 
@@ -6234,8 +6234,8 @@ msgstr "Fjerner valgte brugere"
 #: templates/server/privileges/users_overview.twig:176
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
-#: templates/server/status/monitor/index.twig:129
-#: templates/server/status/monitor/index.twig:218
+#: templates/server/status/monitor/index.twig:110
+#: templates/server/status/monitor/index.twig:199
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
 #: templates/sql/query.twig:221 templates/sql/query.twig:226
@@ -6432,14 +6432,14 @@ msgstr "B"
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Util.php:302
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:167
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 #: libraries/classes/Util.php:304
-#: templates/server/status/monitor/index.twig:187
+#: templates/server/status/monitor/index.twig:168
 msgid "MiB"
 msgstr "MiB"
 
@@ -6484,12 +6484,12 @@ msgstr "Trafik"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 #: libraries/classes/Menu.php:491 libraries/classes/Util.php:1691
-#: templates/server/status/monitor/index.twig:12
+#: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "Indstillinger"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:222
-#: templates/server/status/monitor/index.twig:217
+#: templates/server/status/monitor/index.twig:198
 msgid "Add chart to grid"
 msgstr "Snap diagram til gitter"
 
@@ -6886,7 +6886,7 @@ msgstr "Anvend"
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:172
-#: templates/server/status/monitor/index.twig:95
+#: templates/server/status/monitor/index.twig:76
 #: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
 msgstr "Indlæser…"
@@ -7210,7 +7210,7 @@ msgid "No partial dependencies selected!"
 msgstr "Der blev ikke valgt delvise afhængigheder!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:905
+#: libraries/classes/Export.php:1297 libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -9353,7 +9353,7 @@ msgid "Wrong data or no validation for %s"
 msgstr "Forkerte data eller ingen validering af %s"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:237
-#: libraries/classes/Sql.php:1096
+#: libraries/classes/Sql.php:1097
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bogmærket %s er blevet oprettet."
@@ -9461,7 +9461,7 @@ msgstr "Der er for mange joins uden indeks."
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1220
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:201
-#: libraries/classes/Sql.php:908
+#: libraries/classes/Sql.php:909
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 
@@ -9505,7 +9505,7 @@ msgstr "Intet tabelnavn!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:86
-#: libraries/classes/Html/Generator.php:790 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:791 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:501 libraries/classes/Message.php:169
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -9731,7 +9731,7 @@ msgstr "Den følgende forespørgsel fejlede: \"%s\""
 #: libraries/classes/Database/Routines.php:337
 #: libraries/classes/Database/Routines.php:1231
 #: libraries/classes/Database/Routines.php:1514
-#: libraries/classes/Html/Generator.php:855
+#: libraries/classes/Html/Generator.php:856
 #: libraries/classes/Triggers/Triggers.php:76
 #: libraries/classes/Triggers/Triggers.php:85
 #: libraries/classes/Triggers/Triggers.php:112
@@ -10032,7 +10032,7 @@ msgstr "%1$d i alt, %2$d i forespørgsel"
 msgid "%d total"
 msgstr "%d i alt"
 
-#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:914
+#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:915
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Forespørgsel tog %01.4f sekunder."
@@ -10374,7 +10374,7 @@ msgstr ""
 "blive slettede eller er de omdøbt og give det næste højere nummer."
 
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:724
+#: libraries/classes/Html/Generator.php:725
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:197
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
@@ -10553,21 +10553,21 @@ msgstr "Uden PHP-kode"
 msgid "Submit query"
 msgstr "Send forespørgsel"
 
-#: libraries/classes/Html/Generator.php:660 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:661 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:3
 msgid "Profiling"
 msgstr "Profilering"
 
-#: libraries/classes/Html/Generator.php:674
+#: libraries/classes/Html/Generator.php:675
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Redigér indlejret"
 
-#: libraries/classes/Html/Generator.php:797
+#: libraries/classes/Html/Generator.php:798
 msgid "Static analysis:"
 msgstr "Statisk analyse:"
 
-#: libraries/classes/Html/Generator.php:800
+#: libraries/classes/Html/Generator.php:801
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Der blev fundet %d fejl under analysen."
@@ -10626,7 +10626,7 @@ msgstr "Angiv venligst ikke mere end {0} tegn"
 msgid "The trigger name cannot end with a space character."
 msgstr "Ord adskilles af mellemrumstegn (\" \")."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:922
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:923
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK opstod.]"
 
@@ -10782,11 +10782,11 @@ msgstr "Eller"
 msgid "web server upload directory:"
 msgstr "webserver upload-mappe:"
 
-#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:905
+#: libraries/classes/InsertEdit.php:960 libraries/classes/Sql.php:906
 msgid "Showing SQL query"
 msgstr "Viser SQL-forespørgsel"
 
-#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:885
+#: libraries/classes/InsertEdit.php:984 libraries/classes/Sql.php:886
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Indsatte række id: %1$d"
@@ -13369,16 +13369,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Ingen nyere stabil version er tilgængelig"
 
-#: libraries/classes/Sql.php:456
+#: libraries/classes/Sql.php:457
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bruger bogmærket \"%s\" som standard-forespørgsel til gennemsyn."
 
-#: libraries/classes/Sql.php:902
+#: libraries/classes/Sql.php:903
 msgid "Showing as PHP code"
 msgstr "Viser som PHP-kode"
 
-#: libraries/classes/Sql.php:1276
+#: libraries/classes/Sql.php:1277
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13387,7 +13387,7 @@ msgstr ""
 "Den nuværende markering indeholder ikke en unik kolonne. Redigering af "
 "gitter, afkrydsningsfelt, redigering og sletning er ikke tilgængelige. %s"
 
-#: libraries/classes/Sql.php:1290
+#: libraries/classes/Sql.php:1291
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18189,32 +18189,40 @@ msgstr "Monitorering"
 msgid "Advisor"
 msgstr "Rådgiver"
 
-#: templates/server/status/monitor/index.twig:8
-msgid "Start Monitor"
+#: templates/server/status/monitor/index.twig:4
+#, fuzzy
+#| msgid "System memory"
+msgid "System monitor"
+msgstr "Systemhukommelse"
+
+#: templates/server/status/monitor/index.twig:7
+#, fuzzy
+#| msgid "Start Monitor"
+msgid "Start monitor"
 msgstr "Start monitorering"
 
-#: templates/server/status/monitor/index.twig:16
+#: templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
 msgstr "Instruktioner/Opsætning"
 
-#: templates/server/status/monitor/index.twig:20
-msgid "Done dragging (rearranging) charts"
-msgstr "Færdig med at trække (flytte) rundt på diagrammer"
-
-#: templates/server/status/monitor/index.twig:27
+#: templates/server/status/monitor/index.twig:16
 msgid "Add chart"
 msgstr "Tilføj diagram"
 
-#: templates/server/status/monitor/index.twig:31
+#: templates/server/status/monitor/index.twig:17
 msgid "Enable charts dragging"
 msgstr "Aktivér mulighed for at trække rundt på diagrammer"
 
-#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/monitor/index.twig:18
+msgid "Done dragging (rearranging) charts"
+msgstr "Færdig med at trække (flytte) rundt på diagrammer"
+
+#: templates/server/status/monitor/index.twig:23
 #: templates/server/status/processes/index.twig:33
 msgid "Refresh rate"
 msgstr "Opdateringsfrekvens"
 
-#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/monitor/index.twig:29
 #: templates/server/status/processes/index.twig:40
 #, fuzzy, php-format
 #| msgid "%d second"
@@ -18222,7 +18230,7 @@ msgstr "Opdateringsfrekvens"
 msgid "%d second"
 msgstr "%d sekund"
 
-#: templates/server/status/monitor/index.twig:45
+#: templates/server/status/monitor/index.twig:31
 #: templates/server/status/processes/index.twig:42
 #, fuzzy, php-format
 #| msgid "%d second"
@@ -18230,29 +18238,29 @@ msgstr "%d sekund"
 msgid "%d seconds"
 msgstr "%d sekund"
 
-#: templates/server/status/monitor/index.twig:49
+#: templates/server/status/monitor/index.twig:35
 #: templates/server/status/processes/index.twig:46
 #, fuzzy, php-format
 #| msgid "per minute"
 msgid "%d minute"
 msgstr "pr. minut"
 
-#: templates/server/status/monitor/index.twig:51
+#: templates/server/status/monitor/index.twig:37
 #: templates/server/status/processes/index.twig:48
 #, fuzzy, php-format
 #| msgid "per minute"
 msgid "%d minutes"
 msgstr "pr. minut"
 
-#: templates/server/status/monitor/index.twig:61
+#: templates/server/status/monitor/index.twig:46
 msgid "Chart columns"
 msgstr "Diagramkolonner"
 
-#: templates/server/status/monitor/index.twig:74
+#: templates/server/status/monitor/index.twig:57
 msgid "Chart arrangement"
 msgstr "Diagramopstilling"
 
-#: templates/server/status/monitor/index.twig:75
+#: templates/server/status/monitor/index.twig:58
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -18260,15 +18268,15 @@ msgstr ""
 "Opsætningen af diagrammerne er lagret i browserens lokale lager. Det er "
 "muligt at eksportere den, hvis man har en kompleks opstilling."
 
-#: templates/server/status/monitor/index.twig:84
+#: templates/server/status/monitor/index.twig:63
 msgid "Reset to default"
 msgstr "Gendan standardværdi"
 
-#: templates/server/status/monitor/index.twig:89
+#: templates/server/status/monitor/index.twig:70
 msgid "Monitor Instructions"
 msgstr "Monitorinstruktioner"
 
-#: templates/server/status/monitor/index.twig:91
+#: templates/server/status/monitor/index.twig:72
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -18282,11 +18290,11 @@ msgstr ""
 "dog, at general_log genererer en mængde data og forøger server load med op "
 "til 15%."
 
-#: templates/server/status/monitor/index.twig:101
+#: templates/server/status/monitor/index.twig:82
 msgid "Using the monitor:"
 msgstr "Brug af monitor:"
 
-#: templates/server/status/monitor/index.twig:103
+#: templates/server/status/monitor/index.twig:84
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -18297,7 +18305,7 @@ msgstr ""
 "'Indstillinger', eller fjerne hvilket som helst diagram ved at bruge ikonet "
 "cog på det relevante diagram."
 
-#: templates/server/status/monitor/index.twig:108
+#: templates/server/status/monitor/index.twig:89
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -18309,11 +18317,11 @@ msgstr ""
 "Når det er bekræftet, vil dette indlæse en tabel af grupperede forspørgsler, "
 "hvor man kan klikke på en given SELECT-forespørgsel for at analysere det."
 
-#: templates/server/status/monitor/index.twig:114
+#: templates/server/status/monitor/index.twig:95
 msgid "Please note:"
 msgstr "Bemærk venligst:"
 
-#: templates/server/status/monitor/index.twig:117
+#: templates/server/status/monitor/index.twig:98
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -18325,80 +18333,80 @@ msgstr ""
 "tilrådes at vælge kun en lille tidsinterval og at deaktivere general_log og "
 "tømme dens tabel, når der ikke er behov for den længere."
 
-#: templates/server/status/monitor/index.twig:128
-#: templates/server/status/monitor/index.twig:134
+#: templates/server/status/monitor/index.twig:109
+#: templates/server/status/monitor/index.twig:115
 msgid "Chart Title"
 msgstr "Diagramtitel"
 
-#: templates/server/status/monitor/index.twig:138
+#: templates/server/status/monitor/index.twig:119
 msgid "Preset chart"
 msgstr "Foruddefineret diagram"
 
-#: templates/server/status/monitor/index.twig:144
+#: templates/server/status/monitor/index.twig:125
 msgid "Status variable(s)"
 msgstr "Statusvariabel/-ble"
 
-#: templates/server/status/monitor/index.twig:149
+#: templates/server/status/monitor/index.twig:130
 msgid "Select series:"
 msgstr "Vælg serie:"
 
-#: templates/server/status/monitor/index.twig:152
+#: templates/server/status/monitor/index.twig:133
 msgid "Commonly monitored"
 msgstr "Almindeligt overvåget"
 
-#: templates/server/status/monitor/index.twig:170
+#: templates/server/status/monitor/index.twig:151
 msgid "or type variable name:"
 msgstr "eller indtast variabelnavn:"
 
-#: templates/server/status/monitor/index.twig:177
+#: templates/server/status/monitor/index.twig:158
 msgid "Display as differential value"
 msgstr "Vis som forskelsværdi"
 
-#: templates/server/status/monitor/index.twig:182
+#: templates/server/status/monitor/index.twig:163
 msgid "Apply a divisor"
 msgstr "Anvend divisor"
 
-#: templates/server/status/monitor/index.twig:193
+#: templates/server/status/monitor/index.twig:174
 msgid "Append unit to data values"
 msgstr "Tilføj enhed til dataværdier"
 
-#: templates/server/status/monitor/index.twig:201
+#: templates/server/status/monitor/index.twig:182
 msgid "Add this series"
 msgstr "Tilføj denne serie"
 
-#: templates/server/status/monitor/index.twig:204
+#: templates/server/status/monitor/index.twig:185
 msgid "Clear series"
 msgstr "Slet serie"
 
-#: templates/server/status/monitor/index.twig:208
+#: templates/server/status/monitor/index.twig:189
 msgid "Series in chart:"
 msgstr "Serier i diagram:"
 
-#: templates/server/status/monitor/index.twig:224
+#: templates/server/status/monitor/index.twig:205
 msgid "Log statistics"
 msgstr "Logstatistik"
 
-#: templates/server/status/monitor/index.twig:226
+#: templates/server/status/monitor/index.twig:207
 msgid "Selected time range:"
 msgstr "Valgt tidsinterval:"
 
-#: templates/server/status/monitor/index.twig:234
+#: templates/server/status/monitor/index.twig:215
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Hent kun SELECT,INSERT,UPDATE og DELETE forespørgsler"
 
-#: templates/server/status/monitor/index.twig:240
+#: templates/server/status/monitor/index.twig:221
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Fjern variable data i INSERT forspørgsler for bedre gruppering"
 
-#: templates/server/status/monitor/index.twig:244
+#: templates/server/status/monitor/index.twig:225
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Vælg fra hvilken log, du ønsker statistikken genereret fra."
 
-#: templates/server/status/monitor/index.twig:247
+#: templates/server/status/monitor/index.twig:228
 msgid "Results are grouped by query text."
 msgstr "Resultaterne er grupperet af forespørgselstekst."
 
-#: templates/server/status/monitor/index.twig:251
+#: templates/server/status/monitor/index.twig:232
 msgid "Query analyzer"
 msgstr "Forespørgselsanalysator"
 
@@ -18742,6 +18750,12 @@ msgstr "Kald"
 #: templates/sql/profiling_chart.twig:40
 msgid "ø Time"
 msgstr "ø tid"
+
+#: templates/sql/profiling_chart.twig:66
+#, fuzzy
+#| msgid "Profiling results"
+msgid "Pie chart with profiling results."
+msgstr "Resultat af profilering"
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"
