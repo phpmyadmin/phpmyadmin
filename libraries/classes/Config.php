@@ -93,6 +93,9 @@ class Config
     /** @var int<0, max> */
     public int $server = 0;
 
+    /** @var array<string,string|null> $tempDir */
+    private static array $tempDir = [];
+
     public function __construct()
     {
         $this->config = new Settings([]);
@@ -1001,15 +1004,11 @@ class Config
      * Returns temporary dir path
      *
      * @param string $name Directory name
-     *
-     * @staticvar array<string,string|null> $temp_dir
      */
     public function getTempDir(string $name): string|null
     {
-        static $tempDir = [];
-
-        if (isset($tempDir[$name]) && ! defined('TESTSUITE')) {
-            return $tempDir[$name];
+        if (isset(self::$tempDir[$name])) {
+            return self::$tempDir[$name];
         }
 
         $path = $this->get('TempDir');
@@ -1026,7 +1025,7 @@ class Config
             }
         }
 
-        $tempDir[$name] = $path;
+        self::$tempDir[$name] = $path;
 
         return $path;
     }
