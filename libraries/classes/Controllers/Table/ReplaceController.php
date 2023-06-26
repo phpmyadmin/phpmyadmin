@@ -71,11 +71,11 @@ final class ReplaceController extends AbstractController
 
         $this->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
-        $insertRows = $_POST['insert_rows'] ?? null;
+        $insertRows = $request->getParsedBodyParam('insert_rows');
         if (is_numeric($insertRows) && $insertRows != $GLOBALS['cfg']['InsertRows']) {
             // check whether insert row mode, if so include /table/change
             $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
-            $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
+            $GLOBALS['cfg']['InsertRows'] = $insertRows;
             /** @var ChangeController $controller */
             $controller = Core::getContainerBuilder()->get(ChangeController::class);
             $controller($request);
@@ -84,13 +84,15 @@ final class ReplaceController extends AbstractController
         }
 
         $afterInsertActions = ['new_insert', 'same_insert', 'edit_next'];
-        if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $afterInsertActions)) {
-            $GLOBALS['urlParams']['after_insert'] = $_POST['after_insert'];
-            if (isset($_POST['where_clause'])) {
-                foreach ($_POST['where_clause'] as $oneWhereClause) {
-                    if ($_POST['after_insert'] === 'same_insert') {
+        $afterInsert = $request->getParsedBodyParam('after_insert');
+        if ($afterInsert !== null && in_array($afterInsert, $afterInsertActions)) {
+            $GLOBALS['urlParams']['after_insert'] = $afterInsert;
+            $whereClause = $request->getParsedBodyParam('where_clause');
+            if ($whereClause !== null) {
+                foreach ($whereClause as $oneWhereClause) {
+                    if ($afterInsert === 'same_insert') {
                         $GLOBALS['urlParams']['where_clause'][] = $oneWhereClause;
-                    } elseif ($_POST['after_insert'] === 'edit_next') {
+                    } elseif ($afterInsert === 'edit_next') {
                         $this->insertEdit->setSessionForEditNext($oneWhereClause);
                     }
                 }
@@ -106,9 +108,9 @@ final class ReplaceController extends AbstractController
         /**
          * Prepares the update/insert of a row
          */
-        [$loopArray, $usingKey, $isInsert] = $this->getParamsForUpdateOrInsert();
+        [$loopArray, $usingKey, $isInsert] = $this->getParamsForUpdateOrInsert($request);
 
-        $isInsertignore = isset($_POST['submit_type']) && $_POST['submit_type'] === 'insertignore';
+        $isInsertignore = $request->getParsedBodyParam('submit_type') === 'insertignore';
 
         $GLOBALS['query'] = [];
         $valueSets = [];
@@ -122,7 +124,7 @@ final class ReplaceController extends AbstractController
         /** @var string|int $whereClause */
         foreach ($loopArray as $rowNumber => $whereClause) {
             // skip fields to be ignored
-            if (! $usingKey && isset($_POST['insert_ignore_' . $whereClause])) {
+            if (! $usingKey && $request->hasBodyParam('insert_ignore_' . $whereClause)) {
                 continue;
             }
 
@@ -130,16 +132,17 @@ final class ReplaceController extends AbstractController
             $queryValues = [];
 
             // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-            $multiEditColumns = $_POST['fields']['multi_edit'][$rowNumber] ?? [];
-            $multiEditColumnsName = $_POST['fields_name']['multi_edit'][$rowNumber] ?? [];
-            $multiEditColumnsPrev = $_POST['fields_prev']['multi_edit'][$rowNumber] ?? [];
-            $multiEditFuncs = $_POST['funcs']['multi_edit'][$rowNumber] ?? [];
-            $multiEditSalt = $_POST['salt']['multi_edit'][$rowNumber] ?? [];
-            $multiEditColumnsType = $_POST['fields_type']['multi_edit'][$rowNumber] ?? [];
-            $multiEditColumnsNull = $_POST['fields_null']['multi_edit'][$rowNumber] ?? [];
-            $multiEditColumnsNullPrev = $_POST['fields_null_prev']['multi_edit'][$rowNumber] ?? [];
-            $multiEditAutoIncrement = $_POST['auto_increment']['multi_edit'][$rowNumber] ?? [];
-            $multiEditVirtual = $_POST['virtual']['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumns = $request->getParsedBodyParam('fields')['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumnsName = $request->getParsedBodyParam('fields_name')['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumnsPrev = $request->getParsedBodyParam('fields_prev')['multi_edit'][$rowNumber] ?? [];
+            $multiEditFuncs = $request->getParsedBodyParam('funcs')['multi_edit'][$rowNumber] ?? [];
+            $multiEditSalt = $request->getParsedBodyParam('salt')['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumnsType = $request->getParsedBodyParam('fields_type')['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumnsNull = $request->getParsedBodyParam('fields_null')['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumnsNullPrev =
+                $request->getParsedBodyParam('fields_null_prev')['multi_edit'][$rowNumber] ?? [];
+            $multiEditAutoIncrement = $request->getParsedBodyParam('auto_increment')['multi_edit'][$rowNumber] ?? [];
+            $multiEditVirtual = $request->getParsedBodyParam('virtual')['multi_edit'][$rowNumber] ?? [];
 
             // Iterate in the order of $multi_edit_columns_name,
             // not $multi_edit_columns, to avoid problems
@@ -262,7 +265,7 @@ final class ReplaceController extends AbstractController
                 $valueSets[] = implode(', ', $queryValues);
             } else {
                 // build update query
-                $clauseIsUnique = $_POST['clause_is_unique'] ?? $_GET['clause_is_unique'] ?? '';// Should contain 0 or 1
+                $clauseIsUnique = $request->getParam('clause_is_unique', '');// Should contain 0 or 1
                 $GLOBALS['query'][] = 'UPDATE ' . Util::backquote($GLOBALS['table'])
                     . ' SET ' . implode(', ', $queryValues)
                     . ' WHERE ' . $whereClause
@@ -293,7 +296,7 @@ final class ReplaceController extends AbstractController
                 $queryFields,
                 $valueSets,
             );
-        } elseif (empty($GLOBALS['query']) && ! isset($_POST['preview_sql']) && ! $rowSkipped) {
+        } elseif (empty($GLOBALS['query']) && ! $request->hasBodyParam('preview_sql') && ! $rowSkipped) {
             // No change -> move back to the calling script
             //
             // Note: logic passes here for inline edit
@@ -309,7 +312,7 @@ final class ReplaceController extends AbstractController
         }
 
         // If there is a request for SQL previewing.
-        if (isset($_POST['preview_sql'])) {
+        if ($request->hasBodyParam('preview_sql')) {
             Core::previewSQL($GLOBALS['query']);
 
             return;
@@ -363,13 +366,13 @@ final class ReplaceController extends AbstractController
          * grid editing. If we are coming from the Edit or Copy link in Browse mode,
          * ajax_page_request is present in the POST parameters.
          */
-        if ($this->response->isAjax() && ! isset($_POST['ajax_page_request'])) {
+        if ($this->response->isAjax() && ! $request->hasBodyParam('ajax_page_request')) {
             /**
              * If we are in grid editing, we need to process the relational and
              * transformed fields, if they were edited. After that, output the correct
              * link/transformed value and exit
              */
-            $this->doTransformations($mimeMap);
+            $this->doTransformations($mimeMap, $request);
 
             return;
         }
@@ -388,7 +391,7 @@ final class ReplaceController extends AbstractController
          * WHERE clause information so that /table/change does not go back
          * to the current record
          */
-        if (isset($_POST['after_insert']) && $_POST['after_insert'] === 'new_insert') {
+        if ($afterInsert === 'new_insert') {
             unset($_POST['where_clause']);
         }
 
@@ -396,14 +399,15 @@ final class ReplaceController extends AbstractController
     }
 
     /** @param string[][] $mimeMap */
-    private function doTransformations(array $mimeMap): void
+    private function doTransformations(array $mimeMap, ServerRequest $request): void
     {
-        if (isset($_POST['rel_fields_list']) && $_POST['rel_fields_list'] != '') {
+        $relFieldsList = $request->getParsedBodyParam('rel_fields_list', '');
+        if ($relFieldsList !== '') {
             $map = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
             /** @var array<int,array> $relationFields */
             $relationFields = [];
-            parse_str($_POST['rel_fields_list'], $relationFields);
+            parse_str($relFieldsList, $relationFields);
 
             // loop for each relation cell
             foreach ($relationFields as $cellIndex => $currRelField) {
@@ -426,9 +430,9 @@ final class ReplaceController extends AbstractController
             }
         }
 
-        if (isset($_POST['do_transformations']) && $_POST['do_transformations'] == true) {
+        if ($request->getParsedBodyParam('do_transformations') == true) {
             $editedValues = [];
-            parse_str($_POST['transform_fields_list'], $editedValues);
+            parse_str($request->getParsedBodyParam('transform_fields_list'), $editedValues);
 
             if (! isset($extraData)) {
                 $extraData = [];
@@ -455,7 +459,7 @@ final class ReplaceController extends AbstractController
 
         // Need to check the inline edited value can be truncated by MySQL
         // without informing while saving
-        $columnName = $_POST['fields_name']['multi_edit'][0][0];
+        $columnName = $request->getParsedBodyParam('fields_name')['multi_edit'][0][0];
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             $GLOBALS['db'],
@@ -465,7 +469,11 @@ final class ReplaceController extends AbstractController
         );
 
         /**Get the total row count of the table*/
-        $tableObj = new Table($_POST['table'], $_POST['db'], $this->dbi);
+        $tableObj = new Table(
+            $request->getParsedBodyParam('table'),
+            $request->getParsedBodyParam('db'),
+            $this->dbi,
+        );
         $extraData['row_count'] = $tableObj->countRecords();
 
         $extraData['sql_query'] = Generator::getMessage($GLOBALS['message'], $GLOBALS['display_query']);
@@ -524,23 +532,26 @@ final class ReplaceController extends AbstractController
      * @return mixed[] $loop_array, $using_key, $is_insert
      * @psalm-return array{array, bool, bool}
      */
-    private function getParamsForUpdateOrInsert(): array
+    private function getParamsForUpdateOrInsert(ServerRequest $request): array
     {
-        if (isset($_POST['where_clause'])) {
+        $whereClause = $request->getParsedBodyParam('where_clause');
+
+        if ($whereClause !== null) {
             // we were editing something => use the WHERE clause
-            $loopArray = is_array($_POST['where_clause'])
-                ? $_POST['where_clause']
-                : [$_POST['where_clause']];
+            $loopArray = is_array($whereClause)
+                ? $whereClause
+                : [$whereClause];
             $usingKey = true;
-            $isInsert = isset($_POST['submit_type'])
-                && ($_POST['submit_type'] === 'insert'
-                    || $_POST['submit_type'] === 'showinsert'
-                    || $_POST['submit_type'] === 'insertignore');
+            $submitType = $request->getParsedBodyParam('submit_type');
+            $isInsert = ($submitType === 'insert'
+                    || $submitType === 'showinsert'
+                    || $submitType === 'insertignore');
         } else {
             // new row => use indexes
             $loopArray = [];
-            if (! empty($_POST['fields'])) {
-                $loopArray = array_keys($_POST['fields']['multi_edit']);
+            $fields = $request->getParsedBodyParam('fields');
+            if (is_array($fields)) {
+                $loopArray = array_keys($fields['multi_edit']);
             }
 
             $usingKey = false;
