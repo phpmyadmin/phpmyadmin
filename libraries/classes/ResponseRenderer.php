@@ -439,7 +439,7 @@ class ResponseRenderer
      *
      * @param string $location will set location to redirect.
      */
-    public function generateHeader303(string $location): void
+    public function generateHeader303(string $location): never
     {
         $this->setHttpResponseCode(303);
         $this->header('Location: ' . $location);

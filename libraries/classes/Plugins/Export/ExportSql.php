@@ -1575,7 +1575,7 @@ class ExportSql extends ExportPlugin
                     }
 
                     // Creating the parts that drop foreign keys.
-                    if ($field->key !== null && $field->key->type === 'FOREIGN KEY') {
+                    if ($field->key !== null && $field->key->type === 'FOREIGN KEY' && $field->name !== null) {
                         $dropped[] = 'FOREIGN KEY ' . Context::escape($field->name);
                         unset($statement->fields[$key]);
                     }

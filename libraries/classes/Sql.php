@@ -27,6 +27,7 @@ use function __;
 use function array_column;
 use function array_keys;
 use function array_sum;
+use function arsort;
 use function bin2hex;
 use function ceil;
 use function count;
@@ -251,7 +252,7 @@ class Sql
      * @psalm-return array{
      *     total_time: float,
      *     states: array<string, array{total_time: float, calls: int<1, max>}>,
-     *     chart: array<string, float>,
+     *     chart: array{labels: list<string>, data: list<float>},
      *     profile: list<array{status: string, duration: string, duration_raw: numeric-string}>
      * }|array{}
      */
@@ -263,7 +264,6 @@ class Sql
         }
 
         $states = [];
-        $chart = [];
         $profile = [];
         foreach ($profilingResults as $result) {
             $status = ucwords($result['Status']);
@@ -275,13 +275,14 @@ class Sql
 
             if (! isset($states[$status])) {
                 $states[$status] = ['total_time' => (float) $result['Duration'], 'calls' => 1];
-                $chart[$status] = (float) $result['Duration'];
             } else {
                 $states[$status]['calls']++;
                 $states[$status]['total_time'] += $result['Duration'];
-                $chart[$status] += $result['Duration'];
             }
         }
+
+        arsort($states);
+        $chart = ['labels' => array_keys($states), 'data' => array_column($states, 'total_time')];
 
         return ['total_time' => $totalTime, 'states' => $states, 'chart' => $chart, 'profile' => $profile];
     }

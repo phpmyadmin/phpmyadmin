@@ -303,9 +303,8 @@ class BrowseTest extends TestBase
         $this->byId('id_rows_to_delete2_left')->click();
 
         $this->byCssSelector('button[value=delete]')->click();
-        $this->waitForElement('cssSelector', 'fieldset.confirmation');
 
-        $this->byId('buttonYes')->click();
+        $this->waitForElement('id', 'buttonYes')->click();
 
         $this->waitAjax();
 

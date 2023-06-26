@@ -54,6 +54,8 @@ phpMyAdmin - ChangeLog
 - issue #18471 Fix SQL statement not being displayed correctly on RTL languages
 - issue        Fix state times not getting summed in the profiling table
 - issue        Fix a case where a fatal error message was not displayed
+- issue        Fix profiling chart not loading when profiling is activated
+- issue #18159 Fix error when changing the number of chart columns in the monitor page
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid

@@ -40,7 +40,7 @@
       <select name="{{ path }}" id="{{ path }}" class="w-75{{ not value_is_default ? (has_errors ? ' custom field-error' : ' custom') }}">
         {% for key, val in select_values %}
           {% if val is same as(true) %}{% set val = 'Yes'|trans %}{% elseif val is same as(false) %}{% set val = 'No'|trans %}{% endif %}
-          <option value="{{ key }}"{{ key is same as(value) or (value is same as(true) and key is same as(1)) or (value is same as(false) and key is same as(0)) ? ' selected' }}{{ key in select_values_disabled ? ' disabled' }}>{{ val }}</option>
+          <option value="{{ key }}"{{ val is empty ? ' label="' ~ 'None'|trans ~ '"'}}{{ key is same as(value) or (value is same as(true) and key is same as(1)) or (value is same as(false) and key is same as(0)) ? ' selected' }}{{ key in select_values_disabled ? ' disabled' }}>{{ val }}</option>
         {% endfor %}
       </select>
     {% elseif type == 'list' %}

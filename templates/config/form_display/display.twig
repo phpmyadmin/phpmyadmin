@@ -20,7 +20,7 @@
           <div class="card-body">
             <h5 class="card-title visually-hidden">{{ form.descriptions.name }}</h5>
             {% if form.descriptions.desc is not empty %}
-              <h6 class="card-subtitle mb-2 text-muted">{{ form.descriptions.desc|raw }}</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{ form.descriptions.desc|raw }}</h6>
             {% endif %}
 
             <fieldset class="optbox">
@@ -53,7 +53,7 @@
   </div>
 </form>
 
-<script type="text/javascript">
+<script>
   if (typeof window.configInlineParams === 'undefined' || !Array.isArray(window.configInlineParams)) {
     window.configInlineParams = [];
   }

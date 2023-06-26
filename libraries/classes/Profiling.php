@@ -73,10 +73,7 @@ final class Profiling
 
         $scripts = $response->getHeader()->getScripts();
         $scripts->addFiles([
-            'chart.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
+            'vendor/chart.umd.js',
             'vendor/jquery/jquery.tablesorter.js',
         ]);
     }

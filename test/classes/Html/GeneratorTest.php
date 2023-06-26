@@ -494,7 +494,7 @@ SELECT 1;
 <div class="card-footer tools d-print-none">
 <div class="row align-items-center">
 <div class="col-auto">
-<form action="index.php?route=/sql&server=2&lang=en" method="post">
+<form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
 <input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
 <input type="hidden" name="sql_query" value="SELECT 1;">
 <input type="hidden" name="profiling_form" value="1">
@@ -546,7 +546,7 @@ $sql = "EXPLAIN SELECT 1;";
 <div class="card-footer tools d-print-none">
 <div class="row align-items-center">
 <div class="col-auto">
-<form action="index.php?route=/sql&server=2&lang=en" method="post">
+<form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
 <input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
 <input type="hidden" name="sql_query" value="EXPLAIN SELECT 1;">
 </form></div>

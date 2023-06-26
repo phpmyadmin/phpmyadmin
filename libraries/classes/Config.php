@@ -795,17 +795,9 @@ class Config
 
     /**
      * Get phpMyAdmin root path
-     *
-     * @staticvar string|null $cookie_path
      */
     public function getRootPath(): string
     {
-        static $cookiePath = null;
-
-        if ($cookiePath !== null && ! defined('TESTSUITE')) {
-            return $cookiePath;
-        }
-
         $url = $this->get('PmaAbsoluteUri');
 
         if (! empty($url)) {

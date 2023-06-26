@@ -63,17 +63,9 @@
         </div>
 
         <div class="col">
-          <div id="profilingChartData" class="hide">{{ profiling.chart|json_encode() }}</div>
-          <div id="profilingchart" class="hide"></div>
+          <canvas id="profilingChartCanvas" data-chart-data="{{ profiling.chart|json_encode|e('html_attr') }}" aria-label="{{ 'Pie chart with profiling results.'|trans }}" role="img"></canvas>
         </div>
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
-    window.AJAX.registerOnload('sql.js', function () {
-      Sql.makeProfilingChart();
-      Sql.initProfilingTables();
-    });
-  </script>
 </div>

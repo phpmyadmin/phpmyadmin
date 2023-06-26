@@ -48,8 +48,6 @@ class FormProcessing
             $response = ResponseRenderer::getInstance();
             $response->disable();
             $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
-
-            return;
         }
 
         // form has errors, show warning

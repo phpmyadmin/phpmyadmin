@@ -1353,9 +1353,9 @@ class ResultsTest extends AbstractTestCase
                 ],
                 'options' => '$optionsBlock',
                 'has_bulk_actions_form' => false,
-                'button' => '<thead><tr>' . "\n",
+                'button' => '',
                 'table_headers_for_columns' => $tableHeadersForColumns,
-                'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
+                'column_at_right_side' => "\n" . '<td class="position-sticky bg-body d-print-none"></td>',
             ],
             'body' => '<tr><td data-decimals="0" data-type="real" class="'
                 . 'text-end data not_null text-nowrap">1</td>' . "\n"
@@ -1583,9 +1583,9 @@ class ResultsTest extends AbstractTestCase
                 'column_order' => [],
                 'options' => '$optionsBlock',
                 'has_bulk_actions_form' => false,
-                'button' => '<thead><tr>' . "\n",
+                'button' => '',
                 'table_headers_for_columns' => $tableHeadersForColumns,
-                'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
+                'column_at_right_side' => "\n" . '<td class="position-sticky bg-body d-print-none"></td>',
             ],
             'body' => '<tr><td data-decimals="0" data-type="int" class="'
                 . 'text-end data not_null text-nowrap">2</td>' . "\n"

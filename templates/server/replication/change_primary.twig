@@ -1,10 +1,13 @@
-<form method="post" action="{{ url('/server/replication') }}">
+<form method="post" action="{{ url('/server/replication') }}" class="card">
   {{ get_hidden_inputs('', '') }}
-  <fieldset class="pma-fieldset" id="fieldset_add_user_login">
-    <legend>
-      {% trans 'Replica configuration' %} -
-      {% trans 'Change or reconfigure primary server' %}
-    </legend>
+  <input type="hidden" name="sr_take_action" value="true">
+  <input type="hidden" name="{{ submit_name }}" value="1">
+
+  <div class="card-header">
+    {% trans 'Replica configuration - Change or reconfigure primary server' %}
+  </div>
+
+  <div class="card-body" id="fieldset_add_user_login">
     <p>
       {% trans 'Make sure you have a unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:' %}
     </p>
@@ -26,10 +29,9 @@
       <label for="text_port">{% trans 'Port:' %}</label>
       <input id="text_port" name="text_port" type="number" maxlength="6" value="3306" required>
     </div>
-  </fieldset>
-  <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
-    <input type="hidden" name="sr_take_action" value="true">
-    <input type="hidden" name="{{ submit_name }}" value="1">
+  </div>
+
+  <div class="card-footer">
     <input class="btn btn-primary" type="submit" id="confreplica_submit" value="{% trans 'Go' %}">
-  </fieldset>
+  </div>
 </form>

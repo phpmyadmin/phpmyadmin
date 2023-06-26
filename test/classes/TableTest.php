@@ -10,6 +10,7 @@ use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -1215,6 +1216,7 @@ class TableTest extends AbstractTestCase
      */
     public function testGetColumns(): void
     {
+        Context::load();
         $table = 'PMA_BookMark';
         $db = 'PMA';
 

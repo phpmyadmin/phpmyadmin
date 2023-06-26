@@ -1,8 +1,8 @@
-<form action="{{ url('/table/indexes/rename') }}" method="post" name="index_frm" id="index_frm" class="ajax">
+<form action="{{ url('/table/indexes/rename') }}" method="post" name="index_frm" id="index_frm" class="card ajax">
 
   {{ get_hidden_inputs(form_params) }}
 
-  <fieldset class="pma-fieldset" id="index_edit_fields">
+  <div class="card-body">
     <div class="index_info">
       <div>
           <div class="label">
@@ -23,8 +23,8 @@
               onfocus="this.select()">
       </div>
     </div>
-  </fieldset>
-  <fieldset class="pma-fieldset tblFooters">
+  </div>
+  <div class="card-footer">
     <button class="btn btn-secondary" type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
-  </fieldset>
+  </div>
 </form>

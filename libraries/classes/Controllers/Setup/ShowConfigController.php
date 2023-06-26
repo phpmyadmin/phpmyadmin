@@ -36,8 +36,6 @@ final class ShowConfigController
             $GLOBALS['ConfigFile']->resetConfigData();
             // drop post data
             $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
-
-            return;
         }
 
         /** @var mixed $submitDownload */

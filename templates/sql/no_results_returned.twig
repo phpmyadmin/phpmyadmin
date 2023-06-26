@@ -5,17 +5,19 @@
 {{ profiling_chart|raw }}
 
 {% if not is_procedure %}
-  <fieldset class="pma-fieldset mb-3 d-print-none">
-    <legend>{% trans 'Query results operations' %}</legend>
-    <span>
-      {{ link_or_button(
-        url('/view/create'),
-        {'db': db, 'table': table, 'printview': '1', 'sql_query': sql_query},
-        get_icon('b_view_add', 'Create view'|trans, true),
-        {'class': 'create_view ajax btn'}
-      ) }}
-    </span>
-  </fieldset>
+  <div class="card mb-3 d-print-none">
+    <div class="card-header">{% trans 'Query results operations' %}</div>
+    <div class="card-body">
+      <span>
+        {{ link_or_button(
+          url('/view/create'),
+          {'db': db, 'table': table, 'printview': '1', 'sql_query': sql_query},
+          get_icon('b_view_add', 'Create view'|trans, true),
+          {'class': 'create_view ajax btn'}
+        ) }}
+      </span>
+    </div>
+  </div>
 {% endif %}
 
 {{ bookmark|raw }}

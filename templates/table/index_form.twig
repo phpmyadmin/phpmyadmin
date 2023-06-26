@@ -2,14 +2,14 @@
     method="post"
     name="index_frm"
     id="index_frm"
-    class="ajax">
+    class="card ajax">
 
     {{ get_hidden_inputs(form_params) }}
     {% if is_from_nav %}
       <input type="hidden" name="do_save_data" value="1">
     {% endif %}
 
-    <fieldset class="pma-fieldset" id="index_edit_fields">
+    <div class="card-body">
         <div class="index_info">
             <div>
                 <div class="label">
@@ -238,13 +238,13 @@
             </div>
         </div>
         </div>
-    </fieldset>
+    </div>
     {# The modal already has buttons to execute and preview SQL #}
     {%- if not create_edit_table -%}
-    <fieldset class="pma-fieldset tblFooters">
+    <div class="card-footer">
         <button class="btn btn-primary" type="submit">{% trans 'Go' %}</button>
         <button class="btn btn-secondary" type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
-    </fieldset>
+    </div>
     {%- endif -%}
 </form>
 {% if is_from_nav %}
