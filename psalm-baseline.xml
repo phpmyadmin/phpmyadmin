@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.12.0@f90118cdeacd0088e7215e64c0c99ceca819e176">
+<files psalm-version="5.13.0@a0a9c27630bcf8301ee78cb06741d2907d8c9fef">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -278,12 +278,6 @@
       <code>$url</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code>$cookiePath</code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code>$defaultValue</code>
     </PossiblyInvalidArgument>
@@ -1977,6 +1971,9 @@
     <RedundantCondition>
       <code><![CDATA[is_string($GLOBALS['cfg']['blowfish_secret'])]]></code>
     </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$GLOBALS['server'] == 0]]></code>
+    </TypeDoesNotContainType>
     <UnusedVariable>
       <code>$collationsList</code>
     </UnusedVariable>
@@ -3611,33 +3608,36 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
       <code>$columnName</code>
       <code>$columnName</code>
       <code>$columnName</code>
       <code>$errorMessages</code>
       <code>$extraData</code>
+      <code><![CDATA[$fields['multi_edit']]]></code>
       <code>$lastMessages</code>
       <code>$multiEditColumnsPrev[$key] ?? null</code>
       <code><![CDATA[$multiEditColumnsType[$key] ?? '']]></code>
       <code><![CDATA[$multiEditFuncs[$key] ?? '']]></code>
       <code>$multiEditSalt[$key] ?? null</code>
       <code>$oneWhereClause</code>
+      <code>$relFieldsList</code>
       <code>$relationField</code>
       <code>$relationFieldValue</code>
+      <code><![CDATA[$request->getParsedBodyParam('db')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('table')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('transform_fields_list')]]></code>
       <code>$totalAffectedRows</code>
       <code>$totalAffectedRows</code>
       <code>$warningMessages</code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_POST['fields_name']['multi_edit'][0]]]></code>
-      <code><![CDATA[$_POST['fields_name']['multi_edit'][0][0]]]></code>
       <code><![CDATA[$extraData['relations']]]></code>
       <code>$multiEditColumnsPrev[$key]</code>
       <code>$multiEditColumnsType[$key]</code>
       <code>$multiEditColumns[$key]</code>
       <code>$multiEditFuncs[$key]</code>
       <code>$multiEditSalt[$key]</code>
+      <code><![CDATA[$request->getParsedBodyParam('fields_name')['multi_edit']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['urlParams']['where_clause'][]]]></code>
@@ -3657,10 +3657,15 @@
       <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
+      <code><![CDATA[$GLOBALS['urlParams']['after_insert']]]></code>
       <code><![CDATA[$GLOBALS['urlParams']['where_clause'][]]]></code>
+      <code>$afterInsert</code>
+      <code>$clauseIsUnique</code>
       <code>$columnName</code>
       <code>$columnName</code>
       <code>$currRelField</code>
+      <code>$fields</code>
+      <code>$insertRows</code>
       <code>$multiEditAutoIncrement</code>
       <code>$multiEditColumns</code>
       <code>$multiEditColumnsName</code>
@@ -3673,8 +3678,12 @@
       <code>$multiEditSalt</code>
       <code>$multiEditVirtual</code>
       <code>$oneWhereClause</code>
+      <code>$relFieldsList</code>
       <code>$relationField</code>
       <code>$relationFieldValue</code>
+      <code>$submitType</code>
+      <code>$whereClause</code>
+      <code>$whereClause</code>
     </MixedAssignment>
     <MixedMethodCall>
       <code>new $className()</code>
@@ -3682,36 +3691,6 @@
     <MixedOperand>
       <code>$relationFieldValue</code>
     </MixedOperand>
-    <MixedStringOffsetAssignment>
-      <code>$multiEditColumns[$key]</code>
-    </MixedStringOffsetAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['db']]]></code>
-      <code><![CDATA[$_POST['rel_fields_list']]]></code>
-      <code><![CDATA[$_POST['table']]]></code>
-      <code><![CDATA[$_POST['transform_fields_list']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_POST['fields']['multi_edit']]]></code>
-      <code><![CDATA[$_POST['fields_name']['multi_edit']]]></code>
-      <code>$multiEditColumnsPrev[$key]</code>
-      <code>$multiEditColumnsType[$key]</code>
-      <code>$multiEditColumns[$key]</code>
-      <code>$multiEditColumns[$key]</code>
-      <code>$multiEditColumns[$key]</code>
-      <code>$multiEditFuncs[$key]</code>
-      <code>$multiEditSalt[$key]</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['db']]]></code>
-      <code><![CDATA[$_POST['rel_fields_list']]]></code>
-      <code><![CDATA[$_POST['table']]]></code>
-      <code><![CDATA[$_POST['transform_fields_list']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidIterator>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-      <code>$multiEditColumnsName</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['urlParams']]]></code>
     </PossiblyNullArgument>
@@ -8306,6 +8285,9 @@
     </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
+    <NoValue>
+      <code>$format</code>
+    </NoValue>
     <PossiblyNullArgument>
       <code>$row[0]</code>
       <code>$row[0]</code>
@@ -12342,9 +12324,6 @@
       <code><![CDATA[$data['name']]]></code>
       <code><![CDATA[$data['version']]]></code>
     </MixedArgument>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[$data['colorModes']]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyUnusedProperty>
       <code>$filesizeInfo</code>
     </PossiblyUnusedProperty>

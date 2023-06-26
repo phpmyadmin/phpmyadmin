@@ -2166,8 +2166,33 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin and 'isSuccess' will always evaluate to true\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset 'multi_edit' on mixed\\.$#"
+			count: 11
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
+			count: 10
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset int\\|string on mixed\\.$#"
+			count: 11
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
@@ -2181,12 +2206,67 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Parameter \\#1 \\$columnName of class PhpMyAdmin\\\\EditField constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#1 \\$oneWhereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:setSessionForEditNext\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
 			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForInsertedRows\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function parse_str expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\$columnName of method PhpMyAdmin\\\\InsertEdit\\:\\:verifyWhetherValueCanBeTruncatedAndAppendExtraData\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\$type of class PhpMyAdmin\\\\EditField constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#7 \\$function of class PhpMyAdmin\\\\EditField constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#8 \\$salt of class PhpMyAdmin\\\\EditField constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#9 \\$previousValue of class PhpMyAdmin\\\\EditField constructor expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -4489,6 +4569,11 @@ parameters:
 			message: "#^Parameter \\#3 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<int, mixed\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\InsertEditColumn\\:\\:\\$pmaType \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: libraries/classes/InsertEditColumn.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\InsertEditColumn\\:\\:\\$trueType \\(string\\) does not accept string\\|null\\.$#"
