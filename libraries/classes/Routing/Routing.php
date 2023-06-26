@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Routing;
 
 use FastRoute\DataGenerator\GroupCountBased as DataGeneratorGroupCountBased;
 use FastRoute\Dispatcher;
@@ -13,7 +13,12 @@ use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use Psr\Container\ContainerInterface;
 
 use function __;

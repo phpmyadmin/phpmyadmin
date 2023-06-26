@@ -11024,7 +11024,7 @@
       <code><![CDATA['']]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Routing.php">
+  <file src="libraries/classes/Routing/Routing.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['environment']]]></code>
     </InvalidArrayOffset>
@@ -14597,7 +14597,7 @@
       <code>providerForTestIsUUIDSupported</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/RoutingTest.php">
+  <file src="test/classes/Routing/RoutingTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestCleanupPathInfo</code>
     </PossiblyUnusedMethod>

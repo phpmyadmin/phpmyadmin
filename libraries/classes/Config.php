@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\ConfigException;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Theme\ThemeManager;
 use Throwable;
 

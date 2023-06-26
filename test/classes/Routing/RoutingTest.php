@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Routing;
 
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
-use PhpMyAdmin\Routing;
+use PhpMyAdmin\Routing\Routing;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 

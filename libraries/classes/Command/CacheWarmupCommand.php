@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Command;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Routing;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use RecursiveDirectoryIterator;
