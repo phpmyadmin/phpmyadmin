@@ -9311,11 +9311,6 @@ parameters:
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FastRoute\\\\\\\\Dispatcher' and FastRoute\\\\Dispatcher will always evaluate to true\\.$#"
-			count: 4
-			path: test/classes/RoutingTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Server/PluginTest.php

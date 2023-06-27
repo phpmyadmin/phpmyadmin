@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Routing;
 
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
-use PhpMyAdmin\Routing;
+use PhpMyAdmin\Routing\Routing;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -35,14 +36,12 @@ class RoutingTest extends AbstractTestCase
         // Valid cache file.
         $this->assertTrue(copy($validCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
         $this->assertFileEquals($validCacheFilename, $cacheFilename);
 
         // Invalid cache file.
         $this->assertTrue(copy($invalidCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
         $this->assertFileNotEquals($invalidCacheFilename, $cacheFilename);
 
@@ -52,14 +51,12 @@ class RoutingTest extends AbstractTestCase
         $this->assertFileDoesNotExist($cacheFilename);
 
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
         $this->assertFileExists($cacheFilename);
 
         // Without a cache file.
         $GLOBALS['cfg']['environment'] = 'development';
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
     }
 
