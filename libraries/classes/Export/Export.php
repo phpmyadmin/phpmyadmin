@@ -5,15 +5,26 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Export;
 
+use PhpMyAdmin\Application;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\ZipExtension;
 
 use function __;
 use function array_filter;
@@ -53,7 +64,7 @@ use function trim;
 use const ENT_COMPAT;
 
 /**
- * PhpMyAdmin\Export class
+ * PhpMyAdmin\Export\Export class
  */
 class Export
 {

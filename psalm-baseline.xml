@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.13.0@a0a9c27630bcf8301ee78cb06741d2907d8c9fef">
+<files psalm-version="5.13.1@086b94371304750d1c673315321a55d15fc59015">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -6059,7 +6059,7 @@
       <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Export.php">
+  <file src="libraries/classes/Export/Export.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['SaveDir']]]></code>

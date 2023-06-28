@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Export;
 
 use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;

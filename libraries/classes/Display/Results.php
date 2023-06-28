@@ -3871,7 +3871,7 @@ class Results
         $geometryFound = false;
 
         // Export link
-        // (the single_table parameter is used in \PhpMyAdmin\Export->getDisplay()
+        // (the single_table parameter is used in \PhpMyAdmin\Export\Export->getDisplay()
         //  to hide the SQL and the structure export dialogs)
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
