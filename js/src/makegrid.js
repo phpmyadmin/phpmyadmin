@@ -1215,7 +1215,11 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     whereClause = '';
                 }
                 fullWhereClause.push(whereClause);
-                var conditionArray = JSON.parse($tr.find('.condition_array').val());
+                var conditionArrayContent = $tr.find('.condition_array').val();
+                if (typeof conditionArrayContent === 'undefined') {
+                    conditionArrayContent = '{}';
+                }
+                var conditionArray = JSON.parse(conditionArrayContent);
 
                 /**
                  * multi edit variables, for current row
