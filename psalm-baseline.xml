@@ -6820,7 +6820,22 @@
       <code><![CDATA[imagefilledpolygon($this->image, $points, $color)]]></code>
     </TooFewArguments>
   </file>
-  <file src="libraries/classes/Import.php">
+  <file src="libraries/classes/Import/Ajax.php">
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$_SESSION[$sessionKey]['handler']]]></code>
+      <code><![CDATA[$_SESSION[$sessionKey]['handler']]]></code>
+    </MixedArrayAssignment>
+    <MixedMethodCall>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)]]></code>
+    </MixedMethodCall>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+    </PossiblyInvalidArrayOffset>
+  </file>
+  <file src="libraries/classes/Import/Import.php">
     <ArgumentTypeCoercion>
       <code>$sqlDelimiter</code>
     </ArgumentTypeCoercion>
@@ -7016,21 +7031,6 @@
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
-  </file>
-  <file src="libraries/classes/Import/Ajax.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION[$sessionKey]['handler']]]></code>
-      <code><![CDATA[$_SESSION[$sessionKey]['handler']]]></code>
-    </MixedArrayAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)]]></code>
-    </MixedMethodCall>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Import/SimulateDml.php">
     <MixedArgument>
@@ -14196,12 +14196,7 @@
       <code>providerForTestValidNames</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Import/SimulateDmlTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestGetMatchedRows</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/ImportTest.php">
+  <file src="test/classes/Import/ImportTest.php">
     <DocblockTypeContradiction>
       <code>assertSame</code>
       <code>assertSame</code>
@@ -14223,6 +14218,11 @@
       <code>assertNull</code>
       <code>assertNull</code>
     </TypeDoesNotContainNull>
+  </file>
+  <file src="test/classes/Import/SimulateDmlTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestGetMatchedRows</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/IndexTest.php">
     <MixedArgument>

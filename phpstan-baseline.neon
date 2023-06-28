@@ -4331,94 +4331,94 @@ parameters:
 			path: libraries/classes/Http/ServerRequest.php
 
 		-
+			message: "#^Variable static method call on PhpMyAdmin\\\\Import\\\\Ajax\\.$#"
+			count: 1
+			path: libraries/classes/Import/Ajax.php
+
+		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 3
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot call method getProperties\\(\\) on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Casting to int something that's already int\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 5
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Foreach overwrites \\$sqlQuery with its value variable\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:detectSize\\(\\) should return int\\|string but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Import\\\\Import\\:\\:detectSize\\(\\) should return int\\|string but returns mixed\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the right side\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 4
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Variable static method call on PhpMyAdmin\\\\Import\\\\Ajax\\.$#"
-			count: 1
-			path: libraries/classes/Import/Ajax.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
@@ -5916,7 +5916,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Import\\:\\:analyzeTable\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Import\\\\Import\\:\\:analyzeTable\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 

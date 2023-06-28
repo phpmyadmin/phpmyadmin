@@ -2,14 +2,23 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Import;
 
+use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Encoding;
+use PhpMyAdmin\File;
+use PhpMyAdmin\FileListing;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
 use function abs;

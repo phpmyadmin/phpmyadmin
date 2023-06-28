@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\File;
-use PhpMyAdmin\Import;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 

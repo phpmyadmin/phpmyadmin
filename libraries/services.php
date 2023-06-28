@@ -23,7 +23,7 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\FlashMessages;
-use PhpMyAdmin\Import;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
