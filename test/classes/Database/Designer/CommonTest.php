@@ -407,7 +407,7 @@ class CommonTest extends AbstractTestCase
                 'table\\\'1', // foreign_table
                 'field\\\'1', // foreign_field
             ),
-            [],
+            true,
         );
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
@@ -461,7 +461,7 @@ class CommonTest extends AbstractTestCase
                 'table\\\'1', // foreign_table
                 'field\\\'1', // foreign_field
             ),
-            [],
+            true,
         );
 
         $this->dummyDbi->addResult(
@@ -471,7 +471,7 @@ class CommonTest extends AbstractTestCase
                 'table\'2', // table
                 'table\'1_ibfk_field\'2', // fk name
             ),
-            [],
+            true,
         );
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');

@@ -38,7 +38,7 @@ class DropColumnControllerTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', []);
+        $dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', true);
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $this->assertArrayNotHasKey('flashMessages', $_SESSION);

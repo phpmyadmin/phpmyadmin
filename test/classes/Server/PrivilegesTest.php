@@ -272,13 +272,13 @@ class PrivilegesTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT \'1\' FROM `mysql`.`user` WHERE `User` = \'\' AND `Host` = \'localhost\';', []);
-        $dummyDbi->addResult('SET `old_passwords` = 0;', []);
+        $dummyDbi->addResult('SET `old_passwords` = 0;', true);
         $dummyDbi->addResult(
             'CREATE USER \'\'@\'localhost\' IDENTIFIED WITH mysql_native_password AS \'pma_dbname\';',
-            [],
+            true,
         );
-        $dummyDbi->addResult('GRANT USAGE ON *.* TO \'\'@\'localhost\' REQUIRE NONE;', []);
-        $dummyDbi->addResult('GRANT ALL PRIVILEGES ON `pma_dbname`.* TO \'\'@\'localhost\';', []);
+        $dummyDbi->addResult('GRANT USAGE ON *.* TO \'\'@\'localhost\' REQUIRE NONE;', true);
+        $dummyDbi->addResult('GRANT ALL PRIVILEGES ON `pma_dbname`.* TO \'\'@\'localhost\';', true);
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
@@ -321,12 +321,12 @@ class PrivilegesTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT \'1\' FROM `mysql`.`user` WHERE `User` = \'\' AND `Host` = \'localhost\';', []);
-        $dummyDbi->addResult('SET `old_passwords` = 0;', []);
-        $dummyDbi->addResult('CREATE USER \'\'@\'localhost\';', []);
-        $dummyDbi->addResult('SET `old_passwords` = 0;', []);
-        $dummyDbi->addResult('SET PASSWORD FOR \'\'@\'localhost\' = \'pma_dbname\';', []);
-        $dummyDbi->addResult('GRANT USAGE ON *.* TO \'\'@\'localhost\' REQUIRE NONE;', []);
-        $dummyDbi->addResult('GRANT ALL PRIVILEGES ON `pma_dbname`.* TO \'\'@\'localhost\';', []);
+        $dummyDbi->addResult('SET `old_passwords` = 0;', true);
+        $dummyDbi->addResult('CREATE USER \'\'@\'localhost\';', true);
+        $dummyDbi->addResult('SET `old_passwords` = 0;', true);
+        $dummyDbi->addResult('SET PASSWORD FOR \'\'@\'localhost\' = \'pma_dbname\';', true);
+        $dummyDbi->addResult('GRANT USAGE ON *.* TO \'\'@\'localhost\' REQUIRE NONE;', true);
+        $dummyDbi->addResult('GRANT ALL PRIVILEGES ON `pma_dbname`.* TO \'\'@\'localhost\';', true);
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
@@ -371,9 +371,9 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult(
             'ALTER USER \'pma_username\'@\'pma_hostname\' IDENTIFIED WITH mysql_native_password BY \'pma_pw\'',
-            [],
+            true,
         );
-        $dummyDbi->addResult('FLUSH PRIVILEGES;', []);
+        $dummyDbi->addResult('FLUSH PRIVILEGES;', true);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $username = 'pma_username';
@@ -395,11 +395,11 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult(
             'REVOKE ALL PRIVILEGES ON `pma_dbname`.`pma_tablename` FROM \'pma_username\'@\'pma_hostname\';',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             'REVOKE GRANT OPTION ON `pma_dbname`.`pma_tablename` FROM \'pma_username\'@\'pma_hostname\';',
-            [],
+            true,
         );
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
@@ -440,7 +440,7 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult(
             'REVOKE ALL PRIVILEGES ON `pma_dbname`.`pma_tablename` FROM \'pma_username\'@\'pma_hostname\';',
-            [],
+            true,
         );
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
@@ -637,7 +637,7 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dummyDbi = $this->createDbiDummy();
-        $dummyDbi->addResult('SET `old_passwords` = 0;', []);
+        $dummyDbi->addResult('SET `old_passwords` = 0;', true);
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $dbi->setVersion(['@@version' => '8.0.11', '@@version_comment' => 'MySQL Community Server - GPL']);
@@ -703,8 +703,8 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dummyDbi = $this->createDbiDummy();
-        $dummyDbi->addResult('SET `old_passwords` = 0;', []);
-        $dummyDbi->addResult('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', []);
+        $dummyDbi->addResult('SET `old_passwords` = 0;', true);
+        $dummyDbi->addResult('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', true);
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
 

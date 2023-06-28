@@ -33,13 +33,19 @@ class CreateNewTablesControllerTest extends AbstractTestCase
             ],
         ]);
 
-        // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('CREATE TABLE `event` SELECT DISTINCT `eventID`, `Start_time`, `DateOfEvent`, `NumberOfGuests`, `NameOfVenue`, `LocationOfVenue` FROM `test_table`;', []);
-        $dbiDummy->addResult('CREATE TABLE `table2` SELECT DISTINCT `Start_time`, `TypeOfEvent`, `period` FROM `test_table`;', []);
-        $dbiDummy->addResult('DROP TABLE `test_table`', []);
-        // phpcs:enable
+        $dbiDummy->addResult(
+            'CREATE TABLE `event`'
+            . ' SELECT DISTINCT `eventID`, `Start_time`, `DateOfEvent`, `NumberOfGuests`,'
+            . ' `NameOfVenue`, `LocationOfVenue` FROM `test_table`;',
+            true,
+        );
+        $dbiDummy->addResult(
+            'CREATE TABLE `table2` SELECT DISTINCT `Start_time`, `TypeOfEvent`, `period` FROM `test_table`;',
+            true,
+        );
+        $dbiDummy->addResult('DROP TABLE `test_table`', true);
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;

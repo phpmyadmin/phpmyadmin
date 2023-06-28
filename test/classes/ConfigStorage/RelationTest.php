@@ -233,10 +233,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_db_pma'],
         );
 
-        $dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']],
-        );
+        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', []);
         $dummyDbi->addSelectDb('db_pma');
 
         $_SESSION['relation'] = [];
@@ -303,10 +300,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_db_pma'],
         );
 
-        $dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']],
-        );
+        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', []);
         $dummyDbi->addSelectDb('db_pma');
         $dummyDbi->addSelectDb('db_pma');
 
@@ -320,7 +314,7 @@ class RelationTest extends AbstractTestCase
                 . ' `label` varchar(255) COLLATE utf8_general_ci NOT NULL default \'\','
                 . ' `query` text NOT NULL, PRIMARY KEY (`id`) )'
                 . ' COMMENT=\'Bookmarks\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -333,7 +327,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`master_db`,`master_table`,`master_field`),'
                 . ' KEY `foreign_field` (`foreign_db`,`foreign_table`) ) COMMENT=\'Relation table\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -342,7 +336,7 @@ class RelationTest extends AbstractTestCase
                 . '`db_name` varchar(64) NOT NULL default \'\', `table_name` varchar(64) NOT NULL default \'\','
                 . ' `display_field` varchar(64) NOT NULL default \'\', PRIMARY KEY (`db_name`,`table_name`) )'
                 . ' COMMENT=\'Table information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
 
         $dummyDbi->addResult(
@@ -355,7 +349,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`) )'
                 . ' COMMENT=\'Table coordinates for phpMyAdmin PDF output\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -365,7 +359,7 @@ class RelationTest extends AbstractTestCase
                 . ' `page_descr` varchar(50) COLLATE utf8_general_ci NOT NULL default \'\', PRIMARY KEY (`page_nr`),'
                 . ' KEY `db_name` (`db_name`) ) COMMENT=\'PDF relation pages for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -381,7 +375,7 @@ class RelationTest extends AbstractTestCase
                 . ' `input_transformation_options` varchar(255) NOT NULL default \'\','
                 . ' PRIMARY KEY (`id`), UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`) )'
                 . ' COMMENT=\'Column information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -392,7 +386,7 @@ class RelationTest extends AbstractTestCase
                 . ' `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP, `sqlquery` text NOT NULL,'
                 . ' PRIMARY KEY (`id`), KEY `username` (`username`,`db`,`table`,`timevalue`) )'
                 . ' COMMENT=\'SQL history for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -400,7 +394,7 @@ class RelationTest extends AbstractTestCase
             . '-- CREATE TABLE IF NOT EXISTS `pma__recent` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Recently accessed tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -408,7 +402,7 @@ class RelationTest extends AbstractTestCase
             . '-- CREATE TABLE IF NOT EXISTS `pma__favorite` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Favorite tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -419,7 +413,7 @@ class RelationTest extends AbstractTestCase
                 . ' `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,'
                 . ' PRIMARY KEY (`username`,`db_name`,`table_name`) ) COMMENT=\'Tables\'\' UI preferences\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -438,7 +432,7 @@ class RelationTest extends AbstractTestCase
                 . ' default \'1\', PRIMARY KEY (`db_name`,`table_name`,`version`) )'
                 . ' COMMENT=\'Database changes tracking for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -448,7 +442,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`username`,`usergroup`) )'
                 . ' COMMENT=\'Users and their assignments to user groups\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -459,7 +453,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`usergroup`,`tab`,`allowed`) )'
                 . ' COMMENT=\'User groups with configured menu items\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -470,7 +464,7 @@ class RelationTest extends AbstractTestCase
                 . ' `table_name` varchar(64) NOT NULL,'
                 . ' PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`) )'
                 . ' COMMENT=\'Hidden items of navigation tree\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -481,7 +475,7 @@ class RelationTest extends AbstractTestCase
                 . ' `search_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`) )'
                 . ' COMMENT=\'Saved searches\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -492,7 +486,7 @@ class RelationTest extends AbstractTestCase
                 . ' `col_extra` varchar(255) default \'\', `col_default` text,'
                 . ' PRIMARY KEY (`db_name`,`col_name`) )'
                 . ' COMMENT=\'Central list of columns\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -501,7 +495,7 @@ class RelationTest extends AbstractTestCase
                 . '`username` varchar(64) NOT NULL, `settings_data` text NOT NULL,'
                 . ' PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Settings related to Designer\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -512,7 +506,7 @@ class RelationTest extends AbstractTestCase
                 . ' `template_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`) )'
                 . ' COMMENT=\'Saved export templates\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
@@ -592,10 +586,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_db_pma'],
         );
 
-        $dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']],
-        );
+        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', []);
 
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -607,7 +598,7 @@ class RelationTest extends AbstractTestCase
                 . ' `label` varchar(255) COLLATE utf8_general_ci NOT NULL default \'\','
                 . ' `query` text NOT NULL, PRIMARY KEY (`id`) )'
                 . ' COMMENT=\'Bookmarks\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -620,7 +611,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`master_db`,`master_table`,`master_field`),'
                 . ' KEY `foreign_field` (`foreign_db`,`foreign_table`) ) COMMENT=\'Relation table\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -629,7 +620,7 @@ class RelationTest extends AbstractTestCase
                 . '`db_name` varchar(64) NOT NULL default \'\', `table_name` varchar(64) NOT NULL default \'\','
                 . ' `display_field` varchar(64) NOT NULL default \'\', PRIMARY KEY (`db_name`,`table_name`) )'
                 . ' COMMENT=\'Table information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
 
         $dummyDbi->addResult(
@@ -642,7 +633,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`) )'
                 . ' COMMENT=\'Table coordinates for phpMyAdmin PDF output\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -652,7 +643,7 @@ class RelationTest extends AbstractTestCase
                 . ' `page_descr` varchar(50) COLLATE utf8_general_ci NOT NULL default \'\', PRIMARY KEY (`page_nr`),'
                 . ' KEY `db_name` (`db_name`) ) COMMENT=\'PDF relation pages for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -668,7 +659,7 @@ class RelationTest extends AbstractTestCase
                 . ' `input_transformation_options` varchar(255) NOT NULL default \'\','
                 . ' PRIMARY KEY (`id`), UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`) )'
                 . ' COMMENT=\'Column information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -679,7 +670,7 @@ class RelationTest extends AbstractTestCase
                 . ' `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP, `sqlquery` text NOT NULL,'
                 . ' PRIMARY KEY (`id`), KEY `username` (`username`,`db`,`table`,`timevalue`) )'
                 . ' COMMENT=\'SQL history for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -687,7 +678,7 @@ class RelationTest extends AbstractTestCase
             . '-- CREATE TABLE IF NOT EXISTS `pma__recent` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Recently accessed tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -695,7 +686,7 @@ class RelationTest extends AbstractTestCase
             . '-- CREATE TABLE IF NOT EXISTS `pma__favorite` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Favorite tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -706,7 +697,7 @@ class RelationTest extends AbstractTestCase
                 . ' `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,'
                 . ' PRIMARY KEY (`username`,`db_name`,`table_name`) ) COMMENT=\'Tables\'\' UI preferences\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -725,7 +716,7 @@ class RelationTest extends AbstractTestCase
                 . ' default \'1\', PRIMARY KEY (`db_name`,`table_name`,`version`) )'
                 . ' COMMENT=\'Database changes tracking for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -735,7 +726,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`username`,`usergroup`) )'
                 . ' COMMENT=\'Users and their assignments to user groups\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -746,7 +737,7 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`usergroup`,`tab`,`allowed`) )'
                 . ' COMMENT=\'User groups with configured menu items\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -757,7 +748,7 @@ class RelationTest extends AbstractTestCase
                 . ' `table_name` varchar(64) NOT NULL,'
                 . ' PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`) )'
                 . ' COMMENT=\'Hidden items of navigation tree\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -768,7 +759,7 @@ class RelationTest extends AbstractTestCase
                 . ' `search_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`) )'
                 . ' COMMENT=\'Saved searches\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -779,7 +770,7 @@ class RelationTest extends AbstractTestCase
                 . ' `col_extra` varchar(255) default \'\', `col_default` text,'
                 . ' PRIMARY KEY (`db_name`,`col_name`) )'
                 . ' COMMENT=\'Central list of columns\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -788,7 +779,7 @@ class RelationTest extends AbstractTestCase
                 . '`username` varchar(64) NOT NULL, `settings_data` text NOT NULL,'
                 . ' PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Settings related to Designer\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -799,7 +790,7 @@ class RelationTest extends AbstractTestCase
                 . ' `template_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`) )'
                 . ' COMMENT=\'Saved export templates\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            [],
+            true,
         );
 
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
@@ -910,10 +901,7 @@ class RelationTest extends AbstractTestCase
         $relation = new Relation($dbi);
 
         $dummyDbi->removeDefaultResults();
-        $dummyDbi->addResult(
-            'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
-            [],
-        );
+        $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `phpmyadmin`', true);
 
         $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`',
@@ -1512,11 +1500,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_phpmyadmin'],
         );
 
-        $dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']],
-            ['NULL'],
-        );
+        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', [], ['NULL']);
 
         $_SESSION['relation'] = [];
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
@@ -1699,11 +1683,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_PMA-storage'],
         );
 
-        $dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
-            [['NULL']],
-            ['NULL'],
-        );
+        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig_custom` LIMIT 0', [], ['NULL']);
 
         $dummyDbi->addSelectDb('PMA-storage');
 
@@ -1729,11 +1709,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_PMA-storage'],
         );
 
-        $dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
-            [['NULL']],
-            ['NULL'],
-        );
+        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig_custom` LIMIT 0', [], ['NULL']);
 
         $dummyDbi->addSelectDb('PMA-storage');
         /** @psalm-suppress EmptyArrayAccess */
@@ -1934,13 +1910,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_PMA-storage'],
         );
 
-        $dummyDbi->addResult(
-            'SELECT NULL FROM `pma__favorite_custom` LIMIT 0',
-            [
-                ['NULL'],
-            ],
-            ['NULL'],
-        );
+        $dummyDbi->addResult('SELECT NULL FROM `pma__favorite_custom` LIMIT 0', [], ['NULL']);
 
         $dummyDbi->addResult(
             'SELECT `tables` FROM `PMA-storage`.`pma__favorite_custom` WHERE `username` = \'\'',
@@ -2179,7 +2149,7 @@ class RelationTest extends AbstractTestCase
         );
 
         foreach ($queries as $query) {
-            $dummyDbi->addResult($query, []);
+            $dummyDbi->addResult($query, true);
         }
 
         $relation->renameTable('db_1', 'db_2', 'table_1', 'table_2');
@@ -2251,7 +2221,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addResult(
             'UPDATE `pma``db`.`table``coords` SET db_name = \'db\\\'1\', table_name = \'table\\\'2\''
                 . ' WHERE db_name = \'db\\\'1\' AND table_name = \'table\\\'1\'',
-            [],
+            true,
         );
 
         $relation->renameTable('db\'1', 'db\'1', 'table\'1', 'table\'2');
