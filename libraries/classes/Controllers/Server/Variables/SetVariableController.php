@@ -52,6 +52,10 @@ final class SetVariableController extends AbstractController
         ) {
             $exp = ['kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3];
             $value = (float) $matches[1] * 1024 ** $exp[mb_strtolower($matches[3])];
+        } elseif (
+            $variableType === 'integer'
+        ) {
+            $value = (int) $value;
         } else {
             $value = $this->dbi->quoteString($value);
         }
@@ -62,8 +66,8 @@ final class SetVariableController extends AbstractController
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name='
-                . $this->dbi->quoteString($variableName)
-                . ';',
+                    . $this->dbi->quoteString($variableName)
+                    . ';',
                 DatabaseInterface::FETCH_NUM,
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable($variableName, $varValue[1]);
