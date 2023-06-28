@@ -18,6 +18,10 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
 {
+    /**
+     * @requires extension bz2
+     * @requires extension zip
+     */
     public function testImportController(): void
     {
         $this->setTheme();
