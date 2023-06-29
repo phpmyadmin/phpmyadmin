@@ -995,6 +995,9 @@ class Sql
 
         $response = ResponseRenderer::getInstance();
         $response->addJSON($extraData ?? []);
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('sql.js');
 
         if (! $statementInfo->isSelect || isset($extraData['error'])) {
             return $queryMessage;
@@ -1024,10 +1027,6 @@ class Sql
 
         $profilingChart = '';
         if ($profilingResults !== []) {
-            $header = $response->getHeader();
-            $scripts = $header->getScripts();
-            $scripts->addFile('sql.js');
-
             $profiling = $this->getDetailedProfilingStats($profilingResults);
             if ($profiling !== []) {
                 $profilingChart = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
