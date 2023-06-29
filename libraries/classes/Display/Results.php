@@ -3950,9 +3950,7 @@ class Results
         if ($content !== null) {
             $size = strlen($content);
             $displaySize = Util::formatByteDown($size, 3, 1);
-            if ($displaySize !== null) {
-                $result .= ' - ' . $displaySize[0] . ' ' . $displaySize[1];
-            }
+            $result .= ' - ' . $displaySize[0] . ' ' . $displaySize[1];
         } else {
             $result .= ' - NULL';
             $size = 0;

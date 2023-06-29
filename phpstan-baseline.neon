@@ -1236,11 +1236,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 4
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -2531,8 +2526,8 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 7
+			message: "#^Cannot use array destructuring on array\\<int, string\\>\\|null\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
@@ -8496,11 +8491,6 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
@@ -8542,16 +8532,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, \\(array\\|float\\|int\\) given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -9447,11 +9427,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerForTestGetMySQLDocuURL\\(\\) should return array\\<int, array\\{string, string, int, string\\}\\> but returns array\\{array\\{'ALTER_TABLE', 'alter\\-table\\-index', '8\\.0\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', 'alter\\-table\\-index', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', 'alter\\-table\\-index', '5\\.6\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', '', '5\\.5\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', '', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}\\}\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
 

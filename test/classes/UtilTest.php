@@ -31,7 +31,6 @@ use function ini_set;
 use function str_repeat;
 use function str_replace;
 use function strlen;
-use function trim;
 
 use const LC_ALL;
 use const MYSQLI_NUM_FLAG;
@@ -710,36 +709,30 @@ class UtilTest extends AbstractTestCase
         return [[100, -1], ['10GB', 10737418240], ['15MB', 15728640], ['256K', 262144]];
     }
 
-    public function testFormatByteDownWithNullValue(): void
-    {
-        $this->assertNull(Util::formatByteDown(null));
-    }
-
     /**
      * format byte test, globals are defined
      *
-     * @param float|int|string $a Value to format
-     * @param int              $b Sensitiveness
-     * @param int              $c Number of decimals to retain
-     * @param mixed[]          $e Expected value
+     * @param float|int|string|null $a Value to format
+     * @param int                   $b Sensitiveness
+     * @param int                   $c Number of decimals to retain
+     * @param string[]|null         $e Expected value
      */
     #[DataProvider('providerFormatByteDown')]
-    public function testFormatByteDown(float|int|string $a, int $b, int $c, array $e): void
+    public function testFormatByteDown(float|int|string|null $a, int $b, int $c, array|null $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
-        $this->assertIsArray($result);
-        $result[0] = trim($result[0]);
         $this->assertSame($e, $result);
     }
 
     /**
      * format byte down data provider
      *
-     * @return mixed[]
+     * @psalm-return list<array{float|int|string|null, int, int, string[]|null}>
      */
     public static function providerFormatByteDown(): array
     {
         return [
+            [null, 0, 0, null],
             ['0', 6, 0, ['0', __('B')]],
             ['A4', 6, 0, ['0', __('B')]],
             [10, 2, 2, ['10', __('B')]],

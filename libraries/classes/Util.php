@@ -283,7 +283,8 @@ class Util
      * @param int                   $limes the sensitiveness
      * @param int                   $comma the number of decimals to retain
      *
-     * @return mixed[]|null the formatted value and its unit
+     * @return string[]|null the formatted value and its unit
+     * @psalm-return ($value is null ? null : array{string, string})
      */
     public static function formatByteDown(float|int|string|null $value, int $limes = 6, int $comma = 0): array|null
     {

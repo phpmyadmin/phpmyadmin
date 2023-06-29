@@ -11,9 +11,6 @@
       <code><![CDATA[$rule['recommendation']]]></code>
       <code><![CDATA[$this->variables['version']]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>(array) Util::formatByteDown($value, $limes, $comma)</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$rule['id']]]></code>
     </MixedArrayAccess>
@@ -1614,16 +1611,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </MixedOperand>
-    <PossiblyNullArrayAccess>
-      <code>$formattedOverhead</code>
-      <code>$formattedSize</code>
-      <code>$formattedSize</code>
-      <code>$formattedSize</code>
-      <code>$overheadUnit</code>
-      <code>$unit</code>
-      <code>$unit</code>
-      <code>$unit</code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Database/TrackingController.php">
     <InvalidArrayOffset>
@@ -4068,22 +4055,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code>$avgSize</code>
-      <code>$avgUnit</code>
-      <code>$dataSize</code>
-      <code>$dataUnit</code>
-      <code>$effectSize</code>
-      <code>$effectSize</code>
-      <code>$effectUnit</code>
-      <code>$effectUnit</code>
-      <code>$freeSize</code>
-      <code>$freeUnit</code>
-      <code>$indexSize</code>
-      <code>$indexUnit</code>
-      <code>$totSize</code>
-      <code>$totUnit</code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
@@ -5812,8 +5783,6 @@
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
       <code><![CDATA[$displayParams['rowdata'][$i][$rowNumber]]]></code>
-      <code>$displaySize[0]</code>
-      <code>$displaySize[1]</code>
       <code>$file</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
     </MixedOperand>
@@ -11477,18 +11446,6 @@
       <code>$statusVars</code>
       <code>$temp[strlen($temp) - 1]</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[(array) Util::formatByteDown(
-                                mb_strlen($row['argument']),
-                                2,
-                                2,
-                            )]]></code>
-      <code><![CDATA[(array) Util::formatByteDown(
-                                mb_strlen($row['sql_text']),
-                                2,
-                                2,
-                            )]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$cpuload['busy']]]></code>
       <code><![CDATA[$cpuload['idle']]]></code>
@@ -11844,8 +11801,6 @@
     <MixedOperand>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
-      <code>$parsedSize[0]</code>
-      <code>$parsedSize[1]</code>
     </MixedOperand>
     <MixedReturnStatement>
       <code>$storageEngines</code>
@@ -12752,8 +12707,6 @@
       <code>$units[$d]</code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$maxSize</code>
-      <code>$maxUnit</code>
       <code>$row[$i] ?? null</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -12824,6 +12777,7 @@
       <code><![CDATA[$row['Column_name']]]></code>
       <code>$unit</code>
       <code>$unit</code>
+      <code>$value</code>
     </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
@@ -12839,14 +12793,6 @@
       <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code>$maxSize</code>
-      <code>$maxUnit</code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code>$maxSize</code>
-      <code>$maxUnit</code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
       <code>$sotCache</code>
       <code>$tables</code>
@@ -14929,7 +14875,6 @@
     <MixedArgument>
       <code><![CDATA[$_SESSION['cache']['server_server']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_server']]]></code>
-      <code>$result[0]</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache']['server_server']]]></code>

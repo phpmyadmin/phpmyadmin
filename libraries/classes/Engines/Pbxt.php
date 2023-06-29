@@ -143,9 +143,10 @@ class Pbxt extends StorageEngine
      *
      * @param int|string $formattedSize the size expression (for example 8MB)
      *
-     * @return mixed[]|null the formatted value and its unit
+     * @return string[] the formatted value and its unit
+     * @psalm-return array{string, string}
      */
-    public function resolveTypeSize(int|string $formattedSize): array|null
+    public function resolveTypeSize(int|string $formattedSize): array
     {
         if (is_string($formattedSize) && preg_match('/^[0-9]+[a-zA-Z]+$/', $formattedSize)) {
             $value = Util::extractValueFromFormattedSize($formattedSize);

@@ -300,9 +300,7 @@ class StorageEngine
             switch ($details['type']) {
                 case self::DETAILS_TYPE_SIZE:
                     $parsedSize = $this->resolveTypeSize($details['value']);
-                    if ($parsedSize !== null) {
-                        $ret .= $parsedSize[0] . '&nbsp;' . $parsedSize[1];
-                    }
+                    $ret .= $parsedSize[0] . '&nbsp;' . $parsedSize[1];
 
                     break;
                 case self::DETAILS_TYPE_NUMERIC:
@@ -338,9 +336,10 @@ class StorageEngine
      *
      * @param int|string $value Value to format
      *
-     * @return mixed[]|null the formatted value and its unit
+     * @return string[] the formatted value and its unit
+     * @psalm-return array{string, string}
      */
-    public function resolveTypeSize(int|string $value): array|null
+    public function resolveTypeSize(int|string $value): array
     {
         return Util::formatByteDown($value);
     }

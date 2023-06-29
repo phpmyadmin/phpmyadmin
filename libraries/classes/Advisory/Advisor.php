@@ -91,7 +91,7 @@ class Advisor
                 int $value,
                 int $limes = 6,
                 int $comma = 0,
-            ) => implode(' ', (array) Util::formatByteDown($value, $limes, $comma))
+            ) => implode(' ', Util::formatByteDown($value, $limes, $comma))
         );
         $this->expression->register(
             'fired',
