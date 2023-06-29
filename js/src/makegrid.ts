@@ -1278,7 +1278,11 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
 
                 fullWhereClause.push(whereClause);
-                var conditionArray = JSON.parse(($tr.find('.condition_array').val() as string));
+                var conditionArrayContent: string | undefined = $tr.find('.condition_array').val() as string;
+                if (typeof conditionArrayContent === 'undefined') {
+                    conditionArrayContent = '{}';
+                }
+                var conditionArray = JSON.parse(conditionArrayContent);
 
                 /**
                  * multi edit variables, for current row
