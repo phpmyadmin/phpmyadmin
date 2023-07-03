@@ -561,6 +561,11 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/Validator.php
+
+		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
@@ -2236,7 +2241,17 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Parameter \\#2 \\$relationField of method PhpMyAdmin\\\\InsertEdit\\:\\:getLinkForRelationalDisplayField\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Parameter \\#3 \\$columnName of method PhpMyAdmin\\\\InsertEdit\\:\\:verifyWhetherValueCanBeTruncatedAndAppendExtraData\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\$relationField of method PhpMyAdmin\\\\InsertEdit\\:\\:getDisplayValueForForeignTableColumn\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -5377,7 +5392,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 10
+			count: 6
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -5387,7 +5402,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 10
+			count: 14
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -6346,6 +6361,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
+			message: "#^Binary operation \"\\+\\=\" between float\\|int and array\\<float\\>\\|float results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
 			message: "#^Cannot access offset '\\-' on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
@@ -7212,7 +7232,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -7277,6 +7297,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$privs of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:parseProcPriv\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -7656,6 +7681,11 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Binary operation \"\\+\" between int\\<min, \\-1\\>\\|int\\<1, max\\> and int\\|string results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -7987,7 +8017,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 5
+			count: 7
 			path: libraries/classes/Table.php
 
 		-
@@ -8096,7 +8126,7 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Cannot access offset int\\|string on mixed\\.$#"
+			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Table/ColumnsDefinition.php
 

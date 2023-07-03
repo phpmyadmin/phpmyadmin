@@ -1282,6 +1282,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 if (typeof conditionArrayContent === 'undefined') {
                     conditionArrayContent = '{}';
                 }
+
                 var conditionArray = JSON.parse(conditionArrayContent);
 
                 /**
