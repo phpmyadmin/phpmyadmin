@@ -67,8 +67,7 @@ body#loginform {
     line-height: 2;
   }
 
-  a.logo,
-  .pma-fieldset legend {
+  a.logo {
     display: none;
   }
 
@@ -137,8 +136,7 @@ body#loginform {
   }
 
   .card,
-  .card-footer,
-  .pma-fieldset {
+  .card-footer {
     border: none;
     color: var(--navi-color);
     padding: 0;
@@ -149,12 +147,6 @@ body#loginform {
     &:first-child {
       border-bottom: none;
       margin: 0;
-    }
-
-    &.tblFooters {
-      border: none;
-      margin: 0;
-      clear: none;
     }
   }
 }
@@ -314,20 +306,6 @@ textarea {
   background-color: $body-bg;
 }
 
-.pma-fieldset {
-  margin-top: 20px;
-  border: 1px solid $border-color;
-  padding: 20px;
-  background-color: $th-background;
-
-  .pma-fieldset {
-    margin: 20px;
-    margin-bottom: 0;
-    background-color: $body-bg;
-    border: none;
-  }
-}
-
 legend {
   float: none;
   padding: 0 5px;
@@ -369,10 +347,6 @@ select {
   clear: both;
 }
 
-.paddingtop {
-  padding-top: 1em;
-}
-
 .separator {
   color: #fff;
 }
@@ -380,14 +354,6 @@ select {
 .result_query {
   background: $th-background;
   margin-bottom: 20px;
-}
-
-.pma-fieldset.tblFooters {
-  margin-top: -1px;
-  border-top: 0;
-  text-align: right;
-  float: none;
-  clear: both;
 }
 
 div.null_div {
@@ -407,18 +373,6 @@ div.null_div {
     input {
       cursor: pointer;
     }
-  }
-}
-
-.pma-fieldset {
-  .formelement {
-    float: left;
-    margin-right: 0.5em;
-  }
-
-  /* revert for Gecko */
-  div[class="formelement"] {
-    white-space: normal;
   }
 }
 
@@ -514,11 +468,6 @@ img.lightbulb {
   color: inherit !important;
 }
 
-.selectallarrow {
-  margin-right: 0.3em;
-  margin-left: 0.6em;
-}
-
 .with-selected {
   margin-left: 2em;
 }
@@ -533,15 +482,6 @@ img.lightbulb {
 
 #pma_errors #pma_errors {
   padding: 0;
-}
-
-.confirmation {
-  color: $button-color;
-  background-color: var(--browse-warning-color);
-}
-
-.pma-fieldset.confirmation legend {
-  background-color: var(--browse-warning-color);
 }
 
 .error {
@@ -566,34 +506,6 @@ img.lightbulb {
   font-size: 70%;
   font-weight: normal;
   color: #009;
-}
-
-.tblHeaders {
-  font-family: $font-family-bold;
-  color: $th-color;
-  background: $th-background;
-  font-weight: normal;
-}
-
-.tblFooters {
-  font-weight: normal;
-  color: $th-color;
-  background: $th-background;
-}
-
-.tblHeaders,
-.tblFooters {
-  a {
-    &:link,
-    &:active,
-    &:visited {
-      color: #00f;
-    }
-
-    &:hover {
-      color: #f00;
-    }
-  }
 }
 
 /* disabled text */
@@ -786,10 +698,6 @@ div#tablestatistics table {
   }
 }
 
-#fieldset_user_global_rights .pma-fieldset {
-  float: left;
-}
-
 /* END user privileges */
 
 /* serverstatus */
@@ -810,8 +718,7 @@ caption a.top {
 
 div {
   &#serverstatus table {
-    tbody td.descr a,
-    .tblFooters a {
+    tbody td.descr a {
       white-space: nowrap;
     }
   }
@@ -855,16 +762,6 @@ div.tabLinks {
   }
 }
 
-.popupContent {
-  display: none;
-  position: absolute;
-  border: 1px solid #ccc;
-  margin: 0;
-  padding: 3px;
-  background-color: #fff;
-  z-index: 2;
-}
-
 div {
   &#logTable {
     padding-top: 10px;
@@ -905,16 +802,6 @@ div {
 }
 
 /* end serverstatus */
-
-/* profiling */
-
-div#profilingchart {
-  width: 850px;
-  height: 370px;
-  float: left;
-}
-
-/* END profiling */
 
 /* table charting */
 
@@ -1287,61 +1174,8 @@ table#index_columns {
 /* config forms */
 
 .config-form {
-  .pma-fieldset {
-    margin-top: 0;
-    padding: 0;
-    clear: both;
-    background: none;
-  }
-
   legend {
     display: none;
-  }
-
-  .pma-fieldset {
-    p {
-      margin: 0;
-      padding: 10px;
-      background: #fff;
-      font-family: $font-family-light;
-      font-size: 16px;
-    }
-
-    /* form error list */
-    .errors {
-      margin: 0 -2px 1em;
-      padding: 0.5em 1.5em;
-      background: #fbead9;
-      border-color: #c83838;
-      border-style: solid;
-      border-width: 1px 0;
-      list-style: none;
-      font-family: sans-serif;
-      font-size: small;
-    }
-
-    /* field error list */
-    .inline_errors {
-      margin: 0.3em 0.3em 0.3em;
-      margin-left: 0;
-      padding: 0;
-      list-style: none;
-      color: #9a0000;
-      font-size: small;
-    }
-
-    table {
-      background-color: #fff;
-    }
-
-    label {
-      font-weight: normal;
-    }
-
-    textarea {
-      margin: 5px;
-      padding: 5px;
-    }
   }
 }
 
@@ -1437,18 +1271,6 @@ fieldset {
       background-color: #ddd;
     }
   }
-}
-
-form {
-  &.create_table_form .pma-fieldset.tblFooters,
-  &#multi_edit_central_columns .pma-fieldset.tblFooters {
-    background: none;
-    border: none;
-  }
-}
-
-#db_or_table_specific_priv .tblFooters {
-  margin-top: -68px;
 }
 
 #edit_user_dialog,
@@ -1598,27 +1420,6 @@ input#auto_increment_opt {
   .toggleOff {
     padding: 0 1em;
   }
-}
-
-.doubleFieldset {
-  .pma-fieldset {
-    width: 48%;
-    float: left;
-    padding: 0;
-  }
-
-  legend {
-    margin-left: 1.5em;
-  }
-
-  div.wrap {
-    padding: 1.5em;
-  }
-}
-
-form.append_fields_form .tblFooters {
-  background: none;
-  border: none;
 }
 
 #table_columns {
@@ -2032,10 +1833,6 @@ body #ui-datepicker-div {
   z-index: 9999 !important;
 }
 
-.ui-dialog .pma-fieldset legend a {
-  color: #235a81;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;
@@ -2047,14 +1844,6 @@ div#page_content div {
 
   &.result_query {
     margin-top: 1em;
-  }
-}
-
-table.show_create {
-  margin-top: 1em;
-
-  td {
-    border-right: 1px solid #bbb;
   }
 }
 
@@ -2812,43 +2601,10 @@ body {
   vertical-align: baseline;
 }
 
-/* templates/database/multi_table_query */
-
-.multi_table_query_form {
-  .query-form__tr--hide {
-    display: none;
-  }
-
-  .query-form__fieldset--inline,
-  .query-form__select--inline {
-    display: inline;
-  }
-
-  .query-form__tr--bg-none {
-    background: none;
-  }
-
-  .query-form__input--wide {
-    width: 91%;
-  }
-
-  .query-form__multi-sql-query {
-    float: left;
-  }
-}
-
 // Enable scrollable blocks of code
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@include media-breakpoint-up(xl) {
-  .pma-fieldset.tblFooters,
-  .tblFooters {
-    text-align: left;
-  }
 }
 
 .resize-vertical {

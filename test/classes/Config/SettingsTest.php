@@ -13,6 +13,8 @@ use PhpMyAdmin\Config\Settings\Schema;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Config\Settings\SqlQueryBox;
 use PhpMyAdmin\Config\Settings\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function array_keys;
@@ -23,18 +25,15 @@ use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps, Generic.Files.LineLength.TooLong
-
-/**
- * @covers \PhpMyAdmin\Config\Settings
- * @covers \PhpMyAdmin\Config\Settings\Console
- * @covers \PhpMyAdmin\Config\Settings\Debug
- * @covers \PhpMyAdmin\Config\Settings\Export
- * @covers \PhpMyAdmin\Config\Settings\Import
- * @covers \PhpMyAdmin\Config\Settings\Schema
- * @covers \PhpMyAdmin\Config\Settings\Server
- * @covers \PhpMyAdmin\Config\Settings\SqlQueryBox
- * @covers \PhpMyAdmin\Config\Settings\Transformations
- */
+#[CoversClass(Settings::class)]
+#[CoversClass(Console::class)]
+#[CoversClass(Debug::class)]
+#[CoversClass(Export::class)]
+#[CoversClass(Import::class)]
+#[CoversClass(Schema::class)]
+#[CoversClass(Server::class)]
+#[CoversClass(SqlQueryBox::class)]
+#[CoversClass(Transformations::class)]
 class SettingsTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
@@ -263,9 +262,8 @@ class SettingsTest extends TestCase
     /**
      * @param mixed[][] $values
      * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
-     *
-     * @dataProvider providerForTestConstructor
      */
+    #[DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];
@@ -1006,7 +1004,7 @@ class SettingsTest extends TestCase
         ];
     }
 
-    /** @dataProvider valuesForPmaAbsoluteUriProvider */
+    #[DataProvider('valuesForPmaAbsoluteUriProvider')]
     public function testPmaAbsoluteUri(mixed $actual, string $expected): void
     {
         $settings = new Settings(['PmaAbsoluteUri' => $actual]);
@@ -1025,7 +1023,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForAuthLogProvider */
+    #[DataProvider('valuesForAuthLogProvider')]
     public function testAuthLog(mixed $actual, string $expected): void
     {
         $settings = new Settings(['AuthLog' => $actual]);
@@ -1044,7 +1042,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testAuthLogSuccess(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['AuthLogSuccess' => $actual]);
@@ -1054,7 +1052,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['AuthLogSuccess']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testPmaNoRelationDisableWarning(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['PmaNoRelation_DisableWarning' => $actual]);
@@ -1064,7 +1062,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['PmaNoRelation_DisableWarning']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSuhosinDisableWarning(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['SuhosinDisableWarning' => $actual]);
@@ -1074,7 +1072,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['SuhosinDisableWarning']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testLoginCookieValidityDisableWarning(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['LoginCookieValidityDisableWarning' => $actual]);
@@ -1084,7 +1082,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['LoginCookieValidityDisableWarning']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testReservedWordDisableWarning(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['ReservedWordDisableWarning' => $actual]);
@@ -1094,7 +1092,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['ReservedWordDisableWarning']);
     }
 
-    /** @dataProvider valuesForTranslationWarningThresholdProvider */
+    #[DataProvider('valuesForTranslationWarningThresholdProvider')]
     public function testTranslationWarningThreshold(mixed $actual, int $expected): void
     {
         $settings = new Settings(['TranslationWarningThreshold' => $actual]);
@@ -1114,7 +1112,7 @@ class SettingsTest extends TestCase
         yield 'invalid value 2' => [101, 100];
     }
 
-    /** @dataProvider valuesForAllowThirdPartyFramingProvider */
+    #[DataProvider('valuesForAllowThirdPartyFramingProvider')]
     public function testAllowThirdPartyFraming(mixed $actual, bool|string $expected): void
     {
         $settings = new Settings(['AllowThirdPartyFraming' => $actual]);
@@ -1134,7 +1132,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider valuesForBlowfishSecretProvider */
+    #[DataProvider('valuesForBlowfishSecretProvider')]
     public function testBlowfishSecret(mixed $actual, string $expected): void
     {
         $settings = new Settings(['blowfish_secret' => $actual]);
@@ -1153,11 +1151,8 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /**
-     * @param array<int, Server> $expected
-     *
-     * @dataProvider valuesForServersProvider
-     */
+    /** @param array<int, Server> $expected */
+    #[DataProvider('valuesForServersProvider')]
     public function testServers(mixed $actual, array $expected): void
     {
         $settings = new Settings(['Servers' => $actual]);
@@ -1186,7 +1181,7 @@ class SettingsTest extends TestCase
         yield 'invalid value 3' => [[0 => []], [1 => $server]];
     }
 
-    /** @dataProvider valuesForServerDefaultProvider */
+    #[DataProvider('valuesForServerDefaultProvider')]
     public function testServerDefault(mixed $actual, int $expected): void
     {
         $settings = new Settings(['ServerDefault' => $actual]);
@@ -1205,7 +1200,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [-1, 1];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testVersionCheck(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['VersionCheck' => $actual]);
@@ -1215,7 +1210,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['VersionCheck']);
     }
 
-    /** @dataProvider valuesForProxyUrlProvider */
+    #[DataProvider('valuesForProxyUrlProvider')]
     public function testProxyUrl(mixed $actual, string $expected): void
     {
         $settings = new Settings(['ProxyUrl' => $actual]);
@@ -1234,7 +1229,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForProxyUserProvider */
+    #[DataProvider('valuesForProxyUserProvider')]
     public function testProxyUser(mixed $actual, string $expected): void
     {
         $settings = new Settings(['ProxyUser' => $actual]);
@@ -1253,7 +1248,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForProxyPassProvider */
+    #[DataProvider('valuesForProxyPassProvider')]
     public function testProxyPass(mixed $actual, string $expected): void
     {
         $settings = new Settings(['ProxyPass' => $actual]);
@@ -1272,7 +1267,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForMaxDbListProvider */
+    #[DataProvider('valuesForMaxDbListProvider')]
     public function testMaxDbList(mixed $actual, int $expected): void
     {
         $settings = new Settings(['MaxDbList' => $actual]);
@@ -1291,7 +1286,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [0, 100];
     }
 
-    /** @dataProvider valuesForMaxTableListProvider */
+    #[DataProvider('valuesForMaxTableListProvider')]
     public function testMaxTableList(mixed $actual, int $expected): void
     {
         $settings = new Settings(['MaxTableList' => $actual]);
@@ -1310,7 +1305,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [0, 250];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testShowHint(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['ShowHint' => $actual]);
@@ -1320,7 +1315,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['ShowHint']);
     }
 
-    /** @dataProvider valuesForMaxCharactersInDisplayedSQLProvider */
+    #[DataProvider('valuesForMaxCharactersInDisplayedSQLProvider')]
     public function testMaxCharactersInDisplayedSQL(mixed $actual, int $expected): void
     {
         $settings = new Settings(['MaxCharactersInDisplayedSQL' => $actual]);
@@ -1339,7 +1334,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [0, 1000];
     }
 
-    /** @dataProvider valuesForOBGzipProvider */
+    #[DataProvider('valuesForOBGzipProvider')]
     public function testOBGzip(mixed $actual, string|bool $expected): void
     {
         $settings = new Settings(['OBGzip' => $actual]);
@@ -1359,7 +1354,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testPersistentConnections(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['PersistentConnections' => $actual]);
@@ -1369,7 +1364,7 @@ class SettingsTest extends TestCase
         $this->assertSame($expected, $settingsArray['PersistentConnections']);
     }
 
-    /** @dataProvider valuesForExecTimeLimitProvider */
+    #[DataProvider('valuesForExecTimeLimitProvider')]
     public function testExecTimeLimit(mixed $actual, int $expected): void
     {
         $settings = new Settings(['ExecTimeLimit' => $actual]);
@@ -1388,7 +1383,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [-1, 300];
     }
 
-    /** @dataProvider valuesForSessionSavePathProvider */
+    #[DataProvider('valuesForSessionSavePathProvider')]
     public function testSessionSavePath(mixed $actual, string $expected): void
     {
         $settings = new Settings(['SessionSavePath' => $actual]);
@@ -1407,7 +1402,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testShowAll(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['ShowAll' => $actual]);
@@ -1426,7 +1421,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider valuesForMaxRowsProvider */
+    #[DataProvider('valuesForMaxRowsProvider')]
     public function testMaxRows(mixed $actual, int $expected): void
     {
         $settings = new Settings(['MaxRows' => $actual]);
@@ -1445,7 +1440,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [0, 25];
     }
 
-    /** @dataProvider valuesForLimitCharsProvider */
+    #[DataProvider('valuesForLimitCharsProvider')]
     public function testLimitChars(mixed $actual, int $expected): void
     {
         $settings = new Settings(['LimitChars' => $actual]);
@@ -1464,7 +1459,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [0, 50];
     }
 
-    /** @dataProvider valuesForRepeatCellsProvider */
+    #[DataProvider('valuesForRepeatCellsProvider')]
     public function testRepeatCells(mixed $actual, int $expected): void
     {
         $settings = new Settings(['RepeatCells' => $actual]);
@@ -1483,7 +1478,7 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [-1, 100];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testZeroConf(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['ZeroConf' => $actual]);
@@ -1502,11 +1497,8 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /**
-     * @param array{internal: int, human: string} $expected
-     *
-     * @dataProvider valuesForMysqlMinVersionProvider
-     */
+    /** @param array{internal: int, human: string} $expected */
+    #[DataProvider('valuesForMysqlMinVersionProvider')]
     public function testMysqlMinVersion(mixed $actual, array $expected): void
     {
         $settings = new Settings(['MysqlMinVersion' => $actual]);

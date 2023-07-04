@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ZipExtension;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ZipArchive;
 
 use function file_put_contents;
 use function tempnam;
 use function unlink;
 
-/**
- * @covers \PhpMyAdmin\ZipExtension
- * @requires extension zip
- */
+#[CoversClass(ZipExtension::class)]
+#[RequiresPhpExtension('zip')]
 class ZipExtensionTest extends AbstractTestCase
 {
     private ZipExtension $zipExtension;
@@ -33,9 +34,8 @@ class ZipExtensionTest extends AbstractTestCase
      * @param string|null           $specificEntry regular expression to match a file
      * @param array<string, string> $output        expected output
      * @psalm-param array{error: string, data: string} $output
-     *
-     * @dataProvider provideTestGetContents
      */
+    #[DataProvider('provideTestGetContents')]
     public function testGetContents(string $file, string|null $specificEntry, array $output): void
     {
         $this->assertEquals(
@@ -76,9 +76,8 @@ class ZipExtensionTest extends AbstractTestCase
      * @param string      $fileRegexp regular expression for the file name to match
      * @param string|bool $output     expected output
      * @psalm-param string|false $output
-     *
-     * @dataProvider provideTestFindFile
      */
+    #[DataProvider('provideTestFindFile')]
     public function testFindFile(string $file, string $fileRegexp, string|bool $output): void
     {
         $this->assertEquals(

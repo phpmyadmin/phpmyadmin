@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\BrowseForeigners */
+#[CoversClass(BrowseForeigners::class)]
 class BrowseForeignersTest extends AbstractTestCase
 {
     private BrowseForeigners $browseForeigners;

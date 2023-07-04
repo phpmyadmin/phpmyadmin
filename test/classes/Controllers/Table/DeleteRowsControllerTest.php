@@ -9,8 +9,9 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\DeleteRowsController */
+#[CoversClass(DeleteRowsController::class)]
 class DeleteRowsControllerTest extends AbstractTestCase
 {
     public function testDeleteRowsController(): void
@@ -33,7 +34,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', []);
+        $dummyDbi->addResult('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', true);
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`test_table` LIMIT 0, 25',

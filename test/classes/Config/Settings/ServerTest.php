@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Server;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Config\Settings\Server */
+#[CoversClass(Server::class)]
 class ServerTest extends TestCase
 {
-    /** @dataProvider valuesForHostProvider */
+    #[DataProvider('valuesForHostProvider')]
     public function testHost(mixed $actual, string $expected): void
     {
         $server = new Server(['host' => $actual]);
@@ -29,7 +31,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForPortProvider */
+    #[DataProvider('valuesForPortProvider')]
     public function testPort(mixed $actual, string $expected): void
     {
         $server = new Server(['port' => $actual]);
@@ -48,7 +50,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForSocketProvider */
+    #[DataProvider('valuesForSocketProvider')]
     public function testSocket(mixed $actual, string $expected): void
     {
         $server = new Server(['socket' => $actual]);
@@ -67,7 +69,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testSsl(mixed $actual, bool $expected): void
     {
         $server = new Server(['ssl' => $actual]);
@@ -86,7 +88,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testSslKey(mixed $actual, string|null $expected): void
     {
         $server = new Server(['ssl_key' => $actual]);
@@ -105,7 +107,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testSslCert(mixed $actual, string|null $expected): void
     {
         $server = new Server(['ssl_cert' => $actual]);
@@ -115,7 +117,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['ssl_cert']);
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testSslCa(mixed $actual, string|null $expected): void
     {
         $server = new Server(['ssl_ca' => $actual]);
@@ -125,7 +127,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['ssl_ca']);
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testSslCaPath(mixed $actual, string|null $expected): void
     {
         $server = new Server(['ssl_ca_path' => $actual]);
@@ -135,7 +137,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['ssl_ca_path']);
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testSslCiphers(mixed $actual, string|null $expected): void
     {
         $server = new Server(['ssl_ciphers' => $actual]);
@@ -145,7 +147,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['ssl_ciphers']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testSslVerify(mixed $actual, bool $expected): void
     {
         $server = new Server(['ssl_verify' => $actual]);
@@ -164,7 +166,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testCompress(mixed $actual, bool $expected): void
     {
         $server = new Server(['compress' => $actual]);
@@ -174,7 +176,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['compress']);
     }
 
-    /** @dataProvider valuesForControlHostProvider */
+    #[DataProvider('valuesForControlHostProvider')]
     public function testControlHost(mixed $actual, string $expected): void
     {
         $server = new Server(['controlhost' => $actual]);
@@ -184,7 +186,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controlhost']);
     }
 
-    /** @dataProvider valuesForControlHostProvider */
+    #[DataProvider('valuesForControlHostProvider')]
     public function testControlHost2(mixed $actual, string $expected): void
     {
         $server = new Server(['control_host' => $actual]);
@@ -203,7 +205,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForControlPortProvider */
+    #[DataProvider('valuesForControlPortProvider')]
     public function testControlPort(mixed $actual, string $expected): void
     {
         $server = new Server(['controlport' => $actual]);
@@ -213,7 +215,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controlport']);
     }
 
-    /** @dataProvider valuesForControlPortProvider */
+    #[DataProvider('valuesForControlPortProvider')]
     public function testControlPort2(mixed $actual, string $expected): void
     {
         $server = new Server(['control_port' => $actual]);
@@ -232,7 +234,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForControlUserProvider */
+    #[DataProvider('valuesForControlUserProvider')]
     public function testControlUser(mixed $actual, string $expected): void
     {
         $server = new Server(['controluser' => $actual]);
@@ -242,7 +244,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controluser']);
     }
 
-    /** @dataProvider valuesForControlUserProvider */
+    #[DataProvider('valuesForControlUserProvider')]
     public function testControlUser2(mixed $actual, string $expected): void
     {
         $server = new Server(['control_user' => $actual]);
@@ -261,7 +263,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForControlPassProvider */
+    #[DataProvider('valuesForControlPassProvider')]
     public function testControlPass(mixed $actual, string $expected): void
     {
         $server = new Server(['controlpass' => $actual]);
@@ -271,7 +273,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controlpass']);
     }
 
-    /** @dataProvider valuesForControlPassProvider */
+    #[DataProvider('valuesForControlPassProvider')]
     public function testControlPass2(mixed $actual, string $expected): void
     {
         $server = new Server(['control_pass' => $actual]);
@@ -281,7 +283,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['controlpass']);
     }
 
-    /** @dataProvider valuesForControlPassProvider */
+    #[DataProvider('valuesForControlPassProvider')]
     public function testControlPass3(mixed $actual, string $expected): void
     {
         $server = new Server(['control_password' => $actual]);
@@ -300,7 +302,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForControlSocketProvider */
+    #[DataProvider('valuesForControlSocketProvider')]
     public function testControlSocket(mixed $actual, string|null $expected): void
     {
         $server = new Server(['control_socket' => $actual]);
@@ -319,7 +321,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForControlSslProvider */
+    #[DataProvider('valuesForControlSslProvider')]
     public function testControlSsl(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_ssl' => $actual]);
@@ -338,7 +340,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testControlSslKey(mixed $actual, string|null $expected): void
     {
         $server = new Server(['control_ssl_key' => $actual]);
@@ -348,7 +350,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_ssl_key']);
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testControlSslCert(mixed $actual, string|null $expected): void
     {
         $server = new Server(['control_ssl_cert' => $actual]);
@@ -358,7 +360,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_ssl_cert']);
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testControlSslCa(mixed $actual, string|null $expected): void
     {
         $server = new Server(['control_ssl_ca' => $actual]);
@@ -368,7 +370,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_ssl_ca']);
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testControlSslCaPath(mixed $actual, string|null $expected): void
     {
         $server = new Server(['control_ssl_ca_path' => $actual]);
@@ -378,7 +380,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_ssl_ca_path']);
     }
 
-    /** @dataProvider valuesForSslOptionsProvider */
+    #[DataProvider('valuesForSslOptionsProvider')]
     public function testControlSslCiphers(mixed $actual, string|null $expected): void
     {
         $server = new Server(['control_ssl_ciphers' => $actual]);
@@ -388,7 +390,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['control_ssl_ciphers']);
     }
 
-    /** @dataProvider valuesForControlSslVerifyProvider */
+    #[DataProvider('valuesForControlSslVerifyProvider')]
     public function testControlSslVerify(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_ssl_verify' => $actual]);
@@ -407,7 +409,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /** @dataProvider valuesForControlCompressProvider */
+    #[DataProvider('valuesForControlCompressProvider')]
     public function testControlCompress(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_compress' => $actual]);
@@ -426,7 +428,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider valuesForControlHideConnectionErrorsProvider */
+    #[DataProvider('valuesForControlHideConnectionErrorsProvider')]
     public function testControlHideConnectionErrors(mixed $actual, bool|null $expected): void
     {
         $server = new Server(['control_hide_connection_errors' => $actual]);
@@ -445,7 +447,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider valuesForAuthTypeProvider */
+    #[DataProvider('valuesForAuthTypeProvider')]
     public function testAuthType(mixed $actual, string $expected): void
     {
         $server = new Server(['auth_type' => $actual]);
@@ -466,7 +468,7 @@ class ServerTest extends TestCase
         yield 'invalid value' => ['invalid', 'cookie'];
     }
 
-    /** @dataProvider valuesForAuthHttpRealmProvider */
+    #[DataProvider('valuesForAuthHttpRealmProvider')]
     public function testAuthHttpRealm(mixed $actual, string $expected): void
     {
         $server = new Server(['auth_http_realm' => $actual]);
@@ -485,7 +487,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForUserProvider */
+    #[DataProvider('valuesForUserProvider')]
     public function testUser(mixed $actual, string $expected): void
     {
         $server = new Server(['user' => $actual]);
@@ -504,7 +506,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForPasswordProvider */
+    #[DataProvider('valuesForPasswordProvider')]
     public function testPassword(mixed $actual, string $expected): void
     {
         $server = new Server(['password' => $actual]);
@@ -523,7 +525,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForSignonSessionProvider */
+    #[DataProvider('valuesForSignonSessionProvider')]
     public function testSignonSession(mixed $actual, string $expected): void
     {
         $server = new Server(['SignonSession' => $actual]);
@@ -542,11 +544,8 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /**
-     * @param array<string, int|string|bool> $expected
-     *
-     * @dataProvider valuesForSignonCookieParamsProvider
-     */
+    /** @param array<string, int|string|bool> $expected */
+    #[DataProvider('valuesForSignonCookieParamsProvider')]
     public function testSignonCookieParams(mixed $actual, array $expected): void
     {
         $server = new Server(['SignonCookieParams' => $actual]);
@@ -616,7 +615,7 @@ class ServerTest extends TestCase
         ];
     }
 
-    /** @dataProvider valuesForSignonScriptProvider */
+    #[DataProvider('valuesForSignonScriptProvider')]
     public function testSignonScript(mixed $actual, string $expected): void
     {
         $server = new Server(['SignonScript' => $actual]);
@@ -635,7 +634,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForSignonURLProvider */
+    #[DataProvider('valuesForSignonURLProvider')]
     public function testSignonURL(mixed $actual, string $expected): void
     {
         $server = new Server(['SignonURL' => $actual]);
@@ -654,7 +653,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForLogoutURLProvider */
+    #[DataProvider('valuesForLogoutURLProvider')]
     public function testLogoutURL(mixed $actual, string $expected): void
     {
         $server = new Server(['LogoutURL' => $actual]);
@@ -673,11 +672,8 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /**
-     * @param string|string[] $expected
-     *
-     * @dataProvider valuesForOnlyDbProvider
-     */
+    /** @param string|string[] $expected */
+    #[DataProvider('valuesForOnlyDbProvider')]
     public function testOnlyDb(mixed $actual, string|array $expected): void
     {
         $server = new Server(['only_db' => $actual]);
@@ -697,7 +693,7 @@ class ServerTest extends TestCase
         yield 'invalid value' => [[], ''];
     }
 
-    /** @dataProvider valuesForHideDbProvider */
+    #[DataProvider('valuesForHideDbProvider')]
     public function testHideDb(mixed $actual, string $expected): void
     {
         $server = new Server(['hide_db' => $actual]);
@@ -716,7 +712,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForVerboseProvider */
+    #[DataProvider('valuesForVerboseProvider')]
     public function testVerbose(mixed $actual, string $expected): void
     {
         $server = new Server(['verbose' => $actual]);
@@ -735,7 +731,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForPmaDbProvider */
+    #[DataProvider('valuesForPmaDbProvider')]
     public function testPmaDb(mixed $actual, string $expected): void
     {
         $server = new Server(['pmadb' => $actual]);
@@ -754,7 +750,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testBookmarkTable(mixed $actual, string|false $expected): void
     {
         $server = new Server(['bookmarktable' => $actual]);
@@ -774,7 +770,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [true, '1'];
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testRelation(mixed $actual, string|false $expected): void
     {
         $server = new Server(['relation' => $actual]);
@@ -784,7 +780,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['relation']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testTableInfo(mixed $actual, string|false $expected): void
     {
         $server = new Server(['table_info' => $actual]);
@@ -794,7 +790,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['table_info']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testPdfPages(mixed $actual, string|false $expected): void
     {
         $server = new Server(['pdf_pages' => $actual]);
@@ -804,7 +800,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['pdf_pages']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testColumnInfo(mixed $actual, string|false $expected): void
     {
         $server = new Server(['column_info' => $actual]);
@@ -814,7 +810,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['column_info']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testHistory(mixed $actual, string|false $expected): void
     {
         $server = new Server(['history' => $actual]);
@@ -824,7 +820,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['history']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testRecent(mixed $actual, string|false $expected): void
     {
         $server = new Server(['recent' => $actual]);
@@ -834,7 +830,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['recent']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testFavorite(mixed $actual, string|false $expected): void
     {
         $server = new Server(['favorite' => $actual]);
@@ -844,7 +840,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['favorite']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testTableUiPrefs(mixed $actual, string|false $expected): void
     {
         $server = new Server(['table_uiprefs' => $actual]);
@@ -854,7 +850,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['table_uiprefs']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testTracking(mixed $actual, string|false $expected): void
     {
         $server = new Server(['tracking' => $actual]);
@@ -864,7 +860,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['tracking']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testUserConfig(mixed $actual, string|false $expected): void
     {
         $server = new Server(['userconfig' => $actual]);
@@ -874,7 +870,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['userconfig']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testUsers(mixed $actual, string|false $expected): void
     {
         $server = new Server(['users' => $actual]);
@@ -884,7 +880,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['users']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testUserGroups(mixed $actual, string|false $expected): void
     {
         $server = new Server(['usergroups' => $actual]);
@@ -894,7 +890,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['usergroups']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testNavigationHiding(mixed $actual, string|false $expected): void
     {
         $server = new Server(['navigationhiding' => $actual]);
@@ -904,7 +900,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['navigationhiding']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testSavedSearches(mixed $actual, string|false $expected): void
     {
         $server = new Server(['savedsearches' => $actual]);
@@ -914,7 +910,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['savedsearches']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testCentralColumns(mixed $actual, string|false $expected): void
     {
         $server = new Server(['central_columns' => $actual]);
@@ -924,7 +920,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['central_columns']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testDesignerSettings(mixed $actual, string|false $expected): void
     {
         $server = new Server(['designer_settings' => $actual]);
@@ -934,7 +930,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['designer_settings']);
     }
 
-    /** @dataProvider valuesForConfigStorageTablesProvider */
+    #[DataProvider('valuesForConfigStorageTablesProvider')]
     public function testExportTemplates(mixed $actual, string|false $expected): void
     {
         $server = new Server(['export_templates' => $actual]);
@@ -944,7 +940,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['export_templates']);
     }
 
-    /** @dataProvider valuesForMaxTableUiPrefsProvider */
+    #[DataProvider('valuesForMaxTableUiPrefsProvider')]
     public function testMaxTableUiPrefs(mixed $actual, int $expected): void
     {
         $server = new Server(['MaxTableUiprefs' => $actual]);
@@ -964,7 +960,7 @@ class ServerTest extends TestCase
         yield 'invalid value 2' => [0, 100];
     }
 
-    /** @dataProvider valuesForSessionTimeZoneProvider */
+    #[DataProvider('valuesForSessionTimeZoneProvider')]
     public function testSessionTimeZone(mixed $actual, string $expected): void
     {
         $server = new Server(['SessionTimeZone' => $actual]);
@@ -983,7 +979,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testAllowRoot(mixed $actual, bool $expected): void
     {
         $server = new Server(['AllowRoot' => $actual]);
@@ -993,7 +989,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['AllowRoot']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testAllowNoPassword(mixed $actual, bool $expected): void
     {
         $server = new Server(['AllowNoPassword' => $actual]);
@@ -1003,11 +999,8 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['AllowNoPassword']);
     }
 
-    /**
-     * @param array<string, string|string[]> $expected
-     *
-     * @dataProvider valuesForAllowDenyProvider
-     */
+    /** @param array<string, string|string[]> $expected */
+    #[DataProvider('valuesForAllowDenyProvider')]
     public function testAllowDeny(mixed $actual, array $expected): void
     {
         $server = new Server(['AllowDeny' => $actual]);
@@ -1038,7 +1031,7 @@ class ServerTest extends TestCase
         ];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testDisableIS(mixed $actual, bool $expected): void
     {
         $server = new Server(['DisableIS' => $actual]);
@@ -1048,7 +1041,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['DisableIS']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testTrackingVersionAutoCreate(mixed $actual, bool $expected): void
     {
         $server = new Server(['tracking_version_auto_create' => $actual]);
@@ -1058,7 +1051,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['tracking_version_auto_create']);
     }
 
-    /** @dataProvider valuesForTrackingDefaultStatementsProvider */
+    #[DataProvider('valuesForTrackingDefaultStatementsProvider')]
     public function testTrackingDefaultStatements(mixed $actual, string $expected): void
     {
         $server = new Server(['tracking_default_statements' => $actual]);
@@ -1082,7 +1075,7 @@ class ServerTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testTrackingAddDropView(mixed $actual, bool $expected): void
     {
         $server = new Server(['tracking_add_drop_view' => $actual]);
@@ -1092,7 +1085,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['tracking_add_drop_view']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testTrackingAddDropTable(mixed $actual, bool $expected): void
     {
         $server = new Server(['tracking_add_drop_table' => $actual]);
@@ -1102,7 +1095,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['tracking_add_drop_table']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testTrackingAddDropDatabase(mixed $actual, bool $expected): void
     {
         $server = new Server(['tracking_add_drop_database' => $actual]);
@@ -1112,7 +1105,7 @@ class ServerTest extends TestCase
         $this->assertSame($expected, $serverArray['tracking_add_drop_database']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testHideConnectionErrors(mixed $actual, bool $expected): void
     {
         $server = new Server(['hide_connection_errors' => $actual]);

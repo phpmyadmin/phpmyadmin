@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Charsets;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
-/**
- * @covers \PhpMyAdmin\Charsets
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
- */
+#[CoversClass(Charsets::class)]
+#[PreserveGlobalState(false)]
+#[RunTestsInSeparateProcesses]
 class CharsetsTest extends AbstractTestCase
 {
     public function testGetServerCharset(): void

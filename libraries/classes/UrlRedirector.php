@@ -31,7 +31,7 @@ final class UrlRedirector
         ) {
             Core::sendHeaderLocation('./');
 
-            exit;
+            $response->callExit();
         }
 
         /**
@@ -46,6 +46,6 @@ final class UrlRedirector
         // Do not display the value of $_GET['url'] to avoid showing injected content
         echo __('Taking you to the target site.');
 
-        exit;
+        $response->callExit();
     }
 }

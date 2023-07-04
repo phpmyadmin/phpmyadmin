@@ -10,11 +10,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemColumn;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
 use const MYSQLI_TYPE_STRING;
 
-/** @covers \PhpMyAdmin\SystemDatabase */
+#[CoversClass(SystemDatabase::class)]
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**

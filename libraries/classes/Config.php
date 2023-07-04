@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\ConfigException;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Theme\ThemeManager;
 use Throwable;
 
@@ -92,6 +93,9 @@ class Config
     public Settings $config;
     /** @var int<0, max> */
     public int $server = 0;
+
+    /** @var array<string,string|null> $tempDir */
+    private static array $tempDir = [];
 
     public function __construct()
     {
@@ -792,17 +796,9 @@ class Config
 
     /**
      * Get phpMyAdmin root path
-     *
-     * @staticvar string|null $cookie_path
      */
     public function getRootPath(): string
     {
-        static $cookiePath = null;
-
-        if ($cookiePath !== null && ! defined('TESTSUITE')) {
-            return $cookiePath;
-        }
-
         $url = $this->get('PmaAbsoluteUri');
 
         if (! empty($url)) {
@@ -1009,15 +1005,11 @@ class Config
      * Returns temporary dir path
      *
      * @param string $name Directory name
-     *
-     * @staticvar array<string,string|null> $temp_dir
      */
     public function getTempDir(string $name): string|null
     {
-        static $tempDir = [];
-
-        if (isset($tempDir[$name]) && ! defined('TESTSUITE')) {
-            return $tempDir[$name];
+        if (isset(self::$tempDir[$name])) {
+            return self::$tempDir[$name];
         }
 
         $path = $this->get('TempDir');
@@ -1034,7 +1026,7 @@ class Config
             }
         }
 
-        $tempDir[$name] = $path;
+        self::$tempDir[$name] = $path;
 
         return $path;
     }

@@ -11,10 +11,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function in_array;
 
-/** @covers \PhpMyAdmin\Controllers\Normalization\MainController */
+#[CoversClass(MainController::class)]
 class MainControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

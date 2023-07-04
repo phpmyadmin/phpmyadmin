@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 use function rawurlencode;
 
-/** @covers \PhpMyAdmin\Scripts */
+#[CoversClass(Scripts::class)]
 class ScriptsTest extends AbstractTestCase
 {
     protected Scripts $object;

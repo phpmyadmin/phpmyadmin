@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Routing;
 
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
-use PhpMyAdmin\Routing;
+use PhpMyAdmin\Routing\Routing;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function copy;
 use function unlink;
@@ -14,7 +17,7 @@ use function unlink;
 use const CACHE_DIR;
 use const TEST_PATH;
 
-/** @covers \PhpMyAdmin\Routing */
+#[CoversClass(Routing::class)]
 class RoutingTest extends AbstractTestCase
 {
     /**
@@ -33,14 +36,12 @@ class RoutingTest extends AbstractTestCase
         // Valid cache file.
         $this->assertTrue(copy($validCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
         $this->assertFileEquals($validCacheFilename, $cacheFilename);
 
         // Invalid cache file.
         $this->assertTrue(copy($invalidCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
         $this->assertFileNotEquals($invalidCacheFilename, $cacheFilename);
 
@@ -50,14 +51,12 @@ class RoutingTest extends AbstractTestCase
         $this->assertFileDoesNotExist($cacheFilename);
 
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
         $this->assertFileExists($cacheFilename);
 
         // Without a cache file.
         $GLOBALS['cfg']['environment'] = 'development';
         $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
     }
 
@@ -66,9 +65,8 @@ class RoutingTest extends AbstractTestCase
      * @param string $request  The REQUEST_URI value
      * @param string $pathInfo The PATH_INFO value
      * @param string $expected Expected result
-     *
-     * @dataProvider providerForTestCleanupPathInfo
      */
+    #[DataProvider('providerForTestCleanupPathInfo')]
     public function testCleanupPathInfo(string $phpSelf, string $request, string $pathInfo, string $expected): void
     {
         $_SERVER['PHP_SELF'] = $phpSelf;

@@ -8,15 +8,17 @@ use Generator;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
-/** @covers \PhpMyAdmin\ConfigStorage\UserGroups */
+#[CoversClass(UserGroups::class)]
 class UserGroupsTest extends AbstractTestCase
 {
     private ConfigurableMenusFeature $configurableMenusFeature;
@@ -33,17 +35,16 @@ class UserGroupsTest extends AbstractTestCase
         $GLOBALS['table'] = '';
 
         $this->configurableMenusFeature = new ConfigurableMenusFeature(
-            DatabaseName::fromValue('pmadb'),
-            TableName::fromValue('usergroups'),
-            TableName::fromValue('users'),
+            DatabaseName::from('pmadb'),
+            TableName::from('usergroups'),
+            TableName::from('users'),
         );
     }
 
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';

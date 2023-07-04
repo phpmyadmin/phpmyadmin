@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Navigation\NavigationTree */
+#[CoversClass(NavigationTree::class)]
 class NavigationTreeTest extends AbstractTestCase
 {
     protected NavigationTree $object;

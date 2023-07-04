@@ -13,8 +13,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Normalization\MoveRepeatingGroup */
+#[CoversClass(MoveRepeatingGroup::class)]
 class MoveRepeatingGroupTest extends AbstractTestCase
 {
     public function testDefault(): void
@@ -22,12 +23,15 @@ class MoveRepeatingGroupTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
-        // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('CREATE TABLE `new_table` SELECT `id`,`col1`,`col1` as `new_column` FROM `test_table` UNION SELECT `id`,`col1`,`col2` as `new_column` FROM `test_table`', []);
-        $dbiDummy->addResult('ALTER TABLE `test_table` DROP `col1`, DROP `col2`', []);
-        // phpcs:enable
+        $dbiDummy->addResult(
+            'CREATE TABLE `new_table`'
+            . ' SELECT `id`,`col1`,`col1` as `new_column` FROM `test_table` UNION'
+            . ' SELECT `id`,`col1`,`col2` as `new_column` FROM `test_table`',
+            true,
+        );
+        $dbiDummy->addResult('ALTER TABLE `test_table` DROP `col1`, DROP `col2`', true);
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;

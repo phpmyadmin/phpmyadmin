@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-/** @coversNothing */
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Group;
+
+#[CoversNothing]
 class NormalizationTest extends TestBase
 {
     /**
@@ -37,14 +40,10 @@ class NormalizationTest extends TestBase
 
     /**
      * Test for normalization to 1NF
-     *
-     * @group large
      */
+    #[Group('large')]
     public function testNormalizationTo1NF(): void
     {
-        $this->assertTrue(
-            $this->isElementPresent('cssSelector', 'fieldset'),
-        );
         $this->assertEquals(
             'First step of normalization (1NF)',
             $this->byCssSelector('label[for=normalizeToRadio1]')->getText(),
@@ -84,12 +83,6 @@ class NormalizationTest extends TestBase
         $this->assertTrue(
             $this->isElementPresent(
                 'cssSelector',
-                '.tblFooters',
-            ),
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
                 '#selectNonAtomicCol option[value=val2]',
             ),
         );
@@ -111,12 +104,12 @@ class NormalizationTest extends TestBase
             'no_such_col',
         );
 
-        $this->waitForElement('xpath', "//legend[contains(., 'Step 1.2 Have a primary key')]");
+        $this->waitForElement('xpath', "//div[contains(., 'Step 1.2 Have a primary key')]");
         $text = $this->byCssSelector('#mainContent h4')->getText();
         $this->assertStringContainsString('Primary key already exists.', $text);
-        $this->waitForElement('xpath', "//legend[contains(., 'Step 1.3 Move repeating groups')]");
+        $this->waitForElement('xpath', "//div[contains(., 'Step 1.3 Move repeating groups')]");
         $this->byCssSelector('input[value="No repeating group"]')->click();
-        $this->waitForElement('xpath', "//legend[contains(., 'Step 1.4 Remove redundant columns')]");
+        $this->waitForElement('xpath', "//div[contains(., 'Step 1.4 Remove redundant columns')]");
         $this->assertTrue(
             $this->isElementPresent(
                 'cssSelector',
@@ -137,7 +130,7 @@ class NormalizationTest extends TestBase
         );
         $this->byCssSelector('#extra input[value=val][type=checkbox]')->click();
         $this->byCssSelector('#removeRedundant')->click();
-        $this->waitForElement('xpath', "//legend[contains(., 'End of step')]");
+        $this->waitForElement('xpath', "//div[contains(., 'End of step')]");
         $this->assertStringContainsString(
             "The first step of normalization is complete for table 'test_table'.",
             $this->byCssSelector('#mainContent h4')->getText(),

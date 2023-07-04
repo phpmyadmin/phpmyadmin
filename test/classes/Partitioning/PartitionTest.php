@@ -7,8 +7,12 @@ namespace PhpMyAdmin\Tests\Partitioning;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
-/** @covers \PhpMyAdmin\Partitioning\Partition */
+#[CoversClass(Partition::class)]
 class PartitionTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -32,13 +36,10 @@ class PartitionTest extends AbstractTestCase
         $this->assertEquals('RANGE', $actual);
     }
 
-    /**
-     * @param array<int, array<string, string>> $pluginValue
-     *
-     * @dataProvider providerForTestHavePartitioning
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    /** @param array<int, array<string, string>> $pluginValue */
+    #[DataProvider('providerForTestHavePartitioning')]
+    #[PreserveGlobalState(false)]
+    #[RunInSeparateProcess]
     public function testHavePartitioning(bool $expected, int $version, string|false $varValue, array $pluginValue): void
     {
         $mock = $this->createStub(DatabaseInterface::class);

@@ -12,8 +12,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\CheckRelationsController */
+#[CoversClass(CheckRelationsController::class)]
 class CheckRelationsControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

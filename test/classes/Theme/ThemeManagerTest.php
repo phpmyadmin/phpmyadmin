@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Theme;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\ThemeManager;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Theme\ThemeManager */
+#[CoversClass(ThemeManager::class)]
 class ThemeManagerTest extends AbstractTestCase
 {
     /**

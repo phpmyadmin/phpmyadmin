@@ -12,8 +12,9 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversNothing;
 
-/** @coversNothing */
+#[CoversNothing]
 class PropertyItemsTest extends AbstractTestCase
 {
     public function testBoolText(): void

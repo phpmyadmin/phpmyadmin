@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Export;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Plugins */
+#[CoversClass(Plugins::class)]
 class PluginsTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -49,11 +51,8 @@ class PluginsTest extends AbstractTestCase
         $this->assertContainsOnlyInstancesOf(Plugins\SchemaPlugin::class, $plugins);
     }
 
-    /**
-     * @psalm-param 'Export'|'Import'|'Schema' $section
-     *
-     * @dataProvider providerForTestGetDefault
-     */
+    /** @psalm-param 'Export'|'Import'|'Schema' $section */
+    #[DataProvider('providerForTestGetDefault')]
     public function testGetDefault(
         string $expected,
         string|int|null $actualConfig,

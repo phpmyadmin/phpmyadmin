@@ -15,8 +15,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\TrackingController */
+#[CoversClass(TrackingController::class)]
 class TrackingControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

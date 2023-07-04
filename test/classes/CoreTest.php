@@ -8,6 +8,12 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use stdClass;
 
 use function __;
@@ -21,7 +27,7 @@ use function strtr;
 
 use const ENT_QUOTES;
 
-/** @covers \PhpMyAdmin\Core */
+#[CoversClass(Core::class)]
 class CoreTest extends AbstractNetworkTestCase
 {
     /**
@@ -239,9 +245,8 @@ class CoreTest extends AbstractNetworkTestCase
      * @param string[] $allowList Allow list
      * @param bool     $include   whether the page is going to be included
      * @param bool     $expected  Expected value
-     *
-     * @dataProvider providerTestGotoNowhere
      */
+    #[DataProvider('providerTestGotoNowhere')]
     public function testGotoNowhere(string $page, array $allowList, bool $include, bool $expected): void
     {
         $this->assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
@@ -271,11 +276,9 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @param string $size     Size
      * @param int    $expected Expected value
-     *
-     * @group 32bit-incompatible
-     *
-     * @dataProvider providerTestGetRealSize
      */
+    #[DataProvider('providerTestGetRealSize')]
+    #[Group('32bit-incompatible')]
     public function testGetRealSize(string $size, int $expected): void
     {
         $this->assertEquals($expected, Core::getRealSize($size));
@@ -322,9 +325,8 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @param string $link URL where to go
      * @param string $url  Expected value
-     *
-     * @dataProvider providerTestLinkURL
      */
+    #[DataProvider('providerTestLinkURL')]
     public function testLinkURL(string $link, string $url): void
     {
         $this->assertEquals(Core::linkURL($link), $url);
@@ -415,10 +417,10 @@ class CoreTest extends AbstractNetworkTestCase
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . htmlspecialchars($testUri, ENT_QUOTES) . '">'
-            . "\n    <script type=\"text/javascript\">\n        //<![CDATA["
+            . "\n    <script>\n        //<![CDATA["
             . "\n        setTimeout(function() { window.location = decodeURI('" . $testUriJs . "'); }, 2000);"
             . "\n        //]]>\n    </script>\n</head>"
-            . "\n<body>\n<script type=\"text/javascript\">\n    //<![CDATA["
+            . "\n<body>\n<script>\n    //<![CDATA["
             . "\n    document.write('<p><a href=\"" . $testUriJs . '">' . __('Go') . "</a></p>');"
             . "\n    //]]>\n</script>\n</body>\n</html>\n";
 
@@ -429,7 +431,7 @@ class CoreTest extends AbstractNetworkTestCase
         Core::sendHeaderLocation($testUri);
     }
 
-    /** @dataProvider provideTestIsAllowedDomain */
+    #[DataProvider('provideTestIsAllowedDomain')]
     public function testIsAllowedDomain(string $url, bool $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
@@ -478,9 +480,8 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @param string $data     Serialized data
      * @param mixed  $expected Expected result
-     *
-     * @dataProvider provideTestSafeUnserialize
      */
+    #[DataProvider('provideTestSafeUnserialize')]
     public function testSafeUnserialize(string $data, mixed $expected): void
     {
         $this->assertEquals(
@@ -519,9 +520,8 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @param string $host     Test host name
      * @param string $expected Expected result
-     *
-     * @dataProvider provideTestSanitizeMySQLHost
      */
+    #[DataProvider('provideTestSanitizeMySQLHost')]
     public function testSanitizeMySQLHost(string $host, string $expected): void
     {
         $this->assertEquals(
@@ -720,9 +720,8 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * @param string[] $encrypted
      * @param string[] $decrypted
-     *
-     * @dataProvider providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam
      */
+    #[DataProvider('providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam')]
     public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
         array $encrypted,
         array $decrypted,
@@ -752,12 +751,10 @@ class CoreTest extends AbstractNetworkTestCase
         return [[[], []], [['eq' => []], []], [['eq' => ''], []], [['eq' => 'invalid'], []]];
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     * @requires extension xdebug
-     * @group ext-xdebug
-     */
+    #[PreserveGlobalState(false)]
+    #[Group('ext-xdebug')]
+    #[RequiresPhpExtension('xdebug')]
+    #[RunInSeparateProcess]
     public function testDownloadHeader(): void
     {
         $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
@@ -779,12 +776,10 @@ class CoreTest extends AbstractNetworkTestCase
         $this->assertNotContains('Content-Encoding: gzip', $headersList);
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     * @requires extension xdebug
-     * @group ext-xdebug
-     */
+    #[PreserveGlobalState(false)]
+    #[Group('ext-xdebug')]
+    #[RequiresPhpExtension('xdebug')]
+    #[RunInSeparateProcess]
     public function testDownloadHeader2(): void
     {
         $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');

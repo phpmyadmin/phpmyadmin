@@ -11,9 +11,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
-/** @covers \PhpMyAdmin\Database\Designer */
+#[CoversClass(Designer::class)]
 class DesignerTest extends AbstractTestCase
 {
     private Designer $designer;
@@ -166,7 +167,7 @@ class DesignerTest extends AbstractTestCase
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page);
         // export type
-        $this->assertStringContainsString('<select id="plugins" name="export_type">', $result);
+        $this->assertStringContainsString('<select class="form-select" id="plugins" name="export_type">', $result);
 
         // hidden field
         $this->assertStringContainsString('<input type="hidden" name="page_number" value="' . $page . '">', $result);

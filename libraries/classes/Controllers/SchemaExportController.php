@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Exceptions\ExportException;
-use PhpMyAdmin\Export;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 
@@ -28,7 +28,7 @@ class SchemaExportController
 
     public function __invoke(ServerRequest $request): void
     {
-        $db = DatabaseName::tryFromValue($request->getParsedBodyParam('db'));
+        $db = DatabaseName::tryFrom($request->getParsedBodyParam('db'));
         /** @var mixed $exportType */
         $exportType = $request->getParsedBodyParam('export_type');
         if ($db === null || ! is_string($exportType) || $exportType === '') {

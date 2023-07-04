@@ -31,12 +31,11 @@ class AuthenticationSignon extends AuthenticationPlugin
 {
     /**
      * Displays authentication form
-     *
-     * @return bool always true (no return indeed)
      */
-    public function showLoginForm(): bool
+    public function showLoginForm(): never
     {
-        ResponseRenderer::getInstance()->disable();
+        $response = ResponseRenderer::getInstance();
+        $response->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
             echo $this->template->render('error/generic', [
@@ -45,18 +44,12 @@ class AuthenticationSignon extends AuthenticationPlugin
                 'error_message' => 'You must set SignonURL!',
             ]);
 
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
+            $response->callExit();
         } else {
             Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
-
-        return false;
+        $response->callExit();
     }
 
     /**
@@ -136,7 +129,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                     'error_message' => __('Can not find signon authentication script:') . ' ' . $scriptName,
                 ]);
 
-                exit;
+                ResponseRenderer::getInstance()->callExit();
             }
 
             include $scriptName;
@@ -251,7 +244,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    public function showFailure(string $failure): never
     {
         parent::showFailure($failure);
 

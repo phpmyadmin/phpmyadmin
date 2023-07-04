@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Memory;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Engines\Memory */
+#[CoversClass(Memory::class)]
 class MemoryTest extends AbstractTestCase
 {
     protected Memory $object;

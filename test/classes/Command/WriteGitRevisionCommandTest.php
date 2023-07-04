@@ -6,12 +6,13 @@ namespace PhpMyAdmin\Tests\Command;
 
 use PhpMyAdmin\Command\WriteGitRevisionCommand;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\Console\Command\Command;
 
 use function class_exists;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Command\WriteGitRevisionCommand */
+#[CoversClass(WriteGitRevisionCommand::class)]
 class WriteGitRevisionCommandTest extends AbstractTestCase
 {
     private WriteGitRevisionCommand $command;

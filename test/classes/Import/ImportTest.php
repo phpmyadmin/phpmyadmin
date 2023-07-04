@@ -2,15 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Import;
 
-use PhpMyAdmin\Import;
+use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function time;
 
 use const PHP_INT_MAX;
 
-/** @covers \PhpMyAdmin\Import */
+#[CoversClass(Import::class)]
 class ImportTest extends AbstractTestCase
 {
     private Import $import;
@@ -121,9 +124,8 @@ class ImportTest extends AbstractTestCase
      *
      * @param string $expected Expected result of the function
      * @param int    $num      The column number
-     *
-     * @dataProvider provGetColumnAlphaName
      */
+    #[DataProvider('provGetColumnAlphaName')]
     public function testGetColumnAlphaName(string $expected, int $num): void
     {
         $this->assertEquals($expected, $this->import->getColumnAlphaName($num));
@@ -144,9 +146,8 @@ class ImportTest extends AbstractTestCase
      *
      * @param int    $expected Expected result of the function
      * @param string $name     column name(i.e. "A", or "BC", etc.)
-     *
-     * @dataProvider provGetColumnNumberFromName
      */
+    #[DataProvider('provGetColumnNumberFromName')]
     public function testGetColumnNumberFromName(int $expected, string $name): void
     {
         $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
@@ -167,9 +168,8 @@ class ImportTest extends AbstractTestCase
      *
      * @param int    $expected Expected result of the function
      * @param string $size     Size of field
-     *
-     * @dataProvider provGetDecimalPrecision
      */
+    #[DataProvider('provGetDecimalPrecision')]
     public function testGetDecimalPrecision(int $expected, string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
@@ -190,9 +190,8 @@ class ImportTest extends AbstractTestCase
      *
      * @param int    $expected Expected result of the function
      * @param string $size     Size of field
-     *
-     * @dataProvider provGetDecimalScale
      */
+    #[DataProvider('provGetDecimalScale')]
     public function testGetDecimalScale(int $expected, string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalScale($size));
@@ -213,9 +212,8 @@ class ImportTest extends AbstractTestCase
      *
      * @param mixed[] $expected Expected result of the function
      * @param string  $cell     Cell content
-     *
-     * @dataProvider provGetDecimalSize
      */
+    #[DataProvider('provGetDecimalSize')]
     public function testGetDecimalSize(array $expected, string $cell): void
     {
         $this->assertEquals($expected, $this->import->getDecimalSize($cell));
@@ -239,9 +237,8 @@ class ImportTest extends AbstractTestCase
      *                              BIGINT or DECIMAL or NONE)
      * @param string|null $cell     String representation of the cell for which a
      *                              best-fit type is to be determined
-     *
-     * @dataProvider provDetectType
      */
+    #[DataProvider('provDetectType')]
     public function testDetectType(int $expected, int|null $type, string|null $cell): void
     {
         $this->assertEquals($expected, $this->import->detectType($type, $cell));
@@ -320,9 +317,8 @@ class ImportTest extends AbstractTestCase
      *
      * @param string $input         The contents to strip BOM
      * @param string $cleanContents The contents cleaned
-     *
-     * @dataProvider providerContentWithByteOrderMarks
      */
+    #[DataProvider('providerContentWithByteOrderMarks')]
     public function testSkipByteOrderMarksFromContents(string $input, string $cleanContents): void
     {
         $this->assertEquals($cleanContents, $this->import->skipByteOrderMarksFromContents($input));

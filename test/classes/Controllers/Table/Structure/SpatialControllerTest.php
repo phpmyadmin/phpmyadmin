@@ -12,8 +12,9 @@ use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Structure\SpatialController */
+#[CoversClass(SpatialController::class)]
 class SpatialControllerTest extends AbstractTestCase
 {
     public function testAddSpatialKeyToSingleField(): void
@@ -25,7 +26,7 @@ class SpatialControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', []);
+        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
@@ -53,7 +54,7 @@ class SpatialControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field1`, `test_field2`);', []);
+        $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field1`, `test_field2`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);

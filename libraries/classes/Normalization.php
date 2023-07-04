@@ -193,11 +193,10 @@ class Normalization
     {
         $step = 1;
         $stepTxt = __('Make all columns atomic');
-        $html = "<h3 class='text-center'>"
-            . __('First step of normalization (1NF)') . '</h3>';
-        $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>"
-            . '<fieldset class="pma-fieldset">'
-            . '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>'
+        $html = '<h3>' . __('First step of normalization (1NF)') . '</h3>';
+        $html .= '<div class="card" id="mainContent" data-normalizeto="' . $normalizedTo . '">'
+            . '<div class="card-header">' . __('Step 1.') . $step . ' ' . $stepTxt . '</div>'
+            . '<div class="card-body">'
             . '<h4>' . __(
                 'Do you have any column which can be split into more than one column?'
                 . ' For example: address can be split into street, city, country and zip.',
@@ -225,8 +224,7 @@ class Normalization
             . "</span><input id='numField' type='number' value='2'>"
             . '<input type="submit" class="btn btn-primary" id="splitGo" value="' . __('Go') . '"></div>'
             . "<div id='newCols'></div>"
-            . '</fieldset><fieldset class="pma-fieldset tblFooters">'
-            . '</fieldset>'
+            . '</div><div class="card-footer"></div>'
             . '</div>';
 
         return $html;

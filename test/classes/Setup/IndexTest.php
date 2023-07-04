@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Setup\Index */
+#[CoversClass(SetupIndex::class)]
 class IndexTest extends AbstractTestCase
 {
     /**

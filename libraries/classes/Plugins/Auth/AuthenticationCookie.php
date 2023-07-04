@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
-use PhpMyAdmin\Common;
+use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
@@ -29,7 +29,6 @@ use function array_keys;
 use function base64_decode;
 use function base64_encode;
 use function count;
-use function defined;
 use function explode;
 use function function_exists;
 use function in_array;
@@ -64,7 +63,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @global string $conn_error the last connection error
      */
-    public function showLoginForm(): bool
+    public function showLoginForm(): never
     {
         $GLOBALS['conn_error'] ??= null;
 
@@ -77,11 +76,7 @@ class AuthenticationCookie extends AuthenticationPlugin
          */
         $sessionExpired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
         if (! $sessionExpired && $response->loginPage()) {
-            if (defined('TESTSUITE')) {
-                return true;
-            }
-
-            exit;
+            $response->callExit();
         }
 
         /**
@@ -143,11 +138,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $serversOptions = '';
         $hasServers = count($GLOBALS['cfg']['Servers']) > 1;
         if ($hasServers) {
-            $serversOptions = Select::render(false, false);
+            $serversOptions = Select::render(false);
         }
 
         $formParams = [];
-        $formParams['route'] = Common::getRequest()->getRoute();
+        $formParams['route'] = Application::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db'])) {
             $formParams['db'] = $GLOBALS['db'];
@@ -202,11 +197,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'config_footer' => $configFooter,
         ]);
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
-
-        return true;
+        $response->callExit();
     }
 
     /**
@@ -336,7 +327,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     'error_message' => $exception->getMessage(),
                 ]);
 
-                exit;
+                ResponseRenderer::getInstance()->callExit();
             }
 
             return true;
@@ -388,11 +379,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             SessionCache::remove('proc_priv');
 
             $this->showFailure('no-activity');
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return false;
         }
 
         // check password cookie
@@ -475,7 +461,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $urlParams = [];
-        $urlParams['route'] = Common::getRequest()->getRoute();
+        $urlParams['route'] = Application::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db']) > 0) {
             $urlParams['db'] = $GLOBALS['db'];
@@ -492,11 +478,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $response->addJSON('success', 1);
             $response->addJSON('new_token', $_SESSION[' PMA_token ']);
 
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return;
+            $response->callExit();
         }
 
         // Set server cookies if required (once per session) and, in this case,
@@ -510,16 +492,15 @@ class AuthenticationCookie extends AuthenticationPlugin
          */
         Util::clearUserCache();
 
-        ResponseRenderer::getInstance()->disable();
+        $response = ResponseRenderer::getInstance();
+        $response->disable();
 
         Core::sendHeaderLocation(
             './index.php?route=/' . Url::getCommonRaw($urlParams, '&'),
             true,
         );
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $response->callExit();
     }
 
     /**
@@ -570,12 +551,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      * prepares error message and switches to showLoginForm() which display the error
      * and the login form
      *
-     * this function MUST exit/quit the application,
-     * currently done by call to showLoginForm()
-     *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    public function showFailure(string $failure): never
     {
         $GLOBALS['conn_error'] ??= null;
 

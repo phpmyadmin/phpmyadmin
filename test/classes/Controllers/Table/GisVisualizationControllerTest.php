@@ -12,11 +12,12 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_VAR_STRING;
 
-/** @covers \PhpMyAdmin\Controllers\Table\GisVisualizationController */
+#[CoversClass(GisVisualizationController::class)]
 class GisVisualizationControllerTest extends AbstractTestCase
 {
     public function testGisVisualizationController(): void

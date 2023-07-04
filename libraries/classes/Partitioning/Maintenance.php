@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Partitioning;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Util;
 
 use function sprintf;

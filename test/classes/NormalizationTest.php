@@ -14,13 +14,14 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 use function __;
 use function _pgettext;
 use function json_encode;
 
-/** @covers \PhpMyAdmin\Normalization */
+#[CoversClass(Normalization::class)]
 class NormalizationTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -148,13 +149,9 @@ class NormalizationTest extends AbstractTestCase
         $table = 'PMA_table';
         $normalizedTo = '1nf';
         $result = $this->normalization->getHtmlFor1NFStep1($db, $table, $normalizedTo);
-        $this->assertStringContainsString(
-            "<h3 class='text-center'>"
-            . __('First step of normalization (1NF)') . '</h3>',
-            $result,
-        );
-        $this->assertStringContainsString("<div id='mainContent'", $result);
-        $this->assertStringContainsString('<legend>' . __('Step 1.'), $result);
+        $this->assertStringContainsString('<h3>' . __('First step of normalization (1NF)') . '</h3>', $result);
+        $this->assertStringContainsString('<div class="card" id="mainContent"', $result);
+        $this->assertStringContainsString('<div class="card-header">' . __('Step 1.'), $result);
 
         $this->assertStringContainsString('<h4', $result);
 

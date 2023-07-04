@@ -13,8 +13,10 @@ use PhpMyAdmin\Gis\GisMultiPolygon;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Gis\GisFactory */
+#[CoversClass(GisFactory::class)]
 class GisFactoryTest extends AbstractTestCase
 {
     /**
@@ -23,9 +25,8 @@ class GisFactoryTest extends AbstractTestCase
      * @param string $type geometry type
      * @param string $geom geometry object
      * @psalm-param class-string $geom
-     *
-     * @dataProvider providerForTestFactory
      */
+    #[DataProvider('providerForTestFactory')]
     public function testFactory(string $type, string $geom): void
     {
         $this->assertInstanceOf($geom, GisFactory::factory($type));

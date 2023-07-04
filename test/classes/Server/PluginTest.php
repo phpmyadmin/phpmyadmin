@@ -6,8 +6,10 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Depends;
 
-/** @covers \PhpMyAdmin\Server\Plugin */
+#[CoversClass(Plugin::class)]
 class PluginTest extends AbstractTestCase
 {
     public function testFromState(): Plugin
@@ -49,7 +51,7 @@ class PluginTest extends AbstractTestCase
         return $plugin;
     }
 
-    /** @depends testFromState */
+    #[Depends('testFromState')]
     public function testToArray(Plugin $plugin): void
     {
         $this->assertSame([

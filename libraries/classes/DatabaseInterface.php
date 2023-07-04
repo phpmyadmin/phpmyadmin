@@ -7,7 +7,6 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
@@ -15,6 +14,7 @@ use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
@@ -165,7 +165,7 @@ class DatabaseInterface implements DbalInterface
             // The following statement will exit
             Generator::mysqlDie($this->getError($connectionType), $query);
 
-            exit;
+            ResponseRenderer::getInstance()->callExit();
         }
 
         return $result;
@@ -225,7 +225,7 @@ class DatabaseInterface implements DbalInterface
                     sprintf(
                         'SQL[%s?route=%s]: %0.3f(W:%d,C:%s,L:0x%02X) > %s',
                         basename($_SERVER['SCRIPT_NAME']),
-                        Common::getRequest()->getRoute(),
+                        Application::getRequest()->getRoute(),
                         $this->lastQueryExecutionTime,
                         $this->getWarningCount($connectionType),
                         $cacheAffectedRows ? 'y' : 'n',

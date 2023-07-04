@@ -9,8 +9,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Import\ImportController */
+#[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

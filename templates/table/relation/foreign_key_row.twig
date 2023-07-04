@@ -27,7 +27,7 @@
         {% endif %}
     </td>
     <td>
-        <span class="formelement clearfloat">
+        <span class="clearfloat">
             <input type="text" name="constraint_name[{{ i }}]" value="
                 {{- one_key['constraint'] is defined ? one_key['constraint'] -}}
                 " placeholder="{% trans 'Constraint name' %}" maxlength="64">
@@ -40,7 +40,7 @@
                 ? one_key['on_delete'] : 'RESTRICT' %}
             {% set on_update = one_key['on_update'] is defined
                 ? one_key['on_update'] : 'RESTRICT' %}
-            <span class="formelement">
+            <span>
                 {% include 'table/relation/dropdown_generate.twig' with {
                     'dropdown_question': 'ON DELETE',
                     'select_name': 'on_delete[' ~ i ~ ']',
@@ -48,7 +48,7 @@
                     'selected_value': on_delete
                 } only %}
             </span>
-            <span class="formelement">
+            <span>
                 {% include 'table/relation/dropdown_generate.twig' with {
                     'dropdown_question': 'ON UPDATE',
                     'select_name': 'on_update[' ~ i ~ ']',
@@ -61,7 +61,7 @@
     <td>
         {% if one_key['index_list'] is defined %}
             {% for key, column in one_key['index_list'] %}
-                <span class="formelement clearfloat">
+                <span class="clearfloat">
                     {% include 'table/relation/dropdown_generate.twig' with {
                         'dropdown_question': '',
                         'select_name': 'foreign_key_fields_name[' ~ i ~ '][]',
@@ -71,7 +71,7 @@
                 </span>
             {% endfor %}
         {% else %}
-            <span class="formelement clearfloat">
+            <span class="clearfloat">
                 {% include 'table/relation/dropdown_generate.twig' with {
                     'dropdown_question': '',
                     'select_name': 'foreign_key_fields_name[' ~ i ~ '][]',
@@ -80,13 +80,13 @@
                 } only %}
             </span>
         {% endif %}
-        <a class="formelement clearfloat add_foreign_key_field" data-index="
+        <a class="clearfloat add_foreign_key_field" data-index="
             {{- i }}" href="">
             {% trans '+ Add column' %}
         </a>
     </td>
     <td>
-        <span class="formelement clearfloat">
+        <span class="clearfloat">
             {% include 'table/relation/relational_dropdown.twig' with {
                 'name': 'destination_foreign_db[' ~ i ~ ']',
                 'title': 'Database'|trans,
@@ -97,7 +97,7 @@
         </span>
     </td>
     <td>
-        <span class="formelement clearfloat">
+        <span class="clearfloat">
             {% include 'table/relation/relational_dropdown.twig' with {
                 'name': 'destination_foreign_table[' ~ i ~ ']',
                 'title': 'Table'|trans,
@@ -109,7 +109,7 @@
     <td>
         {% if foreign_db and foreign_table %}
             {% for foreign_column in one_key['ref_index_list'] %}
-                <span class="formelement clearfloat">
+                <span class="clearfloat">
                     {% include 'table/relation/relational_dropdown.twig' with {
                         'name': 'destination_foreign_column[' ~ i ~ '][]',
                         'title': 'Column'|trans,
@@ -119,7 +119,7 @@
                 </span>
             {% endfor %}
         {% else %}
-            <span class="formelement clearfloat">
+            <span class="clearfloat">
                 {% include 'table/relation/relational_dropdown.twig' with {
                     'name': 'destination_foreign_column[' ~ i ~ '][]',
                     'title': 'Column'|trans,

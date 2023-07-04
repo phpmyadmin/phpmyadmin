@@ -7,11 +7,13 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function __;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Engines\Pbxt */
+#[CoversClass(Pbxt::class)]
 class PbxtTest extends AbstractTestCase
 {
     protected Pbxt $object;
@@ -162,9 +164,8 @@ class PbxtTest extends AbstractTestCase
      *
      * @param string  $formattedSize the size expression (for example 8MB)
      * @param mixed[] $output        Expected output
-     *
-     * @dataProvider providerFortTestResolveTypeSize
      */
+    #[DataProvider('providerFortTestResolveTypeSize')]
     public function testResolveTypeSize(string $formattedSize, array $output): void
     {
         $this->assertEquals(

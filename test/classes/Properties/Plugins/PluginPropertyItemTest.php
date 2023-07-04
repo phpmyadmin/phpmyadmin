@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Properties\Plugins\PluginPropertyItem */
+#[CoversClass(PluginPropertyItem::class)]
 class PluginPropertyItemTest extends AbstractTestCase
 {
     protected PluginPropertyItem $stub;

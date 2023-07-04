@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
-/** @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema */
+#[CoversClass(ExportRelationSchema::class)]
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema<null> */
@@ -24,7 +26,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
-        $this->object = new ExportRelationSchema(DatabaseName::fromValue('test_db'), null);
+        $this->object = new ExportRelationSchema(DatabaseName::from('test_db'), null);
     }
 
     /**
@@ -40,9 +42,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPageNumber
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
@@ -54,9 +55,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setShowColor
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetShowColor(): void
     {
         $this->object->setShowColor(true);
@@ -71,9 +71,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setOrientation
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetOrientation(): void
     {
         $this->object->setOrientation('P');
@@ -90,9 +89,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setTableDimension
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetTableDimension(): void
     {
         $this->object->setTableDimension(true);
@@ -107,9 +105,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPaper
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetPaper(): void
     {
         $this->object->setPaper('A5');
@@ -126,9 +123,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setAllTablesSameWidth
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetAllTablesSameWidth(): void
     {
         $this->object->setAllTablesSameWidth(true);
@@ -143,9 +139,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setShowKeys
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testSetShowKeys(): void
     {
         $this->object->setShowKeys(true);

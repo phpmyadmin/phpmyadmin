@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
-use PhpMyAdmin\Common;
+use PhpMyAdmin\Application;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
@@ -96,7 +96,7 @@ final class Indexes
             } else {
                 /** @var StructureController $controller */
                 $controller = Core::getContainerBuilder()->get(StructureController::class);
-                $controller(Common::getRequest());
+                $controller(Application::getRequest());
             }
         } else {
             $this->response->setRequestStatus(false);

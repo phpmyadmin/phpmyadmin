@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Plugins\TwoFactor;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\TwoFactor;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Plugins\TwoFactor\Key */
+#[CoversClass(Key::class)]
 class KeyTest extends AbstractTestCase
 {
     public function testGetRegistrations(): void

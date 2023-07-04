@@ -84,7 +84,7 @@ class Navigation
             }
 
             if ($GLOBALS['cfg']['NavigationDisplayServers'] && count($GLOBALS['cfg']['Servers']) > 1) {
-                $serverSelect = Select::render(true, true);
+                $serverSelect = Select::render(true);
             }
 
             if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {

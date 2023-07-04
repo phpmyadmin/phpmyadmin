@@ -1,90 +1,71 @@
 {% extends 'server/status/base.twig' %}
 {% set active = 'monitor' %}
 {% block content %}
+  <h2 class="mb-3">{{ 'System monitor'|trans }}</h2>
 
-<div class="tabLinks row">
-  <a href="#pauseCharts">
-    {{ get_image('play') }}
-    {%- trans 'Start Monitor' -%}
-  </a>
-  <a href="#settingsPopup" class="popupLink">
-    {{ get_image('s_cog') }}
-    {%- trans 'Settings' -%}
-  </a>
-  <a href="#monitorInstructionsDialog">
-    {{ get_image('b_help') }}
-    {%- trans 'Instructions/Setup' -%}
-  </a>
-  <a href="#endChartEditMode" class="hide">
-    {{ get_image('s_okay') }}
-    {%- trans 'Done dragging (rearranging) charts' -%}
-  </a>
-</div>
-
-<div class="popupContent settingsPopup">
-  <a href="#addNewChart">
-    {{ get_image('b_chart') }}
-    {% trans 'Add chart' %}
-  </a>
-  <a href="#rearrangeCharts">
-    {{ get_image('b_tblops') }}
-    {% trans 'Enable charts dragging' %}
-  </a>
-  <div class="clearfloat paddingtop"></div>
-
-  <div class="float-start">
-    {% trans 'Refresh rate' %}
-    <br>
-    <select id="id_gridChartRefresh" class="refreshRate" name="gridChartRefresh">
-      {% for rate in [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200] %}
-        <option value="{{ rate }}"{{ rate == 5 ? ' selected' }}>
-          {% if rate < 60 %}
-            {% if rate == 1 %}
-              {{ '%d second'|trans|format(rate) }}
-            {% else %}
-              {{ '%d seconds'|trans|format(rate) }}
-            {% endif %}
-          {% else %}
-            {% if rate / 60 == 1 %}
-              {{ '%d minute'|trans|format(rate / 60) }}
-            {% else %}
-              {{ '%d minutes'|trans|format(rate / 60) }}
-            {% endif %}
-          {% endif %}
-        </option>
-      {% endfor %}
-    </select>
-    <br>
+  <div class="mb-3 d-print-none">
+    <button type="button" class="btn btn-primary" id="monitorPauseResumeButton">{{ get_icon('play', 'Start monitor'|trans) }}</button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#monitorSettingsContent" aria-expanded="false" aria-controls="monitorSettingsContent">{{ get_icon('s_cog', 'Settings'|trans) }}</button>
+    <button type="button" class="btn btn-secondary" id="monitorInstructionsButton">{{ get_icon('b_help', 'Instructions/Setup'|trans) }}</button>
   </div>
 
-  <div class="float-start">
-    {% trans 'Chart columns' %}
-    <br>
-    <select name="chartColumns">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-    </select>
-  </div>
+  <div class="collapse" id="monitorSettingsContent">
+    <div class="card mb-3 d-print-none">
+      <div class="card-body">
+        <div class="mb-3">
+          <button type="button" class="btn btn-secondary" id="monitorAddNewChartButton">{{ get_icon('b_chart', 'Add chart'|trans) }}</button>
+          <button type="button" class="btn btn-secondary" id="monitorRearrangeChartButton">{{ get_icon('b_tblops', 'Enable charts dragging'|trans) }}</button>
+          <button type="button" class="btn btn-primary d-none" id="monitorDoneRearrangeChartButton">{{ get_icon('s_okay', 'Done dragging (rearranging) charts'|trans) }}</button>
+        </div>
 
-  <div class="clearfloat paddingtop">
-    <strong>{% trans 'Chart arrangement' %}</strong>
-    {{ show_hint('The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.'|trans) }}
-    <br>
-    <a class="ajax" href="#importMonitorConfig">
-      {% trans 'Import' %}
-    </a> -
-    <a class="disableAjax" href="#exportMonitorConfig">
-      {% trans 'Export' %}
-    </a> -
-    <a href="#clearMonitorConfig">
-      {% trans 'Reset to default' %}
-    </a>
+        <div class="row mb-3">
+          <div class="col-auto">
+            <label class="form-label" for="monitorChartRefreshRateSelect">{{ 'Refresh rate'|trans }}</label>
+            <select class="form-select" id="monitorChartRefreshRateSelect" name="monitorChartRefreshRate">
+              {% for rate in [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200] %}
+                <option value="{{ rate }}"{{ rate == 5 ? ' selected' }}>
+                  {%- if rate < 60 -%}
+                    {% if rate == 1 %}
+                      {{- '%d second'|trans|format(rate) -}}
+                    {% else %}
+                      {{- '%d seconds'|trans|format(rate) -}}
+                    {% endif %}
+                  {%- else -%}
+                    {% if rate / 60 == 1 %}
+                      {{- '%d minute'|trans|format(rate / 60) -}}
+                    {% else %}
+                      {{- '%d minutes'|trans|format(rate / 60) -}}
+                    {% endif %}
+                  {%- endif -%}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="col-auto">
+            <label class="form-label" for="monitorChartColumnsSelect">{{ 'Chart columns'|trans }}</label>
+            <select class="form-select" id="monitorChartColumnsSelect" name="monitorChartColumns">
+              {% for number_of_columns in 1..6 %}
+                <option>{{ number_of_columns }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <p class="card-text">
+            <strong>{% trans 'Chart arrangement' %}</strong><br>
+            <span class="text-body-secondary">{{ 'The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.'|trans }}</span>
+          </p>
+          <div>
+            <button type="button" class="btn btn-secondary" id="monitorImportConfigButton">{{ 'Import'|trans }}</button>
+            <button type="button" class="btn btn-secondary" id="monitorExportConfigButton">{{ 'Export'|trans }}</button>
+            <button type="button" class="btn btn-secondary" id="monitorResetConfigButton">{{ 'Reset to default'|trans }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
 <div id="monitorInstructionsDialog" title="{% trans 'Monitor Instructions' %}" class="hide">
   <p>
@@ -255,10 +236,10 @@
 </div>
 
 <div class="clearfloat"></div>
-<div class="row"><table class="clearfloat tdblock" id="chartGrid"></table></div>
+<div><table class="clearfloat tdblock" id="chartGrid"></table></div>
 <div id="logTable"><br></div>
 
-<script type="text/javascript">
+<script>
   var variableNames = [
     {% for variable_name in javascript_variable_names %}
       "{{ variable_name|e('js') }}",

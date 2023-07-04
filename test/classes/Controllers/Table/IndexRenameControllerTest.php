@@ -11,8 +11,9 @@ use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\IndexRenameController */
+#[CoversClass(IndexRenameController::class)]
 class IndexRenameControllerTest extends AbstractTestCase
 {
     public function testIndexRenameController(): void

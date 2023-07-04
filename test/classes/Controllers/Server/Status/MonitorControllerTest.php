@@ -12,10 +12,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
-/** @covers \PhpMyAdmin\Controllers\Server\Status\MonitorController */
+#[CoversClass(MonitorController::class)]
 class MonitorControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -63,11 +64,7 @@ class MonitorControllerTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString('<div class="tabLinks row">', $html);
-        $this->assertStringContainsString(
-            __('Start Monitor'),
-            $html,
-        );
+        $this->assertStringContainsString(__('Start monitor'), $html);
         $this->assertStringContainsString(
             __('Settings'),
             $html,
@@ -77,8 +74,7 @@ class MonitorControllerTest extends AbstractTestCase
             $html,
         );
 
-        $this->assertStringContainsString('<div class="popupContent settingsPopup">', $html);
-        $this->assertStringContainsString('<a href="#settingsPopup" class="popupLink">', $html);
+        $this->assertStringContainsString('<div class="collapse" id="monitorSettingsContent">', $html);
         $this->assertStringContainsString(
             __('Enable charts dragging'),
             $html,

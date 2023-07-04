@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Navigation\NodeFactory */
+#[CoversClass(NodeFactory::class)]
 class NodeFactoryTest extends AbstractTestCase
 {
     /**

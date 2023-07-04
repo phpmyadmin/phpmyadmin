@@ -12,8 +12,9 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\DropColumnController */
+#[CoversClass(DropColumnController::class)]
 class DropColumnControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -37,7 +38,7 @@ class DropColumnControllerTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', []);
+        $dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', true);
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $this->assertArrayNotHasKey('flashMessages', $_SESSION);

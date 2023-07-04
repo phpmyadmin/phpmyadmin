@@ -16,9 +16,11 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
+use ReflectionProperty;
 
-/** @covers \PhpMyAdmin\Controllers\Table\StructureController */
+#[CoversClass(StructureController::class)]
 class StructureControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -46,6 +48,7 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['ShowStats'] = false;
         $GLOBALS['cfg']['ShowPropertyComments'] = false;
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Template::class, 'twig'))->setValue(null);
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');

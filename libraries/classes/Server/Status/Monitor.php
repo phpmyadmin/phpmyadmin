@@ -287,7 +287,7 @@ class Monitor
                     if (mb_strlen($row['sql_text']) > 220) {
                         $implodeSqlText = implode(
                             ' ',
-                            (array) Util::formatByteDown(
+                            Util::formatByteDown(
                                 mb_strlen($row['sql_text']),
                                 2,
                                 2,
@@ -408,7 +408,7 @@ class Monitor
                         . '... ['
                         . implode(
                             ' ',
-                            (array) Util::formatByteDown(
+                            Util::formatByteDown(
                                 mb_strlen($row['argument']),
                                 2,
                                 2,

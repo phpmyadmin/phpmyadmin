@@ -7,13 +7,13 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Components\Expression;
@@ -24,7 +24,10 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
+use function array_column;
 use function array_keys;
+use function array_sum;
+use function arsort;
 use function bin2hex;
 use function ceil;
 use function count;
@@ -244,33 +247,44 @@ class Sql
     }
 
     /**
-     * @param mixed[] $profilingResults
+     * @psalm-param non-empty-list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
-     * @return array<string, int|mixed[]>
+     * @psalm-return array{
+     *     total_time: float,
+     *     states: array<string, array{total_time: float, calls: int<1, max>}>,
+     *     chart: array{labels: list<string>, data: list<float>},
+     *     profile: list<array{status: string, duration: string, duration_raw: numeric-string}>
+     * }|array{}
      */
     private function getDetailedProfilingStats(array $profilingResults): array
     {
-        $profiling = ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []];
+        $totalTime = (float) array_sum(array_column($profilingResults, 'Duration'));
+        if ($totalTime === 0.0) {
+            return [];
+        }
 
-        foreach ($profilingResults as $oneResult) {
-            $status = ucwords($oneResult['Status']);
-            $profiling['total_time'] += $oneResult['Duration'];
-            $profiling['profile'][] = [
+        $states = [];
+        $profile = [];
+        foreach ($profilingResults as $result) {
+            $status = ucwords($result['Status']);
+            $profile[] = [
                 'status' => $status,
-                'duration' => Util::formatNumber($oneResult['Duration'], 3, 1),
-                'duration_raw' => $oneResult['Duration'],
+                'duration' => Util::formatNumber($result['Duration'], 3, 1),
+                'duration_raw' => $result['Duration'],
             ];
 
-            if (! isset($profiling['states'][$status])) {
-                $profiling['states'][$status] = ['total_time' => $oneResult['Duration'], 'calls' => 1];
-                $profiling['chart'][$status] = $oneResult['Duration'];
+            if (! isset($states[$status])) {
+                $states[$status] = ['total_time' => (float) $result['Duration'], 'calls' => 1];
             } else {
-                $profiling['states'][$status]['calls']++;
-                $profiling['chart'][$status] += $oneResult['Duration'];
+                $states[$status]['calls']++;
+                $states[$status]['total_time'] += $result['Duration'];
             }
         }
 
-        return $profiling;
+        arsort($states);
+        $chart = ['labels' => array_keys($states), 'data' => array_column($states, 'total_time')];
+
+        return ['total_time' => $totalTime, 'states' => $states, 'chart' => $chart, 'profile' => $profile];
     }
 
     /**
@@ -431,7 +445,7 @@ class Sql
         $bookmark = Bookmark::get(
             $this->dbi,
             $GLOBALS['cfg']['Server']['user'],
-            DatabaseName::fromValue($db),
+            DatabaseName::from($db),
             $table,
             'label',
             false,
@@ -488,16 +502,16 @@ class Sql
      */
     private function handleQueryExecuteError(bool $isGotoFile, string $error, string $fullSqlQuery): never
     {
+        $response = ResponseRenderer::getInstance();
         if ($isGotoFile) {
             $message = Message::rawError($error);
-            $response = ResponseRenderer::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
         } else {
             Generator::mysqlDie($error, $fullSqlQuery, false);
         }
 
-        exit;
+        $response->callExit();
     }
 
     /**
@@ -718,8 +732,8 @@ class Sql
      *  ResultInterface|false|null,
      *  int|numeric-string,
      *  int|numeric-string,
-     *  array<string, string>|null,
-     *  array|null
+     *  list<array{Status: non-empty-string, Duration: numeric-string}>,
+     *  mixed[]|null
      * }
      */
     private function executeTheQuery(
@@ -740,7 +754,7 @@ class Sql
             $result = null;
             $numRows = 0;
             $unlimNumRows = 0;
-            $profilingResults = null;
+            $profilingResults = [];
         } else { // If we don't ask to see the php code
             Profiling::enable($this->dbi);
 
@@ -929,11 +943,11 @@ class Sql
      * @param int|string                 $numRows              number of rows
      * @param DisplayResults             $displayResultsObject DisplayResult instance
      * @param mixed[]|null               $extraData            extra data
-     * @param mixed[]|null               $profilingResults     profiling results
      * @param ResultInterface|false|null $result               executed query results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
      * @psalm-param int|numeric-string $numRows
+     * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
      * @return string html
      */
@@ -945,7 +959,7 @@ class Sql
         int|string $numRows,
         DisplayResults $displayResultsObject,
         array|null $extraData,
-        array|null $profilingResults,
+        array $profilingResults,
         ResultInterface|false|null $result,
         string $sqlQuery,
         string|null $completeQuery,
@@ -981,6 +995,9 @@ class Sql
 
         $response = ResponseRenderer::getInstance();
         $response->addJSON($extraData ?? []);
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('sql.js');
 
         if (! $statementInfo->isSelect || isset($extraData['error'])) {
             return $queryMessage;
@@ -1009,13 +1026,11 @@ class Sql
         );
 
         $profilingChart = '';
-        if ($profilingResults !== null) {
-            $header = $response->getHeader();
-            $scripts = $header->getScripts();
-            $scripts->addFile('sql.js');
-
+        if ($profilingResults !== []) {
             $profiling = $this->getDetailedProfilingStats($profilingResults);
-            $profilingChart = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            if ($profiling !== []) {
+                $profilingChart = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            }
         }
 
         $bookmark = '';
@@ -1299,11 +1314,11 @@ class Sql
      * @param int|string                 $numRows              number of rows
      * @param string|null                $dispQuery            display query
      * @param Message|string|null        $dispMessage          display message
-     * @param mixed[]|null               $profilingResults     profiling results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
+     * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
      * @return string html
      */
@@ -1318,7 +1333,7 @@ class Sql
         int|string $numRows,
         string|null $dispQuery,
         Message|string|null $dispMessage,
-        array|null $profilingResults,
+        array $profilingResults,
         string $sqlQuery,
         string|null $completeQuery,
     ): string {
@@ -1328,7 +1343,7 @@ class Sql
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true && is_object($result)) {
             $this->getResponseForGridEdit($result);
-            exit;
+            ResponseRenderer::getInstance()->callExit();
         }
 
         // Gets the list of fields properties
@@ -1433,9 +1448,11 @@ class Sql
         );
 
         $profilingChartHtml = '';
-        if ($profilingResults) {
+        if ($profilingResults !== []) {
             $profiling = $this->getDetailedProfilingStats($profilingResults);
-            $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            if ($profiling !== []) {
+                $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
+            }
         }
 
         $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex($table, $db, $editable, $hasUnique);

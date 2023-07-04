@@ -644,7 +644,8 @@ class Generator
         $retval .= '<div class="card-footer tools d-print-none">' . "\n";
         $retval .= '<div class="row align-items-center">' . "\n";
         $retval .= '<div class="col-auto">' . "\n";
-        $retval .= '<form action="' . Url::getFromRoute('/sql') . '" method="post">' . "\n";
+        $retval .= '<form action="' . Url::getFromRoute('/sql', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']])
+            . '" method="post" class="disableAjax">' . "\n";
         $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']) . "\n";
         $retval .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($sqlQuery) . '">' . "\n";
@@ -889,7 +890,7 @@ class Generator
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $errorMessage);
-            exit;
+            $response->callExit();
         }
 
         if ($backUrl !== '') {
@@ -901,12 +902,12 @@ class Generator
 
             $_SESSION['Import_message']['go_back_url'] = $backUrl;
 
-            $errorMessage .= '<fieldset class="pma-fieldset tblFooters">'
+            $errorMessage .= '<div class="card"><div class="card-body">'
                 . '[ <a href="' . $backUrl . '">' . __('Back') . '</a> ]'
-                . '</fieldset>' . "\n\n";
+                . '</div></div>' . "\n\n";
         }
 
-        exit($errorMessage);
+        $response->callExit($errorMessage);
     }
 
     /**

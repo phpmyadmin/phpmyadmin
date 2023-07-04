@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Types */
+#[CoversClass(Types::class)]
 class TypesTest extends AbstractTestCase
 {
     protected Types $object;
@@ -135,9 +137,8 @@ class TypesTest extends AbstractTestCase
      * @param string          $type   Type of field
      * @param bool            $null   Whether field can be NULL
      * @param string|string[] $output Expected output
-     *
-     * @dataProvider providerForGetTypeOperators
      */
+    #[DataProvider('providerForGetTypeOperators')]
     public function testGetTypeOperators(string $type, bool $null, string|array $output): void
     {
         $this->assertEquals(
@@ -229,9 +230,8 @@ class TypesTest extends AbstractTestCase
      * @param bool   $null             Whether field can be NULL
      * @param string $selectedOperator Option to be selected
      * @param string $output           Expected output
-     *
-     * @dataProvider providerForTestGetTypeOperatorsHtml
      */
+    #[DataProvider('providerForTestGetTypeOperatorsHtml')]
     public function testGetTypeOperatorsHtml(
         string $type,
         bool $null,
@@ -260,9 +260,8 @@ class TypesTest extends AbstractTestCase
      * Test for getTypeDescription
      *
      * @param string $type The data type to get a description.
-     *
-     * @dataProvider providerForTestGetTypeDescription
      */
+    #[DataProvider('providerForTestGetTypeDescription')]
     public function testGetTypeDescription(string $type): void
     {
         $this->assertNotEquals(
@@ -338,9 +337,8 @@ class TypesTest extends AbstractTestCase
     /**
      * @param string   $class  The class to get function list.
      * @param string[] $output Expected function list
-     *
-     * @dataProvider providerFortTestGetFunctionsClass
      */
+    #[DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(string $class, array $output): void
     {
         $this->assertEquals(
@@ -752,9 +750,8 @@ class TypesTest extends AbstractTestCase
     /**
      * @param string $type   Type to check
      * @param string $output Expected result
-     *
-     * @dataProvider providerFortTestGetTypeClass
      */
+    #[DataProvider('providerFortTestGetTypeClass')]
     public function testGetTypeClass(string $type, string $output): void
     {
         $this->assertEquals(

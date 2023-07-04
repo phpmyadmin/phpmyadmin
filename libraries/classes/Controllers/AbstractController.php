@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -45,7 +45,7 @@ abstract class AbstractController
         }
 
         $GLOBALS['is_db'] = false;
-        $db = DatabaseName::tryFromValue($GLOBALS['db']);
+        $db = DatabaseName::tryFrom($GLOBALS['db']);
 
         if ($db !== null) {
             $GLOBALS['is_db'] = $GLOBALS['dbi']->selectDb($db->getName());
@@ -133,9 +133,7 @@ abstract class AbstractController
         $this->response->setRequestStatus(false);
         $this->response->addHTML(Message::error($errorMessage)->getDisplay());
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        $this->response->callExit();
     }
 
     /** @psalm-param int<400,599> $statusCode */

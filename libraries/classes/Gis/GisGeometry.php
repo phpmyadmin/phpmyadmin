@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -299,10 +300,8 @@ abstract class GisGeometry
     }
 
     /**
-     * @param string                                      $constructor
-     * OpenLayers geometry constructor string
-     * @param float[]|float[][]|float[][][]|float[][][][] $coordinates
-     * Array of coordintes 1-4 dimensions
+     * @param string                                      $constructor OpenLayers geometry constructor string
+     * @param float[]|float[][]|float[][][]|float[][][][] $coordinates Array of coordinates 1-4 dimensions
      */
     protected function toOpenLayersObject(string $constructor, array $coordinates, int $srid): string
     {

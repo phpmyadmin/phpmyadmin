@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionException;
 use ReflectionProperty;
 
@@ -16,7 +17,7 @@ use function str_repeat;
 
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
-/** @covers \PhpMyAdmin\Config\ServerConfigChecks */
+#[CoversClass(ServerConfigChecks::class)]
 class ServerConfigChecksTest extends AbstractTestCase
 {
     private string $sessionID;
@@ -128,6 +129,10 @@ class ServerConfigChecksTest extends AbstractTestCase
         $this->assertArrayNotHasKey('error', $messages);
     }
 
+    /**
+     * @requires extension bz2
+     * @requires extension zip
+     */
     public function testBlowfishWithInvalidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];
@@ -154,6 +159,10 @@ class ServerConfigChecksTest extends AbstractTestCase
         $this->assertArrayNotHasKey('error', $messages);
     }
 
+    /**
+     * @requires extension bz2
+     * @requires extension zip
+     */
     public function testBlowfishWithValidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];

@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CreateAddField;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function json_encode;
 
-/** @covers \PhpMyAdmin\CreateAddField */
+#[CoversClass(CreateAddField::class)]
 class CreateAddFieldTest extends AbstractTestCase
 {
     private CreateAddField $createAddField;
@@ -29,9 +31,8 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @param string       $expected Expected result
      * @param array<mixed> $request  $_REQUEST array
-     *
-     * @dataProvider providerGetPartitionsDefinition
      */
+    #[DataProvider('providerGetPartitionsDefinition')]
     public function testGetPartitionsDefinition(string $expected, array $request): void
     {
         $_POST = $request;
@@ -223,9 +224,8 @@ class CreateAddFieldTest extends AbstractTestCase
      * @param string                        $db       Database name
      * @param string                        $table    Table name
      * @param array<string, string|mixed[]> $request  $_REQUEST array
-     *
-     * @dataProvider providerGetTableCreationQuery
      */
+    #[DataProvider('providerGetTableCreationQuery')]
     public function testGetTableCreationQuery(string $expected, string $db, string $table, array $request): void
     {
         $_POST = $request;
@@ -296,9 +296,8 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @param int     $expected Expected result
      * @param mixed[] $request  $_REQUEST array
-     *
-     * @dataProvider providerGetNumberOfFieldsFromRequest
      */
+    #[DataProvider('providerGetNumberOfFieldsFromRequest')]
     public function testGetNumberOfFieldsFromRequest(int $expected, array $request): void
     {
         $_POST = $request;
@@ -481,11 +480,8 @@ class CreateAddFieldTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @param array<string, string|string[]|false> $request
-     *
-     * @dataProvider providerGetColumnCreationQueryRequest
-     */
+    /** @param array<string, string|string[]|false> $request */
+    #[DataProvider('providerGetColumnCreationQueryRequest')]
     public function testGetColumnCreationQuery(string $expected, array $request): void
     {
         $_POST = $request;

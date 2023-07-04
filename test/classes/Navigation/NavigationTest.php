@@ -11,8 +11,9 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Navigation\Navigation */
+#[CoversClass(Navigation::class)]
 class NavigationTest extends AbstractTestCase
 {
     protected Navigation $object;

@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisMultiLineString;
-use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use TCPDF;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisMultiLineString
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
- */
+#[CoversClass(GisMultiLineString::class)]
+#[PreserveGlobalState(false)]
+#[RunTestsInSeparateProcesses]
 class GisMultiLineStringTest extends GisGeomTestCase
 {
     /**
@@ -62,9 +65,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param int          $index   index in $gis_data
      * @param string|null  $empty   empty parameter
      * @param string       $output  expected output
-     *
-     * @dataProvider providerForTestGenerateWkt
      */
+    #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisMultiLineString::singleton();
@@ -96,9 +98,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @param string       $wkt    point in WKT form
      * @param array<mixed> $params expected output array
-     *
-     * @dataProvider providerForTestGenerateParams
      */
+    #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisMultiLineString::singleton();
@@ -134,9 +135,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @param string    $spatial spatial data of a row
      * @param ScaleData $minMax  expected results
-     *
-     * @dataProvider providerForTestScaleRow
      */
+    #[DataProvider('providerForTestScaleRow')]
     public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisMultiLineString::singleton();
@@ -153,7 +153,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         return [['MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))', new ScaleData(178, 17, 75, 10)]];
     }
 
-    /** @requires extension gd */
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $object = GisMultiLineString::singleton();
@@ -182,9 +182,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string                   $label     label for the GIS MULTILINESTRING object
      * @param int[]                    $color     color for the GIS MULTILINESTRING object
      * @param array<string, int|float> $scaleData array containing data related to scaling
-     *
-     * @dataProvider providerForPrepareRowAsPdf
      */
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -228,9 +227,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param int[]                    $color     color for the GIS MULTILINESTRING object
      * @param array<string, int|float> $scaleData array containing data related to scaling
      * @param string                   $output    expected output
-     *
-     * @dataProvider providerForPrepareRowAsSvg
      */
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -273,9 +271,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string $label   label for the GIS MULTILINESTRING object
      * @param int[]  $color   color for the GIS MULTILINESTRING object
      * @param string $output  expected output
-     *
-     * @dataProvider providerForPrepareRowAsOl
      */
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

@@ -75,6 +75,7 @@ jobs:
 
       - name: Run Infection for all files
         if: github.event_name == 'schedule'
+        timeout-minutes: 360
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
-        run: infection -j$(nproc) --skip-initial-tests --coverage=build/logs --no-interaction --no-progress
+        run: infection -j$(nproc) --skip-initial-tests --coverage=build/logs --no-interaction --no-progress --only-covering-test-cases

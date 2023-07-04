@@ -1,9 +1,10 @@
-<fieldset class="pma-fieldset index_info">
-  <legend id="index_header">
+<div class="card index_info">
+  <div class="card-header" id="index_header">
     {% trans 'Indexes' %}
     {{ show_mysql_docu('optimizing-database-structure') }}
-  </legend>
+  </div>
 
+  <div class="card-body">
   {% if indexes is not empty %}
     {{ indexes_duplicates|raw }}
 
@@ -91,4 +92,5 @@
   {% else %}
     <div class="no_indexes_defined">{{ 'No index defined!'|trans|notice }}</div>
   {% endif %}
-</fieldset>
+  </div>
+</div>

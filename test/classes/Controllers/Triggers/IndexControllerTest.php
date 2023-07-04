@@ -10,11 +10,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Triggers\Triggers;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Triggers\IndexController
- * @covers \PhpMyAdmin\Triggers\Triggers
- */
+#[CoversClass(IndexController::class)]
+#[CoversClass(Triggers::class)]
 final class IndexControllerTest extends AbstractTestCase
 {
     public function testWithTriggers(): void

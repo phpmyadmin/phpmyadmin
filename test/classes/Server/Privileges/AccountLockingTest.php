@@ -7,10 +7,11 @@ namespace PhpMyAdmin\Tests\Server\Privileges;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
-/** @covers \PhpMyAdmin\Server\Privileges\AccountLocking */
+#[CoversClass(AccountLocking::class)]
 class AccountLockingTest extends TestCase
 {
     public function testLockWithValidAccount(): void

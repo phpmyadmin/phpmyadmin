@@ -10,10 +10,10 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidDatabaseName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
@@ -66,9 +66,9 @@ class OperationsController extends AbstractController
             $move = $request->hasBodyParam('db_rename');
 
             try {
-                $newDatabaseName = DatabaseName::fromValue($request->getParsedBodyParam('newname'));
+                $newDatabaseName = DatabaseName::from($request->getParsedBodyParam('newname'));
                 if ($this->dbi->getLowerCaseNames() === 1) {
-                    $newDatabaseName = DatabaseName::fromValue(mb_strtolower($newDatabaseName->getName()));
+                    $newDatabaseName = DatabaseName::from(mb_strtolower($newDatabaseName->getName()));
                 }
             } catch (InvalidDatabaseName $exception) {
                 $newDatabaseName = null;

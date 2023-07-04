@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Application;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
@@ -17,12 +18,12 @@ use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
-use PhpMyAdmin\Export;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\FlashMessages;
-use PhpMyAdmin\Import;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
@@ -61,6 +62,10 @@ return [
         'advisor' => [
             'class' => Advisor::class,
             'arguments' => ['$dbi' => '@dbi', '$expression' => '@expression_language'],
+        ],
+        Application::class => [
+            'class' => Application::class,
+            'arguments' => ['$errorHandler' => '@error_handler', '$config' => '@config', '$template' => '@template'],
         ],
         'browse_foreigners' => [
             'class' => BrowseForeigners::class,

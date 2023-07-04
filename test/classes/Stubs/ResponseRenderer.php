@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
@@ -33,6 +34,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     protected array $json = [];
 
     private int $responseCode = 200;
+
+    private bool $isHeadersSent = false;
 
     /**
      * Creates a new class instance
@@ -168,5 +171,20 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function isDisabled(): bool
     {
         return $this->isDisabled;
+    }
+
+    public function headersSent(): bool
+    {
+        return $this->isHeadersSent;
+    }
+
+    public function setHeadersSent(bool $isHeadersSent): void
+    {
+        $this->isHeadersSent = $isHeadersSent;
+    }
+
+    public function callExit(string $message = ''): never
+    {
+        throw new ExitException($message);
     }
 }

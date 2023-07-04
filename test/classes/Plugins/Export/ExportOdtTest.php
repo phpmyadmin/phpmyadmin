@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Export;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -21,6 +21,9 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -33,11 +36,9 @@ use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportOdt
- * @requires extension zip
- * @group medium
- */
+#[CoversClass(ExportOdt::class)]
+#[Group('medium')]
+#[RequiresPhpExtension('zip')]
 class ExportOdtTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

@@ -5,15 +5,26 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Export;
 
+use PhpMyAdmin\Application;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\ZipExtension;
 
 use function __;
 use function array_filter;
@@ -53,7 +64,7 @@ use function trim;
 use const ENT_COMPAT;
 
 /**
- * PhpMyAdmin\Export class
+ * PhpMyAdmin\Export\Export class
  */
 class Export
 {
@@ -236,7 +247,7 @@ class Export
             . $this->getHTMLForBackButton($exportType, $db, $table)
             . $this->getHTMLForRefreshButton($exportType)
             . '</div>'
-            . '<script type="text/javascript">' . "\n"
+            . '<script>' . "\n"
             . '//<![CDATA[' . "\n"
             . 'var $body = $("body");' . "\n"
             . '$("#textSQLDUMP")' . "\n"
@@ -579,7 +590,7 @@ class Export
 
             $tables = $this->dbi->getTables($currentDb);
             $this->exportDatabase(
-                DatabaseName::fromValue($currentDb),
+                DatabaseName::from($currentDb),
                 $tables,
                 $whatStrucOrData,
                 $tables,
@@ -1067,7 +1078,7 @@ class Export
     public function showPage(string $exportType): void
     {
         $GLOBALS['active_page'] ??= null;
-        $request = Common::getRequest();
+        $request = Application::getRequest();
         $container = Core::getContainerBuilder();
         if ($exportType === 'server') {
             $GLOBALS['active_page'] = Url::getFromRoute('/server/export');

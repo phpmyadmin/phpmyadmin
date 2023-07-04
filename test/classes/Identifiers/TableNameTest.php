@@ -2,32 +2,32 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Dbal;
+namespace PhpMyAdmin\Tests\Identifiers;
 
-use PhpMyAdmin\Dbal\InvalidTableName;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\InvalidTableName;
+use PhpMyAdmin\Identifiers\TableName;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\Dbal\TableName
- * @covers \PhpMyAdmin\Dbal\InvalidTableName
- */
+#[CoversClass(TableName::class)]
+#[CoversClass(InvalidTableName::class)]
 class TableNameTest extends TestCase
 {
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testValidName(string $validName): void
     {
-        $name = TableName::fromValue($validName);
+        $name = TableName::from($validName);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
     }
 
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testTryFromValueValidName(string $validName): void
     {
-        $name = TableName::tryFromValue($validName);
+        $name = TableName::tryFrom($validName);
         $this->assertNotNull($name);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
@@ -41,13 +41,13 @@ class TableNameTest extends TestCase
         yield [str_repeat('a', 64)];
     }
 
-    /** @dataProvider providerForTestInvalidNames */
+    #[DataProvider('providerForTestInvalidNames')]
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
-        $this->assertNull(TableName::tryFromValue($name));
+        $this->assertNull(TableName::tryFrom($name));
         $this->expectException(InvalidTableName::class);
         $this->expectExceptionMessage($exceptionMessage);
-        TableName::fromValue($name);
+        TableName::from($name);
     }
 
     /**

@@ -5,16 +5,22 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+use Throwable;
 
 use function base64_encode;
 use function ob_get_clean;
 use function ob_start;
 
-/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp */
+#[CoversClass(AuthenticationHttp::class)]
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     protected AuthenticationHttp $object;
@@ -88,9 +94,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
         } else {
-            $this->assertFalse(
-                $this->object->showLoginForm(),
-            );
+            $this->expectException(ExitException::class);
+            $this->object->showLoginForm();
         }
     }
 
@@ -161,9 +166,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @param string      $expectedUser   expected username to be set
      * @param string|bool $expectedPass   expected password to be set
      * @param string|bool $oldUsr         value for $_REQUEST['old_usr']
-     *
-     * @dataProvider readCredentialsProvider
      */
+    #[DataProvider('readCredentialsProvider')]
     public function testAuthCheck(
         string $user,
         string $pass,
@@ -283,10 +287,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $this->assertEquals(3, $GLOBALS['server']);
     }
 
-    /**
-     * @group medium
-     * @runInSeparateProcess
-     */
+    #[Group('medium')]
+    #[RunInSeparateProcess]
     public function testAuthFails(): void
     {
         $GLOBALS['cfg']['Server']['host'] = '';
@@ -305,8 +307,14 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $GLOBALS['errno'] = 31;
 
         ob_start();
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -318,15 +326,20 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             ->getMock();
 
         $this->object->expects($this->exactly(2))
-            ->method('authForm');
+            ->method('authForm')
+            ->willThrowException(new ExitException());
         // case 2
         $GLOBALS['cfg']['Server']['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         // case 3
         $GLOBALS['errno'] = 1043;
+        $this->expectException(ExitException::class);
         $this->object->showFailure('');
     }
 }

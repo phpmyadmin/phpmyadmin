@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidIdentifierName;
-use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\InvalidIdentifier;
+use PhpMyAdmin\Identifiers\TableName;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -21,10 +21,10 @@ final class DropColumnConfirmationController extends AbstractController
     {
         $fields = $request->getParsedBodyParam('selected_fld');
         try {
-            $db = DatabaseName::fromValue($request->getParsedBodyParam('db'));
-            $table = TableName::fromValue($request->getParsedBodyParam('table'));
+            $db = DatabaseName::from($request->getParsedBodyParam('db'));
+            $table = TableName::from($request->getParsedBodyParam('table'));
             Assert::allStringNotEmpty($fields);
-        } catch (InvalidIdentifierName $exception) {
+        } catch (InvalidIdentifier $exception) {
             $this->sendErrorResponse($exception->getMessage());
 
             return;

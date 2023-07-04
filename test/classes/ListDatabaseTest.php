@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\ListDatabase */
+#[CoversClass(ListDatabase::class)]
 class ListDatabaseTest extends AbstractTestCase
 {
     /**

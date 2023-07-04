@@ -11,9 +11,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Controllers\Console\Bookmark\AddController */
+#[CoversClass(AddController::class)]
 class AddControllerTest extends AbstractTestCase
 {
     public function testWithInvalidParams(): void
@@ -67,8 +68,11 @@ class AddControllerTest extends AbstractTestCase
         );
 
         $dbiDummy = $this->createDbiDummy();
-        // phpcs:ignore Generic.Files.LineLength.TooLong
-        $dbiDummy->addResult('INSERT INTO `pmadb`.`bookmark` (id, dbase, user, query, label) VALUES (NULL, \'test_db\', \'\', \'test_query\', \'test_label\')', []);
+        $dbiDummy->addResult(
+            'INSERT INTO `pmadb`.`bookmark` (id, dbase, user, query, label)'
+            . ' VALUES (NULL, \'test_db\', \'\', \'test_query\', \'test_label\')',
+            true,
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();

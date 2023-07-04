@@ -9,7 +9,7 @@ use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Util;
 
 use function array_column;
@@ -76,7 +76,7 @@ class TrackingChecker
 
         $trackedTables = [];
         foreach ($this->dbi->queryAsControlUser($sqlQuery) as $row) {
-            $trackedTable = new TrackedTable(TableName::fromValue($row['table_name']), (bool) $row['tracking_active']);
+            $trackedTable = new TrackedTable(TableName::from($row['table_name']), (bool) $row['tracking_active']);
             $trackedTables[$trackedTable->name->getName()] = $trackedTable;
         }
 

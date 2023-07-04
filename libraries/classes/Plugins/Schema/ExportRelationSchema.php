@@ -9,7 +9,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -268,6 +269,6 @@ class ExportRelationSchema
         ]);
         echo '">' . __('Back') . '</a>';
         echo "\n";
-        exit;
+        ResponseRenderer::getInstance()->callExit();
     }
 }

@@ -14,8 +14,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\ChangeController */
+#[CoversClass(ChangeController::class)]
 class ChangeControllerTest extends AbstractTestCase
 {
     public function testChangeController(): void

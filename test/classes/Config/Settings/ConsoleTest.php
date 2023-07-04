@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Console;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \PhpMyAdmin\Config\Settings\Console */
+#[CoversClass(Console::class)]
 class ConsoleTest extends TestCase
 {
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testStartHistory(mixed $actual, bool $expected): void
     {
         $console = new Console(['StartHistory' => $actual]);
@@ -30,7 +32,7 @@ class ConsoleTest extends TestCase
         yield 'valid value with type coercion' => [1, true];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testAlwaysExpand(mixed $actual, bool $expected): void
     {
         $console = new Console(['AlwaysExpand' => $actual]);
@@ -41,7 +43,7 @@ class ConsoleTest extends TestCase
         $this->assertSame($expected, $consoleArray['AlwaysExpand']);
     }
 
-    /** @dataProvider booleanWithDefaultTrueProvider */
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testCurrentQuery(mixed $actual, bool $expected): void
     {
         $console = new Console(['CurrentQuery' => $actual]);
@@ -61,7 +63,7 @@ class ConsoleTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testEnterExecutes(mixed $actual, bool $expected): void
     {
         $console = new Console(['EnterExecutes' => $actual]);
@@ -72,7 +74,7 @@ class ConsoleTest extends TestCase
         $this->assertSame($expected, $consoleArray['EnterExecutes']);
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testDarkTheme(mixed $actual, bool $expected): void
     {
         $console = new Console(['DarkTheme' => $actual]);
@@ -83,7 +85,7 @@ class ConsoleTest extends TestCase
         $this->assertSame($expected, $consoleArray['DarkTheme']);
     }
 
-    /** @dataProvider valuesForModeProvider */
+    #[DataProvider('valuesForModeProvider')]
     public function testMode(mixed $actual, string $expected): void
     {
         $console = new Console(['Mode' => $actual]);
@@ -104,7 +106,7 @@ class ConsoleTest extends TestCase
         yield 'invalid value' => ['invalid', 'info'];
     }
 
-    /** @dataProvider valuesForHeightProvider */
+    #[DataProvider('valuesForHeightProvider')]
     public function testHeight(mixed $actual, int $expected): void
     {
         $console = new Console(['Height' => $actual]);
@@ -124,7 +126,7 @@ class ConsoleTest extends TestCase
         yield 'invalid value' => [0, 92];
     }
 
-    /** @dataProvider booleanWithDefaultFalseProvider */
+    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testGroupQueries(mixed $actual, bool $expected): void
     {
         $console = new Console(['GroupQueries' => $actual]);
@@ -135,7 +137,7 @@ class ConsoleTest extends TestCase
         $this->assertSame($expected, $consoleArray['GroupQueries']);
     }
 
-    /** @dataProvider valuesForOrderByProvider */
+    #[DataProvider('valuesForOrderByProvider')]
     public function testOrderBy(mixed $actual, string $expected): void
     {
         $console = new Console(['OrderBy' => $actual]);
@@ -156,7 +158,7 @@ class ConsoleTest extends TestCase
         yield 'invalid value' => ['invalid', 'exec'];
     }
 
-    /** @dataProvider valuesForOrderProvider */
+    #[DataProvider('valuesForOrderProvider')]
     public function testOrder(mixed $actual, string $expected): void
     {
         $console = new Console(['Order' => $actual]);

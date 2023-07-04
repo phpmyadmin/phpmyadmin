@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Triggers;
 
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Identifiers\TriggerName;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -31,7 +32,7 @@ final class Trigger
             $statement = $trigger['Statement'] ?? $trigger['ACTION_STATEMENT'] ?? null;
             $definer = $trigger['Definer'] ?? $trigger['DEFINER'] ?? null;
             Assert::string($name);
-            $name = TriggerName::tryFromValue($name);
+            $name = TriggerName::tryFrom($name);
             Assert::notNull($name);
             Assert::string($timing);
             $timing = Timing::tryFrom($timing);
@@ -40,7 +41,7 @@ final class Trigger
             $event = Event::tryFrom($event);
             Assert::notNull($event);
             Assert::string($table);
-            $table = TableName::tryFromValue($table);
+            $table = TableName::tryFrom($table);
             Assert::notNull($table);
             Assert::string($statement);
             Assert::string($definer);

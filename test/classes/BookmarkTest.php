@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Bookmark */
+#[CoversClass(Bookmark::class)]
 class BookmarkTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -49,7 +50,7 @@ class BookmarkTest extends AbstractTestCase
             ['id', 'dbase', 'user', 'label', 'query'],
         );
         $actual = Bookmark::getList(
-            new BookmarkFeature(DatabaseName::fromValue('phpmyadmin'), TableName::fromValue('pma_bookmark')),
+            new BookmarkFeature(DatabaseName::from('phpmyadmin'), TableName::from('pma_bookmark')),
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
             'sakila',
@@ -68,7 +69,7 @@ class BookmarkTest extends AbstractTestCase
             Bookmark::get(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
-                DatabaseName::fromValue('phpmyadmin'),
+                DatabaseName::from('phpmyadmin'),
                 '1',
             ),
         );

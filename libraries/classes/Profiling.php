@@ -42,14 +42,17 @@ final class Profiling
         $dbi->query('SET PROFILING=1;');
     }
 
-    /** @return array<string, string>|null */
-    public static function getInformation(DatabaseInterface $dbi): array|null
+    /** @psalm-return list<array{Status: non-empty-string, Duration: numeric-string}> */
+    public static function getInformation(DatabaseInterface $dbi): array
     {
         if (! isset($_SESSION['profiling']) || ! self::isSupported($dbi)) {
-            return null;
+            return [];
         }
 
-        return $dbi->fetchResult('SHOW PROFILE;');
+        /** @psalm-var list<array{Status: non-empty-string, Duration: numeric-string}> $profile */
+        $profile = $dbi->fetchResult('SHOW PROFILE;');
+
+        return $profile;
     }
 
     /**
@@ -70,10 +73,7 @@ final class Profiling
 
         $scripts = $response->getHeader()->getScripts();
         $scripts->addFiles([
-            'chart.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
+            'vendor/chart.umd.js',
             'vendor/jquery/jquery.tablesorter.js',
         ]);
     }

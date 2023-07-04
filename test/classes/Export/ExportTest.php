@@ -2,23 +2,24 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Export;
+use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
 use function htmlspecialchars;
 
 use const ENT_COMPAT;
 
-/**
- * @covers \PhpMyAdmin\Export
- * @group large
- */
+#[CoversClass(Export::class)]
+#[Group('large')]
 class ExportTest extends AbstractTestCase
 {
     public function testMergeAliases(): void
@@ -115,7 +116,7 @@ class ExportTest extends AbstractTestCase
         $export = new Export($dbi);
 
         $export->exportDatabase(
-            DatabaseName::fromValue('test_db'),
+            DatabaseName::from('test_db'),
             ['test_table'],
             'structure_and_data',
             ['test_table'],

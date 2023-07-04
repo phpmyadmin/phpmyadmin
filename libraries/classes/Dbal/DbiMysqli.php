@@ -11,6 +11,7 @@ use mysqli;
 use mysqli_sql_exception;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Utilities;
 
 use function __;

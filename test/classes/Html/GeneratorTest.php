@@ -12,6 +12,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 
 use function __;
 use function _pgettext;
@@ -19,7 +22,7 @@ use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
 
-/** @covers \PhpMyAdmin\Html\Generator */
+#[CoversClass(Generator::class)]
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -34,9 +37,8 @@ class GeneratorTest extends AbstractTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @group medium
      */
+    #[Group('medium')]
     public function testGetDbLinkNull(): void
     {
         $GLOBALS['db'] = 'test_db';
@@ -186,9 +188,8 @@ class GeneratorTest extends AbstractTestCase
      * @param mixed[] $params params
      * @param int     $limit  limit
      * @param string  $match  match
-     *
-     * @dataProvider linksOrButtons
      */
+    #[DataProvider('linksOrButtons')]
     public function testLinkOrButton(array $params, int $limit, string $match): void
     {
         $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
@@ -375,9 +376,8 @@ class GeneratorTest extends AbstractTestCase
 
     /**
      * Test for Generator::getDefaultFunctionForField
-     *
-     * @dataProvider providerForTestGetDefaultFunctionForField
      */
+    #[DataProvider('providerForTestGetDefaultFunctionForField')]
     public function testGetDefaultFunctionForField(
         string $trueType,
         bool $firstTimestamp,
@@ -494,7 +494,7 @@ SELECT 1;
 <div class="card-footer tools d-print-none">
 <div class="row align-items-center">
 <div class="col-auto">
-<form action="index.php?route=/sql&server=2&lang=en" method="post">
+<form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
 <input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
 <input type="hidden" name="sql_query" value="SELECT 1;">
 <input type="hidden" name="profiling_form" value="1">
@@ -550,7 +550,7 @@ $sql = "EXPLAIN SELECT 1;";
 <div class="card-footer tools d-print-none">
 <div class="row align-items-center">
 <div class="col-auto">
-<form action="index.php?route=/sql&server=2&lang=en" method="post">
+<form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
 <input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
 <input type="hidden" name="sql_query" value="EXPLAIN SELECT 1;">
 </form></div>

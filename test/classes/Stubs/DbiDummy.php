@@ -13,11 +13,11 @@ namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\FieldHelper;
 use PHPUnit\Framework\Assert;
 use stdClass;
@@ -68,7 +68,7 @@ class DbiDummy implements DbiExtension
     private array $fifoDatabasesToSelect = [];
 
     /**
-     * @var array<array<string,array<int,array<string,string|float|int|null>>|bool|string[]|FieldMetaData[]>>
+     * @var array<array<string,array<int,array<string,string|float|int|null>>|bool|string[]|FieldMetadata[]>>
      * @phpstan-var list<array{
      *     query: string,
      *     result: list<non-empty-list<string|float|int|null>>|bool,
@@ -823,7 +823,7 @@ class DbiDummy implements DbiExtension
                     . ' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
                 'result' => [],
             ],
-            ['query' => 'RENAME TABLE `pma_test`.`table1` TO `pma_test`.`table3`;', 'result' => []],
+            ['query' => 'RENAME TABLE `pma_test`.`table1` TO `pma_test`.`table3`;', 'result' => true],
             [
                 'query' => 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION,'
                     . ' EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, '
@@ -1064,7 +1064,7 @@ class DbiDummy implements DbiExtension
             ],
             ['query' => "SHOW PROCEDURE STATUS WHERE `Db`='default'", 'result' => []],
             ['query' => 'SHOW EVENTS FROM `default`', 'result' => []],
-            ['query' => 'FLUSH PRIVILEGES', 'result' => []],
+            ['query' => 'FLUSH PRIVILEGES', 'result' => true],
             ['query' => 'SELECT * FROM `mysql`.`db` LIMIT 1', 'result' => []],
             ['query' => 'SELECT * FROM `mysql`.`columns_priv` LIMIT 1', 'result' => []],
             ['query' => 'SELECT * FROM `mysql`.`tables_priv` LIMIT 1', 'result' => []],
@@ -1424,8 +1424,8 @@ class DbiDummy implements DbiExtension
                     ['update sql_text', 11, 'argument3 argument4'],
                 ],
             ],
-            ['query' => 'SET PROFILING=1;', 'result' => []],
-            ['query' => 'query', 'result' => []],
+            ['query' => 'SET PROFILING=1;', 'result' => true],
+            ['query' => 'query', 'result' => true],
             [
                 'query' => 'EXPLAIN query',
                 'columns' => ['sql_text', '#', 'argument'],
@@ -1449,7 +1449,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'INSERT INTO `db`.`table` (`username`, `export_type`, `template_name`, `template_data`)'
                     . ' VALUES (\'user\', \'type\', \'name\', \'data\');',
-                'result' => [],
+                'result' => true,
             ],
             [
                 'query' => 'SELECT * FROM `db`.`table` WHERE `username` = \'user\''
@@ -1457,7 +1457,7 @@ class DbiDummy implements DbiExtension
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
                 'result' => [['1', 'user1', 'type1', 'name1', 'data1'], ['2', 'user2', 'type2', 'name2', 'data2']],
             ],
-            ['query' => 'DELETE FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';', 'result' => []],
+            ['query' => 'DELETE FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';', 'result' => true],
             [
                 'query' => 'SELECT * FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
@@ -1466,7 +1466,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'UPDATE `db`.`table` SET `template_data` = \'data\''
                     . ' WHERE `id` = 1 AND `username` = \'user\';',
-                'result' => [],
+                'result' => true,
             ],
             [
                 'query' => 'SHOW SLAVE HOSTS',
@@ -1750,11 +1750,11 @@ class DbiDummy implements DbiExtension
                 'columns' => ['Function', 'Create Function'],
                 'result' => [['test_func', 'CREATE FUNCTION `test_func` (p INT) RETURNS int(11) BEGIN END']],
             ],
-            ['query' => 'USE `test_db`', 'result' => []],
-            ['query' => 'SET SQL_QUOTE_SHOW_CREATE = 0', 'result' => []],
-            ['query' => 'SET SQL_QUOTE_SHOW_CREATE = 1', 'result' => []],
-            ['query' => 'UPDATE `test_tbl` SET `vc` = \'…zff s sf\' WHERE `test`.`ser` = 2', 'result' => []],
-            ['query' => 'UPDATE `test_tbl` SET `vc` = \'…ss s s\' WHERE `test`.`ser` = 1', 'result' => []],
+            ['query' => 'USE `test_db`', 'result' => true],
+            ['query' => 'SET SQL_QUOTE_SHOW_CREATE = 0', 'result' => true],
+            ['query' => 'SET SQL_QUOTE_SHOW_CREATE = 1', 'result' => true],
+            ['query' => 'UPDATE `test_tbl` SET `vc` = \'…zff s sf\' WHERE `test`.`ser` = 2', 'result' => true],
+            ['query' => 'UPDATE `test_tbl` SET `vc` = \'…ss s s\' WHERE `test`.`ser` = 1', 'result' => true],
             ['query' => 'SELECT LAST_INSERT_ID();', 'result' => []],
             ['query' => 'SHOW WARNINGS', 'result' => []],
             [
@@ -1833,22 +1833,22 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'CREATE TABLE `event` SELECT DISTINCT `eventID`, `Start_time`,'
                 . ' `DateOfEvent`, `NumberOfGuests`, `NameOfVenue`, `LocationOfVenue` FROM `test_tbl`;',
-                'result' => [],
+                'result' => true,
             ],
-            ['query' => 'ALTER TABLE `event` ADD PRIMARY KEY(`eventID`);', 'result' => []],
+            ['query' => 'ALTER TABLE `event` ADD PRIMARY KEY(`eventID`);', 'result' => true],
             [
                 'query' => 'CREATE TABLE `table2` SELECT DISTINCT `Start_time`,'
                             . ' `TypeOfEvent`, `period` FROM `test_tbl`;',
                 'result' => [],
             ],
-            ['query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`Start_time`);', 'result' => []],
-            ['query' => 'DROP TABLE `test_tbl`', 'result' => []],
-            ['query' => 'CREATE TABLE `batch_log2` SELECT DISTINCT `ID`, `task` FROM `test_tbl`;', 'result' => []],
-            ['query' => 'ALTER TABLE `batch_log2` ADD PRIMARY KEY(`ID`, `task`);', 'result' => []],
-            ['query' => 'CREATE TABLE `table2` SELECT DISTINCT `task`, `timestamp` FROM `test_tbl`;', 'result' => []],
-            ['query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`task`);', 'result' => []],
+            ['query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`Start_time`);', 'result' => true],
+            ['query' => 'DROP TABLE `test_tbl`', 'result' => true],
+            ['query' => 'CREATE TABLE `batch_log2` SELECT DISTINCT `ID`, `task` FROM `test_tbl`;', 'result' => true],
+            ['query' => 'ALTER TABLE `batch_log2` ADD PRIMARY KEY(`ID`, `task`);', 'result' => true],
+            ['query' => 'CREATE TABLE `table2` SELECT DISTINCT `task`, `timestamp` FROM `test_tbl`;', 'result' => true],
+            ['query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`task`);', 'result' => true],
             ['query' => 'CREATE DATABASE `test_db_error`;', 'result' => false],
-            ['query' => 'CREATE DATABASE `test_db` DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;', 'result' => []],
+            ['query' => 'CREATE DATABASE `test_db` DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;', 'result' => true],
             [
                 'query' => 'SHOW TABLE STATUS FROM `test_db`',
                 'columns' => ['Name', 'Engine', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment', 'Max_index_length', 'Temporary'],

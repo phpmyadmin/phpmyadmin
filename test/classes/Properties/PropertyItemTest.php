@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests\Properties;
 
 use PhpMyAdmin\Properties\PropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/** @covers \PhpMyAdmin\Properties\PropertyItem */
+#[CoversClass(PropertyItem::class)]
 class PropertyItemTest extends AbstractTestCase
 {
     /** @var PropertyItem&MockObject */

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Dbal;
 
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\Identifiers\DatabaseName;
 
 /**
  * Contract for every database extension supported by phpMyAdmin

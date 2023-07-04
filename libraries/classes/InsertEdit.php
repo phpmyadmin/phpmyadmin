@@ -1845,10 +1845,7 @@ class InsertEdit
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
                     || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column->isBlob);
                 if ($isColumnProtectedBlob) {
-                    $blobSize = Util::formatByteDown(mb_strlen(stripslashes($data)), 3, 1);
-                    if ($blobSize !== null) {
-                        [$blobValue, $blobValueUnit] = $blobSize;
-                    }
+                    [$blobValue, $blobValueUnit] = Util::formatByteDown(mb_strlen(stripslashes($data)), 3, 1);
                 }
 
                 if ($isUpload && $column->isBlob) {

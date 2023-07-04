@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisPolygon;
-use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use TCPDF;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisPolygon
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
- */
+#[CoversClass(GisPolygon::class)]
+#[PreserveGlobalState(false)]
+#[RunTestsInSeparateProcesses]
 class GisPolygonTest extends GisGeomTestCase
 {
     /**
@@ -52,9 +55,8 @@ class GisPolygonTest extends GisGeomTestCase
      * @param int          $index   index in $gis_data
      * @param string|null  $empty   empty parameter
      * @param string       $output  expected output
-     *
-     * @dataProvider providerForTestGenerateWkt
      */
+    #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
     {
         $object = GisPolygon::singleton();
@@ -99,9 +101,8 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @param string       $wkt    point in WKT form
      * @param array<mixed> $params expected output array
-     *
-     * @dataProvider providerForTestGenerateParams
      */
+    #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisPolygon::singleton();
@@ -124,121 +125,12 @@ class GisPolygonTest extends GisGeomTestCase
     }
 
     /**
-     * test for Area
-     *
-     * @param mixed[] $ring array of points forming the ring
-     * @param float   $area area of the ring
-     *
-     * @dataProvider providerForTestArea
-     */
-    public function testArea(array $ring, float $area): void
-    {
-        $object = GisPolygon::singleton();
-        $this->assertEquals($area, $object->area($ring));
-    }
-
-    /**
-     * data provider for testArea
-     *
-     * @return array<array{mixed[], float}>
-     */
-    public static function providerForTestArea(): array
-    {
-        return [
-            [[0 => ['x' => 35, 'y' => 10], 1 => ['x' => 10, 'y' => 10], 2 => ['x' => 15, 'y' => 40]], -375.00],
-            // first point of the ring repeated as the last point
-            [
-                [
-                    0 => ['x' => 35, 'y' => 10],
-                    1 => ['x' => 10, 'y' => 10],
-                    2 => ['x' => 15, 'y' => 40],
-                    3 => ['x' => 35, 'y' => 10],
-                ],
-                -375.00,
-            ],
-            // anticlockwise gives positive area
-            [[0 => ['x' => 15, 'y' => 40], 1 => ['x' => 10, 'y' => 10], 2 => ['x' => 35, 'y' => 10]], 375.00],
-        ];
-    }
-
-    /**
-     * test for isPointInsidePolygon
-     *
-     * @param mixed[] $point    x, y coordinates of the point
-     * @param mixed[] $polygon  array of points forming the ring
-     * @param bool    $isInside output
-     *
-     * @dataProvider providerForTestIsPointInsidePolygon
-     */
-    public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
-    {
-        $object = GisPolygon::singleton();
-        $this->assertEquals($isInside, $object->isPointInsidePolygon($point, $polygon));
-    }
-
-    /**
-     * data provider for testIsPointInsidePolygon
-     *
-     * @return array<array{mixed[], mixed[], bool}>
-     */
-    public static function providerForTestIsPointInsidePolygon(): array
-    {
-        $ring = [
-            0 => ['x' => 35, 'y' => 10],
-            1 => ['x' => 10, 'y' => 10],
-            2 => ['x' => 15, 'y' => 40],
-            3 => ['x' => 35, 'y' => 10],
-        ];
-
-        return [
-            // point inside the ring
-            [['x' => 20, 'y' => 15], $ring, true],
-            // point on an edge of the ring
-            [['x' => 20, 'y' => 10], $ring, false],
-            // point on a vertex of the ring
-            [['x' => 10, 'y' => 10], $ring, false],
-            // point outside the ring
-            [['x' => 5, 'y' => 10], $ring, false],
-        ];
-    }
-
-    /**
-     * test for getPointOnSurface
-     *
-     * @param mixed[] $ring array of points forming the ring
-     *
-     * @dataProvider providerForTestGetPointOnSurface
-     */
-    public function testGetPointOnSurface(array $ring): void
-    {
-        $object = GisPolygon::singleton();
-        $point = $object->getPointOnSurface($ring);
-        $this->assertIsArray($point);
-        $this->assertTrue($object->isPointInsidePolygon($point, $ring));
-    }
-
-    /**
-     * data provider for testGetPointOnSurface
-     *
-     * @return list{list{mixed}, list{mixed}}
-     */
-    public static function providerForTestGetPointOnSurface(): array
-    {
-        $temp = self::getData();
-        unset($temp['POLYGON'][0]['no_of_points']);
-        unset($temp['POLYGON'][1]['no_of_points']);
-
-        return [[$temp['POLYGON'][0]], [$temp['POLYGON'][1]]];
-    }
-
-    /**
      * test scaleRow method
      *
      * @param string    $spatial spatial data of a row
      * @param ScaleData $minMax  expected results
-     *
-     * @dataProvider providerForTestScaleRow
      */
+    #[DataProvider('providerForTestScaleRow')]
     public function testScaleRow(string $spatial, ScaleData $minMax): void
     {
         $object = GisPolygon::singleton();
@@ -258,7 +150,7 @@ class GisPolygonTest extends GisGeomTestCase
         ];
     }
 
-    /** @requires extension gd */
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $object = GisPolygon::singleton();
@@ -287,9 +179,8 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string                   $label     label for the GIS POLYGON object
      * @param int[]                    $color     color for the GIS POLYGON object
      * @param array<string, int|float> $scaleData array containing data related to scaling
-     *
-     * @dataProvider providerForPrepareRowAsPdf
      */
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -334,9 +225,8 @@ class GisPolygonTest extends GisGeomTestCase
      * @param int[]              $color     color for the GIS POLYGON object
      * @param array<string, int> $scaleData array containing data related to scaling
      * @param string             $output    expected output
-     *
-     * @dataProvider providerForPrepareRowAsSvg
      */
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -377,9 +267,8 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $label   label for the GIS POLYGON object
      * @param int[]  $color   color for the GIS POLYGON object
      * @param string $output  expected output
-     *
-     * @dataProvider providerForPrepareRowAsOl
      */
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,
@@ -412,28 +301,5 @@ class GisPolygonTest extends GisGeomTestCase
                 . 'ectorSource.addFeature(feature);',
             ],
         ];
-    }
-
-    /**
-     * test case for isOuterRing() method
-     *
-     * @param array<array<string, int>> $ring coordinates of the points in a ring
-     *
-     * @dataProvider providerForIsOuterRing
-     */
-    public function testIsOuterRing(array $ring): void
-    {
-        $object = GisPolygon::singleton();
-        $this->assertTrue($object->isOuterRing($ring));
-    }
-
-    /**
-     * data provider for testIsOuterRing() test case
-     *
-     * @return array<array{array<array<string, int>>}>
-     */
-    public static function providerForIsOuterRing(): array
-    {
-        return [[[['x' => 0, 'y' => 0], ['x' => 0, 'y' => 1], ['x' => 1, 'y' => 1], ['x' => 1, 'y' => 0]]]];
     }
 }

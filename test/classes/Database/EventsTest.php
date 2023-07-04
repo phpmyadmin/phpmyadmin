@@ -9,8 +9,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Database\Events */
+#[CoversClass(Events::class)]
 class EventsTest extends AbstractTestCase
 {
     private Events $events;
@@ -47,9 +49,8 @@ class EventsTest extends AbstractTestCase
      *
      * @param array<string, string> $in  Input
      * @param array<string, string> $out Expected output
-     *
-     * @dataProvider providerGetDataFromRequest
      */
+    #[DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
@@ -146,9 +147,8 @@ class EventsTest extends AbstractTestCase
      *
      * @param array<string, string> $data    Data for routine
      * @param string                $matcher Matcher
-     *
-     * @dataProvider providerGetEditorFormAdd
      */
+    #[DataProvider('providerGetEditorFormAdd')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
@@ -201,9 +201,8 @@ class EventsTest extends AbstractTestCase
      *
      * @param array<string, string> $data    Data for routine
      * @param string                $matcher Matcher
-     *
-     * @dataProvider providerGetEditorFormEdit
      */
+    #[DataProvider('providerGetEditorFormEdit')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
@@ -256,9 +255,8 @@ class EventsTest extends AbstractTestCase
      *
      * @param array<string, string> $data    Data for routine
      * @param string                $matcher Matcher
-     *
-     * @dataProvider providerGetEditorFormAjax
      */
+    #[DataProvider('providerGetEditorFormAjax')]
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -306,9 +304,8 @@ class EventsTest extends AbstractTestCase
      * @param array<string, string> $request Request
      * @param string                $query   Query
      * @param int                   $numErr  Error number
-     *
-     * @dataProvider providerGetQueryFromRequest
      */
+    #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
         $GLOBALS['errors'] = [];

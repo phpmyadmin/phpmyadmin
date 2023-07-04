@@ -157,12 +157,11 @@ class BrowseForeigners
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" action="'
             . Url::getFromRoute('/browse-foreigners')
-            . '" method="post"><fieldset class="row g-3 align-items-center mb-3">'
-            . Url::getHiddenInputs($db, $table)
-            . '<input type="hidden" name="field" value="' . htmlspecialchars($field)
-            . '">'
+            . '" method="post"><fieldset class="row g-3 align-items-center mb-3">' . "\n"
+            . Url::getHiddenInputs($db, $table) . "\n"
+            . '<input type="hidden" name="field" value="' . htmlspecialchars($field) . '">' . "\n"
             . '<input type="hidden" name="fieldkey" value="'
-            . (isset($fieldKey) ? htmlspecialchars($fieldKey) : '') . '">';
+            . (isset($fieldKey) ? htmlspecialchars($fieldKey) : '') . '">' . "\n";
 
         if (isset($_POST['rownumber'])) {
             $output .= '<input type="hidden" name="rownumber" value="'
@@ -173,20 +172,20 @@ class BrowseForeigners
             ? htmlspecialchars($_POST['foreign_filter'])
             : '');
         $output .= '<div class="col-auto">'
-            . '<label class="form-label" for="input_foreign_filter">' . __('Search:') . '</label></div>'
+            . '<label class="form-label" for="input_foreign_filter">' . __('Search:') . '</label></div>' . "\n"
             . '<div class="col-auto"><input class="form-control" type="text" name="foreign_filter" '
             . 'id="input_foreign_filter" '
-            . 'value="' . $filterValue . '" data-old="' . $filterValue . '">'
+            . 'value="' . $filterValue . '" data-old="' . $filterValue . '">' . "\n"
             . '</div><div class="col-auto">'
             . '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="'
             . __('Go') . '">'
-            . '</div>'
+            . '</div>' . "\n"
             . '<div class="col-auto">' . $gotoPage . '</div>'
             . '<div class="col-auto">' . $foreignShowAll . '</div>'
             . '</fieldset>'
-            . '</form>';
+            . '</form>' . "\n";
 
-        $output .= '<table class="table table-striped table-hover" id="browse_foreign_table">';
+        $output .= '<table class="table table-striped table-hover" id="browse_foreign_table">' . "\n";
 
         if (! is_array($foreignData['disp_row'])) {
             return $output . '</tbody>'
@@ -199,7 +198,7 @@ class BrowseForeigners
             <td width="20%"></td>
             <th>' . __('Description') . '</th>
             <th>' . __('Keyname') . '</th>
-        </tr>';
+        </tr>' . "\n";
 
         $output .= '<thead>' . $header . '</thead>' . "\n"
             . '<tfoot>' . $header . '</tfoot>' . "\n"
@@ -232,7 +231,7 @@ class BrowseForeigners
                 $indexByDescription,
                 $currentValue,
             );
-            $output .= $html;
+            $output .= $html . "\n";
         }
 
         $output .= '</tbody></table>';

@@ -9,13 +9,13 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\Controllers\LintController
- * @runTestsInSeparateProcesses
- */
+#[CoversClass(LintController::class)]
+#[RunTestsInSeparateProcesses]
 class LintControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

@@ -12,9 +12,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Structure\SaveController */
+#[CoversClass(SaveController::class)]
 class SaveControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -78,7 +79,7 @@ class SaveControllerTest extends AbstractTestCase
         $dummyDbi->addResult(
             'ALTER TABLE `test_table` CHANGE `name` `new_name` VARCHAR(21)'
             . ' CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;',
-            [],
+            true,
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
 

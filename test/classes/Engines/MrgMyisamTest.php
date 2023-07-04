@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\MrgMyisam;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/** @covers \PhpMyAdmin\Engines\MrgMyisam */
+#[CoversClass(MrgMyisam::class)]
 class MrgMyisamTest extends AbstractTestCase
 {
     protected MrgMyisam $object;

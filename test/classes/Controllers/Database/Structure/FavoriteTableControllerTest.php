@@ -12,11 +12,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
 use function json_encode;
 
-/** @covers \PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController */
+#[CoversClass(FavoriteTableController::class)]
 class FavoriteTableControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

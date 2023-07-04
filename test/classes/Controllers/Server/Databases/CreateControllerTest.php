@@ -11,11 +11,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function sprintf;
 
-/** @covers \PhpMyAdmin\Controllers\Server\Databases\CreateController */
+#[CoversClass(CreateController::class)]
 final class CreateControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
-use PhpMyAdmin\Common;
+use PhpMyAdmin\Application;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -75,7 +75,7 @@ class WebAuthn extends TwoFactorPlugin
     private function getRequest(): ServerRequest
     {
         if ($this->serverRequest === null) {
-            $this->serverRequest = Common::getRequest();
+            $this->serverRequest = Application::getRequest();
         }
 
         return $this->serverRequest;

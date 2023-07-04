@@ -6,12 +6,17 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionException;
 use ReflectionMethod;
+use Throwable;
 
 use function base64_decode;
 use function base64_encode;
@@ -27,7 +32,7 @@ use function time;
 
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
-/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie */
+#[CoversClass(AuthenticationCookie::class)]
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     protected AuthenticationCookie $object;
@@ -67,8 +72,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    /** @group medium */
-    public function testAuthErrorAJAX(): void
+    #[Group('medium')]
+    public function testAuthErrorAJAX(): never
     {
         $mockResponse = $this->mockResponse();
 
@@ -86,9 +91,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->with('redirect_flag', '1');
 
         $GLOBALS['conn_error'] = true;
-        $this->assertTrue(
-            $this->object->showLoginForm(),
-        );
+
+        $this->expectException(ExitException::class);
+        $this->object->showLoginForm();
     }
 
     private function getAuthErrorMockResponse(): void
@@ -153,7 +158,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testAuthError(): void
     {
         $_REQUEST = [];
@@ -179,8 +184,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
-        $this->object->showLoginForm();
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -223,7 +234,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testAuthCaptcha(): void
     {
         $mockResponse = $this->mockResponse();
@@ -258,8 +269,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
-        $this->object->showLoginForm();
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -295,7 +312,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testAuthCaptchaCheckbox(): void
     {
         $mockResponse = $this->mockResponse();
@@ -331,8 +348,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
-        $this->object->showLoginForm();
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
 
         $this->assertIsString($result);
 
@@ -620,11 +643,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->will($this->returnValue('testBF'));
 
         $this->object->expects($this->once())
-            ->method('showFailure');
+            ->method('showFailure')
+            ->willThrowException(new ExitException());
 
-        $this->assertFalse(
-            $this->object->readCredentials(),
-        );
+        $this->expectException(ExitException::class);
+        $this->object->readCredentials();
     }
 
     public function testAuthSetUser(): void
@@ -678,6 +701,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
 
         $this->object->storeCredentials();
+        $this->expectException(ExitException::class);
         $this->object->rememberCredentials();
     }
 
@@ -688,6 +712,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
+
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
@@ -695,7 +723,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('empty-denied');
+        try {
+            $this->object->showFailure('empty-denied');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -724,7 +755,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         ];
     }
 
-    /** @dataProvider dataProviderPasswordLength */
+    #[DataProvider('dataProviderPasswordLength')]
     public function testAuthFailsTooLongPass(string $password, bool $trueFalse, string|null $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
@@ -750,6 +781,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
+
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
@@ -757,7 +792,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('allow-denied');
+        try {
+            $this->object->showFailure('allow-denied');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals($GLOBALS['conn_error'], 'Access denied!');
     }
@@ -769,6 +807,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
+
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
@@ -779,7 +821,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('no-activity');
+        try {
+            $this->object->showFailure('no-activity');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -794,6 +839,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->onlyMethods(['showLoginForm'])
             ->getMock();
+
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
@@ -813,7 +862,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
@@ -824,6 +876,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->onlyMethods(['showLoginForm'])
             ->getMock();
+
+        $this->object->expects($this->exactly(1))
+            ->method('showLoginForm')
+            ->willThrowException(new ExitException());
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -843,7 +899,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ['Cache-Control: no-store, no-cache, must-revalidate'],
             ['Pragma: no-cache'],
         );
-        $this->object->showFailure('');
+        try {
+            $this->object->showFailure('');
+        } catch (ExitException) {
+        }
 
         $this->assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }
@@ -967,9 +1026,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      * @param bool    $nopass   nopass
      * @param mixed[] $rules    rules
      * @param string  $expected expected result
-     *
-     * @dataProvider checkRulesProvider
      */
+    #[DataProvider('checkRulesProvider')]
     public function testCheckRules(
         string $user,
         string $pass,
@@ -994,8 +1052,16 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         }
 
         ob_start();
-        $this->object->checkRules();
+        try {
+            $this->object->checkRules();
+        } catch (Throwable $throwable) {
+        }
+
         $result = ob_get_clean();
+
+        if (! empty($expected)) {
+            $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        }
 
         $this->assertIsString($result);
 

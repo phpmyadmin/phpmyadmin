@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tracking;
 
-use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Identifiers\TableName;
 
 final class TrackedTable
 {

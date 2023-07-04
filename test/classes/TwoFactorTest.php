@@ -10,6 +10,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\TwoFactor;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function count;
 use function in_array;
@@ -18,7 +21,7 @@ use function str_replace;
 
 use const JSON_UNESCAPED_SLASHES;
 
-/** @covers \PhpMyAdmin\TwoFactor */
+#[CoversClass(TwoFactor::class)]
 class TwoFactorTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -93,11 +96,7 @@ class TwoFactorTest extends AbstractTestCase
             ['Tables_in_phpmyadmin'],
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']],
-            ['NULL'],
-        );
+        $this->dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', [], ['NULL']);
     }
 
     /**
@@ -141,7 +140,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->dummyDbi->addResult(
             'UPDATE `phpmyadmin`.`pma__userconfig` SET `timevalue` = NOW(),'
             . ' `config_data` = \'' . $jsonData . '\' WHERE `username` = \'groot\'',
-            [],
+            true,
         );
     }
 
@@ -238,11 +237,9 @@ class TwoFactorTest extends AbstractTestCase
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
-    /**
-     * @group extension-iconv
-     * @requires extension xmlwriter
-     * @requires extension iconv
-     */
+    #[Group('extension-iconv')]
+    #[RequiresPhpExtension('iconv')]
+    #[RequiresPhpExtension('xmlwriter')]
     public function testApplication(): void
     {
         parent::setLanguage();

@@ -6,13 +6,14 @@ namespace PhpMyAdmin\Tests\WebAuthn;
 
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Webauthn\Server as WebauthnServer;
 
 use function base64_encode;
 use function class_exists;
 
-/** @covers \PhpMyAdmin\WebAuthn\WebauthnLibServer */
+#[CoversClass(WebauthnLibServer::class)]
 class WebauthnLibServerTest extends TestCase
 {
     protected function setUp(): void

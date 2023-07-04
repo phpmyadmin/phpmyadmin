@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Export;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -25,6 +25,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -39,10 +41,8 @@ use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\ExportSql
- * @group medium
- */
+#[CoversClass(ExportSql::class)]
+#[Group('medium')]
 class ExportSqlTest extends AbstractTestCase
 {
     protected ExportSql $object;
@@ -90,7 +90,7 @@ class ExportSqlTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
@@ -105,7 +105,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertNull($properties->getOptions());
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testSetProperties(): void
     {
         // test with hide structure and hide sql as false
@@ -752,7 +752,7 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testGetTableDef(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -801,7 +801,7 @@ SQL;
         // phpcs:enable
         $dbiDummy->addResult($isViewQuery, []);
         $dbiDummy->addResult($isViewQuery, []);
-        $dbiDummy->addResult('USE `db`', []);
+        $dbiDummy->addResult('USE `db`', true);
         $dbiDummy->addResult(
             'SHOW CREATE TABLE `db`.`table`',
             [['table', $createTableStatement]],
@@ -853,7 +853,7 @@ SQL;
         $dbiDummy->addResult('SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', []);
         $dbiDummy->addResult($isViewQuery, []);
         $dbiDummy->addResult($isViewQuery, []);
-        $dbiDummy->addResult('USE `db`', []);
+        $dbiDummy->addResult('USE `db`', true);
         $dbiDummy->addResult('SHOW CREATE TABLE `db`.`table`', []);
         $dbiDummy->addErrorCode('error occurred');
 
@@ -919,7 +919,7 @@ SQL;
         );
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testExportStructure(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1035,7 +1035,7 @@ SQL;
         $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1149,7 +1149,7 @@ SQL;
         $this->assertStringContainsString('SET IDENTITY_INSERT &quot;table&quot; OFF;', $result);
     }
 
-    /** @group medium */
+    #[Group('medium')]
     public function testExportDataWithUpdate(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

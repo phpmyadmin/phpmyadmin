@@ -2,32 +2,32 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Triggers;
+namespace PhpMyAdmin\Tests\Identifiers;
 
-use PhpMyAdmin\Triggers\InvalidTriggerName;
-use PhpMyAdmin\Triggers\TriggerName;
+use PhpMyAdmin\Identifiers\InvalidTriggerName;
+use PhpMyAdmin\Identifiers\TriggerName;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\Triggers\InvalidTriggerName
- * @covers \PhpMyAdmin\Triggers\TriggerName
- */
+#[CoversClass(InvalidTriggerName::class)]
+#[CoversClass(TriggerName::class)]
 final class TriggerNameTest extends TestCase
 {
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testValidName(string $validName): void
     {
-        $name = TriggerName::fromValue($validName);
+        $name = TriggerName::from($validName);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
     }
 
-    /** @dataProvider providerForTestValidNames */
+    #[DataProvider('providerForTestValidNames')]
     public function testTryFromValueValidName(string $validName): void
     {
-        $name = TriggerName::tryFromValue($validName);
+        $name = TriggerName::tryFrom($validName);
         $this->assertNotNull($name);
         $this->assertEquals($validName, $name->getName());
         $this->assertEquals($validName, (string) $name);
@@ -41,13 +41,13 @@ final class TriggerNameTest extends TestCase
         yield [str_repeat('a', 64)];
     }
 
-    /** @dataProvider providerForTestInvalidNames */
+    #[DataProvider('providerForTestInvalidNames')]
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
-        $this->assertNull(TriggerName::tryFromValue($name));
+        $this->assertNull(TriggerName::tryFrom($name));
         $this->expectException(InvalidTriggerName::class);
         $this->expectExceptionMessage($exceptionMessage);
-        TriggerName::fromValue($name);
+        TriggerName::from($name);
     }
 
     /**

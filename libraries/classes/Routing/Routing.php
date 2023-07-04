@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Routing;
 
 use FastRoute\DataGenerator\GroupCountBased as DataGeneratorGroupCountBased;
 use FastRoute\Dispatcher;
@@ -13,7 +13,12 @@ use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use Psr\Container\ContainerInterface;
 
 use function __;
@@ -38,7 +43,6 @@ use function var_export;
 
 use const CACHE_DIR;
 use const E_USER_WARNING;
-use const ROOT_PATH;
 
 /**
  * Class used to warm up the routing cache and manage routing.
@@ -46,13 +50,6 @@ use const ROOT_PATH;
 class Routing
 {
     public const ROUTES_CACHE_FILE = CACHE_DIR . 'routes.cache.php';
-
-    public static function getDispatcher(): Dispatcher
-    {
-        $routes = require ROOT_PATH . 'libraries/routes.php';
-
-        return self::routesCachedDispatcher($routes);
-    }
 
     public static function skipCache(): bool
     {
@@ -75,7 +72,7 @@ class Routing
         return $canWriteFile;
     }
 
-    private static function routesCachedDispatcher(callable $routeDefinitionCallback): Dispatcher
+    public static function getDispatcher(): Dispatcher
     {
         $skipCache = self::skipCache();
 
@@ -89,11 +86,8 @@ class Routing
             }
         }
 
-        $routeCollector = new RouteCollector(
-            new RouteParserStd(),
-            new DataGeneratorGroupCountBased(),
-        );
-        $routeDefinitionCallback($routeCollector);
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collect($routeCollector);
 
         $dispatchData = $routeCollector->getData();
         $canWriteCache = self::canWriteCache();

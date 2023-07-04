@@ -151,16 +151,6 @@ parameters:
 			path: libraries/classes/Command/TwigLintCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$DEFAULT_DELIMITER \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Config.php
@@ -571,6 +561,11 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/Validator.php
+
+		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
@@ -787,7 +782,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
@@ -892,11 +887,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$getDb of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#2 \\$page of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForSchemaExport\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
@@ -1251,11 +1241,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 4
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -1386,67 +1371,67 @@ parameters:
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbSelect of method PhpMyAdmin\\\\Export\\:\\:exportServer\\(\\) expects array\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$dbSelect of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportServer\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:getFinalFilenameAndMimetypeForFilename\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			message: "#^Parameter \\#1 \\$exportPlugin of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getFinalFilenameAndMimetypeForFilename\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#11 \\$allrows of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$allrows of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportTable\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#12 \\$limitTo of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$limitTo of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#13 \\$limitFrom of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#13 \\$limitFrom of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$exportPlugin of static method PhpMyAdmin\\\\Export\\:\\:exportRaw\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			message: "#^Parameter \\#2 \\$exportPlugin of static method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportRaw\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$rememberTemplate of method PhpMyAdmin\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$rememberTemplate of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#3 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:exportServer\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			message: "#^Parameter \\#3 \\$exportPlugin of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportServer\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#3 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			message: "#^Parameter \\#3 \\$exportPlugin of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#4 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			message: "#^Parameter \\#4 \\$exportPlugin of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportTable\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#5 \\$filenameTemplate of method PhpMyAdmin\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$filenameTemplate of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#6 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:exportDatabase\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			message: "#^Parameter \\#6 \\$exportPlugin of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportDatabase\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Export\\:\\:\\$dumpBuffer \\(string\\) does not accept array\\|bool\\|string\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Export\\\\Export\\:\\:\\$dumpBuffer \\(string\\) does not accept array\\|bool\\|string\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
@@ -1662,6 +1647,21 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$fileName of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$url of function parse_url expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$url of static method PhpMyAdmin\\\\Util\\:\\:splitURLQuery\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
@@ -2166,8 +2166,33 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin and 'isSuccess' will always evaluate to true\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset 'multi_edit' on mixed\\.$#"
+			count: 11
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
+			count: 10
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Cannot access offset int\\|string on mixed\\.$#"
+			count: 11
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
@@ -2181,12 +2206,77 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Parameter \\#1 \\$columnName of class PhpMyAdmin\\\\EditField constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#1 \\$oneWhereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:setSessionForEditNext\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
 			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForInsertedRows\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function parse_str expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#2 \\$relationField of method PhpMyAdmin\\\\InsertEdit\\:\\:getLinkForRelationalDisplayField\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\$columnName of method PhpMyAdmin\\\\InsertEdit\\:\\:verifyWhetherValueCanBeTruncatedAndAppendExtraData\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\$relationField of method PhpMyAdmin\\\\InsertEdit\\:\\:getDisplayValueForForeignTableColumn\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\$type of class PhpMyAdmin\\\\EditField constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#7 \\$function of class PhpMyAdmin\\\\EditField constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#8 \\$salt of class PhpMyAdmin\\\\EditField constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#9 \\$previousValue of class PhpMyAdmin\\\\EditField constructor expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -2451,8 +2541,8 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 7
+			message: "#^Cannot use array destructuring on array\\<int, string\\>\\|null\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
@@ -2636,6 +2726,11 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method Symfony\\\\Component\\\\DependencyInjection\\\\Container\\:\\:setParameter\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
 			message: "#^Parameter \\#1 \\$pattern of function preg_match expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -2647,6 +2742,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -2731,7 +2831,7 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Dbal\\\\DatabaseName\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 8
 			path: libraries/classes/Database/CentralColumns.php
 
@@ -3613,67 +3713,67 @@ parameters:
 		-
 			message: "#^Cannot access offset 'alias' on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Export\\:\\:compress\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Export\\\\Export\\:\\:compress\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Export\\:\\:getMemoryLimit\\(\\) should return int but returns \\(float\\|int\\)\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Export\\\\Export\\:\\:getMemoryLimit\\(\\) should return int but returns \\(float\\|int\\)\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#2 \\$dbAlias of method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportDBHeader\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportData\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportStructure\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#2 \\$tables of method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportMetadata\\(\\) expects array\\<string\\>\\|string, array given\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^Parameter \\#3 \\$dbAlias of method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportDBCreate\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Export.php
+			path: libraries/classes/Export/Export.php
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$dbSelect has no value type specified in iterable type array\\.$#"
@@ -3757,7 +3857,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/FlashMessages.php
 
 		-
@@ -3922,7 +4022,7 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 8
+			count: 7
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -3937,7 +4037,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'inner' on mixed\\.$#"
-			count: 4
+			count: 5
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -3967,7 +4067,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'points' on mixed\\.$#"
-			count: 5
+			count: 3
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -3997,6 +4097,11 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 6
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
+			message: "#^Cannot call method isInsidePolygon\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4006,32 +4111,17 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$point of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Parameter \\#1 \\$points of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects array\\<int, int\\>, array\\<float\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getPointOnSurface\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#1 \\$ring of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isOuterRing\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$points of static method PhpMyAdmin\\\\Gis\\\\Ds\\\\Polygon\\:\\:fromXYArray\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Parameter \\#2 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#2 \\$polygon of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4092,12 +4182,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 18
+			count: 3
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
 			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 22
+			count: 3
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
@@ -4251,94 +4341,94 @@ parameters:
 			path: libraries/classes/Http/ServerRequest.php
 
 		-
+			message: "#^Variable static method call on PhpMyAdmin\\\\Import\\\\Ajax\\.$#"
+			count: 1
+			path: libraries/classes/Import/Ajax.php
+
+		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 3
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot call method getProperties\\(\\) on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Casting to int something that's already int\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 5
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Foreach overwrites \\$sqlQuery with its value variable\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:detectSize\\(\\) should return int\\|string but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Import\\\\Import\\:\\:detectSize\\(\\) should return int\\|string but returns mixed\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the right side\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 4
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Variable static method call on PhpMyAdmin\\\\Import\\\\Ajax\\.$#"
-			count: 1
-			path: libraries/classes/Import/Ajax.php
+			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
@@ -4491,6 +4581,11 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\InsertEditColumn\\:\\:\\$pmaType \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: libraries/classes/InsertEditColumn.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\InsertEditColumn\\:\\:\\$trueType \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/InsertEditColumn.php
@@ -4532,11 +4627,6 @@ parameters:
 
 		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|null and int\\<0, max\\> results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
 
@@ -4607,11 +4697,6 @@ parameters:
 
 		-
 			message: "#^Foreach overwrites \\$parent with its value variable\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:parsePath\\(\\) should return non\\-empty\\-array\\<int, string\\> but returns non\\-empty\\-array\\<int, string\\|false\\>\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -5276,11 +5361,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportPhparray.php
 
 		-
-			message: "#^Binary operation \"\\.\" between 'FOREIGN KEY ' and array\\<string\\>\\|string results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Cannot access offset 'alias' on mixed\\.$#"
 			count: 8
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -5312,7 +5392,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 10
+			count: 6
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -5322,7 +5402,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 10
+			count: 14
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -5391,11 +5471,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) expects array\\<string\\>\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -5427,11 +5502,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$columns \\(array\\<string\\>\\) does not accept array\\<mixed\\>\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Token\\:\\:\\$token \\(string\\) does not accept array\\<string\\>\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -5817,7 +5887,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 7
+			count: 10
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
@@ -5856,7 +5926,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Import\\:\\:analyzeTable\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Import\\\\Import\\:\\:analyzeTable\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
@@ -5904,6 +5974,11 @@ parameters:
 			message: "#^Variable property access on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
+			message: "#^Cannot access offset 0 on array\\|bool\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportShp.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
@@ -6207,7 +6282,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 8
+			count: 12
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -6286,6 +6361,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
+			message: "#^Binary operation \"\\+\\=\" between float\\|int and array\\<float\\>\\|float results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
 			message: "#^Cannot access offset '\\-' on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
@@ -6297,7 +6377,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 4
+			count: 6
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
@@ -6526,6 +6606,11 @@ parameters:
 			path: libraries/classes/Plugins/TwoFactor/Key.php
 
 		-
+			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
 			message: "#^Parameter \\#1 \\$registrations of static method CodeLts\\\\U2F\\\\U2FServer\\\\U2FServer\\:\\:makeAuthentication\\(\\) expects array\\<CodeLts\\\\U2F\\\\U2FServer\\\\stdClass\\>, array\\<stdClass\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TwoFactor/Key.php
@@ -6544,11 +6629,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\UploadInterface\\:\\:getUploadStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/UploadInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Profiling\\:\\:getInformation\\(\\) should return array\\<string, string\\>\\|null but returns array\\.$#"
-			count: 1
-			path: libraries/classes/Profiling.php
 
 		-
 			message: "#^Cannot access offset 'AUTO_INCREMENT' on mixed\\.$#"
@@ -6971,7 +7051,7 @@ parameters:
 			path: libraries/classes/ResponseRenderer.php
 
 		-
-			message: "#^Casting to array\\<string, mixed\\> something that's already array\\<string, mixed\\>\\.$#"
+			message: "#^Casting to array something that's already array\\.$#"
 			count: 4
 			path: libraries/classes/Sanitize.php
 
@@ -7152,7 +7232,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -7217,6 +7297,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$privs of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:parseProcPriv\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -7297,11 +7382,16 @@ parameters:
 
 		-
 			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|null\\.$#"
-			count: 1
+			count: 3
 			path: libraries/classes/Server/Privileges.php
 
 		-
 			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|true\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Possibly invalid array key type array\\<string\\>\\|string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -7377,7 +7467,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 5
+			count: 10
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
@@ -7591,12 +7681,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Cannot access offset 'Duration' on mixed\\.$#"
-			count: 6
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Cannot access offset 'Status' on mixed\\.$#"
+			message: "#^Binary operation \"\\+\" between int\\<min, \\-1\\>\\|int\\<1, max\\> and int\\|string results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -7617,16 +7702,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) should return int\\|numeric\\-string but returns float\\|int\\|numeric\\-string\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getDetailedProfilingStats\\(\\) should return array\\<string, array\\|int\\> but returns array\\<string, array\\<int\\|string, mixed\\>\\|float\\|int\\>\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -7667,16 +7742,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function bin2hex expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function ucwords expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -7952,7 +8017,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 5
+			count: 7
 			path: libraries/classes/Table.php
 
 		-
@@ -8061,7 +8126,7 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Cannot access offset int\\|string on mixed\\.$#"
+			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Table/ColumnsDefinition.php
 
@@ -8456,11 +8521,6 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
@@ -8502,16 +8562,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, \\(array\\|float\\|int\\) given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -8966,6 +9016,16 @@ parameters:
 			path: test/classes/ErrorHandlerTest.php
 
 		-
+			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			count: 2
+			path: test/classes/Gis/Ds/PolygonTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$points of static method PhpMyAdmin\\\\Gis\\\\Ds\\\\Polygon\\:\\:fromXYArray\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
+			count: 2
+			path: test/classes/Gis/Ds/PolygonTest.php
+
+		-
 			message: "#^Cannot access offset 'no_of_lines' on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
@@ -8976,8 +9036,13 @@ parameters:
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiPolygonTest.php
+
+		-
 			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-
@@ -9256,11 +9321,6 @@ parameters:
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FastRoute\\\\\\\\Dispatcher' and FastRoute\\\\Dispatcher will always evaluate to true\\.$#"
-			count: 4
-			path: test/classes/RoutingTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Server/PluginTest.php
@@ -9397,11 +9457,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerForTestGetMySQLDocuURL\\(\\) should return array\\<int, array\\{string, string, int, string\\}\\> but returns array\\{array\\{'ALTER_TABLE', 'alter\\-table\\-index', '8\\.0\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', 'alter\\-table\\-index', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', 'alter\\-table\\-index', '5\\.6\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', '', '5\\.5\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', '', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}\\}\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
 

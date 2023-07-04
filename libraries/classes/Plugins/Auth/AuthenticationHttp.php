@@ -16,7 +16,6 @@ use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 use function base64_decode;
-use function defined;
 use function hash_equals;
 use function preg_replace;
 use function sprintf;
@@ -31,30 +30,24 @@ class AuthenticationHttp extends AuthenticationPlugin
 {
     /**
      * Displays authentication form and redirect as necessary
-     *
-     * @return bool always true (no return indeed)
      */
-    public function showLoginForm(): bool
+    public function showLoginForm(): never
     {
         $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
             $response->addJSON('reload_flag', '1');
-            if (defined('TESTSUITE')) {
-                return true;
-            }
-
-            exit;
+            $response->callExit();
         }
 
-        return $this->authForm();
+        $this->authForm();
     }
 
     /**
      * Displays authentication form
      */
-    public function authForm(): bool
+    public function authForm(): never
     {
         if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
             if (empty($GLOBALS['cfg']['Server']['verbose'])) {
@@ -95,11 +88,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         $response->addHTML(Config::renderFooter());
 
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
-
-        return false;
+        $response->callExit();
     }
 
     /**
@@ -188,7 +177,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    public function showFailure(string $failure): never
     {
         parent::showFailure($failure);
 
@@ -200,9 +189,7 @@ class AuthenticationHttp extends AuthenticationPlugin
                 'error_message' => $error,
             ]);
 
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
+            ResponseRenderer::getInstance()->callExit();
         }
 
         $this->authForm();

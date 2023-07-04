@@ -8,10 +8,12 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_merge;
 
-/** @covers \PhpMyAdmin\Operations */
+#[CoversClass(Operations::class)]
 class OperationsTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -33,11 +35,8 @@ class OperationsTest extends AbstractTestCase
         $this->object = new Operations($this->dbi, new Relation($this->dbi));
     }
 
-    /**
-     * @param mixed[] $extraChoice
-     *
-     * @dataProvider providerGetPartitionMaintenanceChoices
-     */
+    /** @param mixed[] $extraChoice */
+    #[DataProvider('providerGetPartitionMaintenanceChoices')]
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
         $GLOBALS['db'] = 'database';

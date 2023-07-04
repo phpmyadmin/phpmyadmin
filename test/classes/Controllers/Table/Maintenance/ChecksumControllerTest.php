@@ -10,15 +10,14 @@ use PhpMyAdmin\Table\Maintenance;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/** @covers \PhpMyAdmin\Controllers\Table\Maintenance\ChecksumController */
+#[CoversClass(ChecksumController::class)]
 class ChecksumControllerTest extends AbstractTestCase
 {
-    /**
-     * @param string[][]|string[]|string|null $tables
-     *
-     * @dataProvider providerForTestNoTableSelected
-     */
+    /** @param string[][]|string[]|string|null $tables */
+    #[DataProvider('providerForTestNoTableSelected')]
     public function testNoTableSelected(array|string|null $tables): void
     {
         $request = $this->createStub(ServerRequest::class);
