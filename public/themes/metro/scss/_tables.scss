@@ -17,6 +17,13 @@
     }
   }
 
+  tbody {
+    th,
+    td {
+      border-right: 1px solid #00000017;
+    }
+  }
+
   caption {
     font-family: $font-family-bold;
     background-color: $th-background;

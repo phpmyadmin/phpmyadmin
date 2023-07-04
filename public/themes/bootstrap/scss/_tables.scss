@@ -1,3 +1,12 @@
+.table {
+  tbody {
+    th,
+    td {
+      border-right: 1px solid #00000017;
+    }
+  }
+}
+
 @media only screen and (width >= 768px) {
   .table th.position-sticky {
     top: 96px;
