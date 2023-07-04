@@ -540,11 +540,7 @@ HTML;
 <div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
 </div>
-<<<<<<< HEAD
 <div class="card-body sqlOuter"><code class="php" dir="ltr"><pre>
-=======
-<div class="sqlOuter"><code class="php" dir="ltr"><pre>
->>>>>>> 578dbb301c (Fix SQL statement not being displayed correctly on RTL languages)
 $sql = "EXPLAIN SELECT 1;";
 </pre></code></div>
 <div class="card-footer tools d-print-none">
