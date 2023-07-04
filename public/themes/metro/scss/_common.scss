@@ -1705,11 +1705,15 @@ form.append_fields_form .tblFooters {
 }
 
 .pma_table {
+  th.draggable span {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.pma_table {
   td {
     position: static;
-
-    /* rtl:ignore */
-    text-align: left !important;
   }
 
   tbody td span {
@@ -1718,16 +1722,6 @@ form.append_fields_form .tblFooters {
 
     code span {
       display: inline;
-    }
-  }
-
-  th.draggable {
-    /* rtl:ignore */
-    text-align: left;
-
-    span {
-      /* rtl:ignore */
-      margin-right: 10px;
     }
   }
 }

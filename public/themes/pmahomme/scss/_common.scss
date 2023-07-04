@@ -1614,9 +1614,6 @@ input#auto_increment_opt {
 .pma_table {
   td {
     position: static;
-
-    /* rtl:ignore */
-    text-align: left !important;
   }
 
   tbody td span {
@@ -1629,11 +1626,7 @@ input#auto_increment_opt {
   }
 
   th.draggable {
-    /* rtl:ignore */
-    text-align: left;
-
     span {
-      /* rtl:ignore */
       margin-right: 10px;
     }
   }
