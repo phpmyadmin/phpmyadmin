@@ -823,7 +823,7 @@ class NavigationTree
                 }
             } else {
                 $groups[$key] = new Node(
-                    htmlspecialchars((string) $key),
+                    (string) $key,
                     Node::CONTAINER,
                     true
                 );
