@@ -58,6 +58,7 @@ phpMyAdmin - ChangeLog
 - issue #18159 Fix error when changing the number of chart columns in the monitor page
 - issue #18403 Fix Uncaught SyntaxError: JSON.parse on makegrid conditions
 - issue #17528 Fix double escaping of database group names in the navigation tree
+- issue #18473 Fix the NULL not applied after clearing nullable field
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
