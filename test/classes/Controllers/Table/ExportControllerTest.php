@@ -44,7 +44,8 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings('Export');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Export');
         $template = new Template();
         $exportList = Plugins::getExport('table', true);
 

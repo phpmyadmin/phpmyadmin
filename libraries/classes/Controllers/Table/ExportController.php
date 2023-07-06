@@ -41,7 +41,8 @@ class ExportController extends AbstractController
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
 
-        $pageSettings = new PageSettings('Export');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
         $pageSettingsHtml = $pageSettings->getHTML();
 

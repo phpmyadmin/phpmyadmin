@@ -40,7 +40,8 @@ final class ExportController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $pageSettings = new PageSettings('Export');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
         $pageSettingsHtml = $pageSettings->getHTML();
 

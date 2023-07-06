@@ -37,7 +37,8 @@ class ChangeControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings('Edit');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Edit');
 
         $request = $this->createStub(ServerRequest::class);
 

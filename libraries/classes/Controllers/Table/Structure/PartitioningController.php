@@ -50,7 +50,8 @@ final class PartitioningController extends AbstractController
             return;
         }
 
-        $pageSettings = new PageSettings('TableStructure');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('TableStructure');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 

@@ -88,7 +88,8 @@ class Navigation
             }
 
             if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+                $pageSettings = new PageSettings();
+                $pageSettings->init('Navi', 'pma_navigation_settings');
                 $response->addHTML($pageSettings->getErrorHTML());
                 $navigationSettings = $pageSettings->getHTML();
             }

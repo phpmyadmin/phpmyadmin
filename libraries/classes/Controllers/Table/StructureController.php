@@ -84,7 +84,8 @@ class StructureController extends AbstractController
         $GLOBALS['tbl_collation'] = $this->tableObj->getCollation();
         $GLOBALS['table_info_num_rows'] = $this->tableObj->getNumRows();
 
-        $pageSettings = new PageSettings('TableStructure');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('TableStructure');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 

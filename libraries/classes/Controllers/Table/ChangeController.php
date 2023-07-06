@@ -51,7 +51,8 @@ class ChangeController extends AbstractController
         $GLOBALS['result'] ??= null;
         $GLOBALS['current_result'] ??= null;
 
-        $pageSettings = new PageSettings('Edit');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Edit');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 

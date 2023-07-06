@@ -44,7 +44,8 @@ class ImportControllerTest extends AbstractTestCase
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions('Import', $importList);
 
-        $pageSettings = new PageSettings('Import');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Import');
         $template = new Template();
         $expected = $template->render('table/import/index', [
             'page_settings_error_html' => $pageSettings->getErrorHTML(),

@@ -58,7 +58,8 @@ class SqlController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        $pageSettings = new PageSettings('Browse');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Browse');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 

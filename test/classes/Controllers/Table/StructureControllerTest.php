@@ -78,7 +78,8 @@ class StructureControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $pageSettings = new PageSettings('TableStructure');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
 
         $request = $this->createStub(ServerRequest::class);

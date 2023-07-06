@@ -147,7 +147,8 @@ class StructureController extends AbstractController
         $this->replicationInfo->load($request->getParsedBodyParam('primary_connection'));
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
 
-        $pageSettings = new PageSettings('DbStructure');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('DbStructure');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 

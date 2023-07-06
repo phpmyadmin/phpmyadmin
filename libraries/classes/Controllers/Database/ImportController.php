@@ -36,7 +36,8 @@ final class ImportController extends AbstractController
         $GLOBALS['SESSION_KEY'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $pageSettings = new PageSettings('Import');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
         $pageSettingsHtml = $pageSettings->getHTML();
 

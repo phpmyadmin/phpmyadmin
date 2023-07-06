@@ -45,7 +45,8 @@ class SqlControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
 
-        $pageSettings = new PageSettings('Sql');
+        $pageSettings = new PageSettings();
+        $pageSettings->init('Sql');
         $fields = $this->dbi->getColumns('test_db', 'test_table', true);
         $template = new Template();
 
