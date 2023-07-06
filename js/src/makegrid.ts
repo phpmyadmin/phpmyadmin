@@ -929,6 +929,8 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             if ($editArea.find('select').length > 0) {
                                 $editArea.find('select').val('');
                             }
+                        } else if ($td.is('.datefield')) {
+                            $('.ui-datepicker-trigger').trigger('click');
                         } else {
                             $editArea.find('textarea').val('');
                         }
