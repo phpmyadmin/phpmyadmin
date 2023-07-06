@@ -51,6 +51,7 @@ class NodeFactoryTest extends AbstractTestCase
     public function testDatabaseNode(): void
     {
         $node = NodeFactory::getInstance(NodeDatabase::class, 'database_name');
+        /** @phpstan-ignore-next-line */
         $this->assertInstanceOf(NodeDatabase::class, $node);
         $this->assertEquals('database_name', $node->name);
         $this->assertEquals(Node::OBJECT, $node->type);
