@@ -36,7 +36,7 @@
         {% if table.comment is not empty %}
           <span class="breadcrumb-comment" draggable="false">“{{ table.comment }}”</span>
         {% endif %}
-      {% elseif database.comment is not empty %}
+      {% elseif database.comment is defined and database.comment is not empty %}
         <span class="breadcrumb-comment" draggable="false">“{{ database.comment }}”</span>
       {% endif %}
     {% endif %}

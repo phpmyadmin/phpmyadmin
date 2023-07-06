@@ -65,12 +65,14 @@ class Template
 
         if (($GLOBALS['cfg']['environment'] ?? '') === 'development') {
             $twig->enableDebug();
+            $twig->enableStrictVariables();
             $twig->addExtension(new DebugExtension());
             // This will enable debug for the extension to print lines
             // It is used in po file lines re-mapping
             TransNode::$enableAddDebugInfo = true;
         } else {
             $twig->disableDebug();
+            $twig->disableStrictVariables();
             TransNode::$enableAddDebugInfo = false;
         }
 

@@ -55,7 +55,7 @@
   {% if char_editing == 'textarea' %}
     <textarea name="field_default_value[{{ column_number }}]" cols="15" class="textfield default_value">{{ default_value }}</textarea>
   {% else %}
-    <input type="text" name="field_default_value[{{ column_number }}]" size="12" value="{{ default_value }}" class="textfield default_value">
+    <input type="text" name="field_default_value[{{ column_number }}]" size="12" value="{{ default_value ?? '' }}" class="textfield default_value">
   {% endif %}
   {% set ci = ci + 1 %}
 </td>
@@ -67,7 +67,7 @@
       <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
         {% for collation in charset.collations %}
           <option value="{{ collation.name }}" title="{{ collation.description }}"
-            {{- collation.name == column_meta['Collation'] ? ' selected' }}>
+            {{- column_meta['Collation'] is defined and collation.name == column_meta['Collation'] ? ' selected' }}>
             {{- collation.name -}}
           </option>
         {% endfor %}
@@ -91,7 +91,7 @@
 </td>
 <td class="text-center">
     <input name="field_null[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="YES" class="allow_null"
-      {{- column_meta['Null'] is not empty and column_meta['Null'] != 'NO' and column_meta['Null'] != 'NOT NULL' ? ' checked' }}>
+      {{- column_meta['Null'] is defined and column_meta['Null'] is not empty and column_meta['Null'] != 'NO' and column_meta['Null'] != 'NOT NULL' ? ' checked' }}>
     {% set ci = ci + 1 %}
 </td>
 {% if change_column is defined and change_column is not empty %}
@@ -170,11 +170,10 @@
 {# move column #}
 {% if fields_meta is defined %}
     {% set current_index = 0 %}
-    {% set cols = move_columns|length - 1 %}
     {% set break = false %}
-    {% for mi in 0..cols %}
-      {% if move_columns[mi].name == column_meta['Field'] and not break %}
-        {% set current_index = mi %}
+    {% for move_column in move_columns %}
+      {% if move_column.name == column_meta['Field'] and not break %}
+        {% set current_index = loop.index0 %}
         {% set break = true %}
       {% endif %}
     {% endfor %}
@@ -185,10 +184,10 @@
         <option value="-first"{{ current_index == 0 ? ' disabled="disabled"' }}>
           {% trans 'first' %}
         </option>
-        {% for mi in 0..move_columns|length - 1 %}
-          <option value="{{ move_columns[mi].name }}"
-            {{- current_index == mi or current_index == mi + 1 ? ' disabled' }}>
-            {{ 'after %s'|trans|format(backquote(move_columns[mi].name|e)) }}
+        {% for move_column in move_columns %}
+          <option value="{{ move_column.name }}"
+            {{- current_index == loop.index0 or current_index == loop.index0 + 1 ? ' disabled' }}>
+            {{ 'after %s'|trans|format(backquote(move_column.name|e)) }}
           </option>
         {% endfor %}
       </select>

@@ -43,12 +43,12 @@
               <td rowspan="{{ columns_count }}" class="d-print-none">
                 {% if index.getName() == 'PRIMARY' %}
                   {% set index_params = {
-                    'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PRIMARY KEY;',
+                    'sql_query': 'ALTER TABLE ' ~ backquote(url_params.table) ~ ' DROP PRIMARY KEY;',
                     'message_to_show': 'The primary key has been dropped.'|trans
                   } %}
                 {% else %}
                   {% set index_params = {
-                    'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP INDEX ' ~ backquote(index.getName()) ~ ';',
+                    'sql_query': 'ALTER TABLE ' ~ backquote(url_params.table) ~ ' DROP INDEX ' ~ backquote(index.getName()) ~ ';',
                     'message_to_show': 'Index %s has been dropped.'|trans|format(index.getName())
                   } %}
                 {% endif %}

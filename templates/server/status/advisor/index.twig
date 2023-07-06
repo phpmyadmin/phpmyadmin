@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    {% if data.errors|length > 0 %}
+    {% if data.errors is defined and data.errors|length > 0 %}
       <div class="alert alert-danger mt-2 mb-2" role="alert">
         <h4 class="alert-heading">{% trans 'Errors occurred while executing rule expressions:' %}</h4>
         <ul>
@@ -59,7 +59,7 @@
       </div>
     {% endif %}
 
-    {% if data.fired|length > 0 %}
+    {% if data.fired is defined and data.fired|length > 0 %}
       <h4>{% trans 'Possible performance issues' %}</h4>
 
       <div class="accordion mb-4" id="rulesAccordion">

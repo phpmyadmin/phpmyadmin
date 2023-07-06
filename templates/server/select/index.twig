@@ -9,7 +9,7 @@
             {% endfor %}
         </select>
     </form>
-{% elseif servers.list %}
+{% elseif servers.list is not empty %}
     {% trans 'Current server:' %}<br>
     <ul id="list_server">
         <li>
