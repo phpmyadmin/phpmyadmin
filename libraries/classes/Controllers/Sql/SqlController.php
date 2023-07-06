@@ -34,6 +34,7 @@ class SqlController extends AbstractController
         private Sql $sql,
         private CheckUserPrivileges $checkUserPrivileges,
         private DatabaseInterface $dbi,
+        private PageSettings $pageSettings,
     ) {
         parent::__construct($response, $template);
     }
@@ -58,10 +59,9 @@ class SqlController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        $pageSettings = new PageSettings();
-        $pageSettings->init('Browse');
-        $this->response->addHTML($pageSettings->getErrorHTML());
-        $this->response->addHTML($pageSettings->getHTML());
+        $this->pageSettings->init('Browse');
+        $this->response->addHTML($this->pageSettings->getErrorHTML());
+        $this->response->addHTML($this->pageSettings->getHTML());
 
         $this->addScriptFiles([
             'vendor/jquery/jquery.uitablefilter.js',

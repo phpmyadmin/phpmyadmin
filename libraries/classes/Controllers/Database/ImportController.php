@@ -26,8 +26,12 @@ use function is_numeric;
 
 final class ImportController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private DatabaseInterface $dbi,
+        private PageSettings $pageSettings,
+    ) {
         parent::__construct($response, $template);
     }
 
@@ -36,10 +40,9 @@ final class ImportController extends AbstractController
         $GLOBALS['SESSION_KEY'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $pageSettings = new PageSettings();
-        $pageSettings->init('Import');
-        $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
-        $pageSettingsHtml = $pageSettings->getHTML();
+        $this->pageSettings->init('Import');
+        $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
+        $pageSettingsHtml = $this->pageSettings->getHTML();
 
         $this->addScriptFiles(['import.js']);
 

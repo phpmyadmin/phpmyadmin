@@ -72,6 +72,7 @@ return [
             'arguments' => ['@template', '@config'],
         ],
         'config' => ['class' => Config::class],
+        Config\PageSettings::class => ['class' => Config\PageSettings::class, 'arguments' => ['@user_preferences']],
         'central_columns' => ['class' => CentralColumns::class, 'arguments' => ['@dbi']],
         'check_user_privileges' => ['class' => CheckUserPrivileges::class, 'arguments' => ['@dbi']],
         'create_add_field' => ['class' => CreateAddField::class, 'arguments' => ['@dbi']],

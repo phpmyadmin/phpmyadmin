@@ -25,6 +25,7 @@ final class SqlController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private SqlQueryForm $sqlQueryForm,
+        private PageSettings $pageSettings,
     ) {
         parent::__construct($response, $template);
     }
@@ -37,10 +38,9 @@ final class SqlController extends AbstractController
 
         $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
-        $pageSettings = new PageSettings();
-        $pageSettings->init('Sql');
-        $this->response->addHTML($pageSettings->getErrorHTML());
-        $this->response->addHTML($pageSettings->getHTML());
+        $this->pageSettings->init('Sql');
+        $this->response->addHTML($this->pageSettings->getErrorHTML());
+        $this->response->addHTML($this->pageSettings->getHTML());
 
         $this->checkParameters(['db', 'table']);
 

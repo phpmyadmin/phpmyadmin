@@ -36,6 +36,7 @@ class ChangeController extends AbstractController
         Template $template,
         private InsertEdit $insertEdit,
         private Relation $relation,
+        private PageSettings $pageSettings,
     ) {
         parent::__construct($response, $template);
     }
@@ -51,10 +52,9 @@ class ChangeController extends AbstractController
         $GLOBALS['result'] ??= null;
         $GLOBALS['current_result'] ??= null;
 
-        $pageSettings = new PageSettings();
-        $pageSettings->init('Edit');
-        $this->response->addHTML($pageSettings->getErrorHTML());
-        $this->response->addHTML($pageSettings->getHTML());
+        $this->pageSettings->init('Edit');
+        $this->response->addHTML($this->pageSettings->getErrorHTML());
+        $this->response->addHTML($this->pageSettings->getHTML());
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 

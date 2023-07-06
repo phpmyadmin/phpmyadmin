@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
@@ -78,7 +79,7 @@ class StructureControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $pageSettings = new PageSettings();
+        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
         $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
 
@@ -94,6 +95,7 @@ class StructureControllerTest extends AbstractTestCase
             $relation,
             new Transformations(),
             $this->dbi,
+            $pageSettings,
         ))($request);
 
         $expected = $pageSettings->getHTML();

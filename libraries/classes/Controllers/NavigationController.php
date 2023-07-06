@@ -27,6 +27,7 @@ class NavigationController extends AbstractController
         Template $template,
         private Navigation $navigation,
         private Relation $relation,
+        private PageSettings $pageSettings,
     ) {
         parent::__construct($response, $template);
     }
@@ -44,10 +45,9 @@ class NavigationController extends AbstractController
         }
 
         if ($request->hasBodyParam('getNaviSettings')) {
-            $pageSettings = new PageSettings();
-            $pageSettings->init('Navi', 'pma_navigation_settings');
-            $this->response->addHTML($pageSettings->getErrorHTML());
-            $this->response->addJSON('message', $pageSettings->getHTML());
+            $this->pageSettings->init('Navi', 'pma_navigation_settings');
+            $this->response->addHTML($this->pageSettings->getErrorHTML());
+            $this->response->addJSON('message', $this->pageSettings->getHTML());
 
             return;
         }

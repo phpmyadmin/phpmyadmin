@@ -40,11 +40,8 @@ class PageSettings
      */
     private string $HTML = '';
 
-    private UserPreferences $userPreferences;
-
-    public function __construct()
+    public function __construct(private UserPreferences $userPreferences)
     {
-        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
     }
 
     /**

@@ -15,6 +15,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ExportController::class)]
@@ -44,7 +45,7 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings();
+        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
         $pageSettings->init('Export');
         $template = new Template();
         $exportList = Plugins::getExport('table', true);
@@ -105,6 +106,7 @@ class ExportControllerTest extends AbstractTestCase
             $response,
             $template,
             new Options(new Relation($dbi), new TemplateModel($dbi)),
+            $pageSettings,
         ))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }

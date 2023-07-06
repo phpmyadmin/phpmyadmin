@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ChangeController::class)]
@@ -37,7 +38,7 @@ class ChangeControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings();
+        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
         $pageSettings->init('Edit');
 
         $request = $this->createStub(ServerRequest::class);
@@ -49,6 +50,7 @@ class ChangeControllerTest extends AbstractTestCase
             $template,
             new InsertEdit($dbi, $relation, new Transformations(), new FileListing(), $template),
             $relation,
+            $pageSettings,
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -92,6 +94,7 @@ class ChangeControllerTest extends AbstractTestCase
             $this->createStub(Template::class),
             $this->createStub(InsertEdit::class),
             $this->createStub(Relation::class),
+            $this->createStub(PageSettings::class),
         );
 
         $whereClauseArray = ['foo=1', 'bar=2'];

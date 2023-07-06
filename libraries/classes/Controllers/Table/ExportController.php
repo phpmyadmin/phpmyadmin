@@ -29,6 +29,7 @@ class ExportController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Options $export,
+        private PageSettings $pageSettings,
     ) {
         parent::__construct($response, $template);
     }
@@ -41,10 +42,9 @@ class ExportController extends AbstractController
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
 
-        $pageSettings = new PageSettings();
-        $pageSettings->init('Export');
-        $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
-        $pageSettingsHtml = $pageSettings->getHTML();
+        $this->pageSettings->init('Export');
+        $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
+        $pageSettingsHtml = $this->pageSettings->getHTML();
 
         $this->addScriptFiles(['export.js']);
 

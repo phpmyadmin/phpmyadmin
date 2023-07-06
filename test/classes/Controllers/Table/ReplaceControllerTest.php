@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -107,6 +108,7 @@ class ReplaceControllerTest extends AbstractTestCase
             $dbi,
         );
 
+        $pageSettings = $this->createStub(PageSettings::class);
         $sqlController = new SqlController(
             $response,
             $template,
@@ -120,6 +122,7 @@ class ReplaceControllerTest extends AbstractTestCase
             ),
             new CheckUserPrivileges($dbi),
             $dbi,
+            $pageSettings,
         );
         $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
         $GLOBALS['containerBuilder']->method('get')->willReturn($sqlController);
@@ -169,7 +172,8 @@ class ReplaceControllerTest extends AbstractTestCase
             ['sql_query', '', 'SELECT 1'],
         ]);
 
-        $changeController = new ChangeController($response, $template, $insertEdit, $relation);
+        $pageSettings = $this->createStub(PageSettings::class);
+        $changeController = new ChangeController($response, $template, $insertEdit, $relation, $pageSettings);
         $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
         $GLOBALS['containerBuilder']->method('get')->willReturn($changeController);
 

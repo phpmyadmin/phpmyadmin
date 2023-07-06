@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
@@ -135,11 +136,17 @@ return [
                 '$template' => '@template',
                 '$export' => '@export',
                 '$exportOptions' => '@export_options',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Database\ImportController::class => [
             'class' => Database\ImportController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$pageSettings' => '@' . PageSettings::class,
+            ],
         ],
         Database\MultiTableQuery\QueryController::class => [
             'class' => Database\MultiTableQuery\QueryController::class,
@@ -207,6 +214,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Database\SqlFormatController::class => [
@@ -339,6 +347,7 @@ return [
                 '$replication' => '@replication',
                 '$dbi' => '@dbi',
                 '$trackingChecker' => '@tracking_checker',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Database\TrackingController::class => [
@@ -476,6 +485,7 @@ return [
                 '$template' => '@template',
                 '$navigation' => '@navigation',
                 '$relation' => '@relation',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Normalization\FirstNormalForm\FirstStepController::class => [
@@ -732,11 +742,17 @@ return [
                 '$template' => '@template',
                 '$export' => '@export_options',
                 '$dbi' => '@dbi',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Server\ImportController::class => [
             'class' => Server\ImportController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$pageSettings' => '@' . PageSettings::class,
+            ],
         ],
         Server\PluginsController::class => [
             'class' => Server\PluginsController::class,
@@ -792,6 +808,7 @@ return [
                 '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
                 '$dbi' => '@dbi',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Server\UserGroupsController::class => [
@@ -1000,6 +1017,7 @@ return [
                 '$sql' => '@sql',
                 '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Table\AddFieldController::class => [
@@ -1020,6 +1038,7 @@ return [
                 '$template' => '@template',
                 '$insertEdit' => '@insert_edit',
                 '$relation' => '@relation',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Table\ChangeRowsController::class => [
@@ -1069,7 +1088,12 @@ return [
         ],
         Table\ExportController::class => [
             'class' => Table\ExportController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$export' => '@export_options'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$export' => '@export_options',
+                '$pageSettings' => '@' . PageSettings::class,
+            ],
         ],
         Table\ExportRowsController::class => [
             'class' => Table\ExportRowsController::class,
@@ -1093,7 +1117,12 @@ return [
         ],
         Table\ImportController::class => [
             'class' => Table\ImportController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$pageSettings' => '@' . PageSettings::class,
+            ],
         ],
         Table\IndexesController::class => [
             'class' => Table\IndexesController::class,
@@ -1274,6 +1303,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Table\Structure\AddIndexController::class => [
@@ -1346,6 +1376,7 @@ return [
                 '$dbi' => '@dbi',
                 '$createAddField' => '@create_add_field',
                 '$structureController' => '@' . Table\StructureController::class,
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Table\Structure\PrimaryController::class => [
@@ -1398,6 +1429,7 @@ return [
                 '$relation' => '@relation',
                 '$transformations' => '@transformations',
                 '$dbi' => '@dbi',
+                '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Table\TrackingController::class => [

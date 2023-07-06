@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(SqlController::class)]
@@ -45,7 +46,7 @@ class SqlControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
 
-        $pageSettings = new PageSettings();
+        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
         $pageSettings->init('Sql');
         $fields = $this->dbi->getColumns('test_db', 'test_table', true);
         $template = new Template();
@@ -83,9 +84,7 @@ class SqlControllerTest extends AbstractTestCase
         $request->method('getQueryParam')->willReturnMap([['sql_query', true, true]]);
 
         $response = new ResponseRenderer();
-        (
-            new SqlController($response, $template, new SqlQueryForm($template, $this->dbi))
-        )($request);
+        (new SqlController($response, $template, new SqlQueryForm($template, $this->dbi), $pageSettings))($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

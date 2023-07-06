@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ImportController::class)]
@@ -44,7 +45,7 @@ class ImportControllerTest extends AbstractTestCase
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions('Import', $importList);
 
-        $pageSettings = new PageSettings();
+        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
         $pageSettings->init('Import');
         $template = new Template();
         $expected = $template->render('table/import/index', [
@@ -84,7 +85,7 @@ class ImportControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        (new ImportController($response, $template, $dbi))($this->createStub(ServerRequest::class));
+        (new ImportController($response, $template, $dbi, $pageSettings))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

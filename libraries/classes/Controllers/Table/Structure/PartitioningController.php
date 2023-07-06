@@ -36,6 +36,7 @@ final class PartitioningController extends AbstractController
         private DatabaseInterface $dbi,
         private CreateAddField $createAddField,
         private StructureController $structureController,
+        private PageSettings $pageSettings,
     ) {
         parent::__construct($response, $template);
     }
@@ -50,10 +51,9 @@ final class PartitioningController extends AbstractController
             return;
         }
 
-        $pageSettings = new PageSettings();
-        $pageSettings->init('TableStructure');
-        $this->response->addHTML($pageSettings->getErrorHTML());
-        $this->response->addHTML($pageSettings->getHTML());
+        $this->pageSettings->init('TableStructure');
+        $this->response->addHTML($this->pageSettings->getErrorHTML());
+        $this->response->addHTML($this->pageSettings->getHTML());
 
         $this->addScriptFiles(['table/structure.js']);
 
