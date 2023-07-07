@@ -36,7 +36,6 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -69,12 +68,18 @@ class NodeDatabaseChildTest extends AbstractTestCase
      */
     public function testGetHtmlForControlButtons(): void
     {
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ]);
+
         $parent = new NodeDatabase('parent');
         $parent->addChild($this->object);
         $this->object->expects($this->once())
             ->method('getItemType')
             ->will($this->returnValue('itemType'));
-        $html = $this->object->getHtmlForControlButtons();
+        $html = $this->object->getHtmlForControlButtons($relationParameters->navigationItemsHidingFeature);
 
         $this->assertStringStartsWith('<span class="navItemControls">', $html);
         $this->assertStringEndsWith('</span>', $html);

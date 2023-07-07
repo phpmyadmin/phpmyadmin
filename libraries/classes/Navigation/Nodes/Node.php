@@ -7,7 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
@@ -115,8 +116,6 @@ class Node
      */
     public int $pos3 = 0;
 
-    protected Relation $relation;
-
     /** @var string $displayName  display name for the navigation tree */
     public string|null $displayName = null;
 
@@ -142,7 +141,6 @@ class Node
         }
 
         $this->isGroup = $isGroup;
-        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -352,8 +350,12 @@ class Node
      *
      * @return mixed[]
      */
-    public function getData(string $type, int $pos, string $searchClause = ''): array
-    {
+    public function getData(
+        RelationParameters $relationParameters,
+        string $type,
+        int $pos,
+        string $searchClause = '',
+    ): array {
         if (isset($GLOBALS['cfg']['Server']['DisableIS']) && ! $GLOBALS['cfg']['Server']['DisableIS']) {
             return $this->getDataFromInfoSchema($pos, $searchClause);
         }
@@ -544,7 +546,7 @@ class Node
      *
      * @return string HTML for control buttons
      */
-    public function getHtmlForControlButtons(): string
+    public function getHtmlForControlButtons(NavigationItemsHidingFeature|null $navigationItemsHidingFeature): string
     {
         return '';
     }
@@ -602,9 +604,8 @@ class Node
      *
      * @return mixed[]|null array containing the count of hidden elements for each database
      */
-    public function getNavigationHidingData(): array|null
+    public function getNavigationHidingData(NavigationItemsHidingFeature|null $navigationItemsHidingFeature): array|null
     {
-        $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature !== null) {
             $navTable = Util::backquote($navigationItemsHidingFeature->database)
                 . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);

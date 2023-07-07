@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 
@@ -31,11 +32,10 @@ abstract class NodeDatabaseChild extends Node
      *
      * @return string HTML for control buttons
      */
-    public function getHtmlForControlButtons(): string
+    public function getHtmlForControlButtons(NavigationItemsHidingFeature|null $navigationItemsHidingFeature): string
     {
         $ret = '';
-        $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->navigationItemsHidingFeature !== null) {
+        if ($navigationItemsHidingFeature !== null) {
             $params = [
                 'hideNavItem' => true,
                 'itemType' => $this->getItemType(),

@@ -13,17 +13,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(NodeFactory::class)]
 class NodeFactoryTest extends AbstractTestCase
 {
-    /**
-     * SetUp for test cases
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
-    }
-
     public function testDefaultNode(): void
     {
         $node = NodeFactory::getInstance(Node::class);

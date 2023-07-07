@@ -41,7 +41,7 @@ class Navigation
 
     public function __construct(private Template $template, private Relation $relation, private DatabaseInterface $dbi)
     {
-        $this->tree = new NavigationTree($this->template, $this->dbi);
+        $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation);
     }
 
     /**

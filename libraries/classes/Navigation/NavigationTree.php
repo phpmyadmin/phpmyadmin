@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Nodes\Node;
@@ -136,8 +138,11 @@ class NavigationTree
      */
     private bool $largeGroupWarning = false;
 
-    public function __construct(private Template $template, private DatabaseInterface $dbi)
+    private RelationParameters $relationParameters;
+
+    public function __construct(private Template $template, private DatabaseInterface $dbi, Relation $relation)
     {
+        $this->relationParameters = $relation->getRelationParameters();
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
@@ -307,8 +312,8 @@ class NavigationTree
         $retval = $this->tree;
 
         // Add all databases unconditionally
-        $data = $this->tree->getData('databases', $this->pos, $this->searchClause);
-        $hiddenCounts = $this->tree->getNavigationHidingData();
+        $data = $this->tree->getData($this->relationParameters, 'databases', $this->pos, $this->searchClause);
+        $hiddenCounts = $this->tree->getNavigationHidingData($this->relationParameters->navigationItemsHidingFeature);
         foreach ($data as $db) {
             $node = NodeFactory::getInstance(NodeDatabase::class, $db);
             if (isset($hiddenCounts[$db])) {
@@ -381,7 +386,7 @@ class NavigationTree
         }
 
         if (count($container->children) <= 1) {
-            $dbData = $db->getData($container->realName, $pos2, $this->searchClause2);
+            $dbData = $db->getData($this->relationParameters, $container->realName, $pos2, $this->searchClause2);
             foreach ($dbData as $item) {
                 switch ($container->realName) {
                     case 'events':
@@ -454,7 +459,7 @@ class NavigationTree
             return false;
         }
 
-        $tableData = $table->getData($container->realName, $pos3);
+        $tableData = $table->getData($this->relationParameters, $container->realName, $pos3);
         foreach ($tableData as $item) {
             switch ($container->realName) {
                 case 'indexes':
@@ -558,7 +563,7 @@ class NavigationTree
     private function addDbContainers(NodeDatabase $db, string $type, int $pos2): array
     {
         // Get items to hide
-        $hidden = $db->getHiddenItems('group');
+        $hidden = $db->getHiddenItems($this->relationParameters, 'group');
         if (! $GLOBALS['cfg']['NavigationTreeShowTables'] && ! in_array('tables', $hidden)) {
             $hidden[] = 'tables';
         }
@@ -1108,7 +1113,7 @@ class NavigationTree
                 ];
             }
 
-            $controlButtons .= $node->getHtmlForControlButtons();
+            $controlButtons .= $node->getHtmlForControlButtons($this->relationParameters->navigationItemsHidingFeature);
             $wrap = true;
         } else {
             $node->visible = true;

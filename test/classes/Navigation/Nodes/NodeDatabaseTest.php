@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -11,21 +12,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(NodeDatabase::class)]
 class NodeDatabaseTest extends AbstractTestCase
 {
-    /**
-     * SetUp for test cases
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['MaxNavigationItems'] = 250;
-        $GLOBALS['cfg']['Server'] = [];
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
-    }
-
     /**
      * Test for __construct
      */
@@ -48,6 +34,9 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetPresence(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
         $parent = new NodeDatabase('default');
         $this->assertEquals(
             2,
@@ -76,21 +65,30 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetData(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ]);
+
         $parent = new NodeDatabase('default');
 
-        $tables = $parent->getData('tables', 0);
+        $tables = $parent->getData($relationParameters, 'tables', 0);
         $this->assertContains('test1', $tables);
         $this->assertContains('test2', $tables);
 
-        $views = $parent->getData('views', 0);
+        $views = $parent->getData($relationParameters, 'views', 0);
         $this->assertEmpty($views);
 
-        $functions = $parent->getData('functions', 0);
+        $functions = $parent->getData($relationParameters, 'functions', 0);
         $this->assertContains('testFunction', $functions);
         $this->assertCount(1, $functions);
 
-        $this->assertEmpty($parent->getData('procedures', 0));
-        $this->assertEmpty($parent->getData('events', 0));
+        $this->assertEmpty($parent->getData($relationParameters, 'procedures', 0));
+        $this->assertEmpty($parent->getData($relationParameters, 'events', 0));
     }
 
     /**
