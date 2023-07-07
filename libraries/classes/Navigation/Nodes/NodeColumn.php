@@ -71,14 +71,14 @@ class NodeColumn extends Node
     private function getDisplayName(array $item): string
     {
         $retval = $item['name'];
-        $flag = 0;
+        $isFirst = true;
         foreach ($item as $key => $value) {
             if (empty($value) || $key === 'name') {
                 continue;
             }
 
-            $flag == 0 ? $retval .= ' (' : $retval .= ', ';
-            $flag = 1;
+            $isFirst ? $retval .= ' (' : $retval .= ', ';
+            $isFirst = false;
             $retval .= $this->getTruncateValue($key, $value);
         }
 

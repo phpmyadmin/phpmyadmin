@@ -7546,9 +7546,6 @@
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$this->parent->children]]></code>
     </PossiblyNullPropertyFetch>
-    <PossiblyUnusedProperty>
-      <code>$displayName</code>
-    </PossiblyUnusedProperty>
     <RedundantCastGivenDocblockType>
       <code>(string) $prefix</code>
     </RedundantCastGivenDocblockType>
