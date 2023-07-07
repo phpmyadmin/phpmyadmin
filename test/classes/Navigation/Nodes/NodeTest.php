@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -14,18 +15,6 @@ use ReflectionMethod;
 #[CoversClass(Node::class)]
 class NodeTest extends AbstractTestCase
 {
-    /**
-     * SetUp for test cases
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-    }
-
     /**
      * SetUp for AddNode
      */
@@ -240,6 +229,7 @@ class NodeTest extends AbstractTestCase
      */
     public function testGetWhereClause(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $method = new ReflectionMethod(Node::class, 'getWhereClause');
 
         // Vanilla case
@@ -315,6 +305,12 @@ class NodeTest extends AbstractTestCase
         $expectedSql .= "CONCAT(SCHEMA_NAME, '_')) ";
         $expectedSql .= 'ORDER BY SCHEMA_NAME ASC';
 
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ]);
+
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = new Node('default');
@@ -328,7 +324,7 @@ class NodeTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
-        $node->getData('', $pos);
+        $node->getData($relationParameters, '', $pos);
     }
 
     /**
@@ -349,6 +345,12 @@ class NodeTest extends AbstractTestCase
         $expectedSql .= 'ORDER BY `SCHEMA_NAME` ';
         $expectedSql .= 'LIMIT ' . $pos . ', ' . $limit;
 
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ]);
+
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = new Node('default');
@@ -363,7 +365,7 @@ class NodeTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $node->getData('', $pos);
+        $node->getData($relationParameters, '', $pos);
     }
 
     /**
@@ -379,6 +381,12 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
+
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ]);
 
         $node = new Node('default');
 
@@ -410,7 +418,7 @@ class NodeTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $node->getData('', $pos, 'db');
+        $node->getData($relationParameters, '', $pos, 'db');
     }
 
     /**

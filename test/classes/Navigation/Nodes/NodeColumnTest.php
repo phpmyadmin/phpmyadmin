@@ -14,8 +14,6 @@ final class NodeColumnTest extends AbstractTestCase
 {
     public function testColumnNode(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-
         $nodeColumn = new NodeColumn([
             'name' => 'actor_id',
             'key' => 'PRI',
@@ -47,8 +45,6 @@ final class NodeColumnTest extends AbstractTestCase
 
     public function testColumnNodeWithTruncatedDefaultValue(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-
         $nodeColumn = new NodeColumn([
             'name' => 'last_update',
             'key' => '',
@@ -62,8 +58,6 @@ final class NodeColumnTest extends AbstractTestCase
 
     public function testColumnNodeWithTruncatedDefaultValue2(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-
         $nodeColumn = new NodeColumn([
             'name' => 'email',
             'key' => 'UNI',
@@ -77,8 +71,6 @@ final class NodeColumnTest extends AbstractTestCase
 
     public function testColumnNodeWithoutTruncatedDefaultValue(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-
         $nodeColumn = new NodeColumn([
             'name' => 'email',
             'key' => '',

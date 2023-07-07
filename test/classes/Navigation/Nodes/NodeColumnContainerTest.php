@@ -11,17 +11,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(NodeColumnContainer::class)]
 class NodeColumnContainerTest extends AbstractTestCase
 {
-    /**
-     * SetUp for test cases
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
-    }
-
     public function testConstructor(): void
     {
         $parent = new NodeColumnContainer();

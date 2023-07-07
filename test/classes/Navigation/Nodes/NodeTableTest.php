@@ -13,30 +13,13 @@ use PHPUnit\Framework\Attributes\DataProvider;
 class NodeTableTest extends AbstractTestCase
 {
     /**
-     * SetUp for test cases
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-
-        $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'search';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = 'insert';
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['MaxNavigationItems'] = 250;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
-        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '__';
-        $GLOBALS['cfg']['NavigationTreeTableLevel'] = 1;
-    }
-
-    /**
      * Test for __construct
      */
     public function testConstructor(): void
     {
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'search';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = 'insert';
+
         $parent = new NodeTable('default');
         $this->assertEquals(
             [

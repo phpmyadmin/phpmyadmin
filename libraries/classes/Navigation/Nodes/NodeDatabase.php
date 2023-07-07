@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
@@ -257,8 +259,12 @@ class NodeDatabase extends Node
      *
      * @return mixed[]
      */
-    public function getData(string $type, int $pos, string $searchClause = ''): array
-    {
+    public function getData(
+        RelationParameters $relationParameters,
+        string $type,
+        int $pos,
+        string $searchClause = '',
+    ): array {
         $retval = [];
         switch ($type) {
             case 'tables':
@@ -281,9 +287,8 @@ class NodeDatabase extends Node
         }
 
         // Remove hidden items so that they are not displayed in navigation tree
-        $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
-            $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
+            $hiddenItems = $this->getHiddenItems($relationParameters, substr($type, 0, -1));
             foreach ($retval as $key => $item) {
                 if (! in_array($item, $hiddenItems)) {
                     continue;
@@ -304,9 +309,8 @@ class NodeDatabase extends Node
      *
      * @return mixed[] Array containing hidden items of given type
      */
-    public function getHiddenItems(string $type): array
+    public function getHiddenItems(RelationParameters $relationParameters, string $type): array
     {
-        $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature === null || $relationParameters->user === null) {
             return [];
         }
@@ -564,11 +568,10 @@ class NodeDatabase extends Node
      *
      * @return string HTML for control buttons
      */
-    public function getHtmlForControlButtons(): string
+    public function getHtmlForControlButtons(NavigationItemsHidingFeature|null $navigationItemsHidingFeature): string
     {
         $ret = '';
-        $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->navigationItemsHidingFeature !== null) {
+        if ($navigationItemsHidingFeature !== null) {
             if ($this->hiddenCount > 0) {
                 $params = ['showUnhideDialog' => true, 'dbName' => $this->realName];
                 $ret = '<span class="dbItemControls">'
