@@ -215,6 +215,11 @@ class Node
         }
 
         $parent = $this->parent;
+        if ($parent === null) {
+            /** @infection-ignore-all */
+            return $parents;
+        }
+
         while ($parent !== null) {
             if (($parent->type != self::CONTAINER || $containers) && (! $parent->isGroup || $groups)) {
                 $parents[] = $parent;

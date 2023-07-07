@@ -13,56 +13,98 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
 #[CoversClass(Node::class)]
-class NodeTest extends AbstractTestCase
+final class NodeTest extends AbstractTestCase
 {
-    /**
-     * SetUp for AddNode
-     */
-    public function testAddNode(): void
+    public function testNewNode(): void
     {
-        $parent = new Node('parent');
-        $child = new Node('child');
-        $parent->addChild($child);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            $child,
-        );
-        $this->assertEquals(
-            $parent->getChild($child->realName, true),
-            $child,
-        );
+        $node = new Node('Object Node');
+        $this->assertSame('Object Node', $node->name);
+        $this->assertSame('Object Node', $node->realName);
+        $this->assertSame(Node::OBJECT, $node->type);
+        $this->assertFalse($node->isGroup);
     }
 
-    /**
-     * SetUp for getChild
-     */
-    public function testGetChildError(): void
+    public function testNewNodeWithEmptyName(): void
     {
-        $parent = new Node('parent');
-        $this->assertNull(
-            $parent->getChild('foo'),
-        );
-        $this->assertNull(
-            $parent->getChild('foo', true),
-        );
+        $node = new Node('');
+        $this->assertSame('', $node->name);
+        $this->assertSame('', $node->realName);
+        $this->assertSame(Node::OBJECT, $node->type);
+        $this->assertFalse($node->isGroup);
     }
 
-    /**
-     * SetUp for getChild
-     */
-    public function testRemoveNode(): void
+    public function testNewContainerNode(): void
+    {
+        $node = new Node('Container Node', Node::CONTAINER);
+        $this->assertSame('Container Node', $node->name);
+        $this->assertSame('Container Node', $node->realName);
+        $this->assertSame(Node::CONTAINER, $node->type);
+        $this->assertFalse($node->isGroup);
+    }
+
+    public function testNewGroupNode(): void
+    {
+        $node = new Node('Group Node', Node::OBJECT, true);
+        $this->assertSame('Group Node', $node->name);
+        $this->assertSame('Group Node', $node->realName);
+        $this->assertSame(Node::OBJECT, $node->type);
+        $this->assertTrue($node->isGroup);
+    }
+
+    /** @psalm-suppress DocblockTypeContradiction */
+    public function testAddChildNode(): void
     {
         $parent = new Node('parent');
-        $child = new Node('child');
+        $childOne = new Node('child one');
+        $childTwo = new Node('child two');
+        $this->assertSame([], $parent->children);
+        $this->assertNull($childOne->parent);
+        $this->assertNull($childTwo->parent);
+        $parent->addChild($childOne);
+        $this->assertSame([$childOne], $parent->children);
+        $this->assertSame($parent, $childOne->parent);
+        $this->assertNull($childTwo->parent);
+        $parent->addChild($childTwo);
+        $this->assertSame([$childOne, $childTwo], $parent->children);
+        $this->assertSame($parent, $childOne->parent);
+        $this->assertSame($parent, $childTwo->parent);
+    }
+
+    public function testGetChildNode(): void
+    {
+        $parent = new Node('parent');
+        $child = new Node('child real name');
+        $child->name = 'child';
+        $this->assertNull($parent->getChild('child'));
+        $this->assertNull($parent->getChild('child', true));
+        $this->assertNull($parent->getChild('child real name'));
+        $this->assertNull($parent->getChild('child real name', true));
         $parent->addChild($child);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            $child,
-        );
-        $parent->removeChild($child->name);
-        $this->assertNull(
-            $parent->getChild($child->name),
-        );
+        $this->assertSame($child, $parent->getChild('child'));
+        $this->assertNull($parent->getChild('child', true));
+        $this->assertNull($parent->getChild('child real name'));
+        $this->assertSame($child, $parent->getChild('child real name', true));
+        $child->isNew = true;
+        $this->assertNull($parent->getChild('child'));
+        $this->assertNull($parent->getChild('child', true));
+        $this->assertNull($parent->getChild('child real name'));
+        $this->assertSame($child, $parent->getChild('child real name', true));
+    }
+
+    public function testRemoveChildNode(): void
+    {
+        $parent = new Node('parent');
+        $childOne = new Node('child one');
+        $childTwo = new Node('child two');
+        $childThree = new Node('child three');
+        $parent->addChild($childOne);
+        $parent->addChild($childTwo);
+        $parent->addChild($childThree);
+        $parent->addChild($childTwo);
+        $this->assertSame([0 => $childOne, 1 => $childTwo, 2 => $childThree, 3 => $childTwo], $parent->children);
+        $parent->removeChild('child two');
+        /** @psalm-suppress DocblockTypeContradiction */
+        $this->assertSame([0 => $childOne, 2 => $childThree, 3 => $childTwo], $parent->children);
     }
 
     /**
@@ -132,36 +174,45 @@ class NodeTest extends AbstractTestCase
         $this->assertEquals($parent->numChildren(), 3);
     }
 
-    /**
-     * SetUp for parents
-     */
     public function testParents(): void
     {
-        $parent = new Node('default');
-        $this->assertEquals($parent->parents(), []); // exclude self
-        $this->assertEquals($parent->parents(true), [$parent]); // include self
-
-        $child = new Node('default');
-        $parent->addChild($child);
-
-        $this->assertEquals($child->parents(), [$parent]); // exclude self
-        $this->assertEquals(
-            $child->parents(true),
-            [$child, $parent],
-        ); // include self
+        $dbContainer = new Node('root', Node::CONTAINER);
+        $dbGroup = new Node('db_group', Node::CONTAINER, true);
+        $dbOne = new Node('db_group__one');
+        $dbTwo = new Node('db_group__two');
+        $tableContainer = new Node('tables', Node::CONTAINER);
+        $table = new Node('table');
+        $dbContainer->addChild($dbGroup);
+        $dbGroup->addChild($dbOne);
+        $dbGroup->addChild($dbTwo);
+        $dbOne->addChild($tableContainer);
+        $tableContainer->addChild($table);
+        $this->assertSame([], $dbContainer->parents(false, true));
+        $this->assertSame([$dbContainer], $dbContainer->parents(true, true));
+        $this->assertSame([$dbContainer], $dbGroup->parents(false, true, true));
+        $this->assertSame([$dbGroup, $dbContainer], $dbGroup->parents(true, true, true));
+        $this->assertSame([$dbOne], $table->parents());
+        $this->assertSame([$table, $dbOne], $table->parents(true));
+        $this->assertSame([$tableContainer, $dbOne, $dbContainer], $table->parents(false, true));
+        $this->assertSame([$table, $tableContainer, $dbOne, $dbContainer], $table->parents(true, true));
+        $this->assertSame([$dbOne], $table->parents(false, false, true));
+        $this->assertSame([$tableContainer, $dbOne, $dbGroup, $dbContainer], $table->parents(false, true, true));
+        $this->assertSame(
+            [$table, $tableContainer, $dbOne, $dbGroup, $dbContainer],
+            $table->parents(true, true, true),
+        );
     }
 
-    /**
-     * SetUp for realParent
-     */
     public function testRealParent(): void
     {
-        $parent = new Node('default');
-        $this->assertFalse($parent->realParent());
-
-        $child = new Node('default');
+        $parent = new Node('parent');
+        $child = new Node('child');
+        $grandchild = new Node('grandchild');
         $parent->addChild($child);
-        $this->assertEquals($child->realParent(), $parent);
+        $child->addChild($grandchild);
+        $this->assertFalse($parent->realParent());
+        $this->assertSame($parent, $child->realParent());
+        $this->assertSame($child, $grandchild->realParent());
     }
 
     /**
