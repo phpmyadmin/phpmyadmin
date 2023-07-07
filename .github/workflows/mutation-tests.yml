@@ -60,22 +60,18 @@ jobs:
         with:
           dependency-versions: highest
 
-      - name: Collect coverage report
-        run: composer run phpunit -- --testsuite unit --stop-on-failure
-
       - name: Run Infection for changed files only
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: |
           if [ "$GITHUB_EVENT_NAME" = "push" ]; then \
             INFECTION_GIT_DIFF_BASE="origin/$GITHUB_REF_NAME^"; else \
             INFECTION_GIT_DIFF_BASE="origin/$GITHUB_BASE_REF"; fi
-          infection -j$(nproc) --git-diff-lines --git-diff-base="$INFECTION_GIT_DIFF_BASE" \
-            --logger-github --ignore-msi-with-no-mutations --only-covered \
-            --skip-initial-tests --coverage=build/logs --no-interaction --no-progress
+          infection --threads=max --git-diff-lines --git-diff-base="$INFECTION_GIT_DIFF_BASE" \
+            --logger-github --ignore-msi-with-no-mutations --only-covered --no-interaction --no-progress
 
       - name: Run Infection for all files
         if: github.event_name == 'schedule'
         timeout-minutes: 360
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
-        run: infection -j$(nproc) --skip-initial-tests --coverage=build/logs --no-interaction --no-progress --only-covering-test-cases
+        run: infection --threads=max --no-interaction --no-progress --only-covering-test-cases
