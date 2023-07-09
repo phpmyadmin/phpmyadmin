@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-02 00:23+0000\n"
+"POT-Creation-Date: 2023-07-09 00:24+0000\n"
 "PO-Revision-Date: 2023-04-04 08:37+0000\n"
 "Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1698,8 +1698,8 @@ msgstr "Виетнамски"
 #: libraries/classes/Import/Import.php:1249 libraries/classes/Menu.php:234
 #: libraries/classes/Menu.php:334
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
-#: libraries/classes/Navigation/Nodes/NodeTable.php:290
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
+#: libraries/classes/Navigation/Nodes/NodeTable.php:295
 #: libraries/classes/Util.php:1252 libraries/classes/Util.php:1701
 #: libraries/classes/Util.php:1718
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -1717,7 +1717,7 @@ msgstr "Структура"
 #: libraries/classes/Config/ConfigFile.php:603
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:239
 #: libraries/classes/Menu.php:339 libraries/classes/Menu.php:457
-#: libraries/classes/Navigation/Nodes/NodeTable.php:293
+#: libraries/classes/Navigation/Nodes/NodeTable.php:298
 #: libraries/classes/Util.php:1253 libraries/classes/Util.php:1687
 #: libraries/classes/Util.php:1702 libraries/classes/Util.php:1719
 msgid "SQL"
@@ -1728,7 +1728,7 @@ msgstr "SQL"
 #: libraries/classes/Config/ConfigFile.php:595
 #: libraries/classes/Config/ConfigFile.php:605 libraries/classes/Menu.php:243
 #: libraries/classes/Menu.php:343
-#: libraries/classes/Navigation/Nodes/NodeTable.php:291
+#: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/Util.php:1254 libraries/classes/Util.php:1703
 #: libraries/classes/Util.php:1720 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
@@ -1742,7 +1742,7 @@ msgstr "Търсене"
 #: libraries/classes/Config/ConfigFile.php:529
 #: libraries/classes/Config/ConfigFile.php:543
 #: libraries/classes/Config/ConfigFile.php:607 libraries/classes/Menu.php:250
-#: libraries/classes/Navigation/Nodes/NodeTable.php:292
+#: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:1255 libraries/classes/Util.php:1721
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:75
@@ -1752,7 +1752,7 @@ msgstr "Вмъкване"
 #: libraries/classes/Config/ConfigFile.php:531
 #: libraries/classes/Config/ConfigFile.php:545
 #: libraries/classes/Config/ConfigFile.php:609 libraries/classes/Menu.php:227
-#: libraries/classes/Navigation/Nodes/NodeTable.php:294
+#: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:1256 libraries/classes/Util.php:1717
 #: templates/database/search/results.twig:32
 #: templates/database/structure/structure_table_row.twig:43
@@ -1797,8 +1797,8 @@ msgstr "Дясно"
 #: libraries/classes/Display/Results.php:1046
 #: libraries/classes/Plugins/Export/ExportSql.php:2040
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
-#: templates/columns_definitions/column_attributes.twig:217
-#: templates/columns_definitions/column_attributes.twig:240
+#: templates/columns_definitions/column_attributes.twig:216
+#: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
@@ -4169,7 +4169,7 @@ msgstr "Ширина на навигационния панел"
 
 #: libraries/classes/Config/Descriptions.php:815
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:609
-#: libraries/classes/Navigation/NavigationTree.php:1304
+#: libraries/classes/Navigation/NavigationTree.php:1305
 msgid "Link with main panel"
 msgstr "Свързване с главния панел"
 
@@ -5377,7 +5377,7 @@ msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: libraries/classes/Controllers/Database/ExportController.php:64
+#: libraries/classes/Controllers/Database/ExportController.php:65
 #: libraries/classes/Controllers/Database/TrackingController.php:116
 #: libraries/classes/Controllers/Export/ExportController.php:307
 #: templates/database/structure/index.twig:25
@@ -5385,18 +5385,18 @@ msgstr ""
 msgid "No tables found in database."
 msgstr "В БД няма таблици."
 
-#: libraries/classes/Controllers/Database/ExportController.php:130
-#: libraries/classes/Controllers/Server/ExportController.php:70
-#: libraries/classes/Controllers/Table/ExportController.php:101
+#: libraries/classes/Controllers/Database/ExportController.php:131
+#: libraries/classes/Controllers/Server/ExportController.php:71
+#: libraries/classes/Controllers/Table/ExportController.php:102
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Приставките за експортиране не могат да бъдат заредени, моля проверете "
 "инсталацията!"
 
-#: libraries/classes/Controllers/Database/ImportController.php:60
+#: libraries/classes/Controllers/Database/ImportController.php:64
 #: libraries/classes/Controllers/Import/ImportController.php:560
-#: libraries/classes/Controllers/Server/ImportController.php:56
-#: libraries/classes/Controllers/Table/ImportController.php:67
+#: libraries/classes/Controllers/Server/ImportController.php:60
+#: libraries/classes/Controllers/Table/ImportController.php:68
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Не могат да бъдат заредени разширенията за импорт, моля проверете "
@@ -5477,7 +5477,7 @@ msgstr "Няма избрани таблици."
 msgid "Success!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:336
+#: libraries/classes/Controllers/Database/StructureController.php:337
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, fuzzy, php-format
@@ -5485,21 +5485,21 @@ msgstr ""
 msgid "View %s has been dropped."
 msgstr "Изглед %s беше изтрит"
 
-#: libraries/classes/Controllers/Database/StructureController.php:337
+#: libraries/classes/Controllers/Database/StructureController.php:338
 #: templates/table/operations/index.twig:451
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Таблицата %s беше изтрита"
 
-#: libraries/classes/Controllers/Database/StructureController.php:384
+#: libraries/classes/Controllers/Database/StructureController.php:385
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Таблицата %s беше изчистена."
 
-#: libraries/classes/Controllers/Database/StructureController.php:541
+#: libraries/classes/Controllers/Database/StructureController.php:542
 #: libraries/classes/Display/Results.php:3683
 #, php-format
 msgid ""
@@ -5507,7 +5507,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:723
+#: libraries/classes/Controllers/Database/StructureController.php:724
 msgid "unknown"
 msgstr "непознат"
 
@@ -5798,7 +5798,7 @@ msgstr ""
 "импорт, освен ако не бъдат увеличени времевите ограничения в PHP."
 
 #: libraries/classes/Controllers/Import/ImportController.php:723
-#: libraries/classes/Controllers/Sql/SqlController.php:165
+#: libraries/classes/Controllers/Sql/SqlController.php:166
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" заявката е забранена."
 
@@ -7584,7 +7584,7 @@ msgid "Hide panel"
 msgstr "Скриване на панела"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:610
-#: libraries/classes/Navigation/NavigationTree.php:1307
+#: libraries/classes/Navigation/NavigationTree.php:1308
 msgid "Unlink from main panel"
 msgstr "Премахване от главния панел"
 
@@ -7833,7 +7833,7 @@ msgid "Hide"
 msgstr "Скриване"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/Controllers/Table/ChangeController.php:183
+#: libraries/classes/Controllers/Table/ChangeController.php:184
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8337,7 +8337,7 @@ msgid ""
 "not available."
 msgstr "Файлът се качва, бъдете търпеливи. Не са налични повече подробности."
 
-#: libraries/classes/Controllers/NavigationController.php:39
+#: libraries/classes/Controllers/NavigationController.php:40
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
@@ -9113,18 +9113,18 @@ msgstr "Грешни данни"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: libraries/classes/Controllers/Sql/SqlController.php:237
+#: libraries/classes/Controllers/Sql/SqlController.php:238
 #: libraries/classes/Sql.php:1096
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Отметката %s беше създадена."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:244
+#: libraries/classes/Controllers/Sql/SqlController.php:245
 msgid "Bookmark not created!"
 msgstr "Отметката не беше създадена!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:143
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:263
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:201
 #: libraries/classes/Table/Indexes.php:77
 #, php-format
@@ -9246,7 +9246,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/OperationsController.php:101
 #: libraries/classes/Controllers/Table/OperationsController.php:308
-#: libraries/classes/Controllers/Table/StructureController.php:78
+#: libraries/classes/Controllers/Table/StructureController.php:79
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:35
 #: templates/database/structure/structure_table_row.twig:122
@@ -9299,7 +9299,7 @@ msgstr ""
 msgid "Failed to get description of column %s!"
 msgstr "Неуспешно получаване на описание на колона %s!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:205
+#: libraries/classes/Controllers/Table/StructureController.php:206
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -9309,7 +9309,7 @@ msgstr "Неуспешно получаване на описание на ко�
 msgid "Primary"
 msgstr "Първичен"
 
-#: libraries/classes/Controllers/Table/StructureController.php:209
+#: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -9325,7 +9325,7 @@ msgstr "Индекс"
 msgid "The columns have been moved successfully."
 msgstr "Колоните бяха преместени упешно."
 
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:255
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:256
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:251
 #: libraries/classes/Tracking/Tracking.php:779
 msgid "Query error"
@@ -10646,51 +10646,51 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d ред добавен."
 msgstr[1] "%1$d реда добавени."
 
-#: libraries/classes/Navigation/Navigation.php:201
+#: libraries/classes/Navigation/Navigation.php:203
 msgid "Groups:"
 msgstr "Групи:"
 
-#: libraries/classes/Navigation/Navigation.php:202
+#: libraries/classes/Navigation/Navigation.php:204
 msgid "Events:"
 msgstr "Събития:"
 
-#: libraries/classes/Navigation/Navigation.php:203
+#: libraries/classes/Navigation/Navigation.php:205
 msgid "Functions:"
 msgstr "Функции:"
 
-#: libraries/classes/Navigation/Navigation.php:204
+#: libraries/classes/Navigation/Navigation.php:206
 msgid "Procedures:"
 msgstr "Процедури:"
 
-#: libraries/classes/Navigation/Navigation.php:205
+#: libraries/classes/Navigation/Navigation.php:207
 #: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "Таблици:"
 
-#: libraries/classes/Navigation/Navigation.php:206
+#: libraries/classes/Navigation/Navigation.php:208
 msgid "Views:"
 msgstr "Изгледи:"
 
-#: libraries/classes/Navigation/NavigationTree.php:741
+#: libraries/classes/Navigation/NavigationTree.php:746
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:811
+#: libraries/classes/Navigation/NavigationTree.php:812
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups"
 msgstr "Имена на колони: "
 
-#: libraries/classes/Navigation/NavigationTree.php:918
+#: libraries/classes/Navigation/NavigationTree.php:919
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1299
+#: libraries/classes/Navigation/NavigationTree.php:1300
 msgid "Collapse all"
 msgstr ""
 
@@ -10747,13 +10747,13 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Нов"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:46
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:48
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
 msgstr "Опции за експорт на БД"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:580
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:583
 #, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
@@ -10796,7 +10796,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Нов"
 
-#: libraries/classes/Navigation/Nodes/Node.php:597
+#: libraries/classes/Navigation/Nodes/Node.php:604
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -13280,7 +13280,7 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Грешка при създаването на външен ключ върху %1$s (проверете типа данни)"
 
-#: libraries/classes/Template.php:116
+#: libraries/classes/Template.php:118
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Грешка при работа с кеша за шаблони: %s"
@@ -13872,11 +13872,11 @@ msgstr "Пространствен"
 msgid "Expression"
 msgstr "Компресия"
 
-#: templates/columns_definitions/column_attributes.twig:186
+#: templates/columns_definitions/column_attributes.twig:185
 msgid "first"
 msgstr ""
 
-#: templates/columns_definitions/column_attributes.twig:191
+#: templates/columns_definitions/column_attributes.twig:190
 #: templates/table/structure/display_structure.twig:450
 #, php-format
 msgid "after %s"

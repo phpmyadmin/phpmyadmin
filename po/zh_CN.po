@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-02 00:23+0000\n"
+"POT-Creation-Date: 2023-07-09 00:24+0000\n"
 "PO-Revision-Date: 2023-05-02 08:51+0000\n"
 "Last-Translator: Xzonn <Xzonn@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1646,8 +1646,8 @@ msgstr "越南语"
 #: libraries/classes/Import/Import.php:1249 libraries/classes/Menu.php:234
 #: libraries/classes/Menu.php:334
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
-#: libraries/classes/Navigation/Nodes/NodeTable.php:290
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
+#: libraries/classes/Navigation/Nodes/NodeTable.php:295
 #: libraries/classes/Util.php:1252 libraries/classes/Util.php:1701
 #: libraries/classes/Util.php:1718
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -1665,7 +1665,7 @@ msgstr "结构"
 #: libraries/classes/Config/ConfigFile.php:603
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:239
 #: libraries/classes/Menu.php:339 libraries/classes/Menu.php:457
-#: libraries/classes/Navigation/Nodes/NodeTable.php:293
+#: libraries/classes/Navigation/Nodes/NodeTable.php:298
 #: libraries/classes/Util.php:1253 libraries/classes/Util.php:1687
 #: libraries/classes/Util.php:1702 libraries/classes/Util.php:1719
 msgid "SQL"
@@ -1676,7 +1676,7 @@ msgstr "SQL"
 #: libraries/classes/Config/ConfigFile.php:595
 #: libraries/classes/Config/ConfigFile.php:605 libraries/classes/Menu.php:243
 #: libraries/classes/Menu.php:343
-#: libraries/classes/Navigation/Nodes/NodeTable.php:291
+#: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/Util.php:1254 libraries/classes/Util.php:1703
 #: libraries/classes/Util.php:1720 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
@@ -1690,7 +1690,7 @@ msgstr "搜索"
 #: libraries/classes/Config/ConfigFile.php:529
 #: libraries/classes/Config/ConfigFile.php:543
 #: libraries/classes/Config/ConfigFile.php:607 libraries/classes/Menu.php:250
-#: libraries/classes/Navigation/Nodes/NodeTable.php:292
+#: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:1255 libraries/classes/Util.php:1721
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:75
@@ -1700,7 +1700,7 @@ msgstr "插入"
 #: libraries/classes/Config/ConfigFile.php:531
 #: libraries/classes/Config/ConfigFile.php:545
 #: libraries/classes/Config/ConfigFile.php:609 libraries/classes/Menu.php:227
-#: libraries/classes/Navigation/Nodes/NodeTable.php:294
+#: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:1256 libraries/classes/Util.php:1717
 #: templates/database/search/results.twig:32
 #: templates/database/structure/structure_table_row.twig:43
@@ -1745,8 +1745,8 @@ msgstr "右侧"
 #: libraries/classes/Display/Results.php:1046
 #: libraries/classes/Plugins/Export/ExportSql.php:2040
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
-#: templates/columns_definitions/column_attributes.twig:217
-#: templates/columns_definitions/column_attributes.twig:240
+#: templates/columns_definitions/column_attributes.twig:216
+#: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
@@ -3897,7 +3897,7 @@ msgstr "导航面板宽度"
 
 #: libraries/classes/Config/Descriptions.php:815
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:609
-#: libraries/classes/Navigation/NavigationTree.php:1304
+#: libraries/classes/Navigation/NavigationTree.php:1305
 msgid "Link with main panel"
 msgstr "与主面板链接"
 
@@ -5032,7 +5032,7 @@ msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:64
+#: libraries/classes/Controllers/Database/ExportController.php:65
 #: libraries/classes/Controllers/Database/TrackingController.php:116
 #: libraries/classes/Controllers/Export/ExportController.php:307
 #: templates/database/structure/index.twig:25
@@ -5040,16 +5040,16 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:130
-#: libraries/classes/Controllers/Server/ExportController.php:70
-#: libraries/classes/Controllers/Table/ExportController.php:101
+#: libraries/classes/Controllers/Database/ExportController.php:131
+#: libraries/classes/Controllers/Server/ExportController.php:71
+#: libraries/classes/Controllers/Table/ExportController.php:102
 msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
-#: libraries/classes/Controllers/Database/ImportController.php:60
+#: libraries/classes/Controllers/Database/ImportController.php:64
 #: libraries/classes/Controllers/Import/ImportController.php:560
-#: libraries/classes/Controllers/Server/ImportController.php:56
-#: libraries/classes/Controllers/Table/ImportController.php:67
+#: libraries/classes/Controllers/Server/ImportController.php:60
+#: libraries/classes/Controllers/Table/ImportController.php:68
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查您的安装！"
 
@@ -5122,27 +5122,27 @@ msgstr "没有已选择的表。"
 msgid "Success!"
 msgstr "成功！"
 
-#: libraries/classes/Controllers/Database/StructureController.php:336
+#: libraries/classes/Controllers/Database/StructureController.php:337
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:337
+#: libraries/classes/Controllers/Database/StructureController.php:338
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:384
+#: libraries/classes/Controllers/Database/StructureController.php:385
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:541
+#: libraries/classes/Controllers/Database/StructureController.php:542
 #: libraries/classes/Display/Results.php:3683
 #, php-format
 msgid ""
@@ -5150,7 +5150,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:723
+#: libraries/classes/Controllers/Database/StructureController.php:724
 msgid "unknown"
 msgstr "未知"
 
@@ -5424,7 +5424,7 @@ msgstr ""
 "将无法完成导入操作。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:723
-#: libraries/classes/Controllers/Sql/SqlController.php:165
+#: libraries/classes/Controllers/Sql/SqlController.php:166
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已禁用“删除数据库”语句。"
 
@@ -7140,7 +7140,7 @@ msgid "Hide panel"
 msgstr "隐藏导航面板"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:610
-#: libraries/classes/Navigation/NavigationTree.php:1307
+#: libraries/classes/Navigation/NavigationTree.php:1308
 msgid "Unlink from main panel"
 msgstr "从主面板取消链接"
 
@@ -7377,7 +7377,7 @@ msgid "Hide"
 msgstr "隐藏"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/Controllers/Table/ChangeController.php:183
+#: libraries/classes/Controllers/Table/ChangeController.php:184
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7783,7 +7783,7 @@ msgid ""
 "not available."
 msgstr "正在上传文件，暂无详细信息，请稍候。"
 
-#: libraries/classes/Controllers/NavigationController.php:39
+#: libraries/classes/Controllers/NavigationController.php:40
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "致命错误：导航只能通过AJAX访问"
 
@@ -8588,18 +8588,18 @@ msgstr "无效数据"
 msgid "Wrong data or no validation for %s"
 msgstr "%s是错误的数据或没有验证"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:237
+#: libraries/classes/Controllers/Sql/SqlController.php:238
 #: libraries/classes/Sql.php:1096
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:244
+#: libraries/classes/Controllers/Sql/SqlController.php:245
 msgid "Bookmark not created!"
 msgstr "未创建书签！"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:143
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:263
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:201
 #: libraries/classes/Table/Indexes.php:77
 #, php-format
@@ -8710,7 +8710,7 @@ msgstr "对多个表的维护操作是禁用的。"
 
 #: libraries/classes/Controllers/Table/OperationsController.php:101
 #: libraries/classes/Controllers/Table/OperationsController.php:308
-#: libraries/classes/Controllers/Table/StructureController.php:78
+#: libraries/classes/Controllers/Table/StructureController.php:79
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:35
 #: templates/database/structure/structure_table_row.twig:122
@@ -8757,7 +8757,7 @@ msgstr "行：%1$s，列：%2$s，错误：%3$s"
 msgid "Failed to get description of column %s!"
 msgstr "读取表 %s 的时候出现错误！"
 
-#: libraries/classes/Controllers/Table/StructureController.php:205
+#: libraries/classes/Controllers/Table/StructureController.php:206
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8767,7 +8767,7 @@ msgstr "读取表 %s 的时候出现错误！"
 msgid "Primary"
 msgstr "主键"
 
-#: libraries/classes/Controllers/Table/StructureController.php:209
+#: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8783,7 +8783,7 @@ msgstr "索引"
 msgid "The columns have been moved successfully."
 msgstr "已成功移动字段。"
 
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:255
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:256
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:251
 #: libraries/classes/Tracking/Tracking.php:779
 msgid "Query error"
@@ -10067,48 +10067,48 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "插入了 %1$d 行。"
 
-#: libraries/classes/Navigation/Navigation.php:201
+#: libraries/classes/Navigation/Navigation.php:203
 msgid "Groups:"
 msgstr "组："
 
-#: libraries/classes/Navigation/Navigation.php:202
+#: libraries/classes/Navigation/Navigation.php:204
 msgid "Events:"
 msgstr "事件："
 
-#: libraries/classes/Navigation/Navigation.php:203
+#: libraries/classes/Navigation/Navigation.php:205
 msgid "Functions:"
 msgstr "函数："
 
-#: libraries/classes/Navigation/Navigation.php:204
+#: libraries/classes/Navigation/Navigation.php:206
 msgid "Procedures:"
 msgstr "存储过程："
 
-#: libraries/classes/Navigation/Navigation.php:205
+#: libraries/classes/Navigation/Navigation.php:207
 #: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "数据表："
 
-#: libraries/classes/Navigation/Navigation.php:206
+#: libraries/classes/Navigation/Navigation.php:208
 msgid "Views:"
 msgstr "视图："
 
-#: libraries/classes/Navigation/NavigationTree.php:741
+#: libraries/classes/Navigation/NavigationTree.php:746
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr "导航面板中存在较大的项目组合，可能影响性能。请考虑禁用项目组合。"
 
-#: libraries/classes/Navigation/NavigationTree.php:811
+#: libraries/classes/Navigation/NavigationTree.php:812
 msgid "Groups"
 msgstr "组"
 
-#: libraries/classes/Navigation/NavigationTree.php:918
+#: libraries/classes/Navigation/NavigationTree.php:919
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "找到 %s 条结果"
 
-#: libraries/classes/Navigation/NavigationTree.php:1299
+#: libraries/classes/Navigation/NavigationTree.php:1300
 msgid "Collapse all"
 msgstr "全部折叠"
 
@@ -10161,11 +10161,11 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "新建"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:46
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:48
 msgid "Database operations"
 msgstr "数据库操作"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:580
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:583
 msgid "Show hidden items"
 msgstr "显示隐藏项目"
 
@@ -10200,7 +10200,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "新建"
 
-#: libraries/classes/Navigation/Nodes/Node.php:597
+#: libraries/classes/Navigation/Nodes/Node.php:604
 msgid "Expand/Collapse"
 msgstr "扩展/收起"
 
@@ -12527,7 +12527,7 @@ msgstr "没有定义的索引部分！"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "在 %1$s 创建外键时发生错误 (检查数据类型)"
 
-#: libraries/classes/Template.php:116
+#: libraries/classes/Template.php:118
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "使用模板缓存时出错：%s"
@@ -13128,11 +13128,11 @@ msgstr "空间"
 msgid "Expression"
 msgstr "表达式"
 
-#: templates/columns_definitions/column_attributes.twig:186
+#: templates/columns_definitions/column_attributes.twig:185
 msgid "first"
 msgstr "第一"
 
-#: templates/columns_definitions/column_attributes.twig:191
+#: templates/columns_definitions/column_attributes.twig:190
 #: templates/table/structure/display_structure.twig:450
 #, php-format
 msgid "after %s"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-02 00:23+0000\n"
+"POT-Creation-Date: 2023-07-09 00:24+0000\n"
 "PO-Revision-Date: 2023-05-09 14:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1815,8 +1815,8 @@ msgstr "Vietnamees"
 #: libraries/classes/Import/Import.php:1249 libraries/classes/Menu.php:234
 #: libraries/classes/Menu.php:334
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
-#: libraries/classes/Navigation/Nodes/NodeTable.php:290
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
+#: libraries/classes/Navigation/Nodes/NodeTable.php:295
 #: libraries/classes/Util.php:1252 libraries/classes/Util.php:1701
 #: libraries/classes/Util.php:1718
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -1834,7 +1834,7 @@ msgstr "Structuur"
 #: libraries/classes/Config/ConfigFile.php:603
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:239
 #: libraries/classes/Menu.php:339 libraries/classes/Menu.php:457
-#: libraries/classes/Navigation/Nodes/NodeTable.php:293
+#: libraries/classes/Navigation/Nodes/NodeTable.php:298
 #: libraries/classes/Util.php:1253 libraries/classes/Util.php:1687
 #: libraries/classes/Util.php:1702 libraries/classes/Util.php:1719
 msgid "SQL"
@@ -1845,7 +1845,7 @@ msgstr "SQL"
 #: libraries/classes/Config/ConfigFile.php:595
 #: libraries/classes/Config/ConfigFile.php:605 libraries/classes/Menu.php:243
 #: libraries/classes/Menu.php:343
-#: libraries/classes/Navigation/Nodes/NodeTable.php:291
+#: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/Util.php:1254 libraries/classes/Util.php:1703
 #: libraries/classes/Util.php:1720 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
@@ -1859,7 +1859,7 @@ msgstr "Zoeken"
 #: libraries/classes/Config/ConfigFile.php:529
 #: libraries/classes/Config/ConfigFile.php:543
 #: libraries/classes/Config/ConfigFile.php:607 libraries/classes/Menu.php:250
-#: libraries/classes/Navigation/Nodes/NodeTable.php:292
+#: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:1255 libraries/classes/Util.php:1721
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:75
@@ -1869,7 +1869,7 @@ msgstr "Invoegen"
 #: libraries/classes/Config/ConfigFile.php:531
 #: libraries/classes/Config/ConfigFile.php:545
 #: libraries/classes/Config/ConfigFile.php:609 libraries/classes/Menu.php:227
-#: libraries/classes/Navigation/Nodes/NodeTable.php:294
+#: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:1256 libraries/classes/Util.php:1717
 #: templates/database/search/results.twig:32
 #: templates/database/structure/structure_table_row.twig:43
@@ -1914,8 +1914,8 @@ msgstr "Rechts"
 #: libraries/classes/Display/Results.php:1046
 #: libraries/classes/Plugins/Export/ExportSql.php:2040
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
-#: templates/columns_definitions/column_attributes.twig:217
-#: templates/columns_definitions/column_attributes.twig:240
+#: templates/columns_definitions/column_attributes.twig:216
+#: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
 #: templates/database/central_columns/main.twig:311
 #: templates/database/designer/main.twig:588 templates/export.twig:429
@@ -4256,7 +4256,7 @@ msgstr "Navigatiepaneelbreedte"
 
 #: libraries/classes/Config/Descriptions.php:815
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:609
-#: libraries/classes/Navigation/NavigationTree.php:1304
+#: libraries/classes/Navigation/NavigationTree.php:1305
 msgid "Link with main panel"
 msgstr "Verbinden met hoofdpaneel"
 
@@ -5432,7 +5432,7 @@ msgid ""
 msgstr ""
 "Er bestaat al een pagina met naam \"%s\", geef het a.u.b. een andere naam."
 
-#: libraries/classes/Controllers/Database/ExportController.php:64
+#: libraries/classes/Controllers/Database/ExportController.php:65
 #: libraries/classes/Controllers/Database/TrackingController.php:116
 #: libraries/classes/Controllers/Export/ExportController.php:307
 #: templates/database/structure/index.twig:25
@@ -5440,18 +5440,18 @@ msgstr ""
 msgid "No tables found in database."
 msgstr "Geen tabellen gevonden in de database."
 
-#: libraries/classes/Controllers/Database/ExportController.php:130
-#: libraries/classes/Controllers/Server/ExportController.php:70
-#: libraries/classes/Controllers/Table/ExportController.php:101
+#: libraries/classes/Controllers/Database/ExportController.php:131
+#: libraries/classes/Controllers/Server/ExportController.php:71
+#: libraries/classes/Controllers/Table/ExportController.php:102
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "De plugins voor het exporteren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: libraries/classes/Controllers/Database/ImportController.php:60
+#: libraries/classes/Controllers/Database/ImportController.php:64
 #: libraries/classes/Controllers/Import/ImportController.php:560
-#: libraries/classes/Controllers/Server/ImportController.php:56
-#: libraries/classes/Controllers/Table/ImportController.php:67
+#: libraries/classes/Controllers/Server/ImportController.php:60
+#: libraries/classes/Controllers/Table/ImportController.php:68
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De importeerplugins konden niet worden geladen, controleer de installatie!"
@@ -5530,27 +5530,27 @@ msgstr "Geen tabel geselecteerd."
 msgid "Success!"
 msgstr "Geslaagd!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:336
+#: libraries/classes/Controllers/Database/StructureController.php:337
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "View %s is verwijderd."
 
-#: libraries/classes/Controllers/Database/StructureController.php:337
+#: libraries/classes/Controllers/Database/StructureController.php:338
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabel %s is verwijderd."
 
-#: libraries/classes/Controllers/Database/StructureController.php:384
+#: libraries/classes/Controllers/Database/StructureController.php:385
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeggemaakt."
 
-#: libraries/classes/Controllers/Database/StructureController.php:541
+#: libraries/classes/Controllers/Database/StructureController.php:542
 #: libraries/classes/Display/Results.php:3683
 #, php-format
 msgid ""
@@ -5559,7 +5559,7 @@ msgid ""
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:723
+#: libraries/classes/Controllers/Database/StructureController.php:724
 msgid "unknown"
 msgstr "onbekend"
 
@@ -5861,7 +5861,7 @@ msgstr ""
 "tijdsbeperkingen van PHP worden versoepeld."
 
 #: libraries/classes/Controllers/Import/ImportController.php:723
-#: libraries/classes/Controllers/Sql/SqlController.php:165
+#: libraries/classes/Controllers/Sql/SqlController.php:166
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
@@ -7658,7 +7658,7 @@ msgid "Hide panel"
 msgstr "Paneel verbergen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:610
-#: libraries/classes/Navigation/NavigationTree.php:1307
+#: libraries/classes/Navigation/NavigationTree.php:1308
 msgid "Unlink from main panel"
 msgstr "Loskoppelen van hoofdpaneel"
 
@@ -7907,7 +7907,7 @@ msgid "Hide"
 msgstr "Verbergen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/Controllers/Table/ChangeController.php:183
+#: libraries/classes/Controllers/Table/ChangeController.php:184
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8315,7 +8315,7 @@ msgstr ""
 "Een ogenblik geduld, het bestand wordt geüpload. Details over de voortgang "
 "zijn niet beschikbaar."
 
-#: libraries/classes/Controllers/NavigationController.php:39
+#: libraries/classes/Controllers/NavigationController.php:40
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Fatale fout: de navigatie is alleen toegankelijk via AJAX"
 
@@ -9207,18 +9207,18 @@ msgstr "Verkeerde gegevens"
 msgid "Wrong data or no validation for %s"
 msgstr "Verkeerde gegevens of geen validatie voor %s"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:237
+#: libraries/classes/Controllers/Sql/SqlController.php:238
 #: libraries/classes/Sql.php:1096
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:244
+#: libraries/classes/Controllers/Sql/SqlController.php:245
 msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:143
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:263
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:201
 #: libraries/classes/Table/Indexes.php:77
 #, php-format
@@ -9331,7 +9331,7 @@ msgstr "Onderhoud op meervoudige tabellen is uitgeschakeld."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:101
 #: libraries/classes/Controllers/Table/OperationsController.php:308
-#: libraries/classes/Controllers/Table/StructureController.php:78
+#: libraries/classes/Controllers/Table/StructureController.php:79
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:35
 #: templates/database/structure/structure_table_row.twig:122
@@ -9378,7 +9378,7 @@ msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
 msgid "Failed to get description of column %s!"
 msgstr "Ophalen van omschrijving van kolom %s mislukt!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:205
+#: libraries/classes/Controllers/Table/StructureController.php:206
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -9388,7 +9388,7 @@ msgstr "Ophalen van omschrijving van kolom %s mislukt!"
 msgid "Primary"
 msgstr "Primaire sleutel"
 
-#: libraries/classes/Controllers/Table/StructureController.php:209
+#: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -9404,7 +9404,7 @@ msgstr "Index"
 msgid "The columns have been moved successfully."
 msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:255
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:256
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:251
 #: libraries/classes/Tracking/Tracking.php:779
 msgid "Query error"
@@ -10766,32 +10766,32 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rij toegevoegd."
 msgstr[1] "%1$d rijen toegevoegd."
 
-#: libraries/classes/Navigation/Navigation.php:201
+#: libraries/classes/Navigation/Navigation.php:203
 msgid "Groups:"
 msgstr "Groepen:"
 
-#: libraries/classes/Navigation/Navigation.php:202
+#: libraries/classes/Navigation/Navigation.php:204
 msgid "Events:"
 msgstr "Gebeurtenissen:"
 
-#: libraries/classes/Navigation/Navigation.php:203
+#: libraries/classes/Navigation/Navigation.php:205
 msgid "Functions:"
 msgstr "Functies:"
 
-#: libraries/classes/Navigation/Navigation.php:204
+#: libraries/classes/Navigation/Navigation.php:206
 msgid "Procedures:"
 msgstr "Procedures:"
 
-#: libraries/classes/Navigation/Navigation.php:205
+#: libraries/classes/Navigation/Navigation.php:207
 #: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "Tabellen:"
 
-#: libraries/classes/Navigation/Navigation.php:206
+#: libraries/classes/Navigation/Navigation.php:208
 msgid "Views:"
 msgstr "Views:"
 
-#: libraries/classes/Navigation/NavigationTree.php:741
+#: libraries/classes/Navigation/NavigationTree.php:746
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10800,18 +10800,18 @@ msgstr ""
 "beïnvloeden. Overweeg om artikelgroepering uit te schakelen in het "
 "navigatiepaneel."
 
-#: libraries/classes/Navigation/NavigationTree.php:811
+#: libraries/classes/Navigation/NavigationTree.php:812
 msgid "Groups"
 msgstr "Groepen"
 
-#: libraries/classes/Navigation/NavigationTree.php:918
+#: libraries/classes/Navigation/NavigationTree.php:919
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultaat gevonden"
 msgstr[1] "%s resultaten gevonden"
 
-#: libraries/classes/Navigation/NavigationTree.php:1299
+#: libraries/classes/Navigation/NavigationTree.php:1300
 msgid "Collapse all"
 msgstr "Alles samenvouwen"
 
@@ -10864,11 +10864,11 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Nieuw"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:46
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:48
 msgid "Database operations"
 msgstr "Databasebewerkingen"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:580
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:583
 msgid "Show hidden items"
 msgstr "Toon verborgen onderdelen"
 
@@ -10903,7 +10903,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Nieuw"
 
-#: libraries/classes/Navigation/Nodes/Node.php:597
+#: libraries/classes/Navigation/Nodes/Node.php:604
 msgid "Expand/Collapse"
 msgstr "Uitklappen/samenvouwen"
 
@@ -13367,7 +13367,7 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Fout bij het maken van vreemde sleutel naar %1$s (controleer gegevenstypen)"
 
-#: libraries/classes/Template.php:116
+#: libraries/classes/Template.php:118
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Fout bij het laden van de template cache:%s"
@@ -14014,11 +14014,11 @@ msgstr "Ruimtelijk"
 msgid "Expression"
 msgstr "Expressie"
 
-#: templates/columns_definitions/column_attributes.twig:186
+#: templates/columns_definitions/column_attributes.twig:185
 msgid "first"
 msgstr "eerste"
 
-#: templates/columns_definitions/column_attributes.twig:191
+#: templates/columns_definitions/column_attributes.twig:190
 #: templates/table/structure/display_structure.twig:450
 #, php-format
 msgid "after %s"
