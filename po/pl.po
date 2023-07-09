@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-07-09 11:14+0000\n"
-"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -1843,13 +1843,12 @@ msgid "Error: Token mismatch"
 msgstr "Błąd: Token niedopasowany"
 
 #: libraries/classes/Common.php:491
-#, fuzzy
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-"Nie udało się ustawić pliku cookie sesji. Być może używasz HTTP zamiast "
-"HTTPS, aby uzyskać dostęp do phpMyAdmin."
+"Nie można ustawić pliku cookie sesji. Być może używasz protokołu HTTP "
+"zamiast HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
 #: libraries/classes/Common.php:552
 #, fuzzy
@@ -1863,13 +1862,12 @@ msgstr ""
 "danych!"
 
 #: libraries/classes/Common.php:569
-#, fuzzy
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
-"Funkcje ini_get i/lub ini_set są wyłączone w php.ini. phpMyAdmin wymaga tych "
-"funkcji!"
+"Funkcje ini_get i / lub ini_set są wyłączone w php.ini. phpMyAdmin wymaga "
+"tych funkcji!"
 
 #: libraries/classes/Common.php:580
 #, fuzzy
@@ -5688,7 +5686,7 @@ msgstr "Nie udało się wczytać wtyczek importu. Proszę sprawdzić instalację
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:258
 msgid "No collation provided."
-msgstr "Nie podano sortowania."
+msgstr "Brak zestawień."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
 #: libraries/classes/Controllers/Table/CreateController.php:72
