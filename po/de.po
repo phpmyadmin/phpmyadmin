@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-09 16:27+0000\n"
-"Last-Translator: Florian Knodt <git@adlerweb.info>\n"
+"PO-Revision-Date: 2023-07-10 16:47+0000\n"
+"Last-Translator: Luc <some_physics@live.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
 ">\n"
 "Language: de\n"
@@ -16822,7 +16822,7 @@ msgid ""
 "storage to use it."
 msgstr ""
 "Zwei-Faktor-Authentifizierung ist nicht verfügbar, aktivieren Sie den "
-"phpMyAdmin-Konfigurationsspeicher um es zu nutzen."
+"phpMyAdmin-Konfigurationsspeicher um sie zu nutzen."
 
 #: templates/preferences/two_factor/main.twig:52
 msgid "You have enabled two factor authentication."
@@ -17992,7 +17992,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
-msgstr "Zurücksetzen"
+msgstr "Zurücksetzen auf Standard"
 
 #: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
