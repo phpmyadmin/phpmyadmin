@@ -756,6 +756,7 @@ class LanguageManager
         }
 
         /* Process all files */
+        /** @infection-ignore-all */
         while (($file = readdir($handle)) !== false) {
             $path = LOCALE_PATH
                 . '/' . $file

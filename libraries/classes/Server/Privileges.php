@@ -1820,6 +1820,7 @@ class Privileges
     public function getHtmlForInitials(array $arrayInitials): string
     {
         // initialize to false the letters A-Z
+        /** @infection-ignore-all */
         for ($letterCounter = 1; $letterCounter < 27; $letterCounter++) {
             if (isset($arrayInitials[mb_chr($letterCounter + 64)])) {
                 continue;

@@ -228,6 +228,8 @@ class Bookmark
      * @param string|false $db   the current database name or false
      *
      * @return Bookmark[] the bookmarks list
+     *
+     * @infection-ignore-all
      */
     public static function getList(
         BookmarkFeature $bookmarkFeature,

@@ -60,8 +60,7 @@ composer.lock
 /node_modules/
 phpstan.neon
 # Infection
-infection.json
-infection.log
+infection.json5
 /public/build/
 /js/dist/
 /setup/

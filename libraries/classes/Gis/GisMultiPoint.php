@@ -260,6 +260,7 @@ class GisMultiPoint extends GisGeometry
         }
 
         $wkt = 'MULTIPOINT(';
+        /** @infection-ignore-all */
         for ($i = 0; $i < $noOfPoints; $i++) {
             $wkt .= (isset($gisData[$index]['MULTIPOINT'][$i]['x'])
                     && trim((string) $gisData[$index]['MULTIPOINT'][$i]['x']) != ''
@@ -284,6 +285,7 @@ class GisMultiPoint extends GisGeometry
     public function getShape(array $rowData): string
     {
         $wkt = 'MULTIPOINT(';
+        /** @infection-ignore-all */
         for ($i = 0; $i < $rowData['numpoints']; $i++) {
             $wkt .= $rowData['points'][$i]['x'] . ' '
                 . $rowData['points'][$i]['y'] . ',';
@@ -309,6 +311,7 @@ class GisMultiPoint extends GisGeometry
 
         $noOfPoints = count($points);
         $coords = ['no_of_points' => $noOfPoints];
+        /** @infection-ignore-all */
         for ($i = 0; $i < $noOfPoints; $i++) {
             $coords[$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];
         }

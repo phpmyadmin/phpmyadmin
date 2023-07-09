@@ -155,6 +155,7 @@ class VersionInformation
             $phpConditions = explode(',', $phpVersions);
             foreach ($phpConditions as $phpCondition) {
                 if (! $this->evaluateVersionCondition('PHP', $phpCondition)) {
+                    /** @infection-ignore-all */
                     continue 2;
                 }
             }

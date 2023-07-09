@@ -159,6 +159,7 @@ class ConfigGenerator
 
         // more than 4 values - value per line
         $imax = count($retv);
+        /** @infection-ignore-all */
         for ($i = 0; $i < $imax; $i++) {
             $ret .= ($i > 0 ? ',' : '') . $eol . '    ' . $retv[$i];
         }

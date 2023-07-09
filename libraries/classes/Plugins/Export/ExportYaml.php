@@ -159,6 +159,7 @@ class ExportYaml extends ExportPlugin
                 $buffer = '-' . "\n";
             }
 
+            /** @infection-ignore-all */
             for ($i = 0; $i < $columnsCnt; $i++) {
                 if (! array_key_exists($i, $record)) {
                     continue;

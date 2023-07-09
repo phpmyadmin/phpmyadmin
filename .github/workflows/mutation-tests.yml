@@ -13,6 +13,7 @@ on:
       - master
     paths:
       - '*/classes/**.php'
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
 
@@ -52,7 +53,6 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
-          ini-values: memory_limit=-1
           tools: composer:v2, infection
 
       - name: Install Composer dependencies
@@ -70,8 +70,7 @@ jobs:
             --logger-github --ignore-msi-with-no-mutations --only-covered --no-interaction --no-progress
 
       - name: Run Infection for all files
-        if: github.event_name == 'schedule'
-        timeout-minutes: 360
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
-        run: infection --threads=max --no-interaction --no-progress --only-covering-test-cases
+        run: infection --threads=max --no-interaction --log-verbosity=none --logger-github=false

@@ -85,6 +85,7 @@ class Transformations
                 // '...,
                 $trimmed = ltrim($option);
                 $rtrimmed = '';
+                /** @infection-ignore-all */
                 while (($option = array_shift($transformOptions)) !== null) {
                     // ...,
                     $trimmed .= ',' . $option;

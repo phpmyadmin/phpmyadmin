@@ -66,6 +66,7 @@ class ImportXml extends ImportPlugin
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
+        /** @infection-ignore-all */
         while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {

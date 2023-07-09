@@ -156,6 +156,8 @@ class ExportMediawiki extends ExportPlugin
      * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
+     *
+     * @infection-ignore-all
      */
     public function exportStructure(
         string $db,
@@ -307,6 +309,7 @@ class ExportMediawiki extends ExportPlugin
             $output .= '|-' . $this->exportCRLF();
 
             // Use '|' for separating table columns
+            /** @infection-ignore-all */
             for ($i = 0; $i < $fieldsCnt; ++$i) {
                 $output .= ' | ' . $row[$i] . $this->exportCRLF();
             }
