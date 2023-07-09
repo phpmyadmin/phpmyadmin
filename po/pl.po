@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-05-20 19:48+0000\n"
-"Last-Translator: Andrzej Pauli <andrzej.pauli@gmail.com>\n"
+"PO-Revision-Date: 2023-07-09 11:14+0000\n"
+"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -638,44 +638,39 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Procent MyISAM klucza używanego bufora"
 
 #: libraries/advisory_rules_generic.php:399
-#, fuzzy, php-format
+#, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% Użyto klucza bufora MyISAM: %s%%, wartość ta powinna być wyższa niż 95%%"
 
 #: libraries/advisory_rules_generic.php:404
-#, fuzzy
 msgid "Percentage of index reads from memory"
 msgstr "Procentowy wskaźnik odczytu z pamięci"
 
 #: libraries/advisory_rules_generic.php:409
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "% indeksów używających bufora klucza MyISAM jest niski."
 
 #: libraries/advisory_rules_generic.php:410
-#, fuzzy
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Być może trzeba zwiększyć {key_buffer_size}."
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, php-format
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "Indeks odczytuje z pamięci: %s%%, wartość ta powinna być wyższa niż 95%%"
 
 #: libraries/advisory_rules_generic.php:417
-#, fuzzy
 msgid "Rate of table open"
 msgstr "Wskaźnik otwartych tabel"
 
 #: libraries/advisory_rules_generic.php:420
-#, fuzzy
 msgid "The rate of opening tables is high."
 msgstr "Wskaźnik otwartych tabel jest wysoki."
 
 #: libraries/advisory_rules_generic.php:422
-#, fuzzy
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -684,19 +679,17 @@ msgstr ""
 "{table_open_cache} może tego uniknąć."
 
 #: libraries/advisory_rules_generic.php:424
-#, fuzzy, php-format
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Wskaźnik otwartej tabeli: %s, wartość ta powinna być mniejsza niż 10 na "
 "godzinę"
 
 #: libraries/advisory_rules_generic.php:429
-#, fuzzy
 msgid "Percentage of used open files limit"
 msgstr "Procent używania limitu otwartych plików"
 
 #: libraries/advisory_rules_generic.php:433
-#, fuzzy
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
@@ -706,7 +699,6 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:437
 #: libraries/advisory_rules_generic.php:450
-#, fuzzy
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -715,73 +707,66 @@ msgstr ""
 "po zmianie {open_files_limit}."
 
 #: libraries/advisory_rules_generic.php:440
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
 "Liczba otwartych plików jest %s%% limitem. Powinna ona być niższa niż 85%%"
 
 #: libraries/advisory_rules_generic.php:445
-#, fuzzy
 msgid "Rate of open files"
 msgstr "Wskaźnik otwartych plików"
 
 #: libraries/advisory_rules_generic.php:448
-#, fuzzy
 msgid "The rate of opening files is high."
 msgstr "Wskaźnik otwartych plików jest wysoki."
 
 #: libraries/advisory_rules_generic.php:453
-#, fuzzy, php-format
+#, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Wskaźnik otwartych plików: %s, wartość ta powinna być mniejsza niż 5 na "
 "godzinę"
 
 #: libraries/advisory_rules_generic.php:459
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "Immediate table locks %"
 msgstr "Natychmiastowe blokady tabeli %"
 
 #: libraries/advisory_rules_generic.php:463
 #: libraries/advisory_rules_generic.php:473
-#, fuzzy
 msgid "Too many table locks were not granted immediately."
 msgstr "Zbyt wiele blokad tabel nie zostały przyznane natychmiast."
 
 #: libraries/advisory_rules_generic.php:464
 #: libraries/advisory_rules_generic.php:474
-#, fuzzy
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Optymalizacja zapytań i/lub używać InnoDB, aby zmniejszyć czas oczekiwania "
 "blokady."
 
 #: libraries/advisory_rules_generic.php:465
-#, fuzzy, php-format
+#, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 "Natychmiastowa blokada tabeli: %s%%, wartość ta powinna być powyżej 95%%"
 
 #: libraries/advisory_rules_generic.php:470
-#, fuzzy
 msgid "Table lock wait rate"
 msgstr "Wskaźnik oczekiwania blokady tabeli"
 
 #: libraries/advisory_rules_generic.php:475
-#, fuzzy, php-format
+#, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Wskaźnik oczekiwania blokady tabeli: %s, wartość ta powinna być mniejsza niż "
 "1 na godzinę"
 
 #: libraries/advisory_rules_generic.php:480
-#, fuzzy
 msgid "Thread cache"
 msgstr "Pamięć podręczna wątku"
 
 #: libraries/advisory_rules_generic.php:483
-#, fuzzy
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -790,47 +775,40 @@ msgstr ""
 "połączeniami do MySQL."
 
 #: libraries/advisory_rules_generic.php:484
-#, fuzzy
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "Włącz cache wątku ustawiając {thread_cache_size} > 0."
 
 #: libraries/advisory_rules_generic.php:485
-#, fuzzy
 msgid "The thread cache is set to 0"
 msgstr "Cache wątku jest ustawiony na 0"
 
 #: libraries/advisory_rules_generic.php:490
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "Thread cache hit rate %"
 msgstr "Cache wątku trafień %"
 
 #: libraries/advisory_rules_generic.php:494
-#, fuzzy
 msgid "Thread cache is not efficient."
 msgstr "Pamięć podręczna wątku nie jest wydajna."
 
 #: libraries/advisory_rules_generic.php:495
-#, fuzzy
 msgid "Increase {thread_cache_size}."
 msgstr "Zwiększenie {thread_cache_size}."
 
 #: libraries/advisory_rules_generic.php:496
-#, fuzzy, php-format
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "Cache wątku: %s%%, wartość ta powinna być wyższa niż 80%%"
 
 #: libraries/advisory_rules_generic.php:501
-#, fuzzy
 msgid "Threads that are slow to launch"
 msgstr "Wątki, które są wolne do uruchomienia"
 
 #: libraries/advisory_rules_generic.php:505
-#, fuzzy
 msgid "There are too many threads that are slow to launch."
 msgstr "Istnieje zbyt wiele wątków, które wolne są do uruchomiania."
 
 #: libraries/advisory_rules_generic.php:507
-#, fuzzy
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -839,22 +817,19 @@ msgstr ""
 "całkiem proste czynności. Warto monitorować obciążenie systemu ostrożnie."
 
 #: libraries/advisory_rules_generic.php:510
-#, fuzzy, php-format
+#, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "Wątek(i) %s trwa dłużej niż %s sekund, aby rozpocząć, powinno być 0"
 
 #: libraries/advisory_rules_generic.php:515
-#, fuzzy
 msgid "Slow launch time"
 msgstr "Powolny czas uruchamiania"
 
 #: libraries/advisory_rules_generic.php:518
-#, fuzzy
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time jest powyżej 2s."
 
 #: libraries/advisory_rules_generic.php:520
-#, fuzzy
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
@@ -863,17 +838,15 @@ msgstr ""
 "wolno się uruchamiają."
 
 #: libraries/advisory_rules_generic.php:522
-#, fuzzy, php-format
+#, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time jest ustawiony na %s"
 
 #: libraries/advisory_rules_generic.php:528
-#, fuzzy
 msgid "Percentage of used connections"
 msgstr "Procent używanych połączeń"
 
 #: libraries/advisory_rules_generic.php:531
-#, fuzzy
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
@@ -882,7 +855,6 @@ msgstr ""
 "{max_connections}."
 
 #: libraries/advisory_rules_generic.php:533
-#, fuzzy
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -893,7 +865,7 @@ msgstr ""
 "zabite. Upewnij się, że kod poprawnie zamyka programy obsługi bazy danych."
 
 #: libraries/advisory_rules_generic.php:537
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
@@ -901,15 +873,13 @@ msgstr ""
 "niż 80%%"
 
 #: libraries/advisory_rules_generic.php:542
-#, fuzzy
 msgid "Percentage of aborted connections"
 msgstr "Procent przerwanych połączeń"
 
 #: libraries/advisory_rules_generic.php:545
 #: libraries/advisory_rules_generic.php:559
-#, fuzzy
 msgid "Too many connections are aborted."
-msgstr "Zbyt wiele połączeń przerwanych."
+msgstr "Zbyt wiele przerwanych połączeń."
 
 #: libraries/advisory_rules_generic.php:547
 #: libraries/advisory_rules_generic.php:561
@@ -931,12 +901,11 @@ msgstr ""
 "1%%"
 
 #: libraries/advisory_rules_generic.php:556
-#, fuzzy
 msgid "Rate of aborted connections"
 msgstr "Wskaźnik przerwanych połączeń"
 
 #: libraries/advisory_rules_generic.php:565
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
@@ -944,19 +913,16 @@ msgstr ""
 "niż 1 na godzinę"
 
 #: libraries/advisory_rules_generic.php:570
-#, fuzzy
 msgid "Percentage of aborted clients"
 msgstr "Procent przerwanych klientów"
 
 #: libraries/advisory_rules_generic.php:573
 #: libraries/advisory_rules_generic.php:587
-#, fuzzy
 msgid "Too many clients are aborted."
 msgstr "Zbyt wielu klientów jest przerwanych."
 
 #: libraries/advisory_rules_generic.php:575
 #: libraries/advisory_rules_generic.php:589
-#, fuzzy
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -967,53 +933,46 @@ msgstr ""
 "programu obsługi bazy danych poprawnie. Sprawdź swoją sieć i kod."
 
 #: libraries/advisory_rules_generic.php:579
-#, fuzzy, php-format
+#, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s%% wszystkich klientów są przerwane. Ta wartość ta powinna być niższa niż "
 "2%%"
 
 #: libraries/advisory_rules_generic.php:584
-#, fuzzy
 msgid "Rate of aborted clients"
 msgstr "Wskaźnik przerwanych klientów"
 
 #: libraries/advisory_rules_generic.php:593
-#, fuzzy, php-format
+#, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Przerwana ocena klienta jest na %s, ta wartość ta powinna być mniejsza niż 1 "
 "na godzinę"
 
 #: libraries/advisory_rules_generic.php:599
-#, fuzzy
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB jest wyłączone?"
 
 #: libraries/advisory_rules_generic.php:603
-#, fuzzy
 msgid "You do not have InnoDB enabled."
 msgstr "Nie masz włączonego InnoDB."
 
 #: libraries/advisory_rules_generic.php:604
-#, fuzzy
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB jest zwykle lepszym wyborem dla silnika tabeli."
 
 #: libraries/advisory_rules_generic.php:605
-#, fuzzy
 msgid "have_innodb is set to 'value'"
 msgstr "innoDB jest ustawiony na 'value'"
 
 #: libraries/advisory_rules_generic.php:609
 #: libraries/advisory_rules_generic.php:633
-#, fuzzy
 msgid "InnoDB log size"
 msgstr "Rozmiar Log InnoDB"
 
 #: libraries/advisory_rules_generic.php:613
 #: libraries/advisory_rules_generic.php:640
-#, fuzzy
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -1023,7 +982,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:615
 #: libraries/advisory_rules_generic.php:642
-#, fuzzy, no-php-format
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1040,15 +999,15 @@ msgstr ""
 "większa jest ta wartość, tym dłuższy będzie czas przywracania w przypadku "
 "awarii bazy danych, więc wartość ta nie powinna być znacznie wyższa niż 256 "
 "MiB. Pamiętaj jednak, że nie możesz po prostu zmienić wartości tej zmiennej. "
-"Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić nową wartość w my."
-"cnf, uruchomić serwer, a następnie sprawdzić logi błędów, czy wszystko "
+"Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić nową wartość w "
+"my.cnf, uruchomić serwer, a następnie sprawdzić logi błędów, czy wszystko "
 "poszło dobrze. Zobacz także <a href=\"https://mysqldatabaseadministration."
 "blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">ten wpis "
 "na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
@@ -1057,17 +1016,15 @@ msgstr ""
 "bufora InnoDB, nie powinna być niższa niż 20%%"
 
 #: libraries/advisory_rules_generic.php:660
-#, fuzzy
 msgid "Max InnoDB log size"
 msgstr "Maks. rozmiar Log InnoDB"
 
 #: libraries/advisory_rules_generic.php:664
-#, fuzzy
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Rozmiar pliku log InnoDB jest niewystarczająco duży."
 
 #: libraries/advisory_rules_generic.php:666
-#, fuzzy, no-php-format
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1081,31 +1038,29 @@ msgid ""
 msgstr ""
 "Zwykle wystarczy ustawić {innodb_log_file_size} na 25% wielkości "
 "{innodb_buffer_pool_size}. Bardzo duży {innodb_log_file_size} znacznie "
-"spowalnia czas odzyskiwania po awarii bazy danych. Zobacz też <a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">ten artykuł</a>. Musisz wyłączyć serwer, usunąć "
-"pliki logów InnoDB, ustawić nową wartość w my.cnf, uruchomić serwer, a "
-"następnie sprawdzić logi błędów, czy wszystko poszło dobrze. Zobacz także <a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"spowalnia czas odzyskiwania po awarii bazy danych. Zobacz też <a href=\"https"
+"://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\""
+">ten artykuł</a>. Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić "
+"nową wartość w my.cnf, uruchomić serwer, a następnie sprawdzić logi błędów, "
+"czy wszystko poszło dobrze. Zobacz także <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">ten wpis na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:676
-#, fuzzy, php-format
+#, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Twoja absolutny rozmiar dziennika InnoDB jest %s MB"
 
 #: libraries/advisory_rules_generic.php:681
-#, fuzzy
 msgid "InnoDB buffer pool size"
 msgstr "Wielkość puli bufora InnoDB"
 
 #: libraries/advisory_rules_generic.php:685
-#, fuzzy
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Twoja pula bufora InnoDB jest dość mała."
 
 #: libraries/advisory_rules_generic.php:687
-#, fuzzy, no-php-format
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1129,7 +1084,7 @@ msgstr ""
 "blog/2007/11/03/choosing-innodb_buffer_pool_size/\">ten artykuł</a>"
 
 #: libraries/advisory_rules_generic.php:697
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
 "rule fires if you are assigning less than 60%%, however this might be "
@@ -1142,17 +1097,14 @@ msgstr ""
 "inne usługi uruchomione na tej samej maszynie."
 
 #: libraries/advisory_rules_generic.php:707
-#, fuzzy
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM jednoczesnych wstawień"
 
 #: libraries/advisory_rules_generic.php:710
-#, fuzzy
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Włącz {concurrent_insert}, ustawiając go na 1"
 
 #: libraries/advisory_rules_generic.php:712
-#, fuzzy
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1163,7 +1115,6 @@ msgstr ""
 "refman/5.5/en/concurrent-inserts.html\">Dokumentację MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
-#, fuzzy
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert jest ustawiony na 0"
 
@@ -2144,14 +2095,13 @@ msgstr ""
 "kbd] to dane referencyjne, [kbd]id[/kbd] jest wartością kluczową."
 
 #: libraries/classes/Config/Descriptions.php:190
-#, fuzzy
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Określ tekst paska tytułu przeglądarki. Zapoznaj się z dokumentem [doc@q6-27]"
-"[/doc], aby uzyskać magiczne ciągi znaków, które można wykorzystać do "
-"uzyskania specjalnych wartości."
+"Określ tekst paska tytułu przeglądarki. Zapoznaj się z dokumentem "
+"[doc@q6-27][/doc], aby uzyskać magiczne ciągi znaków, które można "
+"wykorzystać do uzyskania specjalnych wartości."
 
 #: libraries/classes/Config/Descriptions.php:195
 #, fuzzy
@@ -2172,7 +2122,6 @@ msgstr ""
 "ich znaczenia."
 
 #: libraries/classes/Config/Descriptions.php:201
-#, fuzzy
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -2625,7 +2574,6 @@ msgstr ""
 "[kbd]pma_column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:354
-#, fuzzy
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -3234,7 +3182,7 @@ msgstr "Domyślna wartość klucza obcego sprawdza zaznaczenie dla kilku pytań.
 
 #: libraries/classes/Config/Descriptions.php:564
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr "Odznacz to pole, aby wyłączyć importowanie metodą przeciągnij i upuść"
+msgstr "Odznacz to pole, aby wyłączyć import metodą przeciągnij i upuść"
 
 #: libraries/classes/Config/Descriptions.php:565
 #, fuzzy
@@ -6034,7 +5982,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 "Klucz szyfrujący ciasteczko w pliku konfiguracyjnym jest dłuższy niż jest to "
-"wymagane. Wymagane %d bajtów. Więcej informacji znajdziesz w "
+"wymagane. Wymagane %d bajtów długości. Więcej informacji znajdziesz w "
 "[doc@cfg_blowfish_secret]dokumentacji[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:346
@@ -10478,12 +10426,11 @@ msgstr ""
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
-#, fuzzy
 msgid "Documentation"
 msgstr "Dokumentacja"
 
 #: libraries/classes/Engines/Pbxt.php:185
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
@@ -12713,7 +12660,6 @@ msgstr ""
 "jest na TRUE, drugi to FALSE. Nonzero=true."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:39
-#, fuzzy
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -17026,7 +16972,6 @@ msgstr ""
 "informacji na %s."
 
 #: templates/home/index.twig:32
-#, fuzzy
 msgid "General settings"
 msgstr "Ustawienia ogólne"
 
@@ -17709,7 +17654,7 @@ msgstr "Wyjście"
 
 #: templates/navigation/main.twig:35 templates/navigation/main.twig:36
 msgid "phpMyAdmin documentation"
-msgstr "Dokumewntacja phpMyAdmina"
+msgstr "Dokumentacja phpMyAdmina"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MariaDB Documentation"
