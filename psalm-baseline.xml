@@ -7500,24 +7500,17 @@
       <code>$db</code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$child</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>hasChildren</code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
       <code>$db</code>
       <code>$db</code>
     </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$child->type]]></code>
-    </MixedPropertyFetch>
     <PossiblyInvalidArgument>
       <code>$databases</code>
     </PossiblyInvalidArgument>
@@ -7537,15 +7530,9 @@
       <code>$prefixMap</code>
       <code>$prefixMap</code>
     </PossiblyNullArrayOffset>
-    <PossiblyNullIterator>
-      <code><![CDATA[$this->parent->children]]></code>
-    </PossiblyNullIterator>
     <PossiblyNullOperand>
       <code>$arr[0]</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$this->parent->children]]></code>
-    </PossiblyNullPropertyFetch>
     <RedundantCastGivenDocblockType>
       <code>(string) $prefix</code>
     </RedundantCastGivenDocblockType>

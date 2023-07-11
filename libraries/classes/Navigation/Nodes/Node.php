@@ -277,7 +277,10 @@ class Node
      */
     public function hasSiblings(): bool
     {
-        $retval = false;
+        if ($this->parent === null) {
+            return false;
+        }
+
         $paths = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
             return true;
@@ -285,12 +288,11 @@ class Node
 
         foreach ($this->parent->children as $child) {
             if ($child !== $this && ($child->type == self::OBJECT || $child->hasChildren(false))) {
-                $retval = true;
-                break;
+                return true;
             }
         }
 
-        return $retval;
+        return false;
     }
 
     /**

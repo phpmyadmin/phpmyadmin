@@ -107,73 +107,6 @@ final class NodeTest extends AbstractTestCase
         $this->assertSame([0 => $childOne, 2 => $childThree, 3 => $childTwo], $parent->children);
     }
 
-    /**
-     * SetUp for hasChildren
-     */
-    public function testNodeHasChildren(): void
-    {
-        $parent = new Node('default');
-        $emptyContainer = new Node('empty', Node::CONTAINER);
-        $child = new Node('default');
-        // test with no children
-        $this->assertEquals(
-            $parent->hasChildren(true),
-            false,
-        );
-        $this->assertEquals(
-            $parent->hasChildren(false),
-            false,
-        );
-        // test with an empty container
-        $parent->addChild($emptyContainer);
-        $this->assertEquals(
-            $parent->hasChildren(true),
-            true,
-        );
-        $this->assertEquals(
-            $parent->hasChildren(false),
-            false,
-        );
-        // test with a real child
-        $parent->addChild($child);
-        $this->assertEquals(
-            $parent->hasChildren(true),
-            true,
-        );
-        $this->assertEquals(
-            $parent->hasChildren(false),
-            true,
-        );
-    }
-
-    /**
-     * SetUp for numChildren
-     */
-    public function testNumChildren(): void
-    {
-        // start with root node only
-        $parent = new Node('default');
-        $this->assertEquals($parent->numChildren(), 0);
-        // add a child
-        $child = new Node('default');
-        $parent->addChild($child);
-        $this->assertEquals($parent->numChildren(), 1);
-        // add a direct grandchild, this one doesn't count as
-        // it's not enclosed in a CONTAINER
-        $child->addChild(new Node('default'));
-        $this->assertEquals($parent->numChildren(), 1);
-        // add a container, this one doesn't count wither
-        $container = new Node('default', Node::CONTAINER);
-        $parent->addChild($container);
-        $this->assertEquals($parent->numChildren(), 1);
-        // add a grandchild to container, this one counts
-        $container->addChild(new Node('default'));
-        $this->assertEquals($parent->numChildren(), 2);
-        // add another grandchild to container, this one counts
-        $container->addChild(new Node('default'));
-        $this->assertEquals($parent->numChildren(), 3);
-    }
-
     public function testParents(): void
     {
         $dbContainer = new Node('root', Node::CONTAINER);
@@ -215,64 +148,102 @@ final class NodeTest extends AbstractTestCase
         $this->assertSame($child, $grandchild->realParent());
     }
 
-    /**
-     * Tests whether Node->hasSiblings() method returns false
-     * when the node does not have any siblings.
-     */
-    public function testHasSiblingsWithNoSiblings(): void
+    public function testNodeHasChildren(): void
     {
-        $parent = new Node('default');
-        $child = new Node('default');
+        $parent = new Node('parent');
+        $child = new Node('child');
+        $this->assertFalse($parent->hasChildren(true));
+        $this->assertFalse($parent->hasChildren(false));
         $parent->addChild($child);
-        $this->assertFalse($child->hasSiblings());
+        $this->assertTrue($parent->hasChildren(true));
+        $this->assertTrue($parent->hasChildren(false));
     }
 
-    /**
-     * Tests whether Node->hasSiblings() method returns true
-     * when it actually has siblings.
-     */
-    public function testHasSiblingsWithSiblings(): void
+    public function testNodeHasChildrenWithContainers(): void
     {
-        $parent = new Node('default');
-        $firstChild = new Node('default');
-        $parent->addChild($firstChild);
-        $secondChild = new Node('default');
-        $parent->addChild($secondChild);
-        // Normal case; two Node:NODE type siblings
-        $this->assertTrue($firstChild->hasSiblings());
-
-        $parent = new Node('default');
-        $firstChild = new Node('default');
-        $parent->addChild($firstChild);
-        $secondChild = new Node('default', Node::CONTAINER);
-        $parent->addChild($secondChild);
-        // Empty Node::CONTAINER type node should not be considered in hasSiblings()
-        $this->assertFalse($firstChild->hasSiblings());
-
-        $grandChild = new Node('default');
-        $secondChild->addChild($grandChild);
-        // Node::CONTAINER type nodes with children are counted for hasSiblings()
-        $this->assertTrue($firstChild->hasSiblings());
+        $parent = new Node('parent');
+        $containerOne = new Node('container 1', Node::CONTAINER);
+        $containerTwo = new Node('container 2', Node::CONTAINER);
+        $child = new Node('child');
+        $this->assertFalse($parent->hasChildren());
+        $this->assertFalse($parent->hasChildren(false));
+        $parent->addChild($containerOne);
+        $this->assertTrue($parent->hasChildren());
+        $this->assertFalse($parent->hasChildren(false));
+        $containerOne->addChild($containerTwo);
+        $this->assertTrue($parent->hasChildren());
+        $this->assertFalse($parent->hasChildren(false));
+        $containerTwo->addChild($child);
+        $this->assertTrue($parent->hasChildren());
+        $this->assertTrue($parent->hasChildren(false));
     }
 
-    /**
-     * It is expected that Node->hasSiblings() method always return true
-     * for Nodes that are 3 levels deep (columns and indexes).
-     */
-    public function testHasSiblingsForNodesAtLevelThree(): void
+    public function testNodeHasSiblings(): void
     {
-        $parent = new Node('default');
-        $child = new Node('default');
-        $parent->addChild($child);
-        $grandChild = new Node('default');
-        $child->addChild($grandChild);
-        $greatGrandChild = new Node('default');
-        $grandChild->addChild($greatGrandChild);
+        $parent = new Node('parent');
+        $childOne = new Node('child one');
+        $childTwo = new Node('child two');
+        $parent->addChild($childOne);
+        $this->assertFalse($parent->hasSiblings());
+        $this->assertFalse($childOne->hasSiblings());
+        $parent->addChild($childTwo);
+        $this->assertTrue($childOne->hasSiblings());
+    }
 
+    public function testNodeHasSiblingsWithContainers(): void
+    {
+        $parent = new Node('parent');
+        $childOne = new Node('child one');
+        $containerOne = new Node('container 1', Node::CONTAINER);
+        $containerTwo = new Node('container 2', Node::CONTAINER);
+        $childTwo = new Node('child two');
+        $parent->addChild($childOne);
+        $parent->addChild($containerOne);
+        $this->assertFalse($childOne->hasSiblings(), 'An empty container node should not be considered a sibling.');
+        $containerOne->addChild($containerTwo);
+        $this->assertFalse(
+            $childOne->hasSiblings(),
+            'A container node with empty children should not be considered a sibling.',
+        );
+        $containerOne->addChild($childTwo);
+        $this->assertTrue($childOne->hasSiblings(), 'A container node with children should be considered a sibling.');
+    }
+
+    public function testNodeHasSiblingsForNodesAtLevelThree(): void
+    {
+        $parent = new Node('parent');
+        $child = new Node('child');
+        $grandchild = new Node('grandchild');
+        $greatGrandchild = new Node('great grandchild');
+        $parent->addChild($child);
+        $child->addChild($grandchild);
+        $grandchild->addChild($greatGrandchild);
         // Should return false for node that are two levels deeps
-        $this->assertFalse($grandChild->hasSiblings());
+        $this->assertFalse($grandchild->hasSiblings());
         // Should return true for node that are three levels deeps
-        $this->assertTrue($greatGrandChild->hasSiblings());
+        $this->assertTrue($greatGrandchild->hasSiblings());
+    }
+
+    public function testNumChildren(): void
+    {
+        $parent = new Node('parent');
+        $this->assertSame(0, $parent->numChildren());
+        $child = new Node('child one');
+        $parent->addChild($child);
+        $this->assertSame(1, $parent->numChildren());
+        // add a direct grandchild, this one doesn't count as it's not enclosed in a CONTAINER
+        $child->addChild(new Node('child two'));
+        $this->assertSame(1, $parent->numChildren());
+        // add a container, this one doesn't count wither
+        $container = new Node('container', Node::CONTAINER);
+        $parent->addChild($container);
+        $this->assertSame(1, $parent->numChildren());
+        // add a grandchild to container, this one counts
+        $container->addChild(new Node('child three'));
+        $this->assertSame(2, $parent->numChildren());
+        // add another grandchild to container, this one counts
+        $container->addChild(new Node('child four'));
+        $this->assertSame(3, $parent->numChildren());
     }
 
     /**

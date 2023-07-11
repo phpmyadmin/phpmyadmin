@@ -4761,11 +4761,6 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Cannot access property \\$children on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 3
 			path: libraries/classes/Navigation/Nodes/Node.php
