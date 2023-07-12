@@ -246,9 +246,28 @@ final class NodeTest extends AbstractTestCase
         $this->assertSame(3, $parent->numChildren());
     }
 
-    /**
-     * Tests private method _getWhereClause()
-     */
+    public function testGetPaths(): void
+    {
+        $parent = new Node('parent');
+        $group = new Node('group', Node::CONTAINER, true);
+        $childOne = new Node('child one');
+        $container = new Node('container', Node::CONTAINER);
+        $childTwo = new Node('child two');
+        $parent->addChild($group);
+        $group->addChild($childOne);
+        $childOne->addChild($container);
+        $container->addChild($childTwo);
+        $this->assertSame(
+            [
+                'aPath' => 'cGFyZW50.Y2hpbGQgb25l.Y29udGFpbmVy.Y2hpbGQgdHdv',
+                'aPath_clean' => ['parent', 'child one', 'container', 'child two'],
+                'vPath' => 'cGFyZW50.Z3JvdXA=.Y2hpbGQgb25l.Y29udGFpbmVy.Y2hpbGQgdHdv',
+                'vPath_clean' => ['parent', 'group', 'child one', 'container', 'child two'],
+            ],
+            $childTwo->getPaths(),
+        );
+    }
+
     public function testGetWhereClause(): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
@@ -256,13 +275,10 @@ final class NodeTest extends AbstractTestCase
 
         // Vanilla case
         $node = new Node('default');
-        $this->assertEquals(
-            'WHERE TRUE ',
-            $method->invoke($node, 'SCHEMA_NAME'),
-        );
+        $this->assertSame('WHERE TRUE ', $method->invoke($node, 'SCHEMA_NAME'));
 
         // When a schema names is passed as search clause
-        $this->assertEquals(
+        $this->assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
             $method->invoke($node, 'SCHEMA_NAME', 'schemaName'),
         );
@@ -273,7 +289,7 @@ final class NodeTest extends AbstractTestCase
 
         // When hide_db regular expression is present
         $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
-        $this->assertEquals(
+        $this->assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
@@ -281,7 +297,7 @@ final class NodeTest extends AbstractTestCase
 
         // When only_db directive is present and it's a single db
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
-        $this->assertEquals(
+        $this->assertSame(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
@@ -289,7 +305,7 @@ final class NodeTest extends AbstractTestCase
 
         // When only_db directive is present and it's an array of dbs
         $GLOBALS['cfg']['Server']['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
-        $this->assertEquals(
+        $this->assertSame(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME'),
         );
@@ -297,16 +313,13 @@ final class NodeTest extends AbstractTestCase
     }
 
     /**
-     * Tests getData() method when DisableIS is false and navigation tree
-     * grouping enabled.
+     * Tests when DisableIS is false and navigation tree grouping enabled.
      */
     public function testGetDataWithEnabledISAndGroupingEnabled(): void
     {
-        $pos = 10;
-        $limit = 20;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
+        $GLOBALS['cfg']['FirstLevelNavigationItems'] = 20;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
@@ -321,7 +334,7 @@ final class NodeTest extends AbstractTestCase
         $expectedSql .= 'WHERE TRUE ';
         $expectedSql .= ') t ';
         $expectedSql .= 'ORDER BY DB_first_level ASC ';
-        $expectedSql .= 'LIMIT ' . $pos . ', ' . $limit;
+        $expectedSql .= 'LIMIT 10, 20';
         $expectedSql .= ') t2 ';
         $expectedSql .= "WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), ";
         $expectedSql .= "CONCAT(SCHEMA_NAME, '_')) ";
@@ -333,39 +346,29 @@ final class NodeTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ]);
 
-        // It would have been better to mock _getWhereClause method
-        // but strangely, mocking private methods is not supported in PHPUnit
-        $node = new Node('default');
+        $node = new Node('node');
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('fetchResult')
-            ->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
+        $dbi->expects($this->any())->method('escapeString')->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
-        $node->getData($relationParameters, '', $pos);
+        $node->getData($relationParameters, '', 10);
     }
 
     /**
-     * Tests getData() method when DisableIS is false and navigation tree
-     * grouping disabled.
+     * Tests when DisableIS is false and navigation tree grouping disabled.
      */
     public function testGetDataWithEnabledISAndGroupingDisabled(): void
     {
-        $pos = 10;
-        $limit = 20;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
-        $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
+        $GLOBALS['cfg']['FirstLevelNavigationItems'] = 20;
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA` ';
         $expectedSql .= 'WHERE TRUE ';
         $expectedSql .= 'ORDER BY `SCHEMA_NAME` ';
-        $expectedSql .= 'LIMIT ' . $pos . ', ' . $limit;
+        $expectedSql .= 'LIMIT 10, 20';
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -373,35 +376,25 @@ final class NodeTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ]);
 
-        // It would have been better to mock _getWhereClause method
-        // but strangely, mocking private methods is not supported in PHPUnit
-        $node = new Node('default');
+        $node = new Node('node');
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('fetchResult')
-            ->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
+        $dbi->expects($this->any())->method('escapeString')->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $node->getData($relationParameters, '', $pos);
+        $node->getData($relationParameters, '', 10);
     }
 
     /**
-     * Tests getData() method when DisableIS is true and navigation tree
-     * grouping enabled.
+     * Tests when DisableIS is true and navigation tree grouping enabled.
      */
     public function testGetDataWithDisabledISAndGroupingEnabled(): void
     {
-        $pos = 0;
-        $limit = 10;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
+        $GLOBALS['cfg']['FirstLevelNavigationItems'] = 10;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
         $relationParameters = RelationParameters::fromArray([
@@ -410,13 +403,11 @@ final class NodeTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ]);
 
-        $node = new Node('default');
+        $node = new Node('node');
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
@@ -440,12 +431,11 @@ final class NodeTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $node->getData($relationParameters, '', $pos, 'db');
+        $node->getData($relationParameters, '', 0, 'db');
     }
 
     /**
-     * Tests the getPresence method when DisableIS is false and navigation tree
-     * grouping enabled.
+     * Tests when DisableIS is false and navigation tree grouping enabled.
      */
     public function testGetPresenceWithEnabledISAndGroupingEnabled(): void
     {
@@ -461,23 +451,16 @@ final class NodeTest extends AbstractTestCase
         $query .= 'WHERE TRUE ';
         $query .= ') t ';
 
-        // It would have been better to mock _getWhereClause method
-        // but strangely, mocking private methods is not supported in PHPUnit
-        $node = new Node('default');
+        $node = new Node('node');
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with($query);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->once())->method('fetchValue')->with($query);
         $GLOBALS['dbi'] = $dbi;
-        $node->getPresence();
+        $this->assertSame(0, $node->getPresence());
     }
 
     /**
-     * Tests the getPresence method when DisableIS is false and navigation tree
-     * grouping disabled.
+     * Tests when DisableIS is false and navigation tree grouping disabled.
      */
     public function testGetPresenceWithEnabledISAndGroupingDisabled(): void
     {
@@ -488,19 +471,15 @@ final class NodeTest extends AbstractTestCase
         $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
         $query .= 'WHERE TRUE ';
 
-        $node = new Node('default');
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with($query);
+        $node = new Node('node');
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->once())->method('fetchValue')->with($query);
         $GLOBALS['dbi'] = $dbi;
-        $node->getPresence();
+        $this->assertSame(0, $node->getPresence());
     }
 
     /**
-     * Tests the getPresence method when DisableIS is true
+     * Tests when DisableIS is true
      */
     public function testGetPresenceWithDisabledIS(): void
     {
@@ -508,28 +487,23 @@ final class NodeTest extends AbstractTestCase
         $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
 
-        $node = new Node('default');
+        $node = new Node('node');
 
         $resultStub = $this->createMock(DummyResult::class);
 
         // test with no search clause
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SHOW DATABASES WHERE TRUE ')
             ->will($this->returnValue($resultStub));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('escapeString')->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $node->getPresence();
+        $this->assertSame(0, $node->getPresence());
 
         // test with a search clause
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
@@ -538,6 +512,6 @@ final class NodeTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $node->getPresence('', 'dbname');
+        $this->assertSame(0, $node->getPresence('', 'dbname'));
     }
 }
