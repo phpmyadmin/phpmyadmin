@@ -749,7 +749,11 @@ class Sql
                     $statement->limit = null;
                 }
 
-                if ($analyzedSqlResults['is_group'] === false && count($statement->expr) === 1) {
+                if (
+                    $analyzedSqlResults['is_group'] === false
+                    && $analyzedSqlResults['distinct'] === false
+                    && count($statement->expr) === 1
+                ) {
                     $statement->expr[0] = new Expression();
                     $statement->expr[0]->expr = '1';
                 }
