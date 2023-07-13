@@ -397,6 +397,14 @@ class SqlTest extends AbstractTestCase
                 20,
 
             ],
+            [
+                'SELECT DISTINCT country_id FROM city;',
+                ['max_rows' => 25, 'pos' => 0],
+                25,
+                109,
+                false,
+                'SELECT COUNT(*) FROM (SELECT DISTINCT country_id FROM city ) as cnt',
+            ],
         ];
     }
 
