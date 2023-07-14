@@ -5,24 +5,13 @@
       <code>$matches[1]</code>
       <code>$matches[2]</code>
       <code>$params</code>
-      <code><![CDATA[$rule['issue']]]></code>
-      <code><![CDATA[$rule['justification']]]></code>
-      <code><![CDATA[$rule['name']]]></code>
-      <code><![CDATA[$rule['recommendation']]]></code>
       <code><![CDATA[$this->variables['version']]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$rule['id']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code>$params</code>
       <code>$precondition</code>
-      <code>$rule</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$rule['justification_formula']]]></code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Application.php">
     <InvalidArrayOffset>

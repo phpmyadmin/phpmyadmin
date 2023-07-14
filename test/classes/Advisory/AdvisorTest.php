@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Advisory;
 
 use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Advisory\Rules;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
+/** @psalm-import-type RuleType from Rules */
 #[CoversClass(Advisor::class)]
 class AdvisorTest extends AbstractTestCase
 {
@@ -54,6 +56,8 @@ class AdvisorTest extends AbstractTestCase
      * @param mixed[]     $rule     Rule to test
      * @param mixed[]     $expected Expected rendered rule in fired/errors list
      * @param string|null $error    Expected error string (null if none error expected)
+     * @psalm-param RuleType $rule
+     * @psalm-param RuleType|array<empty> $expected
      */
     #[DataProvider('rulesProvider')]
     public function testAddRule(array $rule, array $expected, string|null $error): void
@@ -75,7 +79,10 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals([$expected], $runResult['fired']);
     }
 
-    /** @return mixed[][] */
+    /**
+     * @return mixed[][]
+     * @psalm-return array<int, array{RuleType, RuleType|array<empty>, string|null}>
+     */
     public static function rulesProvider(): array
     {
         return [
@@ -86,6 +93,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Basic',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => 'foo',
@@ -93,6 +102,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Basic',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -103,14 +114,18 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Variable',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend {status_var}',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => 'foo',
                     'id' => 'Variable',
                     'name' => 'Variable',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend <a href="index.php?route=/server/variables&' .
-                    'filter=status_var&lang=en">status_var</a>',
+                    'recommendation' => 'Recommend <a href="index.php?route=/server/variables&'
+                        . 'filter=status_var&lang=en">status_var</a>',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -122,6 +137,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Format',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => '0 foo',
@@ -130,6 +147,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Format',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -141,6 +160,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Percent',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => '0% foo',
@@ -149,6 +170,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Percent',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -160,6 +183,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Double',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => '0% 0 foo',
@@ -168,6 +193,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Double',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -178,6 +205,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Quotes',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend"\'',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => '"\'foo',
@@ -185,16 +214,21 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Quotes',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend"\'',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
             [
                 [
+                    'id' => 'Failure',
                     'justification' => 'foo',
                     'justification_formula' => 'fsafdsa',
                     'name' => 'Failure',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [],
                 'Failed formatting string for rule \'Failure\'. ' .
@@ -209,6 +243,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => 'Version string (0)',
@@ -218,6 +254,8 @@ class AdvisorTest extends AbstractTestCase
                     'recommendation' => 'See <a href="index.php?route=/url&url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
                     'id' => 'Distribution',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -229,6 +267,8 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => 'Timestamp (15 days, 22 hours, 30 minutes and 27 seconds)',
@@ -238,6 +278,8 @@ class AdvisorTest extends AbstractTestCase
                     'recommendation' => 'See <a href="index.php?route=/url&url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
                     'id' => 'Distribution',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -250,6 +292,8 @@ class AdvisorTest extends AbstractTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a> and'
                         . ' <a href="https://example.com/">web2</a>',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => 'Memory: 0.95 MiB',
@@ -261,6 +305,8 @@ class AdvisorTest extends AbstractTestCase
                         . ' and <a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="_blank"'
                         . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
@@ -273,6 +319,8 @@ class AdvisorTest extends AbstractTestCase
                     'issue' => '{long_query_time} is set to 10 seconds or more',
                     'recommendation' => 'See <a href=\'https://example.com/\'>web</a> and'
                         . ' <a href=\'https://example.com/\'>web2</a>',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 [
                     'justification' => 'Time: 1.2 per minute',
@@ -285,6 +333,8 @@ class AdvisorTest extends AbstractTestCase
                         . ' and <a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="_blank"'
                         . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
+                    'formula' => 'formula',
+                    'test' => 'test',
                 ],
                 null,
             ],
