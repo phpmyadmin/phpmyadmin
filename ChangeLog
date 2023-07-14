@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue        Add a configuration option to (dis)allow shared bookmarks: `$cfg['AllowSharedBookmarks'] = true;`
 - issue        Redesign the User Groups form page
 - issue        Redesign the database and table privileges pages
+- issue #17009 Implement the security header `Permissions-Policy`
 
 5.2.2 (not yet released)
 - issue #17028 Fix total count of rows in not accurate
