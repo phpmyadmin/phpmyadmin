@@ -45,7 +45,7 @@ final class FavoriteTableController extends AbstractController
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
         $errorUrl .= Url::getCommon(['db' => $db], '&');
 
-        if (! $this->hasDatabase() || ! $this->response->isAjax()) {
+        if (! $this->response->isAjax()) {
             return;
         }
 
@@ -70,6 +70,10 @@ final class FavoriteTableController extends AbstractController
                 ));
             }
 
+            return;
+        }
+
+        if (! $this->hasDatabase()) {
             return;
         }
 
