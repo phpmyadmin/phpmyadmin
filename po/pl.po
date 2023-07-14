@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-14 14:46+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2023-07-15 15:52+0000\n"
+"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -879,11 +879,10 @@ msgstr ""
 "pomóc w odnalezieniu źródła."
 
 #: libraries/advisory_rules_generic.php:551
-#, fuzzy, php-format
+#, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% wszystkich połączeń jest przerwane. Ta wartość ta powinna być poniżej "
-"1%%"
+"%s%% wszystkich połączeń jest przerwane. Ta wartość powinna być poniżej 1%%"
 
 #: libraries/advisory_rules_generic.php:556
 msgid "Rate of aborted connections"
@@ -2285,7 +2284,7 @@ msgstr "Pokaż logo w panelu nawigacyjnym."
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "URL where logo in the navigation panel will point to."
-msgstr "Adres URL, na który wskazuje logo w panelu nawigacyjnym"
+msgstr "Adres URL, na który wskazuje logo w panelu nawigacyjnym."
 
 #: libraries/classes/Config/Descriptions.php:318
 msgid "Display server choice at the top of the navigation panel."
@@ -2347,7 +2346,6 @@ msgstr ""
 "kolumn w tabeli są zarezerwowanymi słowami MySQL."
 
 #: libraries/classes/Config/Descriptions.php:340
-#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -2366,12 +2364,11 @@ msgstr ""
 "serwera bazy danych"
 
 #: libraries/classes/Config/Descriptions.php:348
-#, fuzzy
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Zostaw puste dla nie [doc@bookmarks@]bookmark[/doc] wsparcie, sugerowane: "
+"Zostaw puste dla braku wsparcia [doc@bookmarks@]bookmark[/doc], sugerowane: "
 "[kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:351
@@ -2380,7 +2377,7 @@ msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Pozostaw puste bez uwag typu kolumn/media, zasugerował: "
+"Pozostaw puste bez uwag typu kolumn/media, sugerowane: "
 "[kbd]pma_column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:354
@@ -2392,7 +2389,6 @@ msgstr ""
 "więcej informacji na temat [doc@linked-tables]dokumentacji[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:358
-#, fuzzy
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -2421,7 +2417,6 @@ msgstr ""
 "[a@https://bugs.mysql.com/19588]Błędy MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
-#, fuzzy
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -2518,7 +2513,6 @@ msgid ""
 msgstr "Zobacz przykład [doc@authentication-modes]typy uwierzytelniania [/doc]."
 
 #: libraries/classes/Config/Descriptions.php:415
-#, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -2616,13 +2610,12 @@ msgstr ""
 "funkcję, sugerowane: [kbd] pma__usergroups [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:460
-#, fuzzy
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Pozostaw puste, aby wyłączyć funkcję ukrywania i pokazywania sugerowanych "
-"elementów nawigacji: [kbd]pma__navigationhiding[/kbd]."
+"Pozostaw puste, aby wyłączyć funkcję ukrywania i pokazywania elementów "
+"nawigacji, sugerowane: [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:464
 msgid ""
@@ -2683,7 +2676,6 @@ msgid "Enable SSL for connection to MySQL server."
 msgstr "Włącz protokół SSL dla połączenia z serwerem MySQL."
 
 #: libraries/classes/Config/Descriptions.php:479
-#, fuzzy
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -2715,12 +2707,11 @@ msgstr ""
 "sprawdzenia dla wszystkich tabel."
 
 #: libraries/classes/Config/Descriptions.php:493
-#, fuzzy
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
-"Określa, czy typ pola powinny być początkowo wyświetlany w trybie edycji/"
+"Określa, czy typy pól powinny być początkowo wyświetlany w trybie edycji/"
 "wstawiania."
 
 #: libraries/classes/Config/Descriptions.php:496
@@ -2746,7 +2737,6 @@ msgstr ""
 "Pokaż lub ukryj kolumnę wyświetlającą zestaw znaków dla wszystkich tabel."
 
 #: libraries/classes/Config/Descriptions.php:501
-#, fuzzy
 msgid "Display the function fields in edit/insert mode."
 msgstr "Wyświetla pola z funkcjami w trybie edycji/dodawania."
 
@@ -2808,15 +2798,14 @@ msgstr ""
 "wyróżniona dla textareas zapytania SQL (*2)."
 
 #: libraries/classes/Config/Descriptions.php:523
-#, fuzzy
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"Wprowadź serwery pośredniczące (proxy) jako [kbd]IP: zaufany nagłówek HTTP[/"
-"kbd]. Następujący przykład określa jak phpMyAdmin powinien polegać na "
+"Wprowadź serwery pośredniczące (proxy) jako [kbd]IP: zaufany nagłówek "
+"HTTP[/kbd]. Następujący przykład określa jak phpMyAdmin powinien polegać na "
 "nagłówku HTTP_X_FORWARDED_FOR (X-Forwarded-For) przesłanym przez serwer "
 "pośredniczący (proxy) 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
@@ -2963,7 +2952,6 @@ msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Maksymalna liczba ulubionych tabel; ustaw 0 aby wyłączyć."
 
 #: libraries/classes/Config/Descriptions.php:573
-#, fuzzy
 msgid "These are Edit, Copy and Delete links."
 msgstr "To są linki Edycja, Kopiuj i Usuń."
 
@@ -2986,12 +2974,10 @@ msgstr "Użyj naturalnego porządku do sortowania nazw tabel i baz danych."
 #: libraries/classes/Config/Descriptions.php:577
 #: libraries/classes/Config/Descriptions.php:580
 #: libraries/classes/Config/Descriptions.php:581
-#, fuzzy
 msgid "Use only icons, only text or both."
 msgstr "Używaj tylko ikon, tylko tekstu lub obu."
 
 #: libraries/classes/Config/Descriptions.php:578
-#, fuzzy
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Użyj buforowania wyjścia GZip, aby zwiększyć szybkość transferu HTTP."
 
@@ -3000,7 +2986,6 @@ msgid "Use persistent connections to MySQL databases."
 msgstr "Użyj trwałych połączeń do baz danych MySQL."
 
 #: libraries/classes/Config/Descriptions.php:582
-#, fuzzy
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Nie zezwalaj na edytowanie elementów BLOB i BINARY."
 
@@ -3009,28 +2994,24 @@ msgid "How many queries are kept in history."
 msgstr "Ile zapytań ma być przechowywanych w historii."
 
 #: libraries/classes/Config/Descriptions.php:584
-#, fuzzy
 msgid "Select which functions will be used for character set conversion."
-msgstr ""
-"Wybierz, które funkcje będą wykorzystywane do konwersji zestawu znaków."
+msgstr "Wybierz, które funkcje będą wykorzystywane do konwersji zestawu znaków."
 
 #: libraries/classes/Config/Descriptions.php:585
-#, fuzzy
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr "Podczas przeglądania tabel, sortowanie każdej tabeli jest pamiętane."
+msgstr ""
+"Podczas przeglądania tabel, sortowanie każdej tabeli jest zapamiętywane."
 
 #: libraries/classes/Config/Descriptions.php:586
 msgid "Default sort order for tables with a primary key."
 msgstr "Domyślna kolejność sortowania dla tabel z kluczem podstawowym."
 
 #: libraries/classes/Config/Descriptions.php:587
-#, fuzzy
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "Powtarzaj nagłówki co X komórek, [kbd]0[/kbd] dezaktywuje tę funkcję."
 
 #: libraries/classes/Config/Descriptions.php:588
-#, fuzzy
 msgid "For display Options"
 msgstr "Aby wyświetlić Opcje"
 
@@ -3073,7 +3054,6 @@ msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Włącza sprawdzanie, czy są aktualizacje na stronie głównej phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:598
-#, fuzzy
 msgid "The password for authenticating with the proxy."
 msgstr "Hasło do uwierzytelniania z serwerem proxy."
 
@@ -4049,7 +4029,7 @@ msgstr "Brakuje tabel przechowujących konfigurację phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
-msgstr "Ostrzeżenie o  zastrzeżonych słowach MySQL"
+msgstr "Ostrzeżenie o zastrzeżonych słowach MySQL"
 
 #: libraries/classes/Config/Descriptions.php:866
 #, fuzzy
@@ -5476,7 +5456,7 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
-"Twój serwer działa z domyślnymi wartościami dla  użytkownika controluser i "
+"Twój serwer działa z domyślnymi wartościami dla użytkownika controluser i "
 "hasła (controlpass) o jest narażony na włamanie; Jest wysoce zalecane, abyś "
 "niezwłocznie naprawił tę lukę bezpieczeństwa i zmienił hasło dla użytkownika "
 "'pma'."
@@ -7039,7 +7019,7 @@ msgstr "Krok"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "The following actions will be performed:"
-msgstr "Następujące akcje zostaną wykonane"
+msgstr "Następujące akcje zostaną wykonane:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #, php-format
@@ -10410,8 +10390,8 @@ msgstr "Wtyczki"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Zmodyfikowanych rekordów: %1$d."
-msgstr[1] "Zmodyfikowanych rekordów: %1$d."
+msgstr[0] "Zmodyfikowany rekord: %1$d."
+msgstr[1] "Zmodyfikowane rekordy: %1$d."
 msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 
 #: libraries/classes/Message.php:273
@@ -10978,6 +10958,7 @@ msgstr "Napraw"
 
 #: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:134
+#, fuzzy
 msgid "Truncate"
 msgstr "Truncate"
 
@@ -12685,7 +12666,6 @@ msgstr "Pozwól wyłączyć serwer."
 #: libraries/classes/Server/Privileges.php:384
 #: templates/server/privileges/privileges_table.twig:586
 #: templates/server/privileges/privileges_table.twig:589
-#, fuzzy
 msgid "Allows viewing processes of all users."
 msgstr "Umożliwia przeglądanie procesów wszystkich użytkowników."
 
@@ -13480,14 +13460,12 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Data i godzina kombinacja zakresu obsługiwanych jest %1$s %2$s"
 
 #: libraries/classes/Types.php:306
-#, fuzzy
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Sygnatura czasowa, zakres 1970-01-01 00: 00: 01 UTC do roku 2038-01-09 03: "
-"14: 07 UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00: 00: 00 "
-"UTC)"
+"Sygnatura czasowa, zakres 1970-01-01 00:00:01 UTC do roku 2038-01-09 03:14:"
+"07 UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:313
 #, fuzzy, php-format
@@ -16108,12 +16086,10 @@ msgstr "Kodowanie konwersji:"
 
 #: templates/filter.twig:2 templates/server/status/processes/index.twig:6
 #: templates/server/status/variables/index.twig:7
-#, fuzzy
 msgid "Filters"
 msgstr "Filtry"
 
 #: templates/filter.twig:4 templates/server/status/variables/index.twig:12
-#, fuzzy
 msgid "Containing the word:"
 msgstr "Zawierające słowo:"
 
@@ -16380,7 +16356,7 @@ msgstr "Pobierz więcej motywów!"
 #: templates/home/themes.twig:7
 #, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Zrzut ekranu z %s motywu"
+msgstr "Zrzut ekranu z %s motywu."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
