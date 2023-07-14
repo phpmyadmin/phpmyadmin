@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-07-14 14:42+0000\n"
-"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
+"Last-Translator: Plajer <worthplay.pt@onet.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -11092,7 +11092,7 @@ msgstr "Twoja sesja wygasła. Zaloguj się ponownie."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:252
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr "Brak weryfikacji reCAPTCHA, może została zablokowana przez adblock?"
+msgstr "Brak weryfikacji reCAPTCHA, może została zablokowana przez adblocka?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
 #, fuzzy
@@ -11146,7 +11146,7 @@ msgstr "Nie udało się zalogować na serwer MySQL"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:348
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr "Włączyłeś uwierzytelnianie dwuskładnikowe, potwierdź swój login."
+msgstr "Aktywowałeś podwójną weryfikację, potwierdź swoje logowanie."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
 #: templates/export.twig:119
@@ -17131,16 +17131,14 @@ msgstr "Brakuje następujących pakietów composera:"
 
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-"Uwierzytelnianie dwuskładnikowe jest dostępne i skonfigurowane dla tego "
-"konta."
+msgstr "Podwójna weryfikacja jest dostępna i skonfigurowana na tym koncie."
 
 #: templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"Uwierzytelnianie dwuskładnikowe jest dostępne, ale nie jest skonfigurowane "
-"dla tego konta."
+"Podwójna weryfikacja jest dostępna, ale nie jest skonfigurowana na tym "
+"koncie."
 
 #: templates/preferences/two_factor/main.twig:26
 #, fuzzy
