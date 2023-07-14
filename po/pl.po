@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-07-14 14:42+0000\n"
-"Last-Translator: Michal Biesiada <blade-14@o2.pl>\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -2924,7 +2924,9 @@ msgstr "Domyślna wartość klucza obcego sprawdza zaznaczenie dla kilku pytań.
 
 #: libraries/classes/Config/Descriptions.php:564
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr "Odznacz to pole, aby wyłączyć import metodą przeciągnij i upuść"
+msgstr ""
+"Usuń zaznaczenie pola wyboru, aby wyłączyć importowanie metodą przeciągnij i "
+"upuść"
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "How many rows can be inserted at one time."
@@ -10037,7 +10039,7 @@ msgstr "SSL jest używany bez urzędu certyfikacji"
 
 #: libraries/classes/Html/Generator.php:252
 msgid "SSL is used"
-msgstr "Protokół SSL jest w użyciu"
+msgstr "SSL jest używany"
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
@@ -12310,9 +12312,8 @@ msgstr ""
 "FreeOTP, Google Authenticator lub Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:208
-#, fuzzy
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr "Sprzętowy klucz bezpieczeństwa (FIDO U2F)"
+msgstr "Klucz bezpieczeństwa sprzętowego (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
 msgid ""
@@ -12337,7 +12338,7 @@ msgstr "Brak uwierzytelniania dwuskładnikowego"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 msgid "Login using password only."
-msgstr "Zaloguj się wyłącznie hasłem."
+msgstr "Zaloguj się tylko przy użyciu hasła."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:49
 msgid "Simple two-factor authentication"
@@ -15208,7 +15209,7 @@ msgstr "Zmień wszystkie sortowania tabel"
 
 #: templates/database/operations/index.twig:220
 msgid "Change all tables columns collations"
-msgstr "Zmień sortowanie kolumn wszystkich tabel"
+msgstr "Zmień wszystkie sortowania kolumn tabel"
 
 #: templates/database/privileges/index.twig:9
 #: templates/table/privileges/index.twig:8
@@ -16788,17 +16789,17 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
-"Występuje niezgodność między protokołem HTTPS wskazanym na serwerze i "
-"kliencie. Może to prowadzić do niedziałającego phpMyAdmina lub zagrożenia "
-"bezpieczeństwa. Popraw konfigurację serwera, aby prawidłowo wskazywała HTTPS."
+"Istnieje niezgodność między wskazaniem HTTPS na serwerze a klientem. Może to "
+"prowadzić do niepracującego phpMyAdmina lub zagrożenia bezpieczeństwa. "
+"Napraw konfigurację serwera, aby poprawnie wskazać HTTPS."
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Zeskanuj poniższy kod QR do aplikacji uwierzytelniania dwuskładnikowego na "
-"twoim urządzeniu i wprowadź wygenerowany przez nią kod uwierzytelniający."
+"Zeskanuj poniższy kod QR do aplikacji uwierzytelniającej dwuskładnikowej na "
+"urządzeniu i wprowadź wygenerowany kod uwierzytelniający."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -16815,8 +16816,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
-"Otwórz aplikację do uwierzytelniania dwuskładnikowego na twoim urządzeniu, "
-"aby wyświetlić kod uwierzytelniający i zweryfikować swoją tożsamość."
+"Otwórz aplikację uwierzytelniania dwuskładnikowego na urządzeniu, aby "
+"wyświetlić kod uwierzytelniający i zweryfikować swoją tożsamość."
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
@@ -16867,8 +16868,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
-"Nie używasz https, aby uzyskać dostęp do phpMyAdmin, dlatego urządzenie FIDO "
-"U2F najprawdopodobniej odmówi uwierzytelnienia."
+"Nie używasz https do uzyskania dostępu do phpMyAdmin, dlatego urządzenie "
+"FIDO U2F najprawdopodobniej odmówi uwierzytelnienia."
 
 #: templates/login/twofactor/key.twig:10
 msgid ""
@@ -17122,8 +17123,8 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
-"Uwierzytelnianie dwuskładnikowe nie jest dostępne. Zainstaluj opcjonalne "
-"zależności, aby włączyć backendy uwierzytelniania."
+"Uwierzytelnianie dwuskładnikowe nie jest dostępne, zainstaluj opcjonalne "
+"zależności, aby włączyć zaplecze uwierzytelniania."
 
 #: templates/preferences/two_factor/main.twig:12
 #: templates/preferences/two_factor/main.twig:27
