@@ -248,8 +248,8 @@ function validateIntField (jqueryInput, returnValueIfIsNumber): void {
     jqueryInput.rules('remove');
 
     jqueryInput.rules('add', {
-        number: {
-            param: true,
+        validationFunctionForInt: {
+            param: jqueryInput.value,
             depends: function () {
                 return returnValueIfIsNumber;
             }
@@ -479,10 +479,17 @@ AJAX.registerOnload('table/change.js', function () {
         // validate the comment form when it is submitted
         $('#insertForm').validate();
 
+        // validator method for INTs
+        // See all possible syntaxes in tests of https://regexr.com/7h1ci
+        $.validator.addMethod('validationFunctionForInt', function (value) {
+            return value.match(/^([+-]|0x)?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/i) !== null;
+        }, window.Messages.strEnterValidNumber);
+
         // validator method for IN(...), NOT IN(...)
         // BETWEEN and NOT BETWEEN
+        // See all possible syntaxes in tests of https://regexr.com/7h1eq
         $.validator.addMethod('validationFunctionForMultipleInt', function (value) {
-            return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
+            return value.match(/^((([+-]|0x)?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?(,|$))+)$/i) !== null;
         }, window.Messages.strEnterValidNumber);
 
         $.validator.addMethod('validationFunctionForHex', function (value) {
