@@ -186,14 +186,6 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
                 }
             });
 
-            // validator method for IN(...), NOT IN(...)
-            // BETWEEN and NOT BETWEEN
-            $.validator.addMethod('validationFunctionForMultipleInt', function (value) {
-                return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
-            },
-            window.Messages.strEnterValidNumber
-            );
-
             validateMultipleIntField($thisInput, true);
         } else {
             $(searchFormId).validate({
@@ -486,6 +478,13 @@ AJAX.registerOnload('table/change.js', function () {
     if ($('#insertForm').length) {
         // validate the comment form when it is submitted
         $('#insertForm').validate();
+
+        // validator method for IN(...), NOT IN(...)
+        // BETWEEN and NOT BETWEEN
+        $.validator.addMethod('validationFunctionForMultipleInt', function (value) {
+            return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
+        }, window.Messages.strEnterValidNumber);
+
         $.validator.addMethod('validationFunctionForHex', function (value) {
             return value.match(/^[a-f0-9]*$/i) !== null;
         });
