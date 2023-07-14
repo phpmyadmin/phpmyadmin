@@ -1692,21 +1692,28 @@ class Relation
             return;
         }
 
+        $favoriteOrRecentItemsChanged = false;
         // Since configuration storage is updated, we need to
         // re-initialize the favorite and recent tables stored in the
         // session from the current configuration storage.
         if ($relationParameters->favoriteTablesFeature !== null) {
             $fav_tables = RecentFavoriteTable::getInstance('favorite');
+            $oldFavorites = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] ?? null;
             $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = $fav_tables->getFromDb();
+            $favoriteOrRecentItemsChanged = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] !== $oldFavorites;
         }
 
         if ($relationParameters->recentlyUsedTablesFeature !== null) {
             $recent_tables = RecentFavoriteTable::getInstance('recent');
+            $oldRecents = $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] ?? null;
             $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] = $recent_tables->getFromDb();
+            $favoriteOrRecentItemsChanged = $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] !== $oldRecents;
         }
 
         // Reload navi panel to update the recent/favorite lists.
-        $GLOBALS['reload'] = true;
+        if ($favoriteOrRecentItemsChanged) {
+            $GLOBALS['reload'] = true;
+        }
     }
 
     /**
