@@ -465,6 +465,15 @@ class Header
          */
         $headers['X-Robots-Tag'] = 'noindex, nofollow';
 
+        /**
+         * The HTTP Permissions-Policy header provides a mechanism to allow and deny
+         * the use of browser features in a document
+         * or within any <iframe> elements in the document.
+         *
+         * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/Permissions-Policy
+         */
+        $headers['Permissions-Policy'] = 'fullscreen=(self), oversized-images=(self), interest-cohort=()';
+
         $headers = array_merge($headers, Core::getNoCacheHeaders());
 
         /**
