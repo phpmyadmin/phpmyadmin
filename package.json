@@ -7,7 +7,7 @@
   "license": "GPL-2.0",
   "private": true,
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "dependencies": {
     "@babel/cli": "^7.18.9",
@@ -31,7 +31,7 @@
     "postcss": "^8.4.14",
     "postcss-cli": "^9.1.0",
     "rtlcss": "^3.5.0",
-    "sass": "^1.53.0",
+    "sass": "1.60.0",
     "tablesorter": "^2.31.3",
     "tracekit": "0.4.6",
     "u2f-api-polyfill": "0.4.4",
