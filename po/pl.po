@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-07-14 14:42+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -879,10 +879,10 @@ msgstr ""
 "pomóc w odnalezieniu źródła."
 
 #: libraries/advisory_rules_generic.php:551
-#, php-format
+#, fuzzy, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% wszystkich połączeń jest przerwana. Ta wartość ta powinna być poniżej "
+"%s%% wszystkich połączeń jest przerwane. Ta wartość ta powinna być poniżej "
 "1%%"
 
 #: libraries/advisory_rules_generic.php:556
@@ -2535,13 +2535,12 @@ msgstr ""
 "obsługiwane; sugerowane: [kbd]pma__table_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:422
-#, fuzzy
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"Pozostaw puste, aby nie ustawiać preferencji interfejsu użytkownika dla "
-"„trwałych” tabel między sesjami, sugerowane: [kbd]pma__table_uiprefs[/kbd]."
+"Pozostaw puste, aby nie obsługiwać preferencji UI dla „trwałych” tabel "
+"między sesjami, sugerowane: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid ""
@@ -5477,9 +5476,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
-"Twój serwer działa z domyślnymi wartościami dla controluser i password "
-"(controlpass) i jest otwarty na włamania; naprawdę powinieneś naprawić ten "
-"słaby punkt bezpieczeństwa, zmieniając hasło użytkownika kontrolnego 'pma'."
+"Twój serwer działa z domyślnymi wartościami dla  użytkownika controluser i "
+"hasła (controlpass) o jest narażony na włamanie; Jest wysoce zalecane, abyś "
+"niezwłocznie naprawił tę lukę bezpieczeństwa i zmienił hasło dla użytkownika "
+"'pma'."
 
 #: libraries/classes/Controllers/HomeController.php:318
 msgid ""
@@ -5728,8 +5728,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Próbujesz zmniejszyć liczbę wierszy, ale wprowadziłeś już dane w tych "
-"wierszach, które zostaną utracone. Czy chcesz kontynuować?"
+"Próbujesz zmniejszyć liczbę pól, ale już wcześniej wprowadziłeś do nich dane "
+"i możesz je stracić. Czy chcesz kontynuować?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:64
 #, fuzzy
@@ -7018,7 +7018,7 @@ msgstr "Powrót"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr "Pokaż możliwe zależności częściowe na podstawie danych w tabeli"
+msgstr "Pokaż częściowe zależności oparte na dacie tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 #, fuzzy
@@ -11803,7 +11803,7 @@ msgstr "Nazwa nowej bazy danych (opcjonalnie):"
 #: libraries/classes/Plugins/Import/ImportCsv.php:101
 #: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
-msgstr "Importuj taką liczbę wierszy (opcjonalnie):"
+msgstr "Zaimportuj wskazaną ilość wierszy (opcjonalnie):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
@@ -15086,7 +15086,7 @@ msgstr "Wielo-tabelowe zapytanie"
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 msgid "Query by example"
-msgstr "Zapytanie według przykładu"
+msgstr "Zapytanie przez przykład"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -15128,7 +15128,6 @@ msgid "Another column"
 msgstr "Kolejna kolumna"
 
 #: templates/database/multi_table_query/form.twig:146
-#, fuzzy
 msgid "Enter criteria as free text"
 msgstr "Wprowadź kryteria jako dowolny tekst"
 
@@ -17100,7 +17099,6 @@ msgid "Confirm disabling two-factor authentication"
 msgstr "Potwierdź wyłączenie uwierzytelniania dwuskładnikowego"
 
 #: templates/preferences/two_factor/confirm.twig:9
-#, fuzzy
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
@@ -17128,9 +17126,8 @@ msgstr ""
 
 #: templates/preferences/two_factor/main.twig:12
 #: templates/preferences/two_factor/main.twig:27
-#, fuzzy
 msgid "Following composer packages are missing:"
-msgstr "Brakuje następujących pakietów kompozytora:"
+msgstr "Brakuje następujących pakietów composera:"
 
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
