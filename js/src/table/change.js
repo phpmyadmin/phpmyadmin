@@ -176,13 +176,21 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
             });
             // validator method for IN(...), NOT IN(...)
             // BETWEEN and NOT BETWEEN
+            // See all possible syntaxes in tests of https://regexr.com/7h1eq
             jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
-                return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
+                return value.match(/^((([+-]|0x)?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?(,|$))+)$/i) !== null;
             },
             Messages.strEnterValidNumber
             );
             validateMultipleIntField($thisInput, true);
         } else {
+            // validator method for INTs
+            // See all possible syntaxes in tests of https://regexr.com/7h1ci
+            jQuery.validator.addMethod('validationFunctionForInt', function (value) {
+                return value.match(/^([+-]|0x)?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/i) !== null;
+            },
+            Messages.strEnterValidNumber
+            );
             $(searchFormId).validate({
                 // update errors as we write
                 onkeyup: function (element) {
@@ -229,8 +237,8 @@ function validateIntField (jqueryInput, returnValueIfIsNumber) {
     jqueryInput.rules('remove');
 
     jqueryInput.rules('add', {
-        number: {
-            param: true,
+        validationFunctionForInt: {
+            param: jqueryInput.value,
             depends: function () {
                 return returnValueIfIsNumber;
             }
