@@ -2062,8 +2062,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     }
                 });
 
-            $(g.t).find('td.data.click2')
-                .on('click', function (e) {
+            $(g.t)
+                .on('click', 'td.data.click2', function (e) {
                     var $cell = $(this);
                     // In the case of relational link, We want single click on the link
                     // to goto the link and double click to start grid-editing.
@@ -2097,7 +2097,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         }
                     }
                 })
-                .on('dblclick', function (e) {
+                .on('dblclick', 'td.data.click2', function (e) {
                     if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
                     } else {
