@@ -886,10 +886,8 @@
       <code>$one_key['ref_index_list']</code>
       <code>$one_key['ref_table_name']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
+    <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['sql_history'][]</code>
-      <code>$_SESSION['tmpval']['favoriteTables']</code>
-      <code>$_SESSION['tmpval']['recentTables']</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="5">
       <code>$comments[$column['Field']]</code>
@@ -1680,8 +1678,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
-      <code>$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]</code>
+    <MixedArrayAccess occurrences="4">
       <code>$value['db']</code>
       <code>$value['db']</code>
       <code>$value['table']</code>
@@ -1691,8 +1688,7 @@
       <code>$_SESSION['tmpval']['favorites_synced']</code>
       <code>$favoriteTables[$user]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="4">
-      <code>$favoriteTables</code>
+    <MixedAssignment occurrences="3">
       <code>$favoriteTables</code>
       <code>$value</code>
       <code>$value</code>
@@ -1811,8 +1807,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="19">
-      <code>$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]</code>
+    <MixedArrayAccess occurrences="18">
       <code>$currentTable['Check_time']</code>
       <code>$currentTable['Collation']</code>
       <code>$currentTable['Create_time']</code>
@@ -1835,7 +1830,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$currentTable['TABLE_ROWS']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="27">
+    <MixedAssignment occurrences="26">
       <code>$charset</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
@@ -1846,7 +1841,6 @@
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$dbTable</code>
-      <code>$favoriteTables</code>
       <code>$overheadSize</code>
       <code>$searchDb</code>
       <code>$searchDoDBInDB</code>

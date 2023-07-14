@@ -174,10 +174,8 @@ final class FavoriteTableController extends AbstractController
      */
     private function checkFavoriteTable(string $currentTable): bool
     {
-        // ensure $_SESSION['tmpval']['favoriteTables'] is initialized
-        RecentFavoriteTable::getInstance('favorite');
-        $favoriteTables = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] ?? [];
-        foreach ($favoriteTables as $value) {
+        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
+        foreach ($recentFavoriteTables->getTables() as $value) {
             if ($value['db'] == $this->db && $value['table'] == $currentTable) {
                 return true;
             }

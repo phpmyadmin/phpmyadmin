@@ -9,7 +9,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\InternalRelations;
-use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
@@ -1682,38 +1681,12 @@ class Relation
         }
 
         $GLOBALS['cfg']['Server']['pmadb'] = $db;
+
+        //NOTE: I am unsure why we do that, as it defeats the purpose of the session cache
+        // Unset the cache
         unset($_SESSION['relation'][$GLOBALS['server']]);
-
-        $relationParameters = $this->getRelationParameters();
-        if (
-            $relationParameters->recentlyUsedTablesFeature === null
-            && $relationParameters->favoriteTablesFeature === null
-        ) {
-            return;
-        }
-
-        $favoriteOrRecentItemsChanged = false;
-        // Since configuration storage is updated, we need to
-        // re-initialize the favorite and recent tables stored in the
-        // session from the current configuration storage.
-        if ($relationParameters->favoriteTablesFeature !== null) {
-            $fav_tables = RecentFavoriteTable::getInstance('favorite');
-            $oldFavorites = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] ?? null;
-            $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = $fav_tables->getFromDb();
-            $favoriteOrRecentItemsChanged = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] !== $oldFavorites;
-        }
-
-        if ($relationParameters->recentlyUsedTablesFeature !== null) {
-            $recent_tables = RecentFavoriteTable::getInstance('recent');
-            $oldRecents = $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] ?? null;
-            $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] = $recent_tables->getFromDb();
-            $favoriteOrRecentItemsChanged = $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] !== $oldRecents;
-        }
-
-        // Reload navi panel to update the recent/favorite lists.
-        if ($favoriteOrRecentItemsChanged) {
-            $GLOBALS['reload'] = true;
-        }
+        // Fill back the cache
+        $this->getRelationParameters();
     }
 
     /**
