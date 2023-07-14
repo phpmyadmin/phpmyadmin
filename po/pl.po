@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-13 23:53+0000\n"
-"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
+"PO-Revision-Date: 2023-07-14 14:42+0000\n"
+"Last-Translator: Sebastian Weremczuk <weremczuksebastian@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -7037,7 +7037,7 @@ msgstr "Krok"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "The following actions will be performed:"
-msgstr "Wykonane zostaną następujące czynności:"
+msgstr "Następujące akcje zostaną wykonane"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #, php-format
@@ -7050,7 +7050,7 @@ msgstr "Utwórz następującą tabelę"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Third step of normalization (3NF)"
-msgstr "Trzeci krok normalizacji (3NF)"
+msgstr "Trzecia postać normalizacji"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 #, fuzzy
