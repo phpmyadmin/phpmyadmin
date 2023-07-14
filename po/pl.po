@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-14 14:42+0000\n"
-"Last-Translator: Plajer <worthplay.pt@onet.pl>\n"
+"PO-Revision-Date: 2023-07-14 14:46+0000\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -6904,7 +6904,7 @@ msgstr "Przeglądaj zewnętrzne wartości"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
-"Żadne wcześniej automatycznie zapisane zapytanie nie jest dostępne. "
+"Żadne wcześniej zapisane automatycznie zapytanie nie jest dostępne. "
 "Ładowanie domyślnego zapytania."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
@@ -11803,7 +11803,7 @@ msgstr "Nazwa nowej bazy danych (opcjonalnie):"
 #: libraries/classes/Plugins/Import/ImportCsv.php:101
 #: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
-msgstr "Zaimportuj wskazaną ilość wierszy (opcjonalnie):"
+msgstr "Zaimportuj wiele wierszy (opcjonalnie):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
@@ -17103,7 +17103,7 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
-"Wyłączając uwierzytelnianie dwuskładnikowe, będziesz mógł ponownie logować "
+"Wyłączając uwierzytelnianie dwuskładnikowe, ponownie będziesz mógł zalogować "
 "się tylko przy użyciu hasła."
 
 #: templates/preferences/two_factor/confirm.twig:13
