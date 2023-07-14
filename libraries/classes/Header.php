@@ -501,7 +501,7 @@ class Header
         /**
          * Re-enable possible disabled XSS filters.
          *
-         * @see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+         * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection
          */
         $headers['X-XSS-Protection'] = '1; mode=block';
 
@@ -509,21 +509,21 @@ class Header
          * "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing
          * a response away from the declared content-type.
          *
-         * @see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+         * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Content-Type-Options
          */
         $headers['X-Content-Type-Options'] = 'nosniff';
 
         /**
          * Adobe cross-domain-policies.
          *
-         * @see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html
+         * @see https://www.sentrium.co.uk/labs/application-security-101-http-headers
          */
         $headers['X-Permitted-Cross-Domain-Policies'] = 'none';
 
         /**
          * Robots meta tag.
          *
-         * @see https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag
+         * @see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
          */
         $headers['X-Robots-Tag'] = 'noindex, nofollow';
 
