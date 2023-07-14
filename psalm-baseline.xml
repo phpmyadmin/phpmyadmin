@@ -15026,8 +15026,7 @@
       <code>$sumSize</code>
       <code>$sumSize</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$_SESSION['tmpval']['favoriteTables']</code>
+    <MixedArrayAssignment occurrences="3">
       <code>$currentTable['ENGINE']</code>
       <code>$currentTable['ENGINE']</code>
       <code>$currentTable['ENGINE']</code>

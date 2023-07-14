@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -327,6 +328,23 @@ class StructureControllerTest extends AbstractTestCase
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
+        $GLOBALS['db'] = 'sakila';
+        $GLOBALS['dbi'] = $this->dbi;
+
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addResult(
+            'SHOW COLUMNS FROM `sakila`.`country`',
+            [
+                ['country_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment'],
+            ],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra']
+        );
+        $this->dummyDbi->addResult(
+            'SHOW INDEXES FROM `sakila`.`country`',
+            [],
+            ['Table', 'Non_unique', 'Key_name', 'Column_name']
+        );
+
         $controller = new StructureController(
             $this->response,
             $this->template,
@@ -339,19 +357,23 @@ class StructureControllerTest extends AbstractTestCase
             $this->flash
         );
 
-        $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
+        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
+        $this->assertSame([], $recentFavoriteTables->getTables());
+        $recentFavoriteTables->remove('sakila', 'country');
+        $recentFavoriteTables->add('sakila', 'country');
+        $this->assertSame([
             [
-                'db' => 'db',
-                'table' => 'table',
+                'db' => 'sakila',
+                'table' => 'country',
             ],
-        ];
+        ], $recentFavoriteTables->getTables());
 
         $this->assertFalse(
             $method->invokeArgs($controller, [''])
         );
 
         $this->assertTrue(
-            $method->invokeArgs($controller, ['table'])
+            $method->invokeArgs($controller, ['country'])
         );
     }
 
