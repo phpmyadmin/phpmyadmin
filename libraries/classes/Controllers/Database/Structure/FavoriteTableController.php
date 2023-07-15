@@ -44,7 +44,7 @@ final class FavoriteTableController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->hasDatabase() || ! $this->response->isAjax()) {
+        if (! $this->response->isAjax()) {
             return;
         }
 
@@ -69,6 +69,10 @@ final class FavoriteTableController extends AbstractController
                 ));
             }
 
+            return;
+        }
+
+        if (! $this->hasDatabase()) {
             return;
         }
 
@@ -166,10 +170,8 @@ final class FavoriteTableController extends AbstractController
      */
     private function checkFavoriteTable(string $currentTable): bool
     {
-        // ensure $_SESSION['tmpval']['favoriteTables'] is initialized
-        RecentFavoriteTable::getInstance('favorite');
-        $favoriteTables = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] ?? [];
-        foreach ($favoriteTables as $value) {
+        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
+        foreach ($recentFavoriteTables->getTables() as $value) {
             if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
                 return true;
             }

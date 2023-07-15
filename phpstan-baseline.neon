@@ -1147,12 +1147,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
@@ -1252,6 +1252,16 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Cannot access offset 'db' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Cannot access offset 'table' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
 

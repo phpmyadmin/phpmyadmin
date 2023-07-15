@@ -10,7 +10,6 @@ use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InternalRelations;
-use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
@@ -1622,32 +1621,13 @@ class Relation
         }
 
         $GLOBALS['cfg']['Server']['pmadb'] = $db;
+
+        //NOTE: I am unsure why we do that, as it defeats the purpose of the session cache
+        // Unset the cache
         unset($_SESSION['relation'][$GLOBALS['server']]);
         unset(self::$cache[$GLOBALS['server']]);
-
-        $relationParameters = $this->getRelationParameters();
-        if (
-            $relationParameters->recentlyUsedTablesFeature === null
-            && $relationParameters->favoriteTablesFeature === null
-        ) {
-            return;
-        }
-
-        // Since configuration storage is updated, we need to
-        // re-initialize the favorite and recent tables stored in the
-        // session from the current configuration storage.
-        if ($relationParameters->favoriteTablesFeature !== null) {
-            $favTables = RecentFavoriteTable::getInstance('favorite');
-            $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = $favTables->getFromDb();
-        }
-
-        if ($relationParameters->recentlyUsedTablesFeature !== null) {
-            $recentTables = RecentFavoriteTable::getInstance('recent');
-            $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] = $recentTables->getFromDb();
-        }
-
-        // Reload navi panel to update the recent/favorite lists.
-        $GLOBALS['reload'] = true;
+        // Fill back the cache
+        $this->getRelationParameters();
     }
 
     /**

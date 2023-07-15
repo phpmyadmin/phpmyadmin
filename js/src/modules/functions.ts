@@ -3153,14 +3153,23 @@ function onloadRecentFavoriteTables (): void {
         return;
     }
 
+    var favoriteTables = '';
+    if (isStorageSupported('localStorage')
+        && typeof window.localStorage.favoriteTables !== 'undefined'
+        && window.localStorage.favoriteTables !== 'undefined') {
+        favoriteTables = window.localStorage.favoriteTables;
+        if (favoriteTables === 'undefined') {
+            // Do not send an invalid value
+            return;
+        }
+    }
+
     $.ajax({
         url: $('#sync_favorite_tables').attr('href'),
         cache: false,
         type: 'POST',
         data: {
-            'favoriteTables': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
-                ? window.localStorage.favoriteTables
-                : '',
+            'favoriteTables': favoriteTables,
             'server': CommonParams.get('server'),
             'no_debug': true
         },

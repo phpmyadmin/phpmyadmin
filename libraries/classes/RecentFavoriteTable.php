@@ -59,12 +59,15 @@ class RecentFavoriteTable
      * Creates a new instance of RecentFavoriteTable
      *
      * @param string $type the table type
+     * @phpstan-param 'favorite'|'recent' $type
      */
     private function __construct(public Template $template, string $type)
     {
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->tableType = $type;
         $serverId = $GLOBALS['server'];
+        // Code search hint: recentTables
+        // Code search hint: favoriteTables
         if (! isset($_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId])) {
             $_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId] = $this->getPmaTable()
                 ? $this->getFromDb()

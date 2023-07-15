@@ -718,10 +718,6 @@
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['sql_history'][]]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['favoriteTables']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['recentTables']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['recentTables'][$GLOBALS['server']]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code>$foreign[$field]</code>
@@ -1404,7 +1400,6 @@
       <code><![CDATA[$value['table']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]]]></code>
       <code><![CDATA[$value['db']]]></code>
       <code><![CDATA[$value['db']]]></code>
       <code><![CDATA[$value['table']]]></code>
@@ -1417,7 +1412,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$favoriteTables</code>
       <code>$favoriteTables</code>
       <code>$value</code>
       <code>$value</code>
@@ -1545,7 +1539,6 @@
       <code>$updateTimeAll</code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]]]></code>
       <code><![CDATA[$currentTable['Check_time']]]></code>
       <code><![CDATA[$currentTable['Collation']]]></code>
       <code><![CDATA[$currentTable['Create_time']]]></code>
@@ -1577,7 +1570,6 @@
       <code>$createTimeAll</code>
       <code>$currentTable</code>
       <code>$dbTable</code>
-      <code>$favoriteTables</code>
       <code>$overheadSize</code>
       <code>$searchDb</code>
       <code>$searchDoDBInDB</code>
@@ -13387,8 +13379,6 @@
       <code>$sumSize</code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['tmpval']['favoriteTables']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]]]></code>
       <code><![CDATA[$currentTable['ENGINE']]]></code>
       <code><![CDATA[$currentTable['ENGINE']]]></code>
       <code><![CDATA[$currentTable['ENGINE']]]></code>

@@ -1912,15 +1912,6 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi->addResult('SELECT NULL FROM `pma__favorite_custom` LIMIT 0', [], ['NULL']);
 
-        $dummyDbi->addResult(
-            'SELECT `tables` FROM `PMA-storage`.`pma__favorite_custom` WHERE `username` = \'\'',
-            [],
-        );
-        $dummyDbi->addResult(
-            'SELECT `tables` FROM `PMA-storage`.`pma__favorite_custom` WHERE `username` = \'\'',
-            [],
-        );
-
         $_SESSION['relation'] = [];
         $_SESSION['tmpval'] = [];
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);

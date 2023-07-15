@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -249,6 +250,26 @@ class StructureControllerTest extends AbstractTestCase
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('checkFavoriteTable');
 
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $GLOBALS['db'] = 'sakila';
+        $GLOBALS['dbi'] = $dbi;
+
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW COLUMNS FROM `sakila`.`country`',
+            [
+                ['country_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment'],
+            ],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+        );
+        $dbiDummy->addResult(
+            'SHOW INDEXES FROM `sakila`.`country`',
+            [],
+            ['Table', 'Non_unique', 'Key_name', 'Column_name'],
+        );
+
         $controller = new StructureController(
             $this->response,
             $this->template,
@@ -259,14 +280,23 @@ class StructureControllerTest extends AbstractTestCase
             $this->createStub(PageSettings::class),
         );
 
-        $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [['db' => 'db', 'table' => 'table']];
+        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
+        $this->assertSame([], $recentFavoriteTables->getTables());
+        $recentFavoriteTables->remove('sakila', 'country');
+        $recentFavoriteTables->add('sakila', 'country');
+        $this->assertSame([
+            [
+                'db' => 'sakila',
+                'table' => 'country',
+            ],
+        ], $recentFavoriteTables->getTables());
 
         $this->assertFalse(
             $method->invokeArgs($controller, ['']),
         );
 
         $this->assertTrue(
-            $method->invokeArgs($controller, ['table']),
+            $method->invokeArgs($controller, ['country']),
         );
     }
 
