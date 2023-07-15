@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Exceptions\ExitException;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 
 use function defined;
 use function header;
@@ -373,14 +374,17 @@ class ResponseRenderer
             $this->HTML = $this->buffer->getContents();
         }
 
-        if ($this->isAjax()) {
-            echo $this->ajaxResponse();
-        } else {
-            echo $this->getDisplay();
-        }
+        $this->emitBody($this->isAjax() ? $this->ajaxResponse() : $this->getDisplay());
 
         $this->buffer->flush();
         $this->callExit();
+    }
+
+    private function emitBody(string $body): void
+    {
+        $responseBody = (new ResponseFactory())->createResponse()->getBody();
+        $responseBody->write($body);
+        echo $responseBody;
     }
 
     /**
