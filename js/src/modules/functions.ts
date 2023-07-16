@@ -1450,7 +1450,7 @@ function checkReservedWordColumns ($form) {
  * @return {boolean}
  */
 function copyToClipboard (text) {
-    var $temp = $('<input>');
+    var $temp = $('<textarea>');
     $temp.css({
         'position': 'fixed',
         'width': '2em',
@@ -1516,8 +1516,13 @@ function dismissNotifications () {
 
         $(document).on('click', 'a.copyQueryBtn', function (event) {
             event.preventDefault();
-            var res = Functions.copyToClipboard($(this).attr('data-text'));
-            if (res) {
+            var copyText = $(this).attr('data-text');
+            var copyTarget = $(this).attr('data-target');
+            if (copyTarget) {
+                copyText = String($(copyTarget).val());
+            }
+
+            if (Functions.copyToClipboard(copyText)) {
                 $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
             } else {
                 $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
