@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-07-16 18:46+0000\n"
-"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -11043,7 +11043,7 @@ msgstr "Twoja sesja wygasła. Zaloguj się ponownie."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:252
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr "Brak weryfikacji reCAPTCHA, może została zablokowana przez adblocka?"
+msgstr "Brak weryfikacji reCAPTCHA może być zablokowany przez adblock?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -15070,7 +15070,7 @@ msgstr "Kolejna kolumna"
 
 #: templates/database/multi_table_query/form.twig:146
 msgid "Enter criteria as free text"
-msgstr "Wprowadź kryteria jako dowolny tekst"
+msgstr "Wprowadź kryteria jako wolny tekst"
 
 #: templates/database/multi_table_query/form.twig:153
 msgid "Remove this column"
