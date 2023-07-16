@@ -132,12 +132,11 @@ final class SimulateDml
         $diff = [];
         foreach ($statement->set as $set) {
             $columns[] = $set->column;
-            $notEqualOperator = ' <> ';
             if (strtoupper($set->value) === 'NULL') {
-                $notEqualOperator = ' IS NOT ';
+                $diff[] = $set->column . ' IS NOT ' . $set->value;
+            }else{
+                $diff[] = '(' . $set->column . ' <> ' . $set->value . ' OR ' . $set->column . ' IS NULL)';
             }
-
-            $diff[] = $set->column . $notEqualOperator . $set->value;
         }
 
         if (! empty($diff)) {
