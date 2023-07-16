@@ -246,6 +246,8 @@ class Export
             // bottom back button
             . $this->getHTMLForBackButton($exportType, $db, $table)
             . $this->getHTMLForRefreshButton($exportType)
+            . '<br><br>'
+            . $this->getHTMLForCopyButton($exportType)
             . '</div>'
             . '<script>' . "\n"
             . '//<![CDATA[' . "\n"
@@ -543,6 +545,8 @@ class Export
             . '<br>'
             . $this->getHTMLForBackButton($exportType, $db, $table)
             . $this->getHTMLForRefreshButton($exportType)
+            . '<br><br>'
+            . $this->getHTMLForCopyButton($exportType)
             . '<br>'
             . '<form name="nofunction">'
             . '<textarea name="sqldump" cols="50" rows="30" '
@@ -1281,6 +1285,14 @@ class Export
         }
 
         return $refreshButton . '</form>';
+    }
+
+    private function getHTMLForCopyButton($exportType) {
+        $backButton = '<p>[ <a class="export_copy_to_clipboard_btn disableAjax" href="';
+
+        $backButton .= '#">' . __('Copy to clipboard') . '</a> ]</p>';
+
+        return $backButton;
     }
 
     private function getHTMLForBackButton(string $exportType, string $db, string $table): string
