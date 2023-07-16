@@ -16419,13 +16419,13 @@ msgstr "Durchsuchen Sie Ihren Computer:"
 #: templates/import.twig:51 templates/import.twig:77
 msgid "You may also drag and drop a file on any page."
 msgstr ""
-"Sie können auch per Drag &amp; Drop eine Datei auf einer beliebigen Seite "
+"Sie können auch per Drag &amp; Drop eine Datei auf eine beliebige Seite "
 "legen."
 
 #: templates/import.twig:58 templates/import.twig:83
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Wählen Sie vom Webserver-Uploadverzeichnis [strong]%s[/strong]:"
+msgstr "Wählen Sie aus dem Webserver-Uploadverzeichnis [strong]%s[/strong]:"
 
 #: templates/import.twig:65 templates/import.twig:91
 msgid "There are no files to import!"
@@ -16496,7 +16496,7 @@ msgstr "Anmeldung"
 #: templates/login/form.twig:64 templates/login/form.twig:69
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
-"Sie können einen Rechnernamen oder eine IP Adresse und einen Port durch "
+"Sie können einen Rechnernamen oder eine IP-Adresse und einen Port durch "
 "Leerzeichen getrennt eingeben."
 
 #: templates/login/form.twig:76
