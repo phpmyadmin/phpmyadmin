@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-09 00:24+0000\n"
+"POT-Creation-Date: 2023-07-16 00:26+0000\n"
 "PO-Revision-Date: 2022-10-12 10:26+0000\n"
 "Last-Translator: Yun Minseo <ddugi1214@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15,44 +15,44 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.15-dev\n"
 
-#: libraries/classes/Advisory/Advisor.php:179
+#: libraries/classes/Advisory/Advisor.php:198
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "수치 계산 중 오류 발생 : %s"
 
-#: libraries/classes/Advisory/Advisor.php:201
+#: libraries/classes/Advisory/Advisor.php:223
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "규칙 '%s'에 대한 precondition 계산 실패."
 
-#: libraries/classes/Advisory/Advisor.php:221
+#: libraries/classes/Advisory/Advisor.php:243
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "규칙 '%s'에 대한 값 계산 실패."
 
-#: libraries/classes/Advisory/Advisor.php:240
+#: libraries/classes/Advisory/Advisor.php:262
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "규칙 '%s'에 대한 테스트를 실행 못 함."
 
-#: libraries/classes/Advisory/Advisor.php:269
+#: libraries/classes/Advisory/Advisor.php:292
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 
-#: libraries/classes/Advisory/Advisor.php:348
+#: libraries/classes/Advisory/Advisor.php:377
 msgid "per second"
 msgstr "초당"
 
-#: libraries/classes/Advisory/Advisor.php:351
+#: libraries/classes/Advisory/Advisor.php:380
 msgid "per minute"
 msgstr "분당"
 
-#: libraries/classes/Advisory/Advisor.php:354
+#: libraries/classes/Advisory/Advisor.php:383
 msgid "per hour"
 msgstr "시간당"
 
-#: libraries/classes/Advisory/Advisor.php:357
+#: libraries/classes/Advisory/Advisor.php:386
 msgid "per day"
 msgstr "하루당"
 
@@ -4187,7 +4187,7 @@ msgid "Recently used tables"
 msgstr "최근 사용한 테이블"
 
 #: libraries/classes/Config/Descriptions.php:839
-#: libraries/classes/RecentFavoriteTable.php:230
+#: libraries/classes/RecentFavoriteTable.php:233
 msgid "Favorite tables"
 msgstr "즐겨찾기 테이블"
 
@@ -5109,11 +5109,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "서버 %d"
 
-#: libraries/classes/ConfigStorage/Relation.php:1328
+#: libraries/classes/ConfigStorage/Relation.php:1327
 msgid "no description"
 msgstr "설명이 없습니다"
 
-#: libraries/classes/ConfigStorage/Relation.php:1525
+#: libraries/classes/ConfigStorage/Relation.php:1524
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5392,7 +5392,7 @@ msgid ""
 msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
-#: libraries/classes/Controllers/Database/StructureController.php:724
+#: libraries/classes/Controllers/Database/StructureController.php:722
 msgid "unknown"
 msgstr "알수없음"
 
@@ -5446,7 +5446,7 @@ msgstr "예"
 msgid "No change"
 msgstr "변화 없음"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:104
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr "즐겨찾기 목록이 가득 찼습니다!"
 
@@ -10612,7 +10612,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr ""
 
-#: libraries/classes/Navigation/Nodes/Node.php:604
+#: libraries/classes/Navigation/Nodes/Node.php:606
 msgid "Expand/Collapse"
 msgstr "펼치기/접기"
 
@@ -12186,23 +12186,23 @@ msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하�
 msgid "Details…"
 msgstr "자세히…"
 
-#: libraries/classes/RecentFavoriteTable.php:144
+#: libraries/classes/RecentFavoriteTable.php:147
 msgid "Could not save recent table!"
 msgstr "최근 테이블을 저장할 수 없습니다!"
 
-#: libraries/classes/RecentFavoriteTable.php:148
+#: libraries/classes/RecentFavoriteTable.php:151
 msgid "Could not save favorite table!"
 msgstr "즐겨찾기 테이블을 저장할 수 없습니다!"
 
-#: libraries/classes/RecentFavoriteTable.php:226
+#: libraries/classes/RecentFavoriteTable.php:229
 msgid "Recent tables"
 msgstr "최근 테이블"
 
-#: libraries/classes/RecentFavoriteTable.php:228
+#: libraries/classes/RecentFavoriteTable.php:231
 msgid "Recent"
 msgstr "최근"
 
-#: libraries/classes/RecentFavoriteTable.php:232
+#: libraries/classes/RecentFavoriteTable.php:235
 msgid "Favorites"
 msgstr "즐겨찾기"
 

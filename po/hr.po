@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-09 00:24+0000\n"
+"POT-Creation-Date: 2023-07-16 00:26+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -16,45 +16,45 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.11-dev\n"
 
-#: libraries/classes/Advisory/Advisor.php:179
+#: libraries/classes/Advisory/Advisor.php:198
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error when evaluating: %s"
 msgstr "Dopušta čitanje podataka."
 
-#: libraries/classes/Advisory/Advisor.php:201
+#: libraries/classes/Advisory/Advisor.php:223
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr ""
 
-#: libraries/classes/Advisory/Advisor.php:221
+#: libraries/classes/Advisory/Advisor.php:243
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr ""
 
-#: libraries/classes/Advisory/Advisor.php:240
+#: libraries/classes/Advisory/Advisor.php:262
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr ""
 
-#: libraries/classes/Advisory/Advisor.php:269
+#: libraries/classes/Advisory/Advisor.php:292
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: libraries/classes/Advisory/Advisor.php:348
+#: libraries/classes/Advisory/Advisor.php:377
 msgid "per second"
 msgstr "po sekundi"
 
-#: libraries/classes/Advisory/Advisor.php:351
+#: libraries/classes/Advisory/Advisor.php:380
 msgid "per minute"
 msgstr "po minuti"
 
-#: libraries/classes/Advisory/Advisor.php:354
+#: libraries/classes/Advisory/Advisor.php:383
 msgid "per hour"
 msgstr "po satu"
 
-#: libraries/classes/Advisory/Advisor.php:357
+#: libraries/classes/Advisory/Advisor.php:386
 msgid "per day"
 msgstr "po danu"
 
@@ -4320,7 +4320,7 @@ msgid "Recently used tables"
 msgstr "Provjeri tablicu"
 
 #: libraries/classes/Config/Descriptions.php:839
-#: libraries/classes/RecentFavoriteTable.php:230
+#: libraries/classes/RecentFavoriteTable.php:233
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
@@ -5299,11 +5299,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Poslužitelj"
 
-#: libraries/classes/ConfigStorage/Relation.php:1328
+#: libraries/classes/ConfigStorage/Relation.php:1327
 msgid "no description"
 msgstr "bez opisa"
 
-#: libraries/classes/ConfigStorage/Relation.php:1525
+#: libraries/classes/ConfigStorage/Relation.php:1524
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5602,7 +5602,7 @@ msgid ""
 msgstr ""
 "Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite %sdokumentaciju%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:724
+#: libraries/classes/Controllers/Database/StructureController.php:722
 msgid "unknown"
 msgstr "nepoznato"
 
@@ -5656,7 +5656,7 @@ msgstr "Da"
 msgid "No change"
 msgstr "Bez izmjena"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:104
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -11371,7 +11371,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Novo"
 
-#: libraries/classes/Navigation/Nodes/Node.php:604
+#: libraries/classes/Navigation/Nodes/Node.php:606
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -13163,30 +13163,30 @@ msgstr ""
 msgid "Details…"
 msgstr "Detalji…"
 
-#: libraries/classes/RecentFavoriteTable.php:144
+#: libraries/classes/RecentFavoriteTable.php:147
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/classes/RecentFavoriteTable.php:148
+#: libraries/classes/RecentFavoriteTable.php:151
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save favorite table!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/classes/RecentFavoriteTable.php:226
+#: libraries/classes/RecentFavoriteTable.php:229
 #, fuzzy
 msgid "Recent tables"
 msgstr "Nema tablica"
 
-#: libraries/classes/RecentFavoriteTable.php:228
+#: libraries/classes/RecentFavoriteTable.php:231
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Povrat"
 
-#: libraries/classes/RecentFavoriteTable.php:232
+#: libraries/classes/RecentFavoriteTable.php:235
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"

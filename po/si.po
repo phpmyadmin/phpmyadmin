@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-09 00:24+0000\n"
+"POT-Creation-Date: 2023-07-16 00:26+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,45 +15,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.11-dev\n"
 
-#: libraries/classes/Advisory/Advisor.php:179
+#: libraries/classes/Advisory/Advisor.php:198
 #, fuzzy, php-format
 #| msgid "Error while creating PDF:"
 msgid "Error when evaluating: %s"
 msgstr "PDF සැදීමේදී දෝෂ:"
 
-#: libraries/classes/Advisory/Advisor.php:201
+#: libraries/classes/Advisory/Advisor.php:223
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පූර්ව කොන්දේසි විනිශ්චය කිරීම අසමත් විය."
 
-#: libraries/classes/Advisory/Advisor.php:221
+#: libraries/classes/Advisory/Advisor.php:243
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "'%s' රීතිය සඳහා අගය ගණනය කිරීම අසමත් විය."
 
-#: libraries/classes/Advisory/Advisor.php:240
+#: libraries/classes/Advisory/Advisor.php:262
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පරීක්ෂණය සිදු කිරීම අසමත් විය."
 
-#: libraries/classes/Advisory/Advisor.php:269
+#: libraries/classes/Advisory/Advisor.php:292
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසමත් විය."
 
-#: libraries/classes/Advisory/Advisor.php:348
+#: libraries/classes/Advisory/Advisor.php:377
 msgid "per second"
 msgstr "තප්පරයකට"
 
-#: libraries/classes/Advisory/Advisor.php:351
+#: libraries/classes/Advisory/Advisor.php:380
 msgid "per minute"
 msgstr "මිනිත්තුවකට"
 
-#: libraries/classes/Advisory/Advisor.php:354
+#: libraries/classes/Advisory/Advisor.php:383
 msgid "per hour"
 msgstr "පැයකට"
 
-#: libraries/classes/Advisory/Advisor.php:357
+#: libraries/classes/Advisory/Advisor.php:386
 msgid "per day"
 msgstr "දිනකට"
 
@@ -4486,7 +4486,7 @@ msgid "Recently used tables"
 msgstr "මෑතදී භාවිතා කල වගු"
 
 #: libraries/classes/Config/Descriptions.php:839
-#: libraries/classes/RecentFavoriteTable.php:230
+#: libraries/classes/RecentFavoriteTable.php:233
 msgid "Favorite tables"
 msgstr "ප්‍රියතම වගු"
 
@@ -5436,11 +5436,11 @@ msgstr "%sZip දිගහැරුමට%s (%s) කෘත්‍ය අවශ්
 msgid "Server %d"
 msgstr "%d වන සේවාදායකය"
 
-#: libraries/classes/ConfigStorage/Relation.php:1328
+#: libraries/classes/ConfigStorage/Relation.php:1327
 msgid "no description"
 msgstr "විස්තරයක් නොමැත"
 
-#: libraries/classes/ConfigStorage/Relation.php:1525
+#: libraries/classes/ConfigStorage/Relation.php:1524
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5727,7 +5727,7 @@ msgid ""
 msgstr ""
 "මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
 
-#: libraries/classes/Controllers/Database/StructureController.php:724
+#: libraries/classes/Controllers/Database/StructureController.php:722
 msgid "unknown"
 msgstr "නොදන්නා"
 
@@ -5781,7 +5781,7 @@ msgstr "ඔව්"
 msgid "No change"
 msgstr "වෙනස්කම් නැත"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:104
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -11171,7 +11171,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "නව සුචියක්"
 
-#: libraries/classes/Navigation/Nodes/Node.php:604
+#: libraries/classes/Navigation/Nodes/Node.php:606
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -12843,25 +12843,25 @@ msgstr "කරුණාකර දත්තගබඩාව අඩංගු ඩි
 msgid "Details…"
 msgstr "විස්තර…"
 
-#: libraries/classes/RecentFavoriteTable.php:144
+#: libraries/classes/RecentFavoriteTable.php:147
 msgid "Could not save recent table!"
 msgstr "මෑතදී භාවිතා කල වගු සුරැකීම අසමත් විය!"
 
-#: libraries/classes/RecentFavoriteTable.php:148
+#: libraries/classes/RecentFavoriteTable.php:151
 #, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
 msgstr "මෑතදී භාවිතා කල වගු සුරැකීම අසමත් විය!"
 
-#: libraries/classes/RecentFavoriteTable.php:226
+#: libraries/classes/RecentFavoriteTable.php:229
 msgid "Recent tables"
 msgstr "මෑතදී භාවිතා කල වගු"
 
-#: libraries/classes/RecentFavoriteTable.php:228
+#: libraries/classes/RecentFavoriteTable.php:231
 msgid "Recent"
 msgstr "මෑතකාලීන"
 
-#: libraries/classes/RecentFavoriteTable.php:232
+#: libraries/classes/RecentFavoriteTable.php:235
 msgid "Favorites"
 msgstr "ප්‍රියතම"
 

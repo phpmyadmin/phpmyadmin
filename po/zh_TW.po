@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-09 00:24+0000\n"
+"POT-Creation-Date: 2023-07-16 00:26+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -15,44 +15,44 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.16.2-dev\n"
 
-#: libraries/classes/Advisory/Advisor.php:179
+#: libraries/classes/Advisory/Advisor.php:198
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "評估此項目時發生錯誤：%s"
 
-#: libraries/classes/Advisory/Advisor.php:201
+#: libraries/classes/Advisory/Advisor.php:223
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "在檢查預先狀況時，條件「%s」失敗。"
 
-#: libraries/classes/Advisory/Advisor.php:221
+#: libraries/classes/Advisory/Advisor.php:243
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "在計算值時，條件「%s」失敗。"
 
-#: libraries/classes/Advisory/Advisor.php:240
+#: libraries/classes/Advisory/Advisor.php:262
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "在執行測試時，條件「%s」失敗。"
 
-#: libraries/classes/Advisory/Advisor.php:269
+#: libraries/classes/Advisory/Advisor.php:292
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "無法產生規則「%s」的格式化文字。"
 
-#: libraries/classes/Advisory/Advisor.php:348
+#: libraries/classes/Advisory/Advisor.php:377
 msgid "per second"
 msgstr "每秒"
 
-#: libraries/classes/Advisory/Advisor.php:351
+#: libraries/classes/Advisory/Advisor.php:380
 msgid "per minute"
 msgstr "每分鐘"
 
-#: libraries/classes/Advisory/Advisor.php:354
+#: libraries/classes/Advisory/Advisor.php:383
 msgid "per hour"
 msgstr "每小時"
 
-#: libraries/classes/Advisory/Advisor.php:357
+#: libraries/classes/Advisory/Advisor.php:386
 msgid "per day"
 msgstr "每天"
 
@@ -4067,7 +4067,7 @@ msgid "Recently used tables"
 msgstr "最近使用的資料表"
 
 #: libraries/classes/Config/Descriptions.php:839
-#: libraries/classes/RecentFavoriteTable.php:230
+#: libraries/classes/RecentFavoriteTable.php:233
 msgid "Favorite tables"
 msgstr "最愛資料表"
 
@@ -4974,11 +4974,11 @@ msgstr "此系統目前未有提供 %1$sGZip 壓縮和解壓縮%2$s所必須的 
 msgid "Server %d"
 msgstr "伺服器 %d"
 
-#: libraries/classes/ConfigStorage/Relation.php:1328
+#: libraries/classes/ConfigStorage/Relation.php:1327
 msgid "no description"
 msgstr "無說明"
 
-#: libraries/classes/ConfigStorage/Relation.php:1525
+#: libraries/classes/ConfigStorage/Relation.php:1524
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5241,7 +5241,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參閱%sdocumentation%s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:724
+#: libraries/classes/Controllers/Database/StructureController.php:722
 msgid "unknown"
 msgstr "未知"
 
@@ -5295,7 +5295,7 @@ msgstr "是"
 msgid "No change"
 msgstr "無更改"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:104
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr "最愛清單已滿！"
 
@@ -10451,7 +10451,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "新增"
 
-#: libraries/classes/Navigation/Nodes/Node.php:604
+#: libraries/classes/Navigation/Nodes/Node.php:606
 msgid "Expand/Collapse"
 msgstr "展開／摺疊"
 
@@ -12072,23 +12072,23 @@ msgstr "請檢查資料庫所在的資料夾權限。"
 msgid "Details…"
 msgstr "詳細資訊…"
 
-#: libraries/classes/RecentFavoriteTable.php:144
+#: libraries/classes/RecentFavoriteTable.php:147
 msgid "Could not save recent table!"
 msgstr "無法儲存最近使用的資料表！"
 
-#: libraries/classes/RecentFavoriteTable.php:148
+#: libraries/classes/RecentFavoriteTable.php:151
 msgid "Could not save favorite table!"
 msgstr "無法儲存最愛資料表！"
 
-#: libraries/classes/RecentFavoriteTable.php:226
+#: libraries/classes/RecentFavoriteTable.php:229
 msgid "Recent tables"
 msgstr "最近使用的資料表"
 
-#: libraries/classes/RecentFavoriteTable.php:228
+#: libraries/classes/RecentFavoriteTable.php:231
 msgid "Recent"
 msgstr "最近使用"
 
-#: libraries/classes/RecentFavoriteTable.php:232
+#: libraries/classes/RecentFavoriteTable.php:235
 msgid "Favorites"
 msgstr "最愛"
 

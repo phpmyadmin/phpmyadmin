@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-09 00:24+0000\n"
+"POT-Creation-Date: 2023-07-16 00:26+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -20,44 +20,44 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.10.1\n"
 
-#: libraries/classes/Advisory/Advisor.php:179
+#: libraries/classes/Advisory/Advisor.php:198
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "Gặp lỗi khi đánh giá: %s"
 
-#: libraries/classes/Advisory/Advisor.php:201
+#: libraries/classes/Advisory/Advisor.php:223
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Gặp lỗi khi chạy kiểm tra cho quy tắc “%s”."
 
-#: libraries/classes/Advisory/Advisor.php:221
+#: libraries/classes/Advisory/Advisor.php:243
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Gặp lỗi khi chạy kiểm tra cho quy tắc “%s”."
 
-#: libraries/classes/Advisory/Advisor.php:240
+#: libraries/classes/Advisory/Advisor.php:262
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Gặp lỗi khi chạy kiểm tra cho quy tắc “%s”."
 
-#: libraries/classes/Advisory/Advisor.php:269
+#: libraries/classes/Advisory/Advisor.php:292
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Gặp lỗi khi định dạng chuỗi cho quy tắc “%s”."
 
-#: libraries/classes/Advisory/Advisor.php:348
+#: libraries/classes/Advisory/Advisor.php:377
 msgid "per second"
 msgstr "mỗi giây"
 
-#: libraries/classes/Advisory/Advisor.php:351
+#: libraries/classes/Advisory/Advisor.php:380
 msgid "per minute"
 msgstr "mỗi phút"
 
-#: libraries/classes/Advisory/Advisor.php:354
+#: libraries/classes/Advisory/Advisor.php:383
 msgid "per hour"
 msgstr "mỗi giờ"
 
-#: libraries/classes/Advisory/Advisor.php:357
+#: libraries/classes/Advisory/Advisor.php:386
 msgid "per day"
 msgstr "mỗi ngày"
 
@@ -4178,7 +4178,7 @@ msgid "Recently used tables"
 msgstr "Các bảng mới dùng gần đây"
 
 #: libraries/classes/Config/Descriptions.php:839
-#: libraries/classes/RecentFavoriteTable.php:230
+#: libraries/classes/RecentFavoriteTable.php:233
 msgid "Favorite tables"
 msgstr "Bảng ưa dùng"
 
@@ -5094,11 +5094,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Máy chủ %d"
 
-#: libraries/classes/ConfigStorage/Relation.php:1328
+#: libraries/classes/ConfigStorage/Relation.php:1327
 msgid "no description"
 msgstr "không có mô tả"
 
-#: libraries/classes/ConfigStorage/Relation.php:1525
+#: libraries/classes/ConfigStorage/Relation.php:1524
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5372,7 +5372,7 @@ msgid ""
 msgstr ""
 "View này có ít nhất số lượng dòng này. Vui lòng tham khảo %stài liệu%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:724
+#: libraries/classes/Controllers/Database/StructureController.php:722
 msgid "unknown"
 msgstr "không hiểu"
 
@@ -5426,7 +5426,7 @@ msgstr "Có"
 msgid "No change"
 msgstr "Không thay đổi gì"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:104
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr "Danh sách Ưa dùng đã đầy!"
 
@@ -10659,7 +10659,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Mới"
 
-#: libraries/classes/Navigation/Nodes/Node.php:604
+#: libraries/classes/Navigation/Nodes/Node.php:606
 msgid "Expand/Collapse"
 msgstr "Dãn/Co"
 
@@ -12231,23 +12231,23 @@ msgstr "Vui lòng kiểm tra đặc quyền của thư mục chứa cơ sở d�
 msgid "Details…"
 msgstr "Chi tiết…"
 
-#: libraries/classes/RecentFavoriteTable.php:144
+#: libraries/classes/RecentFavoriteTable.php:147
 msgid "Could not save recent table!"
 msgstr "Không thể ghi lại bảng mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:148
+#: libraries/classes/RecentFavoriteTable.php:151
 msgid "Could not save favorite table!"
 msgstr "Không thể ghi lại bảng mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:226
+#: libraries/classes/RecentFavoriteTable.php:229
 msgid "Recent tables"
 msgstr "Các bảng mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:228
+#: libraries/classes/RecentFavoriteTable.php:231
 msgid "Recent"
 msgstr "Mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:232
+#: libraries/classes/RecentFavoriteTable.php:235
 msgid "Favorites"
 msgstr "Ưa dùng"
 

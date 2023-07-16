@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-09 00:24+0000\n"
+"POT-Creation-Date: 2023-07-16 00:26+0000\n"
 "PO-Revision-Date: 2022-12-30 07:50+0000\n"
 "Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,44 +15,44 @@ msgstr ""
 "X-Generator: Weblate 4.15.1-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
-#: libraries/classes/Advisory/Advisor.php:179
+#: libraries/classes/Advisory/Advisor.php:198
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "Terjadi error saat mengevaluasi: %s"
 
-#: libraries/classes/Advisory/Advisor.php:201
+#: libraries/classes/Advisory/Advisor.php:223
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Gagal mengevaluasi prasyarat untuk aturan '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:221
+#: libraries/classes/Advisory/Advisor.php:243
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Gagal menghitung nilai aturan '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:240
+#: libraries/classes/Advisory/Advisor.php:262
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Gagal menjalankan tes untuk aturan '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:269
+#: libraries/classes/Advisory/Advisor.php:292
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Gagal memformat string untuk aturan '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:348
+#: libraries/classes/Advisory/Advisor.php:377
 msgid "per second"
 msgstr "per detik"
 
-#: libraries/classes/Advisory/Advisor.php:351
+#: libraries/classes/Advisory/Advisor.php:380
 msgid "per minute"
 msgstr "per menit"
 
-#: libraries/classes/Advisory/Advisor.php:354
+#: libraries/classes/Advisory/Advisor.php:383
 msgid "per hour"
 msgstr "dalam sejam"
 
-#: libraries/classes/Advisory/Advisor.php:357
+#: libraries/classes/Advisory/Advisor.php:386
 msgid "per day"
 msgstr "per hari"
 
@@ -4548,7 +4548,7 @@ msgid "Recently used tables"
 msgstr "Tabel yang terakhir digunakan"
 
 #: libraries/classes/Config/Descriptions.php:839
-#: libraries/classes/RecentFavoriteTable.php:230
+#: libraries/classes/RecentFavoriteTable.php:233
 msgid "Favorite tables"
 msgstr "Tabel favorit"
 
@@ -5518,11 +5518,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/classes/ConfigStorage/Relation.php:1328
+#: libraries/classes/ConfigStorage/Relation.php:1327
 msgid "no description"
 msgstr "tidak ada deskripsi"
 
-#: libraries/classes/ConfigStorage/Relation.php:1525
+#: libraries/classes/ConfigStorage/Relation.php:1524
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5814,7 +5814,7 @@ msgstr ""
 "Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat "
 "%sdokumentasi%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:724
+#: libraries/classes/Controllers/Database/StructureController.php:722
 msgid "unknown"
 msgstr "tidak diketahui"
 
@@ -5868,7 +5868,7 @@ msgstr "Ya"
 msgid "No change"
 msgstr "Tidak ada perubahan"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:104
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr "Daftar favorit sudah penuh!"
 
@@ -11382,7 +11382,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Baru"
 
-#: libraries/classes/Navigation/Nodes/Node.php:604
+#: libraries/classes/Navigation/Nodes/Node.php:606
 msgid "Expand/Collapse"
 msgstr "Bentangkan/Tutup"
 
@@ -13172,23 +13172,23 @@ msgstr "Harap periksa hak akses direktori basis data."
 msgid "Details…"
 msgstr "Rincian…"
 
-#: libraries/classes/RecentFavoriteTable.php:144
+#: libraries/classes/RecentFavoriteTable.php:147
 msgid "Could not save recent table!"
 msgstr "Tidak dapat menyimpan tabel ini!"
 
-#: libraries/classes/RecentFavoriteTable.php:148
+#: libraries/classes/RecentFavoriteTable.php:151
 msgid "Could not save favorite table!"
 msgstr "Tidak dapat menyimpan tabel favorit!"
 
-#: libraries/classes/RecentFavoriteTable.php:226
+#: libraries/classes/RecentFavoriteTable.php:229
 msgid "Recent tables"
 msgstr "Tabel terakhir"
 
-#: libraries/classes/RecentFavoriteTable.php:228
+#: libraries/classes/RecentFavoriteTable.php:231
 msgid "Recent"
 msgstr "Terbaru"
 
-#: libraries/classes/RecentFavoriteTable.php:232
+#: libraries/classes/RecentFavoriteTable.php:235
 msgid "Favorites"
 msgstr "Favorit"
 
