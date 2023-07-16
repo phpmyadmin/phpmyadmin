@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-15 15:52+0000\n"
-"Last-Translator: Plajer <worthplay.pt@onet.pl>\n"
+"PO-Revision-Date: 2023-07-16 18:46+0000\n"
+"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -2956,7 +2956,6 @@ msgid "These are Edit, Copy and Delete links."
 msgstr "To są linki Edycja, Kopiuj i Usuń."
 
 #: libraries/classes/Config/Descriptions.php:574
-#, fuzzy
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Określa, czy pokazywać łącza wiersza, nawet w przypadku braku unikalnego "
@@ -3088,22 +3087,18 @@ msgid "Blowfish secret"
 msgstr "Sekret Blowfish"
 
 #: libraries/classes/Config/Descriptions.php:622
-#, fuzzy
 msgid "Row marker"
 msgstr "Oznaczanie wiersza"
 
 #: libraries/classes/Config/Descriptions.php:623
-#, fuzzy
 msgid "Highlight pointer"
 msgstr "Podświetl wskaźnik"
 
 #: libraries/classes/Config/Descriptions.php:624
-#, fuzzy
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:625
-#, fuzzy
 msgid "CHAR columns editing"
 msgstr "Edycja kolumny typu CHAR"
 
@@ -3116,12 +3111,10 @@ msgid "Enable linter"
 msgstr "Włącz linter"
 
 #: libraries/classes/Config/Descriptions.php:628
-#, fuzzy
 msgid "Minimum size for input field"
 msgstr "Minimalny rozmiar pola wprowadzania"
 
 #: libraries/classes/Config/Descriptions.php:629
-#, fuzzy
 msgid "Maximum size for input field"
 msgstr "Maksymalny rozmiar pola wprowadzania"
 
@@ -3134,12 +3127,10 @@ msgid "CHAR textarea rows"
 msgstr "Wiersze w obszarze tekstowym CHAR/VARCHAR"
 
 #: libraries/classes/Config/Descriptions.php:632
-#, fuzzy
 msgid "Check config file permissions"
 msgstr "Sprawdź uprawnienia pliku konfiguracyjnego"
 
 #: libraries/classes/Config/Descriptions.php:633
-#, fuzzy
 msgid "Compress on the fly"
 msgstr "Kompresuj w locie"
 
@@ -3149,7 +3140,6 @@ msgstr "Potwierdzanie zapytań DROP"
 
 #: libraries/classes/Config/Descriptions.php:635
 #: templates/console/display.twig:11 templates/console/display.twig:64
-#, fuzzy
 msgid "Debug SQL"
 msgstr "Debug SQL"
 
@@ -3228,7 +3218,6 @@ msgid "Disable multi table maintenance"
 msgstr "Wyłącz utrzymanie wielu tabeli"
 
 #: libraries/classes/Config/Descriptions.php:654
-#, fuzzy
 msgid "Maximum execution time"
 msgstr "Maksymalny czas wykonania"
 
@@ -3237,7 +3226,6 @@ msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr "Użyj instrukcji [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
-#, fuzzy
 msgid "Save as file"
 msgstr "Zapisz jako plik"
 
@@ -3271,7 +3259,6 @@ msgstr "Typ kompresji"
 #: libraries/classes/Plugins/Export/ExportOds.php:70
 #: libraries/classes/Plugins/Export/ExportOdt.php:127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:79
-#, fuzzy
 msgid "Put columns names in the first row"
 msgstr "Umieść nazwy kolumn w pierwszym wierszu"
 
@@ -3297,15 +3284,13 @@ msgstr "Kolumny uciekają z"
 #: libraries/classes/Config/Descriptions.php:693
 #: libraries/classes/Config/Descriptions.php:697
 #: libraries/classes/Config/Descriptions.php:742
-#, fuzzy
 msgid "Replace NULL with"
 msgstr "Zamień NULL na"
 
 #: libraries/classes/Config/Descriptions.php:664
 #: libraries/classes/Config/Descriptions.php:670
-#, fuzzy
 msgid "Remove CRLF characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki (CRLF) nowej linii z kolumn"
 
 #: libraries/classes/Config/Descriptions.php:665
 #: libraries/classes/Config/Descriptions.php:798
@@ -3409,7 +3394,6 @@ msgstr "Typ mediów"
 #: libraries/classes/Config/Descriptions.php:686
 #: libraries/classes/Config/Descriptions.php:698
 #: libraries/classes/Config/Descriptions.php:736
-#, fuzzy
 msgid "Relationships"
 msgstr "Relacje"
 
@@ -3510,7 +3494,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:351
-#, fuzzy, php-format
+#, php-format
 msgid "%s view"
 msgstr "%s widok"
 
@@ -4255,7 +4239,7 @@ msgstr "Projektowanie i schemat PDF: współrzędne tabeli"
 
 #: libraries/classes/Config/Descriptions.php:915
 msgid "Display columns table"
-msgstr "Wyświetlanie kolumn tabeli"
+msgstr "Wyświetl kolumny tabeli"
 
 #: libraries/classes/Config/Descriptions.php:916
 msgid "UI preferences table"
@@ -4553,22 +4537,18 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:967
-#, fuzzy
 msgid "URL for reCAPTCHA v2 API"
 msgstr "URL do reCAPTCHA v2 API"
 
 #: libraries/classes/Config/Descriptions.php:968
-#, fuzzy
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr "Fragment kodu Content-Security-Policy dla interfejsu API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:969
-#, fuzzy
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr "Parametr żądania dla interfejsu API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:970
-#, fuzzy
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr "Parametr odpowiedzi dla API reCAPTCHA v2"
 
@@ -4581,7 +4561,6 @@ msgid "Private key for reCAPTCHA"
 msgstr "Klucz prywatny dla reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:973
-#, fuzzy
 msgid "URL for reCAPTCHA siteverify"
 msgstr "URL do weryfikacji witryny reCAPTCHA"
 
@@ -4829,7 +4808,6 @@ msgid "Default transformations"
 msgstr "Domyślne transformacje"
 
 #: libraries/classes/Config/PageSettings.php:135
-#, fuzzy
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Nie można zapisać ustawień, przesłany formularz konfiguracji zawiera błędy!"
@@ -4987,7 +4965,7 @@ msgstr ""
 "cookie validity%s."
 
 #: libraries/classes/Config/ServerConfigChecks.php:472
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -4996,7 +4974,7 @@ msgstr ""
 "niedostępne w tym systemie."
 
 #: libraries/classes/Config/ServerConfigChecks.php:503
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -5457,7 +5435,7 @@ msgid ""
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 "Twój serwer działa z domyślnymi wartościami dla użytkownika controluser i "
-"hasła (controlpass) o jest narażony na włamanie; Jest wysoce zalecane, abyś "
+"hasła (controlpass) i jest narażony na włamanie; Jest wysoce zalecane, abyś "
 "niezwłocznie naprawił tę lukę bezpieczeństwa i zmienił hasło dla użytkownika "
 "'pma'."
 
@@ -7357,9 +7335,8 @@ msgid "%d object(s) created."
 msgstr "%d obiekt(y) utworzony."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
-#, fuzzy
 msgid "Column name"
-msgstr "Nazwa kolumn"
+msgstr "Nazwa kolumny"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
@@ -7592,12 +7569,10 @@ msgid ""
 msgstr "Wyczuwam nowe ustawienia, poczekaj chwilę, są one przetwarzane."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:647
-#, fuzzy
 msgid "Column name successfully copied to clipboard!"
 msgstr "Nazwa kolumny pomyślnie skopiowana do schowka!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:648
-#, fuzzy
 msgid "Column name copying to clipboard failed!"
 msgstr "Kopiowanie nazwy kolumny do schowka nie powiodło się!"
 
@@ -7606,7 +7581,6 @@ msgid "Successfully copied!"
 msgstr "Skopiowano pomyślnie!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:650
-#, fuzzy
 msgid "Copying failed!"
 msgstr "Kopiowanie nie powiodło się!"
 
@@ -9260,11 +9234,11 @@ msgid "Execution results of routine %s"
 msgstr "Wynik wykonanych procedur %s"
 
 #: libraries/classes/Database/Routines.php:1232
-#, fuzzy, php-format
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d wiersz dotyczy ostatniego sprawozdania wewnątrz procedury."
-msgstr[1] "%d wierszy dotyczy ostatniego sprawozdania wewnątrz procedury."
+msgstr[1] "%d wiersze dotyczą ostatniego sprawozdania wewnątrz procedury."
 msgstr[2] "%d wierszy dotyczy ostatniego sprawozdania wewnątrz procedury."
 
 #: libraries/classes/Database/Routines.php:1297
@@ -10395,15 +10369,15 @@ msgstr[1] "Zmodyfikowane rekordy: %1$d."
 msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 
 #: libraries/classes/Message.php:273
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "Usunięto wiersz %1$d."
-msgstr[1] "Usunięto %1$d wierszy."
+msgstr[1] "Usunięto %1$d wiersze."
 msgstr[2] "Usunięto %1$d wierszy."
 
 #: libraries/classes/Message.php:294
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "Wstawiono wiersz: %1$d."
@@ -10446,7 +10420,6 @@ msgstr ""
 "na wydajność. Rozważ wyłączenie grupowania towarów w panelu nawigacyjnym."
 
 #: libraries/classes/Navigation/NavigationTree.php:832
-#, fuzzy
 msgid "Groups"
 msgstr "Grupy"
 
@@ -10869,7 +10842,6 @@ msgid "Find transitive dependencies"
 msgstr "Znajdź zależności przechodnie"
 
 #: libraries/classes/Normalization.php:872
-#, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10958,9 +10930,8 @@ msgstr "Napraw"
 
 #: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:134
-#, fuzzy
 msgid "Truncate"
-msgstr "Truncate"
+msgstr "Wyczyść"
 
 #: libraries/classes/Operations.php:572 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
@@ -10989,7 +10960,6 @@ msgid "Drop"
 msgstr "Usuń"
 
 #: libraries/classes/Operations.php:574
-#, fuzzy
 msgid "Coalesce"
 msgstr "Łączyć"
 
@@ -11076,7 +11046,6 @@ msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr "Brak weryfikacji reCAPTCHA, może została zablokowana przez adblocka?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
-#, fuzzy
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Nie udało się połączyć z usługą reCAPTCHA!"
 
@@ -11806,7 +11775,6 @@ msgstr ""
 "oddzielone przecinkami, a nie zamknięte cudzysłowami."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:134
-#, fuzzy
 msgid "Column names:"
 msgstr "Nazwy kolumn:"
 
@@ -12280,7 +12248,6 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formatuje tekst jako XML z podświetlaniem składni."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:135
-#, fuzzy
 msgid "Authentication Application (2FA)"
 msgstr "Aplikacja uwierzytelniająca (2FA)"
 
@@ -12527,7 +12494,6 @@ msgstr "Stare uwierzytelnianie MySQL-4.0"
 
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
-#, fuzzy
 msgid "Account locking is not supported."
 msgstr "Blokowanie konta nie jest obsługiwane."
 
@@ -12737,7 +12703,6 @@ msgstr "Umożliwia konfigurowanie zdarzeń dla programu planującego zdarzenia."
 #: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
-#, fuzzy
 msgid "Allows deleting historical rows."
 msgstr "Umożliwia usuwanie historycznych wierszy."
 
@@ -13188,7 +13153,7 @@ msgstr ""
 "danych)"
 
 #: libraries/classes/Template.php:135
-#, fuzzy, php-format
+#, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Błąd podczas pracy z pamięcią podręczną szablonów: %s"
 
@@ -14830,7 +14795,6 @@ msgid "Number of tables:"
 msgstr "Liczba tabel:"
 
 #: templates/database/designer/main.twig:381
-#, fuzzy
 msgid "Delete relationship"
 msgstr "Usuń relację"
 
@@ -15101,7 +15065,6 @@ msgid "Add as"
 msgstr "Dodać jako"
 
 #: templates/database/multi_table_query/form.twig:119
-#, fuzzy
 msgid "Another column"
 msgstr "Kolejna kolumna"
 
@@ -16261,7 +16224,7 @@ msgstr "Motyw"
 #: templates/home/index.twig:142
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Pokaż wszystko"
+msgstr "Wyświetl wszystko"
 
 #: templates/home/index.twig:157
 msgid "Database server"
@@ -16782,7 +16745,6 @@ msgstr "Sekretny klucz:"
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
-#, fuzzy
 msgid "Authentication code:"
 msgstr "Kod weryfikacyjny:"
 
@@ -16951,7 +16913,6 @@ msgstr ""
 "zaimportować to do bieżącej sesji?"
 
 #: templates/preferences/autoload.twig:13
-#, fuzzy
 msgid "Delete settings"
 msgstr "Usuń ustawienia"
 
@@ -17060,17 +17021,14 @@ msgstr ""
 #: templates/preferences/two_factor/configure.twig:5
 #: templates/preferences/two_factor/main.twig:77
 #: templates/preferences/two_factor/main.twig:98
-#, fuzzy
 msgid "Configure two-factor authentication"
 msgstr "Skonfiguruj uwierzytelnianie dwuskładnikowe"
 
 #: templates/preferences/two_factor/configure.twig:12
-#, fuzzy
 msgid "Enable two-factor authentication"
 msgstr "Włącz uwierzytelnianie dwuskładnikowe"
 
 #: templates/preferences/two_factor/confirm.twig:5
-#, fuzzy
 msgid "Confirm disabling two-factor authentication"
 msgstr "Potwierdź wyłączenie uwierzytelniania dwuskładnikowego"
 
@@ -17084,7 +17042,6 @@ msgstr ""
 
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:66
-#, fuzzy
 msgid "Disable two-factor authentication"
 msgstr "Wyłącz uwierzytelnianie dwuskładnikowe"
 
@@ -17447,7 +17404,6 @@ msgstr ""
 
 #: templates/server/databases/index.twig:300
 #: templates/server/databases/index.twig:301
-#, fuzzy
 msgid "Enable statistics"
 msgstr "Włącz statystyki"
 
@@ -17532,7 +17488,6 @@ msgid "No Password"
 msgstr "Brak hasła"
 
 #: templates/server/privileges/change_password.twig:24
-#, fuzzy
 msgid "Enter:"
 msgstr "Wpisz:"
 
@@ -17568,7 +17523,6 @@ msgstr "Grupa użytkownika:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
-#, fuzzy
 msgid "Edit privileges:"
 msgstr "Edytuj uprawnienia:"
 
@@ -18279,25 +18233,25 @@ msgstr "Częstotliwość odświeżania"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
+#, php-format
 msgid "%d second"
-msgstr "%d sekund"
+msgstr "%d sekunda"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:42
-#, fuzzy, php-format
+#, php-format
 msgid "%d seconds"
 msgstr "%d sekund"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:46
-#, fuzzy, php-format
+#, php-format
 msgid "%d minute"
-msgstr "%d minut"
+msgstr "%d minuta"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:48
-#, fuzzy, php-format
+#, php-format
 msgid "%d minutes"
 msgstr "%d minuty"
 
