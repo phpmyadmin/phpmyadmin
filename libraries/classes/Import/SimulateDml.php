@@ -134,8 +134,8 @@ final class SimulateDml
             $columns[] = $set->column;
             if (strtoupper($set->value) === 'NULL') {
                 $diff[] = $set->column . ' IS NOT ' . $set->value;
-            }else{
-                $diff[] = '(' . $set->column . ' <> ' . $set->value . ' OR ' . $set->column . ' IS NULL)';
+            } else {
+                $diff[] = $set->column . ' <> ' . $set->value . ' OR ' . $set->column . ' IS NULL';
             }
         }
 
