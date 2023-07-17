@@ -308,7 +308,7 @@ class Url
      * @param string $encode whether to encode separator or not,
      *                       currently 'none' or 'html'
      *
-     * @return string  character used for separating url parts usually ; or &
+     * @return string  character used for separating url parts usually & or ;
      */
     public static function getArgSeparator(string $encode = 'none'): string
     {
@@ -316,17 +316,17 @@ class Url
         static $htmlSeparator = null;
 
         if ($separator === null) {
-            // use separators defined by php, but prefer ';'
+            // use separators defined by php, but prefer '&', or ';'
             // as recommended by W3C
             // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
             // /notes.html#h-B.2.2)
             $argSeparator = (string) ini_get('arg_separator.input');
-            if (str_contains($argSeparator, ';')) {
-                $separator = ';';
-            } elseif ($argSeparator !== '') {
-                $separator = $argSeparator[0];
-            } else {
+            if (str_contains($argSeparator, '&') || $argSeparator === '') {
                 $separator = '&';
+            } elseif (str_contains($argSeparator, ';')) {
+                $separator = ';';
+            } else {
+                $separator = $argSeparator[0];
             }
 
             $htmlSeparator = htmlentities($separator);
