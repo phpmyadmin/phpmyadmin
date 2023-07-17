@@ -6757,6 +6757,11 @@
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
   </file>
+  <file src="libraries/classes/Http/Factory/ServerRequestFactory.php">
+    <UnnecessaryVarAnnotation>
+      <code>ServerRequestInterface</code>
+    </UnnecessaryVarAnnotation>
+  </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
       <code>bool</code>
@@ -14061,26 +14066,24 @@
       <code>providerForTestGetDefaultFunctionForField</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/Http/Factory/ResponseFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestCreate</code>
+      <code>providerForTestCreateResponse</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
-    <InvalidConstantAssignmentValue>
-      <code><![CDATA[IMPLEMENTATION_CLASSES = [
-        'slim/psr7' => [SlimServerRequestFactory::class, 'Slim PSR-7'],
-        'guzzlehttp/psr7' => [GuzzleHttpFactory::class, 'Guzzle PSR-7'],
-        'nyholm/psr7' => [NyholmPsr17Factory::class, 'Nyholm PSR-7'],
-        'laminas/laminas-diactoros' => [LaminasServerRequestFactory::class, 'Laminas diactoros PSR-7'],
-    ]]]></code>
-    </InvalidConstantAssignmentValue>
     <MixedMethodCall>
       <code>new $className()</code>
     </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code>dataProviderPsr7Implementations</code>
     </PossiblyUnusedMethod>
-    <UndefinedClass>
-      <code>GuzzleHttpFactory</code>
-      <code>LaminasServerRequestFactory</code>
-      <code>NyholmPsr17Factory</code>
-    </UndefinedClass>
+  </file>
+  <file src="test/classes/Http/ResponseTest.php">
+    <PossiblyUnusedMethod>
+      <code>responseFactoryProviders</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Http/ServerRequestTest.php">
     <PossiblyUnusedMethod>

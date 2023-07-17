@@ -144,12 +144,15 @@ class ResponseRenderer
 
     private OutputBuffering $buffer;
 
+    private ResponseFactory $responseFactory;
+
     private function __construct()
     {
         $this->buffer = new OutputBuffering();
         $this->buffer->start();
         $this->header = new Header();
         $this->footer = new Footer();
+        $this->responseFactory = ResponseFactory::create();
 
         if (! defined('TESTSUITE')) {
             register_shutdown_function($this->response(...));
@@ -382,7 +385,7 @@ class ResponseRenderer
 
     private function emitBody(string $body): void
     {
-        $responseBody = (new ResponseFactory())->createResponse()->getBody();
+        $responseBody = $this->responseFactory->createResponse()->getBody();
         $responseBody->write($body);
         echo $responseBody;
     }

@@ -9081,21 +9081,6 @@ parameters:
 			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
 
 		-
-			message: "#^Class GuzzleHttp\\\\Psr7\\\\HttpFactory not found\\.$#"
-			count: 1
-			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
-
-		-
-			message: "#^Class Laminas\\\\Diactoros\\\\ServerRequestFactory not found\\.$#"
-			count: 1
-			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
-
-		-
-			message: "#^Class Nyholm\\\\Psr7\\\\Factory\\\\Psr17Factory not found\\.$#"
-			count: 1
-			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Import/AjaxTest.php

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Factory;
 
 use GuzzleHttp\Psr7\HttpFactory;
+use HttpSoft\Message\ServerRequestFactory as HttpSoftServerRequestFactory;
+use HttpSoft\Message\UriFactory as HttpSoftUriFactory;
 use Laminas\Diactoros\ServerRequestFactory as LaminasServerRequestFactory;
 use Laminas\Diactoros\UriFactory as LaminasUriFactory;
 use Nyholm\Psr7\Factory\Psr17Factory;
@@ -58,6 +60,9 @@ class ServerRequestFactory
         } elseif (class_exists(LaminasServerRequestFactory::class)) {
             /** @var ServerRequestFactoryInterface $factory */
             $factory = new LaminasServerRequestFactory();
+        } elseif (class_exists(HttpSoftServerRequestFactory::class)) {
+            /** @var ServerRequestFactoryInterface $factory */
+            $factory = new HttpSoftServerRequestFactory();
         } else {
             $factory = new SlimServerRequestFactory();
         }
@@ -76,6 +81,9 @@ class ServerRequestFactory
         } elseif (class_exists(LaminasUriFactory::class)) {
             /** @var UriFactoryInterface $factory */
             $factory = new LaminasUriFactory();
+        } elseif (class_exists(HttpSoftUriFactory::class)) {
+            /** @var UriFactoryInterface $factory */
+            $factory = new HttpSoftUriFactory();
         } else {
             $factory = new SlimUriFactory();
         }

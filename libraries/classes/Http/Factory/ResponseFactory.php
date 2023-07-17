@@ -4,52 +4,47 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Factory;
 
+use Fig\Http\Message\StatusCodeInterface;
 use GuzzleHttp\Psr7\HttpFactory;
+use HttpSoft\Message\ResponseFactory as HttpSoftResponseFactory;
 use Laminas\Diactoros\ResponseFactory as LaminasResponseFactory;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use PhpMyAdmin\Http\Response;
 use Psr\Http\Message\ResponseFactoryInterface;
+use RuntimeException;
 use Slim\Psr7\Factory\ResponseFactory as SlimResponseFactory;
 
 use function class_exists;
 
-class ResponseFactory
+final class ResponseFactory implements ResponseFactoryInterface
 {
-    private ResponseFactoryInterface $responseFactory;
+    /** @psalm-var list<class-string<ResponseFactoryInterface>> */
+    private static array $providers = [
+        SlimResponseFactory::class,
+        LaminasResponseFactory::class,
+        Psr17Factory::class,
+        HttpFactory::class,
+        HttpSoftResponseFactory::class,
+    ];
 
-    public function __construct(ResponseFactoryInterface|null $responseFactory = null)
+    public function __construct(private ResponseFactoryInterface $responseFactory)
     {
-        $this->responseFactory = $responseFactory ?? $this->createResponseFactory();
     }
 
-    /**
-     * Create a new response.
-     *
-     * @param int    $code         HTTP status code; defaults to 200
-     * @param string $reasonPhrase Reason phrase to associate with status code
-     *     in generated response; if none is provided implementations MAY use
-     *     the defaults as suggested in the HTTP specification.
-     */
-    public function createResponse(int $code = 200, string $reasonPhrase = ''): Response
+    public function createResponse(int $code = StatusCodeInterface::STATUS_OK, string $reasonPhrase = ''): Response
     {
         return new Response($this->responseFactory->createResponse($code, $reasonPhrase));
     }
 
-    private function createResponseFactory(): ResponseFactoryInterface
+    /** @throws RuntimeException When no {@see ResponseFactoryInterface} implementation is found. */
+    public static function create(): self
     {
-        if (class_exists(Psr17Factory::class)) {
-            /** @var ResponseFactoryInterface $factory */
-            $factory = new Psr17Factory();
-        } elseif (class_exists(HttpFactory::class)) {
-            /** @var ResponseFactoryInterface $factory */
-            $factory = new HttpFactory();
-        } elseif (class_exists(LaminasResponseFactory::class)) {
-            /** @var ResponseFactoryInterface $factory */
-            $factory = new LaminasResponseFactory();
-        } else {
-            $factory = new SlimResponseFactory();
+        foreach (self::$providers as $provider) {
+            if (class_exists($provider)) {
+                return new self(new $provider());
+            }
         }
 
-        return $factory;
+        throw new RuntimeException('No HTTP response factories found.');
     }
 }
