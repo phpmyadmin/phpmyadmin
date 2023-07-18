@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-18 01:05+0000\n"
+"PO-Revision-Date: 2023-07-18 19:57+0000\n"
 "Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
@@ -3390,7 +3390,7 @@ msgstr "Typ mediów"
 #: libraries/classes/Config/Descriptions.php:698
 #: libraries/classes/Config/Descriptions.php:736
 msgid "Relationships"
-msgstr "Relacje"
+msgstr "Powiązania"
 
 #: libraries/classes/Config/Descriptions.php:691
 msgid "Export method"
