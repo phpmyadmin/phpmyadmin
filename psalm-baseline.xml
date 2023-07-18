@@ -14080,6 +14080,12 @@
       <code>dataProviderPsr7Implementations</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/Http/Factory/UriFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestCreateUri</code>
+      <code>uriFactoryProviders</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/Http/ResponseTest.php">
     <PossiblyUnusedMethod>
       <code>responseFactoryProviders</code>
