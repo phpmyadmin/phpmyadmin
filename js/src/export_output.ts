@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
 import {ajaxShowMessage} from "./modules/ajax-message.ts";
+import {Functions} from "./modules/functions.ts";
 
 AJAX.registerOnload('export_output.js', function () {
     $(document).on('keydown', function (e) {
@@ -17,16 +18,10 @@ AJAX.registerOnload('export_output.js', function () {
 
     $('.export_copy_to_clipboard_btn').on('click', function (e) {
         e.preventDefault();
-        var textAreaText = $('textarea#textSQLDUMP').val();
-        var $temp = $('<textarea>');
-        $('body').append($temp);
-        $temp.val(textAreaText).trigger('select');
-        try {
-            var res = document.execCommand('copy');
-            $temp.remove();
+        var res = Functions.copyToClipboard($('textarea#textSQLDUMP').val(), '<textarea>');
+        if (res) {
             ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, false, 'success');
-        } catch (e) {
-            $temp.remove();
+        } else {
             ajaxShowMessage(window.Messages.strCopyQueryButtonFailure, false, 'error');
         }
     });
