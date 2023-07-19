@@ -593,7 +593,7 @@ final class Application
     public static function getRequest(): ServerRequest
     {
         if (self::$request === null) {
-            self::$request = ServerRequestFactory::createFromGlobals();
+            self::$request = ServerRequestFactory::create()->fromGlobals();
         }
 
         return self::$request;

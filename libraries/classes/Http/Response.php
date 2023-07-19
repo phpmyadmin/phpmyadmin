@@ -7,9 +7,9 @@ namespace PhpMyAdmin\Http;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
-class Response implements ResponseInterface
+final class Response implements ResponseInterface
 {
-    final public function __construct(private ResponseInterface $response)
+    public function __construct(private ResponseInterface $response)
     {
     }
 
@@ -18,12 +18,9 @@ class Response implements ResponseInterface
         return $this->response->getProtocolVersion();
     }
 
-    /** @inheritDoc */
-    public function withProtocolVersion(string $version)
+    public function withProtocolVersion(string $version): Response
     {
-        $response = $this->response->withProtocolVersion($version);
-
-        return new static($response);
+        return new Response($this->response->withProtocolVersion($version));
     }
 
     /** @inheritDoc */
@@ -49,27 +46,20 @@ class Response implements ResponseInterface
     }
 
     /** @inheritDoc */
-    public function withHeader(string $name, $value)
+    public function withHeader(string $name, $value): Response
     {
-        $response = $this->response->withHeader($name, $value);
-
-        return new static($response);
+        return new Response($this->response->withHeader($name, $value));
     }
 
     /** @inheritDoc */
-    public function withAddedHeader(string $name, $value)
+    public function withAddedHeader(string $name, $value): Response
     {
-        $response = $this->response->withAddedHeader($name, $value);
-
-        return new static($response);
+        return new Response($this->response->withAddedHeader($name, $value));
     }
 
-    /** @inheritDoc */
-    public function withoutHeader(string $name)
+    public function withoutHeader(string $name): Response
     {
-        $response = $this->response->withoutHeader($name);
-
-        return new static($response);
+        return new Response($this->response->withoutHeader($name));
     }
 
     public function getBody(): StreamInterface
@@ -77,12 +67,9 @@ class Response implements ResponseInterface
         return $this->response->getBody();
     }
 
-    /** @inheritDoc */
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): Response
     {
-        $response = $this->response->withBody($body);
-
-        return new static($response);
+        return new Response($this->response->withBody($body));
     }
 
     public function getStatusCode(): int
@@ -90,12 +77,9 @@ class Response implements ResponseInterface
         return $this->response->getStatusCode();
     }
 
-    /** @inheritDoc */
-    public function withStatus(int $code, string $reasonPhrase = '')
+    public function withStatus(int $code, string $reasonPhrase = ''): Response
     {
-        $response = $this->response->withStatus($code, $reasonPhrase);
-
-        return new static($response);
+        return new Response($this->response->withStatus($code, $reasonPhrase));
     }
 
     public function getReasonPhrase(): string

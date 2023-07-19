@@ -14061,26 +14061,29 @@
       <code>providerForTestGetDefaultFunctionForField</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
-    <InvalidConstantAssignmentValue>
-      <code><![CDATA[IMPLEMENTATION_CLASSES = [
-        'slim/psr7' => [SlimServerRequestFactory::class, 'Slim PSR-7'],
-        'guzzlehttp/psr7' => [GuzzleHttpFactory::class, 'Guzzle PSR-7'],
-        'nyholm/psr7' => [NyholmPsr17Factory::class, 'Nyholm PSR-7'],
-        'laminas/laminas-diactoros' => [LaminasServerRequestFactory::class, 'Laminas diactoros PSR-7'],
-    ]]]></code>
-    </InvalidConstantAssignmentValue>
-    <MixedMethodCall>
-      <code>new $className()</code>
-    </MixedMethodCall>
+  <file src="test/classes/Http/Factory/ResponseFactoryTest.php">
     <PossiblyUnusedMethod>
-      <code>dataProviderPsr7Implementations</code>
+      <code>providerForTestCreate</code>
+      <code>providerForTestCreateResponse</code>
     </PossiblyUnusedMethod>
-    <UndefinedClass>
-      <code>GuzzleHttpFactory</code>
-      <code>LaminasServerRequestFactory</code>
-      <code>NyholmPsr17Factory</code>
-    </UndefinedClass>
+  </file>
+  <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestCreate</code>
+      <code>providerForTestCreateServerRequest</code>
+      <code>providerForTestFromGlobals</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Http/Factory/UriFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestCreateUri</code>
+      <code>uriFactoryProviders</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Http/ResponseTest.php">
+    <PossiblyUnusedMethod>
+      <code>responseFactoryProviders</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Http/ServerRequestTest.php">
     <PossiblyUnusedMethod>
