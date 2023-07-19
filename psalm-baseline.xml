@@ -6757,11 +6757,6 @@
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Http/Factory/ServerRequestFactory.php">
-    <UnnecessaryVarAnnotation>
-      <code>ServerRequestInterface</code>
-    </UnnecessaryVarAnnotation>
-  </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
       <code>bool</code>
@@ -14073,11 +14068,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
-    <MixedMethodCall>
-      <code>new $className()</code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
-      <code>dataProviderPsr7Implementations</code>
+      <code>providerForTestCreate</code>
+      <code>providerForTestCreateServerRequest</code>
+      <code>providerForTestFromGlobals</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Http/Factory/UriFactoryTest.php">

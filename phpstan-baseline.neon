@@ -9076,11 +9076,6 @@ parameters:
 			path: test/classes/HeaderTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Http\\\\\\\\Factory\\\\\\\\ServerRequestFactory' and PhpMyAdmin\\\\Http\\\\Factory\\\\ServerRequestFactory will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Import/AjaxTest.php
