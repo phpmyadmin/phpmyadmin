@@ -90,7 +90,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
 
         $attrInstance = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
+        $attrInstance->setValue(null, $mockResponse);
 
         return $mockResponse;
     }
@@ -103,7 +103,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
         parent::tearDown();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
-        $response->setValue(null);
+        $response->setValue(null, null);
         $response->setAccessible(false);
     }
 }

@@ -95,7 +95,7 @@ class InsertEditTest extends AbstractTestCase
         parent::tearDown();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
-        $response->setValue(null);
+        $response->setValue(null, null);
         $response->setAccessible(false);
     }
 
@@ -331,7 +331,7 @@ class InsertEditTest extends AbstractTestCase
         $restoreInstance = ResponseRenderer::getInstance();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
-        $response->setValue($responseMock);
+        $response->setValue(null, $responseMock);
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -346,7 +346,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $response->setValue($restoreInstance);
+        $response->setValue(null, $restoreInstance);
 
         $this->assertFalse($result);
     }
@@ -2863,7 +2863,7 @@ class InsertEditTest extends AbstractTestCase
         $restoreInstance = ResponseRenderer::getInstance();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
-        $response->setValue($responseMock);
+        $response->setValue(null, $responseMock);
 
         $this->insertEdit = new InsertEdit($dbi);
 
@@ -2890,7 +2890,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->determineInsertOrEdit(null, 'db', 'table');
 
-        $response->setValue($restoreInstance);
+        $response->setValue(null, $restoreInstance);
 
         $this->assertEquals(
             [
