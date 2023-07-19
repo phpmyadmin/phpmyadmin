@@ -731,7 +731,7 @@ class SettingsTest extends TestCase
                     ['DefaultTabServer', 'status', 'status'],
                     ['DefaultTabDatabase', 'search', 'search'],
                     ['DefaultTabTable', 'search', 'search'],
-                    ['RecodingEngine', 'recode', 'recode'],
+                    ['RecodingEngine', 'mb', 'mb'],
                     ['RowActionLinks', 'both', 'both'],
                 ],
             ],
@@ -742,7 +742,6 @@ class SettingsTest extends TestCase
                     ['DefaultTabServer', 'variables', 'variables'],
                     ['DefaultTabDatabase', 'db_structure.php', 'structure'],
                     ['DefaultTabTable', 'insert', 'insert'],
-                    ['RecodingEngine', 'mb', 'mb'],
                 ],
             ],
             'valid values 6' => [
@@ -993,6 +992,7 @@ class SettingsTest extends TestCase
                     ['TrustedProxies', [1234 => 'invalid', 'valid' => 'valid'], ['valid' => 'valid']],
                     ['DefaultFunctions', [1234 => 'invalid', 'valid' => 'valid'], ['valid' => 'valid']],
                     ['FirstDayOfCalendar', -1, 0],
+                    ['RecodingEngine', 'recode', 'auto'],
                 ],
             ],
             'invalid values 3' => [

@@ -60,20 +60,6 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
-    #[RequiresPhpExtension('recode')]
-    public function testRecode(): void
-    {
-        Encoding::setEngine(Encoding::ENGINE_RECODE);
-        $this->assertEquals(
-            'Only That ecole & Can Be My Blame',
-            Encoding::convertString(
-                'UTF-8',
-                'flat',
-                'Only That école & Can Be My Blame',
-            ),
-        );
-    }
-
     /**
      * This group is used on debian packaging to exclude the test
      *

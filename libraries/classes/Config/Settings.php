@@ -1642,9 +1642,8 @@ final class Settings
     /**
      * You can select here which functions will be used for character set conversion.
      * Possible values are:
-     *      auto   - automatically use available one (first is tested iconv, then recode)
+     *      auto   - automatically use available one (first is tested iconv, then mbstring)
      *      iconv  - use iconv or libiconv functions
-     *      recode - use recode_string function
      *      mb     - use mbstring extension
      *      none   - disable encoding conversion
      *
@@ -1654,7 +1653,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_RecodingEngine
      *
-     * @psalm-var 'auto'|'iconv'|'recode'|'mb'|'none'
+     * @psalm-var 'auto'|'iconv'|'mb'|'none'
      */
     public string $RecodingEngine;
 
@@ -4483,13 +4482,13 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-return 'auto'|'iconv'|'recode'|'mb'|'none'
+     * @psalm-return 'auto'|'iconv'|'mb'|'none'
      */
     private function setRecodingEngine(array $settings): string
     {
         if (
             ! isset($settings['RecodingEngine'])
-            || ! in_array($settings['RecodingEngine'], ['iconv', 'recode', 'mb', 'none'], true)
+            || ! in_array($settings['RecodingEngine'], ['iconv', 'mb', 'none'], true)
         ) {
             return 'auto';
         }
