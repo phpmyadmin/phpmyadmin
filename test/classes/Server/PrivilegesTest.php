@@ -247,19 +247,43 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetExportUserDefinitionTextarea(): void
     {
-        $dummyDbi = $this->createDbiDummy();
-        $dummyDbi->addResult(
-            'SHOW GRANTS FOR \'PMA_username\'@\'PMA_hostname\'',
-            [['grant user2 delete'], ['grant user1 select']],
-            ['Grants for PMA_username@PMA_hostname'],
-        );
-        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $serverPrivileges = $this->getPrivileges($dbi);
+        $mysqliResultStub = $this->createMock(ResultInterface::class);
+        $mysqliStmtStub = $this->createMock(Statement::class);
+
+        $mysqliStmtStub->expects($this->exactly(1))->method('execute')->willReturn(true);
+        $mysqliStmtStub->expects($this->exactly(1))->method('getResult')->willReturn($mysqliResultStub);
+
+        $userQuery =
+            'SELECT Host, User, plugin, authentication_string FROM `mysql`.`user` where User = ? and Host = ?;';
+        $globalPrivQuery = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
+
+        $dbi->expects($this->exactly(1))->method('prepare')->willReturnMap([
+            [$userQuery, Connection::TYPE_USER, $mysqliStmtStub],
+        ]);
+        $dbi->expects($this->once())->method('fetchResult')->willReturnOnConsecutiveCalls([
+            'grant user2 delete',
+            'grant user1 select',
+        ]);
+
+        $mysqliResultStub->expects($this->exactly(1))->method('fetchAssoc')
+            ->willReturnOnConsecutiveCalls(
+                [
+                    'User' => 'PMA_username',
+                    'Host' => 'PMA_hostname',
+                    'plugin' => 'caching_sha2_password',
+                    'authentication_string' => 'password-hash',
+                ],
+            );
+
+        $dbi->expects($this->exactly(2))->method('getVersion')->willReturn(50507);
 
         $username = 'PMA_username';
         $hostname = 'PMA_hostname';
-
         $export = $serverPrivileges->getExportUserDefinitionTextarea($username, $hostname, null);
-
+        $this->assertStringContainsString('CREATE USER \'PMA_username\'@\'PMA_hostname\'', $export);
+        $this->assertStringContainsString('password-hash', $export);
         $this->assertStringContainsString('grant user2 delete', $export);
         $this->assertStringContainsString('grant user1 select', $export);
         $this->assertStringContainsString('<textarea class="export"', $export);

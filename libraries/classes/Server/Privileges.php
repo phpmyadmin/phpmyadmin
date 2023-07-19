@@ -735,6 +735,39 @@ class Privileges
     }
 
     /**
+     * Returns create query for user on a certain host
+     * Used in the export privileges for all users section
+     *
+     * @param string $user User name
+     * @param string $host Host name
+     *
+     * @return string containing all the grants text
+     */
+    public function getUser(string $user, string $host): string
+    {
+        $query = 'SELECT Host, User, plugin, authentication_string FROM `mysql`.`user` where User = ? and Host = ?;';
+        $statement = $this->dbi->prepare($query);
+
+        if ($statement === null || ! $statement->execute([$user, $host])) {
+            return '';
+        }
+
+        $result = $statement->getResult();
+
+        $dbUser = $result->fetchAssoc();
+
+        if ($dbUser === []) {
+            return '';
+        }
+
+        $response = '';
+        $response .= sprintf("CREATE USER '%s'@'%s' \n", $dbUser['User'], $dbUser['Host']);
+        $response .= $this->getValidPasswordQuery($dbUser);
+
+        return $response;
+    }
+
+    /**
      * Update password and get message for password updating
      *
      * @param string $errorUrl error url
@@ -2136,6 +2169,42 @@ class Privileges
     }
 
     /**
+     * Returns paassword query for user on a certain host
+     * depending on configuration of MySql or MaraiaDB and verison
+     * Used in the export privileges for all users section
+     *
+     * @param mixed[] $user
+     */
+    public function getValidPasswordQuery(array $user): string
+    {
+        $isMariaDBPwdPluginActive = $this->checkIfMariaDBPwdCheckPluginActive();
+        $serverVersion = $this->dbi->getVersion();
+        $passwordColumnName = isset($user['password']) && $user['password'] ? 'password' : 'authentication_string';
+        $authenticationPlugin = $user['plugin'];
+        $passwordStmt = '';
+
+        // is supported by MySQL 5.5.7+
+        if (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50507 && isset($authenticationPlugin)) {
+            $passwordStmt .= ' IDENTIFIED WITH ' . $authenticationPlugin . ' AS \'%s\'';
+        }
+
+        // is supported by MariaDB 5.2+
+        if (
+            Compatibility::isMariaDb()
+            && $serverVersion >= 50200
+            && isset($authenticationPlugin)
+        ) {
+            $passwordStmt .= ' IDENTIFIED VIA '
+                . $authenticationPlugin;
+            $passwordStmt .= ! $isMariaDBPwdPluginActive ? ' USING \'%s\'' : ' IDENTIFIED BY \'%s\'';
+        }
+
+        $passwordStmt = sprintf($passwordStmt, $user[$passwordColumnName]);
+
+        return $passwordStmt;
+    }
+
+    /**
      * Update Data for information: Deletes users
      *
      * @param mixed[] $queries queries array
@@ -2537,14 +2606,17 @@ class Privileges
                 );
                 $export .= '# '
                     . sprintf(
-                        __('Privileges for %s'),
+                        __('Create user and assign privileges for %s'),
                         '`' . htmlspecialchars($exportUsername)
                         . '`@`' . htmlspecialchars($exportHostname) . '`',
                     )
                     . "\n\n";
+                $export .= $this->getUser($exportUsername, $exportHostname) . ";\n";
+
                 $export .= $this->getGrants($exportUsername, $exportHostname) . "\n";
             }
         } else {
+            $export .= $this->getUser($username, $hostname) . ";\n";
             // export privileges for a single user
             $export .= $this->getGrants($username, $hostname);
         }
