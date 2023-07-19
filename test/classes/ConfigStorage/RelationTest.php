@@ -1974,7 +1974,7 @@ class RelationTest extends AbstractTestCase
         $_SESSION['tmpval'] = [];
         $recentFavoriteTableInstances = (new ReflectionClass(RecentFavoriteTable::class))->getProperty('instances');
         $recentFavoriteTableInstances->setAccessible(true);
-        $recentFavoriteTableInstances->setValue([]);
+        $recentFavoriteTableInstances->setValue(null, []);
 
         $relation = new Relation($this->dbi);
         $relation->initRelationParamsCache();

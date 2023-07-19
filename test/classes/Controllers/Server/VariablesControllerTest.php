@@ -153,7 +153,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setAccessible(true);
-        $response->setValue($voidProviderMock);
+        $response->setValue(null, $voidProviderMock);
 
         [$formattedValue, $isHtmlFormatted] = $this->callFunction(
             $controller,
@@ -205,7 +205,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setAccessible(true);
-        $response->setValue(null);
+        $response->setValue(null, null);
 
         $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
@@ -264,7 +264,7 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setAccessible(true);
-        $response->setValue(new ServerVariablesVoidProvider());
+        $response->setValue(null, new ServerVariablesVoidProvider());
 
         $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
