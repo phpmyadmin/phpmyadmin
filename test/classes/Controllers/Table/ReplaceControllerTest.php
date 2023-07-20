@@ -24,7 +24,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 #[CoversClass(ReplaceController::class)]
@@ -65,7 +65,7 @@ class ReplaceControllerTest extends AbstractTestCase
             'uiprefswork' => true,
             'table_uiprefs' => 'table_uiprefs',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );

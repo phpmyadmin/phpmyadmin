@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
-use ReflectionClass;
+use ReflectionProperty;
 
 #[CoversClass(Transformations::class)]
 class TransformationsTest extends AbstractTestCase
@@ -174,7 +174,7 @@ class TransformationsTest extends AbstractTestCase
             'trackingwork' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, [$GLOBALS['server'] => $relation]);
         $this->assertEquals(
             [
                 'o' => [
@@ -212,7 +212,7 @@ class TransformationsTest extends AbstractTestCase
             ->will($this->returnValue($this->createStub(DummyResult::class)));
         $GLOBALS['dbi'] = $dbi;
 
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
@@ -223,7 +223,7 @@ class TransformationsTest extends AbstractTestCase
             'mimework' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, [$GLOBALS['server'] => $relation]);
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');

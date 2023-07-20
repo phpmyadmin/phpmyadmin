@@ -13,7 +13,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionClass;
+use ReflectionProperty;
 
 use function implode;
 
@@ -237,7 +237,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('db_pma');
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $relation->fixPmaTables('db_pma', false);
 
@@ -512,7 +512,7 @@ class RelationTest extends AbstractTestCase
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
@@ -796,7 +796,7 @@ class RelationTest extends AbstractTestCase
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $dummyDbi->addSelectDb('db_pma');
         $dummyDbi->addSelectDb('db_pma');
@@ -875,7 +875,7 @@ class RelationTest extends AbstractTestCase
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $relation->fixPmaTables('db_pma', true);
 
@@ -1437,7 +1437,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
@@ -1503,7 +1503,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', [], ['NULL']);
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $dummyDbi->addSelectDb('phpmyadmin');
         $relation = new Relation($dbi);
@@ -1595,7 +1595,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', false);
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $dummyDbi->addSelectDb('phpmyadmin');
         $relation = new Relation($dbi);
@@ -1688,7 +1688,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('PMA-storage');
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
@@ -1714,7 +1714,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('PMA-storage');
         /** @psalm-suppress EmptyArrayAccess */
         unset($_SESSION['relation'][$GLOBALS['server']]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
         $relationData = $relation->getRelationParameters();
         $dummyDbi->assertAllSelectsConsumed();
 
@@ -1793,7 +1793,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
@@ -1822,7 +1822,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('PMA-storage');
         /** @psalm-suppress EmptyArrayAccess */
         unset($_SESSION['relation'][$GLOBALS['server']]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
         $relationData = $relation->getRelationParameters();
         $dummyDbi->assertAllSelectsConsumed();
 
@@ -1998,7 +1998,7 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
 
         $relation = new Relation($dbi);
 
@@ -2135,7 +2135,7 @@ class RelationTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray($params);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
@@ -2206,7 +2206,7 @@ class RelationTest extends AbstractTestCase
             'pdf_pages' => 'pdf_pages',
             'table_coords' => 'table`coords',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );

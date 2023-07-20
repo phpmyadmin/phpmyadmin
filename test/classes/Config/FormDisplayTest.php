@@ -233,20 +233,14 @@ class FormDisplayTest extends AbstractTestCase
      */
     public function testHasErrors(): void
     {
-        $attrErrors = new ReflectionProperty(FormDisplay::class, 'errors');
+        $this->assertFalse($this->object->hasErrors());
 
-        $this->assertFalse(
-            $this->object->hasErrors(),
-        );
-
-        $attrErrors->setValue(
+        (new ReflectionProperty(FormDisplay::class, 'errors'))->setValue(
             $this->object,
             [1, 2],
         );
 
-        $this->assertTrue(
-            $this->object->hasErrors(),
-        );
+        $this->assertTrue($this->object->hasErrors());
     }
 
     /**

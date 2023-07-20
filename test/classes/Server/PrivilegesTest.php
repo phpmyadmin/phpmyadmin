@@ -24,8 +24,8 @@ use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionClass;
 use ReflectionMethod;
+use ReflectionProperty;
 
 use function __;
 use function _pgettext;
@@ -1139,7 +1139,7 @@ class PrivilegesTest extends AbstractTestCase
             'usergroups' => 'usergroups',
             'menuswork' => true,
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
@@ -1170,7 +1170,7 @@ class PrivilegesTest extends AbstractTestCase
             'trackingwork' => true,
             'tracking' => 'tracking',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
@@ -1268,7 +1268,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['old_hostname'] = 'old_hostname';
         $_POST['old_username'] = 'old_username';
         $relationParameters = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );

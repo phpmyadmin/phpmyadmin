@@ -15,8 +15,8 @@ use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use ReflectionClass;
 use ReflectionMethod;
+use ReflectionProperty;
 
 #[CoversClass(Tracker::class)]
 class TrackerTest extends AbstractTestCase
@@ -50,7 +50,7 @@ class TrackerTest extends AbstractTestCase
             'trackingwork' => true,
             'tracking' => 'tracking',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
@@ -92,7 +92,7 @@ class TrackerTest extends AbstractTestCase
         Tracker::enable();
 
         $relationParameters = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
@@ -106,7 +106,7 @@ class TrackerTest extends AbstractTestCase
             'db' => 'pmadb',
             'tracking' => 'tracking',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
@@ -132,7 +132,7 @@ class TrackerTest extends AbstractTestCase
         Tracker::enable();
 
         $relationParameters = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
@@ -146,7 +146,7 @@ class TrackerTest extends AbstractTestCase
             'db' => 'pmadb',
             'tracking' => 'tracking',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
             null,
             [$GLOBALS['server'] => $relationParameters],
         );
