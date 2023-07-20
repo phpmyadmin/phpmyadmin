@@ -2993,17 +2993,20 @@ Languages
     You can select here which functions will be used for character set
     conversion. Possible values are:
 
-    * auto - automatically use available one (first is tested iconv, then
-      recode)
-    * iconv - use iconv or libiconv functions
-    * recode - use recode\_string function
-    * mb - use :term:`mbstring` extension
-    * none - disable encoding conversion
+    * ``'auto'`` - automatically use available one (first is tested iconv, then mbstring)
+    * ``'iconv'`` - use iconv or libiconv functions
+    * ``'mb'`` - use :term:`mbstring` extension
+    * ``'none'`` - disable encoding conversion
 
     Enabled charset conversion activates a pull-down menu in the Export
     and Import pages, to choose the character set when exporting a file.
     The default value in this menu comes from
     :config:option:`$cfg['Export']['charset']` and :config:option:`$cfg['Import']['charset']`.
+
+    .. versionchanged:: 6.0.0
+
+        Support for the Recode extension has been removed. The ``'recode'`` value is ignored and the
+        default value (``'auto'``) is used instead.
 
 .. config:option:: $cfg['IconvExtraParams']
 
@@ -3022,7 +3025,7 @@ Languages
     :default: array(...)
 
     Available character sets for MySQL conversion. You can add your own
-    (any of supported by recode/iconv) or remove these which you don't
+    (any of supported by mbstring/iconv) or remove these which you don't
     use. Character sets will be shown in same order as here listed, so if
     you frequently use some of these move them to the top.
 

@@ -435,11 +435,9 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$opts['values']['iconv']]]></code>
-      <code><![CDATA[$opts['values']['recode']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$opts['values']['iconv']]]></code>
-      <code><![CDATA[$opts['values']['recode']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code>$_POST[$key]</code>
@@ -496,7 +494,6 @@
       <code>$key</code>
       <code>$key</code>
       <code><![CDATA[$opts['values']['iconv']]]></code>
-      <code><![CDATA[$opts['values']['recode']]]></code>
       <code>$v</code>
     </MixedOperand>
     <PossiblyFalseArgument>

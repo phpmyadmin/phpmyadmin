@@ -135,7 +135,7 @@ jobs:
       matrix:
         php-version: ["8.1"]
         os: [ubuntu-latest]
-        extension: ["dbase", "recode"]
+        extension: ["dbase"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

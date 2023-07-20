@@ -3596,7 +3596,7 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Function recode_string not found\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -3613,11 +3613,6 @@ parameters:
 		-
 			message: "#^Static property PhpMyAdmin\\\\Encoding\\:\\:\\$engine \\(int\\|null\\) does not accept mixed\\.$#"
 			count: 2
-			path: libraries/classes/Encoding.php
-
-		-
-			message: "#^Used function recode_string not found\\.$#"
-			count: 1
 			path: libraries/classes/Encoding.php
 
 		-

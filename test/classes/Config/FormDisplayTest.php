@@ -315,7 +315,6 @@ class FormDisplayTest extends AbstractTestCase
         // recoding
         $opts = ['values' => []];
         $opts['values']['iconv'] = 'testIconv';
-        $opts['values']['recode'] = 'testRecode';
         $opts['values']['mb'] = 'testMB';
         $opts['comment'] = null;
         $opts['comment_warning'] = null;
@@ -331,11 +330,6 @@ class FormDisplayTest extends AbstractTestCase
         if (! function_exists('iconv')) {
             $expect['values']['iconv'] .= ' (unavailable)';
             $expect['comment'] = '"iconv" requires iconv extension';
-        }
-
-        if (! function_exists('recode_string')) {
-            $expect['values']['recode'] .= ' (unavailable)';
-            $expect['comment'] .= ($expect['comment'] ? ', ' : '') . '"recode" requires recode extension';
         }
 
         $expect['comment_warning'] = 1;

@@ -514,7 +514,7 @@ class ConfigFile
                     'only_db' => 'array',
                 ],
             ],
-            'RecodingEngine' => ['auto', 'iconv', 'recode', 'mb', 'none'],
+            'RecodingEngine' => ['auto', 'iconv', 'mb', 'none'],
             'OBGzip' => ['auto', true, false],
             'MemoryLimit' => 'short_string',
             'NavigationLogoLinkWindow' => ['main', 'new'],
