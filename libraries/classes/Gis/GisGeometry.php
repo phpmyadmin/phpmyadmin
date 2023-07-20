@@ -242,9 +242,9 @@ abstract class GisGeometry
 
             if (isset($coordinates[0], $coordinates[1]) && trim($coordinates[0]) != '' && trim($coordinates[1]) != '') {
                 if ($scale_data != null) {
-                    $x = ($coordinates[0] - $scale_data['x']) * $scale_data['scale'];
-                    $y = $scale_data['height']
-                        - ($coordinates[1] - $scale_data['y']) * $scale_data['scale'];
+                    $x = floatval((floatval(trim($coordinates[0])) - $scale_data['x']) * $scale_data['scale']);
+                    $y = floatval($scale_data['height']
+                        - (floatval(trim($coordinates[1])) - $scale_data['y']) * $scale_data['scale']);
                 } else {
                     $x = floatval(trim($coordinates[0]));
                     $y = floatval(trim($coordinates[1]));
