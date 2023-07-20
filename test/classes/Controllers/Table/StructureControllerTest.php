@@ -48,8 +48,8 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['ShowStats'] = false;
         $GLOBALS['cfg']['ShowPropertyComments'] = false;
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
-        (new ReflectionProperty(Template::class, 'twig'))->setValue(null);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
+        (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');

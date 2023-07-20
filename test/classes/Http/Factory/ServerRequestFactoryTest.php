@@ -72,7 +72,7 @@ final class ServerRequestFactoryTest extends TestCase
     public function testCreate(string $provider): void
     {
         $this->skipIfNotAvailable($provider);
-        (new ReflectionProperty(ServerRequestFactory::class, 'providers'))->setValue([$provider]);
+        (new ReflectionProperty(ServerRequestFactory::class, 'providers'))->setValue(null, [$provider]);
         $serverRequestFactory = ServerRequestFactory::create();
         $actual = (new ReflectionProperty(ServerRequestFactory::class, 'serverRequestFactory'))
             ->getValue($serverRequestFactory);
@@ -93,7 +93,7 @@ final class ServerRequestFactoryTest extends TestCase
     public function testCreateWithoutProvider(): void
     {
         (new ReflectionProperty(ServerRequestFactory::class, 'providers'))
-            ->setValue(['InvalidServerRequestFactoryClass']);
+            ->setValue(null, ['InvalidServerRequestFactoryClass']);
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('No HTTP server request factories found.');
         ServerRequestFactory::create();
@@ -110,7 +110,7 @@ final class ServerRequestFactoryTest extends TestCase
     {
         $this->skipIfNotAvailable($provider);
         $this->skipIfNotAvailable($uriFactoryProvider);
-        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue([$uriFactoryProvider]);
+        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(null, [$uriFactoryProvider]);
         $serverRequestFactory = new ServerRequestFactory(new $provider());
 
         $_GET['foo'] = 'bar';
@@ -120,7 +120,7 @@ final class ServerRequestFactoryTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
-        (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue(null);
+        (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue(null, null);
 
         $serverRequest = $serverRequestFactory->fromGlobals();
 
@@ -148,7 +148,7 @@ final class ServerRequestFactoryTest extends TestCase
     {
         $this->skipIfNotAvailable($provider);
         $this->skipIfNotAvailable($uriFactoryProvider);
-        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue([$uriFactoryProvider]);
+        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(null, [$uriFactoryProvider]);
         $serverRequestFactory = new ServerRequestFactory(new $provider());
 
         $_GET['foo'] = 'bar';
@@ -162,7 +162,7 @@ final class ServerRequestFactoryTest extends TestCase
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
         $getAllHeaders = static fn (): array => ['Content-Type' => 'application/x-www-form-urlencoded'];
-        (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue($getAllHeaders);
+        (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue(null, $getAllHeaders);
 
         $serverRequest = $serverRequestFactory->fromGlobals();
 
@@ -199,7 +199,7 @@ final class ServerRequestFactoryTest extends TestCase
     {
         $this->skipIfNotAvailable($provider);
         $this->skipIfNotAvailable($uriFactoryProvider);
-        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue([$uriFactoryProvider]);
+        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(null, [$uriFactoryProvider]);
         $serverRequestFactory = new ServerRequestFactory(new $provider());
 
         $_GET = [];
@@ -208,7 +208,7 @@ final class ServerRequestFactoryTest extends TestCase
         $_SERVER['HTTP_HOST'] = 'example.com';
 
         $getAllHeaders = static fn (): array => ['Content-Type' => 'application/json', 'Content-Length' => '123'];
-        (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue($getAllHeaders);
+        (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue(null, $getAllHeaders);
 
         $serverRequest = $serverRequestFactory->fromGlobals();
 

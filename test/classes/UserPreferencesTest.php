@@ -59,7 +59,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     public function testLoad(): void
     {
         $relation = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
 
         unset($_SESSION['userconfig']);
 
@@ -89,7 +89,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             'userconfig' => 'testconf',
             'userconfigwork' => true,
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -127,7 +127,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['server'] = 2;
         $relation = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
 
         unset($_SESSION['userconfig']);
 
@@ -166,7 +166,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             'userconfig' => 'testconf',
             'user' => 'user',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
 
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` WHERE `username` = \'user\'';
 
@@ -285,14 +285,14 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     public function testPersistOption(): void
     {
         $relation = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
 
         $_SESSION['userconfig'] = [];
         $_SESSION['userconfig']['ts'] = '123';
         $_SESSION['userconfig']['db'] = ['Server/hide_db' => true, 'Server/only_db' => true];
 
         $GLOBALS['server'] = 2;
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
 
         $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $this->assertTrue(

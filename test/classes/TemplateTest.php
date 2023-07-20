@@ -182,7 +182,7 @@ class TemplateTest extends AbstractTestCase
 
     public function testDisableCache(): void
     {
-        (new ReflectionProperty(Template::class, 'twig'))->setValue(null);
+        (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
         $template = new Template($this->createStub(Config::class));
         $template->disableCache();
         $twig = (new ReflectionProperty(Template::class, 'twig'))->getValue();
@@ -192,6 +192,6 @@ class TemplateTest extends AbstractTestCase
         $this->assertNotFalse($twig->getCache());
         $template->disableCache();
         $this->assertFalse($twig->getCache());
-        (new ReflectionProperty(Template::class, 'twig'))->setValue(null);
+        (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
     }
 }

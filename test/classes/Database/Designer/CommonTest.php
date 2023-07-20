@@ -356,6 +356,7 @@ class CommonTest extends AbstractTestCase
             'relation' => 'rel db',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -381,6 +382,7 @@ class CommonTest extends AbstractTestCase
             'relation' => 'rel db',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -425,6 +427,7 @@ class CommonTest extends AbstractTestCase
             'relation' => 'rel db',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -489,6 +492,7 @@ class CommonTest extends AbstractTestCase
             'relation' => 'rel db',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 

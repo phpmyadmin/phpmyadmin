@@ -880,6 +880,7 @@ SQL;
             'column_info' => 'col',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
         $GLOBALS['sql_include_comments'] = true;

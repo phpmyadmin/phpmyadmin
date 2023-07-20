@@ -174,7 +174,7 @@ class TransformationsTest extends AbstractTestCase
             'trackingwork' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
         $this->assertEquals(
             [
                 'o' => [
@@ -212,7 +212,7 @@ class TransformationsTest extends AbstractTestCase
             ->will($this->returnValue($this->createStub(DummyResult::class)));
         $GLOBALS['dbi'] = $dbi;
 
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
@@ -223,7 +223,7 @@ class TransformationsTest extends AbstractTestCase
             'mimework' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, [$GLOBALS['server'] => $relation]);
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');

@@ -51,6 +51,7 @@ class TrackerTest extends AbstractTestCase
             'tracking' => 'tracking',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -92,6 +93,7 @@ class TrackerTest extends AbstractTestCase
 
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -105,6 +107,7 @@ class TrackerTest extends AbstractTestCase
             'tracking' => 'tracking',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -130,6 +133,7 @@ class TrackerTest extends AbstractTestCase
 
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -143,6 +147,7 @@ class TrackerTest extends AbstractTestCase
             'tracking' => 'tracking',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 

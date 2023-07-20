@@ -63,6 +63,7 @@ class SystemDatabaseTest extends AbstractTestCase
             'relation' => 'relation',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 

@@ -84,7 +84,7 @@ abstract class AbstractTestCase extends TestCase
         $this->setGlobalConfig();
         Cache::purge();
 
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(null, []);
     }
 
     protected function loadContainerBuilder(): void

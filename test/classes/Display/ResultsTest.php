@@ -658,6 +658,7 @@ class ResultsTest extends AbstractTestCase
             'column_info' => 'column_info',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
         $GLOBALS['cfg']['BrowseMIME'] = true;

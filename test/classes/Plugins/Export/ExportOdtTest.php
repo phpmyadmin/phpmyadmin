@@ -626,6 +626,7 @@ class ExportOdtTest extends AbstractTestCase
             'column_info' => 'col',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -708,6 +709,7 @@ class ExportOdtTest extends AbstractTestCase
             'column_info' => 'col',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 

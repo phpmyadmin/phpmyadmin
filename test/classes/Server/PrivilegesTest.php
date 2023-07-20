@@ -1140,6 +1140,7 @@ class PrivilegesTest extends AbstractTestCase
             'menuswork' => true,
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -1170,6 +1171,7 @@ class PrivilegesTest extends AbstractTestCase
             'tracking' => 'tracking',
         ]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -1267,6 +1269,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['old_username'] = 'old_username';
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
