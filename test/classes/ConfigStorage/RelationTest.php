@@ -1915,7 +1915,7 @@ class RelationTest extends AbstractTestCase
         $_SESSION['relation'] = [];
         $_SESSION['tmpval'] = [];
         (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
-        (new ReflectionClass(RecentFavoriteTable::class))->getProperty('instances')->setValue([]);
+        (new ReflectionClass(RecentFavoriteTable::class))->getProperty('instances')->setValue(null, []);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();

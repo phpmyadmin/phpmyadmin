@@ -137,7 +137,7 @@ class VariablesControllerTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls('byte', 'string');
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setValue($voidProviderMock);
+        $response->setValue(null, $voidProviderMock);
 
         [$formattedValue, $isHtmlFormatted] = $this->callFunction(
             $controller,
@@ -182,7 +182,7 @@ class VariablesControllerTest extends AbstractTestCase
         }
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setValue(null);
+        $response->setValue(null, null);
 
         $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
@@ -231,7 +231,7 @@ class VariablesControllerTest extends AbstractTestCase
     public function testFormatVariableVoidProvider(): void
     {
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setValue(new ServerVariablesVoidProvider());
+        $response->setValue(null, new ServerVariablesVoidProvider());
 
         $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
