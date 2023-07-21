@@ -50,7 +50,7 @@ class SimulateDmlTest extends AbstractTestCase
         return [
             'update statement' => [
                 'UPDATE `table_1` SET `id` = 20 WHERE `id` > 10',
-                'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)',
+                'SELECT `id` FROM `table_1` WHERE (`id` > 10) AND (NOT `id` <=> (20))',
             ],
             'delete statement' => [
                 'DELETE FROM `table_1` WHERE `id` > 10',
