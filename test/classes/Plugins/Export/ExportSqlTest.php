@@ -27,8 +27,8 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionClass;
 use ReflectionMethod;
+use ReflectionProperty;
 
 use function ob_get_clean;
 use function ob_start;
@@ -879,7 +879,8 @@ SQL;
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
         $GLOBALS['sql_include_comments'] = true;

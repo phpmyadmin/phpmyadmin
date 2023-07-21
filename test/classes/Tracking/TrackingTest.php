@@ -20,7 +20,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use ReflectionClass;
+use ReflectionProperty;
 
 use function __;
 use function _pgettext;
@@ -60,7 +60,8 @@ class TrackingTest extends AbstractTestCase
             'tracking' => 'tracking',
             'trackingwork' => true,
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 

@@ -54,7 +54,7 @@ final class UriFactoryTest extends TestCase
     public function testCreate(string $provider): void
     {
         $this->skipIfNotAvailable($provider);
-        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue([$provider]);
+        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(null, [$provider]);
         $uriFactory = UriFactory::create();
         $actual = (new ReflectionProperty(UriFactory::class, 'uriFactory'))->getValue($uriFactory);
         $this->assertInstanceOf($provider, $actual);
@@ -73,7 +73,7 @@ final class UriFactoryTest extends TestCase
     #[BackupStaticProperties(true)]
     public function testCreateWithoutProvider(): void
     {
-        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(['InvalidUriFactoryClass']);
+        (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(null, ['InvalidUriFactoryClass']);
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('No URI factories found.');
         UriFactory::create();

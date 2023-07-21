@@ -58,7 +58,7 @@ final class ResponseFactoryTest extends TestCase
     public function testCreate(string $provider): void
     {
         $this->skipIfNotAvailable($provider);
-        (new ReflectionProperty(ResponseFactory::class, 'providers'))->setValue([$provider]);
+        (new ReflectionProperty(ResponseFactory::class, 'providers'))->setValue(null, [$provider]);
         $responseFactory = ResponseFactory::create();
         $actual = (new ReflectionProperty(ResponseFactory::class, 'responseFactory'))->getValue($responseFactory);
         $this->assertInstanceOf($provider, $actual);
@@ -77,7 +77,7 @@ final class ResponseFactoryTest extends TestCase
     #[BackupStaticProperties(true)]
     public function testCreateWithoutProvider(): void
     {
-        (new ReflectionProperty(ResponseFactory::class, 'providers'))->setValue(['InvalidResponseFactoryClass']);
+        (new ReflectionProperty(ResponseFactory::class, 'providers'))->setValue(null, ['InvalidResponseFactoryClass']);
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('No HTTP response factories found.');
         ResponseFactory::create();

@@ -14,7 +14,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 
 use function sprintf;
 
@@ -355,7 +355,8 @@ class CommonTest extends AbstractTestCase
             'db' => 'pmadb',
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -380,7 +381,8 @@ class CommonTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -424,7 +426,8 @@ class CommonTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 
@@ -488,7 +491,8 @@ class CommonTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 

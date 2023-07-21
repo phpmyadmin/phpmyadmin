@@ -15,7 +15,7 @@ use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
-use ReflectionClass;
+use ReflectionProperty;
 
 use function array_slice;
 
@@ -118,7 +118,8 @@ class CentralColumnsTest extends AbstractTestCase
             'relation' => 'relation',
             'central_columns' => 'pma_central_columns',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
+            null,
             [$GLOBALS['server'] => $relationParameters],
         );
 

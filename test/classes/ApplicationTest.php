@@ -42,7 +42,7 @@ final class ApplicationTest extends AbstractTestCase
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
 
         $request = $this->createStub(ServerRequest::class);
-        (new ReflectionProperty(Application::class, 'request'))->setValue($request);
+        (new ReflectionProperty(Application::class, 'request'))->setValue(null, $request);
 
         $template = new Template($config);
         $expected = $template->render('error/generic', [
@@ -59,7 +59,7 @@ final class ApplicationTest extends AbstractTestCase
         $this->assertSame($config, $GLOBALS['config']);
         $this->assertSame($errorHandler, $GLOBALS['errorHandler']);
 
-        (new ReflectionProperty(Application::class, 'request'))->setValue(null);
+        (new ReflectionProperty(Application::class, 'request'))->setValue(null, null);
     }
 
     public function testCheckTokenRequestParam(): void
