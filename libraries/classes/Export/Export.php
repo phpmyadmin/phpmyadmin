@@ -1312,9 +1312,6 @@ class Export
         return $backButton;
     }
 
-    /**
-     * @return string
-     */
     private function getHTMLForCopyButton(): string
     {
         return '[ <a href="#" class="copyQueryBtn" data-target="#textSQLDUMP">'
