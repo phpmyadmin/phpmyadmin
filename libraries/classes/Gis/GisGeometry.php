@@ -241,13 +241,12 @@ abstract class GisGeometry
             $coordinates = explode(' ', $point);
 
             if (isset($coordinates[0], $coordinates[1]) && trim($coordinates[0]) != '' && trim($coordinates[1]) != '') {
+                $x = floatval(trim($coordinates[0]));
+                $y = floatval(trim($coordinates[1]));
+
                 if ($scale_data != null) {
-                    $x = floatval((floatval(trim($coordinates[0])) - $scale_data['x']) * $scale_data['scale']);
-                    $y = floatval($scale_data['height']
-                        - (floatval(trim($coordinates[1])) - $scale_data['y']) * $scale_data['scale']);
-                } else {
-                    $x = floatval(trim($coordinates[0]));
-                    $y = floatval(trim($coordinates[1]));
+                    $x = floatval(($x - $scale_data['x']) * $scale_data['scale']);
+                    $y = floatval($scale_data['height'] - ($y - $scale_data['y']) * $scale_data['scale']);
                 }
             } else {
                 $x = 0;
