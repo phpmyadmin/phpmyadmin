@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-16 18:46+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2023-07-18 19:57+0000\n"
+"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -3290,7 +3290,7 @@ msgstr "Zamień NULL na"
 #: libraries/classes/Config/Descriptions.php:664
 #: libraries/classes/Config/Descriptions.php:670
 msgid "Remove CRLF characters within columns"
-msgstr "Usuń znaki (CRLF) nowej linii z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: libraries/classes/Config/Descriptions.php:665
 #: libraries/classes/Config/Descriptions.php:798
@@ -3303,12 +3303,10 @@ msgstr "Kolumny zakończone"
 #: libraries/classes/Config/Descriptions.php:666
 #: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:684
-#, fuzzy
 msgid "Lines terminated with"
 msgstr "Linie zakończone z"
 
 #: libraries/classes/Config/Descriptions.php:668
-#, fuzzy
 msgid "Excel edition"
 msgstr "Wydanie Excela"
 
@@ -3358,7 +3356,6 @@ msgstr "Dołącz nagłówek tabeli"
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:28
-#, fuzzy
 msgid "Comments"
 msgstr "Komentarze"
 
@@ -3374,7 +3371,6 @@ msgstr "Kontynuacja nagłówka tabeli"
 
 #: libraries/classes/Config/Descriptions.php:683
 #: libraries/classes/Config/Descriptions.php:689
-#, fuzzy
 msgid "Label key"
 msgstr "Etykieta klucza"
 
@@ -3387,7 +3383,6 @@ msgstr "Etykieta klucza"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:556
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
-#, fuzzy
 msgid "Media type"
 msgstr "Typ mediów"
 
@@ -3395,7 +3390,7 @@ msgstr "Typ mediów"
 #: libraries/classes/Config/Descriptions.php:698
 #: libraries/classes/Config/Descriptions.php:736
 msgid "Relationships"
-msgstr "Relacje"
+msgstr "Powiązania"
 
 #: libraries/classes/Config/Descriptions.php:691
 msgid "Export method"
@@ -3409,9 +3404,8 @@ msgstr "Zapisz na serwerze"
 #: libraries/classes/Config/Descriptions.php:701
 #: libraries/classes/Config/Descriptions.php:704 templates/export.twig:182
 #: templates/export.twig:377
-#, fuzzy
 msgid "Overwrite existing file(s)"
-msgstr "Nadpisz istniejące pliki"
+msgstr "Nadpisz istniejące plik(i)"
 
 #: libraries/classes/Config/Descriptions.php:702
 msgid "Export as separate files"
@@ -3438,12 +3432,10 @@ msgstr "Użyj cudzysłowów z nazwami tabel i kolumn"
 
 #: libraries/classes/Config/Descriptions.php:709
 #: libraries/classes/Config/Descriptions.php:811
-#, fuzzy
 msgid "SQL compatibility mode"
 msgstr "Tryb zgodności SQL"
 
 #: libraries/classes/Config/Descriptions.php:710
-#, fuzzy
 msgid "Creation/Update/Check dates"
 msgstr "Daty utworzenia/aktualizacji/sprawdzenia"
 
@@ -3480,9 +3472,8 @@ msgid "Add %s"
 msgstr "Dodaj %s"
 
 #: libraries/classes/Config/Descriptions.php:724
-#, fuzzy
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Użyj wartości szesnastkowych dla BINARIUM i BLOBa"
+msgstr "Użyj wartości szesnastkowych dla BINARY i BLOB"
 
 #: libraries/classes/Config/Descriptions.php:726
 msgid ""
@@ -3504,7 +3495,6 @@ msgid "Use ignore inserts"
 msgstr "Użyj ignorowanych dodań"
 
 #: libraries/classes/Config/Descriptions.php:732
-#, fuzzy
 msgid "Syntax to use when inserting data"
 msgstr "Składnia do użycia podczas wstawiania danych"
 
@@ -3563,12 +3553,10 @@ msgid "CSV"
 msgstr "CSV"
 
 #: libraries/classes/Config/Descriptions.php:752
-#, fuzzy
 msgid "Developer"
 msgstr "Programista"
 
 #: libraries/classes/Config/Descriptions.php:753
-#, fuzzy
 msgid "Edit mode"
 msgstr "Tryb edycji"
 
@@ -3589,7 +3577,6 @@ msgid "Import / export"
 msgstr "Import / eksport"
 
 #: libraries/classes/Config/Descriptions.php:758
-#, fuzzy
 msgid "LaTeX"
 msgstr "LaTeX"
 
@@ -3622,17 +3609,14 @@ msgstr "Tabele"
 #: libraries/classes/Config/Descriptions.php:764
 #: libraries/classes/Config/Forms/User/MainForm.php:90
 #: templates/preferences/header.twig:36
-#, fuzzy
 msgid "Main panel"
 msgstr "Panel główny"
 
 #: libraries/classes/Config/Descriptions.php:765
-#, fuzzy
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/classes/Config/Descriptions.php:767
-#, fuzzy
 msgid "Other core settings"
 msgstr "Inne kluczowe ustawienia"
 
@@ -3641,17 +3625,14 @@ msgid "Page titles"
 msgstr "Tytuły stron"
 
 #: libraries/classes/Config/Descriptions.php:769
-#, fuzzy
 msgid "Security"
 msgstr "Bezpieczeństwo"
 
 #: libraries/classes/Config/Descriptions.php:770
-#, fuzzy
 msgid "Basic settings"
 msgstr "Ustawienia podstawowe"
 
 #: libraries/classes/Config/Descriptions.php:771
-#, fuzzy
 msgid "Authentication"
 msgstr "Uwierzytelnienie"
 
@@ -3660,12 +3641,10 @@ msgid "Server configuration"
 msgstr "Konfiguracja serwera"
 
 #: libraries/classes/Config/Descriptions.php:773
-#, fuzzy
 msgid "Configuration storage"
 msgstr "Przechowywanie konfiguracji"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
 msgid "Changes tracking"
 msgstr "Śledzenie zmian"
 
@@ -3676,12 +3655,10 @@ msgstr "Śledzenie zmian"
 #: libraries/classes/Util.php:1976 libraries/classes/Util.php:1993
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
-#, fuzzy
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/classes/Config/Descriptions.php:776
-#, fuzzy
 msgid "SQL Query box"
 msgstr "Okno zapytania SQL"
 
@@ -3718,9 +3695,8 @@ msgid "Text fields"
 msgstr "Pola tekstowe"
 
 #: libraries/classes/Config/Descriptions.php:784
-#, fuzzy
 msgid "Texy! text"
-msgstr "Teksowna! tekst"
+msgstr "Texy! tekst"
 
 #: libraries/classes/Config/Descriptions.php:785
 msgid "Warnings"
@@ -3769,7 +3745,6 @@ msgstr "Format importowanych plików"
 
 #: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
-#, fuzzy
 msgid "Use LOCAL keyword"
 msgstr "Użyj słowa kluczowego LOCAL"
 
@@ -3800,7 +3775,6 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nie używaj AUTO_INCREMENT dla wartości zerowych"
 
 #: libraries/classes/Config/Descriptions.php:813
-#, fuzzy
 msgid "Read as multibytes"
 msgstr "Odczytany jako wielobajtowy"
 
@@ -3813,24 +3787,20 @@ msgid "Number of inserted rows"
 msgstr "Liczba wstawianych wierszy"
 
 #: libraries/classes/Config/Descriptions.php:816
-#, fuzzy
 msgid "Limit column characters"
 msgstr "Limit znaków w kolumnie"
 
 #: libraries/classes/Config/Descriptions.php:817
-#, fuzzy
 msgid "Delete all cookies on logout"
 msgstr "Usuń wszystkie ciasteczka przy wylogowaniu"
 
 #: libraries/classes/Config/Descriptions.php:818
-#, fuzzy
 msgid "Recall user name"
 msgstr "Przypominaj nazwę użytkownika"
 
 #: libraries/classes/Config/Descriptions.php:819
-#, fuzzy
 msgid "Login cookie store"
-msgstr "Przechowywania ciasteczka logowania"
+msgstr "Przechowywanie ciasteczka logowania"
 
 #: libraries/classes/Config/Descriptions.php:820
 msgid "Login cookie validity"
@@ -3857,7 +3827,6 @@ msgid "Maximum items in branch"
 msgstr "Maksymalnie pozycji w gałęzi"
 
 #: libraries/classes/Config/Descriptions.php:826
-#, fuzzy
 msgid "Maximum number of rows to display"
 msgstr "Maksymalna liczba wierszy do wyświetlenia"
 
@@ -3866,7 +3835,6 @@ msgid "Maximum tables"
 msgstr "Maksimum tabel"
 
 #: libraries/classes/Config/Descriptions.php:828
-#, fuzzy
 msgid "Memory limit"
 msgstr "Limit pamięci"
 
@@ -3945,17 +3913,14 @@ msgid "Show tables in tree"
 msgstr "Pokaż tabele w drzewie"
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
 msgid "Show views in tree"
 msgstr "Pokaż widoki w drzewie"
 
 #: libraries/classes/Config/Descriptions.php:850
-#, fuzzy
 msgid "Show functions in tree"
 msgstr "Pokaż funkcje w drzewie"
 
 #: libraries/classes/Config/Descriptions.php:851
-#, fuzzy
 msgid "Show procedures in tree"
 msgstr "Pokaż procedury w drzewie"
 
@@ -3981,7 +3946,6 @@ msgid "Where to show the table row links"
 msgstr "Gdzie wyświetlić linki wiersza tabeli"
 
 #: libraries/classes/Config/Descriptions.php:857
-#, fuzzy
 msgid "Show row links anyway"
 msgstr "Pokaż linki wierszy mimo to"
 
@@ -3994,7 +3958,6 @@ msgid "Table navigation bar"
 msgstr "Pasek nawigacji tabeli"
 
 #: libraries/classes/Config/Descriptions.php:861
-#, fuzzy
 msgid "GZip output buffering"
 msgstr "Kompresja wyjścia GZip"
 
@@ -4003,7 +3966,6 @@ msgid "Default sorting order"
 msgstr "Domyślny porządek sortowania"
 
 #: libraries/classes/Config/Descriptions.php:863
-#, fuzzy
 msgid "Persistent connections"
 msgstr "Trwałe połączenia"
 
@@ -4016,7 +3978,6 @@ msgid "MySQL reserved word warning"
 msgstr "Ostrzeżenie o zastrzeżonych słowach MySQL"
 
 #: libraries/classes/Config/Descriptions.php:866
-#, fuzzy
 msgid "How to display the menu tabs"
 msgstr "Jak wyświetlić menu zakładki"
 
@@ -4029,7 +3990,6 @@ msgid "Protect binary columns"
 msgstr "Chroń kolumny binarne"
 
 #: libraries/classes/Config/Descriptions.php:869
-#, fuzzy
 msgid "Permanent query history"
 msgstr "Permanentna historia zapytań"
 
@@ -4038,7 +3998,6 @@ msgid "Query history length"
 msgstr "Długość historii zapytań"
 
 #: libraries/classes/Config/Descriptions.php:871
-#, fuzzy
 msgid "Recoding engine"
 msgstr "Konwersja silnika"
 
@@ -4051,7 +4010,6 @@ msgid "Primary key default sort order"
 msgstr "Podstawowa kolejność sortowania klucza podstawowego"
 
 #: libraries/classes/Config/Descriptions.php:874
-#, fuzzy
 msgid "Repeat headers"
 msgstr "Powtórz nagłówki"
 
@@ -4060,12 +4018,10 @@ msgid "Grid editing: trigger action"
 msgstr "Montaż siatki: akcja wyzwalania"
 
 #: libraries/classes/Config/Descriptions.php:876
-#, fuzzy
 msgid "Relational display"
 msgstr "Relacyjne wyświetlanie"
 
 #: libraries/classes/Config/Descriptions.php:877
-#, fuzzy
 msgid "Grid editing: save all edited cells at once"
 msgstr "Edytowanie siatki: zapisanie wszystkich zmodyfikowanych komórek naraz"
 
@@ -4079,7 +4035,6 @@ msgid "Host authorization order"
 msgstr "Kolejność autoryzacji hosta"
 
 #: libraries/classes/Config/Descriptions.php:880
-#, fuzzy
 msgid "Host authorization rules"
 msgstr "Zasady autoryzacji hosta"
 
@@ -6534,7 +6489,6 @@ msgid "Reload page"
 msgstr "Przeładuj stronę"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:304
-#, fuzzy
 msgid "Affected rows:"
 msgstr "Dotyczy wierszy:"
 
@@ -6754,7 +6708,6 @@ msgid "Enable foreign key checks"
 msgstr "Włącz sprawdzanie kluczy obcych"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:361
-#, fuzzy
 msgid "Failed to get real row count."
 msgstr "Błąd podczas pobierania realnej liczby wierszy."
 
@@ -10372,7 +10325,7 @@ msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Usunięto wiersz %1$d."
+msgstr[0] "Usunięto %1$d wiersz."
 msgstr[1] "Usunięto %1$d wiersze."
 msgstr[2] "Usunięto %1$d wierszy."
 
@@ -14549,7 +14502,6 @@ msgstr "Centralna lista kolumn bieżącej bazy danych jest pusta"
 
 #: templates/database/central_columns/main.twig:166
 #: templates/display/results/table.twig:62
-#, fuzzy
 msgid "Filter rows"
 msgstr "Filtrowanie wierszy"
 
@@ -15070,7 +15022,7 @@ msgstr "Kolejna kolumna"
 
 #: templates/database/multi_table_query/form.twig:146
 msgid "Enter criteria as free text"
-msgstr "Wprowadź kryteria jako wolny tekst"
+msgstr "Wprowadź kryteria jako dowolny tekst"
 
 #: templates/database/multi_table_query/form.twig:153
 msgid "Remove this column"
@@ -19079,7 +19031,7 @@ msgid "Edit/Insert"
 msgstr "Edycja/Wstaw"
 
 #: templates/table/insert/continue_insertion_form.twig:18
-#, fuzzy, php-format
+#, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Kontynuuj wstawianie %s wierszy"
 

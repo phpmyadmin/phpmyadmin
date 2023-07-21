@@ -321,7 +321,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $property->setAccessible(true);
-        $property->setValue($responseStub);
+        $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
@@ -347,7 +347,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $property->setAccessible(true);
-        $property->setValue($responseStub);
+        $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
@@ -373,7 +373,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $property->setAccessible(true);
-        $property->setValue($responseStub);
+        $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
@@ -399,7 +399,7 @@ HTML;
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $property->setAccessible(true);
-        $property->setValue($responseStub);
+        $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(false);
         $errorHandler = new ErrorHandler();
         $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
