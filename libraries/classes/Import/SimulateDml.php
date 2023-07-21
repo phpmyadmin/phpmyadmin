@@ -135,7 +135,7 @@ final class SimulateDml
         }
 
         if (! empty($diff)) {
-            $where .= ' AND (' . implode(' OR ', $diff) . ')';
+            $where = '(' . $where . ') AND (' . implode(' OR ', $diff) . ')';
         }
 
         $orderAndLimit = '';
