@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\GisGeometryCollection;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -20,31 +20,31 @@ use TCPDF;
 class GisGeometryCollectionTest extends GisGeomTestCase
 {
     /**
-     * Data provider for testScaleRow() test case
+     * Data provider for testGetExtent() test case
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
         return [
             [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-                new ScaleData(45, 10, 45, 10),
+                new Extent(minX: 10, minY: 10, maxX: 45, maxY: 45),
             ],
         ];
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisGeometryCollection::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**

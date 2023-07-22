@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -48,26 +48,26 @@ class GisMultiLineString extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
-        $minMax = null;
+        $extent = Extent::empty();
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilineString = mb_substr($spatial, 17, -2);
+        $multilineString = mb_substr($wkt, 17, -2);
         // Separate each linestring
         $linestrings = explode('),(', $multilineString);
 
         foreach ($linestrings as $linestring) {
-            $minMax = $this->setMinMax($linestring, $minMax);
+            $this->updateExtentInternal($linestring, $extent);
         }
 
-        return $minMax;
+        return $extent;
     }
 
     /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -40,36 +40,42 @@ class GisGeometryTest extends AbstractTestCase
     }
 
     /**
-     * tests setMinMax method
+     * tests updateExtentInternal method
      *
-     * @param string         $pointSet Point set
-     * @param ScaleData|null $minMax   Existing min, max values
-     * @param ScaleData|null $output   Expected output array
+     * @param string $pointSet Point set
+     * @param Extent $extent   Existing min, max values
+     * @param Extent $output   Expected output extent
      */
-    #[DataProvider('providerForTestSetMinMax')]
-    public function testSetMinMax(string $pointSet, ScaleData|null $minMax, ScaleData|null $output): void
+    #[DataProvider('providerForTestUpdateExtentInternal')]
+    public function testUpdateExtentInternal(string $pointSet, Extent $extent, Extent $output): void
     {
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                GisGeometry::class,
-                'setMinMax',
-                [$pointSet, $minMax],
-            ),
+        $this->callFunction(
+            $this->object,
+            GisGeometry::class,
+            'updateExtentInternal',
+            [$pointSet, $extent],
         );
+        $this->assertEquals($output, $extent);
     }
 
     /**
-     * data provider for testSetMinMax
+     * data provider for testUpdateExtentInternal
      *
-     * @return array<array{string, ScaleData|null, ScaleData|null}>
+     * @return array<array{string, Extent, Extent}>
      */
-    public static function providerForTestSetMinMax(): array
+    public static function providerForTestUpdateExtentInternal(): array
     {
         return [
-            ['12 35,48 75,69 23,25 45,14 53,35 78', null, new ScaleData(69, 12, 78, 23)],
-            ['12 35,48 75,69 23,25 45,14 53,35 78', new ScaleData(29, 2, 128, 23), new ScaleData(69, 2, 128, 23)],
+            [
+                '12 35,48 75,69 23,25 45,14 53,35 78',
+                Extent::empty(),
+                new Extent(minX: 12, minY: 23, maxX: 69, maxY: 78),
+            ],
+            [
+                '12 35,48 75,69 23,25 45,14 53,35 78',
+                new Extent(minX: 2, minY: 23, maxX: 29, maxY: 128),
+                new Extent(minX: 2, minY: 23, maxX: 69, maxY: 128),
+            ],
         ];
     }
 

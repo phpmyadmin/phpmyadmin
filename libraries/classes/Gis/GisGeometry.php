@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -97,13 +97,13 @@ abstract class GisGeometry
     ): string;
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null min, max values for x and y coordinates
+     * @return Extent min, max values for x and y coordinates
      */
-    abstract public function scaleRow(string $spatial): ScaleData|null;
+    abstract public function getExtent(string $wkt): Extent;
 
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
@@ -119,12 +119,10 @@ abstract class GisGeometry
     /**
      * Updates the min, max values with the given point set.
      *
-     * @param string         $pointSet  point set
-     * @param ScaleData|null $scaleData existing min, max values
-     *
-     * @return ScaleData|null the updated min, max values
+     * @param string $pointSet point set
+     * @param Extent $extent   existing min, max values
      */
-    protected function setMinMax(string $pointSet, ScaleData|null $scaleData = null): ScaleData|null
+    protected function updateExtentInternal(string $pointSet, Extent $extent): Extent
     {
         // Separate each point
         $points = explode(',', $pointSet);
@@ -132,14 +130,10 @@ abstract class GisGeometry
         foreach ($points as $point) {
             // Extract coordinates of the point
             $coordinates = explode(' ', $point);
-
-            $x = (float) $coordinates[0];
-            $y = (float) $coordinates[1];
-
-            $scaleData = $scaleData === null ? new ScaleData($x, $x, $y, $y) : $scaleData->expand($x, $y);
+            $extent->extend((float) $coordinates[0], (float) $coordinates[1]);
         }
 
-        return $scaleData;
+        return $extent;
     }
 
     /**

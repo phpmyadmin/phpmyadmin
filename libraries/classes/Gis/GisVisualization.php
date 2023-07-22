@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
@@ -485,7 +485,7 @@ class GisVisualization
      */
     private function scaleDataSet(array $data): array
     {
-        $minMax = null;
+        $extent = Extent::empty();
         $border = 15;
         // effective width and height of the plot
         $plotWidth = $this->width - 2 * $border;
@@ -503,28 +503,28 @@ class GisVisualization
                 continue;
             }
 
-            $scaleData = $gisObj->scaleRow($refData);
-
             // Update minimum/maximum values for x and y coordinates.
-            $minMax = $minMax === null ? $scaleData : $scaleData?->merge($minMax);
+            $extent->merge($gisObj->getExtent($refData));
         }
 
-        $minMax ??= new ScaleData(0, 0, 0, 0);
+        if ($extent->isEmpty()) {
+            $extent = new Extent(minX: 0, minY: 0, maxX: 0, maxY: 0);
+        }
 
         // scale the visualization
-        $xRatio = ($minMax->maxX - $minMax->minX) / $plotWidth;
-        $yRatio = ($minMax->maxY - $minMax->minY) / $plotHeight;
+        $xRatio = ($extent->maxX - $extent->minX) / $plotWidth;
+        $yRatio = ($extent->maxY - $extent->minY) / $plotHeight;
         $ratio = $xRatio > $yRatio ? $xRatio : $yRatio;
 
         $scale = $ratio != 0 ? 1 / $ratio : 1;
 
         // Center plot
         $x = $ratio == 0 || $xRatio < $yRatio
-            ? ($minMax->maxX + $minMax->minX - $this->width / $scale) / 2
-            : $minMax->minX - ($border / $scale);
+            ? ($extent->maxX + $extent->minX - $this->width / $scale) / 2
+            : $extent->minX - ($border / $scale);
         $y = $ratio == 0 || $xRatio >= $yRatio
-            ? ($minMax->maxY + $minMax->minY - $this->height / $scale) / 2
-            : $minMax->minY - ($border / $scale);
+            ? ($extent->maxY + $extent->minY - $this->height / $scale) / 2
+            : $extent->minY - ($border / $scale);
 
         return ['scale' => $scale, 'x' => $x, 'y' => $y, 'height' => $this->height];
     }

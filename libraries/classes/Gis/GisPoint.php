@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -46,18 +46,18 @@ class GisPoint extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr($spatial, 6, -1);
+        $point = mb_substr($wkt, 6, -1);
 
-        return $this->setMinMax($point);
+        return $this->updateExtentInternal($point, Extent::empty());
     }
 
     /**

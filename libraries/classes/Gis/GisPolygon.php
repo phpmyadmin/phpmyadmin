@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -50,19 +50,19 @@ class GisPolygon extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr($spatial, 9, -2);
+        $polygon = mb_substr($wkt, 9, -2);
         $wktOuterRing = explode('),(', $polygon)[0];
 
-        return $this->setMinMax($wktOuterRing);
+        return $this->updateExtentInternal($wktOuterRing, Extent::empty());
     }
 
     /**

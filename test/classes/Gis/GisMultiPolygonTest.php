@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\GisMultiPolygon;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -210,34 +210,34 @@ class GisMultiPolygonTest extends GisGeomTestCase
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
-     * data provider for testScaleRow
+     * data provider for testGetExtent
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
         return [
             [
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
-                new ScaleData(147, 16, 83, 0),
+                new Extent(minX: 16, minY: 0, maxX: 147, maxY: 83),
             ],
             [
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20'
                     . ',20 30)),((105 0,56 20,78 73,105 0)))',
-                new ScaleData(105, 10, 73, 0),
+                new Extent(minX: 10, minY: 0, maxX: 105, maxY: 73),
             ],
         ];
     }

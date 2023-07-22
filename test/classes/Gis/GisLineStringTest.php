@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\GisLineString;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -126,26 +126,28 @@ class GisLineStringTest extends GisGeomTestCase
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisLineString::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
-     * data provider for testScaleRow
+     * data provider for testGetExtent
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
-        return [['LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)', new ScaleData(69, 12, 78, 23)]];
+        return [
+            ['LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)', new Extent(minX: 12, minY: 23, maxX: 69, maxY: 78)],
+        ];
     }
 
     #[RequiresPhpExtension('gd')]

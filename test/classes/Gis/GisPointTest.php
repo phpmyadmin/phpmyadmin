@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -124,26 +124,26 @@ class GisPointTest extends GisGeomTestCase
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
-     * data provider for testScaleRow
+     * data provider for testGetExtent
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
-        return [['POINT(12 35)', new ScaleData(12, 12, 35, 35)]];
+        return [['POINT(12 35)', new Extent(minX: 12, minY: 35, maxX: 12, maxY: 35)]];
     }
 
     #[RequiresPhpExtension('gd')]

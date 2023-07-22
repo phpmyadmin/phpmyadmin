@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use ErrorException;
-use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -45,32 +45,31 @@ class GisGeometryCollection extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
+     *
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
-        $minMax = null;
-
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $geomCol = mb_substr($spatial, 19, -1);
+        $geomCol = mb_substr($wkt, 19, -1);
 
         // Split the geometry collection object to get its constituents.
         $subParts = $this->explodeGeomCol($geomCol);
 
+        $extent = Extent::empty();
         foreach ($subParts as $subPart) {
             $gisObj = GisFactory::fromWkt($subPart);
             if ($gisObj === null) {
                 continue;
             }
 
-            $scaleData = $gisObj->scaleRow($subPart);
-
-            $minMax = $minMax === null ? $scaleData : $scaleData?->merge($minMax);
+            $extent->merge($gisObj->getExtent($subPart));
         }
 
-        return $minMax;
+        return $extent;
     }
 
     /**
