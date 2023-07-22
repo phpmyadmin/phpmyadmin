@@ -24,7 +24,6 @@ use function in_array;
 use function mb_strtoupper;
 use function sprintf;
 use function str_contains;
-use function trim;
 
 use const SORT_ASC;
 
@@ -432,51 +431,17 @@ class Triggers
         echo $message->getDisplay();
     }
 
-    public function export(string $db, string $table, TriggerName $triggerName): void
+    /** @psalm-return non-empty-string|null */
+    public function getExportData(string $db, string $table, TriggerName $triggerName): string|null
     {
         $triggers = self::getDetails($this->dbi, $db, $table, '');
-        $exportData = false;
-
         foreach ($triggers as $trigger) {
             if ($trigger['name'] === $triggerName->getName()) {
-                $exportData = $trigger['create'];
-                break;
+                return $trigger['create'];
             }
         }
 
-        if ($exportData !== false) {
-            $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($triggerName)));
-
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
-                $this->response->addJSON('title', $title);
-
-                $this->response->callExit();
-            }
-
-            $this->response->addHTML($this->template->render('triggers/export', [
-                'data' => $exportData,
-                'item_name' => $triggerName->getName(),
-            ]));
-
-            return;
-        }
-
-        $message = sprintf(
-            __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
-            htmlspecialchars(Util::backquote($triggerName)),
-            htmlspecialchars(Util::backquote($db)),
-        );
-        $message = Message::error($message);
-
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message);
-
-            $this->response->callExit();
-        }
-
-        $this->response->addHTML($message->getDisplay());
+        return null;
     }
 
     /**

@@ -31,6 +31,8 @@
     </div>
   </div>
 
+  {{ error_message|raw -}}
+
   <form id="rteListForm" class="ajax" action="{{ url('/triggers') }}">
     {{ get_hidden_inputs(db, table) }}
 

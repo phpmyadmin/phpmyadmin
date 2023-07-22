@@ -12439,8 +12439,6 @@
       <code><![CDATA[$_POST['item_table']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code>$itemName</code>
-      <code>$itemName</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_name']]]></code>

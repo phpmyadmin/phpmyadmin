@@ -9,14 +9,19 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\TriggerName;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
+use function htmlspecialchars;
 use function in_array;
+use function sprintf;
 use function strlen;
+use function trim;
 
 /**
  * Triggers management.
@@ -75,9 +80,36 @@ final class IndexController extends AbstractController
         $GLOBALS['errors'] = [];
 
         $this->triggers->handleEditor();
+
+        $message = null;
         $triggerName = TriggerName::tryFrom($request->getQueryParam('item_name'));
         if ($request->hasQueryParam('export_item') && $triggerName !== null) {
-            $this->triggers->export($GLOBALS['db'], $GLOBALS['table'], $triggerName);
+            $exportData = $this->triggers->getExportData($GLOBALS['db'], $GLOBALS['table'], $triggerName);
+            if ($exportData !== null && $this->response->isAjax()) {
+                $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($triggerName)));
+                $this->response->addJSON('title', $title);
+                $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
+
+                return;
+            }
+
+            if ($exportData !== null) {
+                $this->render('triggers/export', ['data' => $exportData, 'item_name' => $triggerName->getName()]);
+
+                return;
+            }
+
+            $message = Message::error(sprintf(
+                __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
+                htmlspecialchars(Util::backquote($triggerName)),
+                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+            ));
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
+
+                return;
+            }
         }
 
         $triggers = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
@@ -90,6 +122,7 @@ final class IndexController extends AbstractController
             'triggers' => $triggers,
             'has_privilege' => $hasTriggerPrivilege,
             'is_ajax' => $isAjax,
+            'error_message' => $message?->getDisplay() ?? '',
         ]);
     }
 }
