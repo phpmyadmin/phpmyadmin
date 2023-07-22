@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Triggers\Triggers;
@@ -74,8 +75,9 @@ final class IndexController extends AbstractController
         $GLOBALS['errors'] = [];
 
         $this->triggers->handleEditor();
-        if ($request->hasQueryParam('export_item') && $request->hasQueryParam('item_name')) {
-            $this->triggers->export();
+        $triggerName = TriggerName::tryFrom($request->getQueryParam('item_name'));
+        if ($request->hasQueryParam('export_item') && $triggerName !== null) {
+            $this->triggers->export($GLOBALS['db'], $GLOBALS['table'], $triggerName);
         }
 
         $triggers = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);

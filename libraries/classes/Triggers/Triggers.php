@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Triggers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
@@ -431,21 +432,20 @@ class Triggers
         echo $message->getDisplay();
     }
 
-    public function export(): void
+    public function export(string $db, string $table, TriggerName $triggerName): void
     {
-        $itemName = $_GET['item_name'];
-        $triggers = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
+        $triggers = self::getDetails($this->dbi, $db, $table, '');
         $exportData = false;
 
         foreach ($triggers as $trigger) {
-            if ($trigger['name'] === $itemName) {
+            if ($trigger['name'] === $triggerName->getName()) {
                 $exportData = $trigger['create'];
                 break;
             }
         }
 
         if ($exportData !== false) {
-            $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($itemName)));
+            $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($triggerName)));
 
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
@@ -456,7 +456,7 @@ class Triggers
 
             $this->response->addHTML($this->template->render('triggers/export', [
                 'data' => $exportData,
-                'item_name' => $itemName,
+                'item_name' => $triggerName->getName(),
             ]));
 
             return;
@@ -464,8 +464,8 @@ class Triggers
 
         $message = sprintf(
             __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
-            htmlspecialchars(Util::backquote($itemName)),
-            htmlspecialchars(Util::backquote($GLOBALS['db'])),
+            htmlspecialchars(Util::backquote($triggerName)),
+            htmlspecialchars(Util::backquote($db)),
         );
         $message = Message::error($message);
 
