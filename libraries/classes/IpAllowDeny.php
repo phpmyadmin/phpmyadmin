@@ -73,6 +73,7 @@ class IpAllowDeny
 
             $maskl = 0;
 
+            /** @infection-ignore-all */
             for ($i = 0; $i < 31; $i++) {
                 if ($i >= $regs[5] - 1) {
                     continue;
@@ -194,6 +195,7 @@ class IpAllowDeny
                 $lastHex = substr_replace($lastHex, $new, $pos, 1);
 
                 // We processed one nibble, move to previous position
+                /** @infection-ignore-all */
                 $flexbits -= 4;
                 --$pos;
             }

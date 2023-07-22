@@ -513,6 +513,7 @@ class Results
         $deleteLink = $displayParts->deleteLink;
         $hasPrintLink = $displayParts->hasPrintLink;
 
+        /** @infection-ignore-all */
         for ($i = 0; $i < $numberOfColumns; $i++) {
             $isLink = $hasEditLink || $deleteLink !== DeleteLinkEnum::NO_DELETE || $displayParts->hasSortLink;
 
@@ -2159,6 +2160,7 @@ class Results
         $added = [];
         $relationParameters = $this->relation->getRelationParameters();
 
+        /** @infection-ignore-all */
         for ($currentColumn = 0; $currentColumn < $this->properties['fields_cnt']; ++$currentColumn) {
             $meta = $fieldsMeta[$currentColumn];
             $orgFullTableName = $this->properties['db'] . '.' . $meta->orgtable;

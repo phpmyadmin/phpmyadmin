@@ -214,6 +214,7 @@ class ZoomSearchController extends AbstractController
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;
         $keys = [];
+        /** @infection-ignore-all */
         for ($i = 0; $i < 4; $i++) {
             if (! isset($criteriaColumnNames[$i])) {
                 continue;

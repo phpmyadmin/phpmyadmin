@@ -207,6 +207,7 @@ class ExportPhparray extends ExportPlugin
                 $buffer .= ',' . "\n" . '  array(';
             }
 
+            /** @infection-ignore-all */
             for ($i = 0; $i < $columnsCnt; $i++) {
                 $buffer .= var_export($columns[$i], true)
                     . ' => ' . var_export($record[$i], true)

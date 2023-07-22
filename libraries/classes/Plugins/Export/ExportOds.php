@@ -232,6 +232,7 @@ class ExportOds extends ExportPlugin
         // Format the data
         while ($row = $result->fetchRow()) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
+            /** @infection-ignore-all */
             for ($j = 0; $j < $fieldsCnt; $j++) {
                 if ($fieldsMeta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex

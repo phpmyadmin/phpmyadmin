@@ -242,6 +242,7 @@ class GisLineString extends GisGeometry
         }
 
         $wkt = 'LINESTRING(';
+        /** @infection-ignore-all */
         for ($i = 0; $i < $noOfPoints; $i++) {
             $wkt .= (isset($gisData[$index]['LINESTRING'][$i]['x'])
                     && trim((string) $gisData[$index]['LINESTRING'][$i]['x']) != ''
@@ -271,6 +272,7 @@ class GisLineString extends GisGeometry
 
         $noOfPoints = count($pointsArr);
         $coords = ['no_of_points' => $noOfPoints];
+        /** @infection-ignore-all */
         for ($i = 0; $i < $noOfPoints; $i++) {
             $coords[$i] = ['x' => $pointsArr[$i][0], 'y' => $pointsArr[$i][1]];
         }

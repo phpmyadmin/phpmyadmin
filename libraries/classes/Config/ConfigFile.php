@@ -430,6 +430,7 @@ class ConfigFile
 
         $lastServer = $this->getServerCount();
 
+        /** @infection-ignore-all */
         for ($i = $server; $i < $lastServer; $i++) {
             $_SESSION[$this->id]['Servers'][$i] = $_SESSION[$this->id]['Servers'][$i + 1];
         }

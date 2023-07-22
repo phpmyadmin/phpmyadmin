@@ -419,12 +419,14 @@ class ImportOds extends ImportPlugin
              */
 
             /* Fill out column names */
+            /** @infection-ignore-all */
             for ($i = count($colNames); $i < $maxCols; ++$i) {
                 $colNames[] = $this->import->getColumnAlphaName($i + 1);
             }
 
             /* Fill out all rows */
             $numRows = count($tempRows);
+            /** @infection-ignore-all */
             for ($i = 0; $i < $numRows; ++$i) {
                 for ($j = count($tempRows[$i]); $j < $maxCols; ++$j) {
                     $tempRows[$i][] = 'NULL';

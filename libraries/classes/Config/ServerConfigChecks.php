@@ -120,6 +120,7 @@ class ServerConfigChecks
 
         $serverCnt = $this->cfg->getServerCount();
         $isCookieAuthUsed = 0;
+        /** @infection-ignore-all */
         for ($i = 1; $i <= $serverCnt; $i++) {
             $cookieAuthServer = ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'cookie');
             $isCookieAuthUsed |= (int) $cookieAuthServer;

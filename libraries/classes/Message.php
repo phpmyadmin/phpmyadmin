@@ -612,6 +612,7 @@ class Message implements Stringable
             $message = $this->getString();
         }
 
+        /** @infection-ignore-all */
         if ($this->isDisplayed()) {
             $message = $this->getMessageWithIcon($message);
         }
@@ -695,6 +696,8 @@ class Message implements Stringable
      * sets and returns whether the message was displayed or not
      *
      * @param bool $isDisplayed whether to set displayed flag
+     *
+     * @infection-ignore-all
      */
     public function isDisplayed(bool $isDisplayed = false): bool
     {

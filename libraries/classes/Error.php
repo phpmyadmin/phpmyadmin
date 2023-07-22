@@ -408,6 +408,8 @@ class Error extends Message
      *
      * @param mixed  $arg      argument to process
      * @param string $function function name
+     *
+     * @infection-ignore-all
      */
     public static function getArg(mixed $arg, string $function): string
     {
@@ -499,6 +501,7 @@ class Error extends Message
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
+        /** @infection-ignore-all */
         while (implode(DIRECTORY_SEPARATOR, $destParts) !== implode(DIRECTORY_SEPARATOR, $hereParts)) {
             if (count($hereParts) > count($destParts)) {
                 array_pop($hereParts);

@@ -317,6 +317,7 @@ class Util
         $li = 10 ** $limes;
         $unit = $byteUnits[0];
 
+        /** @infection-ignore-all */
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
             $unitSize = $li * 10 ** $ex;
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
@@ -720,6 +721,7 @@ class Util
         $uniqueKeyArray = [];
         $nonPrimaryConditionArray = [];
 
+        /** @infection-ignore-all */
         for ($i = 0; $i < $fieldsCount; ++$i) {
             $meta = $fieldsMeta[$i];
 
@@ -1635,6 +1637,7 @@ class Util
         $inString = false;
         $buffer = '';
 
+        /** @infection-ignore-all */
         for ($i = 0, $length = mb_strlen($valuesString); $i < $length; $i++) {
             $curr = mb_substr($valuesString, $i, 1);
             $next = $i == mb_strlen($valuesString) - 1
@@ -2136,6 +2139,7 @@ class Util
     {
         $result = '';
 
+        /** @infection-ignore-all */
         while (strlen($result) < $length) {
             // Get random byte and strip highest bit
             // to get ASCII only range

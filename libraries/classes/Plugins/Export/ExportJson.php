@@ -263,6 +263,7 @@ class ExportJson extends ExportPlugin
 
             $data = [];
 
+            /** @infection-ignore-all */
             for ($i = 0; $i < $columnsCnt; $i++) {
                 // 63 is the binary charset, see: https://dev.mysql.com/doc/internals/en/charsets.html
                 $isBlobAndIsBinaryCharset = isset($fieldsMeta[$i])

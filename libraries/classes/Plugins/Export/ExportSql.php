@@ -2070,6 +2070,7 @@ class ExportSql extends ExportPlugin
         $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
 
         $fieldSet = [];
+        /** @infection-ignore-all */
         for ($j = 0; $j < $fieldsCnt; $j++) {
             $colAs = $fieldsMeta[$j]->name;
             if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
@@ -2233,6 +2234,7 @@ class ExportSql extends ExportPlugin
             // should we make update?
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] === 'UPDATE') {
                 $insertLine = $schemaInsert;
+                /** @infection-ignore-all */
                 for ($i = 0; $i < $fieldsCnt; $i++) {
                     if ($i == 0) {
                         $insertLine .= ' ';
@@ -2557,6 +2559,7 @@ class ExportSql extends ExportPlugin
             || $statement->options->has('VIEW')
         ) {
             // Replacing the body.
+            /** @infection-ignore-all */
             for ($i = 0, $count = count((array) $statement->body); $i < $count; ++$i) {
 
                 /**

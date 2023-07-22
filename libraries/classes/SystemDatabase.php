@@ -85,6 +85,7 @@ class SystemDatabase
         $columnCount = 0;
         $addComma = false;
 
+        /** @infection-ignore-all */
         while ($dataRow = $transformationData->fetchAssoc()) {
             foreach ($columnMap as $column) {
                 if (

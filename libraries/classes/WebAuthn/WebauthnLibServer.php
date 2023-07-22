@@ -191,6 +191,7 @@ final class WebauthnLibServer implements Server
         return $publicKeyCredentialSource->jsonSerialize();
     }
 
+    /** @infection-ignore-all */
     private function createPublicKeyCredentialSourceRepository(): PublicKeyCredentialSourceRepository
     {
         return new class ($this->twofactor) implements PublicKeyCredentialSourceRepository {

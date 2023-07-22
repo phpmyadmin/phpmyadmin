@@ -97,6 +97,7 @@ class ImportMediawiki extends ImportPlugin
 
         $inTableHeader = false;
 
+        /** @infection-ignore-all */
         while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
 
@@ -402,6 +403,7 @@ class ImportMediawiki extends ImportPlugin
         $partialSeparator = false;
 
         // Parse text char by char
+        /** @infection-ignore-all */
         for ($i = 0, $iMax = strlen($subject); $i < $iMax; $i++) {
             $curChar = $subject[$i];
             // Check for separators

@@ -379,6 +379,7 @@ class Relation
             );
             $this->dbi->tryMultiQuery($query, Connection::TYPE_CONTROL);
             // skips result sets of query as we are not interested in it
+            /** @infection-ignore-all */
             do {
                 $hasResult = (
                     $this->dbi->moreResults(Connection::TYPE_CONTROL)

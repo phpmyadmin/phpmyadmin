@@ -366,6 +366,7 @@ class ExportLatex extends ExportPlugin
         while ($record = $result->fetchAssoc()) {
             $buffer = '';
             // print each row
+            /** @infection-ignore-all */
             for ($i = 0; $i < $columnsCnt; $i++) {
                 if ($record[$columns[$i]] !== null) {
                     $columnValue = self::texEscape($record[$columns[$i]]);

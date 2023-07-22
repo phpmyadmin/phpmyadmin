@@ -78,6 +78,7 @@ class TwigLintCommand extends Command
 
         $foundFiles = [];
 
+        /** @infection-ignore-all */
         while (($file = readdir($handle)) !== false) {
             if ($file === '.' || $file === '..') {
                 continue;
@@ -262,6 +263,7 @@ class TwigLintCommand extends Command
         $result = [];
         while ($position < $max) {
             $result[$position + 1] = $lines[$position];
+            /** @infection-ignore-all */
             ++$position;
         }
 

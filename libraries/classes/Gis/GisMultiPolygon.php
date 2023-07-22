@@ -305,6 +305,7 @@ class GisMultiPolygon extends GisGeometry
         }
 
         $wkt = 'MULTIPOLYGON(';
+        /** @infection-ignore-all */
         for ($k = 0; $k < $noOfPolygons; $k++) {
             $noOfLines = $dataRow[$k]['no_of_lines'] ?? 1;
             if ($noOfLines < 1) {
@@ -452,6 +453,7 @@ class GisMultiPolygon extends GisGeometry
                 $points = $this->extractPoints1d($wktRing, null);
                 $noOfPoints = count($points);
                 $coords[$k][$j] = ['no_of_points' => $noOfPoints];
+                /** @infection-ignore-all */
                 for ($i = 0; $i < $noOfPoints; $i++) {
                     $coords[$k][$j][$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];
                 }

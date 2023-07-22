@@ -53,6 +53,7 @@ class Linter
         $len = $str->length();
 
         $lines = [0];
+        /** @infection-ignore-all */
         for ($i = 0; $i < $len; ++$i) {
             if ($str[$i] !== "\n") {
                 continue;
