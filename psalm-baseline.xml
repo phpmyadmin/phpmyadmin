@@ -6275,8 +6275,8 @@
       <code><![CDATA[$scaleData['height']]]></code>
       <code><![CDATA[$scaleData['x']]]></code>
       <code><![CDATA[$scaleData['y']]]></code>
-      <code><![CDATA[(float) $coordinates[0] - $scaleData['x']]]></code>
-      <code><![CDATA[(float) $coordinates[1] - $scaleData['y']]]></code>
+      <code><![CDATA[$x - $scaleData['x']]]></code>
+      <code><![CDATA[$y - $scaleData['y']]]></code>
     </MixedOperand>
     <PossiblyFalseOperand>
       <code>$lastComma</code>
