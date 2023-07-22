@@ -162,7 +162,7 @@ var Change = {};
  * @return {boolean}
  */
 Change.validationFunctionForMultipleInt = function (value) {
-    return value.match(/^(((0x[0-9a-f]+)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?))(,|$))+$/i) !== null;
+    return value.split(/\s*,\s*/).every((v) => Change.validationFunctionForInt(v));
 };
 
 /**
@@ -172,7 +172,7 @@ Change.validationFunctionForMultipleInt = function (value) {
  * @return {boolean}
  */
 Change.validationFunctionForInt = function (value) {
-    return value.match(/^(0x[0-9a-f]+$)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?)$/i) !== null;
+    return /^\s*([+-]*(0x[0-9a-f]+|([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?))\s*$/i.test(value);
 };
 
 // used in Search page mostly for INT fields
