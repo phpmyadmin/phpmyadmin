@@ -6834,23 +6834,19 @@
       <code>$scale_data['minX']</code>
       <code>$scale_data['minY']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="3">
       <code>$line</code>
       <code>$point</code>
-      <code>$points_arr[]</code>
-      <code>$points_arr[]</code>
       <code>$polygon</code>
-      <code>$x</code>
-      <code>$y</code>
     </MixedAssignment>
     <MixedOperand occurrences="7">
-      <code>$coordinates[0] - $scale_data['x']</code>
-      <code>$coordinates[1] - $scale_data['y']</code>
       <code>$point[0]</code>
       <code>$point[1]</code>
       <code>$scale_data['height']</code>
       <code>$scale_data['x']</code>
       <code>$scale_data['y']</code>
+      <code>$x - $scale_data['x']</code>
+      <code>$y - $scale_data['y']</code>
     </MixedOperand>
     <PossiblyFalseOperand occurrences="2">
       <code>$last_comma</code>
