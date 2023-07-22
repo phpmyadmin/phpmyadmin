@@ -1519,7 +1519,7 @@ function dismissNotifications () {
             var copyText = $(this).attr('data-text');
             var copyTarget = $(this).attr('data-target');
             if (copyTarget) {
-                copyText = String($(copyTarget).val());
+                copyText = $(copyTarget).val();
             }
 
             if (Functions.copyToClipboard(copyText)) {
