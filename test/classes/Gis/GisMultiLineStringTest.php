@@ -23,7 +23,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return array<array{array<mixed>, int, string|null, string}>
+     * @return array<array{array<mixed>, int, string, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
@@ -47,13 +47,13 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $temp3[0]['MULTILINESTRING'][1]['data_length'] = 1;
 
         return [
-            [$temp, 0, null, 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'],
+            [$temp, 0, '', 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'],
             // if a coordinate is missing, default is empty string
-            [$temp1, 0, null, 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 ))'],
+            [$temp1, 0, '', 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 ))'],
             // missing coordinates are replaced with provided values (3rd parameter)
             [$temp1, 0, '0', 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0))'],
             // at least one line should be there
-            [$temp2, 0, null, 'MULTILINESTRING((5.02 8.45,6.14 0.15))'],
+            [$temp2, 0, '', 'MULTILINESTRING((5.02 8.45,6.14 0.15))'],
             // a line should have at least two points
             [$temp3, 0, '0', 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'],
         ];
@@ -64,11 +64,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @param array<mixed> $gisData
      * @param int          $index   index in $gis_data
-     * @param string|null  $empty   empty parameter
+     * @param string       $empty   empty parameter
      * @param string       $output  expected output
      */
     #[DataProvider('providerForTestGenerateWkt')]
-    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisMultiLineString::singleton();
         $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));

@@ -14,6 +14,7 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
+use function implode;
 use function mb_substr;
 use function str_split;
 
@@ -229,16 +230,16 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param mixed[]     $gisData GIS data
-     * @param int         $index   index into the parameter object
-     * @param string|null $empty   value for empty points
+     * @param mixed[] $gisData GIS data
+     * @param int     $index   index into the parameter object
+     * @param string  $empty   value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string $empty = ''): string
     {
         $geomCount = $gisData['GEOMETRYCOLLECTION']['data_length'] ?? 1;
-        $wkt = 'GEOMETRYCOLLECTION(';
+        $wktGeoms = [];
         /** @infection-ignore-all */
         for ($i = 0; $i < $geomCount; $i++) {
             if (! isset($gisData[$i]['gis_type'])) {
@@ -251,14 +252,10 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $wkt .= $gisObj->generateWkt($gisData, $i, $empty) . ',';
+            $wktGeoms[] = $gisObj->generateWkt($gisData, $i, $empty);
         }
 
-        if (isset($gisData[0]['gis_type'])) {
-            $wkt = mb_substr($wkt, 0, -1);
-        }
-
-        return $wkt . ')';
+        return 'GEOMETRYCOLLECTION(' . implode(',', $wktGeoms) . ')';
     }
 
     /** @inheritDoc */

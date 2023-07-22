@@ -54,11 +54,11 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @param array<mixed> $gisData
      * @param int          $index   index in $gis_data
-     * @param string|null  $empty   empty parameter
+     * @param string       $empty   empty parameter
      * @param string       $output  expected output
      */
     #[DataProvider('providerForTestGenerateWkt')]
-    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisPolygon::singleton();
         $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
@@ -67,7 +67,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return array<array{array<mixed>, int, string|null, string}>
+     * @return array<array{array<mixed>, int, string, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
@@ -83,11 +83,11 @@ class GisPolygonTest extends GisGeomTestCase
         $temp3[0]['POLYGON'][1]['data_length'] = 3;
 
         return [
-            [$temp, 0, null, 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'],
+            [$temp, 0, '', 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'],
             // values at undefined index
-            [$temp, 1, null, 'POLYGON(( , , , ))'],
+            [$temp, 1, '', 'POLYGON(( , , , ))'],
             // if a coordinate is missing, default is empty string
-            [$temp1, 0, null, 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 ))'],
+            [$temp1, 0, '', 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 ))'],
             // missing coordinates are replaced with provided values (3rd parameter)
             [$temp1, 0, '0', 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 0))'],
             // should have at least one ring

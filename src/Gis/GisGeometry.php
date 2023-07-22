@@ -108,15 +108,30 @@ abstract class GisGeometry
     abstract public function getExtent(string $wkt): Extent;
 
     /**
+     * @param array<string,string|int|float>|null $point Array with x and y keys
+     * @param string                              $empty value for empty points
+     * @psalm-param array{x: string|int|float, y: string|int|float}|null $point
+     *
+     * @return string                             Coordinates string separated by space for use in wkt
+     */
+    protected function getWktCoord(array|null $point, string $empty): string
+    {
+        $x = ! isset($point['x']) || trim((string) $point['x']) === '' ? $empty : $point['x'];
+        $y = ! isset($point['y']) || trim((string) $point['y']) === '' ? $empty : $point['y'];
+
+        return $x . ' ' . $y;
+    }
+
+    /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param mixed[]     $gisData GIS data
-     * @param int         $index   index into the parameter object
-     * @param string|null $empty   value for empty points
+     * @param mixed[] $gisData GIS data
+     * @param int     $index   index into the parameter object
+     * @param string  $empty   value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    abstract public function generateWkt(array $gisData, int $index, string|null $empty = ''): string;
+    abstract public function generateWkt(array $gisData, int $index, string $empty = ''): string;
 
     /**
      * Updates the min, max values with the given point set.

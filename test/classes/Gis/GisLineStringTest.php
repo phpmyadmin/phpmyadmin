@@ -23,7 +23,7 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return array<array{array<mixed>, int, string|null, string}>
+     * @return array<array{array<mixed>, int, string, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
@@ -49,11 +49,11 @@ class GisLineStringTest extends GisGeomTestCase
         unset($temp4[0]['LINESTRING'][2]['x']);
 
         return [
-            [$temp1, 0, null, 'LINESTRING(5.02 8.45,6.14 0.15)'],
+            [$temp1, 0, '', 'LINESTRING(5.02 8.45,6.14 0.15)'],
             // if a coordinate is missing, default is empty string
-            [$temp2, 0, null, 'LINESTRING(5.02 8.45,6.14 0.15,1.56 )'],
+            [$temp2, 0, '', 'LINESTRING(5.02 8.45,6.14 0.15,1.56 )'],
             // if data_length is not valid, it is considered as 2
-            [$temp3, 0, null, 'LINESTRING(5.02 8.45,6.14 0.15)'],
+            [$temp3, 0, '', 'LINESTRING(5.02 8.45,6.14 0.15)'],
             // missing coordinates are replaced with provided values (3rd parameter)
             [$temp4, 0, '0', 'LINESTRING(5.02 8.45,6.14 0.15,0 0)'],
         ];
@@ -64,11 +64,11 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @param array<mixed> $gisData
      * @param int          $index   index in $gis_data
-     * @param string|null  $empty   empty parameter
+     * @param string       $empty   empty parameter
      * @param string       $output  expected output
      */
     #[DataProvider('providerForTestGenerateWkt')]
-    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisLineString::singleton();
         $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));

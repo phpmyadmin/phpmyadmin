@@ -13,11 +13,12 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
+use function implode;
 use function json_encode;
+use function max;
 use function mb_substr;
 use function round;
 use function sprintf;
-use function trim;
 
 /**
  * Handles actions related to GIS LINESTRING objects
@@ -232,33 +233,24 @@ class GisLineString extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param mixed[]     $gisData GIS data
-     * @param int         $index   Index into the parameter object
-     * @param string|null $empty   Value for empty points
+     * @param mixed[] $gisData GIS data
+     * @param int     $index   Index into the parameter object
+     * @param string  $empty   Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string $empty = ''): string
     {
-        $noOfPoints = $gisData[$index]['LINESTRING']['data_length'] ?? 2;
-        if ($noOfPoints < 2) {
-            $noOfPoints = 2;
-        }
+        $dataRow = $gisData[$index]['LINESTRING'] ?? null;
+        $noOfPoints = max(2, $dataRow['data_length'] ?? 0);
 
-        $wkt = 'LINESTRING(';
+        $wktPoints = [];
         /** @infection-ignore-all */
         for ($i = 0; $i < $noOfPoints; $i++) {
-            $wkt .= (isset($gisData[$index]['LINESTRING'][$i]['x'])
-                    && trim((string) $gisData[$index]['LINESTRING'][$i]['x']) != ''
-                    ? $gisData[$index]['LINESTRING'][$i]['x'] : $empty)
-                . ' ' . (isset($gisData[$index]['LINESTRING'][$i]['y'])
-                    && trim((string) $gisData[$index]['LINESTRING'][$i]['y']) != ''
-                    ? $gisData[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
+            $wktPoints[] = $this->getWktCoord($dataRow[$i] ?? null, $empty);
         }
 
-        $wkt = mb_substr($wkt, 0, -1);
-
-        return $wkt . ')';
+        return 'LINESTRING(' . implode(',', $wktPoints) . ')';
     }
 
     /**

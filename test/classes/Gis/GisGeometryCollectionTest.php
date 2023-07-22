@@ -53,11 +53,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @param array<mixed> $gisData
      * @param int          $index   index in $gis_data
-     * @param string|null  $empty   empty parameter
+     * @param string       $empty   empty parameter
      * @param string       $output  expected output
      */
     #[DataProvider('providerForTestGenerateWkt')]
-    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisGeometryCollection::singleton();
         $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
@@ -86,7 +86,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     0 => ['gis_type' => 'POINT'],
                 ],
                 0,
-                null,
+                '',
                 'GEOMETRYCOLLECTION(POINT( ))',
             ],
             [
@@ -97,7 +97,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     0 => ['gis_type' => 'LINESTRING'],
                 ],
                 0,
-                null,
+                '',
                 'GEOMETRYCOLLECTION(LINESTRING( , ))',
             ],
             [
@@ -108,7 +108,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     0 => ['gis_type' => 'POLYGON'],
                 ],
                 0,
-                null,
+                '',
                 'GEOMETRYCOLLECTION(POLYGON(( , , , )))',
             ],
             [
@@ -119,7 +119,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     0 => ['gis_type' => 'MULTIPOINT'],
                 ],
                 0,
-                null,
+                '',
                 'GEOMETRYCOLLECTION(MULTIPOINT( ))',
             ],
             [
@@ -130,7 +130,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     0 => ['gis_type' => 'MULTILINESTRING'],
                 ],
                 0,
-                null,
+                '',
                 'GEOMETRYCOLLECTION(MULTILINESTRING(( , )))',
             ],
             [
@@ -141,10 +141,10 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     0 => ['gis_type' => 'MULTIPOLYGON'],
                 ],
                 0,
-                null,
+                '',
                 'GEOMETRYCOLLECTION(MULTIPOLYGON((( , , , ))))',
             ],
-            [$temp1, 0, null, 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))'],
+            [$temp1, 0, '', 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))'],
         ];
     }
 

@@ -25,7 +25,7 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return array<array{array<mixed>, int, string|null, string}>
+     * @return array<array{array<mixed>, int, string, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
@@ -43,8 +43,8 @@ class GisMultiPointTest extends GisGeomTestCase
         $gisData2[0]['MULTIPOINT']['data_length'] = -1;
 
         return [
-            [$gisData1, 0, null, 'MULTIPOINT(5.02 8.45,1.56 4.36)'],
-            [$gisData2, 0, null, 'MULTIPOINT(5.02 8.45)'],
+            [$gisData1, 0, '', 'MULTIPOINT(5.02 8.45,1.56 4.36)'],
+            [$gisData2, 0, '', 'MULTIPOINT(5.02 8.45)'],
         ];
     }
 
@@ -53,11 +53,11 @@ class GisMultiPointTest extends GisGeomTestCase
      *
      * @param array<mixed> $gisData
      * @param int          $index   index in $gis_data
-     * @param string|null  $empty   empty parameter
+     * @param string       $empty   empty parameter
      * @param string       $output  expected output
      */
     #[DataProvider('providerForTestGenerateWkt')]
-    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisMultiPoint::singleton();
         $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));

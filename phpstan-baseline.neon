@@ -10787,7 +10787,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'gis_type' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Gis/GisGeometryCollection.php
 
 		-
@@ -10797,7 +10797,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'LINESTRING' on mixed\\.$#"
-			count: 7
+			count: 1
 			path: src/Gis/GisLineString.php
 
 		-
@@ -10806,23 +10806,13 @@ parameters:
 			path: src/Gis/GisLineString.php
 
 		-
-			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 3
-			path: src/Gis/GisLineString.php
-
-		-
-			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 3
-			path: src/Gis/GisLineString.php
-
-		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 6
+			count: 1
 			path: src/Gis/GisLineString.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getWktCoord\\(\\) expects array\\{x\\: float\\|int\\|string, y\\: float\\|int\\|string\\}\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Gis/GisLineString.php
 
 		-
@@ -10857,17 +10847,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 4
+			count: 1
 			path: src/Gis/GisMultiLineString.php
 
 		-
 			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 4
+			count: 1
 			path: src/Gis/GisMultiLineString.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 14
+			count: 4
 			path: src/Gis/GisMultiLineString.php
 
 		-
@@ -10876,8 +10866,8 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getWktCoord\\(\\) expects array\\{x\\: float\\|int\\|string, y\\: float\\|int\\|string\\}\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Gis/GisMultiLineString.php
 
 		-
@@ -10892,7 +10882,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'MULTIPOINT' on mixed\\.$#"
-			count: 7
+			count: 1
 			path: src/Gis/GisMultiPoint.php
 
 		-
@@ -10902,22 +10892,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 4
+			count: 1
 			path: src/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 4
+			count: 1
 			path: src/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 8
+			count: 3
 			path: src/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getWktCoord\\(\\) expects array\\{x\\: float\\|int\\|string, y\\: float\\|int\\|string\\}\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Gis/GisMultiPoint.php
 
 		-
@@ -10972,12 +10962,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 5
+			count: 2
 			path: src/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 5
+			count: 2
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -10987,7 +10977,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 21
+			count: 6
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -11006,8 +10996,8 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getWktCoord\\(\\) expects array\\{x\\: float\\|int\\|string, y\\: float\\|int\\|string\\}\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -11032,22 +11022,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'POINT' on mixed\\.$#"
-			count: 6
+			count: 1
 			path: src/Gis/GisPoint.php
 
 		-
-			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 3
-			path: src/Gis/GisPoint.php
-
-		-
-			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 3
-			path: src/Gis/GisPoint.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getWktCoord\\(\\) expects array\\{x\\: float\\|int\\|string, y\\: float\\|int\\|string\\}\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Gis/GisPoint.php
 
 		-
@@ -11062,7 +11042,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'POLYGON' on mixed\\.$#"
-			count: 8
+			count: 1
 			path: src/Gis/GisPolygon.php
 
 		-
@@ -11071,18 +11051,8 @@ parameters:
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: "#^Cannot access offset 'x' on mixed\\.$#"
-			count: 3
-			path: src/Gis/GisPolygon.php
-
-		-
-			message: "#^Cannot access offset 'y' on mixed\\.$#"
-			count: 3
-			path: src/Gis/GisPolygon.php
-
-		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 13
+			count: 3
 			path: src/Gis/GisPolygon.php
 
 		-
@@ -11091,8 +11061,8 @@ parameters:
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getWktCoord\\(\\) expects array\\{x\\: float\\|int\\|string, y\\: float\\|int\\|string\\}\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Gis/GisPolygon.php
 
 		-

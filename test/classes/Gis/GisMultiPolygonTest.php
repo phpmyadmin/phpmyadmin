@@ -67,11 +67,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @param array<mixed> $gisData
      * @param int          $index   index in $gis_data
-     * @param string|null  $empty   empty parameter
+     * @param string       $empty   empty parameter
      * @param string       $output  expected output
      */
     #[DataProvider('providerForTestGenerateWkt')]
-    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisMultiPolygon::singleton();
         $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
@@ -80,7 +80,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return array<array{array<mixed>, int, string|null, string}>
+     * @return array<array{array<mixed>, int, string, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
@@ -99,17 +99,17 @@ class GisMultiPolygonTest extends GisGeomTestCase
             [
                 $temp,
                 0,
-                null,
+                '',
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
                     . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
             ],
             // at lease one polygon should be there
-            [$temp1, 0, null, 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))'],
+            [$temp1, 0, '', 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))'],
             // a polygon should have at least one ring
             [
                 $temp2,
                 0,
-                null,
+                '',
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
                     . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
             ],

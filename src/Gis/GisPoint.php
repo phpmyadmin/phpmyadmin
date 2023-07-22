@@ -16,7 +16,6 @@ use function json_encode;
 use function mb_substr;
 use function round;
 use function sprintf;
-use function trim;
 
 /**
  * Handles actions related to GIS POINT objects
@@ -234,22 +233,17 @@ class GisPoint extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param mixed[]     $gisData GIS data
-     * @param int         $index   Index into the parameter object
-     * @param string|null $empty   Point does not adhere to this parameter
+     * @param mixed[] $gisData GIS data
+     * @param int     $index   Index into the parameter object
+     * @param string  $empty   Point does not adhere to this parameter
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string $empty = ''): string
     {
-        return 'POINT('
-        . (isset($gisData[$index]['POINT']['x'])
-            && trim((string) $gisData[$index]['POINT']['x']) != ''
-            ? $gisData[$index]['POINT']['x'] : '')
-        . ' '
-        . (isset($gisData[$index]['POINT']['y'])
-            && trim((string) $gisData[$index]['POINT']['y']) != ''
-            ? $gisData[$index]['POINT']['y'] : '') . ')';
+        $wktCoord = $this->getWktCoord($gisData[$index]['POINT'] ?? null, '');
+
+        return 'POINT(' . $wktCoord . ')';
     }
 
     /**

@@ -25,16 +25,16 @@ class GisPointTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return array<array{array<mixed>, int, string|null, string}>
+     * @return array<array{array<mixed>, int, string, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {
         return [
-            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 0, null, 'POINT(5.02 8.45)'],
-            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 1, null, 'POINT( )'],
-            [[0 => ['POINT' => ['x' => 5.02]]], 0, null, 'POINT(5.02 )'],
-            [[0 => ['POINT' => ['y' => 8.45]]], 0, null, 'POINT( 8.45)'],
-            [[0 => ['POINT' => []]], 0, null, 'POINT( )'],
+            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 0, '', 'POINT(5.02 8.45)'],
+            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 1, '', 'POINT( )'],
+            [[0 => ['POINT' => ['x' => 5.02]]], 0, '', 'POINT(5.02 )'],
+            [[0 => ['POINT' => ['y' => 8.45]]], 0, '', 'POINT( 8.45)'],
+            [[0 => ['POINT' => []]], 0, '', 'POINT( )'],
         ];
     }
 
@@ -43,11 +43,11 @@ class GisPointTest extends GisGeomTestCase
      *
      * @param array<mixed> $gisData
      * @param int          $index   index in $gis_data
-     * @param string|null  $empty   empty parameter
+     * @param string       $empty   empty parameter
      * @param string       $output  expected output
      */
     #[DataProvider('providerForTestGenerateWkt')]
-    public function testGenerateWkt(array $gisData, int $index, string|null $empty, string $output): void
+    public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisPoint::singleton();
         $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
