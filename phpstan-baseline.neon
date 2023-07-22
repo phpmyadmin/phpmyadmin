@@ -4931,11 +4931,6 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
 			count: 4
 			path: libraries/classes/Operations.php
@@ -5002,7 +4997,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Operations.php
 
 		-
@@ -5151,28 +5146,8 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportCsv.php
 
 		-
-			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 6
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: "#^Cannot access offset 'definition' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -5202,7 +5177,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 7
+			count: 3
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -5286,11 +5261,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportOds.php
 
 		-
-			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
 			message: "#^Cannot access offset 'alias' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Export/ExportOdt.php
@@ -5298,21 +5268,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 8
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset 'definition' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
@@ -5342,7 +5297,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 8
+			count: 4
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
@@ -5383,16 +5338,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 16
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset 'drop' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -5476,11 +5421,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$sqlQuery of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:replaceWithAliases\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Parameter \\#1 \\$sqlQuery of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:replaceWithAliases\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -5521,28 +5461,8 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 6
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
-			message: "#^Cannot access offset 'definition' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
-			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
@@ -5572,22 +5492,12 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
 		-
@@ -5617,11 +5527,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function rtrim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
@@ -5651,23 +5556,8 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
-			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Cannot access offset 'definition' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -5677,11 +5567,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
@@ -5742,7 +5627,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$txt of method TCPDF\\:\\:MultiCell\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -7881,11 +7766,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -7902,11 +7782,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -8022,12 +7897,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 7
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			count: 6
 			path: libraries/classes/Table.php
 
 		-
@@ -8371,46 +8241,6 @@ parameters:
 			path: libraries/classes/Transformations.php
 
 		-
-			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'definer' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'definition' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'drop' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
 			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Triggers/Triggers.php
@@ -8426,17 +8256,7 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Triggers/Triggers.php
 

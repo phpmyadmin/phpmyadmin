@@ -486,7 +486,17 @@ class Triggers
      * @param string $table     table name
      * @param string $delimiter the delimiter to use (may be empty)
      *
-     * @return mixed[] information about triggers (may be empty)
+     * @psalm-return list<array{
+     *   name: non-empty-string,
+     *   table: non-empty-string,
+     *   action_timing: value-of<Timing>,
+     *   event_manipulation: value-of<Event>,
+     *   definition: string,
+     *   definer: string,
+     *   full_trigger_name: string,
+     *   drop: non-empty-string,
+     *   create: non-empty-string,
+     * }>
      */
     public static function getDetails(
         DatabaseInterface $dbi,
