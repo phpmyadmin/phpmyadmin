@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
@@ -310,8 +311,7 @@ class GisVisualization
      */
     private function svg(): string
     {
-        $scaleData = $this->scaleDataSet($this->data);
-        $svg = $this->prepareDataSet($this->data, $scaleData, 'svg');
+        $svg = $this->prepareDataSet($this->data, 'svg');
 
         return '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'
             . "\n"
@@ -361,8 +361,7 @@ class GisVisualization
             return null;
         }
 
-        $scaleData = $this->scaleDataSet($this->data);
-        $this->prepareDataSet($this->data, $scaleData, 'png', $image);
+        $this->prepareDataSet($this->data, 'png', $image);
 
         return $image;
     }
@@ -392,8 +391,7 @@ class GisVisualization
      */
     public function asOl(): string
     {
-        $scaleData = $this->scaleDataSet($this->data);
-        $olCode = $this->prepareDataSet($this->data, $scaleData, 'ol');
+        $olCode = $this->prepareDataSet($this->data, 'ol');
 
         return 'function drawOpenLayers() {'
             . 'if (typeof ol === "undefined") { return undefined; }'
@@ -449,8 +447,7 @@ class GisVisualization
         // add a page
         $pdf->AddPage();
 
-        $scaleData = $this->scaleDataSet($this->data);
-        $this->prepareDataSet($this->data, $scaleData, 'pdf', $pdf);
+        $this->prepareDataSet($this->data, 'pdf', $pdf);
 
         // sanitize file name
         $fileName = $this->sanitizeName($fileName, 'pdf');
@@ -478,63 +475,62 @@ class GisVisualization
      * Calculates the scale, horizontal and vertical offset that should be used.
      *
      * @param mixed[][] $data Row data
-     *
-     * @return mixed[] an array containing the scale, x and y offsets
      */
-    private function scaleDataSet(array $data): array
+    private function scaleDataSet(array $data): ScaleData|null
     {
         $extent = Extent::empty();
-        $border = 15;
-        // effective width and height of the plot
-        $plotWidth = $this->width - 2 * $border;
-        $plotHeight = $this->height - 2 * $border;
 
         foreach ($data as $row) {
             // Figure out the data type
-            $refData = $row[$this->spatialColumn];
-            if (! is_string($refData)) {
+            $wkt = $row[$this->spatialColumn];
+            if (! is_string($wkt)) {
                 continue;
             }
 
-            $gisObj = GisFactory::fromWkt($refData);
+            $gisObj = GisFactory::fromWkt($wkt);
             if ($gisObj === null) {
                 continue;
             }
 
             // Update minimum/maximum values for x and y coordinates.
-            $extent->merge($gisObj->getExtent($refData));
+            $extent->merge($gisObj->getExtent($wkt));
         }
 
         if ($extent->isEmpty()) {
-            $extent = new Extent(minX: 0, minY: 0, maxX: 0, maxY: 0);
+            return null;
         }
+
+        $border = 15;
+
+        // effective width and height of the plot
+        $plotWidth = $this->width - 2 * $border;
+        $plotHeight = $this->height - 2 * $border;
 
         // scale the visualization
         $xRatio = ($extent->maxX - $extent->minX) / $plotWidth;
         $yRatio = ($extent->maxY - $extent->minY) / $plotHeight;
         $ratio = $xRatio > $yRatio ? $xRatio : $yRatio;
 
-        $scale = $ratio != 0 ? 1 / $ratio : 1;
+        $scale = $ratio === 0.0 ? 1.0 : 1.0 / $ratio;
 
         // Center plot
-        $x = $ratio == 0 || $xRatio < $yRatio
+        $x = $ratio === 0.0 || $xRatio < $yRatio
             ? ($extent->maxX + $extent->minX - $this->width / $scale) / 2
             : $extent->minX - ($border / $scale);
-        $y = $ratio == 0 || $xRatio >= $yRatio
+        $y = $ratio === 0.0 || $xRatio >= $yRatio
             ? ($extent->maxY + $extent->minY - $this->height / $scale) / 2
             : $extent->minY - ($border / $scale);
 
-        return ['scale' => $scale, 'x' => $x, 'y' => $y, 'height' => $this->height];
+        return new ScaleData(scale: $scale, offsetX: $x, offsetY: $y, height: $this->height);
     }
 
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param mixed[][]               $data      Raw data
-     * @param mixed[]                 $scaleData Data related to scaling
-     * @param string                  $format    Format of the visualization
-     * @param ImageWrapper|TCPDF|null $renderer  Image object in the case of png
-     *                                           TCPDF object in the case of pdf
+     * @param mixed[][]               $data     Raw data
+     * @param string                  $format   Format of the visualization
+     * @param ImageWrapper|TCPDF|null $renderer Image object in the case of png
+     *                                          TCPDF object in the case of pdf
      * @psalm-param T $format
      *
      * @psalm-return (T is 'ol'|'svg' ? string : null) The exported data
@@ -543,42 +539,43 @@ class GisVisualization
      */
     private function prepareDataSet(
         array $data,
-        array $scaleData,
         string $format,
         ImageWrapper|TCPDF|null $renderer = null,
     ): string|null {
         $results = '';
-        $colorIndex = 0;
+        $scaleData = $this->scaleDataSet($this->data);
+        if ($scaleData !== null) {
+            $colorIndex = 0;
 
-        // loop through the rows
-        foreach ($data as $row) {
-            // Figure out the data type
-            $refData = $row[$this->spatialColumn];
-            if (! is_string($refData)) {
-                continue;
+            foreach ($data as $row) {
+                // Figure out the data type
+                $wkt = $row[$this->spatialColumn];
+                if (! is_string($wkt)) {
+                    continue;
+                }
+
+                $gisObj = GisFactory::fromWkt($wkt);
+                if ($gisObj === null) {
+                    continue;
+                }
+
+                $color = self::COLORS[$colorIndex];
+                $label = trim((string) ($row[$this->labelColumn] ?? ''));
+
+                if ($format === 'svg') {
+                    $results .= $gisObj->prepareRowAsSvg($wkt, $label, $color, $scaleData);
+                } elseif ($format === 'png') {
+                    assert($renderer instanceof ImageWrapper);
+                    $gisObj->prepareRowAsPng($wkt, $label, $color, $scaleData, $renderer);
+                } elseif ($format === 'pdf') {
+                    assert($renderer instanceof TCPDF);
+                    $gisObj->prepareRowAsPdf($wkt, $label, $color, $scaleData, $renderer);
+                } elseif ($format === 'ol') {
+                    $results .= $gisObj->prepareRowAsOl($wkt, (int) $row['srid'], $label, $color);
+                }
+
+                $colorIndex = ($colorIndex + 1) % count(self::COLORS);
             }
-
-            $gisObj = GisFactory::fromWkt($refData);
-            if ($gisObj === null) {
-                continue;
-            }
-
-            $color = self::COLORS[$colorIndex];
-            $label = trim((string) ($row[$this->labelColumn] ?? ''));
-
-            if ($format === 'svg') {
-                $results .= $gisObj->prepareRowAsSvg($refData, $label, $color, $scaleData);
-            } elseif ($format === 'png') {
-                assert($renderer instanceof ImageWrapper);
-                $gisObj->prepareRowAsPng($refData, $label, $color, $scaleData, $renderer);
-            } elseif ($format === 'pdf') {
-                assert($renderer instanceof TCPDF);
-                $gisObj->prepareRowAsPdf($refData, $label, $color, $scaleData, $renderer);
-            } elseif ($format === 'ol') {
-                $results .= $gisObj->prepareRowAsOl($refData, (int) $row['srid'], $label, $color);
-            }
-
-            $colorIndex = ($colorIndex + 1) % count(self::COLORS);
         }
 
         return $format === 'svg' || $format === 'ol' ? $results : null;

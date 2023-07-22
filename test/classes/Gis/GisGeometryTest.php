@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -122,15 +123,15 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests extractPointsInternal method
      *
-     * @param string       $pointSet  String of comma separated points
-     * @param mixed[]|null $scaleData Data related to scaling
-     * @param bool         $linear    If true, as a 1D array, else as a 2D array
-     * @param mixed[]      $output    Expected output
+     * @param string         $pointSet  String of comma separated points
+     * @param ScaleData|null $scaleData Data related to scaling
+     * @param bool           $linear    If true, as a 1D array, else as a 2D array
+     * @param mixed[]        $output    Expected output
      */
     #[DataProvider('providerForTestExtractPointsInternal')]
     public function testExtractPointsInternal(
         string $pointSet,
-        array|null $scaleData,
+        ScaleData|null $scaleData,
         bool $linear,
         array $output,
     ): void {
@@ -146,7 +147,7 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * data provider for testExtractPointsInternal
      *
-     * @return array<array{string, mixed[]|null, bool, mixed[]}>
+     * @return array<array{string, ScaleData|null, bool, mixed[]}>
      */
     public static function providerForTestExtractPointsInternal(): array
     {
@@ -156,7 +157,7 @@ class GisGeometryTest extends AbstractTestCase
             // with scale data
             [
                 '12 35,48 75,69 23',
-                ['x' => 5, 'y' => 5, 'scale' => 2, 'height' => 200],
+                new ScaleData(offsetX: 5, offsetY: 5, scale: 2, height: 200),
                 false,
                 [0 => [14, 140], 1 => [86, 60], 2 => [128, 164]],
             ],

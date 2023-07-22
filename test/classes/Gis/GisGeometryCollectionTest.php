@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisGeometryCollection;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -219,7 +220,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
             . 'LINESTRING(5 30,4 4))',
             'image',
             [176, 46, 224],
-            ['x' => -19, 'y' => -3, 'scale' => 2.29, 'height' => 124],
+            new ScaleData(offsetX: -19, offsetY: -3, scale: 2.29, height: 124),
             $image,
         );
         $this->assertEquals(200, $image->width());
@@ -234,18 +235,18 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsPdf
      *
-     * @param string                   $spatial   string to parse
-     * @param string                   $label     field label
-     * @param int[]                    $color     line color
-     * @param array<string, int|float> $scaleData scaling parameters
-     * @param TCPDF                    $pdf       expected output
+     * @param string    $spatial   string to parse
+     * @param string    $label     field label
+     * @param int[]     $color     line color
+     * @param ScaleData $scaleData scaling parameters
+     * @param TCPDF     $pdf       expected output
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisGeometryCollection::singleton();
@@ -260,7 +261,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -270,7 +271,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 . 'LINESTRING(5 30,4 4))',
                 'pdf',
                 [176, 46, 224],
-                ['x' => 1, 'y' => -9, 'scale' => 4.39, 'height' => 297],
+                new ScaleData(offsetX: 1, offsetY: -9, scale: 4.39, height: 297),
 
                 parent::createEmptyPdf('GEOMETRYCOLLECTION'),
             ],
@@ -280,18 +281,18 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsSvg
      *
-     * @param string                   $spatial   string to parse
-     * @param string                   $label     field label
-     * @param int[]                    $color     line color
-     * @param array<string, int|float> $scaleData scaling parameters
-     * @param string                   $output    expected output
+     * @param string    $spatial   string to parse
+     * @param string    $label     field label
+     * @param int[]     $color     line color
+     * @param ScaleData $scaleData scaling parameters
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisGeometryCollection::singleton();
@@ -302,7 +303,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Data provider for testPrepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -311,7 +312,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 'svg',
                 [176, 46, 224],
-                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+                new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
                 . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg1234567890'
                 . '" class="polygon vector" stroke="black" stroke-width="0.5"'

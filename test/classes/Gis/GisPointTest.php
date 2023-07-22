@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -156,7 +157,7 @@ class GisPointTest extends GisGeomTestCase
             'POINT(12 35)',
             'image',
             [176, 46, 224],
-            ['x' => -88, 'y' => -27, 'scale' => 1, 'height' => 124],
+            new ScaleData(offsetX: -88, offsetY: -27, scale: 1, height: 124),
             $image,
         );
         $this->assertEquals(200, $image->width());
@@ -171,17 +172,17 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string                   $spatial   GIS POINT object
-     * @param string                   $label     label for the GIS POINT object
-     * @param int[]                    $color     color for the GIS POINT object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     label for the GIS POINT object
+     * @param int[]     $color     color for the GIS POINT object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisPoint::singleton();
@@ -198,7 +199,7 @@ class GisPointTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -207,7 +208,7 @@ class GisPointTest extends GisGeomTestCase
                 'POINT(12 35)',
                 'pdf',
                 [176, 46, 224],
-                ['x' => -93, 'y' => -114, 'scale' => 1, 'height' => 297],
+                new ScaleData(offsetX: -93, offsetY: -114, scale: 1, height: 297),
 
                 parent::createEmptyPdf('POINT'),
             ],
@@ -217,18 +218,18 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string                   $spatial   GIS POINT object
-     * @param string                   $label     label for the GIS POINT object
-     * @param int[]                    $color     color for the GIS POINT object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
-     * @param string                   $output    expected output
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     label for the GIS POINT object
+     * @param int[]     $color     color for the GIS POINT object
+     * @param ScaleData $scaleData array containing data related to scaling
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisPoint::singleton();
@@ -239,11 +240,19 @@ class GisPointTest extends GisGeomTestCase
     /**
      * data provider for prepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
-        return [['POINT(12 35)', 'svg', [176, 46, 224], ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150], '']];
+        return [
+            [
+                'POINT(12 35)',
+                'svg',
+                [176, 46, 224],
+                new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
+                '',
+            ],
+        ];
     }
 
     /**

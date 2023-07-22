@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\Polygon;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -76,16 +77,16 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
     ): void {
         // allocate colors
@@ -134,13 +135,18 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS MULTIPOLYGON object
-     * @param string  $label     Label for the GIS MULTIPOLYGON object
-     * @param int[]   $color     Color for the GIS MULTIPOLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS MULTIPOLYGON object
+     * @param string    $label     Label for the GIS MULTIPOLYGON object
+     * @param int[]     $color     Color for the GIS MULTIPOLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): void
-    {
+    public function prepareRowAsPdf(
+        string $spatial,
+        string $label,
+        array $color,
+        ScaleData $scaleData,
+        TCPDF $pdf,
+    ): void {
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
@@ -178,14 +184,14 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS MULTIPOLYGON object
-     * @param string  $label     Label for the GIS MULTIPOLYGON object
-     * @param int[]   $color     Color for the GIS MULTIPOLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS MULTIPOLYGON object
+     * @param string    $label     Label for the GIS MULTIPOLYGON object
+     * @param int[]     $color     Color for the GIS MULTIPOLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $polygonOptions = [
             'name' => $label,
@@ -264,12 +270,12 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Draws a ring of the polygon using SVG path element.
      *
-     * @param string  $polygon   The ring
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $polygon   The ring
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code to draw the ring
      */
-    private function drawPath(string $polygon, array $scaleData): string
+    private function drawPath(string $polygon, ScaleData $scaleData): string
     {
         $pointsArr = $this->extractPoints1d($polygon, $scaleData);
 

@@ -6310,13 +6310,6 @@
     </NullArgument>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
-    <MixedOperand>
-      <code><![CDATA[$scaleData['height']]]></code>
-      <code><![CDATA[$scaleData['x']]]></code>
-      <code><![CDATA[$scaleData['y']]]></code>
-      <code><![CDATA[$x - $scaleData['x']]]></code>
-      <code><![CDATA[$y - $scaleData['y']]]></code>
-    </MixedOperand>
     <PossiblyFalseOperand>
       <code>$lastComma</code>
       <code>$lastComma</code>

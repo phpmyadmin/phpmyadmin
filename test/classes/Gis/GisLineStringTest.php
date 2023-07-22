@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisLineString;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -160,7 +161,7 @@ class GisLineStringTest extends GisGeomTestCase
             'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
             [176, 46, 224],
-            ['x' => -18, 'y' => 14, 'scale' => 1.71, 'height' => 124],
+            new ScaleData(offsetX: -18, offsetY: 14, scale: 1.71, height: 124),
             $image,
         );
         $this->assertEquals(200, $image->width());
@@ -175,17 +176,17 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string                   $spatial   GIS LINESTRING object
-     * @param string                   $label     label for the GIS LINESTRING object
-     * @param int[]                    $color     color for the GIS LINESTRING object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS LINESTRING object
+     * @param string    $label     label for the GIS LINESTRING object
+     * @param int[]     $color     color for the GIS LINESTRING object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisLineString::singleton();
@@ -200,7 +201,7 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -209,7 +210,7 @@ class GisLineStringTest extends GisGeomTestCase
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'pdf',
                 [176, 46, 224],
-                ['x' => 7, 'y' => 3, 'scale' => 3.15, 'height' => 297],
+                new ScaleData(offsetX: 7, offsetY: 3, scale: 3.15, height: 297),
 
                 parent::createEmptyPdf('LINESTRING'),
             ],
@@ -219,18 +220,18 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string                   $spatial   GIS LINESTRING object
-     * @param string                   $label     label for the GIS LINESTRING object
-     * @param int[]                    $color     color for the GIS LINESTRING object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
-     * @param string                   $output    expected output
+     * @param string    $spatial   GIS LINESTRING object
+     * @param string    $label     label for the GIS LINESTRING object
+     * @param int[]     $color     color for the GIS LINESTRING object
+     * @param ScaleData $scaleData array containing data related to scaling
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisLineString::singleton();
@@ -241,7 +242,7 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -250,7 +251,7 @@ class GisLineStringTest extends GisGeomTestCase
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'svg',
                 [176, 46, 224],
-                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+                new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<polyline points="0,218 72,138 114,242 26,198 4,182 46,132 " '
                 . 'name="svg" id="svg1234567890" class="linestring vector" fill="none" '
                 . 'stroke="#b02ee0" stroke-width="2"/>',

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -145,7 +146,7 @@ class GisMultiPointTest extends GisGeomTestCase
             'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
             [176, 46, 224],
-            ['x' => -18, 'y' => 14, 'scale' => 1.71, 'height' => 124],
+            new ScaleData(offsetX: -18, offsetY: 14, scale: 1.71, height: 124),
             $image,
         );
         $this->assertEquals(200, $image->width());
@@ -160,17 +161,17 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string                   $spatial   GIS MULTIPOINT object
-     * @param string                   $label     label for the GIS MULTIPOINT object
-     * @param int[]                    $color     color for the GIS MULTIPOINT object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS MULTIPOINT object
+     * @param string    $label     label for the GIS MULTIPOINT object
+     * @param int[]     $color     color for the GIS MULTIPOINT object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisMultiPoint::singleton();
@@ -187,7 +188,7 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -196,7 +197,7 @@ class GisMultiPointTest extends GisGeomTestCase
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'pdf',
                 [176, 46, 224],
-                ['x' => 7, 'y' => 3, 'scale' => 3.16, 'height' => 297],
+                new ScaleData(offsetX: 7, offsetY: 3, scale: 3.16, height: 297),
 
                 parent::createEmptyPdf('MULTIPOINT'),
             ],
@@ -206,18 +207,18 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string                   $spatial   GIS MULTIPOINT object
-     * @param string                   $label     label for the GIS MULTIPOINT object
-     * @param int[]                    $color     color for the GIS MULTIPOINT object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
-     * @param string                   $output    expected output
+     * @param string    $spatial   GIS MULTIPOINT object
+     * @param string    $label     label for the GIS MULTIPOINT object
+     * @param int[]     $color     color for the GIS MULTIPOINT object
+     * @param ScaleData $scaleData array containing data related to scaling
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisMultiPoint::singleton();
@@ -228,7 +229,7 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -237,7 +238,7 @@ class GisMultiPointTest extends GisGeomTestCase
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'svg',
                 [176, 46, 224],
-                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+                new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
                 . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="'
                 . 'svg1234567890"/><circle cx="114" cy="242" r="3" name="svg" class="mult'

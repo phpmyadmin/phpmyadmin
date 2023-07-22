@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -63,16 +64,16 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
     ): void {
         // allocate colors
@@ -114,16 +115,16 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POINT object
-     * @param string  $label     Label for the GIS POINT object
-     * @param int[]   $color     Color for the GIS POINT object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     Label for the GIS POINT object
+     * @param int[]     $color     Color for the GIS POINT object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $line = ['width' => 1.25, 'color' => $color];
@@ -151,14 +152,14 @@ class GisPoint extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS POINT object
-     * @param string  $label     Label for the GIS POINT object
-     * @param int[]   $color     Color for the GIS POINT object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     Label for the GIS POINT object
+     * @param int[]     $color     Color for the GIS POINT object
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $pointOptions = [
             'name' => $label,

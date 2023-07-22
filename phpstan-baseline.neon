@@ -13811,11 +13811,6 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Casting to float something that's already float\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisGeometry.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
