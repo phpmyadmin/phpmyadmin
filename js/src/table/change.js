@@ -150,6 +150,31 @@ function checkForCheckbox (multiEdit) {
     return true;
 }
 
+/**
+ * @test-module Change
+ */
+var Change = {};
+
+/**
+ * Validator method for IN(...), NOT IN(...)
+ * BETWEEN and NOT BETWEEN
+ * @param {string} value
+ * @return {boolean}
+ */
+Change.validationFunctionForMultipleInt = function (value) {
+    return value.match(/^(((0x[0-9a-f]+)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?))(,|$))+$/i) !== null;
+};
+
+/**
+ * Validator method for INTs
+ * See all possible syntaxes in tests of https://regexr.com/7h1ci
+ * @param {string} value
+ * @return {boolean}
+ */
+Change.validationFunctionForInt = function (value) {
+    return value.match(/^(0x[0-9a-f]+$)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?)$/i) !== null;
+};
+
 // used in Search page mostly for INT fields
 // eslint-disable-next-line no-unused-vars
 function verifyAfterSearchFieldChange (index, searchFormId) {
@@ -174,22 +199,17 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
                     $(element).valid();
                 }
             });
-            // validator method for IN(...), NOT IN(...)
-            // BETWEEN and NOT BETWEEN
-            // See all possible syntaxes in tests of https://regexr.com/7h1eq
-            jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
-                return value.match(/^(((0x[0-9a-f]+)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?))(,|$))+$/i) !== null;
-            },
-            Messages.strEnterValidNumber
+            jQuery.validator.addMethod(
+                'validationFunctionForMultipleInt',
+                Change.validationFunctionForMultipleInt,
+                Messages.strEnterValidNumber
             );
             validateMultipleIntField($thisInput, true);
         } else {
-            // validator method for INTs
-            // See all possible syntaxes in tests of https://regexr.com/7h1ci
-            jQuery.validator.addMethod('validationFunctionForInt', function (value) {
-                return value.match(/^(0x[0-9a-f]+$)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?)$/i) !== null;
-            },
-            Messages.strEnterValidNumber
+            jQuery.validator.addMethod(
+                'validationFunctionForInt',
+                Change.validationFunctionForInt,
+                Messages.strEnterValidNumber
             );
             $(searchFormId).validate({
                 // update errors as we write
