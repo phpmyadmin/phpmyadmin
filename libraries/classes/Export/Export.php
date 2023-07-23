@@ -1314,7 +1314,7 @@ class Export
 
     private function getHTMLForCopyButton(): string
     {
-        return '[ <a href="#" class="copyQueryBtn" data-target="#textSQLDUMP">'
+        return '[ <a href="#" class="copyExportBtn" data-target="#textSQLDUMP">'
             . __('Copy') . '</a> ]';
     }
 

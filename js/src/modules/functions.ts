@@ -1516,22 +1516,28 @@ function dismissNotifications () {
 
         $(document).on('click', 'a.copyQueryBtn', function (event) {
             event.preventDefault();
-            var copyText = $(this).attr('data-text');
-            var copyTarget = $(this).attr('data-target');
-            if (copyTarget) {
-                copyText = $(copyTarget).val();
-            }
+            var copyStatus = Functions.copyToClipboard($(this).attr('data-text'));
+            displayCopyStatus(this, copyStatus);
+        });
 
-            if (Functions.copyToClipboard(copyText)) {
-                $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
+        $(document).on('click', 'a.copyExportBtn', function (event) {
+            event.preventDefault();
+            var copyTarget = $(this).attr('data-target');
+            var copyStatus = Functions.copyToClipboard($(copyTarget).val());
+            displayCopyStatus(this, copyStatus);
+        });
+
+        function displayCopyStatus (copyButton, copyStatus) {
+            if (copyStatus) {
+                $(copyButton).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
             } else {
-                $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
+                $(copyButton).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
             }
 
             setTimeout(function () {
                 $('#copyStatus').remove();
             }, 2000);
-        });
+        }
     };
 }
 
