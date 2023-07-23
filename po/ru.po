@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-05-06 10:51+0000\n"
-"Last-Translator: Dmitriy Q <krotesk@mail.ru>\n"
+"PO-Revision-Date: 2023-07-24 16:07+0000\n"
+"Last-Translator: Iaroslav Porshkov <yaroslavporshkov@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5523,10 +5523,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Таблица будет полностью ОЧИЩЕНА от данных!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Таблица будет полностью УДАЛЕНА!"
+msgstr "Все строки таблицы будут полностью УДАЛЕНЫ!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -5889,7 +5887,7 @@ msgstr "Другое"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 #: libraries/classes/Util.php:549 libraries/classes/Util.php:581
 msgid ","
-msgstr " "
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
@@ -7520,11 +7518,9 @@ msgstr "Ошибка активации ключа безопасности."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Ошибочный тип экспорта"
+msgstr "Неверный ключ безопасности."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 msgid ""
