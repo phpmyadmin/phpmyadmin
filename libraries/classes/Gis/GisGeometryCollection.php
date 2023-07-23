@@ -13,10 +13,8 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
-use function mb_strpos;
 use function mb_substr;
 use function str_split;
-use function strtoupper;
 
 /**
  * Handles actions related to GIS GEOMETRYCOLLECTION objects
@@ -62,15 +60,8 @@ class GisGeometryCollection extends GisGeometry
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -103,15 +94,8 @@ class GisGeometryCollection extends GisGeometry
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -139,15 +123,8 @@ class GisGeometryCollection extends GisGeometry
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -177,15 +154,8 @@ class GisGeometryCollection extends GisGeometry
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -216,15 +186,8 @@ class GisGeometryCollection extends GisGeometry
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -284,8 +247,8 @@ class GisGeometryCollection extends GisGeometry
             }
 
             $type = $gisData[$i]['gis_type'];
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromType($type);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -323,20 +286,14 @@ class GisGeometryCollection extends GisGeometry
         $wktGeometries = $this->explodeGeomCol($geomCol);
         $params = ['srid' => $data['srid'], 'GEOMETRYCOLLECTION' => ['geom_count' => count($wktGeometries)]];
 
-        $i = 0;
         foreach ($wktGeometries as $wktGeometry) {
-            $typePos = mb_strpos($wktGeometry, '(');
-            if ($typePos === false) {
+            $gisObj = GisFactory::fromWkt($wktGeometry);
+            if ($gisObj === null) {
                 continue;
             }
 
-            $wktType = strtoupper(mb_substr($wktGeometry, 0, $typePos));
-            $gisObj = GisFactory::factory($wktType);
-            if (! $gisObj) {
-                continue;
-            }
-
-            $params[$i++] = ['gis_type' => $wktType, $wktType => $gisObj->getCoordinateParams($wktGeometry)];
+            $wktType = $gisObj->getType();
+            $params[] = ['gis_type' => $wktType, $wktType => $gisObj->getCoordinateParams($wktGeometry)];
         }
 
         return $params;

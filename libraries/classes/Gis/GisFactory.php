@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use function mb_strpos;
+use function mb_substr;
 use function strtoupper;
 
 /**
@@ -19,9 +21,9 @@ class GisFactory
      *
      * @param string $type type of the geometric object
      *
-     * @return GisGeometry|false the singleton instance of geometric class of the given type
+     * @return GisGeometry|null the singleton instance of geometric class of the given type
      */
-    public static function factory(string $type): GisGeometry|false
+    public static function fromType(string $type): GisGeometry|null
     {
         return match (strtoupper($type)) {
             'MULTIPOLYGON' => GisMultiPolygon::singleton(),
@@ -31,7 +33,22 @@ class GisFactory
             'MULTILINESTRING' => GisMultiLineString::singleton(),
             'LINESTRING' => GisLineString::singleton(),
             'GEOMETRYCOLLECTION' => GisGeometryCollection::singleton(),
-            default => false,
+            default => null,
         };
+    }
+
+    /**
+     * Returns the singleton instance of geometric class of the given wkt type.
+     */
+    public static function fromWkt(string $wkt): GisGeometry|null
+    {
+        $typePos = mb_strpos($wkt, '(');
+        if ($typePos === false) {
+            return null;
+        }
+
+        $type = mb_substr($wkt, 0, $typePos);
+
+        return self::fromType($type);
     }
 }

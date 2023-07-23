@@ -30,6 +30,8 @@ use function trim;
  */
 abstract class GisGeometry
 {
+    private string|null $gisType = null;
+
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
@@ -175,6 +177,18 @@ abstract class GisGeometry
     abstract protected function getCoordinateParams(string $wkt): array;
 
     /**
+     * Return the uppercase GIS type name
+     */
+    protected function getType(): string
+    {
+        if ($this->gisType === null) {
+            $this->gisType = strtoupper(array_reverse(explode('Gis', static::class))[0]);
+        }
+
+        return $this->gisType;
+    }
+
+    /**
      * Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value Value of the GIS column
@@ -186,7 +200,7 @@ abstract class GisGeometry
         $data = $this->parseWktAndSrid($value);
         $index = 0;
         $wkt = $data['wkt'];
-        $wktType = strtoupper(array_reverse(explode('Gis', static::class))[0]);
+        $wktType = $this->getType();
 
         return ['srid' => $data['srid'], $index => [$wktType => $this->getCoordinateParams($wkt)]];
     }

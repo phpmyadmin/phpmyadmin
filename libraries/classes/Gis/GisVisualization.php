@@ -18,7 +18,6 @@ use Webmozart\Assert\Assert;
 use function count;
 use function is_string;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function rtrim;
@@ -499,15 +498,8 @@ class GisVisualization
                 continue;
             }
 
-            $typePos = mb_strpos($refData, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($refData, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($refData);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -564,15 +556,8 @@ class GisVisualization
                 continue;
             }
 
-            $typePos = mb_strpos($refData, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($refData, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($refData);
+            if ($gisObj === null) {
                 continue;
             }
 

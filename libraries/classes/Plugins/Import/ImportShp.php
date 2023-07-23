@@ -202,7 +202,7 @@ class ImportShp extends ImportPlugin
 
         if (isset($gisType)) {
             /** @var GisMultiLineString|GisMultiPoint|GisPoint|GisPolygon $gisObj */
-            $gisObj = GisFactory::factory($gisType);
+            $gisObj = GisFactory::fromType($gisType);
         } else {
             $gisObj = null;
         }

@@ -13866,7 +13866,8 @@
   </file>
   <file src="test/classes/Gis/GisFactoryTest.php">
     <PossiblyUnusedMethod>
-      <code>providerForTestFactory</code>
+      <code>providerForTestFromType</code>
+      <code>providerForTestFromWkt</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
