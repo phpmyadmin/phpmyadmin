@@ -9,8 +9,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
@@ -37,11 +35,8 @@ class Triggers
     /** @var array<int, string> */
     private array $event = ['INSERT', 'UPDATE', 'DELETE'];
 
-    public function __construct(
-        private DatabaseInterface $dbi,
-        private Template $template,
-        private ResponseRenderer $response,
-    ) {
+    public function __construct(private DatabaseInterface $dbi)
+    {
     }
 
     /**
@@ -195,28 +190,6 @@ class Triggers
         $retval['item_definer'] = $temp['definer'];
 
         return $retval;
-    }
-
-    /**
-     * Displays a form used to add/edit a trigger
-     *
-     * @param string  $mode If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
-     * @param mixed[] $item Data for the trigger returned by getDataFromRequest() or getDataFromName()
-     */
-    public function getEditorForm(string $db, string $table, string $mode, array $item): string
-    {
-        $tables = $this->getTables($db);
-
-        return $this->template->render('triggers/editor_form', [
-            'db' => $db,
-            'table' => $table,
-            'is_edit' => $mode === 'edit',
-            'item' => $item,
-            'tables' => $tables,
-            'time' => $this->time,
-            'events' => $this->event,
-            'is_ajax' => $this->response->isAjax(),
-        ]);
     }
 
     /**
@@ -389,7 +362,7 @@ class Triggers
     }
 
     /** @return list<non-empty-string> */
-    private function getTables(string $db): array
+    public function getTables(string $db): array
     {
         $query = sprintf(
             'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=%s'

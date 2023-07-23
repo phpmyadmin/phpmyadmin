@@ -171,7 +171,17 @@ final class IndexController extends AbstractController
             }
 
             if ($item !== null) {
-                $editor = $this->triggers->getEditorForm($GLOBALS['db'], $GLOBALS['table'], $mode, $item);
+                $tables = $this->triggers->getTables($GLOBALS['db']);
+                $editor = $this->template->render('triggers/editor_form', [
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
+                    'is_edit' => $mode === 'edit',
+                    'item' => $item,
+                    'tables' => $tables,
+                    'time' => ['BEFORE', 'AFTER'],
+                    'events' => ['INSERT', 'UPDATE', 'DELETE'],
+                    'is_ajax' => $this->response->isAjax(),
+                ]);
                 if ($this->response->isAjax()) {
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);

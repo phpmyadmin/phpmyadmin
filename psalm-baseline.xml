@@ -14649,9 +14649,6 @@
   <file src="test/classes/Triggers/TriggersTest.php">
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequestEmpty</code>
-      <code>providerGetEditorFormAdd</code>
-      <code>providerGetEditorFormAjax</code>
-      <code>providerGetEditorFormEdit</code>
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>

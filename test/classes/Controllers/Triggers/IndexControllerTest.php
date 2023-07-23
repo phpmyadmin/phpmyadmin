@@ -49,7 +49,7 @@ final class IndexControllerTest extends AbstractTestCase
             $response,
             $template,
             $dbi,
-            new Triggers($dbi, $template, $response),
+            new Triggers($dbi),
         ))($this->createStub(ServerRequest::class));
 
         $actual = $response->getHTMLResult();
@@ -181,7 +181,7 @@ HTML;
             $response,
             $template,
             $dbi,
-            new Triggers($dbi, $template, $response),
+            new Triggers($dbi),
         ))($this->createStub(ServerRequest::class));
 
         $actual = $response->getHTMLResult();

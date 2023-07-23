@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Triggers;
 
-use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
 
 #[CoversClass(Trigger::class)]
 #[CoversClass(Triggers::class)]
@@ -38,11 +35,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';
 
-        $this->triggers = new Triggers(
-            $GLOBALS['dbi'],
-            new Template(),
-            ResponseRenderer::getInstance(),
-        );
+        $this->triggers = new Triggers($GLOBALS['dbi']);
     }
 
     /**
@@ -115,133 +108,6 @@ class TriggersTest extends AbstractTestCase
                 ],
             ],
         ];
-    }
-
-    /**
-     * Test for getEditorForm
-     *
-     * @param array<string, string> $data Data for trigger
-     */
-    #[DataProvider('providerGetEditorFormAdd')]
-    #[Group('medium')]
-    public function testGetEditorFormAdd(array $data, string $matcher): void
-    {
-        $GLOBALS['server'] = 1;
-        $this->assertStringContainsString(
-            $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'add', $data),
-        );
-    }
-
-    /**
-     * Provider for testGetEditorFormAdd
-     *
-     * @return array<array{array<string, string>, string}>
-     */
-    public static function providerGetEditorFormAdd(): array
-    {
-        $data = [
-            'item_name' => '',
-            'item_table' => 'table1',
-            'item_original_name' => '',
-            'item_action_timing' => '',
-            'item_event_manipulation' => '',
-            'item_definition' => '',
-            'item_definer' => '',
-        ];
-
-        return [
-            [$data, 'name="add_item"'],
-            [$data, 'name="item_name"'],
-            [$data, 'name="item_table"'],
-            [$data, 'name="item_timing"'],
-            [$data, 'name="item_event"'],
-            [$data, 'name="item_definition"'],
-            [$data, 'name="item_definer"'],
-            [$data, 'name="editor_process_add"'],
-        ];
-    }
-
-    /**
-     * Test for getEditorForm
-     *
-     * @param array<string, string> $data Data for trigger
-     */
-    #[DataProvider('providerGetEditorFormEdit')]
-    #[Group('medium')]
-    public function testGetEditorFormEdit(array $data, string $matcher): void
-    {
-        $GLOBALS['server'] = 1;
-        $this->assertStringContainsString(
-            $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data),
-        );
-    }
-
-    /**
-     * Provider for testGetEditorFormEdit
-     *
-     * @return array<array{array<string, string>, string}>
-     */
-    public static function providerGetEditorFormEdit(): array
-    {
-        $data = [
-            'item_name' => 'foo',
-            'item_table' => 'table1',
-            'item_original_name' => 'bar',
-            'item_action_timing' => 'BEFORE',
-            'item_event_manipulation' => 'INSERT',
-            'item_definition' => 'SET @A=1;',
-            'item_definer' => '',
-        ];
-
-        return [
-            [$data, 'name="edit_item"'],
-            [$data, 'name="item_name"'],
-            [$data, 'name="item_table"'],
-            [$data, 'name="item_timing"'],
-            [$data, 'name="item_event"'],
-            [$data, 'name="item_definition"'],
-            [$data, 'name="item_definer"'],
-            [$data, 'name="editor_process_edit"'],
-        ];
-    }
-
-    /**
-     * Test for getEditorForm
-     *
-     * @param array<string, string> $data Data for trigger
-     */
-    #[DataProvider('providerGetEditorFormAjax')]
-    public function testGetEditorFormAjax(array $data, string $matcher): void
-    {
-        $GLOBALS['server'] = 1;
-        ResponseRenderer::getInstance()->setAjax(true);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data),
-        );
-        ResponseRenderer::getInstance()->setAjax(false);
-    }
-
-    /**
-     * Provider for testGetEditorFormAjax
-     *
-     * @return array<array{array<string, string>, string}>
-     */
-    public static function providerGetEditorFormAjax(): array
-    {
-        $data = [
-            'item_name' => 'foo',
-            'item_table' => 'table1',
-            'item_original_name' => 'bar',
-            'item_action_timing' => 'BEFORE',
-            'item_event_manipulation' => 'INSERT',
-            'item_definition' => 'SET @A=1;',
-            'item_definer' => '',
-        ];
-
-        return [[$data, 'name="editor_process_edit"'], [$data, 'name="ajax_request"']];
     }
 
     /**

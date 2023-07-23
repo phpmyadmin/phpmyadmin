@@ -190,10 +190,7 @@ return [
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
         ],
         'transformations' => ['class' => Transformations::class],
-        'triggers' => [
-            'class' => Triggers::class,
-            'arguments' => ['@dbi', '@template', '@response'],
-        ],
+        'triggers' => ['class' => Triggers::class, 'arguments' => ['@dbi']],
         'user_password' => [
             'class' => UserPassword::class,
             'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class, '@dbi'],
