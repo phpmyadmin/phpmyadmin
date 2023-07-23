@@ -134,7 +134,7 @@ abstract class GisGeometry
         foreach ($points as $point) {
             // Extract coordinates of the point
             $coordinates = explode(' ', $point);
-            $extent->extend((float) $coordinates[0], (float) $coordinates[1]);
+            $extent = $extent->extend((float) $coordinates[0], (float) $coordinates[1]);
         }
 
         return $extent;

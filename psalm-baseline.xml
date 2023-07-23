@@ -13865,6 +13865,7 @@
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
     <MixedAssignment>
+      <code>$extent</code>
       <code>$points</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>

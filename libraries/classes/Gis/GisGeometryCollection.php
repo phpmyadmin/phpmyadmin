@@ -67,7 +67,7 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $extent->merge($gisObj->getExtent($subPart));
+            $extent = $extent->merge($gisObj->getExtent($subPart));
         }
 
         return $extent;

@@ -493,7 +493,7 @@ class GisVisualization
             }
 
             // Update minimum/maximum values for x and y coordinates.
-            $extent->merge($gisObj->getExtent($wkt));
+            $extent = $extent->merge($gisObj->getExtent($wkt));
         }
 
         if ($extent->isEmpty()) {

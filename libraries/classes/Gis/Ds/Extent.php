@@ -17,27 +17,31 @@ class Extent
     }
 
     public function __construct(
-        public float $minX,
-        public float $minY,
-        public float $maxX,
-        public float $maxY,
+        public readonly float $minX,
+        public readonly float $minY,
+        public readonly float $maxX,
+        public readonly float $maxY,
     ) {
     }
 
-    public function extend(float $x, float $y): void
+    public function extend(float $x, float $y): Extent
     {
-        $this->minX = min($this->minX, $x);
-        $this->minY = min($this->minY, $y);
-        $this->maxX = max($this->maxX, $x);
-        $this->maxY = max($this->maxY, $y);
+        return new Extent(
+            minX: min($this->minX, $x),
+            minY: min($this->minY, $y),
+            maxX: max($this->maxX, $x),
+            maxY: max($this->maxY, $y),
+        );
     }
 
-    public function merge(Extent $extent): void
+    public function merge(Extent $extent): Extent
     {
-        $this->minX = min($this->minX, $extent->minX);
-        $this->minY = min($this->minY, $extent->minY);
-        $this->maxX = max($this->maxX, $extent->maxX);
-        $this->maxY = max($this->maxY, $extent->maxY);
+        return new Extent(
+            minX: min($this->minX, $extent->minX),
+            minY: min($this->minY, $extent->minY),
+            maxX: max($this->maxX, $extent->maxX),
+            maxY: max($this->maxY, $extent->maxY),
+        );
     }
 
     public function isEmpty(): bool

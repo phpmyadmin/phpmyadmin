@@ -50,7 +50,7 @@ class GisGeometryTest extends AbstractTestCase
     #[DataProvider('providerForTestUpdateExtentInternal')]
     public function testUpdateExtentInternal(string $pointSet, Extent $extent, Extent $output): void
     {
-        $this->callFunction(
+        $extent = $this->callFunction(
             $this->object,
             GisGeometry::class,
             'updateExtentInternal',
