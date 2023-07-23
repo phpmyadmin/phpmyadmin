@@ -296,46 +296,6 @@ class Triggers
         return $errors;
     }
 
-    /**
-     * Send editor via ajax or by echoing.
-     *
-     * @param string       $mode  Editor mode 'add' or 'edit'
-     * @param mixed[]|null $item  Data necessary to create the editor
-     * @param string       $title Title of the editor
-     * @param string       $db    Database
-     * @param string       $table Table
-     */
-    public function sendEditor(string $mode, array|null $item, string $title, string $db, string $table): void
-    {
-        if ($item !== null) {
-            $editor = $this->getEditorForm($db, $table, $mode, $item);
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $editor);
-                $this->response->addJSON('title', $title);
-            } else {
-                echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
-                unset($_POST);
-            }
-
-            $this->response->callExit();
-        }
-
-        $message = __('Error in processing request:') . ' ';
-        $message .= sprintf(
-            __('No trigger with name %1$s found in database %2$s.'),
-            htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-            htmlspecialchars(Util::backquote($db)),
-        );
-        $message = Message::error($message);
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message);
-            $this->response->callExit();
-        }
-
-        echo $message->getDisplay();
-    }
-
     /** @psalm-return non-empty-string|null */
     public function getExportData(string $db, string $table, TriggerName $triggerName): string|null
     {
