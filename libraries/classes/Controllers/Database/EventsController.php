@@ -15,7 +15,9 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function count;
 use function htmlspecialchars;
+use function mb_strtoupper;
 use function sprintf;
 use function strlen;
 use function trim;
@@ -57,8 +59,99 @@ final class EventsController extends AbstractController
          * processing an 'Add' or 'Edit' operation.
          */
         $GLOBALS['errors'] = [];
+        $GLOBALS['message'] ??= null;
 
-        $this->events->handleEditor();
+        if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
+            $output = $this->events->handleEditor();
+
+            if ($this->response->isAjax()) {
+                if ($GLOBALS['message']->isSuccess()) {
+                    $events = $this->events->getDetails($GLOBALS['db'], $_POST['item_name']);
+                    $event = $events[0];
+                    $this->response->addJSON(
+                        'name',
+                        htmlspecialchars(
+                            mb_strtoupper($_POST['item_name']),
+                        ),
+                    );
+                    if (! empty($event)) {
+                        $sqlDrop = sprintf(
+                            'DROP EVENT IF EXISTS %s',
+                            Util::backquote($event['name']),
+                        );
+                        $this->response->addJSON(
+                            'new_row',
+                            $this->template->render('database/events/row', [
+                                'db' => $GLOBALS['db'],
+                                'table' => $GLOBALS['table'],
+                                'event' => $event,
+                                'has_privilege' => Util::currentUserHasPrivilege('EVENT', $GLOBALS['db']),
+                                'sql_drop' => $sqlDrop,
+                                'row_class' => '',
+                            ]),
+                        );
+                    }
+
+                    $this->response->addJSON('insert', ! empty($event));
+                    $this->response->addJSON('message', $output);
+                } else {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', $GLOBALS['message']);
+                }
+
+                $this->response->addJSON('tableType', 'events');
+
+                return;
+            }
+        }
+
+        /**
+         * Display a form used to add/edit a trigger, if necessary
+         */
+        if (
+            count($GLOBALS['errors'])
+            || empty($_POST['editor_process_add'])
+            && empty($_POST['editor_process_edit'])
+            && (
+                ! empty($_REQUEST['add_item'])
+                || ! empty($_REQUEST['edit_item'])
+                || ! empty($_POST['item_changetype'])
+            )
+        ) {
+            // FIXME: this must be simpler than that
+            $operation = '';
+            $title = '';
+            $item = null;
+            $mode = '';
+            if (! empty($_POST['item_changetype'])) {
+                $operation = 'change';
+            }
+
+            // Get the data for the form (if any)
+            if (! empty($_REQUEST['add_item'])) {
+                $title = __('Add event');
+                $item = $this->events->getDataFromRequest();
+                $mode = 'add';
+            } elseif (! empty($_REQUEST['edit_item'])) {
+                $title = __('Edit event');
+                if (
+                    ! empty($_REQUEST['item_name'])
+                    && empty($_POST['editor_process_edit'])
+                    && empty($_POST['item_changetype'])
+                ) {
+                    $item = $this->events->getDataFromName($_REQUEST['item_name']);
+                    if ($item !== null) {
+                        $item['item_original_name'] = $item['item_name'];
+                    }
+                } else {
+                    $item = $this->events->getDataFromRequest();
+                }
+
+                $mode = 'edit';
+            }
+
+            $this->events->sendEditor($mode, $item, $title, $GLOBALS['db'], $operation);
+        }
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
             $itemName = $_GET['item_name'];

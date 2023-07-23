@@ -966,6 +966,16 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
+			message: "#^Cannot access offset 'name' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/EventsController.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/EventsController.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/ImportController.php
@@ -3057,16 +3067,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
 

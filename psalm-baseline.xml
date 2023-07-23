@@ -1015,17 +1015,38 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$event['name']]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$event['name']]]></code>
+    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code>$event</code>
+      <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$itemName</code>
       <code>$itemName</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$itemName</code>
     </PossiblyInvalidCast>
+    <PossiblyNullReference>
+      <code>isSuccess</code>
+    </PossiblyNullReference>
+    <TypeDoesNotContainType>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+    </TypeDoesNotContainType>
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
@@ -4902,14 +4923,11 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$event['name']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$event['Name']]]></code>
       <code><![CDATA[$event['Status']]]></code>
       <code><![CDATA[$event['Type']]]></code>
-      <code><![CDATA[$event['name']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -4924,10 +4942,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$event</code>
-      <code>$event</code>
-      <code><![CDATA[$item['item_original_name']]]></code>
       <code><![CDATA[$retval['item_comment']]]></code>
       <code><![CDATA[$retval['item_definer']]]></code>
       <code><![CDATA[$retval['item_definition']]]></code>
@@ -4952,41 +4967,28 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_starts']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_ends']]]></code>
       <code><![CDATA[$_POST['item_execute_at']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_starts']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
       <code><![CDATA[$_POST['item_interval_field']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createItem</code>
     </PossiblyNullArgument>
-    <PossiblyNullIterator>
+    <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-    </PossiblyNullIterator>
-    <PossiblyNullReference>
-      <code>isSuccess</code>
-    </PossiblyNullReference>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Routines.php">
     <DeprecatedMethod>
