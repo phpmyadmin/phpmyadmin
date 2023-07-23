@@ -8,8 +8,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -33,38 +31,38 @@ use const SORT_ASC;
 class Events
 {
     /** @var array<string, array<int, string>> */
-    private array $status = [
-        'query' => ['ENABLE', 'DISABLE', 'DISABLE ON SLAVE'],
-        'display' => ['ENABLED', 'DISABLED', 'SLAVESIDE_DISABLED'],
-    ];
+    public readonly array $status;
 
     /** @var array<int, string> */
-    private array $type = ['RECURRING', 'ONE TIME'];
+    public readonly array $type;
 
     /** @var array<int, string> */
-    private array $interval = [
-        'YEAR',
-        'QUARTER',
-        'MONTH',
-        'DAY',
-        'HOUR',
-        'MINUTE',
-        'WEEK',
-        'SECOND',
-        'YEAR_MONTH',
-        'DAY_HOUR',
-        'DAY_MINUTE',
-        'DAY_SECOND',
-        'HOUR_MINUTE',
-        'HOUR_SECOND',
-        'MINUTE_SECOND',
-    ];
+    public readonly array $interval;
 
-    public function __construct(
-        private DatabaseInterface $dbi,
-        private Template $template,
-        private ResponseRenderer $response,
-    ) {
+    public function __construct(private DatabaseInterface $dbi)
+    {
+        $this->status = [
+            'query' => ['ENABLE', 'DISABLE', 'DISABLE ON SLAVE'],
+            'display' => ['ENABLED', 'DISABLED', 'SLAVESIDE_DISABLED'],
+        ];
+        $this->type = ['RECURRING', 'ONE TIME'];
+        $this->interval = [
+            'YEAR',
+            'QUARTER',
+            'MONTH',
+            'DAY',
+            'HOUR',
+            'MINUTE',
+            'WEEK',
+            'SECOND',
+            'YEAR_MONTH',
+            'DAY_HOUR',
+            'DAY_MINUTE',
+            'DAY_SECOND',
+            'HOUR_MINUTE',
+            'HOUR_SECOND',
+            'MINUTE_SECOND',
+        ];
     }
 
     /**
@@ -241,42 +239,6 @@ class Events
         $retval['item_comment'] = $item['EVENT_COMMENT'];
 
         return $retval;
-    }
-
-    /**
-     * Displays a form used to add/edit an event
-     *
-     * @param string  $mode      If the editor will be used to edit an event
-     *                           or add a new one: 'edit' or 'add'.
-     * @param string  $operation If the editor was previously invoked with
-     *                           JS turned off, this will hold the name of
-     *                           the current operation
-     * @param mixed[] $item      Data for the event returned by
-     *                         getDataFromRequest() or getDataFromName()
-     *
-     * @return string   HTML code for the editor.
-     */
-    public function getEditorForm(string $mode, string $operation, array $item): string
-    {
-        if ($operation === 'change') {
-            if ($item['item_type'] === 'RECURRING') {
-                $item['item_type'] = 'ONE TIME';
-                $item['item_type_toggle'] = 'RECURRING';
-            } else {
-                $item['item_type'] = 'RECURRING';
-                $item['item_type_toggle'] = 'ONE TIME';
-            }
-        }
-
-        return $this->template->render('database/events/editor_form', [
-            'db' => $GLOBALS['db'],
-            'event' => $item,
-            'mode' => $mode,
-            'is_ajax' => $this->response->isAjax(),
-            'status_display' => $this->status['display'],
-            'event_type' => $this->type,
-            'event_interval' => $this->interval,
-        ]);
     }
 
     /**

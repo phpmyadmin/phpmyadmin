@@ -151,7 +151,25 @@ final class EventsController extends AbstractController
             }
 
             if ($item !== null) {
-                $editor = $this->events->getEditorForm($mode, $operation, $item);
+                if ($operation === 'change') {
+                    if ($item['item_type'] === 'RECURRING') {
+                        $item['item_type'] = 'ONE TIME';
+                        $item['item_type_toggle'] = 'RECURRING';
+                    } else {
+                        $item['item_type'] = 'RECURRING';
+                        $item['item_type_toggle'] = 'ONE TIME';
+                    }
+                }
+
+                $editor = $this->template->render('database/events/editor_form', [
+                    'db' => $GLOBALS['db'],
+                    'event' => $item,
+                    'mode' => $mode,
+                    'is_ajax' => $this->response->isAjax(),
+                    'status_display' => $this->events->status['display'],
+                    'event_type' => $this->events->type,
+                    'event_interval' => $this->events->interval,
+                ]);
                 if ($this->response->isAjax()) {
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);

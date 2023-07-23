@@ -13650,9 +13650,6 @@
   <file src="test/classes/Database/EventsTest.php">
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequest</code>
-      <code>providerGetEditorFormAdd</code>
-      <code>providerGetEditorFormAjax</code>
-      <code>providerGetEditorFormEdit</code>
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>

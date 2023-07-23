@@ -89,7 +89,7 @@ return [
             'class' => ErrorReport::class,
             'arguments' => ['@http_request', '@relation', '@template', '@config'],
         ],
-        'events' => ['class' => Events::class, 'arguments' => ['@dbi','@template','@response']],
+        'events' => ['class' => Events::class, 'arguments' => ['@dbi']],
         'export' => ['class' => Export::class, 'arguments' => ['@dbi']],
         'export_options' => [
             'class' => Options::class,
