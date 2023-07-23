@@ -4174,7 +4174,23 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+    </PossiblyInvalidCast>
+    <PossiblyNullReference>
+      <code>isSuccess</code>
+    </PossiblyNullReference>
+    <TypeDoesNotContainType>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/UserPasswordController.php">
     <InvalidArrayOffset>
@@ -12404,7 +12420,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$createItem</code>
     </MixedArgument>
     <MixedArrayAssignment>
@@ -12420,9 +12435,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$createItem</code>
-      <code><![CDATA[$item['item_original_name']]]></code>
       <code>$string</code>
     </MixedAssignment>
     <MixedOperand>
@@ -12434,16 +12447,12 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_table']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
@@ -12451,23 +12460,14 @@
       <code><![CDATA[$_POST['item_timing']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createItem</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$trigger['create']]]></code>
       <code><![CDATA[$trigger['drop']]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullIterator>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </PossiblyNullIterator>
-    <PossiblyNullReference>
-      <code>isSuccess</code>
-    </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$temp['action_timing']]]></code>
       <code><![CDATA[$temp['create']]]></code>
       <code><![CDATA[$temp['definer']]]></code>
