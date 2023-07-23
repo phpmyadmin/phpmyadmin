@@ -1199,11 +1199,15 @@
       <code>$item</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
       <code>$type</code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Database/SearchController.php">
     <InvalidArrayOffset>
@@ -5195,9 +5199,6 @@
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
@@ -5230,8 +5231,6 @@
       <code><![CDATA[$params['dir'][$i]]]></code>
     </PossiblyInvalidArrayAccess>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>

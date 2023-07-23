@@ -38,7 +38,6 @@ use function sprintf;
 use function str_contains;
 use function stripos;
 use function substr;
-use function trim;
 
 use const ENT_QUOTES;
 use const SORT_ASC;
@@ -1514,69 +1513,6 @@ class Routines
             . __('MySQL said: ') . $this->dbi->getError();
 
         return $errors;
-    }
-
-    public function export(): void
-    {
-        if (empty($_GET['export_item']) || empty($_GET['item_name']) || empty($_GET['item_type'])) {
-            return;
-        }
-
-        if ($_GET['item_type'] === 'FUNCTION') {
-            $routineDefinition = self::getFunctionDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
-        } elseif ($_GET['item_type'] === 'PROCEDURE') {
-            $routineDefinition = self::getProcedureDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
-        } else {
-            return;
-        }
-
-        $exportData = false;
-
-        if ($routineDefinition !== null) {
-            $exportData = "DELIMITER $$\n" . $routineDefinition . "$$\nDELIMITER ;\n";
-        }
-
-        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
-        if ($exportData !== false) {
-            $exportData = htmlspecialchars(trim($exportData));
-            $title = sprintf(__('Export of routine %s'), $itemName);
-
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $exportData);
-                $this->response->addJSON('title', $title);
-
-                $this->response->callExit();
-            }
-
-            $output = '<div class="container">';
-            $output .= '<h2>' . $title . '</h2>';
-            $output .= '<div class="card"><div class="card-body">';
-            $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
-            $output .= '</div></div></div>';
-
-            $this->response->addHTML($output);
-
-            return;
-        }
-
-        $message = sprintf(
-            __(
-                'Error in processing request: No routine with name %1$s found in database %2$s.'
-                . ' You might be lacking the necessary privileges to view/export this routine.',
-            ),
-            $itemName,
-            htmlspecialchars(Util::backquote($GLOBALS['db'])),
-        );
-        $message = Message::error($message);
-
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message);
-
-            $this->response->callExit();
-        }
-
-        $this->response->addHTML($message->getDisplay());
     }
 
     /**
