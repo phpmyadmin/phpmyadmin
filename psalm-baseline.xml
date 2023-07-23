@@ -1019,6 +1019,13 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code>$itemName</code>
+      <code>$itemName</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code>$itemName</code>
+    </PossiblyInvalidCast>
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
@@ -4952,8 +4959,6 @@
       <code><![CDATA[$_POST['item_starts']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code>$itemName</code>
-      <code>$itemName</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
@@ -4964,7 +4969,6 @@
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_starts']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code>$itemName</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>

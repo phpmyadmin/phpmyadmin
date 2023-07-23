@@ -25,7 +25,6 @@ use function mb_strtoupper;
 use function sprintf;
 use function str_contains;
 use function strtoupper;
-use function trim;
 
 use const SORT_ASC;
 
@@ -525,59 +524,6 @@ class Events
         }
 
         echo $message->getDisplay();
-    }
-
-    public function export(): void
-    {
-        if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
-            return;
-        }
-
-        $itemName = $_GET['item_name'];
-        $exportData = self::getDefinition($this->dbi, $GLOBALS['db'], $itemName);
-
-        if (! $exportData) {
-            $exportData = false;
-        }
-
-        $itemName = htmlspecialchars(Util::backquote($itemName));
-        if ($exportData !== false) {
-            $exportData = htmlspecialchars(trim($exportData));
-            $title = sprintf(__('Export of event %s'), $itemName);
-
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $exportData);
-                $this->response->addJSON('title', $title);
-
-                $this->response->callExit();
-            }
-
-            $output = '<div class="container">';
-            $output .= '<h2>' . $title . '</h2>';
-            $output .= '<div class="card"><div class="card-body">';
-            $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
-            $output .= '</div></div></div>';
-
-            $this->response->addHTML($output);
-
-            return;
-        }
-
-        $message = sprintf(
-            __('Error in processing request: No event with name %1$s found in database %2$s.'),
-            $itemName,
-            htmlspecialchars(Util::backquote($GLOBALS['db'])),
-        );
-        $message = Message::error($message);
-
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message);
-
-            $this->response->callExit();
-        }
-
-        $this->response->addHTML($message->getDisplay());
     }
 
     /**
