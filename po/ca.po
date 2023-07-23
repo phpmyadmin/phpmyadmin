@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-16 00:26+0000\n"
+"POT-Creation-Date: 2023-07-23 00:20+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1505,7 +1505,7 @@ msgstr "Cerca:"
 #: libraries/classes/BrowseForeigners.php:181
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
-#: libraries/classes/Normalization.php:225
+#: libraries/classes/Normalization.php:226
 #: libraries/classes/Tracking/Tracking.php:305
 #: libraries/classes/Tracking/Tracking.php:447
 #: templates/columns_definitions/column_definitions_form.twig:42
@@ -1575,9 +1575,9 @@ msgid "Description"
 msgstr "Descripció"
 
 #: libraries/classes/BrowseForeigners.php:287
-#: libraries/classes/Language.php:182 libraries/classes/Pdf.php:81
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:471
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:505
+#: libraries/classes/Language.php:182 libraries/classes/Pdf.php:83
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:473
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:507
 #: templates/list_navigator.twig:4
 msgid "Page number:"
 msgstr "Número de pàgina:"
@@ -1887,21 +1887,21 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: libraries/classes/Config/ConfigFile.php:523
-#: libraries/classes/Config/ConfigFile.php:537
-#: libraries/classes/Config/ConfigFile.php:591
-#: libraries/classes/Config/ConfigFile.php:601
+#: libraries/classes/Config/ConfigFile.php:524
+#: libraries/classes/Config/ConfigFile.php:538
+#: libraries/classes/Config/ConfigFile.php:592
+#: libraries/classes/Config/ConfigFile.php:602
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/Import/Import.php:1249 libraries/classes/Menu.php:234
+#: libraries/classes/Import/Import.php:1250 libraries/classes/Menu.php:234
 #: libraries/classes/Menu.php:334
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:295
-#: libraries/classes/Util.php:1252 libraries/classes/Util.php:1701
-#: libraries/classes/Util.php:1718
+#: libraries/classes/Util.php:1254 libraries/classes/Util.php:1704
+#: libraries/classes/Util.php:1721
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
 #: templates/database/export/index.twig:23
@@ -1911,26 +1911,26 @@ msgstr "Vietnamita"
 msgid "Structure"
 msgstr "Estructura"
 
-#: libraries/classes/Config/ConfigFile.php:525
-#: libraries/classes/Config/ConfigFile.php:539
-#: libraries/classes/Config/ConfigFile.php:593
-#: libraries/classes/Config/ConfigFile.php:603
+#: libraries/classes/Config/ConfigFile.php:526
+#: libraries/classes/Config/ConfigFile.php:540
+#: libraries/classes/Config/ConfigFile.php:594
+#: libraries/classes/Config/ConfigFile.php:604
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:239
 #: libraries/classes/Menu.php:339 libraries/classes/Menu.php:457
 #: libraries/classes/Navigation/Nodes/NodeTable.php:298
-#: libraries/classes/Util.php:1253 libraries/classes/Util.php:1687
-#: libraries/classes/Util.php:1702 libraries/classes/Util.php:1719
+#: libraries/classes/Util.php:1255 libraries/classes/Util.php:1690
+#: libraries/classes/Util.php:1705 libraries/classes/Util.php:1722
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/ConfigFile.php:527
-#: libraries/classes/Config/ConfigFile.php:541
-#: libraries/classes/Config/ConfigFile.php:595
-#: libraries/classes/Config/ConfigFile.php:605 libraries/classes/Menu.php:243
+#: libraries/classes/Config/ConfigFile.php:528
+#: libraries/classes/Config/ConfigFile.php:542
+#: libraries/classes/Config/ConfigFile.php:596
+#: libraries/classes/Config/ConfigFile.php:606 libraries/classes/Menu.php:243
 #: libraries/classes/Menu.php:343
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
-#: libraries/classes/Util.php:1254 libraries/classes/Util.php:1703
-#: libraries/classes/Util.php:1720 templates/database/routines/index.twig:28
+#: libraries/classes/Util.php:1256 libraries/classes/Util.php:1706
+#: libraries/classes/Util.php:1723 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
 #: templates/database/search/main.twig:66
 #: templates/database/structure/structure_table_row.twig:53
@@ -1939,62 +1939,62 @@ msgstr "SQL"
 msgid "Search"
 msgstr "Cerca"
 
-#: libraries/classes/Config/ConfigFile.php:529
-#: libraries/classes/Config/ConfigFile.php:543
-#: libraries/classes/Config/ConfigFile.php:607 libraries/classes/Menu.php:250
+#: libraries/classes/Config/ConfigFile.php:530
+#: libraries/classes/Config/ConfigFile.php:544
+#: libraries/classes/Config/ConfigFile.php:608 libraries/classes/Menu.php:250
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:1255 libraries/classes/Util.php:1721
+#: libraries/classes/Util.php:1257 libraries/classes/Util.php:1724
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:75
 msgid "Insert"
 msgstr "Insereix"
 
-#: libraries/classes/Config/ConfigFile.php:531
-#: libraries/classes/Config/ConfigFile.php:545
-#: libraries/classes/Config/ConfigFile.php:609 libraries/classes/Menu.php:227
+#: libraries/classes/Config/ConfigFile.php:532
+#: libraries/classes/Config/ConfigFile.php:546
+#: libraries/classes/Config/ConfigFile.php:610 libraries/classes/Menu.php:227
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
-#: libraries/classes/Util.php:1256 libraries/classes/Util.php:1717
+#: libraries/classes/Util.php:1258 libraries/classes/Util.php:1720
 #: templates/database/search/results.twig:32
 #: templates/database/structure/structure_table_row.twig:43
 #: templates/table/structure/display_structure.twig:282
 msgid "Browse"
 msgstr "Navega"
 
-#: libraries/classes/Config/ConfigFile.php:550
-#: libraries/classes/Config/ConfigFile.php:562
-#: libraries/classes/Config/ConfigFile.php:570
+#: libraries/classes/Config/ConfigFile.php:551
+#: libraries/classes/Config/ConfigFile.php:563
+#: libraries/classes/Config/ConfigFile.php:571
 msgid "Icons"
 msgstr "Icones"
 
-#: libraries/classes/Config/ConfigFile.php:550
-#: libraries/classes/Config/ConfigFile.php:562
-#: libraries/classes/Config/ConfigFile.php:570
+#: libraries/classes/Config/ConfigFile.php:551
+#: libraries/classes/Config/ConfigFile.php:563
+#: libraries/classes/Config/ConfigFile.php:571
 #: templates/database/multi_table_query/form.twig:107
 msgid "Text"
 msgstr "Text"
 
-#: libraries/classes/Config/ConfigFile.php:550
-#: libraries/classes/Config/ConfigFile.php:557
-#: libraries/classes/Config/ConfigFile.php:562
-#: libraries/classes/Config/ConfigFile.php:570
+#: libraries/classes/Config/ConfigFile.php:551
+#: libraries/classes/Config/ConfigFile.php:558
+#: libraries/classes/Config/ConfigFile.php:563
+#: libraries/classes/Config/ConfigFile.php:571
 msgid "Both"
 msgstr "Ambdós"
 
-#: libraries/classes/Config/ConfigFile.php:554
+#: libraries/classes/Config/ConfigFile.php:555
 msgid "Nowhere"
 msgstr "Enlloc"
 
-#: libraries/classes/Config/ConfigFile.php:555
+#: libraries/classes/Config/ConfigFile.php:556
 msgid "Left"
 msgstr "Esquerra"
 
-#: libraries/classes/Config/ConfigFile.php:556
+#: libraries/classes/Config/ConfigFile.php:557
 msgid "Right"
 msgstr "Dreta"
 
-#: libraries/classes/Config/ConfigFile.php:559
+#: libraries/classes/Config/ConfigFile.php:560
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:224
-#: libraries/classes/Display/Results.php:1046
+#: libraries/classes/Display/Results.php:1047
 #: libraries/classes/Plugins/Export/ExportSql.php:2040
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
 #: templates/columns_definitions/column_attributes.twig:216
@@ -2010,10 +2010,10 @@ msgstr "Dreta"
 msgid "None"
 msgstr "Res"
 
-#: libraries/classes/Config/ConfigFile.php:559
-#: libraries/classes/Display/Results.php:1593
-#: libraries/classes/Display/Results.php:1600 libraries/classes/Util.php:2237
-#: libraries/classes/Util.php:2254
+#: libraries/classes/Config/ConfigFile.php:560
+#: libraries/classes/Display/Results.php:1594
+#: libraries/classes/Display/Results.php:1601 libraries/classes/Util.php:2241
+#: libraries/classes/Util.php:2258
 #: templates/database/multi_table_query/form.twig:57
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:126
@@ -2024,10 +2024,10 @@ msgstr "Res"
 msgid "Ascending"
 msgstr "Ascendent"
 
-#: libraries/classes/Config/ConfigFile.php:559
-#: libraries/classes/Display/Results.php:1588
-#: libraries/classes/Display/Results.php:1605 libraries/classes/Util.php:2242
-#: libraries/classes/Util.php:2259
+#: libraries/classes/Config/ConfigFile.php:560
+#: libraries/classes/Display/Results.php:1589
+#: libraries/classes/Display/Results.php:1606 libraries/classes/Util.php:2246
+#: libraries/classes/Util.php:2263
 #: templates/database/multi_table_query/form.twig:58
 #: templates/server/databases/index.twig:111
 #: templates/server/databases/index.twig:128
@@ -2038,16 +2038,16 @@ msgstr "Ascendent"
 msgid "Descending"
 msgstr "Descendent"
 
-#: libraries/classes/Config/ConfigFile.php:572
+#: libraries/classes/Config/ConfigFile.php:573
 msgid "Click"
 msgstr "Clic"
 
-#: libraries/classes/Config/ConfigFile.php:573
+#: libraries/classes/Config/ConfigFile.php:574
 msgid "Double click"
 msgstr "Doble clic"
 
-#: libraries/classes/Config/ConfigFile.php:574
-#: libraries/classes/Config/ConfigFile.php:611
+#: libraries/classes/Config/ConfigFile.php:575
+#: libraries/classes/Config/ConfigFile.php:612
 #: templates/config/form_display/input.twig:16
 #: templates/relation/check_relations.twig:15
 #: templates/relation/check_relations.twig:66
@@ -2071,22 +2071,22 @@ msgstr "Doble clic"
 msgid "Disabled"
 msgstr "Desactivat"
 
-#: libraries/classes/Config/ConfigFile.php:576
+#: libraries/classes/Config/ConfigFile.php:577
 msgid "key"
 msgstr "clau"
 
-#: libraries/classes/Config/ConfigFile.php:576
+#: libraries/classes/Config/ConfigFile.php:577
 msgid "display column"
 msgstr "visualitza la columna"
 
-#: libraries/classes/Config/ConfigFile.php:579
+#: libraries/classes/Config/ConfigFile.php:580
 msgid "Welcome"
 msgstr "Benvingut/da"
 
-#: libraries/classes/Config/ConfigFile.php:581
+#: libraries/classes/Config/ConfigFile.php:582
 #: libraries/classes/Config/Descriptions.php:732
 #: libraries/classes/Config/Descriptions.php:743 libraries/classes/Menu.php:452
-#: libraries/classes/Util.php:1686
+#: libraries/classes/Util.php:1689
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -2094,11 +2094,11 @@ msgstr "Benvingut/da"
 msgid "Databases"
 msgstr "Bases de dades"
 
-#: libraries/classes/Config/ConfigFile.php:583
+#: libraries/classes/Config/ConfigFile.php:584
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 #: libraries/classes/Menu.php:462
 #: libraries/classes/Server/Status/Processes.php:96
-#: libraries/classes/Util.php:1688
+#: libraries/classes/Util.php:1691
 #: templates/database/events/editor_form.twig:30
 #: templates/database/events/index.twig:46
 #: templates/database/tracking/tables.twig:17
@@ -2106,17 +2106,17 @@ msgstr "Bases de dades"
 msgid "Status"
 msgstr "Estat"
 
-#: libraries/classes/Config/ConfigFile.php:585 libraries/classes/Menu.php:519
-#: libraries/classes/Server/Status/Data.php:211 libraries/classes/Util.php:1695
+#: libraries/classes/Config/ConfigFile.php:586 libraries/classes/Menu.php:519
+#: libraries/classes/Server/Status/Data.php:211 libraries/classes/Util.php:1698
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:193
 msgid "Variables"
 msgstr "Variables"
 
-#: libraries/classes/Config/ConfigFile.php:587
+#: libraries/classes/Config/ConfigFile.php:588
 #: libraries/classes/Controllers/Server/PrivilegesController.php:412
 #: libraries/classes/Menu.php:273 libraries/classes/Menu.php:381
-#: libraries/classes/Util.php:1708 libraries/classes/Util.php:1724
+#: libraries/classes/Util.php:1711 libraries/classes/Util.php:1727
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
@@ -2124,22 +2124,22 @@ msgstr "Variables"
 msgid "Privileges"
 msgstr "Privilegis"
 
-#: libraries/classes/Config/ConfigFile.php:597 libraries/classes/Menu.php:284
+#: libraries/classes/Config/ConfigFile.php:598 libraries/classes/Menu.php:284
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:374
-#: libraries/classes/Util.php:1257 libraries/classes/Util.php:1707
-#: libraries/classes/Util.php:1725 templates/table/operations/view.twig:8
+#: libraries/classes/Util.php:1259 libraries/classes/Util.php:1710
+#: libraries/classes/Util.php:1728 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Operacions"
 
-#: libraries/classes/Config/ConfigFile.php:611
+#: libraries/classes/Config/ConfigFile.php:612
 msgid "Open"
 msgstr "Obert"
 
-#: libraries/classes/Config/ConfigFile.php:611
+#: libraries/classes/Config/ConfigFile.php:612
 msgid "Closed"
 msgstr "Tancat"
 
-#: libraries/classes/Config/ConfigFile.php:613
+#: libraries/classes/Config/ConfigFile.php:614
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Monday"
@@ -2147,7 +2147,7 @@ msgctxt "Week day name"
 msgid "Monday"
 msgstr "Dilluns"
 
-#: libraries/classes/Config/ConfigFile.php:614
+#: libraries/classes/Config/ConfigFile.php:615
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Tuesday"
@@ -2155,7 +2155,7 @@ msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Dimarts"
 
-#: libraries/classes/Config/ConfigFile.php:615
+#: libraries/classes/Config/ConfigFile.php:616
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Wednesday"
@@ -2163,7 +2163,7 @@ msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Dimecres"
 
-#: libraries/classes/Config/ConfigFile.php:616
+#: libraries/classes/Config/ConfigFile.php:617
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Thursday"
@@ -2171,7 +2171,7 @@ msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Dijous"
 
-#: libraries/classes/Config/ConfigFile.php:617
+#: libraries/classes/Config/ConfigFile.php:618
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Friday"
@@ -2179,7 +2179,7 @@ msgctxt "Week day name"
 msgid "Friday"
 msgstr "Divendres"
 
-#: libraries/classes/Config/ConfigFile.php:618
+#: libraries/classes/Config/ConfigFile.php:619
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "Saturday"
@@ -2187,7 +2187,7 @@ msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Dissabte"
 
-#: libraries/classes/Config/ConfigFile.php:619
+#: libraries/classes/Config/ConfigFile.php:620
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Sunday"
@@ -2195,44 +2195,29 @@ msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Diumenge"
 
-#: libraries/classes/Config/ConfigFile.php:622
+#: libraries/classes/Config/ConfigFile.php:623
 msgid "Ask before sending error reports"
 msgstr "Pregunta abans d'enviar els informes d'error"
 
-#: libraries/classes/Config/ConfigFile.php:623
+#: libraries/classes/Config/ConfigFile.php:624
 msgid "Always send error reports"
 msgstr "Envia sempre els informes d'error"
 
-#: libraries/classes/Config/ConfigFile.php:624
+#: libraries/classes/Config/ConfigFile.php:625
 msgid "Never send error reports"
 msgstr "No enviïs mai els informes d'error"
 
-#: libraries/classes/Config/ConfigFile.php:627
+#: libraries/classes/Config/ConfigFile.php:628
 msgid "Server default"
 msgstr "Servidor predeterminat"
 
-#: libraries/classes/Config/ConfigFile.php:628
+#: libraries/classes/Config/ConfigFile.php:629
 msgid "Enable"
 msgstr "Habilita"
 
-#: libraries/classes/Config/ConfigFile.php:629
+#: libraries/classes/Config/ConfigFile.php:630
 msgid "Disable"
 msgstr "Inhabilita"
-
-#: libraries/classes/Config/ConfigFile.php:669
-#: libraries/classes/Config/ConfigFile.php:722
-#: libraries/classes/Config/ConfigFile.php:734
-#: libraries/classes/Config/ConfigFile.php:742
-#: libraries/classes/Config/ConfigFile.php:747
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:61
-#: libraries/classes/Plugins/Export/ExportLatex.php:93
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:64
-#: libraries/classes/Plugins/Export/ExportOdt.php:74
-#: libraries/classes/Plugins/Export/ExportPdf.php:84
-#: libraries/classes/Plugins/Export/ExportSql.php:210
-#: libraries/classes/Plugins/Export/ExportTexytext.php:60
-msgid "structure"
-msgstr "estructura"
 
 #: libraries/classes/Config/ConfigFile.php:670
 #: libraries/classes/Config/ConfigFile.php:723
@@ -2246,8 +2231,8 @@ msgstr "estructura"
 #: libraries/classes/Plugins/Export/ExportPdf.php:84
 #: libraries/classes/Plugins/Export/ExportSql.php:210
 #: libraries/classes/Plugins/Export/ExportTexytext.php:60
-msgid "data"
-msgstr "dades"
+msgid "structure"
+msgstr "estructura"
 
 #: libraries/classes/Config/ConfigFile.php:671
 #: libraries/classes/Config/ConfigFile.php:724
@@ -2261,34 +2246,49 @@ msgstr "dades"
 #: libraries/classes/Plugins/Export/ExportPdf.php:84
 #: libraries/classes/Plugins/Export/ExportSql.php:210
 #: libraries/classes/Plugins/Export/ExportTexytext.php:60
+msgid "data"
+msgstr "dades"
+
+#: libraries/classes/Config/ConfigFile.php:672
+#: libraries/classes/Config/ConfigFile.php:725
+#: libraries/classes/Config/ConfigFile.php:737
+#: libraries/classes/Config/ConfigFile.php:745
+#: libraries/classes/Config/ConfigFile.php:750
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:61
+#: libraries/classes/Plugins/Export/ExportLatex.php:93
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:64
+#: libraries/classes/Plugins/Export/ExportOdt.php:74
+#: libraries/classes/Plugins/Export/ExportPdf.php:84
+#: libraries/classes/Plugins/Export/ExportSql.php:210
+#: libraries/classes/Plugins/Export/ExportTexytext.php:60
 msgid "structure and data"
 msgstr "estructura i dades"
 
-#: libraries/classes/Config/ConfigFile.php:674
+#: libraries/classes/Config/ConfigFile.php:675
 msgid "Quick - display only the minimal options to configure"
 msgstr "Ràpid - mostra només les opcions mínimes a configurar"
 
-#: libraries/classes/Config/ConfigFile.php:675
+#: libraries/classes/Config/ConfigFile.php:676
 msgid "Custom - display all possible options to configure"
 msgstr "Personalitzat - mostra totes les opcions a configurar"
 
-#: libraries/classes/Config/ConfigFile.php:676
+#: libraries/classes/Config/ConfigFile.php:677
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Personalitzat - igual que l'anterior, però sense l'opció ràpid/complet"
 
-#: libraries/classes/Config/ConfigFile.php:728
+#: libraries/classes/Config/ConfigFile.php:729
 msgid "complete inserts"
 msgstr "insercions completes"
 
-#: libraries/classes/Config/ConfigFile.php:729
+#: libraries/classes/Config/ConfigFile.php:730
 msgid "extended inserts"
 msgstr "insercions ampliades"
 
-#: libraries/classes/Config/ConfigFile.php:730
+#: libraries/classes/Config/ConfigFile.php:731
 msgid "both of the above"
 msgstr "ambdós anteriors"
 
-#: libraries/classes/Config/ConfigFile.php:731
+#: libraries/classes/Config/ConfigFile.php:732
 msgid "neither of the above"
 msgstr "cap dels anteriors"
 
@@ -3857,14 +3857,14 @@ msgstr "Posa els noms de les columnes a la primera fila"
 #: libraries/classes/Config/Descriptions.php:645
 #: libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Config/Descriptions.php:784
-#: libraries/classes/Plugins/Import/ImportCsv.php:653
+#: libraries/classes/Plugins/Import/ImportCsv.php:655
 msgid "Columns enclosed with"
 msgstr "Columnes delimitades amb"
 
 #: libraries/classes/Config/Descriptions.php:646
 #: libraries/classes/Config/Descriptions.php:779
 #: libraries/classes/Config/Descriptions.php:785
-#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:666
 msgid "Columns escaped with"
 msgstr "Final de columna amb"
 
@@ -3886,13 +3886,13 @@ msgstr "Treu els caràcters CRLF de dins les columnes"
 #: libraries/classes/Config/Descriptions.php:649
 #: libraries/classes/Config/Descriptions.php:782
 #: libraries/classes/Config/Descriptions.php:789
-#: libraries/classes/Plugins/Import/ImportCsv.php:638
+#: libraries/classes/Plugins/Import/ImportCsv.php:640
 msgid "Columns terminated with"
 msgstr "Columnes acabades amb"
 
 #: libraries/classes/Config/Descriptions.php:650
 #: libraries/classes/Config/Descriptions.php:777
-#: libraries/classes/Plugins/Import/ImportCsv.php:671
+#: libraries/classes/Plugins/Import/ImportCsv.php:673
 msgid "Lines terminated with"
 msgstr "Línies acabades amb"
 
@@ -3937,12 +3937,12 @@ msgstr "Inclou l'encapçalament de la taula"
 #: libraries/classes/Config/Descriptions.php:679
 #: libraries/classes/Config/Descriptions.php:715
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:374
-#: libraries/classes/Plugins/Export/ExportLatex.php:512
-#: libraries/classes/Plugins/Export/ExportOdt.php:469
+#: libraries/classes/Plugins/Export/ExportLatex.php:513
+#: libraries/classes/Plugins/Export/ExportOdt.php:470
 #: libraries/classes/Plugins/Export/ExportTexytext.php:374
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:507
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:658
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:660
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:28
@@ -3968,7 +3968,7 @@ msgstr "Clau de l'etiqueta"
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:718
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:381
-#: libraries/classes/Plugins/Export/ExportOdt.php:476
+#: libraries/classes/Plugins/Export/ExportOdt.php:477
 #: libraries/classes/Plugins/Export/ExportTexytext.php:379
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:515
 #: templates/columns_definitions/table_fields_definitions.twig:71
@@ -4881,7 +4881,7 @@ msgstr "Omet les taules bloquejades"
 #: libraries/classes/Config/Descriptions.php:930
 #: libraries/classes/ConfigStorage/UserGroups.php:111
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:404
-#: libraries/classes/Display/Results.php:2701
+#: libraries/classes/Display/Results.php:2703
 #: libraries/classes/Html/Generator.php:577
 #: libraries/classes/Html/Generator.php:840
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4988,7 +4988,7 @@ msgstr "Servidor"
 #: templates/table/relation/common_form.twig:39
 #: templates/table/relation/common_form.twig:137
 #: templates/table/relation/foreign_key_row.twig:102
-#: templates/triggers/editor_form.twig:32 templates/triggers/list.twig:47
+#: templates/triggers/editor_form.twig:32 templates/triggers/list.twig:49
 msgid "Table"
 msgstr "Taula"
 
@@ -5142,27 +5142,25 @@ msgid "Incorrect value!"
 msgstr "Valor incorrecte!"
 
 #: libraries/classes/Config/FormDisplay.php:772
-#: libraries/classes/Config/FormDisplay.php:781
 msgid "unavailable"
 msgstr "no disponible"
 
 #: libraries/classes/Config/FormDisplay.php:774
-#: libraries/classes/Config/FormDisplay.php:783
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" requereix l'extensió %s"
 
-#: libraries/classes/Config/FormDisplay.php:805
+#: libraries/classes/Config/FormDisplay.php:796
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "La importació comprimida no funcionarà perquè falta la funció %s."
 
-#: libraries/classes/Config/FormDisplay.php:814
+#: libraries/classes/Config/FormDisplay.php:805
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "L'exportació comprimida no funciona perquè falta la funció (%s)."
 
-#: libraries/classes/Config/FormDisplay.php:833
+#: libraries/classes/Config/FormDisplay.php:824
 #, php-format
 msgid "maximum %s"
 msgstr "màxim %s"
@@ -5219,8 +5217,8 @@ msgstr "Text OpenDocument"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:359
 #: libraries/classes/Menu.php:481 libraries/classes/Server/Privileges.php:1282
-#: libraries/classes/Util.php:1690 libraries/classes/Util.php:1705
-#: libraries/classes/Util.php:1722 templates/database/events/index.twig:17
+#: libraries/classes/Util.php:1693 libraries/classes/Util.php:1708
+#: libraries/classes/Util.php:1725 templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:36
@@ -5261,8 +5259,8 @@ msgstr "CSV utilitzant LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:58
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:326
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
-#: libraries/classes/Menu.php:486 libraries/classes/Util.php:1691
-#: libraries/classes/Util.php:1706 libraries/classes/Util.php:1723
+#: libraries/classes/Menu.php:486 libraries/classes/Util.php:1694
+#: libraries/classes/Util.php:1709 libraries/classes/Util.php:1726
 #: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5329,13 +5327,13 @@ msgstr ""
 "directori no és accessible per tothom, ni es pot llegir ni escriure per "
 "altres usuaris al vostre servidor."
 
-#: libraries/classes/Config/ServerConfigChecks.php:146
+#: libraries/classes/Config/ServerConfigChecks.php:147
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 "Hauries de fer servir connexions SSL si el teu servidor de base de dades ho "
 "permet."
 
-#: libraries/classes/Config/ServerConfigChecks.php:153
+#: libraries/classes/Config/ServerConfigChecks.php:154
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
@@ -5349,7 +5347,7 @@ msgstr ""
 "vostra IP pertany a un proveïdor ISP amb un gran nombre d'usuaris "
 "connectats, incloent-vos-hi."
 
-#: libraries/classes/Config/ServerConfigChecks.php:179
+#: libraries/classes/Config/ServerConfigChecks.php:180
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -5365,11 +5363,11 @@ msgstr ""
 "Establiu el %1$stipus d'autenticació%2$s a [kbd]cookie[/kbd] o [kbd]http[/"
 "kbd]."
 
-#: libraries/classes/Config/ServerConfigChecks.php:208
+#: libraries/classes/Config/ServerConfigChecks.php:209
 msgid "You allow for connecting to the server without a password."
 msgstr "Esteu permetent connexions al servidor sense contrasenya."
 
-#: libraries/classes/Config/ServerConfigChecks.php:225
+#: libraries/classes/Config/ServerConfigChecks.php:226
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
@@ -5379,7 +5377,7 @@ msgstr ""
 "[kbd]cookie[/kbd], així que es generarà automàticament una clau. S'utilitza "
 "per xifrar les galetes; no cal que la recordeu."
 
-#: libraries/classes/Config/ServerConfigChecks.php:276
+#: libraries/classes/Config/ServerConfigChecks.php:277
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -5388,7 +5386,7 @@ msgstr ""
 "La %sdescompressió zip%s requereix les funcions (%s) que no estan "
 "disponibles en aquest sistema."
 
-#: libraries/classes/Config/ServerConfigChecks.php:297
+#: libraries/classes/Config/ServerConfigChecks.php:298
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -5397,7 +5395,7 @@ msgstr ""
 "La %scompressió zip%s requereix les funcions (%s) que no estan disponibles "
 "en aquest sistema."
 
-#: libraries/classes/Config/ServerConfigChecks.php:322
+#: libraries/classes/Config/ServerConfigChecks.php:323
 #, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -5408,7 +5406,7 @@ msgstr ""
 "gc_maxlifetime%4$s (actualment %5$d) pot provocar la invalidació aleatòria "
 "de sessions."
 
-#: libraries/classes/Config/ServerConfigChecks.php:344
+#: libraries/classes/Config/ServerConfigChecks.php:345
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -5418,7 +5416,7 @@ msgstr ""
 "minuts). Els valors més grans de 1800 poden ser un risc de seguretat, com "
 "ara les suplantacions."
 
-#: libraries/classes/Config/ServerConfigChecks.php:370
+#: libraries/classes/Config/ServerConfigChecks.php:371
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
@@ -5428,7 +5426,7 @@ msgstr ""
 "galets d'identificació%s no és  0, la %svalidesa de la galeta "
 "d'identificació%s ha d'establir-se a un valor menor o igual a aquest."
 
-#: libraries/classes/Config/ServerConfigChecks.php:405
+#: libraries/classes/Config/ServerConfigChecks.php:406
 #, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
@@ -5437,7 +5435,7 @@ msgstr ""
 "La %1$scompressió i descompressió bzip2%2$s requereix les funcions (%3$s) "
 "que no estan disponibles en aquest sistema."
 
-#: libraries/classes/Config/ServerConfigChecks.php:436
+#: libraries/classes/Config/ServerConfigChecks.php:437
 #, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
@@ -5446,16 +5444,16 @@ msgstr ""
 "La %1$scompressió i descompressió gzip%2$s requereix les funcions (%3$s) que "
 "no estan disponibles en aquest sistema."
 
-#: libraries/classes/Config/Settings.php:2962
+#: libraries/classes/Config/Settings.php:2961
 #, php-format
 msgid "Server %d"
 msgstr "Servidor %d"
 
-#: libraries/classes/ConfigStorage/Relation.php:1327
+#: libraries/classes/ConfigStorage/Relation.php:1328
 msgid "no description"
 msgstr "sense descripció"
 
-#: libraries/classes/ConfigStorage/Relation.php:1524
+#: libraries/classes/ConfigStorage/Relation.php:1525
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5735,7 +5733,7 @@ msgid "Table %s has been emptied."
 msgstr "S'ha buidat la taula %s."
 
 #: libraries/classes/Controllers/Database/StructureController.php:542
-#: libraries/classes/Display/Results.php:3683
+#: libraries/classes/Display/Results.php:3685
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5756,10 +5754,10 @@ msgstr "desconegut"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
 #: libraries/classes/IndexColumn.php:154 libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:614
-#: libraries/classes/Plugins/Export/ExportLatex.php:577
-#: libraries/classes/Plugins/Export/ExportOdt.php:730
+#: libraries/classes/Plugins/Export/ExportLatex.php:578
+#: libraries/classes/Plugins/Export/ExportOdt.php:731
 #: libraries/classes/Plugins/Export/ExportTexytext.php:569
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -5794,7 +5792,7 @@ msgstr "Sí"
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
 #: libraries/classes/Controllers/Table/OperationsController.php:327
 #: libraries/classes/Controllers/Table/ReplaceController.php:303
-#: libraries/classes/Core.php:595 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:596 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Sense canvis"
 
@@ -6452,13 +6450,13 @@ msgstr "Altres"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:166
-#: libraries/classes/Util.php:390 libraries/classes/Util.php:422
+#: libraries/classes/Util.php:391 libraries/classes/Util.php:423
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:168
-#: libraries/classes/Util.php:388 libraries/classes/Util.php:420
+#: libraries/classes/Util.php:389 libraries/classes/Util.php:421
 msgid "."
 msgstr "."
 
@@ -6632,7 +6630,7 @@ msgid "Traffic"
 msgstr "Trànsit"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:221
-#: libraries/classes/Menu.php:491 libraries/classes/Util.php:1692
+#: libraries/classes/Menu.php:491 libraries/classes/Util.php:1695
 #: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "Paràmetres"
@@ -6852,11 +6850,11 @@ msgstr "Desenvolupa la sortida"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:460
-#: libraries/classes/Plugins/Export/ExportOdt.php:572
+#: libraries/classes/Plugins/Export/ExportOdt.php:573
 #: libraries/classes/Plugins/Export/ExportTexytext.php:439
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:328
 #: libraries/classes/Server/Status/Processes.php:95
-#: templates/sql/profiling_chart.twig:13 templates/triggers/list.twig:49
+#: templates/sql/profiling_chart.twig:13 templates/triggers/list.twig:51
 msgid "Time"
 msgstr "Temps"
 
@@ -7122,10 +7120,10 @@ msgstr "Canvi del joc de caràcters"
 #: libraries/classes/IndexColumn.php:151 libraries/classes/Index.php:448
 #: libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:613
-#: libraries/classes/Plugins/Export/ExportLatex.php:577
-#: libraries/classes/Plugins/Export/ExportOdt.php:729
+#: libraries/classes/Plugins/Export/ExportLatex.php:578
+#: libraries/classes/Plugins/Export/ExportOdt.php:730
 #: libraries/classes/Plugins/Export/ExportTexytext.php:569
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:716
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -7234,7 +7232,7 @@ msgid "Show query box"
 msgstr "Mostra el quadre de consultes"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
-#: libraries/classes/Display/Results.php:2762
+#: libraries/classes/Display/Results.php:2764
 #: libraries/classes/Tracking/Tracking.php:230
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:274
@@ -7282,7 +7280,7 @@ msgid "Variable %d:"
 msgstr "Variable %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
-#: libraries/classes/Normalization.php:945
+#: libraries/classes/Normalization.php:946
 msgid "Pick"
 msgstr "Triar"
 
@@ -7317,7 +7315,7 @@ msgid "Primary key added."
 msgstr "S'ha afegit una clau primària."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Normalization.php:251
+#: libraries/classes/Normalization.php:252
 msgid "Taking you to next step…"
 msgstr "Se us està portant al següent pas…"
 
@@ -7327,10 +7325,10 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "S'ha completat el primer pas de la normalització per a la taula «%s»."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:429
-#: libraries/classes/Normalization.php:507
-#: libraries/classes/Normalization.php:566
-#: libraries/classes/Normalization.php:653
-#: libraries/classes/Normalization.php:726
+#: libraries/classes/Normalization.php:508
+#: libraries/classes/Normalization.php:567
+#: libraries/classes/Normalization.php:654
+#: libraries/classes/Normalization.php:727
 msgid "End of step"
 msgstr "Fi de pas"
 
@@ -7341,7 +7339,7 @@ msgstr "Segon pas de la normalització (2NF)"
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:775
-#: libraries/classes/Normalization.php:339
+#: libraries/classes/Normalization.php:340
 msgid "Done"
 msgstr "Fet"
 
@@ -7507,7 +7505,7 @@ msgid "Ignore"
 msgstr "Ignora"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
-#: libraries/classes/Display/Results.php:2705
+#: libraries/classes/Display/Results.php:2707
 #: libraries/classes/Html/Generator.php:77
 #: templates/display/results/table.twig:323
 #: templates/display/results/table.twig:324
@@ -8193,7 +8191,7 @@ msgid "December"
 msgstr "Desembre"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:730
-#: libraries/classes/Util.php:499
+#: libraries/classes/Util.php:500
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
@@ -8201,7 +8199,7 @@ msgid "Jan"
 msgstr "gen."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
-#: libraries/classes/Util.php:500
+#: libraries/classes/Util.php:501
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
@@ -8209,7 +8207,7 @@ msgid "Feb"
 msgstr "febr."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:732
-#: libraries/classes/Util.php:501
+#: libraries/classes/Util.php:502
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
@@ -8217,7 +8215,7 @@ msgid "Mar"
 msgstr "març"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:733
-#: libraries/classes/Util.php:502
+#: libraries/classes/Util.php:503
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
@@ -8225,7 +8223,7 @@ msgid "Apr"
 msgstr "abr."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:734
-#: libraries/classes/Util.php:503
+#: libraries/classes/Util.php:504
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
@@ -8233,7 +8231,7 @@ msgid "May"
 msgstr "Maig"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
-#: libraries/classes/Util.php:504
+#: libraries/classes/Util.php:505
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
@@ -8241,7 +8239,7 @@ msgid "Jun"
 msgstr "juny"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:736
-#: libraries/classes/Util.php:505
+#: libraries/classes/Util.php:506
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
@@ -8249,7 +8247,7 @@ msgid "Jul"
 msgstr "jul."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:737
-#: libraries/classes/Util.php:506
+#: libraries/classes/Util.php:507
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
@@ -8257,7 +8255,7 @@ msgid "Aug"
 msgstr "ag."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:738
-#: libraries/classes/Util.php:507
+#: libraries/classes/Util.php:508
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
@@ -8265,7 +8263,7 @@ msgid "Sep"
 msgstr "set."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:739
-#: libraries/classes/Util.php:508
+#: libraries/classes/Util.php:509
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
@@ -8273,7 +8271,7 @@ msgid "Oct"
 msgstr "oct."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:740
-#: libraries/classes/Util.php:509
+#: libraries/classes/Util.php:510
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
@@ -8281,7 +8279,7 @@ msgid "Nov"
 msgstr "nov."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
-#: libraries/classes/Util.php:510
+#: libraries/classes/Util.php:511
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
@@ -8289,7 +8287,7 @@ msgid "Dec"
 msgstr "des."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:749
-#: libraries/classes/Util.php:513
+#: libraries/classes/Util.php:514
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
@@ -8297,7 +8295,7 @@ msgid "Sun"
 msgstr "dg."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:750
-#: libraries/classes/Util.php:514
+#: libraries/classes/Util.php:515
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
@@ -8305,7 +8303,7 @@ msgid "Mon"
 msgstr "dl."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:751
-#: libraries/classes/Util.php:515
+#: libraries/classes/Util.php:516
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
@@ -8313,7 +8311,7 @@ msgid "Tue"
 msgstr "dt."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:752
-#: libraries/classes/Util.php:516
+#: libraries/classes/Util.php:517
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
@@ -8321,7 +8319,7 @@ msgid "Wed"
 msgstr "dc."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:753
-#: libraries/classes/Util.php:517
+#: libraries/classes/Util.php:518
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
@@ -8329,7 +8327,7 @@ msgid "Thu"
 msgstr "dj."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:754
-#: libraries/classes/Util.php:518
+#: libraries/classes/Util.php:519
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
@@ -8337,7 +8335,7 @@ msgid "Fri"
 msgstr "dv."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:755
-#: libraries/classes/Util.php:519
+#: libraries/classes/Util.php:520
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
@@ -8620,17 +8618,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Error fatal: Només es pot accedir a la navegació mitjançant AJAX"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:25
-#: libraries/classes/Normalization.php:215
+#: libraries/classes/Normalization.php:216
 msgid "Select one…"
 msgstr "Selecciona una…"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:26
-#: libraries/classes/Normalization.php:216
+#: libraries/classes/Normalization.php:217
 msgid "No such column"
 msgstr "Cap columna"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:31
-#: libraries/classes/Normalization.php:220 libraries/classes/Types.php:700
+#: libraries/classes/Normalization.php:221 libraries/classes/Types.php:700
 msgctxt "string types"
 msgid "String"
 msgstr "Cadena"
@@ -9542,7 +9540,7 @@ msgstr "No s'ha creat el marcador!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:143
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:201
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:202
 #: libraries/classes/Table/Indexes.php:77
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -9599,7 +9597,7 @@ msgstr "La taula %s ja existeix!"
 #: libraries/classes/Controllers/Table/RelationController.php:282
 #: libraries/classes/Controllers/View/OperationsController.php:83
 #: libraries/classes/Database/Routines.php:1201
-#: libraries/classes/Display/Results.php:3395 libraries/classes/Message.php:151
+#: libraries/classes/Display/Results.php:3397 libraries/classes/Message.php:151
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "La vostra consulta SQL ha estat executada amb èxit."
@@ -9735,7 +9733,7 @@ msgid "The columns have been moved successfully."
 msgstr "S'han mogut correctament les columnes."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:256
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:251
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:252
 #: libraries/classes/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "Error de consulta"
@@ -9747,7 +9745,7 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "El nom «%s» és una paraula clau reservada de MySQL."
 msgstr[1] "Els noms «%s» són paraules clau reservades de MySQL."
 
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:196
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:197
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -9770,6 +9768,20 @@ msgstr "S'han esborrat correctament les versions de seguiment."
 #: libraries/classes/Controllers/Table/TrackingController.php:194
 msgid "No versions selected."
 msgstr "No s'han triat versions."
+
+#: libraries/classes/Controllers/Triggers/IndexController.php:89
+#: templates/triggers/export.twig:2
+#, php-format
+msgid "Export of trigger %s"
+msgstr "Exportar disparador %s"
+
+#: libraries/classes/Controllers/Triggers/IndexController.php:103
+#, fuzzy, php-format
+#| msgid "No trigger with name %1$s found in database %2$s."
+msgid ""
+"Error in processing request: No trigger with name %1$s found in database "
+"%2$s."
+msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s."
 
 #: libraries/classes/Controllers/UserPasswordController.php:50
 msgid "You don't have sufficient privileges to be here right now!"
@@ -10180,51 +10192,51 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1242
+#: libraries/classes/Display/Results.php:1243
 #: templates/display/results/table.twig:212
 msgid "Partial texts"
 msgstr "Texts parcials"
 
-#: libraries/classes/Display/Results.php:1246
+#: libraries/classes/Display/Results.php:1247
 #: templates/display/results/table.twig:216
 msgid "Full texts"
 msgstr "Texts complets"
 
-#: libraries/classes/Display/Results.php:2738
-#: libraries/classes/Display/Results.php:2753
+#: libraries/classes/Display/Results.php:2740
+#: libraries/classes/Display/Results.php:2755
 msgid "The row has been deleted."
 msgstr "S'ha esborrat la fila."
 
-#: libraries/classes/Display/Results.php:2781
+#: libraries/classes/Display/Results.php:2783
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Mata"
 
-#: libraries/classes/Display/Results.php:3331
+#: libraries/classes/Display/Results.php:3333
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PMF 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3692
+#: libraries/classes/Display/Results.php:3694
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Es mostren les files %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3706
+#: libraries/classes/Display/Results.php:3708
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d en total, %2$d a la consulta"
 
-#: libraries/classes/Display/Results.php:3711
+#: libraries/classes/Display/Results.php:3713
 #, php-format
 msgid "%d total"
 msgstr "%d en total"
 
-#: libraries/classes/Display/Results.php:3724 libraries/classes/Sql.php:915
+#: libraries/classes/Display/Results.php:3726 libraries/classes/Sql.php:915
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "la consulta ha trigat %01.4f segons."
 
-#: libraries/classes/Display/Results.php:4044
+#: libraries/classes/Display/Results.php:4046
 msgid "Link not found!"
 msgstr "No s'ha trobat l'enllaç!"
 
@@ -10830,28 +10842,28 @@ msgstr "Paraules separades per un espai (\" \")."
 msgid "[ROLLBACK occurred.]"
 msgstr "[S'ha produït un ROLLBACK.]"
 
-#: libraries/classes/Import/Import.php:1211
+#: libraries/classes/Import/Import.php:1212
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Les següents estructures han estat creades o bé alterades. Aquí pots:"
 
-#: libraries/classes/Import/Import.php:1213
+#: libraries/classes/Import/Import.php:1214
 msgid "View a structure's contents by clicking on its name."
 msgstr "Mostra el contingut d'una estructura en fer clic sobre el seu nom."
 
-#: libraries/classes/Import/Import.php:1214
+#: libraries/classes/Import/Import.php:1215
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Canvieu qualsevol dels seus paràmetres en fer clic a l'enllaç \"Opcions\" "
 "corresponent."
 
-#: libraries/classes/Import/Import.php:1215
+#: libraries/classes/Import/Import.php:1216
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Edita l'estructura seguint l'enllaç \"Estructura\"."
 
-#: libraries/classes/Import/Import.php:1219
-#: libraries/classes/Import/Import.php:1250
+#: libraries/classes/Import/Import.php:1220
+#: libraries/classes/Import/Import.php:1251
 #: libraries/classes/Plugins/Export/ExportCodegen.php:64
 #: libraries/classes/Plugins/Export/ExportCsv.php:44
 #: libraries/classes/Plugins/Export/ExportExcel.php:37
@@ -10881,33 +10893,33 @@ msgstr "Edita l'estructura seguint l'enllaç \"Estructura\"."
 msgid "Options"
 msgstr "Opcions"
 
-#: libraries/classes/Import/Import.php:1222
+#: libraries/classes/Import/Import.php:1223
 #, php-format
 msgid "Go to database: %s"
 msgstr "Vés a la base de dades %s"
 
-#: libraries/classes/Import/Import.php:1228
-#: libraries/classes/Import/Import.php:1268
+#: libraries/classes/Import/Import.php:1229
+#: libraries/classes/Import/Import.php:1269
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Edita els paràmetres per %s"
 
-#: libraries/classes/Import/Import.php:1253
+#: libraries/classes/Import/Import.php:1254
 #, php-format
 msgid "Go to table: %s"
 msgstr "Vés a la taula: %s"
 
-#: libraries/classes/Import/Import.php:1261
+#: libraries/classes/Import/Import.php:1262
 #, php-format
 msgid "Structure of %s"
 msgstr "Estructura de %s"
 
-#: libraries/classes/Import/Import.php:1279
+#: libraries/classes/Import/Import.php:1280
 #, php-format
 msgid "Go to view: %s"
 msgstr "Vés a la vista: %s"
 
-#: libraries/classes/Import/Import.php:1305
+#: libraries/classes/Import/Import.php:1306
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10935,14 +10947,14 @@ msgstr "Funció"
 #: libraries/classes/InsertEdit.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:267
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:358
-#: libraries/classes/Plugins/Export/ExportLatex.php:504
-#: libraries/classes/Plugins/Export/ExportOdt.php:361
-#: libraries/classes/Plugins/Export/ExportOdt.php:453
+#: libraries/classes/Plugins/Export/ExportLatex.php:505
+#: libraries/classes/Plugins/Export/ExportOdt.php:362
+#: libraries/classes/Plugins/Export/ExportOdt.php:454
 #: libraries/classes/Plugins/Export/ExportTexytext.php:286
 #: libraries/classes/Plugins/Export/ExportTexytext.php:366
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:486
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:643
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:665
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:645
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -10994,24 +11006,24 @@ msgstr "Es mostra la consulta SQL"
 msgid "Inserted row id: %1$d"
 msgstr "Id de la fila inserida: %1$d"
 
-#: libraries/classes/LanguageManager.php:969
+#: libraries/classes/LanguageManager.php:970
 msgid "Ignoring unsupported language code."
 msgstr "Ignorant codi d'idioma no suportat."
 
-#: libraries/classes/Linter.php:102
+#: libraries/classes/Linter.php:103
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
 "L'anàlisi d'errors està desactivat per a aquesta consulta perquè supera la "
 "longitud màxima."
 
-#: libraries/classes/Linter.php:154
+#: libraries/classes/Linter.php:155
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (prop de <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:300 libraries/classes/Menu.php:407
-#: libraries/classes/Util.php:1712 libraries/classes/Util.php:1726
+#: libraries/classes/Util.php:1715 libraries/classes/Util.php:1729
 msgid "Tracking"
 msgstr "Seguiment"
 
@@ -11019,12 +11031,12 @@ msgstr "Seguiment"
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:27
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:539
-#: libraries/classes/Plugins/Export/ExportOdt.php:662
+#: libraries/classes/Plugins/Export/ExportOdt.php:663
 #: libraries/classes/Plugins/Export/ExportPdf.php:253
 #: libraries/classes/Plugins/Export/ExportSql.php:1919
 #: libraries/classes/Plugins/Export/ExportTexytext.php:503
 #: libraries/classes/Plugins/Export/ExportXml.php:119
-#: libraries/classes/Util.php:1711 libraries/classes/Util.php:1727
+#: libraries/classes/Util.php:1714 libraries/classes/Util.php:1730
 #: templates/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Disparadors"
@@ -11034,11 +11046,11 @@ msgstr "Disparadors"
 msgid "Database seems to be empty!"
 msgstr "La base de dades sembla buida!"
 
-#: libraries/classes/Menu.php:351 libraries/classes/Util.php:1704
+#: libraries/classes/Menu.php:351 libraries/classes/Util.php:1707
 msgid "Query"
 msgstr "Consulta"
 
-#: libraries/classes/Menu.php:387 libraries/classes/Util.php:1709
+#: libraries/classes/Menu.php:387 libraries/classes/Util.php:1712
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Rutines"
@@ -11048,15 +11060,15 @@ msgstr "Rutines"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:942
 #: libraries/classes/Plugins/Export/ExportXml.php:99
-#: libraries/classes/Util.php:1710 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1713 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Esdeveniments"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:1713
+#: libraries/classes/Menu.php:414 libraries/classes/Util.php:1716
 msgid "Designer"
 msgstr "Dissenyador"
 
-#: libraries/classes/Menu.php:421 libraries/classes/Util.php:1714
+#: libraries/classes/Menu.php:421 libraries/classes/Util.php:1717
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Columnes centrals"
@@ -11066,27 +11078,27 @@ msgid "User accounts"
 msgstr "Comptes d'usuari"
 
 #: libraries/classes/Menu.php:506 libraries/classes/Server/Status/Data.php:144
-#: libraries/classes/Util.php:1693 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1696 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Registre binari"
 
 #: libraries/classes/Menu.php:513 libraries/classes/Server/Status/Data.php:149
-#: libraries/classes/Util.php:1694
+#: libraries/classes/Util.php:1697
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
 msgid "Replication"
 msgstr "Replicació"
 
-#: libraries/classes/Menu.php:524 libraries/classes/Util.php:1696
+#: libraries/classes/Menu.php:524 libraries/classes/Util.php:1699
 msgid "Charsets"
 msgstr "Jocs de caràcters"
 
-#: libraries/classes/Menu.php:529 libraries/classes/Util.php:1698
+#: libraries/classes/Menu.php:529 libraries/classes/Util.php:1701
 msgid "Engines"
 msgstr "Motors"
 
-#: libraries/classes/Menu.php:534 libraries/classes/Util.php:1697
+#: libraries/classes/Menu.php:534 libraries/classes/Util.php:1700
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Connectors"
@@ -11176,14 +11188,14 @@ msgstr "Nou"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:33
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:264
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:355
-#: libraries/classes/Plugins/Export/ExportLatex.php:503
-#: libraries/classes/Plugins/Export/ExportOdt.php:358
-#: libraries/classes/Plugins/Export/ExportOdt.php:450
+#: libraries/classes/Plugins/Export/ExportLatex.php:504
+#: libraries/classes/Plugins/Export/ExportOdt.php:359
+#: libraries/classes/Plugins/Export/ExportOdt.php:451
 #: libraries/classes/Plugins/Export/ExportTexytext.php:285
 #: libraries/classes/Plugins/Export/ExportTexytext.php:365
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:484
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:664
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:644
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:666
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
@@ -11226,10 +11238,10 @@ msgstr "Nou"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:29
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:461
-#: libraries/classes/Plugins/Export/ExportOdt.php:575
+#: libraries/classes/Plugins/Export/ExportOdt.php:576
 #: libraries/classes/Plugins/Export/ExportTexytext.php:440
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:330
-#: templates/triggers/editor_form.twig:52 templates/triggers/list.twig:50
+#: templates/triggers/editor_form.twig:52 templates/triggers/list.twig:52
 msgid "Event"
 msgstr "Esdeveniment"
 
@@ -11298,23 +11310,23 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Nova"
 
-#: libraries/classes/Normalization.php:195
+#: libraries/classes/Normalization.php:196
 msgid "Make all columns atomic"
 msgstr "Fes totes les columnes atòmiques"
 
-#: libraries/classes/Normalization.php:196
+#: libraries/classes/Normalization.php:197
 #: templates/table/normalization/normalization.twig:13
 msgid "First step of normalization (1NF)"
 msgstr "Primer pas de la normalització (1NF)"
 
-#: libraries/classes/Normalization.php:198
-#: libraries/classes/Normalization.php:247
-#: libraries/classes/Normalization.php:293
-#: libraries/classes/Normalization.php:325
+#: libraries/classes/Normalization.php:199
+#: libraries/classes/Normalization.php:248
+#: libraries/classes/Normalization.php:294
+#: libraries/classes/Normalization.php:326
 msgid "Step 1."
 msgstr "Pas 1."
 
-#: libraries/classes/Normalization.php:201
+#: libraries/classes/Normalization.php:202
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -11322,12 +11334,12 @@ msgstr ""
 "Tens alguna columna que es pugui dividir en més? Per exemple, l'adreça es "
 "pot dividir en carrer, ciutat, país i codi postal."
 
-#: libraries/classes/Normalization.php:206
+#: libraries/classes/Normalization.php:207
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 "Mostra la llista central de columnes que encara no estiguin en aquesta taula"
 
-#: libraries/classes/Normalization.php:208
+#: libraries/classes/Normalization.php:209
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -11335,19 +11347,19 @@ msgstr ""
 "Seleccioneu una columna que es pugui dividir en més d'una (amb la selecció "
 "de 'cap columna' es mourà al pas següent)."
 
-#: libraries/classes/Normalization.php:223
+#: libraries/classes/Normalization.php:224
 msgid "split into "
 msgstr "dividir en "
 
-#: libraries/classes/Normalization.php:244
+#: libraries/classes/Normalization.php:245
 msgid "Have a primary key"
 msgstr "Tenir una clau primària"
 
-#: libraries/classes/Normalization.php:250
+#: libraries/classes/Normalization.php:251
 msgid "Primary key already exists."
 msgstr "Ja existeix la clau primària."
 
-#: libraries/classes/Normalization.php:255
+#: libraries/classes/Normalization.php:256
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -11356,26 +11368,26 @@ msgstr ""
 "una columna (o combinació de columnes) que identifiquen unívocament totes "
 "les files."
 
-#: libraries/classes/Normalization.php:263
+#: libraries/classes/Normalization.php:264
 msgid "Add a primary key on existing column(s)"
 msgstr "Afegeix una clau primària en la(es) columna(es) existent(s)"
 
-#: libraries/classes/Normalization.php:267
+#: libraries/classes/Normalization.php:268
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "No és possible utilitzar la combinació de columnes existents com a clau "
 "primària"
 
-#: libraries/classes/Normalization.php:269
+#: libraries/classes/Normalization.php:270
 msgid "+ Add a new primary key column"
 msgstr "+ Afegeix una nova columna de clau primària"
 
-#: libraries/classes/Normalization.php:292
+#: libraries/classes/Normalization.php:293
 msgid "Remove redundant columns"
 msgstr "Treu les columnes redundants"
 
-#: libraries/classes/Normalization.php:295
+#: libraries/classes/Normalization.php:296
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -11385,7 +11397,7 @@ msgstr ""
 "columna existent? Per exemple, si teniu cognom, nom i nom_complet, llavors "
 "si es combina cognom i nom s'obté nom_complet, que és redundant."
 
-#: libraries/classes/Normalization.php:301
+#: libraries/classes/Normalization.php:302
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -11393,19 +11405,19 @@ msgstr ""
 "Revisa les columnes que siguin redundants i prem en eliminar. Si no hi ha, "
 "prem en 'Cap columna redundant'"
 
-#: libraries/classes/Normalization.php:306
+#: libraries/classes/Normalization.php:307
 msgid "Remove selected"
 msgstr "Treure seleccionat"
 
-#: libraries/classes/Normalization.php:307
+#: libraries/classes/Normalization.php:308
 msgid "No redundant column"
 msgstr "Cap columna redundant"
 
-#: libraries/classes/Normalization.php:324
+#: libraries/classes/Normalization.php:325
 msgid "Move repeating groups"
 msgstr "Mou els grups repetitius"
 
-#: libraries/classes/Normalization.php:327
+#: libraries/classes/Normalization.php:328
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -11419,7 +11431,7 @@ msgstr ""
 "que formen un grup repetitiu. En aquest cas haureu de crear una taula nova "
 "amb id_llibre, autor."
 
-#: libraries/classes/Normalization.php:335
+#: libraries/classes/Normalization.php:336
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -11427,19 +11439,19 @@ msgstr ""
 "Comprova les columnes que formin un grup repetitiu. Si no n'hi ha, feu clic "
 "a 'Sense grup repetitiu'"
 
-#: libraries/classes/Normalization.php:340
+#: libraries/classes/Normalization.php:341
 msgid "No repeating group"
 msgstr "Sense grup repetitiu"
 
-#: libraries/classes/Normalization.php:368
+#: libraries/classes/Normalization.php:369
 msgid "Step 2."
 msgstr "Pas 2."
 
-#: libraries/classes/Normalization.php:368
+#: libraries/classes/Normalization.php:369
 msgid "Find partial dependencies"
 msgstr "Troba les dependències parcials"
 
-#: libraries/classes/Normalization.php:389
+#: libraries/classes/Normalization.php:390
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -11448,12 +11460,12 @@ msgstr ""
 "No hi ha dependències parcials possibles, ja que la clau primària (%1$s) "
 "està composta per totes les columnes de la taula."
 
-#: libraries/classes/Normalization.php:395
-#: libraries/classes/Normalization.php:437
+#: libraries/classes/Normalization.php:396
+#: libraries/classes/Normalization.php:438
 msgid "Table is already in second normal form."
 msgstr "La taula ja hi és en segona forma normal."
 
-#: libraries/classes/Normalization.php:400
+#: libraries/classes/Normalization.php:401
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -11462,8 +11474,8 @@ msgstr ""
 "La clau primària (%1$s) conté més d'una columna, per això necessitem trobar "
 "les dependències parcials."
 
-#: libraries/classes/Normalization.php:404
-#: libraries/classes/Normalization.php:815
+#: libraries/classes/Normalization.php:405
+#: libraries/classes/Normalization.php:816
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -11471,12 +11483,12 @@ msgstr ""
 "Responeu a les preguntes següents acuradament per obtenir una normalització "
 "correcta."
 
-#: libraries/classes/Normalization.php:406
+#: libraries/classes/Normalization.php:407
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "+ Mostrar les dependències parcials possibles segons les dades de la taula"
 
-#: libraries/classes/Normalization.php:409
+#: libraries/classes/Normalization.php:410
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -11486,13 +11498,13 @@ msgstr ""
 "entre un conjunt determinat, els valors combinats junts del qual són "
 "suficients per a determinar el valor de la columna."
 
-#: libraries/classes/Normalization.php:422
-#: libraries/classes/Normalization.php:857
+#: libraries/classes/Normalization.php:423
+#: libraries/classes/Normalization.php:858
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' depèn de:"
 
-#: libraries/classes/Normalization.php:433
+#: libraries/classes/Normalization.php:434
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -11501,7 +11513,7 @@ msgstr ""
 "No hi ha dependències parcials possibles, ja que la clau primària ( %1$s ) "
 "només té una columna."
 
-#: libraries/classes/Normalization.php:461
+#: libraries/classes/Normalization.php:462
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -11510,18 +11522,18 @@ msgstr ""
 "Per tal de convertir la taula original '%1$s' a la segona forma normal "
 "necessitem crear les següents taules:"
 
-#: libraries/classes/Normalization.php:503
+#: libraries/classes/Normalization.php:504
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "S'ha completat el segon pas de normalització per a la taula '%1$s'."
 
-#: libraries/classes/Normalization.php:555
-#: libraries/classes/Normalization.php:715
-#: libraries/classes/Normalization.php:790
+#: libraries/classes/Normalization.php:556
+#: libraries/classes/Normalization.php:716
+#: libraries/classes/Normalization.php:791
 msgid "Error in processing!"
 msgstr "Error al procés!"
 
-#: libraries/classes/Normalization.php:602
+#: libraries/classes/Normalization.php:603
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -11530,24 +11542,24 @@ msgstr ""
 "Per tal de convertir la taula original '%1$s' a la tercera forma normal "
 "necessitem crear les següents taules:"
 
-#: libraries/classes/Normalization.php:651
+#: libraries/classes/Normalization.php:652
 msgid "The third step of normalization is complete."
 msgstr "S'ha completat el tercer pas de la normalització."
 
-#: libraries/classes/Normalization.php:766
+#: libraries/classes/Normalization.php:767
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "El grup repetitiu seleccionat s'ha mogut a la taula «%s»"
 
-#: libraries/classes/Normalization.php:813
+#: libraries/classes/Normalization.php:814
 msgid "Step 3."
 msgstr "Pas 3."
 
-#: libraries/classes/Normalization.php:813
+#: libraries/classes/Normalization.php:814
 msgid "Find transitive dependencies"
 msgstr "Troba les dependències transitives"
 
-#: libraries/classes/Normalization.php:817
+#: libraries/classes/Normalization.php:818
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -11559,7 +11571,7 @@ msgstr ""
 "suficients per a determinar el valor de la columna.<br>Nota: una columna pot "
 "no tenir dependències transitives, en aquest cas no n'heu de seleccionar cap."
 
-#: libraries/classes/Normalization.php:871
+#: libraries/classes/Normalization.php:872
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -11567,11 +11579,11 @@ msgstr ""
 "No hi ha dependències transitives possibles, ja que la taula no té cap "
 "columna que no pertany a una clau primària"
 
-#: libraries/classes/Normalization.php:874
+#: libraries/classes/Normalization.php:875
 msgid "Table is already in Third normal form!"
 msgstr "La taula ja es troba en tercera forma normal!"
 
-#: libraries/classes/Normalization.php:941
+#: libraries/classes/Normalization.php:942
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -11579,7 +11591,7 @@ msgstr ""
 "Aquesta llista està basada en un subconjunt de les dades de la taula i no és "
 "necessàriament acurada. "
 
-#: libraries/classes/Normalization.php:956
+#: libraries/classes/Normalization.php:957
 msgid "No partial dependencies found!"
 msgstr "No s'han trobat dependències parcials!"
 
@@ -11673,7 +11685,7 @@ msgstr "La taula %s s'ha copiat a %s."
 msgid "The table name is empty!"
 msgstr "El nom de la taula és buit!"
 
-#: libraries/classes/Pdf.php:136
+#: libraries/classes/Pdf.php:138
 msgid "Error while creating PDF:"
 msgstr "Error mentre es creava el PDF:"
 
@@ -11838,21 +11850,21 @@ msgstr "Opcions del bolcament de dades"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:188
 #: libraries/classes/Plugins/Export/ExportOdt.php:239
-#: libraries/classes/Plugins/Export/ExportSql.php:2160
+#: libraries/classes/Plugins/Export/ExportSql.php:2161
 #: libraries/classes/Plugins/Export/ExportTexytext.php:172
 msgid "Dumping data for table"
 msgstr "Bolcament de dades per a la taula"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:270
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:361
-#: libraries/classes/Plugins/Export/ExportLatex.php:505
-#: libraries/classes/Plugins/Export/ExportOdt.php:364
-#: libraries/classes/Plugins/Export/ExportOdt.php:456
+#: libraries/classes/Plugins/Export/ExportLatex.php:506
+#: libraries/classes/Plugins/Export/ExportOdt.php:365
+#: libraries/classes/Plugins/Export/ExportOdt.php:457
 #: libraries/classes/Plugins/Export/ExportTexytext.php:287
 #: libraries/classes/Plugins/Export/ExportTexytext.php:367
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:488
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:645
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:647
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -11870,14 +11882,14 @@ msgstr "Nul"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:273
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:364
-#: libraries/classes/Plugins/Export/ExportLatex.php:506
-#: libraries/classes/Plugins/Export/ExportOdt.php:367
-#: libraries/classes/Plugins/Export/ExportOdt.php:459
+#: libraries/classes/Plugins/Export/ExportLatex.php:507
+#: libraries/classes/Plugins/Export/ExportOdt.php:368
+#: libraries/classes/Plugins/Export/ExportOdt.php:460
 #: libraries/classes/Plugins/Export/ExportTexytext.php:288
 #: libraries/classes/Plugins/Export/ExportTexytext.php:368
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:490
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:646
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:648
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -11891,18 +11903,18 @@ msgid "Default"
 msgstr "Per defecte"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:368
-#: libraries/classes/Plugins/Export/ExportLatex.php:508
-#: libraries/classes/Plugins/Export/ExportOdt.php:463
+#: libraries/classes/Plugins/Export/ExportLatex.php:509
+#: libraries/classes/Plugins/Export/ExportOdt.php:464
 #: libraries/classes/Plugins/Export/ExportTexytext.php:370
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:499
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:648
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:650
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:672
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "Enllaços a"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:459
-#: libraries/classes/Plugins/Export/ExportOdt.php:569
+#: libraries/classes/Plugins/Export/ExportOdt.php:570
 #: libraries/classes/Plugins/Export/ExportTexytext.php:438
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:326
 #: templates/columns_definitions/table_fields_definitions.twig:9
@@ -11914,12 +11926,12 @@ msgstr "Enllaços a"
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:52 templates/setup/home/index.twig:50
 #: templates/table/structure/display_structure.twig:21
-#: templates/triggers/list.twig:45
+#: templates/triggers/list.twig:47
 msgid "Name"
 msgstr "Nom"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:462
-#: libraries/classes/Plugins/Export/ExportOdt.php:578
+#: libraries/classes/Plugins/Export/ExportOdt.php:579
 #: libraries/classes/Plugins/Export/ExportTexytext.php:441
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:332
 #: templates/database/events/editor_form.twig:87
@@ -11929,21 +11941,21 @@ msgid "Definition"
 msgstr "Definició"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:530
-#: libraries/classes/Plugins/Export/ExportOdt.php:652
+#: libraries/classes/Plugins/Export/ExportOdt.php:653
 #: libraries/classes/Plugins/Export/ExportSql.php:1905
 #: libraries/classes/Plugins/Export/ExportTexytext.php:496
 msgid "Table structure for table"
 msgstr "Estructura de la taula"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:547
-#: libraries/classes/Plugins/Export/ExportOdt.php:672
+#: libraries/classes/Plugins/Export/ExportOdt.php:673
 #: libraries/classes/Plugins/Export/ExportSql.php:1956
 #: libraries/classes/Plugins/Export/ExportTexytext.php:509
 msgid "Structure for view"
 msgstr "Estructura per a vista"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:553
-#: libraries/classes/Plugins/Export/ExportOdt.php:680
+#: libraries/classes/Plugins/Export/ExportOdt.php:681
 #: libraries/classes/Plugins/Export/ExportSql.php:1988
 #: libraries/classes/Plugins/Export/ExportTexytext.php:513
 msgid "Stand-in structure for view"
@@ -12056,7 +12068,7 @@ msgstr "Base de dades:"
 msgid "Data:"
 msgstr "Dades:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:481
+#: libraries/classes/Plugins/Export/ExportLatex.php:482
 msgid "Structure:"
 msgstr "Estructura:"
 
@@ -12165,7 +12177,7 @@ msgid "Data creation options"
 msgstr "Opcions de creació de dades"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:363
-#: libraries/classes/Plugins/Export/ExportSql.php:2118
+#: libraries/classes/Plugins/Export/ExportSql.php:2119
 msgid "Truncate table before insert"
 msgstr "Trunca la taula abans de la inserció"
 
@@ -12328,22 +12340,22 @@ msgstr "(mireu a sota per a la visualització real)"
 msgid "Error reading data for table %s:"
 msgstr "Error en llegir les dades per a la taula %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2656
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:606
+#: libraries/classes/Plugins/Export/ExportSql.php:2659
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 msgid "Creation:"
 msgstr "Creació:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2666
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:617
+#: libraries/classes/Plugins/Export/ExportSql.php:2669
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:619
 msgid "Last update:"
 msgstr "Última actualització:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2676
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: libraries/classes/Plugins/Export/ExportSql.php:2679
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 msgid "Last check:"
 msgstr "Última comprovació:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2699
+#: libraries/classes/Plugins/Export/ExportSql.php:2702
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -12411,26 +12423,26 @@ msgstr ""
 msgid "Column names:"
 msgstr "Nom de les columnes:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:278
-#: libraries/classes/Plugins/Import/ImportCsv.php:614
+#: libraries/classes/Plugins/Import/ImportCsv.php:280
+#: libraries/classes/Plugins/Import/ImportCsv.php:616
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format incorrecte a l'entrada CSV a la línia %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:496
+#: libraries/classes/Plugins/Import/ImportCsv.php:498
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:636
-#: libraries/classes/Plugins/Import/ImportCsv.php:651
-#: libraries/classes/Plugins/Import/ImportCsv.php:662
-#: libraries/classes/Plugins/Import/ImportCsv.php:669
+#: libraries/classes/Plugins/Import/ImportCsv.php:638
+#: libraries/classes/Plugins/Import/ImportCsv.php:653
+#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:671
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Paràmetre incorrecte per importació CSV: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:807
+#: libraries/classes/Plugins/Import/ImportCsv.php:810
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12452,7 +12464,7 @@ msgstr "Aquest connector no admet importacions comprimides!"
 msgid "MediaWiki Table"
 msgstr "Taula MediaWiki"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:268
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:269
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Format incorrecte d'entrada mediawiki a la línia: <br>%s."
@@ -12468,8 +12480,8 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importa les monedes <i>(p. ex. $5.00 a 5.00)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:143
-#: libraries/classes/Plugins/Import/ImportXml.php:101
-#: libraries/classes/Plugins/Import/ImportXml.php:162
+#: libraries/classes/Plugins/Import/ImportXml.php:102
+#: libraries/classes/Plugins/Import/ImportXml.php:163
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -12545,31 +12557,31 @@ msgid "Schema of the %s database"
 msgstr "Esquema de la base de dades %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:146
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:516
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:518
 msgid "Relational schema"
 msgstr "Esquema relacional"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:461
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:463
 msgid "Table of contents"
 msgstr "Taula de continguts"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:595
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:597
 #: templates/columns_definitions/column_definitions_form.twig:71
 #: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Comentaris de la taula:"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:644
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:666
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:646
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr "Atributs"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:647
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:649
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: templates/table/structure/display_structure.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
@@ -12659,7 +12671,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:69
-#: libraries/classes/Util.php:524
+#: libraries/classes/Util.php:525
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d-%m-%Y a les %H:%M:%S"
 
@@ -13084,7 +13096,7 @@ msgstr ""
 
 #: libraries/classes/Server/Plugins.php:52
 #: libraries/classes/Server/Privileges.php:622
-#: libraries/classes/Server/Privileges.php:3311
+#: libraries/classes/Server/Privileges.php:3312
 msgid "Native MySQL authentication"
 msgstr "Autenticació nativa MySQL"
 
@@ -13400,49 +13412,49 @@ msgstr "Rutina"
 msgid "Routine-specific privileges"
 msgstr "Privilegis específics de rutina"
 
-#: libraries/classes/Server/Privileges.php:1905
+#: libraries/classes/Server/Privileges.php:1906
 msgid "No users selected for deleting!"
 msgstr "No s'han triat usuaris per esborrar!"
 
-#: libraries/classes/Server/Privileges.php:1908
+#: libraries/classes/Server/Privileges.php:1909
 msgid "Reloading the privileges"
 msgstr "Recàrrega dels privilegis"
 
-#: libraries/classes/Server/Privileges.php:1933
+#: libraries/classes/Server/Privileges.php:1934
 msgid "The selected users have been deleted successfully."
 msgstr "S'han esborrat correctament els usuaris seleccionats."
 
-#: libraries/classes/Server/Privileges.php:2007
+#: libraries/classes/Server/Privileges.php:2008
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Heu actualitzat els privilegis per %s."
 
-#: libraries/classes/Server/Privileges.php:2083
+#: libraries/classes/Server/Privileges.php:2084
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "No s'han trobat usuaris."
 
-#: libraries/classes/Server/Privileges.php:2164
+#: libraries/classes/Server/Privileges.php:2165
 #, php-format
 msgid "Deleting %s"
 msgstr "Esborrant %s"
 
-#: libraries/classes/Server/Privileges.php:2195
+#: libraries/classes/Server/Privileges.php:2196
 msgid "The privileges were reloaded successfully."
 msgstr "S'han recarregat correctament els privilegis."
 
-#: libraries/classes/Server/Privileges.php:2296
+#: libraries/classes/Server/Privileges.php:2297
 #, php-format
 msgid "The user %s already exists!"
 msgstr "L'usuari %s ja existeix!"
 
-#: libraries/classes/Server/Privileges.php:2540
+#: libraries/classes/Server/Privileges.php:2541
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegis per %s"
 
-#: libraries/classes/Server/Privileges.php:2652
+#: libraries/classes/Server/Privileges.php:2653
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -13455,7 +13467,7 @@ msgstr ""
 "privilegis que utilitza el servidor si s'han fet canvis manualment. En "
 "aquest cas, heu de %stornar a carregar els privilegis%s abans de continuar."
 
-#: libraries/classes/Server/Privileges.php:2668
+#: libraries/classes/Server/Privileges.php:2669
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13469,11 +13481,11 @@ msgstr ""
 "aquest cas, s'han de tornar a carregar els privilegis però, actualment, no "
 "teniu el privilegi RELOAD."
 
-#: libraries/classes/Server/Privileges.php:2955
+#: libraries/classes/Server/Privileges.php:2956
 msgid "You have added a new user."
 msgstr "Heu afegit un usuari nou."
 
-#: libraries/classes/Server/Privileges.php:3404
+#: libraries/classes/Server/Privileges.php:3405
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -13955,19 +13967,6 @@ msgstr "Malauradament, no s'ha pogut restaurar el disparador eliminat."
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s."
 
-#: libraries/classes/Triggers/Triggers.php:448 templates/triggers/export.twig:2
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Exportar disparador %s"
-
-#: libraries/classes/Triggers/Triggers.php:466
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
-msgid ""
-"Error in processing request: No trigger with name %1$s found in database "
-"%2$s."
-msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s."
-
 #: libraries/classes/Types.php:200
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
@@ -14307,26 +14306,26 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Màx.: %s%s"
 
-#: libraries/classes/Util.php:547
+#: libraries/classes/Util.php:548
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PM"
 
-#: libraries/classes/Util.php:549
+#: libraries/classes/Util.php:550
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
 
-#: libraries/classes/Util.php:621
+#: libraries/classes/Util.php:622
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dies, %s hores, %s minuts i %s segons"
 
-#: libraries/classes/Util.php:1689
+#: libraries/classes/Util.php:1692
 msgid "Users"
 msgstr "Usuaris"
 
-#: libraries/classes/Util.php:2229
+#: libraries/classes/Util.php:2233
 #: templates/database/multi_table_query/form.twig:56
 msgid "Sort"
 msgstr "Ordena"
@@ -19902,7 +19901,7 @@ msgstr "Temps"
 msgid "Create new trigger"
 msgstr "Crea una vista"
 
-#: templates/triggers/list.twig:38
+#: templates/triggers/list.twig:40
 msgid "There are no triggers to display."
 msgstr "No hi ha disparadors per mostrar."
 
