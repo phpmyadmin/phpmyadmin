@@ -150,7 +150,35 @@ final class EventsController extends AbstractController
                 $mode = 'edit';
             }
 
-            $this->events->sendEditor($mode, $item, $title, $GLOBALS['db'], $operation);
+            if ($item !== null) {
+                $editor = $this->events->getEditorForm($mode, $operation, $item);
+                if ($this->response->isAjax()) {
+                    $this->response->addJSON('message', $editor);
+                    $this->response->addJSON('title', $title);
+
+                    return;
+                }
+
+                $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
+
+                return;
+            }
+
+            $message = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __('No event with name %1$s found in database %2$s.'),
+                htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+            );
+            $message = Message::error($message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
+
+                return;
+            }
+
+            $this->response->addHTML($message->getDisplay());
         }
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {

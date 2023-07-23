@@ -394,46 +394,6 @@ class Events
     }
 
     /**
-     * Send editor via ajax or by echoing.
-     *
-     * @param string       $mode      Editor mode 'add' or 'edit'
-     * @param mixed[]|null $item      Data necessary to create the editor
-     * @param string       $title     Title of the editor
-     * @param string       $db        Database
-     * @param string       $operation Operation 'change' or ''
-     */
-    public function sendEditor(string $mode, array|null $item, string $title, string $db, string $operation): void
-    {
-        if ($item !== null) {
-            $editor = $this->getEditorForm($mode, $operation, $item);
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $editor);
-                $this->response->addJSON('title', $title);
-            } else {
-                echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
-                unset($_POST);
-            }
-
-            $this->response->callExit();
-        }
-
-        $message = __('Error in processing request:') . ' ';
-        $message .= sprintf(
-            __('No event with name %1$s found in database %2$s.'),
-            htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-            htmlspecialchars(Util::backquote($db)),
-        );
-        $message = Message::error($message);
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message);
-            $this->response->callExit();
-        }
-
-        echo $message->getDisplay();
-    }
-
-    /**
      * Returns details about the EVENTs for a specific database.
      *
      * @param string $db   db name

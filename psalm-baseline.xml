@@ -1031,6 +1031,7 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$itemName</code>
       <code>$itemName</code>
     </PossiblyInvalidArgument>
@@ -4970,7 +4971,6 @@
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_starts']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
