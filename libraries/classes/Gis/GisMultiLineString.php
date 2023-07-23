@@ -84,7 +84,7 @@ class GisMultiLineString extends GisGeometry
         array $color,
         array $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $lineColor = $image->colorAllocate(...$color);
@@ -126,8 +126,6 @@ class GisMultiLineString extends GisGeometry
 
             $firstLine = false;
         }
-
-        return $image;
     }
 
     /**
@@ -137,10 +135,8 @@ class GisMultiLineString extends GisGeometry
      * @param string  $label     Label for the GIS MULTILINESTRING object
      * @param int[]   $color     Color for the GIS MULTILINESTRING object
      * @param mixed[] $scaleData Array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
+    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): void
     {
         $line = ['width' => 1.5, 'color' => $color];
 
@@ -171,8 +167,6 @@ class GisMultiLineString extends GisGeometry
 
             $firstLine = false;
         }
-
-        return $pdf;
     }
 
     /**

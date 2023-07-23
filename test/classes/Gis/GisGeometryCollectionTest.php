@@ -214,7 +214,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         $object = GisGeometryCollection::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)),'
             . 'LINESTRING(5 30,4 4))',
             'image',
@@ -222,8 +222,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
             ['x' => -19, 'y' => -3, 'scale' => 2.29, 'height' => 124],
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/geometrycollection-expected.png';
         $fileActual = $this->testDir . '/geometrycollection-actual.png';
@@ -249,11 +249,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         TCPDF $pdf,
     ): void {
         $object = GisGeometryCollection::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/geometrycollection-expected.pdf';
         $fileActual = $this->testDir . '/geometrycollection-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 

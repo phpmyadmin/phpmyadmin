@@ -6593,19 +6593,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
-    <PossiblyInvalidArgument>
-      <code>$results</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidMethodCall>
-      <code>Output</code>
-    </PossiblyInvalidMethodCall>
-    <PossiblyInvalidOperand>
-      <code>$results</code>
-      <code>$results</code>
-    </PossiblyInvalidOperand>
-    <PossiblyUndefinedMethod>
-      <code>Output</code>
-    </PossiblyUndefinedMethod>
     <RedundantCondition>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>

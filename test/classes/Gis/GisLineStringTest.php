@@ -156,15 +156,15 @@ class GisLineStringTest extends GisGeomTestCase
         $object = GisLineString::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
             [176, 46, 224],
             ['x' => -18, 'y' => 14, 'scale' => 1.71, 'height' => 124],
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/linestring-expected.png';
         $fileActual = $this->testDir . '/linestring-actual.png';
@@ -189,11 +189,11 @@ class GisLineStringTest extends GisGeomTestCase
         TCPDF $pdf,
     ): void {
         $object = GisLineString::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/linestring-expected.pdf';
         $fileActual = $this->testDir . '/linestring-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 

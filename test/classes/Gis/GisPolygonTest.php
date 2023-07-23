@@ -159,15 +159,15 @@ class GisPolygonTest extends GisGeomTestCase
         $object = GisPolygon::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'POLYGON((0 0,100 0,100 100,0 100,0 0),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,60 60))',
             'image',
             [176, 46, 224],
             ['x' => -56, 'y' => -16, 'scale' => 0.94, 'height' => 124],
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/polygon-expected.png';
         $fileActual = $this->testDir . '/polygon-actual.png';
@@ -192,11 +192,11 @@ class GisPolygonTest extends GisGeomTestCase
         TCPDF $pdf,
     ): void {
         $object = GisPolygon::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/polygon-expected.pdf';
         $fileActual = $this->testDir . '/polygon-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 

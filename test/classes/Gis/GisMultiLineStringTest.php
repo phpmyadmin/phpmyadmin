@@ -164,15 +164,15 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $object = GisMultiLineString::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
             'image',
             [176, 46, 224],
             ['x' => 3, 'y' => -16, 'scale' => 1.06, 'height' => 124],
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/multilinestring-expected.png';
         $fileActual = $this->testDir . '/multilinestring-actual.png';
@@ -197,11 +197,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
         TCPDF $pdf,
     ): void {
         $object = GisMultiLineString::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multilinestring-expected.pdf';
         $fileActual = $this->testDir . '/multilinestring-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 

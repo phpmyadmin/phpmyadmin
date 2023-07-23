@@ -15,6 +15,7 @@ use PhpMyAdmin\Util;
 use TCPDF;
 use Webmozart\Assert\Assert;
 
+use function assert;
 use function count;
 use function is_string;
 use function mb_strlen;
@@ -310,7 +311,6 @@ class GisVisualization
     private function svg(): string
     {
         $scaleData = $this->scaleDataSet($this->data);
-        /** @var string $svg */
         $svg = $this->prepareDataSet($this->data, $scaleData, 'svg');
 
         return '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'
@@ -362,8 +362,7 @@ class GisVisualization
         }
 
         $scaleData = $this->scaleDataSet($this->data);
-        /** @var ImageWrapper $image */
-        $image = $this->prepareDataSet($this->data, $scaleData, 'png', $image);
+        $this->prepareDataSet($this->data, $scaleData, 'png', $image);
 
         return $image;
     }
@@ -394,7 +393,6 @@ class GisVisualization
     public function asOl(): string
     {
         $scaleData = $this->scaleDataSet($this->data);
-        /** @var string $olCode */
         $olCode = $this->prepareDataSet($this->data, $scaleData, 'ol');
 
         return 'function drawOpenLayers() {'
@@ -452,7 +450,7 @@ class GisVisualization
         $pdf->AddPage();
 
         $scaleData = $this->scaleDataSet($this->data);
-        $pdf = $this->prepareDataSet($this->data, $scaleData, 'pdf', $pdf);
+        $this->prepareDataSet($this->data, $scaleData, 'pdf', $pdf);
 
         // sanitize file name
         $fileName = $this->sanitizeName($fileName, 'pdf');
@@ -532,20 +530,24 @@ class GisVisualization
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param mixed[][]                 $data      Raw data
-     * @param mixed[]                   $scaleData Data related to scaling
-     * @param string                    $format    Format of the visualization
-     * @param ImageWrapper|TCPDF|string $results   Image object in the case of png
-     *                                             TCPDF object in the case of pdf
+     * @param mixed[][]               $data      Raw data
+     * @param mixed[]                 $scaleData Data related to scaling
+     * @param string                  $format    Format of the visualization
+     * @param ImageWrapper|TCPDF|null $renderer  Image object in the case of png
+     *                                           TCPDF object in the case of pdf
+     * @psalm-param T $format
      *
-     * @return TCPDF|string|ImageWrapper the formatted array of data
+     * @psalm-return (T is 'ol'|'svg' ? string : null) The exported data
+     *
+     * @template T of 'ol'|'pdf'|'png'|'svg'
      */
     private function prepareDataSet(
         array $data,
         array $scaleData,
         string $format,
-        ImageWrapper|TCPDF|string $results = '',
-    ): TCPDF|string|ImageWrapper {
+        ImageWrapper|TCPDF|null $renderer = null,
+    ): string|null {
+        $results = '';
         $colorIndex = 0;
 
         // loop through the rows
@@ -567,9 +569,11 @@ class GisVisualization
             if ($format === 'svg') {
                 $results .= $gisObj->prepareRowAsSvg($refData, $label, $color, $scaleData);
             } elseif ($format === 'png') {
-                $results = $gisObj->prepareRowAsPng($refData, $label, $color, $scaleData, $results);
-            } elseif ($format === 'pdf' && $results instanceof TCPDF) {
-                $results = $gisObj->prepareRowAsPdf($refData, $label, $color, $scaleData, $results);
+                assert($renderer instanceof ImageWrapper);
+                $gisObj->prepareRowAsPng($refData, $label, $color, $scaleData, $renderer);
+            } elseif ($format === 'pdf') {
+                assert($renderer instanceof TCPDF);
+                $gisObj->prepareRowAsPdf($refData, $label, $color, $scaleData, $renderer);
             } elseif ($format === 'ol') {
                 $results .= $gisObj->prepareRowAsOl($refData, (int) $row['srid'], $label, $color);
             }
@@ -577,6 +581,6 @@ class GisVisualization
             $colorIndex = ($colorIndex + 1) % count(self::COLORS);
         }
 
-        return $results;
+        return $format === 'svg' || $format === 'ol' ? $results : null;
     }
 }

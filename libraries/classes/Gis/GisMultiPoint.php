@@ -75,7 +75,7 @@ class GisMultiPoint extends GisGeometry
         array $color,
         array $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $pointColor = $image->colorAllocate(...$color);
@@ -101,18 +101,18 @@ class GisMultiPoint extends GisGeometry
             );
         }
 
-        // print label for each point
-        if ($label !== '' && ($pointsArr[0][0] != '' && $pointsArr[0][1] != '')) {
-            $image->string(
-                1,
-                (int) round($pointsArr[0][0]),
-                (int) round($pointsArr[0][1]),
-                $label,
-                $black,
-            );
+        if ($label === '' || $pointsArr[0][0] == '' || $pointsArr[0][1] == '') {
+            return;
         }
 
-        return $image;
+        // print label for each point
+        $image->string(
+            1,
+            (int) round($pointsArr[0][0]),
+            (int) round($pointsArr[0][1]),
+            $label,
+            $black,
+        );
     }
 
     /**
@@ -122,8 +122,6 @@ class GisMultiPoint extends GisGeometry
      * @param string  $label     Label for the GIS MULTIPOINT object
      * @param int[]   $color     Color for the GIS MULTIPOINT object
      * @param mixed[] $scaleData Array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
      */
     public function prepareRowAsPdf(
         string $spatial,
@@ -131,7 +129,7 @@ class GisMultiPoint extends GisGeometry
         array $color,
         array $scaleData,
         TCPDF $pdf,
-    ): TCPDF {
+    ): void {
         $line = ['width' => 1.25, 'color' => $color];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
@@ -147,14 +145,14 @@ class GisMultiPoint extends GisGeometry
             $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
         }
 
-        // print label for each point
-        if ($label !== '' && ($pointsArr[0][0] != '' && $pointsArr[0][1] != '')) {
-            $pdf->setXY($pointsArr[0][0], $pointsArr[0][1]);
-            $pdf->setFontSize(5);
-            $pdf->Cell(0, 0, $label);
+        if ($label === '' || $pointsArr[0][0] == '' || $pointsArr[0][1] == '') {
+            return;
         }
 
-        return $pdf;
+        // print label for each point
+        $pdf->setXY($pointsArr[0][0], $pointsArr[0][1]);
+        $pdf->setFontSize(5);
+        $pdf->Cell(0, 0, $label);
     }
 
     /**

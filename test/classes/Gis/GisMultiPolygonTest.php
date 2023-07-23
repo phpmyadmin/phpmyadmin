@@ -248,7 +248,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $object = GisMultiPolygon::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'MULTIPOLYGON(((5 5,95 5,95 95,5 95,5 5),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,6'
             . '0 60)),((-5 -5,-95 -5,-95 -95,-5 -95,-5 -5),(-10 -10,-10 -40,-40 -40,-40 -10,-10 -10),(-60 -60,-90'
             . ' -60,-90 -90,-60 -90,-60 -60)))',
@@ -257,8 +257,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
             ['x' => -202, 'y' => -125, 'scale' => 0.50, 'height' => 124],
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/multipolygon-expected.png';
         $fileActual = $this->testDir . '/multipolygon-actual.png';
@@ -283,11 +283,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
         TCPDF $pdf,
     ): void {
         $object = GisMultiPolygon::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multipolygon-expected.pdf';
         $fileActual = $this->testDir . '/multipolygon-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 
