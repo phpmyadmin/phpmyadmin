@@ -17,8 +17,10 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function count;
 use function htmlspecialchars;
 use function in_array;
+use function mb_strtoupper;
 use function sprintf;
 use function strlen;
 use function trim;
@@ -78,8 +80,136 @@ final class IndexController extends AbstractController
          * processing an 'Add' or 'Edit' operation.
          */
         $GLOBALS['errors'] = [];
+        $GLOBALS['message'] ??= null;
 
-        $this->triggers->handleEditor();
+        if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
+            $output = $this->triggers->handleEditor();
+
+            if ($this->response->isAjax()) {
+                if ($GLOBALS['message']->isSuccess()) {
+                    $items = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
+                    $trigger = false;
+                    foreach ($items as $value) {
+                        if ($value['name'] != $_POST['item_name']) {
+                            continue;
+                        }
+
+                        $trigger = $value;
+                    }
+
+                    $insert = false;
+                    if (empty($GLOBALS['table']) || ($trigger !== false && $GLOBALS['table'] == $trigger['table'])) {
+                        $insert = true;
+                        $hasTriggerPrivilege = Util::currentUserHasPrivilege(
+                            'TRIGGER',
+                            $GLOBALS['db'],
+                            $GLOBALS['table'],
+                        );
+                        $this->response->addJSON(
+                            'new_row',
+                            $this->template->render('triggers/row', [
+                                'db' => $GLOBALS['db'],
+                                'table' => $GLOBALS['table'],
+                                'trigger' => $trigger,
+                                'has_drop_privilege' => $hasTriggerPrivilege,
+                                'has_edit_privilege' => $hasTriggerPrivilege,
+                                'row_class' => '',
+                            ]),
+                        );
+                        $this->response->addJSON(
+                            'name',
+                            htmlspecialchars(
+                                mb_strtoupper(
+                                    $_POST['item_name'],
+                                ),
+                            ),
+                        );
+                    }
+
+                    $this->response->addJSON('insert', $insert);
+                    $this->response->addJSON('message', $output);
+                } else {
+                    $this->response->addJSON('message', $GLOBALS['message']);
+                    $this->response->setRequestStatus(false);
+                }
+
+                $this->response->addJSON('tableType', 'triggers');
+
+                return;
+            }
+        }
+
+        /**
+         * Display a form used to add/edit a trigger, if necessary
+         */
+        if (
+            count($GLOBALS['errors'])
+            || empty($_POST['editor_process_add'])
+            && empty($_POST['editor_process_edit'])
+            && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])) // FIXME: must be simpler than that
+        ) {
+            $mode = '';
+            $item = null;
+            $title = '';
+            // Get the data for the form (if any)
+            if (! empty($_REQUEST['add_item'])) {
+                $title = __('Add trigger');
+                $item = $this->triggers->getDataFromRequest();
+                $mode = 'add';
+            } elseif (! empty($_REQUEST['edit_item'])) {
+                $title = __('Edit trigger');
+                if (! empty($_REQUEST['item_name']) && empty($_POST['editor_process_edit'])) {
+                    $item = $this->triggers->getDataFromName($_REQUEST['item_name']);
+                    if ($item !== null) {
+                        $item['item_original_name'] = $item['item_name'];
+                    }
+                } else {
+                    $item = $this->triggers->getDataFromRequest();
+                }
+
+                $mode = 'edit';
+            }
+
+            if ($item !== null) {
+                $tables = $this->triggers->getTables($GLOBALS['db']);
+                $editor = $this->template->render('triggers/editor_form', [
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
+                    'is_edit' => $mode === 'edit',
+                    'item' => $item,
+                    'tables' => $tables,
+                    'time' => ['BEFORE', 'AFTER'],
+                    'events' => ['INSERT', 'UPDATE', 'DELETE'],
+                    'is_ajax' => $this->response->isAjax(),
+                ]);
+                if ($this->response->isAjax()) {
+                    $this->response->addJSON('message', $editor);
+                    $this->response->addJSON('title', $title);
+
+                    return;
+                }
+
+                $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
+
+                return;
+            }
+
+            $message = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __('No trigger with name %1$s found in database %2$s.'),
+                htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+            );
+            $message = Message::error($message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
+
+                return;
+            }
+
+            $this->response->addHTML($message->getDisplay());
+        }
 
         $message = null;
         $triggerName = TriggerName::tryFrom($request->getQueryParam('item_name'));

@@ -53,7 +53,7 @@ final class EventsControllerTest extends AbstractTestCase
         (new EventsController(
             $response,
             $template,
-            new Events($dbi, $template, $response),
+            new Events($dbi),
             $dbi,
         ))($this->createStub(ServerRequest::class));
 
@@ -220,7 +220,7 @@ HTML;
         (new EventsController(
             $response,
             $template,
-            new Events($dbi, $template, $response),
+            new Events($dbi),
             $dbi,
         ))($this->createStub(ServerRequest::class));
 

@@ -966,6 +966,16 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
+			message: "#^Cannot access offset 'name' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/EventsController.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/EventsController.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/ImportController.php
@@ -1001,8 +1011,13 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getRow\\(\\) expects array, mixed given\\.$#"
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Database/RoutinesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getRow\\(\\) expects array, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Database/RoutinesController.php
 
 		-
@@ -3061,16 +3076,6 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
@@ -3167,7 +3172,7 @@ parameters:
 
 		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Database/Routines.php
 
 		-
@@ -3182,16 +3187,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getRow\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 

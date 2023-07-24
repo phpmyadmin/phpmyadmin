@@ -103,7 +103,7 @@ final class RoutinesControllerTest extends AbstractTestCase
             $template,
             new CheckUserPrivileges($dbi),
             $dbi,
-            new Routines($dbi, $template, $response),
+            new Routines($dbi),
         ))($this->createStub(ServerRequest::class));
 
         $actual = $response->getHTMLResult();
@@ -273,7 +273,7 @@ HTML;
             $template,
             new CheckUserPrivileges($dbi),
             $dbi,
-            new Routines($dbi, $template, $response),
+            new Routines($dbi),
         ))($this->createStub(ServerRequest::class));
 
         $actual = $response->getHTMLResult();

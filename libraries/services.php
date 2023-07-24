@@ -89,7 +89,7 @@ return [
             'class' => ErrorReport::class,
             'arguments' => ['@http_request', '@relation', '@template', '@config'],
         ],
-        'events' => ['class' => Events::class, 'arguments' => ['@dbi','@template','@response']],
+        'events' => ['class' => Events::class, 'arguments' => ['@dbi']],
         'export' => ['class' => Export::class, 'arguments' => ['@dbi']],
         'export_options' => [
             'class' => Options::class,
@@ -139,10 +139,7 @@ return [
             'class' => ResponseRenderer::class,
             'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
         ],
-        'routines' => [
-            'class' => Routines::class,
-            'arguments' => ['@dbi', '@template', '@response'],
-        ],
+        'routines' => ['class' => Routines::class, 'arguments' => ['@dbi']],
         'server_plugins' => ['class' => Plugins::class, 'arguments' => ['@dbi']],
         'server_privileges' => [
             'class' => Privileges::class,
@@ -190,10 +187,7 @@ return [
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
         ],
         'transformations' => ['class' => Transformations::class],
-        'triggers' => [
-            'class' => Triggers::class,
-            'arguments' => ['@dbi', '@template', '@response'],
-        ],
+        'triggers' => ['class' => Triggers::class, 'arguments' => ['@dbi']],
         'user_password' => [
             'class' => UserPassword::class,
             'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class, '@dbi'],

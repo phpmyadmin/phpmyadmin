@@ -9,12 +9,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Utils\Routine;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -38,7 +36,6 @@ use function sprintf;
 use function str_contains;
 use function stripos;
 use function substr;
-use function trim;
 
 use const ENT_QUOTES;
 use const SORT_ASC;
@@ -49,141 +46,35 @@ use const SORT_ASC;
 class Routines
 {
     /** @var array<int, string> */
-    private array $directions = ['IN', 'OUT', 'INOUT'];
+    public readonly array $directions;
 
     /** @var array<int, string> */
-    private array $sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
+    public readonly array $sqlDataAccess;
 
     /** @var array<int, string> */
-    private array $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
+    public readonly array $numericOptions;
 
-    public function __construct(
-        private DatabaseInterface $dbi,
-        private Template $template,
-        private ResponseRenderer $response,
-    ) {
-    }
-
-    /**
-     * Handles editor requests for adding or editing an item
-     */
-    public function handleEditor(): void
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $GLOBALS['errors'] ??= null;
-        $GLOBALS['errors'] = $this->handleRequestCreateOrEdit($GLOBALS['errors'], $GLOBALS['db']);
-
-        /**
-         * Display a form used to add/edit a routine, if necessary
-         */
-        // FIXME: this must be simpler than that
-        if (
-            $GLOBALS['errors'] === []
-            && ( ! empty($_POST['editor_process_add'])
-            || ! empty($_POST['editor_process_edit'])
-            || (empty($_REQUEST['add_item']) && empty($_REQUEST['edit_item'])
-            && empty($_POST['routine_addparameter'])
-            && empty($_POST['routine_removeparameter'])
-            && empty($_POST['routine_changetype'])))
-        ) {
-            return;
-        }
-
-        // Handle requests to add/remove parameters and changing routine type
-        // This is necessary when JS is disabled
-        $operation = '';
-        if (! empty($_POST['routine_addparameter'])) {
-            $operation = 'add';
-        } elseif (! empty($_POST['routine_removeparameter'])) {
-            $operation = 'remove';
-        } elseif (! empty($_POST['routine_changetype'])) {
-            $operation = 'change';
-        }
-
-        // Get the data for the form (if any)
-        $routine = null;
-        $mode = null;
-        $title = null;
-        if (! empty($_REQUEST['add_item'])) {
-            $title = __('Add routine');
-            $routine = $this->getDataFromRequest();
-            $mode = 'add';
-        } elseif (! empty($_REQUEST['edit_item'])) {
-            $title = __('Edit routine');
-            if (! $operation && ! empty($_GET['item_name']) && empty($_POST['editor_process_edit'])) {
-                $routine = $this->getDataFromName($_GET['item_name'], $_GET['item_type']);
-                if ($routine !== null) {
-                    $routine['item_original_name'] = $routine['item_name'];
-                    $routine['item_original_type'] = $routine['item_type'];
-                }
-            } else {
-                $routine = $this->getDataFromRequest();
-            }
-
-            $mode = 'edit';
-        }
-
-        if ($routine !== null) {
-            // Show form
-            $editor = $this->getEditorForm($mode, $operation, $routine);
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $editor);
-                $this->response->addJSON('title', $title);
-                $this->response->addJSON('paramTemplate', $this->getParameterRow());
-                $this->response->addJSON('type', $routine['item_type']);
-            } else {
-                echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
-            }
-
-            $this->response->callExit();
-        }
-
-        $message = __('Error in processing request:') . ' ';
-        $message .= sprintf(
-            __(
-                'No routine with name %1$s found in database %2$s. '
-                . 'You might be lacking the necessary privileges to edit this routine.',
-            ),
-            htmlspecialchars(
-                Util::backquote($_REQUEST['item_name']),
-            ),
-            htmlspecialchars(Util::backquote($GLOBALS['db'])),
-        );
-
-        $message = Message::error($message);
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message);
-            $this->response->callExit();
-        }
-
-        echo $message->getDisplay();
+        $this->directions = ['IN', 'OUT', 'INOUT'];
+        $this->sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
+        $this->numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
     }
 
     /**
      * Handle request to create or edit a routine
-     *
-     * @param mixed[] $errors Errors
-     * @param string  $db     DB name
-     *
-     * @return mixed[]
      */
-    public function handleRequestCreateOrEdit(array $errors, string $db): array
+    public function handleRequestCreateOrEdit(string $db): string
     {
-        $GLOBALS['message'] ??= null;
-
-        if (empty($_POST['editor_process_add']) && empty($_POST['editor_process_edit'])) {
-            return $errors;
-        }
-
         $sqlQuery = '';
         $routineQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if ($errors === []) {
+        if ($GLOBALS['errors'] === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 if (! in_array($_POST['item_original_type'], ['PROCEDURE', 'FUNCTION'], true)) {
-                    $errors[] = sprintf(
+                    $GLOBALS['errors'][] = sprintf(
                         __('Invalid routine type: "%s"'),
                         htmlspecialchars($_POST['item_original_type']),
                     );
@@ -202,7 +93,7 @@ class Routines
                         . ";\n";
                     $result = $this->dbi->tryQuery($dropRoutine);
                     if (! $result) {
-                        $errors[] = sprintf(
+                        $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($dropRoutine),
                         )
@@ -217,7 +108,7 @@ class Routines
                         if (empty($newErrors)) {
                             $sqlQuery = $dropRoutine . $routineQuery;
                         } else {
-                            $errors = array_merge($errors, $newErrors);
+                            $GLOBALS['errors'] = array_merge($GLOBALS['errors'], $newErrors);
                         }
 
                         unset($newErrors);
@@ -227,7 +118,7 @@ class Routines
                 // 'Add a new routine' mode
                 $result = $this->dbi->tryQuery($routineQuery);
                 if (! $result) {
-                    $errors[] = sprintf(
+                    $GLOBALS['errors'][] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($routineQuery),
                     )
@@ -245,45 +136,21 @@ class Routines
             }
         }
 
-        if ($errors !== []) {
+        if ($GLOBALS['errors'] !== []) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'One or more errors have occurred while processing your request:',
                 ),
             );
             $GLOBALS['message']->addHtml('<ul>');
-            foreach ($errors as $string) {
+            foreach ($GLOBALS['errors'] as $string) {
                 $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
             }
 
             $GLOBALS['message']->addHtml('</ul>');
         }
 
-        $output = Generator::getMessage($GLOBALS['message'], $sqlQuery);
-
-        if (! $this->response->isAjax()) {
-            return $errors;
-        }
-
-        if (! $GLOBALS['message']->isSuccess()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $output);
-            $this->response->callExit();
-        }
-
-        $routines = self::getDetails($this->dbi, $db, $_POST['item_type'], $_POST['item_name']);
-        $routine = $routines[0];
-        $this->response->addJSON(
-            'name',
-            htmlspecialchars(
-                mb_strtoupper($_POST['item_name']),
-            ),
-        );
-        $this->response->addJSON('new_row', $this->getRow($routine));
-        $this->response->addJSON('insert', ! empty($routine));
-        $this->response->addJSON('message', $output);
-        $this->response->addJSON('tableType', 'routines');
-        $this->response->callExit();
+        return Generator::getMessage($GLOBALS['message'], $sqlQuery);
     }
 
     /**
@@ -644,9 +511,9 @@ class Routines
      * @param string  $class   Class used to hide the direction column, if the
      *                         row is for a stored function.
      *
-     * @return string    HTML code of one row of parameter table for the editor.
+     * @return mixed[]
      */
-    public function getParameterRow(array $routine = [], mixed $index = null, string $class = ''): string
+    public function getParameterRow(array $routine = [], mixed $index = null, string $class = ''): array
     {
         if ($index === null) {
             // template row for AJAX request
@@ -668,7 +535,7 @@ class Routines
         } else {
             // No input data. This shouldn't happen,
             // but better be safe than sorry.
-            return '';
+            return [];
         }
 
         $allCharsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
@@ -681,7 +548,7 @@ class Routines
             ];
         }
 
-        return $this->template->render('database/routines/parameter_row', [
+        return [
             'class' => $class,
             'index' => $index,
             'param_directions' => $this->directions,
@@ -690,86 +557,10 @@ class Routines
             'item_param_name' => $routine['item_param_name'][$i] ?? '',
             'item_param_length' => $routine['item_param_length'][$i] ?? '',
             'item_param_opts_num' => $routine['item_param_opts_num'][$i] ?? '',
-            'supported_datatypes' => Generator::getSupportedDatatypes(
-                $routine['item_param_type'][$i],
-            ),
+            'supported_datatypes' => Generator::getSupportedDatatypes($routine['item_param_type'][$i]),
             'charsets' => $charsets,
             'drop_class' => $dropClass,
-        ]);
-    }
-
-    /**
-     * Displays a form used to add/edit a routine
-     *
-     * @param string  $mode      If the editor will be used to edit a routine
-     *                           or add a new one: 'edit' or 'add'.
-     * @param string  $operation If the editor was previously invoked with
-     *                           JS turned off, this will hold the name of
-     *                           the current operation
-     * @param mixed[] $routine   Data for the routine returned by
-     *                         getDataFromRequest() or getDataFromName()
-     *
-     * @return string   HTML code for the editor.
-     */
-    public function getEditorForm(string $mode, string $operation, array $routine): string
-    {
-        $GLOBALS['errors'] ??= null;
-
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
-            $routine['item_param_length'][$i] = htmlentities($routine['item_param_length'][$i], ENT_QUOTES);
-        }
-
-        // Handle some logic first
-        if ($operation === 'change') {
-            if ($routine['item_type'] === 'PROCEDURE') {
-                $routine['item_type'] = 'FUNCTION';
-                $routine['item_type_toggle'] = 'PROCEDURE';
-            } else {
-                $routine['item_type'] = 'PROCEDURE';
-                $routine['item_type_toggle'] = 'FUNCTION';
-            }
-        } elseif (
-            $operation === 'add'
-            || ($routine['item_num_params'] == 0 && $mode === 'add' && ! $GLOBALS['errors'])
-        ) {
-            $routine['item_param_dir'][] = '';
-            $routine['item_param_name'][] = '';
-            $routine['item_param_type'][] = '';
-            $routine['item_param_length'][] = '';
-            $routine['item_param_opts_num'][] = '';
-            $routine['item_param_opts_text'][] = '';
-            $routine['item_num_params']++;
-        } elseif ($operation === 'remove') {
-            unset(
-                $routine['item_param_dir'][$routine['item_num_params'] - 1],
-                $routine['item_param_name'][$routine['item_num_params'] - 1],
-                $routine['item_param_type'][$routine['item_num_params'] - 1],
-                $routine['item_param_length'][$routine['item_num_params'] - 1],
-                $routine['item_param_opts_num'][$routine['item_num_params'] - 1],
-                $routine['item_param_opts_text'][$routine['item_num_params'] - 1],
-            );
-            $routine['item_num_params']--;
-        }
-
-        $parameterRows = '';
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            $parameterRows .= $this->getParameterRow($routine, $i, $routine['item_type'] === 'FUNCTION' ? ' hide' : '');
-        }
-
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-
-        return $this->template->render('database/routines/editor_form', [
-            'db' => $GLOBALS['db'],
-            'routine' => $routine,
-            'is_edit_mode' => $mode === 'edit',
-            'is_ajax' => $this->response->isAjax(),
-            'parameter_rows' => $parameterRows,
-            'charsets' => $charsets,
-            'numeric_options' => $this->numericOptions,
-            'has_privileges' => $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'],
-            'sql_data_access' => $this->sqlDataAccess,
-        ]);
+        ];
     }
 
     /**
@@ -1048,8 +839,6 @@ class Routines
     }
 
     /**
-     * @see handleExecuteRoutine
-     *
      * @param mixed[] $routine The routine params
      *
      * @return string[] The SQL queries / SQL query parts
@@ -1112,29 +901,13 @@ class Routines
         return $queries;
     }
 
-    private function handleExecuteRoutine(): void
+    /**
+     * @param mixed[]|null $routine
+     *
+     * @psalm-return array{string, Message}
+     */
+    public function handleExecuteRoutine(array|null $routine): array
     {
-        // Build the queries
-        $routine = $this->getDataFromName($_POST['item_name'], $_POST['item_type'], false);
-        if ($routine === null) {
-            $message = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                __('No routine with name %1$s found in database %2$s.'),
-                htmlspecialchars(Util::backquote($_POST['item_name'])),
-                htmlspecialchars(Util::backquote($GLOBALS['db'])),
-            );
-            $message = Message::error($message);
-            if ($this->response->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
-                $this->response->callExit();
-            }
-
-            echo $message->getDisplay();
-            unset($_POST);
-            //NOTE: Missing exit ?
-        }
-
         $queries = is_array($routine) ? $this->getQueriesFromRoutineForm($routine) : [];
 
         // Get all the queries as one SQL statement
@@ -1232,71 +1005,7 @@ class Routines
             );
         }
 
-        // Print/send output
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus($message->isSuccess());
-            $this->response->addJSON('message', $message->getDisplay() . $output);
-            $this->response->addJSON('dialog', false);
-            $this->response->callExit();
-        }
-
-        echo $message->getDisplay() , $output;
-        if ($message->isError()) {
-            // At least one query has failed, so shouldn't
-            // execute any more queries, so we quit.
-            $this->response->callExit();
-        }
-
-        unset($_POST);
-        // Now deliberately fall through to displaying the routines list
-    }
-
-    /**
-     * Handles requests for executing a routine
-     */
-    public function handleExecute(): void
-    {
-        /**
-         * Handle all user requests other than the default of listing routines
-         */
-        if (! empty($_POST['execute_routine']) && ! empty($_POST['item_name'])) {
-            $this->handleExecuteRoutine();
-        } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
-            /**
-             * Display the execute form for a routine.
-             */
-            $routine = $this->getDataFromName($_GET['item_name'], $_GET['item_type'], true);
-            if ($routine !== null) {
-                $form = $this->getExecuteForm($routine);
-                if ($this->response->isAjax()) {
-                    $title = __('Execute routine') . ' ' . Util::backquote(
-                        htmlentities($_GET['item_name'], ENT_QUOTES),
-                    );
-                    $this->response->addJSON('message', $form);
-                    $this->response->addJSON('title', $title);
-                    $this->response->addJSON('dialog', true);
-                } else {
-                    echo "\n\n<h2>" . __('Execute routine') . "</h2>\n\n";
-                    echo $form;
-                }
-
-                $this->response->callExit();
-            }
-
-            if ($this->response->isAjax()) {
-                $message = __('Error in processing request:') . ' ';
-                $message .= sprintf(
-                    __('No routine with name %1$s found in database %2$s.'),
-                    htmlspecialchars(Util::backquote($_GET['item_name'])),
-                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
-                );
-                $message = Message::error($message);
-
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
-                $this->response->callExit();
-            }
-        }
+        return [$output, $message];
     }
 
     /**
@@ -1323,12 +1032,11 @@ class Routines
     /**
      * Creates the HTML code that shows the routine execution dialog.
      *
-     * @param mixed[] $routine Data for the routine returned by
-     *                       getDataFromName()
+     * @param mixed[] $routine Data for the routine returned by getDataFromName()
      *
-     * @return string HTML code for the routine execution dialog.
+     * @psalm-return array{mixed[], mixed[]}
      */
-    public function getExecuteForm(array $routine): string
+    public function getExecuteForm(array $routine): array
     {
         // Escape special characters
         $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
@@ -1395,13 +1103,7 @@ class Routines
             }
         }
 
-        return $this->template->render('database/routines/execute_form', [
-            'db' => $GLOBALS['db'],
-            'routine' => $routine,
-            'ajax' => $this->response->isAjax(),
-            'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
-            'params' => $params,
-        ]);
+        return [$routine, $params];
     }
 
     /**
@@ -1410,9 +1112,9 @@ class Routines
      * @param mixed[] $routine  An array of routine data
      * @param string  $rowClass Additional class
      *
-     * @return string HTML code of a row for the list of routines
+     * @return mixed[]
      */
-    public function getRow(array $routine, string $rowClass = ''): string
+    public function getRow(array $routine, string $rowClass = ''): array
     {
         $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -1482,7 +1184,7 @@ class Routines
             }
         }
 
-        return $this->template->render('database/routines/row', [
+        return [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'sql_drop' => $sqlDrop,
@@ -1492,7 +1194,7 @@ class Routines
             'has_export_privilege' => $hasExportPrivilege,
             'has_execute_privilege' => $hasExecutePrivilege,
             'execute_action' => $executeAction,
-        ]);
+        ];
     }
 
     /**
@@ -1514,69 +1216,6 @@ class Routines
             . __('MySQL said: ') . $this->dbi->getError();
 
         return $errors;
-    }
-
-    public function export(): void
-    {
-        if (empty($_GET['export_item']) || empty($_GET['item_name']) || empty($_GET['item_type'])) {
-            return;
-        }
-
-        if ($_GET['item_type'] === 'FUNCTION') {
-            $routineDefinition = self::getFunctionDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
-        } elseif ($_GET['item_type'] === 'PROCEDURE') {
-            $routineDefinition = self::getProcedureDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
-        } else {
-            return;
-        }
-
-        $exportData = false;
-
-        if ($routineDefinition !== null) {
-            $exportData = "DELIMITER $$\n" . $routineDefinition . "$$\nDELIMITER ;\n";
-        }
-
-        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
-        if ($exportData !== false) {
-            $exportData = htmlspecialchars(trim($exportData));
-            $title = sprintf(__('Export of routine %s'), $itemName);
-
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $exportData);
-                $this->response->addJSON('title', $title);
-
-                $this->response->callExit();
-            }
-
-            $output = '<div class="container">';
-            $output .= '<h2>' . $title . '</h2>';
-            $output .= '<div class="card"><div class="card-body">';
-            $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
-            $output .= '</div></div></div>';
-
-            $this->response->addHTML($output);
-
-            return;
-        }
-
-        $message = sprintf(
-            __(
-                'Error in processing request: No routine with name %1$s found in database %2$s.'
-                . ' You might be lacking the necessary privileges to view/export this routine.',
-            ),
-            $itemName,
-            htmlspecialchars(Util::backquote($GLOBALS['db'])),
-        );
-        $message = Message::error($message);
-
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message);
-
-            $this->response->callExit();
-        }
-
-        $this->response->addHTML($message->getDisplay());
     }
 
     /**
