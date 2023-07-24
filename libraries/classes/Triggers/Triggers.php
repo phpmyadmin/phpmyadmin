@@ -40,6 +40,26 @@ class Triggers
     }
 
     /**
+     * @return mixed[][]
+     */
+    private static function fetchTriggerInfo(DatabaseInterface $dbi, string $db, string $table): array
+    {
+        if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = QueryGenerator::getInformationSchemaTriggersRequest(
+                $dbi->quoteString($db),
+                $table === '' ? null : $dbi->quoteString($table),
+            );
+        } else {
+            $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
+            if ($table !== '') {
+                $query .= ' LIKE ' . $dbi->quoteString($table) . ';';
+            }
+        }
+
+        return $dbi->fetchResult($query);
+    }
+
+    /**
      * Handles editor requests for adding or editing an item
      */
     public function handleEditor(): string
@@ -308,20 +328,7 @@ class Triggers
         string $delimiter = '//',
     ): array {
         $result = [];
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = QueryGenerator::getInformationSchemaTriggersRequest(
-                $dbi->quoteString($db),
-                $table === '' ? null : $dbi->quoteString($table),
-            );
-        } else {
-            $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
-            if ($table !== '') {
-                $query .= ' LIKE ' . $dbi->quoteString($table) . ';';
-            }
-        }
-
-        /** @var mixed[][] $triggers */
-        $triggers = $dbi->fetchResult($query);
+        $triggers = self::fetchTriggerInfo($dbi, $db, $table);
 
         foreach ($triggers as $trigger) {
             $newTrigger = Trigger::tryFromArray($trigger);
