@@ -848,7 +848,7 @@
     </InvalidArgument>
     <InvalidReturnStatement occurrences="1"/>
     <InvalidReturnType occurrences="1"/>
-    <MixedArgument occurrences="18">
+    <MixedArgument occurrences="17">
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
@@ -865,7 +865,6 @@
       <code>$foreign_table</code>
       <code>$foreign_table</code>
       <code>$one_key['index_list']</code>
-      <code>$show_create_table</code>
       <code>$tableNameReplacements[$tableName]</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
@@ -896,7 +895,7 @@
       <code>$foreign[$key]</code>
       <code>$one_key['ref_index_list'][$column_index]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="24">
       <code>$child_references</code>
       <code>$column</code>
       <code>$columns</code>
@@ -918,7 +917,6 @@
       <code>$key</code>
       <code>$one_key</code>
       <code>$relations</code>
-      <code>$show_create_table</code>
       <code>$the_total</code>
       <code>$value</code>
       <code>$value</code>
@@ -1756,9 +1754,6 @@
     <InvalidArgument occurrences="1">
       <code>$selected</code>
     </InvalidArgument>
-    <MixedArgument occurrences="1">
-      <code>$object-&gt;showCreate()</code>
-    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/StructureController.php">
     <InvalidScalarArgument occurrences="2">
@@ -3863,12 +3858,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/PartitioningController.php">
-    <MixedArgument occurrences="1">
-      <code>$createTable</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$createTable</code>
-    </MixedAssignment>
     <PossiblyNullArgument occurrences="2">
       <code>$stmt-&gt;partitions</code>
       <code>$stmt-&gt;partitions[0]-&gt;subpartitions</code>
@@ -4354,8 +4343,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$view['as']</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="3">
-      <code>$createView</code>
+    <MixedArgument occurrences="2">
       <code>$db</code>
       <code>$db</code>
     </MixedArgument>
@@ -4368,8 +4356,7 @@
       <code>$urlParams['goto']</code>
       <code>$urlParams['reload']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="7">
-      <code>$createView</code>
+    <MixedAssignment occurrences="6">
       <code>$urlParams['db']</code>
       <code>$view['as']</code>
       <code>$view['as']</code>
@@ -13491,7 +13478,7 @@
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
-    <MixedArgument occurrences="50">
+    <MixedArgument occurrences="49">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_indexes']</code>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
@@ -13502,7 +13489,6 @@
       <code>$column['Extra']</code>
       <code>$column['Extra']</code>
       <code>$column['Extra']</code>
-      <code>$createTable</code>
       <code>$eachCol</code>
       <code>$eachCol</code>
       <code>$errorUrl</code>
@@ -13611,7 +13597,7 @@
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? '']</code>
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? '']</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="48">
+    <MixedAssignment occurrences="47">
       <code>$altered</code>
       <code>$altered</code>
       <code>$cachedResult</code>
@@ -13621,7 +13607,6 @@
       <code>$column</code>
       <code>$columns[$row['Field']]</code>
       <code>$constraintName</code>
-      <code>$createTable</code>
       <code>$currCreateTime</code>
       <code>$e</code>
       <code>$eachCol</code>
