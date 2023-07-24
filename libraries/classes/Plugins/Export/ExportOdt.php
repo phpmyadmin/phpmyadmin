@@ -657,7 +657,7 @@ class ExportOdt extends ExportPlugin
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
-                if ($triggers) {
+                if ($triggers !== []) {
                     $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                     . ' text:is-list-header="true">'
                     . __('Triggers') . ' '

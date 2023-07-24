@@ -499,7 +499,7 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
-                if ($triggers) {
+                if ($triggers !== []) {
                     $dump .= '== ' . __('Triggers') . ' ' . $tableAlias . "\n\n";
                     $dump .= $this->getTriggers($db, $table);
                 }

@@ -296,9 +296,6 @@ class ExportXml extends ExportPlugin
 
                 // Export triggers
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $GLOBALS['db'], $table);
-                if (! $triggers) {
-                    continue;
-                }
 
                 foreach ($triggers as $trigger) {
                     $code = $trigger['create'];

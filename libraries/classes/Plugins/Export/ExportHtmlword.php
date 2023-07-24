@@ -534,7 +534,7 @@ class ExportHtmlword extends ExportPlugin
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
-                if ($triggers) {
+                if ($triggers !== []) {
                     $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($tableAlias)
                     . '</h2>';

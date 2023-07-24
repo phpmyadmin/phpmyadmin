@@ -1912,7 +1912,7 @@ class ExportSql extends ExportPlugin
                 $dump = '';
                 $delimiter = '$$';
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table, $delimiter);
-                if ($triggers) {
+                if ($triggers !== []) {
                     $dump .= $this->possibleCRLF()
                     . $this->exportComment()
                     . $this->exportComment(

@@ -207,7 +207,7 @@ class Operations
             }
 
             // apply the triggers to the destination db+table
-            if ($triggers) {
+            if ($triggers !== []) {
                 $this->dbi->selectDb($newDatabaseName);
                 foreach ($triggers as $trigger) {
                     $this->dbi->query($trigger['create']);
