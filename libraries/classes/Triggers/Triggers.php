@@ -316,7 +316,6 @@ class Triggers
      *   event_manipulation: value-of<Event>,
      *   definition: string,
      *   definer: string,
-     *   full_trigger_name: string,
      *   drop: non-empty-string,
      *   create: non-empty-string,
      * }>
@@ -346,15 +345,9 @@ class Triggers
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
-            $oneResult['full_trigger_name'] = Util::backquote($newTrigger->name);
-            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS ' . $oneResult['full_trigger_name'];
-            $oneResult['create'] = sprintf(
-                "CREATE TRIGGER %s %s %s ON %s\n FOR EACH ROW %s\n%s\n",
-                $oneResult['full_trigger_name'],
-                $newTrigger->timing->value,
-                $newTrigger->event->value,
-                Util::backquote($newTrigger->table),
-                $newTrigger->statement,
+            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS ' . Util::backquote($newTrigger->name);
+            $oneResult['create'] = QueryGenerator::getCreateTrigger(
+                $newTrigger,
                 $delimiter,
             );
 

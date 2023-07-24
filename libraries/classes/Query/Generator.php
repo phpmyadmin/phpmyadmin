@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
+use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Util;
 
 use function array_map;
@@ -222,6 +223,19 @@ class Generator
         }
 
         return $query;
+    }
+
+    public static function getCreateTrigger(Trigger $newTrigger, string $delimiter): string
+    {
+        return sprintf(
+            "CREATE TRIGGER %s %s %s ON %s\n FOR EACH ROW %s\n%s\n",
+            Util::backquote($newTrigger->name),
+            $newTrigger->timing->value,
+            $newTrigger->event->value,
+            Util::backquote($newTrigger->table),
+            $newTrigger->statement,
+            $delimiter,
+        );
     }
 
     public static function getInformationSchemaDataForCreateRequest(string $user, string $host): string
