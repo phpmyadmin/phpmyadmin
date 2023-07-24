@@ -1016,7 +1016,7 @@ class Routines
         return $queries;
     }
 
-    private function handleExecuteRoutine(): void
+    public function handleExecuteRoutine(): void
     {
         // Build the queries
         $routine = $this->getDataFromName($_POST['item_name'], $_POST['item_type'], false);
@@ -1153,54 +1153,6 @@ class Routines
 
         unset($_POST);
         // Now deliberately fall through to displaying the routines list
-    }
-
-    /**
-     * Handles requests for executing a routine
-     */
-    public function handleExecute(): void
-    {
-        /**
-         * Handle all user requests other than the default of listing routines
-         */
-        if (! empty($_POST['execute_routine']) && ! empty($_POST['item_name'])) {
-            $this->handleExecuteRoutine();
-        } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
-            /**
-             * Display the execute form for a routine.
-             */
-            $routine = $this->getDataFromName($_GET['item_name'], $_GET['item_type'], true);
-            if ($routine !== null) {
-                $form = $this->getExecuteForm($routine);
-                if ($this->response->isAjax()) {
-                    $title = __('Execute routine') . ' ' . Util::backquote(
-                        htmlentities($_GET['item_name'], ENT_QUOTES),
-                    );
-                    $this->response->addJSON('message', $form);
-                    $this->response->addJSON('title', $title);
-                    $this->response->addJSON('dialog', true);
-                } else {
-                    echo "\n\n<h2>" . __('Execute routine') . "</h2>\n\n";
-                    echo $form;
-                }
-
-                $this->response->callExit();
-            }
-
-            if ($this->response->isAjax()) {
-                $message = __('Error in processing request:') . ' ';
-                $message .= sprintf(
-                    __('No routine with name %1$s found in database %2$s.'),
-                    htmlspecialchars(Util::backquote($_GET['item_name'])),
-                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
-                );
-                $message = Message::error($message);
-
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
-                $this->response->callExit();
-            }
-        }
     }
 
     /**

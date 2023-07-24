@@ -1205,6 +1205,10 @@
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$type</code>
@@ -1213,6 +1217,9 @@
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
@@ -5203,10 +5210,6 @@
       <code>$string</code>
     </MixedOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -5236,9 +5239,6 @@
       <code><![CDATA[$params['dir'][$i]]]></code>
     </PossiblyInvalidArrayAccess>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
