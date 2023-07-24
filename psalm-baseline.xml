@@ -1192,11 +1192,13 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$item</code>
+      <code>$routine</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$item</code>
+      <code>$routine</code>
       <code><![CDATA[$routine['item_original_name']]]></code>
       <code><![CDATA[$routine['item_original_type']]]></code>
     </MixedAssignment>
@@ -1212,6 +1214,9 @@
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$type</code>
@@ -1225,6 +1230,8 @@
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
@@ -1233,6 +1240,12 @@
     <PossiblyNullOperand>
       <code>$title</code>
     </PossiblyNullOperand>
+    <PossiblyNullReference>
+      <code>isSuccess</code>
+    </PossiblyNullReference>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$GLOBALS['errors'] !== []]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Database/SearchController.php">
     <InvalidArrayOffset>
@@ -5045,9 +5058,11 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$itemParamOpsNum[$i]</code>
       <code>$itemParamOpsText[$i]</code>
       <code>$itemParamType[$i]</code>
@@ -5055,7 +5070,6 @@
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
       <code>$newErrors</code>
-      <code>$routine</code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
@@ -5139,6 +5153,9 @@
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$params[$i]['htmlentities'][]]]></code>
       <code><![CDATA[$routine['item_param_dir'][]]]></code>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
@@ -5184,7 +5201,6 @@
       <code><![CDATA[$retval['item_sqldataaccess']]]></code>
       <code><![CDATA[$retval['item_type']]]></code>
       <code>$routine</code>
-      <code>$routine</code>
       <code><![CDATA[$routine['item_num_params']]]></code>
       <code><![CDATA[$routine['item_num_params']]]></code>
       <code>$string</code>
@@ -5219,15 +5235,12 @@
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
       <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemReturnType</code>
@@ -5243,8 +5256,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
@@ -5270,7 +5281,6 @@
       <code>$itemSqlDataAccess</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createRoutine</code>
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$stmt->return->parameters]]></code>
@@ -5294,9 +5304,9 @@
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
       <code>has</code>
-      <code>isSuccess</code>
     </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$routine['item_param_name']]]></code>
     </PossiblyUndefinedArrayOffset>

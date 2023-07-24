@@ -20,6 +20,7 @@ use function __;
 use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
+use function mb_strtoupper;
 use function sprintf;
 use function strlen;
 use function trim;
@@ -86,8 +87,34 @@ class RoutinesController extends AbstractController
          * processing an 'Add' or 'Edit' operation.
          */
         $GLOBALS['errors'] = [];
+        $GLOBALS['message'] ??= null;
 
-        $GLOBALS['errors'] = $this->routines->handleRequestCreateOrEdit($GLOBALS['errors'], $GLOBALS['db']);
+        if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
+            $output = $this->routines->handleRequestCreateOrEdit($GLOBALS['db']);
+            if ($this->response->isAjax()) {
+                if (! $GLOBALS['message']->isSuccess()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', $output);
+
+                    return;
+                }
+
+                $routines = Routines::getDetails($this->dbi, $GLOBALS['db'], $_POST['item_type'], $_POST['item_name']);
+                $routine = $routines[0];
+                $this->response->addJSON(
+                    'name',
+                    htmlspecialchars(
+                        mb_strtoupper($_POST['item_name']),
+                    ),
+                );
+                $this->response->addJSON('new_row', $this->routines->getRow($routine));
+                $this->response->addJSON('insert', ! empty($routine));
+                $this->response->addJSON('message', $output);
+                $this->response->addJSON('tableType', 'routines');
+
+                return;
+            }
+        }
 
         /**
          * Display a form used to add/edit a routine, if necessary

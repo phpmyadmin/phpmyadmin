@@ -65,29 +65,18 @@ class Routines
 
     /**
      * Handle request to create or edit a routine
-     *
-     * @param mixed[] $errors Errors
-     * @param string  $db     DB name
-     *
-     * @return mixed[]
      */
-    public function handleRequestCreateOrEdit(array $errors, string $db): array
+    public function handleRequestCreateOrEdit(string $db): string
     {
-        $GLOBALS['message'] ??= null;
-
-        if (empty($_POST['editor_process_add']) && empty($_POST['editor_process_edit'])) {
-            return $errors;
-        }
-
         $sqlQuery = '';
         $routineQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if ($errors === []) {
+        if ($GLOBALS['errors'] === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 if (! in_array($_POST['item_original_type'], ['PROCEDURE', 'FUNCTION'], true)) {
-                    $errors[] = sprintf(
+                    $GLOBALS['errors'][] = sprintf(
                         __('Invalid routine type: "%s"'),
                         htmlspecialchars($_POST['item_original_type']),
                     );
@@ -106,7 +95,7 @@ class Routines
                         . ";\n";
                     $result = $this->dbi->tryQuery($dropRoutine);
                     if (! $result) {
-                        $errors[] = sprintf(
+                        $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($dropRoutine),
                         )
@@ -121,7 +110,7 @@ class Routines
                         if (empty($newErrors)) {
                             $sqlQuery = $dropRoutine . $routineQuery;
                         } else {
-                            $errors = array_merge($errors, $newErrors);
+                            $GLOBALS['errors'] = array_merge($GLOBALS['errors'], $newErrors);
                         }
 
                         unset($newErrors);
@@ -131,7 +120,7 @@ class Routines
                 // 'Add a new routine' mode
                 $result = $this->dbi->tryQuery($routineQuery);
                 if (! $result) {
-                    $errors[] = sprintf(
+                    $GLOBALS['errors'][] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($routineQuery),
                     )
@@ -149,45 +138,21 @@ class Routines
             }
         }
 
-        if ($errors !== []) {
+        if ($GLOBALS['errors'] !== []) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'One or more errors have occurred while processing your request:',
                 ),
             );
             $GLOBALS['message']->addHtml('<ul>');
-            foreach ($errors as $string) {
+            foreach ($GLOBALS['errors'] as $string) {
                 $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
             }
 
             $GLOBALS['message']->addHtml('</ul>');
         }
 
-        $output = Generator::getMessage($GLOBALS['message'], $sqlQuery);
-
-        if (! $this->response->isAjax()) {
-            return $errors;
-        }
-
-        if (! $GLOBALS['message']->isSuccess()) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $output);
-            $this->response->callExit();
-        }
-
-        $routines = self::getDetails($this->dbi, $db, $_POST['item_type'], $_POST['item_name']);
-        $routine = $routines[0];
-        $this->response->addJSON(
-            'name',
-            htmlspecialchars(
-                mb_strtoupper($_POST['item_name']),
-            ),
-        );
-        $this->response->addJSON('new_row', $this->getRow($routine));
-        $this->response->addJSON('insert', ! empty($routine));
-        $this->response->addJSON('message', $output);
-        $this->response->addJSON('tableType', 'routines');
-        $this->response->callExit();
+        return Generator::getMessage($GLOBALS['message'], $sqlQuery);
     }
 
     /**
