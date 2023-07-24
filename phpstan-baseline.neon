@@ -20966,11 +20966,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<\\-1, 1\\> given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
@@ -21071,18 +21066,8 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<\\-1, 1\\> given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<\\-1, 1\\> given\\.$#"
-			count: 3
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
@@ -21101,11 +21086,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#1 \\$string1 of function strcmp expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Import\\\\Import\\:\\:analyzeTable\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -21113,11 +21093,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 8
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#2 \\$string2 of function strcmp expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
@@ -21216,12 +21191,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportShp.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<\\-1, 1\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
+			message: "#^Offset 'dirname' does not exist on array\\{dirname\\?\\: string, basename\\: string, extension\\?\\: string, filename\\: string\\}\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportShp.php
 
@@ -21351,22 +21321,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<\\-1, 1\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<\\-1, 1\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Import\\\\Import\\:\\:buildSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$string1 of function strcmp expects string, array\\<int\\<0, max\\>, array\\<int\\<0, max\\>, string\\>\\|string\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -27552,11 +27507,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: string, data\\: string\\|false\\}\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<\\-1, 1\\> given\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
 

@@ -9397,19 +9397,16 @@
       <code>$colNames</code>
       <code>$maxCols</code>
       <code>$rows</code>
-      <code>$rows[$j][Import::TBL_NAME]</code>
       <code>$tables</code>
       <code>$tables</code>
       <code>$tables</code>
       <code>$tables[$i]</code>
-      <code>$tables[$i][Import::TBL_NAME]</code>
       <code>$tempRow</code>
       <code>$tempRows</code>
       <code>$tempRows</code>
       <code>$tempRows[$i]</code>
       <code>$tempRows[0]</code>
       <code>$text</code>
-      <code>$type</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$row</code>
@@ -9451,7 +9448,6 @@
       <code>$tempRows[]</code>
       <code>$tempRows[]</code>
       <code>$text</code>
-      <code>$type</code>
       <code>$values[]</code>
       <code>$values[]</code>
     </MixedAssignment>
@@ -9631,12 +9627,6 @@
       <code><![CDATA[$xml->children($namespaces['pma'] ?? null)
             ->{'structure_schemas'}->{'database'}]]></code>
     </MixedPropertyFetch>
-    <PossiblyInvalidArgument>
-      <code>$tables[$i][Import::TBL_NAME]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code>$tables[$i][Import::TBL_NAME]</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$dbAttr['charset']]]></code>

@@ -22,7 +22,6 @@ use function pack;
 use function preg_match;
 use function sprintf;
 use function str_replace;
-use function strcmp;
 use function strlen;
 use function strpos;
 use function substr;
@@ -82,7 +81,7 @@ class ZipExtension
         /* Is the the zip really an ODS file? */
         $odsMediaType = 'application/vnd.oasis.opendocument.spreadsheet';
         $firstZipEntry = $this->zip->getFromIndex(0);
-        if (! strcmp($odsMediaType, (string) $firstZipEntry)) {
+        if ($odsMediaType === (string) $firstZipEntry) {
             $specificEntry = '/^content\.xml$/';
         }
 

@@ -21,7 +21,7 @@ use function mb_substr;
 use function preg_match;
 use function str_contains;
 use function str_replace;
-use function strcmp;
+use function str_starts_with;
 use function strlen;
 use function trim;
 
@@ -147,14 +147,14 @@ class ImportMediawiki extends ImportPlugin
                 $matches = [];
 
                 // Check beginning of comment
-                if (! strcmp(mb_substr($curBufferLine, 0, 4), '<!--')) {
+                if (str_starts_with($curBufferLine, '<!--')) {
                     $insideComment = true;
                     continue;
                 }
 
                 if ($insideComment) {
                     // Check end of comment
-                    if (! strcmp(mb_substr($curBufferLine, 0, 4), '-->')) {
+                    if (str_starts_with($curBufferLine, '-->')) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
                         // skip structure tables)
