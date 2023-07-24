@@ -1197,17 +1197,30 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$item</code>
+      <code><![CDATA[$routine['item_original_name']]]></code>
+      <code><![CDATA[$routine['item_original_type']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$type</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument>
+      <code>$mode</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
+      <code>$title</code>
+    </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/SearchController.php">
     <InvalidArrayOffset>
@@ -5020,11 +5033,9 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$itemParamOpsNum[$i]</code>
       <code>$itemParamOpsText[$i]</code>
       <code>$itemParamType[$i]</code>
@@ -5151,7 +5162,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$i</code>
       <code>$opt</code>
       <code>$options[]</code>
@@ -5165,8 +5175,6 @@
       <code>$routine</code>
       <code><![CDATA[$routine['item_num_params']]]></code>
       <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_original_name']]]></code>
-      <code><![CDATA[$routine['item_original_type']]]></code>
       <code>$string</code>
       <code>$value</code>
       <code>$value</code>
@@ -5198,8 +5206,6 @@
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
@@ -5217,7 +5223,6 @@
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemReturnType</code>
@@ -5233,8 +5238,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
@@ -5267,10 +5270,8 @@
       <code>$itemSqlDataAccess</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createRoutine</code>
-      <code>$mode</code>
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
@@ -5284,7 +5285,6 @@
     <PossiblyNullOperand>
       <code>$output</code>
       <code><![CDATA[$this->browseRow($row)]]></code>
-      <code>$title</code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$stmt->return->name]]></code>

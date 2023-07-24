@@ -84,7 +84,97 @@ class RoutinesController extends AbstractController
          */
         $GLOBALS['errors'] = [];
 
-        $this->routines->handleEditor();
+        $GLOBALS['errors'] = $this->routines->handleRequestCreateOrEdit($GLOBALS['errors'], $GLOBALS['db']);
+
+        /**
+         * Display a form used to add/edit a routine, if necessary
+         */
+        // FIXME: this must be simpler than that
+        if (
+            $GLOBALS['errors'] !== []
+            || empty($_POST['editor_process_add'])
+            && empty($_POST['editor_process_edit'])
+            && (
+                ! empty($_REQUEST['add_item'])
+                || ! empty($_REQUEST['edit_item'])
+                || ! empty($_POST['routine_addparameter'])
+                || ! empty($_POST['routine_removeparameter'])
+                || ! empty($_POST['routine_changetype'])
+            )
+        ) {
+            // Handle requests to add/remove parameters and changing routine type
+            // This is necessary when JS is disabled
+            $operation = '';
+            if (! empty($_POST['routine_addparameter'])) {
+                $operation = 'add';
+            } elseif (! empty($_POST['routine_removeparameter'])) {
+                $operation = 'remove';
+            } elseif (! empty($_POST['routine_changetype'])) {
+                $operation = 'change';
+            }
+
+            // Get the data for the form (if any)
+            $routine = null;
+            $mode = null;
+            $title = null;
+            if (! empty($_REQUEST['add_item'])) {
+                $title = __('Add routine');
+                $routine = $this->routines->getDataFromRequest();
+                $mode = 'add';
+            } elseif (! empty($_REQUEST['edit_item'])) {
+                $title = __('Edit routine');
+                if (! $operation && ! empty($_GET['item_name']) && empty($_POST['editor_process_edit'])) {
+                    $routine = $this->routines->getDataFromName($_GET['item_name'], $_GET['item_type']);
+                    if ($routine !== null) {
+                        $routine['item_original_name'] = $routine['item_name'];
+                        $routine['item_original_type'] = $routine['item_type'];
+                    }
+                } else {
+                    $routine = $this->routines->getDataFromRequest();
+                }
+
+                $mode = 'edit';
+            }
+
+            if ($routine !== null) {
+                // Show form
+                $editor = $this->routines->getEditorForm($mode, $operation, $routine);
+                if ($this->response->isAjax()) {
+                    $this->response->addJSON('message', $editor);
+                    $this->response->addJSON('title', $title);
+                    $this->response->addJSON('paramTemplate', $this->routines->getParameterRow());
+                    $this->response->addJSON('type', $routine['item_type']);
+
+                    return;
+                }
+
+                $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
+
+                return;
+            }
+
+            $message = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __(
+                    'No routine with name %1$s found in database %2$s. '
+                    . 'You might be lacking the necessary privileges to edit this routine.',
+                ),
+                htmlspecialchars(
+                    Util::backquote($_REQUEST['item_name']),
+                ),
+                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+            );
+
+            $message = Message::error($message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
+
+                return;
+            }
+
+            $this->response->addHTML($message->getDisplay());
+        }
 
         $this->routines->handleExecute();
 
