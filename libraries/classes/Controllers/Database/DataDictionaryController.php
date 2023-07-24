@@ -48,7 +48,7 @@ class DataDictionaryController extends AbstractController
                 $this->dbi->getTableIndexes($GLOBALS['db'], $tableName),
             );
 
-            [$foreigners, $hasRelation] = $this->relation->getRelationsAndStatus(
+            $foreigners = $this->relation->getRelationsAndStatus(
                 $relationParameters->relationFeature !== null,
                 $GLOBALS['db'],
                 $tableName,
@@ -62,7 +62,7 @@ class DataDictionaryController extends AbstractController
                 $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
 
                 $relation = '';
-                if ($hasRelation) {
+                if ($foreigners !== []) {
                     $foreigner = $this->relation->searchColumnInForeigners($foreigners, $row['Field']);
                     if (is_array($foreigner) && isset($foreigner['foreign_table'], $foreigner['foreign_field'])) {
                         $relation = $foreigner['foreign_table'];
@@ -95,7 +95,7 @@ class DataDictionaryController extends AbstractController
             $tables[$tableName] = [
                 'name' => $tableName,
                 'comment' => $showComment,
-                'has_relation' => $hasRelation,
+                'has_relation' => $foreigners !== [],
                 'has_mime' => $relationParameters->browserTransformationFeature !== null,
                 'columns' => $rows,
                 'indexes' => Index::getFromTable($this->dbi, $tableName, $GLOBALS['db']),

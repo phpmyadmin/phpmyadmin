@@ -1638,22 +1638,16 @@ class Relation
      * @param string $db        database name
      * @param string $table     table name
      *
-     * @return mixed[] ($res_rel, $have_rel)
-     * @psalm-return array{array, bool}
+     * @return mixed[]
      */
     public function getRelationsAndStatus(bool $condition, string $db, string $table): array
     {
-        $haveRel = false;
-        $resRel = [];
         if ($condition) {
-            // Find which tables are related with the current one and write it in
-            // an array
-            $resRel = $this->getForeigners($db, $table);
-
-            $haveRel = $resRel !== [];
+            // Find which tables are related with the current one and write it in an array
+            return $this->getForeigners($db, $table);
         }
 
-        return [$resRel, $haveRel];
+        return [];
     }
 
     /**
