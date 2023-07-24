@@ -183,7 +183,45 @@ class RoutinesController extends AbstractController
          * Handle all user requests other than the default of listing routines
          */
         if (! empty($_POST['execute_routine']) && ! empty($_POST['item_name'])) {
-            $this->routines->handleExecuteRoutine();
+            // Build the queries
+            $routine = $this->routines->getDataFromName($_POST['item_name'], $_POST['item_type'], false);
+            if ($routine === null) {
+                $message = __('Error in processing request:') . ' ';
+                $message .= sprintf(
+                    __('No routine with name %1$s found in database %2$s.'),
+                    htmlspecialchars(Util::backquote($_POST['item_name'])),
+                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                );
+                $message = Message::error($message);
+                if ($this->response->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', $message);
+
+                    return;
+                }
+
+                $this->response->addHTML($message->getDisplay());
+
+                return;
+            }
+
+            [$output, $message] = $this->routines->handleExecuteRoutine($routine);
+
+            // Print/send output
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus($message->isSuccess());
+                $this->response->addJSON('message', $message->getDisplay() . $output);
+                $this->response->addJSON('dialog', false);
+
+                return;
+            }
+
+            $this->response->addHTML($message->getDisplay() . $output);
+            if ($message->isError()) {
+                // At least one query has failed, so shouldn't
+                // execute any more queries, so we quit.
+                return;
+            }
         } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
             /**
              * Display the execute form for a routine.

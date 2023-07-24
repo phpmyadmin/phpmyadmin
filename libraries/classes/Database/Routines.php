@@ -952,8 +952,6 @@ class Routines
     }
 
     /**
-     * @see handleExecuteRoutine
-     *
      * @param mixed[] $routine The routine params
      *
      * @return string[] The SQL queries / SQL query parts
@@ -1016,29 +1014,13 @@ class Routines
         return $queries;
     }
 
-    public function handleExecuteRoutine(): void
+    /**
+     * @param mixed[]|null $routine
+     *
+     * @psalm-return array{string, Message}
+     */
+    public function handleExecuteRoutine(array|null $routine): array
     {
-        // Build the queries
-        $routine = $this->getDataFromName($_POST['item_name'], $_POST['item_type'], false);
-        if ($routine === null) {
-            $message = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                __('No routine with name %1$s found in database %2$s.'),
-                htmlspecialchars(Util::backquote($_POST['item_name'])),
-                htmlspecialchars(Util::backquote($GLOBALS['db'])),
-            );
-            $message = Message::error($message);
-            if ($this->response->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
-                $this->response->callExit();
-            }
-
-            echo $message->getDisplay();
-            unset($_POST);
-            //NOTE: Missing exit ?
-        }
-
         $queries = is_array($routine) ? $this->getQueriesFromRoutineForm($routine) : [];
 
         // Get all the queries as one SQL statement
@@ -1136,23 +1118,7 @@ class Routines
             );
         }
 
-        // Print/send output
-        if ($this->response->isAjax()) {
-            $this->response->setRequestStatus($message->isSuccess());
-            $this->response->addJSON('message', $message->getDisplay() . $output);
-            $this->response->addJSON('dialog', false);
-            $this->response->callExit();
-        }
-
-        echo $message->getDisplay() , $output;
-        if ($message->isError()) {
-            // At least one query has failed, so shouldn't
-            // execute any more queries, so we quit.
-            $this->response->callExit();
-        }
-
-        unset($_POST);
-        // Now deliberately fall through to displaying the routines list
+        return [$output, $message];
     }
 
     /**
