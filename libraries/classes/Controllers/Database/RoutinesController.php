@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Routines;
@@ -107,7 +108,10 @@ class RoutinesController extends AbstractController
                         mb_strtoupper($_POST['item_name']),
                     ),
                 );
-                $this->response->addJSON('new_row', $this->routines->getRow($routine));
+                $this->response->addJSON(
+                    'new_row',
+                    $this->template->render('database/routines/row', $this->routines->getRow($routine)),
+                );
                 $this->response->addJSON('insert', ! empty($routine));
                 $this->response->addJSON('message', $output);
                 $this->response->addJSON('tableType', 'routines');
@@ -168,11 +172,76 @@ class RoutinesController extends AbstractController
 
             if ($routine !== null) {
                 // Show form
-                $editor = $this->routines->getEditorForm($mode, $operation, $routine);
+                for ($i = 0; $i < $routine['item_num_params']; $i++) {
+                    $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
+                    $routine['item_param_length'][$i] = htmlentities($routine['item_param_length'][$i], ENT_QUOTES);
+                }
+
+                // Handle some logic first
+                if ($operation === 'change') {
+                    if ($routine['item_type'] === 'PROCEDURE') {
+                        $routine['item_type'] = 'FUNCTION';
+                        $routine['item_type_toggle'] = 'PROCEDURE';
+                    } else {
+                        $routine['item_type'] = 'PROCEDURE';
+                        $routine['item_type_toggle'] = 'FUNCTION';
+                    }
+                } elseif (
+                    $operation === 'add'
+                    || ($routine['item_num_params'] == 0 && $mode === 'add' && ! $GLOBALS['errors'])
+                ) {
+                    $routine['item_param_dir'][] = '';
+                    $routine['item_param_name'][] = '';
+                    $routine['item_param_type'][] = '';
+                    $routine['item_param_length'][] = '';
+                    $routine['item_param_opts_num'][] = '';
+                    $routine['item_param_opts_text'][] = '';
+                    $routine['item_num_params']++;
+                } elseif ($operation === 'remove') {
+                    unset(
+                        $routine['item_param_dir'][$routine['item_num_params'] - 1],
+                        $routine['item_param_name'][$routine['item_num_params'] - 1],
+                        $routine['item_param_type'][$routine['item_num_params'] - 1],
+                        $routine['item_param_length'][$routine['item_num_params'] - 1],
+                        $routine['item_param_opts_num'][$routine['item_num_params'] - 1],
+                        $routine['item_param_opts_text'][$routine['item_num_params'] - 1],
+                    );
+                    $routine['item_num_params']--;
+                }
+
+                $parameterRows = '';
+                for ($i = 0; $i < $routine['item_num_params']; $i++) {
+                    $parameterRows .= $this->template->render(
+                        'database/routines/parameter_row',
+                        $this->routines->getParameterRow(
+                            $routine,
+                            $i,
+                            $routine['item_type'] === 'FUNCTION' ? ' hide' : '',
+                        ),
+                    );
+                }
+
+                $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+
+                $editor = $this->template->render('database/routines/editor_form', [
+                    'db' => $GLOBALS['db'],
+                    'routine' => $routine,
+                    'is_edit_mode' => $mode === 'edit',
+                    'is_ajax' => $this->response->isAjax(),
+                    'parameter_rows' => $parameterRows,
+                    'charsets' => $charsets,
+                    'numeric_options' => $this->routines->numericOptions,
+                    'has_privileges' => $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'],
+                    'sql_data_access' => $this->routines->sqlDataAccess,
+                ]);
+
                 if ($this->response->isAjax()) {
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
-                    $this->response->addJSON('paramTemplate', $this->routines->getParameterRow());
+                    $this->response->addJSON(
+                        'paramTemplate',
+                        $this->template->render('database/routines/parameter_row', $this->routines->getParameterRow()),
+                    );
                     $this->response->addJSON('type', $routine['item_type']);
 
                     return;
@@ -255,7 +324,14 @@ class RoutinesController extends AbstractController
              */
             $routine = $this->routines->getDataFromName($_GET['item_name'], $_GET['item_type'], true);
             if ($routine !== null) {
-                $form = $this->routines->getExecuteForm($routine);
+                [$routine, $params] = $this->routines->getExecuteForm($routine);
+                $form = $this->template->render('database/routines/execute_form', [
+                    'db' => $GLOBALS['db'],
+                    'routine' => $routine,
+                    'ajax' => $this->response->isAjax(),
+                    'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
+                    'params' => $params,
+                ]);
                 if ($this->response->isAjax()) {
                     $title = __('Execute routine') . ' ' . Util::backquote(
                         htmlentities($_GET['item_name'], ENT_QUOTES),
@@ -358,7 +434,10 @@ class RoutinesController extends AbstractController
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
+            $rows .= $this->template->render(
+                'database/routines/row',
+                $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : ''),
+            );
         }
 
         $this->render('database/routines/index', [

@@ -1011,7 +1011,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/RoutinesController.php
 
@@ -3172,7 +3172,7 @@ parameters:
 
 		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Database/Routines.php
 
 		-

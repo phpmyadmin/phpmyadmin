@@ -1193,15 +1193,57 @@
     <MixedArgument>
       <code>$item</code>
       <code>$routine</code>
+      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
     </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$routine['item_param_dir'][]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_length'][]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_name'][]]]></code>
+      <code><![CDATA[$routine['item_param_opts_num'][]]]></code>
+      <code><![CDATA[$routine['item_param_opts_text'][]]]></code>
+      <code><![CDATA[$routine['item_param_type'][]]]></code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset>
+      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
+    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$item</code>
       <code>$routine</code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
       <code><![CDATA[$routine['item_original_name']]]></code>
       <code><![CDATA[$routine['item_original_type']]]></code>
     </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
@@ -1234,15 +1276,16 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code>$mode</code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code>$title</code>
     </PossiblyNullOperand>
     <PossiblyNullReference>
       <code>isSuccess</code>
     </PossiblyNullReference>
+    <RedundantCondition>
+      <code><![CDATA[! $GLOBALS['errors']]]></code>
+      <code><![CDATA[$routine['item_num_params'] == 0 && $mode === 'add' && ! $GLOBALS['errors']]]></code>
+    </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[$GLOBALS['errors'] !== []]]></code>
     </TypeDoesNotContainType>
@@ -5058,7 +5101,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -5077,8 +5119,6 @@
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
@@ -5117,20 +5157,13 @@
       <code><![CDATA[$routine['Type']]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_length_arr'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
@@ -5141,7 +5174,6 @@
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -5157,15 +5189,7 @@
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$params[$i]['htmlentities'][]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][]]]></code>
-      <code><![CDATA[$routine['item_param_type'][]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
@@ -5174,20 +5198,13 @@
       <code><![CDATA[$_POST['params'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$_POST['params'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_opts_num'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -5201,8 +5218,6 @@
       <code><![CDATA[$retval['item_sqldataaccess']]]></code>
       <code><![CDATA[$retval['item_type']]]></code>
       <code>$routine</code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
       <code>$string</code>
       <code>$value</code>
       <code>$value</code>
@@ -5220,14 +5235,6 @@
       <code>$priv[5]</code>
       <code>$priv[6]</code>
       <code>$priv[7]</code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
       <code>$string</code>
     </MixedOperand>
     <PossiblyInvalidArgument>
@@ -13670,14 +13677,6 @@
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequest</code>
-      <code>providerGetEditorForm1</code>
-      <code>providerGetEditorForm2</code>
-      <code>providerGetEditorForm3</code>
-      <code>providerGetEditorForm4</code>
-      <code>providerGetExecuteForm1</code>
-      <code>providerGetExecuteForm2</code>
-      <code>providerGetParameterRow</code>
-      <code>providerGetParameterRowAjax</code>
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>

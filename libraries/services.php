@@ -139,10 +139,7 @@ return [
             'class' => ResponseRenderer::class,
             'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
         ],
-        'routines' => [
-            'class' => Routines::class,
-            'arguments' => ['@dbi', '@template', '@response'],
-        ],
+        'routines' => ['class' => Routines::class, 'arguments' => ['@dbi']],
         'server_plugins' => ['class' => Plugins::class, 'arguments' => ['@dbi']],
         'server_privileges' => [
             'class' => Privileges::class,

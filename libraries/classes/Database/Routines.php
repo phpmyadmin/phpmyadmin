@@ -9,12 +9,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Utils\Routine;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -48,19 +46,19 @@ use const SORT_ASC;
 class Routines
 {
     /** @var array<int, string> */
-    private array $directions = ['IN', 'OUT', 'INOUT'];
+    public readonly array $directions;
 
     /** @var array<int, string> */
-    private array $sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
+    public readonly array $sqlDataAccess;
 
     /** @var array<int, string> */
-    private array $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
+    public readonly array $numericOptions;
 
-    public function __construct(
-        private DatabaseInterface $dbi,
-        private Template $template,
-        private ResponseRenderer $response,
-    ) {
+    public function __construct(private DatabaseInterface $dbi)
+    {
+        $this->directions = ['IN', 'OUT', 'INOUT'];
+        $this->sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
+        $this->numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
     }
 
     /**
@@ -513,9 +511,9 @@ class Routines
      * @param string  $class   Class used to hide the direction column, if the
      *                         row is for a stored function.
      *
-     * @return string    HTML code of one row of parameter table for the editor.
+     * @return mixed[]
      */
-    public function getParameterRow(array $routine = [], mixed $index = null, string $class = ''): string
+    public function getParameterRow(array $routine = [], mixed $index = null, string $class = ''): array
     {
         if ($index === null) {
             // template row for AJAX request
@@ -537,7 +535,7 @@ class Routines
         } else {
             // No input data. This shouldn't happen,
             // but better be safe than sorry.
-            return '';
+            return [];
         }
 
         $allCharsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
@@ -550,7 +548,7 @@ class Routines
             ];
         }
 
-        return $this->template->render('database/routines/parameter_row', [
+        return [
             'class' => $class,
             'index' => $index,
             'param_directions' => $this->directions,
@@ -559,86 +557,10 @@ class Routines
             'item_param_name' => $routine['item_param_name'][$i] ?? '',
             'item_param_length' => $routine['item_param_length'][$i] ?? '',
             'item_param_opts_num' => $routine['item_param_opts_num'][$i] ?? '',
-            'supported_datatypes' => Generator::getSupportedDatatypes(
-                $routine['item_param_type'][$i],
-            ),
+            'supported_datatypes' => Generator::getSupportedDatatypes($routine['item_param_type'][$i]),
             'charsets' => $charsets,
             'drop_class' => $dropClass,
-        ]);
-    }
-
-    /**
-     * Displays a form used to add/edit a routine
-     *
-     * @param string  $mode      If the editor will be used to edit a routine
-     *                           or add a new one: 'edit' or 'add'.
-     * @param string  $operation If the editor was previously invoked with
-     *                           JS turned off, this will hold the name of
-     *                           the current operation
-     * @param mixed[] $routine   Data for the routine returned by
-     *                         getDataFromRequest() or getDataFromName()
-     *
-     * @return string   HTML code for the editor.
-     */
-    public function getEditorForm(string $mode, string $operation, array $routine): string
-    {
-        $GLOBALS['errors'] ??= null;
-
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
-            $routine['item_param_length'][$i] = htmlentities($routine['item_param_length'][$i], ENT_QUOTES);
-        }
-
-        // Handle some logic first
-        if ($operation === 'change') {
-            if ($routine['item_type'] === 'PROCEDURE') {
-                $routine['item_type'] = 'FUNCTION';
-                $routine['item_type_toggle'] = 'PROCEDURE';
-            } else {
-                $routine['item_type'] = 'PROCEDURE';
-                $routine['item_type_toggle'] = 'FUNCTION';
-            }
-        } elseif (
-            $operation === 'add'
-            || ($routine['item_num_params'] == 0 && $mode === 'add' && ! $GLOBALS['errors'])
-        ) {
-            $routine['item_param_dir'][] = '';
-            $routine['item_param_name'][] = '';
-            $routine['item_param_type'][] = '';
-            $routine['item_param_length'][] = '';
-            $routine['item_param_opts_num'][] = '';
-            $routine['item_param_opts_text'][] = '';
-            $routine['item_num_params']++;
-        } elseif ($operation === 'remove') {
-            unset(
-                $routine['item_param_dir'][$routine['item_num_params'] - 1],
-                $routine['item_param_name'][$routine['item_num_params'] - 1],
-                $routine['item_param_type'][$routine['item_num_params'] - 1],
-                $routine['item_param_length'][$routine['item_num_params'] - 1],
-                $routine['item_param_opts_num'][$routine['item_num_params'] - 1],
-                $routine['item_param_opts_text'][$routine['item_num_params'] - 1],
-            );
-            $routine['item_num_params']--;
-        }
-
-        $parameterRows = '';
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            $parameterRows .= $this->getParameterRow($routine, $i, $routine['item_type'] === 'FUNCTION' ? ' hide' : '');
-        }
-
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-
-        return $this->template->render('database/routines/editor_form', [
-            'db' => $GLOBALS['db'],
-            'routine' => $routine,
-            'is_edit_mode' => $mode === 'edit',
-            'is_ajax' => $this->response->isAjax(),
-            'parameter_rows' => $parameterRows,
-            'charsets' => $charsets,
-            'numeric_options' => $this->numericOptions,
-            'has_privileges' => $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'],
-            'sql_data_access' => $this->sqlDataAccess,
-        ]);
+        ];
     }
 
     /**
@@ -1110,12 +1032,11 @@ class Routines
     /**
      * Creates the HTML code that shows the routine execution dialog.
      *
-     * @param mixed[] $routine Data for the routine returned by
-     *                       getDataFromName()
+     * @param mixed[] $routine Data for the routine returned by getDataFromName()
      *
-     * @return string HTML code for the routine execution dialog.
+     * @psalm-return array{mixed[], mixed[]}
      */
-    public function getExecuteForm(array $routine): string
+    public function getExecuteForm(array $routine): array
     {
         // Escape special characters
         $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
@@ -1182,13 +1103,7 @@ class Routines
             }
         }
 
-        return $this->template->render('database/routines/execute_form', [
-            'db' => $GLOBALS['db'],
-            'routine' => $routine,
-            'ajax' => $this->response->isAjax(),
-            'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
-            'params' => $params,
-        ]);
+        return [$routine, $params];
     }
 
     /**
@@ -1197,9 +1112,9 @@ class Routines
      * @param mixed[] $routine  An array of routine data
      * @param string  $rowClass Additional class
      *
-     * @return string HTML code of a row for the list of routines
+     * @return mixed[]
      */
-    public function getRow(array $routine, string $rowClass = ''): string
+    public function getRow(array $routine, string $rowClass = ''): array
     {
         $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -1269,7 +1184,7 @@ class Routines
             }
         }
 
-        return $this->template->render('database/routines/row', [
+        return [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'sql_drop' => $sqlDrop,
@@ -1279,7 +1194,7 @@ class Routines
             'has_export_privilege' => $hasExportPrivilege,
             'has_execute_privilege' => $hasExecutePrivilege,
             'execute_action' => $executeAction,
-        ]);
+        ];
     }
 
     /**
