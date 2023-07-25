@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Fig\Http\Message\StatusCodeInterface;
+use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -12,7 +14,9 @@ use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -57,6 +61,7 @@ final class Application
         private readonly ErrorHandler $errorHandler,
         private readonly Config $config,
         private readonly Template $template,
+        private readonly ResponseFactory $responseFactory,
     ) {
     }
 
@@ -68,36 +73,22 @@ final class Application
         return $application;
     }
 
-    /**
-     * Misc stuff and REQUIRED by ALL the scripts.
-     * MUST be included by every script
-     *
-     * Among other things, it contains the advanced authentication work.
-     *
-     * Order of sections:
-     *
-     * the authentication libraries must be before the connection to db
-     *
-     * ... so the required order is:
-     *
-     * LABEL_variables_init
-     *  - initialize some variables always needed
-     * LABEL_parsing_config_file
-     *  - parsing of the configuration file
-     * LABEL_loading_language_file
-     *  - loading language file
-     * LABEL_setup_servers
-     *  - check and setup configured servers
-     * LABEL_theme_setup
-     *  - setting up themes
-     *
-     * - load of MySQL extension (if necessary)
-     * - loading of an authentication library
-     * - db connection
-     * - authentication work
-     */
     public function run(bool $isSetupPage = false): void
     {
+        $request = self::getRequest()->withAttribute('isSetupPage', $isSetupPage);
+        $response = $this->handle($request);
+        if ($response === null) {
+            return;
+        }
+
+        $emitter = new SapiEmitter();
+        $emitter->emit($response);
+    }
+
+    private function handle(ServerRequest $request): Response|null
+    {
+        $isSetupPage = (bool) $request->getAttribute('isSetupPage');
+
         $GLOBALS['errorHandler'] = $this->errorHandler;
         $GLOBALS['config'] = $this->config;
 
@@ -106,9 +97,8 @@ final class Application
         } catch (MissingExtensionException $exception) {
             // Disables template caching because the cache directory is not known yet.
             $this->template->disableCache();
-            echo $this->getGenericError($exception->getMessage());
 
-            return;
+            return $this->getGenericErrorResponse($exception->getMessage());
         }
 
         $this->configurePhpSettings();
@@ -118,12 +108,10 @@ final class Application
         } catch (ConfigException $exception) {
             // Disables template caching because the cache directory is not known yet.
             $this->template->disableCache();
-            echo $this->getGenericError($exception->getMessage());
 
-            return;
+            return $this->getGenericErrorResponse($exception->getMessage());
         }
 
-        $request = self::getRequest();
         $route = $request->getRoute();
 
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
@@ -135,9 +123,7 @@ final class Application
                 // Include session handling after the globals, to prevent overwriting.
                 Session::setUp($this->config, $this->errorHandler);
             } catch (SessionHandlerException $exception) {
-                echo $this->getGenericError($exception->getMessage());
-
-                return;
+                return $this->getGenericErrorResponse($exception->getMessage());
             }
         }
 
@@ -182,18 +168,14 @@ final class Application
             $this->config->checkPermissions();
             $this->config->checkErrors();
         } catch (ConfigException $exception) {
-            echo $this->getGenericError($exception->getMessage());
-
-            return;
+            return $this->getGenericErrorResponse($exception->getMessage());
         }
 
         try {
             $this->checkServerConfiguration();
             $this->checkRequest();
         } catch (RuntimeException $exception) {
-            echo $this->getGenericError($exception->getMessage());
-
-            return;
+            return $this->getGenericErrorResponse($exception->getMessage());
         }
 
         $this->setCurrentServerGlobal($container, $this->config, $request->getParam('server'));
@@ -219,12 +201,12 @@ final class Application
                 $this->setupPageBootstrap($this->config);
                 Routing::callSetupController($request);
 
-                return;
+                return null;
             }
 
             Routing::callControllerForRoute($request, Routing::getDispatcher(), $container);
 
-            return;
+            return null;
         }
 
         /**
@@ -247,9 +229,7 @@ final class Application
             try {
                 $authPlugin = $authPluginFactory->create();
             } catch (AuthenticationPluginException $exception) {
-                echo $this->getGenericError($exception->getMessage());
-
-                return;
+                return $this->getGenericErrorResponse($exception->getMessage());
             }
 
             $authPlugin->authenticate();
@@ -271,13 +251,11 @@ final class Application
             Logging::logUser($this->config, $currentServer->user);
 
             if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
-                echo $this->getGenericError(sprintf(
+                return $this->getGenericErrorResponse(sprintf(
                     __('You should upgrade to %s %s or later.'),
                     'MySQL',
                     $settings->mysqlMinVersion['human'],
                 ));
-
-                return;
             }
 
             /** @var mixed $sqlDelimiter */
@@ -309,7 +287,7 @@ final class Application
                 Message::error(__('Error: Token mismatch')),
             );
 
-            return;
+            return null;
         }
 
         Profiling::check($GLOBALS['dbi'], $response);
@@ -329,6 +307,8 @@ final class Application
         }
 
         Routing::callControllerForRoute($request, Routing::getDispatcher(), $container);
+
+        return null;
     }
 
     /**
@@ -658,13 +638,16 @@ final class Application
         $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 
-    private function getGenericError(string $message): string
+    private function getGenericErrorResponse(string $message): Response
     {
-        return $this->template->render('error/generic', [
+        $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+        $response->getBody()->write($this->template->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => $message,
-        ]);
+        ]));
+
+        return $response;
     }
 
     private function updateUriScheme(Config $config, ServerRequest $request): ServerRequest
