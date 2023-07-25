@@ -65,7 +65,7 @@ class GisMultiLineString extends GisGeometry
         $linestrings = explode('),(', $multilineString);
 
         foreach ($linestrings as $linestring) {
-            $extent = $this->updateExtentInternal($linestring, $extent);
+            $extent = $extent->merge($this->getCoordinatesExtent($linestring));
         }
 
         return $extent;

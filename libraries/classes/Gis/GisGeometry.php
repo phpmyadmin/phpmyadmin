@@ -24,6 +24,8 @@ use function random_int;
 use function str_replace;
 use function trim;
 
+use const INF;
+
 /**
  * Base class for all GIS data type classes.
  */
@@ -120,20 +122,41 @@ abstract class GisGeometry
      * Updates the min, max values with the given point set.
      *
      * @param string $pointSet point set
-     * @param Extent $extent   existing min, max values
      */
-    protected function updateExtentInternal(string $pointSet, Extent $extent): Extent
+    protected function getCoordinatesExtent(string $pointSet): Extent
     {
         // Separate each point
         $points = explode(',', $pointSet);
 
+        $minX = +INF;
+        $minY = +INF;
+        $maxX = -INF;
+        $maxY = -INF;
         foreach ($points as $point) {
             // Extract coordinates of the point
             $coordinates = explode(' ', $point);
-            $extent = $extent->extend((float) $coordinates[0], (float) $coordinates[1]);
+            $x = (float) $coordinates[0];
+            $y = (float) $coordinates[1];
+            if ($x < $minX) {
+                $minX = $x;
+            }
+
+            if ($y < $minY) {
+                $minY = $y;
+            }
+
+            if ($x > $maxX) {
+                $maxX = $x;
+            }
+
+            if ($y <= $maxY) {
+                continue;
+            }
+
+            $maxY = $y;
         }
 
-        return $extent;
+        return new Extent(minX: $minX, minY: $minY, maxX: $maxX, maxY: $maxY);
     }
 
     /**

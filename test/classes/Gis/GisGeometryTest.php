@@ -41,41 +41,38 @@ class GisGeometryTest extends AbstractTestCase
     }
 
     /**
-     * tests updateExtentInternal method
+     * tests getCoordinatesExtent method
      *
      * @param string $pointSet Point set
-     * @param Extent $extent   Existing min, max values
-     * @param Extent $output   Expected output extent
+     * @param Extent $expected Expected output extent
      */
-    #[DataProvider('providerForTestUpdateExtentInternal')]
-    public function testUpdateExtentInternal(string $pointSet, Extent $extent, Extent $output): void
+    #[DataProvider('providerForTestGetCoordinatesExtent')]
+    public function testGetCoordinatesExtent(string $pointSet, Extent $expected): void
     {
         $extent = $this->callFunction(
             $this->object,
             GisGeometry::class,
-            'updateExtentInternal',
-            [$pointSet, $extent],
+            'getCoordinatesExtent',
+            [$pointSet],
         );
-        $this->assertEquals($output, $extent);
+        $this->assertEquals($expected, $extent);
     }
 
     /**
-     * data provider for testUpdateExtentInternal
+     * data provider for testGetCoordinatesExtent
      *
-     * @return array<array{string, Extent, Extent}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestUpdateExtentInternal(): array
+    public static function providerForTestGetCoordinatesExtent(): array
     {
         return [
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                Extent::empty(),
                 new Extent(minX: 12, minY: 23, maxX: 69, maxY: 78),
             ],
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                new Extent(minX: 2, minY: 23, maxX: 29, maxY: 128),
-                new Extent(minX: 2, minY: 23, maxX: 69, maxY: 128),
+                new Extent(minX:12, minY: 23, maxX: 69, maxY: 78),
             ],
         ];
     }

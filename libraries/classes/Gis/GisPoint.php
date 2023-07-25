@@ -58,7 +58,7 @@ class GisPoint extends GisGeometry
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($wkt, 6, -1);
 
-        return $this->updateExtentInternal($point, Extent::empty());
+        return $this->getCoordinatesExtent($point);
     }
 
     /**

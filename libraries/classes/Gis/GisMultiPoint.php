@@ -59,7 +59,7 @@ class GisMultiPoint extends GisGeometry
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($wkt, 11, -1);
 
-        return $this->updateExtentInternal($multipoint, Extent::empty());
+        return $this->getCoordinatesExtent($multipoint);
     }
 
     /**

@@ -13870,8 +13870,8 @@
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>providerForTestExtractPointsInternal</code>
+      <code>providerForTestGetCoordinatesExtent</code>
       <code>providerForTestParseWktAndSrid</code>
-      <code>providerForTestUpdateExtentInternal</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisLineStringTest.php">

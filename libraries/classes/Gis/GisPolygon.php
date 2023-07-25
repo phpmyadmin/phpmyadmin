@@ -63,7 +63,7 @@ class GisPolygon extends GisGeometry
         $polygon = mb_substr($wkt, 9, -2);
         $wktOuterRing = explode('),(', $polygon)[0];
 
-        return $this->updateExtentInternal($wktOuterRing, Extent::empty());
+        return $this->getCoordinatesExtent($wktOuterRing);
     }
 
     /**

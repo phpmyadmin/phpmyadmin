@@ -24,16 +24,6 @@ class Extent
     ) {
     }
 
-    public function extend(float $x, float $y): Extent
-    {
-        return new Extent(
-            minX: min($this->minX, $x),
-            minY: min($this->minY, $y),
-            maxX: max($this->maxX, $x),
-            maxY: max($this->maxY, $y),
-        );
-    }
-
     public function merge(Extent $extent): Extent
     {
         return new Extent(

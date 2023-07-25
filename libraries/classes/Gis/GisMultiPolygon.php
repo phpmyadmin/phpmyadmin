@@ -68,7 +68,7 @@ class GisMultiPolygon extends GisGeometry
 
         foreach ($wktPolygons as $wktPolygon) {
             $wktOuterRing = explode('),(', $wktPolygon)[0];
-            $extent = $this->updateExtentInternal($wktOuterRing, $extent);
+            $extent = $extent->merge($this->getCoordinatesExtent($wktOuterRing));
         }
 
         return $extent;

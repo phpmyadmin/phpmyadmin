@@ -59,7 +59,7 @@ class GisLineString extends GisGeometry
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($wkt, 11, -1);
 
-        return $this->updateExtentInternal($linestring, Extent::empty());
+        return $this->getCoordinatesExtent($linestring);
     }
 
     /**
