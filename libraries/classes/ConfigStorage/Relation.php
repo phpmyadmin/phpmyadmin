@@ -444,7 +444,7 @@ class Relation
         if (($source === 'both' || $source === 'foreign') && strlen($table) > 0) {
             $tableObj = new Table($table, $db);
             $show_create_table = $tableObj->showCreate();
-            if ($show_create_table) {
+            if ($show_create_table !== '') {
                 $parser = new Parser($show_create_table);
                 $stmt = $parser->statements[0];
                 $foreign['foreign_keys_data'] = [];
