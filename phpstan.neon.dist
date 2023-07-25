@@ -3,37 +3,35 @@ includes:
 parameters:
     level: max
     paths:
-        - .
+        - libraries
+        - public
+        - test
     scanFiles:
         - libraries/constants.php
+        - examples/signon-script.php
     bootstrapFiles:
         - test/phpstan-constants.php
     stubFiles:
         - test/stubs/Query.stub
         - test/stubs/uploadprogress.stub
     excludePaths:
-        - examples/openid.php
-        - node_modules/*
         - libraries/cache/*
         - test/doctum-config.php
-        - tmp/*
-        - twig-templates/*
-        - vendor/*
     dynamicConstantNames:
         - ROOT_PATH
+        - TEST_PATH
         - VERSION_SUFFIX
-    strictRules:
-        # Allow non-booleans in conditions.
-        booleansInConditions: false
-        # Allow the empty() construct.
-        disallowedConstructs: false
-        # Allow dynamic calls to static methods.
-        strictCalls: false
     checkBenevolentUnionTypes: true
-    checkAlwaysTrueCheckTypeFunctionCall: true
-    checkAlwaysTrueStrictComparison: true
     checkUninitializedProperties: true
-    polluteScopeWithAlwaysIterableForeach: true
     checkDynamicProperties: true
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
-    polluteScopeWithLoopInitialAssignments: true
+    checkImplicitMixed: true
+    ignoreErrors:
+        -
+            message: '#Dynamic call to static method PHPUnit\\Framework\\Assert::[a-zA-Z]+\(\)\.#'
+            paths:
+                - test/classes/*
+                - test/selenium/*
+        -
+            message: '#Dynamic call to static method PHPUnit\\Framework\\TestCase::[a-zA-Z]+\(\)\.#'
+            path: test/classes/*
