@@ -9,14 +9,16 @@ use FastRoute\Dispatcher;
 use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use Psr\Container\ContainerInterface;
@@ -127,33 +129,30 @@ class Routing
         ServerRequest $request,
         Dispatcher $dispatcher,
         ContainerInterface $container,
-    ): void {
+        ResponseFactory $responseFactory,
+    ): Response|null {
         $route = $request->getRoute();
         $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
 
         if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
-            /** @var ResponseRenderer $response */
-            $response = $container->get(ResponseRenderer::class);
-            $response->setHttpResponseCode(404);
-            echo Message::error(sprintf(
+            $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
+            $response->getBody()->write(Message::error(sprintf(
                 __('Error 404! The page %s was not found.'),
                 '<code>' . htmlspecialchars($route) . '</code>',
-            ))->getDisplay();
+            ))->getDisplay());
 
-            return;
+            return $response;
         }
 
         if ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
-            /** @var ResponseRenderer $response */
-            $response = $container->get(ResponseRenderer::class);
-            $response->setHttpResponseCode(405);
-            echo Message::error(__('Error 405! Request method not allowed.'))->getDisplay();
+            $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_METHOD_NOT_ALLOWED);
+            $response->getBody()->write(Message::error(__('Error 405! Request method not allowed.'))->getDisplay());
 
-            return;
+            return $response;
         }
 
         if ($routeInfo[0] !== Dispatcher::FOUND) {
-            return;
+            return $responseFactory->createResponse(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
         /** @psalm-var class-string $controllerName */
@@ -161,9 +160,10 @@ class Routing
         /** @var array<string, string> $vars */
         $vars = $routeInfo[2];
 
-        /** @psalm-var callable(ServerRequest=, array<string, string>=):void $controller */
+        /** @psalm-var callable(ServerRequest=, array<string, string>=): (Response|null) $controller */
         $controller = $container->get($controllerName);
-        $controller($request, $vars);
+
+        return $controller($request, $vars);
     }
 
     /** @psalm-assert-if-true array[] $dispatchData */

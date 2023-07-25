@@ -204,9 +204,12 @@ final class Application
                 return null;
             }
 
-            Routing::callControllerForRoute($request, Routing::getDispatcher(), $container);
-
-            return null;
+            return Routing::callControllerForRoute(
+                $request,
+                Routing::getDispatcher(),
+                $container,
+                $this->responseFactory,
+            );
         }
 
         /**
@@ -267,22 +270,22 @@ final class Application
 
             // TODO: Set SQL modes too.
         } else { // end server connecting
-            $response = ResponseRenderer::getInstance();
-            $response->setAjax($request->isAjax());
-            $response->getHeader()->disableMenuAndConsole();
-            $response->setMinimalFooter();
+            $responseRenderer = ResponseRenderer::getInstance();
+            $responseRenderer->setAjax($request->isAjax());
+            $responseRenderer->getHeader()->disableMenuAndConsole();
+            $responseRenderer->setMinimalFooter();
         }
 
-        $response = ResponseRenderer::getInstance();
-        $response->setAjax($request->isAjax());
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setAjax($request->isAjax());
 
         /**
          * There is no point in even attempting to process
          * an ajax request if there is a token mismatch
          */
         if ($request->isAjax() && $request->isPost() && $GLOBALS['token_mismatch']) {
-            $response->setRequestStatus(false);
-            $response->addJSON(
+            $responseRenderer->setRequestStatus(false);
+            $responseRenderer->addJSON(
                 'message',
                 Message::error(__('Error: Token mismatch')),
             );
@@ -290,7 +293,7 @@ final class Application
             return null;
         }
 
-        Profiling::check($GLOBALS['dbi'], $response);
+        Profiling::check($GLOBALS['dbi'], $responseRenderer);
 
         $container->set('response', ResponseRenderer::getInstance());
 
@@ -306,9 +309,7 @@ final class Application
             $GLOBALS['dbi']->postConnectControl($relation);
         }
 
-        Routing::callControllerForRoute($request, Routing::getDispatcher(), $container);
-
-        return null;
+        return Routing::callControllerForRoute($request, Routing::getDispatcher(), $container, $this->responseFactory);
     }
 
     /**
