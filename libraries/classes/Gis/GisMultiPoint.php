@@ -317,4 +317,9 @@ class GisMultiPoint extends GisGeometry
 
         return $coords;
     }
+
+    protected function getType(): string
+    {
+        return 'MULTIPOINT';
+    }
 }

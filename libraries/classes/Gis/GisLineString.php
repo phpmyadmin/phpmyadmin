@@ -283,4 +283,9 @@ class GisLineString extends GisGeometry
 
         return $coords;
     }
+
+    protected function getType(): string
+    {
+        return 'LINESTRING';
+    }
 }

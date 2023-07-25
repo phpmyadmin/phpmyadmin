@@ -353,4 +353,9 @@ class GisMultiLineString extends GisGeometry
 
         return $coords;
     }
+
+    protected function getType(): string
+    {
+        return 'MULTILINESTRING';
+    }
 }

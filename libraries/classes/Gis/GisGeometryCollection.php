@@ -297,4 +297,9 @@ class GisGeometryCollection extends GisGeometry
 
         return $params;
     }
+
+    protected function getType(): string
+    {
+        return 'GEOMETRYCOLLECTION';
+    }
 }

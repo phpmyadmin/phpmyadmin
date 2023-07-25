@@ -280,4 +280,9 @@ class GisPoint extends GisGeometry
 
         return ['x' => $points[0][0], 'y' => $points[0][1]];
     }
+
+    protected function getType(): string
+    {
+        return 'POINT';
+    }
 }

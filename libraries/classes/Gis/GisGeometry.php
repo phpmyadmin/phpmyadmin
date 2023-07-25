@@ -13,7 +13,6 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function array_map;
-use function array_reverse;
 use function defined;
 use function explode;
 use function json_encode;
@@ -23,7 +22,6 @@ use function mt_getrandmax;
 use function preg_match;
 use function random_int;
 use function str_replace;
-use function strtoupper;
 use function trim;
 
 /**
@@ -31,8 +29,6 @@ use function trim;
  */
 abstract class GisGeometry
 {
-    private string|null $gisType = null;
-
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
@@ -177,14 +173,7 @@ abstract class GisGeometry
     /**
      * Return the uppercase GIS type name
      */
-    protected function getType(): string
-    {
-        if ($this->gisType === null) {
-            $this->gisType = strtoupper(array_reverse(explode('Gis', static::class))[0]);
-        }
-
-        return $this->gisType;
-    }
+    abstract protected function getType(): string;
 
     /**
      * Generate parameters for the GIS data editor from the value of the GIS column.

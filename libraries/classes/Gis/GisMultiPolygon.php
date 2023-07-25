@@ -466,4 +466,9 @@ class GisMultiPolygon extends GisGeometry
 
         return $coords;
     }
+
+    protected function getType(): string
+    {
+        return 'MULTIPOLYGON';
+    }
 }
