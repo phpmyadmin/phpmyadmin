@@ -270,7 +270,9 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */infection.json)
         foundFile;;
-        */infection.json.dist)
+        */infection.json5.dist)
+        foundFile;;
+        */infection.json5)
         foundFile;;
         */makefile)
         foundFile;;
