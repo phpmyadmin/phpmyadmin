@@ -339,7 +339,7 @@ class ExportHtmlword extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
+        $foreigners = $this->relation->getRelationsAndStatus(
             $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table,
@@ -363,7 +363,7 @@ class ExportHtmlword extends ExportPlugin
         $schemaInsert .= '<td class="print"><strong>'
             . __('Default')
             . '</strong></td>';
-        if ($doRelation && $haveRel) {
+        if ($doRelation && $foreigners !== []) {
             $schemaInsert .= '<td class="print"><strong>'
                 . __('Links to')
                 . '</strong></td>';
@@ -407,11 +407,11 @@ class ExportHtmlword extends ExportPlugin
 
             $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column['Field'];
-            if ($doRelation && $haveRel) {
+            if ($doRelation && $foreigners !== []) {
                 $schemaInsert .= '<td class="print">'
                     . htmlspecialchars(
                         $this->getRelationString(
-                            $resRel,
+                            $foreigners,
                             $fieldName,
                             $db,
                             $aliases,

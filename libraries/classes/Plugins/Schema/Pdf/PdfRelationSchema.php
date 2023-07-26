@@ -200,7 +200,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
             $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'both');
-            if (! $existRel) {
+            if ($existRel === []) {
                 continue;
             }
 

@@ -351,7 +351,7 @@ class ExportTexytext extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
+        $foreigners = $this->relation->getRelationsAndStatus(
             $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table,
@@ -366,7 +366,7 @@ class ExportTexytext extends ExportPlugin
         $textOutput .= '|' . __('Type');
         $textOutput .= '|' . __('Null');
         $textOutput .= '|' . __('Default');
-        if ($doRelation && $haveRel) {
+        if ($doRelation && $foreigners !== []) {
             $textOutput .= '|' . __('Links to');
         }
 
@@ -391,10 +391,10 @@ class ExportTexytext extends ExportPlugin
 
             $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column['Field'];
-            if ($doRelation && $haveRel) {
+            if ($doRelation && $foreigners !== []) {
                 $textOutput .= '|' . htmlspecialchars(
                     $this->getRelationString(
-                        $resRel,
+                        $foreigners,
                         $fieldName,
                         $db,
                         $aliases,

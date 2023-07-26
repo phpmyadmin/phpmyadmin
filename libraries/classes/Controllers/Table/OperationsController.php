@@ -446,7 +446,7 @@ class OperationsController extends AbstractController
             $databaseList = $listDatabase->getList();
         }
 
-        $hasForeignKeys = ! empty($this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign'));
+        $hasForeignKeys = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign') !== [];
         $hasPrivileges = $GLOBALS['table_priv'] && $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'];
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
