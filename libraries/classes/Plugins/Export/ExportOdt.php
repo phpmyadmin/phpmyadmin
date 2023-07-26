@@ -554,13 +554,11 @@ class ExportOdt extends ExportPlugin
      *
      * @param string  $db      database name
      * @param string  $table   table name
-     * @param mixed[] $aliases Aliases of db/table/columns
+     * @param array $triggers
+     * @param string $tableAlias Alias of the table
      */
-    protected function getTriggers(string $db, string $table, array $aliases = []): string
+    protected function getTriggers(string $db, string $table, array $triggers, string $tableAlias = ''): string
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
         $GLOBALS['odt_buffer'] .= '<table:table'
             . ' table:name="' . htmlspecialchars($tableAlias) . '_triggers">'
             . '<table:table-column'
@@ -579,8 +577,6 @@ class ExportOdt extends ExportPlugin
             . '<text:p>' . __('Definition') . '</text:p>'
             . '</table:table-cell>'
             . '</table:table-row>';
-
-        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
 
         foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
@@ -663,7 +659,7 @@ class ExportOdt extends ExportPlugin
                     . __('Triggers') . ' '
                     . htmlspecialchars($tableAlias)
                     . '</text:h>';
-                    $this->getTriggers($db, $table);
+                    $this->getTriggers($db, $table, $triggers, $tableAlias);
                 }
 
                 break;

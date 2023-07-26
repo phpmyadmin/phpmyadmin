@@ -449,10 +449,11 @@ class ExportHtmlword extends ExportPlugin
      *
      * @param string $db    database name
      * @param string $table table name
+     * @param array $triggers
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers(string $db, string $table): string
+    protected function getTriggers(string $db, string $table, array $triggers): string
     {
         $dump = '<table width="100%" cellspacing="1">';
         $dump .= '<tr class="print-category">';
@@ -461,8 +462,6 @@ class ExportHtmlword extends ExportPlugin
         $dump .= '<td class="print"><strong>' . __('Event') . '</strong></td>';
         $dump .= '<td class="print"><strong>' . __('Definition') . '</strong></td>';
         $dump .= '</tr>';
-
-        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
@@ -538,7 +537,7 @@ class ExportHtmlword extends ExportPlugin
                     $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($tableAlias)
                     . '</h2>';
-                    $dump .= $this->getTriggers($db, $table);
+                    $dump .= $this->getTriggers($db, $table, $triggers);
                 }
 
                 break;

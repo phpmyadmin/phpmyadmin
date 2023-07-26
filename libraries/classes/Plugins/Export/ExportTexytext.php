@@ -429,10 +429,11 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string $db    database name
      * @param string $table table name
+     * @param array $triggers
      *
      * @return string Formatted triggers list
      */
-    public function getTriggers(string $db, string $table): string
+    public function getTriggers(string $db, string $table, array $triggers): string
     {
         $dump = "|------\n";
         $dump .= '|' . __('Name');
@@ -440,8 +441,6 @@ class ExportTexytext extends ExportPlugin
         $dump .= '|' . __('Event');
         $dump .= '|' . __('Definition');
         $dump .= "\n|------\n";
-
-        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '|' . $trigger['name'];
@@ -501,7 +500,7 @@ class ExportTexytext extends ExportPlugin
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers !== []) {
                     $dump .= '== ' . __('Triggers') . ' ' . $tableAlias . "\n\n";
-                    $dump .= $this->getTriggers($db, $table);
+                    $dump .= $this->getTriggers($db, $table, $triggers);
                 }
 
                 break;

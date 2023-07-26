@@ -194,10 +194,11 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db    database name
      * @param string $table table name
+     * @param array $triggers
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers(string $db, string $table): string
+    protected function getTriggers(string $db, string $table, array $triggers): string
     {
         return '';
     }
