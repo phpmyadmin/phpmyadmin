@@ -97,7 +97,7 @@ final class SimulateDml
     {
         $tableReferences = Query::getTables($statement);
         $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if (empty($where)) {
+        if ($where === '') {
             $where = '1';
         }
 
@@ -123,7 +123,7 @@ final class SimulateDml
     {
         $tableReferences = Query::getTables($statement);
         $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if (empty($where)) {
+        if ($where === '') {
             $where = '1';
         }
 
