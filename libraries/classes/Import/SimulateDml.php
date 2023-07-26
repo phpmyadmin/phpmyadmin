@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Url;
+use Webmozart\Assert\Assert;
 
 use function implode;
 
@@ -96,22 +97,17 @@ final class SimulateDml
     private function getSimulatedDeleteQuery(Parser $parser, DeleteStatement $statement): string
     {
         $tableReferences = Query::getTables($statement);
-        $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if ($where === '') {
-            $where = '1';
-        }
+        Assert::count($tableReferences, 1, 'No joins allowed in simulation query');
+        Assert::notNull($parser->list, 'Parser list not set');
 
-        $orderAndLimit = '';
-        if (! empty($statement->order)) {
-            $orderAndLimit .= ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
-        }
+        $condition = Query::getClause($statement, $parser->list, 'WHERE');
+        $where = $condition === '' ? '' : ' WHERE ' . $condition;
+        $order = $statement->order === null || $statement->order === []
+            ? ''
+            : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
+        $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        if (! empty($statement->limit)) {
-            $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
-        }
-
-        return 'SELECT 1 FROM ' . implode(', ', $tableReferences) .
-            ' WHERE ' . $where . $orderAndLimit;
+        return 'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit;
     }
 
     /**
@@ -122,30 +118,24 @@ final class SimulateDml
     private function getSimulatedUpdateQuery(Parser $parser, UpdateStatement $statement): string
     {
         $tableReferences = Query::getTables($statement);
-        $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if ($where === '') {
-            $where = '1';
-        }
+        Assert::count($tableReferences, 1, 'No joins allowed in simulation query');
+        Assert::isNonEmptyList($statement->set, 'SET statements missing');
+        Assert::notNull($parser->list, 'Parser list not set');
 
         $diff = [];
         foreach ($statement->set as $set) {
             $diff[] = 'NOT ' . $set->column . ' <=> (' . $set->value . ')';
         }
 
-        if (! empty($diff)) {
-            $where = '(' . $where . ') AND (' . implode(' OR ', $diff) . ')';
-        }
+        $condition = Query::getClause($statement, $parser->list, 'WHERE');
+        $where =
+            ' WHERE' . ($condition === '' ? '' : ' (' . $condition . ') AND') .
+            ' (' . implode(' OR ', $diff) . ')';
+        $order = $statement->order === null || $statement->order === []
+            ? ''
+            : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
+        $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        $orderAndLimit = '';
-        if (! empty($statement->order)) {
-            $orderAndLimit .= ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
-        }
-
-        if (! empty($statement->limit)) {
-            $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
-        }
-
-        return 'SELECT 1' .
-            ' FROM ' . implode(', ', $tableReferences) .
-            ' WHERE ' . $where . $orderAndLimit;    }
+        return 'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit;
+    }
 }

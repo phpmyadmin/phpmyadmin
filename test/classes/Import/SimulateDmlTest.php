@@ -11,7 +11,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-use function count;
+use function array_fill;
 
 /**
  * @covers \PhpMyAdmin\Import\SimulateDml
@@ -57,15 +57,20 @@ class SimulateDmlTest extends AbstractTestCase
                 'SELECT 1 FROM `table_1` WHERE (`id` > 10) AND (NOT `id` <=> (20))',
                 2,
             ],
-            'delete statement' => [
-                'DELETE FROM `table_1` WHERE `id` > 10',
-                'SELECT 1 FROM `table_1` WHERE `id` > 10',
-                2,
-            ],
             'update statement_false_condition' => [
                 'UPDATE `table_1` SET `id` = 20 WHERE 0',
                 'SELECT 1 FROM `table_1` WHERE (0) AND (NOT `id` <=> (20))',
                 0,
+            ],
+            'update statement_no_condition' => [
+                'UPDATE `table_1` SET `id` = 20',
+                'SELECT 1 FROM `table_1` WHERE (NOT `id` <=> (20))',
+                7,
+            ],
+            'delete statement' => [
+                'DELETE FROM `table_1` WHERE `id` > 10',
+                'SELECT 1 FROM `table_1` WHERE `id` > 10',
+                2,
             ],
             'delete statement_false_condition' => [
                 'DELETE FROM `table_1` WHERE 0',
