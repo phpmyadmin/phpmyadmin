@@ -286,7 +286,7 @@ class PrivilegesController extends AbstractController
          * Flush Privileges, show $message and return.
          */
         if (
-            $this->response->isAjax()
+            $request->isAjax()
             && empty($_REQUEST['ajax_page_request'])
             && ! $request->hasQueryParam('export')
             && $request->getParsedBodyParam('submit_mult') !== 'export'
@@ -333,7 +333,7 @@ class PrivilegesController extends AbstractController
 
             unset($GLOBALS['username'], $GLOBALS['hostname']);
 
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->addJSON('message', $export);
                 $this->response->addJSON('title', $title);
 
@@ -381,7 +381,7 @@ class PrivilegesController extends AbstractController
             } else {
                 // A user was selected -> display the user's properties
                 // In an Ajax request, prevent cached values from showing
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     header('Cache-Control: no-cache');
                 }
 

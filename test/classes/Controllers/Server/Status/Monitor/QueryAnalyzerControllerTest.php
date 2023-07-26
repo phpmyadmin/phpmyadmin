@@ -35,7 +35,6 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $value = ['sql_text' => 'insert sql_text', '#' => 10, 'argument' => 'argument argument2'];
 
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $dummyDbi = new DbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
@@ -44,6 +43,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
 
         $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([['database', '', 'database'], ['query', '', 'query']]);
 
         $dummyDbi->addSelectDb('mysql');

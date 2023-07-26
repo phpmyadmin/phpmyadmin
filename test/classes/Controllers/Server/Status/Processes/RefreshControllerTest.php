@@ -57,7 +57,6 @@ class RefreshControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
 
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $controller = new RefreshController(
             $response,
@@ -67,6 +66,7 @@ class RefreshControllerTest extends AbstractTestCase
         );
 
         $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['column_name', '', ''],
             ['order_by_field', '', 'process'],

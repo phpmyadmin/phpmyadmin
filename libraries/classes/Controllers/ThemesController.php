@@ -20,7 +20,12 @@ class ThemesController extends AbstractController
     {
         $themes = $this->themeManager->getThemesArray();
         $themesList = $this->template->render('home/themes', ['themes' => $themes]);
-        $this->response->setAjax(true);
-        $this->response->addJSON('themes', $themesList);
+        if ($request->isAjax()) {
+            $this->response->addJSON('themes', $themesList);
+
+            return;
+        }
+
+        $this->response->addHTML($themesList);
     }
 }

@@ -41,7 +41,6 @@ final class CreateControllerTest extends AbstractTestCase
         $GLOBALS['table'] = '';
 
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $template = new Template();
         $controller = new CreateController($response, $template, $this->dbi);
@@ -59,11 +58,11 @@ final class CreateControllerTest extends AbstractTestCase
         $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
 
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $controller = new CreateController($response, $template, $this->dbi);
 
         $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['new_db', null, 'test_db'],
             ['db_collation', null, 'utf8_general_ci'],

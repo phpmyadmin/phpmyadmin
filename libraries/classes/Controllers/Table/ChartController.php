@@ -43,7 +43,7 @@ class ChartController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()) {
+        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
             $this->ajax();
 
             return;

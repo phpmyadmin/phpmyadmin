@@ -41,7 +41,7 @@ final class EventsController extends AbstractController
 
         $this->addScriptFiles(['database/events.js']);
 
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             $this->checkParameters(['db']);
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
@@ -64,7 +64,7 @@ final class EventsController extends AbstractController
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->events->handleEditor();
 
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {
                     $events = $this->events->getDetails($GLOBALS['db'], $_POST['item_name']);
                     $event = $events[0];
@@ -165,12 +165,12 @@ final class EventsController extends AbstractController
                     'db' => $GLOBALS['db'],
                     'event' => $item,
                     'mode' => $mode,
-                    'is_ajax' => $this->response->isAjax(),
+                    'is_ajax' => $request->isAjax(),
                     'status_display' => $this->events->status['display'],
                     'event_type' => $this->events->type,
                     'event_interval' => $this->events->interval,
                 ]);
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
@@ -189,7 +189,7 @@ final class EventsController extends AbstractController
                 htmlspecialchars(Util::backquote($GLOBALS['db'])),
             );
             $message = Message::error($message);
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
@@ -212,7 +212,7 @@ final class EventsController extends AbstractController
                 $exportData = htmlspecialchars(trim($exportData));
                 $title = sprintf(__('Export of event %s'), $itemName);
 
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
@@ -234,7 +234,7 @@ final class EventsController extends AbstractController
                 );
                 $message = Message::error($message);
 
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
@@ -253,7 +253,7 @@ final class EventsController extends AbstractController
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', $GLOBALS['db']),
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
             'text_dir' => $GLOBALS['text_dir'],
-            'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),
+            'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
     }
 }

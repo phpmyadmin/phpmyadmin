@@ -23,6 +23,10 @@ class LintController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
+        if (! $request->isAjax()) {
+            return;
+        }
+
         /**
          * The SQL query to be analyzed.
          *
@@ -35,8 +39,6 @@ class LintController extends AbstractController
          * @var string $sqlQuery
          */
         $sqlQuery = $request->getParsedBodyParam('sql_query', '');
-
-        $this->response->setAjax(true);
 
         // Disabling standard response.
         $this->response->disable();

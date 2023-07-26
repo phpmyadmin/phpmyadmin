@@ -366,7 +366,7 @@ final class ReplaceController extends AbstractController
          * grid editing. If we are coming from the Edit or Copy link in Browse mode,
          * ajax_page_request is present in the POST parameters.
          */
-        if ($this->response->isAjax() && ! $request->hasBodyParam('ajax_page_request')) {
+        if ($request->isAjax() && ! $request->hasBodyParam('ajax_page_request')) {
             /**
              * If we are in grid editing, we need to process the relational and
              * transformed fields, if they were edited. After that, output the correct

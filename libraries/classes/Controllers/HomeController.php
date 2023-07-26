@@ -62,7 +62,7 @@ class HomeController extends AbstractController
         $GLOBALS['show_query'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
+        if ($request->isAjax() && ! empty($_REQUEST['access_time'])) {
             return;
         }
 

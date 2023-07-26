@@ -34,7 +34,7 @@ class NavigationController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             $this->response->addHTML(
                 Message::error(
                     __('Fatal error: The navigation can only be accessed via AJAX'),

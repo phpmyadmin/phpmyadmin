@@ -96,7 +96,7 @@ class NavigationController extends AbstractController
             ),
         ]);
 
-        if ($this->response->isAjax()) {
+        if ($request->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
 
             return;

@@ -40,18 +40,19 @@ class RealRowCountControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'world';
 
         $response = new ResponseStub();
-        $response->setAjax(true);
 
         $_REQUEST['table'] = 'City';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
 
-        (new RealRowCountController($response, new Template(), $this->dbi))($this->createStub(ServerRequest::class));
+        (new RealRowCountController($response, new Template(), $this->dbi))($request);
 
         $json = $response->getJSONResult();
         $this->assertEquals('4,079', $json['real_row_count']);
 
         $_REQUEST['real_row_count_all'] = 'on';
 
-        (new RealRowCountController($response, new Template(), $this->dbi))($this->createStub(ServerRequest::class));
+        (new RealRowCountController($response, new Template(), $this->dbi))($request);
 
         $json = $response->getJSONResult();
         $expected = [

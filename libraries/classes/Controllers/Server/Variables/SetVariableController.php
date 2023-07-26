@@ -34,7 +34,7 @@ final class SetVariableController extends AbstractController
      */
     public function __invoke(ServerRequest $request, array $vars): void
     {
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             return;
         }
 

@@ -106,14 +106,6 @@ abstract class AbstractTestCase extends TestCase
         $GLOBALS['containerBuilder']->setAlias('response', ResponseRenderer::class);
     }
 
-    protected function setResponseIsAjax(): void
-    {
-        /** @var ResponseRenderer $response */
-        $response = $GLOBALS['containerBuilder']->get(ResponseRenderer::class);
-
-        $response->setAjax(true);
-    }
-
     protected function getResponseHtmlResult(): string
     {
         /** @var ResponseRenderer $response */

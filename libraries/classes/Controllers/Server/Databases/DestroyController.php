@@ -41,7 +41,7 @@ final class DestroyController extends AbstractController
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
 
         if (
-            ! $this->response->isAjax()
+            ! $request->isAjax()
             || (! $this->dbi->isSuperUser() && ! $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $message = Message::error();

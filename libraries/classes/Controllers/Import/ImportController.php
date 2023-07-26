@@ -357,7 +357,7 @@ final class ImportController extends AbstractController
                     }
 
                     $GLOBALS['import_text'] = $bookmark->getQuery();
-                    if ($this->response->isAjax()) {
+                    if ($request->isAjax()) {
                         $GLOBALS['message'] = Message::success(__('Showing bookmark'));
                         $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                         $this->response->addJSON('message', $GLOBALS['message']);
@@ -381,7 +381,7 @@ final class ImportController extends AbstractController
                     }
 
                     $bookmark->delete();
-                    if ($this->response->isAjax()) {
+                    if ($request->isAjax()) {
                         $GLOBALS['message'] = Message::success(
                             __('The bookmark has been deleted.'),
                         );

@@ -55,7 +55,7 @@ class RoutinesController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             /**
              * Displays the header and tabs
              */
@@ -92,7 +92,7 @@ class RoutinesController extends AbstractController
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->routines->handleRequestCreateOrEdit($GLOBALS['db']);
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 if (! $GLOBALS['message']->isSuccess()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $output);
@@ -227,7 +227,7 @@ class RoutinesController extends AbstractController
                     'db' => $GLOBALS['db'],
                     'routine' => $routine,
                     'is_edit_mode' => $mode === 'edit',
-                    'is_ajax' => $this->response->isAjax(),
+                    'is_ajax' => $request->isAjax(),
                     'parameter_rows' => $parameterRows,
                     'charsets' => $charsets,
                     'numeric_options' => $this->routines->numericOptions,
@@ -235,7 +235,7 @@ class RoutinesController extends AbstractController
                     'sql_data_access' => $this->routines->sqlDataAccess,
                 ]);
 
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
                     $this->response->addJSON(
@@ -265,7 +265,7 @@ class RoutinesController extends AbstractController
             );
 
             $message = Message::error($message);
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
@@ -289,7 +289,7 @@ class RoutinesController extends AbstractController
                     htmlspecialchars(Util::backquote($GLOBALS['db'])),
                 );
                 $message = Message::error($message);
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
@@ -304,7 +304,7 @@ class RoutinesController extends AbstractController
             [$output, $message] = $this->routines->handleExecuteRoutine($routine);
 
             // Print/send output
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->setRequestStatus($message->isSuccess());
                 $this->response->addJSON('message', $message->getDisplay() . $output);
                 $this->response->addJSON('dialog', false);
@@ -328,11 +328,11 @@ class RoutinesController extends AbstractController
                 $form = $this->template->render('database/routines/execute_form', [
                     'db' => $GLOBALS['db'],
                     'routine' => $routine,
-                    'ajax' => $this->response->isAjax(),
+                    'ajax' => $request->isAjax(),
                     'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
                     'params' => $params,
                 ]);
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $title = __('Execute routine') . ' ' . Util::backquote(
                         htmlentities($_GET['item_name'], ENT_QUOTES),
                     );
@@ -349,7 +349,7 @@ class RoutinesController extends AbstractController
                 return;
             }
 
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $message = __('Error in processing request:') . ' ';
                 $message .= sprintf(
                     __('No routine with name %1$s found in database %2$s.'),
@@ -389,7 +389,7 @@ class RoutinesController extends AbstractController
                 $exportData = htmlspecialchars(trim($exportData));
                 $title = sprintf(__('Export of routine %s'), $itemName);
 
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
@@ -414,7 +414,7 @@ class RoutinesController extends AbstractController
                 );
                 $message = Message::error($message);
 
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
@@ -430,7 +430,7 @@ class RoutinesController extends AbstractController
         }
 
         $items = Routines::getDetails($this->dbi, $GLOBALS['db'], $type);
-        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
+        $isAjax = $request->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {

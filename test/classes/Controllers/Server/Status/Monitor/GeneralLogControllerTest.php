@@ -54,7 +54,6 @@ class GeneralLogControllerTest extends AbstractTestCase
         $value2 = ['sql_text' => 'update sql_text', '#' => 11, 'argument' => 'argument3 argument4'];
 
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $controller = new GeneralLogController(
             $response,
@@ -65,6 +64,7 @@ class GeneralLogControllerTest extends AbstractTestCase
         );
 
         $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['time_start', null, '0'],
             ['time_end', null, '10'],
