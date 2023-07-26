@@ -1652,7 +1652,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 6
+			count: 5
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -9202,11 +9202,6 @@ parameters:
 
 		-
 			message: "#^Offset 0 does not exist on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
 
@@ -25462,7 +25457,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/Table.php
 
 		-
