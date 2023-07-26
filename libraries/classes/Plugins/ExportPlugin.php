@@ -12,6 +12,7 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Triggers\Trigger;
 
 use function stripos;
 
@@ -192,9 +193,9 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs triggers
      *
-     * @param string $db    database name
-     * @param string $table table name
-     * @param array $triggers
+     * @param string    $db       database name
+     * @param string    $table    table name
+     * @param Trigger[] $triggers
      *
      * @return string Formatted triggers list
      */

@@ -359,10 +359,10 @@ class Pdf extends PdfLib
         $data = [];
 
         foreach ($triggers as $trigger) {
-            $data[] = $trigger['name'];
-            $data[] = $trigger['action_timing'];
-            $data[] = $trigger['event_manipulation'];
-            $data[] = $trigger['definition'];
+            $data[] = $trigger->name->getName();
+            $data[] = $trigger->timing->value;
+            $data[] = $trigger->event->value;
+            $data[] = $trigger->statement;
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth + $l, $h);

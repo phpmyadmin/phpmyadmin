@@ -18,6 +18,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
 
@@ -552,15 +553,14 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string  $db      database name
-     * @param string  $table   table name
-     * @param array $triggers
-     * @param string $tableAlias Alias of the table
+     * @param string    $db       database name
+     * @param string    $table    table name
+     * @param Trigger[] $triggers
      */
-    protected function getTriggers(string $db, string $table, array $triggers, string $tableAlias = ''): string
+    protected function getTriggers(string $db, string $table, array $triggers): string
     {
         $GLOBALS['odt_buffer'] .= '<table:table'
-            . ' table:name="' . htmlspecialchars($tableAlias) . '_triggers">'
+            . ' table:name="' . htmlspecialchars($table) . '_triggers">'
             . '<table:table-column'
             . ' table:number-columns-repeated="4"/>'
             . '<table:table-row>'
@@ -582,22 +582,22 @@ class ExportOdt extends ExportPlugin
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>'
-                . htmlspecialchars($trigger['name'])
+                . htmlspecialchars($trigger->name->getName())
                 . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>'
-                . htmlspecialchars($trigger['action_timing'])
+                . htmlspecialchars($trigger->timing->value)
                 . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>'
-                . htmlspecialchars($trigger['event_manipulation'])
+                . htmlspecialchars($trigger->event->value)
                 . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>'
-                . htmlspecialchars($trigger['definition'])
+                . htmlspecialchars($trigger->statement)
                 . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
@@ -659,7 +659,7 @@ class ExportOdt extends ExportPlugin
                     . __('Triggers') . ' '
                     . htmlspecialchars($tableAlias)
                     . '</text:h>';
-                    $this->getTriggers($db, $table, $triggers, $tableAlias);
+                    $this->getTriggers($db, $tableAlias, $triggers);
                 }
 
                 break;

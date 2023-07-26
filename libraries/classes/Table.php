@@ -1394,13 +1394,13 @@ class Table implements Stringable
         }
 
         // If the table is moved to a different database drop its triggers first
-        $triggers = Triggers::getDetails($this->dbi, $this->getDbName(), $this->getName(), '');
+        $triggers = Triggers::getDetails($this->dbi, $this->getDbName(), $this->getName());
         $handleTriggers = $this->getDbName() !== $newDb && $triggers !== [];
         if ($handleTriggers) {
             foreach ($triggers as $trigger) {
                 $sql = 'DROP TRIGGER IF EXISTS '
                     . Util::backquote($this->getDbName())
-                    . '.' . Util::backquote($trigger['name']) . ';';
+                    . '.' . Util::backquote($trigger->name->getName()) . ';';
                 $this->dbi->query($sql);
             }
         }
@@ -1416,7 +1416,7 @@ class Table implements Stringable
             if ($handleTriggers) {
                 $this->dbi->selectDb($this->getDbName());
                 foreach ($triggers as $trigger) {
-                    $this->dbi->query($trigger['create']);
+                    $this->dbi->query($trigger->getCreateSql(''));
                 }
             }
 

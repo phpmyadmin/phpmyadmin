@@ -10246,13 +10246,13 @@ parameters:
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getExportData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
+			count: 3
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
@@ -10268,11 +10268,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 3
-			path: libraries/classes/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDataFromName\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
@@ -10301,13 +10296,18 @@ parameters:
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
+			message: "#^Parameter \\#1 \\$trigger of method PhpMyAdmin\\\\Controllers\\\\Triggers\\\\IndexController\\:\\:getDataFromTrigger\\(\\) expects PhpMyAdmin\\\\Triggers\\\\Trigger, PhpMyAdmin\\\\Triggers\\\\Trigger\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Triggers/IndexController.php
+
+		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
 			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
@@ -10316,8 +10316,8 @@ parameters:
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getExportData\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
+			count: 3
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
@@ -10326,8 +10326,13 @@ parameters:
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
 			count: 2
+			path: libraries/classes/Controllers/Triggers/IndexController.php
+
+		-
+			message: "#^Parameter \\#3 \\$table of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
@@ -17466,11 +17471,6 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<int, array\\<string, string\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Parameter \\#1 \\$collation of static method PhpMyAdmin\\\\Util\\:\\:getCharsetQueryPart\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Operations.php
@@ -18751,11 +18751,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<int, array\\<string, string\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportHtmlword\\:\\:formatOneColumnDefinition\\(\\) expects array, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
@@ -18767,7 +18762,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -19241,11 +19236,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<int, array\\<string, string\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, array\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportOdt.php
@@ -19262,7 +19252,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
@@ -19272,7 +19262,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 16
+			count: 15
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
@@ -19282,6 +19272,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportOdt.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportOdt\\:\\:getTriggers\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
@@ -19746,11 +19741,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<int, array\\<string, string\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, array\\<int, string\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -20056,11 +20046,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<int, array\\<string, string\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
 			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportTexytext\\:\\:formatOneColumnDefinition\\(\\) expects array, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
@@ -20072,7 +20057,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
@@ -20212,11 +20197,6 @@ parameters:
 
 		-
 			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<int, array\\<string, string\\>\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
@@ -25411,11 +25391,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array\\<int, array\\<string, string\\>\\> given on the right side\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
 			count: 3
 			path: libraries/classes/Table.php
@@ -26496,18 +26471,18 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
+			message: "#^Cannot call method getCreateSql\\(\\) on PhpMyAdmin\\\\Triggers\\\\Trigger\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Cannot call method getDropSql\\(\\) on PhpMyAdmin\\\\Triggers\\\\Trigger\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 8
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Offset 'drop' does not exist on array\\|null\\.$#"
-			count: 1
+			count: 7
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
@@ -26526,12 +26501,12 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Parameter \\#1 \\$createStatement of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:checkResult\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Triggers/Triggers.php
 
@@ -26551,23 +26526,8 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDataFromName\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
@@ -26581,7 +26541,12 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Triggers/Triggers.php
+
+		-
+			message: "#^Parameter \\#3 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Triggers/Triggers.php
 
@@ -29531,6 +29496,11 @@ parameters:
 			path: test/classes/Controllers/ThemeSetControllerTest.php
 
 		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Http\\\\ServerRequest&PHPUnit\\\\Framework\\\\MockObject\\\\Stub\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: test/classes/Controllers/Triggers/IndexControllerTest.php
+
+		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 2
 			path: test/classes/Controllers/Triggers/IndexControllerTest.php
@@ -29538,6 +29508,16 @@ parameters:
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 2
+			path: test/classes/Controllers/Triggers/IndexControllerTest.php
+
+		-
+			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Triggers/IndexControllerTest.php
+
+		-
+			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			count: 1
 			path: test/classes/Controllers/Triggers/IndexControllerTest.php
 
 		-
@@ -31372,12 +31352,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
@@ -31467,12 +31447,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/Plugins/Export/ExportOdtTest.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/Plugins/Export/ExportOdtTest.php
 
 		-
@@ -31567,12 +31547,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/Plugins/Export/ExportTexytextTest.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/Plugins/Export/ExportTexytextTest.php
 
 		-

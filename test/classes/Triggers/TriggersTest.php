@@ -39,78 +39,6 @@ class TriggersTest extends AbstractTestCase
     }
 
     /**
-     * Test for getDataFromRequest
-     *
-     * @param array<string, string> $in  Input
-     * @param array<string, string> $out Expected output
-     */
-    #[DataProvider('providerGetDataFromRequestEmpty')]
-    public function testGetDataFromRequestEmpty(array $in, array $out): void
-    {
-        unset($_POST);
-        foreach ($in as $key => $value) {
-            if ($value === '') {
-                continue;
-            }
-
-            $_POST[$key] = $value;
-        }
-
-        $this->assertEquals($out, $this->triggers->getDataFromRequest());
-    }
-
-    /**
-     * Data provider for testGetDataFromRequestEmpty
-     *
-     * @return array<array{array<string, string>, array<string, string>}>
-     */
-    public static function providerGetDataFromRequestEmpty(): array
-    {
-        return [
-            [
-                [
-                    'item_name' => '',
-                    'item_table' => '',
-                    'item_original_name' => '',
-                    'item_action_timing' => '',
-                    'item_event_manipulation' => '',
-                    'item_definition' => '',
-                    'item_definer' => '',
-                ],
-                [
-                    'item_name' => '',
-                    'item_table' => '',
-                    'item_original_name' => '',
-                    'item_action_timing' => '',
-                    'item_event_manipulation' => '',
-                    'item_definition' => '',
-                    'item_definer' => '',
-                ],
-            ],
-            [
-                [
-                    'item_name' => 'foo',
-                    'item_table' => 'foo',
-                    'item_original_name' => 'foo',
-                    'item_action_timing' => 'foo',
-                    'item_event_manipulation' => 'foo',
-                    'item_definition' => 'foo',
-                    'item_definer' => 'foo',
-                ],
-                [
-                    'item_name' => 'foo',
-                    'item_table' => 'foo',
-                    'item_original_name' => 'foo',
-                    'item_action_timing' => 'foo',
-                    'item_event_manipulation' => 'foo',
-                    'item_definition' => 'foo',
-                    'item_definer' => 'foo',
-                ],
-            ],
-        ];
-    }
-
-    /**
      * Test for getQueryFromRequest
      *
      * @param string $definer    Definer
@@ -206,28 +134,24 @@ class TriggersTest extends AbstractTestCase
 
         $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db');
         $expected = [
-            [
-                'name' => 'a_trigger',
-                'table' => 'test_table2',
-                'action_timing' => 'BEFORE',
-                'event_manipulation' => 'UPDATE',
-                'definition' => 'BEGIN END',
-                'definer' => 'definer2@localhost',
-                'drop' => 'DROP TRIGGER IF EXISTS `a_trigger`',
-                'create' => "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n//\n",
-            ],
-            [
-                'name' => 'test_trigger',
-                'table' => 'test_table',
-                'action_timing' => 'AFTER',
-                'event_manipulation' => 'INSERT',
-                'definition' => 'BEGIN END',
-                'definer' => 'definer@localhost',
-                'drop' => 'DROP TRIGGER IF EXISTS `test_trigger`',
-                'create' => "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table`\n FOR EACH ROW BEGIN END\n//\n",
-            ],
+            Trigger::tryFromArray([
+                'Trigger' => 'a_trigger',
+                'Table' => 'test_table2',
+                'Timing' => 'BEFORE',
+                'Event' => 'UPDATE',
+                'Statement' => 'BEGIN END',
+                'Definer' => 'definer2@localhost',
+            ]),
+            Trigger::tryFromArray([
+                'Trigger' => 'test_trigger',
+                'Table' => 'test_table',
+                'Timing' => 'AFTER',
+                'Event' => 'INSERT',
+                'Statement' => 'BEGIN END',
+                'Definer' => 'definer@localhost',
+            ]),
         ];
-        $this->assertSame($expected, $triggers);
+        $this->assertEquals($expected, $triggers);
     }
 
     public function testGetDetails2(): void
@@ -240,20 +164,18 @@ class TriggersTest extends AbstractTestCase
             ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
         );
 
-        $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db', 'test_table2', '$$');
+        $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db', 'test_table2');
         $expected = [
-            [
-                'name' => 'a_trigger',
-                'table' => 'test_table2',
-                'action_timing' => 'BEFORE',
-                'event_manipulation' => 'UPDATE',
-                'definition' => 'BEGIN END',
-                'definer' => 'definer2@localhost',
-                'drop' => 'DROP TRIGGER IF EXISTS `a_trigger`',
-                'create' => "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n$$\n",
-            ],
+            Trigger::tryFromArray([
+                'Trigger' => 'a_trigger',
+                'Table' => 'test_table2',
+                'Timing' => 'BEFORE',
+                'Event' => 'UPDATE',
+                'Statement' => 'BEGIN END',
+                'Definer' => 'definer2@localhost',
+            ]),
         ];
-        $this->assertSame($expected, $triggers);
+        $this->assertEquals($expected, $triggers);
     }
 
     public function testGetDetails3(): void
@@ -270,18 +192,16 @@ class TriggersTest extends AbstractTestCase
 
         $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db');
         $expected = [
-            [
-                'name' => 'test_trigger',
-                'table' => 'test_table',
-                'action_timing' => 'AFTER',
-                'event_manipulation' => 'DELETE',
-                'definition' => 'BEGIN END',
-                'definer' => 'definer@localhost',
-                'drop' => 'DROP TRIGGER IF EXISTS `test_trigger`',
-                'create' => "CREATE TRIGGER `test_trigger` AFTER DELETE ON `test_table`\n FOR EACH ROW BEGIN END\n//\n",
-            ],
+            Trigger::tryFromArray([
+                'Trigger' => 'test_trigger',
+                'Table' => 'test_table',
+                'Timing' => 'AFTER',
+                'Event' => 'DELETE',
+                'Statement' => 'BEGIN END',
+                'Definer' => 'definer@localhost',
+            ]),
         ];
-        $this->assertSame($expected, $triggers);
+        $this->assertEquals($expected, $triggers);
     }
 
     public function testGetDetails4(): void
@@ -298,17 +218,15 @@ class TriggersTest extends AbstractTestCase
 
         $triggers = Triggers::getDetails($this->createDatabaseInterface($dbiDummy), 'test_db', 'test_table');
         $expected = [
-            [
-                'name' => 'test_trigger',
-                'table' => 'test_table',
-                'action_timing' => 'AFTER',
-                'event_manipulation' => 'DELETE',
-                'definition' => 'BEGIN END',
-                'definer' => 'definer@localhost',
-                'drop' => 'DROP TRIGGER IF EXISTS `test_trigger`',
-                'create' => "CREATE TRIGGER `test_trigger` AFTER DELETE ON `test_table`\n FOR EACH ROW BEGIN END\n//\n",
-            ],
+            Trigger::tryFromArray([
+                'Trigger' => 'test_trigger',
+                'Table' => 'test_table',
+                'Timing' => 'AFTER',
+                'Event' => 'DELETE',
+                'Statement' => 'BEGIN END',
+                'Definer' => 'definer@localhost',
+            ]),
         ];
-        $this->assertSame($expected, $triggers);
+        $this->assertEquals($expected, $triggers);
     }
 }

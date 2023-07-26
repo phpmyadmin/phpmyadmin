@@ -8,6 +8,8 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,6 +20,9 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Triggers\Event;
+use PhpMyAdmin\Triggers\Timing;
+use PhpMyAdmin\Triggers\Trigger;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use ReflectionMethod;
@@ -317,32 +322,18 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testGetTriggers(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
         $triggers = [
-            [
-                'TRIGGER_SCHEMA' => 'database',
-                'TRIGGER_NAME' => 'tna"me',
-                'EVENT_MANIPULATION' => 'DELETE',
-                'EVENT_OBJECT_TABLE' => 'ta<ble',
-                'ACTION_TIMING' => 'BEFORE',
-                'ACTION_STATEMENT' => 'def',
-                'EVENT_OBJECT_SCHEMA' => 'database',
-                'DEFINER' => 'test_user@localhost',
-            ],
+            new Trigger(
+                TriggerName::from('tna"me'),
+                Timing::Before,
+                Event::Delete,
+                TableName::from('ta<ble'),
+                'def',
+                'test_user@localhost',
+            ),
         ];
 
-        $dbi->expects($this->once())
-            ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($triggers);
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $result = $this->object->getTriggers('database', 'ta<ble');
+        $result = $this->object->getTriggers('database', 'ta<ble', $triggers);
 
         $this->assertStringContainsString('|tna"me|BEFORE|DELETE|def', $result);
 

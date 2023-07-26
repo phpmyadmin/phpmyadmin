@@ -298,9 +298,9 @@ class ExportXml extends ExportPlugin
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $GLOBALS['db'], $table);
 
                 foreach ($triggers as $trigger) {
-                    $code = $trigger['create'];
+                    $code = $trigger->getCreateSql();
                     $head .= '            <pma:trigger name="'
-                        . htmlspecialchars($trigger['name']) . '">' . "\n";
+                        . htmlspecialchars($trigger->name->getName()) . '">' . "\n";
 
                     // Do some formatting
                     $code = mb_substr(rtrim($code), 0, -3);

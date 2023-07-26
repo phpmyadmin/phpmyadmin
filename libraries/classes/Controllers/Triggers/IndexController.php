@@ -12,6 +12,7 @@ use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -87,18 +88,17 @@ final class IndexController extends AbstractController
 
             if ($request->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {
-                    $items = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
-                    $trigger = false;
-                    foreach ($items as $value) {
-                        if ($value['name'] != $_POST['item_name']) {
-                            continue;
-                        }
-
-                        $trigger = $value;
-                    }
+                    $trigger = $this->triggers->getTriggerByName(
+                        $GLOBALS['db'],
+                        $GLOBALS['table'],
+                        $_POST['item_name'],
+                    );
 
                     $insert = false;
-                    if (empty($GLOBALS['table']) || ($trigger !== false && $GLOBALS['table'] == $trigger['table'])) {
+                    if (
+                        empty($GLOBALS['table'])
+                        || ($trigger !== null && $GLOBALS['table'] === $trigger->table->getName())
+                    ) {
                         $insert = true;
                         $hasTriggerPrivilege = Util::currentUserHasPrivilege(
                             'TRIGGER',
@@ -154,17 +154,16 @@ final class IndexController extends AbstractController
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
                 $title = __('Add trigger');
-                $item = $this->triggers->getDataFromRequest();
+                $item = $this->getDataFromRequest($request);
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __('Edit trigger');
                 if (! empty($_REQUEST['item_name']) && empty($_POST['editor_process_edit'])) {
-                    $item = $this->triggers->getDataFromName($_REQUEST['item_name']);
-                    if ($item !== null) {
-                        $item['item_original_name'] = $item['item_name'];
-                    }
+                    $item = $this->getDataFromTrigger(
+                        $this->triggers->getTriggerByName($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['item_name']),
+                    );
                 } else {
-                    $item = $this->triggers->getDataFromRequest();
+                    $item = $this->getDataFromRequest($request);
                 }
 
                 $mode = 'edit';
@@ -214,7 +213,11 @@ final class IndexController extends AbstractController
         $message = null;
         $triggerName = TriggerName::tryFrom($request->getQueryParam('item_name'));
         if ($request->hasQueryParam('export_item') && $triggerName !== null) {
-            $exportData = $this->triggers->getExportData($GLOBALS['db'], $GLOBALS['table'], $triggerName);
+            $exportData = $this->triggers->getTriggerByName(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $triggerName->getName(),
+            )?->getCreateSql('');
             if ($exportData !== null && $request->isAjax()) {
                 $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($triggerName)));
                 $this->response->addJSON('title', $title);
@@ -254,5 +257,44 @@ final class IndexController extends AbstractController
             'is_ajax' => $isAjax,
             'error_message' => $message?->getDisplay() ?? '',
         ]);
+    }
+
+    /**
+     * This function will generate the values that are required to for the editor
+     *
+     * @return mixed[]    Data necessary to create the editor.
+     */
+    private function getDataFromRequest(ServerRequest $request): array
+    {
+        return [
+            'item_name' => $request->getParsedBodyParam('item_name', ''),
+            'item_table' => $request->getParsedBodyParam('item_table', ''),
+            'item_original_name' => $request->getParsedBodyParam('item_original_name', ''),
+            'item_action_timing' => $request->getParsedBodyParam('item_action_timing', ''),
+            'item_event_manipulation' => $request->getParsedBodyParam('item_event_manipulation', ''),
+            'item_definition' => $request->getParsedBodyParam('item_definition', ''),
+            'item_definer' => $request->getParsedBodyParam('item_definer', ''),
+        ];
+    }
+
+    /**
+     * This function will generate the values that are required to complete
+     * the "Edit trigger" form given the trigger.
+     *
+     * @return mixed[]    Data necessary to create the editor.
+     */
+    private function getDataFromTrigger(Trigger $trigger): array
+    {
+        return [
+            'create' => $trigger->getCreateSql(''),
+            'drop' => $trigger->getDropSql(),
+            'item_name' => $trigger->name->getName(),
+            'item_table' => $trigger->table->getName(),
+            'item_action_timing' => $trigger->timing->value,
+            'item_event_manipulation' => $trigger->event->value,
+            'item_definition' => $trigger->statement,
+            'item_definer' => $trigger->definer,
+            'item_original_name' => $trigger->name->getName(),
+        ];
     }
 }

@@ -4257,17 +4257,21 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->triggers->getTriggerByName($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['item_name'])]]></code>
+    </PossiblyNullArgument>
     <PossiblyNullReference>
       <code>isSuccess</code>
     </PossiblyNullReference>
@@ -8524,7 +8528,6 @@
       <code>$tableAlias</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
-      <code>$tableAlias</code>
       <code>$viewAlias</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
@@ -12402,7 +12405,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code>$createItem</code>
     </MixedArgument>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -12417,12 +12419,10 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code>$createItem</code>
       <code>$string</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$string</code>
-      <code><![CDATA[$trigger['drop']]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_definer']]]></code>
@@ -12440,23 +12440,11 @@
       <code><![CDATA[$_POST['item_event']]]></code>
       <code><![CDATA[$_POST['item_timing']]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code>$createItem</code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$trigger['create']]]></code>
-      <code><![CDATA[$trigger['drop']]]></code>
-    </PossiblyNullArrayAccess>
+    <PossiblyNullReference>
+      <code>getCreateSql</code>
+    </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$temp['action_timing']]]></code>
-      <code><![CDATA[$temp['create']]]></code>
-      <code><![CDATA[$temp['definer']]]></code>
-      <code><![CDATA[$temp['definition']]]></code>
-      <code><![CDATA[$temp['drop']]]></code>
-      <code><![CDATA[$temp['event_manipulation']]]></code>
-      <code><![CDATA[$temp['name']]]></code>
-      <code><![CDATA[$temp['table']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Twig/AssetExtension.php">
@@ -13490,6 +13478,21 @@
     <PossiblyUnusedMethod>
       <code>providerForTestWithoutTheme</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Triggers/IndexControllerTest.php">
+    <MixedAssignment>
+      <code>$output</code>
+    </MixedAssignment>
+    <MixedMethodCall>
+      <code>method</code>
+      <code>will</code>
+    </MixedMethodCall>
+    <PossiblyUnusedMethod>
+      <code>providerGetDataFromRequest</code>
+    </PossiblyUnusedMethod>
+    <UndefinedInterfaceMethod>
+      <code>expects</code>
+    </UndefinedInterfaceMethod>
   </file>
   <file src="test/classes/CoreTest.php">
     <MixedArgument>
@@ -14619,7 +14622,6 @@
   </file>
   <file src="test/classes/Triggers/TriggersTest.php">
     <PossiblyUnusedMethod>
-      <code>providerGetDataFromRequestEmpty</code>
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>

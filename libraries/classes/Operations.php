@@ -188,7 +188,7 @@ class Operations
             // keep the triggers from the original db+table
             // (third param is empty because delimiters are only intended
             //  for importing via the mysql client or our Import feature)
-            $triggers = Triggers::getDetails($this->dbi, $db, $table, '');
+            $triggers = Triggers::getDetails($this->dbi, $db, $table);
 
             if (
                 ! Table::moveCopy(
@@ -210,8 +210,9 @@ class Operations
             if ($triggers !== []) {
                 $this->dbi->selectDb($newDatabaseName);
                 foreach ($triggers as $trigger) {
-                    $this->dbi->query($trigger['create']);
-                    $GLOBALS['sql_query'] .= "\n" . $trigger['create'] . ';';
+                    $createSqlQuery = $trigger->getCreateSql('');
+                    $this->dbi->query($createSqlQuery);
+                    $GLOBALS['sql_query'] .= "\n" . $createSqlQuery . ';';
                 }
             }
 

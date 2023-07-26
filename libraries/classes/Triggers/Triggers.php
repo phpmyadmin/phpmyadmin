@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Triggers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Util;
@@ -39,12 +38,10 @@ class Triggers
     {
     }
 
-    /**
-     * @return mixed[][]
-     */
+    /** @return mixed[][] */
     private static function fetchTriggerInfo(DatabaseInterface $dbi, string $db, string $table): array
     {
-        if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaTriggersRequest(
                 $dbi->quoteString($db),
                 $table === '' ? null : $dbi->quoteString($table),
@@ -56,7 +53,10 @@ class Triggers
             }
         }
 
-        return $dbi->fetchResult($query);
+        /** @var mixed[][] $triggers */
+        $triggers = $dbi->fetchResult($query);
+
+        return $triggers;
     }
 
     /**
@@ -73,9 +73,9 @@ class Triggers
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
-                $trigger = $this->getDataFromName($_POST['item_original_name']);
-                $createItem = $trigger['create'];
-                $dropItem = $trigger['drop'] . ';';
+                $trigger = $this->getTriggerByName($GLOBALS['db'], $GLOBALS['table'], $_POST['item_original_name']);
+                $createItem = $trigger->getCreateSql('');
+                $dropItem = $trigger->getDropSql();
                 $result = $this->dbi->tryQuery($dropItem);
                 if (! $result) {
                     $GLOBALS['errors'][] = sprintf(
@@ -151,65 +151,17 @@ class Triggers
         return Generator::getMessage($GLOBALS['message'], $sqlQuery);
     }
 
-    /**
-     * This function will generate the values that are required to for the editor
-     *
-     * @return mixed[]    Data necessary to create the editor.
-     */
-    public function getDataFromRequest(): array
+    /** @return Trigger|null Data necessary to create the editor. */
+    public function getTriggerByName(string $db, string $table, string $name): Trigger|null
     {
-        $retval = [];
-        $indices = [
-            'item_name',
-            'item_table',
-            'item_original_name',
-            'item_action_timing',
-            'item_event_manipulation',
-            'item_definition',
-            'item_definer',
-        ];
-        foreach ($indices as $index) {
-            $retval[$index] = $_POST[$index] ?? '';
-        }
-
-        return $retval;
-    }
-
-    /**
-     * This function will generate the values that are required to complete
-     * the "Edit trigger" form given the name of a trigger.
-     *
-     * @param string $name The name of the trigger.
-     *
-     * @return mixed[]|null Data necessary to create the editor.
-     */
-    public function getDataFromName(string $name): array|null
-    {
-        $temp = [];
-        $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
-        foreach ($items as $value) {
-            if ($value['name'] != $name) {
-                continue;
+        $triggers = self::getDetails($this->dbi, $db, $table);
+        foreach ($triggers as $trigger) {
+            if ($trigger->name->getName() === $name) {
+                return $trigger;
             }
-
-            $temp = $value;
         }
 
-        if (empty($temp)) {
-            return null;
-        }
-
-        $retval = [];
-        $retval['create'] = $temp['create'];
-        $retval['drop'] = $temp['drop'];
-        $retval['item_name'] = $temp['name'];
-        $retval['item_table'] = $temp['table'];
-        $retval['item_action_timing'] = $temp['action_timing'];
-        $retval['item_event_manipulation'] = $temp['event_manipulation'];
-        $retval['item_definition'] = $temp['definition'];
-        $retval['item_definer'] = $temp['definer'];
-
-        return $retval;
+        return null;
     }
 
     /**
@@ -289,42 +241,15 @@ class Triggers
         return $errors;
     }
 
-    /** @psalm-return non-empty-string|null */
-    public function getExportData(string $db, string $table, TriggerName $triggerName): string|null
-    {
-        $triggers = self::getDetails($this->dbi, $db, $table, '');
-        foreach ($triggers as $trigger) {
-            if ($trigger['name'] === $triggerName->getName()) {
-                return $trigger['create'];
-            }
-        }
-
-        return null;
-    }
-
     /**
      * Returns details about the TRIGGERs for a specific table or database.
      *
-     * @param string $db        db name
-     * @param string $table     table name
-     * @param string $delimiter the delimiter to use (may be empty)
-     *
-     * @psalm-return list<array{
-     *   name: non-empty-string,
-     *   table: non-empty-string,
-     *   action_timing: value-of<Timing>,
-     *   event_manipulation: value-of<Event>,
-     *   definition: string,
-     *   definer: string,
-     *   drop: non-empty-string,
-     *   create: non-empty-string,
-     * }>
+     * @return Trigger[]
      */
     public static function getDetails(
         DatabaseInterface $dbi,
         string $db,
         string $table = '',
-        string $delimiter = '//',
     ): array {
         $result = [];
         $triggers = self::fetchTriggerInfo($dbi, $db, $table);
@@ -335,23 +260,7 @@ class Triggers
                 continue;
             }
 
-            $oneResult = [];
-            $oneResult['name'] = $newTrigger->name->getName();
-            $oneResult['table'] = $newTrigger->table->getName();
-            $oneResult['action_timing'] = $newTrigger->timing->value;
-            $oneResult['event_manipulation'] = $newTrigger->event->value;
-            $oneResult['definition'] = $newTrigger->statement;
-            $oneResult['definer'] = $newTrigger->definer;
-
-            // do not prepend the schema name; this way, importing the
-            // definition into another schema will work
-            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS ' . Util::backquote($newTrigger->name);
-            $oneResult['create'] = QueryGenerator::getCreateTrigger(
-                $newTrigger,
-                $delimiter,
-            );
-
-            $result[] = $oneResult;
+            $result[] = $newTrigger;
         }
 
         // Sort results by name

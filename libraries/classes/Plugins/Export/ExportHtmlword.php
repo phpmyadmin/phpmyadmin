@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
 
@@ -447,9 +448,9 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string $db    database name
-     * @param string $table table name
-     * @param array $triggers
+     * @param string    $db       database name
+     * @param string    $table    table name
+     * @param Trigger[] $triggers
      *
      * @return string Formatted triggers list
      */
@@ -466,16 +467,16 @@ class ExportHtmlword extends ExportPlugin
         foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
             $dump .= '<td class="print">'
-                . htmlspecialchars($trigger['name'])
+                . htmlspecialchars($trigger->name->getName())
                 . '</td>'
                 . '<td class="print">'
-                . htmlspecialchars($trigger['action_timing'])
+                . htmlspecialchars($trigger->timing->value)
                 . '</td>'
                 . '<td class="print">'
-                . htmlspecialchars($trigger['event_manipulation'])
+                . htmlspecialchars($trigger->event->value)
                 . '</td>'
                 . '<td class="print">'
-                . htmlspecialchars($trigger['definition'])
+                . htmlspecialchars($trigger->statement)
                 . '</td>'
                 . '</tr>';
         }
