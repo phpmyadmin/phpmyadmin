@@ -9706,12 +9706,9 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportJson.php">
-    <MixedArgument occurrences="1">
-      <code>$col_as</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$col_as</code>
-    </MixedAssignment>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$aliases</code>
+    </MixedArgumentTypeCoercion>
     <MixedOperand occurrences="4">
       <code>$crlf</code>
       <code>$crlf</code>
@@ -16413,71 +16410,36 @@
     </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/Stubs/DbiDummy.php">
-    <InvalidDocblock occurrences="2">
-      <code>private $dummyQueries = [];</code>
-      <code>private $filoQueries = [];</code>
-    </InvalidDocblock>
-    <MissingPropertyType occurrences="2">
-      <code>$dummyQueries</code>
-      <code>$filoQueries</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="3">
       <code>$query_data['columns'] ?? []</code>
       <code>$query_data['result']</code>
       <code>$query_data['result']</code>
-      <code>$this-&gt;dummyQueries</code>
-      <code>$this-&gt;filoQueries</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="12">
-      <code>$query['used']</code>
+    <MixedArrayAccess occurrences="2">
       <code>$query_data['columns'][$key]</code>
       <code>$query_data['result'][$query_data['pos']]</code>
-      <code>$this-&gt;dummyQueries[$i]</code>
-      <code>$this-&gt;dummyQueries[$i]</code>
-      <code>$this-&gt;dummyQueries[$i]['result']</code>
-      <code>$this-&gt;dummyQueries[$result - self::OFFSET_GLOBAL]</code>
-      <code>$this-&gt;filoQueries[$i]</code>
-      <code>$this-&gt;filoQueries[$i]</code>
-      <code>$this-&gt;filoQueries[$i]</code>
-      <code>$this-&gt;filoQueries[$i]['result']</code>
-      <code>$this-&gt;filoQueries[$result]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;dummyQueries[$i]</code>
-      <code>$this-&gt;filoQueries[$i]</code>
-      <code>$this-&gt;filoQueries[$i]</code>
-      <code>$this-&gt;filoQueries[]</code>
-    </MixedArrayAssignment>
     <MixedArrayOffset occurrences="2">
       <code>$query_data['result'][$query_data['pos']]</code>
       <code>$ret[$query_data['columns'][$key]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="6">
-      <code>$query</code>
+    <MixedAssignment occurrences="4">
       <code>$query_data['pos']</code>
       <code>$ret</code>
       <code>$ret[$query_data['columns'][$key]]</code>
-      <code>$unUsed[]</code>
       <code>$val</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="2">
       <code>?array</code>
-      <code>array</code>
       <code>int|numeric-string</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="1">
       <code>$query_data['pos']</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="4">
+    <MixedReturnStatement occurrences="2">
       <code>$cached_affected_rows ?? 0</code>
       <code>$ret</code>
-      <code>$this-&gt;dummyQueries[$result - self::OFFSET_GLOBAL]</code>
-      <code>$this-&gt;filoQueries[$result]</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>$unUsed</code>
-      <code>array[]</code>
-    </MixedReturnTypeCoercion>
   </file>
   <file src="test/classes/Stubs/DummyResult.php">
     <MixedReturnTypeCoercion occurrences="6">

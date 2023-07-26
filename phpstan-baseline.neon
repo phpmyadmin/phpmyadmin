@@ -5831,11 +5831,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:doExportForQuery\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
@@ -10912,26 +10907,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:getUnUsedQueries\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$dummyQueries contains unresolvable type\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$filoQueries contains unresolvable type\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$dummyQueries type has no value type specified in iterable type array\\<string, mixed\\>\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$filoQueries type has no value type specified in iterable type array\\<string, mixed\\>\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
 

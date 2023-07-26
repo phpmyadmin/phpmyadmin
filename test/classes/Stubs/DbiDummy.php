@@ -50,9 +50,9 @@ class DbiDummy implements DbiExtension
      * @var array
      * @phpstan-var array{
      *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
+     *     'result': list<array<string|float|int|null>>|array{true}|bool,
      *     'columns'?: string[],
-     *     'metadata'?: object[]|empty-array,
+     *     'metadata'?: object[],
      *     'used'?: bool,
      *     'pos'?: int
      * }[]
@@ -72,9 +72,9 @@ class DbiDummy implements DbiExtension
      * @var array
      * @phpstan-var array{
      *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
+     *     'result': list<array<string|float|int|null>>|bool,
      *     'columns'?: string[],
-     *     'metadata'?: object[]|empty-array,
+     *     'metadata'?: object[],
      *     'pos'?: int
      * }[]
      */
@@ -493,7 +493,7 @@ class DbiDummy implements DbiExtension
      * @param array|bool $result   Expected result
      * @param string[]   $columns  The result columns
      * @param object[]   $metadata The result metadata
-     * @phpstan-param array<int, array<int, array{string: string}|bool|int|string|null>|bool>|bool $result
+     * @phpstan-param list<array<string|float|int|null>>|array{true}|bool $result
      */
     public function addResult(string $query, $result, array $columns = [], array $metadata = []): void
     {
