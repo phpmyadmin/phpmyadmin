@@ -110,7 +110,7 @@ final class SimulateDml
             $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
         }
 
-        return 'SELECT * FROM ' . implode(', ', $tableReferences) .
+        return 'SELECT 1 FROM ' . implode(', ', $tableReferences) .
             ' WHERE ' . $where . $orderAndLimit;
     }
 
@@ -127,10 +127,8 @@ final class SimulateDml
             $where = '1';
         }
 
-        $columns = [];
         $diff = [];
         foreach ($statement->set as $set) {
-            $columns[] = $set->column;
             $diff[] = 'NOT ' . $set->column . ' <=> (' . $set->value . ')';
         }
 
@@ -147,8 +145,7 @@ final class SimulateDml
             $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
         }
 
-        return 'SELECT ' . implode(', ', $columns) .
+        return 'SELECT 1' .
             ' FROM ' . implode(', ', $tableReferences) .
-            ' WHERE ' . $where . $orderAndLimit;
-    }
+            ' WHERE ' . $where . $orderAndLimit;    }
 }
