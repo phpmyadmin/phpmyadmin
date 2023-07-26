@@ -209,9 +209,9 @@ class Pdf extends PdfLib
     /**
      * Generate table
      *
-     * @param int $lineheight Height of line
+     * @param int|float $lineheight Height of line
      */
-    public function morepagestable(int $lineheight = 8): void
+    public function morepagestable(int|float $lineheight = 8): void
     {
         // some things to set and 'remember'
         $l = $this->lMargin;

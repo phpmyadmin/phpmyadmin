@@ -20541,7 +20541,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Parameter \\#1 \\$lineheight of method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:morepagestable\\(\\) expects int, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$lineheight of method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:morepagestable\\(\\) expects float\\|int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
