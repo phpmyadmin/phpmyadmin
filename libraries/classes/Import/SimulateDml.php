@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
 use function implode;
@@ -115,23 +116,29 @@ final class SimulateDml
         Assert::count($tableReferences, 1, 'No joins allowed in simulation query');
         Assert::isNonEmptyList($statement->set, 'SET statements missing');
         Assert::notNull($parser->list, 'Parser list not set');
-
-        $diff = [];
+        $newValues = [];
+        $oldValues = [];
+        $newColumns = [];
+        $oldColumns = [];
+        $i = 0;
         foreach ($statement->set as $set) {
-            $diff[] = 'NOT ' . $set->column . ' <=> (' . $set->value . ')';
+            $oldValues[] = $set->column . ' AS ' . ($oldColumns[] = Util::backquote('o' . $i));
+            $newValues[] = $set->value . ' AS ' . ($newColumns[] = Util::backquote('n' . $i));
+            ++$i;
         }
 
         $condition = Query::getClause($statement, $parser->list, 'WHERE');
-        $where =
-            ' WHERE' . ($condition === '' ? '' : ' (' . $condition . ') AND') .
-            ' (' . implode(' OR ', $diff) . ')';
+        $where = $condition === '' ? '' : ' WHERE ' . $condition;
         $order = $statement->order === null || $statement->order === []
             ? ''
             : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
         $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        return 'SELECT COUNT(*) FROM (' .
-            'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit .
-            ') AS `pma_tmp`';
+        return 'SELECT COUNT(*)' .
+            ' FROM (SELECT ' . implode(',', $newValues) . ') AS `pma_new`' .
+            ' JOIN (' .
+            'SELECT ' . implode(', ', $oldValues) . ' FROM ' . $tableReferences[0] . $where . $order . $limit .
+            ') AS `pma_old`' .
+            ' WHERE NOT (' . implode(', ', $newColumns) . ') <=> (' . implode(', ', $oldColumns) . ')';
     }
 }
