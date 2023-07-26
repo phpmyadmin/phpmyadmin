@@ -72,21 +72,13 @@ final class SimulateDml
      * Executes the matched_row_query and returns the resultant row count.
      *
      * @param string $matchedRowQuery SQL query
-     *
-     * @return int|string
-     * @psalm-return int|numeric-string
      */
-    private function executeMatchedRowQuery(string $matchedRowQuery)
+    private function executeMatchedRowQuery(string $matchedRowQuery): int
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        // Execute the query.
-        $result = $this->dbi->tryQuery($matchedRowQuery);
-        if (! $result) {
-            return 0;
-        }
 
-        // Count the number of rows in the result set.
-        return $result->numRows();
+        // Execute the query.
+        return (int) $this->dbi->fetchValue($matchedRowQuery);
     }
 
     /**
@@ -107,7 +99,9 @@ final class SimulateDml
             : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
         $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        return 'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit;
+        return 'SELECT COUNT(*) FROM (' .
+            'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit .
+            ') AS `pma_tmp`';
     }
 
     /**
@@ -136,6 +130,8 @@ final class SimulateDml
             : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
         $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        return 'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit;
+        return 'SELECT COUNT(*) FROM (' .
+            'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit .
+            ') AS `pma_tmp`';
     }
 }

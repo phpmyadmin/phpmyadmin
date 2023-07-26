@@ -11,8 +11,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-use function array_fill;
-
 /**
  * @covers \PhpMyAdmin\Import\SimulateDml
  */
@@ -27,7 +25,7 @@ class SimulateDmlTest extends AbstractTestCase
         $object = new SimulateDml($this->dbi);
         $parser = new Parser($sqlQuery);
         $this->dummyDbi->addSelectDb('PMA');
-        $this->dummyDbi->addResult($simulatedQuery, array_fill(0, $expectedMatches, [1]));
+        $this->dummyDbi->addResult($simulatedQuery, [[$expectedMatches]], ['COUNT(*)']);
 
         $simulatedData = $object->getMatchedRows($sqlQuery, $parser, $parser->statements[0]);
 
@@ -54,27 +52,27 @@ class SimulateDmlTest extends AbstractTestCase
         return [
             'update statement' => [
                 'UPDATE `table_1` SET `id` = 20 WHERE `id` > 10',
-                'SELECT 1 FROM `table_1` WHERE (`id` > 10) AND (NOT `id` <=> (20))',
+                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE (`id` > 10) AND (NOT `id` <=> (20))) AS `pma_tmp`',
                 2,
             ],
             'update statement_false_condition' => [
                 'UPDATE `table_1` SET `id` = 20 WHERE 0',
-                'SELECT 1 FROM `table_1` WHERE (0) AND (NOT `id` <=> (20))',
+                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE (0) AND (NOT `id` <=> (20))) AS `pma_tmp`',
                 0,
             ],
             'update statement_no_condition' => [
                 'UPDATE `table_1` SET `id` = 20',
-                'SELECT 1 FROM `table_1` WHERE (NOT `id` <=> (20))',
+                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE (NOT `id` <=> (20))) AS `pma_tmp`',
                 7,
             ],
             'delete statement' => [
                 'DELETE FROM `table_1` WHERE `id` > 10',
-                'SELECT 1 FROM `table_1` WHERE `id` > 10',
+                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE `id` > 10) AS `pma_tmp`',
                 2,
             ],
             'delete statement_false_condition' => [
                 'DELETE FROM `table_1` WHERE 0',
-                'SELECT 1 FROM `table_1` WHERE 0',
+                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE 0) AS `pma_tmp`',
                 0,
             ],
         ];
