@@ -4,60 +4,65 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
-use PhpMyAdmin\Core;
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Header;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
 use function file_exists;
-use function header;
 use function in_array;
-use function sprintf;
 
 use const CONFIG_FILE;
 
 final class MainController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __construct(private readonly ResponseFactory $responseFactory)
+    {
+    }
+
+    public function __invoke(ServerRequest $request): Response
     {
         if (@file_exists(CONFIG_FILE) && ! $GLOBALS['cfg']['DBG']['demo']) {
-            echo (new Template())->render('error/generic', [
+            $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
+            $response->getBody()->write((new Template())->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => $GLOBALS['text_dir'] ?? 'ltr',
                 'error_message' => __('Configuration already exists, setup is disabled!'),
-            ]);
+            ]));
 
-            return;
+            return $response;
         }
 
         /** @var mixed $pageParam */
         $pageParam = $request->getQueryParam('page');
         $page = in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
 
-        foreach (Core::getNoCacheHeaders() as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
+        $response = $this->responseFactory->createResponse();
+        $header = new Header();
+        foreach ($header->getHttpHeaders() as $name => $value) {
+            // Sent security-related headers
+            $response = $response->withHeader($name, $value);
         }
 
-        // Sent security-related headers
-        (new Header())->sendHttpHeaders();
-
         if ($page === 'form') {
-            echo (new FormController($GLOBALS['ConfigFile'], new Template()))([
+            $response->getBody()->write((new FormController($GLOBALS['ConfigFile'], new Template()))([
                 'formset' => $request->getQueryParam('formset'),
-            ]);
+            ]));
 
-            return;
+            return $response;
         }
 
         if ($page === 'config') {
-            echo (new ConfigController($GLOBALS['ConfigFile'], new Template()))([
+            $response->getBody()->write((new ConfigController($GLOBALS['ConfigFile'], new Template()))([
                 'formset' => $request->getQueryParam('formset'),
                 'eol' => $request->getQueryParam('eol'),
-            ]);
+            ]));
 
-            return;
+            return $response;
         }
 
         if ($page === 'servers') {
@@ -66,23 +71,28 @@ final class MainController
             $mode = $request->getQueryParam('mode');
             if ($mode === 'remove' && $request->isPost()) {
                 $controller->destroy(['id' => $request->getQueryParam('id')]);
-                header('Location: ../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+                $response = $response->withStatus(StatusCodeInterface::STATUS_FOUND);
 
-                return;
+                return $response->withHeader(
+                    'Location',
+                    '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']),
+                );
             }
 
-            echo $controller->index([
+            $response->getBody()->write($controller->index([
                 'formset' => $request->getQueryParam('formset'),
                 'mode' => $mode,
                 'id' => $request->getQueryParam('id'),
-            ]);
+            ]));
 
-            return;
+            return $response;
         }
 
-        echo (new HomeController($GLOBALS['ConfigFile'], new Template()))([
+        $response->getBody()->write((new HomeController($GLOBALS['ConfigFile'], new Template()))([
             'formset' => $request->getQueryParam('formset'),
             'version_check' => $request->getQueryParam('version_check'),
-        ]);
+        ]));
+
+        return $response;
     }
 }

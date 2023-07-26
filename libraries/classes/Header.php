@@ -421,7 +421,7 @@ class Header
     }
 
     /** @return array<string, string> */
-    private function getHttpHeaders(): array
+    public function getHttpHeaders(): array
     {
         $headers = [];
 

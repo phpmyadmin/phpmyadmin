@@ -180,9 +180,7 @@ class Routing
     {
         $route = $request->getRoute();
         if ($route === '/setup' || $route === '/') {
-            (new MainController())($request);
-
-            return null;
+            return (new MainController($responseFactory))($request);
         }
 
         if ($route === '/setup/show-config') {
