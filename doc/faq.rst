@@ -688,7 +688,7 @@ This is not recommended and could lead to confusion over missing features, but c
 A list of files and corresponding functionality which degrade gracefully when removed include:
 
 * :file:`./locale/` folder, or unused subfolders (interface translations)
-* Any unused themes in :file:`./themes/` except the default theme `pmahomme`.
+* Any unused themes in :file:`./public/themes/` except the default theme `pmahomme`.
 * :file:`./libraries/language_stats.inc.php` (translation statistics)
 * :file:`./doc/` (documentation)
 * :file:`./setup/` (setup script)

@@ -3669,7 +3669,7 @@ Theme manager settings
     :type: string
     :default: ``'pmahomme'``
 
-    The default theme (a subdirectory under :file:`./themes/`).
+    The default theme (a subdirectory under :file:`./public/themes/`).
 
 .. config:option:: $cfg['ThemePerServer']
 
