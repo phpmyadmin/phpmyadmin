@@ -29,7 +29,6 @@ use function file_put_contents;
 use function mb_substr;
 use function method_exists;
 use function pathinfo;
-use function strcmp;
 use function strlen;
 use function substr;
 use function trim;
@@ -114,7 +113,7 @@ class ImportShp extends ImportPlugin
             if ($compression === 'application/zip' && $temp !== null) {
                 $dbfFileName = $this->zipExtension->findFile($GLOBALS['import_file'], '/^.*\.dbf$/i');
                 // If the corresponding .dbf file is in the zip archive
-                if ($dbfFileName) {
+                if ($dbfFileName !== false) {
                     // Extract the .dbf file and point to it.
                     $extracted = $this->zipExtension->extract($GLOBALS['import_file'], $dbfFileName);
                     if ($extracted !== false) {
@@ -227,7 +226,7 @@ class ImportShp extends ImportPlugin
                     foreach ($shp->getDBFHeader() as $c) {
                         $cell = trim((string) $record->dbfData[$c[0]]);
 
-                        if (! strcmp($cell, '')) {
+                        if ($cell === '') {
                             $cell = 'NULL';
                         }
 

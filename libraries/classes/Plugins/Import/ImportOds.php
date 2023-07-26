@@ -25,7 +25,6 @@ use function count;
 use function implode;
 use function rtrim;
 use function simplexml_load_string;
-use function strcmp;
 use function strlen;
 
 use const LIBXML_COMPACT;
@@ -166,7 +165,7 @@ class ImportOds extends ImportPlugin
         for ($i = 0; $i < $numTables; ++$i) {
             $numRows = count($rows);
             for ($j = 0; $j < $numRows; ++$j) {
-                if (strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
+                if ($tables[$i][Import::TBL_NAME] !== $rows[$j][Import::TBL_NAME]) {
                     continue;
                 }
 
@@ -213,7 +212,7 @@ class ImportOds extends ImportPlugin
         if (
             isset($_REQUEST['ods_recognize_percentages'])
             && $_REQUEST['ods_recognize_percentages']
-            && ! strcmp('percentage', (string) $cellAttrs['value-type'])
+            && (string) $cellAttrs['value-type'] === 'percentage'
         ) {
             return (float) $cellAttrs['value'];
         }
@@ -221,7 +220,7 @@ class ImportOds extends ImportPlugin
         if (
             isset($_REQUEST['ods_recognize_currency'])
             && $_REQUEST['ods_recognize_currency']
-            && ! strcmp('currency', (string) $cellAttrs['value-type'])
+            && (string) $cellAttrs['value-type'] === 'currency'
         ) {
             return (float) $cellAttrs['value'];
         }
@@ -336,7 +335,7 @@ class ImportOds extends ImportPlugin
     ): array {
         foreach ($sheet as $row) {
             $type = $row->getName();
-            if (strcmp('table-row', $type)) {
+            if ($type !== 'table-row') {
                 continue;
             }
 
@@ -357,7 +356,7 @@ class ImportOds extends ImportPlugin
             if (! $colNamesInFirstRow) {
                 if ($_REQUEST['ods_empty_rows'] ?? false) {
                     foreach ($tempRow as $cell) {
-                        if (strcmp('NULL', (string) $cell)) {
+                        if ((string) $cell !== 'NULL') {
                             $tempRows[] = $tempRow;
                             break;
                         }

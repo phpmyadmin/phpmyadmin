@@ -19,7 +19,7 @@ use function base64_decode;
 use function hash_equals;
 use function preg_replace;
 use function sprintf;
-use function strcmp;
+use function str_starts_with;
 use function strpos;
 use function substr;
 
@@ -144,7 +144,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
         // (do not use explode() because a user might have a colon in their password
-        if (strcmp(substr($this->user, 0, 6), 'Basic ') == 0) {
+        if (str_starts_with($this->user, 'Basic ')) {
             $userPass = base64_decode(substr($this->user, 6));
             if (! empty($userPass)) {
                 $colon = strpos($userPass, ':');
