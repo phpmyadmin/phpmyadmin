@@ -7943,39 +7943,6 @@
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="libraries/classes/Import/SimulateDml.php">
-    <MixedArgument occurrences="1">
-      <code>$set-&gt;value</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$columns</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="2">
-      <code>$columns[]</code>
-      <code>$set</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$set-&gt;column</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="2">
-      <code>$set-&gt;column</code>
-      <code>$set-&gt;value</code>
-    </MixedPropertyFetch>
-    <PossiblyNullArgument occurrences="6">
-      <code>$parser-&gt;list</code>
-      <code>$parser-&gt;list</code>
-      <code>$parser-&gt;list</code>
-      <code>$parser-&gt;list</code>
-      <code>$parser-&gt;list</code>
-      <code>$parser-&gt;list</code>
-    </PossiblyNullArgument>
-    <PossiblyNullIterator occurrences="1">
-      <code>$statement-&gt;set</code>
-    </PossiblyNullIterator>
-    <RedundantCondition occurrences="1">
-      <code>empty($diff)</code>
-    </RedundantCondition>
-  </file>
   <file src="libraries/classes/Index.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;packed === null</code>
