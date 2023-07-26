@@ -199,9 +199,8 @@ final class Application
 
             if ($isSetupPage) {
                 $this->setupPageBootstrap($this->config);
-                Routing::callSetupController($request);
 
-                return null;
+                return Routing::callSetupController($request, $this->responseFactory);
             }
 
             return Routing::callControllerForRoute(

@@ -176,35 +176,38 @@ class Routing
             && $dispatchData[0]['GET']['/'] === HomeController::class;
     }
 
-    public static function callSetupController(ServerRequest $request): void
+    public static function callSetupController(ServerRequest $request, ResponseFactory $responseFactory): Response|null
     {
         $route = $request->getRoute();
         if ($route === '/setup' || $route === '/') {
             (new MainController())($request);
 
-            return;
+            return null;
         }
 
         if ($route === '/setup/show-config') {
             (new ShowConfigController())($request);
 
-            return;
+            return null;
         }
 
         if ($route === '/setup/validate') {
             (new ValidateController())($request);
 
-            return;
+            return null;
         }
 
-        echo (new Template())->render('error/generic', [
+        $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
+        $response->getBody()->write((new Template())->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => Sanitize::sanitizeMessage(sprintf(
                 __('Error 404! The page %s was not found.'),
                 '[code]' . htmlspecialchars($route) . '[/code]',
             )),
-        ]);
+        ]));
+
+        return $response;
     }
 
     /**
