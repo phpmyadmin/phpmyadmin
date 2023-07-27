@@ -65,10 +65,7 @@ class ReplaceControllerTest extends AbstractTestCase
             'uiprefswork' => true,
             'table_uiprefs' => 'table_uiprefs',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }
 
     public function testReplace(): void

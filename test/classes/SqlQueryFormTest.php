@@ -81,7 +81,7 @@ class SqlQueryFormTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'relation',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, [$relationParameters]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';

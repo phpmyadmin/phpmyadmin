@@ -81,7 +81,7 @@ class ExportLatexTest extends AbstractTestCase
             'relwork' => true,
             'mimework' => true,
         ]);
-        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
@@ -597,10 +597,7 @@ class ExportLatexTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
         $this->assertTrue(
@@ -689,10 +686,7 @@ class ExportLatexTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
         $this->assertTrue(
@@ -750,10 +744,7 @@ class ExportLatexTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
         $this->assertTrue(

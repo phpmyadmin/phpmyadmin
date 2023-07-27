@@ -1527,7 +1527,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 3
+			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -26751,11 +26751,6 @@ parameters:
 			path: libraries/classes/UserPreferences.php
 
 		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
-			path: libraries/classes/UserPreferences.php
-
-		-
 			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
 			count: 4
 			path: libraries/classes/UserPreferences.php
@@ -28001,6 +27996,11 @@ parameters:
 			path: test/classes/Config/SettingsTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 'relation', array\\{version\\: string, user\\: string\\|null, db\\: string\\|null, bookmark\\: string\\|null, central_columns\\: string\\|null, column_info\\: string\\|null, designer_settings\\: string\\|null, export_templates\\: string\\|null, \\.\\.\\.\\} and 'The cache is…' will always evaluate to true\\.$#"
+			count: 3
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 2
 			path: test/classes/ConfigStorage/RelationTest.php
@@ -28118,16 +28118,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'users' on mixed\\.$#"
 			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 3
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$key of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects int\\|string, mixed given\\.$#"
-			count: 6
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-

@@ -657,10 +657,7 @@ class ResultsTest extends AbstractTestCase
             'mimework' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $GLOBALS['cfg']['BrowseMIME'] = true;
 
         // Basic data

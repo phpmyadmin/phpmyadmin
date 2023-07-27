@@ -118,10 +118,7 @@ class CentralColumnsTest extends AbstractTestCase
             'relation' => 'relation',
             'central_columns' => 'pma_central_columns',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         // mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

@@ -60,10 +60,7 @@ class TrackingTest extends AbstractTestCase
             'tracking' => 'tracking',
             'trackingwork' => true,
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $template = new Template();
         $this->tracking = new Tracking(

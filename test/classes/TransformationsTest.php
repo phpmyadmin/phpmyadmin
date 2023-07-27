@@ -168,13 +168,13 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetMime(): void
     {
-        $relation = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'mimework' => true,
             'trackingwork' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, [$GLOBALS['server'] => $relation]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $this->assertEquals(
             [
                 'o' => [
@@ -212,18 +212,18 @@ class TransformationsTest extends AbstractTestCase
             ->will($this->returnValue($this->createStub(DummyResult::class)));
         $GLOBALS['dbi'] = $dbi;
 
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, []);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
         $this->assertFalse($actual);
 
-        $relation = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'mimework' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, [$GLOBALS['server'] => $relation]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');

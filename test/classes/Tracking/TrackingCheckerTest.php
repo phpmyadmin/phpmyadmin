@@ -34,10 +34,7 @@ class TrackingCheckerTest extends AbstractTestCase
             'tracking' => 'tracking',
             'trackingwork' => true,
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->trackingChecker = new TrackingChecker(
             $GLOBALS['dbi'],

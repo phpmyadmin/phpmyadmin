@@ -57,8 +57,7 @@ use const SQL_DIR;
  */
 class Relation
 {
-    /** @var RelationParameters[] $cache */
-    private static array $cache = [];
+    private static RelationParameters|null $cache = null;
 
     public function __construct(public DatabaseInterface $dbi)
     {
@@ -66,30 +65,11 @@ class Relation
 
     public function getRelationParameters(): RelationParameters
     {
-        $server = $GLOBALS['server'];
-
-        if (isset(self::$cache[$server])) {
-            return self::$cache[$server];
+        if (self::$cache === null) {
+            self::$cache = RelationParameters::fromArray($this->checkRelationsParam());
         }
 
-        if (! isset($_SESSION['relation']) || ! is_array($_SESSION['relation'])) {
-            $_SESSION['relation'] = [];
-        }
-
-        if (
-            isset($_SESSION['relation'][$server]) && is_array($_SESSION['relation'][$server])
-            && isset($_SESSION['relation'][$server]['version'])
-            && $_SESSION['relation'][$server]['version'] === Version::VERSION
-        ) {
-            self::$cache[$server] = RelationParameters::fromArray($_SESSION['relation'][$server]);
-
-            return self::$cache[$server];
-        }
-
-        self::$cache[$server] = RelationParameters::fromArray($this->checkRelationsParam());
-        $_SESSION['relation'][$server] = self::$cache[$server]->toArray();
-
-        return self::$cache[$server];
+        return self::$cache;
     }
 
     /**
@@ -1510,8 +1490,7 @@ class Relation
             // Re-build the cache to show the list of tables created or not
             // This is the case when the DB could be created but no tables just after
             // So just purge the cache and show the new configuration storage state
-            unset($_SESSION['relation'][$GLOBALS['server']]);
-            unset(self::$cache[$GLOBALS['server']]);
+            self::$cache = null;
             $this->getRelationParameters();
 
             return true;
@@ -1625,8 +1604,7 @@ class Relation
 
         //NOTE: I am unsure why we do that, as it defeats the purpose of the session cache
         // Unset the cache
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-        unset(self::$cache[$GLOBALS['server']]);
+        self::$cache = null;
         // Fill back the cache
         $this->getRelationParameters();
     }

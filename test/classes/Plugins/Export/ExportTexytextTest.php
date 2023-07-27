@@ -305,10 +305,7 @@ class ExportTexytextTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(
-            null,
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $result = $this->object->getTableDef('db', 'table', true, true, true);
 

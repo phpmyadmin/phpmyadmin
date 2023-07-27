@@ -698,8 +698,6 @@
       <code><![CDATA[uksort($foreign, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['relation'][$GLOBALS['server']]]]></code>
-      <code><![CDATA[$_SESSION['relation'][$GLOBALS['server']]]]></code>
       <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code><![CDATA[$column['DATA_TYPE']]]></code>
       <code><![CDATA[$columns['table_name']]]></code>
@@ -13185,11 +13183,6 @@
     <DocblockTypeContradiction>
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <InvalidScalarArgument>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-    </InvalidScalarArgument>
     <PossiblyUnusedMethod>
       <code>providerForTestRenameTable</code>
     </PossiblyUnusedMethod>

@@ -12,6 +12,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionProperty;
 
 #[CoversClass(Navigation::class)]
 class NavigationTest extends AbstractTestCase
@@ -40,7 +41,7 @@ class NavigationTest extends AbstractTestCase
             'navwork' => true,
             'navigationhiding' => 'navigationhiding',
         ]);
-        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->object = new Navigation(
             new Template(),
