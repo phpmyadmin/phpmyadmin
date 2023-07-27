@@ -321,4 +321,10 @@ class ServerRequest implements ServerRequestInterface
         return is_array($postParams) && isset($postParams[$param])
             || is_object($postParams) && property_exists($postParams, $param);
     }
+
+    public function isAjax(): bool
+    {
+        return $this->serverRequest->getHeaderLine('X-Requested-With') === 'XMLHttpRequest'
+            || $this->has('ajax_request');
+    }
 }

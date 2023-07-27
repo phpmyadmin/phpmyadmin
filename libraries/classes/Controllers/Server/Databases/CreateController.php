@@ -34,7 +34,7 @@ final class CreateController extends AbstractController
         $newDb = $request->getParsedBodyParam('new_db');
         $dbCollation = $request->getParsedBodyParam('db_collation');
 
-        if (! is_string($newDb) || $newDb === '' || ! $this->response->isAjax()) {
+        if (! is_string($newDb) || $newDb === '' || ! $request->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
 
             return;

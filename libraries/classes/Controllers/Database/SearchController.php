@@ -46,7 +46,7 @@ class SearchController extends AbstractController
             );
             $errorMessage .= MySQLDocumentation::showDocumentation('config', 'cfg_UseDbSearch');
             $this->response->setRequestStatus(false);
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
 
                 return;
@@ -68,7 +68,7 @@ class SearchController extends AbstractController
         }
 
         // If we are in an Ajax request, we need to exit after displaying all the HTML
-        if ($this->response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
+        if ($request->isAjax() && empty($_REQUEST['ajax_page_request'])) {
             return;
         }
 

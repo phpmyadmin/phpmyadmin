@@ -52,8 +52,6 @@ class NavigationControllerTest extends AbstractTestCase
         // root.air-balloon.burner_dev2
         $_POST['n0_vPath'] = 'cm9vdA==.YWlyLWJhbGxvb24=.YnVybmVyX2RldjI=';
 
-        $_GET['ajax_request'] = true;
-
         $this->dummyDbi->removeDefaultResults();
         $this->dummyDbi->addResult(
             'SELECT CURRENT_USER();',
@@ -127,8 +125,11 @@ class NavigationControllerTest extends AbstractTestCase
         /** @var NavigationController $navigationController */
         $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
-        $this->setResponseIsAjax();
-        $navigationController($this->createStub(ServerRequest::class));
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
+
+        $navigationController($request);
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];
@@ -201,8 +202,6 @@ class NavigationControllerTest extends AbstractTestCase
 
         $_POST['n0_pos2_name'] = 'tables';
         $_POST['n0_pos2_value'] = 0;
-
-        $_GET['ajax_request'] = true;
 
         $this->dummyDbi->removeDefaultResults();
         $this->dummyDbi->addResult(
@@ -277,8 +276,11 @@ class NavigationControllerTest extends AbstractTestCase
         /** @var NavigationController $navigationController */
         $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
-        $this->setResponseIsAjax();
-        $navigationController($this->createStub(ServerRequest::class));
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
+
+        $navigationController($request);
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];

@@ -68,7 +68,7 @@ class TwoFactorController extends AbstractController
             'missing' => $twoFactor->getMissingDeps(),
         ]);
 
-        if ($this->response->isAjax()) {
+        if ($request->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);

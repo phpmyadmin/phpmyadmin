@@ -31,7 +31,9 @@ final class UserGroupsFormController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $this->response->setAjax(true);
+        if (! $request->isAjax()) {
+            return;
+        }
 
         /** @var string $username */
         $username = $request->getQueryParam('username', '');

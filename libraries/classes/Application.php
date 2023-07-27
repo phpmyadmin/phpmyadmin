@@ -290,17 +290,19 @@ final class Application
             // TODO: Set SQL modes too.
         } else { // end server connecting
             $response = ResponseRenderer::getInstance();
+            $response->setAjax($request->isAjax());
             $response->getHeader()->disableMenuAndConsole();
             $response->setMinimalFooter();
         }
 
         $response = ResponseRenderer::getInstance();
+        $response->setAjax($request->isAjax());
 
         /**
          * There is no point in even attempting to process
          * an ajax request if there is a token mismatch
          */
-        if ($response->isAjax() && $request->isPost() && $GLOBALS['token_mismatch']) {
+        if ($request->isAjax() && $request->isPost() && $GLOBALS['token_mismatch']) {
             $response->setRequestStatus(false);
             $response->addJSON(
                 'message',

@@ -133,7 +133,7 @@ class OperationsController extends AbstractController
         if ($request->hasBodyParam('submit_move') || $request->hasBodyParam('submit_copy')) {
             $message = $this->operations->moveOrCopyTable($GLOBALS['db'], $GLOBALS['table']);
 
-            if (! $this->response->isAjax()) {
+            if (! $request->isAjax()) {
                 return;
             }
 
@@ -249,7 +249,7 @@ class OperationsController extends AbstractController
             }
 
             if ($tableCollationParam !== null && (! is_string($tableCollationParam) || $tableCollationParam === '')) {
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON(
                         'message',
@@ -331,7 +331,7 @@ class OperationsController extends AbstractController
                         : Message::error();
                 }
 
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->setRequestStatus($newMessage->isSuccess());
                     $this->response->addJSON('message', $newMessage);
                     if (! empty($GLOBALS['sql_query'])) {
@@ -353,7 +353,7 @@ class OperationsController extends AbstractController
                 $newMessage = new Message();
                 $newMessage->addMessagesString($warningMessages);
                 $newMessage->isError(true);
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $newMessage);
                     if (! empty($GLOBALS['sql_query'])) {

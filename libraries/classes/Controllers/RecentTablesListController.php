@@ -11,7 +11,7 @@ final class RecentTablesListController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             return;
         }
 

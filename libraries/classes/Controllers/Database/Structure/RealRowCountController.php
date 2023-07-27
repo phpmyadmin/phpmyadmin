@@ -38,7 +38,7 @@ final class RealRowCountController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->hasDatabase() || ! $this->response->isAjax()) {
+        if (! $this->hasDatabase() || ! $request->isAjax()) {
             return;
         }
 

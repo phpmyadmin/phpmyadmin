@@ -44,7 +44,7 @@ final class FavoriteTableController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             return;
         }
 

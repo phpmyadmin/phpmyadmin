@@ -27,7 +27,9 @@ final class AccountLockController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $this->response->setAjax(true);
+        if (! $request->isAjax()) {
+            return;
+        }
 
         /** @var string $userName */
         $userName = $request->getParsedBodyParam('username');

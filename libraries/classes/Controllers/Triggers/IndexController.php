@@ -47,7 +47,7 @@ final class IndexController extends AbstractController
 
         $this->addScriptFiles(['triggers.js']);
 
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             /**
              * Displays the header and tabs
              */
@@ -85,7 +85,7 @@ final class IndexController extends AbstractController
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->triggers->handleEditor();
 
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {
                     $items = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
                     $trigger = false;
@@ -180,9 +180,9 @@ final class IndexController extends AbstractController
                     'tables' => $tables,
                     'time' => ['BEFORE', 'AFTER'],
                     'events' => ['INSERT', 'UPDATE', 'DELETE'],
-                    'is_ajax' => $this->response->isAjax(),
+                    'is_ajax' => $request->isAjax(),
                 ]);
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
@@ -201,7 +201,7 @@ final class IndexController extends AbstractController
                 htmlspecialchars(Util::backquote($GLOBALS['db'])),
             );
             $message = Message::error($message);
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
@@ -215,7 +215,7 @@ final class IndexController extends AbstractController
         $triggerName = TriggerName::tryFrom($request->getQueryParam('item_name'));
         if ($request->hasQueryParam('export_item') && $triggerName !== null) {
             $exportData = $this->triggers->getExportData($GLOBALS['db'], $GLOBALS['table'], $triggerName);
-            if ($exportData !== null && $this->response->isAjax()) {
+            if ($exportData !== null && $request->isAjax()) {
                 $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($triggerName)));
                 $this->response->addJSON('title', $title);
                 $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
@@ -234,7 +234,7 @@ final class IndexController extends AbstractController
                 htmlspecialchars(Util::backquote($triggerName)),
                 htmlspecialchars(Util::backquote($GLOBALS['db'])),
             ));
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
@@ -244,7 +244,7 @@ final class IndexController extends AbstractController
 
         $triggers = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
         $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $GLOBALS['db'], $GLOBALS['table']);
-        $isAjax = $this->response->isAjax() && empty($request->getParam('ajax_page_request'));
+        $isAjax = $request->isAjax() && empty($request->getParam('ajax_page_request'));
 
         $this->render('triggers/list', [
             'db' => $GLOBALS['db'],

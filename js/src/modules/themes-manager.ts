@@ -6,7 +6,7 @@ import { CommonParams } from './common.ts';
  */
 export const ThemesManager = {
     handleEvent: () => {
-        $.get('index.php?route=/themes', { 'server': CommonParams.get('server') }, data => {
+        $.get('index.php?route=/themes', { 'server': CommonParams.get('server'), 'ajax_request': true }, data => {
             $('#themesModal .modal-body').html(data.themes);
         });
     }

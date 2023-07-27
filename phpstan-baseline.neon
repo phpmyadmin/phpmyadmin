@@ -27597,7 +27597,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 5
+			count: 4
 			path: test/classes/AbstractTestCase.php
 
 		-

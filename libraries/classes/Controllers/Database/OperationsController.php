@@ -191,7 +191,7 @@ class OperationsController extends AbstractController
              * Database has been successfully renamed/moved.  If in an Ajax request,
              * generate the output with {@link ResponseRenderer} and exit
              */
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                 $this->response->addJSON('message', $GLOBALS['message']);
                 $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');

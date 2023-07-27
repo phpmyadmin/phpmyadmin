@@ -96,7 +96,7 @@ class ImportController extends AbstractController
             ),
         ]);
 
-        if ($this->response->isAjax()) {
+        if ($request->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);
