@@ -23,6 +23,7 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
@@ -65,7 +66,12 @@ return [
         ],
         Application::class => [
             'class' => Application::class,
-            'arguments' => ['$errorHandler' => '@error_handler', '$config' => '@config', '$template' => '@template'],
+            'arguments' => [
+                '$errorHandler' => '@error_handler',
+                '$config' => '@config',
+                '$template' => '@template',
+                '$responseFactory' => '@' . ResponseFactory::class,
+            ],
         ],
         'browse_foreigners' => [
             'class' => BrowseForeigners::class,
@@ -100,6 +106,10 @@ return [
         'file_listing' => ['class' => FileListing::class],
         'flash' => ['class' => FlashMessages::class],
         'http_request' => ['class' => HttpRequest::class],
+        ResponseFactory::class => [
+            'class' => ResponseFactory::class,
+            'factory' => [ResponseFactory::class, 'create'],
+        ],
         'import' => ['class' => Import::class],
         'import_simulate_dml' => ['class' => SimulateDml::class, 'arguments' => ['@dbi']],
         'insert_edit' => [
