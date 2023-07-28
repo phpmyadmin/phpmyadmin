@@ -266,7 +266,7 @@ class ManageController extends AbstractController
                 && ! @file_exists(CONFIG_FILE),
         ]);
 
-        if ($this->response->isAjax()) {
+        if ($request->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);

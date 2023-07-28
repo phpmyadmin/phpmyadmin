@@ -57,8 +57,7 @@ use const SQL_DIR;
  */
 class Relation
 {
-    /** @var RelationParameters[] $cache */
-    private static array $cache = [];
+    private static RelationParameters|null $cache = null;
 
     public function __construct(public DatabaseInterface $dbi)
     {
@@ -66,30 +65,11 @@ class Relation
 
     public function getRelationParameters(): RelationParameters
     {
-        $server = $GLOBALS['server'];
-
-        if (isset(self::$cache[$server])) {
-            return self::$cache[$server];
+        if (self::$cache === null) {
+            self::$cache = RelationParameters::fromArray($this->checkRelationsParam());
         }
 
-        if (! isset($_SESSION['relation']) || ! is_array($_SESSION['relation'])) {
-            $_SESSION['relation'] = [];
-        }
-
-        if (
-            isset($_SESSION['relation'][$server]) && is_array($_SESSION['relation'][$server])
-            && isset($_SESSION['relation'][$server]['version'])
-            && $_SESSION['relation'][$server]['version'] === Version::VERSION
-        ) {
-            self::$cache[$server] = RelationParameters::fromArray($_SESSION['relation'][$server]);
-
-            return self::$cache[$server];
-        }
-
-        self::$cache[$server] = RelationParameters::fromArray($this->checkRelationsParam());
-        $_SESSION['relation'][$server] = self::$cache[$server]->toArray();
-
-        return self::$cache[$server];
+        return self::$cache;
     }
 
     /**
@@ -379,6 +359,7 @@ class Relation
             );
             $this->dbi->tryMultiQuery($query, Connection::TYPE_CONTROL);
             // skips result sets of query as we are not interested in it
+            /** @infection-ignore-all */
             do {
                 $hasResult = (
                     $this->dbi->moreResults(Connection::TYPE_CONTROL)
@@ -430,7 +411,7 @@ class Relation
         if (($source === 'both' || $source === 'foreign') && strlen($table) > 0) {
             $tableObj = new Table($table, $db, $this->dbi);
             $showCreateTable = $tableObj->showCreate();
-            if ($showCreateTable) {
+            if ($showCreateTable !== '') {
                 $parser = new Parser($showCreateTable);
                 $stmt = $parser->statements[0];
                 $foreign['foreign_keys_data'] = [];
@@ -1509,8 +1490,7 @@ class Relation
             // Re-build the cache to show the list of tables created or not
             // This is the case when the DB could be created but no tables just after
             // So just purge the cache and show the new configuration storage state
-            unset($_SESSION['relation'][$GLOBALS['server']]);
-            unset(self::$cache[$GLOBALS['server']]);
+            self::$cache = null;
             $this->getRelationParameters();
 
             return true;
@@ -1624,8 +1604,7 @@ class Relation
 
         //NOTE: I am unsure why we do that, as it defeats the purpose of the session cache
         // Unset the cache
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-        unset(self::$cache[$GLOBALS['server']]);
+        self::$cache = null;
         // Fill back the cache
         $this->getRelationParameters();
     }
@@ -1637,22 +1616,16 @@ class Relation
      * @param string $db        database name
      * @param string $table     table name
      *
-     * @return mixed[] ($res_rel, $have_rel)
-     * @psalm-return array{array, bool}
+     * @return mixed[]
      */
     public function getRelationsAndStatus(bool $condition, string $db, string $table): array
     {
-        $haveRel = false;
-        $resRel = [];
         if ($condition) {
-            // Find which tables are related with the current one and write it in
-            // an array
-            $resRel = $this->getForeigners($db, $table);
-
-            $haveRel = $resRel !== [];
+            // Find which tables are related with the current one and write it in an array
+            return $this->getForeigners($db, $table);
         }
 
-        return [$resRel, $haveRel];
+        return [];
     }
 
     /**

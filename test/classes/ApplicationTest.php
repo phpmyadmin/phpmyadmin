@@ -8,9 +8,12 @@ use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ConfigException;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Psr\Http\Message\ResponseFactoryInterface;
 use ReflectionProperty;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -23,6 +26,7 @@ final class ApplicationTest extends AbstractTestCase
             $this->createStub(ErrorHandler::class),
             $this->createStub(Config::class),
             $this->createStub(Template::class),
+            new ResponseFactory($this->createStub(ResponseFactoryInterface::class)),
         );
         $container = $this->createMock(ContainerBuilder::class);
         $container->expects($this->once())->method('get')
@@ -31,6 +35,7 @@ final class ApplicationTest extends AbstractTestCase
         $this->assertSame($application, Application::init());
     }
 
+    #[BackupStaticProperties(true)]
     public function testRunWithConfigError(): void
     {
         $GLOBALS['errorHandler'] = null;
@@ -41,8 +46,9 @@ final class ApplicationTest extends AbstractTestCase
         $config->expects($this->once())->method('loadAndCheck')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
 
-        $request = $this->createStub(ServerRequest::class);
-        (new ReflectionProperty(Application::class, 'request'))->setValue($request);
+        $request = $this->createMock(ServerRequest::class);
+        $request->expects($this->once())->method('withAttribute')->willReturnSelf();
+        (new ReflectionProperty(Application::class, 'request'))->setValue(null, $request);
 
         $template = new Template($config);
         $expected = $template->render('error/generic', [
@@ -51,7 +57,7 @@ final class ApplicationTest extends AbstractTestCase
             'error_message' => 'Failed to load phpMyAdmin configuration.',
         ]);
 
-        $application = new Application($errorHandler, $config, $template);
+        $application = new Application($errorHandler, $config, $template, ResponseFactory::create());
         $application->run();
 
         $output = $this->getActualOutputForAssertion();
@@ -59,7 +65,7 @@ final class ApplicationTest extends AbstractTestCase
         $this->assertSame($config, $GLOBALS['config']);
         $this->assertSame($errorHandler, $GLOBALS['errorHandler']);
 
-        (new ReflectionProperty(Application::class, 'request'))->setValue(null);
+        (new ReflectionProperty(Application::class, 'request'))->setValue(null, null);
     }
 
     public function testCheckTokenRequestParam(): void
@@ -68,6 +74,7 @@ final class ApplicationTest extends AbstractTestCase
             $this->createStub(ErrorHandler::class),
             $this->createStub(Config::class),
             $this->createStub(Template::class),
+            new ResponseFactory($this->createStub(ResponseFactoryInterface::class)),
         );
 
         $_SERVER['REQUEST_METHOD'] = 'GET';

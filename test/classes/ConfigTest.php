@@ -673,7 +673,7 @@ PHP;
         $this->assertDirectoryExists($dir);
         $this->assertDirectoryIsWritable($dir);
 
-        (new ReflectionProperty(Config::class, 'tempDir'))->setValue([]);
+        (new ReflectionProperty(Config::class, 'tempDir'))->setValue(null, []);
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
         $this->assertEquals(

@@ -12,7 +12,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 
 #[CoversClass(AddController::class)]
 class AddControllerTest extends AbstractTestCase
@@ -37,7 +37,7 @@ class AddControllerTest extends AbstractTestCase
     public function testWithoutRelationParameters(): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'user';
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $dbi = $this->createDatabaseInterface();
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
@@ -63,9 +63,7 @@ class AddControllerTest extends AbstractTestCase
             'bookmarkwork' => true,
             'bookmark' => 'bookmark',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(

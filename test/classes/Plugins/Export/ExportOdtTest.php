@@ -24,8 +24,8 @@ use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
-use ReflectionClass;
 use ReflectionMethod;
+use ReflectionProperty;
 
 use function __;
 use function bin2hex;
@@ -96,7 +96,7 @@ class ExportOdtTest extends AbstractTestCase
             'relwork' => true,
             'mimework' => true,
         ]);
-        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $method = new ReflectionMethod(ExportOdt::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
@@ -625,9 +625,7 @@ class ExportOdtTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->assertTrue(
             $this->object->getTableDef(
@@ -707,9 +705,7 @@ class ExportOdtTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->assertTrue(
             $this->object->getTableDef(

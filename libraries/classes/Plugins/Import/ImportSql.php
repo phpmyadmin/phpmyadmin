@@ -128,6 +128,7 @@ class ImportSql extends ImportPlugin
                 // Checking if the input buffer has finished.
                 if ($newData === true) {
                     $GLOBALS['finished'] = true;
+                    /** @infection-ignore-all */
                     break;
                 }
 
@@ -143,6 +144,7 @@ class ImportSql extends ImportPlugin
         }
 
         // Extracting remaining statements.
+        /** @infection-ignore-all */
         while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed'] && ! empty($bq->query)) {
             $statement = $bq->extract(true);
             if ($statement === false || $statement === '') {

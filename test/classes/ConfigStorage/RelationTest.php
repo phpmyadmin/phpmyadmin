@@ -13,7 +13,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionClass;
+use ReflectionProperty;
 
 use function implode;
 
@@ -236,21 +236,16 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', []);
         $dummyDbi->addSelectDb('db_pma');
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation->fixPmaTables('db_pma', false);
-
-        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
-        /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db_pma',
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
+        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
@@ -511,14 +506,10 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
-        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
-        /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -526,7 +517,7 @@ class RelationTest extends AbstractTestCase
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
+        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
@@ -795,16 +786,12 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $dummyDbi->addSelectDb('db_pma');
         $dummyDbi->addSelectDb('db_pma');
         $relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
-        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
-        /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -812,7 +799,7 @@ class RelationTest extends AbstractTestCase
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
+        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
@@ -874,8 +861,7 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation->fixPmaTables('db_pma', true);
 
@@ -883,7 +869,7 @@ class RelationTest extends AbstractTestCase
         $this->assertSame('MYSQL_ERROR', $GLOBALS['message']);
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
-        $this->assertSame([], $_SESSION['relation']);
+        $this->assertNull((new ReflectionProperty(Relation::class, 'cache'))->getValue());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();
@@ -1436,19 +1422,14 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_phpmyadmin'],
         );
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
-        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
-        /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
-
         // Should all be false for server = 0
         $relationParameters = RelationParameters::fromArray([]);
-        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
+        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $this->assertEquals([
             'userconfig' => 'pma__userconfig',
@@ -1502,17 +1483,12 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', [], ['NULL']);
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $dummyDbi->addSelectDb('phpmyadmin');
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
         $dummyDbi->assertAllSelectsConsumed();
-
-        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
-        /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
 
         // Should all be false for server = 0
         $relationParameters = RelationParameters::fromArray([
@@ -1520,7 +1496,7 @@ class RelationTest extends AbstractTestCase
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
+        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $this->assertSame([
             'user' => '',
@@ -1594,24 +1570,19 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', false);
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $dummyDbi->addSelectDb('phpmyadmin');
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
         $dummyDbi->assertAllSelectsConsumed();
 
-        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
-        /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
-
         $relationParameters = RelationParameters::fromArray([
             'db' => 'phpmyadmin',
             'userconfigwork' => false,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
+        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $this->assertSame([
             'user' => '',
@@ -1687,15 +1658,14 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi->addSelectDb('PMA-storage');
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
         $this->assertArrayHasKey(
             'relation',
-            $_SESSION,
+            $relation->getRelationParameters()->toArray(),
             'The cache is expected to be filled because the custom override'
             . 'was understood (pma__userconfig vs pma__userconfig_custom)',
         );
@@ -1712,9 +1682,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig_custom` LIMIT 0', [], ['NULL']);
 
         $dummyDbi->addSelectDb('PMA-storage');
-        /** @psalm-suppress EmptyArrayAccess */
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $relationData = $relation->getRelationParameters();
         $dummyDbi->assertAllSelectsConsumed();
 
@@ -1781,7 +1749,6 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
 
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult(
@@ -1791,16 +1758,29 @@ class RelationTest extends AbstractTestCase
             ],
             ['Tables_in_PMA-storage'],
         );
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `PMA-storage`',
+            [
+                ['pma__tracking'],
+            ],
+            ['Tables_in_PMA-storage'],
+        );
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        $dummyDbi->addSelectDb('PMA-storage');
+
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
+        /**
+         * TODO: Warning! This test doesn't actually test anything.
+         * The method above does't initialize Relation param cache.
+         * A proper test is needed to verify that the user disabled features result in disabled Relation cache.
+         */
         $this->assertArrayHasKey(
             'relation',
-            $_SESSION,
+            $relation->getRelationParameters()->toArray(),
             'The cache is expected to be filled because the custom override'
             . 'was understood',
         );
@@ -1820,9 +1800,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addSelectDb('PMA-storage');
-        /** @psalm-suppress EmptyArrayAccess */
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $relationData = $relation->getRelationParameters();
         $dummyDbi->assertAllSelectsConsumed();
 
@@ -1912,17 +1890,16 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi->addResult('SELECT NULL FROM `pma__favorite_custom` LIMIT 0', [], ['NULL']);
 
-        $_SESSION['relation'] = [];
         $_SESSION['tmpval'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
-        (new ReflectionClass(RecentFavoriteTable::class))->getProperty('instances')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
+        (new ReflectionProperty(RecentFavoriteTable::class, 'instances'))->setValue(null, []);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
         $this->assertArrayHasKey(
             'relation',
-            $_SESSION,
+            $relation->getRelationParameters()->toArray(),
             'The cache is expected to be filled because the custom override'
             . 'was understood',
         );
@@ -1930,8 +1907,6 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
 
-        /** @psalm-suppress EmptyArrayAccess */
-        unset($_SESSION['relation'][$GLOBALS['server']]);
         $relationData = $relation->getRelationParameters();
         $dummyDbi->assertAllSelectsConsumed();
 
@@ -1997,8 +1972,7 @@ class RelationTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $GLOBALS['dbi'] = $dbi;
 
-        $_SESSION['relation'] = [];
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation = new Relation($dbi);
 
@@ -2135,9 +2109,7 @@ class RelationTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray($params);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         foreach ($queries as $query) {
             $dummyDbi->addResult($query, true);
@@ -2205,9 +2177,7 @@ class RelationTest extends AbstractTestCase
             'pdf_pages' => 'pdf_pages',
             'table_coords' => 'table`coords',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $dummyDbi->addResult(
             'UPDATE `pma``db`.`table``coords` SET db_name = \'db\\\'1\', table_name = \'table\\\'2\''

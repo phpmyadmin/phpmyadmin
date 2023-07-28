@@ -151,6 +151,8 @@ class ImportCsv extends AbstractImportCsv
      * Handles the whole import logic
      *
      * @return string[]
+     *
+     * @infection-ignore-all
      */
     public function doImport(File|null $importHandle = null): array
     {
@@ -747,6 +749,7 @@ class ImportCsv extends AbstractImportCsv
 
         if ((isset($columnNames) && count($columnNames) != $maxCols) || ! isset($columnNames)) {
             // Fill out column names
+            /** @infection-ignore-all */
             for ($i = 0; $i < $maxCols; ++$i) {
                 $columnNames[] = 'COL ' . ($i + 1);
             }

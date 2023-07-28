@@ -200,7 +200,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
             $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'both');
-            if (! $existRel) {
+            if ($existRel === []) {
                 continue;
             }
 
@@ -392,6 +392,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $this->diagram->setDrawColor(200, 200, 200);
         // Draws horizontal lines
         $innerHeight = $this->diagram->getPageHeight() - $topSpace - $bottomSpace;
+        /** @infection-ignore-all */
         for ($l = 0, $size = intval($innerHeight / $gridSize); $l <= $size; $l++) {
             $this->diagram->line(
                 0,
@@ -410,6 +411,7 @@ class PdfRelationSchema extends ExportRelationSchema
         }
 
         // Draws vertical lines
+        /** @infection-ignore-all */
         for ($j = 0, $size = intval($this->diagram->getPageWidth() / $gridSize); $j <= $size; $j++) {
             $this->diagram->line(
                 $j * $gridSize,

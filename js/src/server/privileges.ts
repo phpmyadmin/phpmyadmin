@@ -50,6 +50,7 @@ const EditUserGroup = {
         $.get(
             'index.php?route=/server/user-groups/edit-form',
             {
+                'ajax_request': true,
                 'username': username,
                 'server': CommonParams.get('server')
             },

@@ -43,6 +43,8 @@ class Pdf extends TCPDF
      * @param false|int $pdfa        If not false, set the document to PDF/A mode and the good version (1 or 3)
      *
      * @throws Exception
+     *
+     * @infection-ignore-all
      */
     public function __construct(
         string $orientation = 'P',

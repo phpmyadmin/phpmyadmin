@@ -37,7 +37,6 @@ class DestroyControllerTest extends AbstractTestCase
             ->getMock();
 
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $GLOBALS['cfg']['AllowUserDropDatabase'] = true;
 
@@ -49,7 +48,10 @@ class DestroyControllerTest extends AbstractTestCase
             new RelationCleanup($dbi, new Relation($dbi)),
         );
 
-        $controller($this->createStub(ServerRequest::class));
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
+
+        $controller($request);
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);

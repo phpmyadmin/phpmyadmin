@@ -777,15 +777,6 @@ class FormDisplay
                 );
             }
 
-            if (! function_exists('recode_string')) {
-                $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
-                $comment .= ($comment ? ', ' : '') . sprintf(
-                    __('"%s" requires %s extension'),
-                    'recode',
-                    'recode',
-                );
-            }
-
             /* mbstring is always there thanks to polyfill */
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;

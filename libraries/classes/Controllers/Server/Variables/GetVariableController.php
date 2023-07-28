@@ -25,7 +25,7 @@ final class GetVariableController extends AbstractController
     /** @param mixed[] $params Request parameters */
     public function __invoke(ServerRequest $request, array $params): void
     {
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             return;
         }
 

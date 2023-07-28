@@ -275,6 +275,7 @@ class GisMultiLineString extends GisGeometry
         }
 
         $wkt = 'MULTILINESTRING(';
+        /** @infection-ignore-all */
         for ($i = 0; $i < $noOfLines; $i++) {
             $noOfPoints = $dataRow[$i]['no_of_points'] ?? 2;
             if ($noOfPoints < 2) {
@@ -310,6 +311,7 @@ class GisMultiLineString extends GisGeometry
     public function getShape(array $rowData): string
     {
         $wkt = 'MULTILINESTRING(';
+        /** @infection-ignore-all */
         for ($i = 0; $i < $rowData['numparts']; $i++) {
             $wkt .= '(';
             foreach ($rowData['parts'][$i]['points'] as $point) {
@@ -343,6 +345,7 @@ class GisMultiLineString extends GisGeometry
             $points = $this->extractPoints1d($wktLinestring, null);
             $noOfPoints = count($points);
             $coords[$j] = ['no_of_points' => $noOfPoints];
+            /** @infection-ignore-all */
             for ($i = 0; $i < $noOfPoints; $i++) {
                 $coords[$j][$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];
             }

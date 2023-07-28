@@ -26,7 +26,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use ReflectionClass;
+use ReflectionProperty;
 use stdClass;
 
 use function count;
@@ -657,9 +657,7 @@ class ResultsTest extends AbstractTestCase
             'mimework' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $GLOBALS['cfg']['BrowseMIME'] = true;
 
         // Basic data

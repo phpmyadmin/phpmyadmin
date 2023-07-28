@@ -366,6 +366,7 @@ class ExportLatex extends ExportPlugin
         while ($record = $result->fetchAssoc()) {
             $buffer = '';
             // print each row
+            /** @infection-ignore-all */
             for ($i = 0; $i < $columnsCnt; $i++) {
                 if ($record[$columns[$i]] !== null) {
                     $columnValue = self::texEscape($record[$columns[$i]]);
@@ -470,7 +471,7 @@ class ExportLatex extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
+        $foreigners = $this->relation->getRelationsAndStatus(
             $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table,
@@ -485,7 +486,7 @@ class ExportLatex extends ExportPlugin
         }
 
         $alignment = '|l|c|c|c|';
-        if ($doRelation && $haveRel) {
+        if ($doRelation && $foreigners !== []) {
             $alignment .= 'l|';
         }
 
@@ -504,7 +505,7 @@ class ExportLatex extends ExportPlugin
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
-        if ($doRelation && $haveRel) {
+        if ($doRelation && $foreigners !== []) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
         }
 
@@ -577,9 +578,9 @@ class ExportLatex extends ExportPlugin
                 . ($row['Null'] === 'NO' ? __('No') : __('Yes'))
                 . "\000" . ($row['Default'] ?? '');
 
-            if ($doRelation && $haveRel) {
+            if ($doRelation && $foreigners !== []) {
                 $localBuffer .= "\000";
-                $localBuffer .= $this->getRelationString($resRel, $fieldName, $db, $aliases);
+                $localBuffer .= $this->getRelationString($foreigners, $fieldName, $db, $aliases);
             }
 
             if ($doComments && $relationParameters->columnCommentsFeature !== null) {

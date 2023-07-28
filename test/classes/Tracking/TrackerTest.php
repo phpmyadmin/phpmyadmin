@@ -15,8 +15,8 @@ use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use ReflectionClass;
 use ReflectionMethod;
+use ReflectionProperty;
 
 #[CoversClass(Tracker::class)]
 class TrackerTest extends AbstractTestCase
@@ -50,9 +50,7 @@ class TrackerTest extends AbstractTestCase
             'trackingwork' => true,
             'tracking' => 'tracking',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -91,9 +89,7 @@ class TrackerTest extends AbstractTestCase
         Tracker::enable();
 
         $relationParameters = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->assertFalse(
             Tracker::isActive(),
@@ -104,9 +100,7 @@ class TrackerTest extends AbstractTestCase
             'db' => 'pmadb',
             'tracking' => 'tracking',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->assertTrue(
             Tracker::isActive(),
@@ -129,9 +123,7 @@ class TrackerTest extends AbstractTestCase
         Tracker::enable();
 
         $relationParameters = RelationParameters::fromArray([]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->assertFalse(
             Tracker::isTracked('', ''),
@@ -142,9 +134,7 @@ class TrackerTest extends AbstractTestCase
             'db' => 'pmadb',
             'tracking' => 'tracking',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->assertTrue(
             Tracker::isTracked('pma_test_db', 'pma_test_table'),

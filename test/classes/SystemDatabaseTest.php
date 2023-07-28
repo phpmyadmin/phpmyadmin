@@ -11,7 +11,7 @@ use PhpMyAdmin\SystemColumn;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 
 use const MYSQLI_TYPE_STRING;
 
@@ -62,9 +62,7 @@ class SystemDatabaseTest extends AbstractTestCase
             'column_info' => 'column_info',
             'relation' => 'relation',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->sysDb = new SystemDatabase($dbi);
     }

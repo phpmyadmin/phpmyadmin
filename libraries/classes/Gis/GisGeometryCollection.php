@@ -277,6 +277,7 @@ class GisGeometryCollection extends GisGeometry
     {
         $geomCount = $gisData['GEOMETRYCOLLECTION']['geom_count'] ?? 1;
         $wkt = 'GEOMETRYCOLLECTION(';
+        /** @infection-ignore-all */
         for ($i = 0; $i < $geomCount; $i++) {
             if (! isset($gisData[$i]['gis_type'])) {
                 continue;

@@ -266,6 +266,7 @@ class ExportOdt extends ExportPlugin
         // Format the data
         while ($row = $result->fetchRow()) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
+            /** @infection-ignore-all */
             for ($j = 0; $j < $fieldsCnt; $j++) {
                 if ($fieldsMeta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
@@ -419,7 +420,7 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
+        $foreigners = $this->relation->getRelationsAndStatus(
             $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table,
@@ -430,7 +431,7 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '<table:table table:name="'
             . htmlspecialchars($tableAlias) . '_structure">';
         $columnsCnt = 4;
-        if ($doRelation && $haveRel) {
+        if ($doRelation && $foreigners !== []) {
             $columnsCnt++;
         }
 
@@ -458,7 +459,7 @@ class ExportOdt extends ExportPlugin
             . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Default') . '</text:p>'
             . '</table:table-cell>';
-        if ($doRelation && $haveRel) {
+        if ($doRelation && $foreigners !== []) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Links to') . '</text:p>'
                 . '</table:table-cell>';
@@ -488,8 +489,8 @@ class ExportOdt extends ExportPlugin
             }
 
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column, $colAs);
-            if ($doRelation && $haveRel) {
-                $foreigner = $this->relation->searchColumnInForeigners($resRel, $fieldName);
+            if ($doRelation && $foreigners !== []) {
+                $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];
                     $rfield = $foreigner['foreign_field'];

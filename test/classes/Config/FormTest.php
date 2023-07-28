@@ -66,8 +66,7 @@ class FormTest extends AbstractTestCase
      */
     public function testGetOptionType(): void
     {
-        $attrFieldsTypes = new ReflectionProperty(Form::class, 'fieldsTypes');
-        $attrFieldsTypes->setValue(
+        (new ReflectionProperty(Form::class, 'fieldsTypes'))->setValue(
             $this->object,
             ['7' => 'Seven'],
         );

@@ -23,6 +23,7 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
@@ -65,7 +66,12 @@ return [
         ],
         Application::class => [
             'class' => Application::class,
-            'arguments' => ['$errorHandler' => '@error_handler', '$config' => '@config', '$template' => '@template'],
+            'arguments' => [
+                '$errorHandler' => '@error_handler',
+                '$config' => '@config',
+                '$template' => '@template',
+                '$responseFactory' => '@' . ResponseFactory::class,
+            ],
         ],
         'browse_foreigners' => [
             'class' => BrowseForeigners::class,
@@ -89,7 +95,7 @@ return [
             'class' => ErrorReport::class,
             'arguments' => ['@http_request', '@relation', '@template', '@config'],
         ],
-        'events' => ['class' => Events::class, 'arguments' => ['@dbi','@template','@response']],
+        'events' => ['class' => Events::class, 'arguments' => ['@dbi']],
         'export' => ['class' => Export::class, 'arguments' => ['@dbi']],
         'export_options' => [
             'class' => Options::class,
@@ -100,6 +106,10 @@ return [
         'file_listing' => ['class' => FileListing::class],
         'flash' => ['class' => FlashMessages::class],
         'http_request' => ['class' => HttpRequest::class],
+        ResponseFactory::class => [
+            'class' => ResponseFactory::class,
+            'factory' => [ResponseFactory::class, 'create'],
+        ],
         'import' => ['class' => Import::class],
         'import_simulate_dml' => ['class' => SimulateDml::class, 'arguments' => ['@dbi']],
         'insert_edit' => [
@@ -139,10 +149,7 @@ return [
             'class' => ResponseRenderer::class,
             'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
         ],
-        'routines' => [
-            'class' => Routines::class,
-            'arguments' => ['@dbi', '@template', '@response'],
-        ],
+        'routines' => ['class' => Routines::class, 'arguments' => ['@dbi']],
         'server_plugins' => ['class' => Plugins::class, 'arguments' => ['@dbi']],
         'server_privileges' => [
             'class' => Privileges::class,
@@ -190,10 +197,7 @@ return [
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
         ],
         'transformations' => ['class' => Transformations::class],
-        'triggers' => [
-            'class' => Triggers::class,
-            'arguments' => ['@dbi', '@template', '@response'],
-        ],
+        'triggers' => ['class' => Triggers::class, 'arguments' => ['@dbi']],
         'user_password' => [
             'class' => UserPassword::class,
             'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class, '@dbi'],

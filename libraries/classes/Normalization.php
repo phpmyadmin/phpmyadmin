@@ -124,6 +124,7 @@ class Normalization
         }
 
         $commentsMap = $this->relation->getComments($db, $table);
+        /** @infection-ignore-all */
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
             $contentCells[$columnNumber] = [
                 'column_number' => $columnNumber,

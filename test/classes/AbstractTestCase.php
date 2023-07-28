@@ -19,6 +19,7 @@ use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use ReflectionProperty;
 
 use function array_keys;
 use function in_array;
@@ -84,7 +85,7 @@ abstract class AbstractTestCase extends TestCase
         $this->setGlobalConfig();
         Cache::purge();
 
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
     }
 
     protected function loadContainerBuilder(): void
@@ -103,14 +104,6 @@ abstract class AbstractTestCase extends TestCase
         $response = new ResponseRenderer();
         $GLOBALS['containerBuilder']->set(ResponseRenderer::class, $response);
         $GLOBALS['containerBuilder']->setAlias('response', ResponseRenderer::class);
-    }
-
-    protected function setResponseIsAjax(): void
-    {
-        /** @var ResponseRenderer $response */
-        $response = $GLOBALS['containerBuilder']->get(ResponseRenderer::class);
-
-        $response->setAjax(true);
     }
 
     protected function getResponseHtmlResult(): string

@@ -57,7 +57,6 @@ class LogVarsControllerTest extends AbstractTestCase
         ];
 
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $controller = new LogVarsController(
             $response,
@@ -68,6 +67,7 @@ class LogVarsControllerTest extends AbstractTestCase
         );
 
         $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([['varName', null, 'varName']]);
 
         $this->dummyDbi->addSelectDb('mysql');

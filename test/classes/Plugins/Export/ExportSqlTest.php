@@ -27,8 +27,8 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionClass;
 use ReflectionMethod;
+use ReflectionProperty;
 
 use function ob_get_clean;
 use function ob_start;
@@ -131,7 +131,7 @@ class ExportSqlTest extends AbstractTestCase
             'relwork' => true,
             'mimework' => true,
         ]);
-        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
@@ -879,9 +879,7 @@ SQL;
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $GLOBALS['sql_include_comments'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

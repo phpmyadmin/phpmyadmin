@@ -13,7 +13,7 @@ use PhpMyAdmin\Tracking\TrackedTable;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 
 #[CoversClass(TrackingChecker::class)]
 class TrackingCheckerTest extends AbstractTestCase
@@ -34,9 +34,7 @@ class TrackingCheckerTest extends AbstractTestCase
             'tracking' => 'tracking',
             'trackingwork' => true,
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->trackingChecker = new TrackingChecker(
             $GLOBALS['dbi'],

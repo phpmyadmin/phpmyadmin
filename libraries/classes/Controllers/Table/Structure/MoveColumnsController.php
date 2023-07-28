@@ -41,7 +41,7 @@ final class MoveColumnsController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $moveColumns = $request->getParsedBodyParam('move_columns');
-        if (! is_array($moveColumns) || ! $this->response->isAjax()) {
+        if (! is_array($moveColumns) || ! $request->isAjax()) {
             return;
         }
 

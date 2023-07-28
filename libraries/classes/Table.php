@@ -2428,7 +2428,7 @@ class Table implements Stringable
         }
 
         $createTable = $this->showCreate();
-        if (! $createTable) {
+        if ($createTable === '') {
             return false;
         }
 

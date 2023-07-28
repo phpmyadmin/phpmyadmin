@@ -183,6 +183,7 @@ class Tracker
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size
+        /** @infection-ignore-all */
         for ($i = 0, $nb = count($columns); $i < $nb; $i++) {
             unset($columns[$i]['Privileges']);
         }

@@ -113,7 +113,7 @@ class ErrorReportController extends AbstractController
                 }
 
                 /* Add message to response */
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     if ($exceptionType === 'js') {
                         $this->response->addJSON('message', $msg);
                     } else {

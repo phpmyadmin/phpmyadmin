@@ -1247,6 +1247,7 @@ final class Server
      */
     private function setAuthType(array $server): string
     {
+        /** @infection-ignore-all */
         if (isset($server['auth_type']) && in_array($server['auth_type'], ['config', 'http', 'signon'], true)) {
             return $server['auth_type'];
         }

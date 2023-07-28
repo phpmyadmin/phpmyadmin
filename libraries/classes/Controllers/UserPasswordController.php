@@ -81,7 +81,7 @@ class UserPasswordController extends AbstractController
                     $request->getParsedBodyParam('authentication_plugin'),
                 );
 
-                if ($this->response->isAjax()) {
+                if ($request->isAjax()) {
                     $sqlQuery = Generator::getMessage($GLOBALS['change_password_message']['msg'], $sqlQuery, 'success');
                     $this->response->addJSON('message', $sqlQuery);
 
@@ -95,7 +95,7 @@ class UserPasswordController extends AbstractController
                 return;
             }
 
-            if ($this->response->isAjax()) {
+            if ($request->isAjax()) {
                 $this->response->addJSON('message', $GLOBALS['change_password_message']['msg']);
                 $this->response->setRequestStatus(false);
 

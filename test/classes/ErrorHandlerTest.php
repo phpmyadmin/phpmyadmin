@@ -300,7 +300,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['config']->set('environment', 'development');
         $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue($responseStub);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
@@ -328,7 +328,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['config']->set('environment', 'production');
         $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue($responseStub);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
@@ -355,7 +355,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['config']->set('environment', 'production');
         $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue($responseStub);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
         try {
@@ -380,7 +380,7 @@ HTML;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['config']->set('environment', 'production');
         $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue($responseStub);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
         $responseStub->setHeadersSent(false);
         $errorHandler = new ErrorHandler();
         try {

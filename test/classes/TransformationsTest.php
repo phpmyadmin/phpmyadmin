@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
-use ReflectionClass;
+use ReflectionProperty;
 
 #[CoversClass(Transformations::class)]
 class TransformationsTest extends AbstractTestCase
@@ -168,13 +168,13 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetMime(): void
     {
-        $relation = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'mimework' => true,
             'trackingwork' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $this->assertEquals(
             [
                 'o' => [
@@ -212,18 +212,18 @@ class TransformationsTest extends AbstractTestCase
             ->will($this->returnValue($this->createStub(DummyResult::class)));
         $GLOBALS['dbi'] = $dbi;
 
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
         $this->assertFalse($actual);
 
-        $relation = RelationParameters::fromArray([
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'mimework' => true,
             'column_info' => 'column_info',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$GLOBALS['server'] => $relation]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');

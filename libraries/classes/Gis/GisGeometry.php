@@ -213,13 +213,11 @@ abstract class GisGeometry
             $coordinates = explode(' ', $point);
 
             if (isset($coordinates[1]) && trim($coordinates[0]) != '' && trim($coordinates[1]) != '') {
-                if ($scaleData === null) {
-                    $x = (float) $coordinates[0];
-                    $y = (float) $coordinates[1];
-                } else {
-                    $x = (float) (((float) $coordinates[0] - $scaleData['x']) * $scaleData['scale']);
-                    $y = (float) ($scaleData['height']
-                        - ((float) $coordinates[1] - $scaleData['y']) * $scaleData['scale']);
+                $x = (float) trim($coordinates[0]);
+                $y = (float) trim($coordinates[1]);
+                if ($scaleData !== null) {
+                    $x = (float) (($x - $scaleData['x']) * $scaleData['scale']);
+                    $y = (float) ($scaleData['height'] - ($y - $scaleData['y']) * $scaleData['scale']);
                 }
             } else {
                 $x = 0.0;

@@ -443,6 +443,7 @@ class Import
         $capitalA = 65; // ASCII value for capital "A"
         $colName = '';
 
+        /** @infection-ignore-all */
         if ($num > 26) {
             $div = (int) ($num / 26);
             $remain = $num % 26;

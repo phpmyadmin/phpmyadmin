@@ -474,6 +474,7 @@ class Core
         }
 
         // remove empty nested arrays
+        /** @infection-ignore-all */
         for (; $depth >= 0; $depth--) {
             if (isset($path[$depth + 1]) && count($path[$depth + 1]) !== 0) {
                 break;
@@ -700,6 +701,7 @@ class Core
     public static function sanitizeMySQLHost(string $name): string
     {
         while (strtolower(substr($name, 0, 2)) === 'p:') {
+            /** @infection-ignore-all */
             $name = substr($name, 2);
         }
 

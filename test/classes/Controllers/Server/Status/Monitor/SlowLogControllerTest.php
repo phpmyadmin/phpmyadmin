@@ -50,7 +50,6 @@ class SlowLogControllerTest extends AbstractTestCase
     public function testSlowLog(): void
     {
         $response = new ResponseRenderer();
-        $response->setAjax(true);
 
         $controller = new SlowLogController(
             $response,
@@ -61,6 +60,7 @@ class SlowLogControllerTest extends AbstractTestCase
         );
 
         $request = $this->createStub(ServerRequest::class);
+        $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([['time_start', null, '0'], ['time_end', null, '10']]);
 
         $this->dummyDbi->addSelectDb('mysql');

@@ -169,10 +169,7 @@ class UserPreferences
                 /**
                  * When phpMyAdmin cached the configuration storage parameters, it checked if the database can be
                  * accessed, so if it could not be accessed anymore, then the cache must be cleared as it's out of date.
-                 *
-                 * @psalm-suppress MixedArrayAssignment
                  */
-                $_SESSION['relation'][$GLOBALS['server']] = [];
                 $message->addMessage(Message::error(htmlspecialchars(
                     __('The phpMyAdmin configuration storage database could not be accessed.'),
                 )), '<br><br>');

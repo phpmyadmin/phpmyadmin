@@ -14,7 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 
 use function __;
 use function htmlspecialchars;
@@ -81,7 +81,7 @@ class SqlQueryFormTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'relation',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue([$relationParameters]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';

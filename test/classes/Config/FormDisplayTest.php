@@ -233,20 +233,14 @@ class FormDisplayTest extends AbstractTestCase
      */
     public function testHasErrors(): void
     {
-        $attrErrors = new ReflectionProperty(FormDisplay::class, 'errors');
+        $this->assertFalse($this->object->hasErrors());
 
-        $this->assertFalse(
-            $this->object->hasErrors(),
-        );
-
-        $attrErrors->setValue(
+        (new ReflectionProperty(FormDisplay::class, 'errors'))->setValue(
             $this->object,
             [1, 2],
         );
 
-        $this->assertTrue(
-            $this->object->hasErrors(),
-        );
+        $this->assertTrue($this->object->hasErrors());
     }
 
     /**
@@ -315,7 +309,6 @@ class FormDisplayTest extends AbstractTestCase
         // recoding
         $opts = ['values' => []];
         $opts['values']['iconv'] = 'testIconv';
-        $opts['values']['recode'] = 'testRecode';
         $opts['values']['mb'] = 'testMB';
         $opts['comment'] = null;
         $opts['comment_warning'] = null;
@@ -331,11 +324,6 @@ class FormDisplayTest extends AbstractTestCase
         if (! function_exists('iconv')) {
             $expect['values']['iconv'] .= ' (unavailable)';
             $expect['comment'] = '"iconv" requires iconv extension';
-        }
-
-        if (! function_exists('recode_string')) {
-            $expect['values']['recode'] .= ' (unavailable)';
-            $expect['comment'] .= ($expect['comment'] ? ', ' : '') . '"recode" requires recode extension';
         }
 
         $expect['comment_warning'] = 1;

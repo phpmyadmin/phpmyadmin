@@ -11,7 +11,9 @@ final class CheckTimeOutController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        $this->response->setAjax(true);
+        if (! $request->isAjax()) {
+            return;
+        }
 
         if (isset($_SESSION['pma_export_error'])) {
             unset($_SESSION['pma_export_error']);

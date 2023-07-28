@@ -12,9 +12,8 @@ use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 
 use function sprintf;
 
@@ -38,17 +37,13 @@ class CommonTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
-        $_SESSION = [
-            'relation' => [
-                '1' => [
-                    'version' => Version::VERSION,
-                    'db' => 'pmadb',
-                    'pdf_pages' => 'pdf_pages',
-                    'pdfwork' => true,
-                    'table_coords' => 'table_coords',
-                ],
-            ],
-        ];
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'pdf_pages' => 'pdf_pages',
+            'pdfwork' => true,
+            'table_coords' => 'table_coords',
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }
 
     /**
@@ -355,9 +350,7 @@ class CommonTest extends AbstractTestCase
             'db' => 'pmadb',
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
@@ -380,9 +373,7 @@ class CommonTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
@@ -424,9 +415,7 @@ class CommonTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
@@ -488,9 +477,7 @@ class CommonTest extends AbstractTestCase
             'relwork' => true,
             'relation' => 'rel db',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);

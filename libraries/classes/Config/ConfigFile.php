@@ -430,6 +430,7 @@ class ConfigFile
 
         $lastServer = $this->getServerCount();
 
+        /** @infection-ignore-all */
         for ($i = $server; $i < $lastServer; $i++) {
             $_SESSION[$this->id]['Servers'][$i] = $_SESSION[$this->id]['Servers'][$i + 1];
         }
@@ -514,7 +515,7 @@ class ConfigFile
                     'only_db' => 'array',
                 ],
             ],
-            'RecodingEngine' => ['auto', 'iconv', 'recode', 'mb', 'none'],
+            'RecodingEngine' => ['auto', 'iconv', 'mb', 'none'],
             'OBGzip' => ['auto', true, false],
             'MemoryLimit' => 'short_string',
             'NavigationLogoLinkWindow' => ['main', 'new'],

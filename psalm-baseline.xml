@@ -435,11 +435,9 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$opts['values']['iconv']]]></code>
-      <code><![CDATA[$opts['values']['recode']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$opts['values']['iconv']]]></code>
-      <code><![CDATA[$opts['values']['recode']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code>$_POST[$key]</code>
@@ -496,7 +494,6 @@
       <code>$key</code>
       <code>$key</code>
       <code><![CDATA[$opts['values']['iconv']]]></code>
-      <code><![CDATA[$opts['values']['recode']]]></code>
       <code>$v</code>
     </MixedOperand>
     <PossiblyFalseArgument>
@@ -701,8 +698,6 @@
       <code><![CDATA[uksort($foreign, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['relation'][$GLOBALS['server']]]]></code>
-      <code><![CDATA[$_SESSION['relation'][$GLOBALS['server']]]]></code>
       <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code><![CDATA[$column['DATA_TYPE']]]></code>
       <code><![CDATA[$columns['table_name']]]></code>
@@ -1018,13 +1013,39 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$event['name']]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$event['name']]]></code>
+    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code>$event</code>
+      <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code>$itemName</code>
+      <code>$itemName</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code>$itemName</code>
+    </PossiblyInvalidCast>
+    <PossiblyNullReference>
+      <code>isSuccess</code>
+    </PossiblyNullReference>
+    <TypeDoesNotContainType>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
     <InvalidArrayOffset>
@@ -1166,18 +1187,103 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$item</code>
+      <code>$routine</code>
+      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
     </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$routine['item_param_dir'][]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_length'][]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
+      <code><![CDATA[$routine['item_param_name'][]]]></code>
+      <code><![CDATA[$routine['item_param_opts_num'][]]]></code>
+      <code><![CDATA[$routine['item_param_opts_text'][]]]></code>
+      <code><![CDATA[$routine['item_param_type'][]]]></code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset>
+      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
+      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
+    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$item</code>
+      <code>$routine</code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_original_name']]]></code>
+      <code><![CDATA[$routine['item_original_type']]]></code>
     </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+      <code><![CDATA[$routine['item_num_params']]]></code>
+    </MixedOperand>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_type']]]></code>
+      <code><![CDATA[$_POST['item_type']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$type</code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_name']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
+      <code><![CDATA[$_GET['item_type']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_type']]]></code>
+    </PossiblyInvalidCast>
+    <PossiblyNullOperand>
+      <code>$title</code>
+    </PossiblyNullOperand>
+    <PossiblyNullReference>
+      <code>isSuccess</code>
+    </PossiblyNullReference>
+    <RedundantCondition>
+      <code><![CDATA[! $GLOBALS['errors']]]></code>
+      <code><![CDATA[$routine['item_num_params'] == 0 && $mode === 'add' && ! $GLOBALS['errors']]]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$GLOBALS['errors'] !== []]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Database/SearchController.php">
     <InvalidArrayOffset>
@@ -1433,9 +1539,6 @@
     <PossiblyInvalidOperand>
       <code>$favoriteTable</code>
     </PossiblyInvalidOperand>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/RealRowCountController.php">
     <InvalidArrayOffset>
@@ -1636,11 +1739,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="libraries/classes/Controllers/Export/CheckTimeOutController.php">
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Export/ExportController.php">
     <ArgumentTypeCoercion>
@@ -1893,9 +1991,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
     <InvalidArrayOffset>
@@ -2444,11 +2539,6 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/RecentTablesListController.php">
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
-  </file>
   <file src="libraries/classes/Controllers/Server/BinlogController.php">
     <MixedArgument>
       <code>$log</code>
@@ -2761,9 +2851,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/QueriesController.php">
     <MixedArgumentTypeCoercion>
@@ -2900,9 +2987,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/SetVariableController.php">
     <MixedArgument>
@@ -3163,9 +3247,6 @@
       <code><![CDATA[$statement->limit->offset]]></code>
       <code><![CDATA[$statement->limit->rowCount]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/CreateController.php">
     <MixedArgument>
@@ -4140,9 +4221,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Transformation/OverviewController.php">
     <MixedArgument>
@@ -4177,7 +4255,24 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+    </PossiblyInvalidCast>
+    <PossiblyNullReference>
+      <code>isSuccess</code>
+    </PossiblyNullReference>
+    <TypeDoesNotContainType>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+      <code><![CDATA[count($GLOBALS['errors'])]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/UserPasswordController.php">
     <InvalidArrayOffset>
@@ -4881,14 +4976,11 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$event['name']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$event['Name']]]></code>
       <code><![CDATA[$event['Status']]]></code>
       <code><![CDATA[$event['Type']]]></code>
-      <code><![CDATA[$event['name']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -4903,10 +4995,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$event</code>
-      <code>$event</code>
-      <code><![CDATA[$item['item_original_name']]]></code>
       <code><![CDATA[$retval['item_comment']]]></code>
       <code><![CDATA[$retval['item_definer']]]></code>
       <code><![CDATA[$retval['item_definition']]]></code>
@@ -4931,44 +5020,27 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_starts']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code>$itemName</code>
-      <code>$itemName</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_ends']]]></code>
       <code><![CDATA[$_POST['item_execute_at']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_starts']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code>$itemName</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
       <code><![CDATA[$_POST['item_interval_field']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createItem</code>
     </PossiblyNullArgument>
-    <PossiblyNullIterator>
+    <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-    </PossiblyNullIterator>
-    <PossiblyNullReference>
-      <code>isSuccess</code>
-    </PossiblyNullReference>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Routines.php">
     <DeprecatedMethod>
@@ -4996,7 +5068,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -5008,7 +5079,6 @@
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
       <code>$newErrors</code>
-      <code>$routine</code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
@@ -5016,8 +5086,6 @@
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
@@ -5056,20 +5124,13 @@
       <code><![CDATA[$routine['Type']]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_length_arr'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
@@ -5080,7 +5141,6 @@
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -5092,16 +5152,11 @@
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$params[$i]['htmlentities'][]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][]]]></code>
-      <code><![CDATA[$routine['item_param_type'][]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
@@ -5110,21 +5165,13 @@
       <code><![CDATA[$_POST['params'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$_POST['params'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_opts_num'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -5138,11 +5185,6 @@
       <code><![CDATA[$retval['item_sqldataaccess']]]></code>
       <code><![CDATA[$retval['item_type']]]></code>
       <code>$routine</code>
-      <code>$routine</code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_original_name']]]></code>
-      <code><![CDATA[$routine['item_original_type']]]></code>
       <code>$string</code>
       <code>$value</code>
       <code>$value</code>
@@ -5160,32 +5202,11 @@
       <code>$priv[5]</code>
       <code>$priv[6]</code>
       <code>$priv[7]</code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
       <code>$string</code>
     </MixedOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
@@ -5194,9 +5215,6 @@
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemReturnType</code>
@@ -5210,23 +5228,12 @@
       <code><![CDATA[$params['dir'][$i]]]></code>
     </PossiblyInvalidArrayAccess>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
@@ -5248,10 +5255,7 @@
       <code>$itemSqlDataAccess</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createRoutine</code>
-      <code>$mode</code>
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
@@ -5265,7 +5269,6 @@
     <PossiblyNullOperand>
       <code>$output</code>
       <code><![CDATA[$this->browseRow($row)]]></code>
-      <code>$title</code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$stmt->return->name]]></code>
@@ -5275,9 +5278,9 @@
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
       <code>has</code>
-      <code>isSuccess</code>
     </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$routine['item_param_name']]]></code>
     </PossiblyUndefinedArrayOffset>
@@ -6278,8 +6281,8 @@
       <code><![CDATA[$scaleData['height']]]></code>
       <code><![CDATA[$scaleData['x']]]></code>
       <code><![CDATA[$scaleData['y']]]></code>
-      <code><![CDATA[(float) $coordinates[0] - $scaleData['x']]]></code>
-      <code><![CDATA[(float) $coordinates[1] - $scaleData['y']]]></code>
+      <code><![CDATA[$x - $scaleData['x']]]></code>
+      <code><![CDATA[$y - $scaleData['y']]]></code>
     </MixedOperand>
     <PossiblyFalseOperand>
       <code>$lastComma</code>
@@ -7706,7 +7709,6 @@
       <code>$foreignTable</code>
       <code>$oldPriv</code>
       <code>$query</code>
-      <code><![CDATA[$trigger['create']]]></code>
       <code>$view</code>
       <code>$view</code>
     </MixedArgument>
@@ -7759,8 +7761,6 @@
       <code>$oldPriv[7]</code>
       <code>$oldPriv[7]</code>
       <code>$oldPriv[7]</code>
-      <code><![CDATA[$trigger['create']]]></code>
-      <code><![CDATA[$trigger['create']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
@@ -7773,7 +7773,6 @@
       <code>$oldPriv</code>
       <code>$oldPriv</code>
       <code>$query</code>
-      <code>$trigger</code>
       <code>$view</code>
     </MixedAssignment>
     <MixedOperand>
@@ -7810,7 +7809,6 @@
       <code>$oldPriv[7]</code>
       <code>$oldPriv[7]</code>
       <code>$oldPriv[7]</code>
-      <code><![CDATA[$trigger['create']]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['comment']]]></code>
@@ -8306,19 +8304,11 @@
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$trigger['action_timing']]]></code>
-      <code><![CDATA[$trigger['definition']]]></code>
-      <code><![CDATA[$trigger['event_manipulation']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code>$comments[$fieldName]</code>
       <code>$mimeMap[$fieldName]</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$trigger['action_timing']]]></code>
-      <code><![CDATA[$trigger['definition']]]></code>
-      <code><![CDATA[$trigger['event_manipulation']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
@@ -8326,7 +8316,6 @@
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code>$trigger</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
@@ -8486,17 +8475,9 @@
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$trigger['action_timing']]]></code>
-      <code><![CDATA[$trigger['definition']]]></code>
-      <code><![CDATA[$trigger['event_manipulation']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$trigger['action_timing']]]></code>
-      <code><![CDATA[$trigger['definition']]]></code>
-      <code><![CDATA[$trigger['event_manipulation']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$aliases[$db]['tables'][$rtable]]]></code>
@@ -8513,7 +8494,6 @@
       <code>$rfield</code>
       <code>$rtable</code>
       <code>$rtable</code>
-      <code>$trigger</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['what']]]></code>
@@ -8642,7 +8622,6 @@
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$token->value]]></code>
-      <code><![CDATA[$trigger['create']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$compats</code>
@@ -8662,8 +8641,6 @@
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$trigger['create']]]></code>
-      <code><![CDATA[$trigger['drop']]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$aliases[$db]['tables'][$table]['columns'][$field]]]></code>
@@ -8697,12 +8674,10 @@
       <code><![CDATA[$statement->name->database]]></code>
       <code><![CDATA[$statement->name->table]]></code>
       <code><![CDATA[$statement->table->table]]></code>
-      <code>$trigger</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$definition['Type']]]></code>
       <code><![CDATA[$statement->entityOptions->has('AUTO_INCREMENT')]]></code>
-      <code><![CDATA[$trigger['drop']]]></code>
     </MixedOperand>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$field->key->columns]]></code>
@@ -8775,7 +8750,6 @@
       <code><![CDATA[$column['Type']]]></code>
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$trigger['definition']]]></code>
       <code>$type</code>
       <code>$value</code>
     </MixedArgument>
@@ -8783,10 +8757,6 @@
       <code>$comments[$fieldName]</code>
       <code>$mimeMap[$fieldName]</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$trigger['action_timing']]]></code>
-      <code><![CDATA[$trigger['definition']]]></code>
-      <code><![CDATA[$trigger['event_manipulation']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
@@ -8794,16 +8764,12 @@
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code>$trigger</code>
       <code>$type</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$trigger['action_timing']]]></code>
-      <code><![CDATA[$trigger['event_manipulation']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedOperand>
     <ParamNameMismatch>
       <code>$doComments</code>
@@ -8843,12 +8809,10 @@
       <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$code</code>
       <code>$colAs</code>
       <code>$dbCharset</code>
       <code>$dbCollation</code>
       <code>$table</code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$events</code>
@@ -8857,17 +8821,13 @@
       <code>$result[$table][1]</code>
       <code><![CDATA[$result[0]['DEFAULT_CHARACTER_SET_NAME']]]></code>
       <code><![CDATA[$result[0]['DEFAULT_COLLATION_NAME']]]></code>
-      <code><![CDATA[$trigger['create']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['tables']]]></code>
-      <code>$code</code>
       <code>$colAs</code>
       <code>$dbCharset</code>
       <code>$dbCollation</code>
       <code>$table</code>
-      <code>$trigger</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code>$table</code>
@@ -8995,10 +8955,6 @@
       <code><![CDATA[$this->pagedim[$this->page]]]></code>
       <code><![CDATA[$this->pagedim[$this->page]['olm']]]></code>
       <code><![CDATA[$this->pagedim[$this->page]['orm']]]></code>
-      <code><![CDATA[$trigger['action_timing']]]></code>
-      <code><![CDATA[$trigger['definition']]]></code>
-      <code><![CDATA[$trigger['event_manipulation']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$this->headerset[$this->page]]]></code>
@@ -9021,10 +8977,6 @@
       <code>$currpage</code>
       <code>$currpage</code>
       <code>$currpage</code>
-      <code>$data[]</code>
-      <code>$data[]</code>
-      <code>$data[]</code>
-      <code>$data[]</code>
       <code>$data[]</code>
       <code>$data[]</code>
       <code>$data[]</code>
@@ -9080,7 +9032,6 @@
       <code><![CDATA[$this->dataY]]></code>
       <code>$thisPageOlm</code>
       <code>$thisPageOrm</code>
-      <code>$trigger</code>
       <code>$txt</code>
       <code>$txt</code>
       <code>$txt</code>
@@ -9413,19 +9364,16 @@
       <code>$colNames</code>
       <code>$maxCols</code>
       <code>$rows</code>
-      <code>$rows[$j][Import::TBL_NAME]</code>
       <code>$tables</code>
       <code>$tables</code>
       <code>$tables</code>
       <code>$tables[$i]</code>
-      <code>$tables[$i][Import::TBL_NAME]</code>
       <code>$tempRow</code>
       <code>$tempRows</code>
       <code>$tempRows</code>
       <code>$tempRows[$i]</code>
       <code>$tempRows[0]</code>
       <code>$text</code>
-      <code>$type</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$row</code>
@@ -9467,7 +9415,6 @@
       <code>$tempRows[]</code>
       <code>$tempRows[]</code>
       <code>$text</code>
-      <code>$type</code>
       <code>$values[]</code>
       <code>$values[]</code>
     </MixedAssignment>
@@ -9647,12 +9594,6 @@
       <code><![CDATA[$xml->children($namespaces['pma'] ?? null)
             ->{'structure_schemas'}->{'database'}]]></code>
     </MixedPropertyFetch>
-    <PossiblyInvalidArgument>
-      <code>$tables[$i][Import::TBL_NAME]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code>$tables[$i][Import::TBL_NAME]</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$dbAttr['charset']]]></code>
@@ -11846,8 +11787,6 @@
       <code>$tableOptions</code>
       <code><![CDATA[$this->uiprefs[$property]]]></code>
       <code><![CDATA[$this->uiprefs[$property]]]></code>
-      <code><![CDATA[$trigger['create']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
       <code>$value</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -11886,8 +11825,6 @@
       <code><![CDATA[$row['Field']]]></code>
       <code><![CDATA[$row['Type']]]></code>
       <code><![CDATA[$row['Type']]]></code>
-      <code><![CDATA[$trigger['create']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs']]]></code>
@@ -11953,8 +11890,6 @@
       <code>$tableOptions</code>
       <code>$tableRowFormat</code>
       <code>$tableStorageEngine</code>
-      <code>$trigger</code>
-      <code>$trigger</code>
       <code>$type</code>
       <code>$value</code>
       <code>$value</code>
@@ -12465,25 +12400,8 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$createItem</code>
-      <code>$exportData</code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$temp['action_timing']]]></code>
-      <code><![CDATA[$temp['create']]]></code>
-      <code><![CDATA[$temp['definer']]]></code>
-      <code><![CDATA[$temp['definition']]]></code>
-      <code><![CDATA[$temp['drop']]]></code>
-      <code><![CDATA[$temp['event_manipulation']]]></code>
-      <code><![CDATA[$temp['name']]]></code>
-      <code><![CDATA[$temp['table']]]></code>
-      <code><![CDATA[$trigger['create']]]></code>
-      <code><![CDATA[$trigger['name']]]></code>
-      <code><![CDATA[$trigger['table']]]></code>
-      <code><![CDATA[$value['name']]]></code>
-      <code><![CDATA[$value['name']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -12497,24 +12415,8 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code>$createItem</code>
-      <code>$exportData</code>
-      <code><![CDATA[$item['item_original_name']]]></code>
-      <code><![CDATA[$retval['create']]]></code>
-      <code><![CDATA[$retval['drop']]]></code>
-      <code><![CDATA[$retval['item_action_timing']]]></code>
-      <code><![CDATA[$retval['item_definer']]]></code>
-      <code><![CDATA[$retval['item_definition']]]></code>
-      <code><![CDATA[$retval['item_event_manipulation']]]></code>
-      <code><![CDATA[$retval['item_name']]]></code>
-      <code><![CDATA[$retval['item_table']]]></code>
       <code>$string</code>
-      <code>$temp</code>
-      <code>$trigger</code>
-      <code>$trigger</code>
-      <code>$value</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$string</code>
@@ -12525,18 +12427,11 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_table']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code>$itemName</code>
-      <code>$itemName</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
@@ -12544,22 +12439,23 @@
       <code><![CDATA[$_POST['item_timing']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createItem</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$trigger['create']]]></code>
       <code><![CDATA[$trigger['drop']]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullIterator>
+    <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-    </PossiblyNullIterator>
-    <PossiblyNullReference>
-      <code>isSuccess</code>
-    </PossiblyNullReference>
+      <code><![CDATA[$temp['action_timing']]]></code>
+      <code><![CDATA[$temp['create']]]></code>
+      <code><![CDATA[$temp['definer']]]></code>
+      <code><![CDATA[$temp['definition']]]></code>
+      <code><![CDATA[$temp['drop']]]></code>
+      <code><![CDATA[$temp['event_manipulation']]]></code>
+      <code><![CDATA[$temp['name']]]></code>
+      <code><![CDATA[$temp['table']]]></code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Twig/AssetExtension.php">
     <InvalidArrayOffset>
@@ -13287,11 +13183,6 @@
     <DocblockTypeContradiction>
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <InvalidScalarArgument>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-    </InvalidScalarArgument>
     <PossiblyUnusedMethod>
       <code>providerForTestRenameTable</code>
     </PossiblyUnusedMethod>
@@ -13727,9 +13618,6 @@
   <file src="test/classes/Database/EventsTest.php">
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequest</code>
-      <code>providerGetEditorFormAdd</code>
-      <code>providerGetEditorFormAjax</code>
-      <code>providerGetEditorFormEdit</code>
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>
@@ -13741,14 +13629,6 @@
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequest</code>
-      <code>providerGetEditorForm1</code>
-      <code>providerGetEditorForm2</code>
-      <code>providerGetEditorForm3</code>
-      <code>providerGetEditorForm4</code>
-      <code>providerGetExecuteForm1</code>
-      <code>providerGetExecuteForm2</code>
-      <code>providerGetParameterRow</code>
-      <code>providerGetParameterRowAjax</code>
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>
@@ -14061,29 +13941,33 @@
       <code>providerForTestGetDefaultFunctionForField</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
-    <InvalidConstantAssignmentValue>
-      <code><![CDATA[IMPLEMENTATION_CLASSES = [
-        'slim/psr7' => [SlimServerRequestFactory::class, 'Slim PSR-7'],
-        'guzzlehttp/psr7' => [GuzzleHttpFactory::class, 'Guzzle PSR-7'],
-        'nyholm/psr7' => [NyholmPsr17Factory::class, 'Nyholm PSR-7'],
-        'laminas/laminas-diactoros' => [LaminasServerRequestFactory::class, 'Laminas diactoros PSR-7'],
-    ]]]></code>
-    </InvalidConstantAssignmentValue>
-    <MixedMethodCall>
-      <code>new $className()</code>
-    </MixedMethodCall>
+  <file src="test/classes/Http/Factory/ResponseFactoryTest.php">
     <PossiblyUnusedMethod>
-      <code>dataProviderPsr7Implementations</code>
+      <code>providerForTestCreate</code>
+      <code>providerForTestCreateResponse</code>
     </PossiblyUnusedMethod>
-    <UndefinedClass>
-      <code>GuzzleHttpFactory</code>
-      <code>LaminasServerRequestFactory</code>
-      <code>NyholmPsr17Factory</code>
-    </UndefinedClass>
+  </file>
+  <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestCreate</code>
+      <code>providerForTestCreateServerRequest</code>
+      <code>providerForTestFromGlobals</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Http/Factory/UriFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestCreateUri</code>
+      <code>uriFactoryProviders</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Http/ResponseTest.php">
+    <PossiblyUnusedMethod>
+      <code>responseFactoryProviders</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Http/ServerRequestTest.php">
     <PossiblyUnusedMethod>
+      <code>isAjaxProvider</code>
       <code>providerForTestGetRoute</code>
     </PossiblyUnusedMethod>
   </file>
@@ -14729,9 +14613,6 @@
   <file src="test/classes/Triggers/TriggersTest.php">
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequestEmpty</code>
-      <code>providerGetEditorFormAdd</code>
-      <code>providerGetEditorFormAjax</code>
-      <code>providerGetEditorFormEdit</code>
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>

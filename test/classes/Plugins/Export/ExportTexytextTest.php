@@ -20,7 +20,6 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -306,9 +305,7 @@ class ExportTexytextTest extends AbstractTestCase
             'relation' => 'rel',
             'column_info' => 'col',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $result = $this->object->getTableDef('db', 'table', true, true, true);
 

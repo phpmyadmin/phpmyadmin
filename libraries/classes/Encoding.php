@@ -18,7 +18,6 @@ use function mb_convert_encoding;
 use function mb_convert_kana;
 use function mb_detect_encoding;
 use function mb_list_encodings;
-use function recode_string;
 use function strtolower;
 use function tempnam;
 use function unlink;
@@ -37,11 +36,6 @@ class Encoding
      * iconv encoding conversion engine
      */
     public const ENGINE_ICONV = 1;
-
-    /**
-     * recode encoding conversion engine
-     */
-    public const ENGINE_RECODE = 2;
 
     /**
      * mbstring encoding conversion engine
@@ -66,7 +60,6 @@ class Encoding
      */
     private static array $enginemap = [
         'iconv' => ['iconv', self::ENGINE_ICONV, 'iconv'],
-        'recode' => ['recode_string', self::ENGINE_RECODE, 'recode'],
         'mb' => ['mb_convert_encoding', self::ENGINE_MB, 'mbstring'],
         'none' => ['isset', self::ENGINE_NONE, ''],
     ];
@@ -76,7 +69,7 @@ class Encoding
      *
      * @var mixed[]
      */
-    private static array $engineorder = ['iconv', 'mb', 'recode'];
+    private static array $engineorder = ['iconv', 'mb'];
 
     /**
      * Kanji encodings list
@@ -163,7 +156,6 @@ class Encoding
         }
 
         return match (self::$engine) {
-            self::ENGINE_RECODE => recode_string($srcCharset . '..' . $destCharset, $what),
             self::ENGINE_ICONV => iconv($srcCharset, $destCharset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''), $what),
             self::ENGINE_MB => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,

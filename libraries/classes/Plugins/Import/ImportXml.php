@@ -22,7 +22,6 @@ use function count;
 use function in_array;
 use function simplexml_load_string;
 use function str_replace;
-use function strcmp;
 use function strlen;
 
 use const LIBXML_COMPACT;
@@ -66,6 +65,7 @@ class ImportXml extends ImportPlugin
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
+        /** @infection-ignore-all */
         while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
@@ -229,7 +229,7 @@ class ImportXml extends ImportPlugin
                 $isInTables = false;
                 $numTables = count($tables);
                 for ($i = 0; $i < $numTables; ++$i) {
-                    if (! strcmp($tables[$i][Import::TBL_NAME], (string) $tblAttr['name'])) {
+                    if ($tables[$i][Import::TBL_NAME] === (string) $tblAttr['name']) {
                         $isInTables = true;
                         break;
                     }
@@ -264,7 +264,7 @@ class ImportXml extends ImportPlugin
             for ($i = 0; $i < $numTables; ++$i) {
                 $numRows = count($rows);
                 for ($j = 0; $j < $numRows; ++$j) {
-                    if (strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
+                    if ($tables[$i][Import::TBL_NAME] !== $rows[$j][Import::TBL_NAME]) {
                         continue;
                     }
 

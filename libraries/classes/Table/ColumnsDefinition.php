@@ -137,6 +137,7 @@ final class ColumnsDefinition
             $childReferences = $this->relation->getChildReferences($GLOBALS['db'], $GLOBALS['table']);
         }
 
+        /** @infection-ignore-all */
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
             $type = '';
             $length = '';

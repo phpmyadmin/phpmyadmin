@@ -5,14 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
+use ReflectionProperty;
 
 #[CoversClass(Designer::class)]
 class DesignerTest extends AbstractTestCase
@@ -35,18 +36,14 @@ class DesignerTest extends AbstractTestCase
         $GLOBALS['cfg']['Schema']['pdf_orientation'] = 'L';
         $GLOBALS['cfg']['Schema']['pdf_paper'] = 'A4';
 
-        $_SESSION = [
-            'relation' => [
-                1 => [
-                    'version' => Version::VERSION,
-                    'db' => 'pmadb',
-                    'pdf_pages' => 'pdf_pages',
-                    'table_coords' => 'table_coords',
-                    'pdfwork' => true,
-                ],
-            ],
-            ' PMA_token ' => 'token',
-        ];
+        $_SESSION = [' PMA_token ' => 'token'];
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'pdf_pages' => 'pdf_pages',
+            'table_coords' => 'table_coords',
+            'pdfwork' => true,
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }
 
     /**

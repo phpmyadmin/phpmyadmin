@@ -31,7 +31,7 @@ final class CollationController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        if (! $this->response->isAjax()) {
+        if (! $request->isAjax()) {
             return;
         }
 

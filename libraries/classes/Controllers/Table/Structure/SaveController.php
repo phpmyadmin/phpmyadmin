@@ -157,6 +157,7 @@ final class SaveController extends AbstractController
             $changedToBlob = [];
             // While changing the Column Collation
             // First change to BLOB
+            /** @infection-ignore-all */
             for ($i = 0; $i < $fieldCnt; $i++) {
                 if (
                     isset($_POST['field_collation'][$i], $_POST['field_collation_orig'][$i])

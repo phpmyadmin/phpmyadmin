@@ -95,6 +95,7 @@ final class TablePartitionDefinition
         // when number of partitions have been reduced
         array_splice($partitions, $partitionCount);
 
+        /** @infection-ignore-all */
         for ($i = 0; $i < $partitionCount; $i++) {
             if (! isset($partitions[$i])) { // Newly added partition
                 $partitions[$i] = [
@@ -151,6 +152,7 @@ final class TablePartitionDefinition
             // when number of subpartitions have been reduced
             array_splice($subpartitions, $subpartitionCount);
 
+            /** @infection-ignore-all */
             for ($j = 0; $j < $subpartitionCount; $j++) {
                 if (! isset($subpartitions[$j])) { // Newly added subpartition
                     $subpartitions[$j] = [

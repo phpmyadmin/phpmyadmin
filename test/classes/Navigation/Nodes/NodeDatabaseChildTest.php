@@ -12,7 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
-use ReflectionClass;
+use ReflectionProperty;
 
 #[CoversClass(NodeDatabaseChild::class)]
 #[CoversClass(NodeDatabase::class)]
@@ -44,9 +44,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
             'navwork' => true,
             'navigationhiding' => 'navigationhiding',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $this->object = $this->getMockForAbstractClass(
             NodeDatabaseChild::class,
             ['child'],

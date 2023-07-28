@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http;
 
+use Fig\Http\Message\RequestMethodInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
@@ -267,7 +268,7 @@ class ServerRequest implements ServerRequestInterface
 
     public function isPost(): bool
     {
-        return $this->getMethod() === 'POST';
+        return $this->getMethod() === RequestMethodInterface::METHOD_POST;
     }
 
     /** @psalm-return non-empty-string */
@@ -319,5 +320,11 @@ class ServerRequest implements ServerRequestInterface
 
         return is_array($postParams) && isset($postParams[$param])
             || is_object($postParams) && property_exists($postParams, $param);
+    }
+
+    public function isAjax(): bool
+    {
+        return $this->serverRequest->getHeaderLine('X-Requested-With') === 'XMLHttpRequest'
+            || $this->has('ajax_request');
     }
 }

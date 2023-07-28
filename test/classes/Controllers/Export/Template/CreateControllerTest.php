@@ -16,7 +16,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionProperty;
 
 #[CoversClass(CreateController::class)]
 class CreateControllerTest extends AbstractTestCase
@@ -44,9 +44,7 @@ class CreateControllerTest extends AbstractTestCase
             'db' => 'db',
             'export_templates' => 'table',
         ]);
-        (new ReflectionClass(Relation::class))->getProperty('cache')->setValue(
-            [$GLOBALS['server'] => $relationParameters],
-        );
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $GLOBALS['cfg']['Server']['user'] = 'user';
 
