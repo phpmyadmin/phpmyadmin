@@ -18,7 +18,6 @@
         <directory name="test/classes"/>
         <directory name="test/selenium"/>
         <file name="public/index.php"/>
-        <file name="public/show_config_errors.php"/>
         <ignoreFiles>
             <directory name="vendor"/>
             <directory name="libraries/cache"/>

@@ -658,9 +658,7 @@ class Config
 
         $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
             . '[br][br]'
-            . __('This usually means there is a syntax error in it, please check any errors shown below.')
-            . '[br][br]'
-            . '[conferr]';
+            . __('This usually means there is a syntax error in it.');
 
         throw new ConfigException(Sanitize::sanitizeMessage($error));
     }
