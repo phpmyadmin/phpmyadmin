@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Triggers;
 
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
+use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -50,5 +52,15 @@ final class Trigger
         } catch (InvalidArgumentException) {
             return null;
         }
+    }
+
+    public function getDropSql(): string
+    {
+        return 'DROP TRIGGER IF EXISTS ' . Util::backquote($this->name);
+    }
+
+    public function getCreateSql(string $delimiter = '//'): string
+    {
+        return QueryGenerator::getCreateTrigger($this, $delimiter);
     }
 }

@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
 
@@ -447,12 +448,13 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string $db    database name
-     * @param string $table table name
+     * @param string    $db       database name
+     * @param string    $table    table name
+     * @param Trigger[] $triggers
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers(string $db, string $table): string
+    protected function getTriggers(string $db, string $table, array $triggers): string
     {
         $dump = '<table width="100%" cellspacing="1">';
         $dump .= '<tr class="print-category">';
@@ -462,21 +464,19 @@ class ExportHtmlword extends ExportPlugin
         $dump .= '<td class="print"><strong>' . __('Definition') . '</strong></td>';
         $dump .= '</tr>';
 
-        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
-
         foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
             $dump .= '<td class="print">'
-                . htmlspecialchars($trigger['name'])
+                . htmlspecialchars($trigger->name->getName())
                 . '</td>'
                 . '<td class="print">'
-                . htmlspecialchars($trigger['action_timing'])
+                . htmlspecialchars($trigger->timing->value)
                 . '</td>'
                 . '<td class="print">'
-                . htmlspecialchars($trigger['event_manipulation'])
+                . htmlspecialchars($trigger->event->value)
                 . '</td>'
                 . '<td class="print">'
-                . htmlspecialchars($trigger['definition'])
+                . htmlspecialchars($trigger->statement)
                 . '</td>'
                 . '</tr>';
         }
@@ -534,11 +534,11 @@ class ExportHtmlword extends ExportPlugin
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
-                if ($triggers) {
+                if ($triggers !== []) {
                     $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($tableAlias)
                     . '</h2>';
-                    $dump .= $this->getTriggers($db, $table);
+                    $dump .= $this->getTriggers($db, $table, $triggers);
                 }
 
                 break;

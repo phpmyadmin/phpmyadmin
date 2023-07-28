@@ -91,4 +91,33 @@ class TriggerTest extends TestCase
             ],
         ];
     }
+
+    public function testGetSqlForDropAndCreate(): void
+    {
+        $testTrigger = Trigger::tryFromArray([
+            'Trigger' => 'a_trigger',
+            'Timing' => 'BEFORE',
+            'Event' => 'UPDATE',
+            'Table' => 'test_table2',
+            'Statement' => 'BEGIN END',
+            'Definer' => 'definer@localhost',
+        ]);
+
+        $this->assertNotNull($testTrigger);
+
+        $this->assertSame(
+            'DROP TRIGGER IF EXISTS `a_trigger`',
+            $testTrigger->getDropSql(),
+        );
+
+        $this->assertSame(
+            "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n//\n",
+            $testTrigger->getCreateSql(),
+        );
+
+        $this->assertSame(
+            "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n$$\n",
+            $testTrigger->getCreateSql('$$'),
+        );
+    }
 }

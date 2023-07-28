@@ -1911,8 +1911,8 @@ class ExportSql extends ExportPlugin
             case 'triggers':
                 $dump = '';
                 $delimiter = '$$';
-                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table, $delimiter);
-                if ($triggers) {
+                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
+                if ($triggers !== []) {
                     $dump .= $this->possibleCRLF()
                     . $this->exportComment()
                     . $this->exportComment(
@@ -1923,11 +1923,16 @@ class ExportSql extends ExportPlugin
                     $triggerQuery = '';
                     foreach ($triggers as $trigger) {
                         if (! empty($GLOBALS['sql_drop_table'])) {
-                            $triggerQuery .= $trigger['drop'] . ';' . "\n";
+                            $triggerQuery .= $trigger->getDropSql() . ';' . "\n";
                         }
 
                         $triggerQuery .= 'DELIMITER ' . $delimiter . "\n";
-                        $triggerQuery .= $this->replaceWithAliases($trigger['create'], $aliases, $db, $flag);
+                        $triggerQuery .= $this->replaceWithAliases(
+                            $trigger->getCreateSql($delimiter),
+                            $aliases,
+                            $db,
+                            $flag,
+                        );
                         if ($flag) {
                             $usedAlias = true;
                         }

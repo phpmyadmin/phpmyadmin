@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Triggers;
 
 use PhpMyAdmin\Controllers\Triggers\IndexController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Triggers\Triggers;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use ReflectionClass;
 
 #[CoversClass(IndexController::class)]
 #[CoversClass(Triggers::class)]
@@ -232,5 +235,76 @@ HTML;
         // phpcs:enable
 
         $this->assertSame($expected, $actual);
+    }
+
+    /**
+     * Test for getDataFromRequest
+     *
+     * @param array<string, string> $in  Input
+     * @param array<string, string> $out Expected output
+     */
+    #[DataProvider('providerGetDataFromRequest')]
+    public function testGetDataFromRequest(array $in, array $out): void
+    {
+        unset($_POST);
+        foreach ($in as $key => $value) {
+            if ($value === '') {
+                continue;
+            }
+
+            $_POST[$key] = $value;
+        }
+
+        $method = (new ReflectionClass(IndexController::class))->getMethod('getDataFromRequest');
+
+        $dbi = $this->createStub(DatabaseInterface::class);
+        $GLOBALS['dbi'] = $dbi;
+        $template = new Template();
+        $response = new ResponseRenderer();
+        $indexController = new IndexController(
+            $response,
+            $template,
+            $dbi,
+            new Triggers($dbi),
+        );
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->expects($this->any())
+            ->method('getParsedBodyParam')
+            ->will($this->returnValue('foo'));
+
+        $output = $method->invoke($indexController, $request);
+        $this->assertEquals($out, $output);
+    }
+
+    /**
+     * Data provider for testGetDataFromRequest
+     *
+     * @return array<array{array<string, string>, array<string, string>}>
+     */
+    public static function providerGetDataFromRequest(): array
+    {
+        return [
+            [
+                [
+                    'item_name' => 'foo',
+                    'item_table' => 'foo',
+                    'item_original_name' => 'foo',
+                    'item_action_timing' => 'foo',
+                    'item_event_manipulation' => 'foo',
+                    'item_definition' => 'foo',
+                    'item_definer' => 'foo',
+                ],
+                [
+                    'item_name' => 'foo',
+                    'item_table' => 'foo',
+                    'item_original_name' => 'foo',
+                    'item_action_timing' => 'foo',
+                    'item_event_manipulation' => 'foo',
+                    'item_definition' => 'foo',
+                    'item_definer' => 'foo',
+                ],
+            ],
+        ];
     }
 }

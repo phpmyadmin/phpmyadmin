@@ -3,19 +3,19 @@
     <input type="checkbox" class="checkall" name="item_name[]" value="{{ trigger.name }}">
   </td>
   <td>
-    <span class='drop_sql hide'>{{ trigger.drop }}</span>
+    <span class='drop_sql hide'>{{ trigger.getDropSql() }}</span>
     <strong>{{ trigger.name }}</strong>
   </td>
   {% if table is empty %}
     <td>
-      <a href="{{ url('/triggers', {'db': db, 'table': trigger.table}) }}">{{ trigger.table }}</a>
+      <a href="{{ url('/triggers', {'db': db, 'table': trigger.table.getName() }) }}">{{ trigger.table }}</a>
     </td>
   {% endif %}
   <td>
-    {{ trigger.action_timing }}
+    {{ trigger.timing.value }}
   </td>
   <td>
-    {{ trigger.event_manipulation }}
+    {{ trigger.event.value }}
   </td>
   <td>
     {% if has_edit_privilege %}
@@ -23,7 +23,7 @@
         'db': db,
         'table': table,
         'edit_item': true,
-        'item_name': trigger.name
+        'item_name': trigger.name.getName()
       }) }}">
         {{ get_icon('b_edit', 'Edit'|trans) }}
       </a>
@@ -36,7 +36,7 @@
       'db': db,
       'table': table,
       'export_item': true,
-      'item_name': trigger.name
+      'item_name': trigger.name.getName()
     }) }}">
       {{ get_icon('b_export', 'Export'|trans) }}
     </a>
@@ -48,7 +48,7 @@
         {
           'db': db,
           'table': table,
-          'sql_query': trigger.drop,
+          'sql_query': trigger.getDropSql(),
           'goto': url('/triggers', {'db': db})
         },
         get_icon('b_drop', 'Drop'|trans),

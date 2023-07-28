@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
 
@@ -427,12 +428,13 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string $db    database name
-     * @param string $table table name
+     * @param string    $db       database name
+     * @param string    $table    table name
+     * @param Trigger[] $triggers
      *
      * @return string Formatted triggers list
      */
-    public function getTriggers(string $db, string $table): string
+    public function getTriggers(string $db, string $table, array $triggers): string
     {
         $dump = "|------\n";
         $dump .= '|' . __('Name');
@@ -441,13 +443,11 @@ class ExportTexytext extends ExportPlugin
         $dump .= '|' . __('Definition');
         $dump .= "\n|------\n";
 
-        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
-
         foreach ($triggers as $trigger) {
-            $dump .= '|' . $trigger['name'];
-            $dump .= '|' . $trigger['action_timing'];
-            $dump .= '|' . $trigger['event_manipulation'];
-            $dump .= '|' . str_replace('|', '&#124;', htmlspecialchars($trigger['definition']));
+            $dump .= '|' . $trigger->name->getName();
+            $dump .= '|' . $trigger->timing->value;
+            $dump .= '|' . $trigger->event->value;
+            $dump .= '|' . str_replace('|', '&#124;', htmlspecialchars($trigger->statement));
             $dump .= "\n";
         }
 
@@ -499,9 +499,9 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
-                if ($triggers) {
+                if ($triggers !== []) {
                     $dump .= '== ' . __('Triggers') . ' ' . $tableAlias . "\n\n";
-                    $dump .= $this->getTriggers($db, $table);
+                    $dump .= $this->getTriggers($db, $table, $triggers);
                 }
 
                 break;

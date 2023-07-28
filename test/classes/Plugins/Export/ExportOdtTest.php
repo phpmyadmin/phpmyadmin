@@ -9,6 +9,8 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -21,6 +23,9 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Triggers\Event;
+use PhpMyAdmin\Triggers\Timing;
+use PhpMyAdmin\Triggers\Trigger;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -722,33 +727,19 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testGetTriggers(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
         $triggers = [
-            [
-                'TRIGGER_SCHEMA' => 'database',
-                'TRIGGER_NAME' => 'tna"me',
-                'EVENT_MANIPULATION' => 'INSERT',
-                'EVENT_OBJECT_TABLE' => 'ta<ble',
-                'ACTION_TIMING' => 'AFTER',
-                'ACTION_STATEMENT' => 'def',
-                'EVENT_OBJECT_SCHEMA' => 'database',
-                'DEFINER' => 'test_user@localhost',
-            ],
+            new Trigger(
+                TriggerName::from('tna"me'),
+                Timing::After,
+                Event::Insert,
+                TableName::from('ta<ble'),
+                'def',
+                'test_user@localhost',
+            ),
         ];
 
-        $dbi->expects($this->once())
-            ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($triggers);
-
-        $GLOBALS['dbi'] = $dbi;
-
         $method = new ReflectionMethod(ExportOdt::class, 'getTriggers');
-        $result = $method->invoke($this->object, 'database', 'ta<ble');
+        $result = $method->invoke($this->object, 'database', 'ta<ble', $triggers);
 
         $this->assertSame($result, $GLOBALS['odt_buffer']);
 
