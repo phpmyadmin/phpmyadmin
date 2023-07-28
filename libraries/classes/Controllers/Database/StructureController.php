@@ -438,6 +438,16 @@ class StructureController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
+        $defaultStorageEngine = '';
+        if ($GLOBALS['cfg']['PropertiesNumColumns'] < 2) {
+            // MySQL <= 5.5.2
+            $defaultStorageEngine = $this->dbi->fetchValue('SELECT @@storage_engine;');
+            if (! is_string($defaultStorageEngine) || $defaultStorageEngine === '') {
+                // MySQL >= 5.5.3
+                $defaultStorageEngine = $this->dbi->fetchValue('SELECT @@default_storage_engine;');
+            }
+        }
+
         return $html . $this->template->render('database/structure/table_header', [
             'db' => $GLOBALS['db'],
             'db_is_system_schema' => $this->dbIsSystemSchema,
@@ -468,7 +478,7 @@ class StructureController extends AbstractController
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                 'db' => $GLOBALS['db'],
                 'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                'dbi' => $this->dbi,
+                'default_storage_engine' => $defaultStorageEngine,
                 'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                 'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
                 'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
