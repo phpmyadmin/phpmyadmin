@@ -191,8 +191,6 @@ class Sanitize
             '[/doc]' => '</a>',
             '[sup]' => '<sup>',
             '[/sup]' => '</sup>',
-            '[conferr]' => '<iframe src="show_config_errors.php"><a href='
-                . '"show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
             '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
         ];

@@ -202,8 +202,6 @@ validateExtension() {
         ;;
         config.sample.inc.php)
         ;;
-        public/show_config_errors.php)
-        ;;
         *)
             foundFileExt
         ;;

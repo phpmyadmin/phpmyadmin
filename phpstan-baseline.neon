@@ -27546,11 +27546,6 @@ parameters:
 			path: public/setup/index.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function is_readable expects string, mixed given\\.$#"
-			count: 1
-			path: public/show_config_errors.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 2
 			path: test/classes/AbstractTestCase.php
