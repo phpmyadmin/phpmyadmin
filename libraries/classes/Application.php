@@ -13,15 +13,16 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
-use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\ApplicationHandler;
+use PhpMyAdmin\Http\Handler\QueueRequestHandler;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Routing\Routing;
@@ -78,8 +79,11 @@ class Application
 
     public function run(bool $isSetupPage = false): void
     {
+        $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
+        $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
+
         $runner = new RequestHandlerRunner(
-            new ApplicationHandler($this),
+            $requestHandler,
             new SapiEmitter(),
             static fn (): ServerRequestInterface => self::getRequest()->withAttribute('isSetupPage', $isSetupPage),
             function (Throwable $throwable): ResponseInterface {
@@ -99,15 +103,6 @@ class Application
 
         $GLOBALS['errorHandler'] = $this->errorHandler;
         $GLOBALS['config'] = $this->config;
-
-        try {
-            $this->checkRequiredPhpExtensions();
-        } catch (MissingExtensionException $exception) {
-            // Disables template caching because the cache directory is not known yet.
-            $this->template->disableCache();
-
-            return $this->getGenericErrorResponse($exception->getMessage());
-        }
 
         $resultOfServerConfigurationCheck = $this->checkServerConfiguration();
         if ($resultOfServerConfigurationCheck !== null) {
@@ -326,7 +321,7 @@ class Application
     /**
      * Checks that required PHP extensions are there.
      */
-    private function checkRequiredPhpExtensions(): void
+    public function checkRequiredPhpExtensions(): void
     {
         /**
          * Warning about mbstring.
