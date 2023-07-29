@@ -1436,12 +1436,7 @@ class DatabaseInterface implements DbalInterface
             return false;
         }
 
-        $result = $this->tryQuery('SELECT 1 FROM mysql.user LIMIT 1');
-        $isSuperUser = false;
-
-        if ($result) {
-            $isSuperUser = (bool) $result->numRows();
-        }
+        $isSuperUser = (bool) $this->fetchValue('SELECT 1 FROM mysql.user LIMIT 1');
 
         SessionCache::set('is_superuser', $isSuperUser);
 
@@ -1477,11 +1472,7 @@ class DatabaseInterface implements DbalInterface
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
-        $result = $this->tryQuery($query);
-
-        if ($result) {
-            $hasGrantPrivilege = (bool) $result->numRows();
-        }
+        $hasGrantPrivilege = (bool) $this->fetchValue($query);
 
         SessionCache::set('is_grantuser', $hasGrantPrivilege);
 
@@ -1517,11 +1508,7 @@ class DatabaseInterface implements DbalInterface
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
-        $result = $this->tryQuery($query);
-
-        if ($result) {
-            $hasCreatePrivilege = (bool) $result->numRows();
-        }
+        $hasCreatePrivilege = (bool) $this->fetchValue($query);
 
         SessionCache::set('is_createuser', $hasCreatePrivilege);
 
