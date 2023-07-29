@@ -99,6 +99,11 @@ final class Application
             return $this->getGenericErrorResponse($exception->getMessage());
         }
 
+        $resultOfServerConfigurationCheck = $this->checkServerConfiguration();
+        if ($resultOfServerConfigurationCheck !== null) {
+            return $this->getGenericErrorResponse($resultOfServerConfigurationCheck);
+        }
+
         $this->configurePhpSettings();
 
         try {
@@ -170,7 +175,6 @@ final class Application
         }
 
         try {
-            $this->checkServerConfiguration();
             $this->checkRequest();
         } catch (RuntimeException $exception) {
             return $this->getGenericErrorResponse($exception->getMessage());
@@ -490,19 +494,17 @@ final class Application
     /**
      * Check whether PHP configuration matches our needs.
      */
-    private function checkServerConfiguration(): void
+    private function checkServerConfiguration(): string|null
     {
         /**
          * The ini_set and ini_get functions can be disabled using
          * disable_functions but we're relying quite a lot of them.
          */
         if (function_exists('ini_get') && function_exists('ini_set')) {
-            return;
+            return null;
         }
 
-        throw new RuntimeException(__(
-            'The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin requires these functions!',
-        ));
+        return __('The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin requires these functions!');
     }
 
     /**
