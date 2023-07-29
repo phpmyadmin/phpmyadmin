@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
+use Laminas\HttpHandlerRunner\RequestHandlerRunner;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Http\Handler\ApplicationHandler;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -26,8 +28,11 @@ use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Tracking\Tracker;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Throwable;
 
 use function __;
 use function count;
@@ -51,7 +56,7 @@ use function trigger_error;
 use const CONFIG_FILE;
 use const E_USER_ERROR;
 
-final class Application
+class Application
 {
     private static ServerRequest|null $request = null;
 
@@ -73,17 +78,22 @@ final class Application
 
     public function run(bool $isSetupPage = false): void
     {
-        $request = self::getRequest()->withAttribute('isSetupPage', $isSetupPage);
-        $response = $this->handle($request);
-        if ($response === null) {
-            return;
-        }
+        $runner = new RequestHandlerRunner(
+            new ApplicationHandler($this),
+            new SapiEmitter(),
+            static fn (): ServerRequestInterface => self::getRequest()->withAttribute('isSetupPage', $isSetupPage),
+            function (Throwable $throwable): ResponseInterface {
+                $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+                $response->getBody()->write(sprintf('An error occurred: %s', $throwable->getMessage()));
 
-        $emitter = new SapiEmitter();
-        $emitter->emit($response);
+                return $response;
+            },
+        );
+
+        $runner->run();
     }
 
-    private function handle(ServerRequest $request): Response|null
+    public function handle(ServerRequest $request): Response|null
     {
         $isSetupPage = (bool) $request->getAttribute('isSetupPage');
 
