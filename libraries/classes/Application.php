@@ -34,10 +34,8 @@ use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function define;
-use function extension_loaded;
 use function function_exists;
 use function hash_equals;
-use function ini_get;
 use function ini_set;
 use function is_array;
 use function is_scalar;
@@ -494,21 +492,6 @@ final class Application
      */
     private function checkServerConfiguration(): void
     {
-        /**
-         * As we try to handle charsets by ourself, mbstring overloads just
-         * break it, see bug 1063821.
-         *
-         * We specifically use empty here as we are looking for anything else than
-         * empty value or 0.
-         */
-        if (extension_loaded('mbstring') && ! empty(ini_get('mbstring.func_overload'))) {
-            throw new RuntimeException(__(
-                'You have enabled mbstring.func_overload in your PHP '
-                . 'configuration. This option is incompatible with phpMyAdmin '
-                . 'and might cause some data to be corrupted!',
-            ));
-        }
-
         /**
          * The ini_set and ini_get functions can be disabled using
          * disable_functions but we're relying quite a lot of them.
