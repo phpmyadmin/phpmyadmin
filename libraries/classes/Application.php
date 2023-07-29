@@ -22,6 +22,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
@@ -80,6 +81,7 @@ class Application
     public function run(bool $isSetupPage = false): void
     {
         $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
+        $requestHandler->add(new ErrorHandling($this->errorHandler));
         $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
