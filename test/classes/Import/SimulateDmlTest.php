@@ -82,6 +82,14 @@ class SimulateDmlTest extends AbstractTestCase
                     ' WHERE NOT (`n0`) <=> (`o0`)',
                 3,
             ],
+            'update duplicate set' => [
+                'UPDATE `table_1` SET `id` = 2, `id` = 1 WHERE `id` = 1',
+                'SELECT COUNT(*)' .
+                    ' FROM (SELECT 1 AS `n0`) AS `pma_new`' .
+                    ' JOIN (SELECT `id` AS `o0` FROM `table_1` WHERE `id` = 1) AS `pma_old`' .
+                    ' WHERE NOT (`n0`) <=> (`o0`)',
+                0,
+            ],
             'delete statement' => [
                 'DELETE FROM `table_1` WHERE `id` > 10',
                 'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE `id` > 10) AS `pma_tmp`',

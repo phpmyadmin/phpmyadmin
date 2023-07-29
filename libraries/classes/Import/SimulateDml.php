@@ -16,6 +16,8 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
+use function array_key_exists;
+use function array_reverse;
 use function implode;
 
 final class SimulateDml
@@ -121,7 +123,13 @@ final class SimulateDml
         $newColumns = [];
         $oldColumns = [];
         $i = 0;
-        foreach ($statement->set as $set) {
+        $handledColumns = [];
+        foreach (array_reverse($statement->set) as $set) {
+            if (array_key_exists($set->column, $handledColumns)) {
+                continue;
+            }
+
+            $handledColumns[$set->column] = true;
             $oldValues[] = $set->column . ' AS ' . ($oldColumns[] = Util::backquote('o' . $i));
             $newValues[] = $set->value . ' AS ' . ($newColumns[] = Util::backquote('n' . $i));
             ++$i;
