@@ -23,6 +23,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Middleware\ErrorHandling;
+use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
@@ -82,6 +83,7 @@ class Application
     {
         $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
         $requestHandler->add(new ErrorHandling($this->errorHandler));
+        $requestHandler->add(new OutputBuffering());
         $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
