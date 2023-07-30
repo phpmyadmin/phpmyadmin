@@ -39,6 +39,7 @@ use PhpMyAdmin\Controllers\Triggers;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Theme\ThemeManager;
 
@@ -465,7 +466,10 @@ return [
             'class' => Import\StatusController::class,
             'arguments' => ['$template' => '@template'],
         ],
-        JavaScriptMessagesController::class => ['class' => JavaScriptMessagesController::class],
+        JavaScriptMessagesController::class => [
+            'class' => JavaScriptMessagesController::class,
+            'arguments' => ['@' . ResponseFactory::class],
+        ],
         LicenseController::class => [
             'class' => LicenseController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template'],

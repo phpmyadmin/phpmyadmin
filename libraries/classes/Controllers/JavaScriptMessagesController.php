@@ -4,51 +4,50 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use Fig\Http\Message\StatusCodeInterface;
+use JsonException;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
+
 use function __;
 use function _pgettext;
 use function gmdate;
-use function header;
 use function json_encode;
-use function json_last_error_msg;
+use function sprintf;
 use function time;
+
+use const JSON_THROW_ON_ERROR;
 
 /**
  * Exporting of translated messages from PHP to JavaScript.
  */
 final class JavaScriptMessagesController
 {
-    /** @var array<string, string> */
-    private array $messages;
-
-    public function __construct()
+    public function __construct(private readonly ResponseFactory $responseFactory)
     {
-        $this->messages = $this->setMessages();
     }
 
-    public function __invoke(): void
+    public function __invoke(): Response
     {
-        $this->setHTTPHeaders();
-        $messages = json_encode($this->messages);
-        if ($messages === false) {
-            echo '// Error when encoding messages: ' . json_last_error_msg();
+        $response = $this->responseFactory->createResponse()
+            ->withHeader('Content-Type', 'text/javascript; charset=UTF-8')
+            ->withHeader('Expires', sprintf('%s GMT', gmdate('D, d M Y H:i:s', time() + 3600)));
 
-            return;
+        try {
+            $messages = json_encode($this->getMessages(), JSON_THROW_ON_ERROR);
+        } catch (JsonException $exception) {
+            $response->getBody()->write(sprintf('// Error when encoding messages: %s', $exception->getMessage()));
+
+            return $response->withStatus(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
         }
 
-        echo 'window.Messages = ' . $messages . ';';
-    }
+        $response->getBody()->write(sprintf('window.Messages = %s;', $messages));
 
-    private function setHTTPHeaders(): void
-    {
-        // Send correct type.
-        header('Content-Type: text/javascript; charset=UTF-8');
-        // Cache output in client
-        // the nocache query parameter makes sure that this file is reloaded when config changes.
-        header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+        return $response;
     }
 
     /** @return array<string, string> */
-    private function setMessages(): array
+    private function getMessages(): array
     {
         return [
             /* For confirmations */

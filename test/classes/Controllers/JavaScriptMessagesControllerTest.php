@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\TestCase;
@@ -19,8 +21,9 @@ class JavaScriptMessagesControllerTest extends TestCase
     #[RunInSeparateProcess]
     public function testIndex(): void
     {
-        (new JavaScriptMessagesController())();
-        $actual = $this->getActualOutputForAssertion();
+        $response = (new JavaScriptMessagesController(ResponseFactory::create()))();
+        $actual = (string) $response->getBody();
+        $this->assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
 
         $this->assertStringStartsWith('window.Messages = {', $actual);
         $this->assertStringEndsWith('};', $actual);
