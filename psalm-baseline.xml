@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.13.1@086b94371304750d1c673315321a55d15fc59015">
+<files psalm-version="5.14.0@b2942cefed8443002bd3f245c4cd0a54193716d8">
   <file src="libraries/classes/Advisory/Advisor.php">
+    <ArgumentTypeCoercion>
+      <code>$pattern</code>
+    </ArgumentTypeCoercion>
     <MixedArgument>
       <code>$matches[1]</code>
       <code>$matches[2]</code>
@@ -431,7 +434,6 @@
       <code>$workPath</code>
       <code>$workPath</code>
       <code>$workPath</code>
-      <code>$workPath</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$opts['values']['iconv']]]></code>
@@ -507,9 +509,11 @@
     </PossiblyFalseIterator>
     <PossiblyInvalidArgument>
       <code>$_POST[$key]</code>
+      <code>$workPath</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code>$valueDefault</code>
+      <code>$workPath</code>
     </PossiblyInvalidCast>
     <PossiblyNullOperand>
       <code><![CDATA[$form->index]]></code>
@@ -576,6 +580,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Config/Validator.php">
+    <ArgumentTypeCoercion>
+      <code>$regex</code>
+    </ArgumentTypeCoercion>
     <MixedArgument>
       <code>$ip</code>
       <code>$password</code>
@@ -595,8 +602,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$k</code>
-      <code>$k2</code>
-      <code>$k2</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$validators[$field]</code>
@@ -639,6 +644,14 @@
       <code>$validators</code>
       <code>$validators</code>
     </MixedReturnStatement>
+    <PossiblyInvalidArgument>
+      <code>$k2</code>
+      <code>$k2</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code>$k2</code>
+      <code>$k2</code>
+    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>validateByRegex</code>
       <code>validateNonNegativeNumber</code>
@@ -2474,6 +2487,9 @@
     <PossiblyFalseOperand>
       <code>$pos</code>
     </PossiblyFalseOperand>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[str_replace('/', '\'][\'', $key)]]></code>
+    </PossiblyInvalidOperand>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -2871,6 +2887,12 @@
       <code>$value</code>
       <code>$value</code>
     </MixedOperand>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[str_replace(['Com_', '_'], ['', ' '], $key)]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[str_replace(['Com_', '_'], ['', ' '], $key)]]></code>
+    </PossiblyInvalidCast>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
@@ -3768,12 +3790,17 @@
       <code><![CDATA[$_POST['table']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
+      <code>$cleanType</code>
+      <code>$cleanType</code>
+      <code>$cleanType</code>
       <code>$selectedOperator</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['column']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
+      <code>$cleanType</code>
+      <code>$cleanType</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause']]]></code>
@@ -3905,6 +3932,12 @@
       <code>$data</code>
       <code><![CDATA[$data['Expression']]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$data['Virtuality']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$data['Virtuality']]]></code>
+    </PossiblyInvalidCast>
     <PossiblyNullArgument>
       <code><![CDATA[$data['Expression']]]></code>
     </PossiblyNullArgument>
@@ -4186,6 +4219,9 @@
       <code><![CDATA[$_POST['table']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
+      <code>$cleanType</code>
+      <code>$cleanType</code>
+      <code>$cleanType</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
       <code>$selectedOperator</code>
@@ -4193,6 +4229,8 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
+      <code>$cleanType</code>
+      <code>$cleanType</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
     </PossiblyInvalidCast>
@@ -5800,6 +5838,13 @@
       <code>$editCopyUrlParams</code>
       <code>$editCopyUrlParams</code>
     </PossiblyInvalidOperand>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code><![CDATA[str_replace(
+                                '_',
+                                '/',
+                                $mediaTypeMap[$orgFullColName]['mimetype'],
+                            )]]></code>
+    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
@@ -6969,6 +7014,7 @@
       <code><![CDATA[strpos($lastCumulativeSize, ',')]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
+      <code>$additionalSql[$i]</code>
       <code>$lastCumulativeSize</code>
       <code>$lastCumulativeSize</code>
       <code>$lastCumulativeSize</code>
@@ -6976,6 +7022,7 @@
       <code>$lastCumulativeSize</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
+      <code>$additionalSql[$i]</code>
       <code>$sqlDelimiter</code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
@@ -8330,6 +8377,9 @@
       <code>$doMime</code>
       <code>$doRelation</code>
     </ParamNameMismatch>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code>$value</code>
     </PossiblyInvalidCast>
@@ -8398,6 +8448,9 @@
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code>$record[$columns[$i]]</code>
     </PossiblyNullArgument>
@@ -8512,6 +8565,7 @@
     </ParamNameMismatch>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
+      <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
@@ -8781,6 +8835,7 @@
     </ParamNameMismatch>
     <PossiblyInvalidArgument>
       <code>$value</code>
+      <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code>$colAs</code>
@@ -11487,6 +11542,17 @@
     <MoreSpecificReturnType>
       <code>non-empty-string</code>
     </MoreSpecificReturnType>
+    <PossiblyInvalidArgument>
+      <code>$k</code>
+      <code>$k</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code>$k</code>
+      <code>$k</code>
+    </PossiblyInvalidCast>
+    <PossiblyInvalidOperand>
+      <code>$k</code>
+    </PossiblyInvalidOperand>
     <PossiblyNullOperand>
       <code><![CDATA[self::getServerPart($cf, $eol, $conf['Servers'])]]></code>
     </PossiblyNullOperand>
@@ -11622,6 +11688,7 @@
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code>$numRows</code>
+      <code>$sortCol</code>
     </PossiblyInvalidOperand>
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$statement->altered[0]->field->column]]></code>
@@ -12781,6 +12848,10 @@
     </MoreSpecificReturnType>
   </file>
   <file src="libraries/classes/ZipExtension.php">
+    <ArgumentTypeCoercion>
+      <code>$regex</code>
+      <code>$specificEntry</code>
+    </ArgumentTypeCoercion>
     <MixedArgument>
       <code>$dump</code>
     </MixedArgument>
@@ -12793,6 +12864,14 @@
       <code>$newData[$newName]</code>
       <code>$value</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code>$tempName</code>
+      <code>$tempName</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand>
+      <code>$tempName</code>
+      <code>$tempName</code>
+    </PossiblyInvalidOperand>
   </file>
   <file src="libraries/services_loader.php">
     <MixedArgument>
