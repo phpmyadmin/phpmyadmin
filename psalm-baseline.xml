@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.0@b2942cefed8443002bd3f245c4cd0a54193716d8">
+<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="libraries/classes/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code>$pattern</code>
@@ -580,9 +580,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Config/Validator.php">
-    <ArgumentTypeCoercion>
-      <code>$regex</code>
-    </ArgumentTypeCoercion>
     <MixedArgument>
       <code>$ip</code>
       <code>$password</code>
