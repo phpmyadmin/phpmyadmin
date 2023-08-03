@@ -3769,17 +3769,9 @@
   <file src="libraries/classes/Controllers/Table/SearchController.php">
     <MixedArgument>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
-      <code><![CDATA[$this->columnNames[$columnIndex]]]></code>
-      <code><![CDATA[$this->columnNames[$columnIndex]]]></code>
-      <code><![CDATA[$this->columnNames[$columnIndex]]]></code>
-      <code><![CDATA[$this->columnNullFlags[$columnIndex]]]></code>
-      <code><![CDATA[$this->originalColumnTypes[$columnIndex]]]></code>
-      <code>$type</code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$collation</code>
       <code>$isUnsigned</code>
-      <code>$type</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['column']]]></code>
@@ -3787,17 +3779,12 @@
       <code><![CDATA[$_POST['table']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
-      <code>$cleanType</code>
-      <code>$cleanType</code>
-      <code>$cleanType</code>
       <code>$selectedOperator</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['column']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
-      <code>$cleanType</code>
-      <code>$cleanType</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause']]]></code>
@@ -4172,29 +4159,12 @@
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$columnName</code>
-      <code>$columnName</code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code><![CDATA[$properties['type']]]></code>
-      <code><![CDATA[$this->columnNames[$columnIndex]]]></code>
-      <code><![CDATA[$this->columnNames[$columnIndex]]]></code>
-      <code><![CDATA[$this->columnNames[$columnIndex]]]></code>
-      <code><![CDATA[$this->columnNullFlags[$columnIndex]]]></code>
-      <code><![CDATA[$this->originalColumnTypes[$columnIndex]]]></code>
-      <code>$type</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$key</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayOffset>
-      <code>$columnNamesHashes[$columnName]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$collation</code>
-      <code>$columnName</code>
       <code>$isUnsigned</code>
-      <code>$type</code>
     </MixedAssignment>
     <PossiblyFalseArgument>
       <code>$key</code>
@@ -4204,9 +4174,6 @@
       <code><![CDATA[$_POST['table']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
-      <code>$cleanType</code>
-      <code>$cleanType</code>
-      <code>$cleanType</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
       <code>$selectedOperator</code>
@@ -4214,8 +4181,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['where_clause']]]></code>
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
-      <code>$cleanType</code>
-      <code>$cleanType</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
     </PossiblyInvalidCast>

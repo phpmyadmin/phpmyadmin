@@ -42,19 +42,19 @@ use function strtoupper;
  */
 class ZoomSearchController extends AbstractController
 {
-    /** @var mixed[] */
+    /** @var list<string> */
     private array $columnNames = [];
 
-    /** @var mixed[] */
+    /** @var list<string> */
     private array $columnTypes = [];
 
-    /** @var mixed[] */
+    /** @var list<string> */
     private array $originalColumnTypes = [];
 
-    /** @var mixed[] */
+    /** @var list<string> */
     private array $columnCollations = [];
 
-    /** @var mixed[] */
+    /** @var list<bool> */
     private array $columnNullFlags = [];
 
     /** @var bool Whether a geometry column is present */
@@ -188,7 +188,7 @@ class ZoomSearchController extends AbstractController
                 $type = mb_strtolower($type);
             }
 
-            if (empty($type)) {
+            if ($type === '') {
                 $type = '&nbsp;';
             }
 
@@ -462,7 +462,7 @@ class ZoomSearchController extends AbstractController
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
-            'column_type' => (string) $type,
+            'column_type' => $type,
             'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',

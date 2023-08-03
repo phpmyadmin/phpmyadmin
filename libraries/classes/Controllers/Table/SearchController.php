@@ -44,31 +44,31 @@ class SearchController extends AbstractController
     /**
      * Names of columns
      *
-     * @var mixed[]
+     * @var list<string>
      */
     private array $columnNames = [];
     /**
      * Types of columns
      *
-     * @var mixed[]
+     * @var list<string>
      */
     private array $columnTypes = [];
     /**
      * Types of columns without any replacement
      *
-     * @var mixed[]
+     * @var list<string>
      */
     private array $originalColumnTypes = [];
     /**
      * Collations of columns
      *
-     * @var mixed[]
+     * @var list<string>
      */
     private array $columnCollations = [];
     /**
      * Null Flags of columns
      *
-     * @var mixed[]
+     * @var list<bool>
      */
     private array $columnNullFlags = [];
     /**
@@ -132,7 +132,7 @@ class SearchController extends AbstractController
                 $type = mb_strtolower($type);
             }
 
-            if (empty($type)) {
+            if ($type === '') {
                 $type = '&nbsp;';
             }
 
@@ -375,7 +375,7 @@ class SearchController extends AbstractController
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
-            'column_type' => (string) $type,
+            'column_type' => $type,
             'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',

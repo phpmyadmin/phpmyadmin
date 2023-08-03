@@ -8731,13 +8731,8 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
@@ -8767,11 +8762,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -8806,12 +8796,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function md5 expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -8821,12 +8806,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -8841,22 +8826,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$null of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -8887,11 +8857,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$selectedOperator of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -9977,12 +9942,12 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -10017,11 +9982,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a ternary operator condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -10076,12 +10036,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function md5 expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -10091,12 +10046,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -10106,18 +10061,8 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$columnIndex of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
+			message: "#^Parameter \\#2 \\$columnIndex of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -10127,11 +10072,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$goto of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:zoomSubmitAction\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$null of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -10162,11 +10102,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$selectedOperator of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
