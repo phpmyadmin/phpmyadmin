@@ -10400,10 +10400,10 @@
       <code>$this-&gt;tablewidths[$col]</code>
       <code>$this-&gt;tablewidths[$col]</code>
       <code>$this-&gt;titleFontSize ?: $this-&gt;FontSizePt</code>
-      <code>$txt</code>
-      <code>$txt</code>
-      <code>$txt</code>
-      <code>$txt</code>
+      <code>$txt ?? 'NULL'</code>
+      <code>$txt ?? 'NULL'</code>
+      <code>$txt ?? 'NULL'</code>
+      <code>$txt ?? 'NULL'</code>
       <code>$y</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="12">
@@ -10583,10 +10583,6 @@
     <ParamNameMismatch occurrences="1">
       <code>$topMargin</code>
     </ParamNameMismatch>
-    <PossiblyNullArgument occurrences="2">
-      <code>$row[$key]</code>
-      <code>$txt</code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedVariable occurrences="6">
       <code>$comments</code>
       <code>$data</code>

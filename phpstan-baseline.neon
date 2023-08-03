@@ -6101,11 +6101,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Parameter \\#3 \\$txt of method TCPDF\\:\\:MultiCell\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$aliases type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
