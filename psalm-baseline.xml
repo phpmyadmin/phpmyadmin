@@ -3890,11 +3890,8 @@
       <code><![CDATA[$data['COLUMN_COMMENT'] ?? '']]></code>
       <code><![CDATA[$data['Collation'] ?? '']]></code>
       <code><![CDATA[$data['Default'] ?? '']]></code>
-      <code><![CDATA[$data['Expression']]]></code>
-      <code><![CDATA[$data['Extra']]]></code>
       <code><![CDATA[$data['Extra'] ?? '']]></code>
       <code><![CDATA[$data['Type']]]></code>
-      <code><![CDATA[$data['Virtuality']]]></code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
       <code><![CDATA[$extractedColumnSpec['spec_in_brackets']]]></code>
       <code><![CDATA[$extractedColumnSpec['type']]]></code>
@@ -3908,14 +3905,11 @@
       <code><![CDATA[$data['Default']]]></code>
       <code><![CDATA[$data['Default']]]></code>
       <code><![CDATA[$data['Default']]]></code>
-      <code><![CDATA[$data['Expression']]]></code>
-      <code><![CDATA[$data['Extra']]]></code>
       <code><![CDATA[$data['Null']]]></code>
       <code><![CDATA[$data['Null']]]></code>
       <code><![CDATA[$data['Type']]]></code>
       <code><![CDATA[$data['Type']]]></code>
       <code><![CDATA[$data['Type']]]></code>
-      <code><![CDATA[$data['Virtuality']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$data['Expression']]]></code>
@@ -3929,14 +3923,8 @@
       <code>$data</code>
       <code><![CDATA[$data['Expression']]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$data['Virtuality']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$data['Virtuality']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument>
-      <code><![CDATA[$data['Expression']]]></code>
+      <code><![CDATA[$data['Extra'] ?? '']]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>

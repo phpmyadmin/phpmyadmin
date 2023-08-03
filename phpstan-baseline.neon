@@ -9032,7 +9032,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
@@ -9152,11 +9152,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php
 

@@ -97,7 +97,7 @@ final class MoveColumnsController extends AbstractController
             $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
             $data['Virtuality'] = '';
             $data['Expression'] = '';
-            if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
+            if (isset($data['Extra']) && in_array($data['Extra'], $virtual, true)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
                 $expressions = $this->tableObj->getColumnGenerationExpression($column);
                 $data['Expression'] = is_array($expressions) ? $expressions[$column] : null;
