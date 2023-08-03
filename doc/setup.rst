@@ -222,6 +222,16 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. note:: Used only if :envvar:`PMA_PORT` is empty.
 
+.. envvar:: PMA_SOCKET
+
+    Socket file for the database connection.
+
+.. envvar:: PMA_SOCKETS
+
+    Comma-separated list of socket files for the database connections.
+
+    .. note:: Used only if :envvar:`PMA_SOCKET` is empty.
+
 .. envvar:: PMA_ABSOLUTE_URI
 
     The fully-qualified path (``https://pma.example.net/``) where the reverse
