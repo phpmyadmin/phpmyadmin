@@ -231,7 +231,6 @@ class ManageController extends AbstractController
         } elseif ($request->hasBodyParam('submit_clear')) {
             $result = $this->userPreferences->save([]);
             if ($result === true) {
-                $this->config->removeCookie('pma_collaction_connection');
                 $this->config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
