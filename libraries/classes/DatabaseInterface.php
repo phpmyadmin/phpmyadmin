@@ -1051,6 +1051,16 @@ class DatabaseInterface implements DbalInterface
         return (bool) $this->query('SET ' . $var . ' = ' . $value . ';', $connectionType);
     }
 
+    public function getDefaultCharset(): string
+    {
+        return $this->versionInt > 50503 ? 'utf8mb4' : 'utf8';
+    }
+
+    public function getDefaultCollation(): string
+    {
+        return $this->versionInt > 50503 ? 'utf8mb4_general_ci' : 'utf8_general_ci';
+    }
+
     /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
@@ -1064,17 +1074,9 @@ class DatabaseInterface implements DbalInterface
             $this->setVersion($version);
         }
 
-        if ($this->versionInt > 50503) {
-            $defaultCharset = 'utf8mb4';
-            $defaultCollation = 'utf8mb4_general_ci';
-        } else {
-            $defaultCharset = 'utf8';
-            $defaultCollation = 'utf8_general_ci';
-        }
-
-        $GLOBALS['collation_connection'] = $defaultCollation;
-        $GLOBALS['charset_connection'] = $defaultCharset;
-        $this->query(sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $defaultCharset, $defaultCollation));
+        $this->query(
+            sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $this->getDefaultCharset(), $this->getDefaultCollation()),
+        );
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
@@ -1118,7 +1120,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function setCollation(string $collation): void
     {
-        $charset = $GLOBALS['charset_connection'];
+        $charset = $this->getDefaultCharset();
         /* Automatically adjust collation if not supported by server */
         if ($charset === 'utf8' && str_starts_with($collation, 'utf8mb4_')) {
             $collation = 'utf8_' . substr($collation, 8);
@@ -1138,8 +1140,6 @@ class DatabaseInterface implements DbalInterface
 
             return;
         }
-
-        $GLOBALS['collation_connection'] = $collation;
     }
 
     /**

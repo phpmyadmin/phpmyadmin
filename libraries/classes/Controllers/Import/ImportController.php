@@ -62,7 +62,6 @@ final class ImportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['collation_connection'] ??= null;
         $GLOBALS['goto'] ??= null;
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
@@ -95,7 +94,6 @@ final class ImportController extends AbstractController
         $GLOBALS['my_die'] ??= null;
         $GLOBALS['active_page'] ??= null;
         $GLOBALS['reload'] ??= null;
-        $GLOBALS['charset_connection'] ??= null;
 
         $GLOBALS['charset_of_file'] = $request->getParsedBodyParam('charset_of_file');
         $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
@@ -587,8 +585,8 @@ final class ImportController extends AbstractController
 
         // Reset charset back, if we did some changes
         if ($GLOBALS['reset_charset']) {
-            $this->dbi->query('SET CHARACTER SET ' . $GLOBALS['charset_connection']);
-            $this->dbi->setCollation($GLOBALS['collation_connection']);
+            $this->dbi->query('SET CHARACTER SET ' . $this->dbi->getDefaultCharset());
+            $this->dbi->setCollation($this->dbi->getDefaultCollation());
         }
 
         // Show correct message

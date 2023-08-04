@@ -426,6 +426,11 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
+			message: "#^Cannot call method getDefaultCollation\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Config.php
+
+		-
 			message: "#^Cannot call method setCollation\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
@@ -4813,11 +4818,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 5
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$collation of method PhpMyAdmin\\\\DatabaseInterface\\:\\:setCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
@@ -19616,6 +19616,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Cannot call method getDefaultCharset\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Cannot call method getError\\(\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -19628,11 +19633,6 @@ parameters:
 		-
 			message: "#^Cannot call method getTable\\(\\) on mixed\\.$#"
 			count: 5
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot call method getVersion\\(\\) on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-

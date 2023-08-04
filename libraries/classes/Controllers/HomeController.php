@@ -57,7 +57,6 @@ class HomeController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['server'] ??= null;
-        $GLOBALS['collation_connection'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['show_query'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -121,7 +120,7 @@ class HomeController extends AbstractController
                         $collationsList[] = [
                             'name' => $collation->getName(),
                             'description' => $collation->getDescription(),
-                            'is_selected' => $GLOBALS['collation_connection'] === $collation->getName(),
+                            'is_selected' => $this->dbi->getDefaultCollation() === $collation->getName(),
                         ];
                     }
 
