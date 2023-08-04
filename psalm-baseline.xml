@@ -2163,12 +2163,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$skip < $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['collation_connection']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['charset_connection']]]></code>
-    </PossiblyNullOperand>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>

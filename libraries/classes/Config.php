@@ -392,7 +392,7 @@ class Config
     private function setConnectionCollation(): void
     {
         $collationConnection = $this->get('DefaultConnectionCollation');
-        if (empty($collationConnection) || $collationConnection == $GLOBALS['collation_connection']) {
+        if (empty($collationConnection) || $collationConnection === $GLOBALS['dbi']->getDefaultCollation()) {
             return;
         }
 

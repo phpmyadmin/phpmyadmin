@@ -18,6 +18,7 @@ use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use ReflectionProperty;
 
 #[CoversClass(DatabaseInterface::class)]
 class DatabaseInterfaceTest extends AbstractTestCase
@@ -343,10 +344,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', true);
         $dummyDbi->addResult('SET collation_connection = \'utf8_bin_ci\';', true);
 
-        $GLOBALS['charset_connection'] = 'utf8mb4';
+        (new ReflectionProperty(DatabaseInterface::class, 'versionInt'))->setValue($dbi, 50504);
         $dbi->setCollation('utf8_czech_ci');
         $dbi->setCollation('utf8mb4_bin_ci');
-        $GLOBALS['charset_connection'] = 'utf8';
+        (new ReflectionProperty(DatabaseInterface::class, 'versionInt'))->setValue($dbi, 50503);
         $dbi->setCollation('utf8_czech_ci');
         $dbi->setCollation('utf8mb4_bin_ci');
 

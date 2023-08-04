@@ -762,8 +762,8 @@ class ExportSql extends ExportPlugin
                 $setNames = Charsets::$mysqlCharsetMap['utf-8'];
             }
 
-            if ($setNames === 'utf8' && $GLOBALS['dbi']->getVersion() > 50503) {
-                $setNames = 'utf8mb4';
+            if ($setNames === 'utf8') {
+                $setNames = $GLOBALS['dbi']->getDefaultCharset();
             }
 
             $head .= "\n"
