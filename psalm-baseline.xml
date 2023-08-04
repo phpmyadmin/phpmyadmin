@@ -1766,7 +1766,6 @@
     </ArgumentTypeCoercion>
     <InvalidArgument>
       <code><![CDATA[$GLOBALS['asfile']]]></code>
-      <code><![CDATA[$GLOBALS['file_handle']]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
@@ -1946,6 +1945,7 @@
       <code>exportHeader</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$GLOBALS['file_handle']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code>$whatStrucOrData</code>
@@ -6063,7 +6063,6 @@
   </file>
   <file src="libraries/classes/Export/Export.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['SaveDir']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
@@ -6112,7 +6111,6 @@
       <code><![CDATA[$aliases[$dbName]['tables'][$tableName]['columns'][$col]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$aliases[$dbName]['alias']]]></code>

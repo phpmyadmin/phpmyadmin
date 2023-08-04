@@ -275,15 +275,16 @@ final class ExportController extends AbstractController
 
         // Open file on server if needed
         if ($GLOBALS['save_on_server']) {
-            [
-                $GLOBALS['save_filename'],
-                $GLOBALS['message'],
-                $GLOBALS['file_handle'],
-            ] = $this->export->openFile($filename, $isQuickExport);
+            [$GLOBALS['save_filename'], $message, $GLOBALS['file_handle']] = $this->export->openFile(
+                $filename,
+                $isQuickExport,
+            );
 
             // problem opening export file on server?
-            if (! empty($GLOBALS['message'])) {
-                $this->export->showPage($GLOBALS['export_type']);
+            if ($message !== null) {
+                $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
+                $this->response->header('Location: ' . $location);
+                $this->response->setHttpResponseCode(302);
 
                 return;
             }
@@ -487,8 +488,10 @@ final class ExportController extends AbstractController
             // Ignore
         }
 
-        if ($GLOBALS['save_on_server'] && ! empty($GLOBALS['message'])) {
-            $this->export->showPage($GLOBALS['export_type']);
+        if ($GLOBALS['save_on_server'] && $GLOBALS['message'] instanceof Message) {
+            $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $GLOBALS['message']);
+            $this->response->header('Location: ' . $location);
+            $this->response->setHttpResponseCode(302);
 
             return;
         }
@@ -534,12 +537,14 @@ final class ExportController extends AbstractController
 
         /* If we saved on server, we have to close file now */
         if ($GLOBALS['save_on_server']) {
-            $GLOBALS['message'] = $this->export->closeFile(
+            $message = $this->export->closeFile(
                 $GLOBALS['file_handle'],
                 $this->export->dumpBuffer,
                 $GLOBALS['save_filename'],
             );
-            $this->export->showPage($GLOBALS['export_type']);
+            $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
+            $this->response->header('Location: ' . $location);
+            $this->response->setHttpResponseCode(302);
 
             return;
         }

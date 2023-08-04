@@ -7,14 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Export;
 
-use PhpMyAdmin\Application;
-use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
-use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
-use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
+use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
@@ -396,12 +392,12 @@ class Export
      * @param string $filename    the export filename
      * @param bool   $quickExport whether it's a quick export or not
      *
-     * @return mixed[] the full save filename, possible message and the file handle
+     * @psalm-return array{string, Message|null, resource|null}
      */
     public function openFile(string $filename, bool $quickExport): array
     {
         $fileHandle = null;
-        $message = '';
+        $message = null;
         $doNotSaveItOver = true;
 
         if (isset($_POST['quick_export_onserver_overwrite'])) {
@@ -432,8 +428,8 @@ class Export
             $message->addParam($saveFilename);
         } else {
             $fileHandle = @fopen($saveFilename, 'w');
-
             if ($fileHandle === false) {
+                $fileHandle = null;
                 $message = Message::error(
                     __(
                         'The web server does not have permission to save the file %s.',
@@ -1075,33 +1071,23 @@ class Export
     /**
      * Loads correct page after doing export
      */
-    public function showPage(string $exportType): void
+    public function getPageLocationAndSaveMessage(string $exportType, Message $message): string
     {
-        $GLOBALS['active_page'] ??= null;
-        $request = Application::getRequest();
-        $container = Core::getContainerBuilder();
-        if ($exportType === 'server') {
-            $GLOBALS['active_page'] = Url::getFromRoute('/server/export');
-            /** @var ServerExportController $controller */
-            $controller = $container->get(ServerExportController::class);
-            $controller($request);
+        (new FlashMessages())->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
 
-            return;
+        if ($exportType === 'server') {
+            return 'index.php?route=/server/export' . Url::getCommonRaw([], '&');
         }
 
         if ($exportType === 'database') {
-            $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
-            /** @var DatabaseExportController $controller */
-            $controller = $container->get(DatabaseExportController::class);
-            $controller($request);
+            $params = ['db' => $GLOBALS['db']];
 
-            return;
+            return 'index.php?route=/database/export' . Url::getCommonRaw($params, '&');
         }
 
-        $GLOBALS['active_page'] = Url::getFromRoute('/table/export');
-        /** @var TableExportController $controller */
-        $controller = $container->get(TableExportController::class);
-        $controller($request);
+        $params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table'], 'single_table' => 'true'];
+
+        return 'index.php?route=/table/export' . Url::getCommonRaw($params, '&');
     }
 
     /**
