@@ -570,9 +570,9 @@ class Validator
      * Validates value according to given regular expression
      * Pattern and modifiers must be a valid for PCRE <b>and</b> JavaScript RegExp
      *
-     * @param string  $path   path to config
-     * @param mixed[] $values config values
-     * @param string  $regex  regular expression to match
+     * @param string           $path   path to config
+     * @param mixed[]          $values config values
+     * @param non-empty-string $regex  regular expression to match
      */
     public static function validateByRegex(string $path, array $values, string $regex): array|string
     {
