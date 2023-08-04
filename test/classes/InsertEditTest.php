@@ -200,22 +200,19 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('query')
-            ->willReturnOnConsecutiveCalls($resultStub1, $resultStub2);
+            ->willReturn($resultStub1, $resultStub2);
 
         $resultStub1->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['assoc1']));
+            ->willReturn(['assoc1']);
 
         $resultStub2->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['assoc2']));
+            ->willReturn(['assoc2']);
 
         $dbi->expects($this->exactly(2))
             ->method('getFieldsMeta')
-            ->willReturnOnConsecutiveCalls(
-                [],
-                [],
-            );
+            ->willReturn([], []);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -259,7 +256,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue([$meta]));
+            ->willReturn([$meta]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -314,7 +311,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT * FROM `db`.`table` LIMIT 1;')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -1310,16 +1307,16 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT * FROM `db`.`table` WHERE `a` > 2 LIMIT 1;')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('fetchRow')
-            ->will($this->returnValue($row));
+            ->willReturn($row);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue([$meta]));
+            ->willReturn([$meta]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['db'] = 'db';
@@ -1447,7 +1444,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getWarnings')
-            ->will($this->returnValue($warnings));
+            ->willReturn($warnings);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -1487,16 +1484,16 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(2));
+            ->willReturn(2);
 
         $resultStub->expects($this->once())
             ->method('fetchValue')
             ->with(0)
-            ->will($this->returnValue('2'));
+            ->willReturn('2');
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -2232,11 +2229,11 @@ class InsertEditTest extends AbstractTestCase
         $meta3 = FieldHelper::fromArray(['type' => MYSQLI_TYPE_TIMESTAMP]);
         $dbi->expects($this->exactly(3))
             ->method('getFieldsMeta')
-            ->will($this->onConsecutiveCalls([$meta1], [$meta2], [$meta3]));
+            ->willReturn([$meta1], [$meta2], [$meta3]);
 
         $resultStub->expects($this->exactly(3))
             ->method('fetchValue')
-            ->will($this->onConsecutiveCalls(false, '123', '2013-08-28 06:34:14'));
+            ->willReturn(false, '123', '2013-08-28 06:34:14');
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -2278,7 +2275,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
-            ->will($this->returnValue([
+            ->willReturn([
                 [
                     'Field' => 'b',
                     'Type' => 'd',
@@ -2301,7 +2298,7 @@ class InsertEditTest extends AbstractTestCase
                     'Privileges' => '',
                     'Comment' => '',
                 ],
-            ]));
+            ]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -2336,7 +2333,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $GLOBALS['dbi'] = $dbi;
         $_POST['where_clause'] = '1';
@@ -2401,19 +2398,11 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table', true)
-            ->will(
-                $this->returnValue(
-                    [['Comment' => 'b', 'Field' => 'd']],
-                ),
-            );
+            ->willReturn([['Comment' => 'b', 'Field' => 'd']]);
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will(
-                $this->returnValue(
-                    new Table('table', 'db', $GLOBALS['dbi']),
-                ),
-            );
+            ->willReturn(new Table('table', 'db', $GLOBALS['dbi']));
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
@@ -2611,7 +2600,7 @@ class InsertEditTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
         $resultStub->expects($this->any())
             ->method('getFieldsMeta')
-            ->will($this->returnValue([FieldHelper::fromArray(['type' => 0, 'length' => -1])]));
+            ->willReturn([FieldHelper::fromArray(['type' => 0, 'length' => -1])]);
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
@@ -2660,11 +2649,11 @@ class InsertEditTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
         $resultStub->expects($this->any())
             ->method('getFieldsMeta')
-            ->will($this->returnValue([
+            ->willReturn([
                 FieldHelper::fromArray(['type' => 0, 'length' => -1]),
                 FieldHelper::fromArray(['type' => 0, 'length' => -1]),
                 FieldHelper::fromArray(['type' => 0, 'length' => -1]),
-            ]));
+            ]);
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],

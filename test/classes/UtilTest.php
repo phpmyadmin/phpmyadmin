@@ -1742,11 +1742,11 @@ SQL;
 
         $dbi->expects($this->any())
             ->method('isMariaDB')
-            ->will($this->returnValue($isMariaDB));
+            ->willReturn($isMariaDB);
 
         $dbi->expects($this->any())
             ->method('getVersion')
-            ->will($this->returnValue($version));
+            ->willReturn($version);
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(Util::isUUIDSupported(), $expected);

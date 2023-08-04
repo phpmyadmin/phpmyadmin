@@ -270,29 +270,25 @@ class ExportTexytextTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTableIndexes')
             ->with('db', 'table')
-            ->will($this->returnValue($keys));
+            ->willReturn($keys);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 ['fname' => ['foreign_table' => '<ftable', 'foreign_field' => 'ffield>']],
                 ['fname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->will(
-                $this->returnValue(
-                    'SELECT a FROM b',
-                ),
-            );
+            ->willReturn('SELECT a FROM b');
 
         $columns = ['Field' => 'fname', 'Comment' => 'comm'];
 
         $dbi->expects($this->exactly(2))
             ->method('getColumns')
             ->with('db', 'table')
-            ->will($this->returnValue([$columns]));
+            ->willReturn([$columns]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
@@ -300,7 +296,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->object->expects($this->exactly(1))
             ->method('formatOneColumnDefinition')
             ->with(['Field' => 'fname', 'Comment' => 'comm'], ['cname'])
-            ->will($this->returnValue('1'));
+            ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,

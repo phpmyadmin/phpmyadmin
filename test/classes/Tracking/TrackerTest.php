@@ -56,7 +56,7 @@ class TrackerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
     }
 
     /**
@@ -186,12 +186,12 @@ class TrackerTest extends AbstractTestCase
         ];
         $dbi->expects($this->once())->method('getColumns')
             ->with('pma_test', 'pma_tbl')
-            ->will($this->returnValue($getColumnsResult));
+            ->willReturn($getColumnsResult);
 
         $getIndexesResult = [['Table' => 'pma_tbl', 'Field' => 'field1', 'Key' => 'PRIMARY']];
         $dbi->expects($this->once())->method('getTableIndexes')
             ->with('pma_test', 'pma_tbl')
-            ->will($this->returnValue($getIndexesResult));
+            ->willReturn($getIndexesResult);
 
         $showTableStatusQuery = 'SHOW TABLE STATUS FROM `pma_test` WHERE Name = \'pma_tbl\'';
         $useStatement = 'USE `pma_test`';
@@ -203,12 +203,12 @@ class TrackerTest extends AbstractTestCase
         ]);
 
         $dbi->expects($this->any())->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->any())->method('getCompatibilities')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
@@ -238,10 +238,10 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->exactly(1))
             ->method('queryAsControlUser')
             ->with($this->matches($expectedMainQuery))
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
@@ -278,10 +278,10 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->exactly(1))
             ->method('queryAsControlUser')
             ->with($sqlQuery)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $GLOBALS['dbi'] = $dbi;
 

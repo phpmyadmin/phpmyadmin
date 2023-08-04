@@ -156,7 +156,7 @@ class EventsTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals($query, $this->events->getQueryFromRequest());

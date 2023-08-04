@@ -100,7 +100,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->object->expects($this->once())
             ->method('save')
             ->with([0, 1, 2], false)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->assertTrue(
             $this->object->process(false, false),

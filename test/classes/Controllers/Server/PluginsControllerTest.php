@@ -70,10 +70,10 @@ class PluginsControllerTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->once())
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->exactly(1))
             ->method('fetchAllAssoc')
-            ->will($this->onConsecutiveCalls([$row]));
+            ->willReturn([$row]);
 
         $response = new ResponseRenderer();
 

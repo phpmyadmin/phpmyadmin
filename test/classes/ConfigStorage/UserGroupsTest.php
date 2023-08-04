@@ -57,10 +57,10 @@ class UserGroupsTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(0));
+            ->willReturn(0);
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
@@ -104,7 +104,7 @@ class UserGroupsTest extends AbstractTestCase
             [$userGrpDelQuery, $result],
         ]);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         UserGroups::delete($dbi, $this->configurableMenusFeature, 'ug');
     }
@@ -128,14 +128,14 @@ class UserGroupsTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->exactly(1))
             ->method('getIterator')
-            ->will($this->returnCallback(static function (): Generator {
+            ->willReturnCallback(static function (): Generator {
                 yield from [['usergroup' => 'user<br>group', 'tab' => 'server_sql', 'allowed' => 'Y']];
-            }));
+            });
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $GLOBALS['dbi'] = $dbi;
 

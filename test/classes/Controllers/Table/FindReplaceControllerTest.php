@@ -40,7 +40,7 @@ class FindReplaceControllerTest extends AbstractTestCase
             ['Field' => 'Field2', 'Type' => 'Type2', 'Null' => 'Null2', 'Collation' => 'Collation2'],
         ];
         $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($columns));
+            ->willReturn($columns);
 
         $showCreateTable = "CREATE TABLE `table` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -54,9 +54,9 @@ class FindReplaceControllerTest extends AbstractTestCase
             . "COMMENT='table'";
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($showCreateTable));
+            ->willReturn($showCreateTable);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $GLOBALS['dbi'] = $dbi;
     }

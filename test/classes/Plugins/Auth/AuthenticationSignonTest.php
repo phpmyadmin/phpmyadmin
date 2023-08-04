@@ -314,7 +314,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue('error<123>'));
+            ->willReturn('error<123>');
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -347,7 +347,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(''));
+            ->willReturn('');
 
         $GLOBALS['dbi'] = $dbi;
 

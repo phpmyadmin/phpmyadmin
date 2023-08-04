@@ -271,7 +271,7 @@ HTML;
         $request = $this->createStub(ServerRequest::class);
         $request->expects($this->any())
             ->method('getParsedBodyParam')
-            ->will($this->returnValue('foo'));
+            ->willReturn('foo');
 
         $output = $method->invoke($indexController, $request);
         $this->assertEquals($out, $output);

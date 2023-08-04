@@ -39,7 +39,7 @@ class RelationCleanupTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = $this->createStub(ResultInterface::class);
         $dbi->expects($this->exactly(4))->method('queryAsControlUser')->willReturnMap([
             [
@@ -98,7 +98,7 @@ class RelationCleanupTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = $this->createStub(ResultInterface::class);
         $dbi->expects($this->exactly(7))->method('queryAsControlUser')->willReturnMap([
             ["DELETE FROM `pmadb`.`column_info` WHERE db_name = 'database' AND table_name = 'table'", $result],
@@ -154,7 +154,7 @@ class RelationCleanupTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = $this->createStub(ResultInterface::class);
         $dbi->expects($this->exactly(11))->method('queryAsControlUser')->willReturnMap([
             ["DELETE FROM `pmadb`.`column_info` WHERE db_name = 'database'", $result],
@@ -212,7 +212,7 @@ class RelationCleanupTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = $this->createStub(ResultInterface::class);
         $dbi->expects($this->exactly(10))->method('queryAsControlUser')->willReturnMap([
             ["DELETE FROM `pmadb`.`bookmark` WHERE `user` = 'user'", $result],

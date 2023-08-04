@@ -92,13 +92,13 @@ class ImportLdiTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->any())->method('numRows')
-            ->will($this->returnValue(10));
+            ->willReturn(10);
 
         $resultStub->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue('ON'));
+            ->willReturn('ON');
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $properties = (new ImportLdi())->getProperties();
@@ -124,7 +124,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['sql_query_disabled'] = false;
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -173,7 +173,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['sql_query_disabled'] = false;
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['ldi_local_option'] = true;

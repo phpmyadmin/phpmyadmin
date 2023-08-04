@@ -249,15 +249,11 @@ class RoutinesTest extends AbstractTestCase
         $dbi->types = new Types($dbi);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will(
-                $this->returnValueMap(
-                    [
-                        ['foo', Connection::TYPE_USER, 'foo'],
-                        ["foo's bar", Connection::TYPE_USER, "foo\'s bar"],
-                        ['', Connection::TYPE_USER, ''],
-                    ],
-                ),
-            );
+            ->willReturnMap([
+                ['foo', Connection::TYPE_USER, 'foo'],
+                ["foo's bar", Connection::TYPE_USER, "foo\'s bar"],
+                ['', Connection::TYPE_USER, ''],
+            ]);
         $GLOBALS['dbi'] = $dbi;
 
         $routines = new Routines($dbi);

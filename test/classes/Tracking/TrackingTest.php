@@ -581,9 +581,9 @@ class TrackingTest extends AbstractTestCase
         $dbi->expects($this->exactly(1))
             ->method('queryAsControlUser')
             ->with($sqlQuery)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $tracking = new Tracking(
             $this->createStub(SqlQueryForm::class),
@@ -628,14 +628,10 @@ class TrackingTest extends AbstractTestCase
         $resultStub2 = $this->createMock(DummyResult::class);
 
         $dbi->method('queryAsControlUser')
-            ->will(
-                $this->returnValueMap(
-                    [[$sqlQuery1, $resultStub1], [$sqlQuery2, $resultStub2]],
-                ),
-            );
+            ->willReturnMap([[$sqlQuery1, $resultStub1], [$sqlQuery2, $resultStub2]]);
 
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $tracking = new Tracking(
             $this->createStub(SqlQueryForm::class),
@@ -673,11 +669,11 @@ class TrackingTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('queryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue($fetchArrayReturn));
+            ->willReturn($fetchArrayReturn);
 
         $tracking = new Tracking(
             $this->createStub(SqlQueryForm::class),

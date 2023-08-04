@@ -85,12 +85,12 @@ class ForeignKeyTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getVariable')
-            ->will($this->returnValue('ON'));
+            ->willReturn('ON');
 
         $dbi->expects($this->once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->assertTrue(ForeignKey::handleDisableCheckInit());
     }
@@ -107,12 +107,12 @@ class ForeignKeyTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getVariable')
-            ->will($this->returnValue('OFF'));
+            ->willReturn('OFF');
 
         $dbi->expects($this->once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->assertFalse(ForeignKey::handleDisableCheckInit());
     }
@@ -134,7 +134,7 @@ class ForeignKeyTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         ForeignKey::handleDisableCheckCleanup($checkValue);
     }

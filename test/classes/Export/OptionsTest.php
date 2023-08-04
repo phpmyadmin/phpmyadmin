@@ -47,7 +47,7 @@ class OptionsTest extends AbstractTestCase
 
         $pmaconfig->expects($this->any())
             ->method('getUserValue')
-            ->will($this->returnValue('user value for test'));
+            ->willReturn('user value for test');
 
         $GLOBALS['config'] = $pmaconfig;
 
@@ -81,9 +81,9 @@ class OptionsTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->any())->method('getColumnsFull')
-            ->will($this->returnValue($columnsInfo));
+            ->willReturn($columnsInfo);
         $dbi->expects($this->any())->method('getCompatibilities')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
 

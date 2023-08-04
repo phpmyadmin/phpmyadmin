@@ -36,11 +36,11 @@ class SearchTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('pma', 'table1')
-            ->will($this->returnValue([['Field' => 'column1'], ['Field' => 'column2']]));
+            ->willReturn([['Field' => 'column1'], ['Field' => 'column2']]);
 
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());

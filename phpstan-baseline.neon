@@ -29131,7 +29131,7 @@ parameters:
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
@@ -29221,7 +29221,7 @@ parameters:
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 4
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
@@ -29301,7 +29301,7 @@ parameters:
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
@@ -29501,7 +29501,7 @@ parameters:
 			path: test/classes/Controllers/Triggers/IndexControllerTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Triggers/IndexControllerTest.php
 
@@ -29636,7 +29636,7 @@ parameters:
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 9
 			path: test/classes/Database/CentralColumnsTest.php
 
@@ -32521,7 +32521,7 @@ parameters:
 			path: test/classes/Table/IndexesTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Table/IndexesTest.php
 
@@ -32611,8 +32611,13 @@ parameters:
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
-			count: 3
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Cannot call method willReturnMap\\(\\) on mixed\\.$#"
+			count: 2
 			path: test/classes/TableTest.php
 
 		-

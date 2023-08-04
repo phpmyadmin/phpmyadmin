@@ -64,7 +64,7 @@ class VariablesControllerTest extends AbstractTestCase
         ];
 
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
+            ->willReturnMap($fetchResult);
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -134,7 +134,7 @@ class VariablesControllerTest extends AbstractTestCase
         $voidProviderMock
             ->expects($this->exactly(2))
             ->method('getVariableType')
-            ->willReturnOnConsecutiveCalls('byte', 'string');
+            ->willReturn('byte', 'string');
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setValue(null, $voidProviderMock);

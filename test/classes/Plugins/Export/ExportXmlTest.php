@@ -207,17 +207,17 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(5))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result, $result, $triggers, $functions, $procedures);
+            ->willReturn($result, $result, $triggers, $functions, $procedures);
 
         $dbi->expects($this->exactly(3))
             ->method('fetchValue')
-            ->willReturnOnConsecutiveCalls(false, 'fndef', 'prdef');
+            ->willReturn(false, 'fndef', 'prdef');
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'd<"b', $dbi)));
+            ->willReturn(new Table('table', 'd<"b', $dbi));
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -280,15 +280,15 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result1, $result2, $result3);
+            ->willReturn($result1, $result2, $result3);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchValue')
-            ->willReturnOnConsecutiveCalls('table', false);
+            ->willReturn('table', false);
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'd<"b', $dbi)));
+            ->willReturn(new Table('table', 'd<"b', $dbi));
 
         $GLOBALS['dbi'] = $dbi;
 

@@ -226,14 +226,14 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getDatabaseList')->willReturn($databaseList);
 
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
+            ->willReturnMap($fetchResult);
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValueMap($fetchValue));
+            ->willReturnMap($fetchValue);
 
         $cache = new Cache();
         $dbi->expects($this->any())->method('getCache')
-            ->will($this->returnValue($cache));
+            ->willReturn($cache);
 
         $databases = [];
         $databaseName = 'PMA';
@@ -245,29 +245,29 @@ class TableTest extends AbstractTestCase
         $databases[$databaseName]['SCHEMA_LENGTH'] = 10;
 
         $dbi->expects($this->any())->method('getTablesFull')
-            ->will($this->returnValue($databases));
+            ->willReturn($databases);
 
         $dbi->expects($this->any())->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->any())->method('insertId')
-            ->will($this->returnValue(10));
+            ->willReturn(10);
 
         $resultStub->expects($this->any())->method('fetchAssoc')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $value = ['Auto_increment' => 'Auto_increment'];
         $dbi->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnValue($value));
+            ->willReturn($value);
 
         $resultStub->expects($this->any())->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->any())->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -1123,12 +1123,12 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT * FROM `db`.`table` LIMIT 1')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue(['aNonValidExampleToRefactor']));
+            ->willReturn(['aNonValidExampleToRefactor']);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1253,13 +1253,13 @@ class TableTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->any())
             ->method('numRows')
-            ->willReturnOnConsecutiveCalls(0, 10, 200);
+            ->willReturn(0, 10, 200);
         $dbi->expects($this->any())
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [['`one_pk`']],
                 [], // No Uniques found
                 ['`one_ind`', '`sec_ind`'],
@@ -1299,11 +1299,11 @@ class TableTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
         $resultStub->expects($this->any())
             ->method('numRows')
-            ->will($this->returnValue(20));
+            ->willReturn(20);
 
         $dbi = clone $GLOBALS['dbi'];
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $table = 'PMA_BookMark';
         $db = 'PMA';
@@ -1364,7 +1364,7 @@ class TableTest extends AbstractTestCase
         ];
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValueMap($getTableMap));
+            ->willReturnMap($getTableMap);
 
         $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, $mode, true);
 
@@ -1393,7 +1393,7 @@ class TableTest extends AbstractTestCase
         // Renaming DB with a view bug
         $resultStub = $this->createMock(DummyResult::class);
         $GLOBALS['dbi']->expects($this->any())->method('tryQuery')
-            ->will($this->returnValueMap([
+            ->willReturnMap([
                 [
                     'SHOW CREATE TABLE `aa`.`ad`',
                     Connection::TYPE_USER,
@@ -1409,16 +1409,16 @@ class TableTest extends AbstractTestCase
                     $resultStub,
                 ],
                 ['USE `aa`', Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
-            ]));
+            ]);
         $resultStub->expects($this->any())
             ->method('fetchRow')
-            ->will($this->returnValue([
+            ->willReturn([
                 'ad',
                 'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
-                    ' SQL SECURITY DEFINER VIEW `ad` AS select `aa`.`bb`.`ac` AS `ac` from `bb`',
+                ' SQL SECURITY DEFINER VIEW `ad` AS select `aa`.`bb`.`ac` AS `ac` from `bb`',
                 'utf8mb4',
                 'utf8mb4_unicode_ci',
-            ]));
+            ]);
 
         $this->loadContainerBuilder();
         $this->loadDbiIntoContainerBuilder();

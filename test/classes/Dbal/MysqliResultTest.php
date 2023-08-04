@@ -22,7 +22,7 @@ class MysqliResultTest extends AbstractTestCase
         $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects($this->exactly(2))
             ->method('fetch_assoc')
-            ->willReturnOnConsecutiveCalls(...$expected);
+            ->willReturn(...$expected);
 
         $result = new MysqliResult($mysqliResult);
 
@@ -39,7 +39,7 @@ class MysqliResultTest extends AbstractTestCase
         $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects($this->exactly(2))
             ->method('fetch_row')
-            ->willReturnOnConsecutiveCalls(...$expected);
+            ->willReturn(...$expected);
 
         $result = new MysqliResult($mysqliResult);
 

@@ -59,7 +59,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
         $mockResponse->expects($this->any())
             ->method('headersSent')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         if ($param !== []) {
             if (is_array($param[0])) {

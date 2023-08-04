@@ -65,11 +65,11 @@ class DesignerTest extends AbstractTestCase
                 'SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
             )
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->exactly(3))
             ->method('fetchAssoc')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 ['page_nr' => '1', 'page_descr' => 'page1'],
                 ['page_nr' => '2', 'page_descr' => 'page2'],
                 [],
@@ -77,7 +77,7 @@ class DesignerTest extends AbstractTestCase
 
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
     }

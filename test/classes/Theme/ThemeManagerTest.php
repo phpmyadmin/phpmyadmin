@@ -30,7 +30,7 @@ class ThemeManagerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
     }
 
     /**

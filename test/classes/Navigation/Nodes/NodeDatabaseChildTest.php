@@ -76,7 +76,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
         $parent->addChild($this->object);
         $this->object->expects($this->once())
             ->method('getItemType')
-            ->will($this->returnValue('itemType'));
+            ->willReturn('itemType');
         $html = $this->object->getHtmlForControlButtons($relationParameters->navigationItemsHidingFeature);
 
         $this->assertStringStartsWith('<span class="navItemControls">', $html);

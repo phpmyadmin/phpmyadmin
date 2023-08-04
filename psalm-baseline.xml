@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.0@b2942cefed8443002bd3f245c4cd0a54193716d8">
+<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="libraries/classes/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code>$pattern</code>
@@ -13452,7 +13452,7 @@
   <file src="test/classes/Controllers/Table/IndexesControllerTest.php">
     <MixedMethodCall>
       <code>method</code>
-      <code>will</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod>
       <code>expects</code>
@@ -13524,10 +13524,10 @@
       <code>method</code>
       <code>method</code>
       <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod>
       <code>expects</code>
@@ -13539,7 +13539,7 @@
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
     <MixedMethodCall>
       <code>method</code>
-      <code>will</code>
+      <code>willReturn</code>
       <code>with</code>
     </MixedMethodCall>
     <UndefinedMethod>
@@ -13557,7 +13557,7 @@
     </MixedAssignment>
     <MixedMethodCall>
       <code>method</code>
-      <code>will</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequest</code>
@@ -13658,15 +13658,15 @@
       <code>method</code>
       <code>method</code>
       <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
       <code>willReturnOnConsecutiveCalls</code>
       <code>with</code>
       <code>with</code>
@@ -14594,7 +14594,7 @@
     </MixedArgument>
     <MixedMethodCall>
       <code>method</code>
-      <code>will</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod>
       <code>expects</code>
@@ -14618,9 +14618,9 @@
       <code>method</code>
       <code>method</code>
       <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturnMap</code>
+      <code>willReturnMap</code>
     </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code>dataValidateName</code>

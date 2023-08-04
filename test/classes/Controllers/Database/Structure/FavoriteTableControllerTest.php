@@ -44,7 +44,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
             ->getMock();
         $favoriteInstance->expects($this->exactly(2))
             ->method('getTables')
-            ->will($this->onConsecutiveCalls([[]], [['db' => 'db', 'table' => 'table']]));
+            ->willReturn([[]], [['db' => 'db', 'table' => 'table']]);
 
         $class = new ReflectionClass(FavoriteTableController::class);
         $method = $class->getMethod('synchronizeFavoriteTables');

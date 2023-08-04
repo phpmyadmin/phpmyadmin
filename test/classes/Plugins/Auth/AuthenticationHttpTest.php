@@ -89,7 +89,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->exactly($setTitle))
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue($mockHeader));
+            ->willReturn($mockHeader);
 
         if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
@@ -301,7 +301,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('getError')
-            ->will($this->onConsecutiveCalls('error 123', 'error 321', ''));
+            ->willReturn('error 123', 'error 321', '');
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 31;

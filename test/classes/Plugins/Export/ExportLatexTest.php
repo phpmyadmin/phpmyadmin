@@ -553,11 +553,11 @@ class ExportLatexTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTableIndexes')
             ->with('database', '')
-            ->will($this->returnValue($keys));
+            ->willReturn($keys);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [],
                 ['name1' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'testmimetype_']],
             );
@@ -569,19 +569,19 @@ class ExportLatexTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue($columns));
+            ->willReturn($columns);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['comment' => 'testComment']));
+            ->willReturn(['comment' => 'testComment']);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
@@ -648,7 +648,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 ['name1' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield'], 'foreign_keys_data' => []],
                 ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
@@ -656,24 +656,24 @@ class ExportLatexTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTableIndexes')
             ->with('database', '')
-            ->will($this->returnValue($keys));
+            ->willReturn($keys);
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue($columns));
+            ->willReturn($columns);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['comment' => 'testComment']));
+            ->willReturn(['comment' => 'testComment']);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
@@ -720,12 +720,12 @@ class ExportLatexTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTableIndexes')
             ->with('database', '')
-            ->will($this->returnValue($keys));
+            ->willReturn($keys);
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue($columns));
+            ->willReturn($columns);
 
         $dbi->expects($this->never())
             ->method('tryQuery');

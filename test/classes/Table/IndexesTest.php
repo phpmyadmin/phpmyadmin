@@ -45,7 +45,7 @@ class IndexesTest extends AbstractTestCase
         ];
 
         $dbi->expects($this->any())->method('getTableIndexes')
-            ->will($this->returnValue($indexs));
+            ->willReturn($indexs);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -60,10 +60,10 @@ class IndexesTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
-            ->will($this->returnValue($sqlQuery));
+            ->willReturn($sqlQuery);
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue($table));
+            ->willReturn($table);
 
         $response = new ResponseStub();
         $index = new Index();

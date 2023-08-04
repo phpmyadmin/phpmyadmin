@@ -62,21 +62,17 @@ class NormalizationTest extends AbstractTestCase
         // set expectations
         $dbi->expects($this->any())
             ->method('selectDb')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $dbi->expects($this->any())
             ->method('getColumns')
-            ->will(
-                $this->returnValue(
-                    [
-                        'id' => ['Field' => 'id', 'Type' => 'integer'],
-                        'col1' => ['Field' => 'col1', 'Type' => 'varchar(100)'],
-                        'col2' => ['Field' => 'col2', 'Type' => 'DATETIME'],
-                    ],
-                ),
-            );
+            ->willReturn([
+                'id' => ['Field' => 'id', 'Type' => 'integer'],
+                'col1' => ['Field' => 'col1', 'Type' => 'varchar(100)'],
+                'col2' => ['Field' => 'col2', 'Type' => 'DATETIME'],
+            ]);
         $dbi->expects($this->any())
             ->method('getColumnNames')
-            ->will($this->returnValue(['id', 'col1', 'col2']));
+            ->willReturn(['id', 'col1', 'col2']);
         $map = [
             ['PMA_db', 'PMA_table1', Connection::TYPE_USER, []],
             ['PMA_db', 'PMA_table', Connection::TYPE_USER, [['Key_name' => 'PRIMARY', 'Column_name' => 'id']]],
@@ -89,13 +85,13 @@ class NormalizationTest extends AbstractTestCase
         ];
         $dbi->expects($this->any())
             ->method('getTableIndexes')
-            ->will($this->returnValueMap($map));
+            ->willReturnMap($map);
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue($this->createStub(DummyResult::class)));
+            ->willReturn($this->createStub(DummyResult::class));
         $dbi->expects($this->any())
             ->method('fetchResult')
-            ->will($this->returnValue([0]));
+            ->willReturn([0]);
 
         $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
     }

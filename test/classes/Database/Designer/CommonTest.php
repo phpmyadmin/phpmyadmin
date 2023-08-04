@@ -57,7 +57,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('fetchResult')
@@ -94,7 +94,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('fetchValue')
@@ -104,7 +104,7 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue($pageName));
+            ->willReturn($pageName);
         $GLOBALS['dbi'] = $dbi;
 
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -129,9 +129,9 @@ class CommonTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('queryAsControlUser')
-            ->willReturnOnConsecutiveCalls($resultStub, $resultStub);
+            ->willReturn($resultStub, $resultStub);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -162,9 +162,9 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue($defaultPg));
+            ->willReturn($defaultPg);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -193,9 +193,9 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue(false));
+            ->willReturn(false);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -225,9 +225,9 @@ class CommonTest extends AbstractTestCase
                 0,
                 Connection::TYPE_CONTROL,
             )
-            ->will($this->returnValue($defaultPg));
+            ->willReturn($defaultPg);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -250,9 +250,9 @@ class CommonTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchValue')
-            ->willReturnOnConsecutiveCalls(false, $firstPg);
+            ->willReturn(false, $firstPg);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));

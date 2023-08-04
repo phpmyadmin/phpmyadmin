@@ -373,23 +373,20 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($fields));
+            ->willReturn($fields);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(4));
+            ->willReturn(4);
 
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
-            ->willReturnOnConsecutiveCalls(
-                [null, 'a<b', 'a>b', 'a&b'],
-                [],
-            );
+            ->willReturn([null, 'a<b', 'a>b', 'a&b'], []);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
@@ -445,20 +442,20 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($fields));
+            ->willReturn($fields);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(2));
+            ->willReturn(2);
 
         $resultStub->expects($this->exactly(1))
             ->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
@@ -497,20 +494,20 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(0));
+            ->willReturn(0);
 
         $resultStub->expects($this->once())
             ->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
@@ -591,7 +588,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [],
                 ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
@@ -600,19 +597,19 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue([$columns]));
+            ->willReturn([$columns]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['comment' => 'testComment']));
+            ->willReturn(['comment' => 'testComment']);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
@@ -620,7 +617,7 @@ class ExportOdtTest extends AbstractTestCase
         $this->object->expects($this->exactly(2))
             ->method('formatOneColumnDefinition')
             ->with(['Field' => 'fieldname'])
-            ->will($this->returnValue('1'));
+            ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
@@ -675,7 +672,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 ['fieldname' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
                 ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
@@ -685,19 +682,19 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue([$columns]));
+            ->willReturn([$columns]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['comment' => 'testComment']));
+            ->willReturn(['comment' => 'testComment']);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);

@@ -209,7 +209,7 @@ class TransformationsTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue($this->createStub(DummyResult::class)));
+            ->willReturn($this->createStub(DummyResult::class));
         $GLOBALS['dbi'] = $dbi;
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);

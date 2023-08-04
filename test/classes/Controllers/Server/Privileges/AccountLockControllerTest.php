@@ -44,7 +44,7 @@ class AccountLockControllerTest extends AbstractTestCase
 
         $this->requestStub = $this->createStub(ServerRequest::class);
         $this->requestStub->method('isAjax')->willReturn(true);
-        $this->requestStub->method('getParsedBodyParam')->willReturnOnConsecutiveCalls('test.user', 'test.host');
+        $this->requestStub->method('getParsedBodyParam')->willReturn('test.user', 'test.host');
 
         $this->responseRendererStub = new ResponseRenderer();
 

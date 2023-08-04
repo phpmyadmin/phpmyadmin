@@ -80,7 +80,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $mockResponse->expects($this->once())
             ->method('setRequestStatus')
@@ -103,7 +103,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         // mock header
 
@@ -139,7 +139,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue($mockHeader));
+            ->willReturn($mockHeader);
 
         $GLOBALS['cfg']['Servers'] = [1, 2];
 
@@ -153,7 +153,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockErrorHandler->expects($this->once())
             ->method('hasDisplayErrors')
             ->with()
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
@@ -242,7 +242,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $mockResponse->expects($this->once())
             ->method('setMinimalFooter')
@@ -251,7 +251,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue(new Header()));
+            ->willReturn(new Header());
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
@@ -320,7 +320,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $mockResponse->expects($this->once())
             ->method('setMinimalFooter')
@@ -329,7 +329,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue(new Header()));
+            ->willReturn(new Header());
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
@@ -566,7 +566,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->expects($this->once())
             ->method('cookieDecrypt')
-            ->will($this->returnValue('testBF'));
+            ->willReturn('testBF');
 
         $this->assertFalse(
             $this->object->readCredentials(),
@@ -602,7 +602,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->expects($this->exactly(2))
             ->method('cookieDecrypt')
-            ->will($this->returnValue('{"password":""}'));
+            ->willReturn('{"password":""}');
 
         $this->assertTrue(
             $this->object->readCredentials(),
@@ -640,7 +640,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->expects($this->once())
             ->method('cookieDecrypt')
-            ->will($this->returnValue('testBF'));
+            ->willReturn('testBF');
 
         $this->object->expects($this->once())
             ->method('showFailure')
@@ -853,7 +853,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(''));
+            ->willReturn('');
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 42;
@@ -887,7 +887,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(''));
+            ->willReturn('');
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['server'] = 2;

@@ -490,10 +490,10 @@ class PrivilegesTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(8003));
+            ->willReturn(8003);
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
 
@@ -534,10 +534,10 @@ class PrivilegesTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(80011));
+            ->willReturn(80011);
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
 
@@ -835,10 +835,10 @@ class PrivilegesTest extends AbstractTestCase
             ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($fieldsInfo));
+            ->willReturn($fieldsInfo);
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
 
@@ -901,12 +901,12 @@ class PrivilegesTest extends AbstractTestCase
             ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($fieldsInfo));
+            ->willReturn($fieldsInfo);
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $dbi->expects($this->any())->method('isGrantUser')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $serverPrivileges->dbi = $dbi;
 
@@ -1666,21 +1666,16 @@ class PrivilegesTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $dbi->expects($this->any())
             ->method('fetchResult')
-            ->will($this->returnValue(['db', 'columns_priv']));
+            ->willReturn(['db', 'columns_priv']);
         $resultStub->expects($this->any())
             ->method('fetchAssoc')
-            ->will(
-                $this->onConsecutiveCalls(
-                    ['User' => 'pmauser', 'Host' => 'local'],
-                    [],
-                ),
-            );
+            ->willReturn(['User' => 'pmauser', 'Host' => 'local'], []);
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
 
@@ -1712,13 +1707,13 @@ class PrivilegesTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->onConsecutiveCalls($resultStub, $resultStub, false));
+            ->willReturn($resultStub, $resultStub, false);
         $dbi->expects($this->any())
             ->method('getError')
-            ->will($this->returnValue('Some error occurred!'));
+            ->willReturn('Some error occurred!');
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
 
@@ -1823,7 +1818,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $mysqliResultStub->expects($this->exactly(2))
             ->method('fetchAssoc')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 ['Host' => 'test.host', 'User' => 'test.user'],
                 ['Host' => 'test.host', 'User' => 'test.user', 'Priv' => '{"account_locked":true}'],
             );

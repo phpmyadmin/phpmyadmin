@@ -350,7 +350,7 @@ final class NodeTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
         $node->getData($relationParameters, '', 10);
     }
@@ -380,7 +380,7 @@ final class NodeTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getData($relationParameters, '', 10);
@@ -411,14 +411,10 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->exactly(3))
             ->method('fetchRow')
-            ->willReturnOnConsecutiveCalls(
-                ['0' => 'db'],
-                ['0' => 'aa_db'],
-                [],
-            );
+            ->willReturn(['0' => 'db'], ['0' => 'aa_db'], []);
 
         $dbi->expects($this->once())
             ->method('fetchResult')
@@ -428,7 +424,7 @@ final class NodeTest extends AbstractTestCase
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )",
             );
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getData($relationParameters, '', 0, 'db');
@@ -496,8 +492,8 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SHOW DATABASES WHERE TRUE ')
-            ->will($this->returnValue($resultStub));
-        $dbi->expects($this->any())->method('escapeString')->will($this->returnArgument(0));
+            ->willReturn($resultStub);
+        $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertSame(0, $node->getPresence());
@@ -507,9 +503,9 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertSame(0, $node->getPresence('', 'dbname'));

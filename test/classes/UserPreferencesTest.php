@@ -101,14 +101,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $dbi->expects($this->once())
             ->method('fetchSingleRow')
             ->with($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL)
-            ->will(
-                $this->returnValue(
-                    ['ts' => '123', 'config_data' => json_encode([1, 2])],
-                ),
-            );
+            ->willReturn(['ts' => '123', 'config_data' => json_encode([1, 2])]);
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->load();
@@ -180,16 +176,16 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with($query1, 0, Connection::TYPE_CONTROL)
-            ->will($this->returnValue('1'));
+            ->willReturn('1');
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($query2, Connection::TYPE_CONTROL)
-            ->will($this->returnValue($this->createStub(DummyResult::class)));
+            ->willReturn($this->createStub(DummyResult::class));
 
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->save([1]);
@@ -210,20 +206,20 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with($query1, 0, Connection::TYPE_CONTROL)
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($query2, Connection::TYPE_CONTROL)
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $dbi->expects($this->once())
             ->method('getError')
             ->with(Connection::TYPE_CONTROL)
-            ->will($this->returnValue('err1'));
+            ->willReturn('err1');
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->save([1]);

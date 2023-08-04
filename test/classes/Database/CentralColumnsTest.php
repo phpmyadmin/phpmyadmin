@@ -130,31 +130,25 @@ class CentralColumnsTest extends AbstractTestCase
         // set some common expectations
         $dbi->expects($this->any())
             ->method('selectDb')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $dbi->expects($this->any())
             ->method('getColumns')
-            ->will(
-                $this->returnValue(
-                    [
-                        'id' => ['Field' => 'id', 'Type' => 'integer', 'Null' => 'NO'],
-                        'col1' => ['Field' => 'col1', 'Type' => 'varchar(100)', 'Null' => 'YES'],
-                        'col2' => ['Field' => 'col2', 'Type' => 'DATETIME', 'Null' => 'NO'],
-                    ],
-                ),
-            );
+            ->willReturn([
+                'id' => ['Field' => 'id', 'Type' => 'integer', 'Null' => 'NO'],
+                'col1' => ['Field' => 'col1', 'Type' => 'varchar(100)', 'Null' => 'YES'],
+                'col2' => ['Field' => 'col2', 'Type' => 'DATETIME', 'Null' => 'NO'],
+            ]);
         $dbi->expects($this->any())
             ->method('getColumnNames')
-            ->will($this->returnValue(['id', 'col1', 'col2']));
+            ->willReturn(['id', 'col1', 'col2']);
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue($this->createStub(DummyResult::class)));
+            ->willReturn($this->createStub(DummyResult::class));
         $dbi->expects($this->any())
             ->method('getTables')
-            ->will(
-                $this->returnValue(['PMA_table', 'PMA_table1', 'PMA_table2']),
-            );
+            ->willReturn(['PMA_table', 'PMA_table1', 'PMA_table2']);
         $dbi->expects($this->any())->method('quoteString')
-        ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+        ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $this->centralColumns = new CentralColumns($dbi);
     }
@@ -205,9 +199,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             )
-            ->will(
-                $this->returnValue([3]),
-            );
+            ->willReturn([3]);
 
         $this->assertEquals(
             3,
@@ -237,14 +229,10 @@ class CentralColumnsTest extends AbstractTestCase
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
-            ->will(
-                $this->returnValue($this->columnData),
-            );
+            ->willReturn($this->columnData);
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchValue')
-            ->will(
-                $this->returnValue('PMA_table=CREATE table `PMA_table` (id integer)'),
-            );
+            ->willReturn('PMA_table=CREATE table `PMA_table` (id integer)');
         $this->assertTrue(
             $this->centralColumns->makeConsistentWithList(
                 'phpmyadmin',
@@ -270,9 +258,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             )
-            ->will(
-                $this->returnValue(['id', 'col1']),
-            );
+            ->willReturn(['id', 'col1']);
         $this->assertEquals(
             ['id', 'col1'],
             $this->centralColumns->getFromTable(
@@ -299,9 +285,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             )
-            ->will(
-                $this->returnValue(array_slice($this->columnData, 0, 2)),
-            );
+            ->willReturn(array_slice($this->columnData, 0, 2));
         $this->assertEquals(
             array_slice($this->modifiedColumnData, 0, 2),
             $this->centralColumns->getFromTable(
@@ -381,9 +365,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             )
-            ->will(
-                $this->returnValue($this->columnData),
-            );
+            ->willReturn($this->columnData);
         $result = $this->centralColumns->getHtmlForEditingPage(
             ['col1', 'col2'],
             'phpmyadmin',
@@ -418,9 +400,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             )
-            ->will(
-                $this->returnValue($this->columnData),
-            );
+            ->willReturn($this->columnData);
         $this->assertEquals(
             $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
@@ -445,9 +425,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             )
-            ->will(
-                $this->returnValue($this->columnData),
-            );
+            ->willReturn($this->columnData);
         $this->assertEquals(
             $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
@@ -470,9 +448,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             )
-            ->will(
-                $this->returnValue(array_slice($this->columnData, 1, 1)),
-            );
+            ->willReturn(array_slice($this->columnData, 1, 1));
         $this->assertEquals(
             array_slice($this->modifiedColumnData, 1, 1),
             $this->callFunction(
