@@ -6,7 +6,9 @@ namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -224,5 +226,89 @@ INSERT INTO test_table (id, name, datetimefield) VALUES
 SQL;
 
         $this->assertSame(htmlspecialchars($expected, ENT_COMPAT), $this->getActualOutputForAssertion());
+    }
+
+    public function testGetPageLocationAndSaveMessageForServerExportWithError(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = 2;
+        $_SESSION = [];
+        $dbi = $this->createDatabaseInterface();
+        $export = new Export($dbi);
+        $location = $export->getPageLocationAndSaveMessage('server', Message::error('Error message!'));
+        $this->assertSame('index.php?route=/server/export&server=2&lang=en', $location);
+        $this->assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+    }
+
+    public function testGetPageLocationAndSaveMessageForServerExportWithSuccess(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = 2;
+        $_SESSION = [];
+        $dbi = $this->createDatabaseInterface();
+        $export = new Export($dbi);
+        $location = $export->getPageLocationAndSaveMessage('server', Message::success('Success message!'));
+        $this->assertSame('index.php?route=/server/export&server=2&lang=en', $location);
+        $this->assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+    }
+
+    public function testGetPageLocationAndSaveMessageForDatabaseExportWithError(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = 2;
+        $GLOBALS['db'] = 'test_db';
+        $_SESSION = [];
+        $dbi = $this->createDatabaseInterface();
+        $export = new Export($dbi);
+        $location = $export->getPageLocationAndSaveMessage('database', Message::error('Error message!'));
+        $this->assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
+        $this->assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+    }
+
+    public function testGetPageLocationAndSaveMessageForDatabaseExportWithSuccess(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = 2;
+        $GLOBALS['db'] = 'test_db';
+        $_SESSION = [];
+        $dbi = $this->createDatabaseInterface();
+        $export = new Export($dbi);
+        $location = $export->getPageLocationAndSaveMessage('database', Message::success('Success message!'));
+        $this->assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
+        $this->assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+    }
+
+    public function testGetPageLocationAndSaveMessageForTableExportWithError(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = 2;
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+        $_SESSION = [];
+        $dbi = $this->createDatabaseInterface();
+        $export = new Export($dbi);
+        $location = $export->getPageLocationAndSaveMessage('table', Message::error('Error message!'));
+        $this->assertSame(
+            'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
+            $location,
+        );
+        $this->assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+    }
+
+    public function testGetPageLocationAndSaveMessageForTableExportWithSuccess(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = 2;
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+        $_SESSION = [];
+        $dbi = $this->createDatabaseInterface();
+        $export = new Export($dbi);
+        $location = $export->getPageLocationAndSaveMessage('table', Message::success('Success message!'));
+        $this->assertSame(
+            'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
+            $location,
+        );
+        $this->assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
     }
 }
