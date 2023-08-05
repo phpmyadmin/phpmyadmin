@@ -20,33 +20,74 @@ use PHPUnit\Framework\Attributes\DataProvider;
 class GisFactoryTest extends AbstractTestCase
 {
     /**
-     * Test factory method
+     * Test fromType method
      *
      * @param string $type geometry type
-     * @param string $geom geometry object
-     * @psalm-param class-string $geom
+     * @psalm-param class-string|null $classString geometry
      */
-    #[DataProvider('providerForTestFactory')]
-    public function testFactory(string $type, string $geom): void
+    #[DataProvider('providerForTestFromType')]
+    public function testFromType(string $type, string|null $classString): void
     {
-        $this->assertInstanceOf($geom, GisFactory::factory($type));
+        $geometry = GisFactory::fromType($type);
+        if ($classString === null) {
+            $this->assertNull($geometry);
+        } else {
+            $this->assertInstanceOf($classString, $geometry);
+        }
     }
 
     /**
      * data provider for testFactory
      *
-     * @return array<array{string, class-string}>
+     * @return array<array{string, class-string|null}>
      */
-    public static function providerForTestFactory(): array
+    public static function providerForTestFromType(): array
     {
         return [
             ['MULTIPOLYGON', GisMultiPolygon::class],
             ['POLYGON', GisPolygon::class],
             ['MULTILINESTRING', GisMultiLineString::class],
-            ['LINESTRING', GisLineString::class],
+            ['LineString', GisLineString::class],
             ['MULTIPOINT', GisMultiPoint::class],
-            ['POINT', GisPoint::class],
+            ['point', GisPoint::class],
             ['GEOMETRYCOLLECTION', GisGeometryCollection::class],
+            ['asdf', null],
+        ];
+    }
+
+    /**
+     * Test fromWkt method
+     *
+     * @param string $wkt Wkt string
+     * @psalm-param class-string|null $classString geometry
+     */
+    #[DataProvider('providerForTestFromWkt')]
+    public function testFromWkt(string $wkt, string|null $classString): void
+    {
+        $geometry = GisFactory::fromWkt($wkt);
+        if ($classString === null) {
+            $this->assertNull($geometry);
+        } else {
+            $this->assertInstanceOf($classString, $geometry);
+        }
+    }
+
+    /**
+     * data provider for testFromWkt
+     *
+     * @return array<array{string, class-string|null}>
+     */
+    public static function providerForTestFromWkt(): array
+    {
+        return [
+            ['MULTIPOLYGON(((1 1,2 3,3 2,1 1)))', GisMultiPolygon::class],
+            ['POLYGON((1 1,2 3,3 2,1 1))', GisPolygon::class],
+            ['MULTILINESTRING((5 5, 5 7))', GisMultiLineString::class],
+            ['LineString(2 3, 4 4)', GisLineString::class],
+            ['MULTIPOINT(1 1,2 2)', GisMultiPoint::class],
+            ['point(1 1)', GisPoint::class],
+            ['GEOMETRYCOLLECTION()', GisGeometryCollection::class],
+            ['asdf', null],
         ];
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -40,36 +41,39 @@ class GisGeometryTest extends AbstractTestCase
     }
 
     /**
-     * tests setMinMax method
+     * tests getCoordinatesExtent method
      *
-     * @param string         $pointSet Point set
-     * @param ScaleData|null $minMax   Existing min, max values
-     * @param ScaleData|null $output   Expected output array
+     * @param string $pointSet Point set
+     * @param Extent $expected Expected output extent
      */
-    #[DataProvider('providerForTestSetMinMax')]
-    public function testSetMinMax(string $pointSet, ScaleData|null $minMax, ScaleData|null $output): void
+    #[DataProvider('providerForTestGetCoordinatesExtent')]
+    public function testGetCoordinatesExtent(string $pointSet, Extent $expected): void
     {
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                GisGeometry::class,
-                'setMinMax',
-                [$pointSet, $minMax],
-            ),
+        $extent = $this->callFunction(
+            $this->object,
+            GisGeometry::class,
+            'getCoordinatesExtent',
+            [$pointSet],
         );
+        $this->assertEquals($expected, $extent);
     }
 
     /**
-     * data provider for testSetMinMax
+     * data provider for testGetCoordinatesExtent
      *
-     * @return array<array{string, ScaleData|null, ScaleData|null}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestSetMinMax(): array
+    public static function providerForTestGetCoordinatesExtent(): array
     {
         return [
-            ['12 35,48 75,69 23,25 45,14 53,35 78', null, new ScaleData(69, 12, 78, 23)],
-            ['12 35,48 75,69 23,25 45,14 53,35 78', new ScaleData(29, 2, 128, 23), new ScaleData(69, 2, 128, 23)],
+            [
+                '12 35,48 75,69 23,25 45,14 53,35 78',
+                new Extent(minX: 12, minY: 23, maxX: 69, maxY: 78),
+            ],
+            [
+                '12 35,48 75,69 23,25 45,14 53,35 78',
+                new Extent(minX:12, minY: 23, maxX: 69, maxY: 78),
+            ],
         ];
     }
 
@@ -116,15 +120,15 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests extractPointsInternal method
      *
-     * @param string       $pointSet  String of comma separated points
-     * @param mixed[]|null $scaleData Data related to scaling
-     * @param bool         $linear    If true, as a 1D array, else as a 2D array
-     * @param mixed[]      $output    Expected output
+     * @param string         $pointSet  String of comma separated points
+     * @param ScaleData|null $scaleData Data related to scaling
+     * @param bool           $linear    If true, as a 1D array, else as a 2D array
+     * @param mixed[]        $output    Expected output
      */
     #[DataProvider('providerForTestExtractPointsInternal')]
     public function testExtractPointsInternal(
         string $pointSet,
-        array|null $scaleData,
+        ScaleData|null $scaleData,
         bool $linear,
         array $output,
     ): void {
@@ -140,7 +144,7 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * data provider for testExtractPointsInternal
      *
-     * @return array<array{string, mixed[]|null, bool, mixed[]}>
+     * @return array<array{string, ScaleData|null, bool, mixed[]}>
      */
     public static function providerForTestExtractPointsInternal(): array
     {
@@ -150,7 +154,7 @@ class GisGeometryTest extends AbstractTestCase
             // with scale data
             [
                 '12 35,48 75,69 23',
-                ['x' => 5, 'y' => 5, 'scale' => 2, 'height' => 200],
+                new ScaleData(offsetX: 5, offsetY: 5, scale: 2, height: 200),
                 false,
                 [0 => [14, 140], 1 => [86, 60], 2 => [128, 164]],
             ],

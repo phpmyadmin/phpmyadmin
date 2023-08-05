@@ -13746,11 +13746,6 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Casting to float something that's already float\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisGeometry.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
@@ -13786,12 +13781,7 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Gis\\\\GisGeometry\\|false given\\.$#"
-			count: 7
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
-			message: "#^Parameter \\#1 \\$type of static method PhpMyAdmin\\\\Gis\\\\GisFactory\\:\\:factory\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$type of static method PhpMyAdmin\\\\Gis\\\\GisFactory\\:\\:fromType\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
@@ -14136,11 +14126,6 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Cannot call method Output\\(\\) on PhpMyAdmin\\\\Image\\\\ImageWrapper\\|string\\|TCPDF\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Cannot call method fetchAllAssoc\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
@@ -14172,21 +14157,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:fetchRawData\\(\\) should return array\\<array\\> but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:prepareDataSet\\(\\) should return PhpMyAdmin\\\\Image\\\\ImageWrapper\\|string\\|TCPDF but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Gis\\\\GisGeometry\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#5 \\$image of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPng\\(\\) expects PhpMyAdmin\\\\Image\\\\ImageWrapper, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 

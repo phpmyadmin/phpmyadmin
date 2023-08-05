@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
@@ -47,35 +48,35 @@ class GisLineString extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = mb_substr($spatial, 11, -1);
+        $linestring = mb_substr($wkt, 11, -1);
 
-        return $this->setMinMax($linestring);
+        return $this->getCoordinatesExtent($linestring);
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $lineColor = $image->colorAllocate(...$color);
@@ -99,32 +100,35 @@ class GisLineString extends GisGeometry
             $tempPoint = $point;
         }
 
-        // print label if applicable
-        if ($label !== '') {
-            $image->string(
-                1,
-                (int) round($pointsArr[1][0]),
-                (int) round($pointsArr[1][1]),
-                $label,
-                $black,
-            );
+        if ($label === '') {
+            return;
         }
 
-        return $image;
+        // print label if applicable
+        $image->string(
+            1,
+            (int) round($pointsArr[1][0]),
+            (int) round($pointsArr[1][1]),
+            $label,
+            $black,
+        );
     }
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS LINESTRING object
-     * @param string  $label     Label for the GIS LINESTRING object
-     * @param int[]   $color     Color for the GIS LINESTRING object
-     * @param mixed[] $scaleData Array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
+     * @param string    $spatial   GIS LINESTRING object
+     * @param string    $label     Label for the GIS LINESTRING object
+     * @param int[]     $color     Color for the GIS LINESTRING object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
-    {
+    public function prepareRowAsPdf(
+        string $spatial,
+        string $label,
+        array $color,
+        ScaleData $scaleData,
+        TCPDF $pdf,
+    ): void {
         $line = ['width' => 1.5, 'color' => $color];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
@@ -140,27 +144,27 @@ class GisLineString extends GisGeometry
             $tempPoint = $point;
         }
 
-        // print label
-        if ($label !== '') {
-            $pdf->setXY($pointsArr[1][0], $pointsArr[1][1]);
-            $pdf->setFontSize(5);
-            $pdf->Cell(0, 0, $label);
+        if ($label === '') {
+            return;
         }
 
-        return $pdf;
+        // print label
+        $pdf->setXY($pointsArr[1][0], $pointsArr[1][1]);
+        $pdf->setFontSize(5);
+        $pdf->Cell(0, 0, $label);
     }
 
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS LINESTRING object
-     * @param string  $label     Label for the GIS LINESTRING object
-     * @param int[]   $color     Color for the GIS LINESTRING object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS LINESTRING object
+     * @param string    $label     Label for the GIS LINESTRING object
+     * @param int[]     $color     Color for the GIS LINESTRING object
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $lineOptions = [
             'name' => $label,
@@ -278,5 +282,10 @@ class GisLineString extends GisGeometry
         }
 
         return $coords;
+    }
+
+    protected function getType(): string
+    {
+        return 'LINESTRING';
     }
 }

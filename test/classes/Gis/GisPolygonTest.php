@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -125,28 +126,31 @@ class GisPolygonTest extends GisGeomTestCase
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisPolygon::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
-     * data provider for testScaleRow
+     * data provider for testGetExtent
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
         return [
-            ['POLYGON((123 0,23 30,17 63,123 0))', new ScaleData(123, 17, 63, 0)],
-            ['POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))', new ScaleData(45, 10, 45, 10)],
+            ['POLYGON((123 0,23 30,17 63,123 0))', new Extent(minX: 17, minY: 0, maxX: 123, maxY: 63)],
+            [
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                new Extent(minX: 10, minY: 10, maxX: 45, maxY: 45),
+            ],
         ];
     }
 
@@ -156,15 +160,15 @@ class GisPolygonTest extends GisGeomTestCase
         $object = GisPolygon::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'POLYGON((0 0,100 0,100 100,0 100,0 0),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,60 60))',
             'image',
             [176, 46, 224],
-            ['x' => -56, 'y' => -16, 'scale' => 0.94, 'height' => 124],
+            new ScaleData(offsetX: -56, offsetY: -16, scale: 0.94, height: 124),
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/polygon-expected.png';
         $fileActual = $this->testDir . '/polygon-actual.png';
@@ -175,32 +179,32 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string                   $spatial   GIS POLYGON object
-     * @param string                   $label     label for the GIS POLYGON object
-     * @param int[]                    $color     color for the GIS POLYGON object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     label for the GIS POLYGON object
+     * @param int[]     $color     color for the GIS POLYGON object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisPolygon::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/polygon-expected.pdf';
         $fileActual = $this->testDir . '/polygon-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -210,7 +214,7 @@ class GisPolygonTest extends GisGeomTestCase
                 . '0))',
                 'pdf',
                 [176, 46, 224],
-                ['x' => -8, 'y' => -32, 'scale' => 1.80, 'height' => 297],
+                new ScaleData(offsetX: -8, offsetY: -32, scale: 1.80, height: 297),
 
                 parent::createEmptyPdf('POLYGON'),
             ],
@@ -220,18 +224,18 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string             $spatial   GIS POLYGON object
-     * @param string             $label     label for the GIS POLYGON object
-     * @param int[]              $color     color for the GIS POLYGON object
-     * @param array<string, int> $scaleData array containing data related to scaling
-     * @param string             $output    expected output
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     label for the GIS POLYGON object
+     * @param int[]     $color     color for the GIS POLYGON object
+     * @param ScaleData $scaleData array containing data related to scaling
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisPolygon::singleton();
@@ -242,7 +246,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -251,7 +255,7 @@ class GisPolygonTest extends GisGeomTestCase
                 'POLYGON((123 0,23 30,17 63,123 0),(99 12,30 35,25 55,99 12))',
                 'svg',
                 [176, 46, 224],
-                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+                new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<path d=" M 222, 288 L 22, 228 L 10, 162 Z  M 174, 264 L 36, 218 L 26, 178 Z " name="svg" id="svg12'
                 . '34567890" class="polygon vector" stroke="black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenod'
                 . 'd" fill-opacity="0.8"/>',

@@ -6266,13 +6266,6 @@
     </NullArgument>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
-    <MixedOperand>
-      <code><![CDATA[$scaleData['height']]]></code>
-      <code><![CDATA[$scaleData['x']]]></code>
-      <code><![CDATA[$scaleData['y']]]></code>
-      <code><![CDATA[$x - $scaleData['x']]]></code>
-      <code><![CDATA[$y - $scaleData['y']]]></code>
-    </MixedOperand>
     <PossiblyFalseOperand>
       <code>$lastComma</code>
       <code>$lastComma</code>
@@ -6549,19 +6542,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
-    <PossiblyInvalidArgument>
-      <code>$results</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidMethodCall>
-      <code>Output</code>
-    </PossiblyInvalidMethodCall>
-    <PossiblyInvalidOperand>
-      <code>$results</code>
-      <code>$results</code>
-    </PossiblyInvalidOperand>
-    <PossiblyUndefinedMethod>
-      <code>Output</code>
-    </PossiblyUndefinedMethod>
     <RedundantCondition>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
@@ -13832,7 +13812,8 @@
   </file>
   <file src="test/classes/Gis/GisFactoryTest.php">
     <PossiblyUnusedMethod>
-      <code>providerForTestFactory</code>
+      <code>providerForTestFromType</code>
+      <code>providerForTestFromWkt</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
@@ -13842,7 +13823,7 @@
       <code>providerForPrepareRowAsSvg</code>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
+      <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
@@ -13850,12 +13831,13 @@
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
     <MixedAssignment>
+      <code>$extent</code>
       <code>$points</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>providerForTestExtractPointsInternal</code>
+      <code>providerForTestGetCoordinatesExtent</code>
       <code>providerForTestParseWktAndSrid</code>
-      <code>providerForTestSetMinMax</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisLineStringTest.php">
@@ -13865,7 +13847,7 @@
       <code>providerForPrepareRowAsSvg</code>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
+      <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiLineStringTest.php">
@@ -13875,7 +13857,7 @@
       <code>providerForPrepareRowAsSvg</code>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
+      <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiPointTest.php">
@@ -13885,7 +13867,7 @@
       <code>providerForPrepareRowAsSvg</code>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
+      <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiPolygonTest.php">
@@ -13895,8 +13877,8 @@
       <code>providerForPrepareRowAsSvg</code>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
+      <code>providerForTestGetExtent</code>
       <code>providerForTestGetShape</code>
-      <code>providerForTestScaleRow</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisPointTest.php">
@@ -13906,8 +13888,8 @@
       <code>providerForPrepareRowAsSvg</code>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
+      <code>providerForTestGetExtent</code>
       <code>providerForTestGetShape</code>
-      <code>providerForTestScaleRow</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
@@ -13921,7 +13903,7 @@
       <code>providerForPrepareRowAsSvg</code>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
-      <code>providerForTestScaleRow</code>
+      <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">

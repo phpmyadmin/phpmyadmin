@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -131,26 +132,31 @@ class GisMultiLineStringTest extends GisGeomTestCase
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisMultiLineString::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
-     * data provider for testScaleRow
+     * data provider for testGetExtent
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
-        return [['MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))', new ScaleData(178, 17, 75, 10)]];
+        return [
+            [
+                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
+                new Extent(minX: 17, minY: 10, maxX: 178, maxY: 75),
+            ],
+        ];
     }
 
     #[RequiresPhpExtension('gd')]
@@ -159,15 +165,15 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $object = GisMultiLineString::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
             'image',
             [176, 46, 224],
-            ['x' => 3, 'y' => -16, 'scale' => 1.06, 'height' => 124],
+            new ScaleData(offsetX: 3, offsetY: -16, scale: 1.06, height: 124),
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/multilinestring-expected.png';
         $fileActual = $this->testDir . '/multilinestring-actual.png';
@@ -178,32 +184,32 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string                   $spatial   GIS MULTILINESTRING object
-     * @param string                   $label     label for the GIS MULTILINESTRING object
-     * @param int[]                    $color     color for the GIS MULTILINESTRING object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS MULTILINESTRING object
+     * @param string    $label     label for the GIS MULTILINESTRING object
+     * @param int[]     $color     color for the GIS MULTILINESTRING object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisMultiLineString::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multilinestring-expected.pdf';
         $fileActual = $this->testDir . '/multilinestring-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -212,7 +218,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 'pdf',
                 [176, 46, 224],
-                ['x' => 4, 'y' => -90, 'scale' => 1.12, 'height' => 297],
+                new ScaleData(offsetX: 4, offsetY: -90, scale: 1.12, height: 297),
 
                 parent::createEmptyPdf('MULTILINESTRING'),
             ],
@@ -222,18 +228,18 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string                   $spatial   GIS MULTILINESTRING object
-     * @param string                   $label     label for the GIS MULTILINESTRING object
-     * @param int[]                    $color     color for the GIS MULTILINESTRING object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
-     * @param string                   $output    expected output
+     * @param string    $spatial   GIS MULTILINESTRING object
+     * @param string    $label     label for the GIS MULTILINESTRING object
+     * @param int[]     $color     color for the GIS MULTILINESTRING object
+     * @param ScaleData $scaleData array containing data related to scaling
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisMultiLineString::singleton();
@@ -244,7 +250,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -253,7 +259,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 'svg',
                 [176, 46, 224],
-                ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+                new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<polyline points="48,260 70,242 100,138 " name="svg" '
                 . 'class="linestring vector" fill="none" stroke="#b02ee0" '
                 . 'stroke-width="2" id="svg1234567890"/><polyline points="48,268 10,'

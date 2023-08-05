@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
@@ -47,35 +48,35 @@ class GisMultiPoint extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = mb_substr($spatial, 11, -1);
+        $multipoint = mb_substr($wkt, 11, -1);
 
-        return $this->setMinMax($multipoint);
+        return $this->getCoordinatesExtent($multipoint);
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $pointColor = $image->colorAllocate(...$color);
@@ -101,37 +102,35 @@ class GisMultiPoint extends GisGeometry
             );
         }
 
-        // print label for each point
-        if ($label !== '' && ($pointsArr[0][0] != '' && $pointsArr[0][1] != '')) {
-            $image->string(
-                1,
-                (int) round($pointsArr[0][0]),
-                (int) round($pointsArr[0][1]),
-                $label,
-                $black,
-            );
+        if ($label === '' || $pointsArr[0][0] == '' || $pointsArr[0][1] == '') {
+            return;
         }
 
-        return $image;
+        // print label for each point
+        $image->string(
+            1,
+            (int) round($pointsArr[0][0]),
+            (int) round($pointsArr[0][1]),
+            $label,
+            $black,
+        );
     }
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS MULTIPOINT object
-     * @param string  $label     Label for the GIS MULTIPOINT object
-     * @param int[]   $color     Color for the GIS MULTIPOINT object
-     * @param mixed[] $scaleData Array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
+     * @param string    $spatial   GIS MULTIPOINT object
+     * @param string    $label     Label for the GIS MULTIPOINT object
+     * @param int[]     $color     Color for the GIS MULTIPOINT object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
-    ): TCPDF {
+    ): void {
         $line = ['width' => 1.25, 'color' => $color];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
@@ -147,27 +146,27 @@ class GisMultiPoint extends GisGeometry
             $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
         }
 
-        // print label for each point
-        if ($label !== '' && ($pointsArr[0][0] != '' && $pointsArr[0][1] != '')) {
-            $pdf->setXY($pointsArr[0][0], $pointsArr[0][1]);
-            $pdf->setFontSize(5);
-            $pdf->Cell(0, 0, $label);
+        if ($label === '' || $pointsArr[0][0] == '' || $pointsArr[0][1] == '') {
+            return;
         }
 
-        return $pdf;
+        // print label for each point
+        $pdf->setXY($pointsArr[0][0], $pointsArr[0][1]);
+        $pdf->setFontSize(5);
+        $pdf->Cell(0, 0, $label);
     }
 
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS MULTIPOINT object
-     * @param string  $label     Label for the GIS MULTIPOINT object
-     * @param int[]   $color     Color for the GIS MULTIPOINT object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS MULTIPOINT object
+     * @param string    $label     Label for the GIS MULTIPOINT object
+     * @param int[]     $color     Color for the GIS MULTIPOINT object
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $pointOptions = [
             'name' => $label,
@@ -317,5 +316,10 @@ class GisMultiPoint extends GisGeometry
         }
 
         return $coords;
+    }
+
+    protected function getType(): string
+    {
+        return 'MULTIPOINT';
     }
 }

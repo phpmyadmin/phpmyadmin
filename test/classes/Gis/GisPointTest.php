@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -124,26 +125,26 @@ class GisPointTest extends GisGeomTestCase
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
-     * data provider for testScaleRow
+     * data provider for testGetExtent
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
-        return [['POINT(12 35)', new ScaleData(12, 12, 35, 35)]];
+        return [['POINT(12 35)', new Extent(minX: 12, minY: 35, maxX: 12, maxY: 35)]];
     }
 
     #[RequiresPhpExtension('gd')]
@@ -152,15 +153,15 @@ class GisPointTest extends GisGeomTestCase
         $object = GisPoint::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
             [176, 46, 224],
-            ['x' => -88, 'y' => -27, 'scale' => 1, 'height' => 124],
+            new ScaleData(offsetX: -88, offsetY: -27, scale: 1, height: 124),
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/point-expected.png';
         $fileActual = $this->testDir . '/point-actual.png';
@@ -171,34 +172,34 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string                   $spatial   GIS POINT object
-     * @param string                   $label     label for the GIS POINT object
-     * @param int[]                    $color     color for the GIS POINT object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     label for the GIS POINT object
+     * @param int[]     $color     color for the GIS POINT object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisPoint::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/point-expected.pdf';
         $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
         $fileActual = $this->testDir . '/point-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -207,7 +208,7 @@ class GisPointTest extends GisGeomTestCase
                 'POINT(12 35)',
                 'pdf',
                 [176, 46, 224],
-                ['x' => -93, 'y' => -114, 'scale' => 1, 'height' => 297],
+                new ScaleData(offsetX: -93, offsetY: -114, scale: 1, height: 297),
 
                 parent::createEmptyPdf('POINT'),
             ],
@@ -217,18 +218,18 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string                   $spatial   GIS POINT object
-     * @param string                   $label     label for the GIS POINT object
-     * @param int[]                    $color     color for the GIS POINT object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
-     * @param string                   $output    expected output
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     label for the GIS POINT object
+     * @param int[]     $color     color for the GIS POINT object
+     * @param ScaleData $scaleData array containing data related to scaling
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisPoint::singleton();
@@ -239,11 +240,19 @@ class GisPointTest extends GisGeomTestCase
     /**
      * data provider for prepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
-        return [['POINT(12 35)', 'svg', [176, 46, 224], ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150], '']];
+        return [
+            [
+                'POINT(12 35)',
+                'svg',
+                [176, 46, 224],
+                new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
+                '',
+            ],
+        ];
     }
 
     /**

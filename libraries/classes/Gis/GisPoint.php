@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
@@ -46,35 +47,35 @@ class GisPoint extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr($spatial, 6, -1);
+        $point = mb_substr($wkt, 6, -1);
 
-        return $this->setMinMax($point);
+        return $this->getCoordinatesExtent($point);
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $pointColor = $image->colorAllocate(...$color);
@@ -84,79 +85,81 @@ class GisPoint extends GisGeometry
         $pointsArr = $this->extractPoints1dLinear($point, $scaleData);
 
         // draw a small circle to mark the point
-        if ($pointsArr[0] != '' && $pointsArr[0] != '') {
-            $image->arc(
-                (int) round($pointsArr[0]),
-                (int) round($pointsArr[1]),
-                7,
-                7,
-                0,
-                360,
-                $pointColor,
-            );
-            // print label if applicable
-            if ($label !== '') {
-                $image->string(
-                    1,
-                    (int) round($pointsArr[0]),
-                    (int) round($pointsArr[1]),
-                    $label,
-                    $black,
-                );
-            }
+        if ($pointsArr[0] == '' || $pointsArr[0] == '') {
+            return;
         }
 
-        return $image;
+        $image->arc(
+            (int) round($pointsArr[0]),
+            (int) round($pointsArr[1]),
+            7,
+            7,
+            0,
+            360,
+            $pointColor,
+        );
+        if ($label === '') {
+            return;
+        }
+
+        // print label if applicable
+        $image->string(
+            1,
+            (int) round($pointsArr[0]),
+            (int) round($pointsArr[1]),
+            $label,
+            $black,
+        );
     }
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POINT object
-     * @param string  $label     Label for the GIS POINT object
-     * @param int[]   $color     Color for the GIS POINT object
-     * @param mixed[] $scaleData Array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     Label for the GIS POINT object
+     * @param int[]     $color     Color for the GIS POINT object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
-    ): TCPDF {
+    ): void {
         $line = ['width' => 1.25, 'color' => $color];
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
         $pointsArr = $this->extractPoints1dLinear($point, $scaleData);
 
-        // draw a small circle to mark the point
-        if ($pointsArr[0] != '' && $pointsArr[1] != '') {
-            $pdf->Circle($pointsArr[0], $pointsArr[1], 2, 0, 360, 'D', $line);
-            // print label if applicable
-            if ($label !== '') {
-                $pdf->setXY($pointsArr[0], $pointsArr[1]);
-                $pdf->setFontSize(5);
-                $pdf->Cell(0, 0, $label);
-            }
+        if ($pointsArr[0] == '' || $pointsArr[1] == '') {
+            return;
         }
 
-        return $pdf;
+        // draw a small circle to mark the point
+        $pdf->Circle($pointsArr[0], $pointsArr[1], 2, 0, 360, 'D', $line);
+        if ($label === '') {
+            return;
+        }
+
+        // print label if applicable
+        $pdf->setXY($pointsArr[0], $pointsArr[1]);
+        $pdf->setFontSize(5);
+        $pdf->Cell(0, 0, $label);
     }
 
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS POINT object
-     * @param string  $label     Label for the GIS POINT object
-     * @param int[]   $color     Color for the GIS POINT object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POINT object
+     * @param string    $label     Label for the GIS POINT object
+     * @param int[]     $color     Color for the GIS POINT object
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $pointOptions = [
             'name' => $label,
@@ -276,5 +279,10 @@ class GisPoint extends GisGeometry
         $points = $this->extractPoints1d($wktPoint, null);
 
         return ['x' => $points[0][0], 'y' => $points[0][1]];
+    }
+
+    protected function getType(): string
+    {
+        return 'POINT';
     }
 }

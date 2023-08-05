@@ -8,15 +8,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use ErrorException;
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
-use function mb_strpos;
 use function mb_substr;
 use function str_split;
-use function strtoupper;
 
 /**
  * Handles actions related to GIS GEOMETRYCOLLECTION objects
@@ -47,127 +46,104 @@ class GisGeometryCollection extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
+     *
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
-        $minMax = null;
-
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $geomCol = mb_substr($spatial, 19, -1);
+        $geomCol = mb_substr($wkt, 19, -1);
 
         // Split the geometry collection object to get its constituents.
         $subParts = $this->explodeGeomCol($geomCol);
 
+        $extent = Extent::empty();
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
-                continue;
-            }
-
-            $scaleData = $gisObj->scaleRow($subPart);
-
-            $minMax = $minMax === null ? $scaleData : $scaleData?->merge($minMax);
+            $extent = $extent->merge($gisObj->getExtent($subPart));
         }
 
-        return $minMax;
+        return $extent;
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $geomCol = mb_substr($spatial, 19, -1);
         // Split the geometry collection object to get its constituents.
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
-                continue;
-            }
-
-            $image = $gisObj->prepareRowAsPng($subPart, $label, $color, $scaleData, $image);
+            $gisObj->prepareRowAsPng($subPart, $label, $color, $scaleData, $image);
         }
-
-        return $image;
     }
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS GEOMETRYCOLLECTION object
-     * @param string  $label     label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]   $color     color for the GIS GEOMETRYCOLLECTION object
-     * @param mixed[] $scaleData array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
+     * @param string    $spatial   GIS GEOMETRYCOLLECTION object
+     * @param string    $label     label for the GIS GEOMETRYCOLLECTION object
+     * @param int[]     $color     color for the GIS GEOMETRYCOLLECTION object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
-    {
+    public function prepareRowAsPdf(
+        string $spatial,
+        string $label,
+        array $color,
+        ScaleData $scaleData,
+        TCPDF $pdf,
+    ): void {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $geomCol = mb_substr($spatial, 19, -1);
         // Split the geometry collection object to get its constituents.
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
-                continue;
-            }
-
-            $pdf = $gisObj->prepareRowAsPdf($subPart, $label, $color, $scaleData, $pdf);
+            $gisObj->prepareRowAsPdf($subPart, $label, $color, $scaleData, $pdf);
         }
-
-        return $pdf;
     }
 
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS GEOMETRYCOLLECTION object
-     * @param string  $label     label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]   $color     color for the GIS GEOMETRYCOLLECTION object
-     * @param mixed[] $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS GEOMETRYCOLLECTION object
+     * @param string    $label     label for the GIS GEOMETRYCOLLECTION object
+     * @param int[]     $color     color for the GIS GEOMETRYCOLLECTION object
+     * @param ScaleData $scaleData array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $row = '';
 
@@ -177,15 +153,8 @@ class GisGeometryCollection extends GisGeometry
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -216,15 +185,8 @@ class GisGeometryCollection extends GisGeometry
         $subParts = $this->explodeGeomCol($geomCol);
 
         foreach ($subParts as $subPart) {
-            $typePos = mb_strpos($subPart, '(');
-            if ($typePos === false) {
-                continue;
-            }
-
-            $type = mb_substr($subPart, 0, $typePos);
-
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromWkt($subPart);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -284,8 +246,8 @@ class GisGeometryCollection extends GisGeometry
             }
 
             $type = $gisData[$i]['gis_type'];
-            $gisObj = GisFactory::factory($type);
-            if (! $gisObj) {
+            $gisObj = GisFactory::fromType($type);
+            if ($gisObj === null) {
                 continue;
             }
 
@@ -323,22 +285,21 @@ class GisGeometryCollection extends GisGeometry
         $wktGeometries = $this->explodeGeomCol($geomCol);
         $params = ['srid' => $data['srid'], 'GEOMETRYCOLLECTION' => ['geom_count' => count($wktGeometries)]];
 
-        $i = 0;
         foreach ($wktGeometries as $wktGeometry) {
-            $typePos = mb_strpos($wktGeometry, '(');
-            if ($typePos === false) {
+            $gisObj = GisFactory::fromWkt($wktGeometry);
+            if ($gisObj === null) {
                 continue;
             }
 
-            $wktType = strtoupper(mb_substr($wktGeometry, 0, $typePos));
-            $gisObj = GisFactory::factory($wktType);
-            if (! $gisObj) {
-                continue;
-            }
-
-            $params[$i++] = ['gis_type' => $wktType, $wktType => $gisObj->getCoordinateParams($wktGeometry)];
+            $wktType = $gisObj->getType();
+            $params[] = ['gis_type' => $wktType, $wktType => $gisObj->getCoordinateParams($wktGeometry)];
         }
 
         return $params;
+    }
+
+    protected function getType(): string
+    {
+        return 'GEOMETRYCOLLECTION';
     }
 }

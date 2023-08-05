@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisMultiPolygon;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -210,34 +211,34 @@ class GisMultiPolygonTest extends GisGeomTestCase
     }
 
     /**
-     * test scaleRow method
+     * test getExtent method
      *
-     * @param string    $spatial spatial data of a row
-     * @param ScaleData $minMax  expected results
+     * @param string $spatial spatial data of a row
+     * @param Extent $extent  expected results
      */
-    #[DataProvider('providerForTestScaleRow')]
-    public function testScaleRow(string $spatial, ScaleData $minMax): void
+    #[DataProvider('providerForTestGetExtent')]
+    public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($minMax, $object->scaleRow($spatial));
+        $this->assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
-     * data provider for testScaleRow
+     * data provider for testGetExtent
      *
-     * @return array<array{string, ScaleData}>
+     * @return array<array{string, Extent}>
      */
-    public static function providerForTestScaleRow(): array
+    public static function providerForTestGetExtent(): array
     {
         return [
             [
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
-                new ScaleData(147, 16, 83, 0),
+                new Extent(minX: 16, minY: 0, maxX: 147, maxY: 83),
             ],
             [
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20'
                     . ',20 30)),((105 0,56 20,78 73,105 0)))',
-                new ScaleData(105, 10, 73, 0),
+                new Extent(minX: 10, minY: 0, maxX: 105, maxY: 73),
             ],
         ];
     }
@@ -248,17 +249,17 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $object = GisMultiPolygon::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
-        $return = $object->prepareRowAsPng(
+        $object->prepareRowAsPng(
             'MULTIPOLYGON(((5 5,95 5,95 95,5 95,5 5),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,6'
             . '0 60)),((-5 -5,-95 -5,-95 -95,-5 -95,-5 -5),(-10 -10,-10 -40,-40 -40,-40 -10,-10 -10),(-60 -60,-90'
             . ' -60,-90 -90,-60 -90,-60 -60)))',
             'image',
             [176, 46, 224],
-            ['x' => -202, 'y' => -125, 'scale' => 0.50, 'height' => 124],
+            new ScaleData(offsetX: -202, offsetY: -125, scale: 0.50, height: 124),
             $image,
         );
-        $this->assertEquals(200, $return->width());
-        $this->assertEquals(124, $return->height());
+        $this->assertEquals(200, $image->width());
+        $this->assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/multipolygon-expected.png';
         $fileActual = $this->testDir . '/multipolygon-actual.png';
@@ -269,32 +270,32 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string                   $spatial   GIS MULTIPOLYGON object
-     * @param string                   $label     label for the GIS MULTIPOLYGON object
-     * @param int[]                    $color     color for the GIS MULTIPOLYGON object
-     * @param array<string, int|float> $scaleData array containing data related to scaling
+     * @param string    $spatial   GIS MULTIPOLYGON object
+     * @param string    $label     label for the GIS MULTIPOLYGON object
+     * @param int[]     $color     color for the GIS MULTIPOLYGON object
+     * @param ScaleData $scaleData array containing data related to scaling
      */
     #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
         $object = GisMultiPolygon::singleton();
-        $return = $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
+        $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multipolygon-expected.pdf';
         $fileActual = $this->testDir . '/multipolygon-actual.pdf';
-        $return->Output($fileActual, 'F');
+        $pdf->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
      * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array<array{string, string, int[], array<string, int|float>, TCPDF}>
+     * @return array<array{string, string, int[], ScaleData, TCPDF}>
      */
     public static function providerForPrepareRowAsPdf(): array
     {
@@ -305,7 +306,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . ' -60,-90 -90,-60 -90,-60 -60)))',
                 'pdf',
                 [176, 46, 224],
-                ['x' => -110, 'y' => -157, 'scale' => 0.95, 'height' => 297],
+                new ScaleData(offsetX: -110, offsetY: -157, scale: 0.95, height: 297),
 
                 parent::createEmptyPdf('MULTIPOLYGON'),
             ],
@@ -315,18 +316,18 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string             $spatial   GIS MULTIPOLYGON object
-     * @param string             $label     label for the GIS MULTIPOLYGON object
-     * @param int[]              $color     color for the GIS MULTIPOLYGON object
-     * @param array<string, int> $scaleData array containing data related to scaling
-     * @param string             $output    expected output
+     * @param string    $spatial   GIS MULTIPOLYGON object
+     * @param string    $label     label for the GIS MULTIPOLYGON object
+     * @param int[]     $color     color for the GIS MULTIPOLYGON object
+     * @param ScaleData $scaleData array containing data related to scaling
+     * @param string    $output    expected output
      */
     #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         string $output,
     ): void {
         $object = GisMultiPolygon::singleton();
@@ -337,7 +338,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsSvg() test case
      *
-     * @return array<array{string, string, int[], array<string, int>, string}>
+     * @return array<array{string, string, int[], ScaleData, string}>
      */
     public static function providerForPrepareRowAsSvg(): array
     {
@@ -348,7 +349,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . ' -60,-90 -90,-60 -90,-60 -60)))',
                 'svg',
                 [176, 46, 224],
-                ['x' => -50, 'y' => -50, 'scale' => 2, 'height' => 400],
+                new ScaleData(offsetX: -50, offsetY: -50, scale: 2, height: 400),
                 '<path d=" M 110, 290 L 290, 290 L 290, 110 L 110, 110 Z  M 120, 280 L 120, 220 L 180, 220 L 180, 28'
                 . '0 Z  M 220, 180 L 280, 180 L 280, 120 L 220, 120 Z " name="svg" class="multipolygon vector" stroke='
                 . '"black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"'

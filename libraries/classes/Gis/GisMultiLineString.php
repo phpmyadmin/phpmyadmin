@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
@@ -48,43 +49,43 @@ class GisMultiLineString extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinate extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text represenatation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
-        $minMax = null;
+        $extent = Extent::empty();
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilineString = mb_substr($spatial, 17, -2);
+        $multilineString = mb_substr($wkt, 17, -2);
         // Separate each linestring
         $linestrings = explode('),(', $multilineString);
 
         foreach ($linestrings as $linestring) {
-            $minMax = $this->setMinMax($linestring, $minMax);
+            $extent = $extent->merge($this->getCoordinatesExtent($linestring));
         }
 
-        return $minMax;
+        return $extent;
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $lineColor = $image->colorAllocate(...$color);
@@ -126,22 +127,23 @@ class GisMultiLineString extends GisGeometry
 
             $firstLine = false;
         }
-
-        return $image;
     }
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS MULTILINESTRING object
-     * @param string  $label     Label for the GIS MULTILINESTRING object
-     * @param int[]   $color     Color for the GIS MULTILINESTRING object
-     * @param mixed[] $scaleData Array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
+     * @param string    $spatial   GIS MULTILINESTRING object
+     * @param string    $label     Label for the GIS MULTILINESTRING object
+     * @param int[]     $color     Color for the GIS MULTILINESTRING object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
-    {
+    public function prepareRowAsPdf(
+        string $spatial,
+        string $label,
+        array $color,
+        ScaleData $scaleData,
+        TCPDF $pdf,
+    ): void {
         $line = ['width' => 1.5, 'color' => $color];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
@@ -171,21 +173,19 @@ class GisMultiLineString extends GisGeometry
 
             $firstLine = false;
         }
-
-        return $pdf;
     }
 
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS MULTILINESTRING object
-     * @param string  $label     Label for the GIS MULTILINESTRING object
-     * @param int[]   $color     Color for the GIS MULTILINESTRING object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS MULTILINESTRING object
+     * @param string    $label     Label for the GIS MULTILINESTRING object
+     * @param int[]     $color     Color for the GIS MULTILINESTRING object
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $lineOptions = [
             'name' => $label,
@@ -352,5 +352,10 @@ class GisMultiLineString extends GisGeometry
         }
 
         return $coords;
+    }
+
+    protected function getType(): string
+    {
+        return 'MULTILINESTRING';
     }
 }

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\Polygon;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -51,43 +52,43 @@ class GisMultiPolygon extends GisGeometry
     }
 
     /**
-     * Scales each row.
+     * Get coordinates extent for this wkt.
      *
-     * @param string $spatial spatial data of a row
+     * @param string $wkt Well Known Text representation of the geometry
      *
-     * @return ScaleData|null the min, max values for x and y coordinates
+     * @return Extent the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ScaleData|null
+    public function getExtent(string $wkt): Extent
     {
-        $minMax = null;
+        $extent = Extent::empty();
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
-        $multipolygon = mb_substr($spatial, 15, -3);
+        $multipolygon = mb_substr($wkt, 15, -3);
         $wktPolygons = explode(')),((', $multipolygon);
 
         foreach ($wktPolygons as $wktPolygon) {
             $wktOuterRing = explode('),(', $wktPolygon)[0];
-            $minMax = $this->setMinMax($wktOuterRing, $minMax);
+            $extent = $extent->merge($this->getCoordinatesExtent($wktOuterRing));
         }
 
-        return $minMax;
+        return $extent;
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS POLYGON object
-     * @param string  $label     Label for the GIS POLYGON object
-     * @param int[]   $color     Color for the GIS POLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS POLYGON object
+     * @param string    $label     Label for the GIS POLYGON object
+     * @param int[]     $color     Color for the GIS POLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
         array $color,
-        array $scaleData,
+        ScaleData $scaleData,
         ImageWrapper $image,
-    ): ImageWrapper {
+    ): void {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $fillColor = $image->colorAllocate(...$color);
@@ -117,32 +118,35 @@ class GisMultiPolygon extends GisGeometry
             $labelPoint = [$pointsArr[2], $pointsArr[3]];
         }
 
-        // print label if applicable
-        if ($label !== '' && isset($labelPoint)) {
-            $image->string(
-                1,
-                (int) round($labelPoint[0]),
-                (int) round($labelPoint[1]),
-                $label,
-                $black,
-            );
+        if ($label === '' || ! isset($labelPoint)) {
+            return;
         }
 
-        return $image;
+        // print label if applicable
+        $image->string(
+            1,
+            (int) round($labelPoint[0]),
+            (int) round($labelPoint[1]),
+            $label,
+            $black,
+        );
     }
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string  $spatial   GIS MULTIPOLYGON object
-     * @param string  $label     Label for the GIS MULTIPOLYGON object
-     * @param int[]   $color     Color for the GIS MULTIPOLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
-     *
-     * @return TCPDF the modified TCPDF instance
+     * @param string    $spatial   GIS MULTIPOLYGON object
+     * @param string    $label     Label for the GIS MULTIPOLYGON object
+     * @param int[]     $color     Color for the GIS MULTIPOLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      */
-    public function prepareRowAsPdf(string $spatial, string $label, array $color, array $scaleData, TCPDF $pdf): TCPDF
-    {
+    public function prepareRowAsPdf(
+        string $spatial,
+        string $label,
+        array $color,
+        ScaleData $scaleData,
+        TCPDF $pdf,
+    ): void {
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
@@ -167,27 +171,27 @@ class GisMultiPolygon extends GisGeometry
             $labelPoint = [$pointsArr[2], $pointsArr[3]];
         }
 
-        // print label if applicable
-        if ($label !== '' && isset($labelPoint)) {
-            $pdf->setXY($labelPoint[0], $labelPoint[1]);
-            $pdf->setFontSize(5);
-            $pdf->Cell(0, 0, $label);
+        if ($label === '' || ! isset($labelPoint)) {
+            return;
         }
 
-        return $pdf;
+        // print label if applicable
+        $pdf->setXY($labelPoint[0], $labelPoint[1]);
+        $pdf->setFontSize(5);
+        $pdf->Cell(0, 0, $label);
     }
 
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string  $spatial   GIS MULTIPOLYGON object
-     * @param string  $label     Label for the GIS MULTIPOLYGON object
-     * @param int[]   $color     Color for the GIS MULTIPOLYGON object
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $spatial   GIS MULTIPOLYGON object
+     * @param string    $label     Label for the GIS MULTIPOLYGON object
+     * @param int[]     $color     Color for the GIS MULTIPOLYGON object
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, array $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $polygonOptions = [
             'name' => $label,
@@ -266,12 +270,12 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Draws a ring of the polygon using SVG path element.
      *
-     * @param string  $polygon   The ring
-     * @param mixed[] $scaleData Array containing data related to scaling
+     * @param string    $polygon   The ring
+     * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code to draw the ring
      */
-    private function drawPath(string $polygon, array $scaleData): string
+    private function drawPath(string $polygon, ScaleData $scaleData): string
     {
         $pointsArr = $this->extractPoints1d($polygon, $scaleData);
 
@@ -461,5 +465,10 @@ class GisMultiPolygon extends GisGeometry
         }
 
         return $coords;
+    }
+
+    protected function getType(): string
+    {
+        return 'MULTIPOLYGON';
     }
 }
