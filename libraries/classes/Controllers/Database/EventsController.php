@@ -7,7 +7,9 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -29,6 +31,7 @@ final class EventsController extends AbstractController
         Template $template,
         private Events $events,
         private DatabaseInterface $dbi,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -47,7 +50,10 @@ final class EventsController extends AbstractController
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-            if (! $this->hasDatabase()) {
+            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+            if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
                 return;
             }
         } elseif (strlen($GLOBALS['db']) > 0) {

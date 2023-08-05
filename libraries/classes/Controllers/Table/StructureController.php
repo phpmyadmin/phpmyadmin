@@ -16,7 +16,10 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
@@ -51,6 +54,7 @@ class StructureController extends AbstractController
         private Transformations $transformations,
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
 
@@ -103,7 +107,33 @@ class StructureController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
-        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+            return;
+        }
+
+        $tableName = TableName::tryFrom($request->getParam('table'));
+        if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+            return;
+        }
 
         $primary = Index::getPrimary($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
         $columnsWithIndex = $this->dbi

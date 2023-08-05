@@ -7,7 +7,8 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Database\Routines;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -98,13 +99,17 @@ final class RoutinesControllerTest extends AbstractTestCase
         $template = new Template();
         $response = new ResponseRenderer();
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db']);
+
         (new RoutinesController(
             $response,
             $template,
             new CheckUserPrivileges($dbi),
             $dbi,
             new Routines($dbi),
-        ))($this->createStub(ServerRequest::class));
+            new DbTableExists($dbi),
+        ))($request);
 
         $actual = $response->getHTMLResult();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -268,13 +273,17 @@ HTML;
         $template = new Template();
         $response = new ResponseRenderer();
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db']);
+
         (new RoutinesController(
             $response,
             $template,
             new CheckUserPrivileges($dbi),
             $dbi,
             new Routines($dbi),
-        ))($this->createStub(ServerRequest::class));
+            new DbTableExists($dbi),
+        ))($request);
 
         $actual = $response->getHTMLResult();
         // phpcs:disable Generic.Files.LineLength.TooLong

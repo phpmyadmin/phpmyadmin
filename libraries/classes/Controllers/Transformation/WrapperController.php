@@ -8,7 +8,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
@@ -58,8 +57,18 @@ class WrapperController extends AbstractController
             return;
         }
 
-        DbTableExists::check($db->getName(), $table->getName(), true);
-        $this->dbi->selectDb($db);
+        if (! $this->dbi->selectDb($db)) {
+            return;
+        }
+
+        $hasTable = (bool) $this->dbi->getCache()->getCachedTableContent([$db->getName(), $table->getName()]);
+        if (! $hasTable) {
+            $result = $this->dbi->tryQuery('SHOW TABLES LIKE ' . $this->dbi->quoteString($table->getName()) . ';');
+            $hasTable = $result !== false && $result->numRows() > 0;
+            if (! $hasTable) {
+                return;
+            }
+        }
 
         $query = $this->getQuery($table, $request->getParam('where_clause'), $request->getParam('where_clause_sign'));
         if ($query === null) {

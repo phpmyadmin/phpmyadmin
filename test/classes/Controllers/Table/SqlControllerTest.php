@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\Table\SqlController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -79,12 +80,17 @@ class SqlControllerTest extends AbstractTestCase
             'is_foreign_key_check' => true,
         ]);
 
-        $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['delimiter', ';', ';']]);
-        $request->method('getQueryParam')->willReturnMap([['sql_query', true, true]]);
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
         $response = new ResponseRenderer();
-        (new SqlController($response, $template, new SqlQueryForm($template, $this->dbi), $pageSettings))($request);
+        (new SqlController(
+            $response,
+            $template,
+            new SqlQueryForm($template, $this->dbi),
+            $pageSettings,
+            new DbTableExists($this->dbi),
+        ))($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

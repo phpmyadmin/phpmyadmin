@@ -192,8 +192,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $this->assertEquals($expectedPass, $this->object->password);
 
-        $_SERVER[$userIndex] = null;
-        $_SERVER[$passIndex] = null;
+        unset($_SERVER[$userIndex]);
+        unset($_SERVER[$passIndex]);
     }
 
     /**

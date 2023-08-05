@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ChartController;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
@@ -92,7 +93,16 @@ class ChartControllerTest extends AbstractTestCase
             ],
         ]);
 
-        (new ChartController($response, $template, $dbi))($this->createStub(ServerRequest::class));
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'table_for_chart'])
+            ->withParsedBody([
+                'printview' => '1',
+                'sql_query' => 'SELECT * FROM `test_db`.`table_for_chart`;',
+                'single_table' => 'true',
+                'unlim_num_rows' => '4',
+            ]);
+
+        (new ChartController($response, $template, $dbi, new DbTableExists($dbi)))($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

@@ -8,8 +8,10 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
@@ -31,6 +33,7 @@ final class ImportController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -51,7 +54,17 @@ final class ImportController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->hasDatabase()) {
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
             return;
         }
 

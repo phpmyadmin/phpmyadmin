@@ -7,6 +7,11 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -16,6 +21,14 @@ use function is_array;
 
 final class DeleteConfirmController extends AbstractController
 {
+    public function __construct(
+        protected ResponseRenderer $response,
+        protected Template $template,
+        private readonly DbTableExists $dbTableExists,
+    ) {
+        parent::__construct($response, $template);
+    }
+
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
@@ -36,7 +49,33 @@ final class DeleteConfirmController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+            return;
+        }
+
+        $tableName = TableName::tryFrom($request->getParam('table'));
+        if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+            return;
+        }
 
         $this->render('table/delete/confirm', [
             'db' => $GLOBALS['db'],

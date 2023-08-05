@@ -7,8 +7,10 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -19,8 +21,12 @@ use function __;
 
 class SearchController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private DatabaseInterface $dbi,
+        private readonly DbTableExists $dbTableExists,
+    ) {
         parent::__construct($response, $template);
     }
 
@@ -36,7 +42,17 @@ class SearchController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->hasDatabase()) {
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
             return;
         }
 

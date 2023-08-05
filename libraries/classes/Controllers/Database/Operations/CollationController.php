@@ -6,7 +6,9 @@ namespace PhpMyAdmin\Controllers\Database\Operations;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
@@ -23,6 +25,7 @@ final class CollationController extends AbstractController
         Template $template,
         private Operations $operations,
         private DatabaseInterface $dbi,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -48,7 +51,11 @@ final class CollationController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->hasDatabase()) {
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
             return;
         }
 

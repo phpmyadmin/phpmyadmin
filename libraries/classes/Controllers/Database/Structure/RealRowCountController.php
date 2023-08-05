@@ -6,12 +6,16 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function json_encode;
 
 /**
@@ -19,8 +23,12 @@ use function json_encode;
  */
 final class RealRowCountController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private DatabaseInterface $dbi,
+        private readonly DbTableExists $dbTableExists,
+    ) {
         parent::__construct($response, $template);
     }
 
@@ -38,7 +46,15 @@ final class RealRowCountController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->hasDatabase() || ! $request->isAjax()) {
+        if (! $request->isAjax()) {
+            return;
+        }
+
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
             return;
         }
 

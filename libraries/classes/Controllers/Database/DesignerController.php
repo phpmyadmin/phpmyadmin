@@ -7,7 +7,10 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -25,6 +28,7 @@ class DesignerController extends AbstractController
         Template $template,
         private Designer $databaseDesigner,
         private DesignerCommon $designerCommon,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -147,7 +151,17 @@ class DesignerController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-        if (! $this->hasDatabase()) {
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
             return;
         }
 

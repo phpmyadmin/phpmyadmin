@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Controllers\Table\OperationsController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -119,9 +119,12 @@ class OperationsControllerTest extends AbstractTestCase
             'foreigners' => [],
         ]);
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+
         /** @var OperationsController $controller */
         $controller = $GLOBALS['containerBuilder']->get(OperationsController::class);
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         $this->assertEquals($expectedOutput, $this->getResponseHtmlResult());
     }

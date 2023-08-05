@@ -10,6 +10,9 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -17,6 +20,14 @@ use function __;
 
 final class DropColumnConfirmationController extends AbstractController
 {
+    public function __construct(
+        protected ResponseRenderer $response,
+        protected Template $template,
+        private readonly DbTableExists $dbTableExists,
+    ) {
+        parent::__construct($response, $template);
+    }
+
     public function __invoke(ServerRequest $request): void
     {
         $fields = $request->getParsedBodyParam('selected_fld');
@@ -34,7 +45,31 @@ final class DropColumnConfirmationController extends AbstractController
             return;
         }
 
-        DbTableExists::check($db->getName(), $table->getName());
+        if (! $this->dbTableExists->hasDatabase($db)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+            return;
+        }
+
+        if (! $this->dbTableExists->hasTable($db, $table)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+            return;
+        }
 
         $this->render('table/structure/drop_confirm', [
             'db' => $db->getName(),

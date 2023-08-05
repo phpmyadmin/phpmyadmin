@@ -8,12 +8,16 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function htmlspecialchars;
 
 /**
@@ -26,6 +30,7 @@ final class SqlController extends AbstractController
         Template $template,
         private SqlQueryForm $sqlQueryForm,
         private PageSettings $pageSettings,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -48,7 +53,33 @@ final class SqlController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
-        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+            return;
+        }
+
+        $tableName = TableName::tryFrom($request->getParam('table'));
+        if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+            return;
+        }
 
         /**
          * After a syntax error, we return to this script

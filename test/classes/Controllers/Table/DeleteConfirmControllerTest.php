@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\DeleteConfirmController;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -42,7 +43,14 @@ class DeleteConfirmControllerTest extends AbstractTestCase
             'is_foreign_key_check' => true,
         ]);
 
-        (new DeleteConfirmController($response, $template))($this->createStub(ServerRequest::class));
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
+            ->withParsedBody([
+                'rows_to_delete' => ['`test_table`.`id` = 2', '`test_table`.`id` = 3'],
+                'sql_query' => 'SELECT * FROM `test_db`.`test_table`',
+            ]);
+
+        (new DeleteConfirmController($response, $template, new DbTableExists($dbi)))($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

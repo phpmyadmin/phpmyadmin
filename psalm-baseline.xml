@@ -846,9 +846,6 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/AbstractController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['is_db']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code>$params</code>
     </MixedArgumentTypeCoercion>
@@ -3302,9 +3299,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/DeleteRowsController.php">
     <InvalidArgument>
@@ -3444,9 +3438,6 @@
       <code><![CDATA[$_POST['replaceWith']]]></code>
       <code><![CDATA[$_POST['replaceWith']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
     <RiskyCast>
       <code><![CDATA[$_POST['columnIndex']]]></code>
       <code><![CDATA[$_POST['columnIndex']]]></code>
@@ -3475,9 +3466,6 @@
       <code><![CDATA[$_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
     </RiskyCast>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
     <InvalidArrayOffset>
@@ -3784,9 +3772,6 @@
     <PossiblyUnusedMethod>
       <code>getColumnProperties</code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/SqlController.php">
     <InvalidArrayOffset>
@@ -4180,9 +4165,6 @@
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/TableController.php">
     <MixedArgument>
@@ -5425,24 +5407,6 @@
       <code><![CDATA[$resultTarget =& $resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget =& $resultTarget[]]]></code>
     </UnsupportedReferenceUsage>
-  </file>
-  <file src="libraries/classes/DbTableExists.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['is_db']]]></code>
-      <code><![CDATA[$GLOBALS['is_table']]]></code>
-      <code><![CDATA[$GLOBALS['show_as_php']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgumentTypeCoercion>
-      <code>$urlParams</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['is_table']]]></code>
-      <code><![CDATA[$GLOBALS['show_as_php']]]></code>
-      <code><![CDATA[$urlParams['show_as_php']]]></code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Dbal/DbalInterface.php">
     <PossiblyUnusedReturnValue>

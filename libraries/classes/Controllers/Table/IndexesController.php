@@ -8,13 +8,17 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function count;
 use function is_array;
 use function is_numeric;
@@ -31,6 +35,7 @@ class IndexesController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private Indexes $indexes,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -47,7 +52,33 @@ class IndexesController extends AbstractController
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-            DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+            if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+                if ($request->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                    return;
+                }
+
+                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+                return;
+            }
+
+            $tableName = TableName::tryFrom($request->getParam('table'));
+            if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+                if ($request->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                    return;
+                }
+
+                $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+                return;
+            }
         }
 
         if (isset($_POST['index'])) {

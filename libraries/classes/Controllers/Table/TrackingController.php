@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -23,7 +24,6 @@ use Webmozart\Assert\Assert;
 
 use function __;
 use function array_map;
-use function define;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
@@ -39,6 +39,7 @@ final class TrackingController extends AbstractController
         Template $template,
         private Tracking $tracking,
         private TrackingChecker $trackingChecker,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -51,15 +52,25 @@ final class TrackingController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
-        define('TABLE_MAY_BE_ABSENT', true);
-
         $this->checkParameters(['db', 'table']);
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+            return;
+        }
 
         $activeMessage = '';
         $toggleActivation = $request->getParsedBodyParam('toggle_activation');
