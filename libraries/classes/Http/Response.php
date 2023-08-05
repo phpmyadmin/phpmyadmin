@@ -86,4 +86,14 @@ final class Response implements ResponseInterface
     {
         return $this->response->getReasonPhrase();
     }
+
+    /**
+     * Write data to the body of the response.
+     */
+    public function write(string $string): Response
+    {
+        $this->response->getBody()->write($string);
+
+        return $this;
+    }
 }

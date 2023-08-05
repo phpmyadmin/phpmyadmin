@@ -626,13 +626,12 @@ final class Application
     private function getGenericErrorResponse(string $message): Response
     {
         $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
-        $response->getBody()->write($this->template->render('error/generic', [
+
+        return $response->write($this->template->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => $message,
         ]));
-
-        return $response;
     }
 
     private function updateUriScheme(Config $config, ServerRequest $request): ServerRequest

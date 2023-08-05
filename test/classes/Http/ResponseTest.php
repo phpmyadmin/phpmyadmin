@@ -97,4 +97,16 @@ final class ResponseTest extends TestCase
         $this->assertSame(StatusCodeInterface::STATUS_NOT_FOUND, $newResponse->getStatusCode());
         $this->assertSame('Not Found', $newResponse->getReasonPhrase());
     }
+
+    /** @psalm-param class-string<ResponseFactoryInterface> $provider */
+    #[DataProvider('responseFactoryProviders')]
+    public function testWrite(string $provider): void
+    {
+        $response = $this->getResponse($provider);
+        $response->getBody()->write('foo');
+        $sameResponse = $response->write('bar');
+        $this->assertSame('foobar', (string) $response->getBody());
+        $this->assertSame('foobar', (string) $sameResponse->getBody());
+        $this->assertSame($response, $sameResponse);
+    }
 }

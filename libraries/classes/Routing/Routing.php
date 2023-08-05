@@ -136,19 +136,17 @@ class Routing
 
         if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
             $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
-            $response->getBody()->write(Message::error(sprintf(
+
+            return $response->write(Message::error(sprintf(
                 __('Error 404! The page %s was not found.'),
                 '<code>' . htmlspecialchars($route) . '</code>',
             ))->getDisplay());
-
-            return $response;
         }
 
         if ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
             $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_METHOD_NOT_ALLOWED);
-            $response->getBody()->write(Message::error(__('Error 405! Request method not allowed.'))->getDisplay());
 
-            return $response;
+            return $response->write(Message::error(__('Error 405! Request method not allowed.'))->getDisplay());
         }
 
         if ($routeInfo[0] !== Dispatcher::FOUND) {
@@ -196,7 +194,8 @@ class Routing
         }
 
         $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
-        $response->getBody()->write((new Template())->render('error/generic', [
+
+        return $response->write((new Template())->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => Sanitize::sanitizeMessage(sprintf(
@@ -204,8 +203,6 @@ class Routing
                 '[code]' . htmlspecialchars($route) . '[/code]',
             )),
         ]));
-
-        return $response;
     }
 
     /**

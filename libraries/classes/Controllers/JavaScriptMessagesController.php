@@ -41,9 +41,7 @@ final class JavaScriptMessagesController
             return $response->withStatus(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
         }
 
-        $response->getBody()->write(sprintf('window.Messages = %s;', $messages));
-
-        return $response;
+        return $response->write(sprintf('window.Messages = %s;', $messages));
     }
 
     /** @return array<string, string> */
