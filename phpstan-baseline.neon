@@ -7866,6 +7866,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/IndexRenameController.php
 
 		-
+			message: "#^Parameter \\#6 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/IndexRenameController.php
+
+		-
 			message: "#^Cannot access offset 'DefaultTabTable' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
@@ -25737,11 +25742,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Table/Indexes.php
-
-		-
-			message: "#^Parameter \\#3 \\$oldIndexName of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getSqlQueryForIndexRename\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/Indexes.php
 

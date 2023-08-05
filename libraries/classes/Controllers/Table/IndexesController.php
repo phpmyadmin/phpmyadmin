@@ -62,7 +62,13 @@ class IndexesController extends AbstractController
         }
 
         if (isset($_POST['do_save_data'])) {
-            $this->indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table']);
+            $this->indexes->doSaveData(
+                $index,
+                false,
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $request->hasBodyParam('preview_sql'),
+            );
 
             return;
         }

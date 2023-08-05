@@ -36,12 +36,16 @@ final class Indexes
      * @param Index $index      An Index instance.
      * @param bool  $renameMode Rename the Index mode
      */
-    public function doSaveData(Index $index, bool $renameMode, string $db, string $table): void
-    {
+    public function doSaveData(
+        Index $index,
+        bool $renameMode,
+        string $db,
+        string $table,
+        bool $previewSql,
+        string $oldIndexName = '',
+    ): void {
         $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
-            $oldIndexName = $_POST['old_index'];
-
             if ($oldIndexName === 'PRIMARY') {
                 if ($index->getName() === '') {
                     $index->setName('PRIMARY');
@@ -64,44 +68,52 @@ final class Indexes
         }
 
         // If there is a request for SQL previewing.
-        if (isset($_POST['preview_sql'])) {
+        if ($previewSql) {
             $this->response->addJSON(
                 'sql_data',
                 $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
             );
-        } elseif (! $error) {
-            $this->dbi->query($sqlQuery);
-            $response = ResponseRenderer::getInstance();
-            if ($response->isAjax()) {
-                $message = Message::success(
-                    __('Table %1$s has been altered successfully.'),
-                );
-                $message->addParam($table);
-                $this->response->addJSON(
-                    'message',
-                    Generator::getMessage($message, $sqlQuery, 'success'),
-                );
 
-                $indexes = Index::getFromTable($this->dbi, $table, $db);
-                $indexesDuplicates = Index::findDuplicates($table, $db);
+            return;
+        }
 
-                $this->response->addJSON(
-                    'index_table',
-                    $this->template->render('indexes', [
-                        'url_params' => ['db' => $db, 'table' => $table],
-                        'indexes' => $indexes,
-                        'indexes_duplicates' => $indexesDuplicates,
-                    ]),
-                );
-            } else {
-                /** @var StructureController $controller */
-                $controller = Core::getContainerBuilder()->get(StructureController::class);
-                $controller(Application::getRequest());
-            }
-        } else {
+        if ($error) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $error);
+
+            return;
         }
+
+        $this->dbi->query($sqlQuery);
+        $response = ResponseRenderer::getInstance();
+        if ($response->isAjax()) {
+            $message = Message::success(
+                __('Table %1$s has been altered successfully.'),
+            );
+            $message->addParam($table);
+            $this->response->addJSON(
+                'message',
+                Generator::getMessage($message, $sqlQuery, 'success'),
+            );
+
+            $indexes = Index::getFromTable($this->dbi, $table, $db);
+            $indexesDuplicates = Index::findDuplicates($table, $db);
+
+            $this->response->addJSON(
+                'index_table',
+                $this->template->render('indexes', [
+                    'url_params' => ['db' => $db, 'table' => $table],
+                    'indexes' => $indexes,
+                    'indexes_duplicates' => $indexesDuplicates,
+                ]),
+            );
+
+            return;
+        }
+
+        /** @var StructureController $controller */
+        $controller = Core::getContainerBuilder()->get(StructureController::class);
+        $controller(Application::getRequest());
     }
 
     public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message

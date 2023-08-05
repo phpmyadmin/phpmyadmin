@@ -3505,12 +3505,13 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code>$oldIndexName</code>
+    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code>$oldIndexName</code>
     </MixedAssignment>
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexesController.php">
     <InvalidArrayOffset>
@@ -3534,9 +3535,6 @@
       <code><![CDATA[$_POST['added_fields']]]></code>
       <code>$addFields</code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Table/OperationsController.php">
     <InvalidArrayOffset>
@@ -12093,14 +12091,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
-  </file>
-  <file src="libraries/classes/Table/Indexes.php">
-    <PossiblyInvalidArgument>
-      <code>$oldIndexName</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code>$oldIndexName</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Table/Search.php">
     <DeprecatedMethod>
