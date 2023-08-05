@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-07-18 19:57+0000\n"
-"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
+"PO-Revision-Date: 2023-08-06 21:50+0000\n"
+"Last-Translator: Adrian Wanic <adrianwanic@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -19465,7 +19465,6 @@ msgid "#"
 msgstr "#"
 
 #: templates/table/tracking/report_table.twig:5
-#, fuzzy
 msgid "Date"
 msgstr "Data"
 
@@ -19504,7 +19503,7 @@ msgstr "Jak korzystać"
 
 #: templates/table/zoom_search/result_form.twig:17
 msgid "Reset zoom"
-msgstr "Reset powiększenia"
+msgstr "Zresetuj powiększenie"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
@@ -19518,7 +19517,6 @@ msgid "(current)"
 msgstr "(obecny)"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
 msgid "Available media types"
 msgstr "Dostępne typy mediów"
 
@@ -19541,7 +19539,6 @@ msgid "VIEW name"
 msgstr "Nazwa widoku"
 
 #: templates/view_create.twig:79
-#, fuzzy
 msgid "Column names"
 msgstr "Nazwy kolumn"
 
