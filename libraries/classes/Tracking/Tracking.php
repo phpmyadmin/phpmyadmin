@@ -233,7 +233,7 @@ class Tracking
         // First, list tracked data definition statements
         if ($trackedData->ddlog === [] && $trackedData->dmlog === []) {
             $msg = Message::notice(__('No data'));
-            echo $msg->getDisplay();
+            $html .= $msg->getDisplay();
         }
 
         $html .= $this->getHtmlForTrackingReportExportForm1(

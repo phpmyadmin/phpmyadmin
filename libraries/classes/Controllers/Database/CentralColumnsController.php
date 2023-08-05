@@ -37,7 +37,7 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['num_cols'] ??= null;
 
         if ($request->hasBodyParam('edit_save')) {
-            echo $this->editSave([
+            $this->response->addHTML((string) $this->editSave([
                 'col_name' => $request->getParsedBodyParam('col_name'),
                 'orig_col_name' => $request->getParsedBodyParam('orig_col_name'),
                 'col_default' => $request->getParsedBodyParam('col_default'),
@@ -48,7 +48,7 @@ class CentralColumnsController extends AbstractController
                 'col_attribute' => $request->getParsedBodyParam('col_attribute'),
                 'col_type' => $request->getParsedBodyParam('col_type'),
                 'collation' => $request->getParsedBodyParam('collation'),
-            ]);
+            ]));
 
             return;
         }

@@ -27,7 +27,7 @@ class TwoFactorController extends AbstractController
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        echo $this->template->render('preferences/header', [
+        $this->render('preferences/header', [
             'route' => $request->getRoute(),
             'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
@@ -37,16 +37,18 @@ class TwoFactorController extends AbstractController
 
         if ($request->hasBodyParam('2fa_remove')) {
             if (! $twoFactor->check(true)) {
-                echo $this->template->render('preferences/two_factor/confirm', ['form' => $twoFactor->render()]);
+                $this->render('preferences/two_factor/confirm', ['form' => $twoFactor->render()]);
 
                 return;
             }
 
             $twoFactor->configure('');
-            echo Message::rawNotice(__('Two-factor authentication has been removed.'))->getDisplay();
+            $this->response->addHTML(
+                Message::rawNotice(__('Two-factor authentication has been removed.'))->getDisplay(),
+            );
         } elseif ($request->hasBodyParam('2fa_configure')) {
             if (! $twoFactor->configure($request->getParsedBodyParam('2fa_configure'))) {
-                echo $this->template->render('preferences/two_factor/configure', [
+                $this->render('preferences/two_factor/configure', [
                     'form' => $twoFactor->setup(),
                     'configure' => $request->getParsedBodyParam('2fa_configure'),
                 ]);
@@ -54,11 +56,13 @@ class TwoFactorController extends AbstractController
                 return;
             }
 
-            echo Message::rawNotice(__('Two-factor authentication has been configured.'))->getDisplay();
+            $this->response->addHTML(
+                Message::rawNotice(__('Two-factor authentication has been configured.'))->getDisplay(),
+            );
         }
 
         $backend = $twoFactor->getBackend();
-        echo $this->template->render('preferences/two_factor/main', [
+        $this->render('preferences/two_factor/main', [
             'enabled' => $twoFactor->isWritable(),
             'num_backends' => count($twoFactor->getAvailable()),
             'backend_id' => $backend::$id,

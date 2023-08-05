@@ -166,7 +166,7 @@ class CreateController extends AbstractController
 
         $this->addScriptFiles(['sql.js']);
 
-        echo $this->template->render('view_create', [
+        $this->render('view_create', [
             'ajax_dialog' => $ajaxdialog,
             'text_dir' => $GLOBALS['text_dir'],
             'url_params' => $GLOBALS['urlParams'],

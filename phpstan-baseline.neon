@@ -31082,7 +31082,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
-			count: 10
+			count: 9
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-

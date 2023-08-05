@@ -166,7 +166,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $configFooter = Config::renderFooter();
 
-        echo $this->template->render('login/form', [
+        $response->addHTML($this->template->render('login/form', [
             'login_header' => $loginHeader,
             'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
             'error_messages' => $errorMessages,
@@ -195,7 +195,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'errors' => $errors,
             'login_footer' => $loginFooter,
             'config_footer' => $configFooter,
-        ]);
+        ]));
 
         $response->callExit();
     }
@@ -321,13 +321,14 @@ class AuthenticationCookie extends AuthenticationPlugin
                 /* Secure current session on login to avoid session fixation */
                 Session::secure();
             } catch (SessionHandlerException $exception) {
-                echo (new Template())->render('error/generic', [
+                $responseRenderer = ResponseRenderer::getInstance();
+                $responseRenderer->addHTML((new Template())->render('error/generic', [
                     'lang' => $GLOBALS['lang'] ?? 'en',
                     'dir' => $GLOBALS['text_dir'] ?? 'ltr',
                     'error_message' => $exception->getMessage(),
-                ]);
+                ]));
 
-                ResponseRenderer::getInstance()->callExit();
+                $responseRenderer->callExit();
             }
 
             return true;

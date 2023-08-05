@@ -14193,9 +14193,6 @@
       <code>checkRulesProvider</code>
       <code>dataProviderPasswordLength</code>
     </PossiblyUnusedMethod>
-    <RedundantCondition>
-      <code>assertIsString</code>
-    </RedundantCondition>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
     <PossiblyUnusedMethod>

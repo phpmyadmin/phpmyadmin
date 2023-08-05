@@ -7,15 +7,16 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
-use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use ReflectionException;
 use ReflectionMethod;
+use ReflectionProperty;
 use Throwable;
 
 use function base64_decode;
@@ -98,51 +99,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     private function getAuthErrorMockResponse(): void
     {
-        $mockResponse = $this->mockResponse();
-
-        $mockResponse->expects($this->once())
-            ->method('isAjax')
-            ->with()
-            ->willReturn(false);
-
-        // mock header
-
-        $mockHeader = $this->getMockBuilder(Header::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(
-                ['setBodyId', 'setTitle', 'disableMenuAndConsole', 'disableWarnings'],
-            )
-            ->getMock();
-
-        $mockHeader->expects($this->once())
-            ->method('setBodyId')
-            ->with('loginform');
-
-        $mockHeader->expects($this->once())
-            ->method('setTitle')
-            ->with('phpMyAdmin');
-
-        $mockHeader->expects($this->once())
-            ->method('disableMenuAndConsole')
-            ->with();
-
-        $mockHeader->expects($this->once())
-            ->method('disableWarnings')
-            ->with();
-
-        // set mocked headers and footers
-
-        $mockResponse->expects($this->once())
-            ->method('setMinimalFooter')
-            ->with();
-
-        $mockResponse->expects($this->once())
-            ->method('getHeader')
-            ->with()
-            ->willReturn($mockHeader);
-
-        $GLOBALS['cfg']['Servers'] = [1, 2];
-
         // mock error handler
 
         $mockErrorHandler = $this->getMockBuilder(ErrorHandler::class)
@@ -158,11 +114,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
 
+    #[BackupStaticProperties(true)]
     #[Group('medium')]
     public function testAuthError(): void
     {
         $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
@@ -183,17 +139,17 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['Servers'] = [1, 2];
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
-        ob_start();
+        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showLoginForm();
         } catch (Throwable $throwable) {
         }
 
-        $result = ob_get_clean();
+        $result = $responseStub->getHTMLResult();
 
         $this->assertInstanceOf(ExitException::class, $throwable);
-
-        $this->assertIsString($result);
 
         $this->assertStringContainsString(' id="imLogo"', $result);
 
@@ -234,25 +190,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
+    #[BackupStaticProperties(true)]
     #[Group('medium')]
     public function testAuthCaptcha(): void
     {
-        $mockResponse = $this->mockResponse();
-
-        $mockResponse->expects($this->once())
-            ->method('isAjax')
-            ->with()
-            ->willReturn(false);
-
-        $mockResponse->expects($this->once())
-            ->method('setMinimalFooter')
-            ->with();
-
-        $mockResponse->expects($this->once())
-            ->method('getHeader')
-            ->with()
-            ->willReturn(new Header());
-
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
 
@@ -268,17 +209,17 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
-        ob_start();
+        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showLoginForm();
         } catch (Throwable $throwable) {
         }
 
-        $result = ob_get_clean();
+        $result = $responseStub->getHTMLResult();
 
         $this->assertInstanceOf(ExitException::class, $throwable);
-
-        $this->assertIsString($result);
 
         $this->assertStringContainsString('id="imLogo"', $result);
 
@@ -312,25 +253,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
+    #[BackupStaticProperties(true)]
     #[Group('medium')]
     public function testAuthCaptchaCheckbox(): void
     {
-        $mockResponse = $this->mockResponse();
-
-        $mockResponse->expects($this->once())
-            ->method('isAjax')
-            ->with()
-            ->willReturn(false);
-
-        $mockResponse->expects($this->once())
-            ->method('setMinimalFooter')
-            ->with();
-
-        $mockResponse->expects($this->once())
-            ->method('getHeader')
-            ->with()
-            ->willReturn(new Header());
-
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
 
@@ -347,17 +273,17 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
-        ob_start();
+        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showLoginForm();
         } catch (Throwable $throwable) {
         }
 
-        $result = ob_get_clean();
+        $result = $responseStub->getHTMLResult();
 
         $this->assertInstanceOf(ExitException::class, $throwable);
-
-        $this->assertIsString($result);
 
         $this->assertStringContainsString('id="imLogo"', $result);
 
@@ -976,11 +902,13 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $_SESSION['encryption_key'] = '';
+        $_COOKIE = [];
 
         $this->object->handlePasswordChange($newPassword);
 
         $payload = ['password' => $newPassword, 'server' => 'b 2'];
 
+        /** @psalm-suppress EmptyArrayAccess */
         $this->assertIsString($_COOKIE['pmaAuth-' . $GLOBALS['server']]);
         $decryptedCookie = $this->object->cookieDecrypt(
             $_COOKIE['pmaAuth-' . $GLOBALS['server']],
@@ -1027,6 +955,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      * @param mixed[] $rules    rules
      * @param string  $expected expected result
      */
+    #[BackupStaticProperties(true)]
     #[DataProvider('checkRulesProvider')]
     public function testCheckRules(
         string $user,
@@ -1051,19 +980,19 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->getAuthErrorMockResponse();
         }
 
-        ob_start();
+        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->checkRules();
         } catch (Throwable $throwable) {
         }
 
-        $result = ob_get_clean();
+        $result = $responseStub->getHTMLResult();
 
         if (! empty($expected)) {
             $this->assertInstanceOf(ExitException::class, $throwable ?? null);
         }
-
-        $this->assertIsString($result);
 
         if (empty($expected)) {
             $this->assertEquals($expected, $result);
