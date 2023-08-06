@@ -16,16 +16,11 @@ use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use stdClass;
 
-use function __;
 use function _pgettext;
 use function hash;
 use function header;
-use function htmlspecialchars;
 use function serialize;
 use function str_repeat;
-use function strtr;
-
-use const ENT_QUOTES;
 
 #[CoversClass(Core::class)]
 class CoreTest extends AbstractNetworkTestCase
@@ -345,90 +340,6 @@ class CoreTest extends AbstractNetworkTestCase
             ['wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'],
             ['index.php?db=phpmyadmin', 'index.php?db=phpmyadmin'],
         ];
-    }
-
-    /**
-     * Test for Core::sendHeaderLocation
-     */
-    public function testSendHeaderLocationWithoutSidWithIis(): void
-    {
-        $GLOBALS['server'] = 0;
-        $GLOBALS['config']->set('PMA_IS_IIS', true);
-
-        $testUri = 'https://example.com/test.php';
-
-        $this->mockResponse('Location: ' . $testUri);
-        Core::sendHeaderLocation($testUri); // sets $GLOBALS['header']
-
-        $this->mockResponse('Refresh: 0; ' . $testUri);
-        Core::sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
-    }
-
-    /**
-     * Test for Core::sendHeaderLocation
-     */
-    public function testSendHeaderLocationWithoutSidWithoutIis(): void
-    {
-        $GLOBALS['server'] = 0;
-
-        parent::setGlobalConfig();
-
-        $GLOBALS['config']->set('PMA_IS_IIS', null);
-
-        $testUri = 'https://example.com/test.php';
-
-        $this->mockResponse('Location: ' . $testUri);
-        Core::sendHeaderLocation($testUri); // sets $GLOBALS['header']
-    }
-
-    /**
-     * Test for Core::sendHeaderLocation
-     */
-    public function testSendHeaderLocationIisLongUri(): void
-    {
-        $GLOBALS['server'] = 0;
-
-        parent::setGlobalConfig();
-
-        $GLOBALS['config']->set('PMA_IS_IIS', true);
-
-        // over 600 chars
-        $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test&test=test&test=test&test=test&test=test'
-            . '&test=test&test=test';
-        $testUriJs = strtr($testUri, [
-            ':' => '\u003A',
-            '/' => '\/', // Twig uses the short escape sequence
-            '?' => '\u003F',
-            '&' => '\u0026',
-            '=' => '\u003D',
-        ]);
-
-        $header = "<html>\n<head>\n    <title>- - -</title>"
-            . "\n    <meta http-equiv=\"expires\" content=\"0\">"
-            . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . htmlspecialchars($testUri, ENT_QUOTES) . '">'
-            . "\n    <script>\n        //<![CDATA["
-            . "\n        setTimeout(function() { window.location = decodeURI('" . $testUriJs . "'); }, 2000);"
-            . "\n        //]]>\n    </script>\n</head>"
-            . "\n<body>\n<script>\n    //<![CDATA["
-            . "\n    document.write('<p><a href=\"" . $testUriJs . '">' . __('Go') . "</a></p>');"
-            . "\n    //]]>\n</script>\n</body>\n</html>\n";
-
-        $this->expectOutputString($header);
-
-        $this->mockResponse();
-
-        Core::sendHeaderLocation($testUri);
     }
 
     #[DataProvider('provideTestIsAllowedDomain')]

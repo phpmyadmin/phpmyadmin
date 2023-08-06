@@ -28,7 +28,7 @@ final class ThemeSetController extends AbstractController
     {
         $theme = $request->getParsedBodyParam('set_theme');
         if (! $GLOBALS['cfg']['ThemeManager'] || ! is_string($theme) || $theme === '') {
-            $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
+            $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
 
             return;
         }
@@ -47,6 +47,6 @@ final class ThemeSetController extends AbstractController
         $preferences['config_data']['ThemeDefault'] = $theme;
         $this->userPreferences->save($preferences['config_data']);
 
-        $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
+        $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 }

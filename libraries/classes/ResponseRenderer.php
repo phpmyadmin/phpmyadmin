@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 
@@ -21,7 +22,9 @@ use function json_last_error_msg;
 use function mb_strlen;
 use function register_shutdown_function;
 use function sprintf;
+use function str_starts_with;
 use function strlen;
+use function substr;
 
 use const PHP_SAPI;
 
@@ -505,5 +508,23 @@ class ResponseRenderer
         }
 
         exit;
+    }
+
+    /**
+     * @psalm-param non-empty-string $url
+     * @psalm-param StatusCodeInterface::STATUS_* $statusCode
+     */
+    public function redirect(string $url, int $statusCode = StatusCodeInterface::STATUS_FOUND): void
+    {
+        /**
+         * Avoid relative path redirect problems in case user entered URL
+         * like /phpmyadmin/index.php/ which some web servers happily accept.
+         */
+        if (str_starts_with($url, '.')) {
+            $url = $GLOBALS['config']->getRootPath() . substr($url, 2);
+        }
+
+        $this->header('Location: ' . $url);
+        $this->httpResponseCode($statusCode);
     }
 }

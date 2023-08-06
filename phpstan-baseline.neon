@@ -466,11 +466,6 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Only booleans are allowed in &&, string\\|null given on the right side\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
@@ -1022,6 +1017,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$baseConfig of class PhpMyAdmin\\\\Config\\\\ConfigFile constructor expects array\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Config/PageSettings.php
+
+		-
+			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/PageSettings.php
 
@@ -10367,11 +10367,6 @@ parameters:
 
 		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Cannot call method getRootPath\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -18086,7 +18081,7 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: "#^Parameter \\#1 \\$uri of static method PhpMyAdmin\\\\Core\\:\\:sendHeaderLocation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
@@ -18216,7 +18211,7 @@ parameters:
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
 		-
-			message: "#^Parameter \\#1 \\$uri of static method PhpMyAdmin\\\\Core\\:\\:sendHeaderLocation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
@@ -23032,6 +23027,11 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'MaxCharactersInDisp…' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/ResponseRenderer.php
+
+		-
+			message: "#^Cannot call method getRootPath\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 
@@ -29252,7 +29252,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 10
+			count: 7
 			path: test/classes/CoreTest.php
 
 		-
@@ -32762,7 +32762,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/UserPreferencesTest.php
 
 		-

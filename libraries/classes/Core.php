@@ -32,26 +32,22 @@ use function intval;
 use function is_array;
 use function is_string;
 use function json_decode;
-use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
 use function parse_str;
 use function parse_url;
 use function preg_match;
 use function preg_replace;
-use function session_write_close;
 use function sprintf;
 use function str_replace;
 use function strlen;
 use function strpos;
 use function strtolower;
 use function substr;
-use function trigger_error;
 use function unserialize;
 use function urldecode;
 
 use const DATE_RFC1123;
-use const E_USER_ERROR;
 use const E_USER_WARNING;
 use const FILTER_VALIDATE_IP;
 
@@ -255,50 +251,6 @@ class Core
         }
 
         return '';
-    }
-
-    /**
-     * Send HTTP header, taking IIS limits into account (600 seems ok)
-     *
-     * @param string $uri        the header to send
-     * @param bool   $useRefresh whether to use Refresh: header when running on IIS
-     */
-    public static function sendHeaderLocation(string $uri, bool $useRefresh = false): void
-    {
-        if ($GLOBALS['config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
-            ResponseRenderer::getInstance()->disable();
-
-            $template = new Template();
-            echo $template->render('header_location', ['uri' => $uri]);
-
-            return;
-        }
-
-        /**
-         * Avoid relative path redirect problems in case user entered URL
-         * like /phpmyadmin/index.php/ which some web servers happily accept.
-         */
-        if ($uri[0] === '.') {
-            $uri = $GLOBALS['config']->getRootPath() . substr($uri, 2);
-        }
-
-        $response = ResponseRenderer::getInstance();
-
-        session_write_close();
-        if ($response->headersSent()) {
-            trigger_error('Core::sendHeaderLocation called when headers are already sent!', E_USER_ERROR);
-        }
-
-        // bug #1523784: IE6 does not like 'Refresh: 0', it
-        // results in a blank page
-        // but we need it when coming from the cookie login panel)
-        if ($GLOBALS['config']->get('PMA_IS_IIS') && $useRefresh) {
-            $response->header('Refresh: 0; ' . $uri);
-
-            return;
-        }
-
-        $response->header('Location: ' . $uri);
     }
 
     /**

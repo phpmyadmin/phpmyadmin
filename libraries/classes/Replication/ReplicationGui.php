@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Replication;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
@@ -455,9 +454,8 @@ class ReplicationGui
                     : Message::error($messageError),
                 );
             } else {
-                Core::sendHeaderLocation(
-                    './index.php?route=/server/replication'
-                    . Url::getCommonRaw($GLOBALS['urlParams'], '&'),
+                $response->redirect(
+                    './index.php?route=/server/replication' . Url::getCommonRaw($GLOBALS['urlParams'], '&'),
                 );
             }
         }

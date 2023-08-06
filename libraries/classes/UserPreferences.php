@@ -274,8 +274,9 @@ class UserPreferences
             $hash = '#' . urlencode($hash);
         }
 
-        Core::sendHeaderLocation('./' . $fileName
-            . Url::getCommonRaw($urlParams, ! str_contains($fileName, '?') ? '?' : '&') . $hash);
+        ResponseRenderer::getInstance()->redirect(
+            './' . $fileName . Url::getCommonRaw($urlParams, ! str_contains($fileName, '?') ? '?' : '&') . $hash,
+        );
     }
 
     /**

@@ -1070,6 +1070,8 @@ class Export
 
     /**
      * Loads correct page after doing export
+     *
+     * @psalm-return non-empty-string
      */
     public function getPageLocationAndSaveMessage(string $exportType, Message $message): string
     {

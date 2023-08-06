@@ -574,6 +574,11 @@
       <code><![CDATA[$result['Sql_queries'][]]]></code>
     </MixedArrayAssignment>
   </file>
+  <file src="libraries/classes/Config/PageSettings.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$response->getSelfUrl()]]></code>
+    </ArgumentTypeCoercion>
+  </file>
   <file src="libraries/classes/Config/ServerConfigChecks.php">
     <MixedAssignment>
       <code>$loginCookieValidity</code>
@@ -13162,7 +13167,6 @@
       <code>httpsParams</code>
       <code>rootUris</code>
       <code>selectServerProvider</code>
-      <code>serverNames</code>
       <code>userAgentProvider</code>
     </PossiblyUnusedMethod>
   </file>

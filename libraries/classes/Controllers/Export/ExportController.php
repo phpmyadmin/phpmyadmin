@@ -283,8 +283,7 @@ final class ExportController extends AbstractController
             // problem opening export file on server?
             if ($message !== null) {
                 $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
-                $this->response->header('Location: ' . $location);
-                $this->response->setHttpResponseCode(302);
+                $this->response->redirect($location);
 
                 return;
             }
@@ -490,8 +489,7 @@ final class ExportController extends AbstractController
 
         if ($GLOBALS['save_on_server'] && $GLOBALS['message'] instanceof Message) {
             $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $GLOBALS['message']);
-            $this->response->header('Location: ' . $location);
-            $this->response->setHttpResponseCode(302);
+            $this->response->redirect($location);
 
             return;
         }
@@ -543,8 +541,7 @@ final class ExportController extends AbstractController
                 $GLOBALS['save_filename'],
             );
             $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
-            $this->response->header('Location: ' . $location);
-            $this->response->setHttpResponseCode(302);
+            $this->response->redirect($location);
 
             return;
         }

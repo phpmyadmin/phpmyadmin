@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
@@ -46,7 +45,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
             $response->callExit();
         } else {
-            Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
+            $response->redirect($GLOBALS['cfg']['Server']['SignonURL']);
         }
 
         $response->callExit();

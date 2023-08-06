@@ -229,7 +229,7 @@ class SqlController extends AbstractController
         }
 
         if (! $this->response->isAjax()) {
-            Core::sendHeaderLocation('./' . $goto . '&label=' . $bkmFields['bkm_label']);
+            $this->response->redirect('./' . $goto . '&label=' . $bkmFields['bkm_label']);
 
             return;
         }

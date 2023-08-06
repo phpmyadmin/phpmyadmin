@@ -320,31 +320,6 @@ PHP;
     }
 
     /**
-     * Web server detection test
-     *
-     * @param string $server Server identification
-     * @param int    $iis    Whether server should be detected as IIS
-     */
-    #[DataProvider('serverNames')]
-    public function testCheckWebServer(string $server, int $iis): void
-    {
-        $_SERVER['SERVER_SOFTWARE'] = $server;
-        $this->object->checkWebServer();
-        $this->assertEquals($iis, $this->object->get('PMA_IS_IIS'));
-        unset($_SERVER['SERVER_SOFTWARE']);
-    }
-
-    /**
-     * return server names
-     *
-     * @return mixed[]
-     */
-    public static function serverNames(): array
-    {
-        return [['Microsoft-IIS 7.0', 1], ['Apache/2.2.17', 0]];
-    }
-
-    /**
      * test for CheckWebServerOs
      */
     public function testCheckWebServerOs(): void

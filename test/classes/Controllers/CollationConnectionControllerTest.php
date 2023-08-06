@@ -22,8 +22,8 @@ class CollationConnectionControllerTest extends AbstractTestCase
         $request->method('getParsedBodyParam')->willReturnMap([['collation_connection', null, 'utf8mb4_general_ci']]);
 
         $response = $this->createMock(ResponseRenderer::class);
-        $response->expects($this->once())->method('header')
-            ->with('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
+        $response->expects($this->once())->method('redirect')
+            ->with('index.php?route=/' . Url::getCommonRaw([], '&'));
 
         $config = $this->createMock(Config::class);
         $config->expects($this->once())->method('setUserValue')
