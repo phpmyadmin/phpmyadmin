@@ -132,7 +132,7 @@ class DbiDummy implements DbiExtension
             return true;
         }
 
-        Assert::markTestIncomplete('Non expected select of database: ' . $databaseName);
+        Assert::fail('Non expected select of database: ' . $databaseName);
     }
 
     public function hasUnUsedErrors(): bool
@@ -226,7 +226,7 @@ class DbiDummy implements DbiExtension
             return new DummyResult($this, $i + self::OFFSET_GLOBAL);
         }
 
-        Assert::markTestIncomplete('Not supported query: ' . $query);
+        Assert::fail('Not supported query: ' . $query);
     }
 
     /**

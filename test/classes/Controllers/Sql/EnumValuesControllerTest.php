@@ -101,7 +101,6 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->assertSame(
             [
                 'dropdown' => '<select>' . "\n"
-                    . '  <option value="">&nbsp;</option>' . "\n"
                     . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'
                     . '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;</option>' . "\n"
                     . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
