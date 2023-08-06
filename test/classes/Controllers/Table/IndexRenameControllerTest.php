@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexRenameController;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
@@ -37,13 +38,17 @@ class IndexRenameControllerTest extends AbstractTestCase
             'form_params' => ['db' => 'test_db', 'table' => 'test_table'],
         ]);
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+
         $response = new ResponseRenderer();
         (new IndexRenameController(
             $response,
             $template,
             $dbi,
             new Indexes($response, $template, $dbi),
-        ))($this->createStub(ServerRequest::class));
+            new DbTableExists($dbi),
+        ))($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

@@ -4,112 +4,88 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Controllers\Database\SqlController;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 
-use function __;
-use function defined;
+use function in_array;
+use function sprintf;
+use function str_starts_with;
 
 final class DbTableExists
 {
+    /** @psalm-var list<non-empty-string> */
+    private array $databases = [];
+
+    /** @psalm-var list<non-empty-string> */
+    private array $tables = [];
+
+    public function __construct(private readonly DatabaseInterface $dbi)
+    {
+    }
+
+    public function hasDatabase(DatabaseName $databaseName): bool
+    {
+        if (in_array($databaseName->getName(), $this->databases, true)) {
+            return true;
+        }
+
+        if ($this->dbi->selectDb($databaseName) || $this->hasCommandsOutOfSyncError()) {
+            $this->databases[] = $databaseName->getName();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function hasTable(DatabaseName $database, TableName $table): bool
+    {
+        if (in_array($database->getName() . '.' . $table->getName(), $this->tables, true)) {
+            return true;
+        }
+
+        if (
+            $this->hasCachedTableContent($database, $table)
+            || $this->isPermanentTable($table)
+            || $this->isTemporaryTable($table)
+        ) {
+            $this->tables[] = $database->getName() . '.' . $table->getName();
+
+            return true;
+        }
+
+        return false;
+    }
+
     /**
-     * Ensure the database and the table exist (else move to the "parent" script) and display headers.
+     * This "Commands out of sync" 2014 error may happen, for example after calling a MySQL procedure;
+     * at this point we can't select the db, but it's not necessarily wrong.
+     *
+     * @see https://dev.mysql.com/doc/mysql-errors/8.0/en/client-error-reference.html#error_cr_commands_out_of_sync
      */
-    public static function check(string $db, string $table, bool $isTransformationWrapper = false): void
+    private function hasCommandsOutOfSyncError(): bool
     {
-        self::checkDatabase($db, $isTransformationWrapper);
-        self::checkTable($db, $table, $isTransformationWrapper);
+        return str_starts_with($this->dbi->getError(), '#2014 ');
     }
 
-    private static function checkDatabase(string $db, bool $isTransformationWrapper): void
+    private function hasCachedTableContent(DatabaseName $database, TableName $table): bool
     {
-        $GLOBALS['message'] ??= null;
-        $GLOBALS['show_as_php'] ??= null;
-
-        if (! empty($GLOBALS['is_db'])) {
-            return;
-        }
-
-        $GLOBALS['is_db'] = false;
-        if ($db !== '') {
-            $GLOBALS['is_db'] = @$GLOBALS['dbi']->selectDb($db);
-        }
-
-        if ($GLOBALS['is_db'] || $isTransformationWrapper) {
-            return;
-        }
-
-        $response = ResponseRenderer::getInstance();
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
-            $response->addJSON(
-                'message',
-                Message::error(__('No databases selected.')),
-            );
-
-            $response->callExit();
-        }
-
-        $urlParams = ['reload' => 1];
-
-        if (isset($GLOBALS['message'])) {
-            $urlParams['message'] = $GLOBALS['message'];
-        }
-
-        if (! empty($GLOBALS['sql_query'])) {
-            $urlParams['sql_query'] = $GLOBALS['sql_query'];
-        }
-
-        if (isset($GLOBALS['show_as_php'])) {
-            $urlParams['show_as_php'] = $GLOBALS['show_as_php'];
-        }
-
-        Core::sendHeaderLocation('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
-
-        $response->callExit();
+        return (bool) $this->dbi->getCache()->getCachedTableContent([$database->getName(), $table->getName()]);
     }
 
-    private static function checkTable(string $db, string $table, bool $isTransformationWrapper): void
+    private function isPermanentTable(TableName $table): bool
     {
-        if (! empty($GLOBALS['is_table']) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
-            return;
-        }
+        $result = $this->dbi->tryQuery(sprintf('SHOW TABLES LIKE %s;', $this->dbi->quoteString($table->getName())));
 
-        $GLOBALS['is_table'] = false;
-        if ($table !== '') {
-            $GLOBALS['is_table'] = $GLOBALS['dbi']->getCache()->getCachedTableContent([$db, $table], false);
-            if ($GLOBALS['is_table']) {
-                return;
-            }
+        return $result !== false && $result->numRows() > 0;
+    }
 
-            $result = $GLOBALS['dbi']->tryQuery('SHOW TABLES LIKE \'' . $GLOBALS['dbi']->escapeString($table) . '\';');
-            $GLOBALS['is_table'] = $result && $result->numRows();
-        }
-
-        if ($GLOBALS['is_table']) {
-            return;
-        }
-
-        if ($isTransformationWrapper) {
-            ResponseRenderer::getInstance()->callExit();
-        }
-
-        if ($table !== '') {
-            /**
-             * SHOW TABLES doesn't show temporary tables, so try select
-             * (as it can happen just in case temporary table, it should be fast):
-             */
-            $result = $GLOBALS['dbi']->tryQuery('SELECT COUNT(*) FROM ' . Util::backquote($table) . ';');
-            $GLOBALS['is_table'] = $result && $result->numRows();
-        }
-
-        if ($GLOBALS['is_table']) {
-            return;
-        }
-
-        /** @var SqlController $controller */
-        $controller = Core::getContainerBuilder()->get(SqlController::class);
-        $controller(Application::getRequest());
-
-        ResponseRenderer::getInstance()->callExit();
+    /**
+     * SHOW TABLES doesn't show temporary tables, so try select
+     * as it can happen just in case temporary table. It should be fast.
+     */
+    private function isTemporaryTable(TableName $table): bool
+    {
+        return $this->dbi->tryQuery(sprintf('SELECT 1 FROM %s LIMIT 1;', Util::backquote($table))) !== false;
     }
 }

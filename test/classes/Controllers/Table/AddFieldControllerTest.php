@@ -6,7 +6,8 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -249,8 +250,9 @@ class AddFieldControllerTest extends AbstractTestCase
             'disable_is' => true,
         ]);
 
-        $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['num_fields', null, '1']]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
+            ->withParsedBody(['num_fields' => '1']);
 
         $transformations = new Transformations();
         (new AddFieldController(
@@ -260,6 +262,7 @@ class AddFieldControllerTest extends AbstractTestCase
             $this->createConfig(),
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations),
+            new DbTableExists($dbi),
         ))($request);
 
         $this->assertSame($expected, $response->getHTMLResult());

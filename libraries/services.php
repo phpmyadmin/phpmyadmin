@@ -16,6 +16,7 @@ use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Export\Export;
@@ -82,6 +83,7 @@ return [
         'central_columns' => ['class' => CentralColumns::class, 'arguments' => ['@dbi']],
         'check_user_privileges' => ['class' => CheckUserPrivileges::class, 'arguments' => ['@dbi']],
         'create_add_field' => ['class' => CreateAddField::class, 'arguments' => ['@dbi']],
+        DbTableExists::class => ['class' => DbTableExists::class, 'arguments' => ['@dbi']],
         'designer' => [
             'class' => Designer::class,
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$template' => '@template'],

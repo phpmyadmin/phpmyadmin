@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
@@ -92,6 +93,7 @@ class IndexesControllerTest extends AbstractTestCase
             $template,
             $GLOBALS['dbi'],
             new Indexes($response, $template, $GLOBALS['dbi']),
+            new DbTableExists($GLOBALS['dbi']),
         );
 
         $_POST['create_index'] = true;

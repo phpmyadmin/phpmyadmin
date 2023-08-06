@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -53,6 +54,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
             new ResponseStub(),
             new Template(),
             new Relation($this->dbi),
+            new DbTableExists($this->dbi),
         );
 
         // The user hash for test

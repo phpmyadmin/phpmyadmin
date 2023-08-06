@@ -6,7 +6,8 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
@@ -104,8 +105,11 @@ class GisVisualizationControllerTest extends AbstractTestCase
                 . 'return map;}',
         ]);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+
         $response = new ResponseRenderer();
-        (new GisVisualizationController($response, $template, $dbi))($this->createStub(ServerRequest::class));
+        (new GisVisualizationController($response, $template, $dbi, new DbTableExists($dbi)))($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

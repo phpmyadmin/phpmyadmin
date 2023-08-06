@@ -8,7 +8,8 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -82,8 +83,8 @@ class StructureControllerTest extends AbstractTestCase
         $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
 
-        $request = $this->createStub(ServerRequest::class);
-        $request->method('getRoute')->willReturn('/table/structure');
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['route' => '/table/structure', 'db' => 'test_db', 'table' => 'test_table']);
 
         $response = new ResponseRenderer();
         $relation = new Relation($this->dbi);
@@ -95,6 +96,7 @@ class StructureControllerTest extends AbstractTestCase
             new Transformations(),
             $this->dbi,
             $pageSettings,
+            new DbTableExists($this->dbi),
         ))($request);
 
         $expected = $pageSettings->getHTML();

@@ -39,6 +39,7 @@ use PhpMyAdmin\Controllers\Triggers;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -119,6 +120,7 @@ return [
                 '$template' => '@template',
                 '$databaseDesigner' => '@designer',
                 '$designerCommon' => '@designer_common',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\EventsController::class => [
@@ -128,6 +130,7 @@ return [
                 '$template' => '@template',
                 '$events' => '@events',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\ExportController::class => [
@@ -138,6 +141,7 @@ return [
                 '$export' => '@export',
                 '$exportOptions' => '@export_options',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\ImportController::class => [
@@ -147,6 +151,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\MultiTableQuery\QueryController::class => [
@@ -168,6 +173,7 @@ return [
                 '$template' => '@template',
                 '$operations' => '@operations',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\OperationsController::class => [
@@ -180,6 +186,7 @@ return [
                 '$relation' => '@relation',
                 '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\PrivilegesController::class => [
@@ -199,11 +206,17 @@ return [
                 '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
                 '$routines' => '@routines',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\SearchController::class => [
             'class' => Database\SearchController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Database\SqlAutoCompleteController::class => [
             'class' => Database\SqlAutoCompleteController::class,
@@ -216,6 +229,7 @@ return [
                 '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\SqlFormatController::class => [
@@ -320,11 +334,21 @@ return [
         ],
         Database\Structure\FavoriteTableController::class => [
             'class' => Database\Structure\FavoriteTableController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$relation' => '@relation'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$relation' => '@relation',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Database\Structure\RealRowCountController::class => [
             'class' => Database\Structure\RealRowCountController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Database\Structure\ReplacePrefixController::class => [
             'class' => Database\Structure\ReplacePrefixController::class,
@@ -349,6 +373,7 @@ return [
                 '$dbi' => '@dbi',
                 '$trackingChecker' => '@tracking_checker',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\TrackingController::class => [
@@ -358,6 +383,7 @@ return [
                 '$template' => '@template',
                 '$tracking' => '@tracking',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         DatabaseController::class => [
@@ -1033,6 +1059,7 @@ return [
                 '$config' => '@config',
                 '$dbi' => '@dbi',
                 '$columnsDefinition' => '@table_columns_definition',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\ChangeController::class => [
@@ -1043,6 +1070,7 @@ return [
                 '$insertEdit' => '@insert_edit',
                 '$relation' => '@relation',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\ChangeRowsController::class => [
@@ -1055,7 +1083,12 @@ return [
         ],
         Table\ChartController::class => [
             'class' => Table\ChartController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Table\CreateController::class => [
             'class' => Table\CreateController::class,
@@ -1070,7 +1103,11 @@ return [
         ],
         Table\DeleteConfirmController::class => [
             'class' => Table\DeleteConfirmController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Table\DeleteRowsController::class => [
             'class' => Table\DeleteRowsController::class,
@@ -1078,7 +1115,11 @@ return [
         ],
         Table\DropColumnConfirmationController::class => [
             'class' => Table\DropColumnConfirmationController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Table\DropColumnController::class => [
             'class' => Table\DropColumnController::class,
@@ -1109,7 +1150,12 @@ return [
         ],
         Table\FindReplaceController::class => [
             'class' => Table\FindReplaceController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Table\GetFieldController::class => [
             'class' => Table\GetFieldController::class,
@@ -1117,7 +1163,12 @@ return [
         ],
         Table\GisVisualizationController::class => [
             'class' => Table\GisVisualizationController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         Table\ImportController::class => [
             'class' => Table\ImportController::class,
@@ -1126,6 +1177,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\IndexesController::class => [
@@ -1135,6 +1187,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$indexes' => '@table_indexes',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\IndexRenameController::class => [
@@ -1144,6 +1197,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$indexes' => '@table_indexes',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\Maintenance\AnalyzeController::class => [
@@ -1256,6 +1310,7 @@ return [
                 '$checkUserPrivileges' => '@check_user_privileges',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\PrivilegesController::class => [
@@ -1299,6 +1354,7 @@ return [
                 '$search' => '@table_search',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\SqlController::class => [
@@ -1308,6 +1364,7 @@ return [
                 '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\Structure\AddIndexController::class => [
@@ -1390,6 +1447,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$structureController' => '@' . Table\StructureController::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\Structure\ReservedWordCheckController::class => [
@@ -1434,6 +1492,7 @@ return [
                 '$transformations' => '@transformations',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\TrackingController::class => [
@@ -1443,6 +1502,7 @@ return [
                 '$template' => '@template',
                 '$tracking' => '@tracking',
                 '$trackingChecker' => '@tracking_checker',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Triggers\IndexController::class => [
@@ -1452,6 +1512,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$triggers' => '@triggers',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Table\ZoomSearchController::class => [
@@ -1462,6 +1523,7 @@ return [
                 '$search' => '@table_search',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         TableController::class => [
@@ -1522,7 +1584,12 @@ return [
         ],
         View\CreateController::class => [
             'class' => View\CreateController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
         ],
         View\OperationsController::class => [
             'class' => View\OperationsController::class,
@@ -1531,6 +1598,7 @@ return [
                 '$template' => '@template',
                 '$operations' => '@operations',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
     ],

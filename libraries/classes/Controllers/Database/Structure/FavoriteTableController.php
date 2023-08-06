@@ -6,7 +6,10 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -22,8 +25,12 @@ use function sha1;
 
 final class FavoriteTableController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private Relation $relation,
+        private readonly DbTableExists $dbTableExists,
+    ) {
         parent::__construct($response, $template);
     }
 
@@ -72,7 +79,11 @@ final class FavoriteTableController extends AbstractController
             return;
         }
 
-        if (! $this->hasDatabase()) {
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
             return;
         }
 

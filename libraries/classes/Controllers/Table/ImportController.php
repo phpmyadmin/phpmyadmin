@@ -11,6 +11,8 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
@@ -32,6 +34,7 @@ final class ImportController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -54,7 +57,33 @@ final class ImportController extends AbstractController
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+            return;
+        }
+
+        $tableName = TableName::tryFrom($request->getParam('table'));
+        if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+            return;
+        }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/import');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/import');

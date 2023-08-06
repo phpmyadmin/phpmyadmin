@@ -10,6 +10,8 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Components\Limit;
@@ -35,6 +37,7 @@ class ChartController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private DatabaseInterface $dbi,
+        private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
     }
@@ -44,7 +47,7 @@ class ChartController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
-            $this->ajax();
+            $this->ajax($request);
 
             return;
         }
@@ -86,7 +89,33 @@ class ChartController extends AbstractController
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
-            DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+            if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+                if ($request->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                    return;
+                }
+
+                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+                return;
+            }
+
+            $tableName = TableName::tryFrom($request->getParam('table'));
+            if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+                if ($request->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                    return;
+                }
+
+                $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+                return;
+            }
 
             $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             $urlParams['back'] = Url::getFromRoute('/table/sql');
@@ -100,7 +129,17 @@ class ChartController extends AbstractController
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
-            if (! $this->hasDatabase()) {
+            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+            if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+                if ($request->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                    return;
+                }
+
+                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
                 return;
             }
         } else {
@@ -164,7 +203,7 @@ class ChartController extends AbstractController
     /**
      * Handle ajax request
      */
-    public function ajax(): void
+    public function ajax(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -175,7 +214,21 @@ class ChartController extends AbstractController
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-            DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+            if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
+            }
+
+            $tableName = TableName::tryFrom($request->getParam('table'));
+            if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                return;
+            }
         }
 
         $parser = new Parser($GLOBALS['sql_query']);

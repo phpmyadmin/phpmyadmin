@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Tests\Controllers\Triggers;
 
 use PhpMyAdmin\Controllers\Triggers\IndexController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -48,12 +50,16 @@ final class IndexControllerTest extends AbstractTestCase
         $template = new Template();
         $response = new ResponseRenderer();
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db']);
+
         (new IndexController(
             $response,
             $template,
             $dbi,
             new Triggers($dbi),
-        ))($this->createStub(ServerRequest::class));
+            new DbTableExists($dbi),
+        ))($request);
 
         $actual = $response->getHTMLResult();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -180,12 +186,16 @@ HTML;
         $template = new Template();
         $response = new ResponseRenderer();
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db']);
+
         (new IndexController(
             $response,
             $template,
             $dbi,
             new Triggers($dbi),
-        ))($this->createStub(ServerRequest::class));
+            new DbTableExists($dbi),
+        ))($request);
 
         $actual = $response->getHTMLResult();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -266,6 +276,7 @@ HTML;
             $template,
             $dbi,
             new Triggers($dbi),
+            new DbTableExists($dbi),
         );
 
         $request = $this->createStub(ServerRequest::class);

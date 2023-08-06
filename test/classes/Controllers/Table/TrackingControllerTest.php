@@ -7,7 +7,8 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\TrackingController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -44,6 +45,9 @@ class TrackingControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('test_db');
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+
         $response = new ResponseRenderer();
         $template = new Template();
         $trackingChecker = $this->createStub(TrackingChecker::class);
@@ -58,7 +62,8 @@ class TrackingControllerTest extends AbstractTestCase
                 $trackingChecker,
             ),
             $trackingChecker,
-        ))($this->createStub(ServerRequest::class));
+            new DbTableExists($this->dbi),
+        ))($request);
 
         $main = $template->render('table/tracking/main', [
             'url_params' => [

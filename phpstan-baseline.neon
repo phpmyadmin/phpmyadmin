@@ -1856,21 +1856,6 @@ parameters:
 			path: libraries/classes/Console.php
 
 		-
-			message: "#^Cannot call method getError\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/AbstractController.php
-
-		-
-			message: "#^Cannot call method selectDb\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/AbstractController.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\AbstractController\\:\\:hasDatabase\\(\\) should return bool but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/AbstractController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/AbstractController.php
@@ -2896,11 +2881,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/RoutinesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/RoutinesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/RoutinesController.php
@@ -2972,11 +2952,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/RoutinesController.php
 
@@ -6791,11 +6766,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/AddFieldController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/AddFieldController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/AddFieldController.php
@@ -6832,11 +6802,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/AddFieldController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/AddFieldController.php
 
@@ -6937,11 +6902,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:getTableColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
@@ -7081,11 +7041,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php
@@ -7141,11 +7096,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChartController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/ChartController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
@@ -7198,11 +7148,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$offset of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Table/ChartController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/ChartController.php
 
 		-
@@ -7311,22 +7256,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/DeleteConfirmController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/DeleteConfirmController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/DeleteConfirmController.php
 
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/DeleteConfirmController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/DeleteConfirmController.php
 
@@ -7551,11 +7486,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 22
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
@@ -7587,11 +7517,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
@@ -7786,11 +7711,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ImportController.php
@@ -7806,17 +7726,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/ImportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'DefaultTabTable' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/IndexRenameController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexRenameController.php
 
@@ -7842,11 +7752,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/IndexRenameController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexRenameController.php
 
@@ -7891,11 +7796,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/IndexesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/IndexesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/IndexesController.php
@@ -7928,11 +7828,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
 
 		-
@@ -8051,11 +7946,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/OperationsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/OperationsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionNames\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/OperationsController.php
@@ -8147,11 +8037,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Operations\\:\\:moveOrCopyTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/OperationsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/OperationsController.php
 
@@ -8781,11 +8666,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 4
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -8851,11 +8731,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -8886,11 +8761,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SqlController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SqlController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SqlController.php
@@ -8907,11 +8777,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\SqlQueryForm\\:\\:getHtml\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SqlController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SqlController.php
 
@@ -9211,11 +9076,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/PrimaryController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/PrimaryController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/Structure/PrimaryController.php
@@ -9232,11 +9092,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/PrimaryController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/PrimaryController.php
 
@@ -9626,11 +9481,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionNames\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
@@ -9721,11 +9571,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
@@ -9811,11 +9656,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/TrackingController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/TrackingController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Tracking\\\\TrackingChecker\\:\\:getTrackedTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/TrackingController.php
@@ -9862,11 +9702,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForMainPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/TrackingController.php
 
@@ -10016,11 +9851,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
@@ -10097,11 +9927,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -10191,11 +10016,6 @@ parameters:
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Triggers/IndexController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Triggers/IndexController.php
@@ -10253,11 +10073,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: libraries/classes/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
@@ -10491,11 +10306,6 @@ parameters:
 			path: libraries/classes/Controllers/View/OperationsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/View/OperationsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/OperationsController.php
@@ -10512,11 +10322,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/View/OperationsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\DbTableExists\\:\\:check\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/OperationsController.php
 
@@ -12079,46 +11884,6 @@ parameters:
 			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Cannot call method escapeString\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/DbTableExists.php
-
-		-
-			message: "#^Cannot call method getCache\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/DbTableExists.php
-
-		-
-			message: "#^Cannot call method getCachedTableContent\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/DbTableExists.php
-
-		-
-			message: "#^Cannot call method numRows\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/DbTableExists.php
-
-		-
-			message: "#^Cannot call method selectDb\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/DbTableExists.php
-
-		-
-			message: "#^Cannot call method tryQuery\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/DbTableExists.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
-			path: libraries/classes/DbTableExists.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: libraries/classes/DbTableExists.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:fetchSingleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -28186,6 +27951,11 @@ parameters:
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\DbTableExists constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 7
+			path: test/classes/Controllers/Database/StructureControllerTest.php
+
+		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
@@ -28941,6 +28711,11 @@ parameters:
 			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\DbTableExists constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 2
+			path: test/classes/Controllers/Table/DropColumnConfirmationControllerTest.php
+
+		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/ExportControllerTest.php
@@ -28978,6 +28753,11 @@ parameters:
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
+			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\DbTableExists constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 2
 			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
 
 		-
@@ -29037,6 +28817,11 @@ parameters:
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Table/IndexesControllerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\DbTableExists constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
@@ -29218,6 +29003,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 2
+			path: test/classes/Controllers/Table/SearchControllerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\DbTableExists constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-

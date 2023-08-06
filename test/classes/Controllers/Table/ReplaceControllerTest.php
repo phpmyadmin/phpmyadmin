@@ -13,7 +13,9 @@ use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FileListing;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Operations;
@@ -164,14 +166,19 @@ class ReplaceControllerTest extends AbstractTestCase
             $dbi,
         );
 
-        $request = $this->createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['insert_rows', null, 5],
-            ['sql_query', '', 'SELECT 1'],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withQueryParams(['db' => 'my_db', 'table' => 'test_tbl'])
+            ->withParsedBody(['insert_rows' => '5', 'sql_query' => 'SELECT 1']);
 
         $pageSettings = $this->createStub(PageSettings::class);
-        $changeController = new ChangeController($response, $template, $insertEdit, $relation, $pageSettings);
+        $changeController = new ChangeController(
+            $response,
+            $template,
+            $insertEdit,
+            $relation,
+            $pageSettings,
+            new DbTableExists($dbi),
+        );
         $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
         $GLOBALS['containerBuilder']->method('get')->willReturn($changeController);
 

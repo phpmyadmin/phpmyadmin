@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -33,54 +32,6 @@ abstract class AbstractController
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFiles($files);
-    }
-
-    protected function hasDatabase(): bool
-    {
-        $GLOBALS['errno'] ??= null;
-        $GLOBALS['message'] ??= null;
-
-        if (isset($GLOBALS['is_db']) && $GLOBALS['is_db']) {
-            return true;
-        }
-
-        $GLOBALS['is_db'] = false;
-        $db = DatabaseName::tryFrom($GLOBALS['db']);
-
-        if ($db !== null) {
-            $GLOBALS['is_db'] = $GLOBALS['dbi']->selectDb($db->getName());
-            // This "Command out of sync" 2014 error may happen, for example
-            // after calling a MySQL procedure; at this point we can't select
-            // the db but it's not necessarily wrong
-            if ($GLOBALS['dbi']->getError() && $GLOBALS['errno'] == 2014) {
-                $GLOBALS['is_db'] = true;
-                unset($GLOBALS['errno']);
-            }
-        }
-
-        if ($db === null || ! $GLOBALS['is_db']) {
-            if ($this->response->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON(
-                    'message',
-                    Message::error(__('No databases selected.')),
-                );
-
-                return false;
-            }
-
-            // Not a valid db name -> back to the welcome page
-            $params = ['reload' => '1'];
-            if (isset($GLOBALS['message'])) {
-                $params['message'] = $GLOBALS['message'];
-            }
-
-            $this->redirect('/', $params);
-
-            return false;
-        }
-
-        return $GLOBALS['is_db'];
     }
 
     /** @param array<string, mixed> $params */

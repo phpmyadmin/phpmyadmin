@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\Table\ImportController;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -84,8 +85,11 @@ class ImportControllerTest extends AbstractTestCase
             'local_files' => '',
         ]);
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+
         $response = new ResponseRenderer();
-        (new ImportController($response, $template, $dbi, $pageSettings))($this->createStub(ServerRequest::class));
+        (new ImportController($response, $template, $dbi, $pageSettings, new DbTableExists($dbi)))($request);
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

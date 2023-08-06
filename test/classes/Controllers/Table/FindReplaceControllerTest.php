@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -67,6 +68,7 @@ class FindReplaceControllerTest extends AbstractTestCase
             ResponseRenderer::getInstance(),
             new Template(),
             $GLOBALS['dbi'],
+            new DbTableExists($GLOBALS['dbi']),
         );
         $columnIndex = 0;
         $find = 'Field';
@@ -84,7 +86,12 @@ class FindReplaceControllerTest extends AbstractTestCase
 
     public function testReplaceWithRegex(): void
     {
-        $tableSearch = new FindReplaceController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
+        $tableSearch = new FindReplaceController(
+            ResponseRenderer::getInstance(),
+            new Template(),
+            $GLOBALS['dbi'],
+            new DbTableExists($GLOBALS['dbi']),
+        );
 
         $columnIndex = 0;
         $find = 'Field';

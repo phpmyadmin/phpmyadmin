@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ChangeController;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FileListing;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -41,7 +42,8 @@ class ChangeControllerTest extends AbstractTestCase
         $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
         $pageSettings->init('Edit');
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
         $relation = new Relation($dbi);
         $template = new Template();
@@ -51,6 +53,7 @@ class ChangeControllerTest extends AbstractTestCase
             new InsertEdit($dbi, $relation, new Transformations(), new FileListing(), $template),
             $relation,
             $pageSettings,
+            new DbTableExists($dbi),
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -95,6 +98,7 @@ class ChangeControllerTest extends AbstractTestCase
             $this->createStub(InsertEdit::class),
             $this->createStub(Relation::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($this->createDatabaseInterface()),
         );
 
         $whereClauseArray = ['foo=1', 'bar=2'];

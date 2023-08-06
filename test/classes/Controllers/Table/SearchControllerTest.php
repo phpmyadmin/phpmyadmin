@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -110,6 +111,7 @@ class SearchControllerTest extends AbstractTestCase
             new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi'],
+            new DbTableExists($GLOBALS['dbi']),
         );
 
         $result = $ctrl->getColumnMinMax('column');

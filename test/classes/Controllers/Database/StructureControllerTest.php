@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Replication\Replication;
@@ -84,6 +85,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -123,6 +125,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
@@ -152,6 +155,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -183,6 +187,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
@@ -198,6 +203,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
@@ -222,6 +228,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
 
         // When parameter $db is empty
@@ -278,6 +285,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
 
         $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
@@ -314,6 +322,7 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['dbi'],
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
+            new DbTableExists($GLOBALS['dbi']),
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);

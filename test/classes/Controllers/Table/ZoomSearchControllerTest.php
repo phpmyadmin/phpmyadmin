@@ -7,7 +7,8 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -42,6 +43,9 @@ class ZoomSearchControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+
         $response = new ResponseRenderer();
         $template = new Template();
         $controller = new ZoomSearchController(
@@ -50,8 +54,9 @@ class ZoomSearchControllerTest extends AbstractTestCase
             new Search($this->dbi),
             new Relation($this->dbi),
             $this->dbi,
+            new DbTableExists($this->dbi),
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         $expected = $template->render('table/zoom_search/index', [
             'db' => $GLOBALS['db'],
