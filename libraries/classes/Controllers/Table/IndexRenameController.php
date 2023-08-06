@@ -88,6 +88,7 @@ final class IndexRenameController extends AbstractController
         if (isset($_POST['do_save_data'])) {
             $oldIndexName = $request->getParsedBodyParam('old_index', '');
             $this->indexes->doSaveData(
+                $request,
                 $index,
                 true,
                 $GLOBALS['db'],

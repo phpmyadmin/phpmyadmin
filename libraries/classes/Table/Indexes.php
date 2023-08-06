@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
-use PhpMyAdmin\Application;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -37,6 +37,7 @@ final class Indexes
      * @param bool  $renameMode Rename the Index mode
      */
     public function doSaveData(
+        ServerRequest $request,
         Index $index,
         bool $renameMode,
         string $db,
@@ -85,8 +86,7 @@ final class Indexes
         }
 
         $this->dbi->query($sqlQuery);
-        $response = ResponseRenderer::getInstance();
-        if ($response->isAjax()) {
+        if ($request->isAjax()) {
             $message = Message::success(
                 __('Table %1$s has been altered successfully.'),
             );
@@ -113,7 +113,7 @@ final class Indexes
 
         /** @var StructureController $controller */
         $controller = Core::getContainerBuilder()->get(StructureController::class);
-        $controller(Application::getRequest());
+        $controller($request);
     }
 
     public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message

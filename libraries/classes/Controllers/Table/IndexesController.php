@@ -94,6 +94,7 @@ class IndexesController extends AbstractController
 
         if (isset($_POST['do_save_data'])) {
             $this->indexes->doSaveData(
+                $request,
                 $index,
                 false,
                 $GLOBALS['db'],

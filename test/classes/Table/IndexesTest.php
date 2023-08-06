@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
@@ -70,19 +70,20 @@ class IndexesTest extends AbstractTestCase
 
         $indexes = new Indexes($response, new Template(), $GLOBALS['dbi']);
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['ajax_request' => '1']);
+
         // Preview SQL
-        $indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table'], true);
+        $indexes->doSaveData($request, $index, false, $GLOBALS['db'], $GLOBALS['table'], true);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
         $this->assertStringContainsString($sqlQuery, $jsonArray['sql_data']);
 
         // Alter success
         $response->clear();
-        ResponseRenderer::getInstance()->setAjax(true);
-        $indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table'], false);
+        $indexes->doSaveData($request, $index, false, $GLOBALS['db'], $GLOBALS['table'], false);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('index_table', $jsonArray);
         $this->assertArrayHasKey('message', $jsonArray);
-        ResponseRenderer::getInstance()->setAjax(false);
     }
 }

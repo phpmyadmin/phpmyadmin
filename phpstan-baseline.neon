@@ -7761,17 +7761,17 @@ parameters:
 			path: libraries/classes/Controllers/Table/IndexRenameController.php
 
 		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexRenameController.php
 
 		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexRenameController.php
 
 		-
-			message: "#^Parameter \\#6 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexRenameController.php
 
@@ -7836,12 +7836,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/IndexesController.php
 
 		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
 
 		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
 
@@ -32226,17 +32226,17 @@ parameters:
 			path: test/classes/Table/IndexesTest.php
 
 		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: test/classes/Table/IndexesTest.php
-
-		-
 			message: "#^Parameter \\#3 \\$dbi of class PhpMyAdmin\\\\Table\\\\Indexes constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Table/IndexesTest.php
 
 		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: test/classes/Table/IndexesTest.php
+
+		-
+			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: test/classes/Table/IndexesTest.php
 
