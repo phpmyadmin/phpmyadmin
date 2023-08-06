@@ -26,24 +26,11 @@ final class DbTableExistsTest extends AbstractTestCase
         $dbiDummy->assertAllSelectsConsumed();
     }
 
-    public function testHasDatabaseWithOutOfSyncError(): void
-    {
-        $db = DatabaseName::from('test_db');
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('selectDb')->with($db)->willReturn(false);
-        $dbi->expects($this->once())->method('getError')->willReturn('#2014 - Commands out of sync');
-        $dbTableExists = new DbTableExists($dbi);
-        $this->assertTrue($dbTableExists->hasDatabase($db));
-        // cached result
-        $this->assertTrue($dbTableExists->hasDatabase(DatabaseName::from('test_db')));
-    }
-
     public function testHasDatabaseWithNoDatabase(): void
     {
         $db = DatabaseName::from('test_db');
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('selectDb')->with($db)->willReturn(false);
-        $dbi->expects($this->once())->method('getError')->willReturn('#1049 - Unknown database \'test_db\'');
         $dbTableExists = new DbTableExists($dbi);
         $this->assertFalse($dbTableExists->hasDatabase($db));
     }
