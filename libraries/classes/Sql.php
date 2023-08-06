@@ -1061,7 +1061,7 @@ class Sql
         $response = ResponseRenderer::getInstance();
         $response->addJSON($extraData ?? []);
 
-        if (empty($analyzedSqlResults['is_select']) || isset($extraData['error'])) {
+        if (($result instanceof ResultInterface && $result->numFields() === 0) || isset($extraData['error'])) {
             return $queryMessage;
         }
 
@@ -1125,7 +1125,7 @@ class Sql
             'db' => $db,
             'table' => $table,
             'sql_query' => $sqlQuery,
-            'is_procedure' => ! empty($analyzedSqlResults['procedure']),
+            'is_procedure' => ! empty($analyzedSqlResults['is_procedure']),
         ]);
     }
 
@@ -1723,10 +1723,6 @@ class Sql
             $sqlQueryForBookmark,
             $extraData
         );
-
-        if ($this->dbi->moreResults()) {
-            $this->dbi->nextResult();
-        }
 
         $warningMessages = $this->operations->getWarningMessagesArray();
 
