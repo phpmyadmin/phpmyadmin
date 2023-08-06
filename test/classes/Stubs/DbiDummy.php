@@ -115,7 +115,7 @@ class DbiDummy implements DbiExtension
             return true;
         }
 
-        Assert::markTestIncomplete('Non expected select of database: ' . $databaseName);
+        Assert::fail('Non expected select of database: ' . $databaseName);
     }
 
     public function assertAllQueriesConsumed(): void
@@ -176,7 +176,7 @@ class DbiDummy implements DbiExtension
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         $found = $this->findFifoQuery($query) ?? $this->findDummyQuery($query);
         if (! $found) {
-            Assert::markTestIncomplete('Not supported query: ' . $query);
+            Assert::fail('Not supported query: ' . $query);
         }
 
         if ($found['result'] === false) {

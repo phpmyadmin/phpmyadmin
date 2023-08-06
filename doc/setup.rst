@@ -222,6 +222,16 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. note:: Used only if :envvar:`PMA_PORT` is empty.
 
+.. envvar:: PMA_SOCKET
+
+    Socket file for the database connection.
+
+.. envvar:: PMA_SOCKETS
+
+    Comma-separated list of socket files for the database connections.
+
+    .. note:: Used only if :envvar:`PMA_SOCKET` is empty.
+
 .. envvar:: PMA_ABSOLUTE_URI
 
     The fully-qualified path (``https://pma.example.net/``) where the reverse
@@ -446,7 +456,7 @@ arbitrary server - allowing you to specify MySQL/MariaDB server on the login pag
 
 .. code-block:: sh
 
-    docker-compose up -d
+    docker compose up -d
 
 Customizing configuration file using docker-compose
 ---------------------------------------------------
@@ -563,7 +573,7 @@ Quick Install
 #. Choose an appropriate distribution kit from the phpmyadmin.net
    Downloads page. Some kits contain only the English messages, others
    contain all languages. We'll assume you chose a kit whose name
-   looks like ``phpMyAdmin-x.x.x -all-languages.tar.gz``.
+   looks like ``phpMyAdmin-x.x.x-all-languages.tar.gz``.
 #. Ensure you have downloaded a genuine archive, see :ref:`verify`.
 #. Untar or unzip the distribution (be sure to unzip the subdirectories):
    ``tar -xzvf phpMyAdmin_x.x.x-all-languages.tar.gz`` in your

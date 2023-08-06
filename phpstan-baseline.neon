@@ -20271,11 +20271,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Parameter \\#3 \\$txt of method TCPDF\\:\\:MultiCell\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Parameter \\#3 \\$x2 of method TCPDF\\:\\:Line\\(\\) expects float, \\(array\\|float\\|int\\) given\\.$#"
 			count: 3
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -20308,6 +20303,11 @@ parameters:
 		-
 			message: "#^Variable \\$columnsCnt might not be defined\\.$#"
 			count: 6
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Variable \\$txt on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-

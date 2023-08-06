@@ -8875,10 +8875,10 @@
       <code><![CDATA[$this->tablewidths[$col]]]></code>
       <code><![CDATA[$this->tablewidths[$col]]]></code>
       <code><![CDATA[$this->titleFontSize ?: $this->FontSizePt]]></code>
-      <code>$txt</code>
-      <code>$txt</code>
-      <code>$txt</code>
-      <code>$txt</code>
+      <code><![CDATA[$txt ?? 'NULL']]></code>
+      <code><![CDATA[$txt ?? 'NULL']]></code>
+      <code><![CDATA[$txt ?? 'NULL']]></code>
+      <code><![CDATA[$txt ?? 'NULL']]></code>
       <code>$y</code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -9050,10 +9050,6 @@
     <ParamNameMismatch>
       <code>$topMargin</code>
     </ParamNameMismatch>
-    <PossiblyNullArgument>
-      <code>$row[$key]</code>
-      <code>$txt</code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['maxY']]]></code>
     </PossiblyNullOperand>
