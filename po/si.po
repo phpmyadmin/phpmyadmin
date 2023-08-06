@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-30 00:21+0000\n"
+"POT-Creation-Date: 2023-08-06 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1221,46 +1221,37 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
-#: libraries/classes/Application.php:257
+#: libraries/classes/Application.php:259
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
-#: libraries/classes/Application.php:289
+#: libraries/classes/Application.php:291
 msgid "Error: Token mismatch"
 msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
-#: libraries/classes/Application.php:348
+#: libraries/classes/Application.php:350
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Application.php:459
+#: libraries/classes/Application.php:461
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Application.php:506
-msgid ""
-"You have enabled mbstring.func_overload in your PHP configuration. This "
-"option is incompatible with phpMyAdmin and might cause some data to be "
-"corrupted!"
-msgstr ""
-"ඔබගේ PHP වින්‍යාසයන් හි mbstring.func_overload සක්‍රීය කර ඇත. මෙම විකල්පය phpMyAdmin "
-"සමඟ නොගැළපෙන අතර යම් දත්ත විනාශ වීමට හේතු විය හැකිය!"
-
-#: libraries/classes/Application.php:521
+#: libraries/classes/Application.php:507
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Application.php:531
+#: libraries/classes/Application.php:516
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS අගයන් උඩින් ලිවීමේ උත්සාහය"
 
-#: libraries/classes/Application.php:541
+#: libraries/classes/Application.php:526
 msgid "possible exploit"
 msgstr "විය හැකි අයුතු ප්‍රයෝජන ගැනීමක්"
 
@@ -1269,7 +1260,7 @@ msgid "Search:"
 msgstr "සෙවීම:"
 
 #: libraries/classes/BrowseForeigners.php:181
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
 #: libraries/classes/Normalization.php:226
 #: libraries/classes/Tracking/Tracking.php:305
@@ -1349,7 +1340,7 @@ msgid "Page number:"
 msgstr "පිටු අංකය:"
 
 #: libraries/classes/BrowseForeigners.php:301
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #: templates/display/results/table.twig:99
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -1757,7 +1748,7 @@ msgstr "වියට්නාම්"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 #: libraries/classes/Import/Import.php:1250 libraries/classes/Menu.php:234
 #: libraries/classes/Menu.php:334
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
@@ -1856,7 +1847,7 @@ msgid "Right"
 msgstr "දකුණ"
 
 #: libraries/classes/Config/ConfigFile.php:560
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 #: libraries/classes/Display/Results.php:1047
 #: libraries/classes/Plugins/Export/ExportSql.php:2045
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
@@ -1864,7 +1855,7 @@ msgstr "දකුණ"
 #: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
 #: templates/database/central_columns/main.twig:311
-#: templates/database/designer/main.twig:588 templates/export.twig:429
+#: templates/database/designer/main.twig:588 templates/export.twig:437
 #: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:192
 #: templates/server/status/processes/list.twig:72
@@ -1962,7 +1953,7 @@ msgid "Databases"
 msgstr "දත්තගබඩා"
 
 #: libraries/classes/Config/ConfigFile.php:584
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 #: libraries/classes/Menu.php:462
 #: libraries/classes/Server/Status/Processes.php:96
 #: libraries/classes/Util.php:1691
@@ -2007,7 +1998,7 @@ msgid "Closed"
 msgstr "වසන ලද"
 
 #: libraries/classes/Config/ConfigFile.php:614
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -2015,7 +2006,7 @@ msgid "Monday"
 msgstr "සඳුදා"
 
 #: libraries/classes/Config/ConfigFile.php:615
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -2023,7 +2014,7 @@ msgid "Tuesday"
 msgstr "අඟහරු‍වදා"
 
 #: libraries/classes/Config/ConfigFile.php:616
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -2031,7 +2022,7 @@ msgid "Wednesday"
 msgstr "බදාදා"
 
 #: libraries/classes/Config/ConfigFile.php:617
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -2039,7 +2030,7 @@ msgid "Thursday"
 msgstr "බ්‍රහස්පතින්දා"
 
 #: libraries/classes/Config/ConfigFile.php:618
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -2047,7 +2038,7 @@ msgid "Friday"
 msgstr "සිකුරාදා"
 
 #: libraries/classes/Config/ConfigFile.php:619
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -2055,7 +2046,7 @@ msgid "Saturday"
 msgstr "සෙනසුරාදා"
 
 #: libraries/classes/Config/ConfigFile.php:620
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -3935,8 +3926,8 @@ msgid "Save on server"
 msgstr "සේවාදායකයේ සුරකින්න"
 
 #: libraries/classes/Config/Descriptions.php:685
-#: libraries/classes/Config/Descriptions.php:688 templates/export.twig:178
-#: templates/export.twig:373
+#: libraries/classes/Config/Descriptions.php:688 templates/export.twig:186
+#: templates/export.twig:381
 msgid "Overwrite existing file(s)"
 msgstr "වත්මන් ගොනු(ව) උඩින් ලියන්න"
 
@@ -4378,7 +4369,7 @@ msgid "Navigation panel width"
 msgstr "යාත්‍රණ පැනලය"
 
 #: libraries/classes/Config/Descriptions.php:815
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 #: libraries/classes/Navigation/NavigationTree.php:1305
 #, fuzzy
 #| msgid "Customize main panel"
@@ -4880,7 +4871,7 @@ msgstr "අගුලු ළෑ දත්තගබඩා මඟහරින්න
 
 #: libraries/classes/Config/Descriptions.php:930
 #: libraries/classes/ConfigStorage/UserGroups.php:111
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #: libraries/classes/Display/Results.php:2703
 #: libraries/classes/Html/Generator.php:577
 #: libraries/classes/Html/Generator.php:840
@@ -4910,7 +4901,7 @@ msgid "Explain SQL"
 msgstr "SQL ය පහදන්න"
 
 #: libraries/classes/Config/Descriptions.php:932
-#: libraries/classes/Export/Export.php:1270
+#: libraries/classes/Export/Export.php:1256
 #: libraries/classes/Html/Generator.php:633 templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -5151,7 +5142,7 @@ msgstr "%s සඳහා දත්ත නොමැත"
 
 #: libraries/classes/Config/FormDisplay.php:625
 #: libraries/classes/Config/Validator.php:585
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
 msgid "Incorrect value!"
 msgstr "වැරදි අගයකි!"
 
@@ -5228,7 +5219,7 @@ msgid "OpenDocument Text"
 msgstr "OpenDocument පෙළ"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:148
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:359
 #: libraries/classes/Menu.php:481 libraries/classes/Server/Privileges.php:1282
 #: libraries/classes/Util.php:1693 libraries/classes/Util.php:1708
@@ -5247,7 +5238,7 @@ msgstr "OpenDocument පෙළ"
 #: templates/display/results/table.twig:332
 #: templates/display/results/table.twig:333
 #: templates/display/results/table.twig:365 templates/export.twig:3
-#: templates/export.twig:495 templates/preferences/header.twig:42
+#: templates/export.twig:503 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -5271,7 +5262,7 @@ msgid "CSV using LOAD DATA"
 msgstr "LOAD DATA භාවිතයෙන් CSV"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:58
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:326
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
 #: libraries/classes/Menu.php:486 libraries/classes/Util.php:1694
 #: libraries/classes/Util.php:1709 libraries/classes/Util.php:1726
@@ -5525,22 +5516,22 @@ msgid "Incorrect IP address: %s"
 msgstr "වැරදි IP යොමුව: %s"
 
 #: libraries/classes/Config/Validator.php:520
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a valid port number!"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ!"
 
 #: libraries/classes/Config/Validator.php:542
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
 msgid "Not a positive number!"
 msgstr "ධන සංඛ්‍යාවක් නොවේ!"
 
 #: libraries/classes/Config/Validator.php:564
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
 msgid "Not a non-negative number!"
 msgstr "ඍණ නොවන සංඛ්‍යාවක් නොවේ!"
 
 #: libraries/classes/Config/Validator.php:603
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "අගය %s ට සමාන හෝ අඩු විය යුතුය!"
@@ -5559,7 +5550,7 @@ msgid "No bookmarks"
 msgstr "වගුව තුල සෙවීම"
 
 #: libraries/classes/Controllers/AbstractController.php:66
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:59
 #: libraries/classes/DbTableExists.php:46
 msgid "No databases selected."
@@ -5584,7 +5575,7 @@ msgid "Incomplete params"
 msgstr "අසම්පූර්ණ පරාමිති"
 
 #: libraries/classes/Controllers/Console/Bookmark/AddController.php:45
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Failed"
 msgstr "අසාර්ථකයි"
 
@@ -5640,7 +5631,7 @@ msgstr "%2$s දත්තගබඩාවේ %1$s නමින් සිද්ධ
 
 #: libraries/classes/Controllers/Database/ExportController.php:65
 #: libraries/classes/Controllers/Database/TrackingController.php:116
-#: libraries/classes/Controllers/Export/ExportController.php:307
+#: libraries/classes/Controllers/Export/ExportController.php:308
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
@@ -5653,7 +5644,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "අපනයන පේණු පූරණය කල නොහැකි විය, ඔබගේ ස්ථාපනය පරීක්ෂා කර බලන්න!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:64
-#: libraries/classes/Controllers/Import/ImportController.php:560
+#: libraries/classes/Controllers/Import/ImportController.php:558
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:68
 msgid "Could not load import plugins, please check your installation!"
@@ -5755,7 +5746,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:23
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:29
 #: libraries/classes/Controllers/Export/TablesController.php:29
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:45
@@ -5807,7 +5798,7 @@ msgstr "නොදන්නා"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:42
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:46
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:54
 #: libraries/classes/Controllers/Table/DropColumnController.php:45
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
@@ -5874,7 +5865,7 @@ msgstr "තේරු වගු සඳහා %1$s වන අනුවාදය �
 msgid "No tables selected."
 msgstr "වගුවක් තෝරාගෙන නොමැත."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:141
+#: libraries/classes/Controllers/Database/TrackingController.php:143
 msgid "Database Log"
 msgstr "දත්තගබඩා ලොගය"
 
@@ -5904,7 +5895,7 @@ msgid "You may want to refresh the page."
 msgstr "ඔබ පිටුව ප්‍රතිපුර්ණය කිරීමට ඔබට අවශ්ය විය හැක."
 
 #: libraries/classes/Controllers/Export/ExportController.php:111
-#: libraries/classes/Export/Export.php:1256
+#: libraries/classes/Export/Export.php:1242
 msgid "Bad type!"
 msgstr "වැරදි වර්ගය!"
 
@@ -5912,13 +5903,13 @@ msgstr "වැරදි වර්ගය!"
 msgid "Bad parameters!"
 msgstr "වැරදි පරාමිතියන්!"
 
-#: libraries/classes/Controllers/HomeController.php:92
+#: libraries/classes/Controllers/HomeController.php:91
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:188
+#: libraries/classes/Controllers/HomeController.php:187
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5927,12 +5918,12 @@ msgstr ""
 "phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග "
 "අක්‍රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
 
-#: libraries/classes/Controllers/HomeController.php:194
+#: libraries/classes/Controllers/HomeController.php:193
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:259
+#: libraries/classes/Controllers/HomeController.php:258
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5944,7 +5935,7 @@ msgstr ""
 "සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා "
 "ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
-#: libraries/classes/Controllers/HomeController.php:279
+#: libraries/classes/Controllers/HomeController.php:278
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5952,21 +5943,21 @@ msgstr ""
 "ඇතුල් වීමේ කුකියේ වලංගු කාලය phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. "
 "මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
-#: libraries/classes/Controllers/HomeController.php:298
+#: libraries/classes/Controllers/HomeController.php:297
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:320
+#: libraries/classes/Controllers/HomeController.php:319
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:330
+#: libraries/classes/Controllers/HomeController.php:329
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5974,7 +5965,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:348
+#: libraries/classes/Controllers/HomeController.php:347
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5986,7 +5977,7 @@ msgstr ""
 "නිර්දේශිතයි. නැතහොත් ඔබගේ සේවාදායකයේ ආරක්ෂාව මෙම වින්‍යස අනවසරයෙන් බාගත කරගන්නන් විසින් "
 "තර්ජනයට ලක්කල හැකිය."
 
-#: libraries/classes/Controllers/HomeController.php:369
+#: libraries/classes/Controllers/HomeController.php:368
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5995,14 +5986,14 @@ msgstr ""
 "සේවාදායකය Suhosin සමග ක්‍රියාත්මකයි. මෙමගින් ඇති විය හැකි ගැටළු සම්බන්ධයෙන් %sලියකියවිලි%s "
 "බලන්න."
 
-#: libraries/classes/Controllers/HomeController.php:383
+#: libraries/classes/Controllers/HomeController.php:382
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:439
+#: libraries/classes/Controllers/HomeController.php:438
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -6012,13 +6003,13 @@ msgstr ""
 "mbstring දිගුව නොමැති ව phpMyAdmin හට නිවැරදිව පෙළ බෙදීමට නොහැකි අතර මෙය බලාපොරොත්තු "
 "නොවන ප්‍රතිඵල ගෙන දිය හැක."
 
-#: libraries/classes/Controllers/HomeController.php:457
+#: libraries/classes/Controllers/HomeController.php:456
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:203
+#: libraries/classes/Controllers/Import/ImportController.php:201
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -6027,23 +6018,23 @@ msgstr ""
 "ඔබ උඩුගත කිරීමට උත්සාහ කල ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර "
 "%sලියකියවිලි%s බලන්න."
 
-#: libraries/classes/Controllers/Import/ImportController.php:235
+#: libraries/classes/Controllers/Import/ImportController.php:233
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "අවසන් පරාමිතය ඉවත් කරන්න"
 
-#: libraries/classes/Controllers/Import/ImportController.php:361
-#: libraries/classes/Controllers/Import/ImportController.php:600
+#: libraries/classes/Controllers/Import/ImportController.php:359
+#: libraries/classes/Controllers/Import/ImportController.php:598
 msgid "Showing bookmark"
 msgstr "පොත් සලකුණ පෙන්වන්න"
 
-#: libraries/classes/Controllers/Import/ImportController.php:386
-#: libraries/classes/Controllers/Import/ImportController.php:596
+#: libraries/classes/Controllers/Import/ImportController.php:384
+#: libraries/classes/Controllers/Import/ImportController.php:594
 msgid "The bookmark has been deleted."
 msgstr "පොත් සලකුණ ඉවත් කරන ලදි."
 
-#: libraries/classes/Controllers/Import/ImportController.php:508
+#: libraries/classes/Controllers/Import/ImportController.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -6053,14 +6044,14 @@ msgstr ""
 "විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු විය හැකිය. "
 "[doc@faq1-16]FAQ 1.16[/doc] බලන්න."
 
-#: libraries/classes/Controllers/Import/ImportController.php:608
+#: libraries/classes/Controllers/Import/ImportController.php:606
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "ආනයනය සාර්ථකව අවසන් කරන ලදි, එක් විමසුමක් ක්‍රියාත්මක කරන ලදි."
 msgstr[1] "ආනයනය සාර්ථකව අවසන් කරන ලදි, විමසුම් %dක් ක්‍රියාත්මක කරන ලදි."
 
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:643
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -6069,7 +6060,7 @@ msgstr ""
 "විධානාවලිය ක්‍රියාත්මක වීමට ලබා දුන් කාලය අවසන් විය. ඔබට ආනයනය සම්පූර්ණ කිරීමට අවශ්‍ය නම් %sඑම "
 "ආනයන ගොනුවම නැවත ආනයනය සඳහා යොමු කරන්න%s."
 
-#: libraries/classes/Controllers/Import/ImportController.php:655
+#: libraries/classes/Controllers/Import/ImportController.php:653
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -6077,7 +6068,7 @@ msgstr ""
 "කෙසේ නමුදු අවසන් වාරයේදී කිසිදු දත්තයක් ලබා ගත නොහැකි විය. මෙයින් අදහස් වන්නේ ඔබගේ php කාල "
 "සීමාව වැඩි කිරීමකින් තොරව phpMyAdmin හට මෙම ආනයනය සම්පූර්ණ කිරීමට හැකි නොවන බවය."
 
-#: libraries/classes/Controllers/Import/ImportController.php:723
+#: libraries/classes/Controllers/Import/ImportController.php:721
 #: libraries/classes/Controllers/Sql/SqlController.php:166
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇත."
@@ -6090,79 +6081,79 @@ msgstr ""
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
 msgid "You are about to DESTROY a complete database!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ දත්තගබඩාවක් විනාශකර දැමීමටයි!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
 msgid "You are about to DESTROY a complete table!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ වගුවක් විනාශකර දැමීමටයි!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ වගුවක් ලොප් කිරීමටයි!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:62
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 #, fuzzy
 #| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ වගුවක් විනාශකර දැමීමටයි!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
 msgid "Delete tracking data for this table?"
 msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
 msgid "Delete tracking data for these tables?"
 msgstr "මෙම වගු වල අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:62
 msgid "Delete tracking data for this version?"
 msgstr "මෙම අනුවාදය සඳහා අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:66
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
 msgid "Delete tracking data for these versions?"
 msgstr "මෙම අනුවාද සඳහා අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
 #, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
 msgstr "අවධානය පිළිබඳ දත්ත පේළිය වාර්තාවෙන් ඉවත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
 msgid "Deleting tracking data"
 msgstr "අවධානය පිළිබඳ දත්ත ඉවත් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:69
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:66
 msgid "Dropping Primary Key/Index"
 msgstr "ප්‍රාථමික මූලය/සුචිය ඉවත් කෙරෙමින්"
 
 # ප්‍රාථමික මූලය = Primary key. Source: Glossary of Information Technology
 # Terms - ICTA
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
 msgid "Dropping Foreign key."
 msgstr "අන්‍ය මූලය හලමින්."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:71
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "මෙම ක්‍රියාදාමය සඳහා දීර්ඝ වේලාවක් ගත වනු ඇත. කෙසේ වුවත් ඉදිරියට යන්න?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:69
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "\"%s\" භාවිතා කරන්නන් සමූහය ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:73
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 #, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
@@ -6170,45 +6161,45 @@ msgstr "\"%s\" භාවිතා කරන්නන් සමූහය ඉව�
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:75
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:78
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "තේරු භාවිතා කරන්නන් අවලංගු කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:79
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:76
 msgid "Do you really want to delete this central column?"
 msgstr "මෙම මධ්‍යම තීරය ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:80
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:77
 msgid "Do you really want to delete the selected items?"
 msgstr "තේරූ අයිතම ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:82
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:79
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:85
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:82
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "තේරූ කොටස් හිස් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:86
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:83
 msgid "Do you really want to remove partitioning?"
 msgstr "කොටස් කිරීම ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:87
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:84
 #, fuzzy
 #| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "තේරු භාවිතා කරන්නන් අවලංගු කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:89
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:86
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -6217,15 +6208,15 @@ msgid ""
 "refer to the tips at "
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:95
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:92
 msgid "Garbled Data"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:94
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:100
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -6235,18 +6226,18 @@ msgid ""
 "</b>"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
-#: templates/export.twig:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
+#: templates/export.twig:328
 msgid "Save & close"
 msgstr "සුරකින්න සහ වසන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 #: templates/config/form_display/display.twig:47
 #: templates/preferences/manage/main.twig:113
 #: templates/preferences/manage/main.twig:121
@@ -6254,80 +6245,80 @@ msgstr "සුරකින්න සහ වසන්න"
 msgid "Reset"
 msgstr "ප්‍රතිසකසන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 #, fuzzy
 #| msgid "Select All"
 msgid "Reset all"
 msgstr "සියල්ල තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 msgid "Missing value in the form!"
 msgstr "පෝරම‍යේ අස්ථනගත වූ අගයන් ඇත!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:114
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
 msgstr "අවම වශයෙන් එක් වචනයක්වත්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:118
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:115
 msgid "Please enter a valid number!"
 msgstr "වලංගු අංකයක් යොදන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:119
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 msgid "Add index"
 msgstr "සුචිය එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:118
 #, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
 #. l10n: Rename a table Index
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:123
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
 #, fuzzy
 #| msgid "Remove index(s)"
 msgid "Rename index"
 msgstr "සුචි(ය) ඉවත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 #: templates/table/index_form.twig:237
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "සුචියට ක්ෂේත්‍ර %s ක් එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:122
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "සර්වරයේ සංස්කරණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:126
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:123
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
 msgstr "සර්වරයේ සංස්කරණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:127
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
 #, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
 msgstr "තීර ඇවුරුම් සළකුණ:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
 #, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
 msgstr "සුචියට ක්ෂේත්‍ර %s ක් එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/modals/index_dialog_modal.twig:21
@@ -6340,69 +6331,69 @@ msgstr "සුචියට ක්ෂේත්‍ර %s ක් එක් කර�
 msgid "Preview SQL"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 #: templates/sql/query.twig:220
 #, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
 msgstr "විමසුම තුල"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 #, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "වෙනස් වූ පේළි:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:815 templates/export.twig:67
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
+#: libraries/classes/Html/Generator.php:815 templates/export.twig:75
 msgid "SQL query:"
 msgstr "SQL විමසුම:"
 
 #. l10n: Default label for the y-Axis of Charts
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 #, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y අගයන්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the SQL query first."
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 msgid "The host name is empty!"
 msgstr "දාරක නම හිස්ව පවතී!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 msgid "The user name is empty!"
 msgstr "භාවිත නාමය හිස්ව පවතී!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 #: libraries/classes/Server/Privileges.php:755
 #: libraries/classes/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "මුරපදය හිස්ව පවතී!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 #: libraries/classes/Server/Privileges.php:753
 #: libraries/classes/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "මුරපද නොගැලපේ!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
 msgid "Removing Selected Users"
 msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
 #: libraries/classes/Tracking/Tracking.php:206
 #: libraries/classes/Tracking/Tracking.php:588
 #: templates/columns_definitions/column_definitions_form.twig:177
 #: templates/columns_definitions/column_definitions_form.twig:182
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
-#: templates/export_modal.twig:10 templates/export.twig:82
-#: templates/export.twig:92 templates/export.twig:190
+#: templates/export_modal.twig:10 templates/export.twig:90
+#: templates/export.twig:100 templates/export.twig:198
 #: templates/home/index.twig:319 templates/home/index.twig:327
 #: templates/modals/add_index.twig:6 templates/modals/build_query.twig:6
 #: templates/modals/build_query.twig:16 templates/modals/change_password.twig:6
@@ -6445,89 +6436,89 @@ msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත
 msgid "Close"
 msgstr "වසන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:153
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Lock this account."
 msgstr "පේළි(යක්) ඉවත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:155
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "User account"
 msgid "Unlock this account."
 msgstr "භාවිත ගිණුම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:155
 #, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
 msgstr "සාදන ලද පිටු ගණන."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:159
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
 msgid "Template was loaded."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:157
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "පරිශීලක පැතිකඩ යාවත්කාලීන කරන ලදි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "පේළිය ඉවත් කරන ලදි."
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:164
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
 #: libraries/classes/Server/Status/Data.php:155
 msgid "Other"
 msgstr "අනෙකුත්"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
 #: libraries/classes/Util.php:391 libraries/classes/Util.php:423
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
 #: libraries/classes/Util.php:389 libraries/classes/Util.php:421
 msgid "."
 msgstr "."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
 msgid "Connections / Processes"
 msgstr "සම්බන්ධතා / ක්‍රියාවලි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
 #, fuzzy
 #| msgid "Number of tables:"
 msgid "Number of statements"
 msgstr "වගු ගණන:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
 #, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
 msgstr "අධීක්ෂකයේ වින්‍යාස නොගැලපේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6535,222 +6526,222 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 msgid "Query cache efficiency"
 msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Query cache usage"
 msgstr "විමසුම් කෑෂ් භාවිතය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 msgid "Query cache used"
 msgstr "භාවිතා කරන ලද විමසුම් කෑෂ්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 #, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "පද්ධතියේ CPU භාවිතය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
 msgid "System memory"
 msgstr "පද්ධතියේ මතකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 msgid "System swap"
 msgstr "පද්ධතියේ ප්‍රතිහරණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 msgid "Average load"
 msgstr "මධ්‍යක භාරය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 msgid "Total memory"
 msgstr "සම්පූර්ණ මතකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 msgid "Cached memory"
 msgstr "කෑෂ්ගත මතකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 msgid "Buffered memory"
 msgstr "බෆරගත මතකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 msgid "Free memory"
 msgstr "නිදහස් මතකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 msgid "Used memory"
 msgstr "භාවිත මතකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "මුළු ප්‍රතිහරණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "කෑෂ්ගත ප්‍රතිහරණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "භාවිත ප්‍රතිහරණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "නිදහස් ප්‍රතිහරණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Bytes sent"
 msgstr "යැවුණු බයිට ගණන"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 msgid "Bytes received"
 msgstr "ලැබුණු බයිට ගණන"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "සම්බන්ධතා"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "ක්‍රියාවලි"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
 #: libraries/classes/Util.php:301
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: libraries/classes/Util.php:303
 #: templates/server/status/monitor/index.twig:167
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
 #: libraries/classes/Util.php:305
 #: templates/server/status/monitor/index.twig:168
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 #: libraries/classes/Util.php:307
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Util.php:309
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 #: libraries/classes/Util.php:311
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Util.php:313
 msgid "EiB"
 msgstr "EiB"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 #, php-format
 msgid "%d table(s)"
 msgstr "වගු %d"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 msgid "Questions"
 msgstr "ප්‍රශ්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "දත්ත හුවමාරුව"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 #: libraries/classes/Menu.php:491 libraries/classes/Util.php:1695
 #: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "සිටුවම්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
 #: templates/server/status/monitor/index.twig:198
 msgid "Add chart to grid"
 msgstr "ජාලකයට ප්‍රස්තාර එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "Please add at least one variable to the series!"
 msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙන් එක විචල්‍යයක්වත් ඇතුලත් කරන්න!"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL විමසුම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
 msgid "Resume monitor"
 msgstr "අධීක්ෂණය නැවත අරඹන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 msgid "Pause monitor"
 msgstr "අධීක්ෂණය තාවකාලිකව නවතන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr "ස්වයංක්‍රීය යාවත්කාලීන කිරීම අරඹන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
 msgid "Stop auto refresh"
 msgstr "ස්වයංක්‍රීය යාවත්කාලීන කිරීම නවතන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log සහ slow_query_log සක්‍රීය යි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
 msgid "general_log is enabled."
 msgstr "general_log සක්‍රීය යි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log සක්‍රීය යි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log සහ general_log අක්‍රීය යි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
 msgid "log_output is not set to TABLE."
 msgstr "log_output අගය TABLE ලෙස සිටුවා නැත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
 msgid "log_output is set to TABLE."
 msgstr "log_output අගය TABLE ලෙස සිටුවා ඇත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6760,12 +6751,12 @@ msgstr ""
 "slow_query_log සක්‍රීයමුත් සේවාදායකය ලොග ගත කරන්නේ තත්පර %dට වඩා ගතවන විමසුම් පමණි. "
 "ඔබගේ පද්ධතියද සලකා long_query_time අගය තත්පර 0-2 අතර අගයකට සිටුවීම සුදුසුය."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -6774,30 +6765,30 @@ msgstr ""
 "ප්‍රතිසැකසේ:"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
 #, php-format
 msgid "Set log_output to %s"
 msgstr "log_output %s ට සිටුවන්න"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:250
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 #, php-format
 msgid "Enable %s"
 msgstr "%s සක්‍රිය කරන්න"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 #, php-format
 msgid "Disable %s"
 msgstr "%s අක්‍රිය කරන්න"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "long_query_time තත්පර %dකට සිටුවන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6805,96 +6796,96 @@ msgstr ""
 "ඔබට මෙම විචල්‍යයන් වෙනස් කල නොහැක. කරුණාකර root ලෙස ප්‍රවේශ වන්න. නැතහොත් දත්ත ගබඩා "
 "පරිපාලක විමසන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid "Change settings"
 msgstr "සිටුවම් වෙනස් කිරීම"
 
 # සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:259
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
 msgid "Current settings"
 msgstr "වර්තමාන සිටුවම්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:261
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
 msgid "Chart title"
 msgstr "ප්‍රස්ථාර මාතෘකාව"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:263
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 msgid "Differential"
 msgstr "ආන්තර"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:261
 #, php-format
 msgid "Divided by %s"
 msgstr "%s න් බෙදන ලද"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid "Unit"
 msgstr "ඒකකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
 msgid "From slow log"
 msgstr "slow log වෙතින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
 msgid "From general log"
 msgstr "general log වෙතින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
 msgid "Analysing logs"
 msgstr "ලොග විශ්ලේෂණය කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 msgid "Analysing & loading logs. This may take a while."
 msgstr "ලොග විශ්ලේෂණය සහ පූරණය කෙරෙමින්. මේ සඳහා මඳ වේලාවක් ගත විය හැක."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
 msgid "Cancel request"
 msgstr "ඉල්ලීම අවලංගු කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "ලගු දත්ත පූරණය කරන ලදී. මේ අතරතුර කෙරුණු විමසුම්:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 msgid "Jump to Log table"
 msgstr "ලොග වගුව වෙත යන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
 msgid "No data found"
 msgstr "දත්ත කිසිවක් හමු නොවිණි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Log analysed, but no data found in this time span."
 msgstr "ලොගය විශ්ලේෂණය කෙරුනමුත් මෙම කාල පරාසයට අදාල දත්ත කිසිවක් හමු නොවිණි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Analyzing…"
 msgstr "විශ්ලේෂණය…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "Explain output"
 msgstr "ප්‍රතිදානය පහදන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:462
 #: libraries/classes/Plugins/Export/ExportOdt.php:571
 #: libraries/classes/Plugins/Export/ExportTexytext.php:441
@@ -6904,43 +6895,43 @@ msgstr "ප්‍රතිදානය පහදන්න"
 msgid "Time"
 msgstr "කාලය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 msgid "Total time:"
 msgstr "මුළු කාලය:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Profiling results"
 msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 msgctxt "Display format"
 msgid "Table"
 msgstr "වගුව"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Chart"
 msgstr "ප්‍රස්ථාර"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
-#: templates/export.twig:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: templates/export.twig:214
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "දත්තගබඩාව"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
-#: templates/export.twig:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
+#: templates/export.twig:228
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "වගුව"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
-#: templates/export.twig:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: templates/export.twig:241
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -6948,42 +6939,42 @@ msgid "Column"
 msgstr "තීර"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
 msgid "Log table filter options"
 msgstr "ලොග වගුව සඳහා පෙරහන් විකල්ප"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
 msgid "Filter"
 msgstr "පෙරහන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
 msgid "Filter queries by word/regexp:"
 msgstr "විමසුම් වචන/regexp මගින් පෙරහන්න:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "WHERE වාක්‍යඛණ්ඩයේ ඇති විචල්‍ය දත්ත මගහැර, විමසුම් කාණ්ඩ කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 msgid "Sum of grouped rows:"
 msgstr "ගොනු කල පේළි ගණන:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
 #: libraries/classes/Engines/Innodb.php:132
 #: templates/server/databases/index.twig:250
 msgid "Total:"
 msgstr "මුළු එකතුව:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Loading logs"
 msgstr "ලොගයන් පූරණය කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 msgid "Monitor refresh failed"
 msgstr "අධීක්ෂකය යාවත්කාලින කිරීම අසමත් විය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -6992,65 +6983,65 @@ msgstr ""
 "ප්‍රස්ථාර සඳහා නව දත්ත ලබාගැනීමේදී සේවාදායකය නොවලංගු ප්‍රතිචාරයක් ලබාදුනි. මෙය බොහෝදුරට "
 "ඔබගේ සැසිය කල් ඉකුත්වීමෙන් සිදුවිය හැක. පිටුව ප්‍රතිපූරණය කර ලොගින් වීම සලකා බලන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "Reload page"
 msgstr "පිටුව ප්‍රතිපූරණය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Affected rows:"
 msgstr "වෙනස් වූ පේළි:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:322
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "වින්‍යාස ගොනුව විග්‍රහ කිරීම අසමත් විය. ගොනුවෙහි වලංගු JSON කේත ඇත්දැයි පරීක්ෂා කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "අනයනිත වින්‍යාස සමඟින් ප්‍රස්ථාර ජාලය ගොඩනැගීම අසමත් විය. පෙරනිමි වින්‍යාස වෙත මාරු වෙමින්…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 msgid "Import monitor configuration"
 msgstr "අධීක්ෂකයේ වින්‍යාසයන් ආනයනය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 msgid "Please select the file you want to import:"
 msgstr "ඔබට ආනයනය කිරීමට අවශ්‍ය ගොනුව තෝරන්න:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:326
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid table name."
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid database name."
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 msgid "No files available on server for import!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
 #, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "විමසුම විශ්ලේෂණය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Formatting SQL…"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "වැරදි පරාමිතියන්!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
 #: templates/database/central_columns/main.twig:275
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -7077,20 +7068,20 @@ msgstr "වැරදි පරාමිතියන්!"
 msgid "Cancel"
 msgstr "අවලංගු කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 #: templates/header.twig:45 templates/modals/page_settings.twig:5
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "සිටුවම් වෙනස් කිරීම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #: templates/config/form_display/display.twig:46
 #: templates/modals/page_settings.twig:10
 msgid "Apply"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:172
@@ -7099,23 +7090,23 @@ msgstr ""
 msgid "Loading…"
 msgstr "පූරණය කෙරෙමින්…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 msgid "Request aborted!!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "ඉල්ලීම පිරිසැකසෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 #, fuzzy
 #| msgid "Query cache"
 msgid "Request failed!!"
 msgstr "විමසුම් කෑෂ්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:43
 #: libraries/classes/Controllers/Sql/SetValuesController.php:44
 #, fuzzy
@@ -7123,41 +7114,41 @@ msgstr "විමසුම් කෑෂ්"
 msgid "Error in processing request"
 msgstr "ඉල්ලීම පිරිසැකසීමේදී දෝශ ඇතිවිය:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
 #, php-format
 msgid "Error code: %s"
 msgstr "දෝෂ කේතය: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 #, php-format
 msgid "Error text: %s"
 msgstr "දෝෂ පණිවුඩය: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No accounts selected."
 msgstr "පේළි කිසිවක් තෝරගෙන නැත"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 #, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "තීරුව හලමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "ප්‍රාථමික මූලය එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
 #: templates/console/display.twig:150 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -7169,29 +7160,29 @@ msgstr "ප්‍රාථමික මූලය එක් කරන්න"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 msgid "Click to dismiss this notification"
 msgstr "මෙම නිවේදනය ඉවත් කිරීමට ක්ලික් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 #, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "දත්තගබඩාවල නම් වෙනස් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "දත්තගබඩාව පිටපත් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "අක්ෂර කට්ටලය වෙනස් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
 #: libraries/classes/IndexColumn.php:151 libraries/classes/Index.php:448
 #: libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:613
@@ -7228,84 +7219,84 @@ msgstr "අක්ෂර කට්ටලය වෙනස් කෙරෙමින
 msgid "No"
 msgstr "නැත"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: templates/database/structure/drop_form.twig:15
 #: templates/database/structure/empty_form.twig:15 templates/import.twig:154
 #: templates/sql/query.twig:144 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "අන්‍ය මූල පරීක්ෂා සක්‍රිය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 #, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
 msgstr "ශීර්ෂකය ලබා ගැනීමට නොහැකි විය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 msgid "Searching"
 msgstr "සොයමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
 msgid "Hide search results"
 msgstr "සෙවුම් ප්‍රතිඵල සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
 msgid "Show search results"
 msgstr "සෙවුම් ප්‍රතිඵල පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
 msgid "Browsing"
 msgstr "පිරික්සමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 msgid "Deleting"
 msgstr "ඉවත් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "%s වගුව තුල ගැලපීම් ඉවත් කරන්නද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "සුරැකි ශ්‍රිතයක නිර්වචනයෙහි RETURN ප්‍රකාශයක් තිබිය යුතුයි!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #, php-format
 msgid "Values for column %s"
 msgstr "%s තීරුව සඳහා අගයන්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid "Values for a new column"
 msgstr "නව තීරුවක් සඳහා අගයන්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "Enter each value in a separate field."
 msgstr "එක් එක් අගයන් වෙන වෙනම ක්ෂේත්‍ර වලට ඇතුලත් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 #, php-format
 msgid "Add %d value(s)"
 msgstr "අගයන් %dක් එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "සටහන: ගොනුවේ වගු එකකට වැඩි ගණනක් ඇත්නම්, ඒවා එකකට සංයුක්ත කෙරෙනු ඇත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 msgid "Hide query box"
 msgstr "විමසුම් කවුළුව සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 msgid "Show query box"
 msgstr "විමසුම් කවුළුව පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
 #: libraries/classes/Display/Results.php:2764
 #: libraries/classes/Tracking/Tracking.php:230
 #: templates/console/bookmark_content.twig:11
@@ -7315,94 +7306,94 @@ msgstr "විමසුම් කවුළුව පෙන්වන්න"
 #: templates/database/designer/main.twig:388
 #: templates/database/search/results.twig:38
 #: templates/display/results/table.twig:327
-#: templates/display/results/table.twig:328 templates/export.twig:54
+#: templates/display/results/table.twig:328 templates/export.twig:62
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:69 templates/sql/query.twig:188
 msgid "Delete"
 msgstr "ඉවත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "අන්‍ය අගයන් පිරික්සන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "විචල්‍යය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #: libraries/classes/Normalization.php:946
 msgid "Pick"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 #, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
 msgstr "පේළි කිසිවක් තෝරගෙන නැත"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "දත්තගබඩාවේ සොයන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "නිදහස් මතකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 msgid "Add primary key"
 msgstr "ප්‍රාථමික මූලය එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "%s ට ප්‍රාථමික මූලයක් එක් කරන ලදි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 #: libraries/classes/Normalization.php:252
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "අවධානය පිළිබඳ වාර්තාව"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Normalization.php:508
 #: libraries/classes/Normalization.php:567
 #: libraries/classes/Normalization.php:654
@@ -7412,99 +7403,99 @@ msgstr ""
 msgid "End of step"
 msgstr "පේළියේ අවසානය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:775
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #: libraries/classes/Normalization.php:340
 msgid "Done"
 msgstr "තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export/Export.php:1308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Export/Export.php:1294
 #: libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "ආපසු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 msgid "Step"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
 #, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
 msgstr "පහත විමසුම් ක්‍රියාත්මක කරන ලදි:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 #, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
 msgstr "පහත වගුවට වරප්‍රසාද එක් කරන්න:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -7518,82 +7509,82 @@ msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත.
 msgid "Save"
 msgstr "සුරකින්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Hide search criteria"
 msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 msgid "Show search criteria"
 msgstr "සෙවුම් නිර්ණායක පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
 msgstr "තීර නම්: "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
 msgstr "තීර නම්: "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "සෙවුම් නිර්ණායක පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:471
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 msgid "Each point represents a data row."
 msgstr "එක් ලක්ෂ්‍යයකින් දත්ත පේළියක් නියෝජනය කෙරේ."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:473
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Hovering over a point will show its label."
 msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන විට එහි ලේබලය පෙන්නුම් කරයි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "තුළු සූමකරණය සඳහා ප්‍රස්ථාරයේ කොටසක් මූසිකය ආධාරයෙන් තෝරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Click reset zoom button to come back to original state."
 msgstr "පෙර තත්ත්වයට පැමිණීම සඳහා සූමකරණය ප්‍රතිසකසන බොත්තම ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "පේළියක දත්ත පරීකෂා කිරීමට හා සමහරක් දත්ත වෙනස් කිරීමට ලක්ෂ්‍යයක් මත ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "ප්‍රස්තාරයෙහි විශාලත්වය පහළ දකුණු කොණෙන් ඇදීමෙන් වෙනස් කල හැක."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 msgid "Select two columns"
 msgstr "තීර දෙකක් තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Select two different columns"
 msgstr "එකිනෙකට වෙනස් තීර දෙකක් තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Data point content"
 msgstr "ලක්ෂයට අදාල දත්ත"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 #: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:1579
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "නොසලකන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #: libraries/classes/Display/Results.php:2707
 #: libraries/classes/Html/Generator.php:77
 #: templates/display/results/table.twig:323
@@ -7601,7 +7592,7 @@ msgstr "නොසලකන්න"
 msgid "Copy"
 msgstr "පිටපත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -7609,7 +7600,7 @@ msgstr "පිටපත් කරන්න"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -7617,106 +7608,106 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 msgid "Point"
 msgstr "ලක්ෂ්‍යය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 #, php-format
 msgid "Point %d"
 msgstr "%dවන ලක්ෂ්‍යය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid "Linestring"
 msgstr "රේඛාව"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 msgid "Polygon"
 msgstr "බහු අස්‍රය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 #: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "ජ්‍යාමිතිය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "ඇතුලත කවය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "පිටත කවය:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "ලක්ෂ්‍යයක් එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "ඇතුල් කවයක් එක් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:506
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
 msgid "Encryption key"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:506
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:511
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:520
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 msgid "Select referenced key"
 msgstr "සම්බන්දිත මූලය තෝරන්න"
 
 # ප්‍රාථමික මූලය = Primary key. Source: Glossary of Information Technology
 # Terms - ICTA
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 msgid "Select Foreign Key"
 msgstr "අන්‍ය මූලය තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Please select the primary key or a unique key!"
 msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7724,11 +7715,11 @@ msgstr ""
 "සැලැස්මේ සිදුකල වෙනස්කම් සුරැකීම සිදුකර නැත. සුරැකීම සිදු නොකළහොත් ඒවා අහිමි වනු ඇත. ඉදිරියට "
 "යන්න?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 #, fuzzy
@@ -7736,11 +7727,11 @@ msgstr ""
 msgid "Add tables from other databases"
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 msgid "Page name"
 msgstr "පිටුවේ නම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 #, fuzzy
@@ -7748,7 +7739,7 @@ msgstr "පිටුවේ නම"
 msgid "Save page"
 msgstr "පිටුව තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 #, fuzzy
@@ -7756,7 +7747,7 @@ msgstr "පිටුව තෝරන්න"
 msgid "Save page as"
 msgstr "පිටුව තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 #, fuzzy
@@ -7764,110 +7755,110 @@ msgstr "පිටුව තෝරන්න"
 msgid "Open page"
 msgstr "නිදහස් පිටු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
 msgstr "පිටුව තෝරන්න"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #: templates/database/designer/main.twig:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "ඒකකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "සංස්කරණය සඳහා පිටුවක් තෝරාගන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "ක්‍රමානුරූපය සංස්කරණය හෝ අපනයනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 msgid "Modifications have been saved"
 msgstr "වෙනස් කිරීම් සුරකින ලදි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
 #, php-format
 msgid "%d object(s) created."
 msgstr "වස්තූන් %d ක් නිමැවිණි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "තීර නම්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:180
 msgid "Submit"
 msgstr "ඉදිරිපත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "සංස්කරණය අවලංගු කිරීමට escape ඔබන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid "Drag to reorder."
 msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 msgid "Click to mark/unmark."
 msgstr "සලකුණු කිරීමට/ ඉවත් කිරීමට ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid "Double-click to copy column name."
 msgstr "තීර නාමය පිටපත් කිරීම සඳහා ද්වි ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "තීර පෙන්වීමට/සැඟවීමට<br>ඊතලය ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7875,94 +7866,94 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "මුල් පිහිටුම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "අවලංගු කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 #: libraries/classes/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "අත්හැර දමන ලදි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Success"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "ආනයන පෙරනිමි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "වගු තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 #, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
 msgstr "සබැඳීම වෙත යන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 msgid "Generate password"
 msgstr "මුරපදය උත්පාදනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "උත්පාදනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "තවත්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 #, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "පැනලය පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "පැනලය සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 #: libraries/classes/Navigation/NavigationTree.php:1308
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
 msgstr "ප්‍රධාන පැනලය රිසි සේ සකසන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 #: libraries/classes/Setup/Index.php:153
 #, php-format
 msgid ""
@@ -7973,129 +7964,129 @@ msgstr ""
 "අනුවාදය %s අනුවාදයයි (%s දින නිකුත් කරන ලද)."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid ", latest stable version:"
 msgstr ", නවතම ස්ථායි අනුවාදය:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "up to date"
 msgstr "යාවත්කාලීන"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "සිටුවම් වෙනස් කිරීම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "විවෘත වගු පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 #: libraries/classes/ErrorHandler.php:418
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "නොසලකන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Successfully copied!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "දත්තගබඩාව පිටපත් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "මෙම විමසුම මෙහි නැවත පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #, fuzzy, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "ක්‍රියාත්මක කරන ලද විමසුම්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "වගු විස්තර"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "සෙවුම් ප්‍රතිඵල සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -8104,63 +8095,63 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "වෙත දත්තගබඩාව පිටවත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "වගු නාම මූලයක් එක් කරන්න:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "වගු නාම මූලය ප්‍රතිස්ථාපනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "නාම මූලය සහිත වගු පිටපත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Extremely weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Very weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Good"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -8168,39 +8159,39 @@ msgid "Unknown security key error."
 msgstr "හඳුනා නොගත් දෝෂය"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "වැරදි අපනයන වර්ගයකි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -8208,13 +8199,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s වගුව දැනටමත් පවතී!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 #: libraries/classes/InsertEdit.php:279
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 #: libraries/classes/Controllers/Table/ChangeController.php:184
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
@@ -8222,91 +8213,91 @@ msgstr "සඟවන්න"
 msgid "Show"
 msgstr "පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "ජනවාරි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "පෙබරවාරි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "මාර්තු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "අ‍ප්‍රේල්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "මැයි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "ජුනි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "ජූලි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "අගෝස්තු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "සැප්තැම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "ඔක්තෝම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "නොවැම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "දෙසැම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
 #: libraries/classes/Util.php:500
 #, fuzzy
 #| msgid "Jan"
@@ -8314,7 +8305,7 @@ msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "ජනවාරි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #: libraries/classes/Util.php:501
 #, fuzzy
 #| msgid "Feb"
@@ -8322,7 +8313,7 @@ msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "පෙබරවාරි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #: libraries/classes/Util.php:502
 #, fuzzy
 #| msgid "Mar"
@@ -8330,7 +8321,7 @@ msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "මාර්තු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:503
 #, fuzzy
 #| msgid "Apr"
@@ -8338,7 +8329,7 @@ msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "අ‍ප්‍රේල්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #: libraries/classes/Util.php:504
 #, fuzzy
 #| msgid "May"
@@ -8346,7 +8337,7 @@ msgctxt "Short month name for May"
 msgid "May"
 msgstr "මැයි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:505
 #, fuzzy
 #| msgid "Jun"
@@ -8354,7 +8345,7 @@ msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "ජුනි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #: libraries/classes/Util.php:506
 #, fuzzy
 #| msgid "Jul"
@@ -8362,7 +8353,7 @@ msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "ජූලි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:507
 #, fuzzy
 #| msgid "Aug"
@@ -8370,7 +8361,7 @@ msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "අගෝස්තු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/Util.php:508
 #, fuzzy
 #| msgid "Sep"
@@ -8378,7 +8369,7 @@ msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "සැප්තැම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 #: libraries/classes/Util.php:509
 #, fuzzy
 #| msgid "Oct"
@@ -8386,7 +8377,7 @@ msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "ඔක්තෝම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/Util.php:510
 #, fuzzy
 #| msgid "Nov"
@@ -8394,7 +8385,7 @@ msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "නොවැම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:511
 #, fuzzy
 #| msgid "Dec"
@@ -8402,7 +8393,7 @@ msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "දෙසැම්බර්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #: libraries/classes/Util.php:514
 #, fuzzy
 #| msgid "Sun"
@@ -8410,7 +8401,7 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "ඉරිදා"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
 #: libraries/classes/Util.php:515
 #, fuzzy
 #| msgid "Mon"
@@ -8418,7 +8409,7 @@ msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "සඳුදා"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #: libraries/classes/Util.php:516
 #, fuzzy
 #| msgid "Tue"
@@ -8426,7 +8417,7 @@ msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "අඟහ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
 #: libraries/classes/Util.php:517
 #, fuzzy
 #| msgid "Wed"
@@ -8434,7 +8425,7 @@ msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "බදාදා"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:518
 #, fuzzy
 #| msgid "Thu"
@@ -8442,7 +8433,7 @@ msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "බ්‍රහස්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
 #: libraries/classes/Util.php:519
 #, fuzzy
 #| msgid "Fri"
@@ -8450,7 +8441,7 @@ msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "සිකුරා"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/classes/Util.php:520
 #, fuzzy
 #| msgid "Sat"
@@ -8458,56 +8449,56 @@ msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "සෙනසු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "ඉරි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "සඳු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "අඟ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "බදා"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "බ්‍රහ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:761
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "සිකු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "සෙන"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:763
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -8515,13 +8506,13 @@ msgid "Wk"
 msgstr "සති"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:765
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -8529,49 +8520,49 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "කිසිවක් නැත"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "කාලය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "පැය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "මිනිත්තු"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "තත්පර"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:771
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "තත්පර"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "තප්පරයකට"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:773
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -8580,7 +8571,7 @@ msgid "Time zone"
 msgstr "කාලරාමු"
 
 #. l10n: Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:777
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -8589,130 +8580,130 @@ msgid "Prev"
 msgstr "පෙර"
 
 #. l10n: Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:779
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
 msgctxt "Next month"
 msgid "Next"
 msgstr "මීලඟ"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:781
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
 msgid "Today"
 msgstr "අද දින"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:781
 msgid "This field is required"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:783
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter only digits"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:796
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:798
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:796
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:800
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:798
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:800
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:806
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:808
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -8724,35 +8715,35 @@ msgstr ""
 "මෙය ඔබ උඩුගත කරන ගොනුව අවසරැති ප්‍රමාණයට වඩා විශාල වීම හෝ webkit මූලික කරගත් බ්‍රව්සර වල "
 "(Safari, Google Chrome, Arora etc.) හඳුනාගත් දෝෂයක් විය හැක."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:810
 #, php-format
 msgid "%s of %s"
 msgstr "%s/%s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
 #, php-format
 msgid "%s/sec."
 msgstr "%s/තත්පර."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:812
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "තවත් මිනිත්තු %MIN තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
 msgid "About %SEC sec. remaining."
 msgstr "තවත් තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
 msgid "The file is being processed, please be patient."
 msgstr "ඔබගේ ගොනුව සැකසෙමින් පවතී. කරුණාකර ඉවසා සිටින්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
 #, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "ඔබගේ ආනයන ගොනුව උඩුගත කෙරෙමින්…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -8797,13 +8788,13 @@ msgstr ""
 msgid "Could not import configuration"
 msgstr "වින්‍යාස ආනයනය අසමත් විය"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:46
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:47
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Two-factor authentication has been removed."
 msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලදි"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:57
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:60
 #, fuzzy
 #| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
@@ -9524,7 +9515,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "අනාරක්ෂිත සම්බන්ධතාවය"
 
-#: libraries/classes/Controllers/Setup/MainController.php:34
+#: libraries/classes/Controllers/Setup/MainController.php:35
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -9550,7 +9541,7 @@ msgstr "පොත් සලකුණ නොසාදන ලදි!"
 #: libraries/classes/Controllers/Table/AddFieldController.php:143
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:202
-#: libraries/classes/Table/Indexes.php:77
+#: libraries/classes/Table/Indexes.php:91
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි."
@@ -10032,7 +10023,7 @@ msgstr "හලන ලද සිද්ධිය ප්‍රතිස්ථාප
 msgid "The backed up query was:"
 msgstr "රක්ෂිත විමසුම වූයේ:"
 
-#: libraries/classes/DatabaseInterface.php:1093
+#: libraries/classes/DatabaseInterface.php:1095
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -10040,7 +10031,7 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1135
+#: libraries/classes/DatabaseInterface.php:1137
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
@@ -10532,14 +10523,14 @@ msgstr "ආනයනය"
 msgid "Automatically send report next time"
 msgstr "ස්වයංක්‍රියව අනුවාද සාදන්න"
 
-#: libraries/classes/Export/Export.php:166
-#: libraries/classes/Export/Export.php:202
-#: libraries/classes/Export/Export.php:469
+#: libraries/classes/Export/Export.php:162
+#: libraries/classes/Export/Export.php:198
+#: libraries/classes/Export/Export.php:465
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත් ඉඩ අවකාශ නොමැත."
 
-#: libraries/classes/Export/Export.php:422
+#: libraries/classes/Export/Export.php:418
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -10547,19 +10538,19 @@ msgstr ""
 "%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් උඩින් ලිවීමේ හැකියාව "
 "සලකා බලන්න."
 
-#: libraries/classes/Export/Export.php:429
-#: libraries/classes/Export/Export.php:439
+#: libraries/classes/Export/Export.php:425
+#: libraries/classes/Export/Export.php:435
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "වෙබ් සේවාදායකයට %s ගොනුව සුරැකීමට අවසර නොමැත."
 
-#: libraries/classes/Export/Export.php:476
+#: libraries/classes/Export/Export.php:472
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකින ලදි."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export/Export.php:913
+#: libraries/classes/Export/Export.php:909
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -11704,12 +11695,12 @@ msgstr ""
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL සේවාදායකයට ලොග් විය නොහැක"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:321
+#: libraries/classes/Plugins/AuthenticationPlugin.php:322
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:78
-#: templates/export.twig:119
+#: templates/export.twig:127
 msgid "Format:"
 msgstr "ආකෘතිය:"
 
@@ -12973,8 +12964,8 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing/Routing.php:140
-#: libraries/classes/Routing/Routing.php:203
+#: libraries/classes/Routing/Routing.php:141
+#: libraries/classes/Routing/Routing.php:202
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
@@ -13587,7 +13578,7 @@ msgstr "මෙම MySQL සේවාදායකයේ %s අක්‍රීය 
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "මෙම MySQL සේවාදායකයේ %s ගබඩා යන්ත්‍රය භාවිත කල නොහැක."
 
-#: libraries/classes/Table/Indexes.php:50 libraries/classes/Table.php:1974
+#: libraries/classes/Table/Indexes.php:54 libraries/classes/Table.php:1974
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr ""
 
@@ -14286,8 +14277,8 @@ msgstr "වගුවේ නම"
 
 #: templates/columns_definitions/column_definitions_form.twig:31
 #: templates/console/display.twig:124
-#: templates/database/central_columns/main.twig:202 templates/export.twig:281
-#: templates/export.twig:297 templates/export.twig:313
+#: templates/database/central_columns/main.twig:202 templates/export.twig:289
+#: templates/export.twig:305 templates/export.twig:321
 #, fuzzy
 #| msgid "And"
 msgid "Add"
@@ -14341,7 +14332,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:81 templates/modals/add_index.twig:5
+#: templates/export.twig:89 templates/modals/add_index.twig:5
 #: templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
@@ -14932,7 +14923,7 @@ msgid "Number of columns"
 msgstr "තීර ගණන"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:27
+#: templates/database/operations/index.twig:39 templates/export.twig:35
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "සාදන්න"
@@ -15463,7 +15454,7 @@ msgstr "දත්තගබඩා විස්තර"
 msgid "Rename database to"
 msgstr "බවට දත්තගබඩාවේ නම වෙනස් කරන්න"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:278
+#: templates/database/operations/index.twig:58 templates/export.twig:286
 #, fuzzy
 #| msgid "Database name"
 msgid "New database name"
@@ -16074,7 +16065,7 @@ msgstr "සංස්කරණය කල දත්ත සුරකින්න"
 msgid "Restore column order"
 msgstr "තීර අනුපිලිවල ප්‍රතිෂ්ඨාපනය කරන්න"
 
-#: templates/display/results/table.twig:124 templates/export.twig:145
+#: templates/display/results/table.twig:124 templates/export.twig:153
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "පේළි ගණන:"
@@ -16191,158 +16182,158 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
-#: templates/export/template_options.twig:1 templates/export.twig:42
+#: templates/export/template_options.twig:1 templates/export.twig:50
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
 msgstr "වගු තෝරන්න"
 
-#: templates/export.twig:14
+#: templates/export.twig:22
 msgid "Export templates:"
 msgstr "අපනයන ආකෘති:"
 
-#: templates/export.twig:18
+#: templates/export.twig:26
 msgid "New template:"
 msgstr "නව ආකෘතිය:"
 
-#: templates/export.twig:21 templates/export.twig:24
+#: templates/export.twig:29 templates/export.twig:32
 #, fuzzy
 #| msgid "Table name"
 msgid "Template name"
 msgstr "වගුවේ නම"
 
-#: templates/export.twig:35
+#: templates/export.twig:43
 msgid "Existing templates:"
 msgstr "පවත්නා ආකෘති:"
 
-#: templates/export.twig:38
+#: templates/export.twig:46
 msgid "Template:"
 msgstr "ආකෘතිය:"
 
-#: templates/export.twig:51
+#: templates/export.twig:59
 msgid "Update"
 msgstr "යාවත්කාලීන කරන්න"
 
-#: templates/export.twig:72
+#: templates/export.twig:80
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "SQL විමසුම පෙන්වමින්"
 
-#: templates/export.twig:104
+#: templates/export.twig:112
 #, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
 msgstr "අපනයන ක්‍රමය"
 
-#: templates/export.twig:108
+#: templates/export.twig:116
 msgid "Quick - display only the minimal options"
 msgstr "කඩිනම් - අවම තෝරා ගැනීම් පමණක් පෙන්වන්න"
 
-#: templates/export.twig:112
+#: templates/export.twig:120
 msgid "Custom - display all possible options"
 msgstr "අභිමත - සියලුම තෝරා ගැනීම් පෙන්වන්න"
 
-#: templates/export.twig:121
+#: templates/export.twig:129
 #, fuzzy
 #| msgid "File to import:"
 msgid "File format to export"
 msgstr "ආනයනය සඳහා වූ ගොනුව:"
 
-#: templates/export.twig:133
+#: templates/export.twig:141
 msgid "Rows:"
 msgstr "පේළි:"
 
-#: templates/export.twig:137
+#: templates/export.twig:145
 msgid "Dump all rows"
 msgstr "සියළුම පේළි ප්‍රතිදානය කරන්න"
 
-#: templates/export.twig:141
+#: templates/export.twig:149
 msgid "Dump some row(s)"
 msgstr "සමහර පේළි(ය) පමණක් ප්‍රතිදානය කරන්න"
 
-#: templates/export.twig:156
+#: templates/export.twig:164
 msgid "Row to begin at:"
 msgstr "ආරම්භක පේළිය:"
 
-#: templates/export.twig:166 templates/export.twig:328
+#: templates/export.twig:174 templates/export.twig:336
 msgid "Output:"
 msgstr "ප්‍රතිදානය:"
 
-#: templates/export.twig:171 templates/export.twig:366
+#: templates/export.twig:179 templates/export.twig:374
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "සේවාදායකයේ <b>%s</b> ඩිරෙක්ටරියේ සුරකින්න"
 
-#: templates/export.twig:189 templates/export.twig:333
+#: templates/export.twig:197 templates/export.twig:341
 msgid "Rename exported databases/tables/columns"
 msgstr "අපනයනිත දත්තගබඩා/වගු/තීර වල නම් වෙනස් කරන්න"
 
-#: templates/export.twig:197
+#: templates/export.twig:205
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:212 templates/export.twig:226
-#: templates/export.twig:239 templates/export.twig:256
+#: templates/export.twig:220 templates/export.twig:234
+#: templates/export.twig:247 templates/export.twig:264
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
 msgstr "දුරස්ථ සේවාදායකය"
 
-#: templates/export.twig:265
+#: templates/export.twig:273
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export.twig:270
+#: templates/export.twig:278
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database:"
 msgstr "වගු තෝරන්න"
 
-#: templates/export.twig:286
+#: templates/export.twig:294
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select table:"
 msgstr "වගු තෝරන්න"
 
-#: templates/export.twig:294
+#: templates/export.twig:302
 #, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
 msgstr "නව පිටු නාමය: "
 
-#: templates/export.twig:302
+#: templates/export.twig:310
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select column:"
 msgstr "තීර දෙකක් තෝරන්න"
 
-#: templates/export.twig:310
+#: templates/export.twig:318
 #, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
 msgstr "තීර නම් පිටපත් කරන්න."
 
-#: templates/export.twig:343
+#: templates/export.twig:351
 #, fuzzy, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
 msgstr "%s ප්‍රකාශය එක්කරන්න"
 
-#: templates/export.twig:352
+#: templates/export.twig:360
 msgid "View output as text"
 msgstr "ප්‍රතිදානය පෙළ ලෙස දර්ශනය කරන්න"
 
-#: templates/export.twig:356
+#: templates/export.twig:364
 msgid "Save output to a file"
 msgstr "ප්‍රතිදානය ගොනුවකට සුරකින්න"
 
-#: templates/export.twig:383
+#: templates/export.twig:391
 msgid "File name template:"
 msgstr "ගොනු නාම අච්චුව:"
 
-#: templates/export.twig:384
+#: templates/export.twig:392
 #, fuzzy, php-format
 #| msgid ""
 #| "alue is interpreted using %1$sstrftime%2$s, so you can use time matting "
@@ -16357,51 +16348,51 @@ msgstr ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
-#: templates/export.twig:394
+#: templates/export.twig:402
 #, fuzzy
 #| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "මතු අපනයන සඳහා භාවිතා කරන්න"
 
-#: templates/export.twig:405 templates/import.twig:98
+#: templates/export.twig:413 templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "ගොනුවේ අක්ෂර කට්ටලය:"
 
-#: templates/export.twig:425
+#: templates/export.twig:433
 msgid "Compression:"
 msgstr "හැකිළීම:"
 
-#: templates/export.twig:433
+#: templates/export.twig:441
 msgid "zipped"
 msgstr "zip කරන ලද"
 
-#: templates/export.twig:439
+#: templates/export.twig:447
 msgid "gzipped"
 msgstr "gzipp කරන ලද"
 
-#: templates/export.twig:457
+#: templates/export.twig:465
 msgid "Export databases as separate files"
 msgstr "දත්තගබඩා වෙන වෙනම ගොනු ලෙස අපනයනය කරන්න"
 
-#: templates/export.twig:459
+#: templates/export.twig:467
 #, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
 msgstr "වගු ශීර්ෂක අපනයනය කරන්න"
 
-#: templates/export.twig:470
+#: templates/export.twig:478
 msgid "Skip tables larger than:"
 msgstr ""
 
-#: templates/export.twig:472
+#: templates/export.twig:480
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: templates/export.twig:478 templates/import.twig:173
+#: templates/export.twig:486 templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "ආකෘති-විශේෂී තෝරා ගැනීම්:"
 
-#: templates/export.twig:487 templates/import.twig:182
+#: templates/export.twig:495 templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "කේතීකරණ පරිවර්තනය:"
 
@@ -20018,6 +20009,14 @@ msgstr "දසුනේ නම"
 #: templates/view_create.twig:84
 msgid "Column names"
 msgstr "තීර නම්"
+
+#~ msgid ""
+#~ "You have enabled mbstring.func_overload in your PHP configuration. This "
+#~ "option is incompatible with phpMyAdmin and might cause some data to be "
+#~ "corrupted!"
+#~ msgstr ""
+#~ "ඔබගේ PHP වින්‍යාසයන් හි mbstring.func_overload සක්‍රීය කර ඇත. මෙම විකල්පය "
+#~ "phpMyAdmin සමඟ නොගැළපෙන අතර යම් දත්ත විනාශ වීමට හේතු විය හැකිය!"
 
 #, fuzzy
 #~| msgid "Slave configuration"

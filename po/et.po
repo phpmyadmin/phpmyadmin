@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-07-30 00:21+0000\n"
+"POT-Creation-Date: 2023-08-06 00:18+0000\n"
 "PO-Revision-Date: 2023-04-26 11:52+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1335,21 +1335,21 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit väärtuseks on määratud 1 MiB"
 
-#: libraries/classes/Application.php:257
+#: libraries/classes/Application.php:259
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Peaksid uuendama %s %s või uuemale versioonile."
 
-#: libraries/classes/Application.php:289
+#: libraries/classes/Application.php:291
 msgid "Error: Token mismatch"
 msgstr "Viga: sobimatu sümbol"
 
-#: libraries/classes/Application.php:348
+#: libraries/classes/Application.php:350
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Lisainfot leiad %smeie dokumentatsioonist%s."
 
-#: libraries/classes/Application.php:459
+#: libraries/classes/Application.php:461
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1357,16 +1357,7 @@ msgstr ""
 "Sessiooni küpsise seadmine nurjus. Võib-olla kasutad sa phpMyAdmin'i HTTPS "
 "protokolli asemel HTTP protokolliga."
 
-#: libraries/classes/Application.php:506
-msgid ""
-"You have enabled mbstring.func_overload in your PHP configuration. This "
-"option is incompatible with phpMyAdmin and might cause some data to be "
-"corrupted!"
-msgstr ""
-"Oled PHP seadistuses lubanud mbstring.func_overload. See ei ühildu "
-"phpMyAdminiga ja võib andmeid rikkuda!"
-
-#: libraries/classes/Application.php:521
+#: libraries/classes/Application.php:507
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1374,11 +1365,11 @@ msgstr ""
 "Funktsioon(id) ini_get ja/või ini_set on failis php.ini keelatud. phpMyAdmin "
 "vajab neid funktsioone!"
 
-#: libraries/classes/Application.php:531
+#: libraries/classes/Application.php:516
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS ülekirjutamise katse"
 
-#: libraries/classes/Application.php:541
+#: libraries/classes/Application.php:526
 msgid "possible exploit"
 msgstr "võimalik turvaauk"
 
@@ -1387,7 +1378,7 @@ msgid "Search:"
 msgstr "Otsi:"
 
 #: libraries/classes/BrowseForeigners.php:181
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 #: libraries/classes/Controllers/Server/PrivilegesController.php:294
 #: libraries/classes/Normalization.php:226
 #: libraries/classes/Tracking/Tracking.php:305
@@ -1467,7 +1458,7 @@ msgid "Page number:"
 msgstr "Leht:"
 
 #: libraries/classes/BrowseForeigners.php:301
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #: templates/display/results/table.twig:99
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -1775,7 +1766,7 @@ msgstr "Vietnami"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 #: libraries/classes/Import/Import.php:1250 libraries/classes/Menu.php:234
 #: libraries/classes/Menu.php:334
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
@@ -1874,7 +1865,7 @@ msgid "Right"
 msgstr "Parem"
 
 #: libraries/classes/Config/ConfigFile.php:560
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 #: libraries/classes/Display/Results.php:1047
 #: libraries/classes/Plugins/Export/ExportSql.php:2045
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:94
@@ -1882,7 +1873,7 @@ msgstr "Parem"
 #: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
 #: templates/database/central_columns/main.twig:311
-#: templates/database/designer/main.twig:588 templates/export.twig:429
+#: templates/database/designer/main.twig:588 templates/export.twig:437
 #: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:192
 #: templates/server/status/processes/list.twig:72
@@ -1976,7 +1967,7 @@ msgid "Databases"
 msgstr "Andmebaasid"
 
 #: libraries/classes/Config/ConfigFile.php:584
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 #: libraries/classes/Menu.php:462
 #: libraries/classes/Server/Status/Processes.php:96
 #: libraries/classes/Util.php:1691
@@ -2021,7 +2012,7 @@ msgid "Closed"
 msgstr "Suletud"
 
 #: libraries/classes/Config/ConfigFile.php:614
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -2029,7 +2020,7 @@ msgid "Monday"
 msgstr "Esmaspäev"
 
 #: libraries/classes/Config/ConfigFile.php:615
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -2037,7 +2028,7 @@ msgid "Tuesday"
 msgstr "Teisipäev"
 
 #: libraries/classes/Config/ConfigFile.php:616
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -2045,7 +2036,7 @@ msgid "Wednesday"
 msgstr "Kolmapäev"
 
 #: libraries/classes/Config/ConfigFile.php:617
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -2053,7 +2044,7 @@ msgid "Thursday"
 msgstr "Neljapäev"
 
 #: libraries/classes/Config/ConfigFile.php:618
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -2061,7 +2052,7 @@ msgid "Friday"
 msgstr "Reede"
 
 #: libraries/classes/Config/ConfigFile.php:619
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -2069,7 +2060,7 @@ msgid "Saturday"
 msgstr "Laupäev"
 
 #: libraries/classes/Config/ConfigFile.php:620
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -3744,8 +3735,8 @@ msgid "Save on server"
 msgstr "Salvesta serverisse"
 
 #: libraries/classes/Config/Descriptions.php:685
-#: libraries/classes/Config/Descriptions.php:688 templates/export.twig:178
-#: templates/export.twig:373
+#: libraries/classes/Config/Descriptions.php:688 templates/export.twig:186
+#: templates/export.twig:381
 msgid "Overwrite existing file(s)"
 msgstr "Kirjuta olemasolev(ad) fail(id) üle"
 
@@ -4166,7 +4157,7 @@ msgid "Navigation panel width"
 msgstr "Navigatsioonipaneeli laius"
 
 #: libraries/classes/Config/Descriptions.php:815
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 #: libraries/classes/Navigation/NavigationTree.php:1305
 msgid "Link with main panel"
 msgstr "Lingi peapaneeli"
@@ -4622,7 +4613,7 @@ msgstr "Jäta lukustatud tabelid vahele"
 
 #: libraries/classes/Config/Descriptions.php:930
 #: libraries/classes/ConfigStorage/UserGroups.php:111
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #: libraries/classes/Display/Results.php:2703
 #: libraries/classes/Html/Generator.php:577
 #: libraries/classes/Html/Generator.php:840
@@ -4652,7 +4643,7 @@ msgid "Explain SQL"
 msgstr "Selgita SQL"
 
 #: libraries/classes/Config/Descriptions.php:932
-#: libraries/classes/Export/Export.php:1270
+#: libraries/classes/Export/Export.php:1256
 #: libraries/classes/Html/Generator.php:633 templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4871,7 +4862,7 @@ msgstr "Kadunud andmed %s jaoks"
 
 #: libraries/classes/Config/FormDisplay.php:625
 #: libraries/classes/Config/Validator.php:585
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
 msgid "Incorrect value!"
 msgstr "Vale väärtus!"
 
@@ -4948,7 +4939,7 @@ msgid "OpenDocument Text"
 msgstr "OpenDocument tekst"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:148
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:359
 #: libraries/classes/Menu.php:481 libraries/classes/Server/Privileges.php:1282
 #: libraries/classes/Util.php:1693 libraries/classes/Util.php:1708
@@ -4967,7 +4958,7 @@ msgstr "OpenDocument tekst"
 #: templates/display/results/table.twig:332
 #: templates/display/results/table.twig:333
 #: templates/display/results/table.twig:365 templates/export.twig:3
-#: templates/export.twig:495 templates/preferences/header.twig:42
+#: templates/export.twig:503 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:67
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4991,7 +4982,7 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV kasutades LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:58
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:326
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 #: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
 #: libraries/classes/Menu.php:486 libraries/classes/Util.php:1694
 #: libraries/classes/Util.php:1709 libraries/classes/Util.php:1726
@@ -5255,22 +5246,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Vale IP-aadress: %s"
 
 #: libraries/classes/Config/Validator.php:520
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a valid port number!"
 msgstr "Vigane pordi number!"
 
 #: libraries/classes/Config/Validator.php:542
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
 msgid "Not a positive number!"
 msgstr "Ei ole positiivne number!"
 
 #: libraries/classes/Config/Validator.php:564
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
 msgid "Not a non-negative number!"
 msgstr "Ei ole mitte-negatiivne number!"
 
 #: libraries/classes/Config/Validator.php:603
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Väärtus peab olema väiksem või võrdne kui %s!"
@@ -5287,7 +5278,7 @@ msgid "No bookmarks"
 msgstr "Järjehoidjad puuduvad"
 
 #: libraries/classes/Controllers/AbstractController.php:66
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:59
 #: libraries/classes/DbTableExists.php:46
 msgid "No databases selected."
@@ -5314,7 +5305,7 @@ msgid "Incomplete params"
 msgstr "Puudulikud parameetrid"
 
 #: libraries/classes/Controllers/Console/Bookmark/AddController.php:45
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Failed"
 msgstr "Nurjus"
 
@@ -5370,7 +5361,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:65
 #: libraries/classes/Controllers/Database/TrackingController.php:116
-#: libraries/classes/Controllers/Export/ExportController.php:307
+#: libraries/classes/Controllers/Export/ExportController.php:308
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
@@ -5384,7 +5375,7 @@ msgstr ""
 "Ei saanud laadida eksportimise pluginaid, palun kontrolli oma paigaldust!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:64
-#: libraries/classes/Controllers/Import/ImportController.php:560
+#: libraries/classes/Controllers/Import/ImportController.php:558
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:68
 msgid "Could not load import plugins, please check your installation!"
@@ -5491,7 +5482,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:23
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:29
 #: libraries/classes/Controllers/Export/TablesController.php:29
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:45
@@ -5541,7 +5532,7 @@ msgstr "tundmatu"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:42
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:46
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:54
 #: libraries/classes/Controllers/Table/DropColumnController.php:45
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
@@ -5609,7 +5600,7 @@ msgstr ""
 msgid "No tables selected."
 msgstr "Ühtegi tabelit ei ole valitud."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:141
+#: libraries/classes/Controllers/Database/TrackingController.php:143
 msgid "Database Log"
 msgstr "Andmebaasi logi"
 
@@ -5640,7 +5631,7 @@ msgid "You may want to refresh the page."
 msgstr "Sa võiksid lehekülje uuesti laadida."
 
 #: libraries/classes/Controllers/Export/ExportController.php:111
-#: libraries/classes/Export/Export.php:1256
+#: libraries/classes/Export/Export.php:1242
 msgid "Bad type!"
 msgstr "Halb tüüp!"
 
@@ -5648,7 +5639,7 @@ msgstr "Halb tüüp!"
 msgid "Bad parameters!"
 msgstr "Halvad parameetrid!"
 
-#: libraries/classes/Controllers/HomeController.php:92
+#: libraries/classes/Controllers/HomeController.php:91
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5656,7 +5647,7 @@ msgstr ""
 "Sind logiti väja ühest serverist. phpMyAdminist täielikuks välja logimiseks "
 "pead logima välja kõigist serveritest."
 
-#: libraries/classes/Controllers/HomeController.php:188
+#: libraries/classes/Controllers/HomeController.php:187
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5665,14 +5656,14 @@ msgstr ""
 "phpMyAdmini häälestuse salvestuskoht ei ole lõplikult häälestatud; mõned "
 "laiendatud funktsioonid ei ole aktiveeritud. %sVaata põhjust%s. "
 
-#: libraries/classes/Controllers/HomeController.php:194
+#: libraries/classes/Controllers/HomeController.php:193
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Alternatiivina mine suvalises andmebaasis sakile 'Operatsioonid' ja seadista "
 "ta seal."
 
-#: libraries/classes/Controllers/HomeController.php:259
+#: libraries/classes/Controllers/HomeController.php:258
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5684,7 +5675,7 @@ msgstr ""
 "väiksem, kui phpMyAdminis seadistatud küpsise kehtivus. Seetõttu võib "
 "sessioon aeguda kiiremini, kui phpMyAdminis seadistatud."
 
-#: libraries/classes/Controllers/HomeController.php:279
+#: libraries/classes/Controllers/HomeController.php:278
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5693,7 +5684,7 @@ msgstr ""
 "küpsise kehtivus, seetõttu sinu sisselogimine aegub varem, kui phpMyAdminis "
 "seadistatud."
 
-#: libraries/classes/Controllers/HomeController.php:298
+#: libraries/classes/Controllers/HomeController.php:297
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5703,7 +5694,7 @@ msgstr ""
 "ning on seetõttu sissetungimiseks avatud. Sa peaksid vahetama "
 "kontrollkasutaja 'pma' salasõna, et parandada see turvanõrkus."
 
-#: libraries/classes/Controllers/HomeController.php:320
+#: libraries/classes/Controllers/HomeController.php:319
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -5713,7 +5704,7 @@ msgstr ""
 "loodi automaatselt ajutine võti. Palun loe "
 "[doc@cfg_blowfish_secret]dokumentatsiooni[/doc]."
 
-#: libraries/classes/Controllers/HomeController.php:330
+#: libraries/classes/Controllers/HomeController.php:329
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5724,7 +5715,7 @@ msgstr ""
 "kui. See peaks olema ainult %d baiti pikk. Palun tutvu "
 "[doc@cfg_blowfish_secret]dokumentatsiooniga[/doc]."
 
-#: libraries/classes/Controllers/HomeController.php:348
+#: libraries/classes/Controllers/HomeController.php:347
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5736,7 +5727,7 @@ msgstr ""
 "kataloogi kindlasti kustutama. Vastasel korral võivad su serveri turvalisust "
 "ohustada isikud, kes on alla laadinud serveri seadistuste faili."
 
-#: libraries/classes/Controllers/HomeController.php:369
+#: libraries/classes/Controllers/HomeController.php:368
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5745,7 +5736,7 @@ msgstr ""
 "Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
 "%sdokumentatsioonist%s."
 
-#: libraries/classes/Controllers/HomeController.php:383
+#: libraries/classes/Controllers/HomeController.php:382
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5754,7 +5745,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) ei ole kasutatav. phpMyAdmin ei saa malle puhvermälus "
 "hoida ja on seetõttu aeglane."
 
-#: libraries/classes/Controllers/HomeController.php:439
+#: libraries/classes/Controllers/HomeController.php:438
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5764,7 +5755,7 @@ msgstr ""
 "märgitabelit. Ilma mbstring laiendita ei suuda phpMyAdmin sõnesid "
 "korralikult poolitada ja see võib viia ettearvamatute tulemusteni."
 
-#: libraries/classes/Controllers/HomeController.php:457
+#: libraries/classes/Controllers/HomeController.php:456
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5773,7 +5764,7 @@ msgstr ""
 "keelatud ka mõned võimalused nagu vigade raporteerimine või versiooni "
 "kontroll."
 
-#: libraries/classes/Controllers/Import/ImportController.php:203
+#: libraries/classes/Controllers/Import/ImportController.php:201
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5782,21 +5773,21 @@ msgstr ""
 "Tõenäoliselt üritasid üles laadida liiga suurt faili. Palun loe "
 "%sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
 
-#: libraries/classes/Controllers/Import/ImportController.php:235
+#: libraries/classes/Controllers/Import/ImportController.php:233
 msgid "Incorrect format parameter"
 msgstr "Vale vorminguparameeter"
 
-#: libraries/classes/Controllers/Import/ImportController.php:361
-#: libraries/classes/Controllers/Import/ImportController.php:600
+#: libraries/classes/Controllers/Import/ImportController.php:359
+#: libraries/classes/Controllers/Import/ImportController.php:598
 msgid "Showing bookmark"
 msgstr "Näitan järjehoidjat"
 
-#: libraries/classes/Controllers/Import/ImportController.php:386
-#: libraries/classes/Controllers/Import/ImportController.php:596
+#: libraries/classes/Controllers/Import/ImportController.php:384
+#: libraries/classes/Controllers/Import/ImportController.php:594
 msgid "The bookmark has been deleted."
 msgstr "Järjehoidja on kustutatud."
 
-#: libraries/classes/Controllers/Import/ImportController.php:508
+#: libraries/classes/Controllers/Import/ImportController.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5806,14 +5797,14 @@ msgstr ""
 "maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
 "[doc@faq1-16]KKK 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:608
+#: libraries/classes/Controllers/Import/ImportController.php:606
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importimine lõpetati edukalt, teostati %d päring."
 msgstr[1] "Importimine lõpetati edukalt, teostati %d päringut."
 
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:643
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5822,7 +5813,7 @@ msgstr ""
 "Ületati skripti ooteaeg. Kui tahad importimise lõpetada, siis palun %ssaada "
 "fail uuesti%s ja importimine jätkub poolelijäänud kohast."
 
-#: libraries/classes/Controllers/Import/ImportController.php:655
+#: libraries/classes/Controllers/Import/ImportController.php:653
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5831,7 +5822,7 @@ msgstr ""
 "phpMyAdmin ei suuda importimist lõpetada, kuni sa ei suurenda php aja "
 "piiranguid."
 
-#: libraries/classes/Controllers/Import/ImportController.php:723
+#: libraries/classes/Controllers/Import/ImportController.php:721
 #: libraries/classes/Controllers/Sql/SqlController.php:166
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
@@ -5846,80 +5837,80 @@ msgstr ""
 msgid "Could not load the progress of the import."
 msgstr "Importimise edenemise laadimine nurjus."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Kas tõesti tahad käivitada \"%s\"?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
 msgid "You are about to DESTROY a complete database!"
 msgstr "Oled KUSTUTAMAS kogu andmebaasi!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
 "Andmebaasi uus nimi ei saa olla ta vana nimi. Muuda uut nime ja proovi uuesti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
 msgid "You are about to DESTROY a complete table!"
 msgstr "Oled KUSTUTAMAS kogu tabelit!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Oled KÄRPIMAS kogu tabelit!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:62
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "Oled KUSTUTAMAS tabeli kõiki ridu!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
 msgid "Delete tracking data for this table?"
 msgstr "Kas kustutada selle tabeli jälgimise andmed?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
 msgid "Delete tracking data for these tables?"
 msgstr "Kas kustutada nende tabelite jälgimise andmed?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:62
 msgid "Delete tracking data for this version?"
 msgstr "Kas kustutada selle versiooni jälgimise andmed?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:66
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
 msgid "Delete tracking data for these versions?"
 msgstr "Kas kustutada nende versioonide jälgimise andmed?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
 msgid "Delete entry from tracking report?"
 msgstr "Kas kustutada kirje jälgimise raportist?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
 msgid "Deleting tracking data"
 msgstr "Kustuta jälgimise andmed"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:69
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:66
 msgid "Dropping Primary Key/Index"
 msgstr "Primaarvõtme/indeksi kustutamine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
 msgid "Dropping Foreign key."
 msgstr "Välisvõtme kustutamine."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:71
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "See tegevus võib võtta kaua aega. Jätkan sellegipoolest?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:69
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Kas tõesti tahad kustudata kasutajate grupi \"%s\"?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:73
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Mõned su muudatused ei ole veel salvestatud. Oled kindel, et soovid sellelt "
 "lehelt lahkuda?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:75
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
@@ -5927,19 +5918,19 @@ msgstr ""
 "Sa proovid vähendada ridade arvu, kuid oled juba sisestanud nendesse "
 "ridadesse andmeid, mis lähevad nüüd kaduma. Kas sa soovid jätkata?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:78
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Kas sa soovid tõesti tühistada valitud kasutajate õigused?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:79
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:76
 msgid "Do you really want to delete this central column?"
 msgstr "Kas sa soovid tõesti kustutada selle keskse veeru?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:80
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:77
 msgid "Do you really want to delete the selected items?"
 msgstr "Kas sa soovid tõesti kustutada valitud elemendid?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:82
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:79
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
@@ -5947,19 +5938,19 @@ msgstr ""
 "Kas soovid tõesti kustutada (DROP) valitud partitsiooni(d)? Selle käigus "
 "kustutatakse ka kõik valitud partitsiooni(de)ga seotud andmed!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:85
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:82
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Kas sa soovid tõesti kärpida (TRUNCATE) valitud partitsioone?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:86
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:83
 msgid "Do you really want to remove partitioning?"
 msgstr "Kas sa tõesti soovid loobuda partitsioneerimisest?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:87
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:84
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "Kas sa soovid tõesti kordistamise lähtestada (RESET REPLICA)?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:89
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:86
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -5973,15 +5964,15 @@ msgstr ""
 "soovitame pöörduda tagasi vana sortimise juurde ja vaadata nõuandeid "
 "aadressil "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:95
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:92
 msgid "Garbled Data"
 msgstr "Seosetud andmed"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:94
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Kas sa oled kindel, et soovid vahetada sortimist ja teisendada andmed?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:100
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -5997,7 +5988,7 @@ msgstr ""
 "muutmise funktsionaalsust (viit \"Muuda\") selle tabeli struktuuri "
 "leheküljel.</b>"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
@@ -6005,12 +5996,12 @@ msgstr ""
 "Kas sa oled kindel, et soovid vahetada kõikide veergude sortimist ja "
 "teisendada andmed?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
-#: templates/export.twig:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
+#: templates/export.twig:328
 msgid "Save & close"
 msgstr "Salvesta ja sule"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 #: templates/config/form_display/display.twig:47
 #: templates/preferences/manage/main.twig:113
 #: templates/preferences/manage/main.twig:121
@@ -6018,62 +6009,62 @@ msgstr "Salvesta ja sule"
 msgid "Reset"
 msgstr "Lähtesta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 msgid "Reset all"
 msgstr "Lähtesta kõik"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 msgid "Missing value in the form!"
 msgstr "Puuduv väärtus vormis!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:114
 msgid "Select at least one of the options!"
 msgstr "Vali valikutest vähemalt üks!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:118
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:115
 msgid "Please enter a valid number!"
 msgstr "Palun sisesta korrektne number!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:119
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
 msgid "Please enter a valid length!"
 msgstr "Palun sisesta korrektne pikkus!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 msgid "Add index"
 msgstr "Lisa indeks"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:118
 msgid "Edit index"
 msgstr "Muuda indeksit"
 
 #. l10n: Rename a table Index
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:123
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
 msgid "Rename index"
 msgstr "Nimeta indeks ümber"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 #: templates/table/index_form.twig:237
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Lisa indeksisse %s veerg(u)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:122
 msgid "Create single-column index"
 msgstr "Loo ühe veeru indeks"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:126
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:123
 msgid "Create composite index"
 msgstr "Loo mitme veeru indeks"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:127
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
 msgid "Composite with:"
 msgstr "Kasuta:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
 msgid "Please select column(s) for the index."
 msgstr "Palun vali indeksi veerg(u)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/modals/index_dialog_modal.twig:21
@@ -6086,61 +6077,61 @@ msgstr "Palun vali indeksi veerg(u)."
 msgid "Preview SQL"
 msgstr "SQL eelvaade"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 #: templates/sql/query.twig:220
 msgid "Simulate query"
 msgstr "Simuleeri päringut"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 msgid "Matched rows:"
 msgstr "Sobivad read:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Html/Generator.php:815 templates/export.twig:67
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
+#: libraries/classes/Html/Generator.php:815 templates/export.twig:75
 msgid "SQL query:"
 msgstr "SQL päring:"
 
 #. l10n: Default label for the y-Axis of Charts
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 msgid "Y values"
 msgstr "Y väärtused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 msgid "Please enter the SQL query first."
 msgstr "Palun sisesta esmalt SQL päring."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 msgid "The host name is empty!"
 msgstr "Hostinimi on tühi!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 msgid "The user name is empty!"
 msgstr "Kasutajanimi on tühi!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 #: libraries/classes/Server/Privileges.php:755
 #: libraries/classes/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Parool on tühi!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 #: libraries/classes/Server/Privileges.php:753
 #: libraries/classes/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Paroolid ei kattu!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
 msgid "Removing Selected Users"
 msgstr "Valitud kasutajate kustutamine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
 #: libraries/classes/Tracking/Tracking.php:206
 #: libraries/classes/Tracking/Tracking.php:588
 #: templates/columns_definitions/column_definitions_form.twig:177
 #: templates/columns_definitions/column_definitions_form.twig:182
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
-#: templates/export_modal.twig:10 templates/export.twig:82
-#: templates/export.twig:92 templates/export.twig:190
+#: templates/export_modal.twig:10 templates/export.twig:90
+#: templates/export.twig:100 templates/export.twig:198
 #: templates/home/index.twig:319 templates/home/index.twig:327
 #: templates/modals/add_index.twig:6 templates/modals/build_query.twig:6
 #: templates/modals/build_query.twig:16 templates/modals/change_password.twig:6
@@ -6183,75 +6174,75 @@ msgstr "Valitud kasutajate kustutamine"
 msgid "Close"
 msgstr "Sulge"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr "Lukusta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:153
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr "Ava"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 #: templates/server/privileges/users_overview.twig:100
 msgid "Lock this account."
 msgstr "Lukusta see konto."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:155
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 #: templates/server/privileges/users_overview.twig:100
 msgid "Unlock this account."
 msgstr "Vabasta see konto."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:155
 msgid "Template was created."
 msgstr "Mall loodi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:159
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
 msgid "Template was loaded."
 msgstr "Mall on laetud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:157
 msgid "Template was updated."
 msgstr "Mall on loodud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 msgid "Template was deleted."
 msgstr "Mall on kustutatud."
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:164
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
 #: libraries/classes/Server/Status/Data.php:155
 msgid "Other"
 msgstr "Muud"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
 #: libraries/classes/Util.php:391 libraries/classes/Util.php:423
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
 #: libraries/classes/Util.php:389 libraries/classes/Util.php:421
 msgid "."
 msgstr "."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
 msgid "Connections / Processes"
 msgstr "Ühendused / Protsessid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
 msgid "Number of statements"
 msgstr "Lausete arv"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
 msgid "Local monitor configuration incompatible!"
 msgstr "Kohaliku jälgimise seadistus ei ühildu!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6263,210 +6254,210 @@ msgstr ""
 "Üldjuhul sinu praegune seadistus enam ei toimi. Palun lähtesta oma seadistus "
 "vaikimisi väärtustele menüüst <i>Sätted</i>."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 msgid "Query cache efficiency"
 msgstr "Päringu vahemälu kasutegur"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Query cache usage"
 msgstr "Päringu vahemälu kasutus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 msgid "Query cache used"
 msgstr "Kasutatud päringu vahemälu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 msgid "System CPU usage"
 msgstr "Süsteemi CPU kasutus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
 msgid "System memory"
 msgstr "Süsteemimälu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 msgid "System swap"
 msgstr "Süsteemisaale"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 msgid "Average load"
 msgstr "Keskmine koormus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 msgid "Total memory"
 msgstr "Kogumälu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 msgid "Cached memory"
 msgstr "Puhverdatud mälu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 msgid "Buffered memory"
 msgstr "Puhverdatud mälu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 msgid "Free memory"
 msgstr "Vaba mälu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 msgid "Used memory"
 msgstr "Kasutatud mälu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 msgid "Total swap"
 msgstr "Kogu saalimisala"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 msgid "Cached swap"
 msgstr "Puhverdatud saalimisala"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 msgid "Used swap"
 msgstr "Kasutatud saalimisala"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 msgid "Free swap"
 msgstr "Kasutamata saalimisala"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Bytes sent"
 msgstr "Saadetud baidid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 msgid "Bytes received"
 msgstr "Vastuvõetud baidid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "Ühendused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Protsessid"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
 #: libraries/classes/Util.php:301
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: libraries/classes/Util.php:303
 #: templates/server/status/monitor/index.twig:167
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
 #: libraries/classes/Util.php:305
 #: templates/server/status/monitor/index.twig:168
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 #: libraries/classes/Util.php:307
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Util.php:309
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 #: libraries/classes/Util.php:311
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Util.php:313
 msgid "EiB"
 msgstr "EiB"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tabel(it)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 msgid "Questions"
 msgstr "Päringud"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "Liiklus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 #: libraries/classes/Menu.php:491 libraries/classes/Util.php:1695
 #: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "Sätted"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
 #: templates/server/status/monitor/index.twig:198
 msgid "Add chart to grid"
 msgstr "Lisa diagramm ruudustikku"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "Please add at least one variable to the series!"
 msgstr "Palun lisa seeriasse vähemalt üks muutuja!"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 msgid "SQL Query"
 msgstr "SQL päring"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
 msgid "Resume monitor"
 msgstr "Jätka jälgimist"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 msgid "Pause monitor"
 msgstr "Peata jälgimine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr "Käivita automaatne värskendamine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
 msgid "Stop auto refresh"
 msgstr "Lõpeta automaatne värskendamine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log ja slow_query_log on lubatud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
 msgid "general_log is enabled."
 msgstr "general_log on lubatud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log on lubatud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log ja general_log on keelatud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
 msgid "log_output is not set to TABLE."
 msgstr "log_output ei ole TABLE."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
 msgid "log_output is set to TABLE."
 msgstr "log_output väärtuseks on määratud TABLE."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6477,12 +6468,12 @@ msgstr ""
 "jaoks kulub vähemalt %d sekundit. Sõltuvalt sinu süsteemist on soovitatav "
 "long_query_time väärtuseks seada 0-2 sekundit."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time väärtuseks on määratud %d sekund(it)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -6491,30 +6482,30 @@ msgstr ""
 "vaikimisi olekusse:"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Määra log_output väärtuseks %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:250
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 #, php-format
 msgid "Enable %s"
 msgstr "Luba %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 #, php-format
 msgid "Disable %s"
 msgstr "Keela %s"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Muuda long_query_time väärtuseks %d sekundit."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6522,57 +6513,57 @@ msgstr ""
 "Sa ei saa neid muutujaid muuta. Logi sisse kasutajana 'root' või võta "
 "ühendust oma andmebaasi administraatoriga."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid "Change settings"
 msgstr "Muuda sätteid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:259
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
 msgid "Current settings"
 msgstr "Praegused sätted"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:261
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
 msgid "Chart title"
 msgstr "Diagrammi pealkiri"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:263
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 msgid "Differential"
 msgstr "Eraldaja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:261
 #, php-format
 msgid "Divided by %s"
 msgstr "Jagatud %s-ga"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid "Unit"
 msgstr "Ühik"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
 msgid "From slow log"
 msgstr "Aeglasest logist"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
 msgid "From general log"
 msgstr "Üldisest logist"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
 msgid "The database name is not known for this query in the server's logs."
 msgstr "See päring ei leidnud serveri logidest andmebaasi nime."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
 msgid "Analysing logs"
 msgstr "Logide analüüsimine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Logide analüüsimine ja laadimine. See võib võtta natuke aega."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
 msgid "Cancel request"
 msgstr "Loobu taotlusest"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -6582,7 +6573,7 @@ msgstr ""
 "kasutatakse rühmitamise kriteeriumina ainult SQL päringut, seega päringute "
 "atribuudid (nt. algusaeg) võivad olla erinevad."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -6591,32 +6582,32 @@ msgstr ""
 "Kuniks valitud on INSERT päringute rühmitamine, rühmitatakse kokku INSERT "
 "päringud samasse tabelisse, sõltumata lisatud andmetest."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 "Logi andmed on laetud. Päringud sooritatakse selle ajavahemiku jooksul:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 msgid "Jump to Log table"
 msgstr "Mine logi tabelisse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
 msgid "No data found"
 msgstr "Andmeid ei leitud"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Log analysed, but no data found in this time span."
 msgstr "Logi on analüüsitud, kuid sellest ajavahemikust andmeid ei leitud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Analyzing…"
 msgstr "Analüüsimine…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "Explain output"
 msgstr "Selgita väljundit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:462
 #: libraries/classes/Plugins/Export/ExportOdt.php:571
 #: libraries/classes/Plugins/Export/ExportTexytext.php:441
@@ -6626,78 +6617,78 @@ msgstr "Selgita väljundit"
 msgid "Time"
 msgstr "Aeg"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 msgid "Total time:"
 msgstr "Aeg kokku:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 msgid "Profiling results"
 msgstr "Profileerimise tulemused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Chart"
 msgstr "Diagramm"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
-#: templates/export.twig:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: templates/export.twig:214
 msgctxt "Alias"
 msgid "Database"
 msgstr "Andmebaas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
-#: templates/export.twig:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
+#: templates/export.twig:228
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
-#: templates/export.twig:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: templates/export.twig:241
 msgctxt "Alias"
 msgid "Column"
 msgstr "Veerg"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
 msgid "Log table filter options"
 msgstr "Logi tabeli filtri valikud"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
 msgid "Filter"
 msgstr "Filter"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
 msgid "Filter queries by word/regexp:"
 msgstr "Filtreeri päringuid sõna/reg.avaldise alusel:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Rühmita päringud, ignoreerides WHERE klauslite muutuja andmeid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 msgid "Sum of grouped rows:"
 msgstr "Rühmitatud ridade summa:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
 #: libraries/classes/Engines/Innodb.php:132
 #: templates/server/databases/index.twig:250
 msgid "Total:"
 msgstr "Kokku:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Loading logs"
 msgstr "Logide laadimine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 msgid "Monitor refresh failed"
 msgstr "Jälgija värskendamine ebaõnnestus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -6706,59 +6697,59 @@ msgstr ""
 "Uute diagrammi andmete taotlemisel naases server vale vastusega. Enamasti on "
 "selle põhjuseks aegunud seanss. Lae leht uuesti ja logi sisse."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "Reload page"
 msgstr "Lae leht uuesti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Affected rows:"
 msgstr "Mõjutatud read:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:322
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Seadistusfaili parsimine ebaõnnestus. Tundub, et see pole õige JSON kood."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Imporditud seadistusega diagrammi ruudustiku loomine ebaõnnestus. "
 "Lähtestamine vaikimisi seadistusse…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 msgid "Import monitor configuration"
 msgstr "Impordi jälgimise seadistus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 msgid "Please select the file you want to import:"
 msgstr "Palun vali imporditav fail:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:326
 msgid "Please enter a valid table name."
 msgstr "Palun sisesta korrektne tabeli nimi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 msgid "Please enter a valid database name."
 msgstr "Palun sisesta korrektne andmebaasi nimi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 msgid "No files available on server for import!"
 msgstr "Importimiseks ei ole serveris faile!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
 msgid "Analyse query"
 msgstr "Analüüsi päringut"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Formatting SQL…"
 msgstr "SQL vormindamine…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
 msgid "No parameters found!"
 msgstr "Parameetrid puuduvad!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
 #: templates/database/central_columns/main.twig:275
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -6785,18 +6776,18 @@ msgstr "Parameetrid puuduvad!"
 msgid "Cancel"
 msgstr "Katkesta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 #: templates/header.twig:45 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "Lehega seonduvad sätted"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #: templates/config/form_display/display.twig:46
 #: templates/modals/page_settings.twig:10
 msgid "Apply"
 msgstr "Rakenda"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 #: templates/home/index.twig:323 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:172
@@ -6805,35 +6796,35 @@ msgstr "Rakenda"
 msgid "Loading…"
 msgstr "Laadimine…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 msgid "Request aborted!!"
 msgstr "Päring katkestatud!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 msgid "Processing request"
 msgstr "Töödeldakse taotlust"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 msgid "Request failed!!"
 msgstr "Päring nurjus!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:43
 #: libraries/classes/Controllers/Sql/SetValuesController.php:44
 msgid "Error in processing request"
 msgstr "Taotluse töötlemisel esines viga"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
 #, php-format
 msgid "Error code: %s"
 msgstr "Vea kood: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 #, php-format
 msgid "Error text: %s"
 msgstr "Vea tekst: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -6841,19 +6832,19 @@ msgstr ""
 "Tundub, et ühendus serveriga on katkenud. Palun kontrolli oma võrguühendust "
 "ja serveri olekut."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 msgid "No accounts selected."
 msgstr "Kontosid ei ole valitud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 msgid "Dropping column"
 msgstr "Kustutatakse veergu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 msgid "Adding primary key"
 msgstr "Lisatakse primaarvõtit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
 #: templates/console/display.twig:150 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -6865,23 +6856,23 @@ msgstr "Lisatakse primaarvõtit"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 msgid "Click to dismiss this notification"
 msgstr "Selle teate sulgemiseks kliki sellel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 msgid "Renaming databases"
 msgstr "Andmebaase nimetatakse ümber"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 msgid "Copying database"
 msgstr "Andmebaasi kopeeritakse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 msgid "Changing charset"
 msgstr "Märgitabeli muutmine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
 #: libraries/classes/IndexColumn.php:151 libraries/classes/Index.php:448
 #: libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:613
@@ -6918,82 +6909,82 @@ msgstr "Märgitabeli muutmine"
 msgid "No"
 msgstr "Ei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: templates/database/structure/drop_form.twig:15
 #: templates/database/structure/empty_form.twig:15 templates/import.twig:154
 #: templates/sql/query.twig:144 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Luba võõrvõtme(te) kontrollid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 msgid "Failed to get real row count."
 msgstr "Ridade tegeliku arvu ei suudetud hankida."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 msgid "Searching"
 msgstr "Otsimine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
 msgid "Hide search results"
 msgstr "Peida otsingu tulemused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
 msgid "Show search results"
 msgstr "Näita otsingu tulemusi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
 msgid "Browsing"
 msgstr "Vaatamine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 msgid "Deleting"
 msgstr "Kustutamine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Kustutada %s tabeli vasted?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Salvestatud funktsioon peab sisaldama RETURN käsku!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr "Eksporditavaid funktsioone ei ole. Vajalikud õigused võivad puududa."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #, php-format
 msgid "Values for column %s"
 msgstr "%s veeru väärtused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid "Values for a new column"
 msgstr "Uue veeru väärtused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "Enter each value in a separate field."
 msgstr "Sisesta iga väärtus eraldi väljale."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Lisa %d väärtus(t)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Märkus: Kui fail sisaldab mitut tabelit, siis need liidetakse kokku."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 msgid "Hide query box"
 msgstr "Peida päringu kast"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 msgid "Show query box"
 msgstr "Näita päringu kasti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
 #: libraries/classes/Display/Results.php:2764
 #: libraries/classes/Tracking/Tracking.php:230
 #: templates/console/bookmark_content.twig:11
@@ -7003,32 +6994,32 @@ msgstr "Näita päringu kasti"
 #: templates/database/designer/main.twig:388
 #: templates/database/search/results.twig:38
 #: templates/display/results/table.twig:327
-#: templates/display/results/table.twig:328 templates/export.twig:54
+#: templates/display/results/table.twig:328 templates/export.twig:62
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:69 templates/sql/query.twig:188
 msgid "Delete"
 msgstr "Kustuta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d ei ole õige reanumber."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "Sirvi võõrvõtme väärtusi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 "Puuduvad varasemad automaatselt salvestatud päringud. Laaditakse vaikimisi "
 "päring."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -7036,25 +7027,25 @@ msgstr ""
 "Sul on varem salvestatud päring. Päringu laadimiseks klõpsa Hangi "
 "autosalvestatud päring."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 #, php-format
 msgid "Variable %d:"
 msgstr "Muutuja %d:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #: libraries/classes/Normalization.php:946
 msgid "Pick"
 msgstr "Vali"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 msgid "Column selector"
 msgstr "Veeru valija"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 msgid "Search this list"
 msgstr "Otsi sellest loendist"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -7063,29 +7054,29 @@ msgstr ""
 "Keskne loend ei sisalda veerge. Palun kontrolli, et andmebaasi %s keskne "
 "veergude loend sisaldaks veerge, mis puuduvad aktiivsest tabelist."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 msgid "See more"
 msgstr "Vaata lisaks"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 msgid "Add primary key"
 msgstr "Lisa primaarvõti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid "Primary key added."
 msgstr "Primaarvõti lisatud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 #: libraries/classes/Normalization.php:252
 msgid "Taking you to next step…"
 msgstr "Viiakse sind järgmisele sammule…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Tabeli \"%s\" normaliseerimise esimene samm on lõpetatud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Normalization.php:508
 #: libraries/classes/Normalization.php:567
 #: libraries/classes/Normalization.php:654
@@ -7093,26 +7084,26 @@ msgstr "Tabeli \"%s\" normaliseerimise esimene samm on lõpetatud."
 msgid "End of step"
 msgstr "Sammu lõpp"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid "Second step of normalization (2NF)"
 msgstr "Normaliseeriminse teine samm (2NK)"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:775
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #: libraries/classes/Normalization.php:340
 msgid "Done"
 msgstr "Valmis"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Confirm partial dependencies"
 msgstr "Kinnita osalised sõltuvused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "Selected partial dependencies are as follows:"
 msgstr "Valitud osalised sõltuvused on järgnevad:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -7120,29 +7111,29 @@ msgstr ""
 "Märkus: a, b -> d, f kaasab väärtused veergudest a ja b, mis kombineeritult "
 "määravad väärtused veergudes d ja f."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "No partial dependencies selected!"
 msgstr "Ühtegi osalist sõltuvust ei ole valitud!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#: libraries/classes/Export/Export.php:1308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Export/Export.php:1294
 #: libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Tagasi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Kuva mulle võimalikud osalised sõltuvused vastavalt tabelis olevatele "
 "andmetele"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "Hide partial dependencies list"
 msgstr "Peida osaliste sõltuvuste nimekiri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -7150,40 +7141,40 @@ msgstr ""
 "Palun oota! See võib võtta aega mõned sekundid olenevalt andmete suurused ja "
 "tabeli veergude arvust."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 msgid "Step"
 msgstr "Samm"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
 msgid "The following actions will be performed:"
 msgstr "Teostatakse järgnevad päringud:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "Kustuta (DROP) veerud %s tabelist %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 msgid "Create the following table"
 msgstr "Loo järgmine tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 msgid "Third step of normalization (3NF)"
 msgstr "Normaliseerimise kolmas samm (3NK)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 msgid "Confirm transitive dependencies"
 msgstr "Kinnita transitiivsed sõltuvused"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 msgid "Selected dependencies are as follows:"
 msgstr "Valitud sõltuvused on järgnevad:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
 msgid "No dependencies selected!"
 msgstr "Ühtegi sõltuvust ei ole valitud!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -7197,75 +7188,75 @@ msgstr "Ühtegi sõltuvust ei ole valitud!"
 msgid "Save"
 msgstr "Salvesta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Hide search criteria"
 msgstr "Peida otsingu kriteerium"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 msgid "Show search criteria"
 msgstr "Kuva otsingu kriteeriumi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 msgid "Column maximum:"
 msgstr "Veeru maksimum:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
 msgid "Column minimum:"
 msgstr "Veeru miinimum:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
 msgid "Hide find and replace criteria"
 msgstr "Peida 'leia ja asenda' kriteerium"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
 msgid "Show find and replace criteria"
 msgstr "Kuva 'leia ja asenda' kriteerium"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:471
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 msgid "Each point represents a data row."
 msgstr "Iga punkt tähendab andmete rida."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:473
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Hovering over a point will show its label."
 msgstr "Kursori üleliigutamisel näitab punkt selle nime."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Vali graafiku suumitav ala hiirega."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Click reset zoom button to come back to original state."
 msgstr "Algoleku taastamiseks vajuta suurenduse lähtestamise nuppu."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Kliki andmepunktil, et vaadata ja vajadusel muuta andmete rida."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Diagrammi suurust saab muuta, kui lohistada seda alumist paremat nurkapidi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 msgid "Select two columns"
 msgstr "Vali kaks veergu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Select two different columns"
 msgstr "Vali kaks erinevat veergu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Data point content"
 msgstr "Andmepunkti sisu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 #: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:1579
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignoreeri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #: libraries/classes/Display/Results.php:2707
 #: libraries/classes/Html/Generator.php:77
 #: templates/display/results/table.twig:323
@@ -7273,7 +7264,7 @@ msgstr "Ignoreeri"
 msgid "Copy"
 msgstr "Kopeeri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -7281,7 +7272,7 @@ msgstr "Kopeeri"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -7289,58 +7280,58 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 msgid "Point"
 msgstr "Punkt"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 #, php-format
 msgid "Point %d"
 msgstr "Punkt %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid "Linestring"
 msgstr "Rea sõne"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 msgid "Polygon"
 msgstr "Hulktahukas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 #: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "Geomeetria"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 msgid "Inner ring"
 msgstr "Sisemine ring"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 msgid "Outer ring"
 msgstr "Välimine ring"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "Lisa punkt"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "Lisa sisemine ring"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 msgid "Do you want to copy encryption key?"
 msgstr "Kas sa soovid kopeerida krüpteerimisvõtme?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:506
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
 msgid "Encryption key"
 msgstr "Krüpteerimisvõti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:506
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -7348,7 +7339,7 @@ msgstr ""
 "Funktsioon HEX käsitleb täisarvu tekstina ja leiab selle "
 "kuuetestkümnendväärtuse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:511
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -7356,7 +7347,7 @@ msgstr ""
 "MySQL võtab vastu ka väärtuseid, mida liguriga ei saa valida. Soovi korral "
 "sisesta need väärtused otse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:520
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -7364,7 +7355,7 @@ msgstr ""
 "MySQL võtab vastu ka väärtuseid, mida ei saa valida kuupäeva valijaga. Soovi "
 "korral sisesta need väärtused otse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7372,25 +7363,25 @@ msgstr ""
 "Näitab, et lehel on tehtud muudatusi; muudatustest loobumisel küsitakse su "
 "käest kinnitust"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 msgid "Select referenced key"
 msgstr "Vali osutatud võti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 msgid "Select Foreign Key"
 msgstr "Vali võõrvõti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Please select the primary key or a unique key!"
 msgstr "Palun vali primaarvõti või unikaalne nimi!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Vali veerg, mida näidata"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7398,96 +7389,96 @@ msgstr ""
 "Sa ei ole muudatusi salvestanud. Kui sa neid ei salvesta, siis need lähevad "
 "kaotsi. Kas soovid jätkata?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "value/subQuery is empty"
 msgstr "väärtus/alampäring on tühi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Lisa tabeleid teistest andmebaasidest"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 msgid "Page name"
 msgstr "Lehe nimi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Salvesta leht"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Salvesta leht nimega"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Ava lehe"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Delete page"
 msgstr "Kustuta leht"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr "Mõned tabelid sellel lehel võivad olla ümber nimetatud või kustutatud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Nimetu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Please select a page to continue"
 msgstr "Palun vali jätkamiseks leht"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Please enter a valid page name"
 msgstr "Palun sisesta korrektne lehe nimi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Do you want to save the changes to the current page?"
 msgstr "Kas sa soovid salvestada muudatused sellel leheküljel?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 msgid "Successfully deleted the page"
 msgstr "Lehekülje kustutamine õnnestus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 msgid "Export relational schema"
 msgstr "Ekspordi seosteskeem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 msgid "Modifications have been saved"
 msgstr "Muutused on salvestatud"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
 #, php-format
 msgid "%d object(s) created."
 msgstr "Loodi %d objekt(i)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid "Column name"
 msgstr "Veeru nimi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:180
 msgid "Submit"
 msgstr "Saada"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "Muutmisest loobumiseks vajuta ESC.<br>- Reavahetuseks vajuta Shift+Enter."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7495,15 +7486,15 @@ msgstr ""
 "Sa muutsid mõningaid andmed ja neid pole veel salvestatud. Oled kindel, et "
 "soovid enne andmete salvestamist sellelt lehelt lahkuda?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid "Drag to reorder."
 msgstr "Järjekorra muutmiseks lohista."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 msgid "Click to sort results by this column."
 msgstr "Klõpsa selle veeru järgi sortimiseks."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -7513,19 +7504,19 @@ msgstr ""
 "režiimi.<br>- Ctrl+klõps või Alt+klõps (Mac: Shift+Option+klõps) eemaldab "
 "veeru ORDER BY klauslist"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 msgid "Click to mark/unmark."
 msgstr "Klõpsa valimiseks/mittevalimiseks."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid "Double-click to copy column name."
 msgstr "Veeru nime kopeerimiseks tee sellel topeltklõps."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Veeru nähtavuse muutmiseks<br>vajuta alla suunatud noolele."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7534,12 +7525,12 @@ msgstr ""
 "märkeruutudega, muutmisega, kopeerimisega ja kustutamisega seotud "
 "funktsionaalsus ei pruugi pärast salvestamist toimida."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Palun sisesta korrektne kuueteistkümnend sõne. Lubatud märgid on 0-9, A-F."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7547,68 +7538,68 @@ msgstr ""
 "Kas sa soovid tõesti näha kõiki ridu? Suur tabel nagu see võib põhjustada "
 "krahhi lehitsejas."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Original length"
 msgstr "Algne pikkus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "cancel"
 msgstr "katkesta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 #: libraries/classes/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "Katkestatud"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Success"
 msgstr "Õnnestus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Import status"
 msgstr "Impordi olek"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Kukuta failid siia"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Select database first"
 msgstr "Vali esmalt andmebaas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 msgid "Go to link:"
 msgstr "Mine lingile:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 msgid "Generate password"
 msgstr "Genereeri parool"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Genereeri"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "Rohkem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Show panel"
 msgstr "Paneeli kuvamine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 msgid "Hide panel"
 msgstr "Peida paneel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 #: libraries/classes/Navigation/NavigationTree.php:1308
 msgid "Unlink from main panel"
 msgstr "Kustuta link peapaneeli"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 #: libraries/classes/Setup/Index.php:153
 #, php-format
 msgid ""
@@ -7619,29 +7610,29 @@ msgstr ""
 "Uusim versioon on %s, välja antud %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid ", latest stable version:"
 msgstr ", viimane stabiilne versioon:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "up to date"
 msgstr "ajakohane"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Saatuslik JavaScripti viga; kas sa soovid saata vearaporti?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Change report settings"
 msgstr "Muuda raporti sätteid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 msgid "Show report details"
 msgstr "Kuva raporti detailid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7649,7 +7640,7 @@ msgstr ""
 "Su eksport on mittetäielik, sest PHP skripti töötamiseks lubatud aeg on "
 "liiga väike!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7658,77 +7649,77 @@ msgstr ""
 "Hoiatus: sellel lehel oleval vormil on enam kui %d välja. Vormi saatmisel "
 "võidakse mõne välja sisu eirata tänu PHP sättele max_input_vars."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 msgid "Some errors have been detected on the server!"
 msgstr "Server tuvastas mõned vead!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 msgid "Please look at the bottom of this window."
 msgstr "Palun vaata selle akna alumisse serva."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 #: libraries/classes/ErrorHandler.php:418
 msgid "Ignore All"
 msgstr "Ignoreeri kõiki"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Palun oota, sinu sätteid saadetakse hetkel."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Column name successfully copied to clipboard!"
 msgstr "Veeru nimi kopeeriti lõikepuhvrisse edukalt!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Column name copying to clipboard failed!"
 msgstr "Veeru nime kopeerimine lõikepuhvrisse nurjus!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Successfully copied!"
 msgstr "Kopeerimine õnnestus!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Copying failed!"
 msgstr "Kopeerimine nurjus!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 msgid "Execute this query again?"
 msgstr "Kas käivitada see päring uuesti?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Do you really want to delete this bookmark?"
 msgstr "Kas sa soovid tõesti kustutada selle järjehoidja?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL silumisinfo hankimisel esines vigu."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s päringut käivitati %s korda %s sekundiga."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "edastati %s argument(i)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 msgid "Show arguments"
 msgstr "Kuva argumendid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Hide arguments"
 msgstr "Peida argumendid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Aega kulus:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7744,80 +7735,80 @@ msgstr ""
 "kustutada \"Veebisaitide lokaalsed andmed\". Safaris põhjustab seda üsna "
 "tihti privaatrežiim."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 msgid "Copy tables to"
 msgstr "Kopeeri tabelid kohta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Add table prefix"
 msgstr "Lisa tabeli eesliide"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid "Replace table with prefix"
 msgstr "Asenda tabel eesliitega"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Kopeeri tabel koos eesliitega"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Extremely weak"
 msgstr "Ülimalt nõrk"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Very weak"
 msgstr "Väga nõrk"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Weak"
 msgstr "Nõrk"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Good"
 msgstr "Hea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Strong"
 msgstr "Tugev"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Turvavõtme aktiveerimise ootamine aegus."
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "Turvavõtmele saadeti vigane päring."
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Tundmatu turvavõtme viga."
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Klient ei toeta turvavõtit."
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Turvavõtme aktiveerimine nurjus."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Vale turvavõti."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -7825,7 +7816,7 @@ msgstr ""
 "WebAuthn ei ole saadaval. Palun kasuta toetatud brauserit turvatud "
 "kontekstis (HTTPS)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -7835,20 +7826,20 @@ msgstr ""
 "tööta su brauseris ja su phpMyAdmini konfiguratsiooni salvestuskoht ei ole "
 "selleks konfigureeritud."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Tabel %s on juba olemas!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 #: libraries/classes/InsertEdit.php:279
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Peida"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 #: libraries/classes/Controllers/Table/ChangeController.php:184
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
@@ -7856,91 +7847,91 @@ msgstr "Peida"
 msgid "Show"
 msgstr "Näita"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Jaanuar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Veebruar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Märts"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Aprill"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Juuni"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Juuli"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Oktoober"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Detsember"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
 #: libraries/classes/Util.php:500
 #, fuzzy
 #| msgid "Jan"
@@ -7948,7 +7939,7 @@ msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jaan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #: libraries/classes/Util.php:501
 #, fuzzy
 #| msgid "Feb"
@@ -7956,7 +7947,7 @@ msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Veebr"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #: libraries/classes/Util.php:502
 #, fuzzy
 #| msgid "Mar"
@@ -7964,7 +7955,7 @@ msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Märts"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:503
 #, fuzzy
 #| msgid "Apr"
@@ -7972,7 +7963,7 @@ msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Aprill"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #: libraries/classes/Util.php:504
 #, fuzzy
 #| msgid "May"
@@ -7980,7 +7971,7 @@ msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mai"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:505
 #, fuzzy
 #| msgid "Jun"
@@ -7988,7 +7979,7 @@ msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Juuni"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #: libraries/classes/Util.php:506
 #, fuzzy
 #| msgid "Jul"
@@ -7996,7 +7987,7 @@ msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Juuli"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:507
 #, fuzzy
 #| msgid "Aug"
@@ -8004,7 +7995,7 @@ msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/Util.php:508
 #, fuzzy
 #| msgid "Sep"
@@ -8012,7 +8003,7 @@ msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sept"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 #: libraries/classes/Util.php:509
 #, fuzzy
 #| msgid "Oct"
@@ -8020,7 +8011,7 @@ msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/Util.php:510
 #, fuzzy
 #| msgid "Nov"
@@ -8028,7 +8019,7 @@ msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:511
 #, fuzzy
 #| msgid "Dec"
@@ -8036,13 +8027,13 @@ msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dets"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #: libraries/classes/Util.php:514
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Püh"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
 #: libraries/classes/Util.php:515
 #, fuzzy
 #| msgid "Mon"
@@ -8050,7 +8041,7 @@ msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Esm"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #: libraries/classes/Util.php:516
 #, fuzzy
 #| msgid "Tue"
@@ -8058,7 +8049,7 @@ msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Tei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
 #: libraries/classes/Util.php:517
 #, fuzzy
 #| msgid "Wed"
@@ -8066,7 +8057,7 @@ msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Kol"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:518
 #, fuzzy
 #| msgid "Thu"
@@ -8074,7 +8065,7 @@ msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Nel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
 #: libraries/classes/Util.php:519
 #, fuzzy
 #| msgid "Fri"
@@ -8082,7 +8073,7 @@ msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Ree"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/classes/Util.php:520
 #, fuzzy
 #| msgid "Sat"
@@ -8090,56 +8081,56 @@ msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Lau"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "P"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "E"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "T"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "K"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "N"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:761
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "R"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "L"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:763
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -8147,61 +8138,61 @@ msgid "Wk"
 msgstr "Näd"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:765
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
 #| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "puudub"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Aeg"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Tund"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minut"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Sekund"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:771
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "sekundit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "sekundis"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:773
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -8210,100 +8201,100 @@ msgid "Time zone"
 msgstr "Ajaline järjestus"
 
 #. l10n: Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:777
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Eelmine"
 
 #. l10n: Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:779
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
 msgctxt "Next month"
 msgid "Next"
 msgstr "Järgmine"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:781
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
 msgid "Today"
 msgstr "Täna"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:781
 msgid "This field is required"
 msgstr "See väli on kohustuslik"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
 msgid "Please fix this field"
 msgstr "Palun paranda see väli"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:783
 msgid "Please enter a valid email address"
 msgstr "Palun sisesta korrektne e-posti aadress"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
 msgid "Please enter a valid URL"
 msgstr "Palun sisesta korrektne URL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
 msgid "Please enter a valid date"
 msgstr "Palun sisesta korrektne kuupäev"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
 msgid "Please enter a valid date ( ISO )"
 msgstr "Palun sisesta korrektne kuupäev (ISO vorming)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
 msgid "Please enter a valid number"
 msgstr "Palun sisesta korrektne number"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid credit card number"
 msgstr "Palun sisesta korrektne krediitkaardi number"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter only digits"
 msgstr "Palun sisesta ainult numbrid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter the same value again"
 msgstr "Palun sisesta sama väärtus uuesti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter no more than {0} characters"
 msgstr "Palun sisesta kuni {0} märki"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter at least {0} characters"
 msgstr "Palun sisesta vähemalt {0} märki"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:796
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Palun sisesta väärtus pikkusega {0} kuni {1} tähte"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter a value between {0} and {1}"
 msgstr "Palun sisesta väärtus vahemikust {0} kuni {1}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:798
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Palun sisesta väärtus, mis on väiksem kui või võrdne {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Palun sisesta väärtus, mis on suurem kui või võrdne {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:800
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a valid date or time"
 msgstr "Palun sisesta korrektne kuupäev või kellaaeg"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a valid HEX input"
 msgstr "Palun sisesta korrektne 16-nd väärtus"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:800
 msgid "This column can not contain a 32 chars value"
 msgstr "See veerg ei saa sisaldada 32 märgilist väärtust"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:806
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -8311,7 +8302,7 @@ msgstr ""
 "Need funktsioonid on mõeldud binaartulemusele. Vasturääkivate tulemuste "
 "vältimiseks peaksid neid salvestama BINARY, VARBINARY või BLOB tüüpi veerus."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:808
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -8324,33 +8315,33 @@ msgstr ""
 "veebipõhiste veebilehitsejate (Safari, Google Chrome, Arora jne) teadatuntud "
 "viga."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:810
 #, php-format
 msgid "%s of %s"
 msgstr "%s / %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
 #, php-format
 msgid "%s/sec."
 msgstr "%s/sek."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:812
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Aega jäänud umbes %MIN min %SEC sek."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
 msgid "About %SEC sec. remaining."
 msgstr "Aega jäänud umbes %SEC sek."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
 msgid "The file is being processed, please be patient."
 msgstr "Faili töödeldakse, palun oota."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
 msgid "Uploading your import file…"
 msgstr "Imporditava faili üleslaadimine…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -8390,11 +8381,11 @@ msgstr "Kleebi see oma config.inc.php"
 msgid "Could not import configuration"
 msgstr "Ei saanud seadistust importida"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:46
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:47
 msgid "Two-factor authentication has been removed."
 msgstr "Kaheastmeline autentimine eemaldatud."
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:57
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:60
 msgid "Two-factor authentication has been configured."
 msgstr "Kaheastmeline autentimine seadistatud."
 
@@ -9213,7 +9204,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Ebaturvaline ühendus"
 
-#: libraries/classes/Controllers/Setup/MainController.php:34
+#: libraries/classes/Controllers/Setup/MainController.php:35
 msgid "Configuration already exists, setup is disabled!"
 msgstr "Häälestus on juba olemas, häälestamine on keelatud!"
 
@@ -9239,7 +9230,7 @@ msgstr "Järjehoidjat ei loodud!"
 #: libraries/classes/Controllers/Table/AddFieldController.php:143
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:202
-#: libraries/classes/Table/Indexes.php:77
+#: libraries/classes/Table/Indexes.php:91
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabeli %1$s muutmine õnnestus."
@@ -9683,7 +9674,7 @@ msgstr "Vabanda, meil ei õnnestunud kustutatud sündmust taastada."
 msgid "The backed up query was:"
 msgstr "Varundatud päring oli:"
 
-#: libraries/classes/DatabaseInterface.php:1093
+#: libraries/classes/DatabaseInterface.php:1095
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9694,7 +9685,7 @@ msgstr ""
 "kontrolli häälestuses sätet [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
 "em]. phpMyAdmin kasutab hetkel andmebaasi serveri vaikimisi ajatsooni."
 
-#: libraries/classes/DatabaseInterface.php:1135
+#: libraries/classes/DatabaseInterface.php:1137
 msgid "Failed to set configured collation connection!"
 msgstr "Seadistatud sortimise ühenduse määramine ebaõnnestus!"
 
@@ -10215,14 +10206,14 @@ msgstr "Raport"
 msgid "Automatically send report next time"
 msgstr "Saada järgmisel korral raport automaatselt"
 
-#: libraries/classes/Export/Export.php:166
-#: libraries/classes/Export/Export.php:202
-#: libraries/classes/Export/Export.php:469
+#: libraries/classes/Export/Export.php:162
+#: libraries/classes/Export/Export.php:198
+#: libraries/classes/Export/Export.php:465
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "%s faili salvestamiseks pole piisavalt ruumi."
 
-#: libraries/classes/Export/Export.php:422
+#: libraries/classes/Export/Export.php:418
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -10230,19 +10221,19 @@ msgstr ""
 "%s fail on juba serveris olemas, muutke faili nime või kontrollige "
 "ülekirjutamise valikuid."
 
-#: libraries/classes/Export/Export.php:429
-#: libraries/classes/Export/Export.php:439
+#: libraries/classes/Export/Export.php:425
+#: libraries/classes/Export/Export.php:435
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Veebiserveril pole %s faili salvestamiseks õigusi."
 
-#: libraries/classes/Export/Export.php:476
+#: libraries/classes/Export/Export.php:472
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Tõmmis salvestati %s faili."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export/Export.php:913
+#: libraries/classes/Export/Export.php:909
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "Valitud ekspordimeetodiga ei ole toorpäringute eksport toetatud."
 
@@ -11371,12 +11362,12 @@ msgstr ""
 msgid "Cannot log in to the MySQL server"
 msgstr "Ei saa MySQL serverisse sisse logida"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:321
+#: libraries/classes/Plugins/AuthenticationPlugin.php:322
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "Oled lubanud kaheastmelise autentimise, palun kinnita oma meldimine."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:78
-#: templates/export.twig:119
+#: templates/export.twig:127
 msgid "Format:"
 msgstr "Formaat:"
 
@@ -12611,8 +12602,8 @@ msgstr ""
 "Marsruutimispuhvrit ei suudetud kirjutada; sa pead kohandama kataloogi/faili "
 "\"%s\" õiguseid"
 
-#: libraries/classes/Routing/Routing.php:140
-#: libraries/classes/Routing/Routing.php:203
+#: libraries/classes/Routing/Routing.php:141
+#: libraries/classes/Routing/Routing.php:202
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Viga 404! Lehekülge %s ei leitud."
@@ -13189,7 +13180,7 @@ msgstr "%s on keelatud selle MySQL serveri jaoks."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "See MySQL server ei toeta %s varundusmootorit."
 
-#: libraries/classes/Table/Indexes.php:50 libraries/classes/Table.php:1974
+#: libraries/classes/Table/Indexes.php:54 libraries/classes/Table.php:1974
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Primaarvõtme nimi peab olema \"PRIMARY\"!"
 
@@ -13889,8 +13880,8 @@ msgstr "Tabeli nimi"
 
 #: templates/columns_definitions/column_definitions_form.twig:31
 #: templates/console/display.twig:124
-#: templates/database/central_columns/main.twig:202 templates/export.twig:281
-#: templates/export.twig:297 templates/export.twig:313
+#: templates/database/central_columns/main.twig:202 templates/export.twig:289
+#: templates/export.twig:305 templates/export.twig:321
 msgid "Add"
 msgstr "Lisa"
 
@@ -13936,7 +13927,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:81 templates/modals/add_index.twig:5
+#: templates/export.twig:89 templates/modals/add_index.twig:5
 #: templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
@@ -14401,7 +14392,7 @@ msgid "Number of columns"
 msgstr "Veergude arv"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:27
+#: templates/database/operations/index.twig:39 templates/export.twig:35
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Loo"
@@ -14862,7 +14853,7 @@ msgstr "Andmebaasi kommentaar"
 msgid "Rename database to"
 msgstr "Andmebaasi uus nimi"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:278
+#: templates/database/operations/index.twig:58 templates/export.twig:286
 msgid "New database name"
 msgstr "Uue andmebaasi nimi"
 
@@ -15438,7 +15429,7 @@ msgstr "Salvesta muudetud andmed"
 msgid "Restore column order"
 msgstr "Taasta veeru järjekord"
 
-#: templates/display/results/table.twig:124 templates/export.twig:145
+#: templates/display/results/table.twig:124 templates/export.twig:153
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Ridade hulk:"
@@ -15549,134 +15540,134 @@ msgstr "Midagi läks valesti"
 msgid "Go back"
 msgstr "Mine tagasi"
 
-#: templates/export/template_options.twig:1 templates/export.twig:42
+#: templates/export/template_options.twig:1 templates/export.twig:50
 msgid "Select a template"
 msgstr "Vali mall"
 
-#: templates/export.twig:14
+#: templates/export.twig:22
 msgid "Export templates:"
 msgstr "Ekspordi mallid:"
 
-#: templates/export.twig:18
+#: templates/export.twig:26
 msgid "New template:"
 msgstr "Uus mall:"
 
-#: templates/export.twig:21 templates/export.twig:24
+#: templates/export.twig:29 templates/export.twig:32
 msgid "Template name"
 msgstr "Malli nimi"
 
-#: templates/export.twig:35
+#: templates/export.twig:43
 msgid "Existing templates:"
 msgstr "Olemasolevad mallid:"
 
-#: templates/export.twig:38
+#: templates/export.twig:46
 msgid "Template:"
 msgstr "Mall:"
 
-#: templates/export.twig:51
+#: templates/export.twig:59
 msgid "Update"
 msgstr "Uuenda"
 
-#: templates/export.twig:72
+#: templates/export.twig:80
 msgid "Show SQL query"
 msgstr "Kuva SQL päring"
 
-#: templates/export.twig:104
+#: templates/export.twig:112
 msgid "Export method:"
 msgstr "Ekspordi meetod:"
 
-#: templates/export.twig:108
+#: templates/export.twig:116
 msgid "Quick - display only the minimal options"
 msgstr "Kiire - näita ainult peamisi valikuid"
 
-#: templates/export.twig:112
+#: templates/export.twig:120
 msgid "Custom - display all possible options"
 msgstr "Kohandatud - näita kõiki võimalikke valikuid"
 
-#: templates/export.twig:121
+#: templates/export.twig:129
 msgid "File format to export"
 msgstr "Eksporditava faili vorming"
 
-#: templates/export.twig:133
+#: templates/export.twig:141
 msgid "Rows:"
 msgstr "Read:"
 
-#: templates/export.twig:137
+#: templates/export.twig:145
 msgid "Dump all rows"
 msgstr "Loo tõmmis kõikidest ridadest"
 
-#: templates/export.twig:141
+#: templates/export.twig:149
 msgid "Dump some row(s)"
 msgstr "Loo mõnest reast tõmmis"
 
-#: templates/export.twig:156
+#: templates/export.twig:164
 msgid "Row to begin at:"
 msgstr "Rida alustab kohast:"
 
-#: templates/export.twig:166 templates/export.twig:328
+#: templates/export.twig:174 templates/export.twig:336
 msgid "Output:"
 msgstr "Väljund:"
 
-#: templates/export.twig:171 templates/export.twig:366
+#: templates/export.twig:179 templates/export.twig:374
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Salvesta serveris kataloogi <strong>%s</strong>"
 
-#: templates/export.twig:189 templates/export.twig:333
+#: templates/export.twig:197 templates/export.twig:341
 msgid "Rename exported databases/tables/columns"
 msgstr "Nimeta eksporditud andmebaasid/tabelid/veerud ümber"
 
-#: templates/export.twig:197
+#: templates/export.twig:205
 msgid "Defined aliases"
 msgstr "Defineeritud aliased"
 
-#: templates/export.twig:212 templates/export.twig:226
-#: templates/export.twig:239 templates/export.twig:256
+#: templates/export.twig:220 templates/export.twig:234
+#: templates/export.twig:247 templates/export.twig:264
 msgid "Remove"
 msgstr "Eemalda"
 
-#: templates/export.twig:265
+#: templates/export.twig:273
 msgid "Define new aliases"
 msgstr "Defineeri uued aliased"
 
-#: templates/export.twig:270
+#: templates/export.twig:278
 msgid "Select database:"
 msgstr "Vali andmebaas:"
 
-#: templates/export.twig:286
+#: templates/export.twig:294
 msgid "Select table:"
 msgstr "Vali tabel:"
 
-#: templates/export.twig:294
+#: templates/export.twig:302
 msgid "New table name"
 msgstr "Uue tabeli nimi"
 
-#: templates/export.twig:302
+#: templates/export.twig:310
 msgid "Select column:"
 msgstr "Vali veerg:"
 
-#: templates/export.twig:310
+#: templates/export.twig:318
 msgid "New column name"
 msgstr "Uue veeru nimi"
 
-#: templates/export.twig:343
+#: templates/export.twig:351
 #, php-format
 msgid "Use %s statement"
 msgstr "Kasuta käsku %s"
 
-#: templates/export.twig:352
+#: templates/export.twig:360
 msgid "View output as text"
 msgstr "Vaata väljundit tekstina"
 
-#: templates/export.twig:356
+#: templates/export.twig:364
 msgid "Save output to a file"
 msgstr "Salvesta väljund failisse"
 
-#: templates/export.twig:383
+#: templates/export.twig:391
 msgid "File name template:"
 msgstr "Faili nime mall:"
 
-#: templates/export.twig:384
+#: templates/export.twig:392
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -15688,47 +15679,47 @@ msgstr ""
 "Ülejäänud tekst jääb nii nagu see on. Detailide lugemiseks vaata KKK teemat "
 "6.27."
 
-#: templates/export.twig:394
+#: templates/export.twig:402
 msgid "Use this for future exports"
 msgstr "Kasuta seda edasistel eksportimistel"
 
-#: templates/export.twig:405 templates/import.twig:98
+#: templates/export.twig:413 templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "Faili märgitabel:"
 
-#: templates/export.twig:425
+#: templates/export.twig:433
 msgid "Compression:"
 msgstr "Tihendamine:"
 
-#: templates/export.twig:433
+#: templates/export.twig:441
 msgid "zipped"
 msgstr "zipitud"
 
-#: templates/export.twig:439
+#: templates/export.twig:447
 msgid "gzipped"
 msgstr "gzipitud"
 
-#: templates/export.twig:457
+#: templates/export.twig:465
 msgid "Export databases as separate files"
 msgstr "Ekspordi andmebaasid eraldi failidena"
 
-#: templates/export.twig:459
+#: templates/export.twig:467
 msgid "Export tables as separate files"
 msgstr "Ekspordi tabelid eraldi failidena"
 
-#: templates/export.twig:470
+#: templates/export.twig:478
 msgid "Skip tables larger than:"
 msgstr "Jäta vahele tabelid, mis on suuremad kui:"
 
-#: templates/export.twig:472
+#: templates/export.twig:480
 msgid "The size is measured in MiB."
 msgstr "Suuruse ühik on MiB."
 
-#: templates/export.twig:478 templates/import.twig:173
+#: templates/export.twig:486 templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "Formaadipõhised valikud:"
 
-#: templates/export.twig:487 templates/import.twig:182
+#: templates/export.twig:495 templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "Kodeerimise teisendus:"
 
@@ -18984,6 +18975,14 @@ msgstr "VIEW nimi"
 #: templates/view_create.twig:84
 msgid "Column names"
 msgstr "Veergude nimed"
+
+#~ msgid ""
+#~ "You have enabled mbstring.func_overload in your PHP configuration. This "
+#~ "option is incompatible with phpMyAdmin and might cause some data to be "
+#~ "corrupted!"
+#~ msgstr ""
+#~ "Oled PHP seadistuses lubanud mbstring.func_overload. See ei ühildu "
+#~ "phpMyAdminiga ja võib andmeid rikkuda!"
 
 #~ msgid "Replica configuration"
 #~ msgstr "Kordistaja konfiguratsioon"
