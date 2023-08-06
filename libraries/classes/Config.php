@@ -131,7 +131,6 @@ class Config
     public function checkSystem(): void
     {
         $this->checkWebServerOs();
-        $this->checkWebServer();
         $this->checkGd2();
         $this->checkClient();
         $this->checkUpload();
@@ -282,26 +281,6 @@ class Config
         }
 
         $this->set('PMA_IS_GD2', 0);
-    }
-
-    /**
-     * Whether the Web server php is running on is IIS
-     */
-    public function checkWebServer(): void
-    {
-        // some versions return Microsoft-IIS, some Microsoft/IIS
-        // we could use a preg_match() but it's slower
-        if (
-            Core::getenv('SERVER_SOFTWARE')
-            && stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft') !== false
-            && stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS') !== false
-        ) {
-            $this->set('PMA_IS_IIS', 1);
-
-            return;
-        }
-
-        $this->set('PMA_IS_IIS', 0);
     }
 
     /**

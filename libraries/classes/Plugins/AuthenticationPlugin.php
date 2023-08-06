@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\Logging;
@@ -128,6 +127,7 @@ abstract class AuthenticationPlugin
             }
         }
 
+        $response = ResponseRenderer::getInstance();
         if ($server === 0) {
             /* delete user's choices that were stored in session */
             if (! defined('TESTSUITE')) {
@@ -136,13 +136,11 @@ abstract class AuthenticationPlugin
             }
 
             /* Redirect to login form (or configured URL) */
-            Core::sendHeaderLocation($redirectUrl);
+            $response->redirect($redirectUrl);
         } else {
             /* Redirect to other authenticated server */
             $_SESSION['partial_logout'] = true;
-            Core::sendHeaderLocation(
-                './index.php?route=/' . Url::getCommonRaw(['server' => $server], '&'),
-            );
+            $response->redirect('./index.php?route=/' . Url::getCommonRaw(['server' => $server], '&'));
         }
     }
 

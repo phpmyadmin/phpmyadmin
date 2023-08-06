@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -41,8 +40,7 @@ abstract class AbstractController
             return;
         }
 
-        $uri = './index.php?route=' . $route . Url::getCommonRaw($params, '&');
-        Core::sendHeaderLocation($uri);
+        $this->response->redirect('./index.php?route=' . $route . Url::getCommonRaw($params, '&'));
     }
 
     /**

@@ -29,7 +29,7 @@ final class UrlRedirector
             || ! preg_match('/^https:\/\/[^\n\r]*$/', $url)
             || ! Core::isAllowedDomain($url)
         ) {
-            Core::sendHeaderLocation('./');
+            $response->redirect('./');
 
             $response->callExit();
         }

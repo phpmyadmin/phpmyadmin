@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\UserPreferences;
@@ -97,7 +96,7 @@ class PageSettings
         if ($result === true) {
             // reload page
             $response = ResponseRenderer::getInstance();
-            Core::sendHeaderLocation($response->getSelfUrl());
+            $response->redirect($response->getSelfUrl());
             $response->callExit();
         }
 

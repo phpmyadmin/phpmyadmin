@@ -495,11 +495,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $response = ResponseRenderer::getInstance();
         $response->disable();
-
-        Core::sendHeaderLocation(
-            './index.php?route=/' . Url::getCommonRaw($urlParams, '&'),
-            true,
-        );
+        $response->redirect('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
 
         $response->callExit();
     }
