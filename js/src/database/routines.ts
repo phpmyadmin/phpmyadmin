@@ -349,6 +349,7 @@ const DatabaseRoutines = {
                 classes: {
                     'ui-dialog-titlebar-close': 'btn-close'
                 },
+                height: 600,
                 width: '70%',
                 minWidth: 500,
                 // @ts-ignore
