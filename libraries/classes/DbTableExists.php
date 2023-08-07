@@ -9,7 +9,6 @@ use PhpMyAdmin\Identifiers\TableName;
 
 use function in_array;
 use function sprintf;
-use function str_starts_with;
 
 final class DbTableExists
 {
@@ -29,7 +28,7 @@ final class DbTableExists
             return true;
         }
 
-        if ($this->dbi->selectDb($databaseName) || $this->hasCommandsOutOfSyncError()) {
+        if ($this->dbi->selectDb($databaseName)) {
             $this->databases[] = $databaseName->getName();
 
             return true;
@@ -55,17 +54,6 @@ final class DbTableExists
         }
 
         return false;
-    }
-
-    /**
-     * This "Commands out of sync" 2014 error may happen, for example after calling a MySQL procedure;
-     * at this point we can't select the db, but it's not necessarily wrong.
-     *
-     * @see https://dev.mysql.com/doc/mysql-errors/8.0/en/client-error-reference.html#error_cr_commands_out_of_sync
-     */
-    private function hasCommandsOutOfSyncError(): bool
-    {
-        return str_starts_with($this->dbi->getError(), '#2014 ');
     }
 
     private function hasCachedTableContent(DatabaseName $database, TableName $table): bool
