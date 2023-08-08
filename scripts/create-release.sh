@@ -472,8 +472,12 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     fi
 fi
 
-# Cleanup release dir
-LC_ALL=C date -u > RELEASE-DATE-$version
+# Save the build date
+if [ $do_daily -eq 1 ] ; then
+    LC_ALL=C date -u > RELEASE-DATE-$VERSION_SERIES_FROM_FILE+snapshot
+else
+    LC_ALL=C date -u > RELEASE-DATE-$version
+fi
 
 # Building documentation
 echo "* Running sphinx-build (version: $(sphinx-build --version))"
