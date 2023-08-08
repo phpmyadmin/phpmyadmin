@@ -12,7 +12,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
-use function header;
 use function implode;
 
 final class GetVariableController extends AbstractController
@@ -30,7 +29,7 @@ final class GetVariableController extends AbstractController
         }
 
         // Send with correct charset
-        header('Content-Type: text/html; charset=UTF-8');
+        $this->response->addHeader('Content-Type', 'text/html; charset=UTF-8');
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name='
             . $this->dbi->quoteString($params['name']) . ';',

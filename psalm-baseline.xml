@@ -12773,14 +12773,6 @@
       <code>$serviceName</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/AbstractNetworkTestCase.php">
-    <MixedAssignment>
-      <code>$httpResponseCodeParam</code>
-    </MixedAssignment>
-    <UnusedVariable>
-      <code>$param</code>
-    </UnusedVariable>
-  </file>
   <file src="test/classes/AbstractTestCase.php">
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['PHP_SELF']]]></code>

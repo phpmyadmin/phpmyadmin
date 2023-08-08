@@ -63,7 +63,7 @@ class AccountUnlockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::success('The account test.user@test.host has been successfully unlocked.');
-        $this->assertEquals(200, $this->responseRendererStub->getHttpResponseCode());
+        $this->assertEquals(200, $this->responseRendererStub->getResponse()->getStatusCode());
         $this->assertTrue($this->responseRendererStub->hasSuccessState());
         $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
@@ -77,7 +77,7 @@ class AccountUnlockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::error('Invalid account.');
-        $this->assertEquals(400, $this->responseRendererStub->getHttpResponseCode());
+        $this->assertEquals(400, $this->responseRendererStub->getResponse()->getStatusCode());
         $this->assertFalse($this->responseRendererStub->hasSuccessState());
         $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
@@ -89,7 +89,7 @@ class AccountUnlockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::error('Account locking is not supported.');
-        $this->assertEquals(400, $this->responseRendererStub->getHttpResponseCode());
+        $this->assertEquals(400, $this->responseRendererStub->getResponse()->getStatusCode());
         $this->assertFalse($this->responseRendererStub->hasSuccessState());
         $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Setup;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -33,7 +34,9 @@ class FormProcessing
             $formDisplay->fixErrors();
             $response = ResponseRenderer::getInstance();
             $response->disable();
-            $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+            $response->addHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+            $response->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
+            $response->callExit();
         }
 
         if (! $formDisplay->process(false)) {
@@ -47,7 +50,9 @@ class FormProcessing
         if (! $formDisplay->hasErrors()) {
             $response = ResponseRenderer::getInstance();
             $response->disable();
-            $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+            $response->addHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+            $response->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
+            $response->callExit();
         }
 
         // form has errors, show warning

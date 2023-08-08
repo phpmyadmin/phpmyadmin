@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -78,17 +79,17 @@ abstract class AbstractController
             return;
         }
 
-        $this->response->setHttpResponseCode(400);
+        $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
         $this->response->setRequestStatus(false);
         $this->response->addHTML(Message::error($errorMessage)->getDisplay());
 
         $this->response->callExit();
     }
 
-    /** @psalm-param int<400,599> $statusCode */
+    /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
     protected function sendErrorResponse(string $message, int $statusCode = 400): void
     {
-        $this->response->setHttpResponseCode($statusCode);
+        $this->response->setStatusCode($statusCode);
         $this->response->setRequestStatus(false);
 
         if ($this->response->isAjax()) {

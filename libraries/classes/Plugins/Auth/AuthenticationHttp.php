@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
@@ -65,8 +66,8 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // remove non US-ASCII to respect RFC2616
         $realmMessage = preg_replace('/[^\x20-\x7e]/i', '', $realmMessage);
-        $response->header('WWW-Authenticate: Basic realm="' . $realmMessage . '"');
-        $response->setHttpResponseCode(401);
+        $response->addHeader('WWW-Authenticate', 'Basic realm="' . $realmMessage . '"');
+        $response->setStatusCode(StatusCodeInterface::STATUS_UNAUTHORIZED);
 
         /* HTML header */
         $response->setMinimalFooter();

@@ -14,6 +14,8 @@ namespace PhpMyAdmin\Tests\Stubs;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Message;
 
 use function is_array;
@@ -33,8 +35,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      */
     protected array $json = [];
 
-    private int $responseCode = 200;
-
     private bool $isHeadersSent = false;
 
     /**
@@ -51,6 +51,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $GLOBALS['text_dir'] ??= 'ltr';
         $this->header = new Header();
         $this->footer = new Footer();
+        $this->response = ResponseFactory::create()->createResponse();
     }
 
     /**
@@ -158,16 +159,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         return $this->isAjax;
     }
 
-    public function setHttpResponseCode(int $responseCode): void
-    {
-        $this->responseCode = $responseCode;
-    }
-
-    public function getHttpResponseCode(): int
-    {
-        return $this->responseCode;
-    }
-
     public function isDisabled(): bool
     {
         return $this->isDisabled;
@@ -186,5 +177,10 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function callExit(string $message = ''): never
     {
         throw new ExitException($message);
+    }
+
+    public function getResponse(): Response
+    {
+        return $this->response;
     }
 }

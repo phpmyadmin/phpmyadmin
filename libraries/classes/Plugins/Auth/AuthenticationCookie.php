@@ -564,8 +564,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         $response = ResponseRenderer::getInstance();
 
         // needed for PHP-CGI (not need for FastCGI or mod-php)
-        $response->header('Cache-Control: no-store, no-cache, must-revalidate');
-        $response->header('Pragma: no-cache');
+        $response->addHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+        $response->addHeader('Pragma', 'no-cache');
 
         $this->showLoginForm();
     }

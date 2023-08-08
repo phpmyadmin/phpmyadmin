@@ -23,7 +23,7 @@ use function serialize;
 use function str_repeat;
 
 #[CoversClass(Core::class)]
-class CoreTest extends AbstractNetworkTestCase
+class CoreTest extends AbstractTestCase
 {
     /**
      * Setup for test cases

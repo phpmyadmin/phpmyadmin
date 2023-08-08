@@ -10,11 +10,11 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 
 use function defined;
 use function header;
 use function headers_sent;
-use function http_response_code;
 use function is_array;
 use function is_scalar;
 use function json_encode;
@@ -25,8 +25,6 @@ use function sprintf;
 use function str_starts_with;
 use function strlen;
 use function substr;
-
-use const PHP_SAPI;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA
@@ -147,7 +145,7 @@ class ResponseRenderer
 
     private OutputBuffering $buffer;
 
-    private ResponseFactory $responseFactory;
+    protected Response $response;
 
     private function __construct()
     {
@@ -155,7 +153,7 @@ class ResponseRenderer
         $this->buffer->start();
         $this->header = new Header();
         $this->footer = new Footer();
-        $this->responseFactory = ResponseFactory::create();
+        $this->response = ResponseFactory::create()->createResponse();
 
         if (! defined('TESTSUITE')) {
             register_shutdown_function($this->response(...));
@@ -356,7 +354,7 @@ class ResponseRenderer
         // Set the Content-Type header to JSON so that jQuery parses the
         // response correctly.
         foreach (Core::headerJSON() as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
+            $this->addHeader($name, $value);
         }
 
         $result = json_encode($this->JSON);
@@ -380,28 +378,52 @@ class ResponseRenderer
             $this->HTML = $this->buffer->getContents();
         }
 
-        $this->emitBody($this->isAjax() ? $this->ajaxResponse() : $this->getDisplay());
+        $this->response->getBody()->write($this->isAjax() ? $this->ajaxResponse() : $this->getDisplay());
+
+        $this->emitHeaders();
+        $this->emitStatusLine();
+        $this->emitBody();
 
         $this->buffer->flush();
         $this->callExit();
     }
 
-    private function emitBody(string $body): void
+    private function emitHeaders(): void
     {
-        $responseBody = $this->responseFactory->createResponse()->getBody();
-        $responseBody->write($body);
-        echo $responseBody;
+        foreach ($this->response->getHeaders() as $header => $values) {
+            foreach ($values as $value) {
+                header(sprintf('%s: %s', $header, $value));
+            }
+        }
     }
 
-    /**
-     * Wrapper around PHP's header() function.
-     *
-     * @param string $text header string
-     */
-    public function header(string $text): void
+    private function emitStatusLine(): void
     {
-        // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
-        \header($text);
+        $protocolVersion = $this->response->getProtocolVersion();
+        $statusCode = $this->response->getStatusCode();
+        $reasonPhrase = $this->response->getReasonPhrase();
+        $reasonPhrase = $reasonPhrase !== '' ? ' ' . $reasonPhrase : '';
+        header(sprintf('HTTP/%s %d%s', $protocolVersion, $statusCode, $reasonPhrase), true, $statusCode);
+    }
+
+    private function emitBody(): void
+    {
+        echo $this->response->getBody();
+    }
+
+    public function addHeader(string $name, string $value): void
+    {
+        $this->response = $this->response->withHeader($name, $value);
+    }
+
+    /** @psalm-param StatusCodeInterface::STATUS_* $code */
+    public function setStatusCode(int $code): void
+    {
+        if (isset(static::$httpStatusMessages[$code])) {
+            $this->response = $this->response->withStatus($code, static::$httpStatusMessages[$code]);
+        } else {
+            $this->response = $this->response->withStatus($code);
+        }
     }
 
     /**
@@ -410,50 +432,6 @@ class ResponseRenderer
     public function headersSent(): bool
     {
         return headers_sent();
-    }
-
-    /**
-     * Wrapper around PHP's http_response_code() function.
-     *
-     * @param int $responseCode will set the response code.
-     */
-    public function httpResponseCode(int $responseCode): void
-    {
-        http_response_code($responseCode);
-    }
-
-    /**
-     * Sets http response code.
-     *
-     * @param int $responseCode will set the response code.
-     */
-    public function setHttpResponseCode(int $responseCode): void
-    {
-        $this->httpResponseCode($responseCode);
-        $header = 'status: ' . $responseCode . ' ';
-        if (isset(static::$httpStatusMessages[$responseCode])) {
-            $header .= static::$httpStatusMessages[$responseCode];
-        } else {
-            $header .= 'Web server is down';
-        }
-
-        if (PHP_SAPI === 'cgi-fcgi') {
-            return;
-        }
-
-        $this->header($header);
-    }
-
-    /**
-     * Generate header for 303
-     *
-     * @param string $location will set location to redirect.
-     */
-    public function generateHeader303(string $location): never
-    {
-        $this->setHttpResponseCode(303);
-        $this->header('Location: ' . $location);
-        $this->callExit();
     }
 
     /**
@@ -524,7 +502,7 @@ class ResponseRenderer
             $url = $GLOBALS['config']->getRootPath() . substr($url, 2);
         }
 
-        $this->header('Location: ' . $url);
-        $this->httpResponseCode($statusCode);
+        $this->addHeader('Location', $url);
+        $this->setStatusCode($statusCode);
     }
 }
