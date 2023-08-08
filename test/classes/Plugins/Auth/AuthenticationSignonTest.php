@@ -8,8 +8,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionProperty;
 use Throwable;
 
 use function ob_get_clean;
@@ -19,7 +21,7 @@ use function session_id;
 use function session_name;
 
 #[CoversClass(AuthenticationSignon::class)]
-class AuthenticationSignonTest extends AbstractNetworkTestCase
+class AuthenticationSignonTest extends AbstractTestCase
 {
     protected AuthenticationSignon $object;
 
@@ -76,23 +78,33 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     public function testAuthLogoutURL(): void
     {
-        $this->mockResponse('Location: https://example.com/logoutURL');
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logoutURL';
 
         $this->object->logOut();
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['https://example.com/logoutURL'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
     }
 
     public function testAuthLogout(): void
     {
-        $this->mockResponse('Location: https://example.com/SignonURL');
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $GLOBALS['header'] = [];
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = '';
 
         $this->object->logOut();
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
     }
 
     public function testAuthCheckEmpty(): void
@@ -130,7 +142,9 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     public function testAuthCheckToken(): void
     {
         $_SESSION = [' PMA_token ' => 'eefefef'];
-        $this->mockResponse('Location: https://example.com/SignonURL');
+
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
@@ -150,6 +164,10 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $sessionID = session_id();
 
         $this->object->logOut();
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
 
         $this->assertEquals(
             [

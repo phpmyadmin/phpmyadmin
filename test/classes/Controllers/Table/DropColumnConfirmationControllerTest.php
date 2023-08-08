@@ -49,7 +49,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         (new DropColumnConfirmationController($response, $template, new DbTableExists($GLOBALS['dbi'])))($request);
 
-        $this->assertSame(200, $response->getHttpResponseCode());
+        $this->assertSame(200, $response->getResponse()->getStatusCode());
         $this->assertTrue($response->hasSuccessState());
         $this->assertSame([], $response->getJSONResult());
         $this->assertSame($expected, $response->getHTMLResult());
@@ -69,7 +69,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         (new DropColumnConfirmationController($response, new Template(), new DbTableExists($GLOBALS['dbi'])))($request);
 
-        $this->assertSame(400, $response->getHttpResponseCode());
+        $this->assertSame(400, $response->getResponse()->getStatusCode());
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame(['isErrorResponse' => true, 'message' => 'No column selected.'], $response->getJSONResult());
         $this->assertSame('', $response->getHTMLResult());
@@ -89,7 +89,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         (new DropColumnConfirmationController($response, new Template(), new DbTableExists($GLOBALS['dbi'])))($request);
 
-        $this->assertSame(400, $response->getHttpResponseCode());
+        $this->assertSame(400, $response->getResponse()->getStatusCode());
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame([
             'isErrorResponse' => true,

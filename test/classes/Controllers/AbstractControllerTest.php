@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -55,7 +56,7 @@ class AbstractControllerTest extends AbstractTestCase
 
         $this->assertInstanceOf(ExitException::class, $throwable ?? null);
         $this->assertSame($expected, $response->getHTMLResult());
-        $this->assertSame(400, $response->getHttpResponseCode());
+        $this->assertSame(400, $response->getResponse()->getStatusCode());
     }
 
     public function testCheckParametersWithAllParameters(): void
@@ -78,7 +79,7 @@ class AbstractControllerTest extends AbstractTestCase
 
         $controller->testCheckParameters(['param1', 'param2']);
 
-        $this->assertSame(200, $response->getHttpResponseCode());
+        $this->assertSame(200, $response->getResponse()->getStatusCode());
     }
 
     public function testSendErrorResponseWithJson(): void
@@ -87,7 +88,7 @@ class AbstractControllerTest extends AbstractTestCase
         $response->setAjax(true);
 
         $controller = new class ($response, new Template()) extends AbstractController {
-            /** @psalm-param int<400,599> $statusCode */
+            /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {
                 parent::sendErrorResponse($message, $statusCode);
@@ -96,7 +97,7 @@ class AbstractControllerTest extends AbstractTestCase
 
         $controller->testSendErrorResponse('Error message.', 404);
 
-        $this->assertSame(404, $response->getHttpResponseCode());
+        $this->assertSame(404, $response->getResponse()->getStatusCode());
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame('', $response->getHTMLResult());
         $this->assertSame(['isErrorResponse' => true, 'message' => 'Error message.'], $response->getJSONResult());
@@ -108,7 +109,7 @@ class AbstractControllerTest extends AbstractTestCase
         $response->setAjax(false);
 
         $controller = new class ($response, new Template()) extends AbstractController {
-            /** @psalm-param int<400,599> $statusCode */
+            /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {
                 parent::sendErrorResponse($message, $statusCode);
@@ -117,7 +118,7 @@ class AbstractControllerTest extends AbstractTestCase
 
         $controller->testSendErrorResponse('Error message.', 404);
 
-        $this->assertSame(404, $response->getHttpResponseCode());
+        $this->assertSame(404, $response->getResponse()->getStatusCode());
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame(
             Message::error('Error message.')->getDisplay(),

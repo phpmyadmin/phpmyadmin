@@ -22,7 +22,7 @@ class LicenseController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $this->response->disable();
-        $this->response->header('Content-type: text/plain; charset=utf-8');
+        $this->response->addHeader('Content-Type', 'text/plain; charset=utf-8');
 
         $filename = LICENSE_FILE;
 

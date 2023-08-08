@@ -10,9 +10,12 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
@@ -20,7 +23,7 @@ use function json_encode;
 use function time;
 
 #[CoversClass(UserPreferences::class)]
-class UserPreferencesTest extends AbstractNetworkTestCase
+class UserPreferencesTest extends AbstractTestCase
 {
     /**
      * Setup various pre conditions
@@ -304,16 +307,15 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for redirect
-     */
+    #[BackupStaticProperties(true)]
     public function testRedirect(): void
     {
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         $GLOBALS['lang'] = '';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-
-        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
 
         $GLOBALS['config']->set('PmaAbsoluteUri', '');
 
@@ -323,6 +325,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ['a' => 'b'],
             'h ash',
         );
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['/phpmyadmin/file.html?a=b&saved=1&server=0#h+ash'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
     }
 
     /**

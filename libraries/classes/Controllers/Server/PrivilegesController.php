@@ -20,7 +20,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
-use function header;
 use function htmlspecialchars;
 use function implode;
 use function is_array;
@@ -382,7 +381,7 @@ class PrivilegesController extends AbstractController
                 // A user was selected -> display the user's properties
                 // In an Ajax request, prevent cached values from showing
                 if ($request->isAjax()) {
-                    header('Cache-Control: no-cache');
+                    $this->response->addHeader('Cache-Control', 'no-cache');
                 }
 
                 $this->response->addHTML(

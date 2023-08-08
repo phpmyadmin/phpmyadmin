@@ -30892,7 +30892,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 15
+			count: 19
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
@@ -30903,6 +30903,11 @@ parameters:
 		-
 			message: "#^Cannot access offset 'auth_http_realm' on mixed\\.$#"
 			count: 1
+			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
+
+		-
+			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
+			count: 4
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
@@ -30928,11 +30933,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Privileges;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -39,7 +40,7 @@ final class AccountUnlockController extends AbstractController
         try {
             $this->model->unlock($userName, $hostName);
         } catch (Throwable $exception) {
-            $this->response->setHttpResponseCode(400);
+            $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error($exception->getMessage())]);
 

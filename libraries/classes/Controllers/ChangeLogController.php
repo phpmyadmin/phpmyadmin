@@ -102,7 +102,7 @@ class ChangeLogController extends AbstractController
             '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="',
         ];
 
-        $this->response->header('Content-type: text/html; charset=utf-8');
+        $this->response->addHeader('Content-Type', 'text/html; charset=utf-8');
 
         $this->render('changelog', [
             'changelog' => preg_replace(array_keys($replaces), $replaces, $changelog),

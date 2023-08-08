@@ -9,7 +9,8 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -34,7 +35,7 @@ use function time;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 #[CoversClass(AuthenticationCookie::class)]
-class AuthenticationCookieTest extends AbstractNetworkTestCase
+class AuthenticationCookieTest extends AbstractTestCase
 {
     protected AuthenticationCookie $object;
 
@@ -74,27 +75,25 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     #[Group('medium')]
-    public function testAuthErrorAJAX(): never
+    #[BackupStaticProperties(true)]
+    public function testAuthErrorAJAX(): void
     {
-        $mockResponse = $this->mockResponse();
-
-        $mockResponse->expects($this->once())
-            ->method('isAjax')
-            ->with()
-            ->willReturn(true);
-
-        $mockResponse->expects($this->once())
-            ->method('setRequestStatus')
-            ->with(false);
-
-        $mockResponse->expects($this->once())
-            ->method('addJSON')
-            ->with('redirect_flag', '1');
-
         $GLOBALS['conn_error'] = true;
 
-        $this->expectException(ExitException::class);
-        $this->object->showLoginForm();
+        $responseStub = new ResponseRendererStub();
+        $responseStub->setAjax(true);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertFalse($responseStub->hasSuccessState());
+        $this->assertSame(['redirect_flag' => '1'], $responseStub->getJSONResult());
     }
 
     private function getAuthErrorMockResponse(): void
@@ -139,7 +138,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['Servers'] = [1, 2];
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
-        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
@@ -209,7 +208,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
-        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
@@ -273,7 +272,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $GLOBALS['errorHandler'] = new ErrorHandler();
 
-        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
@@ -318,19 +317,26 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthHeader(): void
     {
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['cfg']['Servers'] = [1];
 
-        $this->mockResponse('Location: https://example.com/logout');
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
 
         $this->object->logOut();
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['https://example.com/logout'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthHeaderPartial(): void
     {
         $GLOBALS['config']->set('is_https', false);
@@ -341,9 +347,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $_COOKIE['pmaAuth-2'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/index.php?route=/&server=2&lang=en');
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $this->object->logOut();
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['/phpmyadmin/index.php?route=/&server=2&lang=en'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
     }
 
     public function testAuthCheckCaptcha(): void
@@ -366,9 +377,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
+    #[BackupStaticProperties(true)]
     public function testLogoutDelete(): void
     {
-        $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
@@ -384,12 +397,18 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->logOut();
 
+        $response = $responseStub->getResponse();
+        $this->assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
+
         $this->assertArrayNotHasKey('pmaAuth-0', $_COOKIE);
     }
 
+    #[BackupStaticProperties(true)]
     public function testLogout(): void
     {
-        $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
@@ -406,6 +425,10 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaAuth-1'] = 'test';
 
         $this->object->logOut();
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
 
         $this->assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
@@ -622,15 +645,15 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = false;
 
-        $this->mockResponse(
-            $this->stringContains('&server=2&lang=en'),
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $this->object->storeCredentials();
         $this->expectException(ExitException::class);
         $this->object->rememberCredentials();
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthFailsNoPass(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -645,14 +668,19 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $this->mockResponse(
-            ['Cache-Control: no-store, no-cache, must-revalidate'],
-            ['Pragma: no-cache'],
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showFailure('empty-denied');
-        } catch (ExitException) {
+        } catch (Throwable $throwable) {
         }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
+        $this->assertSame(200, $response->getStatusCode());
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -700,6 +728,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertEquals($GLOBALS['conn_error'], $connError);
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthFailsDeny(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -714,18 +743,24 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $this->mockResponse(
-            ['Cache-Control: no-store, no-cache, must-revalidate'],
-            ['Pragma: no-cache'],
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showFailure('allow-denied');
-        } catch (ExitException) {
+        } catch (Throwable $throwable) {
         }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
+        $this->assertSame(200, $response->getStatusCode());
 
         $this->assertEquals($GLOBALS['conn_error'], 'Access denied!');
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthFailsActivity(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -743,14 +778,19 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['allowDeny_forbidden'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 10;
 
-        $this->mockResponse(
-            ['Cache-Control: no-store, no-cache, must-revalidate'],
-            ['Pragma: no-cache'],
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showFailure('no-activity');
-        } catch (ExitException) {
+        } catch (Throwable $throwable) {
         }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
+        $this->assertSame(200, $response->getStatusCode());
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -759,6 +799,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthFailsDBI(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -784,18 +825,24 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 42;
 
-        $this->mockResponse(
-            ['Cache-Control: no-store, no-cache, must-revalidate'],
-            ['Pragma: no-cache'],
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showFailure('');
-        } catch (ExitException) {
+        } catch (Throwable $throwable) {
         }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
+        $this->assertSame(200, $response->getStatusCode());
 
         $this->assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthFailsErrno(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -821,14 +868,19 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         unset($GLOBALS['errno']);
 
-        $this->mockResponse(
-            ['Cache-Control: no-store, no-cache, must-revalidate'],
-            ['Pragma: no-cache'],
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
         try {
             $this->object->showFailure('');
-        } catch (ExitException) {
+        } catch (Throwable $throwable) {
         }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
+        $this->assertSame(200, $response->getStatusCode());
 
         $this->assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }
@@ -980,7 +1032,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->getAuthErrorMockResponse();
         }
 
-        $responseStub = new \PhpMyAdmin\Tests\Stubs\ResponseRenderer();
+        $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {

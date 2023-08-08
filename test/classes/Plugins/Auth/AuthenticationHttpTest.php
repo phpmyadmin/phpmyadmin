@@ -6,14 +6,16 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
-use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+use ReflectionProperty;
 use Throwable;
 
 use function base64_encode;
@@ -21,7 +23,7 @@ use function ob_get_clean;
 use function ob_start;
 
 #[CoversClass(AuthenticationHttp::class)]
-class AuthenticationHttpTest extends AbstractNetworkTestCase
+class AuthenticationHttpTest extends AbstractTestCase
 {
     protected AuthenticationHttp $object;
 
@@ -58,103 +60,82 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    public function doMockResponse(int $setMinimal, int $bodyId, int $setTitle, mixed ...$headers): void
-    {
-        $mockHeader = $this->getMockBuilder(Header::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(
-                ['setBodyId', 'setTitle', 'disableMenuAndConsole'],
-            )
-            ->getMock();
-
-        $mockHeader->expects($this->exactly($bodyId))
-            ->method('setBodyId')
-            ->with('loginform');
-
-        $mockHeader->expects($this->exactly($setTitle))
-            ->method('setTitle')
-            ->with('Access denied!');
-
-        $mockHeader->expects($this->exactly($setTitle))
-            ->method('disableMenuAndConsole')
-            ->with();
-
-        // set mocked headers and footers
-        $mockResponse = $this->mockResponse($headers);
-
-        $mockResponse->expects($this->exactly($setMinimal))
-            ->method('setMinimalFooter')
-            ->with();
-
-        $mockResponse->expects($this->exactly($setTitle))
-            ->method('getHeader')
-            ->with()
-            ->willReturn($mockHeader);
-
-        if (! empty($_REQUEST['old_usr'])) {
-            $this->object->logOut();
-        } else {
-            $this->expectException(ExitException::class);
-            $this->object->showLoginForm();
-        }
-    }
-
+    #[BackupStaticProperties(true)]
     public function testAuthLogoutUrl(): void
     {
-        $_REQUEST['old_usr'] = '1';
+        $GLOBALS['cfg']['Server']['auth_type'] = 'http';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
-        $this->doMockResponse(
-            0,
-            0,
-            0,
-            ['Location: https://example.com/logout'],
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
+        $this->object->logOut();
+
+        $response = $responseStub->getResponse();
+        $this->assertSame(['https://example.com/logout'], $response->getHeader('Location'));
+        $this->assertSame(302, $response->getStatusCode());
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthVerbose(): void
     {
-        $_REQUEST['old_usr'] = '';
+        $GLOBALS['cfg']['Server']['auth_type'] = 'http';
         $GLOBALS['cfg']['Server']['verbose'] = 'verboseMessagê';
 
-        $this->doMockResponse(
-            1,
-            1,
-            1,
-            ['WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'],
-            ['status: 401 Unauthorized'],
-            401,
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['Basic realm="phpMyAdmin verboseMessag"'], $response->getHeader('WWW-Authenticate'));
+        $this->assertSame(401, $response->getStatusCode());
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthHost(): void
     {
+        $GLOBALS['cfg']['Server']['auth_type'] = 'http';
         $GLOBALS['cfg']['Server']['verbose'] = '';
         $GLOBALS['cfg']['Server']['host'] = 'hòst';
 
-        $this->doMockResponse(
-            1,
-            1,
-            1,
-            ['WWW-Authenticate: Basic realm="phpMyAdmin hst"'],
-            ['status: 401 Unauthorized'],
-            401,
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['Basic realm="phpMyAdmin hst"'], $response->getHeader('WWW-Authenticate'));
+        $this->assertSame(401, $response->getStatusCode());
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthRealm(): void
     {
+        $GLOBALS['cfg']['Server']['auth_type'] = 'http';
         $GLOBALS['cfg']['Server']['host'] = '';
         $GLOBALS['cfg']['Server']['auth_http_realm'] = 'rêäealmmessage';
 
-        $this->doMockResponse(
-            1,
-            1,
-            1,
-            ['WWW-Authenticate: Basic realm="realmmessage"'],
-            ['status: 401 Unauthorized'],
-            401,
-        );
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+
+        try {
+            $this->object->showLoginForm();
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['Basic realm="realmmessage"'], $response->getHeader('WWW-Authenticate'));
+        $this->assertSame(401, $response->getStatusCode());
     }
 
     /**

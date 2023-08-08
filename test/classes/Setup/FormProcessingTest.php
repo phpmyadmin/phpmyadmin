@@ -6,15 +6,20 @@ namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Exceptions\ExitException;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\FormProcessing;
-use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionProperty;
+use Throwable;
 
 use function ob_get_clean;
 use function ob_start;
 
 #[CoversClass(FormProcessing::class)]
-class FormProcessingTest extends AbstractNetworkTestCase
+class FormProcessingTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
@@ -31,14 +36,13 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
     }
 
-    /**
-     * Test for process_formset()
-     */
+    #[BackupStaticProperties(true)]
     public function testProcessFormSet(): void
     {
-        $this->mockResponse(
-            [['status: 303 See Other'], ['Location: ../setup/index.php?route=%2Fsetup&lang=en'], 303],
-        );
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
+        $responseStub = new ResponseRendererStub();
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         // case 1
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
@@ -102,7 +106,14 @@ class FormProcessingTest extends AbstractNetworkTestCase
             ->with()
             ->willReturn(false);
 
-        $this->expectException(ExitException::class);
-        FormProcessing::process($formDisplay);
+        try {
+            FormProcessing::process($formDisplay);
+        } catch (Throwable $throwable) {
+        }
+
+        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $response = $responseStub->getResponse();
+        $this->assertSame(['../setup/index.php?route=%2Fsetup&lang=en'], $response->getHeader('Location'));
+        $this->assertSame(303, $response->getStatusCode());
     }
 }

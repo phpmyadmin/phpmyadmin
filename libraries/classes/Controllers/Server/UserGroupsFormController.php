@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -40,7 +41,7 @@ final class UserGroupsFormController extends AbstractController
 
         if ($username === '') {
             $this->response->setRequestStatus(false);
-            $this->response->setHttpResponseCode(400);
+            $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->addJSON('message', __('Missing parameter:') . ' username');
 
             return;
@@ -52,7 +53,7 @@ final class UserGroupsFormController extends AbstractController
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature === null) {
             $this->response->setRequestStatus(false);
-            $this->response->setHttpResponseCode(400);
+            $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->addJSON('message', __('User groups management is not enabled.'));
 
             return;
