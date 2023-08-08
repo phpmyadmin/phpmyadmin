@@ -10,7 +10,9 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionProperty;
 use Throwable;
 
 use function ob_get_clean;
@@ -53,8 +55,10 @@ class AuthenticationConfigTest extends AbstractTestCase
         unset($this->object);
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuth(): void
     {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         ResponseRenderer::getInstance()->setAjax(true);
         $this->expectException(ExitException::class);
         $this->object->showLoginForm();
@@ -75,6 +79,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         );
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthFails(): void
     {
         $GLOBALS['errorHandler'] = new ErrorHandler();
@@ -85,6 +90,8 @@ class AuthenticationConfigTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
+
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
         ob_start();
         try {

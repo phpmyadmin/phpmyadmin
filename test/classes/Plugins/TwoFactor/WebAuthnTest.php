@@ -12,8 +12,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\Server;
 use PhpMyAdmin\WebAuthn\WebAuthnException;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psr\Http\Message\UriInterface;
+use ReflectionProperty;
 
 use function array_column;
 use function json_decode;
@@ -34,8 +36,11 @@ class WebAuthnTest extends AbstractTestCase
         );
     }
 
+    #[BackupStaticProperties(true)]
     public function testRender(): void
     {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
@@ -97,8 +102,11 @@ class WebAuthnTest extends AbstractTestCase
         $this->assertContains('webauthn.js', array_column($files, 'name'));
     }
 
+    #[BackupStaticProperties(true)]
     public function testSetup(): void
     {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
