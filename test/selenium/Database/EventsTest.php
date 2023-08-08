@@ -215,7 +215,8 @@ class EventsTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
-                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             }
         );
     }
