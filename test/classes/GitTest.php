@@ -189,6 +189,13 @@ class GitTest extends AbstractTestCase
         mkdir($this->testDir . '.git/objects/pack', 0777, true);//default = 0777, recursive mode
 
         $commit = $this->object->checkGitRevision();
+        // Delete the dataset
+        rmdir($this->testDir . '.git/objects/pack');
+        rmdir($this->testDir . '.git/objects');
+        unlink($this->testDir . '.git/packed-refs');
+        unlink($this->testDir . '.git/HEAD');
+        unlink($this->testDir . '.git/config');
+        rmdir($this->testDir . '.git');
 
         if (
             $commit === null
@@ -212,13 +219,6 @@ class GitTest extends AbstractTestCase
         $this->assertSame('phpMyAdmin bot', $commit['committer']['name']);
         $this->assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
         $this->assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
-
-        rmdir($this->testDir . '.git/objects/pack');
-        rmdir($this->testDir . '.git/objects');
-        unlink($this->testDir . '.git/packed-refs');
-        unlink($this->testDir . '.git/HEAD');
-        unlink($this->testDir . '.git/config');
-        rmdir($this->testDir . '.git');
     }
 
     /**
@@ -296,6 +296,14 @@ class GitTest extends AbstractTestCase
         );
 
         $commit = $this->object->checkGitRevision();
+        // Delete the dataset
+        unlink($this->testDir . '.git/objects/info/packs');
+        rmdir($this->testDir . '.git/objects/info');
+        rmdir($this->testDir . '.git/objects');
+        unlink($this->testDir . '.git/packed-refs');
+        unlink($this->testDir . '.git/HEAD');
+        unlink($this->testDir . '.git/config');
+        rmdir($this->testDir . '.git');
 
         if (
             $commit === null
@@ -319,14 +327,6 @@ class GitTest extends AbstractTestCase
         $this->assertSame('phpMyAdmin bot', $commit['committer']['name']);
         $this->assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
         $this->assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
-
-        unlink($this->testDir . '.git/objects/info/packs');
-        rmdir($this->testDir . '.git/objects/info');
-        rmdir($this->testDir . '.git/objects');
-        unlink($this->testDir . '.git/packed-refs');
-        unlink($this->testDir . '.git/HEAD');
-        unlink($this->testDir . '.git/config');
-        rmdir($this->testDir . '.git');
     }
 
     /**
