@@ -29682,7 +29682,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 4
+			count: 3
 			path: test/classes/ErrorHandlerTest.php
 
 		-

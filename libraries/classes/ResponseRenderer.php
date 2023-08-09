@@ -12,7 +12,6 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 
-use function headers_sent;
 use function is_array;
 use function is_scalar;
 use function json_encode;
@@ -379,14 +378,6 @@ class ResponseRenderer
         } else {
             $this->response = $this->response->withStatus($code);
         }
-    }
-
-    /**
-     * Wrapper around PHP's headers_sent() function.
-     */
-    public function headersSent(): bool
-    {
-        return headers_sent();
     }
 
     /**

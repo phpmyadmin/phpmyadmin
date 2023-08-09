@@ -8,6 +8,7 @@ use ErrorException;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use PhpMyAdmin\Exceptions\ExitException;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use Throwable;
 
 use function __;
@@ -16,6 +17,7 @@ use function count;
 use function defined;
 use function error_reporting;
 use function htmlspecialchars;
+use function sprintf;
 use function trigger_error;
 
 use const E_COMPILE_ERROR;
@@ -314,22 +316,18 @@ class ErrorHandler
      */
     protected function dispFatalError(Error $error): never
     {
-        $response = ResponseRenderer::getInstance();
-        if (! $response->headersSent()) {
-            $response->disable();
-            $response->addHTML('<html><head><title>');
-            $response->addHTML($error->getTitle());
-            $response->addHTML('</title></head>' . "\n");
-        }
+        $response = ResponseFactory::create()->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+        $response->getBody()->write(sprintf(
+            "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>%s</title></head>\n<body>\n%s\n</body>\n</html>",
+            $error->getTitle(),
+            $error->getDisplay(),
+        ));
 
-        $response->addHTML($error->getDisplay());
-        $response->addHTML('</body></html>');
+        (new SapiEmitter())->emit($response);
 
         if (defined('TESTSUITE')) {
             throw new ExitException();
         }
-
-        (new SapiEmitter())->emit($response->response()->withStatus(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR));
 
         exit;
     }
