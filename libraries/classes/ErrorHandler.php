@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ErrorException;
+use Fig\Http\Message\StatusCodeInterface;
+use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
+use PhpMyAdmin\Exceptions\ExitException;
 use Throwable;
 
 use function __;
@@ -13,8 +16,6 @@ use function count;
 use function defined;
 use function error_reporting;
 use function htmlspecialchars;
-use function set_error_handler;
-use function set_exception_handler;
 use function trigger_error;
 
 use const E_COMPILE_ERROR;
@@ -57,17 +58,6 @@ class ErrorHandler
 
     public function __construct()
     {
-        /**
-         * Do not set ourselves as error handler in case of testsuite.
-         *
-         * This behavior is not tested there and breaks other tests as they
-         * rely on PHPUnit doing it's own error handling which we break here.
-         */
-        if (! defined('TESTSUITE')) {
-            set_exception_handler($this->handleException(...));
-            set_error_handler($this->handleError(...));
-        }
-
         if (! Util::isErrorReportingAvailable()) {
             return;
         }
@@ -334,7 +324,14 @@ class ErrorHandler
 
         $response->addHTML($error->getDisplay());
         $response->addHTML('</body></html>');
-        $response->callExit();
+
+        if (defined('TESTSUITE')) {
+            throw new ExitException();
+        }
+
+        (new SapiEmitter())->emit($response->response()->withStatus(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR));
+
+        exit;
     }
 
     /**

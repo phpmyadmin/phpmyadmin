@@ -6,28 +6,36 @@ namespace PhpMyAdmin;
 
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
+use Laminas\HttpHandlerRunner\RequestHandlerRunner;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
-use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Http\Handler\ApplicationHandler;
+use PhpMyAdmin\Http\Handler\QueueRequestHandler;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Middleware\ErrorHandling;
+use PhpMyAdmin\Middleware\OutputBuffering;
+use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Tracking\Tracker;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Throwable;
 
 use function __;
 use function count;
@@ -51,7 +59,7 @@ use function trigger_error;
 use const CONFIG_FILE;
 use const E_USER_ERROR;
 
-final class Application
+class Application
 {
     private static ServerRequest|null $request = null;
 
@@ -73,31 +81,32 @@ final class Application
 
     public function run(bool $isSetupPage = false): void
     {
-        $request = self::getRequest()->withAttribute('isSetupPage', $isSetupPage);
-        $response = $this->handle($request);
-        if ($response === null) {
-            return;
-        }
+        $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
+        $requestHandler->add(new ErrorHandling($this->errorHandler));
+        $requestHandler->add(new OutputBuffering());
+        $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
 
-        $emitter = new SapiEmitter();
-        $emitter->emit($response);
+        $runner = new RequestHandlerRunner(
+            $requestHandler,
+            new SapiEmitter(),
+            static fn (): ServerRequestInterface => self::getRequest()->withAttribute('isSetupPage', $isSetupPage),
+            function (Throwable $throwable): ResponseInterface {
+                $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+                $response->getBody()->write(sprintf('An error occurred: %s', $throwable->getMessage()));
+
+                return $response;
+            },
+        );
+
+        $runner->run();
     }
 
-    private function handle(ServerRequest $request): Response|null
+    public function handle(ServerRequest $request): Response|null
     {
         $isSetupPage = (bool) $request->getAttribute('isSetupPage');
 
         $GLOBALS['errorHandler'] = $this->errorHandler;
         $GLOBALS['config'] = $this->config;
-
-        try {
-            $this->checkRequiredPhpExtensions();
-        } catch (MissingExtensionException $exception) {
-            // Disables template caching because the cache directory is not known yet.
-            $this->template->disableCache();
-
-            return $this->getGenericErrorResponse($exception->getMessage());
-        }
 
         $resultOfServerConfigurationCheck = $this->checkServerConfiguration();
         if ($resultOfServerConfigurationCheck !== null) {
@@ -316,7 +325,7 @@ final class Application
     /**
      * Checks that required PHP extensions are there.
      */
-    private function checkRequiredPhpExtensions(): void
+    public function checkRequiredPhpExtensions(): void
     {
         /**
          * Warning about mbstring.

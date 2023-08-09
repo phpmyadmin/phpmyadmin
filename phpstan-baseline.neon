@@ -17231,31 +17231,6 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Cannot access offset 'OBGzip' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Only booleans are allowed in &&, array given on the left side\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int given on the left side\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int given on the right side\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
 			path: libraries/classes/ParseAnalyze.php

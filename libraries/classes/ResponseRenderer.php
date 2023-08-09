@@ -12,16 +12,12 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 
-use function defined;
-use function header;
 use function headers_sent;
 use function is_array;
 use function is_scalar;
 use function json_encode;
 use function json_last_error_msg;
 use function mb_strlen;
-use function register_shutdown_function;
-use function sprintf;
 use function str_starts_with;
 use function strlen;
 use function substr;
@@ -143,21 +139,13 @@ class ResponseRenderer
         511 => 'Network Authentication Required',
     ];
 
-    private OutputBuffering $buffer;
-
     protected Response $response;
 
     private function __construct()
     {
-        $this->buffer = new OutputBuffering();
-        $this->buffer->start();
         $this->header = new Header();
         $this->footer = new Footer();
         $this->response = ResponseFactory::create()->createResponse();
-
-        if (! defined('TESTSUITE')) {
-            register_shutdown_function($this->response(...));
-        }
 
         $this->setAjax(! empty($_REQUEST['ajax_request']));
     }
@@ -368,47 +356,11 @@ class ResponseRenderer
         return $result;
     }
 
-    /**
-     * Sends an HTML response to the browser
-     */
-    public function response(): never
+    public function response(): Response
     {
-        $this->buffer->stop();
-        if ($this->HTML === '') {
-            $this->HTML = $this->buffer->getContents();
-        }
-
         $this->response->getBody()->write($this->isAjax() ? $this->ajaxResponse() : $this->getDisplay());
 
-        $this->emitHeaders();
-        $this->emitStatusLine();
-        $this->emitBody();
-
-        $this->buffer->flush();
-        $this->callExit();
-    }
-
-    private function emitHeaders(): void
-    {
-        foreach ($this->response->getHeaders() as $header => $values) {
-            foreach ($values as $value) {
-                header(sprintf('%s: %s', $header, $value));
-            }
-        }
-    }
-
-    private function emitStatusLine(): void
-    {
-        $protocolVersion = $this->response->getProtocolVersion();
-        $statusCode = $this->response->getStatusCode();
-        $reasonPhrase = $this->response->getReasonPhrase();
-        $reasonPhrase = $reasonPhrase !== '' ? ' ' . $reasonPhrase : '';
-        header(sprintf('HTTP/%s %d%s', $protocolVersion, $statusCode, $reasonPhrase), true, $statusCode);
-    }
-
-    private function emitBody(): void
-    {
-        echo $this->response->getBody();
+        return $this->response;
     }
 
     public function addHeader(string $name, string $value): void
@@ -477,15 +429,7 @@ class ResponseRenderer
 
     public function callExit(string $message = ''): never
     {
-        if (defined('TESTSUITE')) {
-            throw new ExitException($message);
-        }
-
-        if ($message !== '') {
-            exit($message);
-        }
-
-        exit;
+        throw new ExitException($message);
     }
 
     /**
