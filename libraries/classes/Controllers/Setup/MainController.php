@@ -20,7 +20,7 @@ use const CONFIG_FILE;
 
 final class MainController
 {
-    public function __construct(private readonly ResponseFactory $responseFactory)
+    public function __construct(private readonly ResponseFactory $responseFactory, private readonly Template $template)
     {
     }
 
@@ -29,7 +29,7 @@ final class MainController
         if (@file_exists(CONFIG_FILE) && ! $GLOBALS['cfg']['DBG']['demo']) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
-            return $response->write((new Template())->render('error/generic', [
+            return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => $GLOBALS['text_dir'] ?? 'ltr',
                 'error_message' => __('Configuration already exists, setup is disabled!'),
@@ -48,20 +48,20 @@ final class MainController
         }
 
         if ($page === 'form') {
-            return $response->write((new FormController($GLOBALS['ConfigFile'], new Template()))([
+            return $response->write((new FormController($GLOBALS['ConfigFile'], $this->template))([
                 'formset' => $request->getQueryParam('formset'),
             ]));
         }
 
         if ($page === 'config') {
-            return $response->write((new ConfigController($GLOBALS['ConfigFile'], new Template()))([
+            return $response->write((new ConfigController($GLOBALS['ConfigFile'], $this->template))([
                 'formset' => $request->getQueryParam('formset'),
                 'eol' => $request->getQueryParam('eol'),
             ]));
         }
 
         if ($page === 'servers') {
-            $controller = new ServersController($GLOBALS['ConfigFile'], new Template());
+            $controller = new ServersController($GLOBALS['ConfigFile'], $this->template);
             /** @var mixed $mode */
             $mode = $request->getQueryParam('mode');
             if ($mode === 'remove' && $request->isPost()) {
@@ -81,7 +81,7 @@ final class MainController
             ]));
         }
 
-        return $response->write((new HomeController($GLOBALS['ConfigFile'], new Template()))([
+        return $response->write((new HomeController($GLOBALS['ConfigFile'], $this->template))([
             'formset' => $request->getQueryParam('formset'),
             'version_check' => $request->getQueryParam('version_check'),
         ]));

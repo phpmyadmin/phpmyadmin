@@ -177,8 +177,9 @@ class Routing
     public static function callSetupController(ServerRequest $request, ResponseFactory $responseFactory): Response|null
     {
         $route = $request->getRoute();
+        $template = new Template();
         if ($route === '/setup' || $route === '/') {
-            return (new MainController($responseFactory))($request);
+            return (new MainController($responseFactory, $template))($request);
         }
 
         if ($route === '/setup/show-config') {
@@ -195,7 +196,7 @@ class Routing
 
         $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
-        return $response->write((new Template())->render('error/generic', [
+        return $response->write($template->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => Sanitize::sanitizeMessage(sprintf(
