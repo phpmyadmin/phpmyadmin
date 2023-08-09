@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\UserPreferences;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionProperty;
 
 #[CoversClass(PageSettings::class)]
 class PageSettingsTest extends AbstractTestCase
@@ -47,8 +50,11 @@ class PageSettingsTest extends AbstractTestCase
     /**
      * Test showGroup with a known group name
      */
+    #[BackupStaticProperties(true)]
     public function testShowGroupBrowse(): void
     {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+
         $object = new PageSettings(new UserPreferences($GLOBALS['dbi']));
         $object->init('Browse');
 

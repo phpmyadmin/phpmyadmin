@@ -10,6 +10,7 @@ use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 use Throwable;
@@ -55,8 +56,10 @@ class AuthenticationSignonTest extends AbstractTestCase
         unset($this->object);
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuth(): void
     {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         $GLOBALS['cfg']['Server']['SignonURL'] = '';
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
@@ -76,6 +79,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         $this->assertStringContainsString('You must set SignonURL!', $result);
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthLogoutURL(): void
     {
         $responseStub = new ResponseRendererStub();
@@ -91,6 +95,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         $this->assertSame(302, $response->getStatusCode());
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthLogout(): void
     {
         $responseStub = new ResponseRendererStub();
@@ -139,6 +144,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         $this->assertEquals('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
     }
 
+    #[BackupStaticProperties(true)]
     public function testAuthCheckToken(): void
     {
         $_SESSION = [' PMA_token ' => 'eefefef'];
