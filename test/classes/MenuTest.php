@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Menu;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -42,7 +43,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testServer(): void
     {
-        $menu = new Menu($this->dbi, '', '');
+        $menu = new Menu($this->dbi, new Template(), '', '');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay(),
@@ -54,7 +55,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testDatabase(): void
     {
-        $menu = new Menu($this->dbi, 'pma_test', '');
+        $menu = new Menu($this->dbi, new Template(), 'pma_test', '');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay(),
@@ -66,7 +67,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testTable(): void
     {
-        $menu = new Menu($this->dbi, 'pma_test', 'table1');
+        $menu = new Menu($this->dbi, new Template(), 'pma_test', 'table1');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay(),
@@ -78,7 +79,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testSetTable(): void
     {
-        $menu = new Menu($this->dbi, 'pma_test', '');
+        $menu = new Menu($this->dbi, new Template(), 'pma_test', '');
         $menu->setTable('table1');
         $this->assertStringContainsString(
             'table1',

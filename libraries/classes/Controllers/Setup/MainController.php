@@ -41,7 +41,7 @@ final class MainController
         $page = in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
 
         $response = $this->responseFactory->createResponse();
-        $header = new Header();
+        $header = new Header($this->template);
         foreach ($header->getHttpHeaders() as $name => $value) {
             // Sent security-related headers
             $response = $response->withHeader($name, $value);

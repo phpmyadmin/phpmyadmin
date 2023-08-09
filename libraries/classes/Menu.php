@@ -39,20 +39,21 @@ class Menu
 
     private Relation $relation;
 
-    private Template $template;
-
     /**
      * Creates a new instance of Menu
      *
      * @param string $db    Database name
      * @param string $table Table name
      */
-    public function __construct(private DatabaseInterface $dbi, string $db, string $table)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private readonly Template $template,
+        string $db,
+        string $table,
+    ) {
         $this->db = $db;
         $this->table = $table;
         $this->relation = new Relation($dbi);
-        $this->template = new Template();
     }
 
     /**

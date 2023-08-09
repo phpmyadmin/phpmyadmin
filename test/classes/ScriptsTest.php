@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
@@ -24,7 +25,7 @@ class ScriptsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->object = new Scripts();
+        $this->object = new Scripts(new Template());
     }
 
     /**

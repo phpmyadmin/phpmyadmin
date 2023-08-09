@@ -27,14 +27,11 @@ class Scripts
      */
     private string $code = '';
 
-    private Template $template;
-
     /**
      * Generates new Scripts objects
      */
-    public function __construct()
+    public function __construct(private readonly Template $template)
     {
-        $this->template = new Template();
     }
 
     /**

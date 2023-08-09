@@ -75,24 +75,21 @@ class Header
 
     private UserPreferences $userPreferences;
 
-    private Template $template;
-
     private bool $isTransformationWrapper = false;
 
     /**
      * Creates a new class instance
      */
-    public function __construct()
+    public function __construct(private readonly Template $template)
     {
-        $this->template = new Template();
         $this->console = new Console(new Relation($GLOBALS['dbi']), $this->template);
         if ($GLOBALS['dbi'] !== null) {
             $this->menuEnabled = true;
-            $this->menu = new Menu($GLOBALS['dbi'], $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
+            $this->menu = new Menu($GLOBALS['dbi'], $this->template, $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
         }
 
         $this->warningsEnabled = true;
-        $this->scripts = new Scripts();
+        $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
         $this->headerIsSent = false;
 

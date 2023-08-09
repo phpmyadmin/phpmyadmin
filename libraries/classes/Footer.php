@@ -45,15 +45,12 @@ class Footer
 
     private Relation $relation;
 
-    private Template $template;
-
     /**
      * Creates a new class instance
      */
-    public function __construct()
+    public function __construct(private readonly Template $template)
     {
-        $this->template = new Template();
-        $this->scripts = new Scripts();
+        $this->scripts = new Scripts($this->template);
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 

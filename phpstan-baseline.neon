@@ -14281,11 +14281,6 @@ parameters:
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of class PhpMyAdmin\\\\Menu constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Header.php
-
-		-
 			message: "#^Parameter \\#2 \\$params of method PhpMyAdmin\\\\Scripts\\:\\:addFile\\(\\) expects array\\<string, string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
@@ -14296,18 +14291,23 @@ parameters:
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Parameter \\#3 \\$dbi of class PhpMyAdmin\\\\Navigation\\\\Navigation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$db of class PhpMyAdmin\\\\Menu constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of class PhpMyAdmin\\\\Menu constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$dbi of class PhpMyAdmin\\\\Navigation\\\\Navigation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
 
 		-
 			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 3
+			path: libraries/classes/Header.php
+
+		-
+			message: "#^Parameter \\#4 \\$table of class PhpMyAdmin\\\\Menu constructor expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Header.php
 
 		-

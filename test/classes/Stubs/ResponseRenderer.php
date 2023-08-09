@@ -17,6 +17,7 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Template;
 
 use function is_array;
 
@@ -49,8 +50,9 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] ??= 1;
         $GLOBALS['text_dir'] ??= 'ltr';
-        $this->header = new Header();
-        $this->footer = new Footer();
+        $this->template = new Template();
+        $this->header = new Header($this->template);
+        $this->footer = new Footer($this->template);
         $this->response = ResponseFactory::create()->createResponse();
     }
 

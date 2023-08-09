@@ -141,10 +141,13 @@ class ResponseRenderer
 
     protected Response $response;
 
+    protected Template $template;
+
     private function __construct()
     {
-        $this->header = new Header();
-        $this->footer = new Footer();
+        $this->template = new Template();
+        $this->header = new Header($this->template);
+        $this->footer = new Footer($this->template);
         $this->response = ResponseFactory::create()->createResponse();
 
         $this->setAjax(! empty($_REQUEST['ajax_request']));
@@ -251,7 +254,7 @@ class ResponseRenderer
         // if its content was already rendered
         // and, in this case, the header will be
         // in the content part of the request
-        return (new Template())->render('base', [
+        return $this->template->render('base', [
             'header' => $this->header?->getDisplay() ?? '',
             'content' => $this->HTML,
             'footer' => $this->footer?->getDisplay() ?? '',
