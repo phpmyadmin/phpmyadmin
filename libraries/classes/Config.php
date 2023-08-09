@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Routing\Routing;
@@ -396,7 +397,7 @@ class Config
                 ! isset($_SESSION['cache'][$cacheKey]['userprefs'])
                 || $_SESSION['cache'][$cacheKey]['config_mtime'] < $this->sourceMtime
             ) {
-                $userPreferences = new UserPreferences($GLOBALS['dbi']);
+                $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
                 $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cacheKey]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cacheKey]['userprefs_mtime'] = $prefs['mtime'];
@@ -495,7 +496,7 @@ class Config
         mixed $newCfgValue,
         string|null $defaultValue = null,
     ): bool|Message {
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $result = true;
         // use permanent user preferences if possible
         $prefsType = $this->get('user_preferences');

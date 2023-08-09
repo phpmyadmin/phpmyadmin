@@ -52,9 +52,10 @@ class TwoFactor
      */
     public function __construct(public string $user)
     {
-        (new Relation($GLOBALS['dbi']))->initRelationParamsCache();
+        $relation = new Relation($GLOBALS['dbi']);
+        $relation->initRelationParamsCache();
 
-        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi'], $relation, new Template());
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->writable = ($this->config['type'] === 'db');

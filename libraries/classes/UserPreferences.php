@@ -30,14 +30,11 @@ use function urlencode;
  */
 class UserPreferences
 {
-    private Relation $relation;
-
-    public Template $template;
-
-    public function __construct(private DatabaseInterface $dbi)
-    {
-        $this->relation = new Relation($this->dbi);
-        $this->template = new Template();
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly Template $template,
+    ) {
     }
 
     /**

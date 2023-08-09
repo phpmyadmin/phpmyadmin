@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PhpMyAdmin\Url;
@@ -47,7 +48,7 @@ class UserPreferencesTest extends AbstractTestCase
         $GLOBALS['cfg']['AvailableCharsets'] = [];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $userPreferences->pageInit(new ConfigFile());
 
         $this->assertEquals(
@@ -66,7 +67,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         unset($_SESSION['userconfig']);
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $result = $userPreferences->load();
 
         $this->assertCount(3, $result);
@@ -109,7 +110,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi);
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $result = $userPreferences->load();
 
         $this->assertEquals(
@@ -130,7 +131,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         unset($_SESSION['userconfig']);
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $result = $userPreferences->save([1]);
 
         $this->assertTrue($result);
@@ -190,7 +191,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi);
+        $userPreferences = new UserPreferences($dbi, new Relation($GLOBALS['dbi']), new Template());
         $result = $userPreferences->save([1]);
 
         $this->assertTrue($result);
@@ -224,7 +225,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi);
+        $userPreferences = new UserPreferences($dbi, new Relation($GLOBALS['dbi']), new Template());
         $result = $userPreferences->save([1]);
 
         $this->assertInstanceOf(Message::class, $result);
@@ -243,7 +244,7 @@ class UserPreferencesTest extends AbstractTestCase
         $GLOBALS['cfg']['UserprefsDisallow'] = ['test' => 'val', 'foo' => 'bar'];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $result = $userPreferences->apply(
             [
                 'DBG/sql' => true,
@@ -267,7 +268,7 @@ class UserPreferencesTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $result = $userPreferences->apply(
             ['DBG/sql' => true],
         );
@@ -293,7 +294,7 @@ class UserPreferencesTest extends AbstractTestCase
         $GLOBALS['server'] = 2;
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $this->assertTrue(
             $userPreferences->persistOption('Server/hide_db', 'val', 'val'),
         );
@@ -319,7 +320,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         $GLOBALS['config']->set('PmaAbsoluteUri', '');
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $userPreferences->redirect(
             'file.html',
             ['a' => 'b'],
@@ -339,7 +340,7 @@ class UserPreferencesTest extends AbstractTestCase
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';
 
-        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $this->assertEquals(
             '',
             $userPreferences->autoloadGetHeader(),

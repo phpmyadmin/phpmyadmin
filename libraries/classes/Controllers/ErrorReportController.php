@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
@@ -133,7 +134,7 @@ class ErrorReportController extends AbstractController
 
                 /* Persist always send settings */
                 if ($alwaysSend === 'true') {
-                    $userPreferences = new UserPreferences($this->dbi);
+                    $userPreferences = new UserPreferences($this->dbi, new Relation($this->dbi), $this->template);
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }

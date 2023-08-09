@@ -39,7 +39,9 @@ class ChangeControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
+        $pageSettings = new PageSettings(
+            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+        );
         $pageSettings->init('Edit');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')

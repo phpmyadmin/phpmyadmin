@@ -536,6 +536,11 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Config.php
+
+		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\UserPreferences constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Config.php
@@ -14242,7 +14247,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Header.php
 
 		-
@@ -27461,6 +27466,11 @@ parameters:
 			path: test/classes/Config/PageSettingsTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 3
+			path: test/classes/Config/PageSettingsTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\UserPreferences constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 3
 			path: test/classes/Config/PageSettingsTest.php
@@ -29021,6 +29031,11 @@ parameters:
 			path: test/classes/Controllers/Table/SqlControllerTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: test/classes/Controllers/Table/SqlControllerTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\UserPreferences constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SqlControllerTest.php
@@ -29077,6 +29092,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: test/classes/Controllers/Table/StructureControllerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/StructureControllerTest.php
 
@@ -32738,6 +32758,11 @@ parameters:
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
 			count: 1
+			path: test/classes/UserPreferencesTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 10
 			path: test/classes/UserPreferencesTest.php
 
 		-

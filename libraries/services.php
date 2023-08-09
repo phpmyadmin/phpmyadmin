@@ -204,7 +204,7 @@ return [
             'class' => UserPassword::class,
             'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class, '@dbi'],
         ],
-        'user_preferences' => ['class' => UserPreferences::class, 'arguments' => ['@dbi']],
+        'user_preferences' => ['class' => UserPreferences::class, 'arguments' => ['@dbi', '@relation', '@template']],
         'version_information' => ['class' => VersionInformation::class],
         DatabaseInterface::class => 'dbi',
         PhpMyAdmin\FlashMessages::class => 'flash',

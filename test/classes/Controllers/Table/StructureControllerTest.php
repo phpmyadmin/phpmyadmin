@@ -79,7 +79,9 @@ class StructureControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
+        $pageSettings = new PageSettings(
+            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+        );
         $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
 

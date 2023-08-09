@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ImportController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
@@ -46,7 +47,9 @@ class ImportControllerTest extends AbstractTestCase
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions('Import', $importList);
 
-        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
+        $pageSettings = new PageSettings(
+            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+        );
         $pageSettings->init('Import');
         $template = new Template();
         $expected = $template->render('table/import/index', [

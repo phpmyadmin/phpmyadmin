@@ -96,7 +96,7 @@ class Header
         $this->addDefaultScripts();
         $this->headerIsSent = false;
 
-        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), $this->template);
     }
 
     /**

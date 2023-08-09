@@ -89,7 +89,9 @@ class Navigation
             }
 
             if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $pageSettings = new PageSettings(new UserPreferences($this->dbi));
+                $pageSettings = new PageSettings(
+                    new UserPreferences($this->dbi, new Relation($this->dbi), $this->template),
+                );
                 $pageSettings->init('Navi', 'pma_navigation_settings');
                 $response->addHTML($pageSettings->getErrorHTML());
                 $navigationSettings = $pageSettings->getHTML();

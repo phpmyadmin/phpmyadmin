@@ -6608,6 +6608,7 @@
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['dbi']]]></code>
+      <code><![CDATA[$GLOBALS['dbi']]]></code>
     </PossiblyNullArgument>
     <PropertyNotSetInConstructor>
       <code>$menu</code>

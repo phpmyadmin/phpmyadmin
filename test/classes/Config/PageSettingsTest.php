@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
@@ -41,7 +43,7 @@ class PageSettingsTest extends AbstractTestCase
      */
     public function testShowGroupNonExistent(): void
     {
-        $object = new PageSettings(new UserPreferences($GLOBALS['dbi']));
+        $object = new PageSettings(new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()));
         $object->init('NonExistent');
 
         $this->assertEquals('', $object->getHTML());
@@ -55,7 +57,9 @@ class PageSettingsTest extends AbstractTestCase
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
-        $object = new PageSettings(new UserPreferences($GLOBALS['dbi']));
+        $object = new PageSettings(
+            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+        );
         $object->init('Browse');
 
         $html = $object->getHTML();
@@ -85,7 +89,9 @@ class PageSettingsTest extends AbstractTestCase
      */
     public function testGetNaviSettings(): void
     {
-        $pageSettings = new PageSettings(new UserPreferences($GLOBALS['dbi']));
+        $pageSettings = new PageSettings(
+            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+        );
         $pageSettings->init('Navi', 'pma_navigation_settings');
 
         $html = $pageSettings->getHTML();
