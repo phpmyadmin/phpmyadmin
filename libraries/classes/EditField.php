@@ -15,8 +15,8 @@ final class EditField
         public bool $isNull,
         public bool $wasPreviouslyNull,
         public string $function,
-        public string|null $salt = null,
-        public string|null $previousValue = null,
+        public string|null $salt,
+        public string|null $previousValue,
         public bool $isUploaded,
     ) {
     }
