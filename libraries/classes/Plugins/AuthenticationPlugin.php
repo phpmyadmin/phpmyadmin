@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
@@ -301,12 +302,12 @@ abstract class AuthenticationPlugin
      * Checks whether two factor authentication is active
      * for given user and performs it.
      */
-    public function checkTwoFactor(): void
+    public function checkTwoFactor(ServerRequest $request): void
     {
         $twofactor = new TwoFactor($this->user);
 
         /* Do we need to show the form? */
-        if ($twofactor->check()) {
+        if ($twofactor->check($request)) {
             return;
         }
 
@@ -320,7 +321,7 @@ abstract class AuthenticationPlugin
             __('You have enabled two factor authentication, please confirm your login.'),
         )->getDisplay());
         $response->addHTML($this->template->render('login/twofactor', [
-            'form' => $twofactor->render(),
+            'form' => $twofactor->render($request),
             'show_submit' => $twofactor->showSubmit(),
         ]));
         $response->addHTML($this->template->render('login/footer'));

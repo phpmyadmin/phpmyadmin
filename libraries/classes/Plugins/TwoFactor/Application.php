@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\TwoFactor;
 use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
@@ -53,7 +54,7 @@ class Application extends TwoFactorPlugin
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
      */
-    public function check(): bool
+    public function check(ServerRequest $request): bool
     {
         $this->provided = false;
         if (! isset($_POST['2fa_code'])) {
@@ -70,7 +71,7 @@ class Application extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render(): string
+    public function render(ServerRequest $request): string
     {
         return $this->template->render('login/twofactor/application');
     }
@@ -80,7 +81,7 @@ class Application extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function setup(): string
+    public function setup(ServerRequest $request): string
     {
         $secret = $this->twofactor->config['settings']['secret'];
         $inlineUrl = $this->google2fa->getQRCodeInline(
@@ -103,7 +104,7 @@ class Application extends TwoFactorPlugin
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
      */
-    public function configure(): bool
+    public function configure(ServerRequest $request): bool
     {
         if (! isset($_SESSION['2fa_application_key'])) {
             $_SESSION['2fa_application_key'] = $this->google2fa->generateSecretKey();
@@ -111,7 +112,7 @@ class Application extends TwoFactorPlugin
 
         $this->twofactor->config['settings']['secret'] = $_SESSION['2fa_application_key'];
 
-        $result = $this->check();
+        $result = $this->check($request);
         if ($result) {
             unset($_SESSION['2fa_application_key']);
         }

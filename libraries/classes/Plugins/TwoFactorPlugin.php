@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
@@ -67,7 +68,7 @@ class TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      */
-    public function check(): bool
+    public function check(ServerRequest $request): bool
     {
         return true;
     }
@@ -77,7 +78,7 @@ class TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render(): string
+    public function render(ServerRequest $request): string
     {
         return '';
     }
@@ -87,7 +88,7 @@ class TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function setup(): string
+    public function setup(ServerRequest $request): string
     {
         return '';
     }
@@ -95,7 +96,7 @@ class TwoFactorPlugin
     /**
      * Performs backend configuration
      */
-    public function configure(): bool
+    public function configure(ServerRequest $request): bool
     {
         return true;
     }

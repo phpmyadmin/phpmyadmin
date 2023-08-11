@@ -36,20 +36,20 @@ class TwoFactorController extends AbstractController
         $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
 
         if ($request->hasBodyParam('2fa_remove')) {
-            if (! $twoFactor->check(true)) {
-                $this->render('preferences/two_factor/confirm', ['form' => $twoFactor->render()]);
+            if (! $twoFactor->check($request, true)) {
+                $this->render('preferences/two_factor/confirm', ['form' => $twoFactor->render($request)]);
 
                 return;
             }
 
-            $twoFactor->configure('');
+            $twoFactor->configure($request, '');
             $this->response->addHTML(
                 Message::rawNotice(__('Two-factor authentication has been removed.'))->getDisplay(),
             );
         } elseif ($request->hasBodyParam('2fa_configure')) {
-            if (! $twoFactor->configure($request->getParsedBodyParam('2fa_configure'))) {
+            if (! $twoFactor->configure($request, $request->getParsedBodyParam('2fa_configure'))) {
                 $this->render('preferences/two_factor/configure', [
-                    'form' => $twoFactor->setup(),
+                    'form' => $twoFactor->setup($request),
                     'configure' => $request->getParsedBodyParam('2fa_configure'),
                 ]);
 

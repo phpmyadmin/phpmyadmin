@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use BaconQrCode\Renderer\ImageRenderer;
 use CodeLts\U2F\U2FServer\U2FServer;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
@@ -196,14 +197,14 @@ class TwoFactor
      *
      * @param bool $skipSession Skip session cache
      */
-    public function check(bool $skipSession = false): bool
+    public function check(ServerRequest $request, bool $skipSession = false): bool
     {
         if ($skipSession) {
-            return $this->backend->check();
+            return $this->backend->check($request);
         }
 
         if (empty($_SESSION['two_factor_check'])) {
-            $_SESSION['two_factor_check'] = $this->backend->check();
+            $_SESSION['two_factor_check'] = $this->backend->check($request);
         }
 
         return (bool) $_SESSION['two_factor_check'];
@@ -214,9 +215,9 @@ class TwoFactor
      *
      * @return string HTML code
      */
-    public function render(): string
+    public function render(ServerRequest $request): string
     {
-        return $this->backend->getError() . $this->backend->render();
+        return $this->backend->getError() . $this->backend->render($request);
     }
 
     /**
@@ -224,9 +225,9 @@ class TwoFactor
      *
      * @return string HTML code
      */
-    public function setup(): string
+    public function setup(ServerRequest $request): string
     {
-        return $this->backend->getError() . $this->backend->setup();
+        return $this->backend->getError() . $this->backend->setup($request);
     }
 
     /**
@@ -247,7 +248,7 @@ class TwoFactor
      *
      * @param string $name Backend name
      */
-    public function configure(string $name): bool
+    public function configure(ServerRequest $request, string $name): bool
     {
         $this->config = ['backend' => $name, 'settings' => []];
         if ($name === '') {
@@ -260,7 +261,7 @@ class TwoFactor
 
             $cls = $this->getBackendClass($name);
             $this->backend = new $cls($this);
-            if (! $this->backend->configure()) {
+            if (! $this->backend->configure($request)) {
                 return false;
             }
         }
