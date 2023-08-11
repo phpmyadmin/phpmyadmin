@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use CodeLts\U2F\U2FServer\U2FException;
 use CodeLts\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\TwoFactor;
@@ -71,7 +72,7 @@ class Key extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      */
-    public function check(): bool
+    public function check(ServerRequest $request): bool
     {
         $this->provided = false;
         if (! isset($_POST['u2f_authentication_response'], $_SESSION['authenticationRequest'])) {
@@ -117,17 +118,17 @@ class Key extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render(): string
+    public function render(ServerRequest $request): string
     {
-        $request = U2FServer::makeAuthentication(
+        $authRequest = U2FServer::makeAuthentication(
             $this->getRegistrations(),
             $this->getAppId(true),
         );
-        $_SESSION['authenticationRequest'] = $request;
+        $_SESSION['authenticationRequest'] = $authRequest;
         $this->loadScripts();
 
         return $this->template->render('login/twofactor/key', [
-            'request' => json_encode($request),
+            'request' => json_encode($authRequest),
             'is_https' => $GLOBALS['config']->isHttps(),
         ]);
     }
@@ -143,7 +144,7 @@ class Key extends TwoFactorPlugin
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function setup(): string
+    public function setup(ServerRequest $request): string
     {
         $registrationData = U2FServer::makeRegistration(
             $this->getAppId(true),
@@ -163,7 +164,7 @@ class Key extends TwoFactorPlugin
     /**
      * Performs backend configuration
      */
-    public function configure(): bool
+    public function configure(ServerRequest $request): bool
     {
         $this->provided = false;
         if (! isset($_POST['u2f_registration_response'], $_SESSION['registrationRequest'])) {

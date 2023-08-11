@@ -5631,12 +5631,12 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:configure\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:configure\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
 

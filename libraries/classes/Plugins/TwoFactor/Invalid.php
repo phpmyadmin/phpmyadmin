@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 
 /**
@@ -21,7 +22,7 @@ class Invalid extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      */
-    public function check(): bool
+    public function check(ServerRequest $request): bool
     {
         return false;
     }
@@ -31,7 +32,7 @@ class Invalid extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render(): string
+    public function render(ServerRequest $request): string
     {
         return $this->template->render('login/twofactor/invalid');
     }

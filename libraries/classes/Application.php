@@ -259,7 +259,7 @@ class Application
 
             $this->connectToDatabaseServer($GLOBALS['dbi'], $authPlugin, $currentServer);
             $authPlugin->rememberCredentials();
-            $authPlugin->checkTwoFactor();
+            $authPlugin->checkTwoFactor($request);
 
             /* Log success */
             Logging::logUser($this->config, $currentServer->user);

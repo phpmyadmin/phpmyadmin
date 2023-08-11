@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 
 use function __;
@@ -23,7 +24,7 @@ class Simple extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      */
-    public function check(): bool
+    public function check(ServerRequest $request): bool
     {
         return isset($_POST['2fa_confirm']);
     }
@@ -33,7 +34,7 @@ class Simple extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render(): string
+    public function render(ServerRequest $request): string
     {
         return $this->template->render('login/twofactor/simple');
     }
