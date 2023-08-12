@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-08-12 14:51+0000\n"
+"PO-Revision-Date: 2023-08-13 11:18+0000\n"
 "Last-Translator: Đinh Tùng Duy <dtduy2k1@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/vi/>\n"
@@ -98,9 +98,10 @@ msgstr "Tỷ lệ truy vấn chậm"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Có một tỷ lệ cao các truy vấn chậm so với thời gian hoạt động của máy chủ."
 
 #: libraries/advisory_rules_generic.php:58
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
@@ -116,12 +117,17 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} được đặt là 10 giây hoặc hơn, do đó chỉ những truy vấn "
+"chậm thực thi trên 10 giây mới được ghi lại."
 
 #: libraries/advisory_rules_generic.php:71
+#, fuzzy
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Bạn nên đặt {long_query_time} giá trị thấp hơn, tùy vào môi trường của bạn. "
+"Giá trị được khuyến nghị thường là từ 1-5 giây."
 
 #: libraries/advisory_rules_generic.php:74
 #, php-format
@@ -322,7 +328,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
+msgstr "Tỉ lệ bảng tạm trung bình: %s, giá trị này nên thấp hơn 1 mỗi giờ."
 
 #: libraries/advisory_rules_generic.php:231
 msgid "Sort rows"
