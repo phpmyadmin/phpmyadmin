@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Routing\Routing;
 use Traversable;
 
 use function basename;
@@ -126,7 +127,7 @@ class Footer
         $GLOBALS['server'] ??= null;
 
         $params = [];
-        $params['route'] = Application::getRequest()->getRoute();
+        $params['route'] = Routing::$route;
 
         if (isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0) {
             $params['db'] = $GLOBALS['db'];

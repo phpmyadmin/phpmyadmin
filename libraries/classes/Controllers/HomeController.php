@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use Fig\Http\Message\RequestMethodInterface;
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
@@ -11,7 +13,11 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -50,19 +56,24 @@ class HomeController extends AbstractController
         private Config $config,
         private ThemeManager $themeManager,
         private DatabaseInterface $dbi,
+        private readonly ResponseFactory $responseFactory,
     ) {
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
+        if ($this->shouldRedirectToDatabaseOrTablePage($request)) {
+            return $this->redirectToDatabaseOrTablePage($request);
+        }
+
         $GLOBALS['server'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['show_query'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         if ($request->isAjax() && ! empty($_REQUEST['access_time'])) {
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['home.js']);
@@ -239,6 +250,8 @@ class HomeController extends AbstractController
             'themes' => $this->themeManager->getThemesArray(),
             'errors' => $this->errors,
         ]);
+
+        return null;
     }
 
     private function checkRequirements(): void
@@ -459,5 +472,30 @@ class HomeController extends AbstractController
             ),
             'severity' => 'notice',
         ];
+    }
+
+    /** @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34 phpMyAdmin FAQ 1.34 */
+    private function shouldRedirectToDatabaseOrTablePage(ServerRequest $request): bool
+    {
+        return ! $request->isAjax()
+            && $request->getMethod() === RequestMethodInterface::METHOD_GET
+            && $request->hasQueryParam('db')
+            && DatabaseName::tryFrom($request->getQueryParam('db')) !== null;
+    }
+
+    /** @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34 phpMyAdmin FAQ 1.34 */
+    private function redirectToDatabaseOrTablePage(ServerRequest $request): Response
+    {
+        $db = DatabaseName::from($request->getQueryParam('db'));
+        $table = TableName::tryFrom($request->getQueryParam('table'));
+        $route = '/database/structure';
+        $params = ['db' => $db->getName()];
+        if ($table !== null) {
+            $route = '/sql';
+            $params['table'] = $table->getName();
+        }
+
+        return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)
+            ->withHeader('Location', './index.php?route=' . $route . Url::getCommonRaw($params, '&'));
     }
 }

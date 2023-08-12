@@ -9,12 +9,10 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
-use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psr\Http\Message\ResponseFactoryInterface;
-use ReflectionProperty;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 #[CoversClass(Application::class)]
@@ -46,10 +44,6 @@ final class ApplicationTest extends AbstractTestCase
         $config->expects($this->once())->method('loadAndCheck')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
 
-        $request = $this->createMock(ServerRequest::class);
-        $request->expects($this->once())->method('withAttribute')->willReturnSelf();
-        (new ReflectionProperty(Application::class, 'request'))->setValue(null, $request);
-
         $template = new Template($config);
         $expected = $template->render('error/generic', [
             'lang' => 'en',
@@ -64,8 +58,6 @@ final class ApplicationTest extends AbstractTestCase
         $this->assertSame($expected, $output);
         $this->assertSame($config, $GLOBALS['config']);
         $this->assertSame($errorHandler, $GLOBALS['errorHandler']);
-
-        (new ReflectionProperty(Application::class, 'request'))->setValue(null, null);
     }
 
     public function testCheckTokenRequestParam(): void

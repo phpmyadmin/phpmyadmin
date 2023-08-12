@@ -274,29 +274,9 @@ class ServerRequest implements ServerRequestInterface
     /** @psalm-return non-empty-string */
     public function getRoute(): string
     {
-        $getParams = $this->getQueryParams();
-        $postParams = $this->getParsedBody();
-        $route = '/';
-        if (isset($getParams['route']) && is_string($getParams['route']) && $getParams['route'] !== '') {
-            $route = $getParams['route'];
-        } elseif (
-            is_array($postParams)
-            && isset($postParams['route'])
-            && is_string($postParams['route'])
-            && $postParams['route'] !== ''
-        ) {
-            $route = $postParams['route'];
-        }
-
-        /**
-         * See FAQ 1.34.
-         *
-         * @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34
-         */
-        $db = isset($getParams['db']) && is_string($getParams['db']) ? $getParams['db'] : '';
-        if ($route === '/' && $db !== '') {
-            $table = isset($getParams['table']) && is_string($getParams['table']) ? $getParams['table'] : '';
-            $route = $table === '' ? '/database/structure' : '/sql';
+        $route = $this->getQueryParam('route') ?? $this->getParsedBodyParam('route');
+        if (! is_string($route) || $route === '') {
+            return '/';
         }
 
         return $route;
