@@ -19,6 +19,7 @@ use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Utils\SessionCache;
@@ -225,7 +226,7 @@ class DatabaseInterface implements DbalInterface
                     sprintf(
                         'SQL[%s?route=%s]: %0.3f(W:%d,C:%s,L:0x%02X) > %s',
                         basename($_SERVER['SCRIPT_NAME']),
-                        Application::getRequest()->getRoute(),
+                        Routing::$route,
                         $this->lastQueryExecutionTime,
                         $this->getWarningCount($connectionType),
                         $cacheAffectedRows ? 'y' : 'n',

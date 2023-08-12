@@ -17,6 +17,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Application.php">
+    <DeprecatedProperty>
+      <code>Routing::$route</code>
+    </DeprecatedProperty>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
     </InvalidArrayOffset>
@@ -2040,9 +2043,6 @@
     <PossiblyNullArrayOffset>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
     </PossiblyNullArrayOffset>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code><![CDATA[is_string($GLOBALS['cfg']['blowfish_secret'])]]></code>
     </RedundantCondition>
@@ -5270,6 +5270,9 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
+    <DeprecatedProperty>
+      <code>Routing::$route</code>
+    </DeprecatedProperty>
     <InvalidOperand>
       <code><![CDATA[$row['Data_free']]]></code>
       <code><![CDATA[$row['Data_length']]]></code>
@@ -6199,6 +6202,9 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Footer.php">
+    <DeprecatedProperty>
+      <code>Routing::$route</code>
+    </DeprecatedProperty>
     <InvalidArgument>
       <code>$params</code>
     </InvalidArgument>
@@ -7225,6 +7231,11 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Menu.php">
+    <DeprecatedProperty>
+      <code>Routing::$route</code>
+      <code>Routing::$route</code>
+      <code>Routing::$route</code>
+    </DeprecatedProperty>
     <MixedAssignment>
       <code>$binaryLogs</code>
     </MixedAssignment>
@@ -8011,6 +8022,10 @@
     </InvalidArrayOffset>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
+    <DeprecatedProperty>
+      <code>Routing::$route</code>
+      <code>Routing::$route</code>
+    </DeprecatedProperty>
     <DocblockTypeContradiction>
       <code>$resp == null</code>
     </DocblockTypeContradiction>

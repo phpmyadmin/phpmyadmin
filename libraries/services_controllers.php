@@ -468,6 +468,7 @@ return [
                 '$config' => '@config',
                 '$themeManager' => '@' . ThemeManager::class,
                 '$dbi' => '@dbi',
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         Import\ImportController::class => [

@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -208,7 +209,7 @@ class Menu
      */
     private function getTableTabs(): array
     {
-        $route = Application::getRequest()->getRoute();
+        $route = Routing::$route;
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
         $tableIsView = $this->dbi->getTable($this->db, $this->table)
@@ -320,7 +321,7 @@ class Menu
      */
     private function getDbTabs(): array
     {
-        $route = Application::getRequest()->getRoute();
+        $route = Routing::$route;
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
         $numTables = count($this->dbi->getTables($this->db));
@@ -435,7 +436,7 @@ class Menu
      */
     private function getServerTabs(): array
     {
-        $route = Application::getRequest()->getRoute();
+        $route = Routing::$route;
 
         $isSuperUser = $this->dbi->isSuperUser();
         $isCreateOrGrantUser = $this->dbi->isGrantUser() || $this->dbi->isCreateUser();

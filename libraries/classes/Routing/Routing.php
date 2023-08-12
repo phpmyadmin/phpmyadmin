@@ -51,6 +51,13 @@ use const E_USER_WARNING;
  */
 class Routing
 {
+    /**
+     * @deprecated Use {@see ServerRequest::getRoute()} instead.
+     *
+     * @psalm-var non-empty-string
+     */
+    public static string $route = '/';
+
     public const ROUTES_CACHE_FILE = CACHE_DIR . 'routes.cache.php';
 
     public static function skipCache(): bool

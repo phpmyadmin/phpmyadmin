@@ -61,8 +61,6 @@ use const E_USER_ERROR;
 
 class Application
 {
-    private static ServerRequest|null $request = null;
-
     public function __construct(
         private readonly ErrorHandler $errorHandler,
         private readonly Config $config,
@@ -91,7 +89,9 @@ class Application
         $runner = new RequestHandlerRunner(
             $requestHandler,
             new SapiEmitter(),
-            static fn (): ServerRequestInterface => self::getRequest()->withAttribute('isSetupPage', $isSetupPage),
+            static function () use ($isSetupPage): ServerRequestInterface {
+                return ServerRequestFactory::create()->fromGlobals()->withAttribute('isSetupPage', $isSetupPage);
+            },
             function (Throwable $throwable): ResponseInterface {
                 $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
                 $response->getBody()->write(sprintf('An error occurred: %s', $throwable->getMessage()));
@@ -126,6 +126,7 @@ class Application
         }
 
         $route = $request->getRoute();
+        Routing::$route = $route;
 
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
@@ -565,15 +566,6 @@ class Application
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
         $dbi->connect($currentServer, Connection::TYPE_USER, Connection::TYPE_CONTROL);
-    }
-
-    public static function getRequest(): ServerRequest
-    {
-        if (self::$request === null) {
-            self::$request = ServerRequestFactory::create()->fromGlobals();
-        }
-
-        return self::$request;
     }
 
     private function setupPageBootstrap(Config $config): void

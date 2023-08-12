@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
-use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
@@ -15,6 +14,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
@@ -142,7 +142,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $formParams = [];
-        $formParams['route'] = Application::getRequest()->getRoute();
+        $formParams['route'] = Routing::$route;
 
         if (strlen($GLOBALS['db'])) {
             $formParams['db'] = $GLOBALS['db'];
@@ -462,7 +462,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $urlParams = [];
-        $urlParams['route'] = Application::getRequest()->getRoute();
+        $urlParams['route'] = Routing::$route;
 
         if (strlen($GLOBALS['db']) > 0) {
             $urlParams['db'] = $GLOBALS['db'];
