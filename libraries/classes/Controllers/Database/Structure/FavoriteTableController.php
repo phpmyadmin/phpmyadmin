@@ -38,12 +38,6 @@ final class FavoriteTableController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $parameters = [
-            'favorite_table' => $_REQUEST['favorite_table'] ?? null,
-            'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
-            'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
-        ];
-
         if ($GLOBALS['db'] === '') {
             return;
         }
@@ -56,8 +50,10 @@ final class FavoriteTableController extends AbstractController
         }
 
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
-        if (isset($parameters['favoriteTables'])) {
-            $favoriteTables = json_decode($parameters['favoriteTables'], true);
+
+        $favoriteTables = $request->getParam('favoriteTables');
+        if ($favoriteTables !== null) {
+            $favoriteTables = json_decode($favoriteTables, true);
         } else {
             $favoriteTables = [];
         }
@@ -66,7 +62,7 @@ final class FavoriteTableController extends AbstractController
         $user = sha1($GLOBALS['cfg']['Server']['user']);
 
         // Request for Synchronization of favorite tables.
-        if (isset($parameters['sync_favorite_tables'])) {
+        if ($request->getParam('sync_favorite_tables') !== null) {
             $relationParameters = $this->relation->getRelationParameters();
             if ($relationParameters->favoriteTablesFeature !== null) {
                 $this->response->addJSON($this->synchronizeFavoriteTables(
@@ -88,7 +84,7 @@ final class FavoriteTableController extends AbstractController
         }
 
         $changes = true;
-        $favoriteTable = $parameters['favorite_table'] ?? '';
+        $favoriteTable = $request->getParam('favorite_table', '');
         $alreadyFavorite = $this->checkFavoriteTable($favoriteTable);
 
         if (isset($_REQUEST['remove_favorite'])) {
