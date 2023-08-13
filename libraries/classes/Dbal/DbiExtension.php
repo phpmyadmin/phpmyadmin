@@ -45,11 +45,6 @@ interface DbiExtension
     public function realMultiQuery(Connection $connection, string $query): bool;
 
     /**
-     * Check if there are any more query results from a multi query
-     */
-    public function moreResults(Connection $connection): bool;
-
-    /**
      * Prepare next result from multi_query
      */
     public function nextResult(Connection $connection): bool;

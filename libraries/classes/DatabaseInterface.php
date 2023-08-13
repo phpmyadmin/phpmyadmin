@@ -1627,20 +1627,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Check if there are any more query results from a multi query
-     *
-     * @psalm-param ConnectionType $connectionType
-     */
-    public function moreResults(int $connectionType = Connection::TYPE_USER): bool
-    {
-        if (! isset($this->connections[$connectionType])) {
-            return false;
-        }
-
-        return $this->extension->moreResults($this->connections[$connectionType]);
-    }
-
-    /**
      * Prepare next result from multi_query
      *
      * @psalm-param ConnectionType $connectionType

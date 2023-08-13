@@ -489,13 +489,6 @@ interface DbalInterface
     public function selectDb(string|DatabaseName $dbname, int $connectionType = Connection::TYPE_USER): bool;
 
     /**
-     * Check if there are any more query results from a multi query
-     *
-     * @psalm-param ConnectionType $connectionType
-     */
-    public function moreResults(int $connectionType = Connection::TYPE_USER): bool;
-
-    /**
      * Prepare next result from multi_query
      *
      * @psalm-param ConnectionType $connectionType

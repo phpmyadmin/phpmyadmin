@@ -211,17 +211,6 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * Check if there are any more query results from a multi query
-     */
-    public function moreResults(Connection $connection): bool
-    {
-        /** @var mysqli $mysqli */
-        $mysqli = $connection->connection;
-
-        return $mysqli->more_results();
-    }
-
-    /**
      * Prepare next result from multi_query
      */
     public function nextResult(Connection $connection): bool
