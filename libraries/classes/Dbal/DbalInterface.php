@@ -496,15 +496,6 @@ interface DbalInterface
     public function nextResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false;
 
     /**
-     * Store the result returned from multi query
-     *
-     * @psalm-param ConnectionType $connectionType
-     *
-     * @return mixed false when empty results / result set when not empty
-     */
-    public function storeResult(int $connectionType = Connection::TYPE_USER): mixed;
-
-    /**
      * Returns a string representing the type of connection used
      *
      * @psalm-param ConnectionType $connectionType

@@ -1646,22 +1646,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Store the result returned from multi query
-     *
-     * @psalm-param ConnectionType $connectionType
-     *
-     * @return ResultInterface|false false when empty results / result set when not empty
-     */
-    public function storeResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false
-    {
-        if (! isset($this->connections[$connectionType])) {
-            return false;
-        }
-
-        return $this->extension->storeResult($this->connections[$connectionType]);
-    }
-
-    /**
      * Returns a string representing the type of connection used
      *
      * @psalm-param ConnectionType $connectionType
