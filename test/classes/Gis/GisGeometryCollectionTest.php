@@ -5,19 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
-use PhpMyAdmin\Image\ImageWrapper;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
-
-use function method_exists;
-use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometryCollection
  */
-class GisGeometryCollectionTest extends AbstractTestCase
+class GisGeometryCollectionTest extends GisGeomTestCase
 {
-    /** @var GisGeometryCollection */
+    /** @var    GisGeometryCollection */
     protected $object;
 
     /**
@@ -41,24 +36,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
     }
 
     /**
-     * Test for scaleRow
-     *
-     * @param string $spatial string to parse
-     * @param array  $output  expected parsed output
-     *
-     * @dataProvider providerForScaleRow
-     */
-    public function testScaleRow(string $spatial, array $output): void
-    {
-        $this->assertEquals($output, $this->object->scaleRow($spatial));
-    }
-
-    /**
      * Data provider for testScaleRow() test case
      *
      * @return array test data for testScaleRow() test case
      */
-    public function providerForScaleRow(): array
+    public function providerForTestScaleRow(): array
     {
         return [
             [
@@ -74,29 +56,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
     }
 
     /**
-     * Test for generateWkt
-     *
-     * @param array       $gis_data array of GIS data
-     * @param int         $index    index in $gis_data
-     * @param string|null $empty    empty parameter
-     * @param string      $output   expected output
-     *
-     * @dataProvider providerForGenerateWkt
-     */
-    public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
-    {
-        $this->assertEquals(
-            $output,
-            $this->object->generateWkt($gis_data, $index, $empty)
-        );
-    }
-
-    /**
      * Data provider for testGenerateWkt() test case
      *
      * @return array test data for testGenerateWkt() test case
      */
-    public function providerForGenerateWkt(): array
+    public function providerForTestGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -126,28 +90,16 @@ class GisGeometryCollectionTest extends AbstractTestCase
     }
 
     /**
-     * Test for generateParams
-     *
-     * @param string $value  string to parse
-     * @param array  $output expected parsed output
-     *
-     * @dataProvider providerForGenerateParams
-     */
-    public function testGenerateParams(string $value, array $output): void
-    {
-        $this->assertEquals($output, $this->object->generateParams($value));
-    }
-
-    /**
      * Data provider for testGenerateParams() test case
      *
      * @return array test data for testGenerateParams() test case
      */
-    public function providerForGenerateParams(): array
+    public function providerForTestGenerateParams(): array
     {
         return [
             [
                 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
+                null,
                 [
                     'srid' => 0,
                     'GEOMETRYCOLLECTION' => ['geom_count' => 1],
@@ -171,43 +123,15 @@ class GisGeometryCollectionTest extends AbstractTestCase
     }
 
     /**
-     * @requires extension gd
+     * Data provider for testPrepareRowAsPng
+     *
+     * @return string[]
      */
-    public function testPrepareRowAsPng(): void
+    public function providerForTestPrepareRowAsPng(): array
     {
-        $image = ImageWrapper::create(120, 150);
-        $this->assertNotNull($image);
-        $return = $this->object->prepareRowAsPng(
-            'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-            'image',
-            '#B02EE0',
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            $image
-        );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
-    }
-
-    /**
-     * Test for prepareRowAsPdf
-     *
-     * @param string $spatial    string to parse
-     * @param string $label      field label
-     * @param string $line_color line color
-     * @param array  $scale_data scaling parameters
-     * @param TCPDF  $pdf        expected output
-     *
-     * @dataProvider providerForPrepareRowAsPdf
-     */
-    public function testPrepareRowAsPdf(
-        string $spatial,
-        string $label,
-        string $line_color,
-        array $scale_data,
-        TCPDF $pdf
-    ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        return [
+            ['GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))'],
+        ];
     }
 
     /**
@@ -215,7 +139,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public function providerForTestPrepareRowAsPdf(): array
     {
         return [
             [
@@ -234,46 +158,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
     }
 
     /**
-     * Test for prepareRowAsSvg
-     *
-     * @param string $spatial   string to parse
-     * @param string $label     field label
-     * @param string $lineColor line color
-     * @param array  $scaleData scaling parameters
-     * @param string $output    expected output
-     *
-     * @dataProvider providerForPrepareRowAsSvg
-     */
-    public function testPrepareRowAsSvg(
-        string $spatial,
-        string $label,
-        string $lineColor,
-        array $scaleData,
-        string $output
-    ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
-
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression(
-                $output,
-                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
-            );
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp(
-                $output,
-                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
-            );
-        }
-    }
-
-    /**
      * Data provider for testPrepareRowAsSvg() test case
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public function providerForTestPrepareRowAsSvg(): array
     {
         return [
             [
@@ -295,43 +184,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
     }
 
     /**
-     * Test for prepareRowAsOl
-     *
-     * @param string $spatial    string to parse
-     * @param int    $srid       SRID
-     * @param string $label      field label
-     * @param array  $line_color line color
-     * @param array  $scale_data scaling parameters
-     * @param string $output     expected output
-     *
-     * @dataProvider providerForPrepareRowAsOl
-     */
-    public function testPrepareRowAsOl(
-        string $spatial,
-        int $srid,
-        string $label,
-        array $line_color,
-        array $scale_data,
-        string $output
-    ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $line_color,
-                $scale_data
-            )
-        );
-    }
-
-    /**
      * Data provider for testPrepareRowAsOl() test case
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public function providerForTestPrepareRowAsOl(): array
     {
         return [
             [

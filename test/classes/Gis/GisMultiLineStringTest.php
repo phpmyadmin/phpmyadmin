@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
-use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
-
-use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiLineString
@@ -246,43 +243,15 @@ class GisMultiLineStringTest extends GisGeomTestCase
     }
 
     /**
-     * @requires extension gd
+     * Data provider for testPrepareRowAsPng
+     *
+     * @return string[][]
      */
-    public function testPrepareRowAsPng(): void
+    public function providerForTestPrepareRowAsPng(): array
     {
-        $image = ImageWrapper::create(120, 150);
-        $this->assertNotNull($image);
-        $return = $this->object->prepareRowAsPng(
-            'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
-            'image',
-            '#B02EE0',
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            $image
-        );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
-    }
-
-    /**
-     * test case for prepareRowAsPdf() method
-     *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param string $label      label for the GIS MULTILINESTRING object
-     * @param string $line_color color for the GIS MULTILINESTRING object
-     * @param array  $scale_data array containing data related to scaling
-     * @param TCPDF  $pdf        TCPDF instance
-     *
-     * @dataProvider providerForPrepareRowAsPdf
-     */
-    public function testPrepareRowAsPdf(
-        string $spatial,
-        string $label,
-        string $line_color,
-        array $scale_data,
-        TCPDF $pdf
-    ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        return [
+            ['MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))'],
+        ];
     }
 
     /**
@@ -290,7 +259,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public function providerForTestPrepareRowAsPdf(): array
     {
         return [
             [
@@ -309,33 +278,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
     }
 
     /**
-     * test case for prepareRowAsSvg() method
-     *
-     * @param string $spatial   GIS MULTILINESTRING object
-     * @param string $label     label for the GIS MULTILINESTRING object
-     * @param string $lineColor color for the GIS MULTILINESTRING object
-     * @param array  $scaleData array containing data related to scaling
-     * @param string $output    expected output
-     *
-     * @dataProvider providerForPrepareRowAsSvg
-     */
-    public function testPrepareRowAsSvg(
-        string $spatial,
-        string $label,
-        string $lineColor,
-        array $scaleData,
-        string $output
-    ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
-    }
-
-    /**
      * data provider for testPrepareRowAsSvg() test case
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public function providerForTestPrepareRowAsSvg(): array
     {
         return [
             [
@@ -358,43 +305,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
     }
 
     /**
-     * test case for prepareRowAsOl() method
-     *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param int    $srid       spatial reference ID
-     * @param string $label      label for the GIS MULTILINESTRING object
-     * @param array  $line_color color for the GIS MULTILINESTRING object
-     * @param array  $scale_data array containing data related to scaling
-     * @param string $output     expected output
-     *
-     * @dataProvider providerForPrepareRowAsOl
-     */
-    public function testPrepareRowAsOl(
-        string $spatial,
-        int $srid,
-        string $label,
-        array $line_color,
-        array $scale_data,
-        string $output
-    ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $line_color,
-                $scale_data
-            )
-        );
-    }
-
-    /**
      * data provider for testPrepareRowAsOl() test case
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public function providerForTestPrepareRowAsOl(): array
     {
         return [
             [
