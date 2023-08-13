@@ -1113,63 +1113,24 @@ class Sql
         $isBrowseDistinct = ! empty($_POST['is_browse_distinct']);
 
         if ($statementInfo->isProcedure) {
-            $tableHtml = '';
-
-            while ($result !== false) {
-                $numRows = $result->numRows();
-
-                if ($numRows > 0) {
-                    $fieldsMeta = $this->dbi->getFieldsMeta($result);
-
-                    $displayResultsObject->setProperties(
-                        $numRows,
-                        $fieldsMeta,
-                        $statementInfo->isCount,
-                        $statementInfo->isExport,
-                        $statementInfo->isFunction,
-                        $statementInfo->isAnalyse,
-                        $numRows,
-                        $GLOBALS['querytime'],
-                        $GLOBALS['text_dir'],
-                        $statementInfo->isMaint,
-                        $statementInfo->isExplain,
-                        $statementInfo->isShow,
-                        $showTable,
-                        $printView,
-                        $editable,
-                        $isBrowseDistinct,
-                    );
-
-                    $displayParts = DisplayParts::fromArray([
-                        'hasEditLink' => false,
-                        'deleteLink' => DeleteLinkEnum::NO_DELETE,
-                        'hasSortLink' => true,
-                        'hasNavigationBar' => true,
-                        'hasBookmarkForm' => true,
-                        'hasTextButton' => true,
-                        'hasPrintLink' => true,
-                    ]);
-
-                    $tableHtml .= $displayResultsObject->getTable(
-                        $result,
-                        $displayParts,
-                        $statementInfo,
-                        $isLimitedDisplay,
-                    );
-                }
-
-                $result = $this->dbi->nextResult();
-            }
-
-            return $tableHtml;
+            return $this->getHtmlForStoredProcedureResults(
+                $result,
+                $numRows,
+                $displayResultsObject,
+                $statementInfo,
+                $showTable,
+                $printView,
+                $editable,
+                $isBrowseDistinct,
+                $displayParts,
+                $isLimitedDisplay,
+            );
         }
-
-        $fieldsMeta = $this->dbi->getFieldsMeta($result);
 
         $_SESSION['is_multi_query'] = false;
         $displayResultsObject->setProperties(
             $unlimNumRows,
-            $fieldsMeta,
+            $this->dbi->getFieldsMeta($result),
             $statementInfo->isCount,
             $statementInfo->isExport,
             $statementInfo->isFunction,
@@ -1187,6 +1148,71 @@ class Sql
         );
 
         return $displayResultsObject->getTable($result, $displayParts, $statementInfo, $isLimitedDisplay);
+    }
+
+    /**
+     * @param mixed[]|null $showTable table definitions
+     * @psalm-param int|numeric-string $numRows
+     */
+    private function getHtmlForStoredProcedureResults(
+        ResultInterface $result,
+        int|string $numRows,
+        DisplayResults $displayResultsObject,
+        StatementInfo $statementInfo,
+        array|null $showTable,
+        bool $printView,
+        bool $editable,
+        bool $isBrowseDistinct,
+        DisplayParts $displayParts,
+        bool $isLimitedDisplay,
+    ): string {
+        $tableHtml = '';
+
+        while ($result !== false) {
+            $numRows = $result->numRows();
+
+            if ($numRows > 0) {
+                $displayResultsObject->setProperties(
+                    $numRows,
+                    $this->dbi->getFieldsMeta($result),
+                    $statementInfo->isCount,
+                    $statementInfo->isExport,
+                    $statementInfo->isFunction,
+                    $statementInfo->isAnalyse,
+                    $numRows,
+                    $GLOBALS['querytime'],
+                    $GLOBALS['text_dir'],
+                    $statementInfo->isMaint,
+                    $statementInfo->isExplain,
+                    $statementInfo->isShow,
+                    $showTable,
+                    $printView,
+                    $editable,
+                    $isBrowseDistinct,
+                );
+
+                $displayParts = DisplayParts::fromArray([
+                    'hasEditLink' => false,
+                    'deleteLink' => DeleteLinkEnum::NO_DELETE,
+                    'hasSortLink' => true,
+                    'hasNavigationBar' => true,
+                    'hasBookmarkForm' => true,
+                    'hasTextButton' => true,
+                    'hasPrintLink' => true,
+                ]);
+
+                $tableHtml .= $displayResultsObject->getTable(
+                    $result,
+                    $displayParts,
+                    $statementInfo,
+                    $isLimitedDisplay,
+                );
+            }
+
+            $result = $this->dbi->nextResult();
+        }
+
+        return $tableHtml;
     }
 
     /**
